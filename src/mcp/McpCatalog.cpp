@@ -488,7 +488,9 @@ const QList<Op> &ops()
           "(\"GX010023.mp4 in Downloads\", \"the wedding clip\"), glob or search with YOUR own "
           "filesystem tools, then pass the hits here. Returns {assets:[{id, index, name, kind, dur, "
           "pending}]}, plus missing:[paths that do not exist] and refreshed:[paths already in the bin] "
-          "— treat a non-empty missing as \"search again\", not as a bin problem. On timeout returns "
+          "— treat a non-empty missing as \"search again\", not as a bin problem. A file that exists "
+          "but cannot be read as media is left out and counted in unreadable (error import_failed "
+          "when none could be read). On timeout returns "
           "error import_timeout with the same assets array and pending:true on the stragglers. Not "
           "undoable.",
           objectSchema({{QStringLiteral("paths"),

@@ -20559,24 +20559,100 @@ If playback stutters, try another.</source>
         <translation>مسح البريق</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>العرض</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>الزاوية</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>السطوع</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>اللون</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>بريق هولوغرافي</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>أشرطة</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>التشبّع</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>نبض النيون</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>العمق</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>الارتعاش</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>لون التوهج</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>خلل</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>المعدّل</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>الإزاحة</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>ارتفاع الصف</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>كروم</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>فاتح</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>داكن</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>تلاشٍ</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>الحبيبات</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>الحافة</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>التقدم</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>البذرة</translation>
     </message>
 </context>
 <context>
@@ -21336,6 +21412,201 @@ If playback stutters, try another.</source>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>الكلمات المفتاحية (الكلمات الطويلة والأرقام)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>غروب</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>محيط</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>حلوى</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>ذهبي</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>كروم</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>قوس قزح</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>نار</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>جليد</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>أحادي اللون</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>هولوغرافي</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>نعناعي</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>توت</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>عادي</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>ظل</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>الإزاحة</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>الاتجاه</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>التمويه</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>العتامة</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>اللون</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>الشدة</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>رفع</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>السماكة</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>مفرغ</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>وصل</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>إطار خارجي</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>صدى</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>النسخ</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>تشويش</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>اللون A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>اللون B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>نيون</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>توهج</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>خلفية</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>الاستدارة</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>الانتشار</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>الشفافية</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>منحنى</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>تدرج</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>إعداد مسبق</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>الزاوية</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>تطبيق على</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>لمعان</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>العرض</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>السطوع</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>فاتح</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>داكن</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>الانعكاس</translation>
     </message>
 </context>
 <context>
@@ -25282,69 +25553,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>إغلاق</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>عادي</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>ظل</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>رفع</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>مفرغ</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>وصل</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>إطار خارجي</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>صدى</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>تشويش</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>نيون</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>خلفية</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>منحنى</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>تدرج</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>لمعان</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>كروم</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>هولوغرافي</translation>
     </message>
 </context>
 <context>

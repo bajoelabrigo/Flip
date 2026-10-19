@@ -387,7 +387,7 @@ TextAnimParamSpec scalarSpec(const char *id, const char *label, const char *unit
     TextAnimParamSpec s;
     s.id = QLatin1String(id);
     s.label = QCoreApplication::translate("TextEffects", label);
-    s.unit = QLatin1String(unit);
+    s.unit = QString::fromUtf8(unit);
     s.min = min;
     s.max = max;
     s.step = step;
@@ -411,24 +411,24 @@ const QList<TextEffectSpec> &textShaderEffectSpecs()
 {
     static const QList<TextEffectSpec> specs{
         {QStringLiteral("shine"), QCoreApplication::translate("TextEffects", "Shine sweep"),
-         {scalarSpec("speed", "Speed", "cyc/s", 0.0, 4.0, 0.05, 0.5), scalarSpec("width", "Width", "", 0.02, 1.0, 0.01, 0.25),
-          scalarSpec("angle", "Angle", "°", -180.0, 180.0, 1.0, 20.0), scalarSpec("intensity", "Brightness", "", 0.0, 2.0, 0.05, 0.9),
-          colorSpec("colorA", "Colour", Qt::white)}},
+         {scalarSpec("speed", QT_TRANSLATE_NOOP("TextEffects", "Speed"), "cyc/s", 0.0, 4.0, 0.05, 0.5), scalarSpec("width", QT_TRANSLATE_NOOP("TextEffects", "Width"), "", 0.02, 1.0, 0.01, 0.25),
+          scalarSpec("angle", QT_TRANSLATE_NOOP("TextEffects", "Angle"), "°", -180.0, 180.0, 1.0, 20.0), scalarSpec("intensity", QT_TRANSLATE_NOOP("TextEffects", "Brightness"), "", 0.0, 2.0, 0.05, 0.9),
+          colorSpec("colorA", QT_TRANSLATE_NOOP("TextEffects", "Colour"), Qt::white)}},
         {QStringLiteral("shimmer"), QCoreApplication::translate("TextEffects", "Holographic shimmer"),
-         {scalarSpec("speed", "Speed", "cyc/s", 0.0, 4.0, 0.05, 0.3), scalarSpec("scale", "Bands", "", 0.5, 12.0, 0.5, 3.0),
-          scalarSpec("intensity", "Saturation", "", 0.0, 1.0, 0.05, 0.6)}},
+         {scalarSpec("speed", QT_TRANSLATE_NOOP("TextEffects", "Speed"), "cyc/s", 0.0, 4.0, 0.05, 0.3), scalarSpec("scale", QT_TRANSLATE_NOOP("TextEffects", "Bands"), "", 0.5, 12.0, 0.5, 3.0),
+          scalarSpec("intensity", QT_TRANSLATE_NOOP("TextEffects", "Saturation"), "", 0.0, 1.0, 0.05, 0.6)}},
         {QStringLiteral("neon-pulse"), QCoreApplication::translate("TextEffects", "Neon pulse"),
-         {scalarSpec("speed", "Speed", "Hz", 0.0, 8.0, 0.1, 1.0), scalarSpec("intensity", "Depth", "", 0.0, 1.0, 0.05, 0.5),
-          scalarSpec("flicker", "Flicker", "", 0.0, 1.0, 0.05, 0.3), colorSpec("colorA", "Glow tint", QColor(255, 60, 220))}},
+         {scalarSpec("speed", QT_TRANSLATE_NOOP("TextEffects", "Speed"), "Hz", 0.0, 8.0, 0.1, 1.0), scalarSpec("intensity", QT_TRANSLATE_NOOP("TextEffects", "Depth"), "", 0.0, 1.0, 0.05, 0.5),
+          scalarSpec("flicker", QT_TRANSLATE_NOOP("TextEffects", "Flicker"), "", 0.0, 1.0, 0.05, 0.3), colorSpec("colorA", QT_TRANSLATE_NOOP("TextEffects", "Glow tint"), QColor(255, 60, 220))}},
         {QStringLiteral("glitch"), QCoreApplication::translate("TextEffects", "Glitch"),
-         {scalarSpec("speed", "Rate", "Hz", 0.0, 30.0, 1.0, 8.0), scalarSpec("amount", "Offset", "px", 0.0, 60.0, 1.0, 12.0),
-          scalarSpec("block", "Row height", "px", 1.0, 64.0, 1.0, 8.0)}},
+         {scalarSpec("speed", QT_TRANSLATE_NOOP("TextEffects", "Rate"), "Hz", 0.0, 30.0, 1.0, 8.0), scalarSpec("amount", QT_TRANSLATE_NOOP("TextEffects", "Offset"), "px", 0.0, 60.0, 1.0, 12.0),
+          scalarSpec("block", QT_TRANSLATE_NOOP("TextEffects", "Row height"), "px", 1.0, 64.0, 1.0, 8.0)}},
         {QStringLiteral("chrome"), QCoreApplication::translate("TextEffects", "Chrome"),
-         {scalarSpec("speed", "Speed", "cyc/s", 0.0, 2.0, 0.05, 0.0), scalarSpec("bands", "Bands", "", 0.5, 6.0, 0.5, 2.0),
-          colorSpec("colorA", "Light", QColor(240, 245, 255)), colorSpec("colorB", "Dark", QColor(40, 50, 70))}},
+         {scalarSpec("speed", QT_TRANSLATE_NOOP("TextEffects", "Speed"), "cyc/s", 0.0, 2.0, 0.05, 0.0), scalarSpec("bands", QT_TRANSLATE_NOOP("TextEffects", "Bands"), "", 0.5, 6.0, 0.5, 2.0),
+          colorSpec("colorA", QT_TRANSLATE_NOOP("TextEffects", "Light"), QColor(240, 245, 255)), colorSpec("colorB", QT_TRANSLATE_NOOP("TextEffects", "Dark"), QColor(40, 50, 70))}},
         {QStringLiteral("dissolve"), QCoreApplication::translate("TextEffects", "Dissolve"),
-         {scalarSpec("scale", "Grain", "", 0.002, 0.2, 0.002, 0.03), scalarSpec("edge", "Edge", "", 0.0, 0.5, 0.01, 0.1),
-          scalarSpec("progress", "Progress", "", 0.0, 1.0, 0.01, 1.0), scalarSpec("seed", "Seed", "", 0.0, 100.0, 1.0, 1.0)},
+         {scalarSpec("scale", QT_TRANSLATE_NOOP("TextEffects", "Grain"), "", 0.002, 0.2, 0.002, 0.03), scalarSpec("edge", QT_TRANSLATE_NOOP("TextEffects", "Edge"), "", 0.0, 0.5, 0.01, 0.1),
+          scalarSpec("progress", QT_TRANSLATE_NOOP("TextEffects", "Progress"), "", 0.0, 1.0, 0.01, 1.0), scalarSpec("seed", QT_TRANSLATE_NOOP("TextEffects", "Seed"), "", 0.0, 100.0, 1.0, 1.0)},
          false},
     };
     return specs;

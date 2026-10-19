@@ -878,6 +878,10 @@ void applyVideoPreset(AVCodecContext *vctx, const VideoCodecDef &def, const Expo
         av_opt_set(vctx->priv_data, "profile", "4444", 0);
         vctx->profile = AV_PROFILE_PRORES_4444;
     }
+    // FFmpeg's dnxhd encoder defaults to the old DNxHD profile, which only takes a few fixed
+    // 1080/720 sizes and bitrates and refuses to open otherwise; DNxHR works at any size.
+    if (id.startsWith(QLatin1String("dnxhr")) && vctx->priv_data)
+        av_opt_set(vctx->priv_data, "profile", id == QLatin1String("dnxhr_10") ? "dnxhr_hqx" : "dnxhr_hq", 0);
 
     if (!def.supportsPreset || !vctx->priv_data)
         return;

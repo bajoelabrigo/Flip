@@ -20328,24 +20328,100 @@ If playback stutters, try another.</source>
         <translation>Бегущий блик</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ширина</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Угол</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Яркость</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>Голографическое мерцание</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>Полосы</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Насыщенность</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>Неоновая пульсация</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>Глубина</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>Мерцание</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>Оттенок свечения</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>Помехи</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>Частота</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Смещение</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>Высота строки</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>Хром</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>Светлый</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Тёмный</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>Растворение</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>Зерно</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Край</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Прогресс</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Зерно случайности</translation>
     </message>
 </context>
 <context>
@@ -21105,6 +21181,201 @@ If playback stutters, try another.</source>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>Ключевые слова (длинные слова и числа)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>Закат</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>Океан</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>Конфета</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>Золото</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>Хром</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>Радуга</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>Огонь</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>Лёд</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>Монохром</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>Голографический</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Мята</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>Ягодный</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>Обычный</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>Тень</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Смещение</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Направление</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Непрозрачность</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Интенсивность</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>Подъём</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Толщина</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>Полый</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>Срез</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>Контур</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>Эхо</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Копии</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Помехи</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>Цвет A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>Цвет B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>Неон</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Свечение</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>Фон</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>Скругление</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Размах</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Прозрачность</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>Изгиб</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Градиент</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>Предустановка</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Угол</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>Применить к</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>Блеск</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ширина</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Яркость</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Светлый</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Тёмный</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>Отражение</translation>
     </message>
 </context>
 <context>
@@ -25018,69 +25289,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>Закрыть</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>Обычный</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>Тень</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>Подъём</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>Полый</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>Срез</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>Контур</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>Эхо</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>Помехи</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>Неон</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>Фон</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>Изгиб</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Градиент</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>Блеск</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>Хром</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>Голографический</translation>
     </message>
 </context>
 <context>

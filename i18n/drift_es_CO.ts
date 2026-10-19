@@ -20251,24 +20251,100 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Barrido de brillo</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation type="unfinished">Velocidad</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Ángulo</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished">Brillo</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Color</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>Brillo holográfico</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation type="unfinished">Saturación</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>Pulso de neón</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation type="unfinished">Profundidad</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation type="unfinished">Parpadeo</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>Fallo</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation type="unfinished">Frecuencia</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished">Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>Cromado</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Oscuro</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>Disolución</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation type="unfinished">Grano</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished">Semilla</translation>
     </message>
 </context>
 <context>
@@ -21028,6 +21104,201 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>Palabras clave (largas y números)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation type="unfinished">Atardecer</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation type="unfinished">Océano</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation type="unfinished">Caramelo</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation type="unfinished">Arcoíris</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation type="unfinished">Fuego</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation type="unfinished">Hielo</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation type="unfinished">Holográfico</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation type="unfinished">Menta</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation type="unfinished">Simple</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation type="unfinished">Sombra</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished">Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation type="unfinished">Dirección</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished">Desenfoque</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished">Opacidad</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished">Color</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished">Intensidad</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation type="unfinished">Elevación</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation type="unfinished">Grosor</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation type="unfinished">Hueco</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation type="unfinished">Eco</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation type="unfinished">Color A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation type="unfinished">Color B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation type="unfinished">Neón</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation type="unfinished">Resplandor</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation type="unfinished">Fondo</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation type="unfinished">Curva</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation type="unfinished">Degradado</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation type="unfinished">Ajuste predeterminado</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished">Ángulo</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation type="unfinished">Asignar a</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation type="unfinished">Brillo especular</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished">Velocidad</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished">Brillo</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Oscuro</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -24930,69 +25201,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>Simple</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>Sombra</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>Flotante</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>Hueco</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>Empalme</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>Contorno</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>Eco</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>Fallo</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>Neón</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>Fondo</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>Curva</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Degradado</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>Brillo</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>Cromo</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>Holográfico</translation>
     </message>
 </context>
 <context>

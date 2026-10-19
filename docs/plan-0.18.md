@@ -87,7 +87,7 @@ Center y probar el arrastre «tipo tetris».
 - ✅ `TimelineTrackItem::applyDrag`: el clip encaja en filas enteras (`TimelineViewState.rowSpans`, que arma
   `TimelinePanel.rowSpans()`); cambia de fila solo cuando su centro entra en otra. Por encima de la primera o debajo
   de la última sigue libre (pista nueva). Las capas de ajuste siguen libres (sus carriles van dentro de una fila).
-- ⬜ Probarlo en ventana: **lo prueba Jorge** (el arrastre con mensajes simulados no mueve clips).
+- ✅ Probado en ventana por Jorge (2026-10-18): funciona bien.
 
 ## 8. Arreglo: el contador no contaba en la vista previa ni al exportar
 - Encontrado al renderizar las plantillas: la 0.17 solo aplicaba el contador en `makeTextPainter(clip, …)`, pero la

@@ -20172,24 +20172,100 @@ If playback stutters, try another.</source>
         <translation>빛 스윕</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>너비</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>각도</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>밝기</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>색상</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>홀로그램 반짝임</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>띠</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>채도</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>네온 펄스</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>깊이</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>깜빡임</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>발광 색조</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>글리치</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>오프셋</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>행 높이</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>크롬</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>밝은 색</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>어두운 색</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>디졸브</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>그레인</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>가장자리</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>진행도</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>시드</translation>
     </message>
 </context>
 <context>
@@ -20949,6 +21025,201 @@ If playback stutters, try another.</source>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>키워드(긴 단어와 숫자)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>노을</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>바다</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>캔디</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>골드</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>크롬</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>무지개</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>불꽃</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>얼음</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>모노</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>홀로그램</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>민트</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>베리</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>일반</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>그림자</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>오프셋</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>방향</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>블러</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>불투명도</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>색상</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>강도</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>들어 올리기</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>두께</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>속 비우기</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>스플라이스</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>윤곽선</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>에코</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>복사본 수</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>글리치</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>색상 A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>색상 B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>네온</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>광선</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>배경</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>둥글기</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>확산</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>투명도</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>곡선</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>그라디언트</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>프리셋</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>각도</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>매핑 대상</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>빛</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>너비</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>밝기</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>밝은 색</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>어두운 색</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>반사</translation>
     </message>
 </context>
 <context>
@@ -24840,69 +25111,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>닫기</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>일반</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>그림자</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>들어 올리기</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>속 비우기</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>스플라이스</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>윤곽선</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>에코</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>글리치</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>네온</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>배경</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>곡선</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>그라디언트</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>빛</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>크롬</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>홀로그램</translation>
     </message>
 </context>
 <context>

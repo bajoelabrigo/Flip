@@ -20256,24 +20256,100 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Balayage brillant</translation>
     </message>
     <message>
+        <source>Speed</source>
+        <translation>Vitesse</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Largeur</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Angle</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Luminosité</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
         <source>Holographic shimmer</source>
         <translation>Scintillement holographique</translation>
+    </message>
+    <message>
+        <source>Bands</source>
+        <translation>Bandes</translation>
+    </message>
+    <message>
+        <source>Saturation</source>
+        <translation>Saturation</translation>
     </message>
     <message>
         <source>Neon pulse</source>
         <translation>Pulsation néon</translation>
     </message>
     <message>
+        <source>Depth</source>
+        <translation>Profondeur</translation>
+    </message>
+    <message>
+        <source>Flicker</source>
+        <translation>Scintillement</translation>
+    </message>
+    <message>
+        <source>Glow tint</source>
+        <translation>Teinte de la lueur</translation>
+    </message>
+    <message>
         <source>Glitch</source>
         <translation>Défaillance</translation>
+    </message>
+    <message>
+        <source>Rate</source>
+        <translation>Fréquence</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Décalage</translation>
+    </message>
+    <message>
+        <source>Row height</source>
+        <translation>Hauteur de ligne</translation>
     </message>
     <message>
         <source>Chrome</source>
         <translation>Chrome</translation>
     </message>
     <message>
+        <source>Light</source>
+        <translation>Clair</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Foncé</translation>
+    </message>
+    <message>
         <source>Dissolve</source>
         <translation>Dissolution</translation>
+    </message>
+    <message>
+        <source>Grain</source>
+        <translation>Grain</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Bord</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>Progression</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Graine</translation>
     </message>
 </context>
 <context>
@@ -21033,6 +21109,201 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Keywords (long words and numbers)</source>
         <translation>Mots-clés (mots longs et nombres)</translation>
+    </message>
+</context>
+<context>
+    <name>TextLook</name>
+    <message>
+        <source>Sunset</source>
+        <translation>Coucher de soleil</translation>
+    </message>
+    <message>
+        <source>Ocean</source>
+        <translation>Océan</translation>
+    </message>
+    <message>
+        <source>Candy</source>
+        <translation>Bonbon</translation>
+    </message>
+    <message>
+        <source>Gold</source>
+        <translation>Or</translation>
+    </message>
+    <message>
+        <source>Chrome</source>
+        <translation>Chrome</translation>
+    </message>
+    <message>
+        <source>Rainbow</source>
+        <translation>Arc-en-ciel</translation>
+    </message>
+    <message>
+        <source>Fire</source>
+        <translation>Feu</translation>
+    </message>
+    <message>
+        <source>Ice</source>
+        <translation>Glace</translation>
+    </message>
+    <message>
+        <source>Mono</source>
+        <translation>Monochrome</translation>
+    </message>
+    <message>
+        <source>Holographic</source>
+        <translation>Holographique</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Menthe</translation>
+    </message>
+    <message>
+        <source>Berry</source>
+        <translation>Petits fruits</translation>
+    </message>
+    <message>
+        <source>Plain</source>
+        <translation>Simple</translation>
+    </message>
+    <message>
+        <source>Shadow</source>
+        <translation>Ombre</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Décalage</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direction</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Flou</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacité</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensité</translation>
+    </message>
+    <message>
+        <source>Lift</source>
+        <translation>Élévation</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Épaisseur</translation>
+    </message>
+    <message>
+        <source>Hollow</source>
+        <translation>Creux</translation>
+    </message>
+    <message>
+        <source>Splice</source>
+        <translation>Dédoublé</translation>
+    </message>
+    <message>
+        <source>Outline</source>
+        <translation>Contour</translation>
+    </message>
+    <message>
+        <source>Echo</source>
+        <translation>Écho</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copies</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Pépin</translation>
+    </message>
+    <message>
+        <source>Colour A</source>
+        <translation>Couleur A</translation>
+    </message>
+    <message>
+        <source>Colour B</source>
+        <translation>Couleur B</translation>
+    </message>
+    <message>
+        <source>Neon</source>
+        <translation>Néon</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Lueur</translation>
+    </message>
+    <message>
+        <source>Background</source>
+        <translation>Arrière-plan</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>Arrondi</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Étalement</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation>Transparence</translation>
+    </message>
+    <message>
+        <source>Curve</source>
+        <translation>Courbe</translation>
+    </message>
+    <message>
+        <source>Gradient</source>
+        <translation>Dégradé</translation>
+    </message>
+    <message>
+        <source>Preset</source>
+        <translation>Préréglage</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Angle</translation>
+    </message>
+    <message>
+        <source>Map to</source>
+        <translation>Appliquer à</translation>
+    </message>
+    <message>
+        <source>Shine</source>
+        <translation>Brillance</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Vitesse</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Largeur</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Luminosité</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Clair</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Foncé</translation>
+    </message>
+    <message>
+        <source>Reflection</source>
+        <translation>Reflet</translation>
     </message>
 </context>
 <context>
@@ -24935,69 +25206,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Close</source>
         <translation>Fermer</translation>
-    </message>
-</context>
-<context>
-    <name>drift</name>
-    <message>
-        <source>Plain</source>
-        <translation>Simple</translation>
-    </message>
-    <message>
-        <source>Shadow</source>
-        <translation>Ombre</translation>
-    </message>
-    <message>
-        <source>Lift</source>
-        <translation>Élévation</translation>
-    </message>
-    <message>
-        <source>Hollow</source>
-        <translation>Creux</translation>
-    </message>
-    <message>
-        <source>Splice</source>
-        <translation>Dédoublé</translation>
-    </message>
-    <message>
-        <source>Outline</source>
-        <translation>Contour</translation>
-    </message>
-    <message>
-        <source>Echo</source>
-        <translation>Écho</translation>
-    </message>
-    <message>
-        <source>Glitch</source>
-        <translation>Pépin</translation>
-    </message>
-    <message>
-        <source>Neon</source>
-        <translation>Néon</translation>
-    </message>
-    <message>
-        <source>Background</source>
-        <translation>Arrière-plan</translation>
-    </message>
-    <message>
-        <source>Curve</source>
-        <translation>Courbe</translation>
-    </message>
-    <message>
-        <source>Gradient</source>
-        <translation>Dégradé</translation>
-    </message>
-    <message>
-        <source>Shine</source>
-        <translation>Brillance</translation>
-    </message>
-    <message>
-        <source>Chrome</source>
-        <translation>Chrome</translation>
-    </message>
-    <message>
-        <source>Holographic</source>
-        <translation>Holographique</translation>
     </message>
 </context>
 <context>

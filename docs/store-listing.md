@@ -110,9 +110,9 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas para la Store: SUBIR ESTAS (0.17.0 + 0.18.0)**. La 0.17.0 no llegó a la Store (Jorge, 2026-10-18): el MSIX de la 0.18.0 lleva las novedades de las dos. Texto de "Novedades de esta versión" (1081 de 1500 caracteres; en inglés, 998).
+**Notas para la Store: SUBIR ESTAS con el MSIX de la 0.18.1 (0.17.0 + 0.18.0 + 0.18.1)**. Ni la 0.17.0 ni la 0.18.0 llegaron a la Store (Jorge, 2026-10-18): el MSIX de la 0.18.1 lleva las novedades de las tres. Texto de "Novedades de esta versión" (1199 de 1500 caracteres; en inglés, 1101).
 
-> **Novedades (0.17.0 + 0.18.0)**
+> **Novedades (0.17.0 + 0.18.0 + 0.18.1)**
 >
 > - Cámara lenta suave con IA: dibuja las imágenes que le faltan a un clip lento, para que se mueva fluido.
 > - Transición con IA: une dos clips dibujando las imágenes que faltan entre ellos.
@@ -126,10 +126,11 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > - Contadores animados en los textos ($1.000.000, 10K, día 100); los de Stock cuentan solos.
 > - Como en CapCut: congelar fotograma, mover clips con «Cerrar huecos» y arrastrar clips sin que salten de pista.
 > - Lo nuevo, traducido a los idiomas de la app.
+> - Arreglos: Pintura al óleo vuelve a pintar, exportar en DNxHR funciona y Texto › Efectos sale en tu idioma.
 
 En inglés:
 
-> **What's new (0.17.0 + 0.18.0)**
+> **What's new (0.17.0 + 0.18.0 + 0.18.1)**
 >
 > - AI smooth slow motion: draws the frames a slowed clip is missing, so it moves smoothly.
 > - AI transition: joins two clips by drawing the frames between them.
@@ -143,6 +144,7 @@ En inglés:
 > - Animated counters in texts ($1,000,000, 10K, day 100); Stock counters count on their own.
 > - As in CapCut: freeze frame, moving clips with "Close gaps" and dragging clips without jumping tracks.
 > - Everything new, translated into the app's languages.
+> - Fixes: Oil Paint works again, DNxHR export works and Text › Effects shows in your language.
 
 **Notas para la Store (0.18.0)**. Lo nuevo desde la 0.17.0. Texto de "Novedades de esta versión" del MSIX de la
 0.18.0 (641 de 1500 caracteres; en inglés, 587).

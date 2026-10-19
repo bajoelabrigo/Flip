@@ -13,7 +13,7 @@ TextAnimParamSpec scalar(const char *id, const char *label, const char *unit, do
     TextAnimParamSpec s;
     s.id = QLatin1String(id);
     s.label = QCoreApplication::translate("TextLook", label);
-    s.unit = QLatin1String(unit);
+    s.unit = QString::fromUtf8(unit);
     s.min = min;
     s.max = max;
     s.step = step;
@@ -42,7 +42,7 @@ TextAnimParamSpec choice(const char *id, const char *label, const QStringList &v
     return s;
 }
 
-QString tr(const char *s)
+QString lookText(const char *s)
 {
     return QCoreApplication::translate("TextLook", s);
 }
@@ -83,18 +83,18 @@ const QList<TextGradientPreset> &textGradientPresets()
             return p;
         };
         return QList<TextGradientPreset>{
-            make("sunset", "Sunset", {QColor(255, 94, 98), QColor(255, 153, 102)}),
-            make("ocean", "Ocean", {QColor(43, 88, 118), QColor(78, 67, 118)}, TextGradientKind::Linear, 0.0),
-            make("candy", "Candy", {QColor(255, 110, 199), QColor(120, 115, 245)}, TextGradientKind::Linear, 0.0),
-            make("gold", "Gold", {QColor(255, 236, 160), QColor(212, 160, 23)}),
-            make("chrome", "Chrome", {QColor(230, 235, 240), QColor(120, 130, 145), QColor(240, 245, 250), QColor(90, 100, 115)}),
-            make("rainbow", "Rainbow", {QColor(255, 0, 0), QColor(255, 154, 0), QColor(208, 222, 33), QColor(79, 220, 74), QColor(63, 218, 216), QColor(47, 201, 226), QColor(28, 127, 238), QColor(95, 21, 242), QColor(186, 12, 248), QColor(251, 7, 217)}, TextGradientKind::Linear, 0.0),
-            make("fire", "Fire", {QColor(255, 230, 120), QColor(255, 80, 20), QColor(120, 10, 0)}),
-            make("ice", "Ice", {QColor(255, 255, 255), QColor(120, 200, 255)}),
-            make("mono", "Mono", {QColor(255, 255, 255), QColor(120, 120, 120)}),
-            make("holo", "Holographic", {QColor(255, 120, 200), QColor(120, 220, 255), QColor(200, 255, 140), QColor(255, 120, 200)}, TextGradientKind::Linear, 20.0),
-            make("mint", "Mint", {QColor(180, 255, 220), QColor(40, 190, 140)}),
-            make("berry", "Berry", {QColor(26, 19, 22), QColor(163, 18, 63), QColor(192, 32, 148), QColor(44, 0, 138)}, TextGradientKind::Linear, 0.0),
+            make("sunset", QT_TRANSLATE_NOOP("TextLook", "Sunset"), {QColor(255, 94, 98), QColor(255, 153, 102)}),
+            make("ocean", QT_TRANSLATE_NOOP("TextLook", "Ocean"), {QColor(43, 88, 118), QColor(78, 67, 118)}, TextGradientKind::Linear, 0.0),
+            make("candy", QT_TRANSLATE_NOOP("TextLook", "Candy"), {QColor(255, 110, 199), QColor(120, 115, 245)}, TextGradientKind::Linear, 0.0),
+            make("gold", QT_TRANSLATE_NOOP("TextLook", "Gold"), {QColor(255, 236, 160), QColor(212, 160, 23)}),
+            make("chrome", QT_TRANSLATE_NOOP("TextLook", "Chrome"), {QColor(230, 235, 240), QColor(120, 130, 145), QColor(240, 245, 250), QColor(90, 100, 115)}),
+            make("rainbow", QT_TRANSLATE_NOOP("TextLook", "Rainbow"), {QColor(255, 0, 0), QColor(255, 154, 0), QColor(208, 222, 33), QColor(79, 220, 74), QColor(63, 218, 216), QColor(47, 201, 226), QColor(28, 127, 238), QColor(95, 21, 242), QColor(186, 12, 248), QColor(251, 7, 217)}, TextGradientKind::Linear, 0.0),
+            make("fire", QT_TRANSLATE_NOOP("TextLook", "Fire"), {QColor(255, 230, 120), QColor(255, 80, 20), QColor(120, 10, 0)}),
+            make("ice", QT_TRANSLATE_NOOP("TextLook", "Ice"), {QColor(255, 255, 255), QColor(120, 200, 255)}),
+            make("mono", QT_TRANSLATE_NOOP("TextLook", "Mono"), {QColor(255, 255, 255), QColor(120, 120, 120)}),
+            make("holo", QT_TRANSLATE_NOOP("TextLook", "Holographic"), {QColor(255, 120, 200), QColor(120, 220, 255), QColor(200, 255, 140), QColor(255, 120, 200)}, TextGradientKind::Linear, 20.0),
+            make("mint", QT_TRANSLATE_NOOP("TextLook", "Mint"), {QColor(180, 255, 220), QColor(40, 190, 140)}),
+            make("berry", QT_TRANSLATE_NOOP("TextLook", "Berry"), {QColor(26, 19, 22), QColor(163, 18, 63), QColor(192, 32, 148), QColor(44, 0, 138)}, TextGradientKind::Linear, 0.0),
         };
     }();
     return presets;
@@ -103,43 +103,43 @@ const QList<TextGradientPreset> &textGradientPresets()
 const QList<TextLook> &textLooks()
 {
     static const QList<TextLook> looks{
-        {QStringLiteral("plain"), tr("Plain"), {}},
-        {QStringLiteral("shadow"), tr("Shadow"),
-         {scalar("offset", "Offset", "px", 0, 60, 1, 6), scalar("direction", "Direction", "°", 0, 360, 1, 90),
-          scalar("blur", "Blur", "px", 0, 60, 1, 6), scalar("opacity", "Opacity", "", 0, 1, 0.05, 0.6),
-          color("color", "Colour", Qt::black)}},
-        {QStringLiteral("lift"), tr("Lift"), {scalar("intensity", "Intensity", "", 0, 1, 0.05, 0.5)}},
-        {QStringLiteral("hollow"), tr("Hollow"), {scalar("thickness", "Thickness", "px", 0.5, 20, 0.5, 3)}},
-        {QStringLiteral("splice"), tr("Splice"),
-         {scalar("thickness", "Thickness", "px", 0.5, 20, 0.5, 3), scalar("offset", "Offset", "px", 0, 40, 1, 4),
-          scalar("direction", "Direction", "°", 0, 360, 1, 45), color("color", "Colour", QColor(255, 255, 255, 128))}},
-        {QStringLiteral("outline"), tr("Outline"),
-         {scalar("thickness", "Thickness", "px", 0.5, 30, 0.5, 4), color("color", "Colour", Qt::black)}},
-        {QStringLiteral("echo"), tr("Echo"),
-         {scalar("offset", "Offset", "px", 0, 40, 1, 4), scalar("direction", "Direction", "°", 0, 360, 1, 45),
-          scalar("count", "Copies", "", 1, 4, 1, 3), color("color", "Colour", QColor(0, 0, 0, 0))}},
-        {QStringLiteral("glitch"), tr("Glitch"),
-         {scalar("offset", "Offset", "px", 0, 30, 1, 3), scalar("direction", "Direction", "°", 0, 360, 1, 0),
-          color("colorA", "Colour A", QColor(255, 0, 255)), color("colorB", "Colour B", QColor(0, 255, 255))}},
-        {QStringLiteral("neon"), tr("Neon"),
-         {scalar("glow", "Glow", "px", 2, 80, 1, 14), color("color", "Colour", QColor(255, 60, 220)),
-          scalar("intensity", "Intensity", "", 0, 2, 0.05, 1.0)}},
-        {QStringLiteral("background"), tr("Background"),
-         {scalar("roundness", "Roundness", "px", 0, 60, 1, 8), scalar("spread", "Spread", "px", 0, 80, 1, 12),
-          scalar("transparency", "Transparency", "", 0, 1, 0.05, 0.2), color("color", "Colour", Qt::black)}},
-        {QStringLiteral("curve"), tr("Curve"), {scalar("curve", "Curve", "", -100, 100, 1, 40)}},
-        {QStringLiteral("gradient"), tr("Gradient"),
-         {choice("preset", "Preset", gradientPresetIds(), "sunset"), scalar("angle", "Angle", "°", 0, 360, 1, 90),
-          choice("space", "Map to", {QStringLiteral("block"), QStringLiteral("line"), QStringLiteral("word"), QStringLiteral("glyph")}, "block")}},
-        {QStringLiteral("shine"), tr("Shine"),
-         {scalar("speed", "Speed", "cyc/s", 0, 3, 0.05, 0.5), scalar("width", "Width", "", 0.05, 1, 0.01, 0.25),
-          scalar("angle", "Angle", "°", -180, 180, 1, 20), scalar("brightness", "Brightness", "", 0, 2, 0.05, 0.9)}},
-        {QStringLiteral("chrome"), tr("Chrome"),
-         {color("colorA", "Light", QColor(240, 245, 255)), color("colorB", "Dark", QColor(40, 50, 70)),
-          scalar("bands", "Reflection", "", 0.5, 6, 0.5, 2)}},
-        {QStringLiteral("holographic"), tr("Holographic"),
-         {scalar("speed", "Speed", "cyc/s", 0, 2, 0.05, 0.15), scalar("angle", "Angle", "°", 0, 360, 1, 20),
-          scalar("glow", "Glow", "px", 0, 40, 1, 8)}},
+        {QStringLiteral("plain"), lookText(QT_TRANSLATE_NOOP("TextLook", "Plain")), {}},
+        {QStringLiteral("shadow"), lookText(QT_TRANSLATE_NOOP("TextLook", "Shadow")),
+         {scalar("offset", QT_TRANSLATE_NOOP("TextLook", "Offset"), "px", 0, 60, 1, 6), scalar("direction", QT_TRANSLATE_NOOP("TextLook", "Direction"), "°", 0, 360, 1, 90),
+          scalar("blur", QT_TRANSLATE_NOOP("TextLook", "Blur"), "px", 0, 60, 1, 6), scalar("opacity", QT_TRANSLATE_NOOP("TextLook", "Opacity"), "", 0, 1, 0.05, 0.6),
+          color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), Qt::black)}},
+        {QStringLiteral("lift"), lookText(QT_TRANSLATE_NOOP("TextLook", "Lift")), {scalar("intensity", QT_TRANSLATE_NOOP("TextLook", "Intensity"), "", 0, 1, 0.05, 0.5)}},
+        {QStringLiteral("hollow"), lookText(QT_TRANSLATE_NOOP("TextLook", "Hollow")), {scalar("thickness", QT_TRANSLATE_NOOP("TextLook", "Thickness"), "px", 0.5, 20, 0.5, 3)}},
+        {QStringLiteral("splice"), lookText(QT_TRANSLATE_NOOP("TextLook", "Splice")),
+         {scalar("thickness", QT_TRANSLATE_NOOP("TextLook", "Thickness"), "px", 0.5, 20, 0.5, 3), scalar("offset", QT_TRANSLATE_NOOP("TextLook", "Offset"), "px", 0, 40, 1, 4),
+          scalar("direction", QT_TRANSLATE_NOOP("TextLook", "Direction"), "°", 0, 360, 1, 45), color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), QColor(255, 255, 255, 128))}},
+        {QStringLiteral("outline"), lookText(QT_TRANSLATE_NOOP("TextLook", "Outline")),
+         {scalar("thickness", QT_TRANSLATE_NOOP("TextLook", "Thickness"), "px", 0.5, 30, 0.5, 4), color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), Qt::black)}},
+        {QStringLiteral("echo"), lookText(QT_TRANSLATE_NOOP("TextLook", "Echo")),
+         {scalar("offset", QT_TRANSLATE_NOOP("TextLook", "Offset"), "px", 0, 40, 1, 4), scalar("direction", QT_TRANSLATE_NOOP("TextLook", "Direction"), "°", 0, 360, 1, 45),
+          scalar("count", QT_TRANSLATE_NOOP("TextLook", "Copies"), "", 1, 4, 1, 3), color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), QColor(0, 0, 0, 0))}},
+        {QStringLiteral("glitch"), lookText(QT_TRANSLATE_NOOP("TextLook", "Glitch")),
+         {scalar("offset", QT_TRANSLATE_NOOP("TextLook", "Offset"), "px", 0, 30, 1, 3), scalar("direction", QT_TRANSLATE_NOOP("TextLook", "Direction"), "°", 0, 360, 1, 0),
+          color("colorA", QT_TRANSLATE_NOOP("TextLook", "Colour A"), QColor(255, 0, 255)), color("colorB", QT_TRANSLATE_NOOP("TextLook", "Colour B"), QColor(0, 255, 255))}},
+        {QStringLiteral("neon"), lookText(QT_TRANSLATE_NOOP("TextLook", "Neon")),
+         {scalar("glow", QT_TRANSLATE_NOOP("TextLook", "Glow"), "px", 2, 80, 1, 14), color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), QColor(255, 60, 220)),
+          scalar("intensity", QT_TRANSLATE_NOOP("TextLook", "Intensity"), "", 0, 2, 0.05, 1.0)}},
+        {QStringLiteral("background"), lookText(QT_TRANSLATE_NOOP("TextLook", "Background")),
+         {scalar("roundness", QT_TRANSLATE_NOOP("TextLook", "Roundness"), "px", 0, 60, 1, 8), scalar("spread", QT_TRANSLATE_NOOP("TextLook", "Spread"), "px", 0, 80, 1, 12),
+          scalar("transparency", QT_TRANSLATE_NOOP("TextLook", "Transparency"), "", 0, 1, 0.05, 0.2), color("color", QT_TRANSLATE_NOOP("TextLook", "Colour"), Qt::black)}},
+        {QStringLiteral("curve"), lookText(QT_TRANSLATE_NOOP("TextLook", "Curve")), {scalar("curve", QT_TRANSLATE_NOOP("TextLook", "Curve"), "", -100, 100, 1, 40)}},
+        {QStringLiteral("gradient"), lookText(QT_TRANSLATE_NOOP("TextLook", "Gradient")),
+         {choice("preset", QT_TRANSLATE_NOOP("TextLook", "Preset"), gradientPresetIds(), "sunset"), scalar("angle", QT_TRANSLATE_NOOP("TextLook", "Angle"), "°", 0, 360, 1, 90),
+          choice("space", QT_TRANSLATE_NOOP("TextLook", "Map to"), {QStringLiteral("block"), QStringLiteral("line"), QStringLiteral("word"), QStringLiteral("glyph")}, "block")}},
+        {QStringLiteral("shine"), lookText(QT_TRANSLATE_NOOP("TextLook", "Shine")),
+         {scalar("speed", QT_TRANSLATE_NOOP("TextLook", "Speed"), "cyc/s", 0, 3, 0.05, 0.5), scalar("width", QT_TRANSLATE_NOOP("TextLook", "Width"), "", 0.05, 1, 0.01, 0.25),
+          scalar("angle", QT_TRANSLATE_NOOP("TextLook", "Angle"), "°", -180, 180, 1, 20), scalar("brightness", QT_TRANSLATE_NOOP("TextLook", "Brightness"), "", 0, 2, 0.05, 0.9)}},
+        {QStringLiteral("chrome"), lookText(QT_TRANSLATE_NOOP("TextLook", "Chrome")),
+         {color("colorA", QT_TRANSLATE_NOOP("TextLook", "Light"), QColor(240, 245, 255)), color("colorB", QT_TRANSLATE_NOOP("TextLook", "Dark"), QColor(40, 50, 70)),
+          scalar("bands", QT_TRANSLATE_NOOP("TextLook", "Reflection"), "", 0.5, 6, 0.5, 2)}},
+        {QStringLiteral("holographic"), lookText(QT_TRANSLATE_NOOP("TextLook", "Holographic")),
+         {scalar("speed", QT_TRANSLATE_NOOP("TextLook", "Speed"), "cyc/s", 0, 2, 0.05, 0.15), scalar("angle", QT_TRANSLATE_NOOP("TextLook", "Angle"), "°", 0, 360, 1, 20),
+          scalar("glow", QT_TRANSLATE_NOOP("TextLook", "Glow"), "px", 0, 40, 1, 8)}},
     };
     return looks;
 }
