@@ -110,6 +110,40 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store: SUBIR ESTAS (0.17.0 + 0.18.0)**. La 0.17.0 no llegó a la Store (Jorge, 2026-10-18): el MSIX de la 0.18.0 lleva las novedades de las dos. Texto de "Novedades de esta versión" (1081 de 1500 caracteres; en inglés, 998).
+
+> **Novedades (0.17.0 + 0.18.0)**
+>
+> - Cámara lenta suave con IA: dibuja las imágenes que le faltan a un clip lento, para que se mueva fluido.
+> - Transición con IA: une dos clips dibujando las imágenes que faltan entre ellos.
+> - Texto con IA: describe la idea con tus palabras y la IA elige el estilo de texto.
+> - Quitar imperfecciones: manchas, granitos y arrugas finas, sin borrar los rasgos.
+> - Marca «IA» con «?»: todo lo de IA funciona en tu computadora, sin internet.
+> - Pantalla de inicio como Filmora y modo oscuro turquesa, más descansado para la vista.
+> - Cerrar el editor vuelve al inicio; el panel izquierdo abre con todas las categorías.
+> - Plantillas y Stock se animan al pasar el mouse; efectos y filtros muestran el antes y el después.
+> - Tarjetas con fotos variadas en efectos, plantillas de efectos, transiciones y filtros.
+> - Contadores animados en los textos ($1.000.000, 10K, día 100); los de Stock cuentan solos.
+> - Como en CapCut: congelar fotograma, mover clips con «Cerrar huecos» y arrastrar clips sin que salten de pista.
+> - Lo nuevo, traducido a los idiomas de la app.
+
+En inglés:
+
+> **What's new (0.17.0 + 0.18.0)**
+>
+> - AI smooth slow motion: draws the frames a slowed clip is missing, so it moves smoothly.
+> - AI transition: joins two clips by drawing the frames between them.
+> - AI text: describe the idea in your own words and the AI picks the text style.
+> - Blemish removal: spots, pimples and fine wrinkles, keeping the features.
+> - An "AI" mark with a "?": everything AI runs on your computer, offline.
+> - A Filmora-like home screen and a turquoise dark mode, easier on the eyes.
+> - Closing the editor goes back home; the left panel opens with every category in view.
+> - Templates and Stock animate on hover; effects and filters show the before and after.
+> - Varied photos on the effect, effect template, transition and filter cards.
+> - Animated counters in texts ($1,000,000, 10K, day 100); Stock counters count on their own.
+> - As in CapCut: freeze frame, moving clips with "Close gaps" and dragging clips without jumping tracks.
+> - Everything new, translated into the app's languages.
+
 **Notas para la Store (0.18.0)**. Lo nuevo desde la 0.17.0. Texto de "Novedades de esta versión" del MSIX de la
 0.18.0 (641 de 1500 caracteres; en inglés, 587).
 

@@ -51,7 +51,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `versiones\FlipStudio-0.18.0` (hashes comprobados). MSIX (run 39178670318) en
   `tienda\FlipStudio-Store\paquete-0.18.0\FlipStudio-0.18.0.0-x64.msix`. Novedades en la web. Stock: los 15 contadores
   nuevos subidos (delta de 35 MB, comprobado byte a byte). Editor web: pestaña Voz (Kokoro + eSpeak NG) desplegada.
-- **Falta (Jorge):** TXT `version` = 0.18.0, subir el MSIX con las notas de `docs/store-listing.md` (641/1500) y probar
+- **Falta (Jorge):** TXT `version` = 0.18.0, subir el MSIX con las notas **combinadas 0.17 + 0.18** de `docs/store-listing.md` (la 0.17 no se subió) y probar
   el arrastre «tipo tetris» (el arrastre simulado no mueve clips).
 - **Trampas nuevas:** el contador de la 0.17 no contaba en vista previa ni exportación (se dibuja por
   `FrameCompositor::fillTextLayer`, no por `makeTextPainter(clip, …)`); y `apply_delta.sh` se corta en su resumen final
