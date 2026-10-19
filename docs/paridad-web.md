@@ -285,6 +285,25 @@ encuadre, espejo, girar 90°), las guías y la cuadrícula, y la capa de ajuste 
 imagen se sale del todo del lienzo, la caja queda fuera de la vista: el «⋯» no aparece, pero el menú del botón
 derecho sigue trayendo «Ajustar a la pantalla».
 
+### Décima tanda (2026-10-19, Claude): imán del cabezal y se acabó el negro entre dos clips
+Jorge: «cuando doy click entre un clip y otro recibo pantalla negra y también faltó que cuando llego a la línea se
+fije tipo imán».
+- **Imán al mover el cabezal** (`Timeline.tsx`): `startScrub` y el arrastre sobre la regla pasan por `snap()`, que
+  ahora incluye **bordes de clip de cualquier pista, marcas y el 0**, a 8 px como el resto de la línea de tiempo. Antes
+  el imán solo valía al mover o recortar clips, no al llevar el cabezal. Con el imán fuera (el botón) se mueve libre.
+- **El negro de la unión**: era un **hueco de menos de un fotograma** entre dos clips (un redondeo al cortar o mover):
+  `clipAt` no encontraba nada y el lienzo se quedaba en negro. Ahora `layersAt` (`render/frame.ts`) usa `clipAtEdge`
+  con tolerancia de un fotograma y pinta el borde del clip vecino — primero el que **empieza** en la unión (su primer
+  fotograma es el de ese instante), y si no el que acaba. Un hueco de verdad sigue en negro.
+- Pruebas: `src/timeline/magnet.test.ts` (el imán y los bordes) y tres casos en `src/render/frame.test.ts` para el
+  hueco de medio fotograma y el hueco real — **112 en verde**. En la web desplegada, `scripts/check-magnet.mjs`:
+  clics a 5 y 10 px del corte dan 3:00 y 2:28 (el imán llega a 8 px), un clic lejos queda en 0:24 y arrastrar hasta
+  el corte acaba en 3:00 exacto.
+
+**Sigue faltando de la línea de tiempo:** el imán del **cabezal a los marcadores** ya está, pero no el «stick» visual
+(una guía vertical que avise de que se pegó), y las pistas de audio no atraen al cabezal (solo los bordes de sus
+clips, que ya entran).
+
 ## PARA SEGUIR (traspaso del 2026-10-19, de Claude a DeepSeek): leer esto primero
 
 ### Regla número uno (Jorge, dicha dos veces)
