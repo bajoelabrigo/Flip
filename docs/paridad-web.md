@@ -88,7 +88,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Subtítulos con Whisper | sí | ✅ | Whisper base en el navegador |
-| Voz con IA | nube | ✅ | La web tiene Kokoro local; el escritorio todavía no (¿al revés?) |
+| Voz con IA | sí (extra `tts-model`, local) | ✅ | La web usa Kokoro en el navegador; comprobar que las voces e idiomas coincidan |
 | Quitar fondo | sí (IA) | 🟡 | La web usa croma (color), no IA |
 | Transición con IA y cámara lenta suave (RIFE) | 0.17–0.18 | ⬜ | ONNX Runtime Web con WebGPU, como Whisper |
 | Retoque, quitar imperfecciones, cuerpo y cabello | 0.13–0.17 | ⬜ | Necesita caras en el navegador (MediaPipe web) |
