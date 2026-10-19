@@ -236,10 +236,19 @@ no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
 **Lo que aún no cuadra dentro de las pestañas** (siguiente en la lista, por orden del escritorio):
 1. **Medios**: hecha la fila «Buscar medios» con vista de cuadrícula/lista y el orden (octava tanda); **faltan las
    carpetas** («Nueva carpeta», ruta, mover/renombrar) y por eso también la vista de árbol, y el «Importar» partido.
-2. **Filtros › LUTs**: el escritorio lleva «Buscar filtros», chips y «Importar LUT…» en el cromo; la web solo tiene
-   la galería y el botón de Stock.
-3. **Formas**: el escritorio tiene categorías (`builtinShapeCategories`) y favoritos; la web es una lista plana.
-4. **Máscaras** y **Voz**: comparar su contenido pieza por pieza con `MasksTab.qml` y `SpeechTab.qml`.
+2. **Filtros › LUTs** ✅ (2026-10-19, `04055`): como `FiltersTab.qml` — «Buscar filtros», chips Looks / Importados,
+   la línea de ayuda con «Importar LUT…» y la galería (clic = al clip; la intensidad en Ajuste › LUT; clic derecho en
+   un importado lo borra).
+3. **Formas** ✅ (`2894c`): las 29 formas del escritorio (mismos ids, orden y nombres de `ShapeStyle.cpp`) en Básico,
+   Flechas, Bocadillos y Divertido, con favoritos (también en «Mi cuenta»). La web mantiene su fila de color y
+   Relleno/Contorno porque no tiene editor de formas en el panel derecho.
+4. **Máscaras** ✅ (`4d063`): como `MasksTab.qml` — ayuda, «Sujeto › Recortar sujeto…» e «Imagen o video como
+   máscara…» (los dos apagados: solo escritorio por ahora) y las 9 máscaras con el orden y nombres de
+   `maskCatalog` (también en Video › Máscara). **Voz** ✅ (`c0083`): como `SpeechTab.qml` — explicación, guion con
+   «N caracteres, unos N s», Voz (con «Voz nueva» apagado: clonar es del escritorio), Idioma y «Generar voz» /
+   «Detener». La web usa Velocidad donde el escritorio tiene Expresividad (Kokoro no tiene expresividad).
+5. **Detalles** ✅: espacio bajo el buscador de todas las pestañas de catálogo (Jorge: «muy pegado») y la estrella de
+   favoritos de los chips, que `.chips button` aplastaba en un punto.
 
 ### Octava tanda (2026-10-19, Claude): Medios, con la fila de `MediaAssetsTab.qml`
 - **Fila de controles** bajo la cabecera, como el escritorio: «Buscar medios» (filtra por nombre) y los tres botones
@@ -361,11 +370,18 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    el buscador arriba y chips con las categorías de su catálogo), Pegatinas y Formas. En el escritorio las pestañas
    de catálogo **no tienen cabecera con título** (`assetsHeader` se oculta y el buscador ocupa ese lugar); en la web
    casi todas tienen un `panel-head` con el nombre: quitarlo donde el escritorio no lo tiene.
-2. **El panel derecho** (propiedades) contra `PropertiesPanel.qml`: pestañas, iconos y orden según el tipo de clip
-   (video, imagen, audio, texto, capa de ajuste).
-3. **La cabecera** contra `EditorHeader.qml` (Jorge ya pidió Inicio, Guardar, Video y Descargar app a la derecha,
-   junto a Exportar; mirar qué más tiene el escritorio) y **el inicio** contra `StartScreen.qml` (el escritorio
-   tiene una tarjeta de la cuenta en el inicio; la web no).
+2. **El panel derecho** ✅ para video e imagen (2026-10-19, `d2671`): el orden y los grupos de
+   `PropertiesPanel.qml › tabs` con la línea entre grupos (General | Transformar, Video, Ajuste, Animación, Audio,
+   Velocidad | Fusión, Máscaras, Efectos), y Transformar, Fusión y Máscaras como pestañas propias. Estabilización no
+   está (no hay estabilizar en la web; el escritorio oculta lo que el clip no admite). **Falta**: revisar texto, audio,
+   capa de ajuste y la pestaña Transición de un clip.
+3. **La cabecera**: Jorge decidió (2026-10-19) **dejar Inicio, Guardar y Video a la derecha** (en el escritorio están a
+   la izquierda) y bajar «Web · beta» a la barra de abajo, junto a «Avisos de terceros», en el color del acento y sin
+   negrita (`276ec`). **El inicio** ✅ (`a1428`) como `StartScreen.qml`: barra con Crear proyecto, Stock, Extras y
+   Ajustes (estos dos apagados), «Descargar app» en el sitio de «Editar en línea» y la tarjeta de la cuenta; arriba
+   el formato y «Abrir proyecto»; el banner con su carrusel (cambia cada 5 s, se para con el mouse encima); la fila
+   de 7 herramientas con el icono arriba, cada una abre el proyecto nuevo en su pestaña; «Proyectos locales» con
+   buscar y cuadrícula/lista.
 4. **Etapa 3: plantillas de escena** en la web, con el mismo paquete que el escritorio
    (`Flip/tools/scene_templates/FORMAT.md`; el zip se baja con `/v1/market/downloads`, `delivery: "scene-template"`).
    Hace falta: abrir el zip, crear la composición en el cabezal y los huecos «Tu foto aquí» (`placeholderId`), que

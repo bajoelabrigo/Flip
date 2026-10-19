@@ -1666,6 +1666,10 @@ void SkiaTest::userFontImportResolvesAndRemoves()
         removeUserFont(family);
 
     const QString source = QString::fromUtf8(DRIFT_TEST_FONTS_DIR) + QStringLiteral("/anton/Anton-400.ttf");
+    // Like the other font tests (SKIP_WITHOUT_FONTS): a runner without the font bundle (the macOS
+    // one) has nothing to import.
+    if (!QFile::exists(source))
+        QSKIP("font bundle not present — see recipes/fetch-fonts.py in drift-addons");
     QTemporaryDir staging;
     QVERIFY(staging.isValid());
     const QString copy = staging.filePath(QStringLiteral("picked.ttf"));
