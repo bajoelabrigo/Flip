@@ -162,6 +162,20 @@ de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con
 - Comprobado con datos simulados (`scripts/check-stock-ui.mjs`): 4 tarjetas, títulos, duraciones y «Usar», y la
   plantilla filtrada en «Todo» porque la web no la aplica. Falta la prueba con la cuenta de Jorge.
 
+### Cuarta tanda (2026-10-19, Claude): entrar con Google ya funciona en la web
+- **«Failed to fetch» al volver de Google:** la CSP del editor (`deploy/nginx-editor.conf`) tenía `connect-src
+  'self'` y el navegador cortaba el canje en `api.getflipstudio.com`. Ahora permite `api.getflipstudio.com` en
+  `connect-src`, `img-src` y `media-src`, y `*.googleusercontent.com` en `img-src` (la foto de la cuenta). El
+  snippet se copió al VPS (`/etc/nginx/snippets/flipstudio-editor.conf`, copia en `/root/*.bak-*`).
+- **«Usar» de Stock:** los archivos de `api.getflipstudio.com/plantillas/` no traían `Access-Control-Allow-Origin` y
+  el `fetch` de `StockPanel` habría fallado igual. Añadido en `flipstudio-api/deploy/nginx-api.conf` y en el sitio
+  del VPS (parcheado en su sitio: lo editó certbot).
+- **La vuelta de Google abre el mismo proyecto** (antes caía en el inicio): `Root` guarda el proyecto abierto en
+  `sessionStorage` (`rememberReturnView`) y lo reabre si la página trae `?code` (`returnViewAfterSignIn`).
+- **El botón de la cuenta es como el del escritorio** (`EditorHeader.qml` › `accountButton`): solo el círculo de
+  32 px con la foto de 28, borde turquesa al pasar el mouse, sin el nombre al lado; sin sesión, el icono de persona.
+- Jorge entró con su cuenta y funciona.
+
 ### Lo siguiente de la etapa 1 que queda
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
   la web (etapa 2).
