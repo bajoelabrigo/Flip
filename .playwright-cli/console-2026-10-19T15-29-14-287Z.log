@@ -1,0 +1,5 @@
+[   35780ms] [ERROR] Error opening the project: TypeError: c.ZstdCodec is not a constructor
+    at h (https://getflipstudio.com/editor/assets/driftBundle-URcfkUUf.js:73:13692)
+    at v (https://getflipstudio.com/editor/assets/driftBundle-URcfkUUf.js:73:13840)
+    at S (https://getflipstudio.com/editor/assets/driftBundle-URcfkUUf.js:73:14833)
+    at async onImportDrift (https://getflipstudio.com/editor/assets/index-BpSbN6dd.js:540:25549) @ https://getflipstudio.com/editor/assets/index-BpSbN6dd.js:539

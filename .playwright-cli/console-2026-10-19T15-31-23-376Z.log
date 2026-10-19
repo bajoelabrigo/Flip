@@ -1,0 +1,6 @@
+[    6108ms] [ERROR] Error opening the project: Error: No se pudo cargar el descompresor zstd del proyecto.
+    at c (http://localhost:5180/editor/assets/driftBundle-Chy7BzbP.js:2:404)
+    at async l (http://localhost:5180/editor/assets/driftBundle-Chy7BzbP.js:2:511)
+    at async f (http://localhost:5180/editor/assets/driftBundle-Chy7BzbP.js:2:649)
+    at async g (http://localhost:5180/editor/assets/driftBundle-Chy7BzbP.js:2:1642)
+    at async onImportDrift (http://localhost:5180/editor/assets/index-DY_YYSr6.js:540:25547) @ http://localhost:5180/editor/assets/index-DY_YYSr6.js:539

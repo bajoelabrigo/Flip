@@ -25,14 +25,14 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 ### Aspecto y navegación
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
-| Tema oscuro turquesa como Filmora (paneles `#181c1f`, menús `#202427`, acento `#55e5c5`) | 0.17 | ⬜ | `layout/theme.ts` sigue con el tema anterior |
-| Pantalla de inicio como Filmora | 0.17 | 🟡 | Hay `Home.tsx`, con otro diseño |
-| Cerrar el editor vuelve al inicio | 0.17 | ❓ | |
-| Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ⬜ | `AppMenuBar.qml` es el modelo |
-| Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | Hay `CategoryScrollOn.tsx`; falta la fila completa de `AssetsPanel.qml` |
+| Tema oscuro turquesa como Filmora (paneles `#181c1f`, menús `#202427`, acento `#55e5c5`) | 0.17 | ✅ | `teal` es el tema por defecto y los siete son los del escritorio (`layout/theme.ts`, `index.css`) |
+| Pantalla de inicio como Filmora | 0.17 | ✅ | `Home.tsx` tenía la estructura (banda + formatos + atajos + tus proyectos): la banda ya toma los colores del tema |
+| Cerrar el editor vuelve al inicio | 0.17 | ✅ | `Root.tsx` (`onHome`): «Inicio» en la cabecera y Archivo › Inicio |
+| Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
+| Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | La fila está (Medios, Títulos, Audio, Stickers, Efectos, Transiciones) y recuerda la última pestaña de cada una; faltan las categorías Stock, Filtros y Plantillas, que aún no existen en la web |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
-| Idiomas de la app (13) | sí | ❓ | Comprobar qué idiomas tiene la web |
-| Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ⬜ | La web solo importa y descarga `.drift` |
+| Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
+| Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ✅ | Abre los dos (documento + tabla de medios + blobs incrustados, que se guardan con el proyecto) y guarda `.flip` |
 
 ### Cuenta y Stock
 | Función | Escritorio | Web | Notas |
@@ -47,7 +47,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ⬜ | Leer el mismo paquete (`FORMAT.md` en `tools/scene_templates`) |
-| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ❓ | Hay rastro de plantillas en 9 archivos; revisar qué cubre |
+| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ⬜ | No hay: el «plantilla» de la web es texto y biblioteca |
 | Guardar como plantilla / Mis plantillas | 0.13 | ⬜ | |
 
 ### Edición en la línea de tiempo
@@ -55,8 +55,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Pistas libres, ojo, silencio y candado por pista | 0.9.7 | ✅ | |
 | Cortar, duplicar, invertir, marcadores | sí | ✅ | |
-| Congelar fotograma como CapCut | 0.17 | 🟡 | Hay `freezeFrame`; comprobar que corte y empuje como en el escritorio |
-| Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | 🟡 | Hay código de cerrar huecos; comprobar los dos casos |
+| Congelar fotograma como CapCut | 0.17 | ✅ | `freezeFrame` corta en el cabezal, mete 3 s congelados y empuja el resto, igual que el escritorio |
+| Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | ✅ | `removeClipRippled` y los recortes con `ripple`, con el interruptor de la barra |
 | Arrastre «tipo tetris» | 0.18 | ❓ | |
 | Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | 🟡 | Hay composiciones; falta la selección de pistas |
 | Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
@@ -86,7 +86,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
 | Mezclador y efectos de audio | sí | 🟡 | Hay `AudioMixer.tsx`; comparar con la pestaña de audio |
 | Golpes de música, cortes al ritmo | sí | ⬜ | |
-| Silencios, sonoridad, normalizar | sí | ❓ | |
+| Silencios, sonoridad, normalizar | sí | ⬜ | Solo hay volumen por clip |
 
 ### IA
 | Función | Escritorio | Web | Notas |
@@ -102,10 +102,50 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Hasta 4K | sí | ✅ | La web llega a 4K60 |
-| 8K, H.265/AV1 | 0.12 | ❓ | Depende de WebCodecs del navegador |
-| GIF | sí | ❓ | |
+| 8K, H.265/AV1 | 0.12 | 🟡 | WebCodecs da H.264, VP9 y AV1 (no H.265); 8K depende del navegador |
+| GIF | sí | ⬜ | La web exporta MP4 (y WebM) |
 
-## Orden propuesto (a confirmar con Jorge mañana)
+## Etapa 1 hecha (2026-10-19), en la rama `web/paridad-1`
+Lo que hoy se ve y se usa igual que en el escritorio:
+- **Tema turquesa por defecto**, con los siete colores del escritorio (`teal`, `amber`, `midnight`, `graphite`,
+  `violet`, `rose`, `forest`); en la web el «teal» es `:root` y los demás son overrides. La banda de «Crear
+  proyecto» toma los colores del tema en vez del ámbar fijo.
+- **Menú arriba** (`components/MenuBar.tsx`): Archivo, Editar, Herramientas, Ver, Avanzado y Ayuda, con los
+  atajos del escritorio a la derecha; solo entradas que ya hacían algo en la web. Ver incluye el color de la
+  interfaz y Ayuda abre **Atajos de teclado** (`ShortcutsDialog.tsx`), con la misma lista que respeta el teclado.
+- **Fila de categorías** sobre el panel de recursos, con la última pestaña recordada por categoría.
+- **`.flip`:** «Abrir proyecto…» acepta `.flip` y `.drift`; el documento se convierte con la tabla de medios del
+  proyecto, y los medios incrustados se guardan con el proyecto (`SavedMedia.blob`), así que al reabrir siguen
+  ahí. «Guardar copia .flip» (y Archivo › Guardar copia) descarga `.flip`.
+- Comprobado en el navegador: inicio, editor, los seis menús, el diálogo de atajos, las categorías y los temas
+  (capturas en `%TEMP%\web-*.png`). `tsc`, `vite build` y las 99 pruebas en verde; `oxlint` igual que antes
+  (30 avisos y el error viejo de `rules-of-hooks`).
+
+### Arreglado al probarlo: abrir un proyecto no funcionaba desde que se escribió
+Al probar «Abrir proyecto…» con un `.flip` de verdad salieron tres fallos encadenados en
+`project/driftBundle.ts`; ninguno se había visto porque la función no se había usado:
+1. **`sha256` tocaba `SharedArrayBuffer` sin comprobar si existe.** En una página sin aislamiento entre
+   orígenes (la nuestra) ese global no existe y el `instanceof` lanza `ReferenceError`. Ahora se copia el búfer y se
+   firma la copia.
+2. **El lector de zstd usaba una API que el paquete no tiene** (`new ZstdCodec()` + `init()`): el módulo exporta
+   `ZstdCodec.run(callback)`, así que fallaba con «ZstdCodec is not a constructor». El `.d.ts` propio declaraba una
+   API inventada.
+3. **El wasm de `zstd-codec` necesita `SharedArrayBuffer`**, que la web no tiene ni puede tener sin COOP/COEP (eso
+   rompería las fuentes y las imágenes de Stock). Se cambió a **`fzstd`**, zstd en JavaScript puro, que basta porque
+   la web solo descomprime (escribe los proyectos sin comprimir).
+4. De paso: los blobs con `codec: "zstd"` ahora se descomprimen, y su digest se comprueba **después** de
+   descomprimir, como hace el escritorio (`ProjectBundle.cpp`: «digest … over the uncompressed bytes»).
+
+Comprobado contra `getflipstudio.com/editor/`: `prueba.flip` se abre, sale en la lista de medios su archivo (que era
+de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con el nombre del archivo.
+
+### Lo siguiente de la etapa 1 que queda
+- Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
+  la web (etapa 2).
+- La rueda que pasa de una categoría a la siguiente (`CategoryScrollOn.tsx` ya existe para las bibliotecas).
+- Traducir la web a los 13 idiomas: hoy son textos en español a pelo.
+
+## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
    `.flip` (abrir `.flip`/`.drift`, guardar `.flip`).
 2. **Cuenta y Stock:** Google + todo Stock desde `api.getflipstudio.com`.
@@ -114,9 +154,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 5. **Comportamiento de CapCut** que falte: congelar, cerrar huecos, tetris, selección de pistas, curvas de velocidad.
 6. **IA en el navegador:** RIFE, texto con IA y caras/retoque. Profundidad y quitar ruido al final.
 
-## Primer paso de mañana
-Antes de la web: la próxima versión lleva el arreglo del botón «Actualizar a …» (rama `flip/v0.18.2`, commit
-`28ed5`; ver `docs/plan-0.18.1.md`). Se trabaja en esa misma rama.
-
-Abrir el escritorio y la web lado a lado y resolver los ❓ de la tabla. Después, empezar la etapa 1 en una rama de
-`flipstudio-app` y desplegar con su `deploy/deploy.sh` al terminar cada etapa.
+## Primer paso (hecho el 2026-10-19)
+- ❓ resueltos leyendo el código de la web y comprobando en el navegador (ver la tabla).
+- Etapa 1 en la rama `web/paridad-1` de `flipstudio-app`, desplegada con `deploy/deploy.sh`.
+- El escritorio lleva el arreglo de «Actualizar a …» en la rama `flip/v0.18.2` (commit `28ed5`), sin compilar.

@@ -1,0 +1,53 @@
+- generic [ref=f5e3]:
+  - complementary [ref=f5e4]:
+    - link "Flip Studio" [ref=f5e5] [cursor=pointer]:
+      - /url: /
+    - navigation "Inicio" [ref=f5e6]:
+      - button "Inicio" [ref=f5e7] [cursor=pointer]
+    - generic [ref=f5e11]:
+      - 'link "Flip Studio para Windows La versión completa: quitar fondos y retoque de rostro con IA, stickers animados, más de 100 fuentes y plantillas. Gratis. Descargar gratis" [ref=f5e12] [cursor=pointer]':
+        - /url: /#descargar
+        - strong [ref=f5e13]: Flip Studio para Windows
+        - generic [ref=f5e14]: "La versión completa: quitar fondos y retoque de rostro con IA, stickers animados, más de 100 fuentes y plantillas. Gratis."
+        - generic [ref=f5e15]: Descargar gratis
+      - generic [ref=f5e19]: Web · beta
+  - main [ref=f5e20]:
+    - generic [ref=f5e21]:
+      - button [ref=f5e22] [cursor=pointer]
+      - radiogroup "Formato del video" [ref=f5e25]:
+        - radio "Automático Como tu primer video" [checked] [ref=f5e26] [cursor=pointer]:
+          - generic [ref=f5e27]: Automático
+          - generic [ref=f5e28]: Como tu primer video
+        - radio "16:9 YouTube" [ref=f5e29] [cursor=pointer]:
+          - generic [ref=f5e30]: 16:9
+          - generic [ref=f5e31]: YouTube
+        - radio "9:16 TikTok, Reels, Shorts" [ref=f5e32] [cursor=pointer]:
+          - generic [ref=f5e33]: 9:16
+          - generic [ref=f5e34]: TikTok, Reels, Shorts
+        - radio "1:1 Cuadrado" [ref=f5e35] [cursor=pointer]:
+          - generic [ref=f5e36]: 1:1
+          - generic [ref=f5e37]: Cuadrado
+        - radio "4:5 Instagram" [ref=f5e38] [cursor=pointer]:
+          - generic [ref=f5e39]: 4:5
+          - generic [ref=f5e40]: Instagram
+    - region "Empezar con" [ref=f5e41]:
+      - button "Video vertical Para TikTok, Reels y Shorts" [ref=f5e42] [cursor=pointer]:
+        - generic [ref=f5e47]: Video vertical
+        - generic [ref=f5e48]: Para TikTok, Reels y Shorts
+      - button "Títulos y textos Plantillas animadas y 29 fuentes" [ref=f5e49] [cursor=pointer]:
+        - generic [ref=f5e53]: Títulos y textos
+        - generic [ref=f5e54]: Plantillas animadas y 29 fuentes
+      - button "Transiciones 30 transiciones entre clips" [ref=f5e55] [cursor=pointer]:
+        - generic [ref=f5e60]: Transiciones
+        - generic [ref=f5e61]: 30 transiciones entre clips
+      - button "Filtros y efectos B/N, vintage, cálido y más" [ref=f5e62] [cursor=pointer]:
+        - generic [ref=f5e67]: Filtros y efectos
+        - generic [ref=f5e68]: B/N, vintage, cálido y más
+    - region "Abrir y guardar proyectos" [ref=f5e69]:
+      - generic [ref=f5e70]:
+        - 'generic "Abre un proyecto de Flip Studio: .flip (el de ahora) o .drift (el de antes)" [ref=f5e71]':
+          - button "Abrir proyecto…" [ref=f5e72] [cursor=pointer]
+        - button "Guardar copia .flip" [ref=f5e76] [cursor=pointer]
+    - generic [ref=f5e81]:
+      - heading "Tus proyectos" [level=2] [ref=f5e82]
+      - searchbox [ref=f5e87]
