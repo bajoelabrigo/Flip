@@ -41,9 +41,9 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
 - Máscara y fotogramas clave: OK. Estabilizar: OK (la app avisa «Video estabilizado añadido»; la espera del script
   estaba mal escrita, no es un fallo).
 - La voz por MCP (`tts_generate`) solo va con ElevenLabs (nube, sin clave aquí): para Whisper se usa
-  `media_voz.wav`, hecha con la voz de Windows (Helena, español).
+  `media\a_voz.wav`, hecha con la voz de Windows (Helena, español).
 - Pendiente de ver el resultado: escenas, caras, profundidad, reencuadre, quitar ruido y Whisper
-  (`qa018\outi-run.txt`).
+  (`qa018\out\ai-run.txt`).
 - Los scripts están copiados en `tools/e2e/qa018/` para seguir desde otro asistente.
 
 ## Falta
