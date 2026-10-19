@@ -29,7 +29,9 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Pantalla de inicio como Filmora | 0.17 | ✅ | `Home.tsx` tenía la estructura (banda + formatos + atajos + tus proyectos): la banda ya toma los colores del tema |
 | Cerrar el editor vuelve al inicio | 0.17 | ✅ | `Root.tsx` (`onHome`): «Inicio» en la cabecera y Archivo › Inicio |
 | Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
-| Fila de categorías sobre el panel de recursos | 0.16 | 🟡 | En el orden del escritorio: Medios, Stock, Audio, Títulos, Transiciones, Efectos, Stickers; recuerda la última pestaña de cada una. Faltan Filtros y Plantillas, que aún no existen como pestañas en la web |
+| Fila de categorías sobre el panel de recursos | 0.16 | ✅ | Igual que `AssetsPanel.qml`: sin columna de iconos, las 9 categorías con el icono sobre el nombre y la lista lateral de 152 px con las pestañas de la abierta (oculta si tiene una sola), con los nombres del escritorio. El panel abre tan ancho como la fila (`panelSizes.ts`, clave `v2`) |
+| Pestañas Escenas (Medios) y Efectos de audio (Audio) | sí | ⬜ | Están en la lista con una página que dice qué hacen y «Descargar app» (`NotYetPanel`) |
+| Filtros › LUTs y Efectos de color, Stickers › Máscaras | 0.16 | ✅ | `LibraryExtraPanels.tsx`: la galería de `LutPage` y las formas de máscara, sobre el clip seleccionado; Efectos de color = `EffectsPanel only="color"` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
 | Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
 | Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ✅ | Abre los dos (documento + tabla de medios + blobs incrustados, que se guardan con el proyecto) y guarda `.flip` |
@@ -191,6 +193,20 @@ de referencia, así que la app pide buscarlo, como debe) y el proyecto queda con
   `timeline/look.ts`; ahora salen de `--accent`.
 - Probado en el navegador con datos simulados (inicio, plantillas con filtro, videos, pedidos, cuenta y descargas),
   `tsc` y las 99 pruebas en verde, desplegado. **Falta que Jorge lo pruebe con su cuenta** (datos reales).
+
+### Sexta tanda (2026-10-19, Claude): el panel izquierdo, igual que el escritorio
+Jorge: «Replica la app de escritorio». La web tenía una columna de iconos a la izquierda (no existe en el escritorio)
+y una fila de chips de texto. Ahora es `AssetsPanel.qml` tal cual:
+- **Fila de categorías** de 54 px, icono arriba y nombre abajo, en turquesa la abierta: Medios, Stock, Audio,
+  Títulos, Transiciones, Efectos, Filtros, Stickers, Plantillas.
+- **Lista lateral** (152 px, botones de 32 px con icono y nombre) con las pestañas de la categoría: Medios (Medios,
+  Escenas), Audio (Música, Efectos de sonido, Voz, Efectos de audio), Títulos (Texto, Subtítulos), Filtros (LUTs,
+  Efectos de color), Stickers (Pegatinas, Formas, Máscaras), Plantillas (Mis plantillas, Plantillas de efectos).
+- Lo que la web no tiene todavía (Escenas, Efectos de audio, Mis plantillas, Plantillas de efectos) abre una página
+  que lo explica, con «Descargar app» (y en Mis plantillas, «Ver plantillas en Stock»).
+- Iconos nuevos en `Icon.tsx`: `blend`, `listVideo`, `micVocal` (los de `Theme.icons`).
+- **Trampa:** `npx tsc --noEmit -p .` en `flipstudio-app` **no revisa nada** (`tsconfig.json` solo tiene
+  `references`). Usar `npx tsc -b`, que es lo que corre `npm run build`.
 
 ### Lo siguiente de la etapa 1 que queda
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
