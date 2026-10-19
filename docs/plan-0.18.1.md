@@ -51,10 +51,11 @@ prueba sin ventana (`pruebas\qa018`: `qa.py` = sesión y registro de fallos; `qa
 ## Publicación (Jorge, 2026-10-18: «sí, hazlo»)
 - ✅ Versión 0.18.1 en `CMakeLists.txt`, `release-notes/0.18.1.md`, CHANGELOG y notas de la Store combinadas
   0.17 + 0.18 + 0.18.1 en `docs/store-listing.md` (1199/1500; en inglés, 1101): ni la 0.17 ni la 0.18 se subieron.
-- ⏳ Ensayo `build.yml` en la rama: run 39192341876.
-- ⬜ Bajar el portable a `pruebas\FlipStudio-0.18.1-prueba` y mirar Texto › Efectos en español y Pintura al óleo en
-  ventana (solo clics y capturas por pid; copia del registro antes).
-- ⬜ PR → `main`, tag `v0.18.1`, release, copia en `versiones\FlipStudio-0.18.1`, MSIX con `msstore.yml` a
+- ✅ Ensayo `build.yml` en la rama: run 39192341876 en verde (instalador y portable).
+- ✅ Probado en ventana con el portable (`pruebas\FlipStudio-0.18.1-prueba`): Texto › Efectos dice «Desplazamiento
+  6px», «Dirección 90°», «Desenfoque 6px», «Opacidad 0.60»; Pintura al óleo cambia la imagen (antes 0,0); DNxHR
+  exporta (DNXHR HQ y HQX). Registro restaurado con la sesión de Google renovada.
+- ✅ PR #26 → `main`, tag `v0.18.1`. ⏳ Release (run 39195704624), copia en `versiones\FlipStudio-0.18.1`, MSIX con `msstore.yml` a
   `tienda\FlipStudio-Store\paquete-0.18.1`.
 - ⬜ Novedades de la web: ya escritas en `flipstudio-web/novedades.html` (sin commit ni despliegue); desplegar con
   `deploy/deploy.sh` cuando el release esté publicado.
