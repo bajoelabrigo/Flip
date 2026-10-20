@@ -511,9 +511,23 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   miniatura de lo de adentro; sale en **Medios** (Añadir, Editar, Cambiar nombre, Eliminar). **Doble clic** entra
   (la barra muestra «Principal › Composición 1», clic en Principal vuelve), lo que se edita adentro se guarda en la
   secuencia y deshacer funciona en las dos. **Desagrupar** devuelve los clips. La vista previa y la exportación las
-  aplanan (`flattenDoc`). **Falta:** transformación y efectos del clip de la composición (hoy no se aplican), y el
-  `.flip` las guarda **aplanadas** (`flattenForFile`): al abrirlo en el escritorio salen los clips sueltos, no la
-  composición; leer las composiciones del escritorio tampoco está.
+  aplanan (`flattenDoc`).
+  - **2026-10-20 (`33f0b`):** lo de adentro se dibuja en su propio lienzo y se coloca con la transformación,
+    animación, efectos, máscara y fusión del clip de la composición (`FrameLayer` «group» en `render/frame.ts`,
+    vista previa y exportación). Desagrupar se niega si la composición tiene aspecto propio, con el mensaje del
+    escritorio (`compositeHasOwnLook`). El `.flip` guarda y lee las composiciones **como el escritorio**
+    (`sequences`, clip `composite` con `sequenceId` y su elemento en Medios `composite-<id>`): probado abriendo un
+    `.flip` de la web en la 0.18.2 (`list_composites`, la caja al 50 %). **Falta:** velocidad y volumen propios del
+    clip de la composición, y transiciones hacia o desde una composición.
+  - **Trampa:** la captura `capture full:true` del escritorio **sin ventana** salió negra hasta con un `.flip` que ya
+    estaba comprobado: para ver píxeles hace falta `--window`. La comprobación de datos (`inspect`) sí sirve.
+- **«Recortar, encuadrar y escalar…» de Medios (2026-10-20, `2a5ac`)**, como `MediaPreviewWindow.qml`: reproducir,
+  Fijar entrada/salida (I/O, o los extremos de la tira), recuadro con candado de proporción, Restablecer; Medios guarda
+  el tramo y el recorte (`MediaItem.trim`/`frame`) y los clips nuevos empiezan así. Los videos pasan a «¿Escalar este
+  video?»: **Escalar…** crea un video nuevo en Medios a 720p, 1080p, 2K o 4K (`export/upscale.ts`, con el exportador;
+  **sin IA**: el escritorio abre su ventana Mejorar con modelos). Imagen y audio: «Vista previa y edición…». Falta:
+  girar 90° (el escritorio lo tiene) y llevar el tramo y el recorte del elemento al `.flip` (`trimInUs`, `sourceFrame`
+  del asset).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
