@@ -7775,6 +7775,110 @@
         <translation>缩放</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>条形</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>更大的像素</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>单元格</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>圆形</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>折叠半径</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>分隔符</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>点</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>水滴</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>边缘细节</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>折痕</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>间距</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>辉光</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>爱心</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>碎片</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>后退</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>圆环</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>抖动</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>峰值</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>飞溅</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>星形</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>拖尾</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>条纹</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>笔画</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>擦除</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>马赛克</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>波浪高度</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>双色调</translation>
     </message>

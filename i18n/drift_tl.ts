@@ -813,7 +813,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -837,7 +837,7 @@
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>Bituin</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -864,7 +864,7 @@
     <name>AdjustmentLayerInspector</name>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
@@ -3852,7 +3852,7 @@
     </message>
     <message>
         <source>Bars</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga bar</translation>
     </message>
     <message>
         <source>Freeform</source>
@@ -4791,7 +4791,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -7181,7 +7181,7 @@
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished"></translation>
+        <translation>Paisa-isa</translation>
     </message>
     <message>
         <source>By</source>
@@ -7253,7 +7253,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -7261,11 +7261,11 @@
     </message>
     <message>
         <source>Density</source>
-        <translation type="unfinished"></translation>
+        <translation>Densidad</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Laki</translation>
     </message>
     <message>
         <source>Twinkle</source>
@@ -7325,7 +7325,7 @@
     </message>
     <message>
         <source>Edge Softness</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinis ng gilid</translation>
     </message>
     <message>
         <source>Spill Removal</source>
@@ -7337,7 +7337,7 @@
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Teal Shadows</source>
@@ -7645,7 +7645,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distansya</translation>
     </message>
     <message>
         <source>Edge softness</source>
@@ -7809,7 +7809,111 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Bars</source>
+        <translation>Mga bar</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>Mas malalaking pixel</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>Mga cell</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>Mga bilog</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>Radius ng tupi</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>Separator</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>Mga tuldok</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Mga patak</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>Detalye ng gilid</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>Mga tupi</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>Paghihiwalay</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Glow</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>Mga puso</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>Mga piraso</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>Pag-urong</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>Mga singsing</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>Yugyog</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>Mga peak</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>Talsik</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Bituin</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>Mga bakas</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>Mga guhit</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>Mga stroke</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>Mga wipe</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>Mga tile</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>Taas ng alon</translation>
     </message>
     <message>
         <source>Duotone</source>
@@ -8485,7 +8589,7 @@
     </message>
     <message>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>Ipo-ipo</translation>
     </message>
     <message>
         <source>Crossfade</source>
@@ -8565,7 +8669,7 @@
     </message>
     <message>
         <source>Motion Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>Motion blur</translation>
     </message>
     <message>
         <source>Specular</source>
@@ -8693,7 +8797,7 @@
     </message>
     <message>
         <source>Channel Split</source>
-        <translation type="unfinished"></translation>
+        <translation>Paghihiwalay ng channel</translation>
     </message>
     <message>
         <source>Tear Bands</source>
@@ -8725,7 +8829,7 @@
     </message>
     <message>
         <source>Tear Roughness</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaspang ng punit</translation>
     </message>
     <message>
         <source>Triangle Mosaic</source>
@@ -8833,7 +8937,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Echo</source>
@@ -8965,7 +9069,7 @@
     </message>
     <message>
         <source>Band Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Bandwidth</translation>
     </message>
     <message>
         <source>Muffled</source>
@@ -9105,7 +9209,7 @@
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished"></translation>
+        <translation>Pag-ugoy</translation>
     </message>
     <message>
         <source>Anime Punch</source>
@@ -9437,7 +9541,7 @@
     </message>
     <message>
         <source>Tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>Ihilig</translation>
     </message>
     <message>
         <source>Sway</source>
@@ -9445,7 +9549,7 @@
     </message>
     <message>
         <source>Swing</source>
-        <translation type="unfinished"></translation>
+        <translation>Duyan</translation>
     </message>
     <message>
         <source>Tracking drift</source>
@@ -11066,7 +11170,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Depth effects follow one clip&apos;s depth. Add this to a clip rather than to an adjustment layer.</source>
@@ -11126,7 +11230,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Decay: %1%</source>
@@ -12562,7 +12666,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -12924,7 +13028,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>LUT intensity</source>
@@ -13604,7 +13708,7 @@
     </message>
     <message>
         <source>Bars</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga bar</translation>
     </message>
     <message>
         <source>Freeform</source>
@@ -14606,7 +14710,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Ambient</source>
@@ -15040,7 +15144,7 @@
     </message>
     <message>
         <source>Gap</source>
-        <translation type="unfinished"></translation>
+        <translation>Paghihiwalay</translation>
     </message>
     <message>
         <source>Viewport</source>
@@ -15056,7 +15160,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom</translation>
     </message>
 </context>
 <context>
@@ -15071,7 +15175,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom</translation>
     </message>
 </context>
 <context>
@@ -17547,7 +17651,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Laki</translation>
     </message>
     <message>
         <source>100% (system)</source>
@@ -17892,7 +17996,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>Glow</translation>
     </message>
     <message>
         <source>Extrude</source>
@@ -18044,7 +18148,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished"></translation>
+        <translation>Pag-ugoy</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -18080,7 +18184,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Angle</source>
@@ -18139,7 +18243,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>Glow</translation>
     </message>
     <message>
         <source>Extrude</source>
@@ -20308,7 +20412,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Flicker</source>
@@ -20495,7 +20599,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished"></translation>
+        <translation>Paisa-isa</translation>
     </message>
     <message>
         <source>Delay between one unit and the next along the cycle</source>
@@ -20615,7 +20719,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>Glow</translation>
     </message>
     <message>
         <source>Text</source>
@@ -20895,7 +20999,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Range</source>
@@ -20919,7 +21023,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>Distansya</translation>
     </message>
     <message>
         <source>Adjust shadow</source>
@@ -20943,7 +21047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Save as my style…</source>
@@ -21206,7 +21310,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
     <message>
         <source>Lift</source>
@@ -21254,7 +21358,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>Glow</translation>
     </message>
     <message>
         <source>Background</source>
@@ -21802,7 +21906,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished"></translation>
+        <translation>Glow</translation>
     </message>
     <message>
         <source>Extrude</source>
@@ -23350,7 +23454,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>Lalim</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -24779,7 +24883,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>Bituin</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -25115,7 +25219,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindi</translation>
     </message>
 </context>
 <context>

@@ -7775,6 +7775,110 @@
         <translation>ズーム</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>バー</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>ピクセルを大きく</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>セル</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>円</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>折り曲げの半径</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>区切り</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>ドット</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>しずく</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>エッジのディテール</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>折り目</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>間隔</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>ブルーム / グロー</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>ハート</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>ピース</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>巻き戻し</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>リング</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>シェイク</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>スパイク</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>スプラッシュ</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>星</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>残像</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>帯の数</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>ストローク</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>ワイプ</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>タイル</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>波の高さ</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>デュオトーン</translation>
     </message>

@@ -7812,6 +7812,110 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation type="unfinished"></translation>
     </message>

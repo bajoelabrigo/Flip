@@ -7960,6 +7960,110 @@
         <translation>التكبير</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>أشرطة</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>بكسلات أكبر</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>خلايا</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>دوائر</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>نصف قطر الطيّة</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>فاصل</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>نقاط</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>قطرات</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>تفاصيل الحافة</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>طيّات</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>الفجوة</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>توهج / إشعاع</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>قلوب</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>قطع</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>ارتداد</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>حلقات</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>اهتزاز</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>قمم</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>رذاذ</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>نجوم</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>آثار</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>أشرطة</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>خطوط مرسومة</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>مسحات</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>فسيفساء</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>ارتفاع الموجة</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>ثنائي اللون</translation>
     </message>
