@@ -785,6 +785,10 @@ public:
     Q_INVOKABLE void duplicateSelectedClip();
     Q_INVOKABLE void moveClip(int trackIndex, int clipIndex, double newStart);
     Q_INVOKABLE void moveClipToTrack(int trackIndex, int clipIndex, int newTrackIndex, double newStart);
+    // While a clip is dragged: where it would land on targetTrack and which clips moveClip /
+    // moveClipToTrack would push right to make room, so the timeline can open the space live
+    // (as CapCut does) instead of only on release. {start, ids, delta}; ids empty when nothing moves.
+    Q_INVOKABLE QVariantMap moveRoomPreview(const QString &clipId, int targetTrack, double newStart) const;
     // Dragging a clip above the top track or below the last one: a new track of the clip's kind
     // is made at insertIndex and the clip moves onto it, in one undo step (as on CapCut).
     Q_INVOKABLE void moveClipToNewTrack(int trackIndex, int clipIndex, int insertIndex, double newStart);
@@ -2396,6 +2400,8 @@ protected:
     bool m_autoCrossfade = true; // read from QSettings in the constructor
     // The (from, to) clip ids a move should crossfade, or empty. See moveClip.
     QPair<QString, QString> autoCrossfadeFor(int trackIndex, int clipIndex, const QSet<QString> &movedIds) const;
+    static QPair<QString, QString> autoCrossfadeOnTrack(const drift::Track &track, const drift::Clip &moved,
+                                                        const QSet<QString> &movedIds);
     void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
     QList<QPair<int, int>> m_selection;

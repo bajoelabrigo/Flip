@@ -2458,6 +2458,17 @@ void EditorStateTest::movingAClipOntoOthersOpensRoom()
     };
     QCOMPARE(startOf(QStringLiteral("three.mp4")), drift::secondsToUs(12.0));
 
+    // While C is still being dragged the timeline already shows where it lands and B sliding over.
+    const drift::Track &beforeMove = state.project()->tracks().at(0);
+    const QString idB = beforeMove.clips.at(1).id;
+    const QVariantMap room = state.moveRoomPreview(beforeMove.clips.at(2).id, 0, 4.0);
+    QCOMPARE(room.value(QStringLiteral("start")).toDouble(), 5.0);
+    QCOMPARE(room.value(QStringLiteral("ids")).toStringList(), QStringList{idB});
+    QCOMPARE(room.value(QStringLiteral("delta")).toDouble(), 3.0);
+    // Dropped in the empty space after C, nothing has to move.
+    QVERIFY(state.moveRoomPreview(beforeMove.clips.at(2).id, 0, 20.0).value(QStringLiteral("ids"))
+                .toStringList().isEmpty());
+
     // C dropped at 4 s: past A's middle, so it goes in after A and B moves to 8 s.
     state.moveClip(0, 2, 4.0);
     const drift::Track &track = state.project()->tracks().at(0);

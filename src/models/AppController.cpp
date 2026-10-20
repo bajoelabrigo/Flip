@@ -7184,9 +7184,15 @@ QPair<QString, QString> AppController::autoCrossfadeFor(int trackIndex, int clip
     if (!m_autoCrossfade || m_allowClipOverlap || !isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Track &track = m_project.tracks().at(trackIndex);
+    return autoCrossfadeOnTrack(track, track.clips.at(clipIndex), movedIds);
+}
+
+// The side overlap that becomes a dissolve when `moved` sits where it is on `track`.
+QPair<QString, QString> AppController::autoCrossfadeOnTrack(const drift::Track &track, const drift::Clip &moved,
+                                                            const QSet<QString> &movedIds)
+{
     if (!trackAllowsTransitions(track.type) || track.isAdjustment())
         return {};
-    const drift::Clip &moved = track.clips.at(clipIndex);
     if (moved.type == drift::ClipType::Adjustment)
         return {};
 
@@ -7212,6 +7218,101 @@ QPair<QString, QString> AppController::autoCrossfadeFor(int trackIndex, int clip
         found = fromRight ? qMakePair(other.id, moved.id) : qMakePair(moved.id, other.id);
     }
     return found;
+}
+
+QVariantMap AppController::moveRoomPreview(const QString &clipId, int targetTrack, double newStart) const
+{
+    QVariantMap none;
+    none.insert(QStringLiteral("ids"), QStringList());
+    none.insert(QStringLiteral("delta"), 0.0);
+    const QList<drift::Track> &tracks = m_project.tracks();
+    if (m_allowClipOverlap || targetTrack < 0 || targetTrack >= tracks.size())
+        return none;
+    int originTrack = -1;
+    int originIndex = -1;
+    for (int t = 0; t < tracks.size() && originTrack < 0; ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            if (tracks.at(t).clips.at(c).id == clipId) {
+                originTrack = t;
+                originIndex = c;
+                break;
+            }
+        }
+    }
+    if (originTrack < 0)
+        return none;
+    const bool sameTrack = originTrack == targetTrack;
+    // moveClip leaves "Close gaps" to its own reordering, which already draws live.
+    if (sameTrack && m_rippleEnabled)
+        return none;
+
+    const QPair<int, int> requested(originTrack, originIndex);
+    QList<QPair<int, int>> targets = m_selection.contains(requested) ? m_selection
+                                                                      : QList<QPair<int, int>>{requested};
+    expandSelectionWithLinkedPartners(m_project, targets);
+    QSet<QString> movedIds;
+    int onTrack = 0;
+    for (const QPair<int, int> &pair : std::as_const(targets)) {
+        if (!isValidClipIndex(pair.first, pair.second))
+            continue;
+        movedIds.insert(tracks.at(pair.first).clips.at(pair.second).id);
+        onTrack += pair.first == originTrack ? 1 : 0;
+    }
+    // Only one clip lands on the row: a group moves clear as a block instead (see moveClip).
+    if (onTrack != 1)
+        return none;
+
+    drift::Clip moved = tracks.at(originTrack).clips.at(originIndex);
+    moved.timelineStart = qMax<drift::TimeUs>(0, drift::secondsToUs(newStart));
+    const drift::Track &dest = tracks.at(targetTrack);
+    if (sameTrack && m_autoCrossfade && !autoCrossfadeOnTrack(dest, moved, movedIds).first.isEmpty())
+        return none;
+
+    const drift::TimeUs s = moved.timelineStart;
+    const drift::TimeUs d = moved.timelineDuration;
+    const drift::Clip *hit = nullptr;
+    for (const drift::Clip &other : dest.clips) {
+        if (!movedIds.contains(other.id) && s < other.timelineEnd() && s + d > other.timelineStart
+            && (!hit || other.timelineStart < hit->timelineStart))
+            hit = &other;
+    }
+    if (!hit)
+        return none;
+    const drift::TimeUs at = s < hit->timelineStart + hit->timelineDuration / 2 ? hit->timelineStart
+                                                                                : hit->timelineEnd();
+    drift::TimeUs next = std::numeric_limits<drift::TimeUs>::max();
+    for (const drift::Clip &other : dest.clips) {
+        if (!movedIds.contains(other.id) && other.timelineStart >= at)
+            next = qMin(next, other.timelineStart);
+    }
+    QVariantMap result;
+    result.insert(QStringLiteral("start"), drift::usToSeconds(at));
+    if (next == std::numeric_limits<drift::TimeUs>::max() || at + d <= next) {
+        result.insert(QStringLiteral("ids"), QStringList());
+        result.insert(QStringLiteral("delta"), 0.0);
+        return result;
+    }
+    // What rippleTracksFrom would push: the rest of the row and the clips linked to it.
+    QStringList ids;
+    QSet<QString> linkIds;
+    for (const drift::Clip &other : dest.clips) {
+        if (movedIds.contains(other.id) || other.timelineStart < at)
+            continue;
+        ids.append(other.id);
+        if (!other.linkId.isEmpty())
+            linkIds.insert(other.linkId);
+    }
+    for (int t = 0; t < tracks.size(); ++t) {
+        if (t == targetTrack)
+            continue;
+        for (const drift::Clip &other : tracks.at(t).clips) {
+            if (!other.linkId.isEmpty() && linkIds.contains(other.linkId) && !movedIds.contains(other.id))
+                ids.append(other.id);
+        }
+    }
+    result.insert(QStringLiteral("ids"), ids);
+    result.insert(QStringLiteral("delta"), drift::usToSeconds(at + d - next));
+    return result;
 }
 
 void AppController::addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId)
