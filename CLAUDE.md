@@ -46,6 +46,24 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-19)
 
+### EN CURSO (2026-10-20 mediodía) — 0.18.3 del escritorio + IA en la web
+- **Escritorio 0.18.3:** todo hecho en `flip/macos` y **PR #28** abierto (pruebas corriendo, run 39460022207). Probado
+  en ventana el espacio en vivo al arrastrar. Falta: que pase el PR → merge → tag `v0.18.3` → `release.yml` → copia en
+  `versiones\FlipStudio-0.18.3` → `msstore.yml` (MSIX a `tienda\FlipStudio-Store\paquete-0.18.3`) → novedades en la
+  web. Notas de la Store en `docs/store-listing.md` («Notas para la Store (0.18.3)»). «Actualizar» con una
+  actualización real no se puede probar hasta la versión siguiente (el cambio vive en la 0.18.3).
+- **Web: ramas de agentes, cada una desde `web/paridad-1`, SIN unir todavía** (worktrees en `codigo\flipstudio-app-<x>`):
+  `web/ia-rostro` (retoque facial, hecho), `web/ia-cuerpo` (recortar personas con MediaPipe, cuerpo y cabello, hecho),
+  `web/ia-rife` (transición con IA y cámara lenta suave, hecho), `web/ia-sam` (SAM2 + texto con IA, en curso),
+  `web/ia-mejorar` (mejorar audio/video, profundidad, en curso), `web/pistas-inspector` (mover pistas + barra
+  derecha igual al escritorio; segunda tanda en curso). Modelos ya en el VPS: `/modelos/rostro`, `mediapipe-body`,
+  `rife-4.25`. Para cerrar: unir todas en `web/paridad-1` (conflictos en App.tsx, VideoSection.tsx, driftBundle.ts,
+  tracks.ts, gl.ts, index.css, notices.mjs), `onnxruntime-web` a `package.json`, extractor i18n + traducir los textos
+  nuevos a los 15 idiomas, tsc/vitest/build, probar, `deploy/deploy.sh`, y anotar en `docs/paridad-web.md`.
+- **Trampa (web):** ORT Web con WebGPU calcula mal la capa de 15 canales de RIFE (manchas): usar `rife_v4.25_web.onnx`
+  (`scripts/rife-web-model.py`, rellena a 16). El Chromium de Playwright no trae WebGPU aquí: `channel: "chrome"`.
+- **Ojo:** los medios ocultos de la web (`webHidden`: recortes, pelo) salen visibles al abrir el `.flip` en el escritorio.
+
 ### 0.18.2 PUBLICADA (2026-10-19) — actualizar funciona otra vez, rellenar pantalla, «+» en Medios, logo nuevo
 - PR #27 → `main`, tag `v0.18.2`, release con instalador, portable y `SHA256SUMS`; copia en
   `versiones\FlipStudio-0.18.2` (hashes comprobados). MSIX (run 39321601743) en
