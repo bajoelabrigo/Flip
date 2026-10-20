@@ -51,8 +51,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `versiones\FlipStudio-0.18.2` (hashes comprobados). MSIX (run 39321601743) en
   `tienda\FlipStudio-Store\paquete-0.18.2\FlipStudio-0.18.2.0-x64.msix`. Novedades en la web. Logos de la Store en
   `tienda\FlipStudio-Store\logo-nuevo-2026-10-19`.
-- **Falta (Jorge):** TXT `version` = 0.18.2 y subir el MSIX con las notas de `docs/store-listing.md` (1408/1500) y
-  los logos nuevos. La 0.18.1 no se sube (su botón de actualizar estaba roto).
+- **Jorge (2026-10-20):** la 0.18.2 ya está en la Store y en el TXT `version`; probó el arrastre «tipo tetris», el
+  hover, mover con cerrar huecos y quitar imperfecciones, y escuchó la música de `por-escuchar`. Todo eso, cerrado.
 - **macOS** en la rama `flip/macos` (sin firma de Apple hasta el anuncio; luego Apple Developer $99). **Primer
   `.dmg` compilado (run 39325198092, arm64)** en `pruebas\mac-0.18.2` (se llama `0.0.0-<commit>` porque no salió de un
   tag); falta probarlo en un Mac. El icono de macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
