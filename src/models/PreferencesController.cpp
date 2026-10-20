@@ -23,6 +23,7 @@
 
 #include <cmath>
 #include <limits>
+#include <utility>
 
 namespace {
 
@@ -98,7 +99,12 @@ double appliedUiScaleFromEnvironment()
 QLocale uiLocaleFromStored()
 {
     const QString code = storedUiLanguage();
-    return code.isEmpty() ? QLocale::system() : QLocale(code);
+    if (!code.isEmpty())
+        return QLocale(code);
+    // "System default" follows the language Windows shows its own menus in, not the regional
+    // format (a Spanish Windows set to United States formats would otherwise get English).
+    const QStringList display = QLocale::system().uiLanguages();
+    return display.isEmpty() ? QLocale::system() : QLocale(display.first());
 }
 
 QString languageLabel(const QString &code)
@@ -470,6 +476,42 @@ QVariantList PreferencesController::uiLanguages() const
         languages.append(entry);
     }
     return languages;
+}
+
+QString PreferencesController::suggestedUiLanguage() const
+{
+    QStringList available;
+    for (const QVariant &entry : uiLanguages()) {
+        const QString id = entry.toMap().value(QStringLiteral("id")).toString();
+        if (!id.isEmpty())
+            available.append(id);
+    }
+    const auto find = [&](const QString &code) {
+        for (const QString &id : available) {
+            if (id.compare(code, Qt::CaseInsensitive) == 0)
+                return id;
+        }
+        return QString();
+    };
+    // uiLanguages() is the display language Windows shows its own menus in; name() is the
+    // regional format, which can be English (United States) on a Spanish system and used
+    // to preselect American English.
+    QStringList wanted = QLocale::system().uiLanguages();
+    wanted.append(QLocale::system().name());
+    for (QString code : std::as_const(wanted)) {
+        code.replace(QLatin1Char('-'), QLatin1Char('_'));
+        if (const QString exact = find(code); !exact.isEmpty())
+            return exact;
+        const QStringList parts = code.split(QLatin1Char('_'));
+        // zh_Hans_CN -> zh_Hans before falling back to the bare language.
+        if (parts.size() > 2) {
+            if (const QString script = find(parts[0] + QLatin1Char('_') + parts[1]); !script.isEmpty())
+                return script;
+        }
+        if (const QString base = find(parts.value(0)); !base.isEmpty())
+            return base;
+    }
+    return QStringLiteral("en");
 }
 
 void PreferencesController::setUiLanguage(const QString &language)

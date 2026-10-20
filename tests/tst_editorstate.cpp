@@ -4789,6 +4789,13 @@ void EditorStateTest::uiLanguagePersistsAcrossSessions()
         // Brand-new install: no session history, so the first-launch chooser should ask.
         QVERIFY(state.preferences()->needsUiLanguagePrompt());
         QCOMPARE(state.preferences()->uiLanguage(), QString());
+        // The chooser's preselection is always one of its concrete entries.
+        const QString suggested = state.preferences()->suggestedUiLanguage();
+        QVERIFY(!suggested.isEmpty());
+        bool listed = false;
+        for (const QVariant &entry : state.preferences()->uiLanguages())
+            listed = listed || entry.toMap().value(QStringLiteral("id")).toString() == suggested;
+        QVERIFY2(listed, qPrintable(suggested));
 
         QSignalSpy spy(state.preferences(), &PreferencesController::uiLanguageChanged);
         state.preferences()->chooseUiLanguage(QStringLiteral("en"));
