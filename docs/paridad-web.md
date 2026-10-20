@@ -61,7 +61,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Congelar fotograma como CapCut | 0.17 | ✅ | `freezeFrame` corta en el cabezal, mete 3 s congelados y empuja el resto, igual que el escritorio |
 | Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | ✅ | `removeClipRippled` y los recortes con `ripple`, con el interruptor de la barra |
 | Arrastre «tipo tetris» | 0.18 | ❓ | |
-| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | 🟡 | Hay composiciones; falta la selección de pistas |
+| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (la web no tiene composiciones anidadas) |
 | Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
 | Curvas de velocidad | sí | ⬜ | Solo se conservan al abrir un `.drift` |
 | Estabilizar | sí | ⬜ | Solo se conserva al abrir un `.drift` |
