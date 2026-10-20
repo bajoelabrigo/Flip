@@ -576,6 +576,30 @@ Cada cosa probada en el navegador (Playwright) y, lo que viaja en el `.flip`, ab
   texto:** `t()`, correr el extractor y traducirlo en los 15 catálogos (si falta, sale en español).
   **Trampa:** una variable local llamada `t` tapa la función; los agentes las renombraron (`tc`, `tpl`, `now`…).
 
+## Tarde del 2026-10-20 (Claude, 7 agentes): la IA en el navegador y la barra derecha igual al escritorio
+
+Todo desplegado (`web/paridad-1` `b23bf`), probado en el navegador con Playwright (scripts `scripts/check-*.mjs`) y
+traducido a los 15 idiomas (`--check` 2758/2758). Modelos en el VPS en `/var/www/flipstudio-models/modelos/`:
+`rostro`, `mediapipe-body`, `rife-4.25`, `sam2-tiny`, `minilm-multilingual`, `yolox-tiny`, `deepfilternet3`,
+`mejorar-video` (dimensiones renombradas: no reemplazar por los de `flip-addons`), `vda-small`.
+- **Retoque de rostro** (YuNet + MediaPipe, `src/faces`, `RetouchPage.tsx`): 10 efectos `face_*` escritos desde cero,
+  pista de caras en el formato del escritorio (blob `facetrack` en el `.flip`).
+- **Recortar personas** (selfie_multiclass + pose, **no RVM**: es GPL), **cuerpo** (`body.reshape`) y **cabello**
+  (`hair.color` en capa enlazada), `PeopleCutoutDialog.tsx`, `BodyRetouch.tsx`.
+- **Recortar sujeto** con clics y seguimiento (SAM 2.1 tiny, fp16 en WebGPU / q8 en CPU), `CutoutDialog.tsx`.
+- **Transición con IA y cámara lenta suave** (RIFE, `src/interp`). Trampa: usar `rife_v4.25_web.onnx` (la capa de 15
+  canales sale con manchas en ORT WebGPU; `scripts/rife-web-model.py` la rellena a 16).
+- **Texto con IA** (MiniLM), **Identificar objetos** en Escenas (YOLOX tiny), **Reducir ruido** (DeepFilterNet3),
+  **Mejorar voz** (DSP), **Mejorar video** (Gater/Nomos), **Profundidad** (Video Depth Anything small, 4 efectos).
+- **Mover pistas** arrastrando la cabecera; **barra derecha** con las pestañas del escritorio para cada selección
+  (`components/inspectorTabs.ts`), 3D, voltear, ancho/alto, volumen con fotogramas clave, panorámica, 116 voces del
+  Modificador de voz, curvas propias, transiciones de texto y de audio, formas de verdad (`shapeStyle`), «Aplicar a».
+- **Falta:** clonar voz (sigue solo en el escritorio), «Ocultar por profundidad», efectos de audio como carril (en la
+  web siguen en la pestaña del clip, viajan como carril), tiradores 3D en la vista previa. Sin aislamiento entre
+  orígenes ORT va con un hilo: la IA sin WebGPU es lenta (COOP/COEP lo arreglaría; decisión de Jorge). Los medios
+  ocultos de la web (`webHidden`) salen visibles al abrir el `.flip` en el escritorio.
+- **Trampa de pruebas:** el Chromium de Playwright aquí no tiene WebGPU (`dxcompiler.dll`): `channel: "chrome"`.
+
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
    `.flip` (abrir `.flip`/`.drift`, guardar `.flip`).
