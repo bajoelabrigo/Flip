@@ -456,6 +456,14 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
 8. Lo demás de la tabla de arriba (efectos y transiciones que faltan, antes y después, contadores, IA en el
    navegador, 13 idiomas), en el orden aprobado de abajo.
 
+### Animación al pasar el mouse y menús fijos (2026-10-19, pedido de Jorge)
+- Al pasar el mouse se anima todo, como en el escritorio: Títulos reproducen su entrada (tras 0,35 s, 2,4 s por
+  vuelta, `TextStylePackThumb.qml`), Transiciones su tira (también sin corte elegido), Efectos y Filtros el antes y
+  después, Stock y Mis plantillas el video de vista previa de cualquier tipo que lo tenga (`StockThumb.qml`
+  `hasMotion`).
+- El buscador y las filas de chips de la biblioteca quedan fijos arriba mientras bajan las tarjetas (CSS al final de
+  `index.css`: `.text-panel > .asset-search`, `+ .chips`, `+ .chips + .chips`; y `.stock-head` en Stock).
+
 ### Trampas que ya costaron tiempo hoy
 - `public/avisos-terceros.html` **se genera** con `scripts/notices.mjs` en cada `npm run build`: lo que se edita a mano se pierde. Las dependencias entran solas; las fotos, modelos y gráficos se agregan en `graphics` dentro del script.
 - Las tarjetas deshabilitadas (`:disabled`) no reciben `:hover` en las reglas con `:not(:disabled)`: el antes y después tiene que verse igual sin clip elegido, así que esas reglas van sin ese filtro.
