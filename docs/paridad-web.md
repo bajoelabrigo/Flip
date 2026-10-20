@@ -63,7 +63,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Arrastre «tipo tetris» | 0.18 | ❓ | |
 | Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (la web no tiene composiciones anidadas) |
 | Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
-| Curvas de velocidad | sí | ⬜ | Solo se conservan al abrir un `.drift` |
+| Curvas de velocidad | sí | ✅ | Velocidad › Curva: rampas de CapCut (Montaje, Héroe, Bala, Salto, Destellos) y editor de puntos; vista previa, exportación, cortes y `.flip` (2026-10-19). Las tangentes Bézier del escritorio se leen como curvas suaves |
 | Estabilizar | sí | ⬜ | Solo se conserva al abrir un `.drift` |
 
 ### Efectos, transiciones, color
