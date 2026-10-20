@@ -34,7 +34,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Pestaña Escenas (Medios) | sí | ✅ | Buscar escenas, sensibilidad, movimiento y sonido, saltar a la toma (2026-10-19); «Identificar objetos» solo en escritorio |
 | Filtros › LUTs y Efectos de color, Stickers › Máscaras | 0.16 | ✅ | `LibraryExtraPanels.tsx`: la galería de `LutPage` y las formas de máscara, sobre el clip seleccionado; Efectos de color = `EffectsPanel only="color"` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
-| Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
+| Idiomas de la app (13) | sí | ✅ | Los 16 del escritorio (2026-10-20): Ver › Idioma…, el árabe de derecha a izquierda |
 | Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ✅ | Abre los dos (documento + tabla de medios + blobs incrustados, que se guardan con el proyecto) y guarda `.flip` |
 
 ### Cuenta y Stock
@@ -213,7 +213,7 @@ y una fila de chips de texto. Ahora es `AssetsPanel.qml` tal cual:
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
   la web (etapa 2).
 - La rueda que pasa de una categoría a la siguiente (`CategoryScrollOn.tsx` ya existe para las bibliotecas).
-- Traducir la web a los 13 idiomas: hoy son textos en español a pelo.
+- ~~Traducir la web~~: hecho el 2026-10-20 (ver «Noche del 2026-10-20»).
 
 ### Séptima tanda (2026-10-19, Claude): el cromo de las pestañas, como AssetSearchBar y AssetCategoryChips
 Regla de Jorge: replicar el escritorio y comparar cada pestaña con su `.qml` antes de darla por hecha. Lo primero que
@@ -567,8 +567,14 @@ Cada cosa probada en el navegador (Playwright) y, lo que viaja en el `.flip`, ab
   descargado y el espacio), **Propiedades del proyecto**, **Información de depuración**, **Acerca de**.
 - **Fuera a propósito** (solo escritorio): Salir, Acceso de agente, Buscar actualizaciones, diseño móvil,
   tarjeta gráfica, claves de la nube. Lo de IA sigue apagado con «Solo en la app de escritorio por ahora».
-- **En curso al cerrar esta nota**: los idiomas (la base `src/i18n` ya está; falta pasar los textos por `t()` y
-  traducirlos).
+- **Idiomas**: los mismos del escritorio (inglés, portugués de Brasil y de Portugal, francés, italiano, polaco,
+  ruso, árabe, bengalí, cingalés, tagalo, vietnamita, japonés, coreano y chino simplificado), en Ver › Idioma…;
+  la primera vez, el del navegador. Los textos se escriben en español dentro de `t("…")` (en datos, `N_("…")` y
+  `t(label)` donde se dibujan; nunca `t()` al cargar el módulo). `node scripts/i18n-extract.mjs` junta los
+  textos en `src/i18n/strings.json` (2109) y `--check` dice cuántos tiene cada `src/i18n/<código>.json`. Las
+  palabras salen del escritorio (`drift_es.ts` español→inglés, unido con `drift_<idioma>.ts`). **Al añadir un
+  texto:** `t()`, correr el extractor y traducirlo en los 15 catálogos (si falta, sale en español).
+  **Trampa:** una variable local llamada `t` tapa la función; los agentes las renombraron (`tc`, `tpl`, `now`…).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos

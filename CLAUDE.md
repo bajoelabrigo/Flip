@@ -64,6 +64,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   velocidad, y el `.flip` llevando efectos, transiciones, audio, contadores y plantillas en los dos sentidos (probado
   con la 0.18.2). Qué falta, en `docs/paridad-web.md`.
 - **Jorge mandó la 0.18.2 a certificación (2026-10-19).**
+- **Editor web, noche del 2026-10-20 (desplegado, rama `web/paridad-1`):** todo lo que no necesita IA (los efectos y
+  transiciones del escritorio, cámara, curvas, guías, proxies, estabilizar, multicámara, plantillas propias, menú y
+  atajos completos, tema claro, Ajustes) y **los 16 idiomas** (`src/i18n`, `t()`/`N_()`, extractor
+  `scripts/i18n-extract.mjs`). Detalle y diferencias en `docs/paridad-web.md` › «Noche del 2026-10-20».
 - **Próxima versión del escritorio (en la rama `flip/macos`, sin compilar todavía):**
   - Actualizar sin vueltas (pedido de Jorge, 2026-10-19): al terminar la descarga se abre solo «Actualización
     lista» con «Reiniciar e instalar», aunque esté marcada la casilla de instalar al cerrar
