@@ -423,6 +423,25 @@ PanelFrame {
         dropStartSeconds = snapped.start
         dropDurationSeconds = duration
         snapGuideSeconds = snapped.guide
+        // CapCut opens the space while the clip is still in the air: the clips the drop would
+        // push right slide over now, and the outline sits where the clip will really land.
+        if (excludeClipId && !trimFollowActive) {
+            const room = EditorState.moveRoomPreview(excludeClipId, trackIndex, snapped.start)
+            if (room.start !== undefined)
+                dropStartSeconds = room.start
+            setRoomShift(room.ids || [], room.delta || 0)
+        }
+    }
+
+    function setRoomShift(ids, delta) {
+        if (ids.join("\n") !== rippleShiftIds.join("\n")) {
+            const map = {}
+            for (let i = 0; i < ids.length; ++i)
+                map[ids[i]] = true
+            rippleShiftMap = map
+            rippleShiftIds = ids
+        }
+        rippleShiftDelta = ids.length > 0 ? delta : 0
     }
 
     // Drops only the landing outline. dropCreatesNewTrack belongs to the
@@ -436,6 +455,8 @@ PanelFrame {
     function clearLandingPreview() {
         clearLandingOutline()
         dropCreatesNewTrack = false
+        if (!trimFollowActive)
+            setRoomShift([], 0)
     }
 
     function clearEffectDropHighlight() {

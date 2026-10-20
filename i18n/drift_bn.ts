@@ -813,7 +813,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -837,7 +837,7 @@
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>তারা</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -864,7 +864,7 @@
     <name>AdjustmentLayerInspector</name>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
@@ -3909,7 +3909,7 @@
     </message>
     <message>
         <source>Bars</source>
-        <translation type="unfinished">বার</translation>
+        <translation>বার</translation>
     </message>
     <message>
         <source>Freeform</source>
@@ -4887,7 +4887,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -7181,7 +7181,7 @@
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished">ধাপে ধাপে বিলম্ব</translation>
+        <translation>ধাপে ধাপে বিলম্ব</translation>
     </message>
     <message>
         <source>By</source>
@@ -7253,7 +7253,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -7261,11 +7261,11 @@
     </message>
     <message>
         <source>Density</source>
-        <translation type="unfinished"></translation>
+        <translation>ঘনত্ব</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">আকার</translation>
+        <translation>আকার</translation>
     </message>
     <message>
         <source>Twinkle</source>
@@ -7325,7 +7325,7 @@
     </message>
     <message>
         <source>Edge Softness</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রান্তের মসৃণতা</translation>
     </message>
     <message>
         <source>Spill Removal</source>
@@ -7337,7 +7337,7 @@
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Teal Shadows</source>
@@ -7645,7 +7645,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>দূরত্ব</translation>
     </message>
     <message>
         <source>Edge softness</source>
@@ -7809,7 +7809,111 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>জুম</translation>
+    </message>
+    <message>
+        <source>Bars</source>
+        <translation>বার</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>বড় পিক্সেল</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>সেল</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>বৃত্ত</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>ভাঁজের ব্যাসার্ধ</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>বিভাজক</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>বিন্দু</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>ফোঁটা</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>প্রান্তের বিস্তারিত</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>ভাঁজ</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>বিভাজন</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>গ্লো</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>হৃদয়</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>টুকরো</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>পিছিয়ে যাওয়া</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>রিং</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>ঝাঁকুনি</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>শিখর</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>ছিটা</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>তারা</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>ট্রেইল</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>ডোরা</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>স্ট্রোক</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>টাইল</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>ঢেউয়ের উচ্চতা</translation>
     </message>
     <message>
         <source>Duotone</source>
@@ -8485,7 +8589,7 @@
     </message>
     <message>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>ঘূর্ণি</translation>
     </message>
     <message>
         <source>Crossfade</source>
@@ -8565,7 +8669,7 @@
     </message>
     <message>
         <source>Motion Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>মোশন ব্লার</translation>
     </message>
     <message>
         <source>Specular</source>
@@ -8693,7 +8797,7 @@
     </message>
     <message>
         <source>Channel Split</source>
-        <translation type="unfinished"></translation>
+        <translation>চ্যানেল বিভাজন</translation>
     </message>
     <message>
         <source>Tear Bands</source>
@@ -8725,7 +8829,7 @@
     </message>
     <message>
         <source>Tear Roughness</source>
-        <translation type="unfinished"></translation>
+        <translation>ছেঁড়ার রুক্ষতা</translation>
     </message>
     <message>
         <source>Triangle Mosaic</source>
@@ -8833,7 +8937,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Echo</source>
@@ -8965,7 +9069,7 @@
     </message>
     <message>
         <source>Band Width</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্যান্ডউইথ</translation>
     </message>
     <message>
         <source>Muffled</source>
@@ -9105,7 +9209,7 @@
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished">টলমল</translation>
+        <translation>টলমল</translation>
     </message>
     <message>
         <source>Anime Punch</source>
@@ -9437,7 +9541,7 @@
     </message>
     <message>
         <source>Tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>হেলানো</translation>
     </message>
     <message>
         <source>Sway</source>
@@ -9445,7 +9549,7 @@
     </message>
     <message>
         <source>Swing</source>
-        <translation type="unfinished"></translation>
+        <translation>দোলনা</translation>
     </message>
     <message>
         <source>Tracking drift</source>
@@ -11066,7 +11170,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Depth effects follow one clip&apos;s depth. Add this to a clip rather than to an adjustment layer.</source>
@@ -11126,7 +11230,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Decay: %1%</source>
@@ -12562,7 +12666,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -12924,7 +13028,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>LUT intensity</source>
@@ -13604,7 +13708,7 @@
     </message>
     <message>
         <source>Bars</source>
-        <translation type="unfinished">বার</translation>
+        <translation>বার</translation>
     </message>
     <message>
         <source>Freeform</source>
@@ -14606,7 +14710,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Ambient</source>
@@ -15040,7 +15144,7 @@
     </message>
     <message>
         <source>Gap</source>
-        <translation type="unfinished"></translation>
+        <translation>বিভাজন</translation>
     </message>
     <message>
         <source>Viewport</source>
@@ -15056,7 +15160,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>জুম</translation>
     </message>
 </context>
 <context>
@@ -15071,7 +15175,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>জুম</translation>
     </message>
 </context>
 <context>
@@ -17590,7 +17694,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">আকার</translation>
+        <translation>আকার</translation>
     </message>
     <message>
         <source>100% (system)</source>
@@ -18051,7 +18155,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished">টলমল</translation>
+        <translation>টলমল</translation>
     </message>
     <message>
         <source>Seed</source>
@@ -18087,7 +18191,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Angle</source>
@@ -20316,7 +20420,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Flicker</source>
@@ -20939,7 +21043,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Range</source>
@@ -20963,7 +21067,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>দূরত্ব</translation>
     </message>
     <message>
         <source>Adjust shadow</source>
@@ -20987,7 +21091,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Save as my style…</source>
@@ -21214,7 +21318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
     <message>
         <source>Lift</source>
@@ -21262,7 +21366,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished">গ্লো</translation>
+        <translation>গ্লো</translation>
     </message>
     <message>
         <source>Background</source>
@@ -23358,7 +23462,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">গভীরতা</translation>
+        <translation>গভীরতা</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -24787,7 +24891,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>তারা</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -25123,7 +25227,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">তীব্রতা</translation>
+        <translation>তীব্রতা</translation>
     </message>
 </context>
 <context>

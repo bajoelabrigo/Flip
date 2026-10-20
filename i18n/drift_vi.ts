@@ -7775,6 +7775,110 @@
         <translation>Thu phóng</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>Thanh</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>Điểm ảnh lớn hơn</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>Ô lưới</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>Vòng tròn</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>Bán kính nếp gấp</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>Dấu phân cách</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>Điểm</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Giọt</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>Chi tiết viền</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>Nếp gấp</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>Khoảng cách</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Phát sáng</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>Trái tim</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>Mảnh</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>Lùi lại</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>Vòng tròn</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>Rung lắc</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>Đỉnh</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>Vệt bắn</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Ngôi sao</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>Vệt sáng</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>Dải</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>Nét vẽ</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>Quét</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>Khảm</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>Độ cao sóng</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>Hai tông màu</translation>
     </message>

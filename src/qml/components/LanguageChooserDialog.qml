@@ -35,16 +35,9 @@ ThemedDialog {
         languageList.currentIndex = 0
     }
 
-    // The computer's own language, as close as the list has it: "es_PE" -> es_PE, else es, else en.
+    // The computer's own display language, as close as the list has it: "es_PE" -> es_PE, else es, else en.
     function systemChoice() {
-        const name = Qt.locale().name
-        const base = name.split("_")[0]
-        const langs = chooserLanguages
-        if (langs.some(l => l.id === name))
-            return name
-        if (langs.some(l => l.id === base))
-            return base
-        return "en"
+        return EditorState.preferences.suggestedUiLanguage()
     }
 
     function openChooser() {

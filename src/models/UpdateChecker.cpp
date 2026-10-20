@@ -978,12 +978,14 @@ void UpdateChecker::finishStage()
     setPreparing(false);
     setReadyToInstall(true);
     setProgress(1);
-    if (m_installOnQuit) {
+    if (m_installOnQuit)
         setStatus(tr("Flip Studio %1 will install when you close Flip Studio.").arg(m_latestVersion));
-    } else {
+    else
         setStatus(tr("Flip Studio %1 is ready to install.").arg(m_latestVersion));
-        emit installReady();
-    }
+    // The prompt to restart comes up as soon as the download is done, whether or not it was also set
+    // to install on close: the user pressed Update, so going back to the header badge to confirm is
+    // one step too many. Later still installs on close when that was chosen.
+    emit installReady();
 }
 
 void UpdateChecker::launchStagedInstall()

@@ -30,26 +30,27 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Cerrar el editor vuelve al inicio | 0.17 | ✅ | `Root.tsx` (`onHome`): «Inicio» en la cabecera y Archivo › Inicio |
 | Menú arriba (Archivo, Editar, Herramientas, Ver, Avanzado, Ayuda) con atajos | 0.16 | ✅ | `components/MenuBar.tsx`, con los mismos nombres y atajos y Ayuda › Atajos de teclado |
 | Fila de categorías sobre el panel de recursos | 0.16 | ✅ | Igual que `AssetsPanel.qml`: sin columna de iconos, las 9 categorías con el icono sobre el nombre y la lista lateral de 152 px con las pestañas de la abierta (oculta si tiene una sola), con los nombres del escritorio. El panel abre tan ancho como la fila (`panelSizes.ts`, clave `v2`) |
-| Pestañas Escenas (Medios) y Efectos de audio (Audio) | sí | ⬜ | Están en la lista con una página que dice qué hacen y «Descargar app» (`NotYetPanel`) |
+| Pestaña Efectos de audio (Audio) | sí | ✅ | Los 31 del escritorio, con su pestaña en el inspector (2026-10-19) |
+| Pestaña Escenas (Medios) | sí | ✅ | Buscar escenas, sensibilidad, movimiento y sonido, saltar a la toma (2026-10-19); «Identificar objetos» solo en escritorio |
 | Filtros › LUTs y Efectos de color, Stickers › Máscaras | 0.16 | ✅ | `LibraryExtraPanels.tsx`: la galería de `LutPage` y las formas de máscara, sobre el clip seleccionado; Efectos de color = `EffectsPanel only="color"` |
 | Panel izquierdo con barra de iconos e inspector derecho con su barra | 0.9.x | ✅ | |
-| Idiomas de la app (13) | sí | ⬜ | La web está solo en español: no tiene capa de traducción |
+| Idiomas de la app (13) | sí | ✅ | Los 16 del escritorio (2026-10-20): Ver › Idioma…, el árabe de derecha a izquierda |
 | Proyectos `.flip` (abrir `.flip` y `.drift`, guardar `.flip`) | sí | ✅ | Abre los dos (documento + tabla de medios + blobs incrustados, que se guardan con el proyecto) y guarda `.flip` |
 
 ### Cuenta y Stock
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
-| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con todo lo de `delivery: media` y `lut` (música, sonidos, stickers, superposiciones, fondos, filtros, fotos y videos). Plantillas, looks, estilos de texto, transiciones y formas salen marcados «app» |
-| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Falta: los favoritos de la web siguen en el navegador, no en la cuenta (`/v1/me/favorites` usa los grupos del escritorio) |
+| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con `media`, `lut`, plantillas de escena **looks** (los 208 con todos sus efectos; van al clip seleccionado y a Mis efectos) y **transiciones** (2026-10-19: lee el `.driftfx`, comprueba su firma SHA-256 y pasa el shader a WebGL2 con `transitions/desktopShader.ts`; las 223 compilan; quedan en Transiciones › Stock). y **formas** (Formas › Stock, con su color y su proporción). y **estilos de texto** (a Títulos › Mis estilos, con `text/desktopTextStyle.ts`: degradado, contorno, sombra, brillo, extrusión, fondo y entrada; la misma conversión abre los textos de un `.flip` del escritorio). y **animaciones de texto** (Texto › Animación, galerías Entrada / Salida / Bucle; reproductor propio en `text/anim/textAnim.ts` — no el `TextAnimator.cpp` de Drift — con escalonado, vaivén y curvas; karaoke no, porque la web no tiene tiempos por palabra; el cursor de máquina de escribir y el barrido tampoco). **Ya se usan en la web todos los tipos de Stock.** Falta: llevar al `.flip` la animación de texto de Stock y los estilos instalados (cada app los guarda por su cuenta). Ojo: algunas miniaturas de Stock de estilos con cursiva («Tarjeta blanca», Lora) salieron rectas; la web la dibuja en cursiva, como dice el estilo. Las transiciones viajan en el `.flip` en los dos sentidos (`transitions/desktopKinds.ts`; probado con la 0.18.2) |
+| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Favoritos en la cuenta (2026-10-19) |
 | Biblioteca de la cuenta («Mis descargas») | 0.12 | ✅ | «Mi cuenta» (`AccountDialog.tsx`, se abre con la foto como en el escritorio): foto, plan, Favoritos por grupo y Descargas de Stock con «Usar» |
 | Pexels y Pixabay | 0.10 | ✅ | Pestañas Videos y Fotos, con la fuente como chip y la orientación como filtro; los archivos se bajan directo de sus CDN (CORS `*`, permitidos en la CSP) |
 
 ### Plantillas
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
-| Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ⬜ | Leer el mismo paquete (`FORMAT.md` en `tools/scene_templates`) |
-| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ⬜ | No hay: el «plantilla» de la web es texto y biblioteca |
+| Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ✅ | «Usar» abre el paquete de Stock (`templatePackage.ts`), pestaña Plantilla |
+| Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ✅ | Las 13 de un clip, como capa de ajuste «Plantilla: …» (`b1015`), y Efectos › Plantilla (`55155`); ritmo fijo de 120 BPM |
 | Guardar como plantilla / Mis plantillas | 0.13 | ⬜ | |
 
 ### Edición en la línea de tiempo
@@ -60,9 +61,9 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Congelar fotograma como CapCut | 0.17 | ✅ | `freezeFrame` corta en el cabezal, mete 3 s congelados y empuja el resto, igual que el escritorio |
 | Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | ✅ | `removeClipRippled` y los recortes con `ripple`, con el interruptor de la barra |
 | Arrastre «tipo tetris» | 0.18 | ❓ | |
-| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | 🟡 | Hay composiciones; falta la selección de pistas |
+| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (y desde el 2026-10-20 la web tiene composiciones: ver abajo) |
 | Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
-| Curvas de velocidad | sí | ⬜ | Solo se conservan al abrir un `.drift` |
+| Curvas de velocidad | sí | ✅ | Velocidad › Curva: rampas de CapCut (Montaje, Héroe, Bala, Salto, Destellos) y editor de puntos; vista previa, exportación, cortes y `.flip` (2026-10-19). Las tangentes Bézier del escritorio se leen como curvas suaves |
 | Estabilizar | sí | ⬜ | Solo se conserva al abrir un `.drift` |
 
 ### Efectos, transiciones, color
@@ -70,7 +71,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Efectos | 78 | 🟡 ~25 | Escribirlos desde cero, por categoría, con las mismas tarjetas |
 | Transiciones | 40 | 🟡 10 | Ídem |
-| Antes y después al pasar el mouse | 0.17–0.18 | ⬜ | |
+| Antes y después al pasar el mouse | 0.17–0.18 | ✅ | En Efectos (y Efectos de color), sobre las mismas fotos CC0 del escritorio (`public/effect-bases`, sin `beauty.jpg`, que es de Drift) y en Filtros (LUT) |
 | Filtros (LUT) y Efectos de color | 0.16 | 🟡 | Hay `LutPage.tsx` y `cubeLut.ts`; faltan las 200 LUT de Stock |
 | Máscaras | sí | 🟡 | Hay `MaskPage.tsx`; falta texto como máscara (tampoco está en el escritorio) |
 | Modos de fusión | sí | ✅ | |
@@ -79,16 +80,16 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Básico, Burbuja, Efectos y Animación como CapCut | 0.9.6 | ✅ | |
-| Contadores animados | 0.17–0.18 | ⬜ | `counterTextAt` y `counterSeconds` en el escritorio |
+| Contadores animados | 0.17–0.18 | ✅ | Texto › Básico › Contador (`text/counter.ts`, el `counterTextAt` del escritorio); van en el `.flip` (2026-10-19) |
 | Texto con IA (describir la idea) | 0.17 | ⬜ | MiniLM puede correr en el navegador |
 
 ### Audio
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
-| Mezclador y efectos de audio | sí | 🟡 | Hay `AudioMixer.tsx`; comparar con la pestaña de audio |
-| Golpes de música, cortes al ritmo | sí | ⬜ | |
-| Silencios, sonoridad, normalizar | sí | ⬜ | Solo hay volumen por clip |
+| Mezclador y efectos de audio | sí | ✅ | `AudioMixer.tsx` y los 31 efectos de audio (2026-10-19) |
+| Golpes de música, cortes al ritmo | sí | 🟡 | Análisis de golpes propio (`audio/beats.ts`) usado por las plantillas de efectos; «Ajustar los cortes al ritmo» en la pestaña Plantilla (`project/templateBeats.ts`, como `retimeTemplateSlotsToBeats`); faltan los marcadores de ritmo en la línea de tiempo |
+| Silencios, sonoridad, normalizar | sí | ✅ | «Normalizar a −14 LUFS» (BS.1770, `audio/loudness.ts`) y «Quitar silencios» por energía (`audio/silences.ts`, pausas de 0,6 s o más); las muletillas (eh, mmm) siguen solo en el escritorio, que usa la transcripción (2026-10-19) |
 
 ### IA
 | Función | Escritorio | Web | Notas |
@@ -105,7 +106,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Hasta 4K | sí | ✅ | La web llega a 4K60 |
 | 8K, H.265/AV1 | 0.12 | 🟡 | WebCodecs da H.264, VP9 y AV1 (no H.265); 8K depende del navegador |
-| GIF | sí | ⬜ | La web exporta MP4 (y WebM) |
+| GIF y solo audio | sí | ✅ | Exportar › Video / Audio (AAC .m4a o WAV) / GIF (gifenc, 240p–720p, 10–30 fps, hasta 60 s), como el diálogo del escritorio (2026-10-19) |
 
 ## Etapa 1 hecha (2026-10-19), en la rama `web/paridad-1`
 Lo que hoy se ve y se usa igual que en el escritorio:
@@ -212,7 +213,7 @@ y una fila de chips de texto. Ahora es `AssetsPanel.qml` tal cual:
 - Las categorías **Stock**, **Filtros** (LUT y efectos de color en una sola) y **Plantillas**, cuando existan en
   la web (etapa 2).
 - La rueda que pasa de una categoría a la siguiente (`CategoryScrollOn.tsx` ya existe para las bibliotecas).
-- Traducir la web a los 13 idiomas: hoy son textos en español a pelo.
+- ~~Traducir la web~~: hecho el 2026-10-20 (ver «Noche del 2026-10-20»).
 
 ### Séptima tanda (2026-10-19, Claude): el cromo de las pestañas, como AssetSearchBar y AssetCategoryChips
 Regla de Jorge: replicar el escritorio y comparar cada pestaña con su `.qml` antes de darla por hecha. Lo primero que
@@ -236,10 +237,19 @@ no cuadraba era el cromo, en todas las pestañas de catálogo a la vez:
 **Lo que aún no cuadra dentro de las pestañas** (siguiente en la lista, por orden del escritorio):
 1. **Medios**: hecha la fila «Buscar medios» con vista de cuadrícula/lista y el orden (octava tanda); **faltan las
    carpetas** («Nueva carpeta», ruta, mover/renombrar) y por eso también la vista de árbol, y el «Importar» partido.
-2. **Filtros › LUTs**: el escritorio lleva «Buscar filtros», chips y «Importar LUT…» en el cromo; la web solo tiene
-   la galería y el botón de Stock.
-3. **Formas**: el escritorio tiene categorías (`builtinShapeCategories`) y favoritos; la web es una lista plana.
-4. **Máscaras** y **Voz**: comparar su contenido pieza por pieza con `MasksTab.qml` y `SpeechTab.qml`.
+2. **Filtros › LUTs** ✅ (2026-10-19, `04055`): como `FiltersTab.qml` — «Buscar filtros», chips Looks / Importados,
+   la línea de ayuda con «Importar LUT…» y la galería (clic = al clip; la intensidad en Ajuste › LUT; clic derecho en
+   un importado lo borra).
+3. **Formas** ✅ (`2894c`): las 29 formas del escritorio (mismos ids, orden y nombres de `ShapeStyle.cpp`) en Básico,
+   Flechas, Bocadillos y Divertido, con favoritos (también en «Mi cuenta»). La web mantiene su fila de color y
+   Relleno/Contorno porque no tiene editor de formas en el panel derecho.
+4. **Máscaras** ✅ (`4d063`): como `MasksTab.qml` — ayuda, «Sujeto › Recortar sujeto…» e «Imagen o video como
+   máscara…» (los dos apagados: solo escritorio por ahora) y las 9 máscaras con el orden y nombres de
+   `maskCatalog` (también en Video › Máscara). **Voz** ✅ (`c0083`): como `SpeechTab.qml` — explicación, guion con
+   «N caracteres, unos N s», Voz (con «Voz nueva» apagado: clonar es del escritorio), Idioma y «Generar voz» /
+   «Detener». La web usa Velocidad donde el escritorio tiene Expresividad (Kokoro no tiene expresividad).
+5. **Detalles** ✅: espacio bajo el buscador de todas las pestañas de catálogo (Jorge: «muy pegado») y la estrella de
+   favoritos de los chips, que `.chips button` aplastaba en un punto.
 
 ### Octava tanda (2026-10-19, Claude): Medios, con la fila de `MediaAssetsTab.qml`
 - **Fila de controles** bajo la cabecera, como el escritorio: «Buscar medios» (filtra por nombre) y los tres botones
@@ -361,27 +371,102 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    el buscador arriba y chips con las categorías de su catálogo), Pegatinas y Formas. En el escritorio las pestañas
    de catálogo **no tienen cabecera con título** (`assetsHeader` se oculta y el buscador ocupa ese lugar); en la web
    casi todas tienen un `panel-head` con el nombre: quitarlo donde el escritorio no lo tiene.
-2. **El panel derecho** (propiedades) contra `PropertiesPanel.qml`: pestañas, iconos y orden según el tipo de clip
-   (video, imagen, audio, texto, capa de ajuste).
-3. **La cabecera** contra `EditorHeader.qml` (Jorge ya pidió Inicio, Guardar, Video y Descargar app a la derecha,
-   junto a Exportar; mirar qué más tiene el escritorio) y **el inicio** contra `StartScreen.qml` (el escritorio
-   tiene una tarjeta de la cuenta en el inicio; la web no).
-4. **Etapa 3: plantillas de escena** en la web, con el mismo paquete que el escritorio
+2. **El panel derecho** ✅ para video e imagen (2026-10-19, `d2671`): el orden y los grupos de
+   `PropertiesPanel.qml › tabs` con la línea entre grupos (General | Transformar, Video, Ajuste, Animación, Audio,
+   Velocidad | Fusión, Máscaras, Efectos), y Transformar, Fusión y Máscaras como pestañas propias. Estabilización no
+   está (no hay estabilizar en la web; el escritorio oculta lo que el clip no admite). **Falta**: revisar texto, audio,
+   capa de ajuste y la pestaña Transición de un clip.
+3. **La cabecera**: Jorge decidió (2026-10-19) **dejar Inicio, Guardar y Video a la derecha** (en el escritorio están a
+   la izquierda) y bajar «Web · beta» a la barra de abajo, junto a «Avisos de terceros», en el color del acento y sin
+   negrita (`276ec`). **El inicio** ✅ (`a1428`) como `StartScreen.qml`: barra con Crear proyecto, Stock, Extras y
+   Ajustes (estos dos apagados), «Descargar app» en el sitio de «Editar en línea» y la tarjeta de la cuenta; arriba
+   el formato y «Abrir proyecto»; el banner con su carrusel (cambia cada 5 s, se para con el mouse encima); la fila
+   de 7 herramientas con el icono arriba, cada una abre el proyecto nuevo en su pestaña; «Proyectos locales» con
+   buscar y cuadrícula/lista.
+4. **Etapa 3: plantillas de escena** ✅ en su mayor parte (2026-10-19, Claude). Hecho:
+   - **`.flip` entre escritorio y web** (`7acc7`): la web leía y escribía nombres inventados (`timelineStart`,
+     `"Video"`); un `.flip` del escritorio se abría vacío en la web y el de la web no abría en el escritorio. Ahora
+     `normalizeDesktopDoc` lee el formato real (`timelineStartUs`, tipos en minúscula, la caja `x/y/width/height`
+     en píxeles) y `webDocToDrift` lo escribe; el índice va en un marco zstd de bloques sin comprimir
+     (`zstdRawFrame`, la web no tiene compresor) y el contenedor es `1.2.0` (`ProjectBundle.h`). Probado en los dos
+     sentidos con la 0.18.2 de escritorio.
+   - **«Usar» de una plantilla** (`project/templatePackage.ts`, `8cbeb`): baja el zip (fflate), y la abre como
+     proyecto nuevo. Las **formas** del escritorio se dibujan a PNG (los 29 trazados de `ShapesPanel.SHAPES`) con su
+     color y su caja animada pasada a fotogramas clave; los **huecos** salen como «Tu foto aquí»; los **textos**
+     traen fuente, grosor, tamaño, color, caja (`TextClip.wrapWidth`) y entrada (estilos `desktop:…` en
+     `text/styles.ts`, que no salen en el panel). **182 caras** de fuentes de los paquetes del escritorio
+     (`scripts/desktop-fonts.py`, `src/text/fonts-desktop.css`, licencias en `public/fonts`).
+   - **Pestaña Plantilla** (`TemplatePanel.tsx`, `89976`): N de M llenos, un clic en un hueco, «Rellenar con varias
+     fotos…», textos y «Cambiar la música…»; la foto se recorta para cubrir el hueco (`Clip.slot`). Las formas y
+     los huecos no salen en Medios (`MediaItem.hidden`). **Mis plantillas** (`47e9c`) lista la biblioteca de la cuenta.
+   - **Efectos** (`2483c`): parámetros animados (`GpuEffect.keys`), «Zoom al ritmo» y «Sacudida» propios y la
+     tabla `EFFECT_MAP` (`driftBundle.ts`) de los del escritorio que la web tiene. Sin par todavía: duotono (colores),
+     desenfoque gaussiano, grado cinematográfico, destellos, estroboscopio.
+   - **Falta**: soltar una foto arrastrándola sobre un hueco; los efectos sin par; el fondo del proyecto
+     (`background` de la plantilla) cuando no hay una forma que lo tape.
+   Detalle original: con el mismo paquete que el escritorio
    (`Flip/tools/scene_templates/FORMAT.md`; el zip se baja con `/v1/market/downloads`, `delivery: "scene-template"`).
    Hace falta: abrir el zip, crear la composición en el cabezal y los huecos «Tu foto aquí» (`placeholderId`), que
    se rellenan con medios. Cuando esté, **Mis plantillas** deja de ser `NotYetPanel` y en Stock las plantillas dejan
    de decir «app» (`canUseInWeb` en `src/stock/stock.ts`).
-5. **Plantillas de efectos** (Intensidad, Caída, Ritmo; `EffectTemplateTag` en el escritorio): llenan la pestaña
-   Plantillas de efectos.
-6. **Efectos de audio** (Web Audio: eco, reverberación, ecualizador…) y **Escenas** (detectar dónde empieza cada
-   toma), para que esas dos pestañas dejen de ser `NotYetPanel`.
-7. **Favoritos en la cuenta:** hoy la web los guarda en el navegador (`src/layout/favorites.ts`, clave
-   `flip.favorites`). El servidor tiene `GET/PUT /v1/me/favorites` con los grupos del escritorio: hay que traducir
-   los nombres de grupo de la web a los del escritorio y sincronizar.
+5. **Plantillas de efectos** 🟡 (2026-10-19, Claude, `b1015`): `EffectTemplatesPanel.tsx` con las 13 plantillas de
+   un clip del escritorio (`src/effects/effectTemplates.ts`, generado de `Flip/effect-templates/*/template.json` con
+   los nombres de `drift_es.ts`; miniaturas en `public/effect-templates`). Un clic (o el «+») crea una capa de ajuste
+   «Plantilla: …» en una pista nueva justo encima del clip elegido (o el del cabezal), del mismo largo, con los
+   efectos y sus golpes a **120 BPM fijos** (`applyEffectTemplate.ts`: pico, caída en `decayMs`, plano hasta el
+   siguiente). Efectos propios nuevos: Destello (`strobe_flash`), Neón de bordes, Desenfoque giratorio y Cómic de
+   tramas. **Efectos › Plantilla** (`55155`, `TemplateEffectSection.tsx`): Intensidad, Caída, Ritmo y «Quitar
+   plantilla» rehacen los golpes con la fórmula de `writeTemplatePulse` (la capa lleva `Clip.template` y cada efecto
+   suyo `GpuEffect.templateLayer`; lo que el usuario añadió a mano se queda). **Siguen la música** (2026-10-19): `src/audio/beats.ts` (análisis propio,
+   no el `AudioOnsets` de Drift: flujo espectral, tempo por autocorrelación con preferencia por 120 BPM, rejilla de
+   golpes y compases) sobre la música de las pistas de audio bajo la capa (`audio/musicUnder.ts`); el ritmo fijo de
+   120 BPM queda solo sin música, con el aviso del escritorio, y elegir Ritmo otra vez vuelve a escuchar. Probado con
+   un ritmo de 90 BPM: 8 golpes en 5 s y 2 compases. Ya hechos (2026-10-19): **todos** los efectos de las 13 plantillas tienen par en la web (bokeh,
+   cinematográfico, brillos, cielo con rayos, estela y el duotono del escritorio sobre «Dos tonos»; prueba en
+   `applyEffectTemplate.test.ts`), y el **`.flip` lleva los efectos de la web también en el formato del escritorio**
+   (`webEffectsToDesktop` en `driftBundle.ts`, con la etiqueta `template` de `Effect.cpp`): probado con la 0.18.2
+   sin ventana: la ve, la guarda con su etiqueta, y la web la vuelve a leer desde ese archivo (`desktopTemplateOf`).
+   Antes los efectos de la web solo iban en `web`, que el escritorio ignora. Arreglo de paso: un proyecto de formato
+   automático guardaba 1920×1080 en el `.flip`; ahora escribe el formato que muestra, con lados pares. Lo de abajo
+   ya no falta: y los efectos sin par (`bling_sparkle`, `bokeh_dream`, `cinematic_grade`, `duotone`,
+   `lightning_sky`, `motion_trail`: la plantilla sale sin ellos).
+6. **Efectos de audio** ✅ (2026-10-19, Claude): los 31 del escritorio (`src/audio/audioEffectCatalog.ts`, generado de
+   `Flip/audio-effects/*/audio-effect.json` con los nombres de `drift_es.ts`; miniaturas en `public/audio-effects`).
+   Cada uno se arma con nodos de Web Audio en `src/audio/audioEffects.ts` (`buildAudioChain`), **la misma cadena** en
+   la vista previa (`useSequencer.setGain` pasa el elemento por la cadena; se rehace solo si cambian los efectos) y en
+   la exportación (`EffectedClipAudio` en `export/exporter.ts`: lee el clip entero y lo pasa por un
+   `OfflineAudioContext`). Bitcrush, 8 bits, puerta de ruido y los cambios de tono (Ardilla, Voz grave, Señor oscuro)
+   usan nuestro AudioWorklet `public/audio-dsp.js`. Biblioteca: Audio › Efectos de audio (`AudioEffectsPanel.tsx`);
+   inspector: pestaña Efectos de audio (`AudioEffectsSection.tsx`: valores, subir/bajar, apagar, quitar). Van en el
+   `.flip` como los `audioEffects` del escritorio (probado con la 0.18.2: los abre con sus valores). Comprobado: los
+   31 cambian el sonido sin valores rotos (el ecualizador en 0 no cambia nada, como debe) y la exportación lleva el
+   eco (la pausa de un tono deja de estar en silencio). **Falta:** fotogramas clave de sus valores y arrastrar un
+   efecto sobre un clip. **Escenas** ✅ (2026-10-19): `src/scenes/detectScenes.ts` hace lo del detector
+   de contenido del escritorio (`engine/SceneDetect`): diferencia HSV de fotogramas de 64×36, umbral 27 por defecto,
+   tomas de al menos 0,5 s, movimiento y sonido relativos a la toma más activa, puntuación 0,6/0,4; miniatura del
+   medio de cada toma. `ScenesPanel.tsx` como `ScenesTab.qml` (sensibilidad 4–60 invertida, «Más activo primero» /
+   «En orden», un clic lleva el cabezal a la toma). Probado con un video de tres tomas hecho con ffmpeg: cortes en 2,00
+   y 4,00 exactos. **Ya no queda ninguna pestaña con `NotYetPanel`.** «Identificar objetos» sigue solo en el escritorio.
+7. **Favoritos en la cuenta** ✅ (2026-10-19): `src/account/favoritesSync.ts` con `GET/PUT /v1/me/favorites` y la
+   regla de `AppController::mergeAccountFavorites` (`favoritesMerge.ts`: la primera vez o con cambios aquí, la unión;
+   sincronizado y sin cambios, gana la cuenta), subida 1,5 s después de la última estrella. Los grupos son los del
+   escritorio: el `effectTemplates` de la web pasó a `templates` (se migra solo al leer). Probado en el navegador con
+   el servidor simulado (une, renombra y sube cada estrella). Los ids de los efectos de la web («vignette») no son
+   los del escritorio («stylize.vignette»): cada app ignora los que no conoce; traducirlos queda para después.
 8. Lo demás de la tabla de arriba (efectos y transiciones que faltan, antes y después, contadores, IA en el
    navegador, 13 idiomas), en el orden aprobado de abajo.
 
+### Animación al pasar el mouse y menús fijos (2026-10-19, pedido de Jorge)
+- Al pasar el mouse se anima todo, como en el escritorio: Títulos reproducen su entrada (tras 0,35 s, 2,4 s por
+  vuelta, `TextStylePackThumb.qml`), Transiciones su tira (también sin corte elegido), Efectos y Filtros el antes y
+  después, Stock y Mis plantillas el video de vista previa de cualquier tipo que lo tenga (`StockThumb.qml`
+  `hasMotion`).
+- El buscador y las filas de chips de la biblioteca quedan fijos arriba mientras bajan las tarjetas (CSS al final de
+  `index.css`: `.text-panel > .asset-search`, `+ .chips`, `+ .chips + .chips`; y `.stock-head` en Stock).
+
 ### Trampas que ya costaron tiempo hoy
+- `public/avisos-terceros.html` **se genera** con `scripts/notices.mjs` en cada `npm run build`: lo que se edita a mano se pierde. Las dependencias entran solas; las fotos, modelos y gráficos se agregan en `graphics` dentro del script.
+- Las tarjetas deshabilitadas (`:disabled`) no reciben `:hover` en las reglas con `:not(:disabled)`: el antes y después tiene que verse igual sin clip elegido, así que esas reglas van sin ese filtro.
 - `npx tsc --noEmit -p .` no revisa nada en `flipstudio-app`: usar `npx tsc -b`.
 - Desde Git Bash, un `python - <<'EOF'` largo y con comillas puede romperse («unexpected EOF»): escribir el script
   en un archivo y correrlo con `python -I archivo.py`.
@@ -414,6 +499,82 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   por ahora»** (pendientes en la web): Quitar silencios, Mejorar audio, Mejorar video, Repetir el tramo, Añadir capa
   de transformación, Añadir cámara y Editor de curvas. Recortar y Quitar fondo abren Video › Básico / Eliminar
   fondo (`openVideoPage` en `VideoSection.tsx`, evento `flip:inspector` en `InspectorPanel.tsx`).
+
+- **Menús de clic derecho (2026-10-19, commit «Clip and media menus as the desktop's…»)**: el del clip es el de
+  `TimelineClipMenu` ítem por ítem (Propiedades, Crear composición, Añadir capa de transformación, Agregar capa de
+  ajuste, Dividir, Separar audio, Recortar…, Cortar, Copiar, Pegar atributos… con su diálogo, Duplicar, Cambiar
+  nombre…, Pegar efectos, Eliminar) y el de Medios el de `MediaAssetsTab` (Añadir, Recortar/encuadrar, Cambiar
+  nombre, Reemplazar medio, Guardar como, Eliminar). **Apagados en la web**: Transición con IA al siguiente clip,
+  Convertir a formato optimizado, Mejorar video, Crear proxy.
+- **Composiciones (2026-10-20, `6776d`)**: `timeline/composite.ts`. «Crear composición» (un clip, o los elegidos
+  con Ctrl) los pasa a una secuencia propia (`Doc.sequences`, `Clip.sequence`) y deja un clip morado con la
+  miniatura de lo de adentro; sale en **Medios** (Añadir, Editar, Cambiar nombre, Eliminar). **Doble clic** entra
+  (la barra muestra «Principal › Composición 1», clic en Principal vuelve), lo que se edita adentro se guarda en la
+  secuencia y deshacer funciona en las dos. **Desagrupar** devuelve los clips. La vista previa y la exportación las
+  aplanan (`flattenDoc`).
+  - **2026-10-20 (`33f0b`):** lo de adentro se dibuja en su propio lienzo y se coloca con la transformación,
+    animación, efectos, máscara y fusión del clip de la composición (`FrameLayer` «group» en `render/frame.ts`,
+    vista previa y exportación). Desagrupar se niega si la composición tiene aspecto propio, con el mensaje del
+    escritorio (`compositeHasOwnLook`). El `.flip` guarda y lee las composiciones **como el escritorio**
+    (`sequences`, clip `composite` con `sequenceId` y su elemento en Medios `composite-<id>`): probado abriendo un
+    `.flip` de la web en la 0.18.2 (`list_composites`, la caja al 50 %).
+  - **2026-10-20 (`b3f81`):** velocidad constante propia (sin curva: lo de adentro guarda las suyas), volumen y
+    fundidos (`Clip.outer`, que aplica `clipGain`), y transiciones hacia o desde una composición (su contenido es la
+    imagen de ese lado; lo que llega al corte sigue pasado el corte, como el archivo de un clip). Desagrupar también
+    se niega con velocidad, volumen o fundidos propios. **Falta:** efectos de audio propios de la composición.
+  - **Trampa:** la captura `capture full:true` del escritorio **sin ventana** salió negra hasta con un `.flip` que ya
+    estaba comprobado: para ver píxeles hace falta `--window`. La comprobación de datos (`inspect`) sí sirve.
+- **«Recortar, encuadrar y escalar…» de Medios (2026-10-20, `2a5ac`)**, como `MediaPreviewWindow.qml`: reproducir,
+  Fijar entrada/salida (I/O, o los extremos de la tira), recuadro con candado de proporción, Restablecer; Medios guarda
+  el tramo y el recorte (`MediaItem.trim`/`frame`) y los clips nuevos empiezan así. Los videos pasan a «¿Escalar este
+  video?»: **Escalar…** crea un video nuevo en Medios a 720p, 1080p, 2K o 4K (`export/upscale.ts`, con el exportador;
+  **sin IA**: el escritorio abre su ventana Mejorar con modelos). Imagen y audio: «Vista previa y edición…».
+  **Girar** (2026-10-20, `b3f81`): 90° al momento, en el elemento y en todos sus clips (`MediaItem.rotate`,
+  `Clip.rotate`; la imagen se gira antes del recorte, el encaje y los efectos). El `.flip` lleva `trimInUs`,
+  `trimOutUs`, `sourceFrame` y `rotationOverride` del elemento, y `sourceFrame` y `rotationCorrection` de cada clip:
+  la 0.18.2 los lee y los vuelve a guardar iguales (comprobado). **Trampa:** el `inspect` del escritorio devuelve
+  `sourceFrame: null` siempre (un `QRectF` no pasa a JSON): para ver si llegó, guardar con `save_project` y leer el
+  manifiesto (zstd).
+
+## Noche del 2026-10-20 (Claude, con agentes en paralelo): todo lo que no necesita IA
+
+Cada cosa probada en el navegador (Playwright) y, lo que viaja en el `.flip`, abierto en la 0.18.2. Desplegado.
+- **Efectos (26 nuevos, `effects/library2.ts`) y transiciones (28 nuevas, `transitions/library2.ts`)**: ya están
+  todos los del escritorio que no son de IA, escritos desde cero, con sus parámetros 1:1 en el `.flip`
+  (`LEGACY` vacío). Los que ya existían se alinearon a los parámetros del escritorio, con lectura de los viejos.
+  Parámetros de color (duotono). Categoría «Distorsión».
+- **Línea de tiempo**: Repetir el tramo, guía del imán (y arreglo: al mover un clip casi nunca se pegaba),
+  marcadores de ritmo y golpes, editor de curvas con tiradores Bézier (`KeyframeGraph.tsx`), cámara
+  (`render/camera.ts`, perspectiva real en WebGL, pista «Cámara» con fotogramas clave, en el `.flip`).
+- **Vista previa**: menú «⋯» con Calidad (Completa/Media/Un cuarto/Automático), Velocidad, Descodificación y
+  «Mantener visibles los tiradores de máscara»; guías y conjuntos de guías (editar arrastrando, en el proyecto y
+  el `.flip`), imán al centro y a los bordes, tecla G.
+- **Medios**: vista de árbol y carpetas dentro de carpetas; Crear/Eliminar proxy; Convertir a formato apto para
+  edición; Girar en «Recortar, encuadrar y escalar…»; tramo, encuadre y giro en el `.flip`.
+- **Máscaras**: «Imagen o video como máscara…» (luma/alfa, encaje, repetir, invertir), máscaras de forma como
+  carriles del escritorio en los dos sentidos, recortes de «Eliminar fondo» del escritorio, formas de biblioteca.
+- **Estabilizar** (`stabilize/`, Worker propio): modos «Corregir cada fotograma» y «Animar con fotogramas clave»,
+  suavizado, trípode; campos del escritorio en el `.flip`. **Diferencia**: el escritorio renderiza un video
+  nuevo; la web corrige al dibujar.
+- **Composiciones**: velocidad, volumen, fundidos y efectos de audio propios; transiciones con composiciones.
+- **Multicámara** (con sincronizar por el sonido) y **Detección de escenas** como el escritorio.
+- **Plantillas propias**: convertir en hueco / texto editable, «Guardar como plantilla…», «Hechas por ti» en Mis
+  plantillas, exportar/importar `.zip` en el formato del escritorio.
+- **`.flip`**: estilo de texto completo y animaciones de Stock (horneadas), cámara, fondo del proyecto,
+  rellenar pantalla, propiedades del proyecto.
+- **Menú y atajos** como `AppMenuBar.qml` y `defaultShortcuts`; **tema claro**; **Ajustes** (fondo del
+  proyecto, proxies, salida de audio, micrófono, tamaño, rueda, cuenta, reabrir el último), **Extras** (lo
+  descargado y el espacio), **Propiedades del proyecto**, **Información de depuración**, **Acerca de**.
+- **Fuera a propósito** (solo escritorio): Salir, Acceso de agente, Buscar actualizaciones, diseño móvil,
+  tarjeta gráfica, claves de la nube. Lo de IA sigue apagado con «Solo en la app de escritorio por ahora».
+- **Idiomas**: los mismos del escritorio (inglés, portugués de Brasil y de Portugal, francés, italiano, polaco,
+  ruso, árabe, bengalí, cingalés, tagalo, vietnamita, japonés, coreano y chino simplificado), en Ver › Idioma…;
+  la primera vez, el del navegador. Los textos se escriben en español dentro de `t("…")` (en datos, `N_("…")` y
+  `t(label)` donde se dibujan; nunca `t()` al cargar el módulo). `node scripts/i18n-extract.mjs` junta los
+  textos en `src/i18n/strings.json` (2109) y `--check` dice cuántos tiene cada `src/i18n/<código>.json`. Las
+  palabras salen del escritorio (`drift_es.ts` español→inglés, unido con `drift_<idioma>.ts`). **Al añadir un
+  texto:** `t()`, correr el extractor y traducirlo en los 15 catálogos (si falta, sale en español).
+  **Trampa:** una variable local llamada `t` tapa la función; los agentes las renombraron (`tc`, `tpl`, `now`…).
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos

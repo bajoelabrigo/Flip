@@ -3,6 +3,22 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.18.3 — Actualizar sin vueltas, mover clips como CapCut y todo en tu idioma
+
+- **Actualizar:** `UpdateChecker::finishStage` emite siempre `installReady`, así que «Actualización lista» se abre al
+  terminar la descarga aunque esté marcado instalar al cerrar.
+- **Mover con espacio en vivo:** `AppController::moveRoomPreview(clipId, track, start)` calcula, con las mismas reglas
+  que `moveClip`/`moveClipToTrack` (antes o después del clip que pisa, sin solapamiento, sin «Cerrar huecos», sin
+  fundido automático), dónde cae el clip y qué clips se correrían; `TimelinePanel.showLandingPreview` lo pasa a
+  `rippleShiftIds`/`rippleShiftDelta`, que ya dibujaba el recorte. El fundido automático se comprueba con
+  `autoCrossfadeOnTrack`. Prueba en `movingAClipOntoOthersOpensRoom`.
+- **Parámetros de las transiciones de Stock:** `tools/i18n/catalog_strings.py` añade `STOCK_TRANSITION_PARAMS` (los
+  de `flipstudio-app/src/transitions/stockParamLabels.ts`) al contexto `Catalog`; traducidos en los 16 catálogos con
+  las palabras de la web.
+- **Idioma del primer arranque:** `PreferencesController::suggestedUiLanguage()` usa `QLocale::system().uiLanguages()`
+  (idioma de pantalla) antes que `name()` (formato regional), y «Predeterminado del sistema» también.
+- **macOS:** `resources/macos/Drift.icon` y `Drift.icns` con el logo nuevo.
+
 ## 0.18.2 — Actualizar funciona otra vez, rellenar pantalla y «+» en Medios
 
 - **Actualizar:** `Main.qml` respondía a `Updates.quitRequested` con `window.close()`, que desde la 0.17 es la X del

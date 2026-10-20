@@ -145,6 +145,9 @@ public:
     void setUiLanguage(const QString &language);
     // First-launch chooser: persist the pick and never ask again. Settings uses setUiLanguage.
     Q_INVOKABLE void chooseUiLanguage(const QString &code);
+    // The first-launch chooser's preselection: the OS display language as close as the
+    // catalogs have it (es-PE -> es_PE, else es, else en).
+    Q_INVOKABLE QString suggestedUiLanguage() const;
     double uiScale() const { return m_uiScale; }
     double appliedUiScale() const;
     bool uiScaleNeedsRestart() const;

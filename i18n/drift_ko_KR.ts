@@ -7775,6 +7775,110 @@
         <translation>줌</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>막대</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>더 큰 픽셀</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>셀</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>원</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>접힘 반경</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>구분선</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>점</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>물방울</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>가장자리 디테일</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>접기</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>간격</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>블룸 / 글로우</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>하트</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>조각</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>뒤로 감기</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>고리</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>흔들기</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>스파이크</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>스플래시</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>별</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>잔상</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>띠</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>획</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>와이프</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>타일</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>파도 높이</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>듀오톤</translation>
     </message>

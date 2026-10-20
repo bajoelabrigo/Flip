@@ -42,9 +42,20 @@ def text_animation_strings(doc, out):
 # (textAnimationCommonParams in src/core/TextAnimationPreset.cpp).
 COMMON_TEXT_ANIMATION_PARAMS = ["Duration", "Stagger", "By", "Order", "Ease", "Your text"]
 
+# Downloaded rather than bundled: the parameter names of Stock's transitions (.driftfx packages
+# carry English only). Keep in step with flipstudio-app/src/transitions/stockParamLabels.ts.
+STOCK_TRANSITION_PARAMS = [
+    "Band Width", "Bars", "Biggest Pixels", "Cells", "Channel Split", "Circles", "Curl Radius",
+    "Density", "Depth", "Distance", "Divider", "Dots", "Drips", "Edge Detail", "Edge Softness",
+    "Folds", "Gap", "Glow", "Hearts", "Intensity", "Motion Blur", "Pieces", "Pull Back", "Rings",
+    "Shake", "Size", "Spikes", "Splatter", "Stagger", "Stars", "Streaks", "Strength", "Stripes",
+    "Strokes", "Sweeps", "Swing", "Swirl", "Tear Roughness", "Tiles", "Tilt", "Wave Height",
+    "Wobble", "Zoom",
+]
+
 
 def main():
-    strings = list(COMMON_TEXT_ANIMATION_PARAMS)
+    strings = list(COMMON_TEXT_ANIMATION_PARAMS) + STOCK_TRANSITION_PARAMS
     for pattern in ("effects/*/effect.json", "transitions/*/transition.json",
                     "audio-effects/*/audio-effect.json", "effect-templates/*/template.json"):
         for path in sorted(glob.glob(os.path.join(ROOT, pattern))):

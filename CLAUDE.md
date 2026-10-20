@@ -46,6 +46,57 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-19)
 
+### EN CURSO (2026-10-20 mediodía) — 0.18.3 del escritorio + IA en la web
+- **Escritorio 0.18.3:** todo hecho en `flip/macos` y **PR #28** abierto (pruebas corriendo, run 39460022207). Probado
+  en ventana el espacio en vivo al arrastrar. Falta: que pase el PR → merge → tag `v0.18.3` → `release.yml` → copia en
+  `versiones\FlipStudio-0.18.3` → `msstore.yml` (MSIX a `tienda\FlipStudio-Store\paquete-0.18.3`) → novedades en la
+  web. Notas de la Store en `docs/store-listing.md` («Notas para la Store (0.18.3)»). «Actualizar» con una
+  actualización real no se puede probar hasta la versión siguiente (el cambio vive en la 0.18.3).
+- **Web: ramas de agentes, cada una desde `web/paridad-1`, SIN unir todavía** (worktrees en `codigo\flipstudio-app-<x>`):
+  `web/ia-rostro` (retoque facial, hecho), `web/ia-cuerpo` (recortar personas con MediaPipe, cuerpo y cabello, hecho),
+  `web/ia-rife` (transición con IA y cámara lenta suave, hecho), `web/ia-sam` (SAM2 + texto con IA, en curso),
+  `web/ia-mejorar` (mejorar audio/video, profundidad, en curso), `web/pistas-inspector` (mover pistas + barra
+  derecha igual al escritorio; segunda tanda en curso). Modelos ya en el VPS: `/modelos/rostro`, `mediapipe-body`,
+  `rife-4.25`. Para cerrar: unir todas en `web/paridad-1` (conflictos en App.tsx, VideoSection.tsx, driftBundle.ts,
+  tracks.ts, gl.ts, index.css, notices.mjs), `onnxruntime-web` a `package.json`, extractor i18n + traducir los textos
+  nuevos a los 15 idiomas, tsc/vitest/build, probar, `deploy/deploy.sh`, y anotar en `docs/paridad-web.md`.
+- **Trampa (web):** ORT Web con WebGPU calcula mal la capa de 15 canales de RIFE (manchas): usar `rife_v4.25_web.onnx`
+  (`scripts/rife-web-model.py`, rellena a 16). El Chromium de Playwright no trae WebGPU aquí: `channel: "chrome"`.
+- **Ojo:** los medios ocultos de la web (`webHidden`: recortes, pelo) salen visibles al abrir el `.flip` en el escritorio.
+
+### 0.18.2 PUBLICADA (2026-10-19) — actualizar funciona otra vez, rellenar pantalla, «+» en Medios, logo nuevo
+- PR #27 → `main`, tag `v0.18.2`, release con instalador, portable y `SHA256SUMS`; copia en
+  `versiones\FlipStudio-0.18.2` (hashes comprobados). MSIX (run 39321601743) en
+  `tienda\FlipStudio-Store\paquete-0.18.2\FlipStudio-0.18.2.0-x64.msix`. Novedades en la web. Logos de la Store en
+  `tienda\FlipStudio-Store\logo-nuevo-2026-10-19`.
+- **Jorge (2026-10-20):** la 0.18.2 ya está en la Store y en el TXT `version`; probó el arrastre «tipo tetris», el
+  hover, mover con cerrar huecos y quitar imperfecciones, y escuchó la música de `por-escuchar`. Todo eso, cerrado.
+- **macOS** en la rama `flip/macos` (sin firma de Apple hasta el anuncio; luego Apple Developer $99). **Primer
+  `.dmg` compilado (run 39325198092, arm64)** en `pruebas\mac-0.18.2` (se llama `0.0.0-<commit>` porque no salió de un
+  tag); falta probarlo en un Mac. El icono de macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
+- Editor web (rama `web/paridad-1` de `flipstudio-app`, desplegado): seguir `docs/paridad-web.md`.
+- **Editor web, tanda del 2026-10-19 (todo desplegado, rama `web/paridad-1`):** plantillas de efectos (siguen la
+  música, Intensidad/Caída/Ritmo), «Ajustar los cortes al ritmo», 31 efectos de audio, Escenas, favoritos en la
+  cuenta, contadores, antes y después, **todos los tipos de Stock** (looks, transiciones `.driftfx`, formas, estilos
+  y animaciones de texto), exportar Video/Audio/GIF, varias pistas, normalizar −14 LUFS, quitar silencios, curvas de
+  velocidad, y el `.flip` llevando efectos, transiciones, audio, contadores y plantillas en los dos sentidos (probado
+  con la 0.18.2). Qué falta, en `docs/paridad-web.md`.
+- **Jorge mandó la 0.18.2 a certificación (2026-10-19).**
+- **Editor web, noche del 2026-10-20 (desplegado, rama `web/paridad-1`):** todo lo que no necesita IA (los efectos y
+  transiciones del escritorio, cámara, curvas, guías, proxies, estabilizar, multicámara, plantillas propias, menú y
+  atajos completos, tema claro, Ajustes) y **los 16 idiomas** (`src/i18n`, `t()`/`N_()`, extractor
+  `scripts/i18n-extract.mjs`). Detalle y diferencias en `docs/paridad-web.md` › «Noche del 2026-10-20».
+- **Próxima versión del escritorio (en la rama `flip/macos`, sin compilar todavía):**
+  - Actualizar sin vueltas (pedido de Jorge, 2026-10-19): al terminar la descarga se abre solo «Actualización
+    lista» con «Reiniciar e instalar», aunque esté marcada la casilla de instalar al cerrar
+    (`UpdateChecker::finishStage` emite siempre `installReady`). Antes, con la casilla (marcada por defecto), no
+    avisaba y había que volver al botón de arriba. **Probarlo en ventana** con una actualización real.
+  - Las transiciones de Stock muestran en inglés 22 nombres de parámetros («Cells», «Tiles», «Folds»…): faltan en
+    `drift_es.ts`. La web ya los traduce (`flipstudio-app/src/transitions/stockParamLabels.ts`): copiar de ahí.
+  - Lo de «Reiniciar» que volvía al inicio ya está arreglado en la 0.18.2 (`window.quitApp()`), pero solo funciona
+    **desde** la 0.18.2: quien actualiza desde 0.17–0.18.1 corre el código viejo. Para esos: cerrar con la X de la
+    pantalla de inicio (o Archivo › Salir) y el instalador arranca solo.
+
 ### 0.18.1 PUBLICADA (2026-10-19) — arreglos del control de calidad de la 0.18 — **detalle en `docs/plan-0.18.1.md`**
 - Control de calidad por MCP sin ventana (`tools/e2e/qa018/`, se corre en `pruebas\qa018`): 15 formatos, los 78 efectos
   y 40 transiciones, cada códec, texto, audio, subtítulos e IA. Arreglos: **Pintura al óleo** (shader con `flat`,
@@ -611,6 +662,11 @@ Apple, Samsung…). Revisarlas a tamaño completo, no en la hoja de contacto.
 refresco en cada uso y, si llega uno ya usado, cierra toda la familia (2026-10-14 22:34 UTC pasó). Si la app de
 prueba usó la cuenta (Stock, Mi cuenta), exportar `HKCU\Software\Flip Studio\Flip Studio\account` **después** de la
 prueba, restaurar la copia y volver a importar esa clave. Comprobar en Mongo (`sessions`, `revokedAt`) si hay dudas.
+
+**`reg export … /y` desde el Bash (Git Bash) falla** con «sintaxis incorrecta»: msys convierte `/y` en una ruta y no
+queda copia. Hacer la copia del registro **desde PowerShell** y comprobar que el archivo existe antes de lanzar la app.
+Y `flipstudio.exe --headless --mcp-stdio <proyecto>` arranca con la línea de tiempo vacía: abrir el proyecto con la
+llamada `load_project`.
 
 **La app escribe en el registro de Jorge aunque se lance para pruebas, incluso sin ventana:** anota el proyecto
 de prueba en `recentProjects`/`lastSessionPath` y guarda preferencias. Quitar solo `mcp/startOnLaunch` no basta:

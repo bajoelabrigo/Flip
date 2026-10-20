@@ -7849,6 +7849,110 @@
         <translation>Зум</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>Полосы</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>Крупнее пиксели</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>Ячейки</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>Круги</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>Радиус сгиба</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>Разделитель</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>Точки</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Капли</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>Детализация края</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>Складки</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>Промежуток</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Свечение</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>Сердечки</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>Части</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>Отдача</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>Кольца</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>Тряска</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>Пики</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>Брызги</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Звезда</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>Шлейфы</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>Полосы</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>Штрихи</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>Шторки</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>Мозаика</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>Высота волны</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>Дуотон</translation>
     </message>

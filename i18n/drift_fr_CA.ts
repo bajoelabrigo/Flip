@@ -7814,6 +7814,110 @@
         <translation>Zoom</translation>
     </message>
     <message>
+        <source>Bars</source>
+        <translation>Barres</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>Pixels plus gros</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>Cellules</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>Cercles</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>Rayon du pli</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>Séparateur</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>Points</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Gouttes</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>Détail du contour</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>Plis</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>Espacement</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Lueur</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>Cœurs</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>Pièces</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>Recul</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>Anneaux</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>Secousse</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>Pics</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>Éclaboussure</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>Étoile</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>Traînées</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>Bandes</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>Traits</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>Balayages</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>Mosaïques</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>Hauteur de la vague</translation>
+    </message>
+    <message>
         <source>Duotone</source>
         <translation>Bichromie</translation>
     </message>

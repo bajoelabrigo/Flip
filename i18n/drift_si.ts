@@ -813,7 +813,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -837,7 +837,7 @@
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>තරුව</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -864,7 +864,7 @@
     <name>AdjustmentLayerInspector</name>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Everything you put on this layer (effects, colour, masks) applies while it lasts, without touching the clips themselves. Stretch or move it on the timeline to change when it acts.</source>
@@ -4787,7 +4787,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>ගැඹුර (Depth)</translation>
     </message>
     <message>
         <source>Perspective</source>
@@ -7181,7 +7181,7 @@
     </message>
     <message>
         <source>Stagger</source>
-        <translation type="unfinished">Stagger</translation>
+        <translation>පියවරෙන් පියවර</translation>
     </message>
     <message>
         <source>By</source>
@@ -7253,7 +7253,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Threshold</source>
@@ -7261,11 +7261,11 @@
     </message>
     <message>
         <source>Density</source>
-        <translation type="unfinished"></translation>
+        <translation>ඝනත්වය</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">ප්‍රමාණය</translation>
+        <translation>ප්‍රමාණය</translation>
     </message>
     <message>
         <source>Twinkle</source>
@@ -7325,7 +7325,7 @@
     </message>
     <message>
         <source>Edge Softness</source>
-        <translation type="unfinished"></translation>
+        <translation>දාරයේ සුමට බව</translation>
     </message>
     <message>
         <source>Spill Removal</source>
@@ -7337,7 +7337,7 @@
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Teal Shadows</source>
@@ -7645,7 +7645,7 @@
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>දුර</translation>
     </message>
     <message>
         <source>Edge softness</source>
@@ -7809,7 +7809,111 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>විශාලනය</translation>
+    </message>
+    <message>
+        <source>Bars</source>
+        <translation>තීරු (Bars)</translation>
+    </message>
+    <message>
+        <source>Biggest Pixels</source>
+        <translation>විශාල පික්සල්</translation>
+    </message>
+    <message>
+        <source>Cells</source>
+        <translation>සෛල</translation>
+    </message>
+    <message>
+        <source>Circles</source>
+        <translation>කව</translation>
+    </message>
+    <message>
+        <source>Curl Radius</source>
+        <translation>නැමීමේ අරය</translation>
+    </message>
+    <message>
+        <source>Divider</source>
+        <translation>බෙදුම්කරු</translation>
+    </message>
+    <message>
+        <source>Dots</source>
+        <translation>ලක්ෂ්‍ය</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>බිංදු</translation>
+    </message>
+    <message>
+        <source>Edge Detail</source>
+        <translation>දාරයේ විස්තරය</translation>
+    </message>
+    <message>
+        <source>Folds</source>
+        <translation>නැමුම්</translation>
+    </message>
+    <message>
+        <source>Gap</source>
+        <translation>වෙන් කිරීම</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>දීප්තිය (Glow)</translation>
+    </message>
+    <message>
+        <source>Hearts</source>
+        <translation>හදවත්</translation>
+    </message>
+    <message>
+        <source>Pieces</source>
+        <translation>කොටස්</translation>
+    </message>
+    <message>
+        <source>Pull Back</source>
+        <translation>පසුපසට යාම</translation>
+    </message>
+    <message>
+        <source>Rings</source>
+        <translation>වළලු</translation>
+    </message>
+    <message>
+        <source>Shake</source>
+        <translation>සෙලවීම</translation>
+    </message>
+    <message>
+        <source>Spikes</source>
+        <translation>උච්ච</translation>
+    </message>
+    <message>
+        <source>Splatter</source>
+        <translation>ඉසිරීම</translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation>තරුව</translation>
+    </message>
+    <message>
+        <source>Streaks</source>
+        <translation>පසුපස රේඛා</translation>
+    </message>
+    <message>
+        <source>Stripes</source>
+        <translation>තීරු</translation>
+    </message>
+    <message>
+        <source>Strokes</source>
+        <translation>පහර (Strokes)</translation>
+    </message>
+    <message>
+        <source>Sweeps</source>
+        <translation>අතුගෑම්</translation>
+    </message>
+    <message>
+        <source>Tiles</source>
+        <translation>මොසෙයික්</translation>
+    </message>
+    <message>
+        <source>Wave Height</source>
+        <translation>රැල්ලේ උස</translation>
     </message>
     <message>
         <source>Duotone</source>
@@ -8485,7 +8589,7 @@
     </message>
     <message>
         <source>Swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>සුළිය</translation>
     </message>
     <message>
         <source>Crossfade</source>
@@ -8565,7 +8669,7 @@
     </message>
     <message>
         <source>Motion Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>චලන බොඳ කිරීම</translation>
     </message>
     <message>
         <source>Specular</source>
@@ -8693,7 +8797,7 @@
     </message>
     <message>
         <source>Channel Split</source>
-        <translation type="unfinished"></translation>
+        <translation>නාලිකා වෙන් කිරීම</translation>
     </message>
     <message>
         <source>Tear Bands</source>
@@ -8725,7 +8829,7 @@
     </message>
     <message>
         <source>Tear Roughness</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉරීමේ රළු බව</translation>
     </message>
     <message>
         <source>Triangle Mosaic</source>
@@ -8833,7 +8937,7 @@
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>ගැඹුර (Depth)</translation>
     </message>
     <message>
         <source>Echo</source>
@@ -8965,7 +9069,7 @@
     </message>
     <message>
         <source>Band Width</source>
-        <translation type="unfinished"></translation>
+        <translation>කලාප පළල</translation>
     </message>
     <message>
         <source>Muffled</source>
@@ -9105,7 +9209,7 @@
     </message>
     <message>
         <source>Wobble</source>
-        <translation type="unfinished">සෙලවීම (Wobble)</translation>
+        <translation>සෙලවීම (Wobble)</translation>
     </message>
     <message>
         <source>Anime Punch</source>
@@ -9437,7 +9541,7 @@
     </message>
     <message>
         <source>Tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>ඇල කරන්න</translation>
     </message>
     <message>
         <source>Sway</source>
@@ -9445,7 +9549,7 @@
     </message>
     <message>
         <source>Swing</source>
-        <translation type="unfinished"></translation>
+        <translation>පැද්දීම</translation>
     </message>
     <message>
         <source>Tracking drift</source>
@@ -11126,7 +11230,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Decay: %1%</source>
@@ -12924,7 +13028,7 @@
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>LUT intensity</source>
@@ -15040,7 +15144,7 @@
     </message>
     <message>
         <source>Gap</source>
-        <translation type="unfinished"></translation>
+        <translation>වෙන් කිරීම</translation>
     </message>
     <message>
         <source>Viewport</source>
@@ -15056,7 +15160,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>විශාලනය</translation>
     </message>
 </context>
 <context>
@@ -15071,7 +15175,7 @@
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>විශාලනය</translation>
     </message>
 </context>
 <context>
@@ -20316,7 +20420,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished"></translation>
+        <translation>ගැඹුර (Depth)</translation>
     </message>
     <message>
         <source>Flicker</source>
@@ -20903,7 +21007,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Range</source>
@@ -20927,7 +21031,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"></translation>
+        <translation>දුර</translation>
     </message>
     <message>
         <source>Adjust shadow</source>
@@ -20951,7 +21055,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strength</source>
-        <translation type="unfinished"></translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Save as my style…</source>
@@ -21214,7 +21318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
     <message>
         <source>Lift</source>
@@ -21262,7 +21366,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished">දීප්තිය (Glow)</translation>
+        <translation>දීප්තිය (Glow)</translation>
     </message>
     <message>
         <source>Background</source>
@@ -24787,7 +24891,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>තරුව</translation>
     </message>
     <message>
         <source>Heart</source>
@@ -25123,7 +25227,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">තීව්‍රතාව</translation>
+        <translation>තීව්‍රතාව</translation>
     </message>
 </context>
 <context>
