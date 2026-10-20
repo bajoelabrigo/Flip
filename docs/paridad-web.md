@@ -536,6 +536,40 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   `sourceFrame: null` siempre (un `QRectF` no pasa a JSON): para ver si llegó, guardar con `save_project` y leer el
   manifiesto (zstd).
 
+## Noche del 2026-10-20 (Claude, con agentes en paralelo): todo lo que no necesita IA
+
+Cada cosa probada en el navegador (Playwright) y, lo que viaja en el `.flip`, abierto en la 0.18.2. Desplegado.
+- **Efectos (26 nuevos, `effects/library2.ts`) y transiciones (28 nuevas, `transitions/library2.ts`)**: ya están
+  todos los del escritorio que no son de IA, escritos desde cero, con sus parámetros 1:1 en el `.flip`
+  (`LEGACY` vacío). Los que ya existían se alinearon a los parámetros del escritorio, con lectura de los viejos.
+  Parámetros de color (duotono). Categoría «Distorsión».
+- **Línea de tiempo**: Repetir el tramo, guía del imán (y arreglo: al mover un clip casi nunca se pegaba),
+  marcadores de ritmo y golpes, editor de curvas con tiradores Bézier (`KeyframeGraph.tsx`), cámara
+  (`render/camera.ts`, perspectiva real en WebGL, pista «Cámara» con fotogramas clave, en el `.flip`).
+- **Vista previa**: menú «⋯» con Calidad (Completa/Media/Un cuarto/Automático), Velocidad, Descodificación y
+  «Mantener visibles los tiradores de máscara»; guías y conjuntos de guías (editar arrastrando, en el proyecto y
+  el `.flip`), imán al centro y a los bordes, tecla G.
+- **Medios**: vista de árbol y carpetas dentro de carpetas; Crear/Eliminar proxy; Convertir a formato apto para
+  edición; Girar en «Recortar, encuadrar y escalar…»; tramo, encuadre y giro en el `.flip`.
+- **Máscaras**: «Imagen o video como máscara…» (luma/alfa, encaje, repetir, invertir), máscaras de forma como
+  carriles del escritorio en los dos sentidos, recortes de «Eliminar fondo» del escritorio, formas de biblioteca.
+- **Estabilizar** (`stabilize/`, Worker propio): modos «Corregir cada fotograma» y «Animar con fotogramas clave»,
+  suavizado, trípode; campos del escritorio en el `.flip`. **Diferencia**: el escritorio renderiza un video
+  nuevo; la web corrige al dibujar.
+- **Composiciones**: velocidad, volumen, fundidos y efectos de audio propios; transiciones con composiciones.
+- **Multicámara** (con sincronizar por el sonido) y **Detección de escenas** como el escritorio.
+- **Plantillas propias**: convertir en hueco / texto editable, «Guardar como plantilla…», «Hechas por ti» en Mis
+  plantillas, exportar/importar `.zip` en el formato del escritorio.
+- **`.flip`**: estilo de texto completo y animaciones de Stock (horneadas), cámara, fondo del proyecto,
+  rellenar pantalla, propiedades del proyecto.
+- **Menú y atajos** como `AppMenuBar.qml` y `defaultShortcuts`; **tema claro**; **Ajustes** (fondo del
+  proyecto, proxies, salida de audio, micrófono, tamaño, rueda, cuenta, reabrir el último), **Extras** (lo
+  descargado y el espacio), **Propiedades del proyecto**, **Información de depuración**, **Acerca de**.
+- **Fuera a propósito** (solo escritorio): Salir, Acceso de agente, Buscar actualizaciones, diseño móvil,
+  tarjeta gráfica, claves de la nube. Lo de IA sigue apagado con «Solo en la app de escritorio por ahora».
+- **En curso al cerrar esta nota**: los idiomas (la base `src/i18n` ya está; falta pasar los textos por `t()` y
+  traducirlos).
+
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
    `.flip` (abrir `.flip`/`.drift`, guardar `.flip`).
