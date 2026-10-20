@@ -61,7 +61,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Congelar fotograma como CapCut | 0.17 | ✅ | `freezeFrame` corta en el cabezal, mete 3 s congelados y empuja el resto, igual que el escritorio |
 | Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | ✅ | `removeClipRippled` y los recortes con `ripple`, con el interruptor de la barra |
 | Arrastre «tipo tetris» | 0.18 | ❓ | |
-| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (la web no tiene composiciones anidadas) |
+| Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (y desde el 2026-10-20 la web tiene composiciones: ver abajo) |
 | Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
 | Curvas de velocidad | sí | ✅ | Velocidad › Curva: rampas de CapCut (Montaje, Héroe, Bala, Salto, Destellos) y editor de puntos; vista previa, exportación, cortes y `.flip` (2026-10-19). Las tangentes Bézier del escritorio se leen como curvas suaves |
 | Estabilizar | sí | ⬜ | Solo se conserva al abrir un `.drift` |
@@ -499,6 +499,21 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   por ahora»** (pendientes en la web): Quitar silencios, Mejorar audio, Mejorar video, Repetir el tramo, Añadir capa
   de transformación, Añadir cámara y Editor de curvas. Recortar y Quitar fondo abren Video › Básico / Eliminar
   fondo (`openVideoPage` en `VideoSection.tsx`, evento `flip:inspector` en `InspectorPanel.tsx`).
+
+- **Menús de clic derecho (2026-10-19, commit «Clip and media menus as the desktop's…»)**: el del clip es el de
+  `TimelineClipMenu` ítem por ítem (Propiedades, Crear composición, Añadir capa de transformación, Agregar capa de
+  ajuste, Dividir, Separar audio, Recortar…, Cortar, Copiar, Pegar atributos… con su diálogo, Duplicar, Cambiar
+  nombre…, Pegar efectos, Eliminar) y el de Medios el de `MediaAssetsTab` (Añadir, Recortar/encuadrar, Cambiar
+  nombre, Reemplazar medio, Guardar como, Eliminar). **Apagados en la web**: Transición con IA al siguiente clip,
+  Convertir a formato optimizado, Mejorar video, Crear proxy.
+- **Composiciones (2026-10-20, `6776d`)**: `timeline/composite.ts`. «Crear composición» (un clip, o los elegidos
+  con Ctrl) los pasa a una secuencia propia (`Doc.sequences`, `Clip.sequence`) y deja un clip morado con la
+  miniatura de lo de adentro; sale en **Medios** (Añadir, Editar, Cambiar nombre, Eliminar). **Doble clic** entra
+  (la barra muestra «Principal › Composición 1», clic en Principal vuelve), lo que se edita adentro se guarda en la
+  secuencia y deshacer funciona en las dos. **Desagrupar** devuelve los clips. La vista previa y la exportación las
+  aplanan (`flattenDoc`). **Falta:** transformación y efectos del clip de la composición (hoy no se aplican), y el
+  `.flip` las guarda **aplanadas** (`flattenForFile`): al abrirlo en el escritorio salen los clips sueltos, no la
+  composición; leer las composiciones del escritorio tampoco está.
 
 ## Orden aprobado por Jorge (2026-10-19)
 1. **Que se vea igual:** tema turquesa, inicio, menú arriba con atajos y fila de categorías completa; y proyectos
