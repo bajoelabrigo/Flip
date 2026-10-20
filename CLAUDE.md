@@ -63,6 +63,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
     lista» con «Reiniciar e instalar», aunque esté marcada la casilla de instalar al cerrar
     (`UpdateChecker::finishStage` emite siempre `installReady`). Antes, con la casilla (marcada por defecto), no
     avisaba y había que volver al botón de arriba. **Probarlo en ventana** con una actualización real.
+  - Las transiciones de Stock muestran en inglés 22 nombres de parámetros («Cells», «Tiles», «Folds»…): faltan en
+    `drift_es.ts`. La web ya los traduce (`flipstudio-app/src/transitions/stockParamLabels.ts`): copiar de ahí.
   - Lo de «Reiniciar» que volvía al inicio ya está arreglado en la 0.18.2 (`window.quitApp()`), pero solo funciona
     **desde** la 0.18.2: quien actualiza desde 0.17–0.18.1 corre el código viejo. Para esos: cerrar con la X de la
     pantalla de inicio (o Archivo › Salir) y el instalador arranca solo.
