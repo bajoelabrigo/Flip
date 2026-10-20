@@ -57,6 +57,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `.dmg` compilado (run 39325198092, arm64)** en `pruebas\mac-0.18.2` (se llama `0.0.0-<commit>` porque no salió de un
   tag); falta probarlo en un Mac. El icono de macOS (`resources/macos/Drift.icon`) sigue con el logo viejo.
 - Editor web (rama `web/paridad-1` de `flipstudio-app`, desplegado): seguir `docs/paridad-web.md`.
+- **Editor web, tanda del 2026-10-19 (todo desplegado, rama `web/paridad-1`):** plantillas de efectos (siguen la
+  música, Intensidad/Caída/Ritmo), «Ajustar los cortes al ritmo», 31 efectos de audio, Escenas, favoritos en la
+  cuenta, contadores, antes y después, **todos los tipos de Stock** (looks, transiciones `.driftfx`, formas, estilos
+  y animaciones de texto), exportar Video/Audio/GIF, varias pistas, normalizar −14 LUFS, quitar silencios, curvas de
+  velocidad, y el `.flip` llevando efectos, transiciones, audio, contadores y plantillas en los dos sentidos (probado
+  con la 0.18.2). Qué falta, en `docs/paridad-web.md`.
 - **Jorge mandó la 0.18.2 a certificación (2026-10-19).**
 - **Próxima versión del escritorio (en la rama `flip/macos`, sin compilar todavía):**
   - Actualizar sin vueltas (pedido de Jorge, 2026-10-19): al terminar la descarga se abre solo «Actualización
