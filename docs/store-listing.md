@@ -110,6 +110,24 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.18.3)**. Lo nuevo desde la 0.18.2 (que Jorge mandó a certificación el 2026-10-19). Texto de "Novedades de esta versión" del MSIX de la 0.18.3 (358 de 1500 caracteres; en inglés, 344). Si la 0.18.2 **no** llegó a aprobarse, usar las notas combinadas de abajo y añadirles estas cuatro líneas.
+
+> **Novedades de la 0.18.3**
+>
+> - Actualizar sin vueltas: al terminar de bajar la versión nueva aparece solo «Reiniciar e instalar».
+> - Mover clips como en CapCut: al arrastrar un clip sobre otros, los de la derecha se corren mientras lo arrastras.
+> - Las transiciones de Stock muestran sus ajustes en tu idioma.
+> - El primer arranque elige el idioma de tu Windows.
+
+En inglés:
+
+> **What's new in 0.18.3**
+>
+> - Updating without detours: once the new version is downloaded, "Restart and install" shows up on its own.
+> - Move clips like in CapCut: drag a clip over others and the ones to the right slide over while you drag.
+> - Stock transitions show their settings in your language.
+> - The first launch picks your Windows language.
+
 **Notas para la Store (0.17.0 + 0.18.0 + 0.18.1 + 0.18.2): ESTAS van con el MSIX de la 0.18.2.** Ni la 0.17.0, ni la 0.18.0, ni la 0.18.1 llegaron a la Store (el botón de actualizar no funcionaba desde la 0.17; la 0.18.2 lo arregla). Texto de "Novedades de esta versión" (1408 de 1500 caracteres; en inglés, 1296).
 
 > **Novedades (0.17.0 + 0.18.0 + 0.18.1 + 0.18.2)**
