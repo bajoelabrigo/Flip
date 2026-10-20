@@ -106,7 +106,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Hasta 4K | sí | ✅ | La web llega a 4K60 |
 | 8K, H.265/AV1 | 0.12 | 🟡 | WebCodecs da H.264, VP9 y AV1 (no H.265); 8K depende del navegador |
-| GIF | sí | ⬜ | La web exporta MP4 (y WebM) |
+| GIF y solo audio | sí | ✅ | Exportar › Video / Audio (AAC .m4a o WAV) / GIF (gifenc, 240p–720p, 10–30 fps, hasta 60 s), como el diálogo del escritorio (2026-10-19) |
 
 ## Etapa 1 hecha (2026-10-19), en la rama `web/paridad-1`
 Lo que hoy se ve y se usa igual que en el escritorio:
@@ -457,6 +457,8 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
    navegador, 13 idiomas), en el orden aprobado de abajo.
 
 ### Trampas que ya costaron tiempo hoy
+- `public/avisos-terceros.html` **se genera** con `scripts/notices.mjs` en cada `npm run build`: lo que se edita a mano se pierde. Las dependencias entran solas; las fotos, modelos y gráficos se agregan en `graphics` dentro del script.
+- Las tarjetas deshabilitadas (`:disabled`) no reciben `:hover` en las reglas con `:not(:disabled)`: el antes y después tiene que verse igual sin clip elegido, así que esas reglas van sin ese filtro.
 - `npx tsc --noEmit -p .` no revisa nada en `flipstudio-app`: usar `npx tsc -b`.
 - Desde Git Bash, un `python - <<'EOF'` largo y con comillas puede romperse («unexpected EOF»): escribir el script
   en un archivo y correrlo con `python -I archivo.py`.
