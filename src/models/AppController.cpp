@@ -1047,12 +1047,14 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
         caps << QStringLiteral("animatable") << QStringLiteral("audible") << QStringLiteral("retimable");
         break;
     case ClipType::Text:
+        // Masks cut a text the way they cut a picture (CapCut's text masks); the compositor
+        // places them on the text box, where the preview draws their handles.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("textStyled");
+             << QStringLiteral("textStyled") << QStringLiteral("maskable");
         break;
     case ClipType::Subtitle:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("textStyled")
-             << QStringLiteral("subtitle");
+             << QStringLiteral("subtitle") << QStringLiteral("maskable");
         break;
     case ClipType::Image:
         // A photo gets the same video pages as a video clip (masks, background removal, retouch,
@@ -16438,7 +16440,8 @@ QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
     if (clipIndex < 0 || clipIndex >= track.clips.size())
         return out;
     const drift::ClipType type = track.clips.at(clipIndex).type;
-    if (type != drift::ClipType::Video && type != drift::ClipType::Image)
+    if (type != drift::ClipType::Video && type != drift::ClipType::Image && type != drift::ClipType::Text
+        && type != drift::ClipType::Subtitle)
         return out;
 
     const QList<drift::ClipRef> refs =

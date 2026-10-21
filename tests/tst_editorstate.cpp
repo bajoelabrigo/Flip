@@ -127,6 +127,7 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void textClipTakesMasks();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
     void dropShapeOnNewTrackIsOneUndo();
@@ -629,6 +630,35 @@ void EditorStateTest::audioAdjustmentTrackArrivesWithAClip()
     state.undo();
     for (const drift::Track &t : state.project()->tracks())
         QVERIFY(!t.isAdjustment());
+}
+
+// CapCut's text masks: a selected text shows the Masks tab, and a mask added to it is listed as
+// its own, like a photo's.
+void EditorStateTest::textClipTakesMasks()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    QVERIFY(state.selectedClipData().value(QStringLiteral("caps")).toStringList().contains(QStringLiteral("maskable")));
+
+    const QString added = state.addMaskToClipInPlace(track, clip, QStringLiteral("ellipse"));
+    QVERIFY(!added.isEmpty());
+    int textTrack = -1, textClip = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        const drift::Track &tr = state.project()->tracks().at(t);
+        for (int c = 0; c < tr.clips.size(); ++c) {
+            if (tr.clips.at(c).type == drift::ClipType::Text) {
+                textTrack = t;
+                textClip = c;
+            }
+        }
+    }
+    QVERIFY(textTrack >= 0);
+    const QVariantList masks = state.linkedMaskClips(textTrack, textClip);
+    QCOMPARE(masks.size(), 1);
+    QCOMPARE(masks.first().toMap().value(QStringLiteral("id")).toString(), added);
 }
 
 void EditorStateTest::addTextClip()

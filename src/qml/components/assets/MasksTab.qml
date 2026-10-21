@@ -32,11 +32,8 @@ Item {
     }
 
     readonly property string clipKind: (clipData && clipData.kind) || ""
-    // Audio has no picture to cut into, and text and subtitles are composited from their own
-    // styling rather than a masked layer.
-    readonly property bool hasVisualSelection: EditorState.selectedClip >= 0
-                                               && clipKind !== "audio" && clipKind !== "text"
-                                               && clipKind !== "subtitle"
+    // Audio has no picture to cut into; everything else, text and subtitles included, takes a mask.
+    readonly property bool hasVisualSelection: EditorState.selectedClip >= 0 && clipKind !== "audio"
 
     // Shapes installed from Stock mask with their own outline, after the built-in masks.
     property int userShapesTick: 0
