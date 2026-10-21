@@ -54,6 +54,11 @@ no cambia nada.
 - **Ajustar como CapCut** (capturas `Downloadsjustes*.jpeg`, desplegado): una hoja con Predefinidos (efectos de
   color), Filtros (LUTs), Ajustar (botones redondos + un deslizador, `AdjustSection.tsx › TouchAdjustPage`) y
   Calidad del video (Mejorar video, Estabilización, Reducir ruido del audio).
+- **iPad = diseño de escritorio (Jorge, 2026-10-21, captura `DownloadsĘ67.jpg`):** CapCut en el iPad es su editor de
+  escritorio. El diseño táctil queda solo para celulares (`touch.ts`: menos de 700 px de ancho, o dedo y menos de
+  500 px de alto). En la tableta, la línea de tiempo de escritorio acepta el dedo (`Timeline.tsx`: toque = elegir,
+  deslizar = desplazar, mantener = mover, pellizcar = zoom, toque en el fondo = cabezal) y en vertical todo entra
+  en una pantalla (vista previa arriba, biblioteca y propiedades al medio, línea de tiempo abajo). Desplegado.
 - Falta (etapa 2): textos de ayuda que dicen «haz clic» o «panel de la derecha», arrastrar la hoja para
   agrandarla, mover textos y stickers con dos dedos en la vista previa, el teclado de iOS al escribir un texto,
   y probarlo en el iPad de Jorge. Etapa 3 (inicio con barra abajo) sin empezar.
