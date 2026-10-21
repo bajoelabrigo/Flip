@@ -85,6 +85,12 @@ visible hasta instalarla, un clic donde el navegador puede y, si no, los pasos d
 **Trampa:** las reglas de `touchWords.ts` del celular cambian «arriba a la derecha» por «el menú ⋯»: un texto que
 hable de otra cosa (el menú de Chrome) no debe usar esa frase.
 
+Arreglos tras probar Jorge en el iPad (2026-10-21, desplegados): con efecto o LUT, un video 4K o una foto del
+iPhone se veía a un cuarto (los efectos corren en un lienzo de 2048 px como máximo y se recortaba con las medidas
+del original: `compose.ts › effectPicture`; afectaba también a la exportación); el cabezal ya pasa del último clip;
+con proyecto vertical el separador horizontal ya no cruza la vista previa. **Trampa:** probar siempre con material
+de más de 2048 px (4K, fotos de 12 MP): con videos chicos el fallo de los efectos no se ve.
+
 ## Estado
 
 - 2026-10-21: **etapa 1 desplegada** en getflipstudio.com/editor (rama `web/movil`, commit `8ddf0`). Probado en
