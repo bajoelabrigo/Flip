@@ -42,13 +42,13 @@ no cambia nada.
 
 Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marca al desplegarla.
 
-- [ ] 9. Textos «haz clic» / «panel de la derecha» → «toca» / «abajo» en pantallas táctiles.
-- [ ] 3. Vibración al pegarse a un borde o al cabezal, al levantar un clip y al llegar a 0 en un deslizador.
-- [ ] 10. Almacenamiento persistente (`navigator.storage.persist`) y aviso «guarda una copia .flip».
-- [ ] 14. Aviso antes de exportar un video largo o pesado en tableta/celular, con tiempo estimado.
-- [ ] 16. Guía rápida la primera vez (tres burbujas: tocar, mantener, pellizcar).
+- [x] 9. Textos «haz clic» / «panel de la derecha» → «toca» / «abajo» en pantallas táctiles.
+- [x] 3. Vibración al pegarse a un borde o al cabezal, al levantar un clip y al llegar a 0 en un deslizador.
+- [x] 10. Almacenamiento persistente (`navigator.storage.persist`) y aviso «guarda una copia .flip».
+- [x] 14. Aviso antes de exportar un video largo o pesado en tableta/celular, con tiempo estimado.
+- [x] 16. Guía rápida la primera vez (tres burbujas: tocar, mantener, pellizcar).
 - [ ] 11. Instalar como app (manifiesto, iconos, `apple-mobile-web-app`, service worker de red primero).
-- [ ] 12. Compartir al terminar de exportar (`navigator.share` con el archivo: Fotos, TikTok, WhatsApp).
+- [x] 12. Compartir al terminar de exportar (`navigator.share` con el archivo: Fotos, TikTok, WhatsApp).
 - [ ] 5. Importar desde Fotos en iPhone/iPad (selector solo de imagen y video) y videos HEVC del iPhone.
 - [ ] 4. Tocar con tres dedos = deshacer, con dos = rehacer.
 - [ ] 1. Vista previa con dos dedos: pellizcar = escala, girar = rotación, un dedo = mover (clips y textos).
@@ -58,6 +58,11 @@ Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marc
 - [ ] 13. Vista previa liviana automática en tabletas (calidad automática y proxies para 4K).
 - [ ] 6. Inicio como CapCut en el celular (barra abajo: Editar, Plantillas, IA, Yo).
 - [ ] 15. Teclado externo y Apple Pencil en el iPad (atajos y lápiz como mouse).
+
+Tanda 1 desplegada (2026-10-21): 9, 3, 10, 14, 12 y 16, con pruebas (`touchWords.test.ts`, `haptics.test.ts`,
+`persist.test.ts`, `estimate.test.ts`) y probadas en Chrome emulando un iPad con Safari (sin `showSaveFilePicker`,
+`navigator.share` simulado). **Pendiente al final:** traducir a los 15 idiomas los textos nuevos de todo el diseño
+táctil (`node scripts/i18n-extract.mjs --check` dice cuántos faltan); hasta entonces se ven en español.
 
 ## Estado
 
