@@ -91,6 +91,12 @@ del original: `compose.ts › effectPicture`; afectaba también a la exportació
 con proyecto vertical el separador horizontal ya no cruza la vista previa. **Trampa:** probar siempre con material
 de más de 2048 px (4K, fotos de 12 MP): con videos chicos el fallo de los efectos no se ve.
 
+Audio en iPhone/iPad (2026-10-21, desplegado): no sonaba lo insertado porque Safari solo deja sonar un elemento de
+medios que se reprodujo dentro de un toque, y el editor los arranca silenciados y los activa desde su reloj. Al tocar
+Reproducir se crean y desbloquean todos (`useSequencer.ts › unlockAudio`), se reanuda el AudioContext y
+`navigator.audioSession.type = "playback"`. Avisos al agregar música/sonidos («Agregando…» y «… está en la línea de
+tiempo, en 0:05»). **Falta confirmarlo en un iPhone real** (Chrome no aplica esa regla de Safari).
+
 ## Estado
 
 - 2026-10-21: **etapa 1 desplegada** en getflipstudio.com/editor (rama `web/movil`, commit `8ddf0`). Probado en
