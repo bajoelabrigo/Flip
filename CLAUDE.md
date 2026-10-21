@@ -58,6 +58,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   a mano con todos los tipos (icp4…ic14) en PNG.
 - macOS: el `.dmg` sigue sin probar en un Mac (y sin firma de Apple hasta el anuncio).
 
+### Editor web en celulares y tabletas, como CapCut (2026-10-21, etapa 1 desplegada)
+- Pedido de Jorge tras probarlo en su iPad. Plan, estado y trampas en `docs/plan-movil.md` (rama `web/movil` de
+  `flipstudio-app`). Diseño táctil = mismo `Editor` con `TouchTimeline` + barra de abajo + hoja con los paneles.
+- **Trampa:** en iOS un `:hover` que muestra algo (estrella, «+») se come el primer toque: lo que sale al pasar el
+  mouse va siempre visible bajo `@media (hover: none)`.
+
 ### Página de inicio con videos (2026-10-21, desplegada, `flipstudio-web` `4a84b`)
 - Recorrido: «Plantillas de Stock» = plantilla vertical «Nueva colección» con las dos modelos de traje; «IA en tu
   PC» = antes/después del retoque + parapente de 120 fps a velocidad real y en cámara lenta. Fondos con video detrás
