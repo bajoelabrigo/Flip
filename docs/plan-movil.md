@@ -51,6 +51,9 @@ no cambia nada.
   siempre (vale también para el diseño de escritorio en una tableta).
 - **Safari no puede volver a abrir un archivo elegido** tras recargar (no hay `showOpenFilePicker`): ahí los
   bytes se guardan con el proyecto (`useProject.ts › canReopenFiles`), igual que lo que entra con el «+».
+- **Ajustar como CapCut** (capturas `Downloadsjustes*.jpeg`, desplegado): una hoja con Predefinidos (efectos de
+  color), Filtros (LUTs), Ajustar (botones redondos + un deslizador, `AdjustSection.tsx › TouchAdjustPage`) y
+  Calidad del video (Mejorar video, Estabilización, Reducir ruido del audio).
 - Falta (etapa 2): textos de ayuda que dicen «haz clic» o «panel de la derecha», arrastrar la hoja para
   agrandarla, mover textos y stickers con dos dedos en la vista previa, el teclado de iOS al escribir un texto,
   y probarlo en el iPad de Jorge. Etapa 3 (inicio con barra abajo) sin empezar.
