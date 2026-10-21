@@ -51,10 +51,10 @@ Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marc
 - [x] 12. Compartir al terminar de exportar (`navigator.share` con el archivo: Fotos, TikTok, WhatsApp).
 - [x] 5. Importar desde Fotos en iPhone/iPad (selector solo de imagen y video) y videos HEVC del iPhone.
 - [x] 4. Tocar con tres dedos = deshacer, con dos = rehacer.
-- [ ] 1. Vista previa con dos dedos: pellizcar = escala, girar = rotación, un dedo = mover (clips y textos).
-- [ ] 2. Guías magnéticas en la vista previa (centro y bordes) al mover con el dedo.
-- [ ] 7. Hoja de abajo que se arrastra (más alta o más baja).
-- [ ] 8. Vista previa a pantalla completa en el celular (doble toque o botón), también en iPhone.
+- [x] 1. Vista previa con dos dedos: pellizcar = escala, girar = rotación, un dedo = mover (clips y textos).
+- [x] 2. Guías magnéticas en la vista previa (centro y bordes) al mover con el dedo.
+- [x] 7. Hoja de abajo que se arrastra (más alta o más baja).
+- [x] 8. Vista previa a pantalla completa en el celular (doble toque o botón), también en iPhone.
 - [ ] 13. Vista previa liviana automática en tabletas (calidad automática y proxies para 4K).
 - [ ] 6. Inicio como CapCut en el celular (barra abajo: Editar, Plantillas, IA, Yo).
 - [ ] 15. Teclado externo y Apple Pencil en el iPad (atajos y lápiz como mouse).
@@ -69,6 +69,12 @@ Tanda 2 desplegada (2026-10-21): 11 (manifiesto, iconos, `sw.js` de red primero;
 `media/accept.ts`) y 4 (dos dedos = deshacer, tres = rehacer, como Procreate; `layout/gestures.ts`). Probado:
 instalación con los pasos de Safari (agente de usuario de iPad), recarga sin internet desde el service worker,
 deshacer/rehacer con toques simulados. **Trampa:** Chrome emulado reporta `maxTouchPoints` 1; un iPad real, 5.
+
+Tanda 3 desplegada (2026-10-21): 1 (`preview/pinch.ts`, en `PreviewTransform.tsx` y los textos de `Preview.tsx`),
+2 (los textos se pegan a bordes, centro y guías; la caja de los videos ya lo hacía; vibración al pegarse),
+7 (`layout/sheetDrag.ts`, manija en `TouchSheet`) y 8 (pantalla completa propia donde no hay API: iPhone;
+doble toque). **Trampa:** con punteros simulados `setPointerCapture` lanza `NotFoundError`; todo
+`setPointerCapture` nuevo va en `try`, si no el gesto se corta en las pruebas.
 
 ## Estado
 
