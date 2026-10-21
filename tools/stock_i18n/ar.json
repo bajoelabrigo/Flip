@@ -138,6 +138,7 @@
   "text-style:precios": "أسعار وعروض",
   "text-style:retro": "ريترو وألفية",
   "text-style:subtitulos": "ترجمات رائجة",
+  "text-style:tendencias": "الأكثر رواجًا",
   "text-style:tercios": "أشرطة سفلية",
   "text-style:terror": "رعب وغموض",
   "text-style:titulos": "عناوين",
@@ -32897,6 +32898,3383 @@
     "أحمر",
     "مبدع",
     "ريلز"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "افتتاحية بتوهج بنفسجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "بنفسجي"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "فقاعة زرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "فقاعة"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "فن أحمر بارز",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "أبيض بعمق وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "شريط أحمر بسطرين",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "خط يد حر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط يد"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "مرحبًا بك في القناة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترحيب"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "شريط أخبار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أخبار",
+    "شريط"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "أصفر كلاسيكي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "نص داخل الدخان",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "دخان"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "تعليق كوميكس سماوي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "منافسة كروم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كروم"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "شارة طاقم التمثيل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شارة"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "عنوان على خلفية بيضاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "يوميات السفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سفر",
+    "مذكرات"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "عرض حلوى ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ثلاثي الأبعاد",
+    "حلوى"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "وسم فوق العنوان",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "النهاية في صندوق أسود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أسود",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "النهاية تحت الضوء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "مجرة بتباعد الأحرف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مجرة"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "شكرًا ذهبي لامع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "شكرًا"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "شكرًا بالنجوم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شكرًا",
+    "نجوم"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "عنوان بشريط أرجواني",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "غرافيتي أسود بحافة بيضاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "أسود",
+    "غرافيتي"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "عنوان كبير بخطوط بنفسجية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "رمادي باهت",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "رمادي",
+    "باهت"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "منذ زمن بعيد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "ظهور من الدخان",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "دخان"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "كوميكس: لا يصدق!",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "كوميكس"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "لعبة أصفر كلاسيكية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "ريترو"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "عنوان نظيف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نظيف"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "شكرًا بين خطوط النيون",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "شكرًا"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "نيون وردي ساطع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "وردي"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "ذهب ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "حبة سوداء بنقطة حمراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "أسود",
+    "حبة"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "عنوان فيلم أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "فيلم"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "صغير فوق كبير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "حجر ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ثلاثي الأبعاد",
+    "حجر"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "حبة اسم المستخدم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حبة"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "خط مخطوط أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "خط سيريف مع عنوان فرعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "ترجمة صفراء على أسود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "ترجمة بصندوق أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "ترجمة",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "ترجمة بصندوق أسود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أسود",
+    "ترجمة",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "ترجمة سينمائية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فيلم",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "عنوان فرعي رفيع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "اشترك أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "اشتراك"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "شريط سفلي أبيض وسماوي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سماوي",
+    "أبيض",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "شريط ذهبي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "شريط"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "شريط سفلي أحمر بسهم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "عنوان رئيسي لليسار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "عنوان رئيسي"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "عنوان بشريط أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "عنوان مشتعل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نار"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "فلوق يومي بالكتابة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فلوق",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "أصفر بحافة سوداء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "أصفر بحافة حمراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "فن برتقالي متباعد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "فن أحمر ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "مسحة ضوء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مسحة"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "أساسي في الزاوية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أساسي"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "ترحيب تقني أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "ترحيب",
+    "تقنية"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "صندوق بنفسجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "كرتون ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كرتون",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "كرتون كلاسيكي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كرتون"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "سينمائي متباعد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "عنوان إعلاني بصندوق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "شارة المخرج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شارة"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "مائل مع تعليق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة",
+    "مائل"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "وميض ناري",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نار"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "توقيع بضوء أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "سيريف بسيط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف",
+    "بسيط"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "شكرًا بورق ممزق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شكرًا",
+    "ورق",
+    "ممزق"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "شكرًا متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "شكرًا"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "شعاع ذهبي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "شعاع"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "دخان أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "دخان"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "نبض القلب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "قلوب"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "صندوق تنبيه أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "إطار ليموني",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ليموني",
+    "إطار"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "عنوان بالكتابة الآلية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "معدن ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ثلاثي الأبعاد",
+    "معدن"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "كتلة بيضاء للأزياء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "أزياء"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "اهتزاز بسيط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بسيط"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "نيون وردي فاقع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "وردي"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "كلمة صوتية كوميكس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "عنوان بالجسيمات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جسيمات"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "ملصق سينمائي سيريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "ملصق كلاسيكي متراص",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "ترويج داكن",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترويج",
+    "داكن"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "قريبًا",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "توهج أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "توهج أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "سيريف حاد ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "ترجمة ديناميكية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "ترجمة صفراء على أسود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "اشترك بشريط أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "اشترك متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "اشتراك"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "شريط سفلي أزرق بحافة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "شريط سفلي بخط وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "شريط سفلي بحافة ملونة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "شريط سفلي برتقالي مائل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "شريط سفلي عريض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شريط سفلي",
+    "عريض"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "شريط سفلي تقني",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شريط سفلي",
+    "تقنية"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "كتلة المتجر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "متجر"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "عنوان بحبر الفرشاة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "عنوان بفرشاة زرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "فرشاة",
+    "عنوان رئيسي"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "عنوان بصندوق أزرق لامع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "عنوان بشريط أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "شريط"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "عنوان مع تمهيد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "ألوان مائية برتقالية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي",
+    "ألوان مائية",
+    "ماء"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "أحب الكلمات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حب"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "السنوات الذهبية ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "فن أصفر سميك",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "فن أزرق بهالة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "فن أحمر بحافة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "فن أحمر مائل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "مائل"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "فن بظل أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "عنوان بشريط جانبي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "أساسي في الوسط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "أساسي"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "أساسي صغير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أساسي"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "أساسي سفلي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أساسي"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "ملاحظة أساسية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أساسي",
+    "ملاحظة"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "توهج ملحمي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "توهج أحادي اللون",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "توهج نابض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "سقوط ناعم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ناعم"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "صندوق إبداعي بنفسجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "سينمائي معدني",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي",
+    "معدن"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "احتراق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "كوميكس ريترو ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس",
+    "ثلاثي الأبعاد",
+    "ريترو"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "خط مكثف مع عنوان فرعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "قائمة الشارات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شارة"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "مائل أنيق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مائل"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "مؤشر الكتابة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "انزلاق مع ضبابية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ضبابية"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "لقطات بارزة أساسية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أساسي"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "يوم جميل مهتز",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "تجدد المنافسة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "وردي حلو",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "عنوان بمؤثرات الألعاب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "كتابة بخط سيريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "وميض نجمة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نجوم"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "تدفق الضوء ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "عنوان كبير مع عنوان فرعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "شعاع ضوء أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شعاع"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "شتاء جليدي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شتاء",
+    "جليد"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "إشعاع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "عنوان أسفل اليسار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "ضوء نيون أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "أبرز اللحظات الرياضية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "رياضة"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "ملاحظة ورقية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ورق",
+    "ملاحظة"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "\"جديد\" بوب لطيف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بوب"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "عرض أحمر ضخم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "عرض"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "حزمة المجرة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مجرة"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "تلاشي الجسيمات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جسيمات",
+    "تلاشي"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "جسيمات ذهبية أنيقة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "جسيمات"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "بوب لطيف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بوب"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "عنوان افتراضي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "سؤال كوميكس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس",
+    "سؤال"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "عرض شرائح بحدود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حدود"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "ترويج داكن",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترويج",
+    "داكن"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "ريترو معدني أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "معدن",
+    "ريترو"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "خط مخطوط أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "خط توقيع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "سيريف كلاسيكي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "ترجمة صفراء رفيعة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "ترجمة",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "ترجمة بيضاء في الوسط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "ترجمة بصندوق أسود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أسود",
+    "ترجمة",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "ترجمة ليمونية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ليموني",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "أحلام لا تنتهي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "كتابة صفراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "كتابة في صندوق أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "كتابة",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "كتابة يدوية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "عنوان كتابة سيريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "شريط سفلي أزرق مائل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "شريط سفلي بحبة صفراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "شريط سفلي",
+    "حبة"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "شريط سفلي ترويجي بنفسجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي",
+    "شريط سفلي",
+    "ترويج"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "شريط سفلي فيروزي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فيروزي",
+    "شريط سفلي"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "عنوان رياضي أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "رياضة",
+    "عنوان رئيسي"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "عناوين اليوم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "عنوان رئيسي"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "عنوان بشرارات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شرارات"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "عنوان بالجمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جمر"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "عنوان بشرارات ذهبية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "شرارات"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "عنوان بإطار محدد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "صندوق",
+    "حدود"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "عنوان في إطار أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "إطار"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "عنوان كبير وعنوان فرعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "عنوان نظيف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نظيف"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "عنوان نظيف متوسط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نظيف"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "عنوان بخط منحنٍ",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "عناوين سائلة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "عناوين سريعة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "خبر عاجل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أخبار",
+    "خبر عاجل"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "\"أوه\" انفجارية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "فلوق يومي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فلوق"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "فلوق أسبوعي بالفرشاة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فلوق",
+    "فرشاة"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "فلوق سفر أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "فلوق",
+    "سفر"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "تكبير مع ضبابية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "تكبير",
+    "ضبابية"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "أصفر بحدود سوداء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "حدود"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "حبيب أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "قلوب"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "حب وردي متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "وردي",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "تجهزي معي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "جمر أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "جمر"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "حركة رائعة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جليد"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "طاقة إيجابية فقط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "أحرف فقاعات بوب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فقاعة",
+    "بوب"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "فقاعة بنفسجية وزرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "بنفسجي",
+    "فقاعة"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "توقيع على صندوق وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "أبيض مشاكس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "حار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "شارع ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "سيدات بنيون وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "وردي"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "تدرج أزرق كبير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "بريق سماوي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سماوي",
+    "بريق",
+    "شرارات"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "تحريري أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "نخبة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "وسم برتقالي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي",
+    "وسم"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "شبح نيون",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "أصفر بحدود زرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "أصفر",
+    "حدود"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "إعجاب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "خط مخطوط ناري",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط مخطوط",
+    "نار"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "وردي مرح",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "صندوق دخان أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "دخان",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "حب بوردي باهت",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "جاء الخريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خريف"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "قائمة الخريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خريف"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "\"أحبك\" صغير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "قص الوضع الداكن",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "داكن"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "لحظات على بقعة برتقالية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "مونتاج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "طبيعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "نيون أزرق كهربائي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "ليلة ذهبية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "ليالٍ غامضة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "ملاحظة ورق قديم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ورق",
+    "ملاحظة"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "ملاحظة مثبتة بشريط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ملاحظة"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "شرارات ذهبية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "بريق",
+    "شرارات"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "خطوة جريئة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "عريض"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "حبة زرقاء متوهجة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "أزرق",
+    "حبة"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "حبة بيضاء بقلوب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "قلوب",
+    "حبة"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "بشرة زجاجية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "أحمر بحافة بيضاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "أبيض",
+    "حدود"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "أخيرًا",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "وردي جميل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "سؤال بحدود وردية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "سؤال",
+    "حدود"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "ملصق أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "ملصق"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "خط مخطوط رفيع يومي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط مخطوط",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "ختم بإطار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "إطار"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "أبيض بظل دخاني",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "اشتراك هادئ",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "اشتراك"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "\"أحبك\" وردي فاقع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "حب أحمر داكن",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "\"أحبك\" رومانسي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حب"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "مخمل ذهبي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "فلوق يومي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فلوق"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "العودة إلى المدرسة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "حدود بنفسجية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي",
+    "حدود"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "وداع طويل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "\"نفدت الكمية\" باهت",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "باهت"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "حب بتوهج وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "وردي",
+    "حب"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "معتمد بعلامة صح",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "إزاحة أخضر وأزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "أخضر"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "قبلات حمراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "زر المشاركة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "زر",
+    "مشاركة"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "زر الإعجاب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "زر",
+    "إعجاب"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "زر المتابعة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "زر",
+    "متابعة"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "ضباب بنفسجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "سينمائي صغير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "سينمائي مع عنوان فرعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "كوميكس أصفر ثلاثي الأبعاد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "كوميكس",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "شارة النهاية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "شارة"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "تدرج أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "استمتع بالحياة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "حدود مزدوجة وردية وزرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "أزرق",
+    "حدود"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "مائل أحمر وأصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "أصفر",
+    "مائل"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "سيريف مائل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف",
+    "مائل"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "اقتباس على بطاقة بيضاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "اقتباس"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "نار في حلقة نيون",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "نار"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "شكرًا على المشاهدة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شكرًا"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "\"واو\" كوميكس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "سيريف بصدى أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "مرحبًا مرحبًا",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "دخان أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "دخان"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "سيريف رفيع متباعد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "أحرف نارية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نار"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "مكياج بخطين",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مكياج"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "قلم تمييز أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "فقاعة وردية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "فقاعة"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "سيريف ضبابي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "سيريف أخضر هادئ",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أخضر",
+    "سيريف",
+    "ناعم"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "فقاعة فلوق صغيرة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "فلوق",
+    "فقاعة"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "برتقالي عريض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي",
+    "عريض"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "نيون سماوي مرسوم باليد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "سماوي"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "خط مخطوط نيون أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أحمر",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "عصر جديد عريض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "\"يا للهول\"",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "فخامة رصينة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "أحرف كبيرة متباعدة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "خريف دافئ",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خريف"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "ورق ممزق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ورق",
+    "ممزق"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "حبة القلوب",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "قلوب",
+    "حبة"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "كلمات بوسوم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "عزيزي المذكرات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مذكرات"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "تخفيضات في صندوق أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "تخفيضات",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "أحرف مقصوصة ملونة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "مائل متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "مائل"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "خط مخطوط للروتين",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط مخطوط"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "رذاذ الماء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ماء"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "تابعني بشريط أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "متابعة"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "بلا استعجال",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "تسطير أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "اشترك بنيون أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أحمر",
+    "اشتراك"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "رعب أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "رعب"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "ملصق أحرف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ملصق"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "رحلة بالكتابة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كتابة"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "وسم اسم المستخدم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "\"هيا بنا\" نظيف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نظيف"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "لهب أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "لهب"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "حدود ليمونية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ليموني",
+    "حدود"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "تعليق صراخ أبيض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "\"بكل قوة\" برتقالي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "حب بنيون وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "وردي",
+    "حب"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "حب بصدى أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "حب"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "ملاك فضي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "هالة مشتعلة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "كوميكس \"بام\"",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "شارع نيون أخضر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أخضر"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "سينمائي متباعد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سينمائي"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "شريط أحمر لامع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "اقتباس في صندوق بخط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "إبداع متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "عيد ميلاد ملون",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "عيد ميلاد"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "لقطات بارزة بشرارات",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بريق",
+    "شرارات"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "مذكرات ورق كرافت",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "مذكرات",
+    "كرافت"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "ذهبي مائل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ذهبي",
+    "مائل"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "\"هاه؟\" كوميكس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كوميكس"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "جليد كهربائي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جليد"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "أحمر مشتعل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "نار"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "صندوق طاقة متوهج",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "جمالي رفيع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "عطلات سعيدة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "عطلات"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "نهاية متوهجة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "توهج"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "نهاية الفصل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "ختام مشتعل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "كلمة جمرية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "جمر"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "اقتباس بورق ممزق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ورق",
+    "ممزق",
+    "اقتباس"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "نار نيون زرقاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أزرق",
+    "نار"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "نيون أزرق قوي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "أزرق"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "فائز بنيون وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "وردي",
+    "فائز"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "جيل مبدع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "شكرًا في فقاعة حوار",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شكرًا",
+    "فقاعة"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "شكرًا وردي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "شكرًا"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "شكرًا بصناديق وردية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "شكرًا",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "شكرًا بشرائط ورقية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شكرًا",
+    "ورق",
+    "شريط"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "ترويج كبير",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترويج"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "\"واو\" نجمة متفجرة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نجوم"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "قصة مرسومة بالرسم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "تبدأ القصة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "قصة اليوم الملونة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "وسم قصتي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "انظر هذا بخط اليد",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "خط يد"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "لحظة في صناديق بيضاء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أبيض",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "لحظات رفيعة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "رفيع"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "أخبار بقوس أزرق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أزرق",
+    "أخبار"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "سحابة بحدود",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حدود"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "صندوق عرض أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "تخفيضات",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "ورق ممزق",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ورق",
+    "ممزق"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "نزال كروم",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "كروم",
+    "نزال"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "\"مثالي\" أخضر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أخضر"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "قصيدة بخط سيريف",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "صناديق الأسئلة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سؤال",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "ترويج سريع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "ترويج"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "حبوب التواصل الاجتماعي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "حبة"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "جولة نيون فيروزي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نيون",
+    "فيروزي"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "سيريف بهالة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "سيريف"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "واصل التقدم عريض",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "وردي منتفخ بسيط",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "وردي",
+    "بسيط"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "ترجمة برتقالية بقوس",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "برتقالي",
+    "ترجمة"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "اشترك بصندوق أحمر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أحمر",
+    "اشتراك",
+    "صندوق"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "اشترك بحبة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "اشتراك",
+    "حبة"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "دائرة الترند",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "نص بشريط أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "عنوان أغنية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "عنوان موجي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "اضغط هنا",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "حبة الكأس البنفسجية",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "بنفسجي",
+    "حبة",
+    "كأس"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "دبوس الموقع",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "موقع"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "خبر عاجل بشريط أصفر",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "خبر عاجل"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "شريط سفلي لخبر عاجل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شريط سفلي",
+    "خبر عاجل"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "\"هيا\" مشتعل",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نار"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "صيف بفرشاة صفراء",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "أصفر",
+    "فرشاة",
+    "صيف"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "شريط تحديث الحياة",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "شريط"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "انفجار فيروسي",
+   "tags": [
+    "ترند",
+    "عنوان",
+    "نص"
    ]
   },
   "text-style:ter-a-mano": {

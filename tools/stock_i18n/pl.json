@@ -138,6 +138,7 @@
   "text-style:precios": "Ceny i promocje",
   "text-style:retro": "Retro i Y2K",
   "text-style:subtitulos": "Viralowe napisy",
+  "text-style:tendencias": "Trendy",
   "text-style:tercios": "Dolne trzecie",
   "text-style:terror": "Horror i tajemnica",
   "text-style:titulos": "Tytuły",
@@ -34552,6 +34553,3210 @@
     "czerwony",
     "mocny",
     "youtube"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "Fioletowy otwierający blask",
+   "tags": [
+    "otwarcie",
+    "intro",
+    "kino",
+    "fioletowy"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "Niebieski balonik",
+   "tags": [
+    "sztuka",
+    "niebieski",
+    "bańka",
+    "dziecięcy"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "Wypukła czerwona sztuka",
+   "tags": [
+    "sztuka",
+    "czerwony",
+    "3d",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "Biały z różową głębią",
+   "tags": [
+    "sztuka",
+    "różowy",
+    "3d",
+    "pop"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "Czerwony pasek w dwóch liniach",
+   "tags": [
+    "dolny pasek",
+    "pas",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "Luźne pismo ręczne",
+   "tags": [
+    "ręczne pismo",
+    "ręka",
+    "prosty"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "Witaj na kanale",
+   "tags": [
+    "powitanie",
+    "kanał",
+    "pisany",
+    "kaligrafia"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "Pasek wiadomości",
+   "tags": [
+    "wiadomości",
+    "wstęga",
+    "pasek",
+    "dolny pasek"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "Klasyczna żółć",
+   "tags": [
+    "klasyczny",
+    "żółty",
+    "okrągły"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "Tekst w dymie",
+   "tags": [
+    "dym",
+    "kino",
+    "dramatyczny"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "Komiksowy podpis",
+   "tags": [
+    "komiks",
+    "podpis",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "Chromowane zawody",
+   "tags": [
+    "sport",
+    "wydarzenie",
+    "chrom",
+    "metal"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "Obsada i twórcy",
+   "tags": [
+    "napisy końcowe",
+    "obsada",
+    "kino",
+    "finał"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "Tytuł na bieli",
+   "tags": [
+    "biały",
+    "minimalistyczny",
+    "firmowy"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "Dziennik podróży",
+   "tags": [
+    "podróż",
+    "dziennik",
+    "ręczne pismo",
+    "papier"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "Cukierkowy napis 3D",
+   "tags": [
+    "3d",
+    "cukierek",
+    "pomarańczowy",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "Etykieta nad tytułem",
+   "tags": [
+    "etykieta",
+    "czysty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "Koniec w czarnej ramce",
+   "tags": [
+    "koniec",
+    "pisanie",
+    "ramka",
+    "czarny"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "Koniec w świetle reflektora",
+   "tags": [
+    "koniec",
+    "reflektor",
+    "kino",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "Kosmiczna galaktyka",
+   "tags": [
+    "galaktyka",
+    "kosmos",
+    "kino",
+    "rozstrzelony"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "Błyszczące złote podziękowanie",
+   "tags": [
+    "dziękuję",
+    "złoty",
+    "blask",
+    "gwiazdy"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "Gwiezdne podziękowanie",
+   "tags": [
+    "dziękuję",
+    "pożegnanie",
+    "gwiazdy",
+    "złoty"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "Tytuł z magentowym paskiem",
+   "tags": [
+    "grafika",
+    "magenta",
+    "pasek"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "Czarne graffiti, biała obwódka",
+   "tags": [
+    "graffiti",
+    "ulica",
+    "naklejka"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "Duży tytuł, fioletowe linie",
+   "tags": [
+    "duży",
+    "fioletowy",
+    "linie"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "Wytarta szarość",
+   "tags": [
+    "film",
+    "szary",
+    "zużyty",
+    "ciemny"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "Dawno, dawno temu",
+   "tags": [
+    "historia",
+    "kino",
+    "intro",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "Dym odsłaniający",
+   "tags": [
+    "dym",
+    "zanikanie",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "Komiks Niesamowite!",
+   "tags": [
+    "komiks",
+    "niesamowite",
+    "ogień",
+    "wybuch"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "Retro żółta gra",
+   "tags": [
+    "gra",
+    "retro",
+    "żółty",
+    "tekstura"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "Czysty tytuł",
+   "tags": [
+    "minimalistyczny",
+    "czysty",
+    "podstawowy"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "Podziękowanie między neonowymi liniami",
+   "tags": [
+    "neon",
+    "dziękuję",
+    "subskrybuj",
+    "linie"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "Jaskrawy różowy neon",
+   "tags": [
+    "neon",
+    "różowy",
+    "uroda",
+    "makijaż"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "Złoto 3D",
+   "tags": [
+    "złoto",
+    "złoty",
+    "3d",
+    "blask"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "Czarna pigułka, czerwona kropka",
+   "tags": [
+    "intro",
+    "pigułka",
+    "czarny"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "Żółty tytuł filmowy",
+   "tags": [
+    "film",
+    "kino",
+    "żółty",
+    "zwiastun"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "Mały nad dużym",
+   "tags": [
+    "podpis",
+    "minimalistyczny",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "Kamień 3D",
+   "tags": [
+    "kamień",
+    "3d",
+    "skała",
+    "relief"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "Pigułka z nazwą profilu",
+   "tags": [
+    "social media",
+    "użytkownik",
+    "pigułka",
+    "subskrybuj"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "Białe pismo",
+   "tags": [
+    "kaligrafia",
+    "biały",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "Szeryfowy z podtytułem",
+   "tags": [
+    "szeryf",
+    "elegancki",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "Żółty podpis na czerni",
+   "tags": [
+    "podpis",
+    "żółty",
+    "ramka"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "Podpis w białej ramce",
+   "tags": [
+    "podpis",
+    "ramka",
+    "biały"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "Podpis w czarnej ramce",
+   "tags": [
+    "podpis",
+    "ramka",
+    "czarny"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "Napisy filmowe",
+   "tags": [
+    "podpis",
+    "kino",
+    "film"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "Cienki podtytuł",
+   "tags": [
+    "podpis",
+    "cienki",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "Czerwona subskrypcja",
+   "tags": [
+    "subskrybuj",
+    "czerwony",
+    "przycisk",
+    "social media"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "Biało-błękitny dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "biały",
+    "błękitny"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "Złota wstęga",
+   "tags": [
+    "dolny pasek",
+    "wstęga",
+    "złoty"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "Czerwony dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "czerwony",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "Nagłówek do lewej",
+   "tags": [
+    "nagłówek",
+    "lewo",
+    "trendy"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "Tytuł z czerwonym paskiem",
+   "tags": [
+    "pasek",
+    "czerwony",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "Tytuł w ogniu",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "Pisany vlog dzienny",
+   "tags": [
+    "vlog",
+    "pisanie",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "Żółty z czarną obwódką",
+   "tags": [
+    "sztuka",
+    "żółty",
+    "kontur"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "Żółty z czerwoną obwódką",
+   "tags": [
+    "sztuka",
+    "żółty",
+    "czerwony",
+    "komiks"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "Rozstrzelona pomarańczowa sztuka",
+   "tags": [
+    "sztuka",
+    "pomarańczowy",
+    "gradient"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "Czerwona sztuka 3D",
+   "tags": [
+    "sztuka",
+    "czerwony",
+    "3d"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "Smuga światła",
+   "tags": [
+    "blask",
+    "przesunięcie",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "Prosty narożnik",
+   "tags": [
+    "podstawowy",
+    "prosty",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "Niebieskie powitanie tech",
+   "tags": [
+    "powitanie",
+    "niebieski",
+    "technologia",
+    "kontur"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "Fioletowa ramka",
+   "tags": [
+    "ramka",
+    "fiolet",
+    "dolny pasek"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "Kreskówka 3D",
+   "tags": [
+    "kreskówka",
+    "3d",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "Klasyczna kreskówka",
+   "tags": [
+    "kreskówka",
+    "żółty",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "Kinowy z odstępami",
+   "tags": [
+    "kino",
+    "rozstrzelony",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "Reklamowy tytuł w ramce",
+   "tags": [
+    "reklama",
+    "ramka",
+    "sport",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "Podpis reżysera",
+   "tags": [
+    "podpis",
+    "kino",
+    "reżyser",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "Kursywa z podpisem",
+   "tags": [
+    "kursywa",
+    "prosty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "Błysk ognia",
+   "tags": [
+    "ogień",
+    "pomarańczowy",
+    "płomienie"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "Pismo ze żółtym światłem",
+   "tags": [
+    "podpis",
+    "kaligrafia",
+    "żółty",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "Prosty szeryf",
+   "tags": [
+    "szeryf",
+    "prosty",
+    "elegancki",
+    "kursywa"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "Podziękowanie na podartym papierze",
+   "tags": [
+    "dziękuję",
+    "papier",
+    "podarty",
+    "pismo ręczne"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "Świecące podziękowanie",
+   "tags": [
+    "dziękuję",
+    "blask",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "Złoty promień",
+   "tags": [
+    "złoto",
+    "złoty",
+    "blask",
+    "luksus"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "Niebieski dym",
+   "tags": [
+    "dym",
+    "niebieski",
+    "blask",
+    "cząsteczki"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "Bicie serca",
+   "tags": [
+    "bicie serca",
+    "miłość",
+    "puls",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "Biała ramka z dymkiem",
+   "tags": [
+    "wywołanie",
+    "dymek",
+    "ramka",
+    "biały"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "Limonkowa ramka",
+   "tags": [
+    "ramka",
+    "limonkowy",
+    "wyróżnienie"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "Pisany tytuł",
+   "tags": [
+    "maszyna do pisania",
+    "pisanie",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "Metal 3D",
+   "tags": [
+    "metal",
+    "3d",
+    "średniowieczny",
+    "chrom"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "Modowy biały blok",
+   "tags": [
+    "moda",
+    "ramka",
+    "biały"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "Proste drżenie",
+   "tags": [
+    "ruch",
+    "drżenie",
+    "prosty"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "Gorący różowy neon",
+   "tags": [
+    "neon",
+    "różowy",
+    "blask"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "Komiksowy dźwięk",
+   "tags": [
+    "komiks",
+    "onomatopeja",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "Tytuł z cząsteczkami",
+   "tags": [
+    "cząsteczki",
+    "różowy",
+    "rozstrzelony"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "Plakat kinowy",
+   "tags": [
+    "kino",
+    "plakat",
+    "szeryf",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "Plakat klasyczny w stosie",
+   "tags": [
+    "plakat",
+    "kino",
+    "horror",
+    "wąski"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "Mroczny zwiastun",
+   "tags": [
+    "promocja",
+    "kino",
+    "ciemny",
+    "wąski"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "Już wkrótce",
+   "tags": [
+    "wkrótce",
+    "premiera",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "Żółta poświata",
+   "tags": [
+    "blask",
+    "poświata",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "Niebieska poświata",
+   "tags": [
+    "blask",
+    "poświata",
+    "niebieski",
+    "neon"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "Ostry szeryf 3D",
+   "tags": [
+    "3d",
+    "szeryf",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "Dynamiczny podpis",
+   "tags": [
+    "podpis",
+    "dynamiczny",
+    "karaoke",
+    "żółty"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "Żółty podpis na czerni",
+   "tags": [
+    "podpis",
+    "żółty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "Czerwona wstęga subskrypcji",
+   "tags": [
+    "subskrybuj",
+    "czerwony",
+    "pędzel"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "Świecąca subskrypcja",
+   "tags": [
+    "subskrybuj",
+    "blask",
+    "fioletowy"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "Niebieski dolny pasek z obwódką",
+   "tags": [
+    "dolny pasek",
+    "niebieski",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "Dolny pasek z różowym paskiem",
+   "tags": [
+    "dolny pasek",
+    "różowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "Dolny pasek z kolorową obwódką",
+   "tags": [
+    "dolny pasek",
+    "fioletowy",
+    "zielony"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "Pochylony pomarańczowy dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "pomarańczowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "Pogrubiony dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "pogrubiony",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "Technologiczny dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "technologia",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "Blok sklepowy",
+   "tags": [
+    "sklep",
+    "pogrubiony",
+    "sprzedaż"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "Tytuł z tuszu",
+   "tags": [
+    "tusz",
+    "pędzel",
+    "biały"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "Niebieski nagłówek pędzlem",
+   "tags": [
+    "pędzel",
+    "niebieski",
+    "nagłówek"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "Tytuł w świecącej niebieskiej ramce",
+   "tags": [
+    "ramka",
+    "niebieski",
+    "blask"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "Tytuł z żółtym paskiem",
+   "tags": [
+    "wstęga",
+    "żółty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "Tytuł z nadtytułem",
+   "tags": [
+    "prosty",
+    "nadtytuł",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "Pomarańczowa akwarela",
+   "tags": [
+    "akwarela",
+    "pędzel",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "Kocham te słowa",
+   "tags": [
+    "typografia",
+    "żółty",
+    "cytat"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "Złote lata 3D",
+   "tags": [
+    "złoty",
+    "3d",
+    "złoto"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "Gruba żółta sztuka",
+   "tags": [
+    "sztuka",
+    "żółty",
+    "kontur"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "Niebieska aura sztuki",
+   "tags": [
+    "sztuka",
+    "niebieski",
+    "aureola"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "Czerwony napis z obwódką",
+   "tags": [
+    "sztuka",
+    "wordart",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "Kursywa czerwona sztuka",
+   "tags": [
+    "sztuka",
+    "czerwony",
+    "kontur"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "Niebieski cień sztuki",
+   "tags": [
+    "sztuka",
+    "cień",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "Białe pismo proste",
+   "tags": [
+    "pasek",
+    "lewo",
+    "dolny pasek"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "Wyśrodkowany podstawowy",
+   "tags": [
+    "podstawowy",
+    "wyśrodkowany",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "Mały podstawowy",
+   "tags": [
+    "podstawowy",
+    "mały",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "Niski podstawowy",
+   "tags": [
+    "podstawowy",
+    "dół",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "Podstawowa notatka",
+   "tags": [
+    "podstawowy",
+    "notatka",
+    "mały"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "Epicka poświata",
+   "tags": [
+    "blask",
+    "poświata",
+    "epicki"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "Mono poświata",
+   "tags": [
+    "blask",
+    "mono",
+    "piksel"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "Oddech blasku",
+   "tags": [
+    "blask",
+    "oddech",
+    "delikatny"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "Miękkie opadanie",
+   "tags": [
+    "opadanie",
+    "slajdy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "Kreatywna fioletowa ramka",
+   "tags": [
+    "ramka",
+    "fiolet",
+    "kreatywny"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "Metaliczny kinowy",
+   "tags": [
+    "kino",
+    "metal",
+    "zwiastun"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "Spalanie",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "Retro komiks 3D",
+   "tags": [
+    "komiks",
+    "retro",
+    "3d",
+    "żółty"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "Wąski z podtytułem",
+   "tags": [
+    "wąski",
+    "podpis",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "Lista twórców",
+   "tags": [
+    "napisy końcowe",
+    "lista",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "Elegancka kursywa",
+   "tags": [
+    "kursywa",
+    "kaligrafia",
+    "podstawowy"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "Kursor pisania",
+   "tags": [
+    "maszyna do pisania",
+    "kursor",
+    "pisanie"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "Wjazd z rozmyciem",
+   "tags": [
+    "przesuwanie",
+    "rozmycie",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "Podstawowe najważniejsze",
+   "tags": [
+    "najważniejsze",
+    "podstawowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "Drżący piękny dzień",
+   "tags": [
+    "drżący",
+    "urocze",
+    "limonkowy"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "Odnowiona rywalizacja",
+   "tags": [
+    "sport",
+    "pojedynek",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "Słodki róż",
+   "tags": [
+    "jedzenie",
+    "słodki",
+    "różowy"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "Tytuł efektów gry",
+   "tags": [
+    "gra",
+    "elektryczny",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "Szeryf pisany",
+   "tags": [
+    "maszyna do pisania",
+    "szeryf",
+    "kursor"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "Błysk gwiazdy",
+   "tags": [
+    "błysk",
+    "flara",
+    "światło",
+    "przesuwanie"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "Płynne światło 3D",
+   "tags": [
+    "światło",
+    "srebro",
+    "3d",
+    "blask"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "Duży tytuł z podtytułem",
+   "tags": [
+    "duży tytuł",
+    "podpis",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "Czerwony promień światła",
+   "tags": [
+    "blask",
+    "czerwony",
+    "promień"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "Lodowa zima",
+   "tags": [
+    "zima",
+    "lód",
+    "zimno",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "Promieniowanie",
+   "tags": [
+    "blask",
+    "promienie",
+    "promieniowanie"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "Tytuł w lewym dolnym rogu",
+   "tags": [
+    "lewo",
+    "dół",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "Biały neon",
+   "tags": [
+    "neon",
+    "światło",
+    "biały"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "Najlepsze momenty sportu",
+   "tags": [
+    "sport",
+    "wydarzenie",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "Papierowa notatka",
+   "tags": [
+    "podróże",
+    "notatka",
+    "papier",
+    "vlog"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "Słodki pop nowość",
+   "tags": [
+    "pop",
+    "nowość",
+    "słodki"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "Gigantyczna czerwona oferta",
+   "tags": [
+    "oferta",
+    "zniżka",
+    "sprzedaż",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "Pakiet galaktyczny",
+   "tags": [
+    "galaktyka",
+    "kosmos",
+    "rozstrzelony"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "Rozpad cząsteczek",
+   "tags": [
+    "cząsteczki",
+    "zanikanie",
+    "pył"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "Elegancki złoty pył",
+   "tags": [
+    "złoty",
+    "cząsteczki",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "Słodki pop",
+   "tags": [
+    "pop",
+    "słodki",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "Tytuł domyślny",
+   "tags": [
+    "domyślny",
+    "prosty",
+    "podstawowy"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "Komiksowe pytanie",
+   "tags": [
+    "komiks",
+    "pytanie",
+    "gra"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "Pokaz slajdów z konturem",
+   "tags": [
+    "kontur",
+    "slajdy",
+    "dwa style"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "Mroczny zwiastun",
+   "tags": [
+    "promocja",
+    "kino",
+    "zwiastun",
+    "premiera"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "Czerwony metal retro",
+   "tags": [
+    "retro",
+    "metal",
+    "czerwony",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "Tytuł z paskiem bocznym",
+   "tags": [
+    "kaligrafia",
+    "biały",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "Pismo podpisu",
+   "tags": [
+    "podpis",
+    "kaligrafia",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "Klasyczny szeryf",
+   "tags": [
+    "szeryf",
+    "klasyczny",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "Cienki żółty podtytuł",
+   "tags": [
+    "podpis",
+    "żółty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "Biały podtytuł",
+   "tags": [
+    "podpis",
+    "biały",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "Podtytuł w czarnej ramce",
+   "tags": [
+    "podpis",
+    "ramka",
+    "czarny"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "Limonkowy podtytuł",
+   "tags": [
+    "podpis",
+    "limonkowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "Niekończące się marzenia",
+   "tags": [
+    "typografia",
+    "czerwony",
+    "marzenia"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "Żółte pisanie",
+   "tags": [
+    "maszyna do pisania",
+    "pisanie",
+    "żółty"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "Pisanie w białej ramce",
+   "tags": [
+    "maszyna do pisania",
+    "ramka",
+    "biały"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "Ręczne pisanie",
+   "tags": [
+    "maszyna do pisania",
+    "pisanie",
+    "ręka"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "Tytuł pisany szeryfem",
+   "tags": [
+    "maszyna do pisania",
+    "szeryf",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "Pochylony niebieski dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "niebieski",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "Żółta pigułka dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "pigułka",
+    "żółty"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "Fioletowy dolny pasek promo",
+   "tags": [
+    "dolny pasek",
+    "promocja",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "Morski dolny pasek",
+   "tags": [
+    "dolny pasek",
+    "turkusowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "Żółty nagłówek sportowy",
+   "tags": [
+    "sport",
+    "nagłówek",
+    "żółty"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "Dzisiejsze nagłówki",
+   "tags": [
+    "wiadomości",
+    "nagłówki",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "Tytuł z iskrami",
+   "tags": [
+    "iskry",
+    "ogień",
+    "bokeh"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "Tytuł z żarem",
+   "tags": [
+    "ogień",
+    "żar",
+    "cząsteczki"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "Tytuł ze złotymi iskrami",
+   "tags": [
+    "złoty",
+    "iskry",
+    "cząsteczki"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "Tytuł w ramce z konturem",
+   "tags": [
+    "ramka",
+    "prosty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "Tytuł w niebieskiej ramce",
+   "tags": [
+    "ramka",
+    "niebieski",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "Duży tytuł i podtytuł",
+   "tags": [
+    "duży tytuł",
+    "podpis",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "Czysty tytuł",
+   "tags": [
+    "podstawowy",
+    "czysty",
+    "prosty"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "Średni czysty tytuł",
+   "tags": [
+    "podstawowy",
+    "czysty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "Tytuł z zakrętasem",
+   "tags": [
+    "kaligrafia",
+    "podkreślenie",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "Płynne tytuły",
+   "tags": [
+    "płynny",
+    "różowy",
+    "cząsteczki"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "Tytuły szybkości",
+   "tags": [
+    "sport",
+    "szybkość",
+    "epicki"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "Pilne wiadomości",
+   "tags": [
+    "wiadomości",
+    "pilne",
+    "trendy"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "Wybuchowe ojej",
+   "tags": [
+    "komiks",
+    "wykrzyknik",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "Vlog dzienny",
+   "tags": [
+    "vlog",
+    "kaligrafia",
+    "dziennik"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "Tygodniowy vlog pędzlem",
+   "tags": [
+    "vlog",
+    "pędzel",
+    "ręka"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "Czerwony vlog podróżniczy",
+   "tags": [
+    "podróże",
+    "vlog",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "Rozmyte zbliżenie",
+   "tags": [
+    "zoom",
+    "slajdy",
+    "rozmycie"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "Żółty z czarnym konturem",
+   "tags": [
+    "żółty",
+    "kontur",
+    "naklejka"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "Żółte serduszko",
+   "tags": [
+    "miłość",
+    "żółty",
+    "słodki"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "Świecąca różowa miłość",
+   "tags": [
+    "miłość",
+    "różowy",
+    "blask"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "Przygotuj się ze mną",
+   "tags": [
+    "blask",
+    "fioletowy",
+    "uroda"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "Czerwony żar",
+   "tags": [
+    "ogień",
+    "żar",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "Ładny ruch",
+   "tags": [
+    "sport",
+    "wąski",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "Tylko dobre wibracje",
+   "tags": [
+    "wibracje",
+    "retro",
+    "pozytywny"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "Pękające litery-bańki",
+   "tags": [
+    "bańka",
+    "pop",
+    "kawaii"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "Fioletowo-niebieski balonik",
+   "tags": [
+    "bańka",
+    "fiolet",
+    "słodki"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "Podpis na różowej ramce",
+   "tags": [
+    "różowy",
+    "ramka",
+    "podpis"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "Zadziorny biały",
+   "tags": [
+    "zabawny",
+    "biały",
+    "zadziorny"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "Gorąco",
+   "tags": [
+    "twardy cień",
+    "biały",
+    "uderzenie"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "Uliczny 3D",
+   "tags": [
+    "miejski",
+    "3d",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "Różowy neon dla dziewczyn",
+   "tags": [
+    "neon",
+    "różowy",
+    "dziewczyny"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "Duży niebieski gradient",
+   "tags": [
+    "niebieski",
+    "gradient",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "Cyjanowe iskierki",
+   "tags": [
+    "blask",
+    "cyjan",
+    "gwiazdy"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "Czerwony redakcyjny",
+   "tags": [
+    "redakcja",
+    "magazyn",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "Elita",
+   "tags": [
+    "elita",
+    "minimalistyczny",
+    "biały"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "Pomarańczowa etykieta",
+   "tags": [
+    "etykieta",
+    "pomarańczowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "Neon duch",
+   "tags": [
+    "neon",
+    "niebieski",
+    "duch"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "Żółty z niebieskim konturem",
+   "tags": [
+    "żółty",
+    "niebieski",
+    "słodki"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "Zauroczenie",
+   "tags": [
+    "miłość",
+    "czerwony",
+    "cień"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "Płonący znak pismem",
+   "tags": [
+    "ogień",
+    "neon",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "Figlarny róż",
+   "tags": [
+    "kot",
+    "różowy",
+    "słodki"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "Czerwona ramka z dymem",
+   "tags": [
+    "dym",
+    "czerwony",
+    "alarm"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "Zakurzony róż uwielbienia",
+   "tags": [
+    "miłość",
+    "różowy",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "Jesień już jest",
+   "tags": [
+    "jesień",
+    "komiks",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "Jesienne menu",
+   "tags": [
+    "jesień",
+    "menu",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "Maleńkie kocham cię",
+   "tags": [
+    "miłość",
+    "różowy",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "Wycinanka w trybie ciemnym",
+   "tags": [
+    "naklejka",
+    "wycinanka",
+    "czarno-biały"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "Chwile na pomarańczowej plamie",
+   "tags": [
+    "plama",
+    "pomarańczowy",
+    "chwile"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "Montaż",
+   "tags": [
+    "montaż",
+    "minimalistyczny",
+    "kino"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "Naturalny",
+   "tags": [
+    "naturalny",
+    "zielony",
+    "eko"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "Elektryczny niebieski neon",
+   "tags": [
+    "neon",
+    "niebieski",
+    "elektryczny"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "Złota noc",
+   "tags": [
+    "pomarańczowy",
+    "gradient",
+    "noc"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "Tajemnicze noce",
+   "tags": [
+    "noc",
+    "tajemnica",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "Stara papierowa notatka",
+   "tags": [
+    "papier",
+    "notatka",
+    "vintage",
+    "przytulny"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "Notatka na taśmie",
+   "tags": [
+    "notatka",
+    "dziennik",
+    "wstęga"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "Złote iskierki",
+   "tags": [
+    "złoty",
+    "blask",
+    "świętowanie"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "Śmiały ruch",
+   "tags": [
+    "ramka",
+    "czerwony",
+    "żółty"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "Świecąca niebieska pigułka",
+   "tags": [
+    "pigułka",
+    "niebieski",
+    "ramka"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "Biała pigułka z serduszkami",
+   "tags": [
+    "serduszka",
+    "pigułka",
+    "miłość"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "Szklana skóra",
+   "tags": [
+    "uroda",
+    "szkło",
+    "blask"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "Czerwony z białym konturem",
+   "tags": [
+    "czerwony",
+    "gra",
+    "play"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "W końcu",
+   "tags": [
+    "minimalistyczny",
+    "biały",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "Śliczny róż",
+   "tags": [
+    "różowy",
+    "kaligrafia",
+    "słodki"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "Różowe pytanie z konturem",
+   "tags": [
+    "pytanie",
+    "różowy",
+    "kontur"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "Czerwona naklejka",
+   "tags": [
+    "naklejka",
+    "czerwony",
+    "kontur"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "Cienkie pismo dzienne",
+   "tags": [
+    "kaligrafia",
+    "cienki",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "Pieczęć w ramce",
+   "tags": [
+    "pieczęć",
+    "ramka",
+    "vintage"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "Biały z dymnym cieniem",
+   "tags": [
+    "cień",
+    "dym",
+    "biały"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "Cicha subskrypcja",
+   "tags": [
+    "subskrybuj",
+    "minimalistyczny",
+    "trendy"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "Gorący różowy kocham cię",
+   "tags": [
+    "miłość",
+    "różowy",
+    "serce"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "Głęboka czerwona miłość",
+   "tags": [
+    "miłość",
+    "czerwony",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "Romantyczne kocham cię",
+   "tags": [
+    "miłość",
+    "romantyczny",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "Złoty aksamit",
+   "tags": [
+    "złoty",
+    "kaligrafia",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "Vlog dzienny",
+   "tags": [
+    "vlog",
+    "dziennik",
+    "jedzenie"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "Z powrotem do szkoły",
+   "tags": [
+    "szkoła",
+    "kontur",
+    "trendy"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "Fioletowy kontur",
+   "tags": [
+    "kontur",
+    "fiolet",
+    "trendy"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "Długie pożegnanie",
+   "tags": [
+    "pożegnanie",
+    "finał",
+    "mem"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "Wytarte wyprzedane",
+   "tags": [
+    "wyprzedane",
+    "czerwony",
+    "glitch",
+    "sklep"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "Różowa poświata miłości",
+   "tags": [
+    "miłość",
+    "różowy",
+    "walentynki"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "Zatwierdzone z haczykiem",
+   "tags": [
+    "zatwierdzone",
+    "haczyk",
+    "zielony"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "Zielono-niebieskie przesunięcie",
+   "tags": [
+    "glitch",
+    "rgb",
+    "zielony",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "Czerwone pocałunki",
+   "tags": [
+    "miłość",
+    "czerwony",
+    "usta"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "Przycisk Udostępnij",
+   "tags": [
+    "przycisk",
+    "social media",
+    "udostępnij"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "Przycisk Lubię to",
+   "tags": [
+    "przycisk",
+    "social media",
+    "lubię to"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "Przycisk Obserwuj",
+   "tags": [
+    "przycisk",
+    "social media",
+    "obserwuj"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "Fioletowa mgiełka",
+   "tags": [
+    "fiolet",
+    "magiczny",
+    "trendy"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "Mały filmowy",
+   "tags": [
+    "kino",
+    "minimalistyczny",
+    "rozstrzelony"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "Filmowy z podtytułem",
+   "tags": [
+    "kino",
+    "vlog",
+    "trendy"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "Żółty komiks 3D",
+   "tags": [
+    "komiks",
+    "3d",
+    "żółty",
+    "wybuch"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "Napisy końcowe",
+   "tags": [
+    "napisy końcowe",
+    "kino",
+    "finał"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "Niebieski gradient",
+   "tags": [
+    "gradient",
+    "niebieski",
+    "delikatny"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "Ciesz się życiem",
+   "tags": [
+    "cytat",
+    "elegancki",
+    "szeryf"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "Różowo-niebieski podwójny kontur",
+   "tags": [
+    "neon",
+    "kontur",
+    "różowy",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "Czerwono-żółta kursywa",
+   "tags": [
+    "komiks",
+    "akcja",
+    "czerwony",
+    "żółty"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "Kursywa szeryfowa",
+   "tags": [
+    "elegancki",
+    "szeryf",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "Cytat na białej karcie",
+   "tags": [
+    "cytat",
+    "motywacja",
+    "karta"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "Ogień w neonowym kręgu",
+   "tags": [
+    "neon",
+    "ogień",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "Dzięki za oglądanie",
+   "tags": [
+    "finał",
+    "zakończenie",
+    "piksel"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "Komiksowe wow",
+   "tags": [
+    "komiks",
+    "zaskoczenie",
+    "żółty"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "Szeryf z czerwonym echem",
+   "tags": [
+    "szeryf",
+    "podcast",
+    "czerwony",
+    "glitch"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "Cześć, cześć",
+   "tags": [
+    "powitanie",
+    "mem",
+    "podpis"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "Biały dym",
+   "tags": [
+    "dym",
+    "mgła",
+    "delikatny"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "Cienki rozstrzelony szeryf",
+   "tags": [
+    "uroda",
+    "elegancki",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "Ognisty napis",
+   "tags": [
+    "ogień",
+    "pomarańczowy",
+    "płomienie"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "Makijaż w dwóch krojach",
+   "tags": [
+    "makijaż",
+    "uroda",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "Żółty zakreślacz",
+   "tags": [
+    "pytanie",
+    "zakreślacz",
+    "żółty",
+    "blog"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "Różowy balonik",
+   "tags": [
+    "różowy",
+    "uroczy",
+    "kawaii"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "Mglisty szeryf",
+   "tags": [
+    "szeryf",
+    "mgła",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "Miękki zielony szeryf",
+   "tags": [
+    "szeryf",
+    "zielony",
+    "delikatny"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "Mini vlog w dymku",
+   "tags": [
+    "vlog",
+    "uroczy",
+    "bańka"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "Pogrubiony pomarańcz",
+   "tags": [
+    "pomarańczowy",
+    "kanał",
+    "wsparcie"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "Ręcznie rysowany cyjanowy neon",
+   "tags": [
+    "neon",
+    "błękitny",
+    "szyld",
+    "noc"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "Czerwony neonowy napis",
+   "tags": [
+    "neon",
+    "czerwony",
+    "szyld"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "Szeroka nowa era",
+   "tags": [
+    "minimalistyczny",
+    "biały",
+    "trendy"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "O nie",
+   "tags": [
+    "mem",
+    "reakcja",
+    "podpis"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "Powściągliwy luksus",
+   "tags": [
+    "luksus",
+    "minimalistyczny",
+    "biały"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "Rozstrzelone kapitaliki",
+   "tags": [
+    "luksus",
+    "minimalistyczny",
+    "rozstrzelony"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "Przytulna jesień",
+   "tags": [
+    "jesień",
+    "kawa",
+    "przytulny"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "Podarty papier",
+   "tags": [
+    "papier",
+    "vintage",
+    "dziennik"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "Pigułka z serduszkami",
+   "tags": [
+    "miłość",
+    "różowy",
+    "uroczy"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "Napisy-etykiety",
+   "tags": [
+    "grwm",
+    "vlog",
+    "etykieta",
+    "maszyna"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "Drogi pamiętniku",
+   "tags": [
+    "dziennik",
+    "vlog",
+    "naklejka"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "Wyprzedaż w żółtej ramce",
+   "tags": [
+    "oferta",
+    "wyprzedaż",
+    "sklep",
+    "żółty"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "Kolorowe wycięte litery",
+   "tags": [
+    "kolory",
+    "trendy",
+    "tytuł"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "Świecąca kursywa",
+   "tags": [
+    "blask",
+    "biały",
+    "poświata"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "Pismo rutyny",
+   "tags": [
+    "makijaż",
+    "kaligrafia",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "Plusk wody",
+   "tags": [
+    "woda",
+    "lato",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "Obserwuj mnie, czerwony pasek",
+   "tags": [
+    "obserwuj",
+    "social media",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "Bez pośpiechu",
+   "tags": [
+    "cytat",
+    "spokój",
+    "wąski"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "Białe podkreślenie",
+   "tags": [
+    "cytat",
+    "minimalistyczny",
+    "podkreślenie"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "Czerwona neonowa subskrypcja",
+   "tags": [
+    "subskrypcja",
+    "neon",
+    "czerwony",
+    "kanał"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "Czerwony horror",
+   "tags": [
+    "horror",
+    "czerwony",
+    "strach"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "Naklejka z literą",
+   "tags": [
+    "naklejka",
+    "kolory",
+    "dziecięcy"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "Pisana podróż",
+   "tags": [
+    "maszyna do pisania",
+    "podróż",
+    "historia"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "Etykieta z nazwą użytkownika",
+   "tags": [
+    "użytkownik",
+    "social media",
+    "etykieta"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "Czyste ruszamy",
+   "tags": [
+    "minimalistyczny",
+    "akcja",
+    "biały"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "Niebieskie płomienie",
+   "tags": [
+    "niebieski",
+    "ogień",
+    "energia"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "Limonkowy kontur",
+   "tags": [
+    "zielony",
+    "żółty",
+    "gra"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "Biały krzyczący podpis",
+   "tags": [
+    "mem",
+    "kot",
+    "zabawny",
+    "podpis"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "Pomarańczowe dasz radę",
+   "tags": [
+    "pomarańczowy",
+    "zachęta",
+    "motywacja"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "Różowy neon miłości",
+   "tags": [
+    "miłość",
+    "neon",
+    "różowy",
+    "walentynki"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "Czerwone echo miłości",
+   "tags": [
+    "miłość",
+    "czerwony",
+    "3d"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "Srebrny anioł",
+   "tags": [
+    "anioł",
+    "srebro",
+    "skrzydła"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "Aura w płomieniach",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "aura",
+    "kaligrafia"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "Komiksowe BAM",
+   "tags": [
+    "komiks",
+    "bam",
+    "cios"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "Zielony neon uliczny",
+   "tags": [
+    "neon",
+    "zielony",
+    "ulica"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "Kinowy z odstępami",
+   "tags": [
+    "kino",
+    "filmowy",
+    "film"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "Błyszczący czerwony pas",
+   "tags": [
+    "wstęga",
+    "czerwony",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "Cytat w ramce z linią",
+   "tags": [
+    "cytat",
+    "ramka",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "Świecąca kreatywność",
+   "tags": [
+    "kreatywny",
+    "blask",
+    "światło"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "Kolorowe urodziny",
+   "tags": [
+    "urodziny",
+    "impreza",
+    "kolory"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "Błyszczące najważniejsze",
+   "tags": [
+    "najważniejsze",
+    "iskry",
+    "blask"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "Dziennik z kraftu",
+   "tags": [
+    "dziennik",
+    "papier",
+    "kraft",
+    "vintage"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "Złota kursywa",
+   "tags": [
+    "złoty",
+    "złoto",
+    "luksus",
+    "blask"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "Komiksowe hę",
+   "tags": [
+    "komiks",
+    "zaskoczenie",
+    "reakcja"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "Lodowa elektryka",
+   "tags": [
+    "elektryczny",
+    "lód",
+    "niebieski"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "Czerwony w ogniu",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "Świecąca ramka energii",
+   "tags": [
+    "energia",
+    "czerwony",
+    "ramka"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "Cienki estetyczny",
+   "tags": [
+    "estetyczny",
+    "minimalistyczny",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "Wesołych świąt",
+   "tags": [
+    "święta",
+    "trendy",
+    "tytuł"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "Świecący koniec",
+   "tags": [
+    "koniec",
+    "finał",
+    "kino",
+    "blask"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "Koniec rozdziału",
+   "tags": [
+    "rozdział",
+    "koniec",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "Finał w płomieniach",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "finał",
+    "koniec"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "Słowo z żarem",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "żar"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "Cytat na podartym papierze",
+   "tags": [
+    "cytat",
+    "motywacja",
+    "papier"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "Niebieski ogień neonowy",
+   "tags": [
+    "neon",
+    "niebieski",
+    "szybkość"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "Mocny niebieski neon",
+   "tags": [
+    "neon",
+    "niebieski",
+    "mocny"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "Różowy neon zwycięzcy",
+   "tags": [
+    "zwycięzca",
+    "neon",
+    "różowy",
+    "ogień"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "Kreatywne pokolenie",
+   "tags": [
+    "elegancki",
+    "szeryf",
+    "dokument"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "Podziękowanie w dymku",
+   "tags": [
+    "dziękuję",
+    "bańka",
+    "dialog"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "Różowe dziękuję",
+   "tags": [
+    "dziękuję",
+    "różowy",
+    "naklejka"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "Podziękowanie w różowej ramce",
+   "tags": [
+    "dziękuję",
+    "różowy",
+    "serce"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "Podziękowanie na papierowych paskach",
+   "tags": [
+    "dziękuję",
+    "papier",
+    "zakończenie"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "Wielka promocja",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "promocja",
+    "oferta",
+    "sprzedaż"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "Wow, wybuch gwiazdy",
+   "tags": [
+    "komiks",
+    "wybuch",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "Naszkicowana historia",
+   "tags": [
+    "szkic",
+    "bazgroły",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "Historia się zaczyna",
+   "tags": [
+    "historia",
+    "grunge",
+    "maszyna do pisania"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "Kolorowa historia dnia",
+   "tags": [
+    "kolory",
+    "historia",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "Etykieta mojej historii",
+   "tags": [
+    "etykieta",
+    "historia",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "Spójrz na to, ręcznie",
+   "tags": [
+    "ręcznie",
+    "strzałka",
+    "wskazywanie"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "Chwila w białych ramkach",
+   "tags": [
+    "scena",
+    "ramki",
+    "kino"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "Cienkie chwile",
+   "tags": [
+    "chwile",
+    "kaligrafia",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "Niebieski nawias wiadomości",
+   "tags": [
+    "wiadomości",
+    "dolny pasek",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "Chmurka z konturem",
+   "tags": [
+    "chmura",
+    "biały",
+    "kontur"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "Czerwona ramka wyprzedaży",
+   "tags": [
+    "oferta",
+    "czerwony",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "Podarty papier",
+   "tags": [
+    "papier",
+    "podarty",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "Chromowana walka",
+   "tags": [
+    "chrom",
+    "walka",
+    "metal"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "Zielone idealnie",
+   "tags": [
+    "idealny",
+    "zielony",
+    "gaming"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "Szeryfowy wiersz",
+   "tags": [
+    "wiersz",
+    "miłość",
+    "cytat",
+    "elegancki"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "Ramki z pytaniami",
+   "tags": [
+    "pytanie",
+    "komentarze",
+    "ramki"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "Promo szybkości",
+   "tags": [
+    "promocja",
+    "szybkość",
+    "chrom"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "Pigułki społecznościowe",
+   "tags": [
+    "social media",
+    "obserwuj",
+    "lubię to",
+    "udostępnij"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "Turkusowy neon okrągły",
+   "tags": [
+    "neon",
+    "okrągły",
+    "gaming",
+    "kontur"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "Szeryf z aureolą",
+   "tags": [
+    "szeryf",
+    "aureola",
+    "klasyczny"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "Szeroko: nie poddawaj się",
+   "tags": [
+    "motywacja",
+    "minimalistyczny",
+    "biały"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "Różowy puchaty prosty",
+   "tags": [
+    "różowy",
+    "puchaty",
+    "zabawny"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "Pomarańczowy nawias podpisu",
+   "tags": [
+    "podpis",
+    "ramka",
+    "pomarańczowy"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "Czerwona ramka subskrypcji",
+   "tags": [
+    "subskrybuj",
+    "social media",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "Pigułka subskrypcji",
+   "tags": [
+    "subskrybuj",
+    "pigułka",
+    "social media"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "Modne kółko",
+   "tags": [
+    "trend",
+    "koło",
+    "czerwony"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "Tekst na żółtym pasku",
+   "tags": [
+    "prosty",
+    "ramka",
+    "żółty"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "Tytuł piosenki",
+   "tags": [
+    "muzyka",
+    "piosenka",
+    "odtwarzacz"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "Tytuł z falą dźwięku",
+   "tags": [
+    "muzyka",
+    "audio",
+    "minimalistyczny"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "Dotknij tutaj",
+   "tags": [
+    "dotknij",
+    "wywołanie",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "Fioletowa pigułka z pucharem",
+   "tags": [
+    "puchar",
+    "fioletowy",
+    "pigułka"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "Pinezka lokalizacji",
+   "tags": [
+    "lokalizacja",
+    "podróż",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "Żółty pasek pilne",
+   "tags": [
+    "wiadomości",
+    "pilne",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "Pilny dolny pasek",
+   "tags": [
+    "wiadomości",
+    "dolny pasek",
+    "trendy"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "Ruszamy w ogniu",
+   "tags": [
+    "ogień",
+    "płomienie",
+    "ruszamy"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "Żółty letni pędzel",
+   "tags": [
+    "lato",
+    "żółty",
+    "pędzel"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "Pasek aktualizacji życia",
+   "tags": [
+    "vlog",
+    "papier",
+    "życie"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "Wiralowy wybuch",
+   "tags": [
+    "komiks",
+    "wybuch",
+    "trendy"
    ]
   },
   "text-style:ter-a-mano": {

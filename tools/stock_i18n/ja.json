@@ -138,6 +138,7 @@
   "text-style:precios": "価格とセール",
   "text-style:retro": "レトロとY2K",
   "text-style:subtitulos": "バズる字幕",
+  "text-style:tendencias": "トレンド",
   "text-style:tercios": "ローワーサード",
   "text-style:terror": "ホラーとミステリー",
   "text-style:titulos": "タイトル",
@@ -34028,6 +34029,3910 @@
     "インパクト",
     "大文字",
     "ショート"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "紫グローのオープニング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "オープニング",
+    "イントロ",
+    "シネマ",
+    "紫"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "ブルーバブル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "青",
+    "バブル",
+    "キッズ"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "エンボス赤アート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "赤",
+    "3d",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "白文字・ピンクの奥行き",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "ピンク",
+    "3d",
+    "ポップ"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "2行の赤バンド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "バンド",
+    "赤"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "ゆるい手書き",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "手書き",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "チャンネルへようこそ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ようこそ",
+    "チャンネル",
+    "筆記体"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "ニューステロップ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "リボン",
+    "バー",
+    "ローワーサード"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "クラシック黄色",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クラシック",
+    "黄色",
+    "丸文字"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "煙の中の文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スモーク",
+    "シネマ",
+    "ドラマチック"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "コミック字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "字幕",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "クロームの大会タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "イベント",
+    "クローム",
+    "メタル"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "キャストクレジット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クレジット",
+    "キャスト",
+    "シネマ",
+    "エンディング"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "白地のタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "白",
+    "ミニマル",
+    "コーポレート"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "旅の日記",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "旅",
+    "日記",
+    "手書き",
+    "紙"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "キャンディ3Dディスプレイ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "3d",
+    "キャンディ",
+    "オレンジ",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "タイトル上のラベル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ラベル",
+    "クリーン"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "黒ボックスのTHE END",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エンド",
+    "タイプライター",
+    "ボックス",
+    "黒"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "スポットライトのTHE END",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エンド",
+    "スポットライト",
+    "シネマ",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "字間広めのギャラクシー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ギャラクシー",
+    "宇宙",
+    "シネマ",
+    "字間広め"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "きらめく金のありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "ゴールド",
+    "輝き",
+    "星"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "星空のありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "別れ",
+    "星",
+    "ゴールド"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "マゼンタバー付きタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "グラフィック",
+    "マゼンタ",
+    "バー"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "黒グラフィティ・白フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "グラフィティ",
+    "ストリート",
+    "ステッカー"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "ビッグタイトル・紫ライン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "大きい",
+    "紫",
+    "ライン"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "使い込んだグレー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "映画",
+    "グレー",
+    "かすれ",
+    "ダーク"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "遠い昔…",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ストーリー",
+    "シネマ",
+    "イントロ",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "スモークで登場",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スモーク",
+    "フェード"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "コミック「Incredible!」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "すごい",
+    "炎",
+    "爆発"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "レトロ黄色ゲーム",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゲーム",
+    "レトロ",
+    "黄色",
+    "テクスチャ"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "クリーンタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミニマル",
+    "クリーン",
+    "ベーシック"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "ネオンライン間のありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "ありがとう",
+    "登録",
+    "ライン"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "ブライトピンクネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "ピンク",
+    "ビューティー",
+    "メイク"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "3Dゴールド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "金",
+    "ゴールド",
+    "3d",
+    "輝き"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "黒ピル・赤ドット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "イントロ",
+    "ピル",
+    "黒"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "黄色の映画タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "映画",
+    "シネマ",
+    "黄色",
+    "トレーラー"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "大文字の上に小文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "3D石",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "石",
+    "3d",
+    "岩",
+    "エンボス"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "SNSアカウント・ピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "sns",
+    "ユーザー名",
+    "ピル",
+    "登録"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "白の筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "筆記体",
+    "カリグラフィー",
+    "白"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "サブタイトル付きセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "黒地に黄色の字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "黄色",
+    "ボックス"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "白ボックス字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ボックス",
+    "白"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "黒ボックス字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ボックス",
+    "黒"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "映画字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "シネマ",
+    "映画"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "細字サブタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "細字",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "赤の登録ボタン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "赤",
+    "ボタン",
+    "sns"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "白とシアンのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "白",
+    "水色"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "ゴールドリボン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "リボン",
+    "ゴールド"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "赤のローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "赤"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "左寄せ見出し",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "見出し",
+    "左"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "赤バー付きタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バー",
+    "赤",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "炎のタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "タイプ風デイリーVlog",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "タイプライター",
+    "タイピング",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "黄色・黒フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "黄色",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "黄色・赤フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "黄色",
+    "赤",
+    "コミック"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "字間広めのオレンジアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "オレンジ",
+    "グラデーション"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "赤の3Dアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "赤",
+    "3d"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "光のスイープ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "シャイン",
+    "スイープ",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "ベーシック・隅配置",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "シンプル",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "ブルーテックのウェルカム",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ようこそ",
+    "青",
+    "テック",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "バイオレットボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボックス",
+    "バイオレット",
+    "ローワーサード"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "3Dカートゥーン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "カートゥーン",
+    "3d",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "クラシックカートゥーン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "カートゥーン",
+    "黄色",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "字間広めのシネマ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "字間広め",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "CM風ボックスタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "cm",
+    "ボックス",
+    "スポーツ",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "監督クレジット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クレジット",
+    "シネマ",
+    "監督",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "キャプション付き斜体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "斜体",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "ファイアフラッシュ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "黄色い光の筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "サイン",
+    "筆記体",
+    "黄色",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "シンプルセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "シンプル",
+    "エレガント",
+    "斜体"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "破れ紙のありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "紙",
+    "破れ",
+    "手書き"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "光るありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "輝き",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "金色のビーム",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "金",
+    "ゴールド",
+    "輝き",
+    "高級感"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "ブルースモーク",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スモーク",
+    "青",
+    "輝き",
+    "パーティクル"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "ハートビート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "鼓動",
+    "愛",
+    "パルス",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "白ボックスの吹き出し",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コールアウト",
+    "ボックス",
+    "白"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "ライムフレーム",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーム",
+    "ライム",
+    "ハイライト"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "タイプ風タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "タイピング",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "3Dメタル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "メタル",
+    "3d",
+    "中世",
+    "クローム"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "ファッション白ブロック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ファッション",
+    "ボックス",
+    "白"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "シンプルなゆらゆら",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "動き",
+    "ゆらゆら",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "ホットピンクネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "ピンク",
+    "輝き"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "コミック擬音",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "擬音",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "パーティクルタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "パーティクル",
+    "ピンク",
+    "字間広め"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "シネマポスター",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "ポスター",
+    "セリフ",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "積み重ねクラシックポスター",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ポスター",
+    "シネマ",
+    "ホラー",
+    "コンデンスド"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "ダークプロモ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "プロモ",
+    "シネマ",
+    "ダーク",
+    "コンデンスド"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "近日公開",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "近日公開",
+    "公開",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "黄色のグロー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "グロー",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "ブルーグロー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "グロー",
+    "青",
+    "ネオン"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "シャープな3Dセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "3d",
+    "セリフ",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "ダイナミック字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ダイナミック",
+    "カラオケ",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "黒地に黄色の字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "キャプション",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "赤リボンの登録",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "赤",
+    "筆"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "光る登録ボタン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "輝き",
+    "紫"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "フチ付き青ローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "青"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "ピンクバーのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "ピンク"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "カラーフチのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "紫",
+    "緑"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "斜めオレンジのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "太字ローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "太字"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "テック系ローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "テック",
+    "青"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "ストアブロック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ストア",
+    "太字",
+    "セール"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "墨筆タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "墨",
+    "筆",
+    "白"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "青い筆の見出し",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "筆",
+    "青",
+    "見出し"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "光る青ボックスのタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボックス",
+    "青",
+    "輝き"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "黄色テープ付きタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "リボン",
+    "黄色"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "キッカー付きタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シンプル",
+    "キッカー"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "オレンジ水彩",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "水彩",
+    "筆",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "言葉を愛して",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイポグラフィ",
+    "黄色",
+    "フレーズ"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "ゴールデンイヤーズ3D",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "極太黄色のワードアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "黄色",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "青ハローのワードアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "青",
+    "ハロー"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "赤フチのワードアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "ワードアート",
+    "赤"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "赤斜体のワードアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "赤",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "青い影のワードアート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アート",
+    "影",
+    "青"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "サイドバータイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バー",
+    "左"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "中央ベーシック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "中央"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "小さなベーシック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "小さい",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "下寄せベーシック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "下"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "ノート風ベーシック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "メモ",
+    "小さい"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "エピックグロー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "グロー",
+    "エピック"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "モノグロー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "モノグロー"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "呼吸するグロー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "やわらか"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "ソフトドロップ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ドロップ",
+    "スライド"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "クリエイティブ紫ボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボックス",
+    "バイオレット",
+    "クリエイティブ"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "メタリックシネマ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "メタル",
+    "トレーラー"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "燃焼",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "燃焼"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "レトロコミック3D",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "レトロ",
+    "3d",
+    "黄色"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "サブ付きコンデンスド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コンデンスド",
+    "字幕",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "クレジットリスト",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クレジット",
+    "クレジットリスト"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "エレガント斜体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "斜体",
+    "筆記体",
+    "ベーシック"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "カーソル付きタイピング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "カーソル",
+    "タイピング"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "ぼかしスライドイン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スライド",
+    "ぼかし"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "ベーシックなハイライト",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ハイライト",
+    "ベーシック"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "ふるえる素敵な一日",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ふるえ",
+    "かわいい",
+    "ライム"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "再燃するライバル対決",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "対決",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "ピンクのスイーツ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フード",
+    "スイーツ",
+    "ピンク"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "ゲームエフェクトタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゲーム",
+    "エレクトリック",
+    "青"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "セリフのタイピング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "セリフ",
+    "カーソル"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "スターフレア",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレア",
+    "光",
+    "スライド"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "光の流れ3D",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "光",
+    "シルバー",
+    "3d",
+    "輝き"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "サブ付きビッグタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ビッグタイトル",
+    "字幕"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "赤い光線",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "赤",
+    "ビーム"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "氷の冬",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "冬",
+    "氷",
+    "寒さ",
+    "青"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "放射光",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "光線",
+    "放射"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "左下タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "左",
+    "下",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "白ネオンライト",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "光",
+    "白"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "スポーツハイライト",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "イベント",
+    "赤"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "紙のメモ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "旅行",
+    "メモ",
+    "紙",
+    "vlog"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "キュートポップNEW",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ポップ",
+    "new",
+    "キュート"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "特大の赤いセール",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セール",
+    "割引",
+    "赤"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "ギャラクシーパック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ギャラクシー",
+    "宇宙",
+    "字間広め"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "パーティクルで消える",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "パーティクル",
+    "フェード"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "エレガントな金のパーティクル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "パーティクル",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "キュートポップ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ポップ",
+    "キュート",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "標準タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シンプル",
+    "ベーシック"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "コミックの疑問",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "質問",
+    "ゲーム"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "縁取りスライドショー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "縁取り",
+    "スライド",
+    "2スタイル"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "ダークプロモ（トレーラー）",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "プロモ",
+    "シネマ",
+    "トレーラー",
+    "公開"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "赤メタルレトロ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "レトロ",
+    "メタル",
+    "赤",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "白の筆記体（シンプル）",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "筆記体",
+    "白",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "サイン風筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "サイン",
+    "筆記体",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "クラシックセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "クラシック",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "細い黄色の字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "黄色",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "白の中央字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "白",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "黒ボックス字幕（中央）",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ボックス",
+    "黒"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "ライム字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ライム",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "果てしない夢",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイポグラフィ",
+    "赤",
+    "夢"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "黄色のタイピング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "タイピング",
+    "黄色"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "白ボックスのタイピング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "ボックス",
+    "白"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "手打ちタイピング",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "タイピング",
+    "手書き"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "セリフのタイピングタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "斜め青のローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "青"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "黄色ピルのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "ピル",
+    "黄色"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "バイオレットのプロモ用ローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "プロモ"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "ティールのローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ローワーサード",
+    "ティール"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "黄色のスポーツ見出し",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "見出し",
+    "黄色"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "今日の見出し",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "見出し"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "スパークタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "火花",
+    "炎",
+    "ボケ"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "燃えさしタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "燃えさし",
+    "パーティクル"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "金の火花タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "火花",
+    "パーティクル"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "枠線ボックスのタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーム",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "青フレームのタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーム",
+    "青"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "ビッグタイトルとサブ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ビッグタイトル",
+    "字幕"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "クリーンタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "クリーン",
+    "シンプル"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "ミディアムクリーンタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ベーシック",
+    "クリーン"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "スウッシュタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "筆記体",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "リキッドタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "リキッド",
+    "ピンク",
+    "パーティクル"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "スピードタイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "スピード",
+    "エピック"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "速報",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "速報"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "爆発「うわっ」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "感嘆符",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "デイリーVlog",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "筆記体",
+    "日記"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "週間Vlog・筆文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "筆",
+    "手書き"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "赤の旅Vlog",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "旅行",
+    "vlog",
+    "赤"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "ぼかしズーム",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ズーム",
+    "スライド",
+    "ぼかし"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "黄色・黒フチ（ステッカー）",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "黄色",
+    "縁取り",
+    "ステッカー"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "黄色のスイートハート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "黄色",
+    "キュート"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "光るピンクのLOVE",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク",
+    "輝き"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "GRWM",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "紫",
+    "ビューティー"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "赤い燃えさし",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "燃えさし",
+    "赤"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "ナイスプレー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スポーツ",
+    "コンデンスド",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "グッドバイブスのみ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バイブス",
+    "レトロ",
+    "ポジティブ"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "ポップなバブル文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バブル",
+    "ポップ",
+    "かわいい"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "紫と青のバブル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バブル",
+    "バイオレット",
+    "キュート"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "ピンクボックスにサイン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ピンク",
+    "ボックス",
+    "サイン"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "やんちゃな白",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "楽しい",
+    "白",
+    "いたずら"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "ホット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ハードシャドウ",
+    "白",
+    "インパクト"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "ストリート3D",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "アーバン",
+    "3d",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "ピンクネオンのレディース",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "ピンク",
+    "ガールズ"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "ビッグブルーグラデーション",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "青",
+    "グラデーション"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "シアンのきらめき",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "星"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "赤のエディトリアル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エディトリアル",
+    "雑誌",
+    "赤"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "エリート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エリート",
+    "ミニマル",
+    "白"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "オレンジのタグ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ラベル",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "ゴーストネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "青",
+    "ゴースト"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "黄色・青フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "黄色",
+    "青",
+    "キュート"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "ひとめぼれ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "赤",
+    "影"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "炎のサイン筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "ネオン",
+    "赤"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "いたずらピンク",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "猫",
+    "ピンク",
+    "キュート"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "赤い煙のボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スモーク",
+    "赤",
+    "アラート"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "くすみピンクのアドア",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "秋が来た",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "秋",
+    "コミック",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "秋のメニュー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "秋",
+    "メニュー",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "ちいさな愛してる",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "ダークモード切り抜き",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ステッカー",
+    "ダークモード切り抜き"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "オレンジのしみに「モーメント」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "しみ",
+    "オレンジ",
+    "モーメント"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "モンタージュ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "モンタージュ",
+    "ミニマル",
+    "シネマ"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "ナチュラル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ナチュラル",
+    "緑",
+    "エコ"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "エレクトリックブルーネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "青",
+    "エレクトリック"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "黄金の夜",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "オレンジ",
+    "グラデーション",
+    "夜"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "ミステリアスな夜",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "夜",
+    "ミステリー",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "古い紙のメモ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "紙",
+    "メモ",
+    "ヴィンテージ",
+    "ほっこり"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "テープ留めメモ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "メモ",
+    "日記",
+    "リボン"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "ゴールドスパークル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "輝き",
+    "お祝い"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "大胆な一歩",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボックス",
+    "赤",
+    "黄色"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "光る青ピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ピル",
+    "青",
+    "ボックス"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "ハート入り白ピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ハート",
+    "ピル",
+    "愛"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "ガラス肌",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ビューティー",
+    "ガラス",
+    "輝き"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "赤・白フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "赤",
+    "ゲーム",
+    "プレイ"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "ついに",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミニマル",
+    "白"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "ラブリーピンク",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ピンク",
+    "筆記体",
+    "キュート"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "ピンク縁取りの質問",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "質問",
+    "ピンク",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "赤ステッカー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ステッカー",
+    "赤",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "細い日常の筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "筆記体",
+    "細字",
+    "カリグラフィー"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "枠付きスタンプ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スタンプ",
+    "フレーム",
+    "ヴィンテージ"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "煙の影付き白文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "影",
+    "スモーク",
+    "白"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "控えめな登録",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "ホットピンクの愛してる",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク",
+    "ハート"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "深紅の愛",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "赤",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "ロマンチックな愛してる",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "ゴールドベルベット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "筆記体",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "Vlog日記",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "日記",
+    "フード"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "新学期",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "学校",
+    "縁取り",
+    "中抜き"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "紫の縁取り文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "縁取り",
+    "中抜き",
+    "バイオレット"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "長いお別れ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "別れ",
+    "エンディング",
+    "ミーム"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "かすれた売り切れ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "赤",
+    "グリッチ",
+    "ストア"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "ピンクグローのLOVE",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク",
+    "バレンタイン"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "チェック付き承認",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "承認",
+    "チェック",
+    "緑"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "緑青のずれ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "グリッチ",
+    "rgb",
+    "緑",
+    "青"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "赤いキス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "赤",
+    "唇"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "シェアボタン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボタン",
+    "sns",
+    "シェア"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "いいねボタン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボタン",
+    "sns",
+    "いいね"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "フォローボタン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ボタン",
+    "sns",
+    "フォロー"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "バイオレットの霞",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "バイオレット",
+    "魔法"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "小さめシネマ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "ミニマル",
+    "字間広め"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "サブ付きシネマ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "vlog"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "3D黄色コミック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "3d",
+    "黄色",
+    "爆発"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "エンドクレジット",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クレジット",
+    "シネマ",
+    "エンディング"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "ブルーグラデーション",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "グラデーション",
+    "青",
+    "やわらか"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "人生を楽しもう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーズ",
+    "エレガント",
+    "セリフ"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "ピンクと青の二重フチ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "縁取り",
+    "ピンク",
+    "青"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "赤と黄の斜体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "アクション",
+    "赤",
+    "黄色"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "斜体セリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エレガント",
+    "セリフ",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "白カードの名言",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーズ",
+    "引用",
+    "モチベーション",
+    "カード"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "ネオンリングの炎",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "炎",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "ご視聴ありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エンディング",
+    "ご視聴ありがとう"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "コミック「Wow」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "サプライズ",
+    "黄色"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "赤いエコーのセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "ポッドキャスト",
+    "赤",
+    "グリッチ"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "Hello hello",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "挨拶",
+    "ミーム",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "白い煙",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スモーク",
+    "やわらか"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "細く字間広めのセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ビューティー",
+    "エレガント",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "炎の文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "2書体のメイク",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "メイク",
+    "ビューティー",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "黄色の蛍光ペン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "質問",
+    "蛍光ペン",
+    "黄色",
+    "ブログ"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "ピンクバブル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ピンク",
+    "ほっこり",
+    "かわいい"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "霞むセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "霞",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "やわらかグリーンのセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "緑",
+    "やわらか"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "ミニVlogバブル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "ほっこり",
+    "バブル"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "太字オレンジ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "オレンジ",
+    "チャンネル"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "手描きシアンネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "水色",
+    "看板",
+    "夜"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "赤ネオン筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "赤",
+    "看板"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "ワイドな新時代",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミニマル",
+    "白"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "Oh no",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミーム",
+    "リアクション",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "控えめな高級感",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "高級感",
+    "ミニマル",
+    "白"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "字間広めの大文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "高級感",
+    "ミニマル",
+    "字間広め"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "ほっこり秋",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "秋",
+    "カフェ",
+    "ほっこり"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "破れ紙",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "紙",
+    "ヴィンテージ",
+    "写真",
+    "日記"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "ハートのピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ピンク",
+    "ほっこり"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "ラベル風ワード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "grwm",
+    "vlog",
+    "ラベル"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "親愛なる日記",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "日記",
+    "vlog",
+    "ステッカー"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "黄色ボックスのセール",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セール",
+    "ストア",
+    "黄色"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "カラフルな切り抜き文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コラージュ",
+    "切り抜き",
+    "カラフル",
+    "写真"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "光る斜体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "輝き",
+    "白",
+    "グロー"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "ルーティン筆記体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "メイク",
+    "筆記体",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "水しぶき",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "水",
+    "夏",
+    "青"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "赤バーのフォローして",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フォロー",
+    "sns",
+    "赤"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "急がない",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーズ",
+    "落ち着き",
+    "コンデンスド"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "白の下線",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーズ",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "赤ネオンの登録",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "ネオン",
+    "赤",
+    "チャンネル"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "赤いホラー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ホラー",
+    "赤",
+    "恐怖"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "文字ステッカー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ステッカー",
+    "カラフル",
+    "キッズ"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "タイプ風の旅",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タイプライター",
+    "旅",
+    "ストーリー"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "ユーザー名タグ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ユーザー名",
+    "sns",
+    "ラベル"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "クリーンなLet's go",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミニマル",
+    "アクション",
+    "白"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "青い炎",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "青",
+    "炎",
+    "エネルギー"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "ライムの縁取り",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "緑",
+    "黄色",
+    "ゲーム"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "白の叫びキャプション",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ミーム",
+    "猫",
+    "楽しい",
+    "キャプション"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "オレンジの全力投球",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "オレンジ",
+    "応援",
+    "モチベーション"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "ピンクネオンのLOVE",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "ネオン",
+    "ピンク",
+    "バレンタイン"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "赤いエコーのLOVE",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "愛",
+    "赤",
+    "3d"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "シルバーエンジェル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "天使",
+    "シルバー",
+    "翼"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "燃えるオーラ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "オーラ",
+    "筆記体"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "コミック「BAM」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "bam",
+    "パンチ"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "グリーンネオンのストリート",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "緑",
+    "ストリート"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "字間広めのシネマ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シネマ",
+    "シネマティック",
+    "映画"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "光沢のある赤バンド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "リボン",
+    "赤"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "下線付き引用ボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "光るクリエイティブ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クリエイティブ",
+    "輝き",
+    "光"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "カラフルなバースデー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "誕生日",
+    "パーティー",
+    "カラフル"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "スパークルハイライト",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ハイライト",
+    "火花",
+    "輝き"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "クラフト紙の日記",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "日記",
+    "紙",
+    "クラフト紙",
+    "ヴィンテージ"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "ゴールド斜体",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ゴールド",
+    "高級感",
+    "輝き"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "コミック「えっ?」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "サプライズ",
+    "リアクション"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "アイスエレクトリック",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エレクトリック",
+    "氷",
+    "青"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "赤く燃える",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "赤"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "光るエナジーボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エネルギー",
+    "赤",
+    "ボックス"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "細字のエモ系",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エステティック",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "ハッピーホリデー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クリスマス",
+    "ホリデー"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "輝くエンド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エンド",
+    "エンディング",
+    "シネマ",
+    "輝き"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "チャプター終了",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "チャプター",
+    "エンド",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "燃えるフィナーレ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "エンディング",
+    "エンド"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "燃えさしの言葉",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "燃えさし"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "破れ紙の名言",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "フレーズ",
+    "モチベーション",
+    "紙"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "青ネオンの炎",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "青",
+    "スピード"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "力強い青ネオン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "青"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "ピンクネオンの勝者",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "勝者",
+    "ネオン",
+    "ピンク",
+    "炎"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "クリエイティブ世代",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "エレガント",
+    "セリフ",
+    "ドキュメンタリー"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "吹き出しのありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "バブル",
+    "セリフ吹き出し"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "ピンクのありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "ピンク",
+    "ステッカー"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "ピンクボックスのありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "ピンク",
+    "ハート"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "紙テープのありがとう",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ありがとう",
+    "紙"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "大型プロモーション",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "プロモーション",
+    "セール"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "スターバーストのWow",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "wow",
+    "スターバースト"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "スケッチのストーリー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "スケッチ",
+    "落書き"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "物語のはじまり",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ストーリー",
+    "グランジ",
+    "タイプライター"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "カラフルな今日のストーリー",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "カラフル",
+    "ストーリー",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "マイストーリータグ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ラベル",
+    "ストーリー",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "手書きの「これ見て」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "手書き",
+    "矢印",
+    "指し示す"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "白ボックスのシーン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シーン",
+    "ボックス",
+    "シネマ"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "細字のモーメント",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "モーメント",
+    "筆記体",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "青ブラケットのニュース",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "ローワーサード"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "縁取りの雲",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "雲",
+    "白",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "赤いセールボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セール",
+    "赤"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "破れ紙（ペーパー）",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "紙",
+    "破れ"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "クロームの対決",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "クローム",
+    "対決",
+    "メタル"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "グリーンのPerfect",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "パーフェクト",
+    "緑",
+    "ゲーミング"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "セリフの詩",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "詩",
+    "愛",
+    "フレーズ",
+    "エレガント"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "質問ボックス",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "質問",
+    "コメント",
+    "ボックス"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "スピードプロモ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "プロモ",
+    "スピード",
+    "クローム"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "SNSピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "sns",
+    "フォロー",
+    "いいね",
+    "シェア"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "ティールネオンのラウンド",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ネオン",
+    "ラウンド",
+    "ゲーミング",
+    "縁取り"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "ハロー付きセリフ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "セリフ",
+    "ハロー",
+    "クラシック"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "ワイドな「進み続けろ」",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "モチベーション",
+    "ミニマル",
+    "白"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "ぷっくりピンクのシンプル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ピンク",
+    "ぷっくり",
+    "楽しい"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "オレンジブラケット字幕",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "字幕",
+    "ボックス",
+    "オレンジ"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "赤ボックスの登録",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "sns"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "登録ピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "登録",
+    "ピル",
+    "sns"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "トレンドサークル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "円",
+    "赤"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "黄色バーの文字",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "シンプル",
+    "ボックス",
+    "黄色"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "曲名タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "音楽",
+    "曲",
+    "プレーヤー"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "波形タイトル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "音楽",
+    "オーディオ",
+    "ミニマル"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "ここをタップ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "タップ",
+    "コールアウト"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "紫のトロフィーピル",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "トロフィー",
+    "紫",
+    "ピル"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "ロケーションピン",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "場所",
+    "ロケーション",
+    "旅"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "黄色バーの速報",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "速報"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "速報ローワーサード",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "ニュース",
+    "ローワーサード"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "炎のLet's go",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "炎",
+    "炎のlet's go"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "黄色い筆の夏",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "夏",
+    "黄色",
+    "筆"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "近況ストリップ",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "vlog",
+    "紙",
+    "ライフ"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "バイラル爆発",
+   "tags": [
+    "トレンド",
+    "タイトル",
+    "コミック",
+    "バイラル",
+    "爆発"
    ]
   },
   "text-style:ter-a-mano": {
