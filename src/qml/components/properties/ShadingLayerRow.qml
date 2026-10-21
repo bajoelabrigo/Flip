@@ -398,7 +398,9 @@ Column {
         Row {
             width: parent.width - parent.leftPadding - parent.rightPadding
             spacing: 8
-            visible: row.kind === "shadow"
+            // Every layer can be shifted off the glyphs (RGB-split, ghost and trail looks move
+            // a fill); an extrusion has its own angle instead.
+            visible: row.kind !== "extrude"
 
             PropertyKeyframeRow {
                 width: (parent.width - parent.spacing) / 2
@@ -483,6 +485,34 @@ Column {
                     }
                     onEdited: v => row.setLayer({ "extrudeAngle": v })
                 }
+            }
+        }
+
+        // How many copies build the side: few give a stepped, retro block, many a smooth solid.
+        Row {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            spacing: 8
+            visible: row.kind === "extrude"
+            Text {
+                width: (parent.width - parent.spacing) / 2
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Steps")
+                color: Theme.mutedForeground
+                font.pixelSize: Theme.fontSizeXs
+                font.family: Theme.fontFamily
+            }
+            ThemedNumberField {
+                id: extrudeStepsField
+                width: (parent.width - parent.spacing) / 2
+                decimals: 0
+                step: 1
+                from: 1
+                to: 64
+                Binding on value {
+                    when: !extrudeStepsField.activeFocus
+                    value: Number(row.layerData.extrudeSteps) || 8
+                }
+                onEdited: v => row.setLayer({ "extrudeSteps": Math.round(v) })
             }
         }
 

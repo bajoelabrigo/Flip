@@ -30,6 +30,8 @@ public:
     // Returns the minted id, or an empty string when the label is blank.
     QString add(const QString &label, const TextStyle &style, const QString &sampleText);
     bool rename(const QString &id, const QString &label);
+    // Replaces a saved style's look, keeping its name, sample and place in the library.
+    bool update(const QString &id, const TextStyle &style);
     bool remove(const QString &id);
 
     bool exportToFile(const QString &id, const QString &path) const;

@@ -962,6 +962,10 @@ public:
     // Returns {ok, id, error, unsupported:[…]}; the preset lands in the slot's "Imported" category.
     Q_INVOKABLE QVariantMap importTextAnimationPreset(const QUrl &fileUrl, const QString &slot = {});
     Q_INVOKABLE bool renameUserTextAnimationPreset(const QString &presetId, const QString &label);
+    // A text clip's In / Out / Loop slot as one of the user's own animations: the slot's preset
+    // with the clip's settings as its defaults, listed under "Mine". Returns the new id.
+    Q_INVOKABLE QString saveTextAnimationAsPreset(int trackIndex, int clipIndex, const QString &slot,
+                                                  const QString &label);
     Q_INVOKABLE bool deleteUserTextAnimationPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextAnimationPreset(const QString &presetId, const QUrl &fileUrl);
     // Human label for a text keyframe property ("Shadow · Blur"); empty for non-text props.
@@ -977,6 +981,8 @@ public:
     Q_INVOKABLE QVariantList addonTextPresetCategories() const;
     Q_INVOKABLE QString saveTextStyleAsPreset(int trackIndex, int clipIndex, const QString &label);
     Q_INVOKABLE bool renameUserTextPreset(const QString &presetId, const QString &label);
+    // Saves the look of a text clip over one of My styles, so a style can be refined in place.
+    Q_INVOKABLE bool updateUserTextPreset(const QString &presetId, int trackIndex, int clipIndex);
     Q_INVOKABLE bool deleteUserTextPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextPreset(const QString &presetId, const QUrl &fileUrl);
     Q_INVOKABLE bool importUserTextPreset(const QUrl &fileUrl);

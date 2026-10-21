@@ -1,3 +1,4 @@
+#include "core/TextAnimationPreset.h"
 #include <QtTest>
 
 #include <QAccessible>
@@ -128,6 +129,7 @@ private slots:
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
     void textClipTakesMasks();
+    void textAnimationSavesAsOwnPreset();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
     void dropShapeOnNewTrackIsOneUndo();
@@ -659,6 +661,39 @@ void EditorStateTest::textClipTakesMasks()
     const QVariantList masks = state.linkedMaskClips(textTrack, textClip);
     QCOMPARE(masks.size(), 1);
     QCOMPARE(masks.first().toMap().value(QStringLiteral("id")).toString(), added);
+}
+
+// "Save as my animation": the slot's preset with the clip's settings as its defaults, listed
+// under Mine, and removable again.
+void EditorStateTest::textAnimationSavesAsOwnPreset()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] { QStandardPaths::setTestModeEnabled(false); });
+    QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+    drift::TextAnimationPresetCatalog::instance().reload();
+
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    QVERIFY(state.saveTextAnimationAsPreset(track, clip, QStringLiteral("in"), QStringLiteral("Mine")).isEmpty());
+
+    state.setTextAnimationSlot(track, clip, QStringLiteral("in"),
+                               {{QStringLiteral("preset"), QStringLiteral("fade")},
+                                {QStringLiteral("params"), QVariantMap{{QStringLiteral("duration"), 1.25}}}});
+    const QString id = state.saveTextAnimationAsPreset(track, clip, QStringLiteral("in"), QStringLiteral("  Slow fade "));
+    QVERIFY(drift::isUserTextAnimationPresetId(id));
+    const std::optional<drift::TextAnimationPreset> saved = drift::TextAnimationPresetCatalog::instance().presetForId(id);
+    QVERIFY(saved.has_value());
+    QCOMPARE(saved->label, QStringLiteral("Slow fade"));
+    QCOMPARE(saved->category, QStringLiteral("mine"));
+    QCOMPARE(saved->param(QStringLiteral("duration"))->defaultValue.scalar, 1.25);
+
+    QVERIFY(state.deleteUserTextAnimationPreset(id));
+    QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
+    QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+    drift::TextAnimationPresetCatalog::instance().reload();
 }
 
 void EditorStateTest::addTextClip()

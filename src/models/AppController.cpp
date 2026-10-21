@@ -1828,7 +1828,7 @@ void applyWordAccentPatch(drift::WordAccent *accent, const QVariantMap &m)
     if (m.contains(QStringLiteral("color")))
         accent->color = QColor(m.value(QStringLiteral("color")).toString());
     if (m.contains(QStringLiteral("sizeScale")))
-        accent->sizeScale = qBound(0.25, m.value(QStringLiteral("sizeScale")).toDouble(), 4.0);
+        accent->sizeScale = qBound(0.2, m.value(QStringLiteral("sizeScale")).toDouble(), 4.0);
     if (m.contains(QStringLiteral("outlineEnabled")))
         accent->outlineEnabled = m.value(QStringLiteral("outlineEnabled")).toBool();
     if (m.contains(QStringLiteral("outlineWidth")))
@@ -12997,6 +12997,22 @@ bool AppController::renameUserTextPreset(const QString &presetId, const QString 
     }
     emit userTextPresetsChanged();
     setLastMessage(tr("Text style renamed"), QStringLiteral("success"));
+    return true;
+}
+
+bool AppController::updateUserTextPreset(const QString &presetId, int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle)
+        return false;
+    if (!drift::TextPresetStore::instance().update(presetId, clip.textStyle)) {
+        setLastMessage(tr("Could not update the text style"), QStringLiteral("error"));
+        return false;
+    }
+    emit userTextPresetsChanged();
+    setLastMessage(tr("Text style updated"), QStringLiteral("success"));
     return true;
 }
 
@@ -25848,6 +25864,7 @@ QVariantList AppController::textAnimationCategories(const QString &slot) const
         {QStringLiteral("word"), tr("By word")},        {QStringLiteral("kinetic"), tr("Kinetic")},
         {QStringLiteral("light"), tr("Light")},         {QStringLiteral("colour"), tr("Colour")},
         {QStringLiteral("hold"), tr("Hold")},           {QStringLiteral("imported"), tr("Imported")},
+        {QStringLiteral("mine"), tr("Mine")},
     };
     QVariantList out;
     for (const QString &id : seen)
@@ -26147,6 +26164,45 @@ QVariantMap AppController::importTextAnimationPreset(const QUrl &fileUrl, const 
     result.insert(QStringLiteral("unsupported"), warnings);
     emit userTextAnimationPresetsChanged();
     return result;
+}
+
+QString AppController::saveTextAnimationAsPreset(int trackIndex, int clipIndex, const QString &slot,
+                                                 const QString &label)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || label.trimmed().isEmpty())
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle)
+        return {};
+    const drift::TextAnimationSet &set = clip.textStyle.animation;
+    const drift::TextAnimationSlot &source = slot == QLatin1String("out")    ? set.out
+                                             : slot == QLatin1String("loop") ? set.loop
+                                                                             : set.in;
+    const std::optional<drift::TextAnimationPreset> base =
+        drift::TextAnimationPresetCatalog::instance().presetForId(source.presetId);
+    if (!base) {
+        setLastMessage(tr("Choose an animation first"), QStringLiteral("warning"));
+        return {};
+    }
+    drift::TextAnimationPreset mine = *base;
+    mine.id.clear();
+    mine.label = label.trimmed();
+    mine.category = QStringLiteral("mine");
+    mine.order = 0;
+    mine.source.clear();
+    for (drift::TextAnimParamSpec &spec : mine.params) {
+        const auto it = source.params.constFind(spec.id);
+        if (it != source.params.constEnd())
+            spec.defaultValue = it.value();
+    }
+    const QString id = drift::TextAnimationPresetCatalog::instance().addUserPreset(mine);
+    if (id.isEmpty()) {
+        setLastMessage(tr("Could not save the animation"), QStringLiteral("error"));
+        return {};
+    }
+    emit userTextAnimationPresetsChanged();
+    setLastMessage(tr("Saved to My animations"), QStringLiteral("success"));
+    return id;
 }
 
 bool AppController::renameUserTextAnimationPreset(const QString &presetId, const QString &label)

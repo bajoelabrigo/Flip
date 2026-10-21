@@ -187,8 +187,11 @@ Column {
             ThemedToggleButton {
                 visible: slotRow.spec.type === "bool"
                 text: root.labelOf(slotRow.spec)
-                checked: slotRow.current === true || slotRow.current === "true"
-                onClicked: root.changed(slotRow.spec.id, !(slotRow.current === true || slotRow.current === "true"))
+                // Animation presets keep their switches as 0/1 numbers (the typewriter's caret).
+                readonly property bool on: slotRow.current === true || slotRow.current === "true"
+                                           || (typeof slotRow.current === "number" && slotRow.current > 0.5)
+                checked: on
+                onClicked: root.changed(slotRow.spec.id, !on)
             }
 
             ThemedButton {

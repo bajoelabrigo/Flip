@@ -4806,6 +4806,21 @@ void CoreTest::userTextPresetsRoundTrip()
     store.reload();
     QCOMPARE(store.presets().first().label, QStringLiteral("Renamed"));
 
+    // Updating keeps the name and sample but takes the new look, without a pack or keys.
+    drift::TextStyle refined = style;
+    refined.pixelSize = 120;
+    refined.boxEnabled = true;
+    refined.boxShape = QStringLiteral("burst");
+    QVERIFY(store.update(id, refined));
+    QVERIFY(!store.update(QStringLiteral("user:missing"), refined));
+    store.reload();
+    QCOMPARE(store.presetForId(id)->label, QStringLiteral("Renamed"));
+    QCOMPARE(store.presetForId(id)->sampleText, QStringLiteral("Hello there"));
+    QCOMPARE(store.presetForId(id)->style.pixelSize, 120);
+    QCOMPARE(store.presetForId(id)->style.boxShape, QStringLiteral("burst"));
+    QVERIFY(store.presetForId(id)->style.packId.isEmpty());
+    QVERIFY(store.update(id, style));
+
     const QString exportPath =
         QDir(QDir::tempPath()).filePath(QStringLiteral("drift-style-test.drifttextstyle"));
     QFile::remove(exportPath);

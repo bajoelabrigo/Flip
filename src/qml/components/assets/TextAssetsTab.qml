@@ -424,6 +424,18 @@ Item {
                         icon.name: Theme.icons.pencil
                         onTriggered: renameDialog.openFor(userCard.modelData)
                     }
+                    // Refine a style in place: edit a text that uses it, then save the look over it.
+                    ThemedMenuItem {
+                        readonly property bool hasText: EditorState.selectedClip >= 0
+                            && (EditorState.selectedClipData.kind === "text"
+                                || EditorState.selectedClipData.kind === "subtitle")
+                        text: qsTr("Update from the selected text")
+                        icon.name: Theme.icons.refresh
+                        enabled: hasText
+                        onTriggered: EditorState.updateUserTextPreset(userCard.modelData.id,
+                                                                      EditorState.selectedTrack,
+                                                                      EditorState.selectedClip)
+                    }
                     ThemedMenuItem {
                         text: qsTr("Export…")
                         icon.name: Theme.icons.folderOutput

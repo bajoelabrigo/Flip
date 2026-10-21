@@ -187,6 +187,26 @@ bool TextPresetStore::rename(const QString &id, const QString &label)
     return false;
 }
 
+bool TextPresetStore::update(const QString &id, const TextStyle &style)
+{
+    QMutexLocker locker(&m_mutex);
+    ensureLoaded();
+    for (TextPreset &preset : m_presets) {
+        if (preset.id != id)
+            continue;
+        const TextStyle previous = preset.style;
+        preset.style = style;
+        preset.style.packId.clear();
+        preset.style.keyframes.clear();
+        if (!save()) {
+            preset.style = previous;
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 bool TextPresetStore::remove(const QString &id)
 {
     QMutexLocker locker(&m_mutex);
