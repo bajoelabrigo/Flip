@@ -35,6 +35,13 @@ import anims_a  # noqa: E402
 import anims_b  # noqa: E402
 import styles_a  # noqa: E402
 import styles_b  # noqa: E402
+from trends_kit import check_slots  # noqa: E402
+import trends_1  # noqa: E402
+import trends_2  # noqa: E402
+import trends_3  # noqa: E402
+import trends_4  # noqa: E402
+import trends_5  # noqa: E402
+import trends_6  # noqa: E402
 from kit import ROOT, Style, accent, argb, available_fonts, fill, glow, grad, neon_stack, shadow, stroke  # noqa: E402
 
 OUT = ROOT / "tienda" / "textos"
@@ -49,12 +56,14 @@ THUMB = 384
 PREVIEW = 360
 US = 1_000_000
 
-STYLES: list[Style] = styles_a.STYLES + styles_b.STYLES
+TRENDS: list[Style] = trends_1.STYLES + trends_2.STYLES + trends_3.STYLES + trends_4.STYLES + trends_5.STYLES + trends_6.STYLES
+STYLES: list[Style] = TRENDS + styles_a.STYLES + styles_b.STYLES
 ANIMS = anims_a.ANIMS + anims_b.ANIMS
 for _i, _a in enumerate(ANIMS):
     _a.order = _i  # gallery order inside the app: the order of the design files
 
 STYLE_CATEGORIES = {
+    "tendencias": {"es": "Tendencias", "en": "Trending"},
     "subtitulos": {"es": "Subtítulos virales", "en": "Viral captions"},
     "titulos": {"es": "Títulos", "en": "Titles"},
     "llamadas": {"es": "Llamadas a la acción", "en": "Calls to action"},
@@ -254,6 +263,7 @@ def check() -> list[str]:
                 problems.append(f"{st.id}: {f} has no weight {w}{' italic' if i else ''}")
         if st.category not in STYLE_CATEGORIES:
             problems.append(f"{st.id}: unknown category {st.category}")
+    problems += check_slots(TRENDS)
     builtin = {p.stem for p in BUILTIN_ANIMS.glob("*.json")}
     seen = set()
     for an in ANIMS:
