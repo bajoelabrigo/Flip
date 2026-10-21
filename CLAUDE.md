@@ -58,6 +58,13 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   a mano con todos los tipos (icp4…ic14) en PNG.
 - macOS: el `.dmg` sigue sin probar en un Mac (y sin firma de Apple hasta el anuncio).
 
+### Página de inicio con videos (2026-10-21, desplegada, `flipstudio-web` `4a84b`)
+- Recorrido: «Plantillas de Stock» = plantilla vertical «Nueva colección» con las dos modelos de traje; «IA en tu
+  PC» = antes/después del retoque + parapente de 120 fps a velocidad real y en cámara lenta. Fondos con video detrás
+  de «El mismo editor…» (robots), «Herramientas de editor profesional…» (fotógrafa) y «Empieza a editar hoy» (aviones).
+- Todo renderizado con la app sin ventana; scripts y fuentes en `pruebas\web-videos` (`plantilla.py` rellena el
+  `project.json` del paquete y lo carga con `load_project`; `retoque.py`, `lenta.py`, `enc.sh` para la web).
+
 ### Editor web, tarde del 2026-10-20: IA en el navegador y barra derecha igual al escritorio (desplegado)
 - Detalle, modelos del VPS y lo que falta en `docs/paridad-web.md` › «Tarde del 2026-10-20». Rama `web/paridad-1`
   `b23bf` (unió `web/ia-rostro`, `ia-cuerpo`, `ia-rife`, `ia-sam`, `ia-mejorar` y `pistas-inspector`).
