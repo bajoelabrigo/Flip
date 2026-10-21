@@ -3537,6 +3537,10 @@
         <translation>已重命名文本样式</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>无法更新文字样式</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>无法删除文本样式</translation>
     </message>
@@ -5059,6 +5063,18 @@
         <translation>此设备上没有可分享该文件的应用</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>请先选择一个动画</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>无法保存动画</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>已保存到“我的动画”</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>移除静音</translation>
     </message>
@@ -5137,6 +5153,10 @@
     <message>
         <source>Imported</source>
         <translation>已导入</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>我的</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14867,6 +14887,14 @@
         <translation>颜色</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>色调</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>特效所涂覆的颜色</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>选择填充颜色</translation>
     </message>
@@ -18126,6 +18154,10 @@ If playback stutters, try another.</source>
         <translation>角度</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>层数</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>挤出侧面向黑色渐暗的程度</translation>
     </message>
@@ -20262,6 +20294,10 @@ If playback stutters, try another.</source>
         <translation>在播放头处添加</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>用所选文字更新</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>没有已保存的样式</translation>
     </message>
@@ -20524,6 +20560,38 @@ If playback stutters, try another.</source>
         <translation>绘制在文字周围而非文字上的框和线</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>动画选项</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>重命名…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>导出…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>导出文字动画</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>文字动画 (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>删除</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>另存为我的动画…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>保存文字动画</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>相位</translation>
     </message>
@@ -20740,6 +20808,14 @@ If playback stutters, try another.</source>
         <translation>下划线</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>柔和</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
@@ -20866,6 +20942,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>按行</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>形状</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>矩形</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>胶囊</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>对话气泡</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>椭圆</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>思考气泡</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>云朵</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>爆炸</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>呐喊</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>丝带</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>箭头</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>便签</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>票券</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>笔刷</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>撕纸</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>爱心</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21028,6 +21172,10 @@ If playback stutters, try another.</source>
         <translation>按规则为部分词语设置与其他文字不同的样式</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>从第几个词开始</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>重点颜色</translation>
     </message>
@@ -21072,6 +21220,10 @@ If playback stutters, try another.</source>
         <translation>选择重点高亮颜色</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>内边距</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>文字后面的形状：对话气泡、标签、笔刷描边… 可在 基础 → 背景 中微调颜色和大小。</translation>
     </message>
@@ -21098,6 +21250,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>重命名文字动画</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>删除文字动画</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>删除“%1”？使用它的文字会保留其动效。</translation>
     </message>
     <message>
         <source>All</source>

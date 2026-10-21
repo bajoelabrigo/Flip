@@ -3459,6 +3459,10 @@
         <translation>تمت إعادة تسمية نمط النص</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>تعذّر تحديث نمط النص</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>تعذر حذف نمط النص</translation>
     </message>
@@ -5112,6 +5116,18 @@
         <translation>لا يوجد شيء على هذا الجهاز يمكنه مشاركة ذلك الملف</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>اختر حركة أولاً</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>تعذّر حفظ الحركة</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>تم الحفظ في حركاتي</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>إزالة الصمت</translation>
     </message>
@@ -5202,6 +5218,10 @@
     <message>
         <source>Imported</source>
         <translation>مستورد</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>حركاتي</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -15167,6 +15187,14 @@
         <translation>اللون</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>تلوين</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>اللون الذي يرسمه التأثير</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>اختر لون الطلاء</translation>
     </message>
@@ -18486,6 +18514,10 @@ If playback stutters, try another.</source>
         <translation>الزاوية</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>الخطوات</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>مقدار تلاشي الجانب المبثوق نحو الأسود</translation>
     </message>
@@ -20648,6 +20680,10 @@ If playback stutters, try another.</source>
         <translation>إضافة عند مؤشر التشغيل</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>تحديث من النص المحدد</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>لا توجد أنماط محفوظة</translation>
     </message>
@@ -20910,6 +20946,38 @@ If playback stutters, try another.</source>
         <translation>مربعات وخطوط تُرسَم حول النص وليس فوقه</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>خيارات الحركة</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>إعادة تسمية…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>تصدير…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>تصدير حركة النص</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>حركات النص (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>حفظ كحركة خاصة بي…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>حفظ حركة النص</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>الطور</translation>
     </message>
@@ -21126,6 +21194,14 @@ If playback stutters, try another.</source>
         <translation>تسطير</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>لطيف</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>تسريع</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>أساسي</translation>
     </message>
@@ -21252,6 +21328,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>لكل سطر</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>الشكل</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>مستطيل</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>حبة دواء</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>فقاعة كلام</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>بيضاوي</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>فقاعة تفكير</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>سحابة</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>انفجار</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>صراخ</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>بطاقة سعر</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>شريط</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>سهم</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>ملاحظة</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>تذكرة</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>ضربة فرشاة</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>ورق ممزق</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>قلب</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21414,6 +21558,10 @@ If playback stutters, try another.</source>
         <translation>تنسيق بعض الكلمات بشكل مختلف عن الباقي، وفق قاعدة محددة</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>البدء من الكلمة</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>لون الإبراز</translation>
     </message>
@@ -21458,6 +21606,10 @@ If playback stutters, try another.</source>
         <translation>اختر لون تمييز الإبراز</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>الحشوة</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>شكل خلف النص: فقاعات حوار، وملصقات، وضربات فرشاة… اضبط لونه وحجمه في أساسي ← الخلفية.</translation>
     </message>
@@ -21484,6 +21636,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>يتم تشغيله لكل تسمية توضيحية</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>إعادة تسمية حركة النص</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>حذف حركة النص</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>حذف «%1»؟ ستحتفظ النصوص التي تستخدمها بحركتها.</translation>
     </message>
     <message>
         <source>All</source>

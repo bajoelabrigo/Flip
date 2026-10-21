@@ -3537,6 +3537,10 @@
         <translation>Kiểu văn bản đã được đổi tên</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Không thể cập nhật kiểu chữ</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>Không thể xóa kiểu văn bản</translation>
     </message>
@@ -5067,6 +5071,18 @@
         <translation>Không có gì trên thiết bị này có thể chia sẻ tệp đó</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Hãy chọn một hiệu ứng chuyển động trước</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Không thể lưu hiệu ứng chuyển động</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Đã lưu vào Hiệu ứng của tôi</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Xóa im lặng</translation>
     </message>
@@ -5145,6 +5161,10 @@
     <message>
         <source>Imported</source>
         <translation>Đã nhập</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Của tôi</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14867,6 +14887,14 @@
         <translation>Màu</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>Sắc thái</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>Màu mà hiệu ứng phủ lên</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>Chọn màu vẽ</translation>
     </message>
@@ -18126,6 +18154,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Góc</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>Số bước</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>Mức độ mặt nổi mờ dần về màu đen</translation>
     </message>
@@ -20263,6 +20295,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Thêm vào đầu phát</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>Cập nhật từ văn bản đã chọn</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>Không có kiểu đã lưu</translation>
     </message>
@@ -20701,6 +20737,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Gạch chân</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Nhẹ nhàng</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Tăng tốc</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Cơ bản</translation>
     </message>
@@ -20827,6 +20871,74 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Per line</source>
         <translation>Theo dòng</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Hình dạng</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Hình chữ nhật</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Viên thuốc</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Bong bóng thoại</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Hình bầu dục</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Bong bóng suy nghĩ</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Đám mây</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Bùng nổ</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Hét</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Nhãn</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Ruy băng</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Mũi tên</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Ghi chú</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Vé</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Nét cọ</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Giấy rách</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Trái tim</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -20989,6 +21101,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tạo kiểu cho một số từ khác với phần còn lại, chọn theo quy tắc</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Bắt đầu từ từ thứ</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Màu nhấn</translation>
     </message>
@@ -21033,6 +21149,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Chọn màu tô sáng nhấn</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Đệm</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Hình dạng phía sau chữ: bóng thoại, nhãn, nét cọ… Tinh chỉnh màu và kích thước trong Cơ bản → Nền.</translation>
     </message>
@@ -21043,6 +21163,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Mẫu cũng thay đổi phông chữ. Các kiểu khác giữ phông chữ của bạn.</translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation>Tùy chọn chuyển động</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Đổi tên…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>Xuất…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>Xuất chuyển động văn bản</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Chuyển động văn bản (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Xóa</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Lưu thành chuyển động của tôi…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>Lưu chuyển động văn bản</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -21067,6 +21219,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Ease</source>
         <translation>Làm mềm</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Đổi tên chuyển động văn bản</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Xóa chuyển động văn bản</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Xóa “%1”? Các văn bản đang dùng nó vẫn giữ chuyển động.</translation>
     </message>
     <message>
         <source>Advanced</source>

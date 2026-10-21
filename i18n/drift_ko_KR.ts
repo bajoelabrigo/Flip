@@ -3537,6 +3537,10 @@
         <translation>텍스트 스타일 이름이 변경됨</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>텍스트 스타일을 업데이트할 수 없습니다</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>텍스트 스타일을 삭제할 수 없습니다</translation>
     </message>
@@ -5059,6 +5063,18 @@
         <translation>이 장치에서 해당 파일을 공유할 수 없습니다</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>먼저 애니메이션을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>애니메이션을 저장할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>내 애니메이션에 저장했습니다</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>무음 구간 제거</translation>
     </message>
@@ -5137,6 +5153,10 @@
     <message>
         <source>Imported</source>
         <translation>가져옴</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>내 것</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14867,6 +14887,14 @@
         <translation>색상</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>색조</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>효과가 덧입히는 색상</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>페인트 색상 선택</translation>
     </message>
@@ -18125,6 +18153,10 @@ If playback stutters, try another.</source>
         <translation>각도</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>단계</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>돌출된 면이 검은색으로 사라지는 정도</translation>
     </message>
@@ -20261,6 +20293,10 @@ If playback stutters, try another.</source>
         <translation>재생 헤드 위치에 추가</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>선택한 텍스트로 업데이트</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>저장된 스타일 없음</translation>
     </message>
@@ -20523,6 +20559,38 @@ If playback stutters, try another.</source>
         <translation>텍스트 위가 아니라 텍스트 주위에 그리는 상자와 선</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>애니메이션 옵션</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>이름 바꾸기…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>내보내기…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>텍스트 애니메이션 내보내기</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>텍스트 애니메이션 (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>내 애니메이션으로 저장…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>텍스트 애니메이션 저장</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>위상</translation>
     </message>
@@ -20739,6 +20807,14 @@ If playback stutters, try another.</source>
         <translation>밑줄</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>부드럽게 천천히</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>기본</translation>
     </message>
@@ -20865,6 +20941,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>줄마다</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>모양</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>직사각형</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>알약형</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>말풍선</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>타원</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>생각 풍선</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>구름</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>폭발</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>외침</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>태그</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>리본</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>화살표</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>메모</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>티켓</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>붓 터치</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>찢어진 종이</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>하트</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21027,6 +21171,10 @@ If playback stutters, try another.</source>
         <translation>규칙에 따라 선택한 일부 단어의 스타일을 나머지와 다르게 지정</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>시작 단어</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>강조 색상</translation>
     </message>
@@ -21071,6 +21219,10 @@ If playback stutters, try another.</source>
         <translation>강조 표시 색상 선택</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>여백</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>텍스트 뒤의 모양: 말풍선, 라벨, 붓 터치… 색과 크기는 기본 → 배경에서 세부 조정하세요.</translation>
     </message>
@@ -21097,6 +21249,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>텍스트 애니메이션 이름 바꾸기</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>텍스트 애니메이션 삭제</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>“%1”을(를) 삭제할까요? 이를 사용하는 텍스트는 움직임을 유지합니다.</translation>
     </message>
     <message>
         <source>All</source>

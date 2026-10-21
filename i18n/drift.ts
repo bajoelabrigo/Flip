@@ -3543,6 +3543,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5072,6 +5076,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5149,6 +5165,10 @@
     </message>
     <message>
         <source>Imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14927,6 +14947,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18191,6 +18219,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20332,6 +20364,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20594,6 +20630,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20810,6 +20878,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20935,6 +21011,74 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21098,6 +21242,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21142,6 +21290,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21167,6 +21319,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

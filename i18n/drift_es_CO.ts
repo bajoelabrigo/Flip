@@ -3543,6 +3543,10 @@
         <translation>Nombre del estilo de texto cambiado</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>No se pudo eliminar el estilo de texto</translation>
     </message>
@@ -5080,6 +5084,18 @@
         <translation>Nada en este dispositivo puede compartir ese archivo</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Eliminar silencios</translation>
     </message>
@@ -5158,6 +5174,10 @@
     <message>
         <source>Imported</source>
         <translation>Importado</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14927,6 +14947,14 @@
         <translation>Color</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation type="unfinished">Tinte</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>Elige el color de la pintura</translation>
     </message>
@@ -18198,6 +18226,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ángulo</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>Cuánto se desvanece hacia el negro el lateral extruido</translation>
     </message>
@@ -20340,6 +20372,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir en el cabezal de reproducción</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>No hay estilos guardados</translation>
     </message>
@@ -20778,6 +20814,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subrayado</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Básico</translation>
     </message>
@@ -20904,6 +20948,74 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Per line</source>
         <translation>Por línea</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished">Forma</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished">Rectángulo</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation type="unfinished">Bocadillo de diálogo</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation type="unfinished">Bocadillo de pensamiento</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished">Nube</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation type="unfinished">Explosión</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished">Grito</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished">Etiqueta</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished">Flecha</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished">Ticket</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished">Corazón</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21066,6 +21178,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aplica un estilo diferente a ciertas palabras según una regla</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Color de acento</translation>
     </message>
@@ -21110,6 +21226,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Elegir color de resaltado de acento</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Una forma detrás del texto: globos de diálogo, etiquetas, trazos de pincel… Ajusta su color y tamaño en Básico → Fondo.</translation>
     </message>
@@ -21120,6 +21240,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation type="unfinished">Opciones de animación</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation type="unfinished">Cambiar nombre…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation type="unfinished">Exportar…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Eliminar</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Phase</source>
@@ -21144,6 +21296,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Ease</source>
         <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Advanced</source>

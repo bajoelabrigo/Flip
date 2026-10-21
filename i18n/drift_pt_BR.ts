@@ -3543,6 +3543,10 @@
         <translation>Estilo de texto renomeado</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Não foi possível atualizar o estilo do texto</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>Não foi possível excluir o estilo de texto</translation>
     </message>
@@ -5072,6 +5076,18 @@
         <translation>Nenhum aplicativo neste dispositivo pode compartilhar esse arquivo</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Escolha uma animação primeiro</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Não foi possível salvar a animação</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Salvo em Minhas animações</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Remover silêncio</translation>
     </message>
@@ -5150,6 +5166,10 @@
     <message>
         <source>Imported</source>
         <translation>Importados</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Minhas</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14927,6 +14947,14 @@
         <translation>Cor</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>Matiz</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>A cor que o efeito aplica por cima</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>Escolha a cor da pintura</translation>
     </message>
@@ -18198,6 +18226,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Ângulo</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>Etapas</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>O quanto o lado extrudado escurece em direção ao preto</translation>
     </message>
@@ -20340,6 +20372,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Adicionar no cursor de reprodução</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>Atualizar a partir do texto selecionado</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>Nenhum estilo salvo</translation>
     </message>
@@ -20602,6 +20638,38 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Caixas e linhas desenhadas ao redor do texto em vez de sobre ele</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>Opções de animação</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Renomear…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>Exportar…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>Exportar animação de texto</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Animações de texto (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Excluir</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Salvar como minha animação…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>Salvar animação de texto</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>Fase</translation>
     </message>
@@ -20818,6 +20886,14 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Sublinhado</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Acelerar</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Básico</translation>
     </message>
@@ -20944,6 +21020,74 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Per line</source>
         <translation>Por linha</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Retângulo</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Pílula</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Balão de fala</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Oval</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Balão de pensamento</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Nuvem</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Explosão</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Grito</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Fita</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Seta</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Nota</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Ingresso</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Pincelada</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Papel rasgado</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Coração</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21106,6 +21250,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Estiliza algumas palavras de forma diferente das demais, escolhidas por uma regra</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Começar na palavra</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Cor da ênfase</translation>
     </message>
@@ -21150,6 +21298,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Escolher cor do destaque da ênfase</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Preenchimento</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Uma forma atrás do texto: balões de fala, etiquetas, pinceladas… Ajuste a cor e o tamanho em Básico → Fundo.</translation>
     </message>
@@ -21176,6 +21328,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Reproduz em cada legenda</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Renomear animação de texto</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Excluir animação de texto</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Excluir “%1”? Os textos que a usam mantêm o movimento.</translation>
     </message>
     <message>
         <source>All</source>

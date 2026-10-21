@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">রঙের আভা</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -3593,6 +3593,10 @@
         <translation type="unfinished">টেক্সট শৈলীর নাম পরিবর্তন করা হয়েছে</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>টেক্সট স্টাইল আপডেট করা যায়নি</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished">টেক্সট শৈলী মুছে ফেলা যায়নি</translation>
     </message>
@@ -5172,6 +5176,18 @@
         <translation type="unfinished">এই ডিভাইসে থাকা কিছুই সেই ফাইলটি শেয়ার করতে পারে না।</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>আগে একটি অ্যানিমেশন বেছে নিন</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>অ্যানিমেশন সংরক্ষণ করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>আমার অ্যানিমেশনে সংরক্ষিত হয়েছে</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished">নীরবতা সরান</translation>
     </message>
@@ -5250,6 +5266,10 @@
     <message>
         <source>Imported</source>
         <translation type="unfinished">ইমপোর্ট করা</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>আমার</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -7277,7 +7297,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">রঙের আভা</translation>
     </message>
     <message>
         <source>Block Glitch</source>
@@ -14927,6 +14947,14 @@
         <translation type="unfinished">রঙ</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>রঙের আভা</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>ইফেক্ট যে রঙ দিয়ে আঁকে</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation type="unfinished">পেইন্টের রঙ বেছে নিন</translation>
     </message>
@@ -18198,6 +18226,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">কোণ</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>ধাপ</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation type="unfinished">বহির্মুখী দিকটি কালোর দিকে কতটা ফেড হয়</translation>
     </message>
@@ -20356,6 +20388,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্লেহেডে যোগ করুন</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>নির্বাচিত টেক্সট থেকে আপডেট করুন</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20600,6 +20636,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation type="unfinished">বক্স এবং নিয়ম টেক্সট এর চারপাশে আঁকা না করে</translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation>অ্যানিমেশন অপশন</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>নাম বদলান…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>এক্সপোর্ট…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>টেক্সট অ্যানিমেশন এক্সপোর্ট</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>টেক্সট অ্যানিমেশন (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>মুছুন</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>আমার অ্যানিমেশন হিসেবে সংরক্ষণ…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>টেক্সট অ্যানিমেশন সংরক্ষণ</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -20854,6 +20922,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আন্ডারলাইন করুন</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>কোমল</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>গতি বাড়ান</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished">মৌলিক</translation>
     </message>
@@ -20980,6 +21056,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>আকৃতি</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>আয়তক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>ক্যাপসুল</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>কথার বুদবুদ</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>ডিম্বাকৃতি</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>ভাবনার বুদবুদ</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>মেঘ</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>বিস্ফোরণ</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>চিৎকার</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>ট্যাগ</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>রিবন</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>তীর</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>নোট</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>টিকিট</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>ব্রাশ স্ট্রোক</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>ছেঁড়া কাগজ</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>হৃদয়</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21142,6 +21286,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">নিয়ম অনুসারে বাছাই করা কিছু শব্দকে বাকি থেকে আলাদাভাবে স্টাইল করুন</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>যে শব্দ থেকে শুরু</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished">অ্যাকসেন্ট রঙ</translation>
     </message>
@@ -21186,6 +21334,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অ্যাকসেন্ট হাইলাইট রঙ চয়ন করুন</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>প্যাডিং</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21212,6 +21364,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished">প্রতিটি ক্যাপশনের জন্য খেলে</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>টেক্সট অ্যানিমেশনের নাম বদলান</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>টেক্সট অ্যানিমেশন মুছুন</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>“%1” মুছবেন? যে টেক্সটগুলো এটি ব্যবহার করে তারা তাদের গতি রেখে দেবে।</translation>
     </message>
     <message>
         <source>All</source>
@@ -21671,7 +21835,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">চিৎকার</translation>
     </message>
     <message>
         <source>Pow!</source>
@@ -21703,7 +21867,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ট্যাগ</translation>
     </message>
     <message>
         <source>Kraft tag</source>
@@ -21723,7 +21887,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">টিকিট</translation>
     </message>
     <message>
         <source>Sticky note</source>

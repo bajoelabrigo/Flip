@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kulay</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -825,7 +825,7 @@
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -841,7 +841,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Text</source>
@@ -919,7 +919,7 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Group</source>
@@ -3543,6 +3543,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Hindi ma-update ang estilo ng teksto</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3788,7 +3792,7 @@
     </message>
     <message>
         <source>Animation options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mga opsyon ng animation</translation>
     </message>
     <message>
         <source>Animation options updated</source>
@@ -3836,7 +3840,7 @@
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -3848,7 +3852,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Bars</source>
@@ -5076,6 +5080,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Pumili muna ng animation</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Hindi ma-save ang animation</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Na-save sa Aking mga animation</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5154,6 +5170,10 @@
     <message>
         <source>Imported</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Akin</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -7277,7 +7297,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kulay</translation>
     </message>
     <message>
         <source>Block Glitch</source>
@@ -10977,7 +10997,7 @@
     </message>
     <message>
         <source>Export…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-export…</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -12232,7 +12252,7 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Sticker</source>
@@ -13684,7 +13704,7 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>None</source>
@@ -13692,7 +13712,7 @@
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -13704,7 +13724,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Bars</source>
@@ -14927,6 +14947,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>Ang kulay na ipinipinta ng effect</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16087,7 +16115,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Motion</source>
@@ -18191,6 +18219,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>Mga hakbang</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18203,7 +18235,7 @@ If playback stutters, try another.</source>
     <name>ShapeInspector</name>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Shape drawn by this clip</source>
@@ -18290,7 +18322,7 @@ If playback stutters, try another.</source>
     <name>ShapeStyle</name>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Rounded rectangle</source>
@@ -18342,7 +18374,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Palaso</translation>
     </message>
     <message>
         <source>Double arrow</source>
@@ -18362,7 +18394,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speech bubble</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bula ng usapan</translation>
     </message>
     <message>
         <source>Rounded bubble</source>
@@ -18370,7 +18402,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Thought bubble</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bula ng isip</translation>
     </message>
     <message>
         <source>Callout</source>
@@ -18382,7 +18414,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Burst</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sabog</translation>
     </message>
     <message>
         <source>Lightning bolt</source>
@@ -18390,11 +18422,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ulap</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Cross</source>
@@ -20289,7 +20321,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Export…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-export…</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -20330,6 +20362,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>I-update mula sa napiling teksto</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20594,6 +20630,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>Mga opsyon ng animation</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Palitan ang pangalan…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>I-export…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>I-export ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Mga animation ng teksto (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Burahin</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>I-save bilang aking animation…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>I-save ang animation ng teksto</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20810,6 +20878,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bilisan</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20936,6 +21012,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Hugis</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Parihaba</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Kapsula</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Bula ng usapan</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Biluhaba</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Bula ng isip</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Ulap</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Sabog</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Sigaw</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Tag</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Laso</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Palaso</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Tala</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Tiket</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Hagod ng brush</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Gutay na papel</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Puso</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21098,6 +21242,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Magsimula sa salita</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21142,6 +21290,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Padding</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21168,6 +21320,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Palitan ang pangalan ng animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Burahin ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Burahin ang “%1”? Mananatili ang galaw ng mga tekstong gumagamit nito.</translation>
     </message>
     <message>
         <source>All</source>
@@ -21663,7 +21827,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sigaw</translation>
     </message>
     <message>
         <source>Pow!</source>
@@ -21671,7 +21835,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ulap</translation>
     </message>
     <message>
         <source>Black pill</source>
@@ -21695,7 +21859,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tag</translation>
     </message>
     <message>
         <source>Kraft tag</source>
@@ -21711,11 +21875,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Palaso</translation>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tiket</translation>
     </message>
     <message>
         <source>Sticky note</source>
@@ -21751,7 +21915,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Pastel cloud</source>
@@ -24871,7 +25035,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -24887,7 +25051,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Text</source>

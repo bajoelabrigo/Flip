@@ -3549,6 +3549,10 @@
         <translation>Стиль текста переименован</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Не удалось обновить стиль текста</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>Не удалось удалить стиль текста</translation>
     </message>
@@ -5085,6 +5089,18 @@
         <translation>На этом устройстве нет приложения для отправки файла</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Сначала выберите анимацию</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Не удалось сохранить анимацию</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Сохранено в «Мои анимации»</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Убрать тишину</translation>
     </message>
@@ -5163,6 +5179,10 @@
     <message>
         <source>Imported</source>
         <translation>Импортировано</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Мои</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14987,6 +15007,14 @@
         <translation>Цвет</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>Оттенок</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>Цвет, которым эффект закрашивает изображение</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>Выберите цвет заливки</translation>
     </message>
@@ -18270,6 +18298,10 @@ If playback stutters, try another.</source>
         <translation>Угол</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>Шаги</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>Степень затемнения выдавленной стороны</translation>
     </message>
@@ -20417,6 +20449,10 @@ If playback stutters, try another.</source>
         <translation>Добавить на позицию курсора воспроизведения</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>Обновить по выбранному тексту</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>Нет сохранённых стилей</translation>
     </message>
@@ -20679,6 +20715,38 @@ If playback stutters, try another.</source>
         <translation>Рамки и линии вокруг текста, а не на самом тексте</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>Параметры анимации</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Переименовать…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>Экспорт…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>Экспорт анимации текста</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Анимации текста (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Сохранить как мою анимацию…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>Сохранить анимацию текста</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>Фаза</translation>
     </message>
@@ -20895,6 +20963,14 @@ If playback stutters, try another.</source>
         <translation>Подчёркивание</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Плавная</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Основное</translation>
     </message>
@@ -21021,6 +21097,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>По строкам</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Прямоугольник</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Капсула</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Облачко речи</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Овал</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Облачко мысли</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Облако</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Взрыв</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Крик</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Ярлык</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Лента</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Стрелка</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Заметка</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Билет</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Мазок кисти</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Рваная бумага</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Сердце</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21183,6 +21327,10 @@ If playback stutters, try another.</source>
         <translation>Оформлять выбранные по правилу слова иначе, чем остальной текст</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Начать со слова</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Цвет акцента</translation>
     </message>
@@ -21227,6 +21375,10 @@ If playback stutters, try another.</source>
         <translation>Выбрать цвет подсветки акцента</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Отступ</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Фигура за текстом: облачка реплик, ярлыки, мазки кисти… Цвет и размер настраиваются в «Основное → Фон».</translation>
     </message>
@@ -21253,6 +21405,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Переименовать анимацию текста</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Удалить анимацию текста</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Удалить «%1»? Тексты, которые её используют, сохранят своё движение.</translation>
     </message>
     <message>
         <source>All</source>

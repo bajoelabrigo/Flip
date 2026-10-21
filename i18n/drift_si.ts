@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">වර්ණ ස්පර්ශය</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -3543,6 +3543,10 @@
         <translation>පෙළ විලාසයේ නම වෙනස් කරන ලදී</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>පෙළ ශෛලිය යාවත්කාලීන කළ නොහැකි විය</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>පෙළ විලාසය මකාදැමීමට නොහැකි විය</translation>
     </message>
@@ -5072,6 +5076,18 @@
         <translation>මෙම උපාංගයේ එම ගොනුව බෙදාගත හැකි කිසිවක් නොමැත</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>මුලින් සජීවීකරණයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>සජීවීකරණය සුරැකිය නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>මගේ සජීවීකරණවලට සුරැකිණි</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>නිශ්ශබ්දතාව ඉවත් කරන්න</translation>
     </message>
@@ -5150,6 +5166,10 @@
     <message>
         <source>Imported</source>
         <translation>ආයාත කළ</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>මගේ</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -7277,7 +7297,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">වර්ණ ස්පර්ශය</translation>
     </message>
     <message>
         <source>Block Glitch</source>
@@ -14927,6 +14947,14 @@
         <translation>වර්ණය</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>වර්ණ ස්පර්ශය</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>ආචරණය පින්තාරු කරන වර්ණය</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>තීන්ත වර්ණය තෝරන්න</translation>
     </message>
@@ -18198,6 +18226,10 @@ If playback stutters, try another.</source>
         <translation>කෝණය</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>පියවර</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>නෙරා ගිය (extruded) පැත්ත කළු පැහැය දෙසට කෙතරම් මැකී යන්නේද යන්න</translation>
     </message>
@@ -20340,6 +20372,10 @@ If playback stutters, try another.</source>
         <translation>ප්ලේහෙඩ් එක ඇති තැනට එක් කරන්න</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>තෝරාගත් පෙළෙන් යාවත්කාලීන කරන්න</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20602,6 +20638,38 @@ If playback stutters, try another.</source>
         <translation>පෙළ මත නොව පෙළ වටා අඳින ලද කොටු සහ රේඛා</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>සජීවීකරණ විකල්ප</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>නම වෙනස් කරන්න…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>අපනයනය…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>පෙළ සජීවීකරණය අපනයනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>පෙළ සජීවීකරණ (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>මකන්න</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>මගේ සජීවීකරණයක් ලෙස සුරකින්න…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>පෙළ සජීවීකරණය සුරකින්න</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>කලාව (Phase)</translation>
     </message>
@@ -20818,6 +20886,14 @@ If playback stutters, try another.</source>
         <translation>යටි ඉර</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>මෘදු</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>වේගවත් කරන්න</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished">මූලික</translation>
     </message>
@@ -20944,6 +21020,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>හැඩය</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>සෘජුකෝණාස්‍රය</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>පිල්</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>කතා බුබුළ</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>ඕවලය</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>සිතුවිලි බුබුළ</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>වලාකුළ</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>පිපිරුම</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>කෑගැසීම</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>ටැගය</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>රිබනය</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>ඊතලය</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>සටහන</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>ටිකට්පත</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>බුරුසු පහර</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>ඉරුණු කඩදාසි</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>හදවත</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21106,6 +21250,10 @@ If playback stutters, try another.</source>
         <translation>නීතියක් මඟින් තෝරාගත් සමහර වචන අනෙක් ඒවාට වඩා වෙනස් ලෙස විලාස කරන්න</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>ආරම්භ කළ යුතු වචනය</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Accent වර්ණය</translation>
     </message>
@@ -21150,6 +21298,10 @@ If playback stutters, try another.</source>
         <translation>Accent උද්දීපන වර්ණය තෝරන්න</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>පිරවුම</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21176,6 +21328,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>සෑම උපසිරැසියක් සඳහාම ධාවනය වේ</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>පෙළ සජීවීකරණයේ නම වෙනස් කරන්න</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>පෙළ සජීවීකරණය මකන්න</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>“%1” මකන්නද? එය භාවිතා කරන පෙළවල් ඒවායේ චලනය රඳවා ගනී.</translation>
     </message>
     <message>
         <source>All</source>
@@ -21671,7 +21835,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">කෑගැසීම</translation>
     </message>
     <message>
         <source>Pow!</source>
@@ -21703,7 +21867,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ටැගය</translation>
     </message>
     <message>
         <source>Kraft tag</source>
@@ -21723,7 +21887,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ටිකට්පත</translation>
     </message>
     <message>
         <source>Sticky note</source>

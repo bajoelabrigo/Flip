@@ -3537,6 +3537,10 @@
         <translation>テキストスタイル名を変更しました</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>テキストスタイルを更新できませんでした</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>テキストスタイルを削除できませんでした</translation>
     </message>
@@ -5059,6 +5063,18 @@
         <translation>このデバイスではそのファイルを共有できません</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>先にアニメーションを選択してください</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>アニメーションを保存できませんでした</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>マイアニメーションに保存しました</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>無音部分を削除</translation>
     </message>
@@ -5137,6 +5153,10 @@
     <message>
         <source>Imported</source>
         <translation>インポート済み</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>マイ</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -14867,6 +14887,14 @@
         <translation>カラー</translation>
     </message>
     <message>
+        <source>Tint</source>
+        <translation>色味</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>エフェクトが重ねる色</translation>
+    </message>
+    <message>
         <source>Choose the paint colour</source>
         <translation>ペイントのカラーを選択</translation>
     </message>
@@ -18126,6 +18154,10 @@ If playback stutters, try another.</source>
         <translation>角度</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>ステップ</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>押し出された側がどの程度黒に向かって減衰するか</translation>
     </message>
@@ -20263,6 +20295,10 @@ If playback stutters, try another.</source>
         <translation>再生ヘッド位置に追加</translation>
     </message>
     <message>
+        <source>Update from the selected text</source>
+        <translation>選択したテキストから更新</translation>
+    </message>
+    <message>
         <source>No saved styles</source>
         <translation>保存されたスタイルはありません</translation>
     </message>
@@ -20525,6 +20561,38 @@ If playback stutters, try another.</source>
         <translation>テキスト自体ではなく、テキストの周囲に描画されるボックスや罫線</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>アニメーションオプション</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>名前を変更…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>書き出し…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>テキストアニメーションを書き出す</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>テキストアニメーション (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>マイアニメーションとして保存…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>テキストアニメーションを保存</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>フェーズ</translation>
     </message>
@@ -20741,6 +20809,14 @@ If playback stutters, try another.</source>
         <translation>下線</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>なめらか弱</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>基本</translation>
     </message>
@@ -20867,6 +20943,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>行ごと</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>形状</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>長方形</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>カプセル</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>吹き出し</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>楕円</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>思考の吹き出し</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>雲</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>爆発</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>叫び</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>タグ</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>リボン</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>矢印</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>メモ</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>チケット</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>筆跡</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>破れた紙</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>ハート</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21029,6 +21173,10 @@ If playback stutters, try another.</source>
         <translation>ルールに従って、一部の単語を他のものとは異なるスタイルにする</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>開始する単語</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>アクセントの色</translation>
     </message>
@@ -21073,6 +21221,10 @@ If playback stutters, try another.</source>
         <translation>アクセントハイライトの色を選択</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>余白</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>テキストの背後のシェイプ: 吹き出し、ラベル、ブラシストローク… 色とサイズは 基本 → 背景 で微調整できます。</translation>
     </message>
@@ -21099,6 +21251,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>テキストアニメーションの名前を変更</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>テキストアニメーションを削除</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>「%1」を削除しますか？ これを使っているテキストは動きを保持します。</translation>
     </message>
     <message>
         <source>All</source>
