@@ -51,10 +51,10 @@ no cambia nada.
   siempre (vale también para el diseño de escritorio en una tableta).
 - **Safari no puede volver a abrir un archivo elegido** tras recargar (no hay `showOpenFilePicker`): ahí los
   bytes se guardan con el proyecto (`useProject.ts › canReopenFiles`), igual que lo que entra con el «+».
-- **Ajustar como CapCut** (capturas `Downloadsjustes*.jpeg`, desplegado): una hoja con Predefinidos (efectos de
+- **Ajustar como CapCut** (capturas `Downloads\ajustes*.jpeg`, desplegado): una hoja con Predefinidos (efectos de
   color), Filtros (LUTs), Ajustar (botones redondos + un deslizador, `AdjustSection.tsx › TouchAdjustPage`) y
   Calidad del video (Mejorar video, Estabilización, Reducir ruido del audio).
-- **iPad = diseño de escritorio (Jorge, 2026-10-21, captura `DownloadsĘ67.jpg`):** CapCut en el iPad es su editor de
+- **iPad = diseño de escritorio (Jorge, 2026-10-21, captura `Downloads\43067.jpg`):** CapCut en el iPad es su editor de
   escritorio. El diseño táctil queda solo para celulares (`touch.ts`: menos de 700 px de ancho, o dedo y menos de
   500 px de alto). En la tableta, la línea de tiempo de escritorio acepta el dedo (`Timeline.tsx`: toque = elegir,
   deslizar = desplazar, mantener = mover, pellizcar = zoom, toque en el fondo = cabezal) y en vertical todo entra
