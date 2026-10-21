@@ -594,7 +594,8 @@ Las máscaras también se pueden soltar **directamente sobre la línea de tiempo
 
 ### Gaps conocidos de las cuatro secciones de video (auditado contra CapCut)
 - **Básico**: falta **flujo óptico** (interpolar fotogramas). Es render, no un modelo.
-- **Máscara**: falta **texto como forma de máscara**.
+- **Máscara**: el texto como forma de máscara ya existía (`MaskShape::Text`); las máscaras **sobre** un clip de
+  texto llegan en la 0.19.0 (`docs/plan-0.19.md`).
 - **Retoque**: falta **quitar imperfecciones** (manchas y arrugas).
 - De nube de CapCut y no replicable: quitar objetos con IA, ampliar a 4K con IA, remix,
   contacto visual, sincronización labial.
