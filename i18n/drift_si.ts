@@ -7969,7 +7969,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">මුහුණ</translation>
     </message>
     <message>
         <source>Big Eyes</source>
@@ -14754,6 +14754,128 @@
     <message>
         <source>Ambient light</source>
         <translation>පරිසර ආලෝකය</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>මෙම ක්ලිපයට කිසිවක් අනුගමනය කළ නොහැක</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>එහි යමක් අනුගමනය කිරීමට එය වීඩියෝවක් උඩින් තබන්න</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>ට්‍රැකින් ඉවත් කළා</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>ට්‍රැකින් දැනටමත් සිදුවෙමින් පවතී</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>මුලින් වීඩියෝවේ මුහුණු ස්කෑන් කරමින්…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>මූලිකාංගය සහ වීඩියෝව සැතපෙන්නේ බොහෝ අඩුවෙනි</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>මූලිකාංගය අනුගමනය කළ යුතු දෙය මත එය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>සූදානම් වෙමින්…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>වීඩියෝවේ ස්කෑන් කළ මුහුණු නැත</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>ප්ලේහෙඩ් එක ඇති තැනින් වීඩියෝව කියවීමට නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>ට්‍රැකින් අවලංගු කළා</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>වීඩියෝව විකේතනය කිරීමට නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>රාමු %2 න් %1 අනුගමනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>අනුගමනය කිරීමට කිසිවක් හමු නොවීය</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>චලන ට්‍රැකින්</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>ට්‍රැකින් අවසන් — රාමු %2 න් %1 කදී විෂය නැති විය</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>ට්‍රැකින් අවසන්</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ට්‍රැකින්</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>“%1” හි එය අනුගමනය කළ යුතු දෙය මත තබා, පසුව ආරම්භ කරන්න.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>එය “%1” හි මුහුණ අනුගමනය කරයි.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>වස්තුව</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>මුහුණ</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>ප්‍රමාණයද අනුගමනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ට්‍රැකින් ආරම්භ කරන්න</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>ප්ලේහෙඩ් එකේ සිට ක්ලිපයේ දෙකෙළවර දක්වා අනුගමනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>ස්ථාන සහ ප්‍රමාණ ඇනිමේෂන් ඉවත් කර, එය දැන් ඇති තැනම තබයි</translation>
     </message>
 </context>
 <context>
@@ -24808,7 +24930,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">මුහුණ</translation>
     </message>
     <message>
         <source>Body</source>

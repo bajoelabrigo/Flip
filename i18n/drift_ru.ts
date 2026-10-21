@@ -14817,6 +14817,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Этот клип ничего не может отслеживать</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Поместите его над видео, чтобы отслеживать что-то в нём</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Удалить трекинг</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Трекинг удалён</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Трекинг уже выполняется</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Сначала сканируются лица в видео…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Элемент и видео почти не пересекаются</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Переместите элемент на то, что он должен отслеживать</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Подготовка…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>В видео нет отсканированных лиц</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>Не удалось прочитать видео в позиции указателя</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Трекинг отменён</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>Не удалось декодировать видео</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Отслеживание кадра %1 из %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Не найдено ничего для отслеживания</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Трекинг движения</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Трекинг завершён — объект потерян в %1 из %2 кадров</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Трекинг завершён</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Трекинг</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>Поместите его на то, что нужно отслеживать в «%1», и начните.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>Он будет следовать за лицом в «%1».</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Объект</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Лицо</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>Отслеживать и размер</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Начать трекинг</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>Отслеживать от указателя до обоих концов клипа</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Удалить трекинг</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>Удаляет анимацию позиции и размера, оставляя элемент там, где он сейчас</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

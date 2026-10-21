@@ -6964,7 +6964,7 @@
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Clear body analysis</source>
@@ -7969,7 +7969,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mukha</translation>
     </message>
     <message>
         <source>Big Eyes</source>
@@ -11898,7 +11898,7 @@
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Detecting faces…</source>
@@ -14757,6 +14757,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Walang masusundan ang clip na ito</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Ilagay ito sa ibabaw ng video para may masundan dito</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Alisin ang tracking</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Naalis na ang tracking</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Isinasagawa na ang tracking</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Sini-scan muna ang mga mukha sa video…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Halos hindi nagpapatong ang element at ang video</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Ilipat ang element sa ibabaw ng dapat nitong sundan</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Inihahanda…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>Walang na-scan na mukha ang video</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>Hindi mabasa ang video sa playhead</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Kinansela ang tracking</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>Hindi ma-decode ang video</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Sinusundan ang frame %1 sa %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Walang nakitang masusundan</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Motion tracking</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Tapos na ang tracking — nawala ang subject sa %1 sa %2 frame</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Tapos na ang tracking</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>Ilagay ito sa ibabaw ng dapat nitong sundan sa “%1”, saka simulan.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>Susundan nito ang mukha sa “%1”.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Bagay</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Mukha</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>Sundan din ang laki</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Simulan ang tracking</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>Sundan mula sa playhead hanggang sa magkabilang dulo ng clip</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Alisin ang tracking</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>Aalisin ang animation ng posisyon at laki, at mananatili ito kung nasaan ito ngayon</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -17015,7 +17137,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Looking for scenes…</source>
@@ -17394,7 +17516,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Cutting out subject…</source>
@@ -24800,7 +24922,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mukha</translation>
     </message>
     <message>
         <source>Body</source>

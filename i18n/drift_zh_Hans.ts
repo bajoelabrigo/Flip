@@ -14697,6 +14697,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>此片段无法跟踪任何内容</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>将其放在视频上方，即可跟踪视频中的内容</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>移除跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>已移除跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>跟踪正在进行中</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>正在先扫描视频中的人脸…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>元素与视频几乎没有重叠</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>将元素移到它要跟随的对象上</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>准备中…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>视频中没有已扫描的人脸</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>无法读取播放头处的视频</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>已取消跟踪</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>无法解码视频</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>正在跟踪第 %1/%2 帧…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>未找到可跟踪的内容</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>运动跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>跟踪完成——在 %2 帧中有 %1 帧丢失了目标</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>跟踪完成</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>请将其放在“%1”中要跟随的对象上，然后开始。</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>它将跟随“%1”中的人脸。</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>物体</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>同时跟随大小</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>开始跟踪</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>从播放头向片段两端跟踪</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>移除跟踪</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>移除位置和大小动画，保留在当前位置</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

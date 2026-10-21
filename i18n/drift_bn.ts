@@ -7969,7 +7969,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">মুখ</translation>
     </message>
     <message>
         <source>Big Eyes</source>
@@ -14754,6 +14754,128 @@
     <message>
         <source>Ambient light</source>
         <translation type="unfinished">পরিবেষ্টিত আলো</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>এই ক্লিপ কিছু অনুসরণ করতে পারে না</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>এতে কিছু অনুসরণ করতে এটি একটি ভিডিওর উপরে রাখুন</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ট্র্যাকিং সরান</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>ট্র্যাকিং সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>ট্র্যাকিং ইতিমধ্যে চলছে</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>আগে ভিডিওর মুখগুলো স্ক্যান করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>এলিমেন্ট ও ভিডিও প্রায় একে অপরের উপর পড়ছে না</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>এলিমেন্টটি যা অনুসরণ করবে তার উপরে সরান</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>প্রস্তুত করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>ভিডিওতে স্ক্যান করা কোনো মুখ নেই</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>প্লেহেডে ভিডিও পড়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>ট্র্যাকিং বাতিল হয়েছে</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>ভিডিও ডিকোড করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>%2-এর মধ্যে %1 নম্বর ফ্রেম অনুসরণ করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>অনুসরণ করার মতো কিছু পাওয়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>মোশন ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>ট্র্যাকিং শেষ — %2টির মধ্যে %1টি ফ্রেমে বিষয়বস্তু হারিয়ে গেছে</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>ট্র্যাকিং শেষ</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>“%1”-এ যা অনুসরণ করবে তার উপরে এটি রাখুন, তারপর শুরু করুন।</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>এটি “%1”-এর মুখ অনুসরণ করবে।</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>অবজেক্ট</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>মুখ</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>আকারও অনুসরণ করুন</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ট্র্যাকিং শুরু করুন</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>প্লেহেড থেকে ক্লিপের দুই প্রান্ত পর্যন্ত অনুসরণ করুন</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ট্র্যাকিং সরান</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>অবস্থান ও আকারের অ্যানিমেশন সরিয়ে এখন যেখানে আছে সেখানেই রাখুন</translation>
     </message>
 </context>
 <context>
@@ -24808,7 +24930,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">মুখ</translation>
     </message>
     <message>
         <source>Body</source>

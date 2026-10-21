@@ -14697,6 +14697,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Clip này không thể theo dõi gì cả</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Đặt nó lên trên một video để theo dõi thứ gì đó trong video</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Xóa theo dõi</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Đã xóa theo dõi</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Đang theo dõi rồi</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Đang quét các khuôn mặt trong video trước…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Phần tử và video gần như không chồng lên nhau</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Di chuyển phần tử lên thứ cần theo dõi</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Đang chuẩn bị…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>Video chưa có khuôn mặt nào được quét</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>Không thể đọc video tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Đã hủy theo dõi</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>Không thể giải mã video</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Đang theo dõi khung hình %1/%2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Không tìm thấy gì để theo dõi</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Theo dõi chuyển động</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Theo dõi xong — mất đối tượng ở %1/%2 khung hình</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Theo dõi xong</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Theo dõi</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>Đặt nó lên thứ cần theo dõi trong “%1”, rồi bắt đầu.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>Nó sẽ theo dõi khuôn mặt trong “%1”.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Đối tượng</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Khuôn mặt</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>Theo dõi cả kích thước</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Bắt đầu theo dõi</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>Theo dõi từ đầu phát đến cả hai đầu của clip</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Xóa theo dõi</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>Xóa hoạt ảnh vị trí và kích thước, giữ nguyên ở vị trí hiện tại</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

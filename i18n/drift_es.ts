@@ -14757,6 +14757,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Este clip no puede seguir nada</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Ponlo sobre un video para seguir algo en él</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Quitar seguimiento</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Seguimiento quitado</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Ya hay un seguimiento en curso</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Primero se analizan los rostros del video…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>El elemento y el video casi no se superponen</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Mueve el elemento sobre lo que debe seguir</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Preparando…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>El video no tiene rostros analizados</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>No se pudo leer el video en el cabezal</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Seguimiento cancelado</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>No se pudo decodificar el video</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Siguiendo el fotograma %1 de %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>No se encontró nada que seguir</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Seguimiento de movimiento</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Seguimiento listo: se perdió el sujeto en %1 de %2 fotogramas</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Seguimiento listo</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Seguimiento</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>Colócalo sobre lo que debe seguir en “%1” y empieza.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>Seguirá el rostro en “%1”.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objeto</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Rostro</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>Seguir también el tamaño</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Iniciar seguimiento</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>Seguir desde el cabezal hasta los dos extremos del clip</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Quitar seguimiento</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>Quita la animación de posición y tamaño y lo deja donde está ahora</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

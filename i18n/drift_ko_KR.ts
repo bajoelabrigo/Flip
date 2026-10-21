@@ -14697,6 +14697,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>이 클립은 아무것도 추적할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>추적하려면 동영상 위에 놓으세요</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>트래킹 제거</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>트래킹을 제거했습니다</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>이미 트래킹이 진행 중입니다</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>먼저 동영상의 얼굴을 스캔하는 중…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>요소와 동영상이 거의 겹치지 않습니다</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>요소를 추적할 대상 위로 옮기세요</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>준비 중…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>동영상에 스캔된 얼굴이 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>재생 헤드 위치에서 동영상을 읽을 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>트래킹이 취소되었습니다</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>동영상을 디코딩할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>프레임 %1/%2 추적 중…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>추적할 대상을 찾지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>모션 트래킹</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>트래킹 완료 — %2개 프레임 중 %1개에서 대상을 놓쳤습니다</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>트래킹 완료</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>트래킹</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>“%1”에서 추적할 대상 위에 놓은 다음 시작하세요.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>“%1”의 얼굴을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>객체</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>얼굴</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>크기도 따라가기</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>트래킹 시작</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>재생 헤드에서 클립의 양쪽 끝까지 추적합니다</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>트래킹 제거</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>위치와 크기 애니메이션을 제거하고 지금 위치에 그대로 둡니다</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

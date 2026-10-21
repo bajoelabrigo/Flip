@@ -14697,6 +14697,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>このクリップは何も追跡できません</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>動画の上に置くと、その中のものを追跡できます</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>トラッキングを削除</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>トラッキングを削除しました</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>トラッキングはすでに実行中です</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>先に動画内の顔をスキャンしています…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>要素と動画がほとんど重なっていません</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>追跡したいものの上に要素を移動してください</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>準備中…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>この動画にはスキャン済みの顔がありません</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>再生ヘッドの位置で動画を読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>トラッキングをキャンセルしました</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>動画をデコードできませんでした</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>フレーム %1 / %2 を追跡中…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>追跡できるものが見つかりませんでした</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>モーショントラッキング</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>トラッキング完了 — %2 フレーム中 %1 フレームで被写体を見失いました</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>トラッキング完了</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>トラッキング</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>「%1」で追跡したいものの上に配置してから開始してください。</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>「%1」の顔を追跡します。</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>オブジェクト</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>顔</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>サイズも追跡</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>トラッキング開始</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>再生ヘッドからクリップの両端まで追跡します</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>トラッキングを削除</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>位置とサイズのアニメーションを削除し、現在の位置のままにします</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

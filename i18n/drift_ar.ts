@@ -14997,6 +14997,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>لا يمكن لهذا المقطع تتبّع أي شيء</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>ضعه فوق فيديو لتتبّع شيء فيه</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>تمت إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>التتبّع قيد التنفيذ بالفعل</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>جارٍ فحص الوجوه في الفيديو أولاً…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>العنصر والفيديو بالكاد يتداخلان</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>حرّك العنصر فوق ما يجب أن يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>جارٍ التحضير…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>لا توجد وجوه تم فحصها في الفيديو</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>تعذّرت قراءة الفيديو عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>تم إلغاء التتبّع</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>تعذّر فك ترميز الفيديو</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>تتبّع الإطار %1 من %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>لم يتم العثور على شيء لتتبّعه</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>تتبّع الحركة</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>اكتمل التتبّع — فُقد الهدف في %1 من %2 إطارًا</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>اكتمل التتبّع</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>التتبّع</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>ضعه فوق ما يجب أن يتتبّعه في «%1» ثم ابدأ.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>سيتتبّع الوجه في «%1».</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>كائن</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>وجه</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>تتبّع الحجم أيضًا</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>بدء التتبّع</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>التتبّع من مؤشر التشغيل إلى طرفي المقطع</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>إزالة حركة الموضع والحجم مع إبقائه حيث هو الآن</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>

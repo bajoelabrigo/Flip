@@ -14817,6 +14817,128 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Ten klip nie może niczego śledzić</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Umieść go nad wideo, aby śledzić coś w nim</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Usuń śledzenie</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Usunięto śledzenie</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Śledzenie już trwa</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Najpierw skanowanie twarzy w wideo…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Element i wideo prawie się nie nakładają</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Przesuń element na to, co ma śledzić</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Przygotowywanie…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>Wideo nie ma zeskanowanych twarzy</translation>
+    </message>
+    <message>
+        <source>Could not read the video at the playhead</source>
+        <translation>Nie można odczytać wideo w miejscu głowicy</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Anulowano śledzenie</translation>
+    </message>
+    <message>
+        <source>Could not decode the video</source>
+        <translation>Nie można zdekodować wideo</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Śledzenie klatki %1 z %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Nie znaleziono niczego do śledzenia</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Śledzenie ruchu</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Śledzenie zakończone — utracono obiekt w %1 z %2 klatek</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Śledzenie zakończone</translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackSection</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Śledzenie</translation>
+    </message>
+    <message>
+        <source>Place it over what it should follow in “%1”, then start.</source>
+        <translation>Umieść go nad tym, co ma śledzić w „%1”, i rozpocznij.</translation>
+    </message>
+    <message>
+        <source>It will follow the face in “%1”.</source>
+        <translation>Będzie śledzić twarz w „%1”.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Obiekt</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Twarz</translation>
+    </message>
+    <message>
+        <source>Follow size too</source>
+        <translation>Śledź też rozmiar</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Rozpocznij śledzenie</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip</source>
+        <translation>Śledź od głowicy do obu końców klipu</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Usuń śledzenie</translation>
+    </message>
+    <message>
+        <source>Remove the position and size animation, leaving it where it is now</source>
+        <translation>Usuwa animację pozycji i rozmiaru, zostawiając element tam, gdzie jest teraz</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
