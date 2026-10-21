@@ -61,8 +61,9 @@ Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marc
 
 Tanda 1 desplegada (2026-10-21): 9, 3, 10, 14, 12 y 16, con pruebas (`touchWords.test.ts`, `haptics.test.ts`,
 `persist.test.ts`, `estimate.test.ts`) y probadas en Chrome emulando un iPad con Safari (sin `showSaveFilePicker`,
-`navigator.share` simulado). **Pendiente al final:** traducir a los 15 idiomas los textos nuevos de todo el diseño
-táctil (`node scripts/i18n-extract.mjs --check` dice cuántos faltan); hasta entonces se ven en español.
+`navigator.share` simulado). Traducciones: **hechas** (2026-10-21, 85 textos × 15 idiomas, `--check` en 2845/2845). La herramienta
+«Ajustar» usa en los otros idiomas la palabra de «Ajuste» (los catálogos traducen «Ajustar» como «encajar»), y la
+línea de los términos es una sola frase con los enlaces entre corchetes.
 
 Tanda 2 desplegada (2026-10-21): 11 (manifiesto, iconos, `sw.js` de red primero; nginx sirve el manifiesto como
 `application/manifest+json`, snippet actualizado en el VPS), 5 (selectores solo de medios en iPhone/iPad,
