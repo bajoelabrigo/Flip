@@ -79,7 +79,7 @@ doble toque). **Trampa:** con punteros simulados `setPointerCapture` lanza `NotF
 Tanda 4 desplegada (2026-10-21): 13 (calidad «Automática» por defecto en pantallas táctiles y copia liviana de
 videos de más de 1080p, `media/lightCopy.ts`), 6 (`PhoneHome.tsx`: Editar, Plantillas, IA, Yo) y 15 (Cmd + / =
 atajos, ⌘/⌥ en teclados de Apple; el Apple Pencil arrastra como mouse y, quieto, abre el menú). Además, pedido de
-Jorge: **«Instalar app» como en holyapp** (`Downloads\chat-app\holy_approntend\src\lib\installPrompt.js`): siempre
+Jorge: **«Instalar app» como en holyapp** (`Downloads\chat-app\holy_app\frontend\src\lib\installPrompt.js`): siempre
 visible hasta instalarla, un clic donde el navegador puede y, si no, los pasos de Android, iPhone/iPad y computadora.
 **Trampa:** las reglas de `touchWords.ts` del celular cambian «arriba a la derecha» por «el menú ⋯»: un texto que
 hable de otra cosa (el menú de Chrome) no debe usar esa frase.
