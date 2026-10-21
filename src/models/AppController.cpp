@@ -606,6 +606,7 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     m_denoise = new DenoiseController(this, this);
     m_restore = new RestoreController(this, this);
     m_faces = new FaceTrackingController(this, this);
+    m_motionTrack = new MotionTrackController(this, this);
     m_body = new BodyController(this, this);
     m_stabilize = new StabilizeController(this, this);
     m_bin = new MediaBinController(this, this);

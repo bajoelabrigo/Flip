@@ -586,6 +586,13 @@ Item {
                 onClicked: EditorState.resetClipTransform(
                                EditorState.selectedTrack, EditorState.selectedClip)
             }
+
+            // Not for a transform layer or a 3D model: those move by their own controls.
+            MotionTrackSection {
+                width: parent.width
+                visible: root.hasSelection && !root.isTransformLayer && !root.isModel3d
+                clipDataRevision: root.clipDataRevision
+            }
         }
     }
 }

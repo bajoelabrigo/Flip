@@ -129,6 +129,7 @@ private slots:
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
     void textClipTakesMasks();
+    void motionTrackingKeysTheElementOverItsVideo();
     void textAnimationSavesAsOwnPreset();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
@@ -694,6 +695,83 @@ void EditorStateTest::textAnimationSavesAsOwnPreset()
     QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
     QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
     drift::TextAnimationPresetCatalog::instance().reload();
+}
+
+// Motion tracking end to end, on a photo so no video decoder is needed: a text over it follows
+// "what it covers", which never moves, so the baked keys keep the text where it was. A text on
+// its own reports there is nothing to follow, and Remove tracking leaves one still position.
+void EditorStateTest::motionTrackingKeysTheElementOverItsVideo()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString photoPath = dir.filePath(QStringLiteral("texture.png"));
+    QImage texture(320, 180, QImage::Format_RGB32);
+    for (int y = 0; y < texture.height(); ++y) {
+        for (int x = 0; x < texture.width(); ++x) {
+            const int v = ((x / 10) * 7 + (y / 10) * 13) % 5 * 50;
+            texture.setPixel(x, y, qRgb(v, 255 - v, (v * 3) % 256));
+        }
+    }
+    QVERIFY(texture.save(photoPath));
+
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(640, 360);
+    project.setFps(10);
+    project.tracks().clear();
+
+    drift::Track textTrack{.type = drift::TrackType::Text};
+    textTrack.id = QStringLiteral("t1");
+    drift::Clip text;
+    text.id = QStringLiteral("label");
+    text.type = drift::ClipType::Text;
+    text.textContent = QStringLiteral("Hi");
+    text.timelineDuration = drift::secondsToUs(2.0);
+    text.transformX.setKeyframe(0, 200.0);
+    text.transformY.setKeyframe(0, 120.0);
+    text.transformW.setKeyframe(0, 120.0);
+    text.transformH.setKeyframe(0, 80.0);
+    textTrack.clips.append(text);
+    project.tracks().append(textTrack);
+
+    MotionTrackController *tracking = state.motionTrack();
+    QVERIFY(!tracking->sourceFor(0, 0).value(QStringLiteral("ok")).toBool());
+
+    drift::Track videoTrack{.type = drift::TrackType::Video};
+    videoTrack.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.path = photoPath;
+    photo.timelineDuration = drift::secondsToUs(2.0);
+    photo.srcOut = photo.timelineDuration;
+    videoTrack.clips.append(photo);
+    project.tracks().append(videoTrack);
+
+    const QVariantMap source = tracking->sourceFor(0, 0);
+    QVERIFY(source.value(QStringLiteral("ok")).toBool());
+    QVERIFY(!source.value(QStringLiteral("canScale")).toBool()); // a text follows by position only
+
+    state.setPlayheadSeconds(1.0);
+    QSignalSpy finished(tracking, &MotionTrackController::finished);
+    tracking->track(0, 0, QStringLiteral("object"), true);
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.first().at(0).toBool());
+
+    const drift::Clip &tracked = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(tracked.transformX.keyframes().size() >= 5);
+    for (const drift::TimeUs t : tracked.transformX.keyframes().keys()) {
+        QVERIFY(std::abs(tracked.transformX.evaluateAt(t) - 200.0) < 1.5);
+        QVERIFY(std::abs(tracked.transformY.evaluateAt(t) - 120.0) < 1.5);
+    }
+    QCOMPARE(tracked.transformW.keyframes().size(), 1); // size untouched
+
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
+    state.redo();
+    tracking->clear(0, 0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
 }
 
 void EditorStateTest::addTextClip()

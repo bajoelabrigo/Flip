@@ -69,6 +69,7 @@ struct MediaEditSpec;
 #include "DepthController.h"
 #include "BodyController.h"
 #include "FaceTrackingController.h"
+#include "MotionTrackController.h"
 #include "McpController.h"
 #include "RestoreController.h"
 #include "SceneDetectController.h"
@@ -101,6 +102,7 @@ class AppController : public QObject
     friend class DenoiseController;
     friend class RestoreController;
     friend class FaceTrackingController;
+    friend class MotionTrackController;
     friend class BodyController;
     friend class StabilizeController;
     friend class MediaBinController;
@@ -137,6 +139,7 @@ class AppController : public QObject
     Q_PROPERTY(RestoreController *restore READ restore CONSTANT)
     // Face landmark tracking and Face Swap source ingest. QML: EditorState.faces.
     Q_PROPERTY(FaceTrackingController *faces READ faces CONSTANT)
+    Q_PROPERTY(MotionTrackController *motionTrack READ motionTrack CONSTANT)
     Q_PROPERTY(BodyController *body READ body CONSTANT)
     // Clip stabilization. QML: EditorState.stabilize.
     Q_PROPERTY(StabilizeController *stabilize READ stabilize CONSTANT)
@@ -335,6 +338,7 @@ public:
     DenoiseController *denoise() const { return m_denoise; }
     RestoreController *restore() const { return m_restore; }
     FaceTrackingController *faces() const { return m_faces; }
+    MotionTrackController *motionTrack() const { return m_motionTrack; }
     BodyController *body() const { return m_body; }
     StabilizeController *stabilize() const { return m_stabilize; }
     TtsController *tts() const { return m_tts; }
@@ -2433,6 +2437,7 @@ protected:
     DenoiseController *m_denoise = nullptr;
     RestoreController *m_restore = nullptr;
     FaceTrackingController *m_faces = nullptr;
+    MotionTrackController *m_motionTrack = nullptr;
     BodyController *m_body = nullptr;
     StabilizeController *m_stabilize = nullptr;
     MediaBinController *m_bin = nullptr;

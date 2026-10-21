@@ -753,6 +753,8 @@ add_library(driftengine STATIC
     src/engine/FaceLandmarker.cpp
     src/engine/FaceTrack.h
     src/engine/FaceTrack.cpp
+    src/engine/RegionTracker.h
+    src/engine/RegionTracker.cpp
     src/engine/BodyLandmarker.h
     src/engine/BodyLandmarker.cpp
     src/engine/PoseTrack.h
@@ -971,6 +973,8 @@ qt_add_executable(drift
     src/models/RestoreController.cpp
     src/models/FaceTrackingController.h
     src/models/FaceTrackingController.cpp
+    src/models/MotionTrackController.h
+    src/models/MotionTrackController.cpp
     src/models/BodyController.h
     src/models/BodyController.cpp
     src/models/StabilizeController.h
@@ -1319,6 +1323,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/TextAnimPresetTile.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
+        src/qml/components/properties/MotionTrackSection.qml
         src/qml/components/properties/CameraInspector.qml
         src/qml/components/properties/TransformLayerCard.qml
         src/qml/components/properties/StabilizeInspector.qml
