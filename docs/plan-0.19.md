@@ -43,15 +43,32 @@ estilo» guarda el estilo entero. Huecos cerrados (`38dad`):
 - Web: instala los estilos de Stock simplificados (solo la primera capa de cada tipo, sin efectos ni acento). Pendiente
   decidir: ampliar su modelo o avisar.
 
-## 3. Seguimiento (CapCut / Filmora) — POR HACER
-Auditoría: no existe en ninguna de las dos apps. Hay piezas:
-- Escaneo de caras por fotograma (`FaceTrackingController`, `FaceTrack`, sidecar en `AppData/facetracks`).
-- `auto_reframe` (solo MCP): convierte la cara en fotogramas clave x/y/w/h del propio video.
-- Estabilizar (vid.stab) funciona en las dos apps; en la web `stabilize/motion.ts` hace block matching.
-- SAM 2 sigue a un sujeto, pero da una máscara, no una posición.
+## 3. Seguimiento (CapCut / Filmora) — HECHO en el escritorio (falta probar en ventana)
+Auditoría previa: no existía en ninguna de las dos apps (solo el escaneo de caras para los efectos `face_*`,
+`auto_reframe` por MCP y estabilizar).
 
-Lo que falta: un seguidor de región, enlazar la posición de un texto/sticker/efecto a esa trayectoria (fotogramas
-clave), la interfaz «Seguimiento» y un efecto de difuminar/pixelar cara.
+Hecho (`398f3`):
+- **`engine/RegionTracker`**: sigue un rectángulo de fotograma a fotograma (correlación normalizada sobre una copia
+  gris pequeña, de grueso a fino con los 8 mejores candidatos, pico sub-píxel, escala ±4 % opcional, plantilla que se
+  adapta despacio, penaliza los picos lejanos para no saltar a la repetición de un patrón, y «perdido» por debajo de
+  0,35 que mantiene la última posición). Probado con un programa aparte (`pruebas\tracker-test`, MinGW 13.1 de
+  `pruebas\qt-tools`): error < 1 px en movimiento lento y rápido, escala ±4 %. Prueba `EngineTest::regionTrackerFollowsAMovingPatch`.
+- **`models/MotionTrackController`** (`EditorState.motionTrack`): el elemento seleccionado (texto, imagen/sticker,
+  forma, vector, composición) sigue al video que tiene **debajo** (pistas de índice mayor). Modo **Objeto**: lo que
+  el elemento tapa en el cabezal; modo **Rostro**: la cara escaneada (si no hay escaneo, lo lanza y sigue al
+  terminar). Hacia adelante y hacia atrás desde el cabezal, en el tramo donde se solapan. Se hornea en fotogramas
+  clave de posición (y tamaño) cada 2 fotogramas, suavizado, en un paso de deshacer. «Quitar seguimiento» deja una
+  posición fija. Los **textos** siguen solo la posición (cambiar el tamaño de su caja no agranda las letras).
+  Prueba `EditorStateTest::motionTrackingKeysTheElementOverItsVideo` (con una foto, sin decodificador).
+- **Interfaz:** sección «Seguimiento» al final de Transformar (`MotionTrackSection.qml`), con Objeto/Rostro,
+  «Seguir también el tamaño», barra de progreso y Cancelar.
+
+**Falta:**
+- Traducir los textos nuevos (`lupdate` + los 15 idiomas).
+- Probar en ventana con un video real (que el recuadro siga a una persona caminando, y el modo Rostro).
+- Difuminar/pixelar una cara o un objeto siguiéndolo (CapCut «Mosaico»): reutilizar el seguidor para mover una
+  máscara de una capa de ajuste con desenfoque.
+- Web: no tiene seguimiento.
 
 ## Estado de la compilación
-- Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad`.
+- Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad`; pruebas (`tests.yml`) en cada push.
