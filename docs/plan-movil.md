@@ -95,7 +95,7 @@ Audio en iPhone/iPad (2026-10-21, desplegado): no sonaba lo insertado porque Saf
 medios que se reprodujo dentro de un toque, y el editor los arranca silenciados y los activa desde su reloj. Al tocar
 Reproducir se crean y desbloquean todos (`useSequencer.ts › unlockAudio`), se reanuda el AudioContext y
 `navigator.audioSession.type = "playback"`. Avisos al agregar música/sonidos («Agregando…» y «… está en la línea de
-tiempo, en 0:05»). **Falta confirmarlo en un iPhone real** (Chrome no aplica esa regla de Safari).
+tiempo, en 0:05»). **Confirmado por Jorge en su iPhone y iPad (2026-10-21).**
 
 ## Estado
 
