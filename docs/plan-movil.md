@@ -59,6 +59,13 @@ no cambia nada.
   500 px de alto). En la tableta, la línea de tiempo de escritorio acepta el dedo (`Timeline.tsx`: toque = elegir,
   deslizar = desplazar, mantener = mover, pellizcar = zoom, toque en el fondo = cabezal) y en vertical todo entra
   en una pantalla (vista previa arriba, biblioteca y propiedades al medio, línea de tiempo abajo). Desplegado.
+- **Jorge en su iPad (2026-10-21), arreglado y desplegado:** mover el tiempo con el dedo lo sacaba del editor
+  (Safari tomaba el deslizamiento como «atrás»: la regla y los tiradores lo retienen, sin rebote de página y con
+  un paso de historial propio en pantallas táctiles); mantener presionado = clic derecho (`layout/longPress.ts`,
+  clips y Medios); y «Borrar» del menú «…» de un proyecto no hacía nada (el menú se cerraba con `pointerleave`,
+  que el dedo dispara al levantarse, antes del toque: ahora solo con mouse).
+- **Trampa:** en iOS, `onPointerLeave` de un menú se dispara al levantar el dedo, antes del `click`: no cerrar
+  menús así salvo con `e.pointerType === "mouse"`.
 - Falta (etapa 2): textos de ayuda que dicen «haz clic» o «panel de la derecha», arrastrar la hoja para
   agrandarla, mover textos y stickers con dos dedos en la vista previa, el teclado de iOS al escribir un texto,
   y probarlo en el iPad de Jorge. Etapa 3 (inicio con barra abajo) sin empezar.
