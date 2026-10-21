@@ -47,10 +47,10 @@ Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marc
 - [x] 10. Almacenamiento persistente (`navigator.storage.persist`) y aviso «guarda una copia .flip».
 - [x] 14. Aviso antes de exportar un video largo o pesado en tableta/celular, con tiempo estimado.
 - [x] 16. Guía rápida la primera vez (tres burbujas: tocar, mantener, pellizcar).
-- [ ] 11. Instalar como app (manifiesto, iconos, `apple-mobile-web-app`, service worker de red primero).
+- [x] 11. Instalar como app (manifiesto, iconos, `apple-mobile-web-app`, service worker de red primero).
 - [x] 12. Compartir al terminar de exportar (`navigator.share` con el archivo: Fotos, TikTok, WhatsApp).
-- [ ] 5. Importar desde Fotos en iPhone/iPad (selector solo de imagen y video) y videos HEVC del iPhone.
-- [ ] 4. Tocar con tres dedos = deshacer, con dos = rehacer.
+- [x] 5. Importar desde Fotos en iPhone/iPad (selector solo de imagen y video) y videos HEVC del iPhone.
+- [x] 4. Tocar con tres dedos = deshacer, con dos = rehacer.
 - [ ] 1. Vista previa con dos dedos: pellizcar = escala, girar = rotación, un dedo = mover (clips y textos).
 - [ ] 2. Guías magnéticas en la vista previa (centro y bordes) al mover con el dedo.
 - [ ] 7. Hoja de abajo que se arrastra (más alta o más baja).
@@ -63,6 +63,12 @@ Tanda 1 desplegada (2026-10-21): 9, 3, 10, 14, 12 y 16, con pruebas (`touchWords
 `persist.test.ts`, `estimate.test.ts`) y probadas en Chrome emulando un iPad con Safari (sin `showSaveFilePicker`,
 `navigator.share` simulado). **Pendiente al final:** traducir a los 15 idiomas los textos nuevos de todo el diseño
 táctil (`node scripts/i18n-extract.mjs --check` dice cuántos faltan); hasta entonces se ven en español.
+
+Tanda 2 desplegada (2026-10-21): 11 (manifiesto, iconos, `sw.js` de red primero; nginx sirve el manifiesto como
+`application/manifest+json`, snippet actualizado en el VPS), 5 (selectores solo de medios en iPhone/iPad,
+`media/accept.ts`) y 4 (dos dedos = deshacer, tres = rehacer, como Procreate; `layout/gestures.ts`). Probado:
+instalación con los pasos de Safari (agente de usuario de iPad), recarga sin internet desde el service worker,
+deshacer/rehacer con toques simulados. **Trampa:** Chrome emulado reporta `maxTouchPoints` 1; un iPad real, 5.
 
 ## Estado
 
