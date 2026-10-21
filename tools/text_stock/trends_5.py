@@ -205,7 +205,7 @@ STYLES = [
     trend("e-fuego-circulo", "Fuego en círculo neón", "Fire in a neon ring", ("火 ¡FUEGO!", "火 FIRE!"), "Russo One", 110,
           400, [glow("#ff3b00", 0.5, 0.75, id="glow2"), glow("#ffae00", 0.15, 0.85), fill("#fff3c4")],
           box="#00000000", box_shape="oval", box_pad=(0.55, 0.45), box_border=(0.05, "#ff7a00"),
-          anim_in=FLICK, anim_loop=tslot("pulse", amount=4, speed=1.5), card="night", tags=["neon", "fuego", "naranja"]),
+          anim_in=FLICK, anim_loop=tslot("pulse", amount=4, speed=1.5), card="night", card_size=0.78, tags=["neon", "fuego", "naranja"]),
     trend("e-usuario-etiqueta", "Etiqueta de usuario", "Username tag", ("@tunombre", "@yourname"), "Inter", 70, 800,
           [fill("#111111")], box="#ffffff", box_pad=(0.45, 0.18), anim_in=tslot("wipe", 0.5, "easeOut", angle=0, softness=0.1),
           tags=["usuario", "redes", "etiqueta"]),

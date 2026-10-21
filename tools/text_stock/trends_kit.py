@@ -8,6 +8,8 @@ extra download. Samples are our own words: no brand names, film titles or logos.
 
 from __future__ import annotations
 
+import re
+
 from kit import Style, tslot
 
 # The built-in presets a slot may name (presets/text-animations/*.json) and the slots each supports.
@@ -26,9 +28,18 @@ BUILTIN = {
 FADE_OUT = tslot("fade", 0.3, "easeIn")
 
 
+def mark_words(text: str) -> str:
+    """The engine marks words one at a time (`*POR* *VER!*`): a span over several words
+    (`*POR VER!*`) would show its asterisks, so each word of a span gets its own pair."""
+    def split(m: re.Match) -> str:
+        return re.sub(r"\S+", lambda w: f"*{w.group(0)}*", m.group(1))
+    return re.sub(r"(?<!\S)\*(\S[^*]*\s[^*]*\S)\*(?![^\s.,;:!?¡¿)\]])", split, text)
+
+
 def trend(id: str, es: str, en: str, sample: tuple[str, str], font: str, size: int, weight: int, layers: list,
           *, anim_in=None, anim_out=FADE_OUT, anim_loop=None, tags=(), **kw) -> Style:
     """A Tendencias title. `id` gets the "tend-" prefix; sizes are project px on a 1080 x 1920 reel."""
+    sample = (mark_words(sample[0]), mark_words(sample[1]))
     return Style(f"tend-{id}", es, en, "tendencias", sample, font, size, weight, layers, anim_in=anim_in,
                  anim_out=anim_out, anim_loop=anim_loop, tags=["tendencias", "trending", "titulo", *tags], **kw)
 

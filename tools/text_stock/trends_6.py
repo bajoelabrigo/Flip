@@ -173,7 +173,7 @@ STYLES = [
     trend("f-guau-estallido", "¡Guau! en estallido", "Wow starburst", ("¡GUAU!", "WOW!"), "Luckiest Guy", 120, 400,
           [stroke(0.1, "#ffffff"), fill("#e3141f")], box="#ffffff", box_shape="shout", box_pad=(0.6, 0.55),
           box_border=(0.04, "#111111"), anim_in=STAMP, anim_loop=tslot("pulse", amount=8, speed=2),
-          tags=["comic", "wow", "estallido"], card=DARK),
+          card_size=0.78, tags=["comic", "wow", "estallido"], card=DARK),
     trend("f-gracias-tiras", "Gracias en tiras de papel", "Thanks paper strips",
           ("Gracias por\nmirar", "Thanks for\nwatching"), "Archivo Black", 90, 400,
           [stroke(0.04, "#1e3a8a"), fill("#111111")], box="#f2f2f2", box_style="line", box_shape="torn",

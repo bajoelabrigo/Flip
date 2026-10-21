@@ -193,6 +193,7 @@ class Style:
     subtitle: bool = False            # also listed with the caption styles
     card: str = "dark"                # dark | light | warm | cool | night | <#rrggbb>
     card_at: float = 1.6              # second of the 3 s render the card is taken at
+    card_size: float = 1.0            # extra shrink for the card only (shapes that reach past the fit)
 
     def _px(self, v: float) -> float:
         return round(v * self.size, 2)
