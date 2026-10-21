@@ -38,6 +38,27 @@ no cambia nada.
    columnas con chips, y «Yo» con el inicio de sesión de Google.
 4. **Pruebas** — Chrome con emulación de iPhone y iPad (toque), y Jorge en su iPad.
 
+## Etapa 5: las 16 ideas (Jorge, 2026-10-21: «vamos a hacerlas todas… no dejes ni una pendiente»)
+
+Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marca al desplegarla.
+
+- [ ] 9. Textos «haz clic» / «panel de la derecha» → «toca» / «abajo» en pantallas táctiles.
+- [ ] 3. Vibración al pegarse a un borde o al cabezal, al levantar un clip y al llegar a 0 en un deslizador.
+- [ ] 10. Almacenamiento persistente (`navigator.storage.persist`) y aviso «guarda una copia .flip».
+- [ ] 14. Aviso antes de exportar un video largo o pesado en tableta/celular, con tiempo estimado.
+- [ ] 16. Guía rápida la primera vez (tres burbujas: tocar, mantener, pellizcar).
+- [ ] 11. Instalar como app (manifiesto, iconos, `apple-mobile-web-app`, service worker de red primero).
+- [ ] 12. Compartir al terminar de exportar (`navigator.share` con el archivo: Fotos, TikTok, WhatsApp).
+- [ ] 5. Importar desde Fotos en iPhone/iPad (selector solo de imagen y video) y videos HEVC del iPhone.
+- [ ] 4. Tocar con tres dedos = deshacer, con dos = rehacer.
+- [ ] 1. Vista previa con dos dedos: pellizcar = escala, girar = rotación, un dedo = mover (clips y textos).
+- [ ] 2. Guías magnéticas en la vista previa (centro y bordes) al mover con el dedo.
+- [ ] 7. Hoja de abajo que se arrastra (más alta o más baja).
+- [ ] 8. Vista previa a pantalla completa en el celular (doble toque o botón), también en iPhone.
+- [ ] 13. Vista previa liviana automática en tabletas (calidad automática y proxies para 4K).
+- [ ] 6. Inicio como CapCut en el celular (barra abajo: Editar, Plantillas, IA, Yo).
+- [ ] 15. Teclado externo y Apple Pencil en el iPad (atajos y lápiz como mouse).
+
 ## Estado
 
 - 2026-10-21: **etapa 1 desplegada** en getflipstudio.com/editor (rama `web/movil`, commit `8ddf0`). Probado en
