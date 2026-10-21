@@ -51,7 +51,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   copia en `versiones\FlipStudio-0.18.3` (hashes comprobados). MSIX: `msstore.yml` run 39481238504 →
   `tienda\FlipStudio-Store\paquete-0.18.3`. Novedades en la web. Notas de la Store en `docs/store-listing.md`
   («Notas para la Store (0.18.3)», 358/1500).
-- **Falta (Jorge):** subir el MSIX a Partner Center y, cuando lo aprueben, TXT `version` = 0.18.3.
+- **Jorge mandó la 0.18.3 a certificación (2026-10-21).** Falta: cuando la aprueben, TXT `version` = 0.18.3.
+- **Trampa:** Partner Center da «Tienes que corregir todos los errores de validación del paquete» si se sube el
+  instalador `.exe` de `versiones\`: la Store solo acepta el `.msix` de `tienda\FlipStudio-Store\paquete-<versión>\`.
 - Probado en ventana: el espacio que se abre en vivo al arrastrar (`moveRoomPreview`). «Actualizar» con una
   actualización real se prueba con la versión siguiente (el cambio vive en la 0.18.3).
 - **Trampa:** el `.icns` hecho con Pillow no trae `icp4` (16 px) e `iconutil` falla en la prueba de macOS: escribirlo
