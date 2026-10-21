@@ -55,9 +55,9 @@ Orden de trabajo (de lo más rápido y útil a lo más grande). Cada una se marc
 - [x] 2. Guías magnéticas en la vista previa (centro y bordes) al mover con el dedo.
 - [x] 7. Hoja de abajo que se arrastra (más alta o más baja).
 - [x] 8. Vista previa a pantalla completa en el celular (doble toque o botón), también en iPhone.
-- [ ] 13. Vista previa liviana automática en tabletas (calidad automática y proxies para 4K).
-- [ ] 6. Inicio como CapCut en el celular (barra abajo: Editar, Plantillas, IA, Yo).
-- [ ] 15. Teclado externo y Apple Pencil en el iPad (atajos y lápiz como mouse).
+- [x] 13. Vista previa liviana automática en tabletas (calidad automática y proxies para 4K).
+- [x] 6. Inicio como CapCut en el celular (barra abajo: Editar, Plantillas, IA, Yo).
+- [x] 15. Teclado externo y Apple Pencil en el iPad (atajos y lápiz como mouse).
 
 Tanda 1 desplegada (2026-10-21): 9, 3, 10, 14, 12 y 16, con pruebas (`touchWords.test.ts`, `haptics.test.ts`,
 `persist.test.ts`, `estimate.test.ts`) y probadas en Chrome emulando un iPad con Safari (sin `showSaveFilePicker`,
@@ -75,6 +75,14 @@ Tanda 3 desplegada (2026-10-21): 1 (`preview/pinch.ts`, en `PreviewTransform.tsx
 7 (`layout/sheetDrag.ts`, manija en `TouchSheet`) y 8 (pantalla completa propia donde no hay API: iPhone;
 doble toque). **Trampa:** con punteros simulados `setPointerCapture` lanza `NotFoundError`; todo
 `setPointerCapture` nuevo va en `try`, si no el gesto se corta en las pruebas.
+
+Tanda 4 desplegada (2026-10-21): 13 (calidad «Automática» por defecto en pantallas táctiles y copia liviana de
+videos de más de 1080p, `media/lightCopy.ts`), 6 (`PhoneHome.tsx`: Editar, Plantillas, IA, Yo) y 15 (Cmd + / =
+atajos, ⌘/⌥ en teclados de Apple; el Apple Pencil arrastra como mouse y, quieto, abre el menú). Además, pedido de
+Jorge: **«Instalar app» como en holyapp** (`Downloads\chat-app\holy_approntend\src\lib\installPrompt.js`): siempre
+visible hasta instalarla, un clic donde el navegador puede y, si no, los pasos de Android, iPhone/iPad y computadora.
+**Trampa:** las reglas de `touchWords.ts` del celular cambian «arriba a la derecha» por «el menú ⋯»: un texto que
+hable de otra cosa (el menú de Chrome) no debe usar esa frase.
 
 ## Estado
 
