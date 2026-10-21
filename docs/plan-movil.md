@@ -97,6 +97,12 @@ Reproducir se crean y desbloquean todos (`useSequencer.ts › unlockAudio`), se 
 `navigator.audioSession.type = "playback"`. Avisos al agregar música/sonidos («Agregando…» y «… está en la línea de
 tiempo, en 0:05»). **Confirmado por Jorge en su iPhone y iPad (2026-10-21).**
 
+Sonido robótico en iPhone/iPad (2026-10-21, desplegado): el reproductor cambiaba la velocidad de cada elemento en
+cada cuadro (±10 %) para seguir el reloj; Safari da currentTime a saltos y re-estira el audio en cada cambio (ignora
+`preservesPitch`, usa `webkitPreservesPitch`). Ahora velocidad exacta dentro de 0,12 s de desfase, ±3 % como mucho
+fuera (`steeredRate`, con pruebas). **Trampa:** no tocar `playbackRate` de un elemento que suena en cada cuadro.
+Android revisado en emulación (diseño, instalar, audio, avisos); su selector de archivos también pide solo medios.
+
 ## Estado
 
 - 2026-10-21: **etapa 1 desplegada** en getflipstudio.com/editor (rama `web/movil`, commit `8ddf0`). Probado en
