@@ -41,6 +41,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - La clave de firma de Drift (`CutWire`) ya no se usa; los extras se firman con la nuestra.
 - Lo de pago vive en servidores propios; las claves de API nunca dentro del `.exe`.
 - Antes de publicar algo, compilarlo y probarlo en Windows.
+- **REGLA (Jorge, 2026-10-22): todo cambio o actualización se comprueba EN VENTANA antes de publicar**, viendo con
+  los propios ojos que quedó como queremos: abrir cada panel o función que toca el cambio, comprobar que se vea
+  lo que tiene que verse, hacer clic y ver el resultado en la vista previa. Las hojas renderizadas, el MCP sin
+  ventana y las pruebas de CI **no** lo reemplazan (la 0.20.0 salió con Texto › Animación vacío por eso).
+  Portable en `pruebas\`, `tools/e2e/shot.ps1` y `click.ps1` por pid, errores de QML con
+  `-RedirectStandardError`; copia del registro antes y restaurarla después.
 
 ---
 
@@ -805,6 +811,13 @@ decodificador de 8 bits y en WebGPU fp16 transcribe basura). El modelo vive en e
 `/var/www/flipstudio-models/modelos/whisper-base/` (servido en `/modelos/`), fuera del editor
 para que `deploy.sh` no lo vuelva a subir. Para probar en local: servir una copia y arrancar con
 `FLIP_MODELS=http://127.0.0.1:8766 npx vite`.
+
+**Antes de desplegar el editor web, la rama tiene que llevar lo último publicado.** `deploy/deploy.sh` sube
+lo que hay en la carpeta, no lo que está en una rama. El 2026-10-22 se desplegó `web/animaciones` (salida de
+`web/movil`) y desaparecieron de la web 17 cambios de `web/v019` (Seguimiento, Títulos › Tendencias, estilos de
+texto, máscaras en textos, herramientas del celular). Antes de desplegar: `git fetch` y `git log origin/<rama
+desplegada antes> ^HEAD` tiene que salir vacío; si no, unirla primero. Desde entonces la rama viva es
+`web/animaciones` (ya une `web/v019`).
 
 **En Windows no hay WSL.** El `deploy.sh` de los sitios usa `tar | ssh`; desde PowerShell se
 arma el tar con `tar.exe` y se sube con `scp`, y la mitad remota va en un `.sh` aparte

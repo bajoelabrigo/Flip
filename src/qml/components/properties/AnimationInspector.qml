@@ -215,64 +215,46 @@ Item {
         }
 
         // ----- Visual: Filmora's In / Out / Combo gallery ---------------------------------
-        Row {
+        AnimSlotTabs {
             visible: root.supportsBodyAnim
-            spacing: Theme.spacingSm
-
-            Repeater {
-                model: [
-                    { "id": "in", "label": qsTr("In") },
-                    { "id": "out", "label": qsTr("Out") },
-                    { "id": "combo", "label": qsTr("Combo") }
-                ]
-                delegate: ThemedToggleButton {
-                    required property var modelData
-                    width: 76
-                    text: modelData.label
-                    checked: root.animTab === modelData.id
-                    onClicked: {
-                        root.animTab = modelData.id
-                        root.animCategory = ""
-                    }
-                }
+            width: parent.width
+            model: [
+                { "id": "in", "label": qsTr("In") },
+                { "id": "out", "label": qsTr("Out") },
+                { "id": "combo", "label": qsTr("Combo") }
+            ]
+            current: root.animTab
+            onActivated: id => {
+                root.animTab = id
+                root.animCategory = ""
+                clipAnimChips.reset()
             }
         }
 
-        Flickable {
+        ChipScroller {
+            id: clipAnimChips
             visible: root.supportsBodyAnim && root.animCategories.length > 0
             width: parent.width
-            height: Theme.controlHeightSm
-            contentWidth: animCategoryRow.width
-            flickableDirection: Flickable.HorizontalFlick
-            boundsBehavior: Flickable.StopAtBounds
-            clip: true
-            interactive: contentWidth > width
 
-            Row {
-                id: animCategoryRow
-                height: parent.height
-                spacing: Theme.spacingSm
+            ThemedChip {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("All")
+                variant: "secondary"
+                selected: root.animCategory.length === 0
+                onClicked: root.animCategory = ""
+            }
 
-                ThemedChip {
+            Repeater {
+                model: root.animCategories
+                delegate: ThemedChip {
+                    required property var modelData
+                    required property int index
                     anchors.verticalCenter: parent.verticalCenter
-                    text: qsTr("All")
+                    text: modelData.label
                     variant: "secondary"
-                    selected: root.animCategory.length === 0
-                    onClicked: root.animCategory = ""
-                }
-
-                Repeater {
-                    model: root.animCategories
-                    delegate: ThemedChip {
-                        required property var modelData
-                        required property int index
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: modelData.label
-                        variant: "secondary"
-                        accentColor: Theme.categoryColor(index)
-                        selected: root.animCategory === modelData.id
-                        onClicked: root.animCategory = modelData.id
-                    }
+                    accentColor: Theme.categoryColor(index)
+                    selected: root.animCategory === modelData.id
+                    onClicked: root.animCategory = modelData.id
                 }
             }
         }

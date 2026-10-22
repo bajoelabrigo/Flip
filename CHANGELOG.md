@@ -3,6 +3,16 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.20.1 — Las animaciones de texto ya aparecen, y las galerías más ordenadas
+
+- `TextAnimPresetTile` pasa de `Column` a `Item` con la columna adentro: la galería ancla una estrella de
+  favorito y un botón de menú en cada tarjeta, y un hijo anclado apaga un `Column` («Column will not
+  function»): las tarjetas quedaban sin altura y no se dibujaban, salvo «Ninguno» (con esos botones ocultos).
+- `AnimSlotTabs` (Entrada / Salida / Bucle o Combinado subrayadas) y `ChipScroller` (chips en una fila con rueda,
+  arrastre, flechas y bordes desvanecidos) en `TextInspector` y `AnimationInspector`.
+- `TextAnimPreviewImageProvider`: el texto de muestra se ajusta a la tarjeta (línea más larga y alto).
+- `tools/e2e/click.ps1`: la rueda va en coordenadas de pantalla.
+
 ## 0.20.0 — Animaciones como Filmora
 
 - **Motor de texto:** `rotationX` / `rotationY` por fragmento (perspectiva en el pintor) y por bloque; cursor de

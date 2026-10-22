@@ -11290,6 +11290,17 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Trước</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Tiếp</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>

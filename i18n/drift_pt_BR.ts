@@ -11327,6 +11327,17 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Anteriores</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Próximos</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>

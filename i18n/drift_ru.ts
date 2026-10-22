@@ -11364,6 +11364,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Предыдущие</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Следующие</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>

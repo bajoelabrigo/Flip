@@ -2453,25 +2453,22 @@ Item {
             spacing: Theme.spacingMd
             visible: root.page === "animate" && root.hasTextStyle
 
-            Row {
-                spacing: Theme.spacingSm
-
-                Repeater {
-                    model: [
-                        { "id": "in", "label": qsTr("In") },
-                        { "id": "out", "label": qsTr("Out") },
-                        { "id": "loop", "label": qsTr("Loop") }
-                    ]
-                    delegate: ThemedToggleButton {
-                        required property var modelData
-                        width: 64
-                        text: modelData.label
-                        checked: root.animSlot === modelData.id
-                        onClicked: {
-                            root.animSlot = modelData.id
-                            root.animCategory = ""
-                        }
-                    }
+            AnimSlotTabs {
+                width: parent.width
+                model: [
+                    { "id": "in", "label": qsTr("In") },
+                    { "id": "out", "label": qsTr("Out") },
+                    { "id": "loop", "label": qsTr("Loop") }
+                ]
+                current: root.animSlot
+                marked: id => {
+                    const slot = root.animation[id]
+                    return !!slot && !!slot.preset && slot.preset.length > 0
+                }
+                onActivated: id => {
+                    root.animSlot = id
+                    root.animCategory = ""
+                    animChips.reset()
                 }
             }
 
@@ -2484,49 +2481,38 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
-            Flickable {
+            ChipScroller {
+                id: animChips
                 width: parent.width
-                height: Theme.controlHeightSm
-                contentWidth: categoryRow.width
-                flickableDirection: Flickable.HorizontalFlick
-                boundsBehavior: Flickable.StopAtBounds
-                clip: true
-                interactive: contentWidth > width
                 visible: root.animCategories.length > 1
 
-                Row {
-                    id: categoryRow
-                    height: parent.height
-                    spacing: Theme.spacingSm
+                ThemedChip {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("All")
+                    variant: "secondary"
+                    selected: root.animCategory.length === 0
+                    onClicked: root.animCategory = ""
+                }
 
-                    ThemedChip {
+                ThemedChip {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Favorites")
+                    variant: "secondary"
+                    selected: root.animCategory === "__favorites__"
+                    onClicked: root.animCategory = "__favorites__"
+                }
+
+                Repeater {
+                    model: root.animCategories
+                    delegate: ThemedChip {
+                        required property var modelData
+                        required property int index
                         anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("All")
+                        text: modelData.label
                         variant: "secondary"
-                        selected: root.animCategory.length === 0
-                        onClicked: root.animCategory = ""
-                    }
-
-                    ThemedChip {
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("Favorites")
-                        variant: "secondary"
-                        selected: root.animCategory === "__favorites__"
-                        onClicked: root.animCategory = "__favorites__"
-                    }
-
-                    Repeater {
-                        model: root.animCategories
-                        delegate: ThemedChip {
-                            required property var modelData
-                            required property int index
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: modelData.label
-                            variant: "secondary"
-                            accentColor: Theme.categoryColor(index)
-                            selected: root.animCategory === modelData.id
-                            onClicked: root.animCategory = modelData.id
-                        }
+                        accentColor: Theme.categoryColor(index)
+                        selected: root.animCategory === modelData.id
+                        onClicked: root.animCategory = modelData.id
                     }
                 }
             }

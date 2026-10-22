@@ -254,6 +254,19 @@ QImage TextAnimPreviewImageProvider::requestImage(const QString &id, QSize *size
     }
 
     drift::Clip clip = tileClip(QString(), 700, false, drift::secondsToUs(windowS));
+    // The sample fits the card: its longest line within the width, all its lines within the height
+    // (a long sample such as "Boost your workflow" overflowed at the fixed size).
+    {
+        const QStringList lines = sample.split(QLatin1Char('\n'));
+        int longest = 1;
+        for (const QString &line : lines)
+            longest = qMax(longest, int(line.size()));
+        const double cardW = kTileReferenceHeight * frameW / qMax(1, frameH);
+        const double byWidth = cardW * 0.84 / (0.62 * longest);
+        const double byHeight = kTileReferenceHeight * 0.72 / (1.2 * lines.size());
+        clip.textStyle.pixelSize = int(qBound(18.0, qMin(byWidth, byHeight), double(kTilePixelSize)));
+        clip.textStyle.wordWrap = false;
+    }
     drift::TextAnimationSlot animation;
     animation.presetId = presetId;
     if (slot == QLatin1String("out"))

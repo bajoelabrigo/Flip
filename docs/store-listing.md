@@ -110,6 +110,22 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.20.1)**. Arreglo de la 0.20.0 (aprobada el 2026-10-22).
+
+> Novedades de la 0.20.1
+>
+> - Texto › Animación ya muestra todas las animaciones nuevas: en la 0.20.0 la galería salía vacía.
+> - Galerías de animación más claras: Entrada, Salida y Bucle como pestañas, y categorías en una fila que se corre con la rueda o las flechas.
+> - Los textos de muestra caben en sus tarjetas.
+
+En inglés:
+
+> What's new in 0.20.1
+>
+> - Text › Animation now shows all the new animations: in 0.20.0 the gallery came up empty.
+> - Clearer animation galleries: In, Out and Loop as tabs, and categories on one row that scrolls with the wheel or the arrows.
+> - Sample texts fit their cards.
+
 **Notas para la Store (0.20.0)**. Lo nuevo desde la 0.19.0 (que Jorge mandó a certificación el 2026-10-22). Texto de "Novedades de esta versión" del MSIX de la 0.20.0 (unos 571 de 1500 caracteres; en inglés, 517). Si la 0.19.0 **no** llegó a aprobarse, añadir al final las líneas de la 0.19.0.
 
 > Novedades de la 0.20.0
