@@ -13776,6 +13776,26 @@
         <source>Invert</source>
         <translation>Đảo ngược</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>Theo dõi</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>Cả tỷ lệ — phóng to và thu nhỏ theo thứ nó che</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Mặt nạ theo dõi thứ nó che</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Đặt mặt nạ lên thứ cần theo dõi rồi bắt đầu: khung hình chính được đặt từ đầu phát đến cả hai đầu mặt nạ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14731,6 +14751,46 @@
         <translation>Đã che khuôn mặt: lớp của nó nằm trên clip, nơi có thể cắt hoặc xóa</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Chọn một video hoặc ảnh để che thứ gì đó trong đó</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Trước tiên hãy chọn một đối tượng trên bản xem trước hoặc vẽ khung quanh nó</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Đối tượng làm mờ</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Đối tượng làm nhòe điểm ảnh</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Che đối tượng</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Đã che đối tượng: lớp của nó nằm trên clip, nơi có thể cắt hoặc xóa</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Chọn một mặt nạ để nó theo dõi thứ nó che</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Đặt mặt nạ lên một video để theo dõi thứ gì đó trong đó</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Di chuyển mặt nạ lên thứ cần theo dõi</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Mặt nạ theo dõi</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Xóa theo dõi</translation>
     </message>
@@ -14783,16 +14843,8 @@
         <translation>Không có khuôn mặt ở đầu phát: hãy chuyển đến khung hình có khuôn mặt</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>Không thể đọc video tại đầu phát</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>Đã hủy theo dõi</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>Không thể giải mã video</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23786,12 +23838,24 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Sau khi di chuyển, cắt hoặc tăng tốc video: đặt lại đường đi lên video mà không cần phân tích lại</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>Che một khuôn mặt</translation>
+        <source>Hide</source>
+        <translation>Che</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>Che trong suốt clip khuôn mặt gần giữa khung hình nhất tại đầu phát, bám theo nó. Lớp nằm ngay trên clip.</translation>
+        <source>A face</source>
+        <translation>Một khuôn mặt</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Một đối tượng</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Nhấp vào khuôn mặt cần che trên bản xem trước (mặc định là khuôn mặt gần giữa nhất). Nó được che suốt cả clip, bám theo nó; lớp nằm ngay trên clip.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Chọn một đối tượng trên bản xem trước hoặc vẽ khung quanh nó. Nó được che suốt cả clip, bám theo nó; lớp nằm ngay trên clip.</translation>
     </message>
     <message>
         <source>Pixelate</source>

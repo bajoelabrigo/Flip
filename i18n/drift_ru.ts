@@ -13868,6 +13868,26 @@
         <source>Invert</source>
         <translation>Инвертировать</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>Отслеживание</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>И масштаб — увеличивается и уменьшается вместе с тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Маска следует за тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Поместите маску на то, за чем она должна следить, и начните: ключевые кадры ставятся от указателя воспроизведения к обоим концам маски</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14851,6 +14871,46 @@
         <translation>Лицо скрыто: его слой находится над клипом, там его можно обрезать или удалить</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Выберите видео или фото, чтобы что-то на нём скрыть</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Сначала выберите объект в окне просмотра или обведите его рамкой</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Размытый объект</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Пикселизированный объект</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Скрыть объект</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Объект скрыт: его слой находится над клипом, там его можно обрезать или удалить</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Выберите маску, чтобы она следовала за тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Поместите маску на видео, чтобы следить за чем-то в нём</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Переместите маску на то, за чем она должна следить</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Маска следует</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Удалить трекинг</translation>
     </message>
@@ -14903,16 +14963,8 @@
         <translation>В позиции указателя нет лица: перейдите к кадру, где видно лицо</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>Не удалось прочитать видео в позиции указателя</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>Трекинг отменён</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>Не удалось декодировать видео</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23950,12 +24002,24 @@ If playback stutters, try another.</source>
         <translation>После перемещения, обрезки или ускорения видео: вернуть траекторию на него без повторного анализа</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>Скрыть лицо</translation>
+        <source>Hide</source>
+        <translation>Скрыть</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>Закрывает на всём клипе лицо, ближайшее к центру кадра на позиции указателя, и следует за ним. Слой помещается прямо над клипом.</translation>
+        <source>A face</source>
+        <translation>Лицо</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Объект</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Щёлкните в окне просмотра по лицу, которое нужно скрыть (по умолчанию — ближайшее к центру). Оно закрыто на протяжении всего клипа, с отслеживанием; слой ставится сразу над клипом.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Выберите объект в окне просмотра или обведите его рамкой. Он закрыт на протяжении всего клипа, с отслеживанием; слой ставится сразу над клипом.</translation>
     </message>
     <message>
         <source>Pixelate</source>

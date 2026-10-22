@@ -13776,6 +13776,26 @@
         <source>Invert</source>
         <translation>反转</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>同时缩放 — 随遮挡对象放大和缩小</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>蒙版跟踪其遮挡的内容</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>将蒙版放在要跟踪的内容上，然后开始：从播放头向蒙版两端添加关键帧</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14731,6 +14751,46 @@
         <translation>人脸已遮挡：其图层位于片段上方，可在那里修剪或删除</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>选择视频或照片以遮挡其中的内容</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>请先在预览中选择一个物体，或在其周围画框</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>模糊的物体</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>马赛克物体</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>遮挡物体</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>物体已遮挡：其图层位于片段上方，可在那里修剪或删除</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>选择一个蒙版，使其跟踪所遮挡的内容</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>将蒙版放在视频上以跟踪其中的内容</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>将蒙版移到要跟踪的内容上</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>蒙版跟踪</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>移除跟踪</translation>
     </message>
@@ -14783,16 +14843,8 @@
         <translation>播放头处没有人脸：请移到能看到人脸的帧</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>无法读取播放头处的视频</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>已取消跟踪</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>无法解码视频</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23785,12 +23837,24 @@ If playback stutters, try another.</source>
         <translation>移动、修剪或加速视频后：无需重新分析即可将路径重新对上</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>遮挡人脸</translation>
+        <source>Hide</source>
+        <translation>遮挡</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>在整个片段中跟踪并遮挡播放头处最靠近画面中心的人脸。图层位于片段正上方。</translation>
+        <source>A face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>物体</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>在预览中点击要遮挡的人脸（默认为离中心最近的那张）。整个片段中都会跟踪并遮挡它；图层位于片段正上方。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>在预览中选择一个物体或在其周围画框。整个片段中都会跟踪并遮挡它；图层位于片段正上方。</translation>
     </message>
     <message>
         <source>Pixelate</source>

@@ -13776,6 +13776,26 @@
         <source>Invert</source>
         <translation>반전</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>트래킹</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>크기도 — 가리는 대상에 맞춰 커지고 작아짐</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>마스크가 가리는 대상을 따라감</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>따라갈 대상 위에 마스크를 놓고 시작하세요: 재생 헤드에서 마스크 양 끝까지 키프레임이 생성됩니다</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14731,6 +14751,46 @@
         <translation>얼굴을 가렸습니다: 레이어가 클립 위에 있어 자르거나 삭제할 수 있습니다</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>무언가를 가릴 동영상이나 사진을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>먼저 미리보기에서 객체를 고르거나 주위에 상자를 그리세요</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>흐리게 한 객체</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>모자이크한 객체</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>객체 가리기</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>객체를 가렸습니다: 레이어가 클립 위에 있어 자르거나 삭제할 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>가리는 대상을 따라가게 할 마스크를 선택하세요</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>동영상 속 무언가를 따라가려면 마스크를 동영상 위에 놓으세요</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>따라갈 대상 위로 마스크를 옮기세요</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>마스크 따라가기</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>트래킹 제거</translation>
     </message>
@@ -14783,16 +14843,8 @@
         <translation>재생 헤드에 얼굴이 없습니다. 얼굴이 보이는 프레임으로 이동하세요</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>재생 헤드 위치에서 동영상을 읽을 수 없습니다</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>트래킹이 취소되었습니다</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>동영상을 디코딩할 수 없습니다</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23784,12 +23836,24 @@ If playback stutters, try another.</source>
         <translation>동영상을 이동, 자르기, 속도 변경한 뒤: 다시 분석하지 않고 경로를 다시 맞춥니다</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>얼굴 가리기</translation>
+        <source>Hide</source>
+        <translation>가리기</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>재생 헤드 위치에서 화면 중앙에 가장 가까운 얼굴을 클립 전체에서 따라가며 가립니다. 레이어는 클립 바로 위에 놓입니다.</translation>
+        <source>A face</source>
+        <translation>얼굴</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>객체</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>미리보기에서 가릴 얼굴을 클릭하세요(기본값은 가운데에 가장 가까운 얼굴). 클립 전체에서 따라가며 가리고, 레이어는 클립 바로 위에 놓입니다.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>미리보기에서 객체를 고르거나 주위에 상자를 그리세요. 클립 전체에서 따라가며 가리고, 레이어는 클립 바로 위에 놓입니다.</translation>
     </message>
     <message>
         <source>Pixelate</source>

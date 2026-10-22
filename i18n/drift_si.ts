@@ -13822,6 +13822,26 @@
         <source>Invert</source>
         <translation>ප්‍රතිලෝම කරන්න (Invert)</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>ලුහුබැඳීම</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>පරිමාණයත් — ආවරණය කරන දේ සමඟ විශාල හා කුඩා වේ</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>මාස්කය ආවරණය කරන දේ ලුහුබඳියි</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>මාස්කය ලුහුබැඳිය යුතු දේ මත තබා අරඹන්න: ධාවන හිසේ සිට මාස්කයේ කෙළවර දෙකටම සජීවීකරණය වේ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14791,6 +14811,46 @@
         <translation>මුහුණ සඟවා ඇත: එහි ස්තරය ක්ලිපයට ඉහළින් ඇත, එහිදී එය කපා හැරීමට හෝ ඉවත් කිරීමට හැක</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>යමක් සැඟවීමට වීඩියෝවක් හෝ ඡායාරූපයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>පළමුව පෙරදසුනේ වස්තුවක් තෝරන්න හෝ ඒ වටා කොටුවක් අඳින්න</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>බොඳ කළ වස්තුව</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>පික්සල් කළ වස්තුව</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>වස්තුව සඟවන්න</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>වස්තුව සඟවා ඇත: එහි ස්තරය ක්ලිපයට ඉහළින් ඇත, එහිදී එය කපා හැරීමට හෝ ඉවත් කිරීමට හැක</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>ආවරණය කරන දේ ලුහුබැඳීමට මාස්කයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>වීඩියෝවක ඇති යමක් ලුහුබැඳීමට මාස්කය එය මත තබන්න</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>මාස්කය ලුහුබැඳිය යුතු දේ මතට ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>මාස්කය ලුහුබඳියි</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
     </message>
@@ -14843,16 +14903,8 @@
         <translation>ධාවන හිසේ මුහුණක් නැත: මුහුණ පෙනෙන රාමුවකට යන්න</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>ප්ලේහෙඩ් එක ඇති තැනින් වීඩියෝව කියවීමට නොහැකි විය</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>ට්‍රැකින් අවලංගු කළා</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>වීඩියෝව විකේතනය කිරීමට නොහැකි විය</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23868,12 +23920,24 @@ If playback stutters, try another.</source>
         <translation>වීඩියෝව ගෙන යාම, කපා හැරීම හෝ වේගවත් කිරීමෙන් පසු: නැවත විශ්ලේෂණය නොකර මාර්ගය එය මත නැවත තබයි</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>මුහුණක් සඟවන්න</translation>
+        <source>Hide</source>
+        <translation>සඟවන්න</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>ධාවන හිසේදී රාමුවේ මැදට ළඟම මුහුණ මුළු ක්ලිපය පුරා ලුහුබඳිමින් ආවරණය කරයි. ස්තරය ක්ලිපයට හරියටම ඉහළින් යයි.</translation>
+        <source>A face</source>
+        <translation>මුහුණක්</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>වස්තුවක්</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>පෙරදසුනේ සැඟවිය යුතු මුහුණ මත ක්ලික් කරන්න (පෙරනිමියෙන්, මැදට ළඟම එක). එය ලුහුබඳිමින් මුළු ක්ලිපය පුරාම ආවරණය වේ; ස්තරය ක්ලිපයට හරියටම ඉහළින් තැබේ.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>පෙරදසුනේ වස්තුවක් තෝරන්න හෝ ඒ වටා කොටුවක් අඳින්න. එය ලුහුබඳිමින් මුළු ක්ලිපය පුරාම ආවරණය වේ; ස්තරය ක්ලිපයට හරියටම ඉහළින් තැබේ.</translation>
     </message>
     <message>
         <source>Pixelate</source>

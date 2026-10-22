@@ -13822,6 +13822,26 @@
         <source>Invert</source>
         <translation>Invertir</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>Seguimiento</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>También la escala: crece y se achica con lo que tapa</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>La máscara sigue lo que tapa</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Pon la máscara sobre lo que debe seguir y empieza: se anima desde el cabezal hasta los dos extremos de la máscara</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14791,6 +14811,46 @@
         <translation>Rostro oculto: su capa está encima del clip, donde se puede recortar o borrar</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Selecciona un video o una foto para ocultar algo en él</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Primero elige un objeto en el visor o dibuja un recuadro a su alrededor</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Objeto desenfocado</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Objeto pixelado</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Ocultar objeto</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Objeto oculto: su capa está encima del clip, donde se puede recortar o borrar</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Selecciona una máscara para que siga lo que tapa</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Pon la máscara sobre un video para seguir algo en él</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Mueve la máscara sobre lo que debe seguir</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>La máscara sigue</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Quitar seguimiento</translation>
     </message>
@@ -14843,16 +14903,8 @@
         <translation>No hay ningún rostro en el cabezal: ve a un fotograma donde se vea la cara</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>No se pudo leer el video en el cabezal</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>Seguimiento cancelado</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>No se pudo decodificar el video</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23868,12 +23920,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Después de mover, recortar o acelerar el video: vuelve a poner el recorrido sobre él sin analizar de nuevo</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>Ocultar un rostro</translation>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>Tapa durante todo el clip el rostro más cercano al centro del cuadro en el cabezal, siguiéndolo. La capa queda justo encima del clip.</translation>
+        <source>A face</source>
+        <translation>Un rostro</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Un objeto</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Haz clic en el visor sobre el rostro que quieres ocultar (si no eliges, el más cercano al centro). Se tapa durante todo el clip, siguiéndolo; la capa queda justo encima del clip.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Elige un objeto en el visor o dibuja un recuadro a su alrededor. Se tapa durante todo el clip, siguiéndolo; la capa queda justo encima del clip.</translation>
     </message>
     <message>
         <source>Pixelate</source>

@@ -13822,6 +13822,26 @@
         <source>Invert</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14791,6 +14811,46 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14843,15 +14903,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23860,11 +23912,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hide a face</source>
+        <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <source>A face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

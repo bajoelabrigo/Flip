@@ -14006,6 +14006,26 @@
         <source>Invert</source>
         <translation>عكس</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>التتبّع</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>الحجم أيضًا — يكبر ويصغر مع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>القناع يتتبّع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>ضع القناع فوق ما يجب أن يتتبّعه ثم ابدأ: يُحرَّك من رأس التشغيل نحو طرفي القناع</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -15031,6 +15051,46 @@
         <translation>تم إخفاء الوجه: طبقته فوق المقطع، حيث يمكن قصّها أو حذفها</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>اختر فيديو أو صورة لإخفاء شيء فيه</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>اختر أولًا كائنًا في المعاينة أو ارسم مربعًا حوله</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>كائن مموّه</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>كائن مُبكسَل</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>إخفاء الكائن</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>تم إخفاء الكائن: طبقته فوق المقطع، حيث يمكن قصّها أو حذفها</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>اختر قناعًا ليتتبّع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>ضع القناع فوق فيديو لتتبّع شيء فيه</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>حرّك القناع فوق ما يجب أن يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>القناع يتتبّع</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>إزالة التتبّع</translation>
     </message>
@@ -15083,16 +15143,8 @@
         <translation>لا يوجد وجه عند رأس التشغيل: انتقل إلى إطار يظهر فيه الوجه</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>تعذّرت قراءة الفيديو عند مؤشر التشغيل</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>تم إلغاء التتبّع</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>تعذّر فك ترميز الفيديو</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -24196,12 +24248,24 @@ If playback stutters, try another.</source>
         <translation>بعد نقل الفيديو أو قصّه أو تسريعه: إعادة وضع المسار عليه دون تحليل جديد</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>إخفاء وجه</translation>
+        <source>Hide</source>
+        <translation>إخفاء</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>يغطي طوال المقطع الوجه الأقرب إلى منتصف الإطار عند رأس التشغيل، متتبّعًا إياه. توضع الطبقة فوق المقطع مباشرةً.</translation>
+        <source>A face</source>
+        <translation>وجه</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>كائن</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>انقر في المعاينة على الوجه المراد إخفاؤه (افتراضيًا، الأقرب إلى المنتصف). يُغطّى طوال المقطع مع تتبّعه؛ وتوضع الطبقة فوق المقطع مباشرة.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>اختر كائنًا في المعاينة أو ارسم مربعًا حوله. يُغطّى طوال المقطع مع تتبّعه؛ وتوضع الطبقة فوق المقطع مباشرة.</translation>
     </message>
     <message>
         <source>Pixelate</source>

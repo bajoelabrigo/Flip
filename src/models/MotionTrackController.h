@@ -3,6 +3,7 @@
 #include "core/Time.h"
 
 #include <QAtomicInt>
+#include <QList>
 #include <QObject>
 #include <QRectF>
 #include <QString>
@@ -97,6 +98,17 @@ public:
     // face. faceSlot -1 = the face nearest the middle of the frame at the playhead. Scans the faces
     // first if they have not been.
     Q_INVOKABLE void blurFace(int trackIndex, int clipIndex, const QString &style, int faceSlot = -1);
+    // The same for an object of this clip: `region` ({x, y, w, h} normalized to its frame, picked or
+    // drawn on the preview) is followed by the object tracker through the whole clip; classId lets a
+    // lost object be found again by the detector (-1 for a drawn box). Off the GUI thread.
+    Q_INVOKABLE void hideObject(int trackIndex, int clipIndex, const QString &style, const QVariantMap &region,
+                                int classId = -1);
+    // A mask that follows what it covers in the video it cuts (CapCut's mask tracking): the selected
+    // mask adjustment's first mask is tracked from the playhead to both ends of its clip and keyed
+    // (position, and with followScale size). Off the GUI thread.
+    Q_INVOKABLE void maskFollow(int trackIndex, int clipIndex, bool followScale);
+    // Whether the selected clip is a mask maskFollow can drive: {ok, reason}.
+    Q_INVOKABLE QVariantMap maskFollowSource(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void cancel();
     // Drops the element's tracking and its position and size animation, leaving it where it is at
     // the playhead.
@@ -119,9 +131,32 @@ private:
         int clipIndex = -1;
     };
     Source sourceUnder(int trackIndex, int clipIndex, drift::TimeUs atUs) const;
+    // The picture the preview offers faces and objects from: the selected clip itself while hiding
+    // something in it (chooser "hide-face" / "hide-object"), else the one under it.
+    Source pickSource(int trackIndex, int clipIndex, drift::TimeUs atUs) const;
     // The followed video of a stored track: by id, else whatever is under the element now.
     const drift::Clip *followedVideo(const drift::Clip &follower, int trackIndex, int clipIndex) const;
     bool rebake(int trackIndex, int clipIndex, const QString &undoText);
+    // One oval key of a hide layer: its centre and size, normalized to the canvas, at a timeline time.
+    struct HideKey
+    {
+        drift::TimeUs t = 0;
+        QRectF r;
+    };
+    // Puts a pixelate or blur layer right above `trackIndex`, spanning `video`, its oval mask keyed to
+    // `keys` (smoothed, a key every other one). `blockPx` is the pixel block size for pixelate.
+    void addHideLayer(int trackIndex, const drift::Clip &video, QList<HideKey> keys, const QString &style,
+                      double blockPx, const QString &name, const QString &undoText, const QString &message);
+    // The mask maskFollow drives and the picture it is measured on.
+    struct MaskTarget
+    {
+        bool ok = false;
+        QString reason;
+        int videoTrack = -1;
+        int videoClip = -1;
+        bool canvasSpace = false; // a standalone layer's mask is on the canvas, a lane's on its clip
+    };
+    MaskTarget maskTarget(int trackIndex, int clipIndex, drift::TimeUs atUs) const;
     void setBusy(bool busy);
     void bump();
 

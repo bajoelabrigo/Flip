@@ -13822,6 +13822,26 @@
         <source>Invert</source>
         <translation type="unfinished">উল্টানো</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>স্কেলও — যা ঢেকে রাখে তার সাথে বড় ও ছোট হয়</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>মাস্ক যা ঢেকে রাখে তা অনুসরণ করে</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>মাস্কটি যা অনুসরণ করবে তার উপর রাখুন, তারপর শুরু করুন: প্লেহেড থেকে মাস্কের দুই প্রান্ত পর্যন্ত অ্যানিমেট হয়</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14791,6 +14811,46 @@
         <translation>মুখ লুকানো হয়েছে: এর লেয়ার ক্লিপের উপরে আছে, সেখানে ট্রিম বা মুছে ফেলা যায়</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>কিছু লুকাতে একটি ভিডিও বা ছবি নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>আগে প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>ঝাপসা বস্তু</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>পিক্সেলেটেড বস্তু</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>বস্তু লুকান</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>বস্তু লুকানো হয়েছে: এর লেয়ার ক্লিপের উপরে আছে, সেখানে ট্রিম বা মুছে ফেলা যায়</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>মাস্ক নির্বাচন করুন যাতে এটি যা ঢেকে রাখে তা অনুসরণ করে</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>কিছু অনুসরণ করতে মাস্কটি একটি ভিডিওর উপর রাখুন</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>মাস্কটি যা অনুসরণ করবে তার উপর সরান</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>মাস্ক অনুসরণ করে</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ট্র্যাকিং সরান</translation>
     </message>
@@ -14843,16 +14903,8 @@
         <translation>প্লেহেডে কোনো মুখ নেই: এমন ফ্রেমে যান যেখানে মুখ দেখা যায়</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>প্লেহেডে ভিডিও পড়া যায়নি</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>ট্র্যাকিং বাতিল হয়েছে</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>ভিডিও ডিকোড করা যায়নি</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23868,12 +23920,24 @@ If playback stutters, try another.</source>
         <translation>ভিডিও সরানো, ট্রিম বা দ্রুত করার পরে: আবার বিশ্লেষণ না করে পথটি আবার এর উপর বসান</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>একটি মুখ লুকান</translation>
+        <source>Hide</source>
+        <translation>লুকান</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>প্লেহেডে ফ্রেমের মাঝখানের সবচেয়ে কাছের মুখটি পুরো ক্লিপ জুড়ে অনুসরণ করে ঢেকে দেয়। লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
+        <source>A face</source>
+        <translation>একটি মুখ</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>একটি বস্তু</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>প্রিভিউতে যে মুখ লুকাবেন তাতে ক্লিক করুন (ডিফল্টভাবে মাঝের সবচেয়ে কাছেরটি)। পুরো ক্লিপ জুড়ে এটি অনুসরণ করে ঢেকে রাখা হয়; লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন। পুরো ক্লিপ জুড়ে এটি অনুসরণ করে ঢেকে রাখা হয়; লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
     </message>
     <message>
         <source>Pixelate</source>

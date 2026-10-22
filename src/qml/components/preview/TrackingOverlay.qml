@@ -23,6 +23,9 @@ Item {
     }
     readonly property real scale: width / projectW
     readonly property string chooser: root.tracking.chooser
+    // "face" / "object" to follow, "hide-face" / "hide-object" to hide one: the same pickers.
+    readonly property bool pickFaces: root.chooser === "face" || root.chooser === "hide-face"
+    readonly property bool pickObjects: root.chooser === "object" || root.chooser === "hide-object"
     readonly property var pick: root.tracking.pick || ({})
 
     readonly property var target: {
@@ -37,7 +40,7 @@ Item {
         void EditorState.playheadSeconds
         void EditorState.tracksRevision
         void root.tracking.revision
-        if (root.chooser !== "face" || EditorState.playing)
+        if (!root.pickFaces || EditorState.playing)
             return []
         return root.tracking.faceTargets(root.trackIndex, root.clipIndex)
     }
@@ -51,7 +54,7 @@ Item {
     MouseArea {
         id: drawArea
         anchors.fill: parent
-        enabled: root.chooser === "object" && !root.tracking.busy
+        enabled: root.pickObjects && !root.tracking.busy
         visible: enabled
         cursorShape: Qt.CrossCursor
         property point origin
@@ -98,7 +101,7 @@ Item {
 
     // The detected objects, to pick one.
     Repeater {
-        model: root.chooser === "object" ? root.tracking.objectTargets : []
+        model: root.pickObjects ? root.tracking.objectTargets : []
         delegate: Rectangle {
             required property var modelData
             readonly property bool picked: !!root.pick.region && root.pick.classId === modelData.classId
@@ -130,7 +133,7 @@ Item {
 
     // A drawn box once released: shown until something else is picked.
     Rectangle {
-        visible: root.chooser === "object" && !!root.pick.canvas && root.pick.classId === -1
+        visible: root.pickObjects && !!root.pick.canvas && root.pick.classId === -1
         x: visible ? root.pick.canvas.x * root.scale : 0
         y: visible ? root.pick.canvas.y * root.scale : 0
         width: visible ? root.pick.canvas.w * root.scale : 0

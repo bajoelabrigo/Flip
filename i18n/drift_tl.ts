@@ -13822,6 +13822,26 @@
         <source>Invert</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>Pati scale — lumalaki at lumiliit kasabay ng tinatakpan</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Sinusundan ng mask ang tinatakpan nito</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Ilagay ang mask sa ibabaw ng dapat nitong sundan, saka magsimula: ina-animate ito mula sa playhead hanggang sa magkabilang dulo ng mask</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14791,6 +14811,46 @@
         <translation>Nakatago ang mukha: nasa itaas ng clip ang layer nito, kung saan ito puwedeng i-trim o alisin</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Pumili ng video o larawan para itago ang isang bagay rito</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Pumili muna ng bagay sa preview o gumuhit ng kahon sa paligid nito</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Malabong bagay</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Naka-pixelate na bagay</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Itago ang bagay</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Nakatago ang bagay: nasa itaas ng clip ang layer nito, kung saan ito puwedeng i-trim o alisin</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Pumili ng mask para sundan nito ang tinatakpan nito</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Ilagay ang mask sa ibabaw ng video para sundan ang isang bagay rito</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Ilipat ang mask sa ibabaw ng dapat nitong sundan</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Sumusunod ang mask</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Alisin ang tracking</translation>
     </message>
@@ -14843,16 +14903,8 @@
         <translation>Walang mukha sa playhead: pumunta sa frame kung saan makikita ang mukha</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>Hindi mabasa ang video sa playhead</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>Kinansela ang tracking</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>Hindi ma-decode ang video</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23860,12 +23912,24 @@ If playback stutters, try another.</source>
         <translation>Pagkatapos ilipat, i-trim o pabilisin ang video: ibinabalik ang daan dito nang hindi nag-a-analyze ulit</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>Magtago ng mukha</translation>
+        <source>Hide</source>
+        <translation>Itago</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>Tinatakpan sa buong clip ang mukhang pinakamalapit sa gitna ng frame sa playhead, habang sinusundan ito. Nasa mismong itaas ng clip ang layer.</translation>
+        <source>A face</source>
+        <translation>Mukha</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Bagay</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>I-click sa preview ang mukhang itatago (kung wala, ang pinakamalapit sa gitna). Natatakpan ito sa buong clip habang sinusundan; ang layer ay nasa mismong itaas ng clip.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Pumili ng bagay sa preview o gumuhit ng kahon sa paligid nito. Natatakpan ito sa buong clip habang sinusundan; ang layer ay nasa mismong itaas ng clip.</translation>
     </message>
     <message>
         <source>Pixelate</source>

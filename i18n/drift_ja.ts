@@ -13776,6 +13776,26 @@
         <source>Invert</source>
         <translation>反転</translation>
     </message>
+    <message>
+        <source>Follow</source>
+        <translation>トラッキング</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>スケールも — 覆っている対象に合わせて拡大・縮小</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>マスクが覆っている対象を追従</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>追従させたい対象の上にマスクを置いて開始します：再生ヘッドからマスクの両端までキーフレームが打たれます</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
 </context>
 <context>
     <name>MasksTab</name>
@@ -14731,6 +14751,46 @@
         <translation>顔を隠しました：そのレイヤーはクリップの上にあり、トリミングや削除ができます</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>隠したいものがある動画または写真を選択してください</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>まずプレビューでオブジェクトを選ぶか、周りに枠を描いてください</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>ぼかしたオブジェクト</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>モザイクのオブジェクト</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>オブジェクトを隠す</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>オブジェクトを隠しました：そのレイヤーはクリップの上にあり、トリミングや削除ができます</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>覆っている対象を追従させるマスクを選択してください</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>動画内のものを追従するには、マスクを動画の上に置いてください</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>追従させたい対象の上にマスクを移動してください</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>マスクが追従</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>トラッキングを削除</translation>
     </message>
@@ -14783,16 +14843,8 @@
         <translation>再生ヘッドの位置に顔がありません。顔が映っているフレームに移動してください</translation>
     </message>
     <message>
-        <source>Could not read the video at the playhead</source>
-        <translation>再生ヘッドの位置で動画を読み込めませんでした</translation>
-    </message>
-    <message>
         <source>Tracking cancelled</source>
         <translation>トラッキングをキャンセルしました</translation>
-    </message>
-    <message>
-        <source>Could not decode the video</source>
-        <translation>動画をデコードできませんでした</translation>
     </message>
     <message>
         <source>Following frame %1 of %2…</source>
@@ -23786,12 +23838,24 @@ If playback stutters, try another.</source>
         <translation>動画の移動、トリミング、速度変更の後に、再解析せずに軌跡を合わせ直します</translation>
     </message>
     <message>
-        <source>Hide a face</source>
-        <translation>顔を隠す</translation>
+        <source>Hide</source>
+        <translation>隠す</translation>
     </message>
     <message>
-        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
-        <translation>再生ヘッド位置でフレーム中央に最も近い顔を、クリップ全体にわたって追従して隠します。レイヤーはクリップのすぐ上に置かれます。</translation>
+        <source>A face</source>
+        <translation>顔</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>オブジェクト</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>プレビューで隠したい顔をクリックします（指定しない場合は中央に最も近い顔）。クリップ全体で追従しながら隠し、レイヤーはクリップのすぐ上に置かれます。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>プレビューでオブジェクトを選ぶか、周りに枠を描きます。クリップ全体で追従しながら隠し、レイヤーはクリップのすぐ上に置かれます。</translation>
     </message>
     <message>
         <source>Pixelate</source>

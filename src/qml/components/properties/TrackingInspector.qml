@@ -36,12 +36,15 @@ Item {
 
     // "none", "object" or "face": what the cards show. Follows the stored track until changed.
     property string mode: "none"
+    // Hiding something in this clip instead ("face" or "object"): its own pickers on the preview.
+    property string hideMode: ""
     property bool followScale: true
     property bool keepDistance: true
     property int directionIndex: 0
     readonly property var directions: ["both", "forward", "backward"]
 
     function syncFromStored() {
+        root.hideMode = ""
         root.tracking.pick = ({})
         root.tracking.clearObjectTargets()
         if (root.hasTrack) {
@@ -70,7 +73,8 @@ Item {
     Binding {
         target: root.tracking
         property: "chooser"
-        value: root.mode === "none" || root.tracking.busy ? "" : root.mode
+        value: root.tracking.busy ? "" : root.hideMode !== "" ? "hide-" + root.hideMode
+                                                       : root.mode === "none" ? "" : root.mode
         when: root.visible
         restoreMode: Binding.RestoreValue
     }
@@ -162,6 +166,7 @@ Item {
                                     root.tracking.clear(root.trackIndex, root.clipIndex)
                                 root.tracking.pick = ({})
                                 root.tracking.clearObjectTargets()
+                                root.hideMode = ""
                                 root.mode = card.modelData.id
                             }
                         }
@@ -329,31 +334,75 @@ Item {
             spacing: Theme.spacingSm
             visible: root.isMedia && !root.tracking.busy
             Text {
-                text: qsTr("Hide a face")
+                text: qsTr("Hide")
                 color: Theme.panelForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
                 font.weight: Font.DemiBold
             }
+            // A face (from the face scan) or an object (picked, or a box drawn on the preview).
+            Row {
+                spacing: Theme.spacingSm
+                ThemedChip {
+                    text: qsTr("A face")
+                    variant: "outline"
+                    selected: root.hideMode === "face"
+                    onClicked: {
+                        root.tracking.pick = ({})
+                        root.tracking.clearObjectTargets()
+                        root.mode = "none"
+                        root.hideMode = "face"
+                    }
+                }
+                ThemedChip {
+                    text: qsTr("An object")
+                    variant: "outline"
+                    selected: root.hideMode === "object"
+                    onClicked: {
+                        root.tracking.pick = ({})
+                        root.mode = "none"
+                        root.hideMode = "object"
+                    }
+                }
+            }
             Text {
                 width: parent.width
+                visible: root.hideMode !== ""
                 wrapMode: Text.WordWrap
-                text: qsTr("Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.")
+                text: root.hideMode === "face"
+                      ? qsTr("Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.")
+                      : qsTr("Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
             }
+            ThemedButton {
+                visible: root.hideMode === "object" && root.tracking.objectModelReady()
+                text: root.tracking.detectingObjects ? qsTr("Looking…") : qsTr("Detect objects")
+                glyph: Theme.icons.sparkles
+                enabled: !root.tracking.detectingObjects
+                onClicked: root.tracking.detectObjects(root.trackIndex, root.clipIndex)
+            }
             Row {
                 spacing: Theme.spacingSm
-                ThemedButton {
-                    text: qsTr("Pixelate")
-                    glyph: Theme.icons.smile
-                    onClicked: root.tracking.blurFace(root.trackIndex, root.clipIndex, "pixelate", -1)
-                }
-                ThemedButton {
-                    text: qsTr("Blur")
-                    glyph: Theme.icons.smile
-                    onClicked: root.tracking.blurFace(root.trackIndex, root.clipIndex, "blur", -1)
+                visible: root.hideMode !== ""
+                Repeater {
+                    model: [{ style: "pixelate", label: qsTr("Pixelate") }, { style: "blur", label: qsTr("Blur") }]
+                    delegate: ThemedButton {
+                        required property var modelData
+                        text: modelData.label
+                        glyph: root.hideMode === "face" ? Theme.icons.smile : Theme.icons.locateFixed
+                        enabled: root.hideMode === "face" || !!(root.tracking.pick && root.tracking.pick.region)
+                        onClicked: {
+                            const pick = root.tracking.pick || {}
+                            if (root.hideMode === "face")
+                                root.tracking.blurFace(root.trackIndex, root.clipIndex, modelData.style,
+                                                       pick.faceSlot !== undefined ? pick.faceSlot : -1)
+                            else
+                                root.tracking.hideObject(root.trackIndex, root.clipIndex, modelData.style, pick.region,
+                                                         pick.classId !== undefined ? pick.classId : -1)
+                        }
+                    }
                 }
             }
         }

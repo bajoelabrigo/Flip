@@ -131,6 +131,7 @@ private slots:
     void addTextClip();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
+    void motionTrackingHidesAnObjectAndDrivesAMask();
     void textAnimationSavesAsOwnPreset();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
@@ -809,6 +810,100 @@ void EditorStateTest::motionTrackingKeysTheElementOverItsVideo()
     tracking->clear(0, 0);
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
     QVERIFY(!state.project()->tracks().at(0).clips.at(0).motionTrack.has_value());
+}
+
+void EditorStateTest::motionTrackingHidesAnObjectAndDrivesAMask()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString photoPath = dir.filePath(QStringLiteral("texture.png"));
+    QImage texture(320, 180, QImage::Format_RGB32);
+    for (int y = 0; y < texture.height(); ++y) {
+        for (int x = 0; x < texture.width(); ++x) {
+            const int v = ((x / 10) * 7 + (y / 10) * 13) % 5 * 50;
+            texture.setPixel(x, y, qRgb(v, 255 - v, (v * 3) % 256));
+        }
+    }
+    QVERIFY(texture.save(photoPath));
+
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(640, 360);
+    project.setFps(10);
+    project.tracks().clear();
+
+    // A standalone mask layer over a photo: a canvas-space mask.
+    drift::Clip mask;
+    mask.id = QStringLiteral("mask");
+    mask.type = drift::ClipType::Adjustment;
+    mask.adjustmentKind = drift::AdjustmentKind::Mask;
+    mask.timelineDuration = drift::secondsToUs(2.0);
+    mask.srcOut = mask.timelineDuration;
+    mask.mask.shape = drift::MaskShape::Ellipse;
+    mask.mask.x = 0.4;
+    mask.mask.y = 0.5;
+    mask.mask.w = 0.2;
+    mask.mask.h = 0.3;
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment, .clips = {mask}});
+    drift::Track videoTrack{.type = drift::TrackType::Video};
+    videoTrack.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.path = photoPath;
+    photo.timelineDuration = drift::secondsToUs(2.0);
+    photo.srcOut = photo.timelineDuration;
+    videoTrack.clips.append(photo);
+    project.tracks().append(videoTrack);
+
+    MotionTrackController *tracking = state.motionTrack();
+    QVERIFY(tracking->maskFollowSource(0, 0).value(QStringLiteral("ok")).toBool());
+    QVERIFY(!tracking->maskFollowSource(1, 0).value(QStringLiteral("ok")).toBool()); // the photo is no mask
+
+    // The mask follows what it covers: a still photo, so it stays where it is, keyed.
+    state.setPlayheadSeconds(1.0);
+    QSignalSpy finished(tracking, &MotionTrackController::finished);
+    tracking->maskFollow(0, 0, false);
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.last().at(0).toBool());
+    const drift::Mask &followed = state.project()->tracks().at(0).clips.at(0).mask;
+    QVERIFY(followed.keyframes.value(QStringLiteral("x")).keyframes().size() >= 5);
+    for (const drift::TimeUs t : followed.keyframes.value(QStringLiteral("x")).keyframes().keys()) {
+        QVERIFY(std::abs(followed.keyframes.value(QStringLiteral("x")).evaluateAt(t) - 0.4) < 0.01);
+        QVERIFY(std::abs(followed.keyframes.value(QStringLiteral("y")).evaluateAt(t) - 0.5) < 0.01);
+    }
+    QVERIFY(!followed.keyframes.contains(QStringLiteral("w"))); // its size is left alone
+    state.undo();
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).mask.keyframes.contains(QStringLiteral("x")));
+
+    // Hide an object of the photo: a pixelate layer right above it, its oval on the object.
+    const int tracksBefore = state.project()->tracks().size();
+    tracking->hideObject(1, 0, QStringLiteral("pixelate"),
+                         QVariantMap{{QStringLiteral("x"), 0.3}, {QStringLiteral("y"), 0.4},
+                                     {QStringLiteral("w"), 0.2}, {QStringLiteral("h"), 0.2}});
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.last().at(0).toBool());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    const drift::Track &layerTrack = state.project()->tracks().at(1);
+    QCOMPARE(layerTrack.type, drift::TrackType::Adjustment);
+    const drift::Clip &layer = layerTrack.clips.at(0);
+    QCOMPARE(layer.adjustmentKind, drift::AdjustmentKind::VideoEffects);
+    QVERIFY(layer.masksLimitEffects);
+    QCOMPARE(layer.effects.size(), 1);
+    QCOMPARE(layer.mask.shape, drift::MaskShape::Ellipse);
+    const drift::KeyframeTrack<double> x = layer.mask.keyframes.value(QStringLiteral("x"));
+    QVERIFY(x.keyframes().size() >= 5);
+    QVERIFY(std::abs(x.evaluateAt(drift::secondsToUs(0.5)) - 0.4) < 0.02); // the box's centre
+    QVERIFY(std::abs(layer.mask.keyframes.value(QStringLiteral("w")).evaluateAt(0) - 0.24) < 0.02);
+    // The photo is still where it was, under its new layer.
+    QCOMPARE(state.project()->tracks().at(2).clips.at(0).id, QStringLiteral("photo"));
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+    // Nothing picked: refused with a message, nothing added.
+    tracking->hideObject(1, 0, QStringLiteral("blur"), QVariantMap{});
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
 }
 
 void EditorStateTest::addTextClip()
