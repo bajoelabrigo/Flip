@@ -6,6 +6,7 @@
 #include <QColor>
 #include <QList>
 #include <QRectF>
+#include <QSizeF>
 #include <QString>
 
 #include <limits>
@@ -81,6 +82,10 @@ struct ParagraphLayout
     QList<int> lineEnd;           // per line: offset of its newline, or of the text end
     QList<int> lineVisibleEnd;    // per line: lineEnd, less the spaces a soft wrap leaves behind
     QList<bool> lineHardBreak;
+    // The block's natural extent in render px: the widest line and the lines' summed step,
+    // whatever the box around it. What a box that hugs its text is sized from.
+    double contentWidth = 0.0;
+    double contentHeight = 0.0;
 };
 
 // Glyphs no font in the collection could draw (the missing-glyph boxes), and the family the
@@ -117,6 +122,12 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const TextS
                                                 double blockHeight, double renderScale, int activeWordIndex,
                                                 WordSplit split);
 void clearLayoutCache();
+
+// The text's natural size in project px (render scale 1): the widest line by the height of all
+// lines, laid out by the same paragraph code the renderer uses and wrapped at `maxWidth` when the
+// style wraps. Glyphs only: strokes, shadows and the background box paint around it (bleedFor).
+// Invalid when the text could not be laid out (a build without Skia).
+QSizeF naturalTextSize(const QString &text, const TextStyle &style, double maxWidth);
 
 // The split the animators need: characters when any selector works per character (or the line
 // is bent, which places glyphs one at a time), else whole words.

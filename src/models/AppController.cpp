@@ -3711,6 +3711,200 @@ void applyDefaultVisualLayout(drift::Clip &clip, int canvasW, int canvasH, doubl
     setClipLayoutPixels(clip, 0, 0, side, side);
 }
 
+// ---- Text boxes that hug their words (Clip::textAutoFit) -------------------------------------
+
+// What a text clip draws at rest: its content, or its name while it has none (the compositor's
+// own rule in buildGpuLayer).
+QString shownClipText(const drift::Clip &clip)
+{
+    return clip.textContent.isEmpty() ? clip.name : clip.textContent;
+}
+
+// A box's static value: its one key, or `fallback` for an empty track (the full-canvas default).
+double layoutKeyValue(const drift::KeyframeTrack<double> &track, double fallback)
+{
+    return track.isEmpty() ? fallback : track.keyframes().first().value;
+}
+
+// The box one style needs: the laid-out words plus a little air, the outline and, when the text
+// is centred on that axis, the background's padding, so a box behind centred words fits inside.
+QSizeF fittedTextSizeForStyle(const QString &text, const drift::TextStyle &style, double maxWidth)
+{
+    const QSizeF natural = drift::text::naturalTextSize(text, style, maxWidth);
+    if (!natural.isValid())
+        return {};
+    const double em = qMax(1, style.pixelSize);
+    const double stroke = qMax(0.0, drift::textStrokeWidth(style, false));
+    // The preview lays the same words out at its own scale, where the font size is rounded to
+    // whole render pixels: the relative share keeps a line from wrapping there.
+    double padX = em * 0.15 + natural.width() * 0.02 + stroke;
+    double padY = em * 0.08 + stroke;
+    if (style.boxEnabled) {
+        if (style.align == drift::TextAlign::Center)
+            padX += qMax(0.0, style.boxPadX());
+        if (style.valign == drift::TextVAlign::Middle)
+            padY += qMax(0.0, style.boxPadY());
+    }
+    // Empty text still keeps a box an em wide for the caret.
+    return QSizeF(qMax(em, natural.width()) + 2.0 * padX, qMax(em, natural.height()) + 2.0 * padY);
+}
+
+// The box (project px) that hugs a text clip's words, wrapped at 90 % of the canvas width. A
+// keyframed size, spacing or padding gets the box of its largest moment. Invalid when the text
+// cannot be measured (a build without Skia).
+QSizeF fittedTextBoxSize(const drift::Clip &clip, int canvasW)
+{
+    const QString text = shownClipText(clip);
+    const double maxWidth = qMax(1, canvasW) * 0.9;
+    QList<drift::TimeUs> times;
+    if (clip.textStyle.isAnimated()) {
+        for (auto it = clip.textStyle.keyframes.constBegin(); it != clip.textStyle.keyframes.constEnd(); ++it) {
+            if (!it->enabled())
+                continue;
+            for (auto key = it->keyframes().constBegin(); key != it->keyframes().constEnd(); ++key) {
+                if (!times.contains(key.key()))
+                    times.append(key.key());
+            }
+        }
+    }
+    if (times.isEmpty())
+        return fittedTextSizeForStyle(text, clip.textStyle, maxWidth);
+    // Enough moments for any real animation; past that the box is good enough.
+    if (times.size() > 32)
+        times = times.mid(0, 32);
+    QSizeF best(0.0, 0.0);
+    for (const drift::TimeUs at : std::as_const(times)) {
+        const QSizeF size = fittedTextSizeForStyle(text, clip.textStyle.resolvedAt(at), maxWidth);
+        if (!size.isValid())
+            return {};
+        best = best.expandedTo(size);
+    }
+    return best;
+}
+
+// Everything in a style that changes the fitted box: the layout, the outline, the background's
+// padding and their keyframes. Colours and motion are left out.
+quint64 textFitKey(const drift::TextStyle &style)
+{
+    quint64 key = drift::text::layoutKey(QString(), style, 0.0, 0.0, 1.0, -1, drift::text::WordSplit::Whole);
+    key = qHashMulti(key, style.boxEnabled, style.boxPadX(), style.boxPadY(),
+                     drift::textStrokeWidth(style, false));
+    for (auto it = style.keyframes.constBegin(); it != style.keyframes.constEnd(); ++it) {
+        key = qHashMulti(key, it.key(), it->enabled());
+        for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k)
+            key = qHashMulti(key, k.key(), k->value);
+    }
+    return key;
+}
+
+// Puts a hugging text's box at the size its words need, holding still the edge the text is
+// aligned to (the centre for centred text, or for a turned box, which pivots on its centre).
+// Every position key moves alike, so a tracked or animated path keeps its shape; a box whose
+// size itself is animated is left alone. Returns true when the box changed.
+bool refitTextClipBox(drift::Clip &clip, int canvasW, int canvasH)
+{
+    if (clip.type != drift::ClipType::Text || !clip.textAutoFit)
+        return false;
+    if (clip.transformW.keyframes().size() > 1 || clip.transformH.keyframes().size() > 1)
+        return false;
+    const QSizeF size = fittedTextBoxSize(clip, canvasW);
+    if (!size.isValid())
+        return false;
+    const double oldW = layoutKeyValue(clip.transformW, canvasW);
+    const double oldH = layoutKeyValue(clip.transformH, canvasH);
+    const double w = qMax(1.0, size.width());
+    const double h = qMax(1.0, size.height());
+    if (qAbs(w - oldW) < 0.5 && qAbs(h - oldH) < 0.5)
+        return false;
+
+    bool turned = false;
+    for (const auto &key : clip.rotation.keyframes())
+        turned = turned || !qFuzzyIsNull(key.value);
+    const drift::TextStyle &style = clip.textStyle;
+    const double fx = turned || style.align == drift::TextAlign::Center ? 0.5
+                      : style.align == drift::TextAlign::Left        ? 0.0
+                                                                     : 1.0;
+    const double fy = turned || style.valign == drift::TextVAlign::Middle ? 0.5
+                      : style.valign == drift::TextVAlign::Top          ? 0.0
+                                                                        : 1.0;
+    const auto shift = [](drift::KeyframeTrack<double> &track, double delta) {
+        if (track.isEmpty()) {
+            track.setKeyframe(0, delta);
+            return;
+        }
+        const QList<drift::TimeUs> times = track.keyframes().keys();
+        for (const drift::TimeUs at : times)
+            track.keyframeRef(at)->value += delta;
+    };
+    shift(clip.transformX, (oldW - w) * fx);
+    shift(clip.transformY, (oldH - h) * fy);
+    const auto resize = [](drift::KeyframeTrack<double> &track, double value) {
+        if (track.isEmpty())
+            track.setKeyframe(0, value);
+        else
+            track.keyframeRef(track.keyframes().firstKey())->value = value;
+    };
+    resize(clip.transformW, w);
+    resize(clip.transformH, h);
+    return true;
+}
+
+// A new hugging text: its fitted box centred on the canvas, where the full-width band used to
+// be centred. Keeps the band when the text cannot be measured.
+void placeFittedTextBox(drift::Clip &clip, int canvasW, int canvasH)
+{
+    const QSizeF size = fittedTextBoxSize(clip, canvasW);
+    if (!size.isValid())
+        return;
+    setClipLayoutPixels(clip, (canvasW - size.width()) / 2.0, (canvasH - size.height()) / 2.0, size.width(),
+                        size.height());
+}
+
+// Run on every committed edit, against the project as it was before it. A hugging text whose
+// words or size-changing style changed is refitted (inside the same undo step); one whose box
+// was resized by hand while its text stayed the same keeps that box and stops hugging, unless
+// the box was put back at exactly its fitted size (Reset). A change to both at once is a scale
+// of the whole text (a corner of the box, the Scale slider) or a box already refitted live, and
+// is kept as it is.
+void syncTextAutoFit(drift::Project &project, const drift::Project &before)
+{
+    const int canvasW = qMax(1, project.width());
+    const int canvasH = qMax(1, project.height());
+    QHash<QString, const drift::Clip *> previous;
+    bool indexed = false;
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Text || !clip.textAutoFit)
+                continue;
+            if (!indexed) {
+                for (const drift::Track &oldTrack : before.tracks()) {
+                    for (const drift::Clip &oldClip : oldTrack.clips)
+                        previous.insert(oldClip.id, &oldClip);
+                }
+                indexed = true;
+            }
+            const drift::Clip *old = previous.value(clip.id, nullptr);
+            if (!old || old->type != drift::ClipType::Text)
+                continue;
+            const bool textChanged = shownClipText(*old) != shownClipText(clip)
+                                     || textFitKey(old->textStyle) != textFitKey(clip.textStyle);
+            const bool boxChanged = old->transformW.keyframes() != clip.transformW.keyframes()
+                                    || old->transformH.keyframes() != clip.transformH.keyframes();
+            if (textChanged && !boxChanged) {
+                refitTextClipBox(clip, canvasW, canvasH);
+            } else if (boxChanged && !textChanged) {
+                const QSizeF fitted = fittedTextBoxSize(clip, canvasW);
+                const bool atFit = fitted.isValid() && clip.transformW.keyframes().size() <= 1
+                                   && clip.transformH.keyframes().size() <= 1
+                                   && qAbs(layoutKeyValue(clip.transformW, canvasW) - fitted.width()) < 1.0
+                                   && qAbs(layoutKeyValue(clip.transformH, canvasH) - fitted.height()) < 1.0;
+                if (!atFit)
+                    clip.textAutoFit = false;
+            }
+        }
+    }
+}
+
 bool assetHasAudioStreams(const drift::Project &project, AssetLibrary *library, const QString &assetId)
 {
     const drift::MediaAsset *asset = project.asset(assetId);
@@ -6296,6 +6490,7 @@ void AppController::pushProjectEdit(const drift::Project &before, const QString 
     //
     // This is also where a track created by this edit gets its id — nested lanes address their
     // parent by it, and the dozen places that append a track all leave it empty.
+    syncTextAutoFit(m_project, before);
     normalizeProjectStructure(&before);
     syncCompositeAssetDurations();
     // Belt and braces for the tracks cache: normalizeProjectStructure() rewrites the project, and
@@ -8550,6 +8745,9 @@ void AppController::addTextClip(const QString &text, double atSeconds, const QSt
         }
     }
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
+    // Like CapCut: the box hugs the words, centred where the band was, and grows with them.
+    clip.textAutoFit = true;
+    placeFittedTextBox(clip, m_project.width(), m_project.height());
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
@@ -11784,6 +11982,12 @@ void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const 
     }
 
     QStringList affected = {prop};
+    // A hugging text follows its size, spacing or padding slider as it moves.
+    if (prop.startsWith(QLatin1String("text."))
+        && refitTextClipBox(clip, m_project.width(), m_project.height())) {
+        affected << QStringLiteral("x") << QStringLiteral("y") << QStringLiteral("width")
+                 << QStringLiteral("height");
+    }
     if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
@@ -11969,6 +12173,8 @@ void AppController::commitPreviewDrag()
         return;
     m_previewDragDirty = false;
 
+    // Part of the drag's own undo step, like the edit that caused it.
+    syncTextAutoFit(m_project, m_previewDragBefore);
     const QString text = m_previewDragText.isEmpty() ? tr("Edit clip") : m_previewDragText;
     if (!m_mcpController->undoSuspended())
         m_undoStack.push(new drift::ProjectSnapshotCommand(&m_project, m_previewDragBefore, m_project, text));
@@ -12135,6 +12341,8 @@ void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString 
     if (m_previewDragActive) {
         clip.textContent = trimmed;
         clip.name = trimmed.left(32);
+        // The live box was fitted to the words as typed; trimming may have taken some off.
+        refitTextClipBox(clip, m_project.width(), m_project.height());
         m_previewDragDirty = true;
         commitPreviewDrag();
         return;
@@ -12265,6 +12473,8 @@ void AppController::updateInlineTextEdit(int trackIndex, int clipIndex, const QS
     if (textChanged) {
         clip->textContent = rendered;
         clip->name = rendered.left(32);
+        // The box grows (and shrinks) with the words as they are typed.
+        refitTextClipBox(*clip, m_project.width(), m_project.height());
     }
 
     FrameCompositor::RenderOptions::TextEditDecor decor;
@@ -12312,6 +12522,7 @@ void AppController::endInlineTextEdit(bool commit)
     } else if (clip) {
         clip->textContent = original;
         clip->name = original.left(32);
+        refitTextClipBox(*clip, m_project.width(), m_project.height());
         emitPreviewFrame();
     }
     emit inlineEditGeometryChanged();
@@ -17748,6 +17959,9 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
         fitClipLayoutToCanvas(clip, mediaW, mediaH, m_project.width(), m_project.height());
     else
         setClipLayoutPixels(clip, 0, 0, m_project.width(), m_project.height());
+    // A text that hugs its words resets to its fitted box, centred, as it was added.
+    if (clip.type == drift::ClipType::Text && clip.textAutoFit)
+        placeFittedTextBox(clip, m_project.width(), m_project.height());
     pushProjectEdit(before, tr("Reset transform"));
     finishEdit(tr("Transform reset"));
 }
