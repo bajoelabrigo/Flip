@@ -18,7 +18,8 @@ Pedidos de Jorge (2026-10-21):
   - `FrameCompositor::masksInLayerFrame`: la máscara se coloca sobre la caja del texto (donde la vista previa dibuja
     las asas), no sobre la imagen con margen (bordes, sombras, animación). Sin esto el corte salía corrido y estirado.
   - Prueba `EditorStateTest::textClipTakesMasks`.
-- **Falta:** probar en ventana que las asas coinciden con el corte (texto con borde grueso y animación).
+- Probado en ventana (2026-10-21): la pestaña Máscaras sale con un texto (con Texto como forma) y un rectángulo
+  sobre la mitad izquierda corta «MASCARA» justo en el centro del lienzo. Falta mirarlo con borde grueso y animación.
 - Web: no tiene máscaras en textos (`inspectorTabs.ts`, `textLayer.ts`, y el `.flip` las pierde). Pendiente.
 
 ## 2. Textos 100 % editables — HECHO en el escritorio (falta probar en ventana)
@@ -37,13 +38,13 @@ estilo» guarda el estilo entero. Huecos cerrados (`38dad`):
 - **Animaciones propias**: «Guardar como mi animación» (`saveTextAnimationAsPreset`, categoría «Míos») y menú con
   Renombrar, Exportar y Borrar en las tarjetas `user:` (el C++ existía, nadie lo llamaba).
 - Pruebas: `CoreTest::userTextPresetsRoundTrip` (update), `EditorStateTest::textAnimationSavesAsOwnPreset`.
-- **Falta:** traducciones (`lupdate` + `drift_es.ts` y los demás idiomas), probar en ventana.
+- Traducciones hechas (`dd7bb`). **Falta:** probar en ventana.
 - Menores sin hacer: instalar el mismo estilo de Stock dos veces crea un duplicado; la importación ignora
   `names.en`/`sampleTexts`.
 - Web: instala los estilos de Stock simplificados (solo la primera capa de cada tipo, sin efectos ni acento). Pendiente
   decidir: ampliar su modelo o avisar.
 
-## 3. Seguimiento (CapCut / Filmora) — HECHO en el escritorio (falta probar en ventana)
+## 3. Seguimiento (CapCut / Filmora) — HECHO en el escritorio y probado en ventana
 Auditoría previa: no existía en ninguna de las dos apps (solo el escaneo de caras para los efectos `face_*`,
 `auto_reframe` por MCP y estabilizar).
 
@@ -63,12 +64,20 @@ Hecho (`398f3`):
 - **Interfaz:** sección «Seguimiento» al final de Transformar (`MotionTrackSection.qml`), con Objeto/Rostro,
   «Seguir también el tamaño», barra de progreso y Cancelar.
 
+**Probado en ventana (2026-10-21, build run 39691308647, portable en `pruebas\FlipStudio-0.19-prueba`, archivos en
+`pruebas\track-test`):**
+- **Objeto:** un texto sobre el piloto de `parapente120.mp4` lo sigue en todo el clip (capturas en 2,1–6,8 s).
+- **Rostro:** sin escaneo previo, «Iniciar seguimiento» escanea las caras (~50 s para 20 s de video) y sigue solo
+  hasta «Seguimiento listo»; 63 claves de X/Y cada 0,08 s y «YO» queda sobre la cabeza de `retrato.mp4`.
+- Ojo al probar: si el texto ya tiene claves de ancho/alto (fotogramas automáticos al colocarlo), siguen ahí, porque
+  en un texto el seguimiento solo toca la posición.
+- Traducciones de los 15 idiomas hechas (`e8f3a`).
+
 **Falta:**
-- Traducir los textos nuevos (`lupdate` + los 15 idiomas).
-- Probar en ventana con un video real (que el recuadro siga a una persona caminando, y el modo Rostro).
 - Difuminar/pixelar una cara o un objeto siguiéndolo (CapCut «Mosaico»): reutilizar el seguidor para mover una
   máscara de una capa de ajuste con desenfoque.
 - Web: no tiene seguimiento.
 
 ## Estado de la compilación
-- Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad`; pruebas (`tests.yml`) en cada push.
+- Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad` (solo falló la prueba de traducciones, ya arreglada).
+- Run 39691308647 sobre `e8f3a`: compila bien; `tests.yml` 17/17 en verde.
