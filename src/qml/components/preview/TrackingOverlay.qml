@@ -15,7 +15,12 @@ Item {
     readonly property var tracking: EditorState.motionTrack
     readonly property int trackIndex: EditorState.selectedTrack
     readonly property int clipIndex: EditorState.selectedClip
-    readonly property real projectW: Math.max(1, EditorState.projectFile.projectWidth())
+    // An invokable is not reactive: read again whenever the project changes (opening one, or a new
+    // resolution), as CropOverlay does. Bound once, it kept the startup project's 1920 width.
+    readonly property real projectW: {
+        void EditorState.tracksRevision
+        return Math.max(1, EditorState.projectFile.projectWidth())
+    }
     readonly property real scale: width / projectW
     readonly property string chooser: root.tracking.chooser
     readonly property var pick: root.tracking.pick || ({})
@@ -103,13 +108,18 @@ Item {
             y: modelData.y * root.scale
             width: modelData.w * root.scale
             height: modelData.h * root.scale
-            color: objectHover.hovered || picked ? Qt.alpha(Theme.primary, 0.18) : "transparent"
+            color: objectArea.containsMouse || picked ? Qt.alpha(Theme.primary, 0.18) : "transparent"
             border.width: picked ? 3 : 2
             border.color: picked ? Theme.primary : Qt.alpha(Theme.onMedia, 0.85)
             radius: 4
-            HoverHandler { id: objectHover; cursorShape: Qt.PointingHandCursor }
-            TapHandler {
-                onTapped: root.tracking.pick = {
+            // A MouseArea, not a TapHandler: it keeps the press, so the click does not also reach the
+            // preview below and select the video under the box.
+            MouseArea {
+                id: objectArea
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: root.tracking.pick = {
                     region: modelData.region,
                     classId: modelData.classId,
                     canvas: { x: modelData.x, y: modelData.y, w: modelData.w, h: modelData.h }
@@ -144,11 +154,16 @@ Item {
             width: modelData.w * root.scale
             height: modelData.h * root.scale
             radius: width / 2
-            color: faceHover.hovered || picked ? Qt.alpha(Theme.primary, 0.15) : "transparent"
+            color: faceArea.containsMouse || picked ? Qt.alpha(Theme.primary, 0.15) : "transparent"
             border.width: picked ? 3 : 2
             border.color: picked ? Theme.primary : Qt.alpha(Theme.onMedia, 0.85)
-            HoverHandler { id: faceHover; cursorShape: Qt.PointingHandCursor }
-            TapHandler { onTapped: root.tracking.pick = { faceSlot: modelData.slot } }
+            MouseArea {
+                id: faceArea
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+                onClicked: root.tracking.pick = { faceSlot: modelData.slot }
+            }
         }
     }
 
