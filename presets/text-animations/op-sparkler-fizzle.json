@@ -7,7 +7,7 @@
  "slots": [
   "out"
  ],
- "order": 2265,
+ "order": 2267,
  "defaults": {
   "unit": "character",
   "stagger": 0.09,

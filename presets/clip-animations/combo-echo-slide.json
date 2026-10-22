@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-echo-slide","label":"Echo slide","category":"glitch","slots":["combo"],"order":55,"duration":0,"keys":{"x":[[0.0,1,"easeOut"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,-1,"easeInOut"]]},"effects":[{"id":"time_echo","params":{"frames":6.0,"decay":[[0,0.85,"linear"],[0.18,0,"easeInOut"],[0.82,0,"linear"],[1,0.85,"easeInOut"]]}}]}

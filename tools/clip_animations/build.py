@@ -337,6 +337,25 @@ COMBO: list[P] = [
     combo("glitch-pulse", "Glitch pulse", "Pulso glitch", "glitch", I["rgb-in"], I["glitch-in"],
           effects=[fx("digital_glitch", intensity=[k(0, 0, "hold"), k(0.3, 0.9, "hold"), k(0.34, 0, "hold"), k(0.55, 0.9, "hold"),
                                                    k(0.59, 0, "hold"), k(1, 0, "hold")], rgbAmount=20.0)]),
+    combo("echo-slide", "Echo slide", "Eco deslizante", "glitch", I["push-left"], I["push-left"],
+          effects=[fx("time_echo", frames=6.0, decay=[k(0, 0.85, "linear"), k(0.18, 0), k(0.82, 0, "linear"), k(1, 0.85)])]),
+
+    combo("zoom-beats", "Zoom beats", "Pulsos de zoom", "zoom", I["zoom-in"], O["shrink-away"],
+          effects=[fx("zoom_pulse", blur=0.5, punch=[k(0, 0, "hold"), k(0.3, 0.7, "easeOut"), k(0.38, 0, "hold"), k(0.5, 0.7, "easeOut"),
+                                                     k(0.58, 0, "hold"), k(0.7, 0.7, "easeOut"), k(0.78, 0, "hold"), k(1, 0, "hold")])], trending=True),
+    combo("shockwave-combo", "Shockwave", "Onda expansiva", "zoom", I["punch-in"], O["shrink-away"],
+          effects=[fx("shockwave_pulse", strength=0.5, width=0.12,
+                      radius=[k(0, 0, "linear"), k(0.2, 1, "hold"), k(0.8, 0, "linear"), k(1, 1, "hold")])]),
+    combo("spiral-combo", "Spiral", "Espiral", "spin", I["zoom-spin"], O["suck-in"],
+          effects=[fx("droste_zoom", turns=1.5, zoom=1.2,
+                      strength=[k(0, 0.85, "easeOut"), k(0.2, 0), k(0.8, 0, "easeIn"), k(1, 0.85)])]),
+    combo("drop-spin", "Drop and spin", "Caer y girar", "spin", I["drop-bounce"], I["spin-blur"]),
+
+    combo("tumble-3d", "Tumble", "Voltereta", "3d", I["flip-x"], I["cube-in"], {**wave("rotationX", 6, 2, t0=0.18, t1=0.82)}),
+
+    combo("light-combo", "Light leak", "Fuga de luz", "blur", I["glide-up"], O["dissolve-blur"],
+          effects=[fx("light_leak", hue=0.06, speed=1.0, softness=0.4, flicker=0.1,
+                      intensity=[k(0, 0.9, "easeOut"), k(0.25, 0), k(0.75, 0, "easeIn"), k(1, 0.9)])], trending=True),
 ]
 
 

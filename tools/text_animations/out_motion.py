@@ -203,4 +203,10 @@ PRESETS = [
            particles=[burst("spark", 8, ("#00e5ff", "#ffffff"), size=(0.03, 0.06), speed=(1.2, 2.4),
                             life=(0.2, 0.45), at=0.5, angle=0, spread=70, origin="right", glow=0.6,
                             additive=True)]),
+    reveal("om-camera-pull", "Pull back into depth", "Se alejan al fondo", "motion",
+           {"scale": 20, "rotationY": -35, "blur": 6}, slots=OUT, stagger=0.04, duration=0.5, ease="easeOut",
+           order="centerOut", fade=0.6),
+    reveal("om-drop-the-mic", "Drop the mic", "Soltar el micrófono", "motion",
+           {"position": pos(0, 3.2), "rotation": 40}, slots=OUT, unit="block", stagger=0.0, duration=0.55,
+           ease="back", fade=0.85, trending=True),
 ]

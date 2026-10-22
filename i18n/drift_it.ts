@@ -2607,46 +2607,6 @@
         <translation>Dissolvenza</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>Scorri verso l&apos;alto</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>Scorri verso il basso</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>Scorri a sinistra</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>Scorri a destra</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>Ingrandisci</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>Riduci</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>Pop</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>Ruota orario</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>Ruota antiorario</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>Rimbalzo</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>Lineare</translation>
     </message>
@@ -2683,20 +2643,28 @@
         <translation>Stile</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>Scegli la modalità di entrata e uscita della clip. La dissolvenza è un&apos;opzione: offre gli stessi controlli di stile di scorrimento o zoom.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Cancella</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>In entrata</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>In uscita</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5054,6 +5022,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>Nessuna applicazione su questo dispositivo può condividere questo file</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9440,6 +9480,918 @@
         <translation>Inclinazione</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>Karaoke con rimbalzo</translation>
     </message>
@@ -9458,6 +10410,362 @@
     <message>
         <source>Sing along</source>
         <translation>Canta con me</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9538,6 +10846,354 @@
     <message>
         <source>STAMP</source>
         <translation>TIMBRO</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9644,6 +11300,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>Aggiungi un fotogramma chiave di %1 sull&apos;indicatore di riproduzione</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
