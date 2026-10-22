@@ -44,20 +44,25 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-21)
+## Estado (actualizado 2026-10-22)
 
-### 0.19 en curso (rama `flip/v0.19.0`, sin publicar) — seguimiento como CapCut, Tendencias, textos — **detalle en `docs/plan-0.19.md`**
-- Escritorio, probado en ventana (compilación run 39709609676 + arreglos posteriores `cffad`, sin compilar):
-  pestaña «Seguimiento» (Objeto/Rostro, Dirección, Escala, Distancia, Reacomodar), «Detectar objetos» con YOLOX
-  (extra `seguimiento.objetos` en flip-addons rama `extra/seguimiento-objetos`, **sin publicar**; para probar:
-  `DRIFT_OBJECT_MODEL_DIR=pruebas\object-detector\stage-model`), elegir rostro u objeto en el visor, «Ocultar un
-  rostro», máscaras en textos, textos 100 % editables, Títulos › Tendencias, cuadro de texto ajustado a las palabras.
-- **Editor web publicado (2026-10-21) desde la rama `web/v019` de flipstudio-app** (= `web/movil` + `web/tendencias`
-  + `web/seguimiento` + `web/estilos-texto`; worktree `codigo\flipstudio-app-integra`): todo lo de arriba también en
-  la web. YOLOX ya estaba en el VPS (`/modelos/yolox-tiny/`). La próxima rama de trabajo de la web sale de `web/v019`.
-- **Falta:** publicar el extra `seguimiento.objetos`, compilar `cffad`, versión 0.19.0 en `CMakeLists.txt`, notas y
-  el OK de Jorge.
+### 0.19.0 PUBLICADA (2026-10-22) — seguimiento como CapCut, Tendencias, textos 100 % editables — **detalle en `docs/plan-0.19.md`**
+- PR #29 (`flip/v0.19.0` → `main`), tag `v0.19.0`, release (run 39723353011) con instalador, portable y `SHA256SUMS`;
+  copia en `versiones\FlipStudio-0.19.0` (hashes comprobados). MSIX: `msstore.yml` run 39730527975 →
+  `tienda\FlipStudio-Store\paquete-0.19.0`. Novedades en la web (`flipstudio-web` `49b3d`, desplegado). Extra
+  `seguimiento.objetos` 1.0.0 publicado (paquete y después índice). Notas de la Store en `docs/store-listing.md`
+  («Notas para la Store (0.19.0)»).
+- **Falta (Jorge):** la 0.18.3 sigue en certificación; cuando la aprueben, subir el `.msix` de la 0.19.0 (no el `.exe`)
+  con sus notas y poner el TXT `version` = 0.19.0.
+- **Trampa:** `lupdate` va con `-disable-heuristic sametext -disable-heuristic similartext` (también en `LUPDATE_OPTIONS`
+  de CMake): las heurísticas dejaban traducciones adivinadas sin terminar (es_CO mostraba 148 textos mal).
 
+### Editor web en el celular, etapa 6: herramientas como CapCut (2026-10-22, desplegado, `flipstudio-app` `web/v019` `e4ac1`)
+- ◇+ / ◇− de fotogramas clave (el rombo del cabezal en rojo), Curvas (17 + propia), Máscara en una fila con anclaje y
+  difuminado en la vista previa, Transformar (Reflejar, Girar, Avanzadas con reglas), Animaciones con tarjetas,
+  Recortar propio, Audio › Del teléfono. Detalle, arreglos de la simulación y trampas en `docs/plan-movil.md` › Etapa 6.
+- Simulación de un celular: `node scripts/check-phone.mjs <carpeta> <puerto> <pasos>` (con `FLIP_BASE=…` contra la web).
+- Las curvas son solo de la web por ahora: en el escritorio llegan como asas Bézier (se ven igual, no hay galería).
 
 ### 0.18.3 PUBLICADA (2026-10-20) — actualizar sin vueltas, espacio en vivo al mover clips, idiomas, icono de macOS
 - PR #28 (`flip/macos` → `main`), tag `v0.18.3`, release (run 39474015359) con instalador, portable y `SHA256SUMS`;

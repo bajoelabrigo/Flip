@@ -136,3 +136,32 @@ Pasar de categoría con el dedo (2026-10-21, desplegado, `flipstudio-app` `f3535
 - Falta (etapa 2): textos de ayuda que dicen «haz clic» o «panel de la derecha», arrastrar la hoja para
   agrandarla, mover textos y stickers con dos dedos en la vista previa, el teclado de iOS al escribir un texto,
   y probarlo en el iPad de Jorge. Etapa 3 (inicio con barra abajo) sin empezar.
+
+## Etapa 6: herramientas como CapCut (Jorge, 2026-10-22, capturas `Downloads\WhatsApp Image 2026-10-22 at 12.14.25 … 1.04.13 AM.jpeg`)
+
+Desplegado el 2026-10-22 (`flipstudio-app` rama `web/v019`, commit `e4ac1`). Pedido: «botón de keyframe + / −, curvas,
+restaurar; las máscaras en una fila que no tape el video ni la línea de tiempo; después simula que editas y corrige».
+
+- **◇+ / ◇−** en la fila de reproducción (`timeline/quickKeys.ts`): con un video, foto, texto o audio elegido, un toque
+  pone un fotograma clave de todo lo animable en el cabezal (lugar, tamaño, giro, opacidad; en audio, el volumen) y
+  cerca de un rombo lo quita. **El rombo bajo el cabezal se pinta rojo y más grande** (pedido de Jorge), los demás blancos.
+- **Curvas** (`TouchCurves.tsx`): 17 curvas para el tramo entre los dos fotogramas del cabezal; tocar de nuevo la
+  elegida = «Editar», una curva propia con dos puntos. Se guardan como `Keyframe.curve` (cubic-bezier) y al `.flip`
+  van como las asas del escritorio (`desktopTransform.ts › track`). «Restaurar» de CapCut = deshacer, que ya estaba.
+- **Máscara** en una fila (`MaskPage.tsx › TouchMaskBar`) con Invertir · Máscara · ajustes · ✓; en la vista previa el
+  **anclaje amarillo al centro** y el **manejador de difuminado** (⇣) que Jorge pidió, de tamaño para el dedo.
+  Mientras está abierta solo se ven los manejadores de la máscara. Textos con Máscara y Seguimiento.
+- **Transformar** (`TouchTransform.tsx`): Reflejar, Girar (cuarto de vuelta) y Avanzadas con Posición / Zoom / Girar en
+  reglas que se arrastran, Restablecer y ✓. Respeta los fotogramas clave.
+- **Animaciones** con Entrada / Salida y tarjetas que muestran la animación (`TouchAnim.tsx`); **Recortar** abre el
+  recorte (antes abría Básico); **Audio › Del teléfono** para una canción propia.
+- Arreglos de la simulación (`scripts/check-phone.mjs`, iPhone 13 emulado; `FLIP_BASE=https://getflipstudio.com/editor/`
+  para correrlo contra la web publicada): la vista previa no se achicaba al abrir una fila más alta (una regla de
+  pantallas angostas le daba 320 px de alto mínimo y el video quedaba cortado bajo la línea de tiempo); los avisos
+  tapaban la barra de abajo (ahora salen sobre la imagen); **una foto superpuesta al inicio cambiaba el formato del
+  proyecto** a su forma (`render/frame.ts › projectFormat`: manda la pista principal); el nombre y la duración del
+  clip elegido se encimaban; el icono de Reflejar era el de voltear vertical (Lucide 1 cambió los nombres).
+- **Trampa:** en Lucide 1, `FlipHorizontal2` es el icono de arriba/abajo; el de izquierda/derecha es
+  `TrianglesCenterlineDashedVertical`.
+- **Trampa:** los catálogos de la web van ordenados con `localeCompare(…, "es")`; un `sort()` simple los reordena enteros.
+- Falta: probarlo Jorge en su celular; arrastrar el recorte en la vista previa (hoy son deslizadores).
