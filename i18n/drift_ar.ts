@@ -4273,20 +4273,12 @@
         <translation>الملف مفقود</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>تم تثبيت LUT: %1 (ضبط › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>في ضبط › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>ليس إعدادًا مسبقًا للتأثيرات</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>تم تثبيت المظهر: %1 (تأثيراتي)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4305,20 +4297,8 @@
         <translation>في العناوين › الرائج</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>تم تثبيت نمط النص: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>تم تثبيت حركة النص: %1 (نص › حركة › مستوردة)</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>في نص › حركة</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>تم تثبيت الشكل: %1 (الأشكال، وأيضًا في الأقنعة)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4327,10 +4307,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>لا يمكن تثبيت الحزم هنا</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>تم تثبيت الانتقال: %1 (الانتقالات)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -15031,6 +15007,30 @@
         <translation>لم يُعثر على كائنات هنا: ارسم مربعًا حول ما تريد تتبعه</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>اختر فيديو أو صورة لإخفاء وجه فيه</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>لم يُعثر على أي وجه في هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>وجه مموّه</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>وجه مُبكسَل</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>إخفاء الوجه</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>تم إخفاء الوجه: طبقته فوق المقطع، حيث يمكن قصّها أو حذفها</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>إزالة التتبّع</translation>
     </message>
@@ -15113,53 +15113,6 @@
     <message>
         <source>Tracking done</source>
         <translation>اكتمل التتبّع</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>التتبّع</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>ضعه فوق ما يجب أن يتتبّعه في «%1» ثم ابدأ.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>سيتتبّع الوجه في «%1».</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>كائن</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>وجه</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>تتبّع الحجم أيضًا</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>إلغاء</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>بدء التتبّع</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>التتبّع من مؤشر التشغيل إلى طرفي المقطع</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>إزالة التتبّع</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>إزالة حركة الموضع والحجم مع إبقائه حيث هو الآن</translation>
     </message>
 </context>
 <context>
@@ -16592,6 +16545,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>حركة</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>التتبّع</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -24122,6 +24079,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>حذف الإطار المفتاحي</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>التتبّع</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>لا شيء</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>كائن</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>وجه</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>انقر في المعاينة على الوجه المراد تتبّعه (افتراضيًا، الأقرب إلى العنصر).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>تُفحص الوجوه في «%1» أولًا، ثم يُتتبّع الأقرب إلى العنصر.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>اختر كائنًا في المعاينة أو ارسم مربعًا حوله. إن لم تختر شيئًا، يُتتبّع ما يغطيه العنصر في «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>جارٍ البحث…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>اكتشاف الكائنات</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>العثور على أشخاص وحيوانات ومركبات وأشياء أخرى عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>الحصول على اكتشاف الكائنات</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>ثبّت الإضافة «تتبّع الكائنات» للعثور على الكائنات تلقائيًا</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>مسح الاختيار</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>الاتجاه</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>كلاهما</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>للأمام</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>للخلف</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>التتبّع من رأس التشغيل نحو طرفي المقطع، أو في اتجاه واحد فقط</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>الحجم — يكبر ويصغر مع ما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>المسافة — يحافظ على مكانه بجوار ما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>إيقاف: يوضع العنصر فوق ما يتتبّعه مباشرةً</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>التتبّع مجددًا من هنا</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>بدء التتبّع</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>يتتبّع من رأس التشغيل؛ ويحافظ العنصر على مكانه بالنسبة لما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>إعادة المحاذاة</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>بعد نقل الفيديو أو قصّه أو تسريعه: إعادة وضع المسار عليه دون تحليل جديد</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>إخفاء وجه</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>يغطي طوال المقطع الوجه الأقرب إلى منتصف الإطار عند رأس التشغيل، متتبّعًا إياه. توضع الطبقة فوق المقطع مباشرةً.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>بكسلة</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>تمويه</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>الفيديو المتتبَّع لم يعد في المشروع.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>تم استبدال الفيديو المتتبَّع: أعد التتبّع ليتطابق المسار.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>تُتُبّع في %1 إطارًا؛ وفُقد في %2. حيث فُقد، ينزلق العنصر بين الإطارات التي وُجد فيها.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>تُتُبّع في جميع الإطارات (%1).</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>مفقود</translation>
     </message>
 </context>
 <context>

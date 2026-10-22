@@ -4345,19 +4345,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4377,19 +4369,7 @@
         <translation>මාතෘකා › ප්‍රවණතා තුළ</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>පෙළ විලාසය ස්ථාපනය විය: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4398,10 +4378,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8477,7 +8453,7 @@
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">පික්සල් කරන්න</translation>
     </message>
     <message>
         <source>Block width</source>
@@ -14791,6 +14767,30 @@
         <translation>මෙහි වස්තු හමු නොවීය: ලුහුබැඳිය යුතු දේ වටා කොටුවක් අඳින්න</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>මුහුණක් සැඟවීමට වීඩියෝවක් හෝ ඡායාරූපයක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>මෙම ක්ලිපයේ කිසිදු මුහුණක් හමු නොවීය</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>බොඳ කළ මුහුණ</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>පික්සල් කළ මුහුණ</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>මුහුණ සඟවන්න</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>මුහුණ සඟවා ඇත: එහි ස්තරය ක්ලිපයට ඉහළින් ඇත, එහිදී එය කපා හැරීමට හෝ ඉවත් කිරීමට හැක</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
     </message>
@@ -14873,53 +14873,6 @@
     <message>
         <source>Tracking done</source>
         <translation>ට්‍රැකින් අවසන්</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>ට්‍රැකින්</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>“%1” හි එය අනුගමනය කළ යුතු දෙය මත තබා, පසුව ආරම්භ කරන්න.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>එය “%1” හි මුහුණ අනුගමනය කරයි.</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>වස්තුව</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>මුහුණ</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>ප්‍රමාණයද අනුගමනය කරන්න</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>අවලංගු කරන්න</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>ට්‍රැකින් ආරම්භ කරන්න</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>ප්ලේහෙඩ් එකේ සිට ක්ලිපයේ දෙකෙළවර දක්වා අනුගමනය කරන්න</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>ස්ථාන සහ ප්‍රමාණ ඇනිමේෂන් ඉවත් කර, එය දැන් ඇති තැනම තබයි</translation>
     </message>
 </context>
 <context>
@@ -16328,6 +16281,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>සජීවිකරණය</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>ලුහුබැඳීම</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23794,6 +23751,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ලුහුබැඳීම</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ලුහුබැඳීම ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>වස්තුව</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>මුහුණ</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>පෙරදසුනේ ලුහුබඳින මුහුණ මත ක්ලික් කරන්න (පෙරනිමියෙන්, අංගයට ළඟම එක).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>පළමුව “%1” හි මුහුණු පරීක්ෂා කර, පසුව අංගයට ළඟම එක ලුහුබඳියි.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>පෙරදසුනේ වස්තුවක් තෝරන්න හෝ ඒ වටා කොටුවක් අඳින්න. කිසිවක් නොතෝරුවහොත්, “%1” හි අංගය ආවරණය කරන දේ ලුහුබඳියි.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>සොයමින්…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>වස්තු හඳුනාගන්න</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>ධාවන හිස ඇති තැන මිනිසුන්, සතුන්, වාහන සහ වෙනත් දේ සොයන්න</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>වස්තු හඳුනාගැනීම ලබාගන්න</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>වස්තු ස්වයංක්‍රීයව සොයාගැනීමට “වස්තු ලුහුබැඳීම” අමතරය ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>තේරීම හිස් කරන්න</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>දිශාව</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>දෙකම</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>පසුපසට</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>ධාවන හිසේ සිට ක්ලිපයේ කෙළවර දෙකටම, හෝ එක් දිශාවකට පමණක් ලුහුබඳින්න</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>පරිමාණය — ලුහුබඳින දේ සමඟ විශාල හා කුඩා වේ</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>දුර — ලුහුබඳින දේ අසල තම ස්ථානය රඳවා ගනී</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>අක්‍රියයි: අංගය ලුහුබඳින දේ මත හරියටම පිහිටයි</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>මෙතැන් සිට නැවත ලුහුබඳින්න</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ලුහුබැඳීම අරඹන්න</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>ධාවන හිසේ සිට ලුහුබඳියි; අංගය ලුහුබඳින දේට සාපේක්ෂව තම ස්ථානය රඳවා ගනී</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>නැවත පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>වීඩියෝව ගෙන යාම, කපා හැරීම හෝ වේගවත් කිරීමෙන් පසු: නැවත විශ්ලේෂණය නොකර මාර්ගය එය මත නැවත තබයි</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>මුහුණක් සඟවන්න</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>ධාවන හිසේදී රාමුවේ මැදට ළඟම මුහුණ මුළු ක්ලිපය පුරා ලුහුබඳිමින් ආවරණය කරයි. ස්තරය ක්ලිපයට හරියටම ඉහළින් යයි.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>පික්සල් කරන්න</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>බොඳ කරන්න</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>ලුහුබැඳි වීඩියෝව තවදුරටත් ව්‍යාපෘතියේ නැත.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>ලුහුබැඳි වීඩියෝව ප්‍රතිස්ථාපනය කර ඇත: මාර්ගය ගැළපීමට නැවත ලුහුබඳින්න.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>රාමු %1 ක ලුහුබැඳිණි; %2 ක නැති විය. නැති වූ තැන්වල, හමු වූ රාමු අතර අංගය සුමටව ලිස්සා යයි.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>රාමු %1 ම ලුහුබැඳිණි.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>නැති විය</translation>
     </message>
 </context>
 <context>

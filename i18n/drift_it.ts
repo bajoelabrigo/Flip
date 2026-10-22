@@ -4345,20 +4345,12 @@
         <translation>il file non è presente</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT installata: %1 (Regola › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>In Regola › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>non è un preset di effetti</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>Look installato: %1 (I miei effetti)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4377,20 +4369,8 @@
         <translation>In Titoli › Di tendenza</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>Stile di testo installato: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>Animazione di testo installata: %1 (Testo › Animazione › Importate)</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>In Testo › Animazione</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>Forma installata: %1 (Forme, e anche in Maschere)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4399,10 +4379,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>qui non si possono installare pacchetti</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>Transizione installata: %1 (Transizioni)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -14791,6 +14767,30 @@
         <translation>Nessun oggetto trovato qui: disegna un riquadro attorno a ciò da seguire</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Seleziona un video o una foto in cui nascondere un volto</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>Nessun volto trovato in questa clip</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Volto sfocato</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Volto pixelato</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Nascondi volto</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Volto nascosto: il suo livello è sopra la clip, dove puoi tagliarlo o eliminarlo</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Rimuovi tracciamento</translation>
     </message>
@@ -14873,53 +14873,6 @@
     <message>
         <source>Tracking done</source>
         <translation>Tracciamento completato</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>Tracciamento</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>Posizionalo su ciò che deve seguire in “%1”, poi avvia.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>Seguirà il volto in “%1”.</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>Oggetto</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Volto</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>Segui anche la dimensione</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Annulla</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>Avvia tracciamento</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>Segui dalla testina fino a entrambe le estremità della clip</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>Rimuovi tracciamento</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>Rimuove l’animazione di posizione e dimensione, lasciandolo dov’è ora</translation>
     </message>
 </context>
 <context>
@@ -16328,6 +16281,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Animation</source>
         <translation>Animazione</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracciamento</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23794,6 +23751,160 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Elimina fotogramma chiave</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracciamento</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Rimuovi tracciamento</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nessuno</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Oggetto</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Volto</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>Fai clic nell’anteprima sul volto da seguire (per impostazione predefinita, quello più vicino all’elemento).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Prima vengono analizzati i volti di «%1», poi segue quello più vicino all’elemento.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Scegli un oggetto nell’anteprima o disegna un riquadro intorno. Se non scegli nulla, segue ciò che l’elemento copre in «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Ricerca…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Rileva oggetti</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Trova persone, animali, veicoli e altro all’indicatore di riproduzione</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Ottieni il rilevamento oggetti</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>Installa l’extra «Tracciamento oggetti» per trovare gli oggetti automaticamente</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Annulla selezione</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direzione</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Entrambi</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Avanti</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Indietro</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Segue dall’indicatore di riproduzione verso entrambe le estremità della clip, o in una sola direzione</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Scala — cresce e si rimpicciolisce con ciò che segue</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Distanza — mantiene la sua posizione accanto a ciò che segue</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Disattivato: l’elemento si posiziona proprio sopra ciò che segue</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Traccia di nuovo da qui</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Avvia tracciamento</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Segue dall’indicatore di riproduzione; l’elemento mantiene la sua posizione rispetto a ciò che segue</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>Riallinea</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>Dopo aver spostato, tagliato o accelerato il video: rimette il percorso su di esso senza analizzare di nuovo</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>Nascondi un volto</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>Copre per tutta la clip il volto più vicino al centro dell’inquadratura all’indicatore di riproduzione, seguendolo. Il livello va subito sopra la clip.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Pixela</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Sfoca</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Il video seguito non è più nel progetto.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Il video seguito è stato sostituito: traccia di nuovo perché il percorso combaci.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Seguito in %1 fotogrammi; perso in %2. Dove è stato perso, l’elemento scorre tra i fotogrammi in cui è stato trovato.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Seguito in tutti i %1 fotogrammi.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Perso</translation>
     </message>
 </context>
 <context>

@@ -4345,20 +4345,12 @@
         <translation>thiếu tệp</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>Đã cài LUT: %1 (Điều chỉnh › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>Trong Điều chỉnh › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>đây không phải là bộ hiệu ứng</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>Đã cài look: %1 (Hiệu ứng của tôi)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4377,20 +4369,8 @@
         <translation>Trong Tiêu đề › Thịnh hành</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>Đã cài kiểu chữ: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>Đã cài hoạt ảnh chữ: %1 (Văn bản › Hoạt ảnh › Đã nhập)</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>Trong Văn bản › Hoạt ảnh</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>Đã cài hình dạng: %1 (Hình dạng, và cả Mặt nạ)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4399,10 +4379,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>không thể cài gói ở đây</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>Đã cài chuyển cảnh: %1 (Chuyển cảnh)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -14731,6 +14707,30 @@
         <translation>Không tìm thấy vật thể nào ở đây: hãy vẽ khung quanh thứ cần theo dõi</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Chọn một video hoặc ảnh để che khuôn mặt trong đó</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>Không tìm thấy khuôn mặt nào trong clip này</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Khuôn mặt làm mờ</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Khuôn mặt làm nhòe điểm ảnh</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Che khuôn mặt</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Đã che khuôn mặt: lớp của nó nằm trên clip, nơi có thể cắt hoặc xóa</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Xóa theo dõi</translation>
     </message>
@@ -14813,53 +14813,6 @@
     <message>
         <source>Tracking done</source>
         <translation>Theo dõi xong</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>Theo dõi</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>Đặt nó lên thứ cần theo dõi trong “%1”, rồi bắt đầu.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>Nó sẽ theo dõi khuôn mặt trong “%1”.</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>Đối tượng</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Khuôn mặt</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>Theo dõi cả kích thước</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Hủy</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>Bắt đầu theo dõi</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>Theo dõi từ đầu phát đến cả hai đầu của clip</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>Xóa theo dõi</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>Xóa hoạt ảnh vị trí và kích thước, giữ nguyên ở vị trí hiện tại</translation>
     </message>
 </context>
 <context>
@@ -16262,6 +16215,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Animation</source>
         <translation>Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Theo dõi</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23712,6 +23669,160 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Xóa khung hình chính</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Theo dõi</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Gỡ theo dõi</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Đối tượng</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Khuôn mặt</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>Nhấp vào khuôn mặt cần theo dõi trên bản xem trước (mặc định là khuôn mặt gần phần tử nhất).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Các khuôn mặt trong “%1” được quét trước, sau đó theo dõi khuôn mặt gần phần tử nhất.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Chọn một đối tượng trên bản xem trước hoặc vẽ khung quanh nó. Nếu không chọn, sẽ theo dõi phần mà phần tử che trong “%1”.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Đang tìm…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Phát hiện đối tượng</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Tìm người, động vật, xe cộ và những thứ khác tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Tải tính năng phát hiện đối tượng</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>Cài gói bổ sung “Theo dõi đối tượng” để tự động tìm đối tượng</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Xóa lựa chọn</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Hướng</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Cả hai</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Tiến</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Lùi</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Theo dõi từ đầu phát đến cả hai đầu clip, hoặc chỉ một chiều</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Tỷ lệ — phóng to và thu nhỏ theo thứ nó theo dõi</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Khoảng cách — giữ vị trí bên cạnh thứ nó theo dõi</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Tắt: phần tử nằm ngay trên thứ nó theo dõi</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Theo dõi lại từ đây</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Bắt đầu theo dõi</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Theo dõi từ đầu phát; phần tử giữ vị trí so với thứ nó theo dõi</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>Căn lại</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>Sau khi di chuyển, cắt hoặc tăng tốc video: đặt lại đường đi lên video mà không cần phân tích lại</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>Che một khuôn mặt</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>Che trong suốt clip khuôn mặt gần giữa khung hình nhất tại đầu phát, bám theo nó. Lớp nằm ngay trên clip.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Điểm ảnh hóa</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Làm mờ</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Video được theo dõi không còn trong dự án.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Video được theo dõi đã bị thay thế: hãy theo dõi lại để đường đi khớp.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Đã theo dõi trong %1 khung hình; mất dấu trong %2. Ở chỗ mất dấu, phần tử trượt mượt giữa các khung hình đã tìm thấy.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Đã theo dõi trong cả %1 khung hình.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Mất dấu</translation>
     </message>
 </context>
 <context>

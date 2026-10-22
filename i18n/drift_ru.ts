@@ -4353,20 +4353,12 @@
         <translation>файл отсутствует</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT установлен: %1 (Настройка › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>В разделе Настройка › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>это не набор эффектов</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>Образ установлен: %1 (Мои эффекты)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4385,20 +4377,8 @@
         <translation>В разделе Титры › В тренде</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>Стиль текста установлен: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>Анимация текста установлена: %1 (Текст › Анимация › Импортированные)</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>В разделе Текст › Анимация</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>Фигура установлена: %1 (Фигуры, а также Маски)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4407,10 +4387,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>здесь нельзя устанавливать пакеты</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>Переход установлен: %1 (Переходы)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -14851,6 +14827,30 @@
         <translation>Здесь не найдено объектов: обведите рамкой то, за чем следить</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Выберите видео или фото, чтобы скрыть на нём лицо</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>В этом клипе не найдено лиц</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Размытое лицо</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Пикселизированное лицо</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Скрыть лицо</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Лицо скрыто: его слой находится над клипом, там его можно обрезать или удалить</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Удалить трекинг</translation>
     </message>
@@ -14933,53 +14933,6 @@
     <message>
         <source>Tracking done</source>
         <translation>Трекинг завершён</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>Трекинг</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>Поместите его на то, что нужно отслеживать в «%1», и начните.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>Он будет следовать за лицом в «%1».</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>Объект</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Лицо</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>Отслеживать и размер</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Отмена</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>Начать трекинг</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>Отслеживать от указателя до обоих концов клипа</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>Удалить трекинг</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>Удаляет анимацию позиции и размера, оставляя элемент там, где он сейчас</translation>
     </message>
 </context>
 <context>
@@ -16394,6 +16347,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Отслеживание</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23876,6 +23833,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>Удалить ключевой кадр</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Отслеживание</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Убрать отслеживание</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Объект</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Лицо</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>Щёлкните в окне просмотра по лицу, за которым нужно следить (по умолчанию — ближайшее к элементу).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Сначала анализируются лица в «%1», затем отслеживается ближайшее к элементу.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Выберите объект в окне просмотра или обведите его рамкой. Если ничего не выбрано, отслеживается то, что элемент закрывает в «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Поиск…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Найти объекты</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Найти людей, животных, транспорт и другое на позиции указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Получить распознавание объектов</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>Установите дополнение «Отслеживание объектов», чтобы находить объекты автоматически</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Сбросить выбор</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Направление</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Оба</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Вперёд</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Отслеживать от указателя воспроизведения к обоим концам клипа или только в одну сторону</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Масштаб — увеличивается и уменьшается вместе с отслеживаемым</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Расстояние — сохраняет своё место рядом с отслеживаемым</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Выкл.: элемент располагается прямо поверх отслеживаемого</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Отследить заново отсюда</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Начать отслеживание</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Отслеживает от указателя воспроизведения; элемент сохраняет своё место относительно отслеживаемого</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>После перемещения, обрезки или ускорения видео: вернуть траекторию на него без повторного анализа</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>Скрыть лицо</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>Закрывает на всём клипе лицо, ближайшее к центру кадра на позиции указателя, и следует за ним. Слой помещается прямо над клипом.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Пикселизация</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Отслеживаемого видео больше нет в проекте.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Отслеживаемое видео заменено: отследите заново, чтобы траектория совпала.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Отслежено в кадрах: %1; потеряно: %2. Там, где объект потерян, элемент плавно движется между кадрами, где он был найден.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Отслежено во всех кадрах (%1).</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Потерян</translation>
     </message>
 </context>
 <context>

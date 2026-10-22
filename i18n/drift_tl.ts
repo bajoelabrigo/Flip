@@ -821,7 +821,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -2496,7 +2496,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2600,7 +2600,7 @@
     <name>AnimationInspector</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -4345,19 +4345,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4377,19 +4369,7 @@
         <translation>Nasa Mga Pamagat › Trending</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>Na-install ang istilo ng teksto: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4398,10 +4378,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7693,7 +7669,7 @@
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Foreground blur</source>
@@ -8477,7 +8453,7 @@
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-pixelate</translation>
     </message>
     <message>
         <source>Block width</source>
@@ -8765,7 +8741,7 @@
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Pixelate Matrix</source>
@@ -13724,7 +13700,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -14738,7 +14714,7 @@
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -14789,6 +14765,30 @@
     <message>
         <source>No objects found here: draw a box around what to follow</source>
         <translation>Walang nakitang bagay dito: gumuhit ng kahon sa paligid ng susundan</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Pumili ng video o larawan para itago ang mukha rito</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>Walang nakitang mukha sa clip na ito</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Malabong mukha</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Naka-pixelate na mukha</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Itago ang mukha</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Nakatago ang mukha: nasa itaas ng clip ang layer nito, kung saan ito puwedeng i-trim o alisin</translation>
     </message>
     <message>
         <source>Remove tracking</source>
@@ -14873,53 +14873,6 @@
     <message>
         <source>Tracking done</source>
         <translation>Tapos na ang tracking</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>Tracking</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>Ilagay ito sa ibabaw ng dapat nitong sundan sa “%1”, saka simulan.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>Susundan nito ang mukha sa “%1”.</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>Bagay</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Mukha</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>Sundan din ang laki</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Kanselahin</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>Simulan ang tracking</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>Sundan mula sa playhead hanggang sa magkabilang dulo ng clip</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>Alisin ang tracking</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>Aalisin ang animation ng posisyon at laki, at mananatili ito kung nasaan ito ngayon</translation>
     </message>
 </context>
 <context>
@@ -16324,6 +16277,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Tracking</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
         <source>Audio</source>
         <translation>Audyo</translation>
     </message>
@@ -16859,7 +16816,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>%1 (custom, experimental)</source>
@@ -17741,7 +17698,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Transparent</source>
@@ -18370,7 +18327,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Spread</source>
@@ -20452,7 +20409,7 @@ If playback stutters, try another.</source>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
 </context>
 <context>
@@ -20725,7 +20682,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Whole block</source>
@@ -20745,11 +20702,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pasulong</translation>
     </message>
     <message>
         <source>Backward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Paatras</translation>
     </message>
     <message>
         <source>Center out</source>
@@ -21361,7 +21318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -21656,11 +21613,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -22005,7 +21962,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Speech</source>
@@ -22184,7 +22141,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Width</source>
@@ -23789,6 +23746,160 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Alisin ang tracking</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Bagay</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Mukha</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>I-click sa preview ang mukhang susundan (kung wala, ang pinakamalapit sa elemento).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Ini-scan muna ang mga mukha sa “%1”, saka susundan ang pinakamalapit sa elemento.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Pumili ng bagay sa preview o gumuhit ng kahon sa paligid nito. Kung walang pinili, susundan ang natatakpan ng elemento sa “%1”.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Naghahanap…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Hanapin ang mga bagay</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Hanapin ang mga tao, hayop, sasakyan at iba pa sa playhead</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Kunin ang object detection</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>I-install ang extra na “Object tracking” para awtomatikong mahanap ang mga bagay</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Alisin ang pinili</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direksyon</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Pareho</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Pasulong</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Paatras</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Sundan mula sa playhead papunta sa magkabilang dulo ng clip, o sa iisang direksyon lang</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Scale — lumalaki at lumiliit kasabay ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Distansya — nananatili sa puwesto nito katabi ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Off: nakapatong mismo ang elemento sa sinusundan</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Mag-track ulit mula rito</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Simulan ang tracking</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Sumusunod mula sa playhead; nananatili ang puwesto ng elemento kaugnay ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>I-realign</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>Pagkatapos ilipat, i-trim o pabilisin ang video: ibinabalik ang daan dito nang hindi nag-a-analyze ulit</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>Magtago ng mukha</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>Tinatakpan sa buong clip ang mukhang pinakamalapit sa gitna ng frame sa playhead, habang sinusundan ito. Nasa mismong itaas ng clip ang layer.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>I-pixelate</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>I-blur</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Wala na sa proyekto ang sinusundang video.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Napalitan ang sinusundang video: mag-track ulit para tumugma ang daan.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Nasundan sa %1 frame; nawala sa %2. Kung saan ito nawala, dumudulas ang elemento sa pagitan ng mga frame kung saan ito nakita.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Nasundan sa lahat ng %1 frame.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Nawala</translation>
+    </message>
+</context>
+<context>
     <name>TransformInspector</name>
     <message>
         <source>Opacity</source>
@@ -25229,7 +25340,7 @@ If playback stutters, try another.</source>
     <name>VideoMaskPage</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
@@ -25573,7 +25684,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>%1 — click to apply; the star keeps it in favorites</source>

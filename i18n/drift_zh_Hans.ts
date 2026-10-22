@@ -4337,20 +4337,12 @@
         <translation>文件缺失</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>已安装 LUT：%1（调节 › LUT）</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>位于 调节 › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>这不是效果预设</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>已安装风格：%1（我的效果）</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4369,20 +4361,8 @@
         <translation>在 标题 › 热门</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>文字样式已安装：%1（%2）</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>已安装文字动画：%1（文字 › 动画 › 已导入）</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>位于 文字 › 动画</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>已安装形状：%1（形状，也可在蒙版中使用）</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4391,10 +4371,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>无法在此处安装软件包</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>已安装转场：%1（转场）</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -14731,6 +14707,30 @@
         <translation>这里没有找到物体：请在要跟随的内容周围画一个框</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>选择视频或照片以遮挡其中的人脸</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>此片段中未找到人脸</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>模糊的人脸</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>马赛克人脸</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>遮挡人脸</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>人脸已遮挡：其图层位于片段上方，可在那里修剪或删除</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>移除跟踪</translation>
     </message>
@@ -14813,53 +14813,6 @@
     <message>
         <source>Tracking done</source>
         <translation>跟踪完成</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>跟踪</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>请将其放在“%1”中要跟随的对象上，然后开始。</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>它将跟随“%1”中的人脸。</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>物体</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>人脸</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>同时跟随大小</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>开始跟踪</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>从播放头向片段两端跟踪</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>移除跟踪</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>移除位置和大小动画，保留在当前位置</translation>
     </message>
 </context>
 <context>
@@ -16262,6 +16215,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>动画</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23711,6 +23668,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>删除关键帧</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>移除跟踪</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>物体</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>在预览中点击要跟踪的人脸（默认为离元素最近的那张）。</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>先分析“%1”中的人脸，然后跟踪离元素最近的那张。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>在预览中选择一个物体或在其周围画框。若未选择，则跟踪元素在“%1”中覆盖的内容。</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>正在查找…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>检测物体</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>在播放头位置查找人物、动物、车辆等</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>获取物体检测</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>安装扩展包“物体跟踪”以自动查找物体</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>清除选择</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>双向</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>向前</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>向后</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>从播放头向片段两端跟踪，或只朝一个方向</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>缩放 — 随跟踪对象放大和缩小</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>距离 — 保持在跟踪对象旁的位置</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>关闭：元素正好位于跟踪对象之上</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>从此处重新跟踪</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>开始跟踪</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>从播放头开始跟踪；元素保持相对于跟踪对象的位置</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>重新对齐</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>移动、修剪或加速视频后：无需重新分析即可将路径重新对上</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>遮挡人脸</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>在整个片段中跟踪并遮挡播放头处最靠近画面中心的人脸。图层位于片段正上方。</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>马赛克</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>模糊</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>所跟踪的视频已不在项目中。</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>所跟踪的视频已被替换：请重新跟踪以使路径吻合。</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>在 %1 帧中跟踪到；%2 帧中丢失。丢失处，元素会在找到的帧之间平滑过渡。</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>在全部 %1 帧中均跟踪到。</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>丢失</translation>
     </message>
 </context>
 <context>

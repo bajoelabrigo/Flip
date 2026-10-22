@@ -4337,20 +4337,12 @@
         <translation>파일이 없습니다</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT 설치됨: %1 (조정 › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>조정 › LUT에 있음</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>효과 프리셋이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>룩 설치됨: %1 (내 효과)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4369,20 +4361,8 @@
         <translation>제목 › 트렌드</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>텍스트 스타일 설치됨: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>텍스트 애니메이션 설치됨: %1 (텍스트 › 애니메이션 › 가져옴)</translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
         <translation>텍스트 › 애니메이션에 있음</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>도형 설치됨: %1 (도형 및 마스크)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4391,10 +4371,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>여기에서는 패키지를 설치할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>전환 효과 설치됨: %1 (전환)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -14731,6 +14707,30 @@
         <translation>여기에서 객체를 찾지 못했습니다. 따라갈 대상 주위에 상자를 그리세요</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>얼굴을 가릴 동영상이나 사진을 선택하세요</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>이 클립에서 얼굴을 찾지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>흐리게 한 얼굴</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>모자이크한 얼굴</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>얼굴 가리기</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>얼굴을 가렸습니다: 레이어가 클립 위에 있어 자르거나 삭제할 수 있습니다</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>트래킹 제거</translation>
     </message>
@@ -14813,53 +14813,6 @@
     <message>
         <source>Tracking done</source>
         <translation>트래킹 완료</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>트래킹</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>“%1”에서 추적할 대상 위에 놓은 다음 시작하세요.</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>“%1”의 얼굴을 따라갑니다.</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>객체</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>얼굴</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>크기도 따라가기</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>취소</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>트래킹 시작</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>재생 헤드에서 클립의 양쪽 끝까지 추적합니다</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>트래킹 제거</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>위치와 크기 애니메이션을 제거하고 지금 위치에 그대로 둡니다</translation>
     </message>
 </context>
 <context>
@@ -16262,6 +16215,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>트래킹</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23710,6 +23667,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>키프레임 삭제</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>트래킹</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>트래킹 제거</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>객체</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>얼굴</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>미리보기에서 따라갈 얼굴을 클릭하세요(기본값은 요소에 가장 가까운 얼굴).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>먼저 “%1”의 얼굴을 분석한 뒤 요소에 가장 가까운 얼굴을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>미리보기에서 객체를 고르거나 주위에 상자를 그리세요. 선택하지 않으면 “%1”에서 요소가 가리는 부분을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>찾는 중…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>객체 감지</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>재생 헤드 위치에서 사람, 동물, 차량 등을 찾습니다</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>객체 감지 받기</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>객체를 자동으로 찾으려면 “객체 트래킹” 추가 기능을 설치하세요</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>선택 해제</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>방향</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>양방향</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>재생 헤드에서 클립 양 끝까지, 또는 한 방향으로만 따라갑니다</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>크기 — 따라가는 대상에 맞춰 커지고 작아짐</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>거리 — 따라가는 대상 옆의 자리를 유지</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>끔: 요소가 따라가는 대상 바로 위에 놓입니다</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>여기서 다시 트래킹</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>트래킹 시작</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>재생 헤드에서 따라갑니다. 요소는 따라가는 대상에 대한 자리를 유지합니다</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>다시 맞추기</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>동영상을 이동, 자르기, 속도 변경한 뒤: 다시 분석하지 않고 경로를 다시 맞춥니다</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>얼굴 가리기</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>재생 헤드 위치에서 화면 중앙에 가장 가까운 얼굴을 클립 전체에서 따라가며 가립니다. 레이어는 클립 바로 위에 놓입니다.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>모자이크</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>흐리게</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>따라가던 동영상이 더 이상 프로젝트에 없습니다.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>따라가던 동영상이 교체되었습니다: 경로가 맞도록 다시 트래킹하세요.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>%1개 프레임에서 추적, %2개 프레임에서 놓침. 놓친 구간에서는 찾은 프레임 사이를 요소가 부드럽게 이동합니다.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>전체 %1개 프레임에서 추적했습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>놓침</translation>
     </message>
 </context>
 <context>

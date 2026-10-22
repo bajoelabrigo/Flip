@@ -4445,19 +4445,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4477,19 +4469,7 @@
         <translation>শিরোনাম › ট্রেন্ডিং-এ</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (%2)</source>
-        <translation>টেক্সট স্টাইল ইনস্টল হয়েছে: %1 (%2)</translation>
-    </message>
-    <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4498,10 +4478,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8477,7 +8453,7 @@
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">পিক্সেলেট</translation>
     </message>
     <message>
         <source>Block width</source>
@@ -14791,6 +14767,30 @@
         <translation>এখানে কোনো বস্তু পাওয়া যায়নি: যা অনুসরণ করবেন তার চারপাশে একটি বাক্স আঁকুন</translation>
     </message>
     <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>কোনো মুখ লুকাতে একটি ভিডিও বা ছবি নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>এই ক্লিপে কোনো মুখ পাওয়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>ঝাপসা মুখ</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>পিক্সেলেটেড মুখ</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>মুখ লুকান</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>মুখ লুকানো হয়েছে: এর লেয়ার ক্লিপের উপরে আছে, সেখানে ট্রিম বা মুছে ফেলা যায়</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ট্র্যাকিং সরান</translation>
     </message>
@@ -14873,53 +14873,6 @@
     <message>
         <source>Tracking done</source>
         <translation>ট্র্যাকিং শেষ</translation>
-    </message>
-</context>
-<context>
-    <name>MotionTrackSection</name>
-    <message>
-        <source>Tracking</source>
-        <translation>ট্র্যাকিং</translation>
-    </message>
-    <message>
-        <source>Place it over what it should follow in “%1”, then start.</source>
-        <translation>“%1”-এ যা অনুসরণ করবে তার উপরে এটি রাখুন, তারপর শুরু করুন।</translation>
-    </message>
-    <message>
-        <source>It will follow the face in “%1”.</source>
-        <translation>এটি “%1”-এর মুখ অনুসরণ করবে।</translation>
-    </message>
-    <message>
-        <source>Object</source>
-        <translation>অবজেক্ট</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>মুখ</translation>
-    </message>
-    <message>
-        <source>Follow size too</source>
-        <translation>আকারও অনুসরণ করুন</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বাতিল</translation>
-    </message>
-    <message>
-        <source>Start tracking</source>
-        <translation>ট্র্যাকিং শুরু করুন</translation>
-    </message>
-    <message>
-        <source>Follow from the playhead to both ends of the clip</source>
-        <translation>প্লেহেড থেকে ক্লিপের দুই প্রান্ত পর্যন্ত অনুসরণ করুন</translation>
-    </message>
-    <message>
-        <source>Remove tracking</source>
-        <translation>ট্র্যাকিং সরান</translation>
-    </message>
-    <message>
-        <source>Remove the position and size animation, leaving it where it is now</source>
-        <translation>অবস্থান ও আকারের অ্যানিমেশন সরিয়ে এখন যেখানে আছে সেখানেই রাখুন</translation>
     </message>
 </context>
 <context>
@@ -16328,6 +16281,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation type="unfinished">অ্যানিমেশন</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>ট্র্যাকিং</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -23794,6 +23751,160 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ট্র্যাকিং সরান</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কিছু না</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>বস্তু</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>মুখ</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>প্রিভিউতে যে মুখ অনুসরণ করবেন তাতে ক্লিক করুন (ডিফল্টভাবে উপাদানের সবচেয়ে কাছেরটি)।</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>প্রথমে “%1”-এর মুখগুলো বিশ্লেষণ করা হয়, তারপর উপাদানের সবচেয়ে কাছেরটি অনুসরণ করা হয়।</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন। কিছু না বাছলে, “%1”-এ উপাদানটি যা ঢেকে রাখে তা অনুসরণ করা হয়।</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>খোঁজা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>বস্তু শনাক্ত করুন</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>প্লেহেডের অবস্থানে মানুষ, প্রাণী, যানবাহন ও অন্যান্য জিনিস খুঁজুন</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>বস্তু শনাক্তকরণ নিন</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>স্বয়ংক্রিয়ভাবে বস্তু খুঁজতে “বস্তু ট্র্যাকিং” এক্সট্রা ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>নির্বাচন মুছুন</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>দিক</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>উভয়</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>সামনে</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>পিছনে</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>প্লেহেড থেকে ক্লিপের দুই প্রান্তে, অথবা শুধু এক দিকে অনুসরণ করুন</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>স্কেল — যা অনুসরণ করে তার সাথে বড় ও ছোট হয়</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>দূরত্ব — যা অনুসরণ করে তার পাশে নিজের জায়গা ধরে রাখে</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>বন্ধ: উপাদানটি যা অনুসরণ করে ঠিক তার উপরে বসে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>এখান থেকে আবার ট্র্যাক করুন</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ট্র্যাকিং শুরু করুন</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>প্লেহেড থেকে অনুসরণ করে; উপাদানটি যা অনুসরণ করে তার তুলনায় নিজের জায়গা ধরে রাখে</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>পুনরায় সাজান</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>ভিডিও সরানো, ট্রিম বা দ্রুত করার পরে: আবার বিশ্লেষণ না করে পথটি আবার এর উপর বসান</translation>
+    </message>
+    <message>
+        <source>Hide a face</source>
+        <translation>একটি মুখ লুকান</translation>
+    </message>
+    <message>
+        <source>Covers the face nearest the middle of the frame at the playhead for the whole clip, following it. The layer goes right above the clip.</source>
+        <translation>প্লেহেডে ফ্রেমের মাঝখানের সবচেয়ে কাছের মুখটি পুরো ক্লিপ জুড়ে অনুসরণ করে ঢেকে দেয়। লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>পিক্সেলেট</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ঝাপসা</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>অনুসৃত ভিডিওটি আর প্রকল্পে নেই।</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>অনুসৃত ভিডিওটি প্রতিস্থাপিত হয়েছে: পথ মেলাতে আবার ট্র্যাক করুন।</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>%1টি ফ্রেমে অনুসরণ করা হয়েছে; %2টিতে হারিয়েছে। যেখানে হারিয়েছে, উপাদানটি পাওয়া ফ্রেমগুলোর মাঝে মসৃণভাবে সরে।</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>সব %1টি ফ্রেমে অনুসরণ করা হয়েছে।</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>হারানো</translation>
     </message>
 </context>
 <context>
