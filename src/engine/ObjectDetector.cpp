@@ -9,6 +9,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMutex>
+#include <QMutexLocker>
 
 #include <algorithm>
 #include <cmath>
@@ -145,6 +147,9 @@ QList<Detection> nonMaximumSuppression(QList<Detection> detections, double iouTh
 
 struct ObjectDetector::Impl
 {
+    // Scene detection and motion tracking both run it off the GUI thread: the lazy load and the
+    // shared error string must not race.
+    QMutex mutex;
     bool loadAttempted = false;
     bool loaded = false;
     QString error;
@@ -241,6 +246,7 @@ bool ObjectDetector::modelPresent()
 
 bool ObjectDetector::available()
 {
+    QMutexLocker locker(&d->mutex);
     return d->ensureLoaded();
 }
 
@@ -251,6 +257,7 @@ QString ObjectDetector::lastError() const
 
 QList<Detection> ObjectDetector::detect(const QImage &frame)
 {
+    QMutexLocker locker(&d->mutex);
     if (frame.isNull() || !d->ensureLoaded())
         return {};
 

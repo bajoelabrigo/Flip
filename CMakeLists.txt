@@ -498,6 +498,8 @@ add_library(driftcore STATIC
     src/core/TextQuickStyles.cpp
     src/core/TextPresetStore.h
     src/core/TextPresetStore.cpp
+    src/core/MotionTrack.h
+    src/core/MotionTrack.cpp
     src/core/EffectStackStore.h
     src/core/EffectStackStore.cpp
     src/core/ShapeStyle.h

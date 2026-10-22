@@ -7,6 +7,7 @@
 #include "Keyframe.h"
 #include "Mask.h"
 #include "MediaAsset.h"
+#include "MotionTrack.h"
 #include "ShapeStyle.h"
 #include "SpeedCurve.h"
 #include "SubtitleCue.h"
@@ -173,6 +174,10 @@ struct Clip
     // track: written by the analysis job, indexed at (sourceUs - poseTrackSrcOffsetUs).
     QString poseTrackPath;
     TimeUs poseTrackSrcOffsetUs = 0;
+
+    // On an element that follows something in the video under it (Transform › Tracking): what the
+    // tracking found, kept so it can be baked again without re-analysing (see MotionTrack.h).
+    std::optional<MotionTrack> motionTrack;
 
     // Estimated depth (DepthSidecar) driving the depth effects. Timestamped in source time, so
     // unlike a matte it needs no offset to be looked up; it only has to be dropped whenever the

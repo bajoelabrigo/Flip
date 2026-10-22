@@ -3,6 +3,7 @@
 #include <QtGlobal>
 
 #include <algorithm>
+#include <utility>
 #include <cmath>
 
 namespace drift {
@@ -128,7 +129,94 @@ bool RegionTracker::start(const QImage &frame, const QRectF &region)
     m_baseW = r.width();
     m_baseH = r.height();
     m_template = patch(grey, m_cx, m_cy, 1.0);
+    m_original = m_template;
+    m_lostFrames = 0;
+    // Is the subject one of a kind in this frame? Anything far from it that matches nearly as well
+    // makes the scene ambiguous for a later recovery.
+    m_lookAlike = false;
+    const double apart = qMax(m_template.w, m_template.h) * 0.75;
+    for (const Peak &p : wholeFrameSearch(grey, m_template)) {
+        if (p.score < kRecoverScore - kRecoverMargin)
+            break;
+        if (std::hypot(p.x + m_template.w * 0.5 - m_cx, p.y + m_template.h * 0.5 - m_cy) >= apart) {
+            m_lookAlike = true;
+            break;
+        }
+    }
     m_started = true;
+    return true;
+}
+
+RegionTracker::Gray RegionTracker::scaledOriginal(double scale) const
+{
+    Gray templ;
+    templ.w = qMax(4, int(std::lround(m_original.w * scale)));
+    templ.h = qMax(4, int(std::lround(m_original.h * scale)));
+    templ.px.resize(templ.w * templ.h);
+    for (int y = 0; y < templ.h; ++y) {
+        for (int x = 0; x < templ.w; ++x)
+            templ.px[y * templ.w + x] = bilinear(m_original.px, m_original.w, m_original.h,
+                                                 (x + 0.5) * m_original.w / templ.w - 0.5,
+                                                 (y + 0.5) * m_original.h / templ.h - 0.5);
+    }
+    return templ;
+}
+
+QVector<RegionTracker::Peak> RegionTracker::wholeFrameSearch(const Gray &frame, const Gray &templ) const
+{
+    QVector<Peak> peaks;
+    if (templ.w >= frame.w || templ.h >= frame.h)
+        return peaks;
+    // Every third position, then the best few refined: a textured peak is wider than that.
+    for (int y = 0; y <= frame.h - templ.h; y += 3) {
+        for (int x = 0; x <= frame.w - templ.w; x += 3)
+            peaks.append({correlate(frame, templ, x, y), x, y});
+    }
+    std::sort(peaks.begin(), peaks.end(), [](const Peak &a, const Peak &b) { return a.score > b.score; });
+    for (int k = 0; k < qMin(6, int(peaks.size())); ++k) {
+        Peak &peak = peaks[k];
+        const Peak coarse = peak;
+        for (int y = qMax(0, coarse.y - 2); y <= qMin(frame.h - templ.h, coarse.y + 2); ++y) {
+            for (int x = qMax(0, coarse.x - 2); x <= qMin(frame.w - templ.w, coarse.x + 2); ++x) {
+                const double s = correlate(frame, templ, x, y);
+                if (s > peak.score)
+                    peak = {s, x, y};
+            }
+        }
+    }
+    std::sort(peaks.begin(), peaks.end(), [](const Peak &a, const Peak &b) { return a.score > b.score; });
+    return peaks;
+}
+
+bool RegionTracker::recover(const Gray &frame)
+{
+    const Gray templ = scaledOriginal(m_scale);
+    const QVector<Peak> peaks = wholeFrameSearch(frame, templ);
+    if (peaks.isEmpty() || peaks.first().score < kRecoverScore)
+        return false;
+    const Peak best = peaks.first();
+    // The runner-up has to be somewhere else (not the same peak's shoulder) and clearly lower.
+    const double apart = qMax(templ.w, templ.h) * 0.75;
+    for (const Peak &p : peaks) {
+        if (std::hypot(p.x - best.x, p.y - best.y) < apart)
+            continue;
+        if (p.score > best.score - kRecoverMargin)
+            return false;
+        break; // sorted: the first one far enough away is the runner-up
+    }
+    const double bx = best.x + templ.w * 0.5;
+    const double by = best.y + templ.h * 0.5;
+    if (m_lookAlike) {
+        // With a twin around, only near where it went: a few search reaches, growing slowly.
+        const double reach = qMax(6.0, qMax(templ.w, templ.h) * kSearchReach);
+        const double radius = reach * qMin(4.0, 2.0 + 0.25 * m_lostFrames);
+        if (std::hypot(bx - m_cx, by - m_cy) > radius)
+            return false;
+    }
+    m_cx = bx;
+    m_cy = by;
+    // Start again from the framed look: what was blended in while drifting off is not trusted.
+    m_template = m_original;
     return true;
 }
 
@@ -262,10 +350,22 @@ RegionTracker::Result RegionTracker::step(const QImage &frame, bool followScale)
 
     result.score = bestScore;
     if (bestScore < kLostScore) {
+        // The whole-frame search costs a few local ones: every other lost frame is enough to pick
+        // the subject up again within a frame or two of its return.
+        ++m_lostFrames;
+        if (m_lostFrames % 2 == 1 && recover(grey)) {
+            m_lostFrames = 0;
+            result.lost = false;
+            result.recovered = true;
+            result.score = kRecoverScore;
+            result.rect = currentRect();
+            return result;
+        }
         result.lost = true;
         result.rect = currentRect();
         return result;
     }
+    m_lostFrames = 0;
     m_cx = bestX;
     m_cy = bestY;
     m_scale = bestScale;

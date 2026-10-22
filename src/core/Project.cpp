@@ -362,6 +362,8 @@ QJsonObject clipToJson(const Clip &clip)
     }
     if (!clip.brandRole.isEmpty())
         json.insert(QStringLiteral("brandRole"), clip.brandRole);
+    if (clip.motionTrack && !clip.motionTrack->isEmpty())
+        json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
     return json;
 }
 
@@ -520,6 +522,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
                                     keyframesFromJson(object.value(QStringLiteral("scale")).toObject()),
                                     qMax(1, canvasW), qMax(1, canvasH));
     }
+    if (object.contains(QStringLiteral("motionTrack")))
+        clip.motionTrack = motionTrackFromJson(object.value(QStringLiteral("motionTrack")).toObject());
     return clip;
 }
 

@@ -2373,6 +2373,49 @@ void EngineTest::regionTrackerFollowsAMovingPatch()
     const drift::RegionTracker::Result gone = tracker.step(frameAt(cx, cy, size, true), true);
     QVERIFY(gone.lost);
     QVERIFY(std::hypot(gone.rect.center().x() * W - cx, gone.rect.center().y() * H - cy) < 2.5);
+
+    // Hidden for a while, back somewhere else: picked up again by the whole-frame search.
+    {
+        drift::RegionTracker t2;
+        double x = 100, y = 120;
+        QVERIFY(t2.start(frameAt(x, y, 48, false), QRectF((x - 24) / W, (y - 24) / H, 48.0 / W, 48.0 / H)));
+        for (int i = 0; i < 6; ++i)
+            QVERIFY(t2.step(frameAt(x, y, 48, true), false).lost);
+        x = 360;
+        y = 180;
+        bool back = false;
+        for (int i = 0; i < 3 && !back; ++i) {
+            const drift::RegionTracker::Result r = t2.step(frameAt(x, y, 48, false), false);
+            if (!r.lost) {
+                back = true;
+                QVERIFY(r.recovered);
+                QVERIFY(std::hypot(r.rect.center().x() * W - x, r.rect.center().y() * H - y) < 3.0);
+            }
+        }
+        QVERIFY2(back, "recovered after an occlusion");
+    }
+
+    // A look-alike: with the subject gone and its twin in view, the tracker must not jump to it.
+    {
+        const auto twins = [&](bool firstVisible) {
+            QImage f = bg.copy();
+            QPainter p(&f);
+            if (firstVisible)
+                p.drawImage(QRectF(100 - 24, 120 - 24, 48, 48), object);
+            p.drawImage(QRectF(340 - 24, 150 - 24, 48, 48), object);
+            return f;
+        };
+        drift::RegionTracker t3;
+        QVERIFY(t3.start(twins(true), QRectF(76.0 / W, 96.0 / H, 48.0 / W, 48.0 / H)));
+        QVERIFY(!t3.step(twins(true), false).lost);
+        for (int i = 0; i < 6; ++i) {
+            const drift::RegionTracker::Result r = t3.step(twins(false), false);
+            QVERIFY2(r.lost && !r.recovered, "no jump to the look-alike");
+            QVERIFY(std::hypot(r.rect.center().x() * W - 100, r.rect.center().y() * H - 120) < 3.0);
+        }
+        // Back where it was lost: taken up again.
+        QVERIFY(!t3.step(twins(true), false).lost);
+    }
 }
 
 void EngineTest::faceTrackRoundTripsAndInterpolates()

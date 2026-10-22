@@ -751,7 +751,8 @@ void EditorStateTest::motionTrackingKeysTheElementOverItsVideo()
 
     const QVariantMap source = tracking->sourceFor(0, 0);
     QVERIFY(source.value(QStringLiteral("ok")).toBool());
-    QVERIFY(!source.value(QStringLiteral("canScale")).toBool()); // a text follows by position only
+    QVERIFY(source.value(QStringLiteral("canScale")).toBool()); // a text scales its letters too
+    QVERIFY(!tracking->info(0, 0).value(QStringLiteral("has")).toBool());
 
     state.setPlayheadSeconds(1.0);
     QSignalSpy finished(tracking, &MotionTrackController::finished);
@@ -765,13 +766,44 @@ void EditorStateTest::motionTrackingKeysTheElementOverItsVideo()
         QVERIFY(std::abs(tracked.transformX.evaluateAt(t) - 200.0) < 1.5);
         QVERIFY(std::abs(tracked.transformY.evaluateAt(t) - 120.0) < 1.5);
     }
-    QCOMPARE(tracked.transformW.keyframes().size(), 1); // size untouched
+    // With Scale, the box and the font size are keyed too (a still photo: the scale stays 1).
+    QVERIFY(tracked.transformW.keyframes().size() >= 5);
+    QVERIFY(std::abs(tracked.transformW.evaluateAt(drift::secondsToUs(0.5)) - 120.0) < 6.0);
+    QVERIFY(tracked.textStyle.keyframes.value(QStringLiteral("pixelSize")).keyframes().size() >= 5);
 
+    // What was found is kept on the element and travels with the project.
+    QVERIFY(tracked.motionTrack.has_value());
+    QCOMPARE(tracked.motionTrack->mode, QStringLiteral("object"));
+    QCOMPARE(tracked.motionTrack->sourceClipId, QStringLiteral("photo"));
+    QVERIFY(tracked.motionTrack->samples.size() >= 15);
+    const QVariantMap info = tracking->info(0, 0);
+    QVERIFY(info.value(QStringLiteral("has")).toBool());
+    QVERIFY(!info.value(QStringLiteral("sourceMissing")).toBool());
+    QVERIFY(tracking->targetAt(0, 0).value(QStringLiteral("ok")).toBool());
+
+    // Scale off: re-baked without analysing, back to the size it had.
+    QVERIFY(tracking->setOption(0, 0, QStringLiteral("followScale"), false));
+    const drift::Clip &unscaled = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(unscaled.transformW.keyframes().size(), 1);
+    QVERIFY(!unscaled.textStyle.keyframes.contains(QStringLiteral("pixelSize")));
+    QVERIFY(unscaled.transformX.keyframes().size() >= 5);
+    QVERIFY(!unscaled.motionTrack->followScale);
+
+    // The video moved half a second later after tracking: realigned, the path moves with it.
+    state.project()->tracks()[1].clips[0].timelineStart = drift::secondsToUs(0.5);
+    state.project()->tracks()[0].clips[0].timelineDuration = drift::secondsToUs(2.5);
+    QVERIFY(tracking->realign(0, 0));
+    const drift::Clip &moved = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(moved.transformX.keyframes().firstKey() >= drift::secondsToUs(0.5) - 1);
+
+    state.undo();
+    state.undo();
     state.undo();
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
     state.redo();
     tracking->clear(0, 0);
     QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).motionTrack.has_value());
 }
 
 void EditorStateTest::addTextClip()

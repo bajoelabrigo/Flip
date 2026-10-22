@@ -1,8 +1,10 @@
 #include "MotionTrackController.h"
 
 #include "AppController.h"
+#include "core/MotionTrack.h"
 #include "engine/ClipReaderPool.h"
 #include "engine/FaceTrack.h"
+#include "engine/ObjectDetector.h"
 #include "engine/RegionTracker.h"
 #include "engine/StillImage.h"
 
@@ -18,8 +20,8 @@ namespace {
 constexpr quint64 kMotionTrackStreamId = 0xA5'11'5C'A4'00'00'00'0Bull;
 // Frames are decoded no bigger than this: the tracker works on a small grey copy anyway.
 constexpr int kDecodeSide = 960;
-// A key every this many frames: smooth enough to follow, few enough to retouch.
-constexpr int kKeyEvery = 2;
+
+using Sample = drift::MotionTrackSample;
 
 double valueAt(const drift::KeyframeTrack<double> &track, drift::TimeUs relative, double fallback)
 {
@@ -34,6 +36,12 @@ QRectF canvasRect(const drift::Clip &clip, drift::TimeUs timelineUs, int project
     return QRectF(valueAt(clip.transformX, relative, 0.0), valueAt(clip.transformY, relative, 0.0),
                   valueAt(clip.transformW, relative, double(projectW)),
                   valueAt(clip.transformH, relative, double(projectH)));
+}
+
+QRectF normalizedToCanvas(const QRectF &n, const QRectF &video)
+{
+    return QRectF(video.x() + n.x() * video.width(), video.y() + n.y() * video.height(), n.width() * video.width(),
+                  n.height() * video.height());
 }
 
 bool followsVideo(drift::ClipType type)
@@ -56,12 +64,108 @@ bool canBeTracked(drift::ClipType type)
     }
 }
 
-struct Sample
+bool isText(const drift::Clip &clip)
 {
-    drift::TimeUs timelineUs = 0;
-    QRectF rect; // normalized to the source frame
-    bool lost = true;
-};
+    return clip.type == drift::ClipType::Text || clip.type == drift::ClipType::Subtitle;
+}
+
+// A scanned face as a rect normalized to the frame. The oval's half-axes are in width-normalized
+// units (see applyFaceUniforms), so the height comes back to uv through the frame's aspect.
+QRectF faceRect(const drift::FaceAnchors &face, double aspect)
+{
+    const double rx = qMax(0.01, face.faceRx);
+    const double ry = qMax(0.01, face.faceRy > 0.0 ? face.faceRy : face.faceRx) * aspect;
+    return QRectF(face.faceCenter.x() - rx, face.faceCenter.y() - ry, 2 * rx, 2 * ry);
+}
+
+QList<QRectF> faceRects(const QList<drift::FaceAnchors> &faces, double aspect)
+{
+    QList<QRectF> rects;
+    for (const drift::FaceAnchors &f : faces)
+        rects.append(f.valid ? faceRect(f, aspect) : QRectF());
+    return rects;
+}
+
+// The face nearest a point (normalized), or -1.
+int nearestFace(const QList<QRectF> &faces, const QPointF &point)
+{
+    int best = -1;
+    double bestDistance = 0.0;
+    for (int i = 0; i < faces.size(); ++i) {
+        if (faces.at(i).isNull())
+            continue;
+        const QPointF d = faces.at(i).center() - point;
+        const double distance = std::hypot(d.x(), d.y());
+        if (best < 0 || distance < bestDistance) {
+            best = i;
+            bestDistance = distance;
+        }
+    }
+    return best;
+}
+
+// A re-bake owns the element's position (and, with Scale, size) animation: the old path may lie
+// outside the new stretch once the video moved, so it is cleared rather than left to mix in.
+void resetTrackedKeys(drift::Clip &clip)
+{
+    clip.transformX = drift::KeyframeTrack<double>{};
+    clip.transformY = drift::KeyframeTrack<double>{};
+    if (clip.motionTrack && clip.motionTrack->followScale) {
+        clip.transformW = drift::KeyframeTrack<double>{};
+        clip.transformH = drift::KeyframeTrack<double>{};
+        clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
+    }
+}
+
+// The detector's objects of `classId` in a frame, as rects normalized to it.
+QList<QRectF> detectedOfClass(const QImage &frame, int classId)
+{
+    QList<QRectF> out;
+    if (frame.isNull() || frame.width() <= 0 || frame.height() <= 0)
+        return out;
+    for (const drift::Detection &d : drift::ObjectDetector::instance().detect(frame)) {
+        if (d.classId == classId)
+            out.append(QRectF(d.box.x() / frame.width(), d.box.y() / frame.height(), d.box.width() / frame.width(),
+                              d.box.height() / frame.height()));
+    }
+    return out;
+}
+
+// After the tracker lost the subject: the detected object of the same kind that is most likely it,
+// near where it was lost (the radius grows the longer it has been gone) and about its size. Null
+// when none qualifies, so a lost subject stays lost rather than taking another one's place.
+QRectF reacquire(const QList<QRectF> &candidates, const QRectF &last, int lostFrames)
+{
+    QRectF best;
+    double bestDistance = 0.0;
+    const double reach = qMax(last.width(), last.height()) * (1.5 + 0.25 * lostFrames);
+    for (const QRectF &c : candidates) {
+        const double ratio = c.width() * c.height() / qMax(1e-9, last.width() * last.height());
+        if (ratio < 0.4 || ratio > 2.5)
+            continue;
+        const QPointF d = c.center() - last.center();
+        const double distance = std::hypot(d.x(), d.y());
+        if (distance > reach)
+            continue;
+        if (best.isNull() || distance < bestDistance) {
+            best = c;
+            bestDistance = distance;
+        }
+    }
+    return best;
+}
+
+QString stateName(Sample::State state)
+{
+    switch (state) {
+    case Sample::State::Lost:
+        return QStringLiteral("lost");
+    case Sample::State::Recovered:
+        return QStringLiteral("recovered");
+    default:
+        return QStringLiteral("tracked");
+    }
+}
 
 } // namespace
 
@@ -74,6 +178,7 @@ MotionTrackController::MotionTrackController(AppController *app, QObject *parent
         if (m_pendingFaceClipId.isEmpty())
             return;
         const QString overlayId = m_pendingFaceClipId;
+        const QVariantMap options = m_pendingOptions;
         m_pendingFaceClipId.clear();
         if (!ok)
             return;
@@ -81,7 +186,7 @@ MotionTrackController::MotionTrackController(AppController *app, QObject *parent
         for (int t = 0; t < tracks.size(); ++t) {
             for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
                 if (tracks.at(t).clips.at(c).id == overlayId) {
-                    track(t, c, QStringLiteral("face"), m_pendingFollowScale);
+                    trackWith(t, c, options);
                     return;
                 }
             }
@@ -95,6 +200,12 @@ void MotionTrackController::setBusy(bool busy)
         return;
     m_busy = busy;
     emit busyChanged();
+}
+
+void MotionTrackController::bump()
+{
+    ++m_revision;
+    emit revisionChanged();
 }
 
 // The topmost picture under the element at this time: tracks below it in the stack (track 0 is
@@ -121,6 +232,25 @@ MotionTrackController::Source MotionTrackController::sourceUnder(int trackIndex,
     return source;
 }
 
+const drift::Clip *MotionTrackController::followedVideo(const drift::Clip &follower, int trackIndex,
+                                                        int clipIndex) const
+{
+    const QList<drift::Track> &tracks = m_app->m_project.tracks();
+    if (follower.motionTrack && !follower.motionTrack->sourceClipId.isEmpty()) {
+        for (const drift::Track &track : tracks) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.id == follower.motionTrack->sourceClipId)
+                    return &clip;
+            }
+        }
+    }
+    drift::TimeUs at = m_app->playheadUs();
+    if (!follower.containsTime(at))
+        at = follower.timelineStart;
+    const Source source = sourceUnder(trackIndex, clipIndex, at);
+    return source.trackIndex < 0 ? nullptr : &tracks.at(source.trackIndex).clips.at(source.clipIndex);
+}
+
 QVariantMap MotionTrackController::sourceFor(int trackIndex, int clipIndex) const
 {
     QVariantMap out{{QStringLiteral("ok"), false}};
@@ -131,7 +261,8 @@ QVariantMap MotionTrackController::sourceFor(int trackIndex, int clipIndex) cons
         out.insert(QStringLiteral("reason"), tr("This clip cannot follow anything"));
         return out;
     }
-    out.insert(QStringLiteral("canScale"), clip.type != drift::ClipType::Text);
+    // A text scales its letters with the target (its font size is keyed alongside the box).
+    out.insert(QStringLiteral("canScale"), true);
     drift::TimeUs at = m_app->playheadUs();
     if (!clip.containsTime(at))
         at = clip.timelineStart;
@@ -145,6 +276,174 @@ QVariantMap MotionTrackController::sourceFor(int trackIndex, int clipIndex) cons
     out.insert(QStringLiteral("source"), video.name);
     out.insert(QStringLiteral("hasFaces"), !video.faceTrackPath.isEmpty());
     return out;
+}
+
+QVariantMap MotionTrackController::info(int trackIndex, int clipIndex) const
+{
+    QVariantMap out{{QStringLiteral("has"), false}};
+    if (!m_app->isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_app->m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!clip.motionTrack || clip.motionTrack->isEmpty())
+        return out;
+    const drift::MotionTrack &mt = *clip.motionTrack;
+    const drift::Clip *video = followedVideo(clip, trackIndex, clipIndex);
+    out.insert(QStringLiteral("has"), true);
+    out.insert(QStringLiteral("mode"), mt.mode);
+    out.insert(QStringLiteral("faceSlot"), mt.faceSlot);
+    out.insert(QStringLiteral("followScale"), mt.followScale);
+    out.insert(QStringLiteral("keepDistance"), mt.keepDistance);
+    out.insert(QStringLiteral("direction"), mt.direction);
+    out.insert(QStringLiteral("samples"), int(mt.samples.size()));
+    out.insert(QStringLiteral("lost"), mt.lostCount());
+    out.insert(QStringLiteral("sourceMissing"), !video || video->id != mt.sourceClipId);
+    out.insert(QStringLiteral("sourceChanged"), video && video->id == mt.sourceClipId && video->path != mt.sourcePath);
+    return out;
+}
+
+QVariantList MotionTrackController::faceTargets(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!m_app->isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Project &project = m_app->m_project;
+    const drift::Clip &clip = project.tracks().at(trackIndex).clips.at(clipIndex);
+    drift::TimeUs at = m_app->playheadUs();
+    if (!clip.containsTime(at))
+        return out;
+    const drift::Clip *video = followedVideo(clip, trackIndex, clipIndex);
+    if (!video || video->faceTrackPath.isEmpty() || !video->containsTime(at))
+        return out;
+    const std::shared_ptr<const drift::FaceTrack> faces = drift::loadFaceTrackCached(video->faceTrackPath);
+    if (!faces || faces->isEmpty())
+        return out;
+    const QRectF videoRect = canvasRect(*video, at, project.width(), project.height());
+    if (videoRect.height() <= 0.0)
+        return out;
+    const QList<QRectF> rects = faceRects(
+        faces->sampleAll(video->timelineToSourceUs(at) - video->faceTrackSrcOffsetUs), videoRect.width() / videoRect.height());
+    int selected = clip.motionTrack && clip.motionTrack->mode == QLatin1String("face") ? clip.motionTrack->faceSlot : -1;
+    if (selected < 0 || selected >= rects.size() || rects.at(selected).isNull()) {
+        const QRectF element = canvasRect(clip, at, project.width(), project.height());
+        selected = nearestFace(rects, QPointF((element.center().x() - videoRect.x()) / videoRect.width(),
+                                              (element.center().y() - videoRect.y()) / videoRect.height()));
+    }
+    for (int i = 0; i < rects.size(); ++i) {
+        if (rects.at(i).isNull())
+            continue;
+        const QRectF r = normalizedToCanvas(rects.at(i), videoRect);
+        out.append(QVariantMap{{QStringLiteral("slot"), i}, {QStringLiteral("x"), r.x()}, {QStringLiteral("y"), r.y()},
+                               {QStringLiteral("w"), r.width()}, {QStringLiteral("h"), r.height()},
+                               {QStringLiteral("selected"), i == selected}});
+    }
+    return out;
+}
+
+QVariantMap MotionTrackController::targetAt(int trackIndex, int clipIndex) const
+{
+    QVariantMap out{{QStringLiteral("ok"), false}};
+    if (!m_app->isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Project &project = m_app->m_project;
+    const drift::Clip &clip = project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!clip.motionTrack || clip.motionTrack->isEmpty())
+        return out;
+    const drift::TimeUs at = m_app->playheadUs();
+    const drift::Clip *video = followedVideo(clip, trackIndex, clipIndex);
+    if (!video || video->id != clip.motionTrack->sourceClipId || !video->containsTime(at) || !clip.containsTime(at))
+        return out;
+    const QList<Sample> &samples = clip.motionTrack->samples;
+    const drift::TimeUs sourceUs = video->timelineToSourceUs(at);
+    const auto it = std::lower_bound(samples.cbegin(), samples.cend(), sourceUs,
+                                     [](const Sample &s, drift::TimeUs t) { return s.sourceUs < t; });
+    // The nearer of the two samples around the playhead, if it is within a couple of frames.
+    const Sample *best = nullptr;
+    for (auto candidate : {it, it == samples.cbegin() ? samples.cend() : it - 1}) {
+        if (candidate == samples.cend())
+            continue;
+        if (!best || std::llabs(candidate->sourceUs - sourceUs) < std::llabs(best->sourceUs - sourceUs))
+            best = &*candidate;
+    }
+    const drift::TimeUs frame = drift::kUsPerSecond / qMax(1, project.fps());
+    if (!best || std::llabs(best->sourceUs - sourceUs) > 2 * frame * qMax(1.0, std::abs(video->effectiveSpeed())))
+        return out;
+    const QRectF r = normalizedToCanvas(best->rect, canvasRect(*video, at, project.width(), project.height()));
+    out.insert(QStringLiteral("ok"), true);
+    out.insert(QStringLiteral("x"), r.x());
+    out.insert(QStringLiteral("y"), r.y());
+    out.insert(QStringLiteral("w"), r.width());
+    out.insert(QStringLiteral("h"), r.height());
+    out.insert(QStringLiteral("state"), stateName(best->state));
+    return out;
+}
+
+bool MotionTrackController::objectModelReady() const
+{
+    return drift::ObjectDetector::modelPresent();
+}
+
+void MotionTrackController::clearObjectTargets()
+{
+    ++m_objectGeneration;
+    m_detectingObjects = false;
+    m_objectTargets.clear();
+    emit objectTargetsChanged();
+}
+
+void MotionTrackController::detectObjects(int trackIndex, int clipIndex)
+{
+    clearObjectTargets();
+    if (!m_app->isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (!drift::ObjectDetector::modelPresent()) {
+        m_app->setLastMessage(tr("Object detection needs the “Object tracking” extra"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::Project &project = m_app->m_project;
+    const drift::Clip &clip = project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TimeUs at = m_app->playheadUs();
+    if (!clip.containsTime(at))
+        return;
+    const Source source = sourceUnder(trackIndex, clipIndex, at);
+    if (source.trackIndex < 0)
+        return;
+    const drift::Clip video = project.tracks().at(source.trackIndex).clips.at(source.clipIndex);
+    const QRectF videoRect = canvasRect(video, at, project.width(), project.height());
+    const int generation = m_objectGeneration;
+    m_detectingObjects = true;
+    emit objectTargetsChanged();
+    (void)QtConcurrent::run([this, video, videoRect, at, generation]() {
+        const QImage frame = video.type == drift::ClipType::Image
+            ? drift::decodeStillImage(video.path, kDecodeSide, kDecodeSide)
+            : ClipReaderPool::instance().readVideoFrame(video.path, kMotionTrackStreamId, video.timelineToSourceUs(at),
+                                                        kDecodeSide, kDecodeSide, video.rotationCorrection);
+        QList<drift::Detection> found;
+        if (!frame.isNull())
+            found = drift::ObjectDetector::instance().detect(frame);
+        QVariantList targets;
+        for (const drift::Detection &d : found) {
+            const QRectF n(d.box.x() / frame.width(), d.box.y() / frame.height(), d.box.width() / frame.width(),
+                           d.box.height() / frame.height());
+            const QRectF r = normalizedToCanvas(n, videoRect);
+            targets.append(QVariantMap{
+                {QStringLiteral("x"), r.x()}, {QStringLiteral("y"), r.y()},
+                {QStringLiteral("w"), r.width()}, {QStringLiteral("h"), r.height()},
+                {QStringLiteral("region"), QVariantMap{{QStringLiteral("x"), n.x()}, {QStringLiteral("y"), n.y()},
+                                                       {QStringLiteral("w"), n.width()},
+                                                       {QStringLiteral("h"), n.height()}}},
+                {QStringLiteral("classId"), d.classId}, {QStringLiteral("score"), d.score}});
+        }
+        QMetaObject::invokeMethod(this, [this, targets, generation]() {
+            if (generation != m_objectGeneration)
+                return;
+            m_detectingObjects = false;
+            m_objectTargets = targets;
+            emit objectTargetsChanged();
+            if (targets.isEmpty())
+                m_app->setLastMessage(tr("No objects found here: draw a box around what to follow"),
+                                      QStringLiteral("warning"));
+        }, Qt::QueuedConnection);
+    });
 }
 
 void MotionTrackController::cancel()
@@ -171,12 +470,109 @@ void MotionTrackController::clear(int trackIndex, int clipIndex)
     hold(clip.transformY, rect.y());
     hold(clip.transformW, rect.width());
     hold(clip.transformH, rect.height());
+    if (clip.motionTrack && clip.motionTrack->followScale && isText(clip)
+        && clip.textStyle.keyframes.contains(QStringLiteral("pixelSize"))) {
+        const drift::KeyframeTrack<double> size = clip.textStyle.keyframes.value(QStringLiteral("pixelSize"));
+        if (!size.isEmpty())
+            clip.textStyle.pixelSize = int(std::lround(size.evaluateAt(at - clip.timelineStart)));
+        clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
+    }
+    clip.motionTrack.reset();
     m_app->pushProjectEdit(before, tr("Remove tracking"));
     m_app->finishEdit(tr("Remove tracking"));
     m_app->setLastMessage(tr("Tracking removed"), QStringLiteral("success"));
+    bump();
+}
+
+bool MotionTrackController::rebake(int trackIndex, int clipIndex, const QString &undoText)
+{
+    drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::Clip *video = followedVideo(clip, trackIndex, clipIndex);
+    if (!video || video->id != clip.motionTrack->sourceClipId) {
+        m_app->setLastMessage(tr("The video it followed is no longer in the project"), QStringLiteral("warning"));
+        return false;
+    }
+    const drift::Project before = m_app->m_project;
+    const drift::Clip videoCopy = *video;
+    resetTrackedKeys(clip);
+    const drift::MotionBakeResult baked = drift::bakeMotionTrack(*clip.motionTrack, videoCopy, &clip,
+                                                                 m_app->m_project.width(), m_app->m_project.height());
+    if (!baked.ok) {
+        m_app->m_project = before;
+        m_app->setLastMessage(tr("The element and the tracked part of the video no longer overlap"),
+                              QStringLiteral("warning"));
+        return false;
+    }
+    m_app->pushProjectEdit(before, undoText);
+    m_app->finishEdit(undoText);
+    bump();
+    return true;
+}
+
+bool MotionTrackController::setOption(int trackIndex, int clipIndex, const QString &key, const QVariant &value)
+{
+    if (m_busy || !m_app->isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    if (key != QLatin1String("followScale") && key != QLatin1String("keepDistance"))
+        return false;
+    const drift::Clip &current = m_app->m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!current.motionTrack || current.motionTrack->isEmpty())
+        return false;
+    const drift::Clip *video = followedVideo(current, trackIndex, clipIndex);
+    if (!video || video->id != current.motionTrack->sourceClipId) {
+        m_app->setLastMessage(tr("The video it followed is no longer in the project"), QStringLiteral("warning"));
+        return false;
+    }
+    const drift::Clip videoCopy = *video;
+    const drift::Project before = m_app->m_project;
+    drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
+    if (key == QLatin1String("followScale")) {
+        clip.motionTrack->followScale = value.toBool();
+        // Scale switched off: back to the element's size at the anchor, keyed once.
+        if (!value.toBool()) {
+            const QRectF anchor = clip.motionTrack->anchorElement;
+            clip.transformW = drift::KeyframeTrack<double>{};
+            clip.transformW.setKeyframe(0, anchor.width());
+            clip.transformH = drift::KeyframeTrack<double>{};
+            clip.transformH.setKeyframe(0, anchor.height());
+            if (isText(clip) && clip.motionTrack->anchorPixelSize > 0.0) {
+                clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
+                clip.textStyle.pixelSize = int(std::lround(clip.motionTrack->anchorPixelSize));
+            }
+        }
+    } else {
+        clip.motionTrack->keepDistance = value.toBool();
+    }
+    resetTrackedKeys(clip);
+    const drift::MotionBakeResult baked = drift::bakeMotionTrack(*clip.motionTrack, videoCopy, &clip,
+                                                                 m_app->m_project.width(), m_app->m_project.height());
+    if (!baked.ok) {
+        m_app->m_project = before;
+        return false;
+    }
+    m_app->pushProjectEdit(before, tr("Tracking settings"));
+    m_app->finishEdit(tr("Tracking settings"));
+    bump();
+    return true;
+}
+
+bool MotionTrackController::realign(int trackIndex, int clipIndex)
+{
+    if (m_busy || !m_app->isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_app->m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!clip.motionTrack || clip.motionTrack->isEmpty())
+        return false;
+    return rebake(trackIndex, clipIndex, tr("Realign tracking"));
 }
 
 void MotionTrackController::track(int trackIndex, int clipIndex, const QString &mode, bool followScale)
+{
+    trackWith(trackIndex, clipIndex, QVariantMap{{QStringLiteral("mode"), mode},
+                                                 {QStringLiteral("followScale"), followScale}});
+}
+
+void MotionTrackController::trackWith(int trackIndex, int clipIndex, const QVariantMap &options)
 {
     if (m_busy) {
         m_app->setLastMessage(tr("Tracking already in progress"), QStringLiteral("warning"));
@@ -195,13 +591,24 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
         t0 = overlay.timelineStart;
     const Source source = sourceUnder(trackIndex, clipIndex, t0);
     const drift::Clip video = project.tracks().at(source.trackIndex).clips.at(source.clipIndex);
-    const bool faceMode = mode == QLatin1String("face");
-    followScale = followScale && overlay.type != drift::ClipType::Text;
+    const bool faceMode = options.value(QStringLiteral("mode")).toString() == QLatin1String("face");
+    const bool followScale = options.value(QStringLiteral("followScale")).toBool();
+    const bool keepDistance = options.value(QStringLiteral("keepDistance"), true).toBool();
+    QString direction = options.value(QStringLiteral("direction"), QStringLiteral("both")).toString();
+    if (direction != QLatin1String("forward") && direction != QLatin1String("backward"))
+        direction = QStringLiteral("both");
+    const int requestedSlot = options.value(QStringLiteral("faceSlot"), -1).toInt();
+    const QVariantMap picked = options.value(QStringLiteral("region")).toMap();
+    const QRectF pickedRegion = picked.isEmpty()
+        ? QRectF()
+        : QRectF(picked.value(QStringLiteral("x")).toDouble(), picked.value(QStringLiteral("y")).toDouble(),
+                 picked.value(QStringLiteral("w")).toDouble(), picked.value(QStringLiteral("h")).toDouble());
+    const int classId = options.value(QStringLiteral("classId"), -1).toInt();
 
     if (faceMode && video.faceTrackPath.isEmpty()) {
         // Scan the faces first, then come back here (see the constructor).
         m_pendingFaceClipId = overlay.id;
-        m_pendingFollowScale = followScale;
+        m_pendingOptions = options;
         m_app->setLastMessage(tr("Scanning the faces in the video first…"));
         m_app->faces()->detect(source.trackIndex, source.clipIndex);
         return;
@@ -224,21 +631,36 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
     const QRectF videoRect0 = canvasRect(video, t0, projectW, projectH);
     if (videoRect0.width() <= 0 || videoRect0.height() <= 0)
         return;
-    const QRectF region((overlayRect0.x() - videoRect0.x()) / videoRect0.width(),
-                        (overlayRect0.y() - videoRect0.y()) / videoRect0.height(),
-                        overlayRect0.width() / videoRect0.width(), overlayRect0.height() / videoRect0.height());
+    // What to follow: the box picked or drawn on the preview, else whatever the element covers.
+    const QRectF region = pickedRegion.width() > 0.0 && pickedRegion.height() > 0.0
+        ? pickedRegion
+        : QRectF((overlayRect0.x() - videoRect0.x()) / videoRect0.width(),
+                 (overlayRect0.y() - videoRect0.y()) / videoRect0.height(),
+                 overlayRect0.width() / videoRect0.width(), overlayRect0.height() / videoRect0.height());
     if (!faceMode && !region.intersects(QRectF(0, 0, 1, 1))) {
         m_app->setLastMessage(tr("Move the element over what it should follow"), QStringLiteral("warning"));
         return;
     }
+    double pixelSize0 = 0.0;
+    if (isText(overlay)) {
+        const drift::KeyframeTrack<double> size = overlay.textStyle.keyframes.value(QStringLiteral("pixelSize"));
+        pixelSize0 = size.isEmpty() ? overlay.textStyle.pixelSize : size.evaluateAt(t0 - overlay.timelineStart);
+    }
 
-    QList<drift::TimeUs> forward;
-    for (drift::TimeUs t = t0; t < rangeEnd; t += step)
-        forward.append(t);
+    QList<drift::TimeUs> forward{t0};
+    if (direction != QLatin1String("backward")) {
+        for (drift::TimeUs t = t0 + step; t < rangeEnd; t += step)
+            forward.append(t);
+    }
     QList<drift::TimeUs> backward;
-    for (drift::TimeUs t = t0 - step; t >= rangeStart; t -= step)
-        backward.append(t);
+    if (direction != QLatin1String("forward")) {
+        for (drift::TimeUs t = t0 - step; t >= rangeStart; t -= step)
+            backward.append(t);
+    }
     const int total = forward.size() + backward.size();
+    const double aspect = videoRect0.width() / videoRect0.height();
+    const QPointF elementCentre((overlayRect0.center().x() - videoRect0.x()) / videoRect0.width(),
+                                (overlayRect0.center().y() - videoRect0.y()) / videoRect0.height());
 
     m_app->setPlaying(false);
     m_cancel.storeRelaxed(0);
@@ -249,8 +671,9 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
     setBusy(true);
 
     const QString overlayId = overlay.id;
-    (void)QtConcurrent::run([this, video, region, faceMode, followScale, forward, backward, total, overlayId,
-                             overlayRect0, projectW, projectH, t0]() {
+    (void)QtConcurrent::run([this, video, region, faceMode, followScale, keepDistance, direction, requestedSlot,
+                             forward, backward, total, overlayId, overlayRect0, pixelSize0, aspect, elementCentre,
+                             classId, t0]() {
         const auto progress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(this, [this, fraction, status]() {
                 m_progress = fraction;
@@ -272,6 +695,8 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
         };
 
         const bool still = video.type == drift::ClipType::Image;
+        // A picked object of a known class is looked for again by the detector once lost.
+        const bool redetect = classId >= 0 && drift::ObjectDetector::instance().available();
         const auto frameAt = [&](drift::TimeUs timelineUs) {
             return still ? drift::decodeStillImage(video.path, kDecodeSide, kDecodeSide)
                          : ClipReaderPool::instance().readVideoFrame(video.path, kMotionTrackStreamId,
@@ -281,6 +706,8 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
         };
 
         QList<Sample> samples;
+        QRectF anchorTarget = region;
+        int slot = -1;
         int done = 0;
         if (faceMode) {
             const std::shared_ptr<const drift::FaceTrack> faces = drift::loadFaceTrackCached(video.faceTrackPath);
@@ -288,41 +715,76 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
                 fail(tr("The video has no scanned faces"));
                 return;
             }
-            QList<drift::TimeUs> all = backward;
-            std::reverse(all.begin(), all.end());
-            all += forward;
-            for (const drift::TimeUs t : all) {
-                const drift::FaceAnchors face =
-                    faces->sample(video.timelineToSourceUs(t) - video.faceTrackSrcOffsetUs, 0);
-                Sample s;
-                s.timelineUs = t;
-                s.lost = !face.valid;
-                if (face.valid) {
-                    const double rx = qMax(0.01, face.faceRx);
-                    s.rect = QRectF(face.faceCenter.x() - rx, face.faceCenter.y() - rx, 2 * rx, 2 * rx);
-                }
-                samples.append(s);
+            const auto rectsAt = [&](drift::TimeUs t) {
+                return faceRects(faces->sampleAll(video.timelineToSourceUs(t) - video.faceTrackSrcOffsetUs), aspect);
+            };
+            const QList<QRectF> first = rectsAt(t0);
+            slot = requestedSlot >= 0 && requestedSlot < first.size() && !first.at(requestedSlot).isNull()
+                ? requestedSlot
+                : nearestFace(first, elementCentre);
+            if (slot < 0) {
+                fail(tr("There is no face at the playhead: move to a frame where the face shows"));
+                return;
             }
-        } else {
-            // Forward from the playhead, then backward from it again, each with its own tracker.
+            anchorTarget = first.at(slot);
+            // Outward from the anchor in each direction, keeping to the same person.
             for (int pass = 0; pass < 2; ++pass) {
                 const QList<drift::TimeUs> &times = pass == 0 ? forward : backward;
-                drift::RegionTracker tracker;
-                if (!tracker.start(frameAt(t0), region)) {
-                    fail(tr("Could not read the video at the playhead"));
-                    return;
-                }
+                int current = slot;
+                QRectF last = anchorTarget;
+                bool wasLost = false;
                 QList<Sample> pass_;
                 for (const drift::TimeUs t : times) {
                     if (m_cancel.loadRelaxed() != 0) {
                         fail(tr("Tracking cancelled"));
                         return;
                     }
+                    const QList<QRectF> rects = rectsAt(t);
+                    const int picked = drift::followFaceSlot(rects, last, current);
                     Sample s;
-                    s.timelineUs = t;
+                    s.sourceUs = video.timelineToSourceUs(t);
+                    if (picked < 0) {
+                        s.rect = last;
+                        s.state = Sample::State::Lost;
+                        wasLost = true;
+                    } else {
+                        current = picked;
+                        last = rects.at(picked);
+                        s.rect = last;
+                        s.score = 1.0;
+                        s.state = wasLost ? Sample::State::Recovered : Sample::State::Tracked;
+                        wasLost = false;
+                    }
+                    pass_.append(s);
+                    ++done;
+                    if (done % 8 == 0)
+                        progress(double(done) / qMax(1, total), tr("Following frame %1 of %2…").arg(done).arg(total));
+                }
+                samples += pass_;
+            }
+        } else {
+            // Forward from the playhead, then backward from it again, each with its own tracker.
+            for (int pass = 0; pass < 2; ++pass) {
+                const QList<drift::TimeUs> &times = pass == 0 ? forward : backward;
+                if (times.isEmpty())
+                    continue;
+                drift::RegionTracker tracker;
+                if (!tracker.start(frameAt(t0), region)) {
+                    fail(tr("Could not read the video at the playhead"));
+                    return;
+                }
+                QRectF lastTrusted = region;
+                int lostRun = 0;
+                for (const drift::TimeUs t : times) {
+                    if (m_cancel.loadRelaxed() != 0) {
+                        fail(tr("Tracking cancelled"));
+                        return;
+                    }
+                    Sample s;
+                    s.sourceUs = video.timelineToSourceUs(t);
                     if (pass == 0 && t == t0) {
                         s.rect = region;
-                        s.lost = false;
+                        s.score = 1.0;
                     } else {
                         const QImage frame = frameAt(t);
                         if (frame.isNull()) {
@@ -331,45 +793,78 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
                         }
                         const drift::RegionTracker::Result r = tracker.step(frame, followScale);
                         s.rect = r.rect;
-                        s.lost = r.lost;
+                        s.score = qBound(0.0, r.score, 1.0);
+                        s.state = r.lost ? Sample::State::Lost
+                                         : (r.recovered ? Sample::State::Recovered : Sample::State::Tracked);
+                        if (r.lost) {
+                            ++lostRun;
+                            // The detector costs tens of milliseconds: on the first lost frame, then
+                            // every fifth, which still picks the subject up within a fraction of a second.
+                            if (redetect && lostRun % 5 == 1) {
+                                const QRectF again = reacquire(detectedOfClass(frame, classId), lastTrusted, lostRun);
+                                if (!again.isNull() && tracker.start(frame, again)) {
+                                    s.rect = again;
+                                    s.score = drift::RegionTracker::kRecoverScore;
+                                    s.state = Sample::State::Recovered;
+                                }
+                            }
+                        }
+                        if (s.state != Sample::State::Lost) {
+                            lostRun = 0;
+                            lastTrusted = s.rect;
+                        }
                     }
-                    pass_.append(s);
+                    samples.append(s);
                     ++done;
                     progress(double(done) / qMax(1, total), tr("Following frame %1 of %2…").arg(done).arg(total));
                 }
-                if (pass == 1)
-                    std::reverse(pass_.begin(), pass_.end());
-                samples = pass == 0 ? pass_ : pass_ + samples;
             }
         }
+        std::sort(samples.begin(), samples.end(), [](const Sample &a, const Sample &b) { return a.sourceUs < b.sourceUs; });
 
-        QMetaObject::invokeMethod(this, [this, samples, overlayId, video, overlayRect0, followScale, projectW,
-                                         projectH, t0]() {
+        drift::MotionTrack result;
+        result.mode = faceMode ? QStringLiteral("face") : QStringLiteral("object");
+        result.sourceClipId = video.id;
+        result.sourcePath = video.path;
+        result.faceSlot = slot;
+        result.direction = direction;
+        result.followScale = followScale;
+        result.keepDistance = keepDistance;
+        result.anchorSourceUs = video.timelineToSourceUs(t0);
+        result.anchorTarget = anchorTarget;
+        result.anchorElement = overlayRect0;
+        result.anchorPixelSize = pixelSize0;
+        result.samples = samples;
+
+        QMetaObject::invokeMethod(this, [this, result, overlayId]() {
             setBusy(false);
             // Resolved by id: the timeline may have changed while the job ran.
             int trackIndex = -1, clipIndex = -1;
+            const drift::Clip *video = nullptr;
             const QList<drift::Track> &tracks = m_app->m_project.tracks();
-            for (int t = 0; t < tracks.size() && trackIndex < 0; ++t) {
+            for (int t = 0; t < tracks.size(); ++t) {
                 for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
-                    if (tracks.at(t).clips.at(c).id == overlayId) {
+                    const drift::Clip &clip = tracks.at(t).clips.at(c);
+                    if (clip.id == overlayId) {
                         trackIndex = t;
                         clipIndex = c;
-                        break;
                     }
+                    if (clip.id == result.sourceClipId)
+                        video = &clip;
                 }
             }
-            if (trackIndex < 0) {
+            if (trackIndex < 0 || !video) {
                 emit finished(false, QString());
                 return;
             }
-
-            // The reference: the tracked rect at the playhead, against the element there.
-            const Sample *ref = nullptr;
-            for (const Sample &s : samples) {
-                if (!s.lost && (!ref || std::llabs(s.timelineUs - t0) < std::llabs(ref->timelineUs - t0)))
-                    ref = &s;
-            }
-            if (!ref) {
+            const drift::Clip videoCopy = *video;
+            const drift::Project before = m_app->m_project;
+            drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
+            clip.motionTrack = result;
+            const drift::MotionBakeResult baked =
+                drift::bakeMotionTrack(result, videoCopy, &clip, m_app->m_project.width(), m_app->m_project.height());
+            if (!baked.ok) {
+                m_app->m_project = before;
                 const QString message = tr("Nothing to follow was found");
                 m_status = message;
                 emit statusChanged();
@@ -377,85 +872,19 @@ void MotionTrackController::track(int trackIndex, int clipIndex, const QString &
                 emit finished(false, message);
                 return;
             }
-            const auto toCanvas = [&](const QRectF &n, drift::TimeUs t) {
-                const QRectF v = canvasRect(video, t, projectW, projectH);
-                return QRectF(v.x() + n.x() * v.width(), v.y() + n.y() * v.height(), n.width() * v.width(),
-                              n.height() * v.height());
-            };
-            const QRectF ref0 = toCanvas(ref->rect, ref->timelineUs);
-            const QPointF offset = overlayRect0.center() - ref0.center();
-
-            // Centre and size per trusted sample, then a short moving average to take out the
-            // sub-pixel shimmer of the match.
-            struct Point { drift::TimeUs t; QPointF centre; double k; };
-            QList<Point> points;
-            for (const Sample &s : samples) {
-                if (s.lost)
-                    continue;
-                const QRectF c = toCanvas(s.rect, s.timelineUs);
-                const double k = followScale ? c.width() / qMax(1e-6, ref0.width()) : 1.0;
-                points.append({s.timelineUs, c.center() + offset * k, k});
-            }
-            QList<Point> smooth = points;
-            for (int i = 0; i < points.size(); ++i) {
-                QPointF sum;
-                double ks = 0.0;
-                int n = 0;
-                for (int j = qMax(0, i - 2); j <= qMin(int(points.size()) - 1, i + 2); ++j) {
-                    sum += points.at(j).centre;
-                    ks += points.at(j).k;
-                    ++n;
-                }
-                smooth[i].centre = sum / n;
-                smooth[i].k = ks / n;
-            }
-
-            const drift::Project before = m_app->m_project;
-            drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
-            const drift::TimeUs first = smooth.first().t - clip.timelineStart;
-            const drift::TimeUs last = smooth.last().t - clip.timelineStart;
-            const auto clearRange = [&](drift::KeyframeTrack<double> &track) {
-                for (const drift::TimeUs time : track.keyframes().keys()) {
-                    if (time >= first && time <= last)
-                        track.removeKeyframe(time);
-                }
-            };
-            clearRange(clip.transformX);
-            clearRange(clip.transformY);
-            if (followScale) {
-                clearRange(clip.transformW);
-                clearRange(clip.transformH);
-            }
-            int keys = 0;
-            for (int i = 0; i < smooth.size(); ++i) {
-                if (i % kKeyEvery != 0 && i != smooth.size() - 1)
-                    continue;
-                const Point &p = smooth.at(i);
-                const double w = overlayRect0.width() * p.k;
-                const double h = overlayRect0.height() * p.k;
-                const drift::TimeUs rel = p.t - clip.timelineStart;
-                clip.transformX.setKeyframe(rel, p.centre.x() - w * 0.5);
-                clip.transformY.setKeyframe(rel, p.centre.y() - h * 0.5);
-                if (followScale) {
-                    clip.transformW.setKeyframe(rel, w);
-                    clip.transformH.setKeyframe(rel, h);
-                }
-                ++keys;
-            }
             m_app->pushProjectEdit(before, tr("Motion tracking"));
             m_app->finishEdit(tr("Motion tracking"));
-            const int lost = int(samples.size() - points.size());
-            const QString message = lost > 0
-                ? tr("Tracking done — lost the subject in %1 of %2 frames").arg(lost).arg(samples.size())
+            const QString message = baked.lost > 0
+                ? tr("Tracking done — lost the subject in %1 of %2 frames").arg(baked.lost).arg(baked.samples)
                 : tr("Tracking done");
             m_progress = 1.0;
             emit progressChanged();
             m_status = message;
             emit statusChanged();
-            m_app->setLastMessage(message, lost > samples.size() / 3 ? QStringLiteral("warning")
-                                                                    : QStringLiteral("success"));
+            m_app->setLastMessage(message, baked.lost > baked.samples / 3 ? QStringLiteral("warning")
+                                                                          : QStringLiteral("success"));
+            bump();
             emit finished(true, message);
-            Q_UNUSED(keys)
         }, Qt::QueuedConnection);
     });
 }
