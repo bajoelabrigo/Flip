@@ -1,0 +1,109 @@
+{
+ "format": 1,
+ "id": "om-vanishing-point",
+ "label": "Vanishing point",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2258,
+ "defaults": {
+  "duration": 0.7,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "rotationX": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 1000000,
+        "value": 70
+       }
+      ]
+     }
+    },
+    "scale": {
+     "value": 100,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 100
+       },
+       {
+        "timeUs": 500000,
+        "value": 70
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "position": {
+     "x": 0,
+     "y": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": -0.6
+        }
+       ]
+      }
+     },
+     "unit": "em"
+    },
+    "opacity": {
+     "value": 1,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 1
+       },
+       {
+        "timeUs": 800000,
+        "value": 1
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

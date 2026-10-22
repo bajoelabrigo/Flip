@@ -1,0 +1,111 @@
+{
+ "format": 1,
+ "id": "op-firefly-drift",
+ "label": "Fireflies fly off",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2270,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.75,
+  "ease": "easeIn",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 12,
+    "scale": 92
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffe8ff9a"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "dot",
+  "count": 7,
+  "colors": [
+   "#ffd9ff6b",
+   "#ffa6ff4d",
+   "#fffff79a"
+  ],
+  "size": [
+   0.05,
+   0.09
+  ],
+  "speed": [
+   0.25,
+   0.7
+  ],
+  "life": [
+   0.8,
+   1.2
+  ],
+  "at": 0.1,
+  "angle": -90,
+  "spread": 200,
+  "gravity": -0.3,
+  "drag": 0.8,
+  "glow": 1.0,
+  "fadeIn": 0.2,
+  "origin": "area",
+  "additive": true
+ }
+}

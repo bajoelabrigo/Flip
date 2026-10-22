@@ -1,0 +1,60 @@
+{
+ "format": 1,
+ "id": "imf-shutter-snap",
+ "label": "Shutter snap",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2082,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.22,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleY": 0,
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 90,
+     "softness": 0.05
+    },
+    "fillColor": "#ffffffff"
+   }
+  }
+ ]
+}

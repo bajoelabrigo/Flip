@@ -1,0 +1,169 @@
+{
+ "format": 1,
+ "id": "op-black-hole",
+ "label": "Black hole",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2290,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.8,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 0,
+    "rotation": 260,
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 250000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffb48cff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 2,
+   "colors": [
+    "#ffb48cff",
+    "#ff6a3dff"
+   ],
+   "size": [
+    3.0,
+    3.6
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.7,
+    0.8
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.5,
+   "grow": 0.06,
+   "additive": true,
+   "per": "block"
+  },
+  {
+   "shape": "dot",
+   "count": 18,
+   "colors": [
+    "#ffd9c4ff",
+    "#ff8d5bff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    0.6,
+    1.4
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 2.0,
+   "glow": 0.6,
+   "additive": true,
+   "per": "block",
+   "seed": 3
+  },
+  {
+   "shape": "flare",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.7,
+    0.8
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.25,
+    0.3
+   ],
+   "at": 0.9,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.9,
+   "additive": true,
+   "per": "block",
+   "seed": 5
+  }
+ ]
+}

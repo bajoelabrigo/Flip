@@ -1,0 +1,54 @@
+{
+ "format": 1,
+ "id": "om-word-drop",
+ "label": "Word by word drop",
+ "category": "motion",
+ "sampleText": "BYE FOR NOW",
+ "slots": [
+  "out"
+ ],
+ "order": 2226,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.14,
+  "duration": 0.5,
+  "ease": "back",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 2.8,
+     "unit": "em"
+    },
+    "rotation": 18
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

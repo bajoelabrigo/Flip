@@ -1,0 +1,32 @@
+{
+ "format": 1,
+ "id": "om-letter-shutters",
+ "label": "Letter shutters",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2228,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.22,
+  "ease": "easeInOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 0,
+     "softness": 0.04
+    }
+   }
+  }
+ ]
+}

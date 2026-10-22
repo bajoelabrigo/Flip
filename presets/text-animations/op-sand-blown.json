@@ -1,0 +1,98 @@
+{
+ "format": 1,
+ "id": "op-sand-blown",
+ "label": "Blown away like sand",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2278,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0.7,
+     "y": 0.05,
+     "unit": "em"
+    },
+    "skew": -18,
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 0,
+     "softness": 0.5
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffe9c487"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "square",
+  "trigger": "during",
+  "rate": 36,
+  "colors": [
+   "#fff1d39b",
+   "#ffddb06a",
+   "#ffc18f4c"
+  ],
+  "size": [
+   0.02,
+   0.045
+  ],
+  "speed": [
+   1.4,
+   2.8
+  ],
+  "life": [
+   0.35,
+   0.7
+  ],
+  "angle": -5,
+  "spread": 30,
+  "gravity": 0.9,
+  "drag": 0.8,
+  "spin": 300,
+  "fadeIn": 0.15,
+  "origin": "left"
+ }
+}

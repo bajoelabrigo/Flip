@@ -1,0 +1,109 @@
+{
+ "format": 1,
+ "id": "ipa-glitter-bomb",
+ "label": "Glitter bomb",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2176,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 20,
+    "scale": 85
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 90,
+   "colors": [
+    "#ffff7ad9",
+    "#ffffd34d",
+    "#ffe6e6f0",
+    "#ff5ce1ff"
+   ],
+   "size": [
+    0.025,
+    0.05
+   ],
+   "speed": [
+    2.0,
+    5.0
+   ],
+   "life": [
+    0.6,
+    1.1
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.2,
+   "drag": 3.0,
+   "glow": 0.4,
+   "additive": true,
+   "per": "block"
+  },
+  {
+   "shape": "flare",
+   "count": 16,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.08,
+    0.14
+   ],
+   "speed": [
+    1.5,
+    3.5
+   ],
+   "life": [
+    0.4,
+    0.8
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 3.0,
+   "glow": 0.7,
+   "additive": true,
+   "per": "block",
+   "seed": 18
+  }
+ ]
+}

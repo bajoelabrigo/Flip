@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "id": "om-lines-slip-left",
+ "label": "Lines slip behind the left edge",
+ "category": "mask",
+ "sampleText": "SEE YOU\nNEXT TIME",
+ "slots": [
+  "out"
+ ],
+ "order": 2232,
+ "defaults": {
+  "unit": "line",
+  "stagger": 0.15,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": -0.6,
+     "y": 0,
+     "unit": "em"
+    },
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 180,
+     "softness": 0.08
+    }
+   }
+  }
+ ]
+}

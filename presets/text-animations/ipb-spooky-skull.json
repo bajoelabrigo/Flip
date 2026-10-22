@@ -1,0 +1,130 @@
+{
+ "format": 1,
+ "id": "ipb-spooky-skull",
+ "label": "Spooky skull",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2212,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.6,
+  "ease": "back",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 150,
+    "rotation": 12,
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1400000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff6dff5a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "glyph",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.75,
+    0.75
+   ],
+   "speed": [
+    0.9,
+    0.9
+   ],
+   "life": [
+    0.9,
+    0.9
+   ],
+   "at": 0.5,
+   "angle": -90,
+   "spread": 0,
+   "grow": 1.3,
+   "origin": "top",
+   "glyph": "💀",
+   "per": "block"
+  },
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 10,
+   "colors": [
+    "#ff2fa83a",
+    "#ff4ad04a",
+    "#ff1f7a2a"
+   ],
+   "size": [
+    0.6,
+    1.0
+   ],
+   "speed": [
+    0.15,
+    0.4
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 90,
+   "grow": 1.6,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "behind": true,
+   "per": "block",
+   "seed": 3
+  }
+ ]
+}

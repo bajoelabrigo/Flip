@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "om-spin-off-top",
+ "label": "Spin off the top",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2218,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "backward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 1.2,
+     "y": -1.6,
+     "unit": "em"
+    },
+    "rotation": -480,
+    "scale": 40
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

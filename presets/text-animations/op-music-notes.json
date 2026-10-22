@@ -1,0 +1,114 @@
+{
+ "format": 1,
+ "id": "op-music-notes",
+ "label": "Notes fly away",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2276,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.55,
+     "unit": "em"
+    },
+    "scale": 80
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ff9fd8ff"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "glyph",
+  "count": 4,
+  "colors": [
+   "#ff7fd3ff",
+   "#ffff8fc7",
+   "#ffffe066",
+   "#ffb58bff"
+  ],
+  "size": [
+   0.22,
+   0.32
+  ],
+  "speed": [
+   0.6,
+   1.2
+  ],
+  "life": [
+   0.7,
+   1.1
+  ],
+  "at": 0.1,
+  "angle": -100,
+  "spread": 80,
+  "gravity": -0.4,
+  "drag": 0.9,
+  "spin": 60,
+  "glyph": "shape:note"
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "om-words-fly-up",
+ "label": "Words fly up",
+ "category": "motion",
+ "sampleText": "SEE YOU SOON",
+ "slots": [
+  "out"
+ ],
+ "order": 2224,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.1,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -2.5,
+     "unit": "em"
+    },
+    "scale": 70,
+    "blur": 4
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

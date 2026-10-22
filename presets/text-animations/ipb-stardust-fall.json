@@ -1,0 +1,79 @@
+{
+ "format": 1,
+ "id": "ipb-stardust-fall",
+ "label": "Stardust settle",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2205,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.65,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 9,
+    "scale": 104
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": {
+  "shape": "dot",
+  "trigger": "during",
+  "rate": 30,
+  "colors": [
+   "#ffffffff",
+   "#fffff3c4",
+   "#ffcfe3ff"
+  ],
+  "size": [
+   0.015,
+   0.035
+  ],
+  "speed": [
+   0.05,
+   0.25
+  ],
+  "life": [
+   0.7,
+   1.1
+  ],
+  "angle": 90,
+  "spread": 120,
+  "gravity": 0.6,
+  "glow": 0.8,
+  "fadeIn": 0.25,
+  "origin": "top",
+  "additive": true
+ }
+}

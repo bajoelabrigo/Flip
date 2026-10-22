@@ -1,0 +1,63 @@
+{
+ "format": 1,
+ "id": "imf-drop-down-unveil",
+ "label": "Drop-down unveil",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2072,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 90,
+     "softness": 0.25
+    },
+    "position": {
+     "x": 0,
+     "y": -0.22,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

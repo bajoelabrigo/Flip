@@ -1,0 +1,110 @@
+{
+ "format": 1,
+ "id": "ibs-heat-haze",
+ "label": "Heat haze clearing",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2029,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.7,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 7,
+     "spatialPhaseDeg": 70,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.12,
+     "unit": "em"
+    },
+    "skew": 10
+   }
+  },
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 9,
+    "scaleY": 112
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1200000.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff9a3c"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

@@ -52,8 +52,12 @@ Rama: **`flip/animaciones`** (sale de `main` con la 0.19.0). El editor web va de
 - [x] Barra de abajo del celular pegada al final (web, `flipstudio-app` `web/movil`, desplegado
   2026-10-22): `.ph` y `.app.is-touch` usan `position: fixed; inset: 0` en vez de `100dvh`, que en
   el iPhone instalado como app medía menos que la pantalla.
-- [ ] 1. Motor de texto
-- [ ] 2. Animaciones de texto
-- [ ] 3. Animaciones de clip
+- [x] 1. Motor de texto (commit `01cd8`: giro 3D, cursor de glifo, partículas)
+- [ ] 2. Animaciones de texto: **300 nuevas diseñadas y escritas** (216 Entrada, 84 Salida) en
+  `tools/text_animations/` (`in_*.py`, `out_*.py`, `build.py`, `es.json` con los nombres en español).
+  Falta: pasar `es.json` a `drift_es.ts` (catálogo + `lupdate`), compilar, hojas de revisión con
+  `build.py --sheet` (portable en `pruebas\FlipStudio-animaciones`) y descartar las que se vean mal.
+- [ ] 3. Animaciones de clip: motor y 49 Entrada / 55 Salida / 55 Combinado hechos (`01cd8`); falta
+  probar en ventana
 - [ ] 4. Web
 - [ ] 5. Publicar

@@ -1,0 +1,141 @@
+{
+ "format": 1,
+ "id": "op-spark-dissolve",
+ "label": "Dissolve into sparks",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2266,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.45,
+  "ease": "easeIn",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 125,
+    "blur": 14
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 550000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#fffff3c4"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 16,
+   "colors": [
+    "#fffff7d6",
+    "#ffffd65a",
+    "#ffffb02e",
+    "#ffffffff"
+   ],
+   "size": [
+    0.025,
+    0.05
+   ],
+   "speed": [
+    1.8,
+    3.6
+   ],
+   "life": [
+    0.3,
+    0.6
+   ],
+   "at": 0.05,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.0,
+   "drag": 2.4,
+   "glow": 0.5,
+   "additive": true
+  },
+  {
+   "shape": "flare",
+   "trigger": "during",
+   "rate": 14,
+   "colors": [
+    "#ffffffff",
+    "#ffffe08a"
+   ],
+   "size": [
+    0.05,
+    0.11
+   ],
+   "speed": [
+    0.1,
+    0.4
+   ],
+   "life": [
+    0.25,
+    0.5
+   ],
+   "angle": -90.0,
+   "spread": 360,
+   "glow": 0.6,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "seed": 9
+  }
+ ]
+}

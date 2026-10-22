@@ -1,0 +1,79 @@
+{
+ "format": 1,
+ "id": "ipb-smoke-reveal",
+ "label": "Smoke reveal",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2185,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.9,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 112,
+    "blur": 16
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": {
+  "shape": "smoke",
+  "count": 5,
+  "colors": [
+   "#ff9a9da6",
+   "#ff7d8089",
+   "#ffb6b8bf"
+  ],
+  "size": [
+   0.7,
+   1.2
+  ],
+  "speed": [
+   0.15,
+   0.4
+  ],
+  "life": [
+   1.0,
+   1.4
+  ],
+  "at": 0.0,
+  "angle": -90,
+  "spread": 200,
+  "grow": 1.8,
+  "fadeIn": 0.25,
+  "origin": "area",
+  "behind": true
+ }
+}

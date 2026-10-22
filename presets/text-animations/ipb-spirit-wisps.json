@@ -1,0 +1,132 @@
+{
+ "format": 1,
+ "id": "ipb-spirit-wisps",
+ "label": "Spirit wisps",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2213,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.13,
+  "duration": 0.8,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.2,
+     "unit": "em"
+    },
+    "blur": 12,
+    "fillOpacity": 30
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2000000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff7ab8ff"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "dot",
+  "trigger": "during",
+  "rate": 10,
+  "colors": [
+   "#ff9fd0ff",
+   "#ff6a8cff",
+   "#ffd6ecff"
+  ],
+  "size": [
+   0.05,
+   0.1
+  ],
+  "speed": [
+   0.2,
+   0.5
+  ],
+  "life": [
+   0.8,
+   1.2
+  ],
+  "angle": -90,
+  "spread": 140,
+  "gravity": -0.5,
+  "drag": 0.6,
+  "glow": 1.0,
+  "fadeIn": 0.4,
+  "origin": "area",
+  "additive": true
+ }
+}

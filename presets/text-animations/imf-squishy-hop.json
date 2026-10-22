@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "imf-squishy-hop",
+ "label": "Squishy hop",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2101,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.5,
+  "ease": "back",
+  "order": "backward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 30,
+    "scaleX": 160,
+    "position": {
+     "x": 0,
+     "y": 0.3,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

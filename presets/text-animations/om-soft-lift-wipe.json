@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "id": "om-soft-lift-wipe",
+ "label": "Soft lift wipe",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2235,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.4,
+  "ease": "smooth",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.2,
+     "unit": "em"
+    },
+    "wipe": {
+     "enabled": true,
+     "angleDeg": -90,
+     "softness": 0.35
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+ "format": 1,
+ "id": "ipb-shooting-star",
+ "label": "Shooting star swoop",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2203,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.05,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": -2.4,
+     "y": -0.8,
+     "unit": "em"
+    },
+    "rotationY": 70
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": {
+  "shape": "glyph",
+  "trigger": "during",
+  "rate": 24,
+  "colors": [
+   "#ffffe27a",
+   "#ffffffff"
+  ],
+  "size": [
+   0.12,
+   0.22
+  ],
+  "speed": [
+   0.8,
+   1.6
+  ],
+  "life": [
+   0.35,
+   0.6
+  ],
+  "angle": 200,
+  "spread": 25,
+  "drag": 1.5,
+  "glow": 0.6,
+  "grow": 0.4,
+  "fadeIn": 0.15,
+  "origin": "left",
+  "glyph": "shape:sparkle"
+ }
+}

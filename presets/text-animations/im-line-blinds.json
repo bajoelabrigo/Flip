@@ -1,0 +1,50 @@
+{
+ "format": 1,
+ "id": "im-line-blinds",
+ "label": "Lines turn like blinds",
+ "category": "motion",
+ "sampleText": "NEW\nDROP",
+ "slots": [
+  "in"
+ ],
+ "order": 2140,
+ "defaults": {
+  "unit": "line",
+  "stagger": 0.15,
+  "duration": 0.55,
+  "ease": "back",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "rotationX": 90,
+    "scaleY": 120
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,154 @@
+{
+ "format": 1,
+ "id": "ipb-stone-impact",
+ "label": "Stone impact",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2192,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.28,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 240,
+    "rotation": -8
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1200000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff7a6f66"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "square",
+   "count": 8,
+   "colors": [
+    "#ff8a8078",
+    "#ff6b625b",
+    "#ffa59b92"
+   ],
+   "size": [
+    0.05,
+    0.11
+   ],
+   "speed": [
+    1.2,
+    2.4
+   ],
+   "life": [
+    0.5,
+    0.8
+   ],
+   "at": 1.0,
+   "angle": -90,
+   "spread": 150,
+   "gravity": 7.0,
+   "spin": 400,
+   "origin": "bottom"
+  },
+  {
+   "shape": "smoke",
+   "count": 4,
+   "colors": [
+    "#ffb0a79e",
+    "#ff8f8780"
+   ],
+   "size": [
+    0.35,
+    0.55
+   ],
+   "speed": [
+    0.4,
+    0.8
+   ],
+   "life": [
+    0.6,
+    0.9
+   ],
+   "at": 1.0,
+   "angle": -90,
+   "spread": 180,
+   "drag": 3.0,
+   "grow": 1.7,
+   "origin": "bottom",
+   "behind": true,
+   "seed": 3
+  }
+ ]
+}

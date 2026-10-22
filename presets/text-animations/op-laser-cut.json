@@ -1,0 +1,164 @@
+{
+ "format": 1,
+ "id": "op-laser-cut",
+ "label": "Laser cut exit",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2287,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.35,
+  "ease": "easeIn",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 0,
+    "scaleX": 115
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffffff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 9,
+   "colors": [
+    "#ffff2a4a",
+    "#ffffffff",
+    "#ffff7a8a"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    2.6,
+    4.4
+   ],
+   "life": [
+    0.2,
+    0.4
+   ],
+   "at": 0.0,
+   "angle": 0,
+   "spread": 26,
+   "drag": 2.0,
+   "glow": 0.6,
+   "additive": true
+  },
+  {
+   "shape": "spark",
+   "count": 9,
+   "colors": [
+    "#ffff2a4a",
+    "#ffffffff",
+    "#ffff7a8a"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    2.6,
+    4.4
+   ],
+   "life": [
+    0.2,
+    0.4
+   ],
+   "at": 0.0,
+   "angle": 180,
+   "spread": 26,
+   "drag": 2.0,
+   "glow": 0.6,
+   "additive": true,
+   "seed": 4
+  },
+  {
+   "shape": "flare",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.5,
+    0.6
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.2,
+    0.25
+   ],
+   "at": 0.05,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.8,
+   "additive": true,
+   "seed": 6
+  }
+ ]
+}

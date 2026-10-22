@@ -1,0 +1,133 @@
+{
+ "format": 1,
+ "id": "ipa-shooting-stars",
+ "label": "Shooting star letters",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2170,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 1.2,
+     "y": -1.2,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 34,
+   "colors": [
+    "#ffffffff",
+    "#ffbfe3ff",
+    "#ff8fd0ff"
+   ],
+   "size": [
+    0.04,
+    0.07
+   ],
+   "speed": [
+    0.6,
+    1.2
+   ],
+   "life": [
+    0.15,
+    0.35
+   ],
+   "angle": -45,
+   "spread": 18,
+   "glow": 0.6,
+   "fadeIn": 0.15,
+   "additive": true
+  },
+  {
+   "shape": "flare",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.4,
+    0.5
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.3,
+    0.4
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.8,
+   "additive": true,
+   "seed": 15
+  }
+ ]
+}

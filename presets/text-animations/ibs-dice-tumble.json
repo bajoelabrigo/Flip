@@ -1,0 +1,89 @@
+{
+ "format": 1,
+ "id": "ibs-dice-tumble",
+ "label": "Tumbling dice",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2009,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.6,
+  "ease": "bounce",
+  "order": "random"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.1,
+     "unit": "em"
+    },
+    "rotationX": 260
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "seed": 11,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "rotation": 140
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

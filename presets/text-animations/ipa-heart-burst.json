@@ -1,0 +1,130 @@
+{
+ "format": 1,
+ "id": "ipa-heart-burst",
+ "label": "Heart burst",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2151,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 30,
+    "position": {
+     "x": 0,
+     "y": 0.2,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1800000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff5c9a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "heart",
+   "count": 6,
+   "colors": [
+    "#ffff4d7d",
+    "#ffff8fb8",
+    "#ffff2d55"
+   ],
+   "size": [
+    0.1,
+    0.18
+   ],
+   "speed": [
+    0.8,
+    1.6
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "at": 1.0,
+   "angle": -90,
+   "spread": 150,
+   "gravity": -0.6,
+   "drag": 1.6
+  }
+ ]
+}

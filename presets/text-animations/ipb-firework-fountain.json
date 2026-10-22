@@ -1,0 +1,131 @@
+{
+ "format": 1,
+ "id": "ipb-firework-fountain",
+ "label": "Firework fountain",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2215,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.7,
+     "unit": "em"
+    },
+    "scale": 80
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffe27a"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "spark",
+  "trigger": "during",
+  "rate": 32,
+  "colors": [
+   "#ffffe27a",
+   "#ffffffff",
+   "#ffffb02e"
+  ],
+  "size": [
+   0.03,
+   0.06
+  ],
+  "speed": [
+   2.2,
+   3.4
+  ],
+  "life": [
+   0.45,
+   0.8
+  ],
+  "angle": -90,
+  "spread": 34,
+  "gravity": 6.0,
+  "glow": 0.6,
+  "fadeIn": 0.15,
+  "origin": "bottom",
+  "additive": true
+ }
+}

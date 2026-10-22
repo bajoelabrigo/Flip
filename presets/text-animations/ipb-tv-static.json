@@ -1,0 +1,97 @@
+{
+ "format": 1,
+ "id": "ipb-tv-static",
+ "label": "Static noise in",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2214,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.24,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 15,
+    "scaleX": 160,
+    "blur": 3
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1500000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffc8c8c8"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "square",
+  "count": 14,
+  "colors": [
+   "#ffffffff",
+   "#ffa0a0a0",
+   "#ff5a5a5a"
+  ],
+  "size": [
+   0.02,
+   0.05
+  ],
+  "speed": [
+   0.1,
+   0.6
+  ],
+  "life": [
+   0.1,
+   0.25
+  ],
+  "at": 0.2,
+  "angle": -90.0,
+  "spread": 360.0,
+  "origin": "area"
+ }
+}

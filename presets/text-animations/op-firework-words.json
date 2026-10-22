@@ -1,0 +1,112 @@
+{
+ "format": 1,
+ "id": "op-firework-words",
+ "label": "Firework goodbye",
+ "category": "particles",
+ "sampleText": "SEE YOU",
+ "slots": [
+  "out"
+ ],
+ "order": 2273,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.28,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.9,
+     "unit": "em"
+    },
+    "scale": 25
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 250000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 22,
+   "colors": [
+    "#ffffe7a0",
+    "#ffffffff"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    0.5,
+    1.0
+   ],
+   "life": [
+    0.2,
+    0.35
+   ],
+   "angle": 90,
+   "spread": 24,
+   "fadeIn": 0.15,
+   "additive": true
+  },
+  {
+   "shape": "spark",
+   "count": 24,
+   "colors": [
+    "#ffff5470",
+    "#ffffd23f",
+    "#ff4fd1ff",
+    "#ffb07bff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    2.0,
+    3.6
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "at": 0.9,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.4,
+   "drag": 1.6,
+   "glow": 0.5,
+   "additive": true,
+   "seed": 11
+  }
+ ]
+}

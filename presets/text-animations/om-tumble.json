@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "om-tumble",
+ "label": "Tumble down",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2225,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.65,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0.2,
+     "y": 1.9,
+     "unit": "em"
+    },
+    "rotation": 140,
+    "rotationX": 180
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

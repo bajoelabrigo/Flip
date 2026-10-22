@@ -1,0 +1,84 @@
+{
+ "format": 1,
+ "id": "ipa-rising-bubbles",
+ "label": "Rising bubbles",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2152,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.6,
+     "unit": "em"
+    },
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "trigger": "during",
+   "rate": 12,
+   "colors": [
+    "#ffbdf3ff",
+    "#ff7fdcff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.1,
+    0.26
+   ],
+   "speed": [
+    0.5,
+    1.1
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": -90,
+   "spread": 35,
+   "drag": 0.8,
+   "grow": 1.3,
+   "fadeIn": 0.2,
+   "origin": "bottom"
+  }
+ ]
+}

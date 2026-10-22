@@ -1,0 +1,152 @@
+{
+ "format": 1,
+ "id": "ic-drop",
+ "label": "Water drop typing",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2062,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.22,
+  "ease": "easeIn",
+  "order": "forward"
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.6,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 100000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "shape:drop",
+  "heightEm": 0.85,
+  "gapEm": 0.1,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "#ff3aa0ff",
+  "bobEm": 0.06,
+  "swayHz": 1.5
+ },
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 6,
+   "colors": [
+    "#ff3aa0ff",
+    "#ffa8d8ff"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    0.8,
+    1.5
+   ],
+   "life": [
+    0.3,
+    0.5
+   ],
+   "at": 1.0,
+   "angle": -90,
+   "spread": 120,
+   "gravity": 5.0,
+   "origin": "bottom"
+  },
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffa8d8ff"
+   ],
+   "size": [
+    0.25,
+    0.3
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.3,
+    0.4
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 2.0,
+   "origin": "bottom"
+  }
+ ]
+}

@@ -1,0 +1,173 @@
+{
+ "format": 1,
+ "id": "ic-snowflake",
+ "label": "Snowflake typing",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2063,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.35,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "blur": 12,
+    "scale": 110
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffbfe6ff"
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "shape:snow",
+  "heightEm": 0.85,
+  "gapEm": 0.1,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "#ffdff4ff",
+  "swayDeg": 25,
+  "swayHz": 1.0
+ },
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 6,
+   "colors": [
+    "#ffffffff",
+    "#ffdff4ff"
+   ],
+   "size": [
+    0.02,
+    0.05
+   ],
+   "speed": [
+    0.1,
+    0.35
+   ],
+   "life": [
+    0.7,
+    1.1
+   ],
+   "at": 1.0,
+   "angle": 90,
+   "spread": 180,
+   "gravity": 0.6,
+   "glow": 0.3,
+   "origin": "top"
+  }
+ ]
+}

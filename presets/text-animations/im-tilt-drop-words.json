@@ -1,0 +1,80 @@
+{
+ "format": 1,
+ "id": "im-tilt-drop-words",
+ "label": "Words drop with a tilt",
+ "category": "motion",
+ "sampleText": "GO BIG NOW",
+ "slots": [
+  "in"
+ ],
+ "order": 2115,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.1,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "backward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.3,
+     "unit": "em"
+    },
+    "rotation": -14
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

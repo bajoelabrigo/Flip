@@ -1,0 +1,76 @@
+{
+ "format": 1,
+ "id": "imf-bubble-pop",
+ "label": "Bubble pop",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2097,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.4,
+  "ease": "back",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 250000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 2,
+   "colors": [
+    "#ffbfefff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.35,
+    0.55
+   ],
+   "speed": [
+    0.05,
+    0.15
+   ],
+   "life": [
+    0.3,
+    0.45
+   ],
+   "at": 0.6,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 1.8
+  }
+ ]
+}

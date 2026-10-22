@@ -1,0 +1,124 @@
+{
+ "format": 1,
+ "id": "om-swirl",
+ "label": "Swirl out",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2248,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.6,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "rotation": -360,
+    "scale": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0.0,
+     "spatialPhaseDeg": 90,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0.6,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0.0,
+     "spatialPhaseDeg": 90,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "temporalPhaseDeg": 90,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.6,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

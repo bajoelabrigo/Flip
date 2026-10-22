@@ -1,0 +1,58 @@
+{
+ "format": 1,
+ "id": "imf-centre-bounce-drop",
+ "label": "Centre-out bounce drop",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2098,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.65,
+  "ease": "bounce",
+  "order": "centerOut"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.1,
+     "unit": "em"
+    },
+    "scaleY": 125,
+    "scaleX": 88
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 200000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

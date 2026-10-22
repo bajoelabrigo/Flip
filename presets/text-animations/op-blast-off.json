@@ -1,0 +1,122 @@
+{
+ "format": 1,
+ "id": "op-blast-off",
+ "label": "Blast off",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2292,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -2.8,
+     "unit": "em"
+    },
+    "scaleY": 120
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 40,
+   "colors": [
+    "#fffff1b8",
+    "#ffffc247",
+    "#ffff8a1f",
+    "#ffff4e14"
+   ],
+   "size": [
+    0.06,
+    0.14
+   ],
+   "speed": [
+    1.2,
+    2.4
+   ],
+   "life": [
+    0.25,
+    0.45
+   ],
+   "angle": 90,
+   "spread": 30,
+   "drag": 1.5,
+   "glow": 0.6,
+   "grow": 0.4,
+   "fadeIn": 0.15,
+   "origin": "bottom",
+   "additive": true,
+   "per": "block"
+  },
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 14,
+   "colors": [
+    "#ffd7dbe2",
+    "#ffaab0bb",
+    "#ff8a909b"
+   ],
+   "size": [
+    0.5,
+    0.9
+   ],
+   "speed": [
+    0.5,
+    1.2
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": 90,
+   "spread": 120,
+   "drag": 1.8,
+   "grow": 2.0,
+   "fadeIn": 0.15,
+   "origin": "bottom",
+   "behind": true,
+   "per": "block",
+   "seed": 3
+  }
+ ]
+}

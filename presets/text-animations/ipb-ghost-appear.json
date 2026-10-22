@@ -1,0 +1,159 @@
+{
+ "format": 1,
+ "id": "ipb-ghost-appear",
+ "label": "Ghost appear",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2189,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 1.0,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.3,
+     "unit": "em"
+    },
+    "scale": 118,
+    "blur": 14
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 800000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillOpacity": 55
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 6,
+   "colors": [
+    "#ffffffff",
+    "#ffdfe8ff"
+   ],
+   "size": [
+    0.6,
+    1.0
+   ],
+   "speed": [
+    0.1,
+    0.3
+   ],
+   "life": [
+    1.0,
+    1.4
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "grow": 1.6,
+   "fadeIn": 0.3,
+   "origin": "area",
+   "behind": true,
+   "per": "block"
+  },
+  {
+   "shape": "glyph",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.7,
+    0.7
+   ],
+   "speed": [
+    0.6,
+    0.6
+   ],
+   "life": [
+    1.1,
+    1.1
+   ],
+   "at": 0.55,
+   "angle": -60,
+   "spread": 0,
+   "fadeIn": 0.2,
+   "origin": "right",
+   "glyph": "👻",
+   "per": "block",
+   "seed": 2
+  }
+ ]
+}

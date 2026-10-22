@@ -1,0 +1,85 @@
+{
+ "format": 1,
+ "id": "om-evaporate",
+ "label": "Evaporate",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2245,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.8,
+  "ease": "easeIn",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.0,
+     "unit": "em"
+    },
+    "blur": 14,
+    "scaleY": 140,
+    "scaleX": 80
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 900000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 10,
+   "colors": [
+    "#55ffffff"
+   ],
+   "size": [
+    0.25,
+    0.45
+   ],
+   "speed": [
+    0.2,
+    0.5
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "angle": -90.0,
+   "spread": 50,
+   "grow": 1.8,
+   "fadeIn": 0.2,
+   "origin": "area",
+   "behind": true
+  }
+ ]
+}

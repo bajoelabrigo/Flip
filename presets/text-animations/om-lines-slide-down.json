@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "om-lines-slide-down",
+ "label": "Lines slide down",
+ "category": "motion",
+ "sampleText": "SEE YOU\nNEXT TIME",
+ "slots": [
+  "out"
+ ],
+ "order": 2221,
+ "defaults": {
+  "unit": "line",
+  "stagger": 0.14,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 1.4,
+     "unit": "em"
+    },
+    "scaleY": 120,
+    "blur": 12
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

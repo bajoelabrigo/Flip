@@ -1,0 +1,148 @@
+{
+ "format": 1,
+ "id": "op-burn-away",
+ "label": "Burn away",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2260,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.18,
+     "unit": "em"
+    },
+    "blur": 10,
+    "scaleY": 112
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 550000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff7a1a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 34,
+   "colors": [
+    "#fffff1b8",
+    "#ffffc247",
+    "#ffff8a1f",
+    "#ffff4e14"
+   ],
+   "size": [
+    0.05,
+    0.13
+   ],
+   "speed": [
+    0.6,
+    1.5
+   ],
+   "life": [
+    0.35,
+    0.75
+   ],
+   "angle": -90,
+   "spread": 40,
+   "drag": 1.2,
+   "glow": 0.6,
+   "grow": 0.35,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true
+  },
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 10,
+   "colors": [
+    "#ff5a4a44",
+    "#ff3a3330"
+   ],
+   "size": [
+    0.35,
+    0.6
+   ],
+   "speed": [
+    0.25,
+    0.5
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": -90,
+   "spread": 30,
+   "grow": 1.8,
+   "fadeIn": 0.15,
+   "origin": "top",
+   "behind": true,
+   "seed": 4
+  }
+ ]
+}

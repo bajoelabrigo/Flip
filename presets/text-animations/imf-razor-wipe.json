@@ -1,0 +1,36 @@
+{
+ "format": 1,
+ "id": "imf-razor-wipe",
+ "label": "Razor wipe from the right",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2074,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.55,
+  "ease": "easeInOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 180,
+     "softness": 0.02
+    }
+   }
+  }
+ ]
+}

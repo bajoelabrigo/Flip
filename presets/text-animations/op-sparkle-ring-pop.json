@@ -1,0 +1,104 @@
+{
+ "format": 1,
+ "id": "op-sparkle-ring-pop",
+ "label": "Sparkle ring pop",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2267,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.35,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.5,
+    0.6
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.45,
+    0.55
+   ],
+   "at": 0.4,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.4,
+   "grow": 3.2,
+   "additive": true
+  },
+  {
+   "shape": "flare",
+   "count": 8,
+   "colors": [
+    "#ffffffff",
+    "#ffffe9a8",
+    "#ffbfe8ff"
+   ],
+   "size": [
+    0.1,
+    0.2
+   ],
+   "speed": [
+    0.9,
+    1.6
+   ],
+   "life": [
+    0.35,
+    0.6
+   ],
+   "at": 0.45,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 2.5,
+   "glow": 0.7,
+   "additive": true,
+   "seed": 2
+  }
+ ]
+}

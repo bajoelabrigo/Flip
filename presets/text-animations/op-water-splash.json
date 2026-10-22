@@ -1,0 +1,140 @@
+{
+ "format": 1,
+ "id": "op-water-splash",
+ "label": "Splash goodbye",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2284,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.5,
+     "unit": "em"
+    },
+    "scaleY": 55,
+    "scaleX": 140
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ff9fdcff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 14,
+   "colors": [
+    "#ffe2f6ff",
+    "#ff86d4ff",
+    "#ff3f9cff"
+   ],
+   "size": [
+    0.05,
+    0.1
+   ],
+   "speed": [
+    1.8,
+    3.4
+   ],
+   "life": [
+    0.45,
+    0.8
+   ],
+   "at": 0.65,
+   "angle": -90,
+   "spread": 140,
+   "gravity": 7.0,
+   "origin": "bottom"
+  },
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffbfe9ff"
+   ],
+   "size": [
+    0.4,
+    0.5
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.4,
+    0.5
+   ],
+   "at": 0.65,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 2.6,
+   "origin": "bottom",
+   "seed": 5
+  }
+ ]
+}

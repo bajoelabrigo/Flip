@@ -1,0 +1,110 @@
+{
+ "format": 1,
+ "id": "ipa-floating-hearts",
+ "label": "Floating hearts",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2173,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.12,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.25,
+     "unit": "em"
+    },
+    "scale": 90
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "heart",
+   "trigger": "during",
+   "rate": 8,
+   "colors": [
+    "#ffff8fb8",
+    "#ffffc2d9",
+    "#ffffffff"
+   ],
+   "size": [
+    0.08,
+    0.14
+   ],
+   "speed": [
+    0.3,
+    0.6
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 50,
+   "gravity": -0.3,
+   "spin": 120,
+   "fadeIn": 0.2,
+   "origin": "top"
+  }
+ ]
+}

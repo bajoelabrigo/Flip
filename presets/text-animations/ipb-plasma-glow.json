@@ -1,0 +1,120 @@
+{
+ "format": 1,
+ "id": "ipb-plasma-glow",
+ "label": "Plasma glow",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2196,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.7,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 20,
+    "scale": 125
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1500000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff40e8ff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1500000.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "strokeColor": "#ff00b0ff"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "flare",
+  "count": 3,
+  "colors": [
+   "#ff7fe9ff",
+   "#ff3fb8ff",
+   "#ffffffff"
+  ],
+  "size": [
+   0.18,
+   0.35
+  ],
+  "speed": [
+   0.1,
+   0.35
+  ],
+  "life": [
+   0.5,
+   0.8
+  ],
+  "at": 0.4,
+  "angle": -90.0,
+  "spread": 360.0,
+  "glow": 0.9,
+  "spin": 60,
+  "origin": "area",
+  "additive": true
+ }
+}

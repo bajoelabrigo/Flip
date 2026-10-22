@@ -1,0 +1,131 @@
+{
+ "format": 1,
+ "id": "ipb-toxic-bubbles",
+ "label": "Toxic bubbles",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2210,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleY": 40,
+    "scaleX": 130,
+    "position": {
+     "x": 0,
+     "y": 0.3,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1800000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff7dff3a"
+   }
+  }
+ ],
+ "particles": {
+  "shape": "ring",
+  "trigger": "during",
+  "rate": 16,
+  "colors": [
+   "#ff8dff3a",
+   "#ffc4ff5a",
+   "#ff3aff7a"
+  ],
+  "size": [
+   0.06,
+   0.14
+  ],
+  "speed": [
+   0.3,
+   0.7
+  ],
+  "life": [
+   0.6,
+   1.0
+  ],
+  "angle": -90,
+  "spread": 60,
+  "gravity": -0.8,
+  "glow": 0.4,
+  "grow": 1.6,
+  "fadeIn": 0.15,
+  "origin": "top"
+ }
+}

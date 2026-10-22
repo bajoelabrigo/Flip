@@ -1,0 +1,184 @@
+{
+ "format": 1,
+ "id": "ic-rocket",
+ "label": "Rocket typing",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2071,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.25,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": -0.6,
+     "y": 0.1,
+     "unit": "em"
+    },
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 150000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "🚀",
+  "heightEm": 0.85,
+  "gapEm": 0.1,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "",
+  "bobEm": 0.03,
+  "swayHz": 5.0
+ },
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 2,
+   "colors": [
+    "#ffcfd4dc",
+    "#ff9aa3b0"
+   ],
+   "size": [
+    0.25,
+    0.4
+   ],
+   "speed": [
+    0.1,
+    0.3
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "at": 1.0,
+   "angle": 180,
+   "spread": 50,
+   "drag": 1.0,
+   "grow": 1.8,
+   "origin": "left",
+   "behind": true
+  },
+  {
+   "shape": "spark",
+   "count": 4,
+   "colors": [
+    "#ffffcf33",
+    "#ffff7a1a"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    1.0,
+    2.0
+   ],
+   "life": [
+    0.15,
+    0.3
+   ],
+   "at": 1.0,
+   "angle": 180,
+   "spread": 40,
+   "drag": 3.0,
+   "glow": 0.6,
+   "origin": "left",
+   "additive": true
+  }
+ ]
+}

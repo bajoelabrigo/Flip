@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "id": "om-sink-floor",
+ "label": "Sink through the floor",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2233,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.9,
+     "unit": "em"
+    },
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 90,
+     "softness": 0.05
+    }
+   }
+  }
+ ]
+}

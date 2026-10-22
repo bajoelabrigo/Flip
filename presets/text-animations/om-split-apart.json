@@ -1,0 +1,125 @@
+{
+ "format": 1,
+ "id": "om-split-apart",
+ "label": "Split apart",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2231,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 6,
+    "scaleX": 115
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0,
+     "end": 50,
+     "smoothness": 0,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": -2.4,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 50,
+     "end": 100,
+     "smoothness": 0,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 2.4,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

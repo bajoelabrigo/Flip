@@ -1,0 +1,142 @@
+{
+ "format": 1,
+ "id": "op-shatter",
+ "label": "Shatter",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2293,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.3,
+  "ease": "easeIn",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 88,
+    "position": {
+     "x": 0,
+     "y": 0.15,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffffff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "triangle",
+   "count": 9,
+   "colors": [
+    "#ffffffff",
+    "#ffe8ebf0",
+    "#ffc7ccd6"
+   ],
+   "size": [
+    0.1,
+    0.22
+   ],
+   "speed": [
+    1.4,
+    3.0
+   ],
+   "life": [
+    0.55,
+    0.9
+   ],
+   "at": 0.1,
+   "angle": -90,
+   "spread": 220,
+   "gravity": 6.0,
+   "spin": 420,
+   "origin": "area"
+  },
+  {
+   "shape": "square",
+   "count": 6,
+   "colors": [
+    "#ffffffff",
+    "#ffdfe3ea"
+   ],
+   "size": [
+    0.05,
+    0.1
+   ],
+   "speed": [
+    1.0,
+    2.4
+   ],
+   "life": [
+    0.5,
+    0.8
+   ],
+   "at": 0.1,
+   "angle": -90,
+   "spread": 240,
+   "gravity": 6.0,
+   "spin": 300,
+   "origin": "area",
+   "seed": 4
+  }
+ ]
+}

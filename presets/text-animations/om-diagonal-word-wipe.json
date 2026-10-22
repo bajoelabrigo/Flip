@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "id": "om-diagonal-word-wipe",
+ "label": "Diagonal word wipe",
+ "category": "mask",
+ "sampleText": "SEE YOU SOON",
+ "slots": [
+  "out"
+ ],
+ "order": 2229,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.12,
+  "duration": 0.45,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": -45,
+     "softness": 0.4
+    },
+    "position": {
+     "x": 0.15,
+     "y": -0.15,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "format": 1,
+ "id": "ibs-colour-sweep",
+ "label": "Colour sweep in",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2020,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.25,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "smooth",
+     "start": 0.0,
+     "end": 35,
+     "offset": {
+      "value": -35,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -35
+        },
+        {
+         "timeUs": 1000000,
+         "value": 120
+        }
+       ]
+      }
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff3fa4"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "smooth",
+     "start": 0.0,
+     "end": 30,
+     "offset": {
+      "value": -80,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -80
+        },
+        {
+         "timeUs": 1000000,
+         "value": 110
+        }
+       ]
+      }
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd23f"
+   }
+  }
+ ]
+}

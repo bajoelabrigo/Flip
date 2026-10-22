@@ -1,0 +1,65 @@
+{
+ "format": 1,
+ "id": "ibs-neon-strike",
+ "label": "Neon tube strike",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2019,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.5,
+  "ease": "linear",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "fillColor": "#ff40404c",
+    "strokeColor": "#ff40404c",
+    "blur": 1.5
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 22,
+     "spatialPhaseDeg": 97,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "seed": 4,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 10
+   }
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "format": 1,
+ "id": "op-magic-vanish",
+ "label": "Magic vanish",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2268,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.55,
+  "ease": "easeIn",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": -90,
+     "softness": 0.45
+    },
+    "position": {
+     "x": 0,
+     "y": -0.08,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffd6a8ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "star",
+   "trigger": "during",
+   "rate": 18,
+   "colors": [
+    "#fff4e6ff",
+    "#ffc58bff",
+    "#ff8d4dff",
+    "#ffffd86b"
+   ],
+   "size": [
+    0.06,
+    0.13
+   ],
+   "speed": [
+    0.3,
+    0.8
+   ],
+   "life": [
+    0.4,
+    0.8
+   ],
+   "angle": -90,
+   "spread": 100,
+   "drag": 1.0,
+   "glow": 0.6,
+   "spin": 200,
+   "fadeIn": 0.15,
+   "origin": "bottom",
+   "additive": true
+  },
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 20,
+   "colors": [
+    "#ffffffff",
+    "#ffe2c6ff"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    0.2,
+    0.6
+   ],
+   "life": [
+    0.3,
+    0.6
+   ],
+   "angle": -90.0,
+   "spread": 360,
+   "glow": 0.8,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "seed": 6
+  }
+ ]
+}

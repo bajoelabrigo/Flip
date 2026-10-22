@@ -1,0 +1,147 @@
+{
+ "format": 1,
+ "id": "ipb-word-shockwave",
+ "label": "Shockwave per word",
+ "category": "particles",
+ "sampleText": "BOOM POW",
+ "slots": [
+  "in"
+ ],
+ "order": 2191,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.3,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 175
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "blur": 6
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.6,
+    0.6
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.35,
+    0.35
+   ],
+   "at": 0.6,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.3,
+   "grow": 4.5
+  },
+  {
+   "shape": "dot",
+   "count": 6,
+   "colors": [
+    "#ffffffff",
+    "#ffcfd8ff"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    1.5,
+    2.5
+   ],
+   "life": [
+    0.25,
+    0.4
+   ],
+   "at": 0.6,
+   "angle": -90.0,
+   "spread": 360.0,
+   "drag": 4.0,
+   "seed": 2
+  }
+ ]
+}

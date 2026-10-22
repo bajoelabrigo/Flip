@@ -1,0 +1,147 @@
+{
+ "format": 1,
+ "id": "op-blue-flame-exit",
+ "label": "Blue flame exit",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2261,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 175,
+    "scaleX": 55,
+    "position": {
+     "x": 0,
+     "y": -0.35,
+     "unit": "em"
+    },
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ff7fd8ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 30,
+   "colors": [
+    "#ffe8fbff",
+    "#ff8fe3ff",
+    "#ff3aa2ff",
+    "#ff3b56ff"
+   ],
+   "size": [
+    0.04,
+    0.11
+   ],
+   "speed": [
+    0.9,
+    1.9
+   ],
+   "life": [
+    0.3,
+    0.6
+   ],
+   "angle": -90,
+   "spread": 28,
+   "drag": 1.6,
+   "glow": 0.7,
+   "grow": 0.3,
+   "fadeIn": 0.15,
+   "origin": "baseline",
+   "additive": true
+  },
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 8,
+   "colors": [
+    "#ffffffff",
+    "#ff9fe8ff"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    1.6,
+    2.6
+   ],
+   "life": [
+    0.2,
+    0.4
+   ],
+   "angle": -90,
+   "spread": 20,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "seed": 7
+  }
+ ]
+}

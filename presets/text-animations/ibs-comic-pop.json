@@ -1,0 +1,170 @@
+{
+ "format": 1,
+ "id": "ibs-comic-pop",
+ "label": "Comic pop with tilt",
+ "category": "stylized",
+ "sampleText": "BAM! POW!",
+ "slots": [
+  "in"
+ ],
+ "order": 2030,
+ "trending": true,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.16,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    },
+    {
+     "driver": "wiggle",
+     "domain": "word",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "seed": 8,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "rotation": 22
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd400",
+    "strokeColor": "#ffe62828",
+    "strokeWidth": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 200000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "triangle",
+   "count": 8,
+   "colors": [
+    "#ffffd400",
+    "#ffff3b3b",
+    "#ffffffff"
+   ],
+   "size": [
+    0.05,
+    0.1
+   ],
+   "speed": [
+    1.2,
+    2.4
+   ],
+   "life": [
+    0.25,
+    0.45
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "drag": 4.0,
+   "spin": 300.0
+  }
+ ]
+}

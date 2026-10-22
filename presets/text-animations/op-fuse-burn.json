@@ -1,0 +1,135 @@
+{
+ "format": 1,
+ "id": "op-fuse-burn",
+ "label": "Burning fuse",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2299,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.0,
+  "ease": "linear",
+  "order": "backward"
+ },
+ "flags": {
+  "durationLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "🔥",
+  "heightEm": 0.9,
+  "gapEm": 0.05,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "",
+  "bobEm": 0.04,
+  "swayHz": 5
+ },
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 9,
+   "colors": [
+    "#fffff1b8",
+    "#ffffc247",
+    "#ffff8a1f",
+    "#ffff4e14"
+   ],
+   "size": [
+    0.04,
+    0.09
+   ],
+   "speed": [
+    0.5,
+    1.2
+   ],
+   "life": [
+    0.3,
+    0.55
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 70,
+   "drag": 1.4,
+   "glow": 0.6,
+   "grow": 0.4,
+   "additive": true
+  },
+  {
+   "shape": "smoke",
+   "count": 2,
+   "colors": [
+    "#ff4a4440"
+   ],
+   "size": [
+    0.3,
+    0.45
+   ],
+   "speed": [
+    0.2,
+    0.4
+   ],
+   "life": [
+    0.5,
+    0.8
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 30,
+   "grow": 1.7,
+   "behind": true,
+   "seed": 3
+  }
+ ]
+}

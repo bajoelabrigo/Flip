@@ -1,0 +1,302 @@
+{
+ "format": 1,
+ "id": "ibs-rainbow-settle",
+ "label": "Rainbow letters settling",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2031,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.45,
+  "ease": "back",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.5,
+     "unit": "em"
+    },
+    "scale": 70
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff3b5c"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -300,
+     "maxAmount": 300,
+     "seed": 5
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "mode": "max"
+    },
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeIn",
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd400"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -300,
+     "maxAmount": 300,
+     "seed": 9
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "mode": "max"
+    },
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeIn",
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff2bd9ff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -300,
+     "maxAmount": 300,
+     "seed": 14
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "mode": "max"
+    },
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeIn",
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff7cff4f"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 97,
+     "minAmount": -300,
+     "maxAmount": 300,
+     "seed": 21
+    },
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "mode": "max"
+    },
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeIn",
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffb45cff"
+   }
+  }
+ ]
+}

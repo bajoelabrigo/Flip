@@ -1,0 +1,107 @@
+{
+ "format": 1,
+ "id": "ipb-ember-rise",
+ "label": "Rising embers",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2183,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.12,
+  "duration": 0.6,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.12,
+     "unit": "em"
+    },
+    "fillOpacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2000000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffc42a0a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 14,
+   "colors": [
+    "#ffff5a14",
+    "#ffffb02e",
+    "#ffff3010"
+   ],
+   "size": [
+    0.025,
+    0.05
+   ],
+   "speed": [
+    0.25,
+    0.6
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 60,
+   "gravity": -0.4,
+   "drag": 0.8,
+   "glow": 1.0,
+   "fadeIn": 0.2,
+   "origin": "top",
+   "additive": true
+  }
+ ]
+}
