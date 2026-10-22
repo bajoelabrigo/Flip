@@ -29,6 +29,18 @@ Item {
 
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     readonly property int activeFilterCount: Object.keys(filterValues).length
+    // Our own catalogues sort by category; it is shown as a row of chips, not only behind Filters.
+    readonly property var categoryFilter: {
+        const f = Market.filters.find(f => f.id === "category" && f.type === "enum")
+        return f && (f.options || []).length > 1 ? f : null
+    }
+    // Text styles open on Trending, the titles people are using now (Jorge, 2026-10-21).
+    function applyDefaultCategory() {
+        if (Market.activeTypeId !== "text-style" || root.filterValues.category || !root.categoryFilter)
+            return
+        if (root.categoryFilter.options.some(o => o.id === "tendencias"))
+            root.filterValues = Object.assign({}, root.filterValues, { category: "tendencias" })
+    }
     readonly property string mediaKind: {
         const types = Market.types
         for (let i = 0; i < types.length; ++i) {
@@ -206,6 +218,7 @@ Item {
         target: Market
         function onActiveProviderIdChanged() {
             root.filterValues = ({})
+            root.applyDefaultCategory()
             root.filtersExpanded = false
             root.detailShown = false
             if (Market.canSearch && Market.items.length === 0)
@@ -339,6 +352,34 @@ Item {
                         color: Theme.primaryForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs
+                    }
+                }
+            }
+        }
+
+        // Categories of our own catalogue: "All", then each one ("Trending", "Subtitles"…).
+        Flickable {
+            x: root.sidePadding
+            width: parent.width - root.sidePadding * 2
+            height: categoryRow.height
+            visible: !!root.categoryFilter && Market.canSearch && !root.allTypes
+            contentWidth: categoryRow.width
+            flickableDirection: Flickable.HorizontalFlick
+            boundsBehavior: Flickable.StopAtBounds
+            clip: true
+
+            Row {
+                id: categoryRow
+                spacing: Theme.spacingSm
+                Repeater {
+                    model: root.categoryFilter
+                           ? [{ id: "", label: qsTr("All") }].concat(root.categoryFilter.options) : []
+                    delegate: ThemedChip {
+                        required property var modelData
+                        text: modelData.label
+                        variant: "outline"
+                        selected: (root.filterValues.category || "") === modelData.id
+                        onClicked: root.setFilter("category", modelData.id)
                     }
                 }
             }

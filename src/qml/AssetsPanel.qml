@@ -604,6 +604,14 @@ PanelFrame {
 
     // Selects a tab by id. Used by cross-panel jumps such as the properties
     // panel's "Browse effects" / "Browse audio effects" empty-state actions.
+    // Titles › Text on one of its sections ("trends"), whether or not the tab is open already.
+    signal textSectionRequested(string section)
+    function showTextSection(section) {
+        rememberTab("text", "section", section)
+        showTab("text")
+        textSectionRequested(section)
+    }
+
     function showTab(tabId) {
         for (var i = 0; i < tabsModel.count; ++i) {
             if (tabsModel.get(i).tabId === tabId) {
@@ -1341,6 +1349,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TextAssetsTab {
+                        id: textTab
                         Component.onCompleted: {
                             const saved = root.tabState["text"] || {}
                             if (saved.section)
@@ -1348,6 +1357,10 @@ PanelFrame {
                         }
                         onSectionChanged: root.rememberTab("text", "section", section)
                         onAdded: root.addCompleted()
+                        Connections {
+                            target: root
+                            function onTextSectionRequested(requested) { textTab.section = requested }
+                        }
                     }
                 }
             }

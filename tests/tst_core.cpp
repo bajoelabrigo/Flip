@@ -4840,6 +4840,38 @@ void CoreTest::userTextPresetsRoundTrip()
     QCOMPARE(store.presets().first().id, importedId);
     QVERIFY(!drift::textPresetForId(id));
 
+    // A style from Stock remembers where it came from: downloading it again refreshes the one
+    // installed (no copy), and Titles › Trending finds it by its catalogue id.
+    const QString stockPath = QDir(QDir::tempPath()).filePath(QStringLiteral("tend-test.json"));
+    const auto writeStock = [&](const QString &label, int size) {
+        drift::TextStyle stockStyle = style;
+        stockStyle.pixelSize = size;
+        QFile file(stockPath);
+        QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Truncate));
+        file.write(QJsonDocument(QJsonObject{
+            {QStringLiteral("format"), QStringLiteral("flip-text-style")},
+            {QStringLiteral("id"), QStringLiteral("tend-test")},
+            {QStringLiteral("label"), label},
+            {QStringLiteral("sampleText"), QStringLiteral("Hola")},
+            {QStringLiteral("style"), drift::textStyleToJson(stockStyle)},
+        }).toJson());
+    };
+    QVERIFY(store.idForStockId(QStringLiteral("tend-test")).isEmpty());
+    writeStock(QStringLiteral("Trend"), 80);
+    const QString stockId = store.importFromFile(stockPath);
+    QVERIFY(!stockId.isEmpty());
+    QCOMPARE(store.idForStockId(QStringLiteral("tend-test")), stockId);
+    QCOMPARE(store.presets().size(), 2);
+    writeStock(QStringLiteral("Trend 2"), 120);
+    QCOMPARE(store.importFromFile(stockPath), stockId);
+    QCOMPARE(store.presets().size(), 2);
+    store.reload();
+    QCOMPARE(store.presetForId(stockId)->stockId, QStringLiteral("tend-test"));
+    QCOMPARE(store.presetForId(stockId)->label, QStringLiteral("Trend 2"));
+    QCOMPARE(store.presetForId(stockId)->style.pixelSize, 120);
+    QVERIFY(store.presetForId(importedId)->stockId.isEmpty());
+    QFile::remove(stockPath);
+
     QFile::remove(drift::TextPresetStore::storePath());
     store.reload();
     QCoreApplication::setOrganizationName(org);

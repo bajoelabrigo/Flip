@@ -979,6 +979,9 @@ public:
     // Style packs the user saved from the inspector. Kept out of textPresets() so the built-in
     // catalog (and the MCP list it feeds) stays a stable, shippable set.
     Q_INVOKABLE QVariantList userTextPresets() const;
+    // The library id of the style installed from a Stock item ("flip:text-style:<id>"), or empty
+    // while it has not been downloaded.
+    Q_INVOKABLE QString stockTextPresetId(const QString &stockItemId) const;
     // Template packs from Extras (kind "text-styles"): {id, label, category, sampleText}, and their
     // categories {id, label} in display order.
     Q_INVOKABLE QVariantList addonTextPresets() const;

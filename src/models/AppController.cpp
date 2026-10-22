@@ -12948,9 +12948,16 @@ QVariantList AppController::userTextPresets() const
             {QStringLiteral("id"), preset.id},
             {QStringLiteral("label"), preset.label},
             {QStringLiteral("style"), textStyleToMap(preset.style, 0)},
+            {QStringLiteral("stockId"), preset.stockId},
         });
     }
     return out;
+}
+
+QString AppController::stockTextPresetId(const QString &stockItemId) const
+{
+    // "flip:text-style:<id>" from the catalogue, or the bare id.
+    return drift::TextPresetStore::instance().idForStockId(stockItemId.section(QLatin1Char(':'), -1));
 }
 
 QString AppController::saveTextStyleAsPreset(int trackIndex, int clipIndex, const QString &label)
@@ -17931,8 +17938,11 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             return;
         }
         emit userTextPresetsChanged();
-        setLastMessage(tr("Text style installed: %1 (Text › My styles)").arg(name), QStringLiteral("success"));
-        done(true, tr("In Text › My styles"), QString(), QString());
+        // Stock styles are listed under Titles › Trending, the ones the user made under My styles.
+        const bool fromStock = !drift::TextPresetStore::instance().presetForId(id).value_or(drift::TextPreset{}).stockId.isEmpty();
+        const QString where = fromStock ? tr("In Titles › Trending") : tr("In Text › My styles");
+        setLastMessage(tr("Text style installed: %1 (%2)").arg(name, where), QStringLiteral("success"));
+        done(true, where, QString(), QString());
         return;
     }
     if (delivery == QLatin1String("text-animation")) {
