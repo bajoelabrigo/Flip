@@ -344,8 +344,11 @@ COMBO: list[P] = [
           effects=[fx("zoom_pulse", blur=0.5, punch=[k(0, 0, "hold"), k(0.3, 0.7, "easeOut"), k(0.38, 0, "hold"), k(0.5, 0.7, "easeOut"),
                                                      k(0.58, 0, "hold"), k(0.7, 0.7, "easeOut"), k(0.78, 0, "hold"), k(1, 0, "hold")])], trending=True),
     combo("shockwave-combo", "Shockwave", "Onda expansiva", "zoom", I["punch-in"], O["shrink-away"],
-          effects=[fx("shockwave_pulse", strength=0.5, width=0.12,
-                      radius=[k(0, 0, "linear"), k(0.2, 1, "hold"), k(0.8, 0, "linear"), k(1, 1, "hold")])]),
+          effects=[fx("shockwave_pulse", width=0.12,
+                      radius=[k(0, 0, "linear"), k(0.2, 1, "hold"), k(0.8, 0, "linear"), k(1, 1, "hold")],
+                      # Up from nothing: a ring of radius 0 at full strength is a smudge in the middle.
+                      strength=[k(0, 0, "linear"), k(0.04, 0.5, "linear"), k(0.2, 0, "hold"), k(0.8, 0, "linear"),
+                                k(0.84, 0.5, "linear"), k(1, 0, "hold")])]),
     combo("spiral-combo", "Spiral", "Espiral", "spin", I["zoom-spin"], O["suck-in"],
           effects=[fx("droste_zoom", turns=1.5, zoom=1.2,
                       strength=[k(0, 0.85, "easeOut"), k(0.2, 0), k(0.8, 0, "easeIn"), k(1, 0.85)])]),

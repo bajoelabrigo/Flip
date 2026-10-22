@@ -407,8 +407,9 @@ SkPath polygonPath(std::initializer_list<SkPoint> points)
 // A bar halfWidth wide and 2 * halfLength long through the origin, turned by deg.
 SkPath rotatedBar(float halfWidth, float halfLength, float deg)
 {
-    const SkMatrix m = SkMatrix::RotateDeg(deg);
-    const auto at = [&](float x, float y) { return m.mapXY(x, y); };
+    const float c = float(qCos(qDegreesToRadians(double(deg))));
+    const float sn = float(qSin(qDegreesToRadians(double(deg))));
+    const auto at = [&](float x, float y) { return SkPoint::Make(x * c - y * sn, x * sn + y * c); };
     return polygonPath({at(-halfWidth, -halfLength), at(halfWidth, -halfLength), at(halfWidth, halfLength),
                         at(-halfWidth, halfLength)});
 }
