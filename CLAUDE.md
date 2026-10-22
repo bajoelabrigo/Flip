@@ -44,7 +44,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-20)
+## Estado (actualizado 2026-10-21)
+
+### 0.19 en curso (rama `flip/v0.19.0`, sin publicar) — seguimiento como CapCut, Tendencias, textos — **detalle en `docs/plan-0.19.md`**
+- Escritorio, probado en ventana (compilación run 39709609676 + arreglos posteriores `cffad`, sin compilar):
+  pestaña «Seguimiento» (Objeto/Rostro, Dirección, Escala, Distancia, Reacomodar), «Detectar objetos» con YOLOX
+  (extra `seguimiento.objetos` en flip-addons rama `extra/seguimiento-objetos`, **sin publicar**; para probar:
+  `DRIFT_OBJECT_MODEL_DIR=pruebas\object-detector\stage-model`), elegir rostro u objeto en el visor, «Ocultar un
+  rostro», máscaras en textos, textos 100 % editables, Títulos › Tendencias, cuadro de texto ajustado a las palabras.
+- **Editor web publicado (2026-10-21) desde la rama `web/v019` de flipstudio-app** (= `web/movil` + `web/tendencias`
+  + `web/seguimiento` + `web/estilos-texto`; worktree `codigolipstudio-app-integra`): todo lo de arriba también en
+  la web. YOLOX ya estaba en el VPS (`/modelos/yolox-tiny/`). La próxima rama de trabajo de la web sale de `web/v019`.
+- **Falta:** publicar el extra `seguimiento.objetos`, compilar `cffad`, versión 0.19.0 en `CMakeLists.txt`, notas y
+  el OK de Jorge.
+
 
 ### 0.18.3 PUBLICADA (2026-10-20) — actualizar sin vueltas, espacio en vivo al mover clips, idiomas, icono de macOS
 - PR #28 (`flip/macos` → `main`), tag `v0.18.3`, release (run 39474015359) con instalador, portable y `SHA256SUMS`;
