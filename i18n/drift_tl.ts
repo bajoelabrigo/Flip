@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kulay</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -821,11 +821,11 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -841,7 +841,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Text</source>
@@ -919,7 +919,7 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Group</source>
@@ -2496,7 +2496,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Done</source>
@@ -2600,7 +2600,7 @@
     <name>AnimationInspector</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -3543,6 +3543,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Hindi ma-update ang estilo ng teksto</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3788,7 +3792,7 @@
     </message>
     <message>
         <source>Animation options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mga opsyon ng animation</translation>
     </message>
     <message>
         <source>Animation options updated</source>
@@ -3836,7 +3840,7 @@
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -3848,7 +3852,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Bars</source>
@@ -4341,19 +4345,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4365,23 +4361,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <source>In Titles › Trending</source>
+        <translation>Nasa Mga Pamagat › Trending</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4390,10 +4378,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5076,6 +5060,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Pumili muna ng animation</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Hindi ma-save ang animation</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Na-save sa Aking mga animation</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5154,6 +5150,10 @@
     <message>
         <source>Imported</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Akin</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -6944,7 +6944,7 @@
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Clear body analysis</source>
@@ -7277,7 +7277,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kulay</translation>
     </message>
     <message>
         <source>Block Glitch</source>
@@ -7669,7 +7669,7 @@
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Foreground blur</source>
@@ -7949,7 +7949,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mukha</translation>
     </message>
     <message>
         <source>Big Eyes</source>
@@ -8453,7 +8453,7 @@
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-pixelate</translation>
     </message>
     <message>
         <source>Block width</source>
@@ -8741,7 +8741,7 @@
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Pixelate Matrix</source>
@@ -10977,7 +10977,7 @@
     </message>
     <message>
         <source>Export…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-export…</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -11878,7 +11878,7 @@
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Detecting faces…</source>
@@ -12232,7 +12232,7 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Sticker</source>
@@ -13270,6 +13270,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Na-install</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>Handa na ang “%1”. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Na-install ang “%1”.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13438,7 +13450,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Na-install</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13684,15 +13696,15 @@
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Ellipse</source>
@@ -13704,7 +13716,7 @@
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Bars</source>
@@ -13809,6 +13821,26 @@
     <message>
         <source>Invert</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>Pati scale — lumalaki at lumiliit kasabay ng tinatakpan</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Sinusundan ng mask ang tinatakpan nito</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Ilagay ang mask sa ibabaw ng dapat nitong sundan, saka magsimula: ina-animate ito mula sa playhead hanggang sa magkabilang dulo ng mask</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
     </message>
 </context>
 <context>
@@ -14702,7 +14734,7 @@
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -14734,6 +14766,165 @@
     <message>
         <source>Ambient light</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Walang masusundan ang clip na ito</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Ilagay ito sa ibabaw ng video para may masundan dito</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Kailangan ng pag-detect ng bagay ang extra na “Pagsubaybay sa bagay”</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Walang nakitang bagay dito: gumuhit ng kahon sa paligid ng susundan</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Pumili ng video o larawan para itago ang mukha rito</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>Walang nakitang mukha sa clip na ito</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Malabong mukha</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Naka-pixelate na mukha</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Itago ang mukha</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Nakatago ang mukha: nasa itaas ng clip ang layer nito, kung saan ito puwedeng i-trim o alisin</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Pumili ng video o larawan para itago ang isang bagay rito</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Pumili muna ng bagay sa preview o gumuhit ng kahon sa paligid nito</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Malabong bagay</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Naka-pixelate na bagay</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Itago ang bagay</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Nakatago ang bagay: nasa itaas ng clip ang layer nito, kung saan ito puwedeng i-trim o alisin</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Pumili ng mask para sundan nito ang tinatakpan nito</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Ilagay ang mask sa ibabaw ng video para sundan ang isang bagay rito</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Ilipat ang mask sa ibabaw ng dapat nitong sundan</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Sumusunod ang mask</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Alisin ang tracking</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Naalis na ang tracking</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Wala na sa proyekto ang video na sinusundan nito</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>Hindi na nagpapatong ang elemento at ang sinundang bahagi ng video</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Mga setting ng pagsubaybay</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>I-realign ang pagsubaybay</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Isinasagawa na ang tracking</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Sini-scan muna ang mga mukha sa video…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Halos hindi nagpapatong ang element at ang video</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Ilipat ang element sa ibabaw ng dapat nitong sundan</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Inihahanda…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>Walang na-scan na mukha ang video</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Walang mukha sa playhead: pumunta sa frame kung saan makikita ang mukha</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Kinansela ang tracking</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Sinusundan ang frame %1 sa %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Walang nakitang masusundan</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Motion tracking</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Tapos na ang tracking — nawala ang subject sa %1 sa %2 frame</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Tapos na ang tracking</translation>
     </message>
 </context>
 <context>
@@ -14925,6 +15116,14 @@
     <message>
         <source>Colour</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>Ang kulay na ipinipinta ng effect</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16087,7 +16286,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Motion</source>
@@ -16128,6 +16327,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracking</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -16665,7 +16868,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>%1 (custom, experimental)</source>
@@ -16987,7 +17190,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Looking for scenes…</source>
@@ -17366,7 +17569,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Getting ready…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inihahanda…</translation>
     </message>
     <message>
         <source>Cutting out subject…</source>
@@ -17547,7 +17750,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Transparent</source>
@@ -18176,7 +18379,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Spread</source>
@@ -18191,6 +18394,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation>Mga hakbang</translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18203,7 +18410,7 @@ If playback stutters, try another.</source>
     <name>ShapeInspector</name>
     <message>
         <source>Shape</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hugis</translation>
     </message>
     <message>
         <source>Shape drawn by this clip</source>
@@ -18290,7 +18497,7 @@ If playback stutters, try another.</source>
     <name>ShapeStyle</name>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Rounded rectangle</source>
@@ -18342,7 +18549,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Palaso</translation>
     </message>
     <message>
         <source>Double arrow</source>
@@ -18362,7 +18569,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speech bubble</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bula ng usapan</translation>
     </message>
     <message>
         <source>Rounded bubble</source>
@@ -18370,7 +18577,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Thought bubble</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bula ng isip</translation>
     </message>
     <message>
         <source>Callout</source>
@@ -18382,7 +18589,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Burst</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sabog</translation>
     </message>
     <message>
         <source>Lightning bolt</source>
@@ -18390,11 +18597,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ulap</translation>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Cross</source>
@@ -20254,7 +20461,7 @@ If playback stutters, try another.</source>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
 </context>
 <context>
@@ -20289,7 +20496,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Export…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-export…</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -20302,6 +20509,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Trending</translation>
     </message>
     <message>
         <source>AI text</source>
@@ -20330,6 +20541,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — i-click para i-download at idagdag sa playhead</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Mag-sign in para makita ang mga trending na teksto</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Nilo-load ang mga trending na teksto…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Hindi ma-load ang mga trending na teksto</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Galing sa Stock ang mga trending na pamagat, na nangangailangan ng libre mong account.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Mag-sign in</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Subukan muli</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>I-update mula sa napiling teksto</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20491,7 +20734,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Whole block</source>
@@ -20511,11 +20754,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pasulong</translation>
     </message>
     <message>
         <source>Backward</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Paatras</translation>
     </message>
     <message>
         <source>Center out</source>
@@ -20592,6 +20835,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation>Mga opsyon ng animation</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Palitan ang pangalan…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>I-export…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>I-export ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Mga animation ng teksto (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Burahin</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>I-save bilang aking animation…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>I-save ang animation ng teksto</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -20810,6 +21085,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bilisan</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20938,6 +21221,74 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shape</source>
+        <translation>Hugis</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Parihaba</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Kapsula</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Bula ng usapan</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Biluhaba</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Bula ng isip</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Ulap</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Sabog</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Sigaw</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Tag</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Laso</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Palaso</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Tala</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Tiket</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Hagod ng brush</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Gutay na papel</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Puso</translation>
+    </message>
+    <message>
         <source>Opacity</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21019,7 +21370,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Distance</source>
@@ -21098,6 +21449,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Magsimula sa salita</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21142,6 +21497,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Padding</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21168,6 +21527,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Palitan ang pangalan ng animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Burahin ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Burahin ang “%1”? Mananatili ang galaw ng mga tekstong gumagamit nito.</translation>
     </message>
     <message>
         <source>All</source>
@@ -21294,11 +21665,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Direksyon</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21643,7 +22014,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Speech</source>
@@ -21663,7 +22034,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sigaw</translation>
     </message>
     <message>
         <source>Pow!</source>
@@ -21671,7 +22042,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ulap</translation>
     </message>
     <message>
         <source>Black pill</source>
@@ -21695,7 +22066,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tag</translation>
     </message>
     <message>
         <source>Kraft tag</source>
@@ -21711,11 +22082,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Palaso</translation>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tiket</translation>
     </message>
     <message>
         <source>Sticky note</source>
@@ -21751,7 +22122,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Pastel cloud</source>
@@ -21822,7 +22193,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I-blur</translation>
     </message>
     <message>
         <source>Width</source>
@@ -23427,6 +23798,172 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Tracking</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Alisin ang tracking</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Bagay</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Mukha</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>I-click sa preview ang mukhang susundan (kung wala, ang pinakamalapit sa elemento).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Ini-scan muna ang mga mukha sa “%1”, saka susundan ang pinakamalapit sa elemento.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Pumili ng bagay sa preview o gumuhit ng kahon sa paligid nito. Kung walang pinili, susundan ang natatakpan ng elemento sa “%1”.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Naghahanap…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Hanapin ang mga bagay</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Hanapin ang mga tao, hayop, sasakyan at iba pa sa playhead</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Kunin ang object detection</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>I-install ang extra na “Object tracking” para awtomatikong mahanap ang mga bagay</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Alisin ang pinili</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direksyon</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Pareho</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Pasulong</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Paatras</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Sundan mula sa playhead papunta sa magkabilang dulo ng clip, o sa iisang direksyon lang</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Scale — lumalaki at lumiliit kasabay ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Distansya — nananatili sa puwesto nito katabi ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Off: nakapatong mismo ang elemento sa sinusundan</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Mag-track ulit mula rito</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Simulan ang tracking</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Sumusunod mula sa playhead; nananatili ang puwesto ng elemento kaugnay ng sinusundan</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>I-realign</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>Pagkatapos ilipat, i-trim o pabilisin ang video: ibinabalik ang daan dito nang hindi nag-a-analyze ulit</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Itago</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>Mukha</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Bagay</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>I-click sa preview ang mukhang itatago (kung wala, ang pinakamalapit sa gitna). Natatakpan ito sa buong clip habang sinusundan; ang layer ay nasa mismong itaas ng clip.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Pumili ng bagay sa preview o gumuhit ng kahon sa paligid nito. Natatakpan ito sa buong clip habang sinusundan; ang layer ay nasa mismong itaas ng clip.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>I-pixelate</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>I-blur</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Wala na sa proyekto ang sinusundang video.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Napalitan ang sinusundang video: mag-track ulit para tumugma ang daan.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Nasundan sa %1 frame; nawala sa %2. Kung saan ito nawala, dumudulas ang elemento sa pagitan ng mga frame kung saan ito nakita.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Nasundan sa lahat ng %1 frame.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Nawala</translation>
+    </message>
+</context>
+<context>
     <name>TransformInspector</name>
     <message>
         <source>Opacity</source>
@@ -24636,7 +25173,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mukha</translation>
     </message>
     <message>
         <source>Body</source>
@@ -24867,11 +25404,11 @@ If playback stutters, try another.</source>
     <name>VideoMaskPage</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>Rectangle</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Parihaba</translation>
     </message>
     <message>
         <source>Circle</source>
@@ -24887,7 +25424,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Heart</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Puso</translation>
     </message>
     <message>
         <source>Text</source>
@@ -25211,7 +25748,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wala</translation>
     </message>
     <message>
         <source>%1 — click to apply; the star keeps it in favorites</source>

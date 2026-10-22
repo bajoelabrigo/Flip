@@ -138,6 +138,7 @@
   "text-style:precios": "价格促销",
   "text-style:retro": "复古千禧",
   "text-style:subtitulos": "爆款字幕",
+  "text-style:tendencias": "流行趋势",
   "text-style:tercios": "角标字幕",
   "text-style:terror": "恐怖悬疑",
   "text-style:titulos": "标题",
@@ -34149,6 +34150,3544 @@
     "红色",
     "强调",
     "短视频"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "紫色辉光开场",
+   "tags": [
+    "开场",
+    "片头",
+    "电影",
+    "紫色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "蓝色气泡",
+   "tags": [
+    "艺术字",
+    "蓝色",
+    "气泡",
+    "童趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "红色浮雕艺术字",
+   "tags": [
+    "艺术字",
+    "红色",
+    "3d",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "白色配粉色立体",
+   "tags": [
+    "艺术字",
+    "粉色",
+    "3d",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "双行红色横幅",
+   "tags": [
+    "下三分之一",
+    "横幅",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "随性手写",
+   "tags": [
+    "手写体",
+    "手写",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "欢迎来到频道",
+   "tags": [
+    "欢迎",
+    "频道",
+    "打字",
+    "手写体",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "新闻条",
+   "tags": [
+    "新闻",
+    "丝带",
+    "条",
+    "下三分之一",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "经典黄色",
+   "tags": [
+    "经典",
+    "黄色",
+    "圆体",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "白烟燃烧文字",
+   "tags": [
+    "烟雾",
+    "电影",
+    "戏剧性",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "漫画字幕",
+   "tags": [
+    "搞笑",
+    "字幕",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "镀铬赛事",
+   "tags": [
+    "体育",
+    "赛事",
+    "镀铬",
+    "金属",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "演员表字幕",
+   "tags": [
+    "字幕名单",
+    "演员表",
+    "电影",
+    "结尾",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "白底标题",
+   "tags": [
+    "白色",
+    "极简",
+    "企业",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "旅行日记",
+   "tags": [
+    "旅行",
+    "日记",
+    "手写",
+    "纸张",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "糖果3D展示",
+   "tags": [
+    "3d",
+    "糖果",
+    "橙色",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "标题上方标签",
+   "tags": [
+    "标签",
+    "简洁",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "黑框结束字幕",
+   "tags": [
+    "结束",
+    "打字",
+    "方框",
+    "黑色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "聚光灯结束",
+   "tags": [
+    "结束",
+    "聚光灯",
+    "电影",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "宽字距银河",
+   "tags": [
+    "银河",
+    "太空",
+    "电影",
+    "宽字距",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "闪亮金色感谢",
+   "tags": [
+    "感谢",
+    "金色",
+    "发光",
+    "星星",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "星空感谢",
+   "tags": [
+    "感谢",
+    "告别",
+    "星星",
+    "金色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "洋红条标题",
+   "tags": [
+    "图形",
+    "洋红",
+    "条",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "黑色涂鸦白边",
+   "tags": [
+    "涂鸦",
+    "街头",
+    "贴纸",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "大标题紫色线条",
+   "tags": [
+    "大号",
+    "紫色",
+    "线条",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "做旧灰色",
+   "tags": [
+    "电影",
+    "灰色",
+    "做旧",
+    "暗色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "很久以前",
+   "tags": [
+    "故事",
+    "电影",
+    "片头",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "烟雾显现",
+   "tags": [
+    "烟雾",
+    "淡出",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "漫画“不可思议”",
+   "tags": [
+    "漫画",
+    "不可思议",
+    "火焰",
+    "爆炸",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "复古黄色游戏",
+   "tags": [
+    "游戏",
+    "复古",
+    "黄色",
+    "纹理",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "简洁标题",
+   "tags": [
+    "极简",
+    "简洁",
+    "基础",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "霓虹线条间的感谢",
+   "tags": [
+    "霓虹",
+    "感谢",
+    "订阅",
+    "线条",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "亮粉霓虹",
+   "tags": [
+    "霓虹",
+    "粉色",
+    "美妆",
+    "化妆",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "3D金色",
+   "tags": [
+    "黄金",
+    "金色",
+    "3d",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "黑色胶囊红点",
+   "tags": [
+    "片头",
+    "胶囊",
+    "黑色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "黄色电影标题",
+   "tags": [
+    "电影",
+    "黄色",
+    "预告片",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "小字叠大字",
+   "tags": [
+    "字幕",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "3D石头",
+   "tags": [
+    "石头",
+    "3d",
+    "岩石",
+    "浮雕",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "社交账号胶囊",
+   "tags": [
+    "社交媒体",
+    "用户名",
+    "胶囊",
+    "订阅",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "白色手写体",
+   "tags": [
+    "手写体",
+    "书法",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "衬线加副标题",
+   "tags": [
+    "衬线",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "黑底黄字字幕",
+   "tags": [
+    "字幕",
+    "黄色",
+    "方框",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "白底字幕框",
+   "tags": [
+    "字幕",
+    "方框",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "黑底字幕框",
+   "tags": [
+    "字幕",
+    "方框",
+    "黑色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "电影字幕",
+   "tags": [
+    "字幕",
+    "电影",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "细体字幕",
+   "tags": [
+    "字幕",
+    "细体",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "红色订阅",
+   "tags": [
+    "订阅",
+    "红色",
+    "按钮",
+    "社交媒体",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "白青下三分之一",
+   "tags": [
+    "下三分之一",
+    "白色",
+    "天蓝",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "金色丝带",
+   "tags": [
+    "下三分之一",
+    "丝带",
+    "金色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "红色下三分之一",
+   "tags": [
+    "下三分之一",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "左对齐头条",
+   "tags": [
+    "头条",
+    "左侧",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "红条标题",
+   "tags": [
+    "条",
+    "红色",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "火焰标题",
+   "tags": [
+    "火焰",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "打字机日常Vlog",
+   "tags": [
+    "vlog",
+    "打字",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "黄字黑边",
+   "tags": [
+    "艺术字",
+    "黄色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "黄字红边",
+   "tags": [
+    "艺术字",
+    "黄色",
+    "红色",
+    "漫画",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "宽字距橙色艺术字",
+   "tags": [
+    "艺术字",
+    "橙色",
+    "渐变",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "红色3D艺术字",
+   "tags": [
+    "艺术字",
+    "红色",
+    "3d",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "扫光",
+   "tags": [
+    "发光",
+    "闪耀",
+    "扫光",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "基础角标",
+   "tags": [
+    "基础",
+    "简约",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "蓝色科技欢迎",
+   "tags": [
+    "欢迎",
+    "蓝色",
+    "科技",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "紫罗兰色方框",
+   "tags": [
+    "方框",
+    "紫罗兰",
+    "下三分之一",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "3D卡通",
+   "tags": [
+    "卡通",
+    "3d",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "经典卡通",
+   "tags": [
+    "卡通",
+    "黄色",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "宽字距电影感",
+   "tags": [
+    "电影",
+    "宽字距",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "商业方框标题",
+   "tags": [
+    "商业",
+    "方框",
+    "体育",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "导演署名",
+   "tags": [
+    "署名",
+    "电影",
+    "导演",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "斜体加说明",
+   "tags": [
+    "斜体",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "火焰闪光",
+   "tags": [
+    "火焰",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "黄光签名体",
+   "tags": [
+    "签名",
+    "手写体",
+    "黄色",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "简约衬线",
+   "tags": [
+    "衬线",
+    "简约",
+    "优雅",
+    "斜体",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "撕纸感谢",
+   "tags": [
+    "感谢",
+    "纸张",
+    "撕纸",
+    "手写",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "发光感谢",
+   "tags": [
+    "感谢",
+    "发光",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "金色光束",
+   "tags": [
+    "黄金",
+    "金色",
+    "发光",
+    "奢华",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "蓝色烟雾",
+   "tags": [
+    "烟雾",
+    "蓝色",
+    "发光",
+    "粒子",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "心跳",
+   "tags": [
+    "心跳",
+    "爱情",
+    "脉冲",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "白色标注框",
+   "tags": [
+    "标注",
+    "方框",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "青柠边框",
+   "tags": [
+    "边框",
+    "青柠",
+    "精选",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "打字机标题",
+   "tags": [
+    "打字机",
+    "打字",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "3D金属",
+   "tags": [
+    "金属",
+    "3d",
+    "中世纪",
+    "镀铬",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "时尚白色色块",
+   "tags": [
+    "时尚",
+    "方框",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "简单抖动",
+   "tags": [
+    "动态",
+    "抖动",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "热粉霓虹",
+   "tags": [
+    "霓虹",
+    "粉色",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "漫画拟声词",
+   "tags": [
+    "漫画",
+    "拟声词",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "粒子标题",
+   "tags": [
+    "粒子",
+    "粉色",
+    "宽字距",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "电影海报衬线",
+   "tags": [
+    "电影",
+    "海报",
+    "衬线",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "堆叠经典海报",
+   "tags": [
+    "海报",
+    "电影",
+    "恐怖",
+    "窄体",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "暗黑预告",
+   "tags": [
+    "促销",
+    "电影",
+    "暗色",
+    "窄体",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "即将上映",
+   "tags": [
+    "即将上映",
+    "首映",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "黄色辉光",
+   "tags": [
+    "发光",
+    "辉光",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "蓝色辉光",
+   "tags": [
+    "发光",
+    "辉光",
+    "蓝色",
+    "霓虹",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "锐利3D衬线",
+   "tags": [
+    "3d",
+    "衬线",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "动感字幕",
+   "tags": [
+    "字幕",
+    "动感",
+    "卡拉ok",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "黑底黄字字幕",
+   "tags": [
+    "字幕",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "红丝带订阅",
+   "tags": [
+    "订阅",
+    "红色",
+    "笔刷",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "发光订阅",
+   "tags": [
+    "订阅",
+    "发光",
+    "紫色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "蓝色描边下三分之一",
+   "tags": [
+    "下三分之一",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "粉条下三分之一",
+   "tags": [
+    "下三分之一",
+    "粉色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "彩色描边下三分之一",
+   "tags": [
+    "下三分之一",
+    "紫色",
+    "绿色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "倾斜橙色下三分之一",
+   "tags": [
+    "下三分之一",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "粗体下三分之一",
+   "tags": [
+    "下三分之一",
+    "粗体",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "科技下三分之一",
+   "tags": [
+    "下三分之一",
+    "科技",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "商店色块",
+   "tags": [
+    "商店",
+    "粗体",
+    "销售",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "水墨标题",
+   "tags": [
+    "水墨",
+    "笔刷",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "蓝色笔刷头条",
+   "tags": [
+    "笔刷",
+    "蓝色",
+    "头条",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "发光蓝框标题",
+   "tags": [
+    "方框",
+    "蓝色",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "黄条标题",
+   "tags": [
+    "丝带",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "带小标题的标题",
+   "tags": [
+    "简约",
+    "小标题",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "橙色水彩",
+   "tags": [
+    "水彩",
+    "笔刷",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "爱上文字",
+   "tags": [
+    "字体",
+    "黄色",
+    "金句",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "3D黄金岁月",
+   "tags": [
+    "金色",
+    "3d",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "粗黄色艺术字",
+   "tags": [
+    "艺术字",
+    "黄色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "蓝色光晕艺术字",
+   "tags": [
+    "艺术字",
+    "蓝色",
+    "光晕",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "红边艺术字",
+   "tags": [
+    "艺术字",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "斜体红色艺术字",
+   "tags": [
+    "艺术字",
+    "红色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "蓝色阴影艺术字",
+   "tags": [
+    "艺术字",
+    "阴影",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "侧边条标题",
+   "tags": [
+    "条",
+    "左侧",
+    "三分之一",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "居中基础",
+   "tags": [
+    "基础",
+    "居中",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "小号基础",
+   "tags": [
+    "基础",
+    "小号",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "下方基础",
+   "tags": [
+    "基础",
+    "下方",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "便签基础",
+   "tags": [
+    "基础",
+    "便条",
+    "小号",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "史诗辉光",
+   "tags": [
+    "发光",
+    "辉光",
+    "史诗",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "单色辉光",
+   "tags": [
+    "发光",
+    "单色",
+    "像素",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "呼吸辉光",
+   "tags": [
+    "发光",
+    "呼吸",
+    "柔和",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "轻柔下落",
+   "tags": [
+    "下落",
+    "幻灯片",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "创意紫罗兰方框",
+   "tags": [
+    "方框",
+    "紫罗兰",
+    "创意",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "金属电影感",
+   "tags": [
+    "电影",
+    "金属",
+    "预告片",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "燃烧",
+   "tags": [
+    "火焰",
+    "燃烧",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "复古漫画3D",
+   "tags": [
+    "漫画",
+    "复古",
+    "3d",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "窄体加副标题",
+   "tags": [
+    "窄体",
+    "字幕",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "字幕名单",
+   "tags": [
+    "字幕名单",
+    "片尾字幕",
+    "列表",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "优雅斜体",
+   "tags": [
+    "斜体",
+    "手写体",
+    "基础",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "打字光标",
+   "tags": [
+    "打字机",
+    "光标",
+    "打字",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "模糊滑入",
+   "tags": [
+    "滑入",
+    "滑动",
+    "模糊",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "基础精选",
+   "tags": [
+    "精选",
+    "精彩瞬间",
+    "基础",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "颤抖的美好一天",
+   "tags": [
+    "抖动",
+    "可爱",
+    "青柠",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "对决重燃",
+   "tags": [
+    "体育",
+    "对决",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "粉色甜点",
+   "tags": [
+    "美食",
+    "甜点",
+    "粉色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "游戏特效标题",
+   "tags": [
+    "游戏",
+    "电光",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "衬线打字",
+   "tags": [
+    "打字机",
+    "衬线",
+    "光标",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "星芒闪光",
+   "tags": [
+    "闪光",
+    "光斑",
+    "光",
+    "滑入",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "3D流光",
+   "tags": [
+    "光",
+    "银色",
+    "3d",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "大标题加副标题",
+   "tags": [
+    "大标题",
+    "字幕",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "红色光束",
+   "tags": [
+    "发光",
+    "红色",
+    "光束",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "冰冷冬日",
+   "tags": [
+    "冬季",
+    "冰",
+    "寒冷",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "放射光芒",
+   "tags": [
+    "发光",
+    "光芒",
+    "放射",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "左下角标题",
+   "tags": [
+    "左侧",
+    "下方",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "白色霓虹灯",
+   "tags": [
+    "霓虹",
+    "光",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "体育精彩瞬间",
+   "tags": [
+    "体育",
+    "赛事",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "纸质便条",
+   "tags": [
+    "旅行",
+    "便条",
+    "纸张",
+    "vlog",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "可爱流行新品",
+   "tags": [
+    "流行",
+    "新品",
+    "可爱"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "巨型红色优惠",
+   "tags": [
+    "优惠",
+    "折扣",
+    "销售",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "银河包",
+   "tags": [
+    "银河",
+    "太空",
+    "宽字距",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "粒子消散",
+   "tags": [
+    "粒子",
+    "淡出",
+    "粉尘",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "优雅金色粒子",
+   "tags": [
+    "金色",
+    "粒子",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "可爱流行",
+   "tags": [
+    "流行",
+    "可爱",
+    "简约"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "默认标题",
+   "tags": [
+    "默认",
+    "简约",
+    "基础",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "漫画问号",
+   "tags": [
+    "漫画",
+    "提问",
+    "游戏",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "描边幻灯片",
+   "tags": [
+    "描边",
+    "幻灯片",
+    "双样式",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "暗黑预告片",
+   "tags": [
+    "促销",
+    "电影",
+    "预告片",
+    "首映",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "红色金属复古",
+   "tags": [
+    "复古",
+    "金属",
+    "红色",
+    "3d",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "白色手写体",
+   "tags": [
+    "手写体",
+    "白色",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "签名手写体",
+   "tags": [
+    "签名",
+    "手写体",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "经典衬线",
+   "tags": [
+    "衬线",
+    "经典",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "细黄色字幕",
+   "tags": [
+    "字幕",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "白色字幕",
+   "tags": [
+    "字幕",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "黑框字幕",
+   "tags": [
+    "字幕",
+    "方框",
+    "黑色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "青柠字幕",
+   "tags": [
+    "字幕",
+    "青柠",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "无尽梦想",
+   "tags": [
+    "字体",
+    "红色",
+    "梦想",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "黄色打字",
+   "tags": [
+    "打字机",
+    "打字",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "白框打字",
+   "tags": [
+    "打字机",
+    "方框",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "手动打字",
+   "tags": [
+    "打字机",
+    "打字",
+    "手写",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "衬线打字标题",
+   "tags": [
+    "打字机",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "倾斜蓝色下三分之一",
+   "tags": [
+    "下三分之一",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "黄色胶囊下三分之一",
+   "tags": [
+    "下三分之一",
+    "胶囊",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "紫罗兰促销下三分之一",
+   "tags": [
+    "下三分之一",
+    "促销",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "青绿下三分之一",
+   "tags": [
+    "下三分之一",
+    "青绿",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "黄色体育头条",
+   "tags": [
+    "体育",
+    "头条",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "今日头条",
+   "tags": [
+    "新闻",
+    "头条",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "火花标题",
+   "tags": [
+    "火花",
+    "火焰",
+    "散景",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "火星标题",
+   "tags": [
+    "火焰",
+    "余烬",
+    "粒子",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "金色火花标题",
+   "tags": [
+    "金色",
+    "火花",
+    "粒子",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "方框描边标题",
+   "tags": [
+    "方框",
+    "边框",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "蓝框标题",
+   "tags": [
+    "边框",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "大标题和副标题",
+   "tags": [
+    "大标题",
+    "字幕",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "简洁标题",
+   "tags": [
+    "基础",
+    "简洁",
+    "简约",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "中号简洁标题",
+   "tags": [
+    "基础",
+    "简洁",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "曲线下划线标题",
+   "tags": [
+    "手写体",
+    "下划线",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "液体标题",
+   "tags": [
+    "液体",
+    "粉色",
+    "粒子",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "极速标题",
+   "tags": [
+    "体育",
+    "速度",
+    "史诗",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "突发新闻",
+   "tags": [
+    "新闻",
+    "突发新闻",
+    "突发",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "爆炸感叹",
+   "tags": [
+    "漫画",
+    "感叹",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "日常Vlog",
+   "tags": [
+    "vlog",
+    "手写体",
+    "日记",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "每周Vlog笔刷",
+   "tags": [
+    "vlog",
+    "笔刷",
+    "手写",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "红色旅行Vlog",
+   "tags": [
+    "旅行",
+    "vlog",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "模糊缩放",
+   "tags": [
+    "缩放",
+    "幻灯片",
+    "模糊",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "黄字黑边",
+   "tags": [
+    "黄色",
+    "描边",
+    "贴纸",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "黄色甜心",
+   "tags": [
+    "爱情",
+    "黄色",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "粉色发光爱心",
+   "tags": [
+    "爱情",
+    "粉色",
+    "发光",
+    "爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "和我一起准备",
+   "tags": [
+    "发光",
+    "紫色",
+    "美妆",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "红色余烬",
+   "tags": [
+    "火焰",
+    "余烬",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "漂亮一招",
+   "tags": [
+    "体育",
+    "窄体",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "满满好心情",
+   "tags": [
+    "氛围",
+    "复古",
+    "积极",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "流行气泡字",
+   "tags": [
+    "气泡",
+    "流行",
+    "卡哇伊"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "紫蓝气泡",
+   "tags": [
+    "气泡",
+    "紫罗兰",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "粉框签名",
+   "tags": [
+    "粉色",
+    "方框",
+    "签名",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "调皮白字",
+   "tags": [
+    "有趣",
+    "白色",
+    "调皮",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "火热",
+   "tags": [
+    "硬阴影",
+    "白色",
+    "冲击",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "街头3D",
+   "tags": [
+    "都市",
+    "3d",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "粉色霓虹女孩",
+   "tags": [
+    "霓虹",
+    "粉色",
+    "女孩",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "大蓝色渐变",
+   "tags": [
+    "蓝色",
+    "渐变",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "青色闪光",
+   "tags": [
+    "发光",
+    "青色",
+    "星星",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "红色社论",
+   "tags": [
+    "社论",
+    "杂志",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "精英",
+   "tags": [
+    "精英",
+    "极简",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "橙色标签",
+   "tags": [
+    "标签",
+    "橙色",
+    "小号",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "幽灵霓虹",
+   "tags": [
+    "霓虹",
+    "蓝色",
+    "幽灵",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "黄字蓝边",
+   "tags": [
+    "黄色",
+    "蓝色",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "一见钟情",
+   "tags": [
+    "爱情",
+    "红色",
+    "阴影",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "火焰签名体",
+   "tags": [
+    "火焰",
+    "霓虹",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "粉色俏皮",
+   "tags": [
+    "猫",
+    "粉色",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "红烟方框",
+   "tags": [
+    "烟雾",
+    "红色",
+    "警报",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "暗粉“我爱你”",
+   "tags": [
+    "爱情",
+    "粉色",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "秋天来了",
+   "tags": [
+    "秋季",
+    "漫画",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "秋季菜单",
+   "tags": [
+    "秋季",
+    "菜单",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "迷你“我爱你”",
+   "tags": [
+    "爱情",
+    "小号",
+    "粉色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "暗黑模式剪影",
+   "tags": [
+    "贴纸",
+    "剪纸",
+    "黑白",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "橙色色块上的瞬间",
+   "tags": [
+    "色块",
+    "橙色",
+    "瞬间",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "蒙太奇",
+   "tags": [
+    "蒙太奇",
+    "极简",
+    "电影",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "自然",
+   "tags": [
+    "自然",
+    "绿色",
+    "环保",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "电光蓝霓虹",
+   "tags": [
+    "霓虹",
+    "蓝色",
+    "电光",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "金色之夜",
+   "tags": [
+    "橙色",
+    "渐变",
+    "夜晚",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "神秘之夜",
+   "tags": [
+    "夜晚",
+    "神秘",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "旧纸便条",
+   "tags": [
+    "纸张",
+    "便条",
+    "复古",
+    "温馨",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "胶带便条",
+   "tags": [
+    "便条",
+    "日记",
+    "丝带",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "金色火花",
+   "tags": [
+    "金色",
+    "发光",
+    "庆祝",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "大胆一步",
+   "tags": [
+    "方框",
+    "红色",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "发光蓝色胶囊",
+   "tags": [
+    "胶囊",
+    "蓝色",
+    "方框",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "爱心白胶囊",
+   "tags": [
+    "爱心",
+    "胶囊",
+    "爱情",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "玻璃肌",
+   "tags": [
+    "美妆",
+    "玻璃",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "白边红字",
+   "tags": [
+    "红色",
+    "游戏",
+    "播放",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "终于",
+   "tags": [
+    "极简",
+    "白色",
+    "终于",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "可爱粉色",
+   "tags": [
+    "粉色",
+    "手写体",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "粉色描边问号",
+   "tags": [
+    "提问",
+    "粉色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "红色贴纸",
+   "tags": [
+    "贴纸",
+    "红色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "细线日常手写",
+   "tags": [
+    "手写体",
+    "细体",
+    "书法",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "边框印章",
+   "tags": [
+    "印章",
+    "边框",
+    "复古",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "白字烟雾阴影",
+   "tags": [
+    "阴影",
+    "烟雾",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "安静订阅",
+   "tags": [
+    "订阅",
+    "极简",
+    "小号",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "热粉“我爱你”",
+   "tags": [
+    "爱情",
+    "粉色",
+    "爱心",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "深红爱意",
+   "tags": [
+    "爱情",
+    "红色",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "浪漫“我爱你”",
+   "tags": [
+    "爱情",
+    "浪漫",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "金色丝绒",
+   "tags": [
+    "金色",
+    "手写体",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "日常Vlog",
+   "tags": [
+    "vlog",
+    "日记",
+    "美食",
+    "流行"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "返校季",
+   "tags": [
+    "学校",
+    "描边",
+    "镂空",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "紫罗兰描边",
+   "tags": [
+    "描边",
+    "镂空",
+    "紫罗兰",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "超长告别",
+   "tags": [
+    "告别",
+    "结尾",
+    "梗图",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "做旧售罄",
+   "tags": [
+    "售罄",
+    "红色",
+    "故障",
+    "商店",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "粉色发光爱情",
+   "tags": [
+    "爱情",
+    "粉色",
+    "情人节",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "带对勾的通过",
+   "tags": [
+    "通过",
+    "对勾",
+    "绿色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "绿蓝错位",
+   "tags": [
+    "故障",
+    "rgb",
+    "绿色",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "红色之吻",
+   "tags": [
+    "爱情",
+    "红色",
+    "嘴唇",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "分享按钮",
+   "tags": [
+    "按钮",
+    "社交媒体",
+    "分享",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "点赞按钮",
+   "tags": [
+    "按钮",
+    "社交媒体",
+    "点赞",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "关注按钮",
+   "tags": [
+    "按钮",
+    "社交媒体",
+    "关注",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "紫罗兰薄雾",
+   "tags": [
+    "紫罗兰",
+    "梦想",
+    "魔法",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "小号电影感",
+   "tags": [
+    "电影",
+    "极简",
+    "宽字距",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "带副标题的电影感",
+   "tags": [
+    "电影",
+    "vlog",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "3D黄色漫画",
+   "tags": [
+    "漫画",
+    "3d",
+    "黄色",
+    "爆炸",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "片尾字幕",
+   "tags": [
+    "字幕名单",
+    "电影",
+    "结尾",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "蓝色渐变",
+   "tags": [
+    "渐变",
+    "蓝色",
+    "柔和",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "享受生活",
+   "tags": [
+    "金句",
+    "优雅",
+    "衬线",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "粉蓝双描边",
+   "tags": [
+    "霓虹",
+    "描边",
+    "粉色",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "红黄斜体",
+   "tags": [
+    "漫画",
+    "动作",
+    "红色",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "斜体衬线",
+   "tags": [
+    "优雅",
+    "衬线",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "白卡片引语",
+   "tags": [
+    "金句",
+    "引语",
+    "励志",
+    "卡片",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "霓虹圈中火焰",
+   "tags": [
+    "霓虹",
+    "火焰",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "感谢观看",
+   "tags": [
+    "结尾",
+    "像素",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "漫画哇",
+   "tags": [
+    "漫画",
+    "惊讶",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "红色回声衬线",
+   "tags": [
+    "衬线",
+    "播客",
+    "红色",
+    "故障",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "你好你好",
+   "tags": [
+    "问候",
+    "梗图",
+    "字幕",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "白烟",
+   "tags": [
+    "烟雾",
+    "雾",
+    "柔和",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "细字距衬线",
+   "tags": [
+    "美妆",
+    "优雅",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "火焰字母",
+   "tags": [
+    "火焰",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "双字体美妆",
+   "tags": [
+    "化妆",
+    "美妆",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "黄色荧光笔",
+   "tags": [
+    "提问",
+    "荧光笔",
+    "黄色",
+    "博客",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "粉色气泡",
+   "tags": [
+    "粉色",
+    "可爱",
+    "卡哇伊",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "薄雾衬线",
+   "tags": [
+    "衬线",
+    "薄雾",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "柔和绿色衬线",
+   "tags": [
+    "衬线",
+    "绿色",
+    "柔和",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "迷你Vlog气泡",
+   "tags": [
+    "vlog",
+    "可爱",
+    "气泡",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "粗橙色",
+   "tags": [
+    "橙色",
+    "频道",
+    "支持",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "手绘青色霓虹",
+   "tags": [
+    "霓虹",
+    "天蓝",
+    "招牌",
+    "夜晚",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "红色霓虹手写",
+   "tags": [
+    "霓虹",
+    "红色",
+    "招牌",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "宽体新时代",
+   "tags": [
+    "极简",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "糟糕",
+   "tags": [
+    "梗图",
+    "反应",
+    "字幕",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "低调奢华",
+   "tags": [
+    "奢华",
+    "极简",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "宽字距大写",
+   "tags": [
+    "奢华",
+    "极简",
+    "宽字距",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "温馨秋日",
+   "tags": [
+    "秋季",
+    "咖啡",
+    "温馨",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "撕纸",
+   "tags": [
+    "纸张",
+    "复古",
+    "照片",
+    "日记",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "爱心胶囊",
+   "tags": [
+    "爱情",
+    "粉色",
+    "可爱",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "标签文字",
+   "tags": [
+    "grwm",
+    "vlog",
+    "标签",
+    "机器",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "亲爱的日记",
+   "tags": [
+    "日记",
+    "vlog",
+    "贴纸",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "黄框促销",
+   "tags": [
+    "优惠",
+    "打折",
+    "商店",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "彩色剪纸字母",
+   "tags": [
+    "拼贴",
+    "剪纸",
+    "彩色",
+    "照片",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "发光斜体",
+   "tags": [
+    "发光",
+    "白色",
+    "辉光",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "日常护肤手写",
+   "tags": [
+    "化妆",
+    "手写体",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "水花",
+   "tags": [
+    "水",
+    "夏季",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "关注我红条",
+   "tags": [
+    "关注",
+    "社交媒体",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "不急",
+   "tags": [
+    "金句",
+    "平静",
+    "窄体",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "白色下划线",
+   "tags": [
+    "金句",
+    "极简",
+    "下划线",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "红色霓虹订阅",
+   "tags": [
+    "订阅",
+    "霓虹",
+    "红色",
+    "频道",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "红色恐怖",
+   "tags": [
+    "恐怖",
+    "红色",
+    "恐惧",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "字母贴纸",
+   "tags": [
+    "贴纸",
+    "彩色",
+    "童趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "打字机之旅",
+   "tags": [
+    "打字机",
+    "旅行",
+    "故事",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "用户名标签",
+   "tags": [
+    "用户名",
+    "社交媒体",
+    "标签",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "简洁出发",
+   "tags": [
+    "极简",
+    "动作",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "蓝色火焰",
+   "tags": [
+    "蓝色",
+    "火焰",
+    "能量",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "青柠描边",
+   "tags": [
+    "绿色",
+    "黄色",
+    "游戏",
+    "流行"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "白色呐喊字幕",
+   "tags": [
+    "梗图",
+    "猫",
+    "有趣",
+    "字幕",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "橙色冲呀",
+   "tags": [
+    "橙色",
+    "鼓励",
+    "励志",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "粉色霓虹爱心",
+   "tags": [
+    "爱情",
+    "霓虹",
+    "粉色",
+    "情人节",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "红色回声爱心",
+   "tags": [
+    "爱情",
+    "红色",
+    "3d",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "银色天使",
+   "tags": [
+    "天使",
+    "银色",
+    "翅膀",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "烈焰光环",
+   "tags": [
+    "火焰",
+    "光环",
+    "手写体",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "漫画BAM",
+   "tags": [
+    "漫画",
+    "bam",
+    "打击",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "绿色霓虹街头",
+   "tags": [
+    "霓虹",
+    "绿色",
+    "街头",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "宽字距电影感",
+   "tags": [
+    "电影",
+    "电影感",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "亮红色横幅",
+   "tags": [
+    "丝带",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "带下划线的引语框",
+   "tags": [
+    "引语",
+    "方框",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "发光创意",
+   "tags": [
+    "创意",
+    "发光",
+    "光",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "彩色生日",
+   "tags": [
+    "生日",
+    "派对",
+    "彩色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "闪光精选",
+   "tags": [
+    "精选",
+    "火花",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "牛皮纸日记",
+   "tags": [
+    "日记",
+    "纸张",
+    "牛皮纸",
+    "复古",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "斜体金色",
+   "tags": [
+    "金色",
+    "奢华",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "漫画“嗯？”",
+   "tags": [
+    "漫画",
+    "惊讶",
+    "反应",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "冰电",
+   "tags": [
+    "电光",
+    "冰",
+    "蓝色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "红色燃烧",
+   "tags": [
+    "火焰",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "发光能量框",
+   "tags": [
+    "能量",
+    "红色",
+    "方框",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "细线美学",
+   "tags": [
+    "美学",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "节日快乐",
+   "tags": [
+    "圣诞",
+    "节日",
+    "假日",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "发光结尾",
+   "tags": [
+    "结束",
+    "结尾",
+    "电影",
+    "发光",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "章节结尾",
+   "tags": [
+    "章节",
+    "结束",
+    "vlog",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "烈焰终章",
+   "tags": [
+    "火焰",
+    "结尾",
+    "结束",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "余烬文字",
+   "tags": [
+    "火焰",
+    "余烬",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "撕纸引语",
+   "tags": [
+    "金句",
+    "励志",
+    "纸张",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "蓝色霓虹火焰",
+   "tags": [
+    "霓虹",
+    "蓝色",
+    "速度",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "强烈蓝色霓虹",
+   "tags": [
+    "霓虹",
+    "蓝色",
+    "强烈",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "粉色霓虹赢家",
+   "tags": [
+    "赢家",
+    "霓虹",
+    "粉色",
+    "火焰",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "创意世代",
+   "tags": [
+    "优雅",
+    "衬线",
+    "纪录片",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "感谢对话气泡",
+   "tags": [
+    "感谢",
+    "气泡",
+    "对话",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "粉色谢谢",
+   "tags": [
+    "感谢",
+    "粉色",
+    "贴纸",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "粉框感谢",
+   "tags": [
+    "感谢",
+    "粉色",
+    "爱心",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "纸条感谢",
+   "tags": [
+    "感谢",
+    "纸张",
+    "结尾",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "大促销",
+   "tags": [
+    "火焰",
+    "推广",
+    "优惠",
+    "销售",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "哇星爆",
+   "tags": [
+    "漫画",
+    "哇",
+    "星爆",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "涂鸦故事",
+   "tags": [
+    "素描",
+    "涂鸦",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "故事开始",
+   "tags": [
+    "故事",
+    "垃圾风",
+    "打字机",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "彩色今日故事",
+   "tags": [
+    "彩色",
+    "故事",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "我的故事标签",
+   "tags": [
+    "标签",
+    "故事",
+    "vlog",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "手写看这里",
+   "tags": [
+    "手写",
+    "箭头",
+    "指向",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "白框瞬间",
+   "tags": [
+    "场景",
+    "方框",
+    "电影",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "细线瞬间",
+   "tags": [
+    "瞬间",
+    "手写体",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "蓝色括号新闻",
+   "tags": [
+    "新闻",
+    "下三分之一",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "描边云朵",
+   "tags": [
+    "云朵",
+    "白色",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "红色促销框",
+   "tags": [
+    "优惠",
+    "促销",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "撕纸",
+   "tags": [
+    "纸张",
+    "撕纸",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "镀铬对决",
+   "tags": [
+    "镀铬",
+    "对战",
+    "金属",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "绿色完美",
+   "tags": [
+    "完美",
+    "绿色",
+    "游戏",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "衬线诗歌",
+   "tags": [
+    "诗歌",
+    "爱情",
+    "金句",
+    "优雅",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "问题框",
+   "tags": [
+    "提问",
+    "评论",
+    "方框",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "极速促销",
+   "tags": [
+    "促销",
+    "速度",
+    "镀铬",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "社交胶囊",
+   "tags": [
+    "社交媒体",
+    "关注",
+    "点赞",
+    "分享",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "青绿霓虹圆角",
+   "tags": [
+    "霓虹",
+    "圆角",
+    "游戏",
+    "描边",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "光晕衬线",
+   "tags": [
+    "衬线",
+    "光晕",
+    "经典",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "坚持下去宽体",
+   "tags": [
+    "励志",
+    "极简",
+    "白色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "粉色蓬松简约",
+   "tags": [
+    "粉色",
+    "蓬松",
+    "有趣",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "橙色括号字幕",
+   "tags": [
+    "字幕",
+    "方框",
+    "橙色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "红框订阅",
+   "tags": [
+    "订阅",
+    "社交媒体",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "订阅胶囊",
+   "tags": [
+    "订阅",
+    "胶囊",
+    "社交媒体",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "潮流圆圈",
+   "tags": [
+    "潮流",
+    "圆圈",
+    "红色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "黄条文字",
+   "tags": [
+    "简约",
+    "方框",
+    "黄色",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "歌曲标题",
+   "tags": [
+    "音乐",
+    "歌曲",
+    "播放器",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "波形标题",
+   "tags": [
+    "音乐",
+    "音频",
+    "极简",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "点这里",
+   "tags": [
+    "点击",
+    "标注",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "紫色奖杯胶囊",
+   "tags": [
+    "奖杯",
+    "紫色",
+    "胶囊",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "定位图钉",
+   "tags": [
+    "位置",
+    "定位",
+    "旅行",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "黄条突发",
+   "tags": [
+    "新闻",
+    "突发新闻",
+    "突发",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "突发下三分之一",
+   "tags": [
+    "新闻",
+    "下三分之一",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "火焰冲吧",
+   "tags": [
+    "火焰",
+    "冲吧",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "黄色笔刷夏日",
+   "tags": [
+    "夏季",
+    "夏日",
+    "黄色",
+    "笔刷",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "生活动态条",
+   "tags": [
+    "vlog",
+    "纸张",
+    "生活",
+    "流行"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "病毒式爆发",
+   "tags": [
+    "漫画",
+    "爆款",
+    "爆炸",
+    "流行"
    ]
   },
   "text-style:ter-a-mano": {

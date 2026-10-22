@@ -3,6 +3,24 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.19.0 — Seguimiento como CapCut, textos en tendencia y textos 100 % editables
+
+- **Seguimiento:** `core/MotionTrack` (lo encontrado, en tiempo de origen y coordenadas normalizadas del video, con
+  versión en el JSON del proyecto) y `bakeMotionTrack` (claves de posición, y con Escala tamaño y `pixelSize` de un
+  texto; suavizado simétrico que no cruza los tramos perdidos). `RegionTracker` recupera un objeto perdido con la
+  plantilla original y se niega a saltar a un parecido. `MotionTrackController`: `trackWith`, `setOption`,
+  `realign`, `faceTargets`, `targetAt`, `detectObjects` (YOLOX, extra `seguimiento.objetos`, kind `object-model`),
+  `blurFace`, `hideObject`, `maskFollow`. Pestaña `TrackingInspector.qml` (cap `trackable`) y
+  `preview/TrackingOverlay.qml`. `ObjectDetector` con candado entre hilos.
+- **Títulos › Tendencias:** `MarketClient::fetchTextTrends`, `TextPreset::stockId` y
+  `TextPresetStore::idForStockId` (no duplica), `MarketClient::downloadInstalled(itemId, name, where)` en lugar de
+  «añadido a Medios» para lo que se instala.
+- **Máscaras en textos** (`FrameCompositor::masksInLayerFrame`), **textos 100 % editables** y **cuadro de texto
+  ajustado** (`Clip::textAutoFit`, `drift::text::naturalTextSize`).
+- **Listas de Stock:** la cuadrícula copia `Market.items` y conserva la posición al añadir una página.
+- **Traducciones:** lupdate con `-disable-heuristic sametext -disable-heuristic similartext`; se vaciaron 148
+  adivinanzas de `drift_es_CO.ts` que pisaban el español.
+
 ## 0.18.3 — Actualizar sin vueltas, mover clips como CapCut y todo en tu idioma
 
 - **Actualizar:** `UpdateChecker::finishStage` emite siempre `installReady`, así que «Actualización lista» se abre al

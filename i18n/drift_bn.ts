@@ -705,7 +705,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">রঙের আভা</translation>
     </message>
     <message>
         <source>Fade</source>
@@ -3593,6 +3593,10 @@
         <translation type="unfinished">টেক্সট শৈলীর নাম পরিবর্তন করা হয়েছে</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>টেক্সট স্টাইল আপডেট করা যায়নি</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished">টেক্সট শৈলী মুছে ফেলা যায়নি</translation>
     </message>
@@ -4441,19 +4445,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4465,23 +4461,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation type="unfinished"></translation>
+        <source>In Titles › Trending</source>
+        <translation>শিরোনাম › ট্রেন্ডিং-এ</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4490,10 +4478,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5172,6 +5156,18 @@
         <translation type="unfinished">এই ডিভাইসে থাকা কিছুই সেই ফাইলটি শেয়ার করতে পারে না।</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>আগে একটি অ্যানিমেশন বেছে নিন</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>অ্যানিমেশন সংরক্ষণ করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>আমার অ্যানিমেশনে সংরক্ষিত হয়েছে</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished">নীরবতা সরান</translation>
     </message>
@@ -5250,6 +5246,10 @@
     <message>
         <source>Imported</source>
         <translation type="unfinished">ইমপোর্ট করা</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>আমার</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -7277,7 +7277,7 @@
     </message>
     <message>
         <source>Tint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">রঙের আভা</translation>
     </message>
     <message>
         <source>Block Glitch</source>
@@ -7949,7 +7949,7 @@
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">মুখ</translation>
     </message>
     <message>
         <source>Big Eyes</source>
@@ -8453,7 +8453,7 @@
     </message>
     <message>
         <source>Pixelate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">পিক্সেলেট</translation>
     </message>
     <message>
         <source>Block width</source>
@@ -13270,6 +13270,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>ইনস্টল হয়েছে</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” প্রস্তুত। %2।</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” ইনস্টল হয়েছে।</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished">আপডেটের জন্য চেক করুন…</translation>
     </message>
@@ -13438,7 +13450,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ইনস্টল হয়েছে</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -13809,6 +13821,26 @@
     <message>
         <source>Invert</source>
         <translation type="unfinished">উল্টানো</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>স্কেলও — যা ঢেকে রাখে তার সাথে বড় ও ছোট হয়</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>মাস্ক যা ঢেকে রাখে তা অনুসরণ করে</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>মাস্কটি যা অনুসরণ করবে তার উপর রাখুন, তারপর শুরু করুন: প্লেহেড থেকে মাস্কের দুই প্রান্ত পর্যন্ত অ্যানিমেট হয়</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
     </message>
 </context>
 <context>
@@ -14737,6 +14769,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>এই ক্লিপ কিছু অনুসরণ করতে পারে না</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>এতে কিছু অনুসরণ করতে এটি একটি ভিডিওর উপরে রাখুন</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>বস্তু শনাক্তের জন্য “অবজেক্ট ট্র্যাকিং” এক্সট্রা দরকার</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>এখানে কোনো বস্তু পাওয়া যায়নি: যা অনুসরণ করবেন তার চারপাশে একটি বাক্স আঁকুন</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>কোনো মুখ লুকাতে একটি ভিডিও বা ছবি নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>এই ক্লিপে কোনো মুখ পাওয়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>ঝাপসা মুখ</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>পিক্সেলেটেড মুখ</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>মুখ লুকান</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>মুখ লুকানো হয়েছে: এর লেয়ার ক্লিপের উপরে আছে, সেখানে ট্রিম বা মুছে ফেলা যায়</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>কিছু লুকাতে একটি ভিডিও বা ছবি নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>আগে প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>ঝাপসা বস্তু</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>পিক্সেলেটেড বস্তু</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>বস্তু লুকান</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>বস্তু লুকানো হয়েছে: এর লেয়ার ক্লিপের উপরে আছে, সেখানে ট্রিম বা মুছে ফেলা যায়</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>মাস্ক নির্বাচন করুন যাতে এটি যা ঢেকে রাখে তা অনুসরণ করে</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>কিছু অনুসরণ করতে মাস্কটি একটি ভিডিওর উপর রাখুন</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>মাস্কটি যা অনুসরণ করবে তার উপর সরান</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>মাস্ক অনুসরণ করে</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ট্র্যাকিং সরান</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>ট্র্যাকিং সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>যে ভিডিও এটি অনুসরণ করছিল তা আর প্রজেক্টে নেই</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>উপাদান আর ভিডিওর ট্র্যাক করা অংশ আর মিলছে না</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>ট্র্যাকিং সেটিংস</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>ট্র্যাকিং আবার মেলান</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>ট্র্যাকিং ইতিমধ্যে চলছে</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>আগে ভিডিওর মুখগুলো স্ক্যান করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>এলিমেন্ট ও ভিডিও প্রায় একে অপরের উপর পড়ছে না</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>এলিমেন্টটি যা অনুসরণ করবে তার উপরে সরান</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>প্রস্তুত করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>ভিডিওতে স্ক্যান করা কোনো মুখ নেই</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>প্লেহেডে কোনো মুখ নেই: এমন ফ্রেমে যান যেখানে মুখ দেখা যায়</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>ট্র্যাকিং বাতিল হয়েছে</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>%2-এর মধ্যে %1 নম্বর ফ্রেম অনুসরণ করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>অনুসরণ করার মতো কিছু পাওয়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>মোশন ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>ট্র্যাকিং শেষ — %2টির মধ্যে %1টি ফ্রেমে বিষয়বস্তু হারিয়ে গেছে</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>ট্র্যাকিং শেষ</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14925,6 +15116,14 @@
     <message>
         <source>Colour</source>
         <translation type="unfinished">রঙ</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>রঙের আভা</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>ইফেক্ট যে রঙ দিয়ে আঁকে</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16134,6 +16333,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation type="unfinished">অ্যানিমেশন</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>ট্র্যাকিং</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18196,6 +18399,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation type="unfinished">কোণ</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>ধাপ</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20320,6 +20527,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রিয়</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>ট্রেন্ডিং</translation>
+    </message>
+    <message>
         <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20354,6 +20565,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished">প্লেহেডে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — ডাউনলোড করে প্লেহেডে যোগ করতে ক্লিক করুন</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>ট্রেন্ডিং টেক্সট দেখতে সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>ট্রেন্ডিং টেক্সট লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>ট্রেন্ডিং টেক্সট লোড করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>ট্রেন্ডিং শিরোনাম আসে Stock থেকে, যার জন্য আপনার বিনামূল্যের অ্যাকাউন্ট দরকার।</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>আবার চেষ্টা করুন</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>নির্বাচিত টেক্সট থেকে আপডেট করুন</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20600,6 +20843,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Boxes and rules drawn around the text rather than on it</source>
         <translation type="unfinished">বক্স এবং নিয়ম টেক্সট এর চারপাশে আঁকা না করে</translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation>অ্যানিমেশন অপশন</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>নাম বদলান…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>এক্সপোর্ট…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>টেক্সট অ্যানিমেশন এক্সপোর্ট</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>টেক্সট অ্যানিমেশন (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>মুছুন</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>আমার অ্যানিমেশন হিসেবে সংরক্ষণ…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>টেক্সট অ্যানিমেশন সংরক্ষণ</translation>
     </message>
     <message>
         <source>Phase</source>
@@ -20854,6 +21129,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">আন্ডারলাইন করুন</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>কোমল</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>গতি বাড়ান</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished">মৌলিক</translation>
     </message>
@@ -20980,6 +21263,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>আকৃতি</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>আয়তক্ষেত্র</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>ক্যাপসুল</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>কথার বুদবুদ</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>ডিম্বাকৃতি</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>ভাবনার বুদবুদ</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>মেঘ</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>বিস্ফোরণ</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>চিৎকার</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>ট্যাগ</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>রিবন</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>তীর</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>নোট</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>টিকিট</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>ব্রাশ স্ট্রোক</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>ছেঁড়া কাগজ</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>হৃদয়</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21142,6 +21493,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">নিয়ম অনুসারে বাছাই করা কিছু শব্দকে বাকি থেকে আলাদাভাবে স্টাইল করুন</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>যে শব্দ থেকে শুরু</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished">অ্যাকসেন্ট রঙ</translation>
     </message>
@@ -21186,6 +21541,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">অ্যাকসেন্ট হাইলাইট রঙ চয়ন করুন</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>প্যাডিং</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21212,6 +21571,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished">প্রতিটি ক্যাপশনের জন্য খেলে</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>টেক্সট অ্যানিমেশনের নাম বদলান</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>টেক্সট অ্যানিমেশন মুছুন</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>“%1” মুছবেন? যে টেক্সটগুলো এটি ব্যবহার করে তারা তাদের গতি রেখে দেবে।</translation>
     </message>
     <message>
         <source>All</source>
@@ -21671,7 +22042,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">চিৎকার</translation>
     </message>
     <message>
         <source>Pow!</source>
@@ -21703,7 +22074,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ট্যাগ</translation>
     </message>
     <message>
         <source>Kraft tag</source>
@@ -21723,7 +22094,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Ticket</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">টিকিট</translation>
     </message>
     <message>
         <source>Sticky note</source>
@@ -23435,6 +23806,172 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>ট্র্যাকিং</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>ট্র্যাকিং সরান</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কিছু না</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>বস্তু</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>মুখ</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>প্রিভিউতে যে মুখ অনুসরণ করবেন তাতে ক্লিক করুন (ডিফল্টভাবে উপাদানের সবচেয়ে কাছেরটি)।</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>প্রথমে “%1”-এর মুখগুলো বিশ্লেষণ করা হয়, তারপর উপাদানের সবচেয়ে কাছেরটি অনুসরণ করা হয়।</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন। কিছু না বাছলে, “%1”-এ উপাদানটি যা ঢেকে রাখে তা অনুসরণ করা হয়।</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>খোঁজা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>বস্তু শনাক্ত করুন</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>প্লেহেডের অবস্থানে মানুষ, প্রাণী, যানবাহন ও অন্যান্য জিনিস খুঁজুন</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>বস্তু শনাক্তকরণ নিন</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>স্বয়ংক্রিয়ভাবে বস্তু খুঁজতে “বস্তু ট্র্যাকিং” এক্সট্রা ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>নির্বাচন মুছুন</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>দিক</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>উভয়</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>সামনে</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>পিছনে</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>প্লেহেড থেকে ক্লিপের দুই প্রান্তে, অথবা শুধু এক দিকে অনুসরণ করুন</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>স্কেল — যা অনুসরণ করে তার সাথে বড় ও ছোট হয়</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>দূরত্ব — যা অনুসরণ করে তার পাশে নিজের জায়গা ধরে রাখে</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>বন্ধ: উপাদানটি যা অনুসরণ করে ঠিক তার উপরে বসে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>এখান থেকে আবার ট্র্যাক করুন</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>ট্র্যাকিং শুরু করুন</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>প্লেহেড থেকে অনুসরণ করে; উপাদানটি যা অনুসরণ করে তার তুলনায় নিজের জায়গা ধরে রাখে</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>পুনরায় সাজান</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>ভিডিও সরানো, ট্রিম বা দ্রুত করার পরে: আবার বিশ্লেষণ না করে পথটি আবার এর উপর বসান</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>লুকান</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>একটি মুখ</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>একটি বস্তু</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>প্রিভিউতে যে মুখ লুকাবেন তাতে ক্লিক করুন (ডিফল্টভাবে মাঝের সবচেয়ে কাছেরটি)। পুরো ক্লিপ জুড়ে এটি অনুসরণ করে ঢেকে রাখা হয়; লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>প্রিভিউতে একটি বস্তু বেছে নিন বা তার চারপাশে একটি বাক্স আঁকুন। পুরো ক্লিপ জুড়ে এটি অনুসরণ করে ঢেকে রাখা হয়; লেয়ারটি ক্লিপের ঠিক উপরে যায়।</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>পিক্সেলেট</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ঝাপসা</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>অনুসৃত ভিডিওটি আর প্রকল্পে নেই।</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>অনুসৃত ভিডিওটি প্রতিস্থাপিত হয়েছে: পথ মেলাতে আবার ট্র্যাক করুন।</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>%1টি ফ্রেমে অনুসরণ করা হয়েছে; %2টিতে হারিয়েছে। যেখানে হারিয়েছে, উপাদানটি পাওয়া ফ্রেমগুলোর মাঝে মসৃণভাবে সরে।</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>সব %1টি ফ্রেমে অনুসরণ করা হয়েছে।</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>হারানো</translation>
+    </message>
+</context>
+<context>
     <name>TransformInspector</name>
     <message>
         <source>Opacity</source>
@@ -24644,7 +25181,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">মুখ</translation>
     </message>
     <message>
         <source>Body</source>

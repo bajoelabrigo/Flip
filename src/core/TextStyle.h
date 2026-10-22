@@ -217,6 +217,9 @@ struct TextPreset
     // Add-on packs only: a combined template (a title with its subtitle, a name with its role…)
     // adds one text clip per part, placed and timed together. Empty for a plain style.
     QList<TextTemplatePart> parts;
+    // User library only: the Stock item it was installed from ("tend-a-limpio-blanco"), so a
+    // second download refreshes it instead of adding a copy, and Titles › Trending finds it.
+    QString stockId;
 };
 
 // Built-in style packs only. User-saved presets live in TextPresetStore; textPresetForId()

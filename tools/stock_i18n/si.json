@@ -138,6 +138,7 @@
   "text-style:precios": "මිල සහ දීමනා",
   "text-style:retro": "රෙට්‍රෝ සහ Y2K",
   "text-style:subtitulos": "වයිරල් උපසිරැසි",
+  "text-style:tendencias": "ප්‍රවණතා",
   "text-style:tercios": "යටි තුනේ තීරු",
   "text-style:terror": "භීෂණ සහ අභිරහස",
   "text-style:titulos": "මාතෘකා",
@@ -33821,6 +33822,3211 @@
     "නිර්මාණකරු",
     "රීල්ස්",
     "තද"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "දම් දීප්තිය සහිත ආරම්භය",
+   "tags": [
+    "ආරම්භය",
+    "හැඳින්වීම",
+    "සිනමා",
+    "දම්"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "නිල් බුබුළු කලාව",
+   "tags": [
+    "කලාව",
+    "නිල්",
+    "බුබුළු",
+    "ළමා"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "උස්වූ රතු කලාව",
+   "tags": [
+    "කලාව",
+    "රතු",
+    "ත්‍රිමාන",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "සුදු අකුරු, රෝස ගැඹුර",
+   "tags": [
+    "කලාව",
+    "රෝස",
+    "ත්‍රිමාන",
+    "පොප්"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "රතු පටිය, රේඛා දෙකක්",
+   "tags": [
+    "පහළ තෙවැනි",
+    "පටිය",
+    "රතු"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "නිදහස් අත් අකුරු",
+   "tags": [
+    "අතින් ලියූ",
+    "අත",
+    "සරල"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "නාලිකාවට සාදරයෙන් පිළිගනිමු",
+   "tags": [
+    "සාදරයෙන් පිළිගැනීම",
+    "නාලිකාව",
+    "යතුරු ලියනය",
+    "අත් අකුරු"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "පුවත් තීරුව",
+   "tags": [
+    "පුවත්",
+    "රිබනය",
+    "තීරුව",
+    "පහළ තෙවැනි"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "සම්භාව්‍ය කහ",
+   "tags": [
+    "සම්භාව්‍ය",
+    "කහ",
+    "වටකුරු"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "දුමෙහි ඇති අකුරු",
+   "tags": [
+    "දුම",
+    "සිනමා",
+    "නාට්‍යමය"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "හාස්‍ය චිත්‍ර සිරස්තලය",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "උපසිරැසි",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "ක්‍රෝම් තරඟය",
+   "tags": [
+    "ක්‍රීඩා",
+    "උත්සවය",
+    "ක්‍රෝම්",
+    "ලෝහමය"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "නළු නිළියන්ගේ නාමාවලිය",
+   "tags": [
+    "අවසන් නාමාවලිය",
+    "නළු නිළියන්",
+    "සිනමා",
+    "අවසානය"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "සුදු පසුබිමේ මාතෘකාව",
+   "tags": [
+    "සුදු",
+    "සරල",
+    "ආයතනික"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "සංචාර දිනපොත",
+   "tags": [
+    "ගමන",
+    "දිනපොත",
+    "අතින් ලියූ",
+    "කඩදාසි"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "රසකැවිලි ත්‍රිමාන ප්‍රදර්ශනය",
+   "tags": [
+    "ත්‍රිමාන",
+    "රසකැවිලි",
+    "තැඹිලි",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "මාතෘකාව මත ලේබලය",
+   "tags": [
+    "ලේබලය",
+    "පිරිසිදු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "කළු කොටුවෙන් අවසානය",
+   "tags": [
+    "අවසානය",
+    "යතුරු ලියනය",
+    "කොටුව",
+    "කළු"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "ස්පොට්ලයිට් එකේ අවසානය",
+   "tags": [
+    "අවසානය",
+    "ස්පොට්ලයිට්",
+    "සිනමා",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "පරතරයක් සහිත ග්‍රහ මණ්ඩලය",
+   "tags": [
+    "ග්‍රහ මණ්ඩලය",
+    "අභ්‍යවකාශය",
+    "සිනමා",
+    "පරතරයක් සහිත"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "දිලිසෙන රන්වන් ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "රන්වන්",
+    "දීප්තිය",
+    "තරු"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "තරු සහිත ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "සමුගැනීම",
+    "තරු",
+    "රන්වන්"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "මැජෙන්ටා තීරුවක් සහිත මාතෘකාව",
+   "tags": [
+    "ග්‍රැෆික්",
+    "මැජෙන්ටා",
+    "තීරුව"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "කළු ග්‍රැෆිටි, සුදු දාරය",
+   "tags": [
+    "ග්‍රැෆිටි",
+    "වීදිය",
+    "ස්ටිකර්"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "විශාල මාතෘකාව, දම් රේඛා",
+   "tags": [
+    "විශාල",
+    "දම්",
+    "රේඛා"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "ගෙවී ගිය අළු",
+   "tags": [
+    "චිත්‍රපටය",
+    "අළු",
+    "ගෙවී ගිය",
+    "අඳුරු"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "බොහෝ කලකට පෙර",
+   "tags": [
+    "කතාව",
+    "සිනමා",
+    "හැඳින්වීම",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "දුම් මැදින් එන මාතෘකාව",
+   "tags": [
+    "දුම",
+    "අඳුරු වීම",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "හාස්‍ය චිත්‍ර ශෛලියේ ‘පුදුමයි!’",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "පුදුමාකාර",
+    "ගින්න",
+    "පිපිරුම"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "රෙට්‍රෝ කහ ක්‍රීඩාව",
+   "tags": [
+    "ක්‍රීඩාව",
+    "රෙට්‍රෝ",
+    "කහ",
+    "වයනය"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "පිරිසිදු මාතෘකාව",
+   "tags": [
+    "සරල",
+    "පිරිසිදු",
+    "මූලික"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "නියොන් රේඛා අතර ස්තූතිය",
+   "tags": [
+    "නියොන්",
+    "ස්තූතියි",
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "රේඛා"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "දීප්තිමත් රෝස නියොන්",
+   "tags": [
+    "නියොන්",
+    "රෝස",
+    "රූපලාවන්‍ය",
+    "මේකප්"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "ත්‍රිමාන රන්",
+   "tags": [
+    "රන්",
+    "රන්වන්",
+    "ත්‍රිමාන",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "කළු පෙත්ත, රතු තිත",
+   "tags": [
+    "හැඳින්වීම",
+    "පෙති හැඩය",
+    "කළු"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "කහ චිත්‍රපට මාතෘකාව",
+   "tags": [
+    "චිත්‍රපටය",
+    "සිනමා",
+    "කහ",
+    "ට්‍රේලරය"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "විශාලයට උඩින් කුඩා",
+   "tags": [
+    "උපසිරැසි",
+    "සරල",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "ත්‍රිමාන ගල් අකුරු",
+   "tags": [
+    "ගල්",
+    "ත්‍රිමාන",
+    "පාෂාණ",
+    "උස්වූ"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "සමාජ මාධ්‍ය පරිශීලක නාම පෙත්ත",
+   "tags": [
+    "සමාජ මාධ්‍ය",
+    "පරිශීලක",
+    "පෙති හැඩය",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "සුදු අත් අකුරු",
+   "tags": [
+    "අත් අකුරු",
+    "අක්ෂර කලාව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "උප මාතෘකාව සහිත සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "අලංකාර",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "කළු පිට කහ සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "කහ",
+    "කොටුව"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "සුදු කොටු සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "කොටුව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "කළු කොටු සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "කොටුව",
+    "කළු"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "සිනමා උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "සිනමා",
+    "චිත්‍රපටය"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "සිහින් උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "සිහින්",
+    "සරල"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "රතු සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "රතු",
+    "බොත්තම",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "සුදු සහ ලා නිල් පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "සුදු",
+    "ලා නිල්"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "රන්වන් රිබනය",
+   "tags": [
+    "පහළ තෙවැනි",
+    "රිබනය",
+    "රන්වන්"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "රතු පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "රතු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "වම් පස ශීර්ෂ පාඨය",
+   "tags": [
+    "ශීර්ෂ පාඨය",
+    "වම",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "රතු තීරුවක් සහිත මාතෘකාව",
+   "tags": [
+    "තීරුව",
+    "රතු",
+    "සරල"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "ගිනි ගන්නා මාතෘකාව",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "යතුරු ලියූ දෛනික වීලොග්",
+   "tags": [
+    "වීලොග්",
+    "යතුරු ලියනය",
+    "කහ"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "කළු දාරය සහිත කහ",
+   "tags": [
+    "කලාව",
+    "කහ",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "රතු දාරය සහිත කහ",
+   "tags": [
+    "කලාව",
+    "කහ",
+    "රතු",
+    "හාස්‍ය චිත්‍ර"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "පරතරයක් සහිත තැඹිලි කලාව",
+   "tags": [
+    "කලාව",
+    "තැඹිලි",
+    "වර්ණ ශ්‍රේණිය"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "රතු ත්‍රිමාන කලාව",
+   "tags": [
+    "කලාව",
+    "රතු",
+    "ත්‍රිමාන"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "ආලෝක ස්වීප්",
+   "tags": [
+    "දීප්තිය",
+    "දිලිසීම",
+    "ස්වීප්",
+    "සරල"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "මූලික කෙළවර අකුරු",
+   "tags": [
+    "මූලික",
+    "සරල",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "නිල් තාක්ෂණ සාදරයෙන් පිළිගැනීම",
+   "tags": [
+    "සාදරයෙන් පිළිගැනීම",
+    "නිල්",
+    "තාක්ෂණය",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "දම් කොටුව",
+   "tags": [
+    "කොටුව",
+    "දම්",
+    "පහළ තෙවැනි"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "ත්‍රිමාන කාටූන්",
+   "tags": [
+    "කාටූන්",
+    "ත්‍රිමාන",
+    "කහ"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "සම්භාව්‍ය කාටූන්",
+   "tags": [
+    "කාටූන්",
+    "කහ",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "පරතරයක් සහිත සිනමාත්මක",
+   "tags": [
+    "සිනමා",
+    "පරතරයක් සහිත",
+    "සරල"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "කොටුවක මාතෘකාව",
+   "tags": [
+    "වාණිජ",
+    "කොටුව",
+    "ක්‍රීඩා",
+    "කහ"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "අධ්‍යක්ෂවරයාගේ නම",
+   "tags": [
+    "ස්තූතිය",
+    "සිනමා",
+    "අධ්‍යක්ෂ",
+    "සරල"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "පාදයක් සහිත ඇල අකුරු",
+   "tags": [
+    "ඇල අකුරු",
+    "සරල",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "ගිනි දැල් දිලිසීම",
+   "tags": [
+    "ගින්න",
+    "තැඹිලි",
+    "ගිනි දැල්"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "කහ ආලෝකය සහිත අත්සන",
+   "tags": [
+    "අත්සන",
+    "අත් අකුරු",
+    "කහ",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "සරල සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "සරල",
+    "අලංකාර",
+    "ඇල අකුරු"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "ඉරුණු කඩදාසි ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "කඩදාසි",
+    "ඉරුණු",
+    "අතින් ලියූ"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "දිලිසෙන ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "දීප්තිය",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "රන් කදම්භය",
+   "tags": [
+    "රන්",
+    "රන්වන්",
+    "දීප්තිය",
+    "සුඛෝපභෝගී"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "නිල් දුම",
+   "tags": [
+    "දුම",
+    "නිල්",
+    "දීප්තිය",
+    "අංශු"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "හදවත් ස්පන්දනය",
+   "tags": [
+    "ස්පන්දනය",
+    "ආදරය",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "සුදු කොටු කැඳවීම",
+   "tags": [
+    "කැඳවීම",
+    "කොටුව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "දෙහි කොළ රාමුව",
+   "tags": [
+    "රාමුව",
+    "දෙහි කොළ",
+    "ඉස්මතු"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "යතුරු ලියූ මාතෘකාව",
+   "tags": [
+    "යතුරු ලියනය",
+    "කහ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "ත්‍රිමාන ලෝහමය කඩුව",
+   "tags": [
+    "ලෝහමය",
+    "ත්‍රිමාන",
+    "මධ්‍යකාලීන",
+    "ක්‍රෝම්"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "විලාසිතා සුදු කොටුව",
+   "tags": [
+    "විලාසිතා",
+    "කොටුව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "සරල සෙලවීම",
+   "tags": [
+    "චලනය",
+    "සෙලවීම",
+    "සරල"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "දීප්තිමත් රෝස නියොන්",
+   "tags": [
+    "නියොන්",
+    "රෝස",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "හාස්‍ය චිත්‍ර ශබ්ද වදන",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "ශබ්ද අනුකරණ",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "අංශු සහිත මාතෘකාව",
+   "tags": [
+    "අංශු",
+    "රෝස",
+    "පරතරයක් සහිත"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "සිනමා පෝස්ටරය",
+   "tags": [
+    "සිනමා",
+    "පෝස්ටරය",
+    "සෙරිෆ්",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "ගොඩගැසූ සම්භාව්‍ය පෝස්ටරය",
+   "tags": [
+    "පෝස්ටරය",
+    "සිනමා",
+    "බියකරු",
+    "සංකෝචිත"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "අඳුරු ප්‍රවර්ධනය",
+   "tags": [
+    "ප්‍රවර්ධන",
+    "සිනමා",
+    "අඳුරු",
+    "සංකෝචිත"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "ඉක්මනින් එයි",
+   "tags": [
+    "ඉක්මනින් එයි",
+    "නව නිකුතුව",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "කහ දීප්තිය",
+   "tags": [
+    "දීප්තිය",
+    "කහ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "නිල් දීප්තිය",
+   "tags": [
+    "දීප්තිය",
+    "නිල්",
+    "නියොන්"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "තියුණු ත්‍රිමාන සෙරිෆ්",
+   "tags": [
+    "ත්‍රිමාන",
+    "සෙරිෆ්",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "ගතික සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "ගතික",
+    "කැරෝකේ",
+    "කහ"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "කළු පිට කහ සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "සිරස්තලය",
+    "කහ"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "රතු රිබන සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "සබ්ස්ක්‍රයිබ්",
+    "රතු",
+    "බුරුසුව"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "දිලිසෙන සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "සබ්ස්ක්‍රයිබ්",
+    "දීප්තිය",
+    "දම්"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "දාරය සහිත නිල් පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "නිල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "රෝස තීරු පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "රෝස",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "වර්ණවත් දාරයක් සහිත පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "දම්",
+    "කොළ"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "ඇලවූ තැඹිලි පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "තැඹිලි",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "තද අකුරු පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "තද අකුරු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "තාක්ෂණ පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "තාක්ෂණය",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "වෙළඳසැල් කොටුව",
+   "tags": [
+    "වෙළඳසැල",
+    "තද අකුරු",
+    "විකිණීම"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "තීන්ත මාතෘකාව",
+   "tags": [
+    "තීන්ත",
+    "බුරුසුව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "නිල් බුරුසු ශීර්ෂ පාඨය",
+   "tags": [
+    "බුරුසුව",
+    "නිල්",
+    "ශීර්ෂ පාඨය"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "දිලිසෙන නිල් කොටු මාතෘකාව",
+   "tags": [
+    "කොටුව",
+    "නිල්",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "කහ තීරුවක් සහිත මාතෘකාව",
+   "tags": [
+    "රිබනය",
+    "කහ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "උප මාතෘකාව සහිත මාතෘකාව",
+   "tags": [
+    "සරල",
+    "උප මාතෘකාව",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "තැඹිලි ජල සායම්",
+   "tags": [
+    "ජල සායම්",
+    "බුරුසුව",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "වචන වලට ආදරය",
+   "tags": [
+    "අකුරු සැලසුම",
+    "කහ",
+    "වාක්‍යය"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "ත්‍රිමාන රන්වන් වසර",
+   "tags": [
+    "රන්වන්",
+    "ත්‍රිමාන",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "ඝන කහ කලාව",
+   "tags": [
+    "කලාව",
+    "කහ",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "නිල් ආලෝක වළල්ලක් සහිත කලාව",
+   "tags": [
+    "කලාව",
+    "නිල්",
+    "ආලෝක වළල්ල"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "රතු දාරය සහිත කලාව",
+   "tags": [
+    "කලාව",
+    "වර්ඩ්ආර්ට්",
+    "රතු"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "ඇල රතු කලාව",
+   "tags": [
+    "කලාව",
+    "රතු",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "නිල් සෙවණැල්ල සහිත කලාව",
+   "tags": [
+    "කලාව",
+    "සෙවණැල්ල",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "පැති තීරු මාතෘකාව",
+   "tags": [
+    "තීරුව",
+    "වම",
+    "තෙවැනි"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "මැදට සකස් කළ මූලික",
+   "tags": [
+    "මූලික",
+    "මැදට",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "කුඩා මූලික",
+   "tags": [
+    "මූලික",
+    "කුඩා",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "පහළ මූලික",
+   "tags": [
+    "මූලික",
+    "පහළ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "සටහන් මූලික",
+   "tags": [
+    "මූලික",
+    "සටහන",
+    "කුඩා"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "වීරෝදාර දීප්තිය",
+   "tags": [
+    "දීප්තිය",
+    "වීරෝදාර",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "මොනෝ දීප්තිය",
+   "tags": [
+    "දීප්තිය",
+    "මොනෝ",
+    "පික්සල්"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "දීප්තියේ හුස්ම",
+   "tags": [
+    "දීප්තිය",
+    "හුස්ම ගැනීම",
+    "මෘදු"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "මෘදු වැටීම",
+   "tags": [
+    "වැටීම",
+    "පහළට වැටීම",
+    "ස්ලයිඩ්"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "නිර්මාණශීලී දම් කොටුව",
+   "tags": [
+    "කොටුව",
+    "දම්",
+    "නිර්මාණශීලී"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "ලෝහමය සිනමාත්මක",
+   "tags": [
+    "සිනමා",
+    "ලෝහමය",
+    "ට්‍රේලරය"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "ගිනිගැනීම",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "ගිනිගැනීම"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "රෙට්‍රෝ ත්‍රිමාන හාස්‍ය චිත්‍ර",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "රෙට්‍රෝ",
+    "ත්‍රිමාන",
+    "කහ"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "උප මාතෘකාව සහිත සංකෝචිත",
+   "tags": [
+    "සංකෝචිත",
+    "උපසිරැසි",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "නාමාවලි ලැයිස්තුව",
+   "tags": [
+    "අවසන් නාමාවලිය",
+    "ලැයිස්තුව",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "අලංකාර ඇල අකුරු",
+   "tags": [
+    "ඇල අකුරු",
+    "අත් අකුරු",
+    "මූලික"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "යතුරු ලියන කර්සරය",
+   "tags": [
+    "යතුරු ලියනය",
+    "කර්සරය",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "බොඳවෙමින් ලිස්සා ඒම",
+   "tags": [
+    "ලිස්සා යාම",
+    "බොඳවීම",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "මූලික විශේෂාංග",
+   "tags": [
+    "විශේෂාංග",
+    "මූලික",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "වෙව්ලන සුන්දර දිනය",
+   "tags": [
+    "වෙව්ලන",
+    "සුන්දර",
+    "දෙහි කොළ"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "පරාජිත තරඟය යළි ඇවිළේ",
+   "tags": [
+    "ක්‍රීඩා",
+    "තරඟය",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "රෝස පැණිරස",
+   "tags": [
+    "ආහාර",
+    "පැණිරස",
+    "රෝස"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "ක්‍රීඩා ආචරණ මාතෘකාව",
+   "tags": [
+    "ක්‍රීඩාව",
+    "විද්‍යුත්",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "යතුරු ලියූ සෙරිෆ්",
+   "tags": [
+    "යතුරු ලියනය",
+    "සෙරිෆ්",
+    "කර්සරය"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "තරු දිලිසීම",
+   "tags": [
+    "දිලිසීම",
+    "ෆ්ලෙයාර්",
+    "ආලෝකය",
+    "ලිස්සා යාම"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "ආලෝක ධාරා ත්‍රිමාන",
+   "tags": [
+    "ආලෝකය",
+    "රිදී",
+    "ත්‍රිමාන",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "උප මාතෘකාව සහිත විශාල මාතෘකාව",
+   "tags": [
+    "විශාල මාතෘකාව",
+    "උපසිරැසි",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "රතු ආලෝක කදම්භය",
+   "tags": [
+    "දීප්තිය",
+    "රතු",
+    "ආලෝක කදම්භය"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "අයිස් සහිත ශීත ඍතුව",
+   "tags": [
+    "ශීත ඍතුව",
+    "අයිස්",
+    "සීතල",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "කිරණ විහිදීම",
+   "tags": [
+    "දීප්තිය",
+    "කිරණ",
+    "විහිදීම"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "පහළ වම් මාතෘකාව",
+   "tags": [
+    "වම",
+    "පහළ",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "සුදු නියොන් ආලෝකය",
+   "tags": [
+    "නියොන්",
+    "ආලෝකය",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "ක්‍රීඩා විශේෂාංග",
+   "tags": [
+    "ක්‍රීඩා",
+    "උත්සවය",
+    "රතු"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "කඩදාසි සටහන",
+   "tags": [
+    "සංචාර",
+    "සටහන",
+    "කඩදාසි",
+    "වීලොග්"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "මනහර අලුත් පොප්",
+   "tags": [
+    "පොප්",
+    "අලුත්",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "දැවැන්ත රතු දීමනාව",
+   "tags": [
+    "දීමනාව",
+    "වට්ටම",
+    "විකිණීම",
+    "රතු"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "ග්‍රහ මණ්ඩල පැකේජය",
+   "tags": [
+    "ග්‍රහ මණ්ඩලය",
+    "අභ්‍යවකාශය",
+    "පරතරයක් සහිත"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "අංශු බවට දිය වීම",
+   "tags": [
+    "අංශු",
+    "අඳුරු වීම",
+    "දූවිලි"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "අලංකාර රන්වන් අංශු",
+   "tags": [
+    "රන්වන්",
+    "අංශු",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "මනහර පොප්",
+   "tags": [
+    "පොප්",
+    "මනහර",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "පෙරනිමි මාතෘකාව",
+   "tags": [
+    "පෙරනිමි",
+    "සරල",
+    "මූලික"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "හාස්‍ය චිත්‍ර ප්‍රශ්නය",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "ප්‍රශ්නය",
+    "ක්‍රීඩාව"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "දාර සහිත ස්ලයිඩ් ප්‍රදර්ශනය",
+   "tags": [
+    "දාර රේඛාව",
+    "ස්ලයිඩ්",
+    "විලාස දෙකක්"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "අඳුරු ප්‍රවර්ධනය",
+   "tags": [
+    "ප්‍රවර්ධන",
+    "සිනමා",
+    "ට්‍රේලරය",
+    "නව නිකුතුව"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "රතු ලෝහමය රෙට්‍රෝ",
+   "tags": [
+    "රෙට්‍රෝ",
+    "ලෝහමය",
+    "රතු",
+    "ත්‍රිමාන"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "සුදු අත් අකුරු",
+   "tags": [
+    "අත් අකුරු",
+    "සුදු",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "අත්සන් අත් අකුරු",
+   "tags": [
+    "අත්සන",
+    "අත් අකුරු",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "සම්භාව්‍ය සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "සම්භාව්‍ය",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "සිහින් කහ උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "කහ",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "සුදු උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "සුදු",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "කළු කොටු උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "කොටුව",
+    "කළු"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "දෙහි කොළ උපසිරැසි",
+   "tags": [
+    "උපසිරැසි",
+    "දෙහි කොළ",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "අනන්ත සිහින",
+   "tags": [
+    "අකුරු සැලසුම",
+    "රතු",
+    "සිහින"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "කහ යතුරු ලියනය",
+   "tags": [
+    "යතුරු ලියනය",
+    "කහ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "සුදු කොටුවක යතුරු ලියනය",
+   "tags": [
+    "යතුරු ලියනය",
+    "කොටුව",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "අතින් යතුරු ලියනය",
+   "tags": [
+    "යතුරු ලියනය",
+    "අත",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "යතුරු ලියූ සෙරිෆ් මාතෘකාව",
+   "tags": [
+    "යතුරු ලියනය",
+    "සෙරිෆ්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "ඇලවූ නිල් පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "නිල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "කහ පෙත්ත පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "පෙති හැඩය",
+    "කහ"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "දම් ප්‍රවර්ධන පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "ප්‍රවර්ධන",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "තුර්කි නිල් පහළ තෙවැනි",
+   "tags": [
+    "පහළ තෙවැනි",
+    "තුර්කි නිල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "කහ ක්‍රීඩා ශීර්ෂ පාඨය",
+   "tags": [
+    "ක්‍රීඩා",
+    "ශීර්ෂ පාඨය",
+    "කහ"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "අද ශීර්ෂ පාඨ",
+   "tags": [
+    "පුවත්",
+    "ශීර්ෂ පාඨ",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "ගිනි පුපුරු මාතෘකාව",
+   "tags": [
+    "ගිනි පුපුරු",
+    "ගින්න",
+    "බොකේ"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "දිලිසෙන අඟුරු මාතෘකාව",
+   "tags": [
+    "ගින්න",
+    "දිලිසෙන අඟුරු",
+    "අංශු"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "රන්වන් ගිනි පුපුරු මාතෘකාව",
+   "tags": [
+    "රන්වන්",
+    "ගිනි පුපුරු",
+    "අංශු"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "කොටුවක දාර මාතෘකාව",
+   "tags": [
+    "කොටුව",
+    "රාමුව",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "නිල් රාමුවේ මාතෘකාව",
+   "tags": [
+    "රාමුව",
+    "නිල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "විශාල මාතෘකාව සහ උප මාතෘකාව",
+   "tags": [
+    "විශාල මාතෘකාව",
+    "උපසිරැසි",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "පිරිසිදු මාතෘකාව",
+   "tags": [
+    "මූලික",
+    "පිරිසිදු",
+    "සරල"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "මධ්‍යම පිරිසිදු මාතෘකාව",
+   "tags": [
+    "මූලික",
+    "පිරිසිදු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "රේඛාවක් සහිත මාතෘකාව",
+   "tags": [
+    "අත් අකුරු",
+    "යටින් ඉර",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "ද්‍රව මාතෘකා",
+   "tags": [
+    "ද්‍රව",
+    "රෝස",
+    "අංශු"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "වේග මාතෘකා",
+   "tags": [
+    "ක්‍රීඩා",
+    "වේගය",
+    "වීරෝදාර"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "විශේෂ පුවත්",
+   "tags": [
+    "පුවත්",
+    "විශේෂ පුවත්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "පිපිරෙන ‘අයියෝ’",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "විස්මය",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "දෛනික වීලොග්",
+   "tags": [
+    "වීලොග්",
+    "අත් අකුරු",
+    "දිනපොත"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "සතිපතා වීලොග් බුරුසු අකුරු",
+   "tags": [
+    "වීලොග්",
+    "බුරුසුව",
+    "අත"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "රතු සංචාර වීලොග්",
+   "tags": [
+    "සංචාර",
+    "වීලොග්",
+    "රතු"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "බොඳ විශාලනය",
+   "tags": [
+    "විශාලනය",
+    "ස්ලයිඩ්",
+    "බොඳවීම"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "කළු දාරය සහිත කහ",
+   "tags": [
+    "කහ",
+    "දාර රේඛාව",
+    "ස්ටිකර්"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "කහ ප්‍රියතම",
+   "tags": [
+    "ආදරය",
+    "කහ",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "දිලිසෙන රෝස ආදරය",
+   "tags": [
+    "ආදරය",
+    "රෝස",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "මා සමඟ සැරසෙන්න",
+   "tags": [
+    "දීප්තිය",
+    "දම්",
+    "රූපලාවන්‍ය"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "රතු දිලිසෙන අඟුරු",
+   "tags": [
+    "ගින්න",
+    "දිලිසෙන අඟුරු",
+    "රතු"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "හොඳ ගමනක්",
+   "tags": [
+    "ක්‍රීඩා",
+    "සංකෝචිත",
+    "සරල"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "හොඳ හැඟීම් පමණයි",
+   "tags": [
+    "හැඟීම්",
+    "රෙට්‍රෝ",
+    "ධනාත්මක"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "පොප් බුබුළු අකුරු",
+   "tags": [
+    "බුබුළු",
+    "පොප්",
+    "කවායි"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "දම් සහ නිල් බුබුළු",
+   "tags": [
+    "බුබුළු",
+    "දම්",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "රෝස කොටුවේ අත්සන",
+   "tags": [
+    "රෝස",
+    "කොටුව",
+    "අත්සන"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "දඟකාර සුදු",
+   "tags": [
+    "විනෝදජනක",
+    "සුදු",
+    "දඟකාර"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "උණුසුම",
+   "tags": [
+    "තද සෙවණැල්ල",
+    "සුදු",
+    "බලපෑම"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "වීදි ත්‍රිමාන",
+   "tags": [
+    "නාගරික",
+    "ත්‍රිමාන",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "රෝස නියොන් කාන්තාවෝ",
+   "tags": [
+    "නියොන්",
+    "රෝස",
+    "ගැහැණු ළමයි"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "විශාල නිල් වර්ණ ශ්‍රේණිය",
+   "tags": [
+    "නිල්",
+    "වර්ණ ශ්‍රේණිය",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "සයන් දිලිසීම",
+   "tags": [
+    "දීප්තිය",
+    "සයන්",
+    "තරු"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "රතු කතුවැකි",
+   "tags": [
+    "කතුවැකි",
+    "සඟරාව",
+    "රතු"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "ප්‍රභූ",
+   "tags": [
+    "ප්‍රභූ",
+    "සරල",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "තැඹිලි ලේබලය",
+   "tags": [
+    "ලේබලය",
+    "තැඹිලි",
+    "කුඩා"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "නියොන් භූතයා",
+   "tags": [
+    "නියොන්",
+    "නිල්",
+    "භූතයා"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "නිල් දාරය සහිත කහ",
+   "tags": [
+    "කහ",
+    "නිල්",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "පෙම් බැඳීම",
+   "tags": [
+    "ආදරය",
+    "රතු",
+    "සෙවණැල්ල"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "ගිනි සංඥා අත් අකුරු",
+   "tags": [
+    "ගින්න",
+    "නියොන්",
+    "රතු"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "සෙල්ලක්කාර රෝස",
+   "tags": [
+    "පූසා",
+    "රෝස",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "රතු දුම් කොටුව",
+   "tags": [
+    "දුම",
+    "රතු",
+    "අනතුරු ඇඟවීම"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "දූවිලි රෝස ආදරය",
+   "tags": [
+    "ආදරය",
+    "රෝස",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "සරත් ඍතුව ආවා",
+   "tags": [
+    "සරත් ඍතුව",
+    "හාස්‍ය චිත්‍ර",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "සරත් ඍතු මෙනුව",
+   "tags": [
+    "සරත් ඍතුව",
+    "මෙනුව",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "පුංචි ‘ඔබට ආදරෙයි’",
+   "tags": [
+    "ආදරය",
+    "කුඩා",
+    "රෝස"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "අඳුරු මාදිලියේ කපා ගත්",
+   "tags": [
+    "ස්ටිකර්",
+    "කපා ගත්",
+    "කළු සුදු"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "තැඹිලි පැල්ලමක අවස්ථා",
+   "tags": [
+    "පැල්ලම",
+    "තැඹිලි",
+    "අවස්ථා"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "මොන්ටාජ්",
+   "tags": [
+    "මොන්ටාජ්",
+    "සරල",
+    "සිනමා"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "ස්වාභාවික",
+   "tags": [
+    "ස්වාභාවික",
+    "කොළ",
+    "දෝංකාරය"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "විද්‍යුත් නිල් නියොන්",
+   "tags": [
+    "නියොන්",
+    "නිල්",
+    "විද්‍යුත්"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "රන්වන් රාත්‍රිය",
+   "tags": [
+    "තැඹිලි",
+    "වර්ණ ශ්‍රේණිය",
+    "රාත්‍රිය"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "අබිරහස් රාත්‍රි",
+   "tags": [
+    "රාත්‍රිය",
+    "අබිරහස",
+    "සරල"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "පැරණි කඩදාසි සටහන",
+   "tags": [
+    "කඩදාසි",
+    "සටහන",
+    "පැරණි",
+    "සුවපහසු"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "ඇලවූ සටහන",
+   "tags": [
+    "සටහන",
+    "දිනපොත",
+    "රිබනය"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "රන් ගිනි පුපුරු",
+   "tags": [
+    "රන්වන්",
+    "දීප්තිය",
+    "සැමරුම"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "නිර්භීත පියවර",
+   "tags": [
+    "කොටුව",
+    "රතු",
+    "කහ"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "දිලිසෙන නිල් පෙත්ත",
+   "tags": [
+    "පෙති හැඩය",
+    "නිල්",
+    "කොටුව"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "හදවත් සහිත සුදු පෙත්ත",
+   "tags": [
+    "හදවත්",
+    "පෙති හැඩය",
+    "ආදරය"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "වීදුරු සමේ",
+   "tags": [
+    "රූපලාවන්‍ය",
+    "වීදුරු",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "සුදු දාරය සහිත රතු",
+   "tags": [
+    "රතු",
+    "ක්‍රීඩාව",
+    "ප්ලේ"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "අවසානයේ",
+   "tags": [
+    "සරල",
+    "සුදු",
+    "අවසානයේ"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "සුන්දර රෝස",
+   "tags": [
+    "රෝස",
+    "අත් අකුරු",
+    "මනහර"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "රෝස දාර ප්‍රශ්නය",
+   "tags": [
+    "ප්‍රශ්නය",
+    "රෝස",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "රතු ස්ටිකර්",
+   "tags": [
+    "ස්ටිකර්",
+    "රතු",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "සිහින් දෛනික අත් අකුරු",
+   "tags": [
+    "අත් අකුරු",
+    "සිහින්",
+    "අක්ෂර කලාව"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "රාමුවක මුද්‍රාව",
+   "tags": [
+    "මුද්‍රාව",
+    "රාමුව",
+    "පැරණි"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "දුම් සෙවණැල්ලක් සහිත සුදු",
+   "tags": [
+    "සෙවණැල්ල",
+    "දුම",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "නිහඬ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "සරල",
+    "කුඩා"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "තද රෝස ‘ඔබට ආදරෙයි’",
+   "tags": [
+    "ආදරය",
+    "රෝස",
+    "හදවත"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "ගැඹුරු රතු ආදරය",
+   "tags": [
+    "ආදරය",
+    "රතු",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "රොමෑන්ටික් ‘ඔබට ආදරෙයි’",
+   "tags": [
+    "ආදරය",
+    "රොමෑන්ටික්",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "රන් අධිවේල්වට්",
+   "tags": [
+    "රන්වන්",
+    "අත් අකුරු",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "දෛනික වීලොග්",
+   "tags": [
+    "වීලොග්",
+    "දිනපොත",
+    "ආහාර"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "පන්තියට ආපසු",
+   "tags": [
+    "පාසල",
+    "දාර රේඛාව",
+    "හිස් අකුරු"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "දම් දාර අකුරු",
+   "tags": [
+    "දාර රේඛාව",
+    "හිස් අකුරු",
+    "දම්"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "දිගු සමුගැනීම",
+   "tags": [
+    "සමුගැනීම",
+    "අවසානය",
+    "මීම්"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "ගෙවී ගිය අවසන් වූ",
+   "tags": [
+    "අවසන් වූ",
+    "රතු",
+    "ග්ලිච්",
+    "වෙළඳසැල"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "රෝස දීප්තිමත් ආදරය",
+   "tags": [
+    "ආදරය",
+    "රෝස",
+    "වැලන්ටයින්"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "ටික් ලකුණ සහිත අනුමත",
+   "tags": [
+    "අනුමත",
+    "ටික් ලකුණ",
+    "කොළ"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "කොළ-නිල් විස්ථාපනය",
+   "tags": [
+    "ග්ලිච්",
+    "ආර්ජීබී",
+    "කොළ",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "රතු හාදු",
+   "tags": [
+    "ආදරය",
+    "රතු",
+    "තොල්"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "බෙදාගැනීමේ බොත්තම",
+   "tags": [
+    "බොත්තම",
+    "සමාජ මාධ්‍ය",
+    "බෙදාගන්න"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "ලයික් බොත්තම",
+   "tags": [
+    "බොත්තම",
+    "සමාජ මාධ්‍ය",
+    "ලයික්"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "අනුගමන බොත්තම",
+   "tags": [
+    "බොත්තම",
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "දම් මීදුම",
+   "tags": [
+    "දම්",
+    "සිහින",
+    "මායාමය"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "කුඩා සිනමාත්මක",
+   "tags": [
+    "සිනමා",
+    "සරල",
+    "පරතරයක් සහිත"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "උප මාතෘකාව සහිත සිනමාත්මක",
+   "tags": [
+    "සිනමා",
+    "වීලොග්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "ත්‍රිමාන කහ හාස්‍ය චිත්‍ර",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "ත්‍රිමාන",
+    "කහ",
+    "පිපිරුම"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "අවසන් නාමාවලිය",
+   "tags": [
+    "අවසන් නාමාවලිය",
+    "සිනමා",
+    "අවසානය"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "නිල් වර්ණ ශ්‍රේණිය",
+   "tags": [
+    "වර්ණ ශ්‍රේණිය",
+    "නිල්",
+    "මෘදු"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "ජීවිතය විඳින්න",
+   "tags": [
+    "වාක්‍යය",
+    "අලංකාර",
+    "සෙරිෆ්"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "රෝස-නිල් ද්විත්ව දාරය",
+   "tags": [
+    "නියොන්",
+    "දාර රේඛාව",
+    "රෝස",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "රතු සහ කහ ඇල අකුරු",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "ක්‍රියාදාම",
+    "රතු",
+    "කහ"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "ඇල සෙරිෆ්",
+   "tags": [
+    "අලංකාර",
+    "සෙරිෆ්",
+    "සරල"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "සුදු කාඩ්පතේ උපුටා දැක්වීම",
+   "tags": [
+    "වාක්‍යය",
+    "උපුටා දැක්වීම",
+    "අභිප්‍රේරණය",
+    "කාඩ්පත"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "නියොන් වළල්ලේ ගින්න",
+   "tags": [
+    "නියොන්",
+    "ගින්න",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "නරඹන ඔබට ස්තූතියි",
+   "tags": [
+    "අවසානය",
+    "පික්සල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "හාස්‍ය චිත්‍ර ‘වාව්’",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "පුදුමය",
+    "කහ"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "රතු දෝංකාරයක් සහිත සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "පොඩ්කාස්ට්",
+    "රතු",
+    "ග්ලිච්"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "හලෝ හලෝ",
+   "tags": [
+    "ආචාරය",
+    "මීම්",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "සුදු දුම",
+   "tags": [
+    "දුම",
+    "මීදුම",
+    "මෘදු"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "සිහින් පරතරයක් සහිත සෙරිෆ්",
+   "tags": [
+    "රූපලාවන්‍ය",
+    "අලංකාර",
+    "සරල"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "ගිනි අකුරු",
+   "tags": [
+    "ගින්න",
+    "තැඹිලි",
+    "ගිනි දැල්"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "අකුරු දෙකක මේකප්",
+   "tags": [
+    "මේකප්",
+    "රූපලාවන්‍ය",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "කහ හයිලයිටරය",
+   "tags": [
+    "ප්‍රශ්නය",
+    "හයිලයිටරය",
+    "කහ",
+    "බ්ලොග්"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "රෝස බුබුළු",
+   "tags": [
+    "රෝස",
+    "සුමුදු",
+    "කවායි"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "මීදුම සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "මීදුම",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "මෘදු කොළ සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "කොළ",
+    "මෘදු"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "මිනි වීලොග් බුබුළ",
+   "tags": [
+    "වීලොග්",
+    "සුමුදු",
+    "බුබුළු"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "තද තැඹිලි",
+   "tags": [
+    "තැඹිලි",
+    "නාලිකාව",
+    "සහාය"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "අතින් අඳින ලද ලා නිල් නියොන්",
+   "tags": [
+    "නියොන්",
+    "ලා නිල්",
+    "නාම පුවරුව",
+    "රාත්‍රිය"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "රතු නියොන් අත් අකුරු",
+   "tags": [
+    "නියොන්",
+    "රතු",
+    "නාම පුවරුව"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "පුළුල් නව යුගය",
+   "tags": [
+    "සරල",
+    "සුදු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "අයියෝ",
+   "tags": [
+    "මීම්",
+    "ප්‍රතික්‍රියාව",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "සන්සුන් සුඛෝපභෝගී",
+   "tags": [
+    "සුඛෝපභෝගී",
+    "සරල",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "පරතරයක් සහිත ලොකු අකුරු",
+   "tags": [
+    "සුඛෝපභෝගී",
+    "සරල",
+    "පරතරයක් සහිත"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "සුවපහසු සරත් ඍතුව",
+   "tags": [
+    "සරත් ඍතුව",
+    "කෝපි",
+    "සුවපහසු"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "ඉරුණු කඩදාසි",
+   "tags": [
+    "කඩදාසි",
+    "පැරණි",
+    "ඡායාරූප",
+    "දිනපොත"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "හදවත් පෙත්ත",
+   "tags": [
+    "ආදරය",
+    "රෝස",
+    "සුමුදු"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "ලේබල වචන",
+   "tags": [
+    "මා සමඟ සැරසෙන්න",
+    "වීලොග්",
+    "ලේබලය",
+    "යන්ත්‍ර"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "ආදරණීය දිනපොත",
+   "tags": [
+    "දිනපොත",
+    "වීලොග්",
+    "ස්ටිකර්"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "කහ කොටුවේ විකුණුම",
+   "tags": [
+    "දීමනාව",
+    "විකුණුම් වට්ටම්",
+    "වෙළඳසැල",
+    "කහ"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "වර්ණවත් කපා ගත් අකුරු",
+   "tags": [
+    "කොලාජ්",
+    "කපා ගත්",
+    "වර්ණ",
+    "ඡායාරූප"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "දිලිසෙන ඇල අකුරු",
+   "tags": [
+    "දීප්තිය",
+    "සුදු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "දෛනික චර්යා අත් අකුරු",
+   "tags": [
+    "මේකප්",
+    "අත් අකුරු",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "ජල ඉසිරීම",
+   "tags": [
+    "ජලය",
+    "ගිම්හානය",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "රතු තීරුවක් සහිත මාව අනුගමනය කරන්න",
+   "tags": [
+    "අනුගමනය",
+    "සමාජ මාධ්‍ය",
+    "රතු"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "හදිසියක් නැහැ",
+   "tags": [
+    "වාක්‍යය",
+    "සන්සුන්",
+    "සංකෝචිත"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "සුදු යටි ඉර",
+   "tags": [
+    "වාක්‍යය",
+    "සරල",
+    "යටින් ඉර"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "රතු නියොන් සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ්",
+    "නියොන්",
+    "රතු",
+    "නාලිකාව"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "රතු බිය",
+   "tags": [
+    "බියකරු",
+    "රතු",
+    "බිය"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "අකුරු ස්ටිකර්",
+   "tags": [
+    "ස්ටිකර්",
+    "වර්ණ",
+    "ළමා"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "යතුරු ලියූ ගමන",
+   "tags": [
+    "යතුරු ලියනය",
+    "ගමන",
+    "කතාව"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "පරිශීලක නාම ලේබලය",
+   "tags": [
+    "පරිශීලක",
+    "සමාජ මාධ්‍ය",
+    "ලේබලය"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "පිරිසිදු ‘යමු’",
+   "tags": [
+    "සරල",
+    "ක්‍රියාදාම",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "නිල් ගිනි දැල්",
+   "tags": [
+    "නිල්",
+    "ගින්න",
+    "ශක්තිය"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "දෙහි කොළ දාරය",
+   "tags": [
+    "කොළ",
+    "කහ",
+    "ක්‍රීඩාව"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "සුදු කෑගැසීමේ සිරස්තලය",
+   "tags": [
+    "මීම්",
+    "පූසා",
+    "විනෝදජනක",
+    "සිරස්තලය"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "තැඹිලි ‘ඉදිරියට යමු’",
+   "tags": [
+    "තැඹිලි",
+    "දිරි ගැන්වීම",
+    "අභිප්‍රේරණය"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "රෝස නියොන් ආදරය",
+   "tags": [
+    "ආදරය",
+    "නියොන්",
+    "රෝස",
+    "වැලන්ටයින්"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "රතු දෝංකාර ආදරය",
+   "tags": [
+    "ආදරය",
+    "රතු",
+    "ත්‍රිමාන"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "රිදී දේවදූතයා",
+   "tags": [
+    "දේවදූත",
+    "රිදී",
+    "පියාපත්"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "ගිනි ආභාව",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "ආභාව",
+    "අත් අකුරු"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "හාස්‍ය චිත්‍ර ‘බෑම්’",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "බෑම්",
+    "පහරක්"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "කොළ නියොන් වීදිය",
+   "tags": [
+    "නියොන්",
+    "කොළ",
+    "වීදිය"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "පරතරයක් සහිත සිනමාත්මක",
+   "tags": [
+    "සිනමා",
+    "සිනමාත්මක",
+    "චිත්‍රපටය"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "දිලිසෙන රතු පටිය",
+   "tags": [
+    "රිබනය",
+    "රතු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "රේඛාවක් සහිත කොටු උපුටා දැක්වීම",
+   "tags": [
+    "උපුටා දැක්වීම",
+    "කොටුව",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "දිලිසෙන නිර්මාණශීලී",
+   "tags": [
+    "නිර්මාණශීලී",
+    "දීප්තිය",
+    "ආලෝකය"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "වර්ණවත් උපන්දිනය",
+   "tags": [
+    "උපන්දිනය",
+    "සාදය",
+    "වර්ණ"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "දිලිසෙන විශේෂාංග",
+   "tags": [
+    "විශේෂාංග",
+    "ගිනි පුපුරු",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "ක්‍රාෆ්ට් දිනපොත",
+   "tags": [
+    "දිනපොත",
+    "කඩදාසි",
+    "ක්‍රාෆ්ට්",
+    "පැරණි"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "ඇල රන්වන් අකුරු",
+   "tags": [
+    "රන්වන්",
+    "සුඛෝපභෝගී",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "හාස්‍ය චිත්‍ර ‘හා?’",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "පුදුමය",
+    "ප්‍රතික්‍රියාව"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "අයිස් විද්‍යුත්",
+   "tags": [
+    "විද්‍යුත්",
+    "අයිස්",
+    "නිල්"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "ගිනිගන්නා රතු",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "රතු"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "දිලිසෙන ශක්ති කොටුව",
+   "tags": [
+    "ශක්තිය",
+    "රතු",
+    "කොටුව"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "සිහින් සෞන්දර්ය",
+   "tags": [
+    "සෞන්දර්ය",
+    "සරල",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "සුභ නිවාඩු දිනයක්",
+   "tags": [
+    "නත්තල",
+    "උත්සව",
+    "නිවාඩු"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "දිලිසෙන අවසානය",
+   "tags": [
+    "අවසානය",
+    "සිනමා",
+    "දීප්තිය"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "පරිච්ඡේදයේ අවසානය",
+   "tags": [
+    "පරිච්ඡේදය",
+    "අවසානය",
+    "වීලොග්"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "ගිනි දැල් සහිත අවසානය",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "අවසානය"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "දිලිසෙන අඟුරු වචනය",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "දිලිසෙන අඟුරු"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "ඉරුණු කඩදාසි උපුටා දැක්වීම",
+   "tags": [
+    "වාක්‍යය",
+    "අභිප්‍රේරණය",
+    "කඩදාසි"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "නිල් නියොන් ගින්න",
+   "tags": [
+    "නියොන්",
+    "නිල්",
+    "වේගය"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "ශක්තිමත් නිල් නියොන්",
+   "tags": [
+    "නියොන්",
+    "නිල්",
+    "ශක්තිමත්"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "රෝස නියොන් ජයග්‍රාහකයා",
+   "tags": [
+    "ජයග්‍රාහකයා",
+    "නියොන්",
+    "රෝස",
+    "ගින්න"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "නිර්මාණශීලී පරම්පරාව",
+   "tags": [
+    "අලංකාර",
+    "සෙරිෆ්",
+    "වාර්තා චිත්‍රපට"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "කතා බුබුළේ ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "බුබුළු",
+    "සංවාදය"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "රෝස ස්තූතියි",
+   "tags": [
+    "ස්තූතියි",
+    "රෝස",
+    "ස්ටිකර්"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "රෝස කොටු ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "රෝස",
+    "හදවත"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "කඩදාසි පටි ස්තූතිය",
+   "tags": [
+    "ස්තූතියි",
+    "කඩදාසි",
+    "අවසානය"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "මහා ප්‍රවර්ධනය",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "ප්‍රවර්ධනය",
+    "දීමනාව",
+    "විකිණීම"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "‘වාව්’ පිපිරුම",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "වාව්",
+    "පිපිරීම"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "කටු සටහන් කතාව",
+   "tags": [
+    "කටු සටහන",
+    "ඩූඩල්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "කතාව ආරම්භ වේ",
+   "tags": [
+    "කතාව",
+    "ග්‍රන්ජ්",
+    "යතුරු ලියනය"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "වර්ණවත් අද කතාව",
+   "tags": [
+    "වර්ණ",
+    "කතාව",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "මගේ කතාවේ ලේබලය",
+   "tags": [
+    "ලේබලය",
+    "කතාව",
+    "වීලොග්"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "අතින් ලියූ ‘මේක බලන්න’",
+   "tags": [
+    "අතින් ලියූ",
+    "ඊතලය",
+    "පෙන්වීම"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "සුදු කොටුවල අවස්ථාව",
+   "tags": [
+    "දර්ශනය",
+    "කොටු",
+    "සිනමා"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "සිහින් අවස්ථා",
+   "tags": [
+    "අවස්ථා",
+    "අත් අකුරු",
+    "සරල"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "නිල් වරහන් පුවත්",
+   "tags": [
+    "පුවත්",
+    "පහළ තෙවැනි",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "දාර සහිත වලාකුළ",
+   "tags": [
+    "වලාකුළ",
+    "සුදු",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "රතු විකුණුම් කොටුව",
+   "tags": [
+    "දීමනාව",
+    "විකුණුම",
+    "රතු"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "ඉරුණු කඩදාසි",
+   "tags": [
+    "කඩදාසි",
+    "ඉරුණු",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "ක්‍රෝම් සටන",
+   "tags": [
+    "ක්‍රෝම්",
+    "සටන",
+    "ලෝහමය"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "කොළ පරිපූර්ණ",
+   "tags": [
+    "පරිපූර්ණ",
+    "කොළ",
+    "ගේමින්"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "සෙරිෆ් කවිය",
+   "tags": [
+    "කවිය",
+    "ආදරය",
+    "වාක්‍යය",
+    "අලංකාර"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "ප්‍රශ්න කොටු",
+   "tags": [
+    "ප්‍රශ්නය",
+    "අදහස්",
+    "කොටු"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "වේග ප්‍රවර්ධනය",
+   "tags": [
+    "ප්‍රවර්ධන",
+    "වේගය",
+    "ක්‍රෝම්"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "සමාජ මාධ්‍ය පෙති",
+   "tags": [
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය",
+    "ලයික්",
+    "බෙදාගන්න"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "තුර්කි නිල් නියොන් වටය",
+   "tags": [
+    "නියොන්",
+    "වටය",
+    "ගේමින්",
+    "දාර රේඛාව"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "ආලෝක වළල්ලක් සහිත සෙරිෆ්",
+   "tags": [
+    "සෙරිෆ්",
+    "ආලෝක වළල්ල",
+    "සම්භාව්‍ය"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "ඉදිරියට යන්න, පුළුල්",
+   "tags": [
+    "අභිප්‍රේරණය",
+    "සරල",
+    "සුදු"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "පුම්බන සරල රෝස",
+   "tags": [
+    "රෝස",
+    "පුම්බන ලද",
+    "විනෝදජනක"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "තැඹිලි වරහන් සිරස්තලය",
+   "tags": [
+    "උපසිරැසි",
+    "කොටුව",
+    "තැඹිලි"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "රතු කොටුවේ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "සබ්ස්ක්‍රයිබ්",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "සබ්ස්ක්‍රයිබ් පෙත්ත",
+   "tags": [
+    "සබ්ස්ක්‍රයිබ් කරන්න",
+    "පෙති හැඩය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "ප්‍රවණතා රවුම",
+   "tags": [
+    "ප්‍රවණතාව",
+    "රවුම",
+    "රතු"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "කහ තීරු අකුරු",
+   "tags": [
+    "සරල",
+    "කොටුව",
+    "කහ"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "ගීත මාතෘකාව",
+   "tags": [
+    "සංගීතය",
+    "ගීතය",
+    "ප්ලේයරය"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "තරංග රූප මාතෘකාව",
+   "tags": [
+    "සංගීතය",
+    "ශ්‍රව්‍ය",
+    "සරල"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "මෙතන ටැප් කරන්න",
+   "tags": [
+    "ස්පර්ශ කරන්න",
+    "ටැප් කරන්න",
+    "කැඳවීම"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "දම් කුසලාන පෙත්ත",
+   "tags": [
+    "කුසලානය",
+    "දම්",
+    "පෙති හැඩය"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "ස්ථාන සලකුණ",
+   "tags": [
+    "ස්ථානය",
+    "ගමන",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "කහ තීරුවක විශේෂ පුවත්",
+   "tags": [
+    "පුවත්",
+    "විශේෂ පුවත්",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "විශේෂ පුවත් පහළ තෙවැනි",
+   "tags": [
+    "පුවත්",
+    "පහළ තෙවැනි",
+    "ප්‍රවණතා"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "ගිනි දැල් සමඟ ‘යමු’",
+   "tags": [
+    "ගින්න",
+    "ගිනි දැල්",
+    "යමු"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "කහ බුරුසු ගිම්හානය",
+   "tags": [
+    "ගිම්හානය",
+    "ගිම්හාන",
+    "කහ",
+    "බුරුසුව"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "ජීවිත යාවත්කාලීන තීරුව",
+   "tags": [
+    "වීලොග්",
+    "කඩදාසි",
+    "ජීවිතය"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "වෛරල් පිපිරුම",
+   "tags": [
+    "හාස්‍ය චිත්‍ර",
+    "වෛරල්",
+    "පිපිරුම"
    ]
   },
   "text-style:ter-a-mano": {

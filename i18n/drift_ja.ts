@@ -3537,6 +3537,10 @@
         <translation>テキストスタイル名を変更しました</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>テキストスタイルを更新できませんでした</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>テキストスタイルを削除できませんでした</translation>
     </message>
@@ -4333,20 +4337,12 @@
         <translation>ファイルが見つかりません</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT をインストールしました: %1（調整 › LUT）</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>調整 › LUT にあります</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>エフェクトプリセットではありません</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>ルックをインストールしました: %1（マイエフェクト）</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4357,24 +4353,16 @@
         <translation>テキストスタイルではありません</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>テキストスタイルをインストールしました: %1（テキスト › マイスタイル）</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>テキスト › マイスタイルにあります</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>テキストアニメーションをインストールしました: %1（テキスト › アニメーション › インポート済み）</translation>
+        <source>In Titles › Trending</source>
+        <translation>タイトル › トレンド</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>テキスト › アニメーションにあります</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>シェイプをインストールしました: %1（シェイプとマスク）</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4383,10 +4371,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>ここではパッケージをインストールできません</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>トランジションをインストールしました: %1（トランジション）</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5059,6 +5043,18 @@
         <translation>このデバイスではそのファイルを共有できません</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>先にアニメーションを選択してください</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>アニメーションを保存できませんでした</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>マイアニメーションに保存しました</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>無音部分を削除</translation>
     </message>
@@ -5137,6 +5133,10 @@
     <message>
         <source>Imported</source>
         <translation>インポート済み</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>マイ</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13224,6 +13224,18 @@
         <translation>表示</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>インストール済み</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>「%1」の準備ができました。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>「%1」をインストールしました。</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>更新の確認…</translation>
     </message>
@@ -13763,6 +13775,26 @@
     <message>
         <source>Invert</source>
         <translation>反転</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>トラッキング</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>スケールも — 覆っている対象に合わせて拡大・縮小</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>マスクが覆っている対象を追従</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>追従させたい対象の上にマスクを置いて開始します：再生ヘッドからマスクの両端までキーフレームが打たれます</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
     </message>
 </context>
 <context>
@@ -14677,6 +14709,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>このクリップは何も追跡できません</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>動画の上に置くと、その中のものを追跡できます</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>オブジェクト検出には「オブジェクトトラッキング」エクストラが必要です</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>ここにはオブジェクトが見つかりません。追従させたいものを枠で囲んでください</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>顔を隠す動画または写真を選択してください</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>このクリップに顔が見つかりませんでした</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>ぼかした顔</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>モザイクの顔</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>顔を隠す</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>顔を隠しました：そのレイヤーはクリップの上にあり、トリミングや削除ができます</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>隠したいものがある動画または写真を選択してください</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>まずプレビューでオブジェクトを選ぶか、周りに枠を描いてください</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>ぼかしたオブジェクト</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>モザイクのオブジェクト</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>オブジェクトを隠す</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>オブジェクトを隠しました：そのレイヤーはクリップの上にあり、トリミングや削除ができます</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>覆っている対象を追従させるマスクを選択してください</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>動画内のものを追従するには、マスクを動画の上に置いてください</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>追従させたい対象の上にマスクを移動してください</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>マスクが追従</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>トラッキングを削除</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>トラッキングを削除しました</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>追従していた動画はもうプロジェクトにありません</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>要素と動画の追従部分が重なっていません</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>トラッキング設定</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>トラッキングを再調整</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>トラッキングはすでに実行中です</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>先に動画内の顔をスキャンしています…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>要素と動画がほとんど重なっていません</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>追跡したいものの上に要素を移動してください</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>準備中…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>この動画にはスキャン済みの顔がありません</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>再生ヘッドの位置に顔がありません。顔が映っているフレームに移動してください</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>トラッキングをキャンセルしました</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>フレーム %1 / %2 を追跡中…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>追跡できるものが見つかりませんでした</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>モーショントラッキング</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>トラッキング完了 — %2 フレーム中 %1 フレームで被写体を見失いました</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>トラッキング完了</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14865,6 +15056,14 @@
     <message>
         <source>Colour</source>
         <translation>カラー</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>色味</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>エフェクトが重ねる色</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16068,6 +16267,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>アニメーション</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>トラッキング</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18124,6 +18327,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation>角度</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>ステップ</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20235,6 +20442,10 @@ If playback stutters, try another.</source>
         <translation>お気に入り</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI テキスト</translation>
     </message>
@@ -20261,6 +20472,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — クリックするとダウンロードして再生ヘッドに追加します</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>トレンドのテキストを見るにはサインインしてください</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>トレンドのテキストを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>トレンドのテキストを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>トレンドのタイトルは Stock から届きます。無料アカウントが必要です。</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>サインイン</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>再試行</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>選択したテキストから更新</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20525,6 +20768,38 @@ If playback stutters, try another.</source>
         <translation>テキスト自体ではなく、テキストの周囲に描画されるボックスや罫線</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>アニメーションオプション</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>名前を変更…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>書き出し…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>テキストアニメーションを書き出す</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>テキストアニメーション (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>マイアニメーションとして保存…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>テキストアニメーションを保存</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>フェーズ</translation>
     </message>
@@ -20741,6 +21016,14 @@ If playback stutters, try another.</source>
         <translation>下線</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>なめらか弱</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>基本</translation>
     </message>
@@ -20867,6 +21150,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>行ごと</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>形状</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>長方形</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>カプセル</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>吹き出し</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>楕円</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>思考の吹き出し</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>雲</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>爆発</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>叫び</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>タグ</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>リボン</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>矢印</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>メモ</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>チケット</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>筆跡</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>破れた紙</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>ハート</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21029,6 +21380,10 @@ If playback stutters, try another.</source>
         <translation>ルールに従って、一部の単語を他のものとは異なるスタイルにする</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>開始する単語</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>アクセントの色</translation>
     </message>
@@ -21073,6 +21428,10 @@ If playback stutters, try another.</source>
         <translation>アクセントハイライトの色を選択</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>余白</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>テキストの背後のシェイプ: 吹き出し、ラベル、ブラシストローク… 色とサイズは 基本 → 背景 で微調整できます。</translation>
     </message>
@@ -21099,6 +21458,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>テキストアニメーションの名前を変更</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>テキストアニメーションを削除</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>「%1」を削除しますか？ これを使っているテキストは動きを保持します。</translation>
     </message>
     <message>
         <source>All</source>
@@ -23350,6 +23721,172 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>キーフレームを削除</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>トラッキング</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>トラッキングを解除</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>なし</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>オブジェクト</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>顔</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>プレビューで追従する顔をクリックします（指定しない場合は要素に最も近い顔）。</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>まず「%1」の顔を解析し、要素に最も近い顔を追従します。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>プレビューでオブジェクトを選ぶか、周りに枠を描きます。何も選ばない場合は「%1」で要素が覆っている部分を追従します。</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>検索中…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>オブジェクトを検出</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>再生ヘッドの位置で人、動物、乗り物などを見つけます</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>オブジェクト検出を入手</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>オブジェクトを自動で見つけるには、エクストラ「オブジェクトトラッキング」をインストールしてください</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>選択を解除</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>両方</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>前方</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>後方</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>再生ヘッドからクリップの両端へ、または片方向だけに追従します</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>スケール — 追従対象に合わせて拡大・縮小</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>距離 — 追従対象との位置関係を保つ</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>オフ：要素は追従対象のちょうど上に置かれます</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>ここから再トラッキング</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>トラッキング開始</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>再生ヘッドから追従します。要素は追従対象との位置関係を保ちます</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>再配置</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>動画の移動、トリミング、速度変更の後に、再解析せずに軌跡を合わせ直します</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>隠す</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>顔</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>オブジェクト</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>プレビューで隠したい顔をクリックします（指定しない場合は中央に最も近い顔）。クリップ全体で追従しながら隠し、レイヤーはクリップのすぐ上に置かれます。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>プレビューでオブジェクトを選ぶか、周りに枠を描きます。クリップ全体で追従しながら隠し、レイヤーはクリップのすぐ上に置かれます。</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>モザイク</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ぼかし</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>追従していた動画はプロジェクトにありません。</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>追従していた動画が置き換えられました。軌跡を合わせるため再トラッキングしてください。</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>%1 フレームで追従、%2 フレームで見失いました。見失った区間では、見つかったフレーム間を要素がなめらかに移動します。</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>全 %1 フレームで追従しました。</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>見失い</translation>
     </message>
 </context>
 <context>

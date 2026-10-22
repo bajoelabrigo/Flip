@@ -20,12 +20,15 @@ constexpr int kFormatVersion = 2;
 
 QJsonObject presetToJson(const TextPreset &preset)
 {
-    return QJsonObject{
+    QJsonObject o{
         {QStringLiteral("id"), preset.id},
         {QStringLiteral("label"), preset.label},
         {QStringLiteral("sampleText"), preset.sampleText},
         {QStringLiteral("style"), textStyleToJson(preset.style)},
     };
+    if (!preset.stockId.isEmpty())
+        o.insert(QStringLiteral("stockId"), preset.stockId);
+    return o;
 }
 
 // `id` is taken from the object only when the caller trusts it (the library file); imports pass
@@ -33,8 +36,10 @@ QJsonObject presetToJson(const TextPreset &preset)
 TextPreset presetFromJson(const QJsonObject &o, bool keepId)
 {
     TextPreset preset;
-    if (keepId)
+    if (keepId) {
         preset.id = o.value(QStringLiteral("id")).toString();
+        preset.stockId = o.value(QStringLiteral("stockId")).toString();
+    }
     preset.label = o.value(QStringLiteral("label")).toString();
     preset.sampleText = o.value(QStringLiteral("sampleText")).toString();
     preset.style = textStyleFromJson(o.value(QStringLiteral("style")).toObject());
@@ -187,6 +192,26 @@ bool TextPresetStore::rename(const QString &id, const QString &label)
     return false;
 }
 
+bool TextPresetStore::update(const QString &id, const TextStyle &style)
+{
+    QMutexLocker locker(&m_mutex);
+    ensureLoaded();
+    for (TextPreset &preset : m_presets) {
+        if (preset.id != id)
+            continue;
+        const TextStyle previous = preset.style;
+        preset.style = style;
+        preset.style.packId.clear();
+        preset.style.keyframes.clear();
+        if (!save()) {
+            preset.style = previous;
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
 bool TextPresetStore::remove(const QString &id)
 {
     QMutexLocker locker(&m_mutex);
@@ -230,7 +255,57 @@ QString TextPresetStore::importFromFile(const QString &path)
     const TextPreset incoming = presetFromJson(o, false);
     const QString label = incoming.label.isEmpty() ? QFileInfo(path).completeBaseName()
                                                    : incoming.label;
-    return add(label, incoming.style, incoming.sampleText);
+    // A style from Stock carries its catalogue id: the same download twice refreshes the one
+    // already installed instead of adding a copy.
+    QString stockId;
+    if (o.value(QStringLiteral("format")).toString() == QLatin1String("flip-text-style"))
+        stockId = o.value(QStringLiteral("id")).toString();
+    if (stockId.isEmpty() || isUserTextPresetId(stockId))
+        return add(label, incoming.style, incoming.sampleText);
+
+    const QString existing = idForStockId(stockId);
+    if (!existing.isEmpty()) {
+        QMutexLocker locker(&m_mutex);
+        for (TextPreset &preset : m_presets) {
+            if (preset.id != existing)
+                continue;
+            const TextPreset previous = preset;
+            preset.label = label.trimmed();
+            preset.style = incoming.style;
+            if (!incoming.sampleText.trimmed().isEmpty())
+                preset.sampleText = incoming.sampleText.trimmed();
+            if (!save()) {
+                preset = previous;
+                return {};
+            }
+            return existing;
+        }
+    }
+    const QString id = add(label, incoming.style, incoming.sampleText);
+    if (id.isEmpty())
+        return {};
+    QMutexLocker locker(&m_mutex);
+    for (TextPreset &preset : m_presets) {
+        if (preset.id == id) {
+            preset.stockId = stockId;
+            save();
+            break;
+        }
+    }
+    return id;
+}
+
+QString TextPresetStore::idForStockId(const QString &stockId) const
+{
+    if (stockId.isEmpty())
+        return {};
+    QMutexLocker locker(&m_mutex);
+    ensureLoaded();
+    for (const TextPreset &preset : m_presets) {
+        if (preset.stockId == stockId)
+            return preset.id;
+    }
+    return {};
 }
 
 void TextPresetStore::reload()

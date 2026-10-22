@@ -69,6 +69,7 @@ struct MediaEditSpec;
 #include "DepthController.h"
 #include "BodyController.h"
 #include "FaceTrackingController.h"
+#include "MotionTrackController.h"
 #include "McpController.h"
 #include "RestoreController.h"
 #include "SceneDetectController.h"
@@ -101,6 +102,7 @@ class AppController : public QObject
     friend class DenoiseController;
     friend class RestoreController;
     friend class FaceTrackingController;
+    friend class MotionTrackController;
     friend class BodyController;
     friend class StabilizeController;
     friend class MediaBinController;
@@ -137,6 +139,7 @@ class AppController : public QObject
     Q_PROPERTY(RestoreController *restore READ restore CONSTANT)
     // Face landmark tracking and Face Swap source ingest. QML: EditorState.faces.
     Q_PROPERTY(FaceTrackingController *faces READ faces CONSTANT)
+    Q_PROPERTY(MotionTrackController *motionTrack READ motionTrack CONSTANT)
     Q_PROPERTY(BodyController *body READ body CONSTANT)
     // Clip stabilization. QML: EditorState.stabilize.
     Q_PROPERTY(StabilizeController *stabilize READ stabilize CONSTANT)
@@ -335,6 +338,7 @@ public:
     DenoiseController *denoise() const { return m_denoise; }
     RestoreController *restore() const { return m_restore; }
     FaceTrackingController *faces() const { return m_faces; }
+    MotionTrackController *motionTrack() const { return m_motionTrack; }
     BodyController *body() const { return m_body; }
     StabilizeController *stabilize() const { return m_stabilize; }
     TtsController *tts() const { return m_tts; }
@@ -962,6 +966,10 @@ public:
     // Returns {ok, id, error, unsupported:[…]}; the preset lands in the slot's "Imported" category.
     Q_INVOKABLE QVariantMap importTextAnimationPreset(const QUrl &fileUrl, const QString &slot = {});
     Q_INVOKABLE bool renameUserTextAnimationPreset(const QString &presetId, const QString &label);
+    // A text clip's In / Out / Loop slot as one of the user's own animations: the slot's preset
+    // with the clip's settings as its defaults, listed under "Mine". Returns the new id.
+    Q_INVOKABLE QString saveTextAnimationAsPreset(int trackIndex, int clipIndex, const QString &slot,
+                                                  const QString &label);
     Q_INVOKABLE bool deleteUserTextAnimationPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextAnimationPreset(const QString &presetId, const QUrl &fileUrl);
     // Human label for a text keyframe property ("Shadow · Blur"); empty for non-text props.
@@ -971,12 +979,17 @@ public:
     // Style packs the user saved from the inspector. Kept out of textPresets() so the built-in
     // catalog (and the MCP list it feeds) stays a stable, shippable set.
     Q_INVOKABLE QVariantList userTextPresets() const;
+    // The library id of the style installed from a Stock item ("flip:text-style:<id>"), or empty
+    // while it has not been downloaded.
+    Q_INVOKABLE QString stockTextPresetId(const QString &stockItemId) const;
     // Template packs from Extras (kind "text-styles"): {id, label, category, sampleText}, and their
     // categories {id, label} in display order.
     Q_INVOKABLE QVariantList addonTextPresets() const;
     Q_INVOKABLE QVariantList addonTextPresetCategories() const;
     Q_INVOKABLE QString saveTextStyleAsPreset(int trackIndex, int clipIndex, const QString &label);
     Q_INVOKABLE bool renameUserTextPreset(const QString &presetId, const QString &label);
+    // Saves the look of a text clip over one of My styles, so a style can be refined in place.
+    Q_INVOKABLE bool updateUserTextPreset(const QString &presetId, int trackIndex, int clipIndex);
     Q_INVOKABLE bool deleteUserTextPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextPreset(const QString &presetId, const QUrl &fileUrl);
     Q_INVOKABLE bool importUserTextPreset(const QUrl &fileUrl);
@@ -1982,6 +1995,9 @@ protected:
     void notifyStabilizeStateChanged(const QString &clipId);
 
     void pushProjectEdit(const drift::Project &before, const QString &text);
+    // A catalogue effect with its fixed and default parameters, as addEffect builds it; nullopt for
+    // an unknown id. For controllers that assemble a layer themselves (MotionTrackController).
+    std::optional<drift::Effect> effectWithDefaults(const QString &effectId) const;
 
     // Lifts one effect, one audio effect, or the whole stack off a clip. Every copy and
     // save-as-preset entry point funnels through this, so all of them produce one payload shape.
@@ -2427,6 +2443,7 @@ protected:
     DenoiseController *m_denoise = nullptr;
     RestoreController *m_restore = nullptr;
     FaceTrackingController *m_faces = nullptr;
+    MotionTrackController *m_motionTrack = nullptr;
     BodyController *m_body = nullptr;
     StabilizeController *m_stabilize = nullptr;
     MediaBinController *m_bin = nullptr;

@@ -335,6 +335,48 @@ void MarketClient::fetchTemplateSuggestions(const QString &photoBucket, const QS
     emit templateSuggestionsChanged();
 }
 
+void MarketClient::fetchTextTrends(bool more)
+{
+    if (more && (m_textTrendsLoading || m_textTrendsCursor.isEmpty()))
+        return;
+    const int generation = ++m_textTrendsGeneration;
+    const QString cursor = more ? m_textTrendsCursor : QString();
+    if (!more) {
+        m_textTrends.clear();
+        m_textTrendsCursor.clear();
+    }
+    if (!configured() || !authenticated()) {
+        m_textTrendsLoading = false;
+        emit textTrendsChanged();
+        return;
+    }
+    QUrl url = apiUrl(QStringLiteral("/search"));
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("type"), QStringLiteral("text-style"));
+    query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
+    if (!cursor.isEmpty())
+        query.addQueryItem(QStringLiteral("cursor"), cursor);
+    url.setQuery(query);
+    m_textTrendsLoading = true;
+    emit textTrendsChanged();
+    QNetworkReply *reply = get(url);
+    connect(reply, &QNetworkReply::finished, this, [this, reply, generation] {
+        reply->deleteLater();
+        if (generation != m_textTrendsGeneration)
+            return;
+        m_textTrendsLoading = false;
+        if (reply->error() == QNetworkReply::NoError) {
+            const QJsonObject page = QJsonDocument::fromJson(reply->readAll()).object();
+            for (const QJsonValue &value : page.value(QStringLiteral("items")).toArray())
+                m_textTrends.append(objectToMap(value.toObject()));
+            m_textTrendsCursor = page.value(QStringLiteral("next_cursor")).toString();
+        } else {
+            qWarning("MarketClient: text trends: %s", qPrintable(reply->errorString()));
+        }
+        emit textTrendsChanged();
+    });
+}
+
 void MarketClient::removeFromLibrary(const QString &itemId)
 {
     if (!configured() || !authenticated() || itemId.isEmpty())
@@ -1003,9 +1045,15 @@ QVariantMap MarketClient::downloadInfo(const QString &itemId) const
 QVariantMap MarketClient::itemById(const QString &itemId) const
 {
     const int at = m_itemIndex.value(itemId, -1);
-    if (at < 0 || at >= m_items.size())
+    if (at >= 0 && at < m_items.size())
+        return m_items.at(at).toMap();
+    if (m_homeItems.contains(itemId))
         return m_homeItems.value(itemId);
-    return m_items.at(at).toMap();
+    for (const QVariant &row : m_textTrends) {
+        if (row.toMap().value(QStringLiteral("id")).toString() == itemId)
+            return row.toMap();
+    }
+    return {};
 }
 
 QString MarketClient::deliveryForItem(const QVariantMap &item) const
@@ -2045,7 +2093,10 @@ void MarketClient::finishInstalledJob(const QString &itemId, const QString &path
     bumpDownloads();
     rememberDownload(itemId, kept, displayName);
     pumpDownloadQueue();
-    emit downloadImported(itemId, displayName);
+    // Not "added to Media": it went where the editor keeps that kind of thing. Named by its title
+    // in Stock, not by the downloaded file ("tend-a-vlog-diario").
+    const auto job = m_jobs.value(itemId);
+    emit downloadInstalled(itemId, job && !job->title.isEmpty() ? job->title : displayName, where);
     refreshLibrary();
 }
 

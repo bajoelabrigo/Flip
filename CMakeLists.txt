@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.18.3 LANGUAGES CXX C)
+project(Drift VERSION 0.19.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -498,6 +498,8 @@ add_library(driftcore STATIC
     src/core/TextQuickStyles.cpp
     src/core/TextPresetStore.h
     src/core/TextPresetStore.cpp
+    src/core/MotionTrack.h
+    src/core/MotionTrack.cpp
     src/core/EffectStackStore.h
     src/core/EffectStackStore.cpp
     src/core/ShapeStyle.h
@@ -753,6 +755,8 @@ add_library(driftengine STATIC
     src/engine/FaceLandmarker.cpp
     src/engine/FaceTrack.h
     src/engine/FaceTrack.cpp
+    src/engine/RegionTracker.h
+    src/engine/RegionTracker.cpp
     src/engine/BodyLandmarker.h
     src/engine/BodyLandmarker.cpp
     src/engine/PoseTrack.h
@@ -971,6 +975,8 @@ qt_add_executable(drift
     src/models/RestoreController.cpp
     src/models/FaceTrackingController.h
     src/models/FaceTrackingController.cpp
+    src/models/MotionTrackController.h
+    src/models/MotionTrackController.cpp
     src/models/BodyController.h
     src/models/BodyController.cpp
     src/models/StabilizeController.h
@@ -1298,6 +1304,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/GuideEditOverlay.qml
         src/qml/components/preview/MaskOverlay.qml
         src/qml/components/preview/DepthEffectOverlay.qml
+        src/qml/components/preview/TrackingOverlay.qml
         src/qml/components/preview/Checkerboard.qml
         src/qml/components/preview/AndroidTransformOverlay.qml
         src/qml/components/preview/AndroidCropOverlay.qml
@@ -1319,6 +1326,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/TextAnimPresetTile.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
+        src/qml/components/properties/TrackingInspector.qml
         src/qml/components/properties/CameraInspector.qml
         src/qml/components/properties/TransformLayerCard.qml
         src/qml/components/properties/StabilizeInspector.qml
@@ -1662,7 +1670,10 @@ if(Qt6LinguistTools_FOUND)
         # -locations none: source line numbers in .ts files churn on every edit
         # and make i18n/*.ts conflict across PRs. Translators still see context
         # and source text; they lose jump-to-source in Qt Linguist.
-        LUPDATE_OPTIONS -no-obsolete -locations none
+        # No same/similar-text guesses for new strings: lrelease ships unfinished text, so a guess
+        # copied from another context ("Blur" -> "Desenfoque") overrode the base language's real
+        # translation wherever a regional catalog (es_CO) is layered on top of it.
+        LUPDATE_OPTIONS -no-obsolete -locations none -disable-heuristic sametext -disable-heuristic similartext
     )
     if(NOT TARGET update_translations AND TARGET drift_lupdate)
         add_custom_target(update_translations DEPENDS drift_lupdate)

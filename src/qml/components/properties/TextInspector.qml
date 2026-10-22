@@ -126,12 +126,16 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
+    // Bumped when the user saves, renames or deletes one of their own animations.
+    property int animPresetsTick: 0
     readonly property var animPresets: {
         void root.animSlot
+        void root.animPresetsTick
         return EditorState.textAnimationPresets(root.animSlot)
     }
     readonly property var animCategories: {
         void root.animSlot
+        void root.animPresetsTick
         return EditorState.textAnimationCategories(root.animSlot)
     }
     readonly property var animTileModel: {
@@ -165,6 +169,8 @@ Item {
     readonly property var easeChips: [
         { "id": "linear", "label": qsTr("Linear") },
         { "id": "easeInOut", "label": qsTr("Smooth") },
+        { "id": "smooth", "label": qsTr("Gentle") },
+        { "id": "easeIn", "label": qsTr("Speed up") },
         { "id": "easeOut", "label": qsTr("Snappy") },
         { "id": "back", "label": qsTr("Back") },
         { "id": "bounce", "label": qsTr("Bounce") }
@@ -264,6 +270,7 @@ Item {
         target: EditorState
         function onUserTextPresetsChanged() { root.savedTick++ }
         function onAssetFavoritesChanged() { root.favoritesTick++ }
+        function onUserTextAnimationPresetsChanged() { root.animPresetsTick++ }
     }
     function isFavorite(tab, id) {
         void root.favoritesTick
@@ -1317,6 +1324,44 @@ Item {
                         }
                     }
 
+                    // Only the outline of the box: the Bubble gallery replaces the whole look, this
+                    // keeps the text's layers, colours and padding.
+                    Row {
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: 74
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Shape")
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ThemedComboBox {
+                            width: parent.parent.width - 74 - Theme.spacingSm
+                            readonly property var shapes: [
+                                { "id": "rect", "label": qsTr("Rectangle") },
+                                { "id": "pill", "label": qsTr("Pill") },
+                                { "id": "speech", "label": qsTr("Speech bubble") },
+                                { "id": "oval", "label": qsTr("Oval") },
+                                { "id": "thought", "label": qsTr("Thought bubble") },
+                                { "id": "cloud", "label": qsTr("Cloud") },
+                                { "id": "burst", "label": qsTr("Burst") },
+                                { "id": "shout", "label": qsTr("Shout") },
+                                { "id": "tag", "label": qsTr("Tag") },
+                                { "id": "ribbon", "label": qsTr("Ribbon") },
+                                { "id": "arrow", "label": qsTr("Arrow") },
+                                { "id": "note", "label": qsTr("Note") },
+                                { "id": "ticket", "label": qsTr("Ticket") },
+                                { "id": "brush", "label": qsTr("Brush stroke") },
+                                { "id": "torn", "label": qsTr("Torn paper") },
+                                { "id": "heart", "label": qsTr("Heart") }
+                            ]
+                            model: shapes.map(s => s.label)
+                            currentIndex: Math.max(0, shapes.findIndex(s => s.id === (root.textStyle.boxShape || "rect")))
+                            onActivated: root.setTextStyleKey("boxShape", shapes[currentIndex].id)
+                        }
+                    }
+
                     Row {
                         spacing: Theme.spacingSm
                         Text {
@@ -1371,7 +1416,7 @@ Item {
                         width: parent.width
                         label: qsTr("Width")
                         from: 0
-                        to: 1.5
+                        to: 2
                         displayScale: 100
                         suffix: "%"
                         value: Number(root.textStyle.boxPaddingX) / root.em
@@ -2015,8 +2060,11 @@ Item {
 
                         ThemedComboBox {
                             id: accentRuleBox
-                            width: root.textStyle.accent.rule === "everyNth"
-                                   ? (parent.width - parent.spacing) * 0.66 : parent.width
+                            readonly property bool counted: root.textStyle.accent.rule === "everyNth"
+                                                            || root.textStyle.accent.rule === "everyOther"
+                            width: !counted ? parent.width
+                                   : root.textStyle.accent.rule === "everyNth"
+                                     ? (parent.width - 2 * parent.spacing) * 0.5 : (parent.width - parent.spacing) * 0.66
                             model: root.accentRuleLabels
                             currentIndex: Math.max(0, root.accentRules.indexOf(root.textStyle.accent.rule))
                             onActivated: root.setTextGroupKey("accent", "rule",
@@ -2026,12 +2074,31 @@ Item {
                         ThemedNumberField {
                             id: accentEveryNField
                             visible: root.textStyle.accent.rule === "everyNth"
-                            width: (parent.width - parent.spacing) * 0.34
+                            width: (parent.width - 2 * parent.spacing) * 0.25
                             to: 16
                             from: 1
                             decimals: 0
                             step: 1
                             onEdited: v => root.setTextGroupKey("accent", "n", v)
+                        }
+
+                        // Which word the pattern starts on: 0 is the first word.
+                        ThemedNumberField {
+                            id: accentPhaseField
+                            visible: accentRuleBox.counted
+                            width: root.textStyle.accent.rule === "everyNth"
+                                   ? (parent.width - 2 * parent.spacing) * 0.25 : (parent.width - parent.spacing) * 0.34
+                            from: 0
+                            to: 16
+                            decimals: 0
+                            step: 1
+                            ThemedToolTip { text: qsTr("Start at word"); visible: accentPhaseHover.hovered }
+                            HoverHandler { id: accentPhaseHover }
+                            Binding on value {
+                                when: !accentPhaseField.activeFocus
+                                value: Number(root.textStyle.accent.phase) || 0
+                            }
+                            onEdited: v => root.setTextGroupKey("accent", "phase", Math.round(v))
                         }
                     }
 
@@ -2087,7 +2154,7 @@ Item {
                                 width: parent.width
                                 decimals: 2
                                 step: 0.05
-                                from: 0.25
+                                from: 0.2
                                 onEdited: v => root.setTextGroupKey("accent", "sizeScale", v)
                             }
                         }
@@ -2142,10 +2209,66 @@ Item {
                             switchTooltip: qsTr("Highlight only the accented words, instead of every word")
                             onSwitchToggled: on => root.setTextAccentHighlightKey("enabled", on)
 
-                            ColorSwatchField {
-                                hex: root.textStyle.accent.highlight.color
-                                tooltip: qsTr("Choose accent highlight colour")
-                                onEdited: value => root.setTextAccentHighlightKey("color", value)
+                            Column {
+                                width: parent.width
+                                spacing: Theme.spacingSm
+                                ColorSwatchField {
+                                    hex: root.textStyle.accent.highlight.color
+                                    tooltip: qsTr("Choose accent highlight colour")
+                                    onEdited: value => root.setTextAccentHighlightKey("color", value)
+                                }
+                                Row {
+                                    width: parent.width
+                                    spacing: 8
+                                    Column {
+                                        width: (parent.width - parent.spacing) / 2
+                                        spacing: 4
+                                        Text {
+                                            text: qsTr("Padding")
+                                            color: Theme.mutedForeground
+                                            font.pixelSize: Theme.fontSizeXs
+                                            font.family: Theme.fontFamily
+                                        }
+                                        ThemedNumberField {
+                                            id: accentPillPaddingField
+                                            width: parent.width
+                                            from: 0
+                                            to: 200
+                                            unit: "px"
+                                            decimals: 1
+                                            step: 1
+                                            Binding on value {
+                                                when: !accentPillPaddingField.activeFocus
+                                                value: Number(root.textStyle.accent.highlight.padding) || 0
+                                            }
+                                            onEdited: v => root.setTextAccentHighlightKey("padding", v)
+                                        }
+                                    }
+                                    Column {
+                                        width: (parent.width - parent.spacing) / 2
+                                        spacing: 4
+                                        Text {
+                                            text: qsTr("Corner radius")
+                                            color: Theme.mutedForeground
+                                            font.pixelSize: Theme.fontSizeXs
+                                            font.family: Theme.fontFamily
+                                        }
+                                        ThemedNumberField {
+                                            id: accentPillRadiusField
+                                            width: parent.width
+                                            from: 0
+                                            to: 200
+                                            unit: "px"
+                                            decimals: 1
+                                            step: 1
+                                            Binding on value {
+                                                when: !accentPillRadiusField.activeFocus
+                                                value: Number(root.textStyle.accent.highlight.radius) || 0
+                                            }
+                                            onEdited: v => root.setTextAccentHighlightKey("radius", v)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -2441,6 +2564,46 @@ Item {
                             tabId: "textAnimations"
                             itemId: modelData.id
                         }
+
+                        // The user's own animations (saved here, imported or from Stock) can be
+                        // renamed, shared and removed.
+                        IconButton {
+                            visible: modelData.id.startsWith("user:")
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            glyph: Theme.icons.ellipsis
+                            variant: "ghost"
+                            buttonSize: 20
+                            iconSize: 12
+                            tooltip: qsTr("Animation options")
+                            onClicked: animMenu.popup()
+                        }
+                        ThemedContextMenu {
+                            id: animMenu
+                            ThemedMenuItem {
+                                text: qsTr("Rename…")
+                                icon.name: Theme.icons.pencil
+                                onTriggered: animRenameDialog.openFor(modelData)
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Export…")
+                                icon.name: Theme.icons.folderOutput
+                                onTriggered: {
+                                    const url = FileDialogs.saveFile(qsTr("Export text animation"),
+                                                                     [qsTr("Text animations (*.json)")],
+                                                                     modelData.label, "json")
+                                    if (url.toString().length > 0)
+                                        EditorState.exportUserTextAnimationPreset(modelData.id, url)
+                                }
+                            }
+                            ThemedMenuSeparator { }
+                            ThemedMenuItem {
+                                text: qsTr("Delete")
+                                icon.name: Theme.icons.trash
+                                onTriggered: animDeleteDialog.openFor(modelData)
+                            }
+                        }
                     }
                 }
             }
@@ -2457,7 +2620,7 @@ Item {
                     spacing: Theme.spacingSm
 
                     Text {
-                        width: parent.width - previewButton.width - parent.spacing
+                        width: parent.width - previewButton.width - saveAnimButton.width - 2 * parent.spacing
                         anchors.verticalCenter: parent.verticalCenter
                         text: root.selectedPreset ? root.selectedPreset.label : ""
                         elide: Text.ElideRight
@@ -2465,6 +2628,17 @@ Item {
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeSm
                         font.weight: Font.DemiBold
+                    }
+                    // Keeps this slot's settings as one of My animations, to reuse on other texts.
+                    IconButton {
+                        id: saveAnimButton
+                        glyph: Theme.icons.save
+                        variant: "ghost"
+                        buttonSize: Theme.controlHeightSm
+                        iconSize: 14
+                        tooltip: qsTr("Save as my animation…")
+                        onClicked: saveAnimDialog.openWith(qsTr("Save text animation"),
+                                                           root.selectedPreset ? root.selectedPreset.label : "")
                     }
                     IconButton {
                         id: previewButton
@@ -2686,6 +2860,54 @@ Item {
         id: saveStyleDialog
         onSubmitted: name => EditorState.saveTextStyleAsPreset(EditorState.selectedTrack,
                                                                EditorState.selectedClip, name)
+    }
+
+    NameDialog {
+        id: saveAnimDialog
+        onSubmitted: name => {
+            const id = EditorState.saveTextAnimationAsPreset(EditorState.selectedTrack, EditorState.selectedClip,
+                                                             root.animSlot, name)
+            if (id.length > 0) {
+                root.animCategory = "mine"
+                root.pickPreset(id)
+            }
+        }
+    }
+
+    NameDialog {
+        id: animRenameDialog
+        property string presetId: ""
+        function openFor(preset) {
+            presetId = preset.id
+            openWith(qsTr("Rename text animation"), preset.label)
+        }
+        onSubmitted: name => EditorState.renameUserTextAnimationPreset(animRenameDialog.presetId, name)
+    }
+
+    ThemedDialog {
+        id: animDeleteDialog
+        property string presetId: ""
+        property string presetLabel: ""
+        title: qsTr("Delete text animation")
+        acceptText: qsTr("Delete")
+        acceptVariant: "destructive"
+        preferredWidth: Theme.dialogWidthSm
+        acceptOnReturn: false
+        function openFor(preset) {
+            presetId = preset.id
+            presetLabel = preset.label
+            open()
+        }
+        onAccepted: EditorState.deleteUserTextAnimationPreset(animDeleteDialog.presetId)
+
+        contentItem: Text {
+            width: parent ? parent.width : 320
+            wrapMode: Text.WordWrap
+            text: qsTr("Delete “%1”? Texts that use it keep their motion.").arg(animDeleteDialog.presetLabel)
+            color: Theme.panelForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+        }
     }
 
     VoiceoverDialog {

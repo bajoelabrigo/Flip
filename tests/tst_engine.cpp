@@ -83,6 +83,8 @@
 #include "engine/EffectPackageLoader.h"
 #include "engine/EffectProcessor.h"
 #include "engine/FaceTrack.h"
+#include "engine/RegionTracker.h"
+#include <QRandomGenerator>
 #include "engine/PoseTrack.h"
 #include "engine/FaceMesh.h"
 #include "engine/Face111.h"
@@ -154,6 +156,7 @@ private slots:
     void reverseProxyLookupIsByContainmentAndSourceIdentity();
     void resolveVideoReadMirrorsTheClipOntoTheProxy();
     void faceTrackRoundTripsAndInterpolates();
+    void regionTrackerFollowsAMovingPatch();
     void depthSidecarRoundTripsAndNormalises();
     void depthSidecarRejectsUnfinishedFile();
     void vdaStitcherAlignsAndBlendsWindows();
@@ -2319,6 +2322,100 @@ void EngineTest::depthOcclusionHidesLayerBehindNearerPixels()
     project.tracks()[1].clips[0].depthPath.clear();
     const QImage plain = compositor.compositeAt(500'000);
     QVERIFY(plain.pixelColor(8, 18).red() > 200);
+}
+
+// Motion tracking: a textured patch moving and growing over a noisy background is followed to
+// within a couple of pixels, a checked pattern does not make it jump one repeat over, and a frame
+// where the patch is gone holds the last position and says lost.
+void EngineTest::regionTrackerFollowsAMovingPatch()
+{
+    const int W = 480, H = 270;
+    QImage bg(W, H, QImage::Format_RGB32);
+    QRandomGenerator rng(7);
+    for (int y = 0; y < H; ++y) {
+        for (int x = 0; x < W; ++x) {
+            const int v = 90 + int(rng.bounded(40)) + int(30 * std::sin(x * 0.1) * std::cos(y * 0.14));
+            bg.setPixel(x, y, qRgb(v, v + 5, v - 5));
+        }
+    }
+    QImage object(48, 48, QImage::Format_RGB32);
+    for (int y = 0; y < 48; ++y) {
+        for (int x = 0; x < 48; ++x) {
+            const int v = ((x / 8) + (y / 8)) % 2 ? 230 : 30;
+            object.setPixel(x, y, qRgb(v, v * 6 / 10, 255 - v));
+        }
+    }
+    const auto frameAt = [&](double cx, double cy, double size, bool hidden) {
+        QImage f = bg.copy();
+        if (!hidden) {
+            QPainter p(&f);
+            p.drawImage(QRectF(cx - size / 2, cy - size / 2, size, size), object);
+        }
+        return f;
+    };
+
+    drift::RegionTracker tracker;
+    QVERIFY(!tracker.start(bg, QRectF(2, 2, 0.1, 0.1)));
+    double cx = 120, cy = 130, size = 48;
+    QVERIFY(tracker.start(frameAt(cx, cy, size, false),
+                          QRectF((cx - size / 2) / W, (cy - size / 2) / H, size / W, size / H)));
+    for (int i = 1; i <= 40; ++i) {
+        cx += 2.5;
+        cy += 1.5 * std::sin(i * 0.3);
+        size *= 1.01;
+        const drift::RegionTracker::Result r = tracker.step(frameAt(cx, cy, size, false), true);
+        QVERIFY(!r.lost);
+        QVERIFY2(std::hypot(r.rect.center().x() * W - cx, r.rect.center().y() * H - cy) < 2.5,
+                 qPrintable(QStringLiteral("frame %1").arg(i)));
+    }
+    QVERIFY(std::abs(tracker.step(frameAt(cx, cy, size, false), true).rect.width() * W / size - 1.0) < 0.08);
+
+    const drift::RegionTracker::Result gone = tracker.step(frameAt(cx, cy, size, true), true);
+    QVERIFY(gone.lost);
+    QVERIFY(std::hypot(gone.rect.center().x() * W - cx, gone.rect.center().y() * H - cy) < 2.5);
+
+    // Hidden for a while, back somewhere else: picked up again by the whole-frame search.
+    {
+        drift::RegionTracker t2;
+        double x = 100, y = 120;
+        QVERIFY(t2.start(frameAt(x, y, 48, false), QRectF((x - 24) / W, (y - 24) / H, 48.0 / W, 48.0 / H)));
+        for (int i = 0; i < 6; ++i)
+            QVERIFY(t2.step(frameAt(x, y, 48, true), false).lost);
+        x = 360;
+        y = 180;
+        bool back = false;
+        for (int i = 0; i < 3 && !back; ++i) {
+            const drift::RegionTracker::Result r = t2.step(frameAt(x, y, 48, false), false);
+            if (!r.lost) {
+                back = true;
+                QVERIFY(r.recovered);
+                QVERIFY(std::hypot(r.rect.center().x() * W - x, r.rect.center().y() * H - y) < 3.0);
+            }
+        }
+        QVERIFY2(back, "recovered after an occlusion");
+    }
+
+    // A look-alike: with the subject gone and its twin in view, the tracker must not jump to it.
+    {
+        const auto twins = [&](bool firstVisible) {
+            QImage f = bg.copy();
+            QPainter p(&f);
+            if (firstVisible)
+                p.drawImage(QRectF(100 - 24, 120 - 24, 48, 48), object);
+            p.drawImage(QRectF(340 - 24, 150 - 24, 48, 48), object);
+            return f;
+        };
+        drift::RegionTracker t3;
+        QVERIFY(t3.start(twins(true), QRectF(76.0 / W, 96.0 / H, 48.0 / W, 48.0 / H)));
+        QVERIFY(!t3.step(twins(true), false).lost);
+        for (int i = 0; i < 6; ++i) {
+            const drift::RegionTracker::Result r = t3.step(twins(false), false);
+            QVERIFY2(r.lost && !r.recovered, "no jump to the look-alike");
+            QVERIFY(std::hypot(r.rect.center().x() * W - 100, r.rect.center().y() * H - 120) < 3.0);
+        }
+        // Back where it was lost: taken up again.
+        QVERIFY(!t3.step(twins(true), false).lost);
+    }
 }
 
 void EngineTest::faceTrackRoundTripsAndInterpolates()

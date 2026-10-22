@@ -3537,6 +3537,10 @@
         <translation>텍스트 스타일 이름이 변경됨</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>텍스트 스타일을 업데이트할 수 없습니다</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>텍스트 스타일을 삭제할 수 없습니다</translation>
     </message>
@@ -4333,20 +4337,12 @@
         <translation>파일이 없습니다</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT 설치됨: %1 (조정 › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>조정 › LUT에 있음</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>효과 프리셋이 아닙니다</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>룩 설치됨: %1 (내 효과)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4357,24 +4353,16 @@
         <translation>텍스트 스타일이 아닙니다</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>텍스트 스타일 설치됨: %1 (텍스트 › 내 스타일)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>텍스트 › 내 스타일에 있음</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>텍스트 애니메이션 설치됨: %1 (텍스트 › 애니메이션 › 가져옴)</translation>
+        <source>In Titles › Trending</source>
+        <translation>제목 › 트렌드</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>텍스트 › 애니메이션에 있음</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>도형 설치됨: %1 (도형 및 마스크)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4383,10 +4371,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>여기에서는 패키지를 설치할 수 없습니다</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>전환 효과 설치됨: %1 (전환)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5059,6 +5043,18 @@
         <translation>이 장치에서 해당 파일을 공유할 수 없습니다</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>먼저 애니메이션을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>애니메이션을 저장할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>내 애니메이션에 저장했습니다</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>무음 구간 제거</translation>
     </message>
@@ -5137,6 +5133,10 @@
     <message>
         <source>Imported</source>
         <translation>가져옴</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>내 것</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13224,6 +13224,18 @@
         <translation>보기</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>설치됨</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” 준비 완료. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” 설치됨.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>업데이트 확인…</translation>
     </message>
@@ -13763,6 +13775,26 @@
     <message>
         <source>Invert</source>
         <translation>반전</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>트래킹</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>크기도 — 가리는 대상에 맞춰 커지고 작아짐</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>마스크가 가리는 대상을 따라감</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>따라갈 대상 위에 마스크를 놓고 시작하세요: 재생 헤드에서 마스크 양 끝까지 키프레임이 생성됩니다</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
     </message>
 </context>
 <context>
@@ -14677,6 +14709,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>이 클립은 아무것도 추적할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>추적하려면 동영상 위에 놓으세요</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>객체 감지에는 “객체 추적” 추가 기능이 필요합니다</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>여기에서 객체를 찾지 못했습니다. 따라갈 대상 주위에 상자를 그리세요</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>얼굴을 가릴 동영상이나 사진을 선택하세요</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>이 클립에서 얼굴을 찾지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>흐리게 한 얼굴</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>모자이크한 얼굴</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>얼굴 가리기</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>얼굴을 가렸습니다: 레이어가 클립 위에 있어 자르거나 삭제할 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>무언가를 가릴 동영상이나 사진을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>먼저 미리보기에서 객체를 고르거나 주위에 상자를 그리세요</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>흐리게 한 객체</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>모자이크한 객체</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>객체 가리기</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>객체를 가렸습니다: 레이어가 클립 위에 있어 자르거나 삭제할 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>가리는 대상을 따라가게 할 마스크를 선택하세요</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>동영상 속 무언가를 따라가려면 마스크를 동영상 위에 놓으세요</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>따라갈 대상 위로 마스크를 옮기세요</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>마스크 따라가기</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>트래킹 제거</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>트래킹을 제거했습니다</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>따라가던 동영상이 더 이상 프로젝트에 없습니다</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>요소와 동영상의 추적 구간이 더 이상 겹치지 않습니다</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>추적 설정</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>추적 다시 맞추기</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>이미 트래킹이 진행 중입니다</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>먼저 동영상의 얼굴을 스캔하는 중…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>요소와 동영상이 거의 겹치지 않습니다</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>요소를 추적할 대상 위로 옮기세요</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>준비 중…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>동영상에 스캔된 얼굴이 없습니다</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>재생 헤드에 얼굴이 없습니다. 얼굴이 보이는 프레임으로 이동하세요</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>트래킹이 취소되었습니다</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>프레임 %1/%2 추적 중…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>추적할 대상을 찾지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>모션 트래킹</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>트래킹 완료 — %2개 프레임 중 %1개에서 대상을 놓쳤습니다</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>트래킹 완료</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14865,6 +15056,14 @@
     <message>
         <source>Colour</source>
         <translation>색상</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>색조</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>효과가 덧입히는 색상</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16068,6 +16267,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>트래킹</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18123,6 +18326,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation>각도</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>단계</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20233,6 +20440,10 @@ If playback stutters, try another.</source>
         <translation>즐겨찾기</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI 텍스트</translation>
     </message>
@@ -20259,6 +20470,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>재생 헤드 위치에 추가</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — 클릭하면 다운로드해 재생 헤드에 추가합니다</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>트렌드 텍스트를 보려면 로그인하세요</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>트렌드 텍스트를 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>트렌드 텍스트를 불러오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>트렌드 제목은 무료 계정이 필요한 스톡에서 가져옵니다.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>다시 시도</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>선택한 텍스트로 업데이트</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20523,6 +20766,38 @@ If playback stutters, try another.</source>
         <translation>텍스트 위가 아니라 텍스트 주위에 그리는 상자와 선</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>애니메이션 옵션</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>이름 바꾸기…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>내보내기…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>텍스트 애니메이션 내보내기</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>텍스트 애니메이션 (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>내 애니메이션으로 저장…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>텍스트 애니메이션 저장</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>위상</translation>
     </message>
@@ -20739,6 +21014,14 @@ If playback stutters, try another.</source>
         <translation>밑줄</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>부드럽게 천천히</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>기본</translation>
     </message>
@@ -20865,6 +21148,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>줄마다</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>모양</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>직사각형</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>알약형</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>말풍선</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>타원</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>생각 풍선</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>구름</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>폭발</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>외침</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>태그</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>리본</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>화살표</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>메모</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>티켓</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>붓 터치</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>찢어진 종이</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>하트</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21027,6 +21378,10 @@ If playback stutters, try another.</source>
         <translation>규칙에 따라 선택한 일부 단어의 스타일을 나머지와 다르게 지정</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>시작 단어</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>강조 색상</translation>
     </message>
@@ -21071,6 +21426,10 @@ If playback stutters, try another.</source>
         <translation>강조 표시 색상 선택</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>여백</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>텍스트 뒤의 모양: 말풍선, 라벨, 붓 터치… 색과 크기는 기본 → 배경에서 세부 조정하세요.</translation>
     </message>
@@ -21097,6 +21456,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>텍스트 애니메이션 이름 바꾸기</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>텍스트 애니메이션 삭제</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>“%1”을(를) 삭제할까요? 이를 사용하는 텍스트는 움직임을 유지합니다.</translation>
     </message>
     <message>
         <source>All</source>
@@ -23348,6 +23719,172 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>키프레임 삭제</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>트래킹</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>트래킹 제거</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>객체</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>얼굴</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>미리보기에서 따라갈 얼굴을 클릭하세요(기본값은 요소에 가장 가까운 얼굴).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>먼저 “%1”의 얼굴을 분석한 뒤 요소에 가장 가까운 얼굴을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>미리보기에서 객체를 고르거나 주위에 상자를 그리세요. 선택하지 않으면 “%1”에서 요소가 가리는 부분을 따라갑니다.</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>찾는 중…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>객체 감지</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>재생 헤드 위치에서 사람, 동물, 차량 등을 찾습니다</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>객체 감지 받기</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>객체를 자동으로 찾으려면 “객체 트래킹” 추가 기능을 설치하세요</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>선택 해제</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>방향</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>양방향</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>재생 헤드에서 클립 양 끝까지, 또는 한 방향으로만 따라갑니다</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>크기 — 따라가는 대상에 맞춰 커지고 작아짐</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>거리 — 따라가는 대상 옆의 자리를 유지</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>끔: 요소가 따라가는 대상 바로 위에 놓입니다</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>여기서 다시 트래킹</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>트래킹 시작</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>재생 헤드에서 따라갑니다. 요소는 따라가는 대상에 대한 자리를 유지합니다</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>다시 맞추기</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>동영상을 이동, 자르기, 속도 변경한 뒤: 다시 분석하지 않고 경로를 다시 맞춥니다</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>가리기</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>얼굴</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>객체</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>미리보기에서 가릴 얼굴을 클릭하세요(기본값은 가운데에 가장 가까운 얼굴). 클립 전체에서 따라가며 가리고, 레이어는 클립 바로 위에 놓입니다.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>미리보기에서 객체를 고르거나 주위에 상자를 그리세요. 클립 전체에서 따라가며 가리고, 레이어는 클립 바로 위에 놓입니다.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>모자이크</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>흐리게</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>따라가던 동영상이 더 이상 프로젝트에 없습니다.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>따라가던 동영상이 교체되었습니다: 경로가 맞도록 다시 트래킹하세요.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>%1개 프레임에서 추적, %2개 프레임에서 놓침. 놓친 구간에서는 찾은 프레임 사이를 요소가 부드럽게 이동합니다.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>전체 %1개 프레임에서 추적했습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>놓침</translation>
     </message>
 </context>
 <context>

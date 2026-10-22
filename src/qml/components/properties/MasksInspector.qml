@@ -452,5 +452,69 @@ Item {
                 }
             }
         }
+
+        // CapCut's mask tracking: the mask follows what it covers in the video it cuts, keyed from
+        // the playhead to both ends of its clip.
+        Column {
+            id: followColumn
+            readonly property var tracking: EditorState.motionTrack
+            readonly property var source: {
+                void root.clipDataRevision
+                void EditorState.playheadSeconds
+                return followColumn.tracking.maskFollowSource(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            property bool followScale: false
+            width: parent.width
+            spacing: Theme.spacingSm
+            visible: root.hasSelection && root.clipKind === "adjustment" && root.maskShape !== "none" && !root.isMedia
+
+            Text {
+                text: qsTr("Follow")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                font.weight: Font.Medium
+            }
+            Text {
+                width: parent.width
+                visible: !followColumn.source.ok
+                wrapMode: Text.WordWrap
+                text: followColumn.source.reason || ""
+                color: Theme.warning
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedSwitch {
+                width: parent.width
+                visible: followColumn.source.ok && !followColumn.tracking.busy
+                text: qsTr("Scale too — grow and shrink with what it covers")
+                checked: followColumn.followScale
+                onToggled: followColumn.followScale = checked
+            }
+            ThemedButton {
+                visible: followColumn.source.ok && !followColumn.tracking.busy
+                text: qsTr("Mask follows what it covers")
+                glyph: Theme.icons.locateFixed
+                tooltip: qsTr("Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask")
+                onClicked: followColumn.tracking.maskFollow(EditorState.selectedTrack, EditorState.selectedClip,
+                                                            followColumn.followScale)
+            }
+            Row {
+                width: parent.width
+                spacing: Theme.spacingSm
+                visible: followColumn.tracking.busy
+                ThemedProgressBar {
+                    width: parent.width - maskFollowCancel.width - parent.spacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    value: followColumn.tracking.progress
+                }
+                ThemedButton {
+                    id: maskFollowCancel
+                    variant: "ghost"
+                    text: qsTr("Cancel")
+                    onClicked: followColumn.tracking.cancel()
+                }
+            }
+        }
     }
 }

@@ -12,6 +12,8 @@ Rectangle {
     required property var item
     property bool compact: Theme.compact
     property bool current: false
+    // Off where something else sits in that corner (Titles › Trending's download mark).
+    property bool showDuration: true
 
     signal openRequested()
 
@@ -161,7 +163,7 @@ Rectangle {
     }
 
     Rectangle {
-        visible: durLabel.text.length > 0
+        visible: root.showDuration && durLabel.text.length > 0
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: Theme.spacingSm

@@ -138,6 +138,7 @@
   "text-style:precios": "দাম ও অফার",
   "text-style:retro": "রেট্রো ও ওয়াই২কে",
   "text-style:subtitulos": "ভাইরাল ক্যাপশন",
+  "text-style:tendencias": "ট্রেন্ডিং",
   "text-style:tercios": "লোয়ার থার্ড",
   "text-style:terror": "হরর ও রহস্য",
   "text-style:titulos": "শিরোনাম",
@@ -33727,6 +33728,3216 @@
     "লাল",
     "সাহসী",
     "ভিডিও"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "বেগুনি আভার ওপেনার",
+   "tags": [
+    "শুরু",
+    "ইন্ট্রো",
+    "সিনেমা",
+    "বেগুনি"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "নীল বুদবুদ",
+   "tags": [
+    "আর্ট",
+    "নীল",
+    "বুদবুদ",
+    "শিশুসুলভ"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "উঁচু লাল আর্ট",
+   "tags": [
+    "আর্ট",
+    "লাল",
+    "থ্রিডি",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "গোলাপি গভীরতার সাদা লেখা",
+   "tags": [
+    "আর্ট",
+    "গোলাপি",
+    "থ্রিডি",
+    "পপ"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "দুই লাইনের লাল ব্যান্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "ব্যান্ড",
+    "লাল"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "ঢিলেঢালা হাতের লেখা",
+   "tags": [
+    "হাতে লেখা",
+    "হাত",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "চ্যানেলে স্বাগতম",
+   "tags": [
+    "স্বাগতম",
+    "চ্যানেল",
+    "টাইপ করা",
+    "স্ক্রিপ্ট"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "নিউজ স্ট্রিপ",
+   "tags": [
+    "সংবাদ",
+    "ফিতা",
+    "বার",
+    "লোয়ার থার্ড"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "ক্লাসিক হলুদ",
+   "tags": [
+    "ক্লাসিক",
+    "হলুদ",
+    "গোল"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "ধোঁয়ার মধ্যে লেখা",
+   "tags": [
+    "ধোঁয়া",
+    "সিনেমা",
+    "নাটকীয়"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "কমিক ক্যাপশন",
+   "tags": [
+    "কমিক",
+    "সাবটাইটেল",
+    "মজার"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "ক্রোম প্রতিযোগিতা",
+   "tags": [
+    "খেলা",
+    "ইভেন্ট",
+    "ক্রোম",
+    "ধাতব"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "অভিনেতাদের ক্রেডিট",
+   "tags": [
+    "ক্রেডিট",
+    "অভিনেতা দল",
+    "সিনেমা",
+    "ফিনাল"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "সাদা জমিনে টাইটেল",
+   "tags": [
+    "সাদা",
+    "মিনিমাল",
+    "কর্পোরেট"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "ভ্রমণ ডায়েরি",
+   "tags": [
+    "ভ্রমণ",
+    "ডায়েরি",
+    "হাতে লেখা",
+    "কাগজ"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "ক্যান্ডি থ্রিডি ডিসপ্লে",
+   "tags": [
+    "থ্রিডি",
+    "ক্যান্ডি",
+    "কমলা",
+    "মজার"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "টাইটেলের ওপর লেবেল",
+   "tags": [
+    "ট্যাগ",
+    "পরিচ্ছন্ন",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "কালো বক্সে শেষ",
+   "tags": [
+    "শেষ",
+    "টাইপিং",
+    "বক্স",
+    "কালো"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "স্পটলাইটে শেষ",
+   "tags": [
+    "শেষ",
+    "স্পটলাইট",
+    "সিনেমা",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "ফাঁকা অক্ষরের গ্যালাক্সি",
+   "tags": [
+    "গ্যালাক্সি",
+    "মহাকাশ",
+    "সিনেমা",
+    "ফাঁকা অক্ষর"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "ঝলমলে সোনালি ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "সোনালি",
+    "ঝলক",
+    "তারা"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "তারকাখচিত ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "বিদায়",
+    "তারা",
+    "সোনালি"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "ম্যাজেন্টা বারসহ টাইটেল",
+   "tags": [
+    "গ্রাফিক্স",
+    "ম্যাজেন্টা",
+    "বার"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "কালো গ্রাফিতি, সাদা কিনারা",
+   "tags": [
+    "গ্রাফিতি",
+    "রাস্তা",
+    "স্টিকার"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "বড় টাইটেল, বেগুনি রেখা",
+   "tags": [
+    "বড়",
+    "বেগুনি",
+    "রেখা"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "জীর্ণ ধূসর",
+   "tags": [
+    "চলচ্চিত্র",
+    "ধূসর",
+    "জীর্ণ",
+    "অন্ধকার"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "বহুকাল আগে",
+   "tags": [
+    "গল্প",
+    "সিনেমা",
+    "ইন্ট্রো",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "ধোঁয়ায় ফুটে ওঠা",
+   "tags": [
+    "ধোঁয়া",
+    "মিলিয়ে যাওয়া",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "কমিক \"অবিশ্বাস্য!\"",
+   "tags": [
+    "কমিক",
+    "অবিশ্বাস্য",
+    "আগুন",
+    "বিস্ফোরণ"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "রেট্রো হলুদ গেম",
+   "tags": [
+    "গেম",
+    "রেট্রো",
+    "হলুদ",
+    "টেক্সচার"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "পরিচ্ছন্ন টাইটেল",
+   "tags": [
+    "মিনিমাল",
+    "পরিচ্ছন্ন",
+    "বেসিক"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "নিয়ন রেখার মাঝে ধন্যবাদ",
+   "tags": [
+    "নিয়ন",
+    "ধন্যবাদ",
+    "সাবস্ক্রাইব",
+    "রেখা"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "উজ্জ্বল গোলাপি নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "গোলাপি",
+    "সৌন্দর্য",
+    "মেকআপ"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "থ্রিডি সোনা",
+   "tags": [
+    "সোনা",
+    "সোনালি",
+    "থ্রিডি",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "কালো পিল, লাল বিন্দু",
+   "tags": [
+    "ইন্ট্রো",
+    "পিল",
+    "কালো"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "হলুদ সিনেমার টাইটেল",
+   "tags": [
+    "চলচ্চিত্র",
+    "সিনেমা",
+    "হলুদ",
+    "ট্রেলার"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "বড়র ওপর ছোট",
+   "tags": [
+    "সাবটাইটেল",
+    "মিনিমাল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "থ্রিডি পাথর",
+   "tags": [
+    "পাথর",
+    "থ্রিডি",
+    "শিলা",
+    "উঁচু নকশা"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "সোশ্যাল হ্যান্ডেল পিল",
+   "tags": [
+    "সোশ্যাল মিডিয়া",
+    "ইউজারনেম",
+    "পিল",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "সাদা স্ক্রিপ্ট",
+   "tags": [
+    "স্ক্রিপ্ট",
+    "ক্যালিগ্রাফি",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "সাবটাইটেলসহ সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "মার্জিত",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "কালোর ওপর হলুদ ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "হলুদ",
+    "বক্স"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "সাদা বক্স ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "কালো বক্স ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "বক্স",
+    "কালো"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "ফিল্ম সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "সিনেমা",
+    "চলচ্চিত্র"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "চিকন সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "চিকন",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "লাল সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাল",
+    "বোতাম",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "সাদা ও আকাশি লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সাদা",
+    "আকাশি"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "সোনালি ফিতা",
+   "tags": [
+    "লোয়ার থার্ড",
+    "ফিতা",
+    "সোনালি"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "লাল লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "লাল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "বাম পাশের শিরোনাম",
+   "tags": [
+    "শিরোনাম",
+    "বামে",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "লাল বারসহ টাইটেল",
+   "tags": [
+    "বার",
+    "লাল",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "আগুনে টাইটেল",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "টাইপ করা দৈনিক ভ্লগ",
+   "tags": [
+    "ভ্লগ",
+    "টাইপিং",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "কালো কিনারার হলুদ লেখা",
+   "tags": [
+    "আর্ট",
+    "হলুদ",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "লাল কিনারার হলুদ লেখা",
+   "tags": [
+    "আর্ট",
+    "হলুদ",
+    "লাল",
+    "কমিক"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "ফাঁকা অক্ষরের কমলা আর্ট",
+   "tags": [
+    "আর্ট",
+    "কমলা",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "লাল থ্রিডি আর্ট",
+   "tags": [
+    "আর্ট",
+    "লাল",
+    "থ্রিডি"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "আলোর স্রোত",
+   "tags": [
+    "ঝলক",
+    "সোয়াইপ",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "কোণের বেসিক",
+   "tags": [
+    "বেসিক",
+    "সাধারণ",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "নীল টেক স্বাগতম",
+   "tags": [
+    "স্বাগতম",
+    "নীল",
+    "প্রযুক্তি",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "বেগুনি বক্স",
+   "tags": [
+    "বক্স",
+    "বেগুনি",
+    "লোয়ার থার্ড"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "থ্রিডি কার্টুন",
+   "tags": [
+    "কার্টুন",
+    "থ্রিডি",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "ক্লাসিক কার্টুন",
+   "tags": [
+    "কার্টুন",
+    "হলুদ",
+    "মজার"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "ফাঁকা অক্ষরের সিনেমাটিক",
+   "tags": [
+    "সিনেমা",
+    "ফাঁকা অক্ষর",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "বক্সে বিজ্ঞাপনের টাইটেল",
+   "tags": [
+    "বিজ্ঞাপন",
+    "বক্স",
+    "খেলাধুলা",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "পরিচালকের ক্রেডিট",
+   "tags": [
+    "ক্রেডিট",
+    "সিনেমা",
+    "পরিচালক",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "ক্যাপশনসহ ইটালিক",
+   "tags": [
+    "ইটালিক",
+    "সাধারণ",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "আগুনের ঝলকানি",
+   "tags": [
+    "আগুন",
+    "কমলা",
+    "শিখা"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "হলুদ আলোয় স্ক্রিপ্ট",
+   "tags": [
+    "স্বাক্ষর",
+    "স্ক্রিপ্ট",
+    "হলুদ",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "সাধারণ সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "সাধারণ",
+    "মার্জিত",
+    "ইটালিক"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "ছেঁড়া কাগজের ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "কাগজ",
+    "ছেঁড়া",
+    "হাতে লেখা"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "জ্বলজ্বলে ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "ঝলক",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "সোনালি আলোকরশ্মি",
+   "tags": [
+    "সোনা",
+    "সোনালি",
+    "ঝলক",
+    "বিলাসিতা"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "নীল ধোঁয়া",
+   "tags": [
+    "ধোঁয়া",
+    "নীল",
+    "ঝলক",
+    "কণা"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "হৃদস্পন্দন",
+   "tags": [
+    "হৃদস্পন্দন",
+    "ভালোবাসা",
+    "স্পন্দন",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "সাদা কলআউট বক্স",
+   "tags": [
+    "কল",
+    "কলআউট",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "লাইম ফ্রেম",
+   "tags": [
+    "ফ্রেম",
+    "লাইম",
+    "হাইলাইট"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "টাইপ করা টাইটেল",
+   "tags": [
+    "টাইপরাইটার",
+    "টাইপিং",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "থ্রিডি ধাতব",
+   "tags": [
+    "ধাতব",
+    "থ্রিডি",
+    "মধ্যযুগীয়",
+    "ক্রোম"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "ফ্যাশন সাদা ব্লক",
+   "tags": [
+    "ফ্যাশন",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "সাধারণ দুলুনি",
+   "tags": [
+    "গতি",
+    "দুলুনি",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "টকটকে গোলাপি নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "গোলাপি",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "কমিকের ধ্বন্যাত্মক শব্দ",
+   "tags": [
+    "কমিক",
+    "ধ্বন্যাত্মক শব্দ",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "কণার টাইটেল",
+   "tags": [
+    "কণা",
+    "গোলাপি",
+    "ফাঁকা অক্ষর"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "সিনেমা পোস্টার",
+   "tags": [
+    "সিনেমা",
+    "পোস্টার",
+    "সেরিফ",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "স্তূপাকার ক্লাসিক পোস্টার",
+   "tags": [
+    "পোস্টার",
+    "সিনেমা",
+    "ভয়ংকর",
+    "সরু"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "গাঢ় প্রোমো",
+   "tags": [
+    "প্রোমো",
+    "সিনেমা",
+    "অন্ধকার",
+    "সরু"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "শীঘ্রই আসছে",
+   "tags": [
+    "শীঘ্রই",
+    "শীঘ্রই আসছে",
+    "মুক্তি",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "হলুদ গ্লো",
+   "tags": [
+    "ঝলক",
+    "গ্লো",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "নীল গ্লো",
+   "tags": [
+    "ঝলক",
+    "গ্লো",
+    "নীল",
+    "নিয়ন"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "ধারালো থ্রিডি সেরিফ",
+   "tags": [
+    "থ্রিডি",
+    "সেরিফ",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "ডাইনামিক ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "ডাইনামিক",
+    "কারাওকে",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "কালোর ওপর হলুদ ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "ক্যাপশন",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "লাল ফিতার সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাল",
+    "ব্রাশ"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "জ্বলজ্বলে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "ঝলক",
+    "বেগুনি"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "কিনারাসহ নীল লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "নীল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "গোলাপি বার লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "গোলাপি",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "রঙিন কিনারার লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "বেগুনি",
+    "সবুজ"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "কাত কমলা লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "কমলা",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "গাঢ় লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "গাঢ়",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "টেক লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "প্রযুক্তি",
+    "নীল"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "দোকানের ব্লক",
+   "tags": [
+    "দোকান",
+    "গাঢ়",
+    "বিক্রি"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "কালির টাইটেল",
+   "tags": [
+    "কালি",
+    "ব্রাশ",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "নীল ব্রাশের শিরোনাম",
+   "tags": [
+    "ব্রাশ",
+    "নীল",
+    "শিরোনাম"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "জ্বলজ্বলে নীল বক্স টাইটেল",
+   "tags": [
+    "বক্স",
+    "নীল",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "হলুদ ফিতাসহ টাইটেল",
+   "tags": [
+    "ফিতা",
+    "হলুদ",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "উপশিরোনামসহ টাইটেল",
+   "tags": [
+    "সাধারণ",
+    "উপশিরোনাম",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "কমলা জলরঙ",
+   "tags": [
+    "জলরঙ",
+    "ব্রাশ",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "শব্দ ভালোবাসি",
+   "tags": [
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "উক্তি"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "সোনালি বছর থ্রিডি",
+   "tags": [
+    "সোনালি",
+    "থ্রিডি",
+    "সোনা"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "মোটা হলুদ আর্ট",
+   "tags": [
+    "আর্ট",
+    "হলুদ",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "নীল বলয়ের আর্ট",
+   "tags": [
+    "আর্ট",
+    "নীল",
+    "বলয়"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "লাল কিনারার আর্ট",
+   "tags": [
+    "আর্ট",
+    "ওয়ার্ডআর্ট",
+    "লাল"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "ইটালিক লাল আর্ট",
+   "tags": [
+    "আর্ট",
+    "লাল",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "নীল ছায়ার আর্ট",
+   "tags": [
+    "আর্ট",
+    "ছায়া",
+    "নীল"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "পাশের বারসহ টাইটেল",
+   "tags": [
+    "বার",
+    "বামে",
+    "থার্ড"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "মাঝখানে বেসিক",
+   "tags": [
+    "বেসিক",
+    "মাঝখানে",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "ছোট বেসিক",
+   "tags": [
+    "বেসিক",
+    "ছোট",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "নিচের বেসিক",
+   "tags": [
+    "বেসিক",
+    "নিচে",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "নোট বেসিক",
+   "tags": [
+    "বেসিক",
+    "নোট",
+    "ছোট"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "মহাকাব্যিক ঝলক",
+   "tags": [
+    "ঝলক",
+    "গ্লো",
+    "মহাকাব্যিক"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "মনো গ্লো",
+   "tags": [
+    "ঝলক",
+    "মনো",
+    "পিক্সেল"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "গ্লোয়ের শ্বাস",
+   "tags": [
+    "ঝলক",
+    "শ্বাস",
+    "কোমল"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "কোমল পতন",
+   "tags": [
+    "পতন",
+    "ড্রপ",
+    "স্লাইড"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "সৃজনশীল বেগুনি বক্স",
+   "tags": [
+    "বক্স",
+    "বেগুনি",
+    "সৃজনশীল"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "ধাতব সিনেমাটিক",
+   "tags": [
+    "সিনেমা",
+    "ধাতব",
+    "ট্রেলার"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "দহন",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "দহন"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "রেট্রো কমিক থ্রিডি",
+   "tags": [
+    "কমিক",
+    "রেট্রো",
+    "থ্রিডি",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "সাবটাইটেলসহ সরু লেখা",
+   "tags": [
+    "সরু",
+    "সাবটাইটেল",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "ক্রেডিট তালিকা",
+   "tags": [
+    "ক্রেডিট",
+    "তালিকা",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "মার্জিত ইটালিক",
+   "tags": [
+    "ইটালিক",
+    "স্ক্রিপ্ট",
+    "বেসিক"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "টাইপ কার্সর",
+   "tags": [
+    "টাইপরাইটার",
+    "কার্সর",
+    "টাইপিং"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "ঝাপসা হয়ে স্লাইড",
+   "tags": [
+    "স্লাইড",
+    "ঝাপসা",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "বেসিক হাইলাইট",
+   "tags": [
+    "হাইলাইট",
+    "বেসিক",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "কাঁপা সুন্দর দিন",
+   "tags": [
+    "কাঁপা",
+    "আদুরে",
+    "লাইম"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "নতুন করে প্রতিদ্বন্দ্বিতা",
+   "tags": [
+    "খেলা",
+    "প্রতিদ্বন্দ্বিতা",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "গোলাপি মিষ্টি",
+   "tags": [
+    "খাবার",
+    "মিষ্টি",
+    "গোলাপি"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "গেম ইফেক্টের টাইটেল",
+   "tags": [
+    "গেম",
+    "বৈদ্যুতিক",
+    "নীল"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "সেরিফ টাইপিং",
+   "tags": [
+    "টাইপরাইটার",
+    "সেরিফ",
+    "কার্সর"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "তারার ঝলকানি",
+   "tags": [
+    "ঝলকানি",
+    "ফ্লেয়ার",
+    "আলো",
+    "স্লাইড"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "আলোর প্রবাহ থ্রিডি",
+   "tags": [
+    "আলো",
+    "রুপালি",
+    "থ্রিডি",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "সাবটাইটেলসহ বড় টাইটেল",
+   "tags": [
+    "বড় টাইটেল",
+    "সাবটাইটেল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "লাল আলোকরশ্মি",
+   "tags": [
+    "ঝলক",
+    "লাল",
+    "আলোকরশ্মি"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "বরফশীতল শীত",
+   "tags": [
+    "শীত",
+    "বরফ",
+    "ঠান্ডা",
+    "নীল"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "বিকিরণ",
+   "tags": [
+    "ঝলক",
+    "রশ্মি",
+    "বিকিরণ"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "নিচের বাম কোণে টাইটেল",
+   "tags": [
+    "বামে",
+    "নিচে",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "সাদা নিয়ন আলো",
+   "tags": [
+    "নিয়ন",
+    "আলো",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "খেলার সেরা মুহূর্ত",
+   "tags": [
+    "খেলা",
+    "ইভেন্ট",
+    "লাল"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "কাগজের নোট",
+   "tags": [
+    "ভ্রমণ",
+    "নোট",
+    "কাগজ",
+    "ভ্লগ"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "কিউট পপ \"নতুন\"",
+   "tags": [
+    "পপ",
+    "নতুন",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "বিশাল লাল অফার",
+   "tags": [
+    "অফার",
+    "ছাড়",
+    "বিক্রি",
+    "লাল"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "গ্যালাক্সি প্যাক",
+   "tags": [
+    "গ্যালাক্সি",
+    "মহাকাশ",
+    "ফাঁকা অক্ষর"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "কণা হয়ে মিলিয়ে যাওয়া",
+   "tags": [
+    "কণা",
+    "মিলিয়ে যাওয়া",
+    "ধুলো"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "মার্জিত সোনালি কণা",
+   "tags": [
+    "সোনালি",
+    "কণা",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "কিউট পপ",
+   "tags": [
+    "পপ",
+    "কিউট",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "ডিফল্ট টাইটেল",
+   "tags": [
+    "ডিফল্ট",
+    "সাধারণ",
+    "বেসিক"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "কমিক প্রশ্ন",
+   "tags": [
+    "কমিক",
+    "প্রশ্ন",
+    "গেম"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "আউটলাইন স্লাইডশো",
+   "tags": [
+    "আউটলাইন",
+    "স্লাইড",
+    "দুই স্টাইল"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "গাঢ় প্রোমো",
+   "tags": [
+    "প্রোমো",
+    "সিনেমা",
+    "ট্রেলার",
+    "মুক্তি"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "লাল ধাতব রেট্রো",
+   "tags": [
+    "রেট্রো",
+    "ধাতব",
+    "লাল",
+    "থ্রিডি"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "সাদা স্ক্রিপ্ট",
+   "tags": [
+    "স্ক্রিপ্ট",
+    "সাদা",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "স্বাক্ষরের স্ক্রিপ্ট",
+   "tags": [
+    "স্বাক্ষর",
+    "স্ক্রিপ্ট",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "ক্লাসিক সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "ক্লাসিক",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "চিকন হলুদ সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "হলুদ",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "সাদা সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "সাদা",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "কালো বক্স সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "বক্স",
+    "কালো"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "লাইম সাবটাইটেল",
+   "tags": [
+    "সাবটাইটেল",
+    "লাইম",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "অফুরন্ত স্বপ্ন",
+   "tags": [
+    "টাইপোগ্রাফি",
+    "লাল",
+    "স্বপ্ন"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "হলুদ টাইপিং",
+   "tags": [
+    "টাইপরাইটার",
+    "টাইপিং",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "সাদা বক্সে টাইপিং",
+   "tags": [
+    "টাইপরাইটার",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "হাতে টাইপ করা",
+   "tags": [
+    "টাইপরাইটার",
+    "টাইপিং",
+    "হাত"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "সেরিফ টাইপিং টাইটেল",
+   "tags": [
+    "টাইপরাইটার",
+    "সেরিফ",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "কাত নীল লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "নীল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "হলুদ পিল লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "পিল",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "বেগুনি প্রোমো লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "প্রোমো",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "ফিরোজা লোয়ার থার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "ফিরোজা",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "হলুদ স্পোর্টস শিরোনাম",
+   "tags": [
+    "খেলা",
+    "শিরোনাম",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "আজকের শিরোনাম",
+   "tags": [
+    "সংবাদ",
+    "শিরোনাম",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "স্ফুলিঙ্গের টাইটেল",
+   "tags": [
+    "স্ফুলিঙ্গ",
+    "আগুন",
+    "বোকে"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "অঙ্গারের টাইটেল",
+   "tags": [
+    "আগুন",
+    "অঙ্গার",
+    "কণা"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "সোনালি স্ফুলিঙ্গের টাইটেল",
+   "tags": [
+    "সোনালি",
+    "স্ফুলিঙ্গ",
+    "কণা"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "বক্সে আউটলাইন টাইটেল",
+   "tags": [
+    "বক্স",
+    "ফ্রেম",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "নীল ফ্রেমে টাইটেল",
+   "tags": [
+    "ফ্রেম",
+    "নীল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "বড় টাইটেল ও সাবটাইটেল",
+   "tags": [
+    "বড় টাইটেল",
+    "সাবটাইটেল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "পরিচ্ছন্ন টাইটেল",
+   "tags": [
+    "বেসিক",
+    "পরিচ্ছন্ন",
+    "সাধারণ"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "মাঝারি পরিচ্ছন্ন টাইটেল",
+   "tags": [
+    "বেসিক",
+    "পরিচ্ছন্ন",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "বাঁকা আন্ডারলাইনসহ টাইটেল",
+   "tags": [
+    "স্ক্রিপ্ট",
+    "আন্ডারলাইন",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "তরল টাইটেল",
+   "tags": [
+    "তরল",
+    "গোলাপি",
+    "কণা"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "দ্রুতগতির টাইটেল",
+   "tags": [
+    "খেলা",
+    "গতি",
+    "মহাকাব্যিক"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "ব্রেকিং নিউজ",
+   "tags": [
+    "সংবাদ",
+    "ব্রেকিং নিউজ",
+    "ব্রেকিং"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "বিস্ফোরক \"উফ!\"",
+   "tags": [
+    "কমিক",
+    "বিস্ময়",
+    "মজার"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "দৈনিক ভ্লগ",
+   "tags": [
+    "ভ্লগ",
+    "স্ক্রিপ্ট",
+    "ডায়েরি"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "সাপ্তাহিক ভ্লগ ব্রাশ",
+   "tags": [
+    "ভ্লগ",
+    "ব্রাশ",
+    "হাত"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "লাল ভ্রমণ ভ্লগ",
+   "tags": [
+    "ভ্রমণ",
+    "ভ্লগ",
+    "লাল"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "ঝাপসা জুম",
+   "tags": [
+    "জুম",
+    "স্লাইড",
+    "ঝাপসা"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "কালো আউটলাইনের হলুদ লেখা",
+   "tags": [
+    "হলুদ",
+    "আউটলাইন",
+    "স্টিকার"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "হলুদ প্রিয়তমা",
+   "tags": [
+    "ভালোবাসা",
+    "হলুদ",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "জ্বলজ্বলে গোলাপি ভালোবাসা",
+   "tags": [
+    "ভালোবাসা",
+    "গোলাপি",
+    "ঝলক",
+    "লাভ"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "আমার সাথে তৈরি হও",
+   "tags": [
+    "ঝলক",
+    "বেগুনি",
+    "সৌন্দর্য"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "লাল অঙ্গার",
+   "tags": [
+    "আগুন",
+    "অঙ্গার",
+    "লাল"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "দারুণ চাল",
+   "tags": [
+    "খেলা",
+    "সরু",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "শুধু ভালো ভাইব",
+   "tags": [
+    "ভাইব",
+    "রেট্রো",
+    "ইতিবাচক"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "পপ বুদবুদ অক্ষর",
+   "tags": [
+    "বুদবুদ",
+    "পপ",
+    "কাওয়াই"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "বেগুনি-নীল বুদবুদ",
+   "tags": [
+    "বুদবুদ",
+    "বেগুনি",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "গোলাপি বক্সে স্বাক্ষর",
+   "tags": [
+    "গোলাপি",
+    "বক্স",
+    "স্বাক্ষর"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "দুষ্টু সাদা",
+   "tags": [
+    "মজার",
+    "সাদা",
+    "দুষ্টু"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "গরম",
+   "tags": [
+    "গাঢ় ছায়া",
+    "সাদা",
+    "ধাক্কা"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "রাস্তার থ্রিডি",
+   "tags": [
+    "শহুরে",
+    "থ্রিডি",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "গোলাপি নিয়ন মেয়েরা",
+   "tags": [
+    "নিয়ন",
+    "গোলাপি",
+    "মেয়েরা"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "বড় নীল গ্রেডিয়েন্ট",
+   "tags": [
+    "নীল",
+    "গ্রেডিয়েন্ট",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "সায়ান ঝিলিক",
+   "tags": [
+    "ঝলক",
+    "সায়ান",
+    "তারা"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "লাল সম্পাদকীয়",
+   "tags": [
+    "সম্পাদকীয়",
+    "ম্যাগাজিন",
+    "লাল"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "এলিট",
+   "tags": [
+    "এলিট",
+    "মিনিমাল",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "কমলা ট্যাগ",
+   "tags": [
+    "ট্যাগ",
+    "কমলা",
+    "ছোট"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "ভূতুড়ে নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "নীল",
+    "ভূত"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "নীল আউটলাইনের হলুদ লেখা",
+   "tags": [
+    "হলুদ",
+    "নীল",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "প্রথম দেখায় প্রেম",
+   "tags": [
+    "ভালোবাসা",
+    "লাল",
+    "ছায়া"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "আগুনের চিহ্নের স্ক্রিপ্ট",
+   "tags": [
+    "আগুন",
+    "নিয়ন",
+    "লাল"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "খেলুড়ে গোলাপি",
+   "tags": [
+    "বিড়াল",
+    "গোলাপি",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "লাল ধোঁয়ার বক্স",
+   "tags": [
+    "ধোঁয়া",
+    "লাল",
+    "সতর্কতা"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "ধূসর গোলাপি অনুরাগ",
+   "tags": [
+    "ভালোবাসা",
+    "গোলাপি",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "শরৎ এসে গেছে",
+   "tags": [
+    "শরৎ",
+    "কমিক",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "শরতের মেনু",
+   "tags": [
+    "শরৎ",
+    "মেনু",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "ছোট্ট \"ভালোবাসি\"",
+   "tags": [
+    "ভালোবাসা",
+    "ছোট",
+    "গোলাপি"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "ডার্ক মোড কাটআউট",
+   "tags": [
+    "স্টিকার",
+    "কাটআউট",
+    "সাদাকালো"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "কমলা ছোপে মুহূর্ত",
+   "tags": [
+    "ছোপ",
+    "কমলা",
+    "মুহূর্ত"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "মন্তাজ",
+   "tags": [
+    "মন্তাজ",
+    "মিনিমাল",
+    "সিনেমা"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "প্রাকৃতিক",
+   "tags": [
+    "প্রাকৃতিক",
+    "সবুজ",
+    "প্রতিধ্বনি"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "বৈদ্যুতিক নীল নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "নীল",
+    "বৈদ্যুতিক"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "সোনালি রাত",
+   "tags": [
+    "কমলা",
+    "গ্রেডিয়েন্ট",
+    "রাত"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "রহস্যময় রাত",
+   "tags": [
+    "রাত",
+    "রহস্য",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "পুরোনো কাগজের নোট",
+   "tags": [
+    "কাগজ",
+    "নোট",
+    "ভিনটেজ",
+    "আরামদায়ক"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "আটকানো নোট",
+   "tags": [
+    "নোট",
+    "ডায়েরি",
+    "ফিতা"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "সোনালি ঝিলিক",
+   "tags": [
+    "সোনালি",
+    "ঝলক",
+    "উদ্যাপন"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "সাহসী পদক্ষেপ",
+   "tags": [
+    "বক্স",
+    "লাল",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "জ্বলজ্বলে নীল পিল",
+   "tags": [
+    "পিল",
+    "নীল",
+    "বক্স"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "হৃদয়ওয়ালা সাদা পিল",
+   "tags": [
+    "হৃদয়",
+    "পিল",
+    "ভালোবাসা"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "কাচের ত্বক",
+   "tags": [
+    "সৌন্দর্য",
+    "কাচ",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "সাদা কিনারার লাল লেখা",
+   "tags": [
+    "লাল",
+    "গেম",
+    "প্লে"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "অবশেষে",
+   "tags": [
+    "মিনিমাল",
+    "সাদা",
+    "অবশেষে"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "মিষ্টি গোলাপি",
+   "tags": [
+    "গোলাপি",
+    "স্ক্রিপ্ট",
+    "কিউট"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "গোলাপি আউটলাইনের প্রশ্ন",
+   "tags": [
+    "প্রশ্ন",
+    "গোলাপি",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "লাল স্টিকার",
+   "tags": [
+    "স্টিকার",
+    "লাল",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "চিকন দৈনিক স্ক্রিপ্ট",
+   "tags": [
+    "স্ক্রিপ্ট",
+    "চিকন",
+    "ক্যালিগ্রাফি"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "ফ্রেমে সিল",
+   "tags": [
+    "সিল",
+    "ফ্রেম",
+    "ভিনটেজ"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "ধোঁয়াটে ছায়ার সাদা লেখা",
+   "tags": [
+    "ছায়া",
+    "ধোঁয়া",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "শান্ত সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "মিনিমাল",
+    "ছোট"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "টকটকে গোলাপি \"ভালোবাসি\"",
+   "tags": [
+    "ভালোবাসা",
+    "গোলাপি",
+    "হৃদয়"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "গাঢ় লাল ভালোবাসা",
+   "tags": [
+    "ভালোবাসা",
+    "লাল",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "রোমান্টিক \"ভালোবাসি\"",
+   "tags": [
+    "ভালোবাসা",
+    "রোমান্টিক",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "সোনালি মখমল",
+   "tags": [
+    "সোনালি",
+    "স্ক্রিপ্ট",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "দৈনিক ভ্লগ",
+   "tags": [
+    "ভ্লগ",
+    "ডায়েরি",
+    "খাবার"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "স্কুলে ফেরা",
+   "tags": [
+    "স্কুল",
+    "আউটলাইন",
+    "ফাঁপা"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "বেগুনি আউটলাইন",
+   "tags": [
+    "আউটলাইন",
+    "ফাঁপা",
+    "বেগুনি"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "দীর্ঘ বিদায়",
+   "tags": [
+    "বিদায়",
+    "ফিনাল",
+    "মিম"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "জীর্ণ \"স্টক শেষ\"",
+   "tags": [
+    "স্টক শেষ",
+    "লাল",
+    "গ্লিচ",
+    "দোকান"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "গোলাপি গ্লো ভালোবাসা",
+   "tags": [
+    "ভালোবাসা",
+    "গোলাপি",
+    "ভ্যালেন্টাইন"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "টিক চিহ্নসহ অনুমোদিত",
+   "tags": [
+    "অনুমোদিত",
+    "টিক",
+    "সবুজ"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "সবুজ-নীল সরানো",
+   "tags": [
+    "গ্লিচ",
+    "আরজিবি",
+    "সবুজ",
+    "নীল"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "লাল চুমু",
+   "tags": [
+    "ভালোবাসা",
+    "লাল",
+    "ঠোঁট"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "শেয়ার বোতাম",
+   "tags": [
+    "বোতাম",
+    "সোশ্যাল মিডিয়া",
+    "শেয়ার"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "লাইক বোতাম",
+   "tags": [
+    "বোতাম",
+    "সোশ্যাল মিডিয়া",
+    "লাইক"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "ফলো বোতাম",
+   "tags": [
+    "বোতাম",
+    "সোশ্যাল মিডিয়া",
+    "ফলো"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "বেগুনি কুয়াশা",
+   "tags": [
+    "বেগুনি",
+    "স্বপ্ন",
+    "জাদুকরী"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "ছোট সিনেমাটিক",
+   "tags": [
+    "সিনেমা",
+    "মিনিমাল",
+    "ফাঁকা অক্ষর"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "সাবটাইটেলসহ সিনেমাটিক",
+   "tags": [
+    "সিনেমা",
+    "ভ্লগ",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "থ্রিডি হলুদ কমিক",
+   "tags": [
+    "কমিক",
+    "থ্রিডি",
+    "হলুদ",
+    "বিস্ফোরণ"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "শেষের ক্রেডিট",
+   "tags": [
+    "ক্রেডিট",
+    "সিনেমা",
+    "ফিনাল"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "নীল গ্রেডিয়েন্ট",
+   "tags": [
+    "গ্রেডিয়েন্ট",
+    "নীল",
+    "কোমল"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "জীবন উপভোগ করো",
+   "tags": [
+    "উক্তি",
+    "মার্জিত",
+    "সেরিফ"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "গোলাপি-নীল দ্বৈত আউটলাইন",
+   "tags": [
+    "নিয়ন",
+    "আউটলাইন",
+    "গোলাপি",
+    "নীল"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "লাল-হলুদ ইটালিক",
+   "tags": [
+    "কমিক",
+    "অ্যাকশন",
+    "লাল",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "ইটালিক সেরিফ",
+   "tags": [
+    "মার্জিত",
+    "সেরিফ",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "সাদা কার্ডে উক্তি",
+   "tags": [
+    "উক্তি",
+    "উদ্ধৃতি",
+    "অনুপ্রেরণা",
+    "কার্ড"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "নিয়ন বলয়ে আগুন",
+   "tags": [
+    "নিয়ন",
+    "আগুন",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "দেখার জন্য ধন্যবাদ",
+   "tags": [
+    "ফিনাল",
+    "সমাপ্তি",
+    "পিক্সেল"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "কমিক \"ওয়াও\"",
+   "tags": [
+    "কমিক",
+    "বিস্ময়",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "লাল প্রতিধ্বনির সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "পডকাস্ট",
+    "লাল",
+    "গ্লিচ"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "হ্যালো হ্যালো",
+   "tags": [
+    "অভিবাদন",
+    "মিম",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "সাদা ধোঁয়া",
+   "tags": [
+    "ধোঁয়া",
+    "কুয়াশা",
+    "কোমল"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "চিকন ফাঁকা অক্ষরের সেরিফ",
+   "tags": [
+    "সৌন্দর্য",
+    "মার্জিত",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "আগুনের অক্ষর",
+   "tags": [
+    "আগুন",
+    "কমলা",
+    "শিখা"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "দুই ফন্টের মেকআপ",
+   "tags": [
+    "মেকআপ",
+    "সৌন্দর্য",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "হলুদ হাইলাইটার",
+   "tags": [
+    "প্রশ্ন",
+    "মার্কার",
+    "হলুদ",
+    "ব্লগ"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "গোলাপি বুদবুদ",
+   "tags": [
+    "গোলাপি",
+    "কোমল",
+    "কাওয়াই"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "কুয়াশামাখা সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "কুয়াশা",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "কোমল সবুজ সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "সবুজ",
+    "কোমল"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "মিনি ভ্লগ বুদবুদ",
+   "tags": [
+    "ভ্লগ",
+    "কোমল",
+    "বুদবুদ"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "গাঢ় কমলা",
+   "tags": [
+    "কমলা",
+    "চ্যানেল",
+    "সমর্থন"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "হাতে আঁকা আকাশি নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "আকাশি",
+    "সাইনবোর্ড",
+    "রাত"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "লাল নিয়ন স্ক্রিপ্ট",
+   "tags": [
+    "নিয়ন",
+    "লাল",
+    "সাইনবোর্ড"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "চওড়া নতুন যুগ",
+   "tags": [
+    "মিনিমাল",
+    "সাদা",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "ওহ না",
+   "tags": [
+    "মিম",
+    "প্রতিক্রিয়া",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "সংযত বিলাসিতা",
+   "tags": [
+    "বিলাসিতা",
+    "মিনিমাল",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "ফাঁকা অক্ষরের বড় হাতের লেখা",
+   "tags": [
+    "বিলাসিতা",
+    "মিনিমাল",
+    "ফাঁকা অক্ষর"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "আরামদায়ক শরৎ",
+   "tags": [
+    "শরৎ",
+    "কফি",
+    "আরামদায়ক"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "ছেঁড়া কাগজ",
+   "tags": [
+    "কাগজ",
+    "ভিনটেজ",
+    "ছবি",
+    "ডায়েরি"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "হৃদয়ের পিল",
+   "tags": [
+    "ভালোবাসা",
+    "গোলাপি",
+    "কোমল"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "লেবেলের শব্দ",
+   "tags": [
+    "গেট রেডি উইথ মি",
+    "ভ্লগ",
+    "লেবেল",
+    "টাইপরাইটার"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "প্রিয় ডায়েরি",
+   "tags": [
+    "ডায়েরি",
+    "ভ্লগ",
+    "স্টিকার"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "হলুদ বক্সে সেল",
+   "tags": [
+    "অফার",
+    "সেল",
+    "দোকান",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "রঙিন কাটআউট অক্ষর",
+   "tags": [
+    "কোলাজ",
+    "কাটআউট",
+    "রঙিন",
+    "ছবি"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "জ্বলজ্বলে ইটালিক",
+   "tags": [
+    "ঝলক",
+    "সাদা",
+    "গ্লো"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "রুটিনের স্ক্রিপ্ট",
+   "tags": [
+    "মেকআপ",
+    "স্ক্রিপ্ট",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "পানির ছিটা",
+   "tags": [
+    "পানি",
+    "গ্রীষ্ম",
+    "নীল"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "আমাকে ফলো করো, লাল বার",
+   "tags": [
+    "ফলো",
+    "সোশ্যাল মিডিয়া",
+    "লাল"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "তাড়া নেই",
+   "tags": [
+    "উক্তি",
+    "প্রশান্তি",
+    "সরু"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "সাদা আন্ডারলাইন",
+   "tags": [
+    "উক্তি",
+    "মিনিমাল",
+    "আন্ডারলাইন"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "লাল নিয়ন সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "নিয়ন",
+    "লাল",
+    "চ্যানেল"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "লাল ভয়ংকর",
+   "tags": [
+    "ভয়ংকর",
+    "লাল",
+    "ভয়"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "অক্ষরের স্টিকার",
+   "tags": [
+    "স্টিকার",
+    "রঙিন",
+    "শিশুসুলভ"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "টাইপ করা যাত্রা",
+   "tags": [
+    "টাইপরাইটার",
+    "ভ্রমণ",
+    "গল্প"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "ইউজারনেম ট্যাগ",
+   "tags": [
+    "ইউজারনেম",
+    "সোশ্যাল মিডিয়া",
+    "ট্যাগ"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "পরিচ্ছন্ন \"চলো\"",
+   "tags": [
+    "মিনিমাল",
+    "অ্যাকশন",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "নীল শিখা",
+   "tags": [
+    "নীল",
+    "আগুন",
+    "শক্তি"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "লাইম আউটলাইন",
+   "tags": [
+    "সবুজ",
+    "হলুদ",
+    "গেম"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "সাদা চিৎকারের ক্যাপশন",
+   "tags": [
+    "মিম",
+    "বিড়াল",
+    "মজার",
+    "ক্যাপশন"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "কমলা \"ঝাঁপিয়ে পড়ো\"",
+   "tags": [
+    "কমলা",
+    "উদ্দীপনা",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "গোলাপি নিয়ন ভালোবাসা",
+   "tags": [
+    "ভালোবাসা",
+    "নিয়ন",
+    "গোলাপি",
+    "ভ্যালেন্টাইন"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "লাল প্রতিধ্বনির ভালোবাসা",
+   "tags": [
+    "ভালোবাসা",
+    "লাল",
+    "থ্রিডি"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "রুপালি ফেরেশতা",
+   "tags": [
+    "ফেরেশতা",
+    "রুপালি",
+    "ডানা"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "শিখায় আভা",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "আভা",
+    "স্ক্রিপ্ট"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "কমিক \"বাম\"",
+   "tags": [
+    "কমিক",
+    "বাম",
+    "আঘাত"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "সবুজ নিয়ন রাস্তা",
+   "tags": [
+    "নিয়ন",
+    "সবুজ",
+    "রাস্তা"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "ফাঁকা অক্ষরের সিনেমাটিক",
+   "tags": [
+    "সিনেমা",
+    "সিনেমাটিক",
+    "চলচ্চিত্র"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "চকচকে লাল ব্যান্ড",
+   "tags": [
+    "ফিতা",
+    "লাল",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "রেখাসহ বক্সে উদ্ধৃতি",
+   "tags": [
+    "উদ্ধৃতি",
+    "বক্স",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "জ্বলজ্বলে সৃজনশীল",
+   "tags": [
+    "সৃজনশীল",
+    "ঝলক",
+    "আলো"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "রঙিন জন্মদিন",
+   "tags": [
+    "জন্মদিন",
+    "পার্টি",
+    "রঙিন"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "ঝলমলে হাইলাইট",
+   "tags": [
+    "হাইলাইট",
+    "স্ফুলিঙ্গ",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "ক্র্যাফট ডায়েরি",
+   "tags": [
+    "ডায়েরি",
+    "কাগজ",
+    "ক্র্যাফট",
+    "ভিনটেজ"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "সোনালি ইটালিক",
+   "tags": [
+    "সোনালি",
+    "সোনা",
+    "বিলাসিতা",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "কমিক \"হুঁ?\"",
+   "tags": [
+    "কমিক",
+    "বিস্ময়",
+    "প্রতিক্রিয়া"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "বরফ-বিদ্যুৎ",
+   "tags": [
+    "বৈদ্যুতিক",
+    "বরফ",
+    "নীল"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "আগুনে লাল",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "লাল"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "জ্বলজ্বলে শক্তির বক্স",
+   "tags": [
+    "শক্তি",
+    "লাল",
+    "বক্স"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "চিকন অ্যাস্থেটিক",
+   "tags": [
+    "নান্দনিক",
+    "মিনিমাল",
+    "অ্যাস্থেটিক"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "শুভ ছুটি",
+   "tags": [
+    "বড়দিন",
+    "উৎসব",
+    "ছুটি"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "জ্বলজ্বলে সমাপ্তি",
+   "tags": [
+    "শেষ",
+    "ফিনাল",
+    "সিনেমা",
+    "ঝলক"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "অধ্যায়ের শেষ",
+   "tags": [
+    "অধ্যায়",
+    "শেষ",
+    "ভ্লগ"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "আগুনে ফিনাল",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "ফিনাল",
+    "শেষ"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "অঙ্গারের শব্দ",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "অঙ্গার"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "ছেঁড়া কাগজের উক্তি",
+   "tags": [
+    "উক্তি",
+    "অনুপ্রেরণা",
+    "কাগজ"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "নীল নিয়ন আগুন",
+   "tags": [
+    "নিয়ন",
+    "নীল",
+    "গতি"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "শক্তিশালী নীল নিয়ন",
+   "tags": [
+    "নিয়ন",
+    "নীল",
+    "শক্তিশালী"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "গোলাপি নিয়ন বিজয়ী",
+   "tags": [
+    "বিজয়ী",
+    "নিয়ন",
+    "গোলাপি",
+    "আগুন"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "সৃজনশীল প্রজন্ম",
+   "tags": [
+    "মার্জিত",
+    "সেরিফ",
+    "ডকুমেন্টারি"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "ধন্যবাদের কথার বুদবুদ",
+   "tags": [
+    "ধন্যবাদ",
+    "বুদবুদ",
+    "সংলাপ"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "গোলাপি ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "গোলাপি",
+    "স্টিকার"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "গোলাপি বক্সে ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "গোলাপি",
+    "হৃদয়"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "কাগজের ফালিতে ধন্যবাদ",
+   "tags": [
+    "ধন্যবাদ",
+    "কাগজ",
+    "সমাপ্তি"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "বিশাল প্রচার",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "প্রচার",
+    "অফার",
+    "বিক্রি"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "ওয়াও স্টারবার্স্ট",
+   "tags": [
+    "কমিক",
+    "ওয়াও",
+    "বিস্ফোরণ"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "স্কেচ করা গল্প",
+   "tags": [
+    "স্কেচ",
+    "ডুডল",
+    "আঁকিবুঁকি"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "গল্প শুরু হয়",
+   "tags": [
+    "গল্প",
+    "গ্রাঞ্জ",
+    "টাইপরাইটার"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "রঙিন আজকের গল্প",
+   "tags": [
+    "রঙিন",
+    "গল্প",
+    "মজার"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "আমার গল্পের ট্যাগ",
+   "tags": [
+    "ট্যাগ",
+    "গল্প",
+    "ভ্লগ"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "দেখো এটা, হাতে লেখা",
+   "tags": [
+    "হাতে লেখা",
+    "তীর",
+    "নির্দেশ"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "সাদা বক্সে মুহূর্ত",
+   "tags": [
+    "দৃশ্য",
+    "বক্স",
+    "সিনেমা"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "চিকন মুহূর্ত",
+   "tags": [
+    "মুহূর্ত",
+    "স্ক্রিপ্ট",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "নীল বন্ধনীর সংবাদ",
+   "tags": [
+    "সংবাদ",
+    "লোয়ার থার্ড",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "আউটলাইনের মেঘ",
+   "tags": [
+    "মেঘ",
+    "সাদা",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "লাল সেল বক্স",
+   "tags": [
+    "অফার",
+    "সেল",
+    "লাল"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "ছেঁড়া কাগজ",
+   "tags": [
+    "কাগজ",
+    "ছেঁড়া",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "ক্রোম লড়াই",
+   "tags": [
+    "ক্রোম",
+    "লড়াই",
+    "ধাতব"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "সবুজ নিখুঁত",
+   "tags": [
+    "নিখুঁত",
+    "সবুজ",
+    "গেমিং"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "সেরিফ কবিতা",
+   "tags": [
+    "কবিতা",
+    "ভালোবাসা",
+    "উক্তি",
+    "মার্জিত"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "প্রশ্নের বক্স",
+   "tags": [
+    "প্রশ্ন",
+    "মন্তব্য",
+    "বক্স"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "গতির প্রোমো",
+   "tags": [
+    "প্রোমো",
+    "গতি",
+    "ক্রোম"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "সোশ্যাল পিল",
+   "tags": [
+    "সোশ্যাল মিডিয়া",
+    "ফলো",
+    "লাইক",
+    "শেয়ার"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "ফিরোজা নিয়ন রাউন্ড",
+   "tags": [
+    "নিয়ন",
+    "রাউন্ড",
+    "গেমিং",
+    "আউটলাইন"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "বলয়ওয়ালা সেরিফ",
+   "tags": [
+    "সেরিফ",
+    "বলয়",
+    "ক্লাসিক"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "এগিয়ে চলো, চওড়া",
+   "tags": [
+    "অনুপ্রেরণা",
+    "মিনিমাল",
+    "সাদা"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "ফোলা গোলাপি সাধারণ",
+   "tags": [
+    "গোলাপি",
+    "ফোলা",
+    "মজার"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "কমলা বন্ধনীর ক্যাপশন",
+   "tags": [
+    "সাবটাইটেল",
+    "বক্স",
+    "কমলা"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "লাল বক্সে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "সোশ্যাল মিডিয়া",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "সাবস্ক্রাইব পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "পিল",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "ট্রেন্ডি বৃত্ত",
+   "tags": [
+    "ট্রেন্ড",
+    "বৃত্ত",
+    "লাল"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "হলুদ বারের লেখা",
+   "tags": [
+    "সাধারণ",
+    "বক্স",
+    "হলুদ"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "গানের নাম",
+   "tags": [
+    "সংগীত",
+    "গান",
+    "প্লেয়ার"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "ওয়েভফর্ম টাইটেল",
+   "tags": [
+    "সংগীত",
+    "অডিও",
+    "মিনিমাল"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "এখানে ট্যাপ করো",
+   "tags": [
+    "ছোঁয়া",
+    "ট্যাপ",
+    "কল"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "বেগুনি ট্রফি পিল",
+   "tags": [
+    "ট্রফি",
+    "বেগুনি",
+    "পিল"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "লোকেশন পিন",
+   "tags": [
+    "অবস্থান",
+    "ভ্রমণ",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "হলুদ বারে ব্রেকিং",
+   "tags": [
+    "সংবাদ",
+    "ব্রেকিং নিউজ",
+    "ব্রেকিং"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "ব্রেকিং লোয়ার থার্ড",
+   "tags": [
+    "সংবাদ",
+    "লোয়ার থার্ড",
+    "ট্রেন্ডিং"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "আগুনে \"চলো যাই\"",
+   "tags": [
+    "আগুন",
+    "শিখা",
+    "চলো",
+    "চলো যাই"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "হলুদ ব্রাশের গ্রীষ্ম",
+   "tags": [
+    "গ্রীষ্ম",
+    "হলুদ",
+    "ব্রাশ"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "জীবনের আপডেট ফালি",
+   "tags": [
+    "ভ্লগ",
+    "কাগজ",
+    "জীবন"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "ভাইরাল বিস্ফোরণ",
+   "tags": [
+    "কমিক",
+    "ভাইরাল",
+    "বিস্ফোরণ"
    ]
   },
   "text-style:ter-a-mano": {

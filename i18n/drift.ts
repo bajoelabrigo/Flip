@@ -3543,6 +3543,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4341,19 +4345,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4365,23 +4361,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <source>In Titles › Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4390,10 +4378,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5072,6 +5056,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5149,6 +5145,10 @@
     </message>
     <message>
         <source>Imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13270,6 +13270,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13808,6 +13820,26 @@
     </message>
     <message>
         <source>Invert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -14737,6 +14769,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14924,6 +15115,14 @@
     </message>
     <message>
         <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16127,6 +16326,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -18188,6 +18391,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Steps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20304,6 +20511,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20329,6 +20540,38 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add at playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20594,6 +20837,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20810,6 +21085,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20935,6 +21218,74 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Per line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21098,6 +21449,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21142,6 +21497,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21167,6 +21526,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23423,6 +23794,172 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

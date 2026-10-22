@@ -44,7 +44,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-20)
+## Estado (actualizado 2026-10-21)
+
+### 0.19 en curso (rama `flip/v0.19.0`, sin publicar) — seguimiento como CapCut, Tendencias, textos — **detalle en `docs/plan-0.19.md`**
+- Escritorio, probado en ventana (compilación run 39709609676 + arreglos posteriores `cffad`, sin compilar):
+  pestaña «Seguimiento» (Objeto/Rostro, Dirección, Escala, Distancia, Reacomodar), «Detectar objetos» con YOLOX
+  (extra `seguimiento.objetos` en flip-addons rama `extra/seguimiento-objetos`, **sin publicar**; para probar:
+  `DRIFT_OBJECT_MODEL_DIR=pruebas\object-detector\stage-model`), elegir rostro u objeto en el visor, «Ocultar un
+  rostro», máscaras en textos, textos 100 % editables, Títulos › Tendencias, cuadro de texto ajustado a las palabras.
+- **Editor web publicado (2026-10-21) desde la rama `web/v019` de flipstudio-app** (= `web/movil` + `web/tendencias`
+  + `web/seguimiento` + `web/estilos-texto`; worktree `codigo\flipstudio-app-integra`): todo lo de arriba también en
+  la web. YOLOX ya estaba en el VPS (`/modelos/yolox-tiny/`). La próxima rama de trabajo de la web sale de `web/v019`.
+- **Falta:** publicar el extra `seguimiento.objetos`, compilar `cffad`, versión 0.19.0 en `CMakeLists.txt`, notas y
+  el OK de Jorge.
+
 
 ### 0.18.3 PUBLICADA (2026-10-20) — actualizar sin vueltas, espacio en vivo al mover clips, idiomas, icono de macOS
 - PR #28 (`flip/macos` → `main`), tag `v0.18.3`, release (run 39474015359) con instalador, portable y `SHA256SUMS`;
@@ -565,12 +578,18 @@ py -m aqt install-qt windows desktop 6.10.3 win64_mingw --archives MinGW qttools
 
 # 2. Regenerar los catálogos tras añadir qsTr (y NO editar un .ts a mano: lupdate tiene que
 #    reproducirlo byte a byte o el test Translations falla en los 17 idiomas)
-.\.qtmingw\6.10.3\mingw_64\bin\lupdate.exe src i18n -no-obsolete -locations none -ts (gci i18n\drift*.ts).FullName
+.\.qtmingw\6.10.3\mingw_64\bin\lupdate.exe src i18n -no-obsolete -locations none -disable-heuristic sametext -disable-heuristic similartext -ts (gci i18n\drift*.ts).FullName
 
 # 3. Comprobar que quedó estable (dos pasadas iguales) y ver qué traduce de verdad
 .\.qtmingw\6.10.3\mingw_64\bin\lrelease.exe i18n\drift_es.ts -qm .qmcheck\drift_es.qm
 .\.qtmingw\6.10.3\mingw_64\bin\lconvert.exe -i .qmcheck\drift_es.qm -o .qmcheck\dump.ts
 ```
+
+**Trampa (2026-10-21): las «adivinanzas» de lupdate pisaban el español en Colombia.** Para un texto
+nuevo, lupdate copiaba la traducción de otro texto parecido y la dejaba «sin terminar»; lrelease la
+incluye igual, y como el catálogo regional `drift_es_CO` va encima de `drift_es` (el idioma de Jorge es
+`es_CO`), salían cosas como «Desenfoque» en vez de «Desenfocar». Se vaciaron las 148 de `es_CO` y
+lupdate corre con `-disable-heuristic sametext -disable-heuristic similartext` (también en CMake).
 
 **Trampa que costó dos ciclos de CI:** editar un `.ts` a mano (o con un script de reemplazo) puede
 dejar el archivo en una forma que `lupdate` no reproduce, y entonces el test Translations falla
@@ -594,7 +613,8 @@ Las máscaras también se pueden soltar **directamente sobre la línea de tiempo
 
 ### Gaps conocidos de las cuatro secciones de video (auditado contra CapCut)
 - **Básico**: falta **flujo óptico** (interpolar fotogramas). Es render, no un modelo.
-- **Máscara**: falta **texto como forma de máscara**.
+- **Máscara**: el texto como forma de máscara ya existía (`MaskShape::Text`); las máscaras **sobre** un clip de
+  texto llegan en la 0.19.0 (`docs/plan-0.19.md`).
 - **Retoque**: falta **quitar imperfecciones** (manchas y arrugas).
 - De nube de CapCut y no replicable: quitar objetos con IA, ampliar a 4K con IA, remix,
   contacto visual, sincronización labial.

@@ -103,6 +103,8 @@ cada cuadro (±10 %) para seguir el reloj; Safari da currentTime a saltos y re-e
 fuera (`steeredRate`, con pruebas). **Trampa:** no tocar `playbackRate` de un elemento que suena en cada cuadro.
 Android revisado en emulación (diseño, instalar, audio, avisos); su selector de archivos también pide solo medios.
 
+Pasar de categoría con el dedo (2026-10-21, desplegado, `flipstudio-app` `f3535`): en el iPad, al bajar hasta el final de una lista (Efectos, Transiciones, Títulos, Stickers…) no se abría la categoría siguiente porque `useCategoryScrollOn` solo escuchaba la rueda del mouse. Ahora, seguir arrastrando ~110 px pasado el final llena la píldora «Sigue bajando para ver …» y al soltar abre la siguiente; desde arriba, tirar hacia abajo vuelve a la anterior. Probado con toques simulados en Chrome (iPad emulado).
+
 ## Estado
 
 - 2026-10-21: **etapa 1 desplegada** en getflipstudio.com/editor (rama `web/movil`, commit `8ddf0`). Probado en

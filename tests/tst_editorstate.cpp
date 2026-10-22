@@ -1,3 +1,4 @@
+#include "core/TextAnimationPreset.h"
 #include <QtTest>
 
 #include <QAccessible>
@@ -37,6 +38,7 @@
 #include "engine/MediaProbe.h"
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
+#include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "engine/EffectTemplateCatalog.h"
@@ -127,6 +129,10 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void textClipTakesMasks();
+    void motionTrackingKeysTheElementOverItsVideo();
+    void motionTrackingHidesAnObjectAndDrivesAMask();
+    void textAnimationSavesAsOwnPreset();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
     void dropShapeOnNewTrackIsOneUndo();
@@ -141,6 +147,10 @@ private slots:
     void addTextClipEmptyUsesPlaceholder();
     void addTextClipWithTextDoesNotRequestEdit();
     void addTextClipWithPresetAppliesStyle();
+    void newTextBoxHugsItsWordsAndGrowsWithThem();
+    void textBoxGrowsLiveWhileTyping();
+    void oldProjectTextBoxNeverMoves();
+    void sideResizeOfTextBoxStopsHugging();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
@@ -631,6 +641,274 @@ void EditorStateTest::audioAdjustmentTrackArrivesWithAClip()
         QVERIFY(!t.isAdjustment());
 }
 
+// CapCut's text masks: a selected text shows the Masks tab, and a mask added to it is listed as
+// its own, like a photo's.
+void EditorStateTest::textClipTakesMasks()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    QVERIFY(state.selectedClipData().value(QStringLiteral("caps")).toStringList().contains(QStringLiteral("maskable")));
+
+    const QString added = state.addMaskToClipInPlace(track, clip, QStringLiteral("ellipse"));
+    QVERIFY(!added.isEmpty());
+    int textTrack = -1, textClip = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        const drift::Track &tr = state.project()->tracks().at(t);
+        for (int c = 0; c < tr.clips.size(); ++c) {
+            if (tr.clips.at(c).type == drift::ClipType::Text) {
+                textTrack = t;
+                textClip = c;
+            }
+        }
+    }
+    QVERIFY(textTrack >= 0);
+    const QVariantList masks = state.linkedMaskClips(textTrack, textClip);
+    QCOMPARE(masks.size(), 1);
+    QCOMPARE(masks.first().toMap().value(QStringLiteral("id")).toString(), added);
+}
+
+// "Save as my animation": the slot's preset with the clip's settings as its defaults, listed
+// under Mine, and removable again.
+void EditorStateTest::textAnimationSavesAsOwnPreset()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] { QStandardPaths::setTestModeEnabled(false); });
+    QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+    drift::TextAnimationPresetCatalog::instance().reload();
+
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    QVERIFY(state.saveTextAnimationAsPreset(track, clip, QStringLiteral("in"), QStringLiteral("Mine")).isEmpty());
+
+    state.setTextAnimationSlot(track, clip, QStringLiteral("in"),
+                               {{QStringLiteral("preset"), QStringLiteral("fade")},
+                                {QStringLiteral("params"), QVariantMap{{QStringLiteral("duration"), 1.25}}}});
+    const QString id = state.saveTextAnimationAsPreset(track, clip, QStringLiteral("in"), QStringLiteral("  Slow fade "));
+    QVERIFY(drift::isUserTextAnimationPresetId(id));
+    const std::optional<drift::TextAnimationPreset> saved = drift::TextAnimationPresetCatalog::instance().presetForId(id);
+    QVERIFY(saved.has_value());
+    QCOMPARE(saved->label, QStringLiteral("Slow fade"));
+    QCOMPARE(saved->category, QStringLiteral("mine"));
+    QCOMPARE(saved->param(QStringLiteral("duration"))->defaultValue.scalar, 1.25);
+
+    QVERIFY(state.deleteUserTextAnimationPreset(id));
+    QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
+    QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+    drift::TextAnimationPresetCatalog::instance().reload();
+}
+
+// Motion tracking end to end, on a photo so no video decoder is needed: a text over it follows
+// "what it covers", which never moves, so the baked keys keep the text where it was. A text on
+// its own reports there is nothing to follow, and Remove tracking leaves one still position.
+void EditorStateTest::motionTrackingKeysTheElementOverItsVideo()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString photoPath = dir.filePath(QStringLiteral("texture.png"));
+    QImage texture(320, 180, QImage::Format_RGB32);
+    for (int y = 0; y < texture.height(); ++y) {
+        for (int x = 0; x < texture.width(); ++x) {
+            const int v = ((x / 10) * 7 + (y / 10) * 13) % 5 * 50;
+            texture.setPixel(x, y, qRgb(v, 255 - v, (v * 3) % 256));
+        }
+    }
+    QVERIFY(texture.save(photoPath));
+
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(640, 360);
+    project.setFps(10);
+    project.tracks().clear();
+
+    drift::Track textTrack{.type = drift::TrackType::Text};
+    textTrack.id = QStringLiteral("t1");
+    drift::Clip text;
+    text.id = QStringLiteral("label");
+    text.type = drift::ClipType::Text;
+    text.textContent = QStringLiteral("Hi");
+    text.timelineDuration = drift::secondsToUs(2.0);
+    text.transformX.setKeyframe(0, 200.0);
+    text.transformY.setKeyframe(0, 120.0);
+    text.transformW.setKeyframe(0, 120.0);
+    text.transformH.setKeyframe(0, 80.0);
+    textTrack.clips.append(text);
+    project.tracks().append(textTrack);
+
+    MotionTrackController *tracking = state.motionTrack();
+    QVERIFY(!tracking->sourceFor(0, 0).value(QStringLiteral("ok")).toBool());
+
+    drift::Track videoTrack{.type = drift::TrackType::Video};
+    videoTrack.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.path = photoPath;
+    photo.timelineDuration = drift::secondsToUs(2.0);
+    photo.srcOut = photo.timelineDuration;
+    videoTrack.clips.append(photo);
+    project.tracks().append(videoTrack);
+
+    const QVariantMap source = tracking->sourceFor(0, 0);
+    QVERIFY(source.value(QStringLiteral("ok")).toBool());
+    QVERIFY(source.value(QStringLiteral("canScale")).toBool()); // a text scales its letters too
+    QVERIFY(!tracking->info(0, 0).value(QStringLiteral("has")).toBool());
+
+    state.setPlayheadSeconds(1.0);
+    QSignalSpy finished(tracking, &MotionTrackController::finished);
+    tracking->track(0, 0, QStringLiteral("object"), true);
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.first().at(0).toBool());
+
+    const drift::Clip &tracked = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(tracked.transformX.keyframes().size() >= 5);
+    for (const drift::TimeUs t : tracked.transformX.keyframes().keys()) {
+        QVERIFY(std::abs(tracked.transformX.evaluateAt(t) - 200.0) < 1.5);
+        QVERIFY(std::abs(tracked.transformY.evaluateAt(t) - 120.0) < 1.5);
+    }
+    // With Scale, the box and the font size are keyed too (a still photo: the scale stays 1).
+    QVERIFY(tracked.transformW.keyframes().size() >= 5);
+    QVERIFY(std::abs(tracked.transformW.evaluateAt(drift::secondsToUs(0.5)) - 120.0) < 6.0);
+    QVERIFY(tracked.textStyle.keyframes.value(QStringLiteral("pixelSize")).keyframes().size() >= 5);
+
+    // What was found is kept on the element and travels with the project.
+    QVERIFY(tracked.motionTrack.has_value());
+    QCOMPARE(tracked.motionTrack->mode, QStringLiteral("object"));
+    QCOMPARE(tracked.motionTrack->sourceClipId, QStringLiteral("photo"));
+    QVERIFY(tracked.motionTrack->samples.size() >= 15);
+    const QVariantMap info = tracking->info(0, 0);
+    QVERIFY(info.value(QStringLiteral("has")).toBool());
+    QVERIFY(!info.value(QStringLiteral("sourceMissing")).toBool());
+    QVERIFY(tracking->targetAt(0, 0).value(QStringLiteral("ok")).toBool());
+
+    // Scale off: re-baked without analysing, back to the size it had.
+    QVERIFY(tracking->setOption(0, 0, QStringLiteral("followScale"), false));
+    const drift::Clip &unscaled = state.project()->tracks().at(0).clips.at(0);
+    QCOMPARE(unscaled.transformW.keyframes().size(), 1);
+    QVERIFY(!unscaled.textStyle.keyframes.contains(QStringLiteral("pixelSize")));
+    QVERIFY(unscaled.transformX.keyframes().size() >= 5);
+    QVERIFY(!unscaled.motionTrack->followScale);
+
+    // The video moved half a second later after tracking: realigned, the path moves with it.
+    state.project()->tracks()[1].clips[0].timelineStart = drift::secondsToUs(0.5);
+    state.project()->tracks()[0].clips[0].timelineDuration = drift::secondsToUs(2.5);
+    QVERIFY(tracking->realign(0, 0));
+    const drift::Clip &moved = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(moved.transformX.keyframes().firstKey() >= drift::secondsToUs(0.5) - 1);
+
+    state.undo();
+    state.undo();
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
+    state.redo();
+    tracking->clear(0, 0);
+    QCOMPARE(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().size(), 1);
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).motionTrack.has_value());
+}
+
+void EditorStateTest::motionTrackingHidesAnObjectAndDrivesAMask()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString photoPath = dir.filePath(QStringLiteral("texture.png"));
+    QImage texture(320, 180, QImage::Format_RGB32);
+    for (int y = 0; y < texture.height(); ++y) {
+        for (int x = 0; x < texture.width(); ++x) {
+            const int v = ((x / 10) * 7 + (y / 10) * 13) % 5 * 50;
+            texture.setPixel(x, y, qRgb(v, 255 - v, (v * 3) % 256));
+        }
+    }
+    QVERIFY(texture.save(photoPath));
+
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(640, 360);
+    project.setFps(10);
+    project.tracks().clear();
+
+    // A standalone mask layer over a photo: a canvas-space mask.
+    drift::Clip mask;
+    mask.id = QStringLiteral("mask");
+    mask.type = drift::ClipType::Adjustment;
+    mask.adjustmentKind = drift::AdjustmentKind::Mask;
+    mask.timelineDuration = drift::secondsToUs(2.0);
+    mask.srcOut = mask.timelineDuration;
+    mask.mask.shape = drift::MaskShape::Ellipse;
+    mask.mask.x = 0.4;
+    mask.mask.y = 0.5;
+    mask.mask.w = 0.2;
+    mask.mask.h = 0.3;
+    project.tracks().append(drift::Track{.type = drift::TrackType::Adjustment, .clips = {mask}});
+    drift::Track videoTrack{.type = drift::TrackType::Video};
+    videoTrack.id = QStringLiteral("v1");
+    drift::Clip photo;
+    photo.id = QStringLiteral("photo");
+    photo.type = drift::ClipType::Image;
+    photo.path = photoPath;
+    photo.timelineDuration = drift::secondsToUs(2.0);
+    photo.srcOut = photo.timelineDuration;
+    videoTrack.clips.append(photo);
+    project.tracks().append(videoTrack);
+
+    MotionTrackController *tracking = state.motionTrack();
+    QVERIFY(tracking->maskFollowSource(0, 0).value(QStringLiteral("ok")).toBool());
+    QVERIFY(!tracking->maskFollowSource(1, 0).value(QStringLiteral("ok")).toBool()); // the photo is no mask
+
+    // The mask follows what it covers: a still photo, so it stays where it is, keyed.
+    state.setPlayheadSeconds(1.0);
+    QSignalSpy finished(tracking, &MotionTrackController::finished);
+    tracking->maskFollow(0, 0, false);
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.last().at(0).toBool());
+    const drift::Mask &followed = state.project()->tracks().at(0).clips.at(0).mask;
+    QVERIFY(followed.keyframes.value(QStringLiteral("x")).keyframes().size() >= 5);
+    for (const drift::TimeUs t : followed.keyframes.value(QStringLiteral("x")).keyframes().keys()) {
+        QVERIFY(std::abs(followed.keyframes.value(QStringLiteral("x")).evaluateAt(t) - 0.4) < 0.01);
+        QVERIFY(std::abs(followed.keyframes.value(QStringLiteral("y")).evaluateAt(t) - 0.5) < 0.01);
+    }
+    QVERIFY(!followed.keyframes.contains(QStringLiteral("w"))); // its size is left alone
+    state.undo();
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).mask.keyframes.contains(QStringLiteral("x")));
+
+    // Hide an object of the photo: a pixelate layer right above it, its oval on the object.
+    const int tracksBefore = state.project()->tracks().size();
+    tracking->hideObject(1, 0, QStringLiteral("pixelate"),
+                         QVariantMap{{QStringLiteral("x"), 0.3}, {QStringLiteral("y"), 0.4},
+                                     {QStringLiteral("w"), 0.2}, {QStringLiteral("h"), 0.2}});
+    QVERIFY(finished.wait(60000));
+    QVERIFY(finished.last().at(0).toBool());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    const drift::Track &layerTrack = state.project()->tracks().at(1);
+    QCOMPARE(layerTrack.type, drift::TrackType::Adjustment);
+    const drift::Clip &layer = layerTrack.clips.at(0);
+    QCOMPARE(layer.adjustmentKind, drift::AdjustmentKind::VideoEffects);
+    QVERIFY(layer.masksLimitEffects);
+    QCOMPARE(layer.effects.size(), 1);
+    QCOMPARE(layer.mask.shape, drift::MaskShape::Ellipse);
+    const drift::KeyframeTrack<double> x = layer.mask.keyframes.value(QStringLiteral("x"));
+    QVERIFY(x.keyframes().size() >= 5);
+    QVERIFY(std::abs(x.evaluateAt(drift::secondsToUs(0.5)) - 0.4) < 0.02); // the box's centre
+    // The oval is the box a little larger (0.2 x 1.2). The tracker follows scale here, and on this
+    // repeating texture it may take a step or two, so the size is checked loosely.
+    const double ovalW = layer.mask.keyframes.value(QStringLiteral("w")).evaluateAt(0);
+    QVERIFY2(ovalW > 0.19 && ovalW < 0.30, qPrintable(QString::number(ovalW)));
+    // The photo is still where it was, under its new layer.
+    QCOMPARE(state.project()->tracks().at(2).clips.at(0).id, QStringLiteral("photo"));
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+    // Nothing picked: refused with a message, nothing added.
+    tracking->hideObject(1, 0, QStringLiteral("blur"), QVariantMap{});
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+}
+
 void EditorStateTest::addTextClip()
 {
     AssetLibrary library;
@@ -749,6 +1027,186 @@ void EditorStateTest::addTextClipWithPresetAppliesStyle()
     const QVariantMap style = clip.value(QStringLiteral("textStyle")).toMap();
     QCOMPARE(style.value(QStringLiteral("packId")).toString(), QStringLiteral("neon"));
     QCOMPARE(style.value(QStringLiteral("fontFamily")).toString(), QStringLiteral("Bebas Neue"));
+}
+
+namespace {
+
+struct TextBox
+{
+    double x = 0, y = 0, w = 0, h = 0;
+    double cx() const { return x + w / 2.0; }
+    double cy() const { return y + h / 2.0; }
+};
+
+TextBox textBoxOf(const drift::Clip &clip)
+{
+    return {clip.transformX.evaluateAt(0), clip.transformY.evaluateAt(0), clip.transformW.evaluateAt(0),
+            clip.transformH.evaluateAt(0)};
+}
+
+} // namespace
+
+// Like CapCut: a new text's box is the size of its words, centred on the canvas, and it grows
+// about its centre as the text gets longer or larger, in the same undo step as the edit.
+void EditorStateTest::newTextBoxHugsItsWordsAndGrowsWithThem()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->setResolution(1280, 720);
+    state.addTextClip(QStringLiteral("Hi"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+
+    QVERIFY(clipNow().textAutoFit);
+    const TextBox first = textBoxOf(clipNow());
+    const QSizeF words = drift::text::naturalTextSize(QStringLiteral("Hi"), clipNow().textStyle, 1280 * 0.9);
+    QVERIFY(words.width() > 0.0);
+    // Holds the words with a little air, nowhere near the old full-width band.
+    QVERIFY(first.w >= words.width());
+    QVERIFY(first.h >= words.height());
+    QVERIFY(first.w < words.width() + clipNow().textStyle.pixelSize * 1.5);
+    QVERIFY(first.w < 1280 * 0.5);
+    QVERIFY(qAbs(first.cx() - 640.0) < 0.5);
+    QVERIFY(qAbs(first.cy() - 360.0) < 0.5);
+
+    // Longer words: wider, same centre.
+    state.setClipTextContent(track, clip, QStringLiteral("Hi there, this is longer"));
+    const TextBox longer = textBoxOf(clipNow());
+    QVERIFY(longer.w > first.w * 2.0);
+    QVERIFY(qAbs(longer.cx() - first.cx()) < 0.5);
+    QVERIFY(qAbs(longer.cy() - first.cy()) < 0.5);
+
+    // Past 90 % of the canvas the words wrap instead: a second line, never wider than the canvas.
+    state.setClipTextContent(track, clip,
+                             QStringLiteral("A sentence long enough that it can never fit on one line of a "
+                                            "1280 pixel wide canvas at the default size"));
+    const TextBox wrapped = textBoxOf(clipNow());
+    QVERIFY(wrapped.w <= 1280.0);
+    QVERIFY(wrapped.h > longer.h * 1.5);
+    QVERIFY(qAbs(wrapped.cx() - first.cx()) < 0.5);
+
+    // One undo step brings the text and its box back together.
+    state.undo();
+    QCOMPARE(clipNow().textContent, QStringLiteral("Hi there, this is longer"));
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - longer.w) < 0.01);
+
+    // A bigger font grows the box too.
+    state.setTextStyle(track, clip, {{QStringLiteral("pixelSize"), clipNow().textStyle.pixelSize * 2}});
+    const TextBox bigger = textBoxOf(clipNow());
+    QVERIFY(bigger.h > longer.h * 1.5);
+    // Twice the size no longer fits on one line of this canvas: it wraps, so it is wider but
+    // capped by the 90 % wrap width rather than twice as wide.
+    QVERIFY(bigger.w > longer.w);
+    QVERIFY(bigger.w <= 1280.0);
+    QVERIFY(qAbs(bigger.cx() - first.cx()) < 0.5);
+    QVERIFY(clipNow().textAutoFit);
+#endif
+}
+
+void EditorStateTest::textBoxGrowsLiveWhileTyping()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+
+    state.beginInlineTextEdit(track, clip);
+    state.updateInlineTextEdit(track, clip, QStringLiteral("Hello wonderful world"), 21, -1, -1, QString());
+    const TextBox typed = textBoxOf(clipNow());
+    QVERIFY(typed.w > first.w * 2.0);
+    QVERIFY(qAbs(typed.cx() - first.cx()) < 0.5);
+    state.endInlineTextEdit(true);
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - typed.w) < 0.01);
+
+    // The text and its box are one undo step.
+    state.undo();
+    QCOMPARE(clipNow().textContent, QStringLiteral("Hello"));
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - first.w) < 0.01);
+#endif
+}
+
+// A text from a project made before boxes hugged their words has no flag: editing it never
+// moves or resizes its box.
+void EditorStateTest::oldProjectTextBoxNeverMoves()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(1280, 720);
+    project.tracks().clear();
+    drift::Track textTrack{.type = drift::TrackType::Text};
+    textTrack.id = QStringLiteral("t1");
+    drift::Clip text;
+    text.id = QStringLiteral("old");
+    text.type = drift::ClipType::Text;
+    text.textContent = QStringLiteral("Old");
+    text.timelineDuration = drift::secondsToUs(3.0);
+    text.srcOut = text.timelineDuration;
+    text.transformX.setKeyframe(0, 0.0);
+    text.transformY.setKeyframe(0, 252.0);
+    text.transformW.setKeyframe(0, 1280.0);
+    text.transformH.setKeyframe(0, 216.0);
+    textTrack.clips.append(text);
+    project.tracks().append(textTrack);
+
+    state.setClipTextContent(0, 0, QStringLiteral("Old, and now a good deal longer"));
+    state.setTextStyle(0, 0, {{QStringLiteral("pixelSize"), 120}});
+    const drift::Clip &after = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(!after.textAutoFit);
+    QCOMPARE(after.transformX.evaluateAt(0), 0.0);
+    QCOMPARE(after.transformY.evaluateAt(0), 252.0);
+    QCOMPARE(after.transformW.evaluateAt(0), 1280.0);
+    QCOMPARE(after.transformH.evaluateAt(0), 216.0);
+}
+
+// Dragging a side of the box sets a wrap width on purpose: the text stops hugging and keeps that
+// width as it is edited. A corner scales the whole text and keeps it hugging.
+void EditorStateTest::sideResizeOfTextBoxStopsHugging()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hug"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+
+    // A corner: font and box scale together, and it still hugs.
+    state.beginPreviewDrag(QStringLiteral("Resize text"));
+    state.previewSetTextRect(track, clip, first.x - first.w / 2.0, first.y - first.h / 2.0, first.w * 2.0,
+                             first.h * 2.0, clipNow().textStyle.pixelSize * 2);
+    state.commitPreviewDrag();
+    QVERIFY(clipNow().textAutoFit);
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - first.w * 2.0) < 0.01);
+
+    // A side: a width of its own, kept from now on.
+    const TextBox scaled = textBoxOf(clipNow());
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, scaled.x, scaled.y, 900.0, scaled.h);
+    state.commitPreviewDrag();
+    QVERIFY(!clipNow().textAutoFit);
+    state.setClipTextContent(track, clip, QStringLiteral("Hug, now with many more words in it"));
+    QCOMPARE(textBoxOf(clipNow()).w, 900.0);
+    QCOMPARE(textBoxOf(clipNow()).x, scaled.x);
+
+    // Undoing the side drag brings the hugging back with the box.
+    state.undo();
+    state.undo();
+    QVERIFY(clipNow().textAutoFit);
+#endif
 }
 
 void EditorStateTest::undoRedoClipAdd()
@@ -1662,8 +2120,16 @@ void EditorStateTest::importedMediaIsCentredAndResetsToItsFit()
     const int textTrack = state.selectedTrack();
     state.resetClipTransform(textTrack, 0);
     const drift::Clip &text = state.project()->tracks().at(textTrack).clips.at(0);
+#ifdef DRIFT_WITH_SKIA
+    // A text that hugs its words resets to its fitted box, centred, and keeps hugging.
+    QVERIFY(text.textAutoFit);
+    QVERIFY(text.transformW.evaluateAt(0) < 1920.0 * 0.5);
+    QVERIFY(qAbs(text.transformX.evaluateAt(0) + text.transformW.evaluateAt(0) / 2.0 - 960.0) < 0.5);
+    QVERIFY(qAbs(text.transformY.evaluateAt(0) + text.transformH.evaluateAt(0) / 2.0 - 540.0) < 0.5);
+#else
     QCOMPARE(text.transformX.evaluateAt(0), 0.0);
     QCOMPARE(text.transformW.evaluateAt(0), 1920.0);
+#endif
 }
 
 namespace {

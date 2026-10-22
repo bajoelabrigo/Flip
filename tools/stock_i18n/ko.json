@@ -138,6 +138,7 @@
   "text-style:precios": "가격·할인",
   "text-style:retro": "레트로·Y2K",
   "text-style:subtitulos": "자막",
+  "text-style:tendencias": "트렌드",
   "text-style:tercios": "하단 자막",
   "text-style:terror": "공포·미스터리",
   "text-style:titulos": "타이틀",
@@ -33388,6 +33389,3929 @@
     "유튜버",
     "빨강",
     "강조"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "보라 글로우 오프닝",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "오프닝",
+    "인트로",
+    "영화",
+    "보라색"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "블루 버블",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "파란색",
+    "버블",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "엠보싱 빨간 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "빨간색",
+    "3d",
+    "세리프"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "화이트와 핑크 입체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "핑크",
+    "3d",
+    "팝"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "투라인 빨간 밴드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "밴드",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "자유로운 손글씨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "손글씨",
+    "손",
+    "심플"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "채널 환영 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "환영",
+    "채널",
+    "타이핑",
+    "필기체"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "뉴스 띠",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "리본",
+    "바",
+    "로워서드"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "클래식 옐로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "클래식",
+    "노란색",
+    "둥근"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "연기 속 텍스트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "연기",
+    "영화",
+    "드라마틱"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "코믹 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "자막",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "크롬 대회",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "이벤트",
+    "크롬",
+    "메탈"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "출연진 크레딧",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크레딧",
+    "출연진",
+    "영화",
+    "엔딩"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "흰 배경 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "흰색",
+    "미니멀",
+    "비즈니스"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "여행 일기",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "여행",
+    "일기",
+    "손글씨",
+    "종이"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "캔디 3D 디스플레이",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "3d",
+    "캔디",
+    "주황색",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "타이틀 위 라벨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "라벨",
+    "깔끔한"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "검정 박스 엔딩",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "엔딩",
+    "타이핑",
+    "박스",
+    "검은색"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "스포트라이트 엔딩",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "엔딩",
+    "스포트라이트",
+    "영화",
+    "우아한"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "간격 넓은 갤럭시",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "은하",
+    "우주",
+    "영화",
+    "넓은 자간"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "반짝이는 골드 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "골드",
+    "반짝임",
+    "별"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "별빛 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "작별",
+    "별",
+    "골드"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "마젠타 바 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "그래픽",
+    "마젠타",
+    "바"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "검은 그래피티, 흰 테두리",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "그래피티",
+    "스트리트",
+    "스티커"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "큰 타이틀, 보라 라인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "큰 글씨",
+    "보라색",
+    "라인"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "빛바랜 그레이",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "회색",
+    "빈티지",
+    "어두운"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "옛날 옛적에",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스토리",
+    "영화",
+    "인트로",
+    "세리프"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "연기 등장",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "연기",
+    "페이드"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "코믹 대박!",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "대박",
+    "불",
+    "폭발"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "레트로 노란 게임",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "게임",
+    "레트로",
+    "노란색",
+    "질감"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "깔끔한 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "미니멀",
+    "깔끔한",
+    "기본"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "네온 라인 사이 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "감사",
+    "구독",
+    "라인"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "선명한 핑크 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "핑크",
+    "뷰티",
+    "메이크업"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "3D 골드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "3d",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "검정 알약, 빨간 점",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "인트로",
+    "알약 박스",
+    "검은색"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "노란 영화 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "노란색",
+    "트레일러"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "작은 글씨 위 큰 글씨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "3D 스톤",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "돌",
+    "3d",
+    "바위",
+    "엠보싱"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "SNS 아이디 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "sns",
+    "사용자명",
+    "알약 박스",
+    "구독"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "화이트 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "필기체",
+    "캘리그라피",
+    "흰색"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "세리프와 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "우아한"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "노란 글씨 검정 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "노란색",
+    "박스"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "흰 박스 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "박스",
+    "흰색"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "검정 박스 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "박스",
+    "검은색"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "영화 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "영화"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "얇은 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "얇은",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "빨간 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "빨간색",
+    "버튼",
+    "sns"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "화이트 시안 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "흰색",
+    "하늘색"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "골드 리본",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "리본",
+    "골드"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "빨간 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "왼쪽 헤드라인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "헤드라인",
+    "왼쪽"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "빨간 바 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "바",
+    "빨간색",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "불타는 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "주황색"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "타이핑 데일리 브이로그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "타이핑",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "검정 테두리 옐로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "노란색",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "빨간 테두리 옐로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "노란색",
+    "빨간색",
+    "코믹"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "간격 넓은 오렌지 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "주황색",
+    "그라데이션"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "레드 3D 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "빨간색",
+    "3d"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "빛 스윕",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "샤인",
+    "스윕",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "기본 코너",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "심플",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "블루 테크 환영 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "환영",
+    "파란색",
+    "테크",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "바이올렛 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "박스",
+    "바이올렛",
+    "하단 자막"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "3D 카툰",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "카툰",
+    "3d",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "클래식 카툰",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "카툰",
+    "노란색",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "간격 넓은 시네마틱",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "넓은 자간",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "박스 광고 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "광고",
+    "박스",
+    "스포츠",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "감독 크레딧",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크레딧",
+    "영화",
+    "감독",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "캡션 달린 이탤릭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "이탤릭",
+    "심플"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "파이어 플래시",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "주황색",
+    "불꽃"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "노란 빛 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "시그니처",
+    "필기체",
+    "노란색",
+    "우아한"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "심플 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "심플",
+    "우아한",
+    "이탤릭"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "찢어진 종이 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "종이",
+    "찢어진"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "빛나는 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "반짝임",
+    "주황색"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "골드 빔",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "반짝임",
+    "럭셔리"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "블루 스모크",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "연기",
+    "파란색",
+    "반짝임",
+    "파티클"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "하트 비트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "심장박동",
+    "사랑",
+    "맥박",
+    "세리프"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "흰 박스 말풍선",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "콜아웃",
+    "박스",
+    "흰색"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "라임 프레임",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "프레임",
+    "라임",
+    "하이라이트"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "타이핑 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "타이핑",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "3D 메탈",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "메탈",
+    "3d",
+    "중세",
+    "크롬"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "패션 흰 블록",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "패션",
+    "박스",
+    "흰색"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "심플 흔들림",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "모션",
+    "흔들림",
+    "심플"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "핫핑크 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "핑크",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "코믹 의성어",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "의성어",
+    "주황색"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "파티클 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "파티클",
+    "핑크",
+    "넓은 자간"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "시네마 포스터",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "포스터",
+    "세리프",
+    "우아한"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "스택형 클래식 포스터",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "포스터",
+    "영화",
+    "공포",
+    "콘덴스드"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "다크 프로모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "프로모션",
+    "영화",
+    "어두운",
+    "콘덴스드"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "커밍순",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "커밍순",
+    "개봉",
+    "주황색"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "옐로 글로우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "글로우",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "블루 글로우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "글로우",
+    "파란색",
+    "네온"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "선명한 3D 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "3d",
+    "세리프",
+    "우아한"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "다이내믹 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "다이내믹",
+    "노래방",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "검정 바탕 노란 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "빨간 리본 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "빨간색",
+    "브러시"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "빛나는 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "반짝임",
+    "보라색"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "테두리 있는 블루 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "파란색"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "핑크 바 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "핑크"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "컬러 테두리 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "보라색",
+    "초록색"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "기울어진 오렌지 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "주황색"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "볼드 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "볼드"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "테크 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "테크",
+    "파란색"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "스토어 블록",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스토어",
+    "볼드",
+    "세일"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "잉크 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "잉크",
+    "브러시",
+    "흰색"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "블루 브러시 헤드라인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브러시",
+    "파란색",
+    "헤드라인"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "빛나는 블루 박스 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "박스",
+    "파란색",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "노란 띠 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "리본",
+    "노란색"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "부제 달린 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "심플",
+    "소제목"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "오렌지 수채화",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브러시",
+    "주황색"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "말을 사랑해",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타이포그래피",
+    "노란색",
+    "명언"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "골든 이어즈 3D",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "두꺼운 노란 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "노란색",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "블루 헤일로 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "파란색",
+    "헤일로"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "빨간 테두리 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "이탤릭 레드 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "빨간색",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "블루 그림자 아트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "워드아트",
+    "그림자",
+    "파란색"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "사이드 바 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "바",
+    "왼쪽"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "중앙 기본",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "중앙"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "작은 기본",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "작은",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "하단 기본",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "하단"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "메모 기본",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "메모",
+    "작은"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "에픽 글로우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "글로우",
+    "에픽"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "모노 글로우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "모노",
+    "픽셀"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "숨쉬는 글로우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "숨쉬기",
+    "부드러운"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "부드러운 드롭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "드롭",
+    "슬라이드"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "크리에이티브 바이올렛 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "박스",
+    "바이올렛",
+    "크리에이티브"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "메탈릭 시네마틱",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "메탈",
+    "트레일러"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "컴버스천",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "레트로 코믹 3D",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "레트로",
+    "3d",
+    "노란색"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "부제 달린 콘덴스드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "콘덴스드",
+    "자막",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "크레딧 목록",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크레딧",
+    "목록"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "우아한 이탤릭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "이탤릭",
+    "필기체",
+    "기본"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "타이핑 커서",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "커서",
+    "타이핑"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "블러 슬라이드 인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "슬라이드",
+    "블러"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "기본 하이라이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하이라이트",
+    "기본"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "흔들리는 아름다운 하루",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "흔들리는",
+    "귀여운",
+    "라임"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "다시 불붙은 라이벌전",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "대결",
+    "주황색"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "핑크 스위트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "음식",
+    "디저트",
+    "핑크"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "게임 이펙트 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "게임",
+    "일렉트릭",
+    "파란색"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "세리프 타이핑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "세리프",
+    "커서"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "스타 플레어",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "플레어",
+    "빛",
+    "슬라이드"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "라이트 플로우 3D",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "빛",
+    "실버",
+    "3d",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "부제 달린 큰 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "큰 타이틀",
+    "자막"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "레드 광선",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "빨간색",
+    "광선"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "겨울 얼음",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "겨울",
+    "얼음",
+    "차가운",
+    "파란색"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "방사형 광선",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "광선",
+    "방사"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "왼쪽 아래 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "왼쪽",
+    "하단",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "화이트 네온 라이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "빛",
+    "흰색"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "스포츠 하이라이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "이벤트",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "종이 메모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "여행",
+    "메모",
+    "종이",
+    "브이로그"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "귀여운 팝 NEW",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "팝",
+    "신상",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "거대한 빨간 세일",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "할인",
+    "세일",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "갤럭시 팩",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "은하",
+    "우주",
+    "넓은 자간"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "파티클 디졸브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "파티클",
+    "페이드"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "우아한 골드 파티클",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "파티클",
+    "우아한"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "귀여운 팝",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "팝",
+    "귀여운",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "기본 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본값",
+    "심플",
+    "기본"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "코믹 물음표",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "질문",
+    "게임"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "윤곽선 슬라이드쇼",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "윤곽선",
+    "슬라이드",
+    "투스타일"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "다크 프로모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "프로모션",
+    "영화",
+    "트레일러",
+    "개봉"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "레드 메탈 레트로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "레트로",
+    "메탈",
+    "빨간색",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "화이트 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "필기체",
+    "흰색",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "시그니처 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "시그니처",
+    "필기체",
+    "우아한"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "클래식 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "클래식",
+    "우아한"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "얇은 노란 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "노란색"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "흰색 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "흰색"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "검정 박스 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "박스",
+    "검은색"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "라임 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "라임"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "끝없는 꿈",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타이포그래피",
+    "빨간색",
+    "꿈"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "노란 타이핑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "타이핑",
+    "노란색"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "흰 박스 타이핑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "박스",
+    "흰색"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "손 타이핑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "타이핑",
+    "손"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "세리프 타이핑 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "세리프"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "기울어진 블루 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "파란색"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "노란 알약 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "알약 박스",
+    "노란색"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "바이올렛 프로모 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "프로모션"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "틸 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하단 자막",
+    "로워서드",
+    "청록색"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "노란 스포츠 헤드라인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "헤드라인",
+    "노란색"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "오늘의 헤드라인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "헤드라인"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "스파크 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스파크",
+    "불",
+    "보케"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "불씨 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불씨",
+    "파티클"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "골든 스파크 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "스파크",
+    "파티클"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "박스 윤곽 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "박스",
+    "프레임",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "블루 프레임 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "프레임",
+    "파란색"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "큰 타이틀과 부제",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "큰 타이틀",
+    "자막"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "깔끔한 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "깔끔한",
+    "심플"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "중간 크기 깔끔한 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "기본",
+    "깔끔한"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "스우시 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "필기체",
+    "밑줄",
+    "우아한"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "리퀴드 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "리퀴드",
+    "핑크",
+    "파티클"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "스피드 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "스피드",
+    "에픽"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "속보",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "속보"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "폭발하는 앗!",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "감탄사",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "데일리 브이로그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "필기체",
+    "일기"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "위클리 브이로그 브러시",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "브러시",
+    "손"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "레드 여행 브이로그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "여행",
+    "브이로그",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "블러 줌",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "줌",
+    "슬라이드",
+    "블러"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "검정 테두리 옐로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "노란색",
+    "윤곽선",
+    "스티커"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "옐로 스위트하트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "노란색",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "빛나는 핑크 러브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "겟 레디 윗 미",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "보라색",
+    "뷰티"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "레드 불씨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불씨",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "나이스 무브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스포츠",
+    "콘덴스드",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "온리 굿 바이브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "바이브",
+    "레트로",
+    "긍정"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "팝 버블 글자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "버블",
+    "팝",
+    "카와이"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "바이올렛 블루 버블",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "버블",
+    "바이올렛",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "핑크 박스 시그니처",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "핑크",
+    "박스",
+    "시그니처"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "장난스러운 화이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "재미있는",
+    "흰색",
+    "장난기"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "핫",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하드 섀도",
+    "흰색",
+    "임팩트"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "스트리트 3D",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "어반",
+    "3d",
+    "주황색"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "핑크 네온 레이디스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "핑크",
+    "걸"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "큰 블루 그라데이션",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "파란색",
+    "그라데이션"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "시안 반짝임",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "시안",
+    "별"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "레드 에디토리얼",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "에디토리얼",
+    "잡지",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "엘리트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "미니멀",
+    "흰색"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "오렌지 태그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "라벨",
+    "주황색"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "고스트 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "파란색",
+    "유령"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "파란 테두리 옐로",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "노란색",
+    "파란색",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "첫눈에 반했어",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "빨간색",
+    "그림자"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "파이어 사인 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "네온",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "장난스러운 핑크",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "고양이",
+    "핑크",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "레드 스모크 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "연기",
+    "빨간색",
+    "경고"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "더스티 핑크 사랑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크",
+    "세리프"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "가을이 왔어요",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "가을",
+    "코믹",
+    "주황색"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "가을 메뉴",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "가을",
+    "메뉴",
+    "주황색"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "아주 작은 사랑해",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "다크 모드 컷아웃",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스티커",
+    "컷아웃",
+    "흑백"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "오렌지 얼룩 위 순간들",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "얼룩",
+    "주황색",
+    "순간"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "몽타주",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "몽타주",
+    "미니멀",
+    "영화"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "내추럴",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "초록색"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "일렉트릭 블루 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "파란색",
+    "일렉트릭"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "황금빛 밤",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "주황색",
+    "그라데이션",
+    "밤"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "미스터리한 밤",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "밤",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "오래된 종이 메모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "종이",
+    "메모",
+    "빈티지",
+    "아늑한"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "테이프 붙인 메모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "메모",
+    "일기",
+    "리본"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "골드 스파클",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "반짝임",
+    "축하"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "대담한 한 수",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "박스",
+    "빨간색",
+    "노란색"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "빛나는 블루 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "알약 박스",
+    "파란색",
+    "박스"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "하트 흰 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하트",
+    "알약 박스",
+    "사랑"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "글래스 스킨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뷰티",
+    "유리",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "흰 테두리 레드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "빨간색",
+    "게임"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "드디어",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "미니멀",
+    "흰색",
+    "드디어"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "러블리 핑크",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "핑크",
+    "필기체",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "핑크 윤곽 물음표",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "질문",
+    "핑크",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "레드 스티커",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스티커",
+    "빨간색",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "얇은 데일리 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "필기체",
+    "얇은",
+    "캘리그라피"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "프레임 도장",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "도장",
+    "프레임",
+    "빈티지"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "연기 그림자 화이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "그림자",
+    "연기",
+    "흰색"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "조용한 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "핫핑크 사랑해",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크",
+    "하트"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "딥 레드 사랑",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "빨간색",
+    "세리프"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "로맨틱 사랑해",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "로맨틱",
+    "세리프"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "골드 벨벳",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "필기체",
+    "우아한"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "데일리 브이로그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "일기",
+    "음식"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "수업으로 돌아가",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "학교",
+    "윤곽선",
+    "아웃라인"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "바이올렛 윤곽선",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "윤곽선",
+    "아웃라인",
+    "바이올렛"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "긴 작별 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "작별",
+    "엔딩",
+    "밈"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "낡은 품절",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "품절",
+    "빨간색",
+    "글리치",
+    "스토어"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "핑크 글로우 러브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크",
+    "발렌타인"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "체크 표시 승인",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "승인",
+    "체크",
+    "초록색"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "그린 블루 오프셋",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "글리치",
+    "rgb",
+    "초록색",
+    "파란색"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "레드 키스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "빨간색",
+    "입술"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "공유 버튼",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "버튼",
+    "sns",
+    "공유"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "좋아요 버튼",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "버튼",
+    "sns",
+    "좋아요"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "팔로우 버튼",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "버튼",
+    "sns",
+    "팔로우"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "바이올렛 안개",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "바이올렛",
+    "마법"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "작은 시네마틱",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "미니멀",
+    "넓은 자간"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "부제 달린 시네마틱",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "브이로그"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "3D 옐로 코믹",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "3d",
+    "노란색",
+    "폭발"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "엔딩 크레딧",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크레딧",
+    "영화",
+    "엔딩"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "블루 그라데이션",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "그라데이션",
+    "파란색",
+    "부드러운"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "인생을 즐겨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "명언",
+    "우아한",
+    "세리프"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "핑크 블루 이중 윤곽",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "윤곽선",
+    "핑크",
+    "파란색"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "빨강 노랑 이탤릭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "액션",
+    "빨간색",
+    "노란색"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "이탤릭 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "우아한",
+    "세리프",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "흰 카드 속 명언",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "명언",
+    "인용",
+    "동기부여",
+    "카드"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "네온 링 속 불꽃",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "불",
+    "주황색"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "시청해 주셔서 감사합니다",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "엔딩",
+    "마무리",
+    "픽셀"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "코믹 와우",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "놀라움",
+    "노란색"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "레드 에코 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "팟캐스트",
+    "빨간색",
+    "글리치"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "안녕 안녕",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "인사",
+    "밈",
+    "자막"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "흰 연기",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "연기",
+    "안개",
+    "부드러운"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "얇고 넓은 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뷰티",
+    "우아한",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "파이어 글자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "주황색",
+    "불꽃"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "투폰트 메이크업",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "메이크업",
+    "뷰티",
+    "우아한"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "노란 형광펜",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "질문",
+    "형광펜",
+    "노란색",
+    "블로그"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "핑크 버블",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "핑크",
+    "귀여운",
+    "카와이"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "안개 낀 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "안개",
+    "우아한"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "부드러운 그린 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "초록색",
+    "부드러운"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "미니 브이로그 버블",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "귀여운",
+    "버블"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "볼드 오렌지",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "주황색",
+    "채널",
+    "응원"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "손그림 시안 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "하늘색",
+    "네온사인",
+    "밤"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "레드 네온 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "빨간색",
+    "네온사인"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "와이드 뉴 에라",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "미니멀",
+    "흰색"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "오 노",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "밈",
+    "리액션",
+    "자막"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "절제된 럭셔리",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "럭셔리",
+    "미니멀",
+    "흰색"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "간격 넓은 대문자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "럭셔리",
+    "미니멀",
+    "넓은 자간"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "아늑한 가을",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "가을",
+    "커피",
+    "아늑한"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "찢어진 종이",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "종이",
+    "빈티지",
+    "사진",
+    "일기"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "하트 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "핑크",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "라벨 글자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "겟레디윗미",
+    "브이로그",
+    "라벨"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "다이어리에게",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "일기",
+    "브이로그",
+    "스티커"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "노란 박스 세일",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "할인",
+    "세일",
+    "스토어",
+    "노란색"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "컬러풀 컷아웃 글자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "콜라주",
+    "컷아웃",
+    "컬러풀",
+    "사진"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "글로잉 이탤릭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "반짝임",
+    "흰색",
+    "글로우"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "루틴 필기체",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "메이크업",
+    "필기체",
+    "우아한"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "물 튀김",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "물",
+    "여름",
+    "파란색"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "레드 바 팔로우 미",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "팔로우",
+    "sns",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "서두르지 마",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "명언",
+    "차분한",
+    "콘덴스드"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "흰 밑줄",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "명언",
+    "미니멀",
+    "밑줄"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "레드 네온 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "네온",
+    "빨간색",
+    "채널"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "레드 호러",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "공포",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "글자 스티커",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스티커",
+    "컬러풀",
+    "귀여운"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "타이핑 여정",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "타자기",
+    "여행",
+    "스토리"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "아이디 태그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사용자명",
+    "sns",
+    "라벨"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "깔끔한 렛츠 고",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "미니멀",
+    "액션",
+    "흰색"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "블루 플레임",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "파란색",
+    "불",
+    "에너지"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "라임 윤곽선",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "초록색",
+    "노란색",
+    "게임"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "화이트 외침 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "밈",
+    "고양이",
+    "재미있는",
+    "자막"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "오렌지 가보자고",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "주황색",
+    "응원",
+    "동기부여"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "핑크 네온 러브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "네온",
+    "핑크",
+    "발렌타인"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "레드 에코 러브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "사랑",
+    "빨간색",
+    "3d"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "실버 엔젤",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "천사",
+    "실버",
+    "날개"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "불타는 오라",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "오라",
+    "필기체"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "코믹 BAM",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "쾅",
+    "타격"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "그린 네온 스트리트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "초록색",
+    "스트리트"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "간격 넓은 시네마틱",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "영화",
+    "시네마틱"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "광택 레드 밴드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "리본",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "밑줄 있는 박스 인용문",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "인용",
+    "박스"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "빛나는 크리에이티브",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크리에이티브",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "컬러풀 생일",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "생일",
+    "파티",
+    "컬러풀"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "스파클 하이라이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "하이라이트",
+    "스파크",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "크래프트 저널",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "일기",
+    "종이",
+    "크래프트",
+    "빈티지"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "이탤릭 골드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "골드",
+    "럭셔리",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "코믹 응?",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "놀라움",
+    "리액션"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "아이스 일렉트릭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "일렉트릭",
+    "얼음",
+    "파란색"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "불타는 레드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "빛나는 에너지 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "에너지",
+    "빨간색",
+    "박스"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "얇은 감성",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감성",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "해피 홀리데이",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크리스마스",
+    "연말"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "빛나는 엔딩",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "엔딩",
+    "영화",
+    "반짝임"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "챕터 엔딩",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "엔딩",
+    "브이로그"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "불타는 피날레",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "엔딩"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "불씨 글자",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "불씨"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "찢어진 종이 인용문",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "명언",
+    "동기부여",
+    "종이"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "블루 네온 파이어",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "파란색",
+    "스피드"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "강렬한 블루 네온",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "파란색",
+    "강렬한"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "핑크 네온 위너",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "우승",
+    "네온",
+    "핑크",
+    "불"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "크리에이티브 제너레이션",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "우아한",
+    "세리프",
+    "다큐"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "말풍선 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "버블",
+    "대화"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "핑크 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "핑크",
+    "스티커"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "핑크 박스 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "핑크",
+    "하트"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "종이 띠 감사 인사",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "감사",
+    "종이",
+    "마무리"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "빅 프로모션",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "프로모션",
+    "할인"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "와우 스타버스트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "와우",
+    "스타버스트"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "스케치 스토리",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스케치",
+    "낙서"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "이야기의 시작",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "스토리",
+    "그런지",
+    "타자기"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "컬러풀 오늘의 스토리",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "컬러풀",
+    "스토리",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "마이 스토리 태그",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "라벨",
+    "스토리",
+    "브이로그"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "이것 좀 봐 손글씨",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "손글씨",
+    "화살표",
+    "가리키기"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "흰 박스 속 순간",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "장면",
+    "박스",
+    "영화"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "얇은 순간들",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "순간",
+    "필기체",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "블루 브래킷 뉴스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "하단 자막"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "윤곽선 구름",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구름",
+    "흰색",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "레드 세일 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "할인",
+    "세일",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "찢어진 종이",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "종이",
+    "찢어진"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "크롬 파이트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "크롬",
+    "대결",
+    "메탈"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "그린 퍼펙트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "퍼펙트",
+    "초록색",
+    "게이밍"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "세리프 시",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "시",
+    "사랑",
+    "명언",
+    "우아한"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "질문 박스",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "질문",
+    "댓글",
+    "박스"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "스피드 프로모",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "프로모션",
+    "스피드",
+    "크롬"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "SNS 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "sns",
+    "팔로우",
+    "좋아요",
+    "공유"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "틸 네온 라운드",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "네온",
+    "라운드",
+    "게이밍",
+    "윤곽선"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "헤일로 세리프",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "세리프",
+    "헤일로",
+    "클래식"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "와이드 킵 고잉",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "동기부여",
+    "미니멀",
+    "흰색"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "통통한 핑크 심플",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "핑크",
+    "볼륨감",
+    "재미있는"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "오렌지 브래킷 자막",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "자막",
+    "박스",
+    "주황색"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "빨간 박스 구독",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "sns"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "구독 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "구독",
+    "알약 박스",
+    "sns"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "트렌디 서클",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "원",
+    "빨간색"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "노란 바 텍스트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "심플",
+    "박스",
+    "노란색"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "노래 제목",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "음악",
+    "노래",
+    "플레이어"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "웨이브폼 타이틀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "음악",
+    "오디오",
+    "미니멀"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "여기를 탭",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "터치",
+    "탭",
+    "콜아웃"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "퍼플 트로피 알약",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "트로피",
+    "보라색",
+    "알약 박스"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "위치 핀",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "위치",
+    "여행"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "노란 바 속보",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "속보"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "속보 하단 자막바",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "뉴스",
+    "하단 자막",
+    "로워서드"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "불꽃 렛츠 고",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "불",
+    "불꽃",
+    "가자",
+    "렛츠 고"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "노란 브러시 여름",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "여름",
+    "노란색",
+    "브러시"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "라이프 업데이트 띠",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "브이로그",
+    "종이",
+    "라이프"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "바이럴 버스트",
+   "tags": [
+    "트렌드",
+    "타이틀",
+    "코믹",
+    "바이럴",
+    "폭발"
    ]
   },
   "text-style:ter-a-mano": {

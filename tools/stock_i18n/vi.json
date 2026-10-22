@@ -138,6 +138,7 @@
   "text-style:precios": "Giá và ưu đãi",
   "text-style:retro": "Retro và Y2K",
   "text-style:subtitulos": "Phụ đề viral",
+  "text-style:tendencias": "Xu hướng",
   "text-style:tercios": "Chữ dưới màn hình",
   "text-style:terror": "Kinh dị và bí ẩn",
   "text-style:titulos": "Tiêu đề",
@@ -33410,6 +33411,3935 @@
     "đỏ",
     "nổi bật",
     "vlog"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "Mở đầu ánh tím",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mở đầu",
+    "điện ảnh",
+    "tím"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "Bong bóng xanh dương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "xanh dương",
+    "bong bóng",
+    "trẻ em"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "Chữ nghệ thuật đỏ nổi khối",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "đỏ",
+    "3d",
+    "serif"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "Chữ trắng bóng hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "hồng",
+    "3d",
+    "pop"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "Dải đỏ hai dòng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "dải",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "Chữ viết tay phóng khoáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "viết tay",
+    "tay",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "Chào mừng đến kênh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chào mừng",
+    "kênh",
+    "gõ chữ",
+    "chữ thảo"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "Dải tin tức",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "dải ruy băng",
+    "thanh ngang",
+    "thanh tên"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "Vàng cổ điển",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cổ điển",
+    "vàng",
+    "tròn"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "Chữ trong khói",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khói",
+    "điện ảnh",
+    "kịch tính"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "Phụ đề truyện tranh xanh lơ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "phụ đề",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "Giải đấu mạ chrome",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "sự kiện",
+    "chrome",
+    "kim loại"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "Danh sách diễn viên",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "credit",
+    "diễn viên",
+    "điện ảnh",
+    "kết thúc"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "Tiêu đề nền trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trắng",
+    "tối giản",
+    "doanh nghiệp"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "Nhật ký du lịch",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "du lịch",
+    "nhật ký",
+    "viết tay",
+    "giấy"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "Chữ 3D kẹo ngọt",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "3d",
+    "kẹo ngọt",
+    "cam",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "Nhãn trên tiêu đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhãn",
+    "gọn gàng"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "Hết, khung đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kết thúc",
+    "gõ chữ",
+    "khung",
+    "đen"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "Hết, ánh đèn sân khấu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kết thúc",
+    "đèn sân khấu",
+    "điện ảnh",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "Thiên hà giãn chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thiên hà",
+    "không gian",
+    "điện ảnh",
+    "giãn chữ"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "Cảm ơn vàng lấp lánh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "vàng kim",
+    "ánh sáng",
+    "ngôi sao"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "Cảm ơn đầy sao",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "tạm biệt",
+    "ngôi sao",
+    "vàng kim"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "Tiêu đề thanh đỏ tươi",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đồ họa",
+    "hồng tím",
+    "thanh ngang"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "Graffiti đen viền trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "graffiti",
+    "đường phố",
+    "sticker"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "Tiêu đề lớn, đường kẻ tím",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lớn",
+    "tím",
+    "đường kẻ"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "Xám sờn cũ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phim",
+    "xám",
+    "sờn cũ",
+    "tối"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "Ngày xửa ngày xưa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu chuyện",
+    "điện ảnh",
+    "mở đầu",
+    "serif"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "Chữ hiện trong khói",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khói",
+    "mờ dần"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "Truyện tranh Không thể tin được!",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "không thể tin",
+    "lửa",
+    "vụ nổ"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "Game cổ điển vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trò chơi",
+    "cổ điển",
+    "vàng",
+    "kết cấu"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "Tiêu đề gọn gàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tối giản",
+    "gọn gàng",
+    "cơ bản"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "Cảm ơn giữa hai vạch neon",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "cảm ơn",
+    "đăng ký",
+    "đường kẻ"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "Neon hồng rực",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "hồng",
+    "làm đẹp",
+    "trang điểm"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "Vàng 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "3d",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "Viên thuốc đen chấm đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mở đầu",
+    "viên thuốc",
+    "đen"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "Tiêu đề phim vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phim",
+    "điện ảnh",
+    "vàng",
+    "trailer"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "Nhỏ trên lớn dưới",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "Chữ đá 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đá",
+    "3d",
+    "nổi khối"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "Nhãn tên mạng xã hội",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mạng xã hội",
+    "tên người dùng",
+    "viên thuốc",
+    "đăng ký"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "Chữ thảo trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ thảo",
+    "thư pháp",
+    "trắng"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "Chữ serif kèm phụ đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "Phụ đề vàng nền đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "vàng",
+    "khung"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "Phụ đề khung trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "khung",
+    "trắng"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "Phụ đề khung đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "khung",
+    "đen"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "Phụ đề điện ảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "điện ảnh",
+    "phim"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "Phụ đề mảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "mảnh",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "Đăng ký màu đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "đỏ",
+    "nút",
+    "mạng xã hội"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "Thanh tên trắng xanh lơ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "trắng",
+    "xanh lơ"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "Ruy băng vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "dải ruy băng",
+    "vàng kim"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "Thanh tên đỏ mũi tên",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "Tiêu đề lệch trái",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tiêu đề chính",
+    "bên trái"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "Tiêu đề thanh đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh ngang",
+    "đỏ",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "Tiêu đề lửa cháy",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "cam"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "Vlog hằng ngày gõ chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "gõ chữ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "Vàng viền đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "vàng",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "Vàng viền đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "vàng",
+    "đỏ",
+    "truyện tranh"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "Chữ nghệ thuật cam giãn chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "cam",
+    "chuyển màu"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "Chữ nghệ thuật đỏ 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "đỏ",
+    "3d"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "Ánh sáng quét ngang",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "lấp lánh",
+    "quét ngang",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "Góc cơ bản",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "đơn giản",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "Chào mừng công nghệ xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chào mừng",
+    "xanh dương",
+    "công nghệ",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "Khung tím thanh ngang",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "tím",
+    "thanh tên"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "Hoạt hình 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hoạt hình",
+    "3d",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "Hoạt hình cổ điển",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hoạt hình",
+    "vàng",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "Điện ảnh giãn chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "giãn chữ",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "Tiêu đề quảng cáo khung",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "quảng cáo",
+    "khung",
+    "thể thao",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "Tên đạo diễn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "credit",
+    "điện ảnh",
+    "đạo diễn",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "Chữ nghiêng kèm chú thích",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ nghiêng",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "Lóe lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "cam",
+    "ngọn lửa"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "Chữ ký ánh vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ ký",
+    "chữ thảo",
+    "vàng",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "Serif đơn giản",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "đơn giản",
+    "thanh lịch",
+    "chữ nghiêng"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "Cảm ơn giấy xé",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "giấy",
+    "xé giấy",
+    "viết tay"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "Cảm ơn phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "ánh sáng",
+    "cam"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "Tia vàng kim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "ánh sáng",
+    "sang trọng"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "Khói xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khói",
+    "xanh dương",
+    "ánh sáng",
+    "hạt sáng"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "Nhịp tim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhịp đập",
+    "tình yêu",
+    "serif"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "Khung chú thích trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lời kêu gọi",
+    "chú thích",
+    "khung",
+    "trắng"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "Khung xanh chanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "xanh chanh",
+    "nổi bật"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "Tiêu đề gõ chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "gõ chữ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "Kim loại 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kim loại",
+    "3d",
+    "trung cổ",
+    "chrome"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "Khối trắng thời trang",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thời trang",
+    "khung",
+    "trắng"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "Lắc nhẹ đơn giản",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chuyển động",
+    "lắc nhẹ",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "Neon hồng đậm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "hồng",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "Từ tượng thanh truyện tranh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "từ tượng thanh",
+    "cam"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "Tiêu đề hạt sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hạt sáng",
+    "hồng",
+    "giãn chữ"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "Áp phích điện ảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "áp phích",
+    "serif",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "Áp phích cổ điển xếp chồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "áp phích",
+    "điện ảnh",
+    "kinh dị",
+    "chữ hẹp"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "Quảng bá tối",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "quảng bá",
+    "điện ảnh",
+    "tối",
+    "chữ hẹp"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "Sắp ra mắt",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sắp ra mắt",
+    "ra mắt",
+    "cam"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "Ánh vàng rực",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "phát sáng",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "Ánh sáng xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "phát sáng",
+    "xanh dương",
+    "neon"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "Serif 3D sắc nét",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "3d",
+    "serif",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "Phụ đề động",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "động",
+    "karaoke",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "Phụ đề vàng nền đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "Đăng ký dải ruy băng đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "đỏ",
+    "cọ vẽ"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "Đăng ký phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "ánh sáng",
+    "tím"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "Thanh tên xanh viền",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "Thanh tên thanh hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "hồng"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "Thanh tên viền màu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "tím",
+    "xanh lá"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "Thanh tên cam nghiêng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "cam"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "Thanh tên đậm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "chữ đậm"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "Thanh tên công nghệ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "công nghệ",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "Khối cửa hàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cửa hàng",
+    "chữ đậm",
+    "bán hàng"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "Tiêu đề mực",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mực",
+    "cọ vẽ",
+    "trắng"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "Tiêu đề cọ xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cọ vẽ",
+    "xanh dương",
+    "tiêu đề chính"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "Tiêu đề khung xanh phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "xanh dương",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "Tiêu đề dải vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "dải ruy băng",
+    "vàng"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "Tiêu đề có dòng dẫn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đơn giản",
+    "dòng dẫn"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "Màu nước cam",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "màu nước",
+    "cọ vẽ",
+    "cam"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "Yêu từng con chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kiểu chữ",
+    "vàng",
+    "câu nói"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "Năm vàng 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "Chữ nghệ thuật vàng dày",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "vàng",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "Chữ nghệ thuật quầng xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "xanh dương",
+    "quầng sáng"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "Chữ nghệ thuật viền đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "chữ nghệ thuật",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "Chữ nghệ thuật nghiêng đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "đỏ",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "Chữ nghệ thuật bóng xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nghệ thuật",
+    "bóng đổ",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "Tiêu đề thanh bên",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh ngang",
+    "bên trái",
+    "thanh tên"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "Cơ bản giữa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "căn giữa"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "Cơ bản nhỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "nhỏ",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "Cơ bản phía dưới",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "phía dưới"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "Cơ bản ghi chú",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "ghi chú",
+    "nhỏ"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "Ánh sáng hoành tráng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "phát sáng",
+    "hoành tráng"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "Ánh sáng đơn sắc",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "đơn sắc",
+    "pixel"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "Ánh sáng thở",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "nhịp thở",
+    "nhẹ nhàng"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "Rơi nhẹ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "rơi xuống",
+    "thả xuống",
+    "trình chiếu"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "Khung tím sáng tạo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "tím",
+    "sáng tạo"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "Điện ảnh kim loại",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "kim loại",
+    "trailer"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "Bùng cháy",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "bùng cháy"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "Truyện tranh cổ điển 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "cổ điển",
+    "3d",
+    "vàng"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "Chữ hẹp kèm phụ đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ hẹp",
+    "phụ đề",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "Danh sách cảm ơn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "credit",
+    "danh sách"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "Chữ nghiêng thanh lịch",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ nghiêng",
+    "chữ thảo",
+    "cơ bản"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "Con trỏ gõ chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "con trỏ",
+    "gõ chữ"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "Trượt vào mờ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trượt",
+    "làm mờ"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "Điểm nổi bật cơ bản",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nổi bật",
+    "cơ bản"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "Ngày đẹp rung rinh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "rung rinh",
+    "đáng yêu",
+    "xanh chanh"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "Đối đầu tái hiện",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "đối đầu",
+    "cam"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "Hồng ngọt ngào",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ẩm thực",
+    "ngọt ngào",
+    "hồng"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "Tiêu đề hiệu ứng game",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trò chơi",
+    "điện",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "Gõ chữ serif",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "serif",
+    "con trỏ"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "Lóe sao",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lóe sáng",
+    "ánh sáng",
+    "trượt"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "Dòng sáng 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "bạc",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "Tiêu đề lớn kèm phụ đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tiêu đề lớn",
+    "phụ đề"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "Tia sáng đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "đỏ",
+    "tia sáng"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "Mùa đông băng giá",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mùa đông",
+    "băng",
+    "lạnh",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "Tỏa sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "tia sáng",
+    "tỏa sáng"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "Góc dưới bên trái",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bên trái",
+    "phía dưới",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "Ánh neon trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "ánh sáng",
+    "trắng"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "Khoảnh khắc nổi bật thể thao",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "sự kiện",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "Ghi chú giấy",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "du lịch",
+    "ghi chú",
+    "giấy",
+    "vlog"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "Mới dễ thương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "pop",
+    "mới",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "Giảm giá khổng lồ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ưu đãi",
+    "giảm giá",
+    "bán hàng",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "Bộ thiên hà",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thiên hà",
+    "không gian",
+    "giãn chữ"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "Hạt tan biến",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hạt sáng",
+    "mờ dần",
+    "bụi"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "Hạt vàng thanh lịch",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "hạt sáng",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "Pop dễ thương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "pop",
+    "dễ thương",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "Tiêu đề mặc định",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mặc định",
+    "đơn giản",
+    "cơ bản"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "Câu hỏi truyện tranh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "câu hỏi",
+    "trò chơi"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "Trình chiếu viền chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "viền chữ",
+    "trình chiếu",
+    "hai kiểu"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "Quảng bá tối",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "quảng bá",
+    "điện ảnh",
+    "trailer",
+    "ra mắt"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "Cổ điển kim loại đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cổ điển",
+    "kim loại",
+    "đỏ",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "Chữ thảo trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ thảo",
+    "trắng",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "Chữ ký thảo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ ký",
+    "chữ thảo",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "Serif cổ điển",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "cổ điển",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "Phụ đề vàng mảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "vàng"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "Phụ đề trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "trắng"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "Phụ đề khung đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "khung",
+    "đen"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "Phụ đề xanh chanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "xanh chanh"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "Giấc mơ vô tận",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kiểu chữ",
+    "đỏ",
+    "giấc mơ"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "Gõ chữ vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "gõ chữ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "Gõ chữ khung trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "khung",
+    "trắng"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "Gõ chữ bằng tay",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "gõ chữ",
+    "tay"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "Tiêu đề gõ chữ serif",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "serif"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "Thanh tên xanh nghiêng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "Thanh tên viên thuốc vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "viên thuốc",
+    "vàng"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "Thanh tên quảng bá tím",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "quảng bá"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "Thanh tên xanh ngọc",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh tên",
+    "xanh ngọc"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "Tiêu đề thể thao vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "tiêu đề chính",
+    "vàng"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "Tiêu đề hôm nay",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "tiêu đề báo"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "Tiêu đề tia lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tia lửa",
+    "lửa",
+    "bokeh"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "Tiêu đề than hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "than hồng",
+    "hạt sáng"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "Tiêu đề tia lửa vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "tia lửa",
+    "hạt sáng"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "Tiêu đề khung viền",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung viền",
+    "khung",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "Tiêu đề trong khung xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "Tiêu đề lớn và phụ đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tiêu đề lớn",
+    "phụ đề"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "Tiêu đề gọn gàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "gọn gàng",
+    "đơn giản"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "Tiêu đề gọn gàng cỡ vừa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cơ bản",
+    "gọn gàng"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "Tiêu đề nét cong",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ thảo",
+    "gạch chân",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "Tiêu đề chất lỏng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chất lỏng",
+    "hồng",
+    "hạt sáng"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "Tiêu đề tốc độ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "tốc độ",
+    "hoành tráng"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "Tin nóng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "tin nóng"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "Ối giật mình",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "chấm than",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "Vlog hằng ngày",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "chữ thảo",
+    "nhật ký"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "Vlog tuần nét cọ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "cọ vẽ",
+    "tay"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "Vlog du lịch đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "du lịch",
+    "vlog",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "Phóng to mờ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phóng to",
+    "trình chiếu",
+    "làm mờ"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "Vàng viền đen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng",
+    "viền chữ",
+    "sticker"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "Người yêu vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "vàng",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "Tình yêu hồng phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "hồng",
+    "ánh sáng",
+    "yêu"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "Cùng chuẩn bị với mình",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "tím",
+    "làm đẹp"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "Than hồng đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "than hồng",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "Nước đi đẹp",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thể thao",
+    "chữ hẹp",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "Chỉ toàn năng lượng tích cực",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "năng lượng tích cực",
+    "cổ điển",
+    "tích cực"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "Chữ bong bóng pop",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bong bóng",
+    "pop",
+    "kawaii"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "Bong bóng tím và xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bong bóng",
+    "tím",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "Chữ ký trên hộp hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hồng",
+    "khung",
+    "chữ ký"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "Trắng tinh nghịch",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vui nhộn",
+    "trắng",
+    "tinh nghịch"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "Nóng bỏng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bóng cứng",
+    "trắng",
+    "ấn tượng"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "Phố 3D",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đô thị",
+    "3d",
+    "cam"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "Neon hồng các nàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "hồng",
+    "con gái"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "Gradient xanh lớn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "xanh dương",
+    "chuyển màu"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "Lấp lánh xanh lơ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "xanh lơ",
+    "ngôi sao"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "Biên tập đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "biên tập",
+    "tạp chí",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "Tinh hoa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tinh hoa",
+    "tối giản",
+    "trắng"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "Nhãn cam",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhãn",
+    "cam",
+    "nhỏ"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "Neon ma quái",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh dương",
+    "ma quái"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "Vàng viền xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng",
+    "xanh dương",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "Rung động",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "đỏ",
+    "bóng đổ"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "Chữ ký lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "neon",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "Hồng tinh nghịch",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mèo",
+    "hồng",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "Hộp khói đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khói",
+    "đỏ",
+    "cảnh báo"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "Yêu mến hồng phấn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "hồng",
+    "serif"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "Thu đã về",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mùa thu",
+    "truyện tranh",
+    "cam"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "Thực đơn mùa thu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mùa thu",
+    "thực đơn",
+    "cam"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "Anh yêu em tí hon",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "nhỏ",
+    "hồng"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "Chế độ tối cắt dán",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sticker",
+    "cắt dán",
+    "đen trắng"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "Khoảnh khắc trên mảng cam",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mảng màu",
+    "cam",
+    "khoảnh khắc"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "Dựng phim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "dựng phim",
+    "tối giản",
+    "điện ảnh"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "Tự nhiên",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tự nhiên",
+    "xanh lá",
+    "sinh thái"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "Neon xanh điện",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh dương",
+    "điện"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "Đêm vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cam",
+    "chuyển màu",
+    "ban đêm"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "Những đêm huyền bí",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ban đêm",
+    "bí ẩn",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "Ghi chú giấy cũ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "giấy",
+    "ghi chú",
+    "vintage",
+    "ấm cúng"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "Ghi chú dán băng keo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ghi chú",
+    "nhật ký",
+    "dải ruy băng"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "Vàng kim lấp lánh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "ánh sáng",
+    "ăn mừng"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "Nước đi táo bạo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khung",
+    "đỏ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "Viên thuốc xanh phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "viên thuốc",
+    "xanh dương",
+    "khung"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "Viên thuốc trắng trái tim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trái tim",
+    "viên thuốc",
+    "tình yêu"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "Làn da thủy tinh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "làm đẹp",
+    "thủy tinh",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "Đỏ viền trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đỏ",
+    "trò chơi",
+    "phát"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "Cuối cùng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tối giản",
+    "trắng",
+    "cuối cùng"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "Hồng đáng yêu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hồng",
+    "chữ thảo",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "Câu hỏi viền hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu hỏi",
+    "hồng",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "Sticker đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sticker",
+    "đỏ",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "Chữ thảo mảnh hằng ngày",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chữ thảo",
+    "mảnh",
+    "thư pháp"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "Con dấu khung viền",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "con dấu",
+    "khung",
+    "vintage"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "Trắng bóng khói",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bóng đổ",
+    "khói",
+    "trắng"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "Đăng ký lặng lẽ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "tối giản",
+    "nhỏ"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "Anh yêu em hồng đậm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "hồng",
+    "trái tim"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "Tình yêu đỏ thẫm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "đỏ",
+    "serif"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "Anh yêu em lãng mạn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "lãng mạn",
+    "serif"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "Nhung vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "chữ thảo",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "Vlog hằng ngày",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "nhật ký",
+    "ẩm thực"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "Quay lại trường",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trường học",
+    "viền chữ",
+    "viền rỗng"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "Viền tím rỗng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "viền chữ",
+    "viền rỗng",
+    "tím"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "Tạm biệt kéo dài",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tạm biệt",
+    "kết thúc",
+    "meme"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "Hết hàng sờn cũ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hết hàng",
+    "đỏ",
+    "nhiễu",
+    "cửa hàng"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "Tình yêu hồng phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "hồng",
+    "valentine"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "Đã duyệt có dấu tích",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đã duyệt",
+    "dấu tích",
+    "xanh lá"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "Lệch RGB xanh lục xanh dương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhiễu",
+    "rgb",
+    "xanh lá",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "Nụ hôn đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "đỏ",
+    "môi"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "Nút chia sẻ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nút",
+    "mạng xã hội",
+    "chia sẻ"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "Nút thích",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nút",
+    "mạng xã hội",
+    "thích"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "Nút theo dõi",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nút",
+    "mạng xã hội",
+    "theo dõi"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "Sương tím",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tím",
+    "giấc mơ",
+    "huyền diệu"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "Điện ảnh nhỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "tối giản",
+    "giãn chữ"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "Điện ảnh kèm phụ đề",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "vlog"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "Truyện tranh 3D vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "3d",
+    "vàng",
+    "vụ nổ"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "Credit kết thúc",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "credit",
+    "điện ảnh",
+    "kết thúc"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "Gradient xanh dương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chuyển màu",
+    "xanh dương",
+    "nhẹ nhàng"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "Tận hưởng cuộc sống",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu nói",
+    "thanh lịch",
+    "serif"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "Viền đôi neon hồng xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "viền chữ",
+    "hồng",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "Nghiêng đỏ vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "hành động",
+    "đỏ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "Serif nghiêng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh lịch",
+    "serif",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "Câu trích trên thẻ trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu nói",
+    "trích dẫn",
+    "động lực",
+    "thẻ"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "Lửa trong vòng neon",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "lửa",
+    "cam"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "Cảm ơn đã xem",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kết thúc",
+    "pixel"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "Truyện tranh wow",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "bất ngờ",
+    "vàng"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "Serif bóng đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "podcast",
+    "đỏ",
+    "nhiễu"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "Xin chào xin chào",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chào hỏi",
+    "meme",
+    "phụ đề"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "Khói trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khói",
+    "sương mù",
+    "nhẹ nhàng"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "Serif mảnh giãn chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "làm đẹp",
+    "thanh lịch",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "Chữ lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "cam",
+    "ngọn lửa"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "Trang điểm hai phông",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trang điểm",
+    "làm đẹp",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "Bút dạ quang vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu hỏi",
+    "bút dạ quang",
+    "vàng",
+    "blog"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "Bong bóng hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hồng",
+    "dễ thương",
+    "kawaii"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "Serif sương mù",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "sương mù",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "Serif xanh dịu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "xanh lá",
+    "nhẹ nhàng"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "Mini vlog bong bóng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "dễ thương",
+    "bong bóng"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "Cam đậm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cam",
+    "kênh",
+    "ủng hộ"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "Neon xanh lơ vẽ tay",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh lơ",
+    "biển hiệu",
+    "ban đêm"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "Neon đỏ chữ thảo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "đỏ",
+    "biển hiệu"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "Kỷ nguyên mới giãn rộng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tối giản",
+    "trắng"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "Ôi không",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "meme",
+    "phản ứng",
+    "phụ đề"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "Sang trọng tiết chế",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sang trọng",
+    "tối giản",
+    "trắng"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "Chữ hoa giãn rộng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sang trọng",
+    "tối giản",
+    "giãn chữ"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "Thu ấm áp",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mùa thu",
+    "cà phê",
+    "ấm cúng"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "Giấy xé",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "giấy",
+    "vintage",
+    "ảnh",
+    "nhật ký"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "Viên thuốc trái tim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "hồng",
+    "dễ thương"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "Chữ nhãn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chuẩn bị cùng mình",
+    "vlog",
+    "nhãn chữ",
+    "máy"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "Nhật ký thân mến",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhật ký",
+    "vlog",
+    "sticker"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "Giảm giá khung vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ưu đãi",
+    "giảm giá",
+    "cửa hàng",
+    "vàng"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "Chữ cắt dán nhiều màu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cắt dán",
+    "nhiều màu",
+    "ảnh"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "Chữ nghiêng phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ánh sáng",
+    "trắng",
+    "phát sáng"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "Chữ thảo thói quen",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trang điểm",
+    "chữ thảo",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "Nước bắn tung tóe",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nước",
+    "mùa hè",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "Theo dõi mình thanh đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "theo dõi",
+    "mạng xã hội",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "Không vội",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu nói",
+    "bình yên",
+    "chữ hẹp"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "Gạch chân trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu nói",
+    "tối giản",
+    "gạch chân"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "Đăng ký neon đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "neon",
+    "đỏ",
+    "kênh"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "Kinh dị đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kinh dị",
+    "đỏ",
+    "sợ hãi"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "Sticker chữ cái",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sticker",
+    "nhiều màu",
+    "trẻ em"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "Hành trình gõ chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "máy đánh chữ",
+    "du lịch",
+    "câu chuyện"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "Thẻ tên người dùng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tên người dùng",
+    "mạng xã hội",
+    "nhãn"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "Bắt đầu thôi gọn gàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tối giản",
+    "hành động",
+    "trắng"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "Ngọn lửa xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "xanh dương",
+    "lửa",
+    "năng lượng"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "Viền xanh chanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "xanh lá",
+    "vàng",
+    "trò chơi"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "Chú thích trắng hét lớn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "meme",
+    "mèo",
+    "vui nhộn",
+    "phụ đề"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "Cam cố lên",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cam",
+    "cổ vũ",
+    "động lực"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "Neon yêu hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "neon",
+    "hồng",
+    "valentine"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "Tình yêu vang đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tình yêu",
+    "đỏ",
+    "3d"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "Thiên thần bạc",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thiên thần",
+    "bạc",
+    "đôi cánh"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "Hào quang rực lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "hào quang",
+    "chữ thảo"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "Truyện tranh BAM",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "bam",
+    "cú đấm"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "Neon xanh lá phố",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh lá",
+    "đường phố"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "Điện ảnh giãn chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện ảnh",
+    "phim"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "Dải đỏ bóng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "dải ruy băng",
+    "đỏ",
+    "ruy băng"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "Trích dẫn khung gạch chân",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "Sáng tạo phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sáng tạo",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "Sinh nhật nhiều màu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "sinh nhật",
+    "tiệc",
+    "nhiều màu"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "Điểm nổi bật lấp lánh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nổi bật",
+    "tia lửa",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "Nhật ký giấy kraft",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhật ký",
+    "giấy",
+    "giấy kraft",
+    "vintage"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "Chữ nghiêng vàng kim",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vàng kim",
+    "sang trọng",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "Truyện tranh hả",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "bất ngờ",
+    "phản ứng"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "Điện băng giá",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "điện",
+    "băng",
+    "xanh dương"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "Đỏ rực lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "Hộp năng lượng phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "năng lượng",
+    "đỏ",
+    "khung"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "Thẩm mỹ mảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thẩm mỹ",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "Chúc mừng ngày lễ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "giáng sinh",
+    "ngày lễ"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "Kết thúc phát sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "kết thúc",
+    "điện ảnh",
+    "ánh sáng"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "Hết chương",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chương",
+    "kết thúc",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "Cuối cùng rực lửa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "kết thúc"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "Chữ than hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "than hồng"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "Câu trích giấy xé",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu nói",
+    "động lực",
+    "giấy"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "Lửa neon xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh dương",
+    "tốc độ"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "Neon xanh mạnh mẽ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "xanh dương",
+    "mạnh mẽ"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "Người thắng neon hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "người thắng",
+    "neon",
+    "hồng",
+    "lửa"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "Thế hệ sáng tạo",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "thanh lịch",
+    "serif",
+    "phim tài liệu"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "Cảm ơn bong bóng thoại",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "bong bóng",
+    "hội thoại"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "Cảm ơn hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "hồng",
+    "sticker"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "Cảm ơn khung hồng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "hồng",
+    "trái tim"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "Cảm ơn dải giấy",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảm ơn",
+    "giấy",
+    "kết thúc"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "Quảng bá lớn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "khuyến mãi",
+    "ưu đãi"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "Wow ngôi sao nổ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "wow",
+    "bùng nổ"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "Câu chuyện phác họa",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phác họa",
+    "nguệch ngoạc"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "Câu chuyện bắt đầu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu chuyện",
+    "grunge",
+    "máy đánh chữ"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "Câu chuyện hôm nay nhiều màu",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhiều màu",
+    "câu chuyện",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "Thẻ câu chuyện của tôi",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "nhãn",
+    "câu chuyện",
+    "vlog"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "Nhìn này viết tay",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "viết tay",
+    "mũi tên",
+    "chỉ trỏ"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "Khoảnh khắc trong khung trắng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cảnh",
+    "khung",
+    "điện ảnh"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "Khoảnh khắc mảnh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "khoảnh khắc",
+    "chữ thảo",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "Tin tức ngoặc xanh",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "thanh tên"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "Đám mây viền chữ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đám mây",
+    "trắng",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "Khung giảm giá đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "ưu đãi",
+    "giảm giá",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "Giấy xé",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "giấy",
+    "giấy xé",
+    "xé giấy"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "Đối đầu chrome",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chrome",
+    "đối đầu",
+    "kim loại"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "Hoàn hảo xanh lá",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hoàn hảo",
+    "xanh lá",
+    "chơi game"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "Bài thơ serif",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "bài thơ",
+    "tình yêu",
+    "câu nói",
+    "thanh lịch"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "Khung câu hỏi",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "câu hỏi",
+    "bình luận",
+    "khung"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "Quảng bá tốc độ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "quảng bá",
+    "tốc độ",
+    "chrome"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "Viên thuốc mạng xã hội",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mạng xã hội",
+    "theo dõi",
+    "thích",
+    "chia sẻ"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "Neon xanh ngọc tròn",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "neon",
+    "vòng",
+    "chơi game",
+    "viền chữ"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "Serif quầng sáng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "serif",
+    "quầng sáng",
+    "cổ điển"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "Cứ tiến lên giãn rộng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "động lực",
+    "tối giản",
+    "trắng"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "Hồng phồng đơn giản",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hồng",
+    "phồng",
+    "vui nhộn"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "Phụ đề ngoặc cam",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "phụ đề",
+    "khung",
+    "cam"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "Đăng ký khung đỏ",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "mạng xã hội"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "Đăng ký dạng viên thuốc",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đăng ký",
+    "viên thuốc",
+    "mạng xã hội"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "Vòng tròn xu hướng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "hình tròn",
+    "đỏ"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "Chữ thanh vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "đơn giản",
+    "khung",
+    "vàng"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "Tên bài hát",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "âm nhạc",
+    "bài hát",
+    "trình phát"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "Tiêu đề sóng âm",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "âm nhạc",
+    "âm thanh",
+    "tối giản"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "Chạm vào đây",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "chạm",
+    "lời kêu gọi"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "Viên thuốc cúp tím",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "cúp",
+    "tím",
+    "viên thuốc"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "Ghim vị trí",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vị trí",
+    "du lịch"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "Tin nóng thanh vàng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "tin nóng"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "Thanh tên tin nóng",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "tin tức",
+    "thanh tên"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "Lên nào, bùng cháy",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "lửa",
+    "ngọn lửa",
+    "lên nào"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "Cọ vàng mùa hè",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "mùa hè",
+    "vàng",
+    "cọ vẽ"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "Dải cập nhật cuộc sống",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "vlog",
+    "giấy",
+    "cuộc sống"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "Bùng nổ lan truyền",
+   "tags": [
+    "xu hướng",
+    "tiêu đề",
+    "truyện tranh",
+    "lan truyền",
+    "vụ nổ"
    ]
   },
   "text-style:ter-a-mano": {

@@ -1118,6 +1118,40 @@ void fillGpuLayerMasks(GpuLayer &layer, const drift::Clip &host,
     }
 }
 
+// A text's masks are placed on its layout box, which is where the preview draws their handles,
+// but its layer is that box grown by the bleed for strokes, shadows and motion. Re-expressed in
+// the layer's frame they cut where they were drawn. The two frames are never turned relative to
+// each other, so this is a per-axis scale and offset.
+QList<drift::LaneMask> masksInLayerFrame(const QList<drift::LaneMask> &laneMasks, const QRectF &frame,
+                                        const QRectF &layerRect)
+{
+    if (frame.isEmpty() || layerRect.isEmpty() || frame == layerRect)
+        return laneMasks;
+    const double sx = frame.width() / layerRect.width();
+    const double sy = frame.height() / layerRect.height();
+    const double ox = (frame.left() - layerRect.left()) / layerRect.width();
+    const double oy = (frame.top() - layerRect.top()) / layerRect.height();
+    const auto map = [&](const QPointF &p) { return QPointF(ox + p.x() * sx, oy + p.y() * sy); };
+    QList<drift::LaneMask> out = laneMasks;
+    for (drift::LaneMask &entry : out) {
+        drift::Mask &mask = entry.mask;
+        const QPointF centre = map(QPointF(mask.x, mask.y));
+        mask.x = centre.x();
+        mask.y = centre.y();
+        mask.w *= sx;
+        mask.h *= sy;
+        // A fraction of the frame's shorter side.
+        mask.expand *= std::min(frame.width(), frame.height()) / std::min(layerRect.width(), layerRect.height());
+        for (QPointF &point : mask.points)
+            point = map(point);
+        for (auto it = mask.pathKeys.begin(); it != mask.pathKeys.end(); ++it) {
+            for (QPointF &point : it.value())
+                point = map(point);
+        }
+    }
+    return out;
+}
+
 // `laneMasks` is the whole mask stack the clip's track contributes at this instant. Masks live on
 // the track's lanes rather than on the clip, so one spanning a cut reaches both clips and each
 // rasterizes it in its own frame space.
@@ -1286,6 +1320,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         textClip = &resolvedText;
     }
 
+    // The rect a text's pixels cover before its block motion, when it differs from the layout box.
+    QRectF maskLayerRect;
     if (clip.type == drift::ClipType::Text) {
         // The painter's image carries a bleed margin for the strokes, shadows, box and the
         // animation envelope, so its destination rect is wider than the layout rect.
@@ -1304,6 +1340,7 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         }
         layer.effects = resolvedClipEffects(clip, clipTimeUs);
         destRect = rasterRect;
+        maskLayerRect = rasterRect;
         applyTextBlockMotion(layer, block, &destRect, &opacity, &rotation);
     } else if (clip.type == drift::ClipType::Subtitle) {
         const drift::TimeUs localUs = timelineUs - clip.timelineStart;
@@ -1321,6 +1358,7 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
             return layer;
         layer.effects = resolvedClipEffects(clip, clipTimeUs);
         destRect = rasterRect;
+        maskLayerRect = rasterRect;
         applyTextBlockMotion(layer, block, &destRect, &opacity, &rotation);
     } else if (clip.type == drift::ClipType::Shape) {
 #ifdef DRIFT_WITH_SKIA
@@ -1404,7 +1442,9 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     if (!editingText)
         applyClipBodyAnimation(clip, timelineUs, w, h, &destRect, &opacity, &rotation);
 
-    fillGpuLayerMasks(layer, clip, laneMasks, timelineUs, canvasWidth, canvasHeight);
+    fillGpuLayerMasks(layer, clip,
+                      maskLayerRect.isEmpty() ? laneMasks : masksInLayerFrame(laneMasks, layoutRect, maskLayerRect),
+                      timelineUs, canvasWidth, canvasHeight);
     layer.rect = destRect;
     layer.rotation = rotation;
     // Depth sorting needs a pose to sort by, and the dest-reading blend modes copy the canvas

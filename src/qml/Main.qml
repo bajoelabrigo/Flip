@@ -1782,6 +1782,17 @@ ApplicationWindow {
                                         : qsTr("Added to Media."),
                         8000, qsTr("Show"), () => window.showAssetsTab("media"))
         }
+        function onDownloadInstalled(itemId, name, where) {
+            // A text style from Stock lives in Titles › Trending: the jump goes there.
+            const textStyle = Market.deliveryForItem(Market.itemById(itemId)) === "text-style"
+                              || itemId.indexOf("flip:text-style:") === 0
+            const message = name.length === 0 ? (where.length > 0 ? where : qsTr("Installed"))
+                          : (where.length > 0 ? qsTr("“%1” is ready. %2.").arg(name).arg(where)
+                                              : qsTr("“%1” is installed.").arg(name))
+            Toasts.post("success", message,
+                        8000, textStyle ? qsTr("Show") : "",
+                        textStyle ? () => assetsPanel.showTextSection("trends") : null)
+        }
         function onDownloadFailed(itemId, code, message) {
             Toasts.error(message)
         }

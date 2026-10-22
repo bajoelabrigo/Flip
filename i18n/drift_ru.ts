@@ -3549,6 +3549,10 @@
         <translation>Стиль текста переименован</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Не удалось обновить стиль текста</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>Не удалось удалить стиль текста</translation>
     </message>
@@ -4349,20 +4353,12 @@
         <translation>файл отсутствует</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT установлен: %1 (Настройка › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>В разделе Настройка › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>это не набор эффектов</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>Образ установлен: %1 (Мои эффекты)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4373,24 +4369,16 @@
         <translation>это не стиль текста</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Стиль текста установлен: %1 (Текст › Мои стили)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>В разделе Текст › Мои стили</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>Анимация текста установлена: %1 (Текст › Анимация › Импортированные)</translation>
+        <source>In Titles › Trending</source>
+        <translation>В разделе Титры › В тренде</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>В разделе Текст › Анимация</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>Фигура установлена: %1 (Фигуры, а также Маски)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4399,10 +4387,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>здесь нельзя устанавливать пакеты</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>Переход установлен: %1 (Переходы)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5085,6 +5069,18 @@
         <translation>На этом устройстве нет приложения для отправки файла</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Сначала выберите анимацию</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Не удалось сохранить анимацию</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Сохранено в «Мои анимации»</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Убрать тишину</translation>
     </message>
@@ -5163,6 +5159,10 @@
     <message>
         <source>Imported</source>
         <translation>Импортировано</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Мои</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13316,6 +13316,18 @@
         <translation>Показать</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Установлено</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» готово. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>«%1» установлено.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Проверить обновления…</translation>
     </message>
@@ -13855,6 +13867,26 @@
     <message>
         <source>Invert</source>
         <translation>Инвертировать</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>Отслеживание</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>И масштаб — увеличивается и уменьшается вместе с тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Маска следует за тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Поместите маску на то, за чем она должна следить, и начните: ключевые кадры ставятся от указателя воспроизведения к обоим концам маски</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -14797,6 +14829,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Этот клип ничего не может отслеживать</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Поместите его над видео, чтобы отслеживать что-то в нём</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Для обнаружения объектов нужно дополнение «Отслеживание объектов»</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Здесь не найдено объектов: обведите рамкой то, за чем следить</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Выберите видео или фото, чтобы скрыть на нём лицо</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>В этом клипе не найдено лиц</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Размытое лицо</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Пикселизированное лицо</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Скрыть лицо</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Лицо скрыто: его слой находится над клипом, там его можно обрезать или удалить</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Выберите видео или фото, чтобы что-то на нём скрыть</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Сначала выберите объект в окне просмотра или обведите его рамкой</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Размытый объект</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Пикселизированный объект</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Скрыть объект</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Объект скрыт: его слой находится над клипом, там его можно обрезать или удалить</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Выберите маску, чтобы она следовала за тем, что закрывает</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Поместите маску на видео, чтобы следить за чем-то в нём</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Переместите маску на то, за чем она должна следить</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Маска следует</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Удалить трекинг</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Трекинг удалён</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Видео, за которым шло отслеживание, больше нет в проекте</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>Элемент и отслеженная часть видео больше не пересекаются</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Настройки отслеживания</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Перевыровнять отслеживание</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Трекинг уже выполняется</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Сначала сканируются лица в видео…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>Элемент и видео почти не пересекаются</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Переместите элемент на то, что он должен отслеживать</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Подготовка…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>В видео нет отсканированных лиц</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>В позиции указателя нет лица: перейдите к кадру, где видно лицо</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Трекинг отменён</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Отслеживание кадра %1 из %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Не найдено ничего для отслеживания</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Трекинг движения</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Трекинг завершён — объект потерян в %1 из %2 кадров</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Трекинг завершён</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14985,6 +15176,14 @@
     <message>
         <source>Colour</source>
         <translation>Цвет</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>Оттенок</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>Цвет, которым эффект закрашивает изображение</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16200,6 +16399,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Отслеживание</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18268,6 +18471,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation>Угол</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>Шаги</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20389,6 +20596,10 @@ If playback stutters, try another.</source>
         <translation>Избранное</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>ИИ-текст</translation>
     </message>
@@ -20415,6 +20626,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — нажмите, чтобы скачать и добавить в позицию указателя</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Войдите, чтобы увидеть популярные тексты</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Загрузка популярных текстов…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Не удалось загрузить популярные тексты</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Популярные титры берутся из Stock, для которого нужна бесплатная учётная запись.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>Обновить по выбранному тексту</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20679,6 +20922,38 @@ If playback stutters, try another.</source>
         <translation>Рамки и линии вокруг текста, а не на самом тексте</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>Параметры анимации</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Переименовать…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>Экспорт…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>Экспорт анимации текста</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Анимации текста (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Сохранить как мою анимацию…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>Сохранить анимацию текста</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>Фаза</translation>
     </message>
@@ -20895,6 +21170,14 @@ If playback stutters, try another.</source>
         <translation>Подчёркивание</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Плавная</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Основное</translation>
     </message>
@@ -21021,6 +21304,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>По строкам</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Прямоугольник</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Капсула</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Облачко речи</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Овал</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Облачко мысли</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Облако</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Взрыв</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Крик</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Ярлык</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Лента</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Стрелка</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Заметка</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Билет</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Мазок кисти</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Рваная бумага</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Сердце</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21183,6 +21534,10 @@ If playback stutters, try another.</source>
         <translation>Оформлять выбранные по правилу слова иначе, чем остальной текст</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Начать со слова</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Цвет акцента</translation>
     </message>
@@ -21227,6 +21582,10 @@ If playback stutters, try another.</source>
         <translation>Выбрать цвет подсветки акцента</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Отступ</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Фигура за текстом: облачка реплик, ярлыки, мазки кисти… Цвет и размер настраиваются в «Основное → Фон».</translation>
     </message>
@@ -21253,6 +21612,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Переименовать анимацию текста</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Удалить анимацию текста</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Удалить «%1»? Тексты, которые её используют, сохранят своё движение.</translation>
     </message>
     <message>
         <source>All</source>
@@ -23514,6 +23885,172 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>Удалить ключевой кадр</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Отслеживание</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Убрать отслеживание</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Объект</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Лицо</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>Щёлкните в окне просмотра по лицу, за которым нужно следить (по умолчанию — ближайшее к элементу).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Сначала анализируются лица в «%1», затем отслеживается ближайшее к элементу.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Выберите объект в окне просмотра или обведите его рамкой. Если ничего не выбрано, отслеживается то, что элемент закрывает в «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Поиск…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Найти объекты</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Найти людей, животных, транспорт и другое на позиции указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Получить распознавание объектов</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>Установите дополнение «Отслеживание объектов», чтобы находить объекты автоматически</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Сбросить выбор</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Направление</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Оба</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Вперёд</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Отслеживать от указателя воспроизведения к обоим концам клипа или только в одну сторону</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Масштаб — увеличивается и уменьшается вместе с отслеживаемым</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Расстояние — сохраняет своё место рядом с отслеживаемым</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Выкл.: элемент располагается прямо поверх отслеживаемого</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Отследить заново отсюда</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Начать отслеживание</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Отслеживает от указателя воспроизведения; элемент сохраняет своё место относительно отслеживаемого</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>После перемещения, обрезки или ускорения видео: вернуть траекторию на него без повторного анализа</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Скрыть</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>Лицо</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Объект</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Щёлкните в окне просмотра по лицу, которое нужно скрыть (по умолчанию — ближайшее к центру). Оно закрыто на протяжении всего клипа, с отслеживанием; слой ставится сразу над клипом.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Выберите объект в окне просмотра или обведите его рамкой. Он закрыт на протяжении всего клипа, с отслеживанием; слой ставится сразу над клипом.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Пикселизация</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>Отслеживаемого видео больше нет в проекте.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>Отслеживаемое видео заменено: отследите заново, чтобы траектория совпала.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Отслежено в кадрах: %1; потеряно: %2. Там, где объект потерян, элемент плавно движется между кадрами, где он был найден.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Отслежено во всех кадрах (%1).</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Потерян</translation>
     </message>
 </context>
 <context>

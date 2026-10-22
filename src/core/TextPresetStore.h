@@ -30,11 +30,17 @@ public:
     // Returns the minted id, or an empty string when the label is blank.
     QString add(const QString &label, const TextStyle &style, const QString &sampleText);
     bool rename(const QString &id, const QString &label);
+    // Replaces a saved style's look, keeping its name, sample and place in the library.
+    bool update(const QString &id, const TextStyle &style);
     bool remove(const QString &id);
 
     bool exportToFile(const QString &id, const QString &path) const;
     // Always mints a fresh id, so re-importing your own export adds a copy instead of clobbering.
+    // A Stock style (format "flip-text-style") is the exception: it remembers its catalogue id
+    // and a second import of the same one refreshes it in place.
     QString importFromFile(const QString &path);
+    // The library id of the style installed from that Stock item, or empty.
+    QString idForStockId(const QString &stockId) const;
 
     // Test seam: drops the in-memory copy so the next read re-reads the file.
     void reload();

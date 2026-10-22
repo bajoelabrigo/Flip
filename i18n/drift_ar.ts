@@ -3459,6 +3459,10 @@
         <translation>تمت إعادة تسمية نمط النص</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>تعذّر تحديث نمط النص</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>تعذر حذف نمط النص</translation>
     </message>
@@ -4269,20 +4273,12 @@
         <translation>الملف مفقود</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>تم تثبيت LUT: %1 (ضبط › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>في ضبط › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>ليس إعدادًا مسبقًا للتأثيرات</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>تم تثبيت المظهر: %1 (تأثيراتي)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4293,24 +4289,16 @@
         <translation>ليس نمط نص</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>تم تثبيت نمط النص: %1 (نص › أنماطي)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>في نص › أنماطي</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>تم تثبيت حركة النص: %1 (نص › حركة › مستوردة)</translation>
+        <source>In Titles › Trending</source>
+        <translation>في العناوين › الرائج</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>في نص › حركة</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>تم تثبيت الشكل: %1 (الأشكال، وأيضًا في الأقنعة)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4319,10 +4307,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>لا يمكن تثبيت الحزم هنا</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>تم تثبيت الانتقال: %1 (الانتقالات)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5112,6 +5096,18 @@
         <translation>لا يوجد شيء على هذا الجهاز يمكنه مشاركة ذلك الملف</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>اختر حركة أولاً</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>تعذّر حفظ الحركة</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>تم الحفظ في حركاتي</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>إزالة الصمت</translation>
     </message>
@@ -5202,6 +5198,10 @@
     <message>
         <source>Imported</source>
         <translation>مستورد</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>حركاتي</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13454,6 +13454,18 @@
         <translation>عرض</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>مثبّت</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» جاهز. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>تم تثبيت «%1».</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>البحث عن تحديثات…</translation>
     </message>
@@ -13993,6 +14005,26 @@
     <message>
         <source>Invert</source>
         <translation>عكس</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>التتبّع</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>الحجم أيضًا — يكبر ويصغر مع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>القناع يتتبّع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>ضع القناع فوق ما يجب أن يتتبّعه ثم ابدأ: يُحرَّك من رأس التشغيل نحو طرفي القناع</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
     </message>
 </context>
 <context>
@@ -14977,6 +15009,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>لا يمكن لهذا المقطع تتبّع أي شيء</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>ضعه فوق فيديو لتتبّع شيء فيه</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>يتطلب اكتشاف الكائنات الإضافة «تتبع الكائنات»</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>لم يُعثر على كائنات هنا: ارسم مربعًا حول ما تريد تتبعه</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>اختر فيديو أو صورة لإخفاء وجه فيه</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>لم يُعثر على أي وجه في هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>وجه مموّه</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>وجه مُبكسَل</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>إخفاء الوجه</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>تم إخفاء الوجه: طبقته فوق المقطع، حيث يمكن قصّها أو حذفها</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>اختر فيديو أو صورة لإخفاء شيء فيه</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>اختر أولًا كائنًا في المعاينة أو ارسم مربعًا حوله</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>كائن مموّه</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>كائن مُبكسَل</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>إخفاء الكائن</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>تم إخفاء الكائن: طبقته فوق المقطع، حيث يمكن قصّها أو حذفها</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>اختر قناعًا ليتتبّع ما يغطيه</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>ضع القناع فوق فيديو لتتبّع شيء فيه</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>حرّك القناع فوق ما يجب أن يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>القناع يتتبّع</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>تمت إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>الفيديو الذي كان يتتبعه لم يعد في المشروع</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>العنصر والجزء المتتبَّع من الفيديو لم يعودا متداخلين</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>إعدادات التتبع</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>إعادة محاذاة التتبع</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>التتبّع قيد التنفيذ بالفعل</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>جارٍ فحص الوجوه في الفيديو أولاً…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>العنصر والفيديو بالكاد يتداخلان</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>حرّك العنصر فوق ما يجب أن يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>جارٍ التحضير…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>لا توجد وجوه تم فحصها في الفيديو</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>لا يوجد وجه عند رأس التشغيل: انتقل إلى إطار يظهر فيه الوجه</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>تم إلغاء التتبّع</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>تتبّع الإطار %1 من %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>لم يتم العثور على شيء لتتبّعه</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>تتبّع الحركة</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>اكتمل التتبّع — فُقد الهدف في %1 من %2 إطارًا</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>اكتمل التتبّع</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -15165,6 +15356,14 @@
     <message>
         <source>Colour</source>
         <translation>اللون</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>تلوين</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>اللون الذي يرسمه التأثير</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16398,6 +16597,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>حركة</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>التتبّع</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18484,6 +18687,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation>الزاوية</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>الخطوات</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20620,6 +20827,10 @@ If playback stutters, try another.</source>
         <translation>المفضلة</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>نص بالذكاء الاصطناعي</translation>
     </message>
@@ -20646,6 +20857,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — انقر لتنزيله وإضافته عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>سجّل الدخول لرؤية النصوص الرائجة</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>جارٍ تحميل النصوص الرائجة…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>تعذّر تحميل النصوص الرائجة</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>العناوين الرائجة تأتي من Stock، الذي يحتاج إلى حسابك المجاني.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>إعادة المحاولة</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>تحديث من النص المحدد</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20910,6 +21153,38 @@ If playback stutters, try another.</source>
         <translation>مربعات وخطوط تُرسَم حول النص وليس فوقه</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>خيارات الحركة</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>إعادة تسمية…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>تصدير…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>تصدير حركة النص</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>حركات النص (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>حفظ كحركة خاصة بي…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>حفظ حركة النص</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>الطور</translation>
     </message>
@@ -21126,6 +21401,14 @@ If playback stutters, try another.</source>
         <translation>تسطير</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>لطيف</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>تسريع</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>أساسي</translation>
     </message>
@@ -21252,6 +21535,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>لكل سطر</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>الشكل</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>مستطيل</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>حبة دواء</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>فقاعة كلام</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>بيضاوي</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>فقاعة تفكير</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>سحابة</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>انفجار</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>صراخ</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>بطاقة سعر</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>شريط</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>سهم</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>ملاحظة</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>تذكرة</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>ضربة فرشاة</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>ورق ممزق</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>قلب</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21414,6 +21765,10 @@ If playback stutters, try another.</source>
         <translation>تنسيق بعض الكلمات بشكل مختلف عن الباقي، وفق قاعدة محددة</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>البدء من الكلمة</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>لون الإبراز</translation>
     </message>
@@ -21458,6 +21813,10 @@ If playback stutters, try another.</source>
         <translation>اختر لون تمييز الإبراز</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>الحشوة</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>شكل خلف النص: فقاعات حوار، وملصقات، وضربات فرشاة… اضبط لونه وحجمه في أساسي ← الخلفية.</translation>
     </message>
@@ -21484,6 +21843,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>يتم تشغيله لكل تسمية توضيحية</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>إعادة تسمية حركة النص</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>حذف حركة النص</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>حذف «%1»؟ ستحتفظ النصوص التي تستخدمها بحركتها.</translation>
     </message>
     <message>
         <source>All</source>
@@ -23760,6 +24131,172 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>حذف الإطار المفتاحي</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>التتبّع</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>لا شيء</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>كائن</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>وجه</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>انقر في المعاينة على الوجه المراد تتبّعه (افتراضيًا، الأقرب إلى العنصر).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>تُفحص الوجوه في «%1» أولًا، ثم يُتتبّع الأقرب إلى العنصر.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>اختر كائنًا في المعاينة أو ارسم مربعًا حوله. إن لم تختر شيئًا، يُتتبّع ما يغطيه العنصر في «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>جارٍ البحث…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>اكتشاف الكائنات</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>العثور على أشخاص وحيوانات ومركبات وأشياء أخرى عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>الحصول على اكتشاف الكائنات</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>ثبّت الإضافة «تتبّع الكائنات» للعثور على الكائنات تلقائيًا</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>مسح الاختيار</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>الاتجاه</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>كلاهما</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>للأمام</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>للخلف</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>التتبّع من رأس التشغيل نحو طرفي المقطع، أو في اتجاه واحد فقط</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>الحجم — يكبر ويصغر مع ما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>المسافة — يحافظ على مكانه بجوار ما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>إيقاف: يوضع العنصر فوق ما يتتبّعه مباشرةً</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>التتبّع مجددًا من هنا</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>بدء التتبّع</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>يتتبّع من رأس التشغيل؛ ويحافظ العنصر على مكانه بالنسبة لما يتتبّعه</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>إعادة المحاذاة</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>بعد نقل الفيديو أو قصّه أو تسريعه: إعادة وضع المسار عليه دون تحليل جديد</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>إخفاء</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>وجه</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>كائن</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>انقر في المعاينة على الوجه المراد إخفاؤه (افتراضيًا، الأقرب إلى المنتصف). يُغطّى طوال المقطع مع تتبّعه؛ وتوضع الطبقة فوق المقطع مباشرة.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>اختر كائنًا في المعاينة أو ارسم مربعًا حوله. يُغطّى طوال المقطع مع تتبّعه؛ وتوضع الطبقة فوق المقطع مباشرة.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>بكسلة</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>تمويه</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>الفيديو المتتبَّع لم يعد في المشروع.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>تم استبدال الفيديو المتتبَّع: أعد التتبّع ليتطابق المسار.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>تُتُبّع في %1 إطارًا؛ وفُقد في %2. حيث فُقد، ينزلق العنصر بين الإطارات التي وُجد فيها.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>تُتُبّع في جميع الإطارات (%1).</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>مفقود</translation>
     </message>
 </context>
 <context>

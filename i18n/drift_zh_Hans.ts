@@ -3537,6 +3537,10 @@
         <translation>已重命名文本样式</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>无法更新文字样式</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>无法删除文本样式</translation>
     </message>
@@ -4333,20 +4337,12 @@
         <translation>文件缺失</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>已安装 LUT：%1（调节 › LUT）</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>位于 调节 › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>这不是效果预设</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>已安装风格：%1（我的效果）</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4357,24 +4353,16 @@
         <translation>这不是文字样式</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>已安装文字样式：%1（文字 › 我的样式）</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>位于 文字 › 我的样式</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>已安装文字动画：%1（文字 › 动画 › 已导入）</translation>
+        <source>In Titles › Trending</source>
+        <translation>在 标题 › 热门</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>位于 文字 › 动画</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>已安装形状：%1（形状，也可在蒙版中使用）</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4383,10 +4371,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>无法在此处安装软件包</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>已安装转场：%1（转场）</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5059,6 +5043,18 @@
         <translation>此设备上没有可分享该文件的应用</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>请先选择一个动画</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>无法保存动画</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>已保存到“我的动画”</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>移除静音</translation>
     </message>
@@ -5137,6 +5133,10 @@
     <message>
         <source>Imported</source>
         <translation>已导入</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>我的</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13224,6 +13224,18 @@
         <translation>显示</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>已安装</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1”已就绪。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1”已安装。</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>检查更新…</translation>
     </message>
@@ -13763,6 +13775,26 @@
     <message>
         <source>Invert</source>
         <translation>反转</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>同时缩放 — 随遮挡对象放大和缩小</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>蒙版跟踪其遮挡的内容</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>将蒙版放在要跟踪的内容上，然后开始：从播放头向蒙版两端添加关键帧</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -14677,6 +14709,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>此片段无法跟踪任何内容</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>将其放在视频上方，即可跟踪视频中的内容</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>物体检测需要“物体跟踪”扩展</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>这里没有找到物体：请在要跟随的内容周围画一个框</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>选择视频或照片以遮挡其中的人脸</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>此片段中未找到人脸</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>模糊的人脸</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>马赛克人脸</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>遮挡人脸</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>人脸已遮挡：其图层位于片段上方，可在那里修剪或删除</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>选择视频或照片以遮挡其中的内容</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>请先在预览中选择一个物体，或在其周围画框</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>模糊的物体</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>马赛克物体</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>遮挡物体</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>物体已遮挡：其图层位于片段上方，可在那里修剪或删除</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>选择一个蒙版，使其跟踪所遮挡的内容</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>将蒙版放在视频上以跟踪其中的内容</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>将蒙版移到要跟踪的内容上</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>蒙版跟踪</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>移除跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>已移除跟踪</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>它跟随的视频已不在项目中</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>元素与视频的跟踪部分不再重叠</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>跟踪设置</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>重新对齐跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>跟踪正在进行中</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>正在先扫描视频中的人脸…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>元素与视频几乎没有重叠</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>将元素移到它要跟随的对象上</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>准备中…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>视频中没有已扫描的人脸</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>播放头处没有人脸：请移到能看到人脸的帧</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>已取消跟踪</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>正在跟踪第 %1/%2 帧…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>未找到可跟踪的内容</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>运动跟踪</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>跟踪完成——在 %2 帧中有 %1 帧丢失了目标</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>跟踪完成</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14865,6 +15056,14 @@
     <message>
         <source>Colour</source>
         <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>色调</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>特效所涂覆的颜色</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16068,6 +16267,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Animation</source>
         <translation>动画</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18124,6 +18327,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Angle</source>
         <translation>角度</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>层数</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20234,6 +20441,10 @@ If playback stutters, try another.</source>
         <translation>收藏</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI 文字</translation>
     </message>
@@ -20260,6 +20471,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>在播放头处添加</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — 点击下载并添加到播放头处</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>登录以查看热门文字</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>正在加载热门文字…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>无法加载热门文字</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>热门标题来自素材库，需要你的免费账户。</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>用所选文字更新</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20524,6 +20767,38 @@ If playback stutters, try another.</source>
         <translation>绘制在文字周围而非文字上的框和线</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>动画选项</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>重命名…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>导出…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>导出文字动画</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>文字动画 (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>删除</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>另存为我的动画…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>保存文字动画</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>相位</translation>
     </message>
@@ -20740,6 +21015,14 @@ If playback stutters, try another.</source>
         <translation>下划线</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>柔和</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
@@ -20866,6 +21149,74 @@ If playback stutters, try another.</source>
     <message>
         <source>Per line</source>
         <translation>按行</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>形状</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>矩形</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>胶囊</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>对话气泡</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>椭圆</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>思考气泡</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>云朵</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>爆炸</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>呐喊</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>丝带</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>箭头</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>便签</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>票券</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>笔刷</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>撕纸</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>爱心</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21028,6 +21379,10 @@ If playback stutters, try another.</source>
         <translation>按规则为部分词语设置与其他文字不同的样式</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>从第几个词开始</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>重点颜色</translation>
     </message>
@@ -21072,6 +21427,10 @@ If playback stutters, try another.</source>
         <translation>选择重点高亮颜色</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>内边距</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>文字后面的形状：对话气泡、标签、笔刷描边… 可在 基础 → 背景 中微调颜色和大小。</translation>
     </message>
@@ -21098,6 +21457,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>重命名文字动画</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>删除文字动画</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>删除“%1”？使用它的文字会保留其动效。</translation>
     </message>
     <message>
         <source>All</source>
@@ -23349,6 +23720,172 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>删除关键帧</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>跟踪</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>移除跟踪</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>物体</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>在预览中点击要跟踪的人脸（默认为离元素最近的那张）。</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>先分析“%1”中的人脸，然后跟踪离元素最近的那张。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>在预览中选择一个物体或在其周围画框。若未选择，则跟踪元素在“%1”中覆盖的内容。</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>正在查找…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>检测物体</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>在播放头位置查找人物、动物、车辆等</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>获取物体检测</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>安装扩展包“物体跟踪”以自动查找物体</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>清除选择</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>双向</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>向前</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>向后</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>从播放头向片段两端跟踪，或只朝一个方向</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>缩放 — 随跟踪对象放大和缩小</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>距离 — 保持在跟踪对象旁的位置</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>关闭：元素正好位于跟踪对象之上</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>从此处重新跟踪</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>开始跟踪</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>从播放头开始跟踪；元素保持相对于跟踪对象的位置</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>重新对齐</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>移动、修剪或加速视频后：无需重新分析即可将路径重新对上</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>遮挡</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>物体</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>在预览中点击要遮挡的人脸（默认为离中心最近的那张）。整个片段中都会跟踪并遮挡它；图层位于片段正上方。</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>在预览中选择一个物体或在其周围画框。整个片段中都会跟踪并遮挡它；图层位于片段正上方。</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>马赛克</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>模糊</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>所跟踪的视频已不在项目中。</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>所跟踪的视频已被替换：请重新跟踪以使路径吻合。</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>在 %1 帧中跟踪到；%2 帧中丢失。丢失处，元素会在找到的帧之间平滑过渡。</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>在全部 %1 帧中均跟踪到。</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>丢失</translation>
     </message>
 </context>
 <context>

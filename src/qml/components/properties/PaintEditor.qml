@@ -87,16 +87,18 @@ Column {
         Column {
             width: (parent.width - parent.spacing) / 2
             spacing: 4
-            visible: root.kind === "solid"
+            // An effect paints over its tint: the base colour of a shine, neon or chrome look.
+            visible: root.kind === "solid" || root.kind === "effect"
             Text {
-                text: qsTr("Colour")
+                text: root.kind === "effect" ? qsTr("Tint") : qsTr("Colour")
                 color: Theme.mutedForeground
                 font.pixelSize: Theme.fontSizeXs
                 font.family: Theme.fontFamily
             }
             ColorSwatchField {
                 hex: (root.paint && root.paint.color) || "#ffffffff"
-                tooltip: qsTr("Choose the paint colour")
+                tooltip: root.kind === "effect" ? qsTr("The colour the effect paints over")
+                                                : qsTr("Choose the paint colour")
                 onEdited: value => root.setPaint({ "color": value })
             }
         }

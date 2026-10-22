@@ -110,6 +110,32 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.19.0)**. Lo nuevo desde la 0.18.3 (que Jorge mandó a certificación el 2026-10-21). Texto de "Novedades de esta versión" del MSIX de la 0.19.0 (728 de 1500 caracteres; en inglés, 693). Si la 0.18.3 **no** llegó a aprobarse, añadir al final las cuatro líneas de la 0.18.3.
+
+> Novedades de la 0.19.0
+>
+> - Seguimiento como CapCut: un texto, sticker o imagen sigue a una persona, un objeto o una cara del video, con Dirección, Escala y Distancia.
+> - Detecta solo personas, animales, vehículos y objetos para seguirlos (extra «Seguimiento de objetos»).
+> - Oculta un rostro o un objeto con pixelado o desenfoque que lo sigue durante todo el clip.
+> - La máscara sigue lo que tapa.
+> - Títulos › Tendencias: cientos de títulos en tendencia; un clic y el texto ya está en tu video.
+> - Máscaras en textos y textos 100 % editables, con tus propias animaciones.
+> - El cuadro del texto mide lo que miden sus palabras y crece al escribir.
+> - Stock: las listas ya no vuelven al inicio y el aviso dice dónde quedó lo que bajaste.
+
+En inglés:
+
+> What's new in 0.19.0
+>
+> - Tracking like CapCut: a text, sticker or picture follows a person, an object or a face in the video, with Direction, Scale and Distance.
+> - Finds people, animals, vehicles and objects by itself to follow them ("Object tracking" extra).
+> - Hide a face or an object with a pixelate or blur that follows it through the whole clip.
+> - A mask can follow what it covers.
+> - Titles › Trending: hundreds of trending titles; one click and the text is in your video.
+> - Masks on texts, and texts fully editable, with your own animations.
+> - A text's box fits its words and grows as you type.
+> - Stock: lists no longer jump back to the top, and the message says where your download went.
+
 **Notas para la Store (0.18.3)**. Lo nuevo desde la 0.18.2 (que Jorge mandó a certificación el 2026-10-19). Texto de "Novedades de esta versión" del MSIX de la 0.18.3 (358 de 1500 caracteres; en inglés, 344). Si la 0.18.2 **no** llegó a aprobarse, usar las notas combinadas de abajo y añadirles estas cuatro líneas.
 
 > **Novedades de la 0.18.3**

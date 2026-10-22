@@ -138,6 +138,7 @@
   "text-style:precios": "Prezzi e offerte",
   "text-style:retro": "Retrò e Y2K",
   "text-style:subtitulos": "Sottotitoli virali",
+  "text-style:tendencias": "Tendenze",
   "text-style:tercios": "Terzi inferiori",
   "text-style:terror": "Horror e mistero",
   "text-style:titulos": "Titoli",
@@ -34852,6 +34853,3526 @@
     "rosso",
     "maiuscolo",
     "reel"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "Apertura con bagliore viola",
+   "tags": [
+    "apertura",
+    "intro",
+    "cinema",
+    "viola"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "Bolla blu",
+   "tags": [
+    "arte",
+    "blu",
+    "bolla",
+    "per bambini"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "Scritta rossa in rilievo",
+   "tags": [
+    "arte",
+    "rosso",
+    "3d",
+    "serif"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "Bianco con profondità rosa",
+   "tags": [
+    "arte",
+    "rosa",
+    "3d",
+    "pop"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "Banda rossa a due righe",
+   "tags": [
+    "terzo inferiore",
+    "banda",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "Scrittura a mano libera",
+   "tags": [
+    "scritta a mano",
+    "mano",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "Benvenuto sul canale",
+   "tags": [
+    "benvenuto",
+    "canale",
+    "a macchina da scrivere",
+    "corsivo"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "Striscia notizie",
+   "tags": [
+    "notizie",
+    "nastro",
+    "barra",
+    "lower third"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "Giallo classico",
+   "tags": [
+    "classico",
+    "giallo",
+    "rotondo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "Testo nel fumo",
+   "tags": [
+    "fumo",
+    "cinema",
+    "drammatico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "Didascalia fumetto",
+   "tags": [
+    "fumetto",
+    "sottotitolo",
+    "divertente",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "Competizione cromata",
+   "tags": [
+    "sport",
+    "evento",
+    "cromo",
+    "metallo"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "Titoli di coda del cast",
+   "tags": [
+    "titoli di coda",
+    "cast",
+    "cinema",
+    "finale"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "Titolo su bianco",
+   "tags": [
+    "bianco",
+    "minimale",
+    "aziendale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "Diario di viaggio",
+   "tags": [
+    "viaggio",
+    "diario",
+    "scritto a mano",
+    "carta"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "Display 3D caramella",
+   "tags": [
+    "3d",
+    "caramella",
+    "arancione",
+    "divertente"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "Etichetta sopra il titolo",
+   "tags": [
+    "titolo",
+    "etichetta",
+    "pulito",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "Fine in riquadro nero",
+   "tags": [
+    "fine",
+    "macchina da scrivere",
+    "riquadro",
+    "nero"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "Fine sotto i riflettori",
+   "tags": [
+    "fine",
+    "riflettore",
+    "cinema",
+    "elegante"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "Galassia spaziata",
+   "tags": [
+    "galassia",
+    "spazio",
+    "cinema",
+    "spaziato"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "Grazie dorato scintillante",
+   "tags": [
+    "grazie",
+    "dorato",
+    "luminoso",
+    "stelle"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "Grazie stellato",
+   "tags": [
+    "grazie",
+    "saluto finale",
+    "stelle",
+    "dorato"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "Titolo con barra magenta",
+   "tags": [
+    "grafica",
+    "magenta",
+    "barra",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "Graffiti nero, bordo bianco",
+   "tags": [
+    "graffiti",
+    "strada",
+    "sticker",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "Grande titolo, linee viola",
+   "tags": [
+    "titolo",
+    "grande",
+    "viola",
+    "linee"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "Grigio consumato",
+   "tags": [
+    "film",
+    "grigio",
+    "consumato",
+    "scuro"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "Tanto tempo fa",
+   "tags": [
+    "storia",
+    "cinema",
+    "intro",
+    "serif"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "Rivelazione nel fumo",
+   "tags": [
+    "fumo",
+    "dissolvenza",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "Incredibile! a fumetto",
+   "tags": [
+    "fumetto",
+    "incredibile",
+    "fuoco",
+    "esplosione"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "Videogioco retrò giallo",
+   "tags": [
+    "gioco",
+    "retrò",
+    "giallo",
+    "texture"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "Titolo pulito",
+   "tags": [
+    "minimale",
+    "pulito",
+    "base",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "Grazie tra linee neon",
+   "tags": [
+    "neon",
+    "grazie",
+    "iscriviti",
+    "linee"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "Neon rosa acceso",
+   "tags": [
+    "neon",
+    "rosa",
+    "bellezza",
+    "trucco"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "Oro 3D",
+   "tags": [
+    "oro",
+    "dorato",
+    "3d",
+    "luminoso"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "Pillola nera, punto rosso",
+   "tags": [
+    "intro",
+    "pillola",
+    "nero",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "Titolo film giallo",
+   "tags": [
+    "film",
+    "cinema",
+    "giallo",
+    "trailer"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "Piccolo sopra grande",
+   "tags": [
+    "titolo",
+    "sottotitolo",
+    "minimale",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "Pietra 3D",
+   "tags": [
+    "pietra",
+    "3d",
+    "roccia",
+    "rilievo"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "Pillola con nome social",
+   "tags": [
+    "social",
+    "utente",
+    "pillola",
+    "iscriviti"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "Corsivo bianco",
+   "tags": [
+    "corsivo",
+    "calligrafia",
+    "bianca",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "Serif con sottotitolo",
+   "tags": [
+    "serif",
+    "elegante",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "Didascalia gialla su nero",
+   "tags": [
+    "sottotitolo",
+    "giallo",
+    "riquadro",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "Didascalia con riquadro bianco",
+   "tags": [
+    "sottotitolo",
+    "riquadro",
+    "bianca",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "Didascalia con riquadro nero",
+   "tags": [
+    "sottotitolo",
+    "riquadro",
+    "nera",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "Sottotitolo da film",
+   "tags": [
+    "sottotitolo",
+    "cinema",
+    "film",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "Sottotitolo sottile",
+   "tags": [
+    "sottotitolo",
+    "sottile",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "Iscriviti rosso",
+   "tags": [
+    "iscriviti",
+    "rosso",
+    "pulsante",
+    "social"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "Terzo inferiore bianco e azzurro",
+   "tags": [
+    "terzo inferiore",
+    "bianco",
+    "azzurro",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "Nastro dorato",
+   "tags": [
+    "terzo inferiore",
+    "nastro",
+    "dorato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "Terzo inferiore rosso",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "Titolo a sinistra",
+   "tags": [
+    "titolo principale",
+    "sinistra",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "Titolo con barra rossa",
+   "tags": [
+    "titolo",
+    "barra",
+    "rosso",
+    "minimale"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "Titolo in fiamme",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "Vlog quotidiano a macchina da scrivere",
+   "tags": [
+    "vlog",
+    "macchina da scrivere",
+    "digitazione",
+    "giallo"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "Giallo con bordo nero",
+   "tags": [
+    "arte",
+    "giallo",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "Giallo con bordo rosso",
+   "tags": [
+    "arte",
+    "giallo",
+    "rosso",
+    "fumetto"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "Arte arancione spaziata",
+   "tags": [
+    "arte",
+    "arancione",
+    "sfumatura",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "Scritta rossa 3D",
+   "tags": [
+    "arte",
+    "rosso",
+    "3d",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "Passaggio di luce",
+   "tags": [
+    "luminoso",
+    "brillo",
+    "passaggio",
+    "minimale"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "Base d'angolo",
+   "tags": [
+    "base",
+    "semplice",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "Benvenuto tech blu",
+   "tags": [
+    "benvenuto",
+    "blu",
+    "tecnologia",
+    "contorno"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "Riquadro viola",
+   "tags": [
+    "riquadro",
+    "viola",
+    "terzo inferiore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "Cartone animato 3D",
+   "tags": [
+    "cartone animato",
+    "3d",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "Cartone animato classico",
+   "tags": [
+    "cartone animato",
+    "giallo",
+    "divertente",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "Cinematografico spaziato",
+   "tags": [
+    "cinema",
+    "spaziato",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "Titolo commerciale in riquadro",
+   "tags": [
+    "pubblicità",
+    "riquadro",
+    "sport",
+    "giallo"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "Crediti del regista",
+   "tags": [
+    "credito",
+    "cinema",
+    "regista",
+    "minimale"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "Corsivo con didascalia",
+   "tags": [
+    "corsivo",
+    "semplice",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "Lampo di fuoco",
+   "tags": [
+    "fuoco",
+    "arancione",
+    "fiamme",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "Firma con luce gialla",
+   "tags": [
+    "firma",
+    "corsivo",
+    "giallo",
+    "elegante"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "Serif semplice",
+   "tags": [
+    "serif",
+    "semplice",
+    "elegante",
+    "corsivo"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "Grazie su carta strappata",
+   "tags": [
+    "grazie",
+    "carta",
+    "strappato",
+    "scritto a mano"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "Grazie luminoso",
+   "tags": [
+    "grazie",
+    "luminoso",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "Raggio dorato",
+   "tags": [
+    "oro",
+    "dorato",
+    "luminoso",
+    "lusso"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "Fumo blu",
+   "tags": [
+    "fumo",
+    "blu",
+    "luminoso",
+    "particelle"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "Battito del cuore",
+   "tags": [
+    "battito",
+    "amore",
+    "pulsazione",
+    "serif"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "Riquadro callout bianco",
+   "tags": [
+    "callout",
+    "riquadro",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "Cornice lime",
+   "tags": [
+    "cornice",
+    "lime",
+    "in evidenza",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "Titolo a macchina da scrivere",
+   "tags": [
+    "macchina da scrivere",
+    "digitazione",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "Metallo 3D spada",
+   "tags": [
+    "metallo",
+    "3d",
+    "medievale",
+    "cromo"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "Blocco bianco moda",
+   "tags": [
+    "moda",
+    "riquadro",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "Ondeggio semplice",
+   "tags": [
+    "movimento",
+    "ondeggio",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "Neon rosa shocking",
+   "tags": [
+    "neon",
+    "rosa",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "Onomatopea a fumetto",
+   "tags": [
+    "fumetto",
+    "onomatopea",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "Titolo a particelle",
+   "tags": [
+    "particelle",
+    "rosa",
+    "spaziato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "Poster cinema",
+   "tags": [
+    "cinema",
+    "poster",
+    "serif",
+    "elegante"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "Poster classico impilato",
+   "tags": [
+    "poster",
+    "cinema",
+    "horror",
+    "condensato"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "Promo scura",
+   "tags": [
+    "promo",
+    "cinema",
+    "scuro",
+    "condensato"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "Prossimamente",
+   "tags": [
+    "prossimamente",
+    "uscita",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "Bagliore giallo",
+   "tags": [
+    "luminoso",
+    "bagliore",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "Bagliore blu",
+   "tags": [
+    "luminoso",
+    "bagliore",
+    "blu",
+    "neon"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "Serif 3D netto",
+   "tags": [
+    "3d",
+    "serif",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "Didascalia dinamica",
+   "tags": [
+    "sottotitolo",
+    "dinamico",
+    "karaoke",
+    "giallo"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "Didascalia gialla su nero",
+   "tags": [
+    "sottotitolo",
+    "didascalia",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "Iscriviti con nastro rosso",
+   "tags": [
+    "iscriviti",
+    "rosso",
+    "pennello",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "Iscriviti luminoso",
+   "tags": [
+    "iscriviti",
+    "luminoso",
+    "viola",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "Terzo inferiore blu con bordo",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "Terzo inferiore con barra rosa",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "rosa",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "Terzo inferiore con bordo colorato",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "viola",
+    "verde"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "Terzo inferiore arancione inclinato",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "Terzo inferiore in grassetto",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "grassetto",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "Terzo inferiore tech",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "tecnologia",
+    "blu"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "Blocco negozio",
+   "tags": [
+    "negozio",
+    "grassetto",
+    "vendita",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "Titolo a inchiostro",
+   "tags": [
+    "inchiostro",
+    "pennello",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "Titolo a pennello blu",
+   "tags": [
+    "pennello",
+    "blu",
+    "titolo principale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "Titolo in riquadro blu luminoso",
+   "tags": [
+    "riquadro",
+    "blu",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "Titolo con striscia gialla",
+   "tags": [
+    "titolo",
+    "nastro",
+    "giallo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "Titolo con occhiello",
+   "tags": [
+    "titolo",
+    "semplice",
+    "occhiello",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "Acquerello arancione",
+   "tags": [
+    "acquerello",
+    "pennello",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "Ama le parole",
+   "tags": [
+    "tipografia",
+    "giallo",
+    "frase",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "Anni d'oro 3D",
+   "tags": [
+    "dorato",
+    "3d",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "Scritta gialla spessa",
+   "tags": [
+    "arte",
+    "giallo",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "Alone blu a effetto WordArt",
+   "tags": [
+    "arte",
+    "blu",
+    "alone",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "Scritta rossa con bordo",
+   "tags": [
+    "arte",
+    "wordart",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "Scritta rossa in corsivo",
+   "tags": [
+    "arte",
+    "rosso",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "Ombra blu a effetto WordArt",
+   "tags": [
+    "arte",
+    "ombra",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "Titolo con barra laterale",
+   "tags": [
+    "barra",
+    "sinistra",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "Base centrata",
+   "tags": [
+    "base",
+    "centrato",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "Base piccola",
+   "tags": [
+    "base",
+    "piccolo",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "Base in basso",
+   "tags": [
+    "base",
+    "in basso",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "Base per note",
+   "tags": [
+    "base",
+    "nota",
+    "piccolo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "Bagliore epico",
+   "tags": [
+    "luminoso",
+    "bagliore",
+    "epico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "Bagliore mono",
+   "tags": [
+    "luminoso",
+    "mono",
+    "pixel",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "Respiro luminoso",
+   "tags": [
+    "luminoso",
+    "respirare",
+    "morbido",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "Caduta morbida",
+   "tags": [
+    "caduta",
+    "diapositive",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "Riquadro creativo viola",
+   "tags": [
+    "riquadro",
+    "viola",
+    "creativo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "Cinematografico metallico",
+   "tags": [
+    "cinema",
+    "metallo",
+    "trailer",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "Combustione",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "combustione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "Fumetto retrò 3D",
+   "tags": [
+    "fumetto",
+    "retrò",
+    "3d",
+    "giallo"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "Condensato con sottotitolo",
+   "tags": [
+    "condensato",
+    "sottotitolo",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "Elenco crediti",
+   "tags": [
+    "titoli di coda",
+    "titolo",
+    "tendenze",
+    "stile"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "Corsivo elegante",
+   "tags": [
+    "corsivo",
+    "base",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "Cursore di digitazione",
+   "tags": [
+    "macchina da scrivere",
+    "cursore",
+    "digitazione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "Scorrimento sfocato",
+   "tags": [
+    "scorrere",
+    "scorrimento",
+    "sfocatura",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "Evidenza base",
+   "tags": [
+    "in evidenza",
+    "momenti clou",
+    "base",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "Una bellissima giornata tremolante",
+   "tags": [
+    "tremolante",
+    "adorabile",
+    "lime",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "Rivalità rinnovata",
+   "tags": [
+    "sport",
+    "duello",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "Rosa dolce",
+   "tags": [
+    "cibo",
+    "dolce",
+    "rosa",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "Titolo effetti gioco",
+   "tags": [
+    "gioco",
+    "elettrico",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "Digitazione serif",
+   "tags": [
+    "macchina da scrivere",
+    "serif",
+    "cursore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "Lampo di stella",
+   "tags": [
+    "lampo",
+    "flare",
+    "luce",
+    "scorrere"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "Flusso di luce 3D",
+   "tags": [
+    "luce",
+    "argento",
+    "3d",
+    "luminoso"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "Grande titolo con sottotitolo",
+   "tags": [
+    "sottotitolo",
+    "titolo",
+    "tendenze",
+    "stile"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "Raggio di luce rosso",
+   "tags": [
+    "luminoso",
+    "rosso",
+    "raggio",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "Inverno ghiacciato",
+   "tags": [
+    "inverno",
+    "ghiaccio",
+    "freddo",
+    "blu"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "Irradiare",
+   "tags": [
+    "luminoso",
+    "raggi",
+    "irradiare",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "Titolo in basso a sinistra",
+   "tags": [
+    "sinistra",
+    "in basso",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "Luce neon bianca",
+   "tags": [
+    "neon",
+    "luce",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "Momenti clou sportivi",
+   "tags": [
+    "sport",
+    "evento",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "Nota su carta",
+   "tags": [
+    "viaggi",
+    "nota",
+    "carta",
+    "vlog"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "Nuovo pop carino",
+   "tags": [
+    "pop",
+    "nuovo",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "Maxi offerta rossa",
+   "tags": [
+    "offerta",
+    "sconto",
+    "vendita",
+    "rosso"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "Pacchetto galassia",
+   "tags": [
+    "galassia",
+    "spazio",
+    "spaziato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "Particelle che si dissolvono",
+   "tags": [
+    "particelle",
+    "dissolvenza",
+    "polvere",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "Particelle dorate eleganti",
+   "tags": [
+    "dorato",
+    "particelle",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "Pop carino",
+   "tags": [
+    "pop",
+    "carino",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "Titolo predefinito",
+   "tags": [
+    "predefinito",
+    "semplice",
+    "base",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "Domanda a fumetto",
+   "tags": [
+    "fumetto",
+    "domanda",
+    "gioco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "Presentazione con contorno",
+   "tags": [
+    "contorno",
+    "diapositive",
+    "due stili",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "Promo scura",
+   "tags": [
+    "promo",
+    "cinema",
+    "trailer",
+    "uscita"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "Retrò metallo rosso",
+   "tags": [
+    "retrò",
+    "metallo",
+    "rosso",
+    "3d"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "Corsivo bianco",
+   "tags": [
+    "corsivo",
+    "bianco",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "Firma in corsivo",
+   "tags": [
+    "firma",
+    "corsivo",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "Serif classico",
+   "tags": [
+    "serif",
+    "classico",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "Sottotitolo giallo sottile",
+   "tags": [
+    "sottotitolo",
+    "giallo",
+    "didascalia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "Sottotitolo bianco",
+   "tags": [
+    "sottotitolo",
+    "bianco",
+    "didascalia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "Riquadro nero sottotitolo",
+   "tags": [
+    "sottotitolo",
+    "riquadro",
+    "nero",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "Sottotitolo lime",
+   "tags": [
+    "sottotitolo",
+    "lime",
+    "didascalia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "Sogni infiniti",
+   "tags": [
+    "tipografia",
+    "rosso",
+    "sogni",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "Digitazione gialla",
+   "tags": [
+    "macchina da scrivere",
+    "digitazione",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "Digitazione in riquadro bianco",
+   "tags": [
+    "macchina da scrivere",
+    "riquadro",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "Scrittura a mano su tastiera",
+   "tags": [
+    "macchina da scrivere",
+    "digitazione",
+    "mano",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "Titolo serif a digitazione",
+   "tags": [
+    "macchina da scrivere",
+    "serif",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "Terzo inferiore blu inclinato",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "Terzo inferiore pillola gialla",
+   "tags": [
+    "terzo inferiore",
+    "pillola",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "Terzo inferiore promo viola",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "promo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "Terzo inferiore turchese",
+   "tags": [
+    "terzo inferiore",
+    "lower third",
+    "turchese",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "Titolo sportivo giallo",
+   "tags": [
+    "sport",
+    "titolo principale",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "Titoli di oggi",
+   "tags": [
+    "notizie",
+    "titoli",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "Titolo di scintille",
+   "tags": [
+    "scintille",
+    "fuoco",
+    "bokeh",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "Titolo di brace",
+   "tags": [
+    "fuoco",
+    "brace",
+    "particelle",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "Titolo di scintille dorate",
+   "tags": [
+    "dorato",
+    "scintille",
+    "particelle",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "Titolo con contorno in riquadro",
+   "tags": [
+    "riquadro",
+    "cornice",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "Titolo in cornice blu",
+   "tags": [
+    "cornice",
+    "blu",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "Grande titolo e sottotitolo",
+   "tags": [
+    "sottotitolo",
+    "titolo",
+    "tendenze",
+    "stile"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "Titolo pulito",
+   "tags": [
+    "base",
+    "pulito",
+    "semplice",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "Titolo pulito medio",
+   "tags": [
+    "base",
+    "pulito",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "Titolo con ghirigoro",
+   "tags": [
+    "corsivo",
+    "sottolineato",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "Titoli liquidi",
+   "tags": [
+    "liquido",
+    "rosa",
+    "particelle",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "Titoli veloci",
+   "tags": [
+    "sport",
+    "velocità",
+    "epico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "Ultime notizie",
+   "tags": [
+    "notizie",
+    "ultime notizie",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "Ahi esplosivo",
+   "tags": [
+    "fumetto",
+    "esclamazione",
+    "divertente",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "Vlog quotidiano",
+   "tags": [
+    "vlog",
+    "corsivo",
+    "diario",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "Vlog settimanale a pennello",
+   "tags": [
+    "vlog",
+    "pennello",
+    "mano",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "Vlog di viaggio rosso",
+   "tags": [
+    "viaggi",
+    "vlog",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "Zoom sfocato",
+   "tags": [
+    "zoom",
+    "diapositive",
+    "sfocatura",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "Giallo con contorno nero",
+   "tags": [
+    "giallo",
+    "contorno",
+    "sticker",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "Innamorato giallo",
+   "tags": [
+    "amore",
+    "giallo",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "Amore rosa luminoso",
+   "tags": [
+    "amore",
+    "rosa",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "Preparati con me",
+   "tags": [
+    "luminoso",
+    "viola",
+    "bellezza",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "Brace rossa",
+   "tags": [
+    "fuoco",
+    "brace",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "Bella mossa",
+   "tags": [
+    "sport",
+    "condensato",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "Solo buone vibrazioni",
+   "tags": [
+    "vibrazioni",
+    "retrò",
+    "positivo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "Lettere a bolla pop",
+   "tags": [
+    "bolla",
+    "pop",
+    "kawaii",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "Bolla viola e blu",
+   "tags": [
+    "bolla",
+    "viola",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "Firma su riquadro rosa",
+   "tags": [
+    "rosa",
+    "riquadro",
+    "firma",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "Bianco birichino",
+   "tags": [
+    "divertente",
+    "bianco",
+    "birichino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "Caldo",
+   "tags": [
+    "ombra netta",
+    "bianco",
+    "impatto",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "Strada 3D",
+   "tags": [
+    "urbano",
+    "3d",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "Signore neon rosa",
+   "tags": [
+    "neon",
+    "rosa",
+    "ragazze",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "Grande sfumatura blu",
+   "tags": [
+    "blu",
+    "sfumatura",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "Scintille ciano",
+   "tags": [
+    "luminoso",
+    "ciano",
+    "stelle",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "Editoriale rosso",
+   "tags": [
+    "editoriale",
+    "rivista",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "Élite",
+   "tags": [
+    "élite",
+    "minimale",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "Etichetta arancione",
+   "tags": [
+    "etichetta",
+    "arancione",
+    "piccolo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "Neon fantasma",
+   "tags": [
+    "neon",
+    "blu",
+    "fantasma",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "Giallo con contorno blu",
+   "tags": [
+    "giallo",
+    "blu",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "Colpo di fulmine",
+   "tags": [
+    "amore",
+    "rosso",
+    "ombra",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "Corsivo fuoco",
+   "tags": [
+    "fuoco",
+    "neon",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "Rosa giocoso",
+   "tags": [
+    "gatto",
+    "rosa",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "Riquadro di fumo rosso",
+   "tags": [
+    "fumo",
+    "rosso",
+    "allerta",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "Adorazione rosa polvere",
+   "tags": [
+    "amore",
+    "rosa",
+    "serif",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "È arrivato l'autunno",
+   "tags": [
+    "autunno",
+    "fumetto",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "Menu autunnale",
+   "tags": [
+    "autunno",
+    "menu",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "Mini ti amo",
+   "tags": [
+    "amore",
+    "piccolo",
+    "rosa",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "Ritaglio modalità scura",
+   "tags": [
+    "sticker",
+    "ritaglio",
+    "bianco e nero",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "Momenti su macchia arancione",
+   "tags": [
+    "macchia",
+    "arancione",
+    "momenti",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "Montaggio",
+   "tags": [
+    "montaggio",
+    "minimale",
+    "cinema",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "Naturale",
+   "tags": [
+    "naturale",
+    "verde",
+    "eco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "Neon blu elettrico",
+   "tags": [
+    "neon",
+    "blu",
+    "elettrico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "Notte dorata",
+   "tags": [
+    "arancione",
+    "sfumatura",
+    "notte",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "Notti misteriose",
+   "tags": [
+    "notte",
+    "mistero",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "Nota su carta vecchia",
+   "tags": [
+    "carta",
+    "nota",
+    "vintage",
+    "accogliente"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "Nota con nastro adesivo",
+   "tags": [
+    "nota",
+    "diario",
+    "nastro",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "Scintille dorate",
+   "tags": [
+    "dorato",
+    "luminoso",
+    "festa",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "Mossa audace",
+   "tags": [
+    "riquadro",
+    "rosso",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "Pillola blu luminosa",
+   "tags": [
+    "pillola",
+    "blu",
+    "riquadro",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "Pillola bianca con cuori",
+   "tags": [
+    "cuori",
+    "pillola",
+    "amore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "Pelle di vetro",
+   "tags": [
+    "bellezza",
+    "vetro",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "Rosso con contorno bianco",
+   "tags": [
+    "rosso",
+    "gioco",
+    "play",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "Finalmente",
+   "tags": [
+    "minimale",
+    "bianco",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "Rosa adorabile",
+   "tags": [
+    "rosa",
+    "corsivo",
+    "carino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "Domanda con contorno rosa",
+   "tags": [
+    "domanda",
+    "rosa",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "Sticker rosso",
+   "tags": [
+    "sticker",
+    "rosso",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "Corsivo sottile quotidiano",
+   "tags": [
+    "corsivo",
+    "sottile",
+    "calligrafia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "Timbro incorniciato",
+   "tags": [
+    "cornice",
+    "vintage",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "Bianco con ombra di fumo",
+   "tags": [
+    "ombra",
+    "fumo",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "Iscriviti discreto",
+   "tags": [
+    "iscriviti",
+    "minimale",
+    "piccolo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "Ti amo rosa shocking",
+   "tags": [
+    "amore",
+    "rosa",
+    "cuore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "Amore rosso intenso",
+   "tags": [
+    "amore",
+    "rosso",
+    "serif",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "Ti voglio bene romantico",
+   "tags": [
+    "amore",
+    "romantico",
+    "serif",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "Velluto dorato",
+   "tags": [
+    "dorato",
+    "corsivo",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "Vlog quotidiano",
+   "tags": [
+    "vlog",
+    "diario",
+    "cibo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "Ritorno a scuola",
+   "tags": [
+    "scuola",
+    "contorno",
+    "vuoto",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "Contorno viola",
+   "tags": [
+    "contorno",
+    "vuoto",
+    "viola",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "Lungo addio",
+   "tags": [
+    "saluto finale",
+    "finale",
+    "meme",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "Esaurito consumato",
+   "tags": [
+    "esaurito",
+    "rosso",
+    "glitch",
+    "negozio"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "Amore con bagliore rosa",
+   "tags": [
+    "amore",
+    "rosa",
+    "san valentino",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "Approvato con spunta",
+   "tags": [
+    "approvato",
+    "spunta",
+    "verde",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "Sfalsamento verde-blu",
+   "tags": [
+    "glitch",
+    "rgb",
+    "verde",
+    "blu"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "Baci rossi",
+   "tags": [
+    "amore",
+    "rosso",
+    "labbra",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "Pulsante Condividi",
+   "tags": [
+    "pulsante",
+    "social",
+    "condividi",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "Pulsante Mi piace",
+   "tags": [
+    "pulsante",
+    "social",
+    "mi piace",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "Pulsante Segui",
+   "tags": [
+    "pulsante",
+    "social",
+    "segui",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "Foschia viola",
+   "tags": [
+    "viola",
+    "sogno",
+    "magico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "Cinematografico piccolo",
+   "tags": [
+    "cinema",
+    "minimale",
+    "spaziato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "Cinematografico con sottotitolo",
+   "tags": [
+    "cinema",
+    "vlog",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "Fumetto 3D giallo",
+   "tags": [
+    "fumetto",
+    "3d",
+    "giallo",
+    "esplosione"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "Titoli di coda",
+   "tags": [
+    "titoli di coda",
+    "cinema",
+    "finale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "Sfumatura blu",
+   "tags": [
+    "sfumatura",
+    "blu",
+    "morbido",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "Goditi la vita",
+   "tags": [
+    "frase",
+    "elegante",
+    "serif",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "Doppio contorno rosa-blu",
+   "tags": [
+    "neon",
+    "contorno",
+    "rosa",
+    "blu"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "Corsivo rosso e giallo",
+   "tags": [
+    "fumetto",
+    "azione",
+    "rosso",
+    "giallo"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "Serif corsivo",
+   "tags": [
+    "elegante",
+    "serif",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "Frase su cartoncino bianco",
+   "tags": [
+    "frase",
+    "citazione",
+    "motivazione",
+    "cartoncino"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "Fuoco in anello neon",
+   "tags": [
+    "neon",
+    "fuoco",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "Grazie per la visione",
+   "tags": [
+    "finale",
+    "chiusura",
+    "pixel",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "Wow a fumetto",
+   "tags": [
+    "fumetto",
+    "sorpresa",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "Serif con eco rosso",
+   "tags": [
+    "serif",
+    "podcast",
+    "rosso",
+    "glitch"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "Ciao ciao",
+   "tags": [
+    "saluto",
+    "meme",
+    "didascalia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "Fumo bianco",
+   "tags": [
+    "fumo",
+    "morbido",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "Serif sottile spaziato",
+   "tags": [
+    "bellezza",
+    "elegante",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "Lettere di fuoco",
+   "tags": [
+    "fuoco",
+    "arancione",
+    "fiamme",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "Trucco con due font",
+   "tags": [
+    "trucco",
+    "bellezza",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "Evidenziatore giallo",
+   "tags": [
+    "domanda",
+    "evidenziatore",
+    "giallo",
+    "blog"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "Bolla rosa",
+   "tags": [
+    "rosa",
+    "tenero",
+    "kawaii",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "Serif nebbioso",
+   "tags": [
+    "serif",
+    "nebbia",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "Serif verde tenue",
+   "tags": [
+    "serif",
+    "verde",
+    "morbido",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "Mini vlog a bolla",
+   "tags": [
+    "vlog",
+    "tenero",
+    "bolla",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "Arancione audace",
+   "tags": [
+    "arancione",
+    "canale",
+    "supporto",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "Neon azzurro disegnato a mano",
+   "tags": [
+    "neon",
+    "azzurro",
+    "insegna",
+    "notte"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "Neon rosso corsivo",
+   "tags": [
+    "neon",
+    "rosso",
+    "insegna",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "Nuova era ampia",
+   "tags": [
+    "minimale",
+    "bianco",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "Oh no",
+   "tags": [
+    "meme",
+    "reazione",
+    "didascalia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "Lusso sobrio",
+   "tags": [
+    "lusso",
+    "minimale",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "Maiuscole spaziate",
+   "tags": [
+    "lusso",
+    "minimale",
+    "spaziato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "Autunno accogliente",
+   "tags": [
+    "autunno",
+    "accogliente",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "Carta strappata",
+   "tags": [
+    "carta",
+    "vintage",
+    "foto",
+    "diario"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "Pillola con cuori",
+   "tags": [
+    "amore",
+    "rosa",
+    "tenero",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "Parole su etichetta",
+   "tags": [
+    "preparati con me",
+    "vlog",
+    "etichetta",
+    "macchina"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "Caro diario",
+   "tags": [
+    "diario",
+    "vlog",
+    "sticker",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "Saldi in riquadro giallo",
+   "tags": [
+    "offerta",
+    "saldi",
+    "negozio",
+    "giallo"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "Lettere ritagliate colorate",
+   "tags": [
+    "collage",
+    "ritagli",
+    "colori",
+    "foto"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "Corsivo luminoso",
+   "tags": [
+    "luminoso",
+    "bianco",
+    "bagliore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "Corsivo della routine",
+   "tags": [
+    "trucco",
+    "corsivo",
+    "elegante",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "Spruzzo d'acqua",
+   "tags": [
+    "acqua",
+    "estate",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "Seguimi con barra rossa",
+   "tags": [
+    "segui",
+    "social",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "Senza fretta",
+   "tags": [
+    "frase",
+    "titolo",
+    "tendenze",
+    "stile"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "Sottolineatura bianca",
+   "tags": [
+    "frase",
+    "minimale",
+    "sottolineato",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "Iscriviti neon rosso",
+   "tags": [
+    "neon",
+    "rosso",
+    "canale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "Horror rosso",
+   "tags": [
+    "horror",
+    "rosso",
+    "paura",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "Sticker lettera",
+   "tags": [
+    "sticker",
+    "colori",
+    "per bambini",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "Viaggio a macchina da scrivere",
+   "tags": [
+    "macchina da scrivere",
+    "viaggio",
+    "storia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "Etichetta nome utente",
+   "tags": [
+    "utente",
+    "social",
+    "etichetta",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "Pulito: andiamo",
+   "tags": [
+    "minimale",
+    "azione",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "Fiamme blu",
+   "tags": [
+    "blu",
+    "fuoco",
+    "energia",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "Contorno lime",
+   "tags": [
+    "verde",
+    "giallo",
+    "gioco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "Didascalia urlata bianca",
+   "tags": [
+    "meme",
+    "gatto",
+    "divertente",
+    "didascalia"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "Tutto per tutto arancione",
+   "tags": [
+    "arancione",
+    "motivazione",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "Amore neon rosa",
+   "tags": [
+    "amore",
+    "neon",
+    "rosa",
+    "san valentino"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "Amore eco rosso",
+   "tags": [
+    "amore",
+    "rosso",
+    "3d",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "Angelo argento",
+   "tags": [
+    "angelo",
+    "argento",
+    "ali",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "Aura in fiamme",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "aura",
+    "corsivo"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "BAM a fumetto",
+   "tags": [
+    "fumetto",
+    "bam",
+    "colpo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "Strada neon verde",
+   "tags": [
+    "neon",
+    "verde",
+    "strada",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "Cinematografico spaziato",
+   "tags": [
+    "cinema",
+    "cinematografico",
+    "film",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "Nastro rosso lucido",
+   "tags": [
+    "nastro",
+    "rosso",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "Citazione in riquadro con linea",
+   "tags": [
+    "citazione",
+    "riquadro",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "Creativo luminoso",
+   "tags": [
+    "creativo",
+    "luminoso",
+    "luce",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "Compleanno colorato",
+   "tags": [
+    "compleanno",
+    "festa",
+    "colori",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "Evidenza con scintille",
+   "tags": [
+    "in evidenza",
+    "scintille",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "Diario kraft",
+   "tags": [
+    "diario",
+    "carta",
+    "kraft",
+    "vintage"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "Corsivo oro",
+   "tags": [
+    "dorato",
+    "lusso",
+    "luminoso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "Fumetto eh",
+   "tags": [
+    "fumetto",
+    "sorpresa",
+    "reazione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "Elettrico ghiaccio",
+   "tags": [
+    "elettrico",
+    "ghiaccio",
+    "blu",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "Rosso in fiamme",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "Riquadro energia luminoso",
+   "tags": [
+    "energia",
+    "rosso",
+    "riquadro",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "Estetico sottile",
+   "tags": [
+    "estetico",
+    "minimale",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "Buone feste",
+   "tags": [
+    "natale",
+    "feste",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "Fine luminosa",
+   "tags": [
+    "fine",
+    "finale",
+    "cinema",
+    "luminoso"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "Fine capitolo",
+   "tags": [
+    "capitolo",
+    "fine",
+    "vlog",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "Finale in fiamme",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "finale",
+    "fine"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "Parola di brace",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "brace",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "Frase su carta strappata",
+   "tags": [
+    "frase",
+    "motivazione",
+    "carta",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "Fuoco neon blu",
+   "tags": [
+    "neon",
+    "blu",
+    "velocità",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "Neon blu forte",
+   "tags": [
+    "neon",
+    "blu",
+    "forte",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "Vincitore neon rosa",
+   "tags": [
+    "vincitore",
+    "neon",
+    "rosa",
+    "fuoco"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "Generazione creativa",
+   "tags": [
+    "elegante",
+    "serif",
+    "documentario",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "Grazie fumetto",
+   "tags": [
+    "grazie",
+    "bolla",
+    "dialogo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "Grazie rosa",
+   "tags": [
+    "grazie",
+    "rosa",
+    "sticker",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "Grazie riquadri rosa",
+   "tags": [
+    "grazie",
+    "rosa",
+    "cuore",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "Grazie a strisce di carta",
+   "tags": [
+    "grazie",
+    "carta",
+    "chiusura",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "Grande promozione",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "promozione",
+    "offerta",
+    "vendita"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "Wow a stella",
+   "tags": [
+    "fumetto",
+    "wow",
+    "scoppio",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "Storia a schizzo",
+   "tags": [
+    "schizzo",
+    "scarabocchio",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "Inizia la storia",
+   "tags": [
+    "storia",
+    "grunge",
+    "macchina da scrivere",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "Storia di oggi colorata",
+   "tags": [
+    "colori",
+    "storia",
+    "divertente",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "Etichetta La mia storia",
+   "tags": [
+    "etichetta",
+    "storia",
+    "vlog",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "Guarda qui a mano",
+   "tags": [
+    "a mano",
+    "freccia",
+    "indicare",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "Momento in riquadri bianchi",
+   "tags": [
+    "scena",
+    "riquadri",
+    "cinema",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "Momenti sottili",
+   "tags": [
+    "momenti",
+    "corsivo",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "Notizie con parentesi blu",
+   "tags": [
+    "notizie",
+    "terzo inferiore",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "Nuvola con contorno",
+   "tags": [
+    "nuvola",
+    "bianco",
+    "contorno",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "Riquadro saldi rosso",
+   "tags": [
+    "offerta",
+    "saldi",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "Carta strappata",
+   "tags": [
+    "carta",
+    "strappato",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "Scontro cromato",
+   "tags": [
+    "cromo",
+    "combattimento",
+    "metallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "Perfetto verde",
+   "tags": [
+    "perfetto",
+    "verde",
+    "gaming",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "Poesia serif",
+   "tags": [
+    "poesia",
+    "amore",
+    "frase",
+    "elegante"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "Riquadri domanda",
+   "tags": [
+    "domanda",
+    "commenti",
+    "riquadri",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "Promo velocità",
+   "tags": [
+    "promo",
+    "velocità",
+    "cromo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "Pillole social",
+   "tags": [
+    "social",
+    "segui",
+    "mi piace",
+    "condividi"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "Neon turchese tondo",
+   "tags": [
+    "neon",
+    "tondo",
+    "gaming",
+    "contorno"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "Serif con alone",
+   "tags": [
+    "serif",
+    "alone",
+    "classico",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "Vai avanti ampio",
+   "tags": [
+    "motivazione",
+    "minimale",
+    "bianco",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "Semplice rosa gonfio",
+   "tags": [
+    "rosa",
+    "gonfio",
+    "divertente",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "Didascalia arancione con parentesi",
+   "tags": [
+    "sottotitolo",
+    "riquadro",
+    "arancione",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "Iscriviti riquadro rosso",
+   "tags": [
+    "iscriviti",
+    "social",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "Iscriviti pillola",
+   "tags": [
+    "iscriviti",
+    "pillola",
+    "social",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "Cerchio di tendenza",
+   "tags": [
+    "tendenza",
+    "cerchio",
+    "rosso",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "Testo su barra gialla",
+   "tags": [
+    "semplice",
+    "riquadro",
+    "giallo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "Titolo canzone",
+   "tags": [
+    "musica",
+    "canzone",
+    "player",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "Titolo a onda sonora",
+   "tags": [
+    "musica",
+    "audio",
+    "minimale",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "Tocca qui",
+   "tags": [
+    "tocca",
+    "callout",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "Pillola trofeo viola",
+   "tags": [
+    "trofeo",
+    "viola",
+    "pillola",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "Segnaposto di posizione",
+   "tags": [
+    "posizione",
+    "viaggio",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "Ultime notizie barra gialla",
+   "tags": [
+    "notizie",
+    "ultime notizie",
+    "titolo",
+    "tendenze"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "Ultime notizie terzo inferiore",
+   "tags": [
+    "notizie",
+    "terzo inferiore",
+    "lower third",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "Andiamo in fiamme",
+   "tags": [
+    "fuoco",
+    "fiamme",
+    "andiamo",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "Estate a pennello giallo",
+   "tags": [
+    "estate",
+    "giallo",
+    "pennello",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "Striscia aggiornamento di vita",
+   "tags": [
+    "vlog",
+    "carta",
+    "vita",
+    "titolo"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "Esplosione virale",
+   "tags": [
+    "fumetto",
+    "virale",
+    "esplosione",
+    "titolo"
    ]
   },
   "text-style:ter-a-mano": {

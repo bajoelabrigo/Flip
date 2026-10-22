@@ -510,6 +510,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     else if (style.valign == drift::TextVAlign::Bottom)
         blockTop = blockHeight - totalH;
     layoutData->blockTop = blockTop;
+    layoutData->contentHeight = totalH;
 
     QList<StyledWord> words;
     double y = 0.0;
@@ -534,6 +535,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         layoutData->lineVisibleEnd.append(lm.fHardBreak ? qMin(int(lm.fEndIndex), int(source.size()))
                                                          : qMin(int(lm.fEndExcludingWhitespaces), int(source.size())));
         layoutData->lineHardBreak.append(lm.fHardBreak);
+        layoutData->contentWidth = qMax(layoutData->contentWidth, double(lm.fWidth));
 
         // LineMetrics indexes are UTF-16, unlike the visitor's and the cluster queries'.
         const int start = int(lm.fStartIndex);
@@ -1143,6 +1145,16 @@ void clearLayoutCache()
 {
     QMutexLocker lock(&g_layoutMutex);
     g_layoutCache.clear();
+}
+
+QSizeF naturalTextSize(const QString &text, const drift::TextStyle &style, double maxWidth)
+{
+    // Through the cache, so measuring again after an edit that left the text alone is free.
+    const std::shared_ptr<const FragmentSet> set =
+        fragmentsFor(text, style, qMax(1.0, maxWidth), 0.0, 1.0, -1, WordSplit::Whole);
+    if (!set || !set->paragraph)
+        return {};
+    return QSizeF(set->paragraph->contentWidth, set->paragraph->contentHeight);
 }
 
 WordSplit splitFor(const drift::textanim::ResolvedSlots &resolved, const drift::TextStyle &style)

@@ -3543,6 +3543,10 @@
         <translation>Nombre del estilo de texto cambiado</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>No se pudo eliminar el estilo de texto</translation>
     </message>
@@ -4342,14 +4346,10 @@
     </message>
     <message>
         <source>Could not install “%1”: %2</source>
-        <translation type="unfinished">No se pudo instalar «%1»: %2</translation>
-    </message>
-    <message>
-        <source>the file is missing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
+        <source>the file is missing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4361,10 +4361,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In My presets</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4373,23 +4369,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
+        <source>In Titles › Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>In Text › Animation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4398,10 +4386,6 @@
     </message>
     <message>
         <source>packages cannot be installed here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5080,6 +5064,18 @@
         <translation>Nada en este dispositivo puede compartir ese archivo</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Eliminar silencios</translation>
     </message>
@@ -5158,6 +5154,10 @@
     <message>
         <source>Imported</source>
         <translation>Importado</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -5533,11 +5533,11 @@
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished">Título</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subtitle</source>
-        <translation type="unfinished">Subtítulo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <source>Template added with %n of your photos. The rest did not fit: it has %1 slot(s).</source>
@@ -5640,7 +5640,7 @@
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Música</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Template music</source>
@@ -5687,7 +5687,7 @@
     <name>AppMenuBar</name>
     <message>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New Project</source>
@@ -5707,7 +5707,7 @@
     </message>
     <message>
         <source>Save Project</source>
-        <translation type="unfinished">Guardar proyecto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Project As…</source>
@@ -5735,7 +5735,7 @@
     </message>
     <message>
         <source>Keyboard Shortcuts</source>
-        <translation type="unfinished">Atajos de teclado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Back to Home</source>
@@ -5747,51 +5747,51 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Editar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished">Deshacer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished">Rehacer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished">Cortar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">Pegar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished">Duplicar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Eliminar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy Effects</source>
-        <translation type="unfinished">Copiar efectos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste Effects</source>
-        <translation type="unfinished">Pegar efectos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste Attributes…</source>
-        <translation type="unfinished">Pegar atributos…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished">Seleccionar todo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Deselect All</source>
@@ -5803,7 +5803,7 @@
     </message>
     <message>
         <source>Split</source>
-        <translation type="unfinished">Dividir</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge Clips</source>
@@ -5827,7 +5827,7 @@
     </message>
     <message>
         <source>Ungroup</source>
-        <translation type="unfinished">Desagrupar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save as Template…</source>
@@ -5855,7 +5855,7 @@
     </message>
     <message>
         <source>Multicam</source>
-        <translation type="unfinished">Cámara múltiple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>View</source>
@@ -5863,7 +5863,7 @@
     </message>
     <message>
         <source>Play / Pause</source>
-        <translation type="unfinished">Reproducir / Pausa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go to Start</source>
@@ -5891,15 +5891,15 @@
     </message>
     <message>
         <source>Next Bookmark</source>
-        <translation type="unfinished">Marcador siguiente</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Previous Bookmark</source>
-        <translation type="unfinished">Marcador anterior</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished">Acercar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Zoom Out</source>
@@ -5911,27 +5911,27 @@
     </message>
     <message>
         <source>Guides</source>
-        <translation type="unfinished">Guías</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">Espacio de trabajo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto (follow canvas)</source>
-        <translation type="unfinished">Automático (seguir lienzo)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Landscape</source>
-        <translation type="unfinished">Horizontal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Portrait</source>
-        <translation type="unfinished">Vertical</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished">Tema</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Light</source>
@@ -5939,23 +5939,23 @@
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Oscuro</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Language…</source>
-        <translation type="unfinished">Idioma…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished">Cambiar al diseño móvil…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Extras…</source>
-        <translation type="unfinished">Extras…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agent Access…</source>
@@ -5963,11 +5963,11 @@
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished">Descargas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Debug Info…</source>
-        <translation type="unfinished">Información de depuración…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Help</source>
@@ -5983,7 +5983,7 @@
     </message>
     <message>
         <source>Check for Updates…</source>
-        <translation type="unfinished">Buscar actualizaciones…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My Account</source>
@@ -5991,7 +5991,7 @@
     </message>
     <message>
         <source>About Flip Studio</source>
-        <translation type="unfinished">Acerca de Flip Studio</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6243,11 +6243,11 @@
     </message>
     <message>
         <source>My templates</source>
-        <translation type="unfinished">Mis plantillas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Effect templates</source>
-        <translation type="unfinished">Plantillas de efectos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -6284,7 +6284,7 @@
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Titles</source>
@@ -6292,7 +6292,7 @@
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">Filtros</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drop to import</source>
@@ -7071,7 +7071,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Guardar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Your logo, colours and font. Business templates use them when you add one; any other template takes them with “Apply my brand” in its Template panel.</source>
@@ -7115,7 +7115,7 @@
     </message>
     <message>
         <source>Font</source>
-        <translation type="unfinished">Fuente</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use it in Business templates when I add them</source>
@@ -7813,7 +7813,7 @@
     </message>
     <message>
         <source>Bars</source>
-        <translation type="unfinished">Barras</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Biggest Pixels</source>
@@ -7853,11 +7853,11 @@
     </message>
     <message>
         <source>Gap</source>
-        <translation type="unfinished">Separación</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished">Resplandor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hearts</source>
@@ -7889,7 +7889,7 @@
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished">Estrella</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Streaks</source>
@@ -12019,7 +12019,7 @@
     <name>FiltersTab</name>
     <message>
         <source>Looks</source>
-        <translation type="unfinished">Looks</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Imported</source>
@@ -12031,19 +12031,19 @@
     </message>
     <message>
         <source>Import LUT</source>
-        <translation type="unfinished">Importar LUT</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LUT (*.cube)</source>
-        <translation type="unfinished">LUT (*.cube)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished">Todos los archivos (*)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This file is not a LUT that can be used.</source>
-        <translation type="unfinished">Este archivo no es un LUT que se pueda usar.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search filters</source>
@@ -12059,7 +12059,7 @@
     </message>
     <message>
         <source>Import LUT…</source>
-        <translation type="unfinished">Importar LUT…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No filters match “%1”.</source>
@@ -12075,7 +12075,7 @@
     </message>
     <message>
         <source>Delete from my LUTs</source>
-        <translation type="unfinished">Borrar de mis LUT</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -13270,6 +13270,18 @@
         <translation>Ver</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Buscar actualizaciones…</translation>
     </message>
@@ -13809,6 +13821,26 @@
     <message>
         <source>Invert</source>
         <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -14737,6 +14769,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14925,6 +15116,14 @@
     <message>
         <source>Colour</source>
         <translation>Color</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16136,6 +16335,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Animación</translation>
     </message>
     <message>
+        <source>Tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Audio</source>
         <translation>Audio</translation>
     </message>
@@ -17025,7 +17228,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Elegir fotos y videos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My brand</source>
@@ -17183,7 +17386,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <name>SceneTemplatePickerDialog</name>
     <message>
         <source>Change template</source>
-        <translation type="unfinished">Cambiar plantilla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use with my photos</source>
@@ -17191,7 +17394,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>vertical</source>
@@ -17239,7 +17442,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>In Templates</source>
-        <translation type="unfinished">En Plantillas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No installed template takes photos yet.</source>
@@ -18198,6 +18401,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ángulo</translation>
     </message>
     <message>
+        <source>Steps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>How much the extruded side fades toward black</source>
         <translation>Cuánto se desvanece hacia el negro el lateral extruido</translation>
     </message>
@@ -18608,23 +18815,23 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished">Esperando al navegador…</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sign in with Google</source>
-        <translation type="unfinished">Iniciar sesión con Google</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Choose your account in the browser window that opened, then come back here.</source>
-        <translation type="unfinished">Elige tu cuenta en la ventana del navegador que se abrió y luego vuelve aquí.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not now</source>
-        <translation type="unfinished">Ahora no</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -19265,15 +19472,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Templates</source>
-        <translation type="unfinished">Plantillas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Filters</source>
-        <translation type="unfinished">Filtros</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stock</source>
-        <translation type="unfinished">Stock</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New in Stock</source>
@@ -19305,7 +19512,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Open project</source>
-        <translation type="unfinished">Abrir proyecto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -19502,7 +19709,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Choose photos and videos</source>
-        <translation type="unfinished">Elegir fotos y videos</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Looking up that link…</source>
@@ -19565,7 +19772,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Actualizar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Can’t find it? Ask for it and vote for other people’s ideas.</source>
@@ -19623,7 +19830,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Install</source>
-        <translation type="unfinished">Instalar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Download again</source>
@@ -19658,11 +19865,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Template</source>
-        <translation type="unfinished">Plantilla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Something else</source>
@@ -20164,7 +20371,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished">Música</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The template&apos;s music</source>
@@ -20312,6 +20519,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Favoritos</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20338,6 +20549,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Añadir en el cabezal de reproducción</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20384,7 +20627,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Velocidad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width</source>
@@ -20392,15 +20635,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">Ángulo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished">Brillo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">Color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Holographic shimmer</source>
@@ -20412,7 +20655,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Saturation</source>
-        <translation type="unfinished">Saturación</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Neon pulse</source>
@@ -20420,11 +20663,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Depth</source>
-        <translation type="unfinished">Profundidad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flicker</source>
-        <translation type="unfinished">Parpadeo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Glow tint</source>
@@ -20436,11 +20679,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Rate</source>
-        <translation type="unfinished">Frecuencia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">Desplazamiento</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Row height</source>
@@ -20456,7 +20699,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Oscuro</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dissolve</source>
@@ -20464,7 +20707,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Grain</source>
-        <translation type="unfinished">Grano</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edge</source>
@@ -20476,7 +20719,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Seed</source>
-        <translation type="unfinished">Semilla</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -20778,6 +21021,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subrayado</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>Básico</translation>
     </message>
@@ -20904,6 +21155,74 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Per line</source>
         <translation>Por línea</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21066,6 +21385,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aplica un estilo diferente a ciertas palabras según una regla</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Color de acento</translation>
     </message>
@@ -21110,6 +21433,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Elegir color de resaltado de acento</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Una forma detrás del texto: globos de diálogo, etiquetas, trazos de pincel… Ajusta su color y tamaño en Básico → Fondo.</translation>
     </message>
@@ -21120,6 +21447,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
+    </message>
+    <message>
+        <source>Animation options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Phase</source>
@@ -21144,6 +21503,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Ease</source>
         <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -21242,15 +21613,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <name>TextLook</name>
     <message>
         <source>Sunset</source>
-        <translation type="unfinished">Atardecer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ocean</source>
-        <translation type="unfinished">Océano</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Candy</source>
-        <translation type="unfinished">Caramelo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gold</source>
@@ -21262,15 +21633,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Rainbow</source>
-        <translation type="unfinished">Arcoíris</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fire</source>
-        <translation type="unfinished">Fuego</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ice</source>
-        <translation type="unfinished">Hielo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mono</source>
@@ -21278,11 +21649,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Holographic</source>
-        <translation type="unfinished">Holográfico</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mint</source>
-        <translation type="unfinished">Menta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Berry</source>
@@ -21290,47 +21661,47 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation type="unfinished">Simple</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shadow</source>
-        <translation type="unfinished">Sombra</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offset</source>
-        <translation type="unfinished">Desplazamiento</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Direction</source>
-        <translation type="unfinished">Dirección</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished">Desenfoque</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished">Opacidad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished">Color</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Intensity</source>
-        <translation type="unfinished">Intensidad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lift</source>
-        <translation type="unfinished">Elevación</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Thickness</source>
-        <translation type="unfinished">Grosor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hollow</source>
-        <translation type="unfinished">Hueco</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Splice</source>
@@ -21342,7 +21713,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Echo</source>
-        <translation type="unfinished">Eco</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copies</source>
@@ -21354,23 +21725,23 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Colour A</source>
-        <translation type="unfinished">Color A</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Colour B</source>
-        <translation type="unfinished">Color B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Neon</source>
-        <translation type="unfinished">Neón</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Glow</source>
-        <translation type="unfinished">Resplandor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Background</source>
-        <translation type="unfinished">Fondo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Roundness</source>
@@ -21386,31 +21757,31 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Curve</source>
-        <translation type="unfinished">Curva</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gradient</source>
-        <translation type="unfinished">Degradado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Preset</source>
-        <translation type="unfinished">Ajuste predeterminado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished">Ángulo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Map to</source>
-        <translation type="unfinished">Asignar a</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shine</source>
-        <translation type="unfinished">Brillo especular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished">Velocidad</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Width</source>
@@ -21418,7 +21789,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished">Brillo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Light</source>
@@ -21426,7 +21797,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Oscuro</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reflection</source>
@@ -23432,6 +23803,172 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Borrar fotograma clave</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

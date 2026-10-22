@@ -3549,6 +3549,10 @@
         <translation>Style de texte renommé</translation>
     </message>
     <message>
+        <source>Could not update the text style</source>
+        <translation>Impossible de mettre à jour le style du texte</translation>
+    </message>
+    <message>
         <source>Could not delete the text style</source>
         <translation>Impossible de supprimer le style de texte</translation>
     </message>
@@ -4347,20 +4351,12 @@
         <translation>le fichier est introuvable</translation>
     </message>
     <message>
-        <source>LUT installed: %1 (Adjust › LUT)</source>
-        <translation>LUT installée : %1 (Ajuster › LUT)</translation>
-    </message>
-    <message>
         <source>In Adjust › LUT</source>
         <translation>Dans Ajuster › LUT</translation>
     </message>
     <message>
         <source>it is not an effect preset</source>
         <translation>ce n&apos;est pas un préréglage d&apos;effets</translation>
-    </message>
-    <message>
-        <source>Look installed: %1 (My presets)</source>
-        <translation>Look installé : %1 (Mes effets)</translation>
     </message>
     <message>
         <source>In My presets</source>
@@ -4371,24 +4367,16 @@
         <translation>ce n&apos;est pas un style de texte</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Style de texte installé : %1 (Texte › Mes styles)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>Dans Texte › Mes styles</translation>
     </message>
     <message>
-        <source>Text animation installed: %1 (Text › Animation › Imported)</source>
-        <translation>Animation de texte installée : %1 (Texte › Animation › Importées)</translation>
+        <source>In Titles › Trending</source>
+        <translation>Dans Titres › Tendances</translation>
     </message>
     <message>
         <source>In Text › Animation</source>
         <translation>Dans Texte › Animation</translation>
-    </message>
-    <message>
-        <source>Shape installed: %1 (Shapes, and Masks)</source>
-        <translation>Forme installée : %1 (Formes, et aussi dans Masques)</translation>
     </message>
     <message>
         <source>In Shapes</source>
@@ -4397,10 +4385,6 @@
     <message>
         <source>packages cannot be installed here</source>
         <translation>impossible d&apos;installer des paquets ici</translation>
-    </message>
-    <message>
-        <source>Transition installed: %1 (Transitions)</source>
-        <translation>Transition installée : %1 (Transitions)</translation>
     </message>
     <message>
         <source>In Transitions</source>
@@ -5078,6 +5062,18 @@
         <translation>Aucune application sur cet appareil ne peut partager ce fichier</translation>
     </message>
     <message>
+        <source>Choose an animation first</source>
+        <translation>Choisissez d’abord une animation</translation>
+    </message>
+    <message>
+        <source>Could not save the animation</source>
+        <translation>Impossible d’enregistrer l’animation</translation>
+    </message>
+    <message>
+        <source>Saved to My animations</source>
+        <translation>Enregistrée dans Mes animations</translation>
+    </message>
+    <message>
         <source>Remove silence</source>
         <translation>Supprimer les silences</translation>
     </message>
@@ -5156,6 +5152,10 @@
     <message>
         <source>Imported</source>
         <translation>Importé</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Les miennes</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -13273,6 +13273,18 @@
         <translation>Afficher</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Installé</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>« %1 » est prêt. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>« %1 » est installé.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Rechercher des mises à jour…</translation>
     </message>
@@ -13812,6 +13824,26 @@
     <message>
         <source>Invert</source>
         <translation>Inverser</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation>Suivi</translation>
+    </message>
+    <message>
+        <source>Scale too — grow and shrink with what it covers</source>
+        <translation>L’échelle aussi — grandit et rapetisse avec ce qu’il couvre</translation>
+    </message>
+    <message>
+        <source>Mask follows what it covers</source>
+        <translation>Le masque suit ce qu’il couvre</translation>
+    </message>
+    <message>
+        <source>Place the mask over what it should follow, then start: it is keyed from the playhead to both ends of the mask</source>
+        <translation>Placez le masque sur ce qu’il doit suivre, puis lancez : il est animé de la tête de lecture vers les deux extrémités du masque</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
     </message>
 </context>
 <context>
@@ -14740,6 +14772,165 @@
     </message>
 </context>
 <context>
+    <name>MotionTrackController</name>
+    <message>
+        <source>This clip cannot follow anything</source>
+        <translation>Ce clip ne peut rien suivre</translation>
+    </message>
+    <message>
+        <source>Put it over a video to follow something in it</source>
+        <translation>Placez-le sur une vidéo pour suivre quelque chose dedans</translation>
+    </message>
+    <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>La détection d’objets nécessite l’extra « Suivi d’objets »</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Aucun objet trouvé ici : tracez un cadre autour de ce qu’il faut suivre</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide a face in it</source>
+        <translation>Sélectionnez une vidéo ou une photo pour y masquer un visage</translation>
+    </message>
+    <message>
+        <source>No face was found in this clip</source>
+        <translation>Aucun visage n’a été trouvé dans ce clip</translation>
+    </message>
+    <message>
+        <source>Blurred face</source>
+        <translation>Visage flouté</translation>
+    </message>
+    <message>
+        <source>Pixelated face</source>
+        <translation>Visage pixélisé</translation>
+    </message>
+    <message>
+        <source>Hide face</source>
+        <translation>Masquer le visage</translation>
+    </message>
+    <message>
+        <source>Face hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Visage masqué : son calque est au-dessus du clip, où on peut le raccourcir ou le supprimer</translation>
+    </message>
+    <message>
+        <source>Select a video or a photo to hide something in it</source>
+        <translation>Sélectionnez une vidéo ou une photo pour y masquer quelque chose</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview, or draw a box around it, first</source>
+        <translation>Choisissez d’abord un objet dans l’aperçu ou tracez un cadre autour</translation>
+    </message>
+    <message>
+        <source>Blurred object</source>
+        <translation>Objet flouté</translation>
+    </message>
+    <message>
+        <source>Pixelated object</source>
+        <translation>Objet pixélisé</translation>
+    </message>
+    <message>
+        <source>Hide object</source>
+        <translation>Masquer l’objet</translation>
+    </message>
+    <message>
+        <source>Object hidden: its layer is above the clip, where it can be trimmed or removed</source>
+        <translation>Objet masqué : son calque est au-dessus du clip, où on peut le raccourcir ou le supprimer</translation>
+    </message>
+    <message>
+        <source>Select a mask to make it follow what it covers</source>
+        <translation>Sélectionnez un masque pour qu’il suive ce qu’il couvre</translation>
+    </message>
+    <message>
+        <source>Put the mask over a video to follow something in it</source>
+        <translation>Placez le masque sur une vidéo pour y suivre quelque chose</translation>
+    </message>
+    <message>
+        <source>Move the mask over what it should follow</source>
+        <translation>Déplacez le masque sur ce qu’il doit suivre</translation>
+    </message>
+    <message>
+        <source>Mask follows</source>
+        <translation>Le masque suit</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Supprimer le suivi</translation>
+    </message>
+    <message>
+        <source>Tracking removed</source>
+        <translation>Suivi supprimé</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>La vidéo suivie n’est plus dans le projet</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>L’élément et la partie suivie de la vidéo ne se chevauchent plus</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Réglages du suivi</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Réaligner le suivi</translation>
+    </message>
+    <message>
+        <source>Tracking already in progress</source>
+        <translation>Un suivi est déjà en cours</translation>
+    </message>
+    <message>
+        <source>Scanning the faces in the video first…</source>
+        <translation>Analyse d’abord des visages de la vidéo…</translation>
+    </message>
+    <message>
+        <source>The element and the video barely overlap</source>
+        <translation>L’élément et la vidéo se chevauchent à peine</translation>
+    </message>
+    <message>
+        <source>Move the element over what it should follow</source>
+        <translation>Déplacez l’élément sur ce qu’il doit suivre</translation>
+    </message>
+    <message>
+        <source>Getting ready…</source>
+        <translation>Préparation…</translation>
+    </message>
+    <message>
+        <source>The video has no scanned faces</source>
+        <translation>La vidéo ne contient aucun visage analysé</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Aucun visage à la tête de lecture : allez à une image où le visage est visible</translation>
+    </message>
+    <message>
+        <source>Tracking cancelled</source>
+        <translation>Suivi annulé</translation>
+    </message>
+    <message>
+        <source>Following frame %1 of %2…</source>
+        <translation>Suivi de l’image %1 sur %2…</translation>
+    </message>
+    <message>
+        <source>Nothing to follow was found</source>
+        <translation>Rien à suivre n’a été trouvé</translation>
+    </message>
+    <message>
+        <source>Motion tracking</source>
+        <translation>Suivi de mouvement</translation>
+    </message>
+    <message>
+        <source>Tracking done — lost the subject in %1 of %2 frames</source>
+        <translation>Suivi terminé — sujet perdu dans %1 images sur %2</translation>
+    </message>
+    <message>
+        <source>Tracking done</source>
+        <translation>Suivi terminé</translation>
+    </message>
+</context>
+<context>
     <name>MulticamWindow</name>
     <message>
         <source>Multicam</source>
@@ -14928,6 +15119,14 @@
     <message>
         <source>Colour</source>
         <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Tint</source>
+        <translation>Teinte</translation>
+    </message>
+    <message>
+        <source>The colour the effect paints over</source>
+        <translation>La couleur dont l’effet recouvre l’image</translation>
     </message>
     <message>
         <source>Choose the paint colour</source>
@@ -16137,6 +16336,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Animation</source>
         <translation>Animation</translation>
+    </message>
+    <message>
+        <source>Tracking</source>
+        <translation>Suivi</translation>
     </message>
     <message>
         <source>Audio</source>
@@ -18199,6 +18402,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Angle</source>
         <translation>Angle</translation>
+    </message>
+    <message>
+        <source>Steps</source>
+        <translation>Étapes</translation>
     </message>
     <message>
         <source>How much the extruded side fades toward black</source>
@@ -20317,6 +20524,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Favoris</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>Texte par IA</translation>
     </message>
@@ -20343,6 +20554,38 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Ajouter à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — cliquez pour le télécharger et l’ajouter à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Connectez-vous pour voir les textes tendance</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Chargement des textes tendance…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Impossible de charger les textes tendance</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Les titres tendance viennent de Stock, qui demande votre compte gratuit.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Se connecter</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Réessayer</translation>
+    </message>
+    <message>
+        <source>Update from the selected text</source>
+        <translation>Mettre à jour à partir du texte sélectionné</translation>
     </message>
     <message>
         <source>No saved styles</source>
@@ -20607,6 +20850,38 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Cadres et filets tracés autour du texte plutôt que dessus</translation>
     </message>
     <message>
+        <source>Animation options</source>
+        <translation>Options d’animation</translation>
+    </message>
+    <message>
+        <source>Rename…</source>
+        <translation>Renommer…</translation>
+    </message>
+    <message>
+        <source>Export…</source>
+        <translation>Exporter…</translation>
+    </message>
+    <message>
+        <source>Export text animation</source>
+        <translation>Exporter l’animation de texte</translation>
+    </message>
+    <message>
+        <source>Text animations (*.json)</source>
+        <translation>Animations de texte (*.json)</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Supprimer</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Enregistrer comme mon animation…</translation>
+    </message>
+    <message>
+        <source>Save text animation</source>
+        <translation>Enregistrer l’animation de texte</translation>
+    </message>
+    <message>
         <source>Phase</source>
         <translation>Phase</translation>
     </message>
@@ -20823,6 +21098,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Souligner</translation>
     </message>
     <message>
+        <source>Gentle</source>
+        <translation>Douce</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Accélérer</translation>
+    </message>
+    <message>
         <source>Basic</source>
         <translation>De base</translation>
     </message>
@@ -20949,6 +21232,74 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Per line</source>
         <translation>Par ligne</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Forme</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectangle</translation>
+    </message>
+    <message>
+        <source>Pill</source>
+        <translation>Pilule</translation>
+    </message>
+    <message>
+        <source>Speech bubble</source>
+        <translation>Bulle de dialogue</translation>
+    </message>
+    <message>
+        <source>Oval</source>
+        <translation>Ovale</translation>
+    </message>
+    <message>
+        <source>Thought bubble</source>
+        <translation>Bulle de pensée</translation>
+    </message>
+    <message>
+        <source>Cloud</source>
+        <translation>Nuage</translation>
+    </message>
+    <message>
+        <source>Burst</source>
+        <translation>Éclat</translation>
+    </message>
+    <message>
+        <source>Shout</source>
+        <translation>Cri</translation>
+    </message>
+    <message>
+        <source>Tag</source>
+        <translation>Étiquette</translation>
+    </message>
+    <message>
+        <source>Ribbon</source>
+        <translation>Ruban</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation>Flèche</translation>
+    </message>
+    <message>
+        <source>Note</source>
+        <translation>Note</translation>
+    </message>
+    <message>
+        <source>Ticket</source>
+        <translation>Billet</translation>
+    </message>
+    <message>
+        <source>Brush stroke</source>
+        <translation>Coup de pinceau</translation>
+    </message>
+    <message>
+        <source>Torn paper</source>
+        <translation>Papier déchiré</translation>
+    </message>
+    <message>
+        <source>Heart</source>
+        <translation>Cœur</translation>
     </message>
     <message>
         <source>Opacity</source>
@@ -21111,6 +21462,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Appliquer un style différent à certains mots, sélectionnés par une règle</translation>
     </message>
     <message>
+        <source>Start at word</source>
+        <translation>Commencer au mot</translation>
+    </message>
+    <message>
         <source>Accent colour</source>
         <translation>Couleur d&apos;accent</translation>
     </message>
@@ -21155,6 +21510,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Choisir la couleur de mise en évidence d&apos;accent</translation>
     </message>
     <message>
+        <source>Padding</source>
+        <translation>Marge intérieure</translation>
+    </message>
+    <message>
         <source>A shape behind the text: speech balloons, labels, brush strokes… Fine-tune its colour and size under Básico → Background.</source>
         <translation>Une forme derrière le texte : bulles de dialogue, étiquettes, coups de pinceau… Ajustez sa couleur et sa taille sous De base → Fond.</translation>
     </message>
@@ -21181,6 +21540,18 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Est lu pour chaque sous-titre</translation>
+    </message>
+    <message>
+        <source>Rename text animation</source>
+        <translation>Renommer l’animation de texte</translation>
+    </message>
+    <message>
+        <source>Delete text animation</source>
+        <translation>Supprimer l’animation de texte</translation>
+    </message>
+    <message>
+        <source>Delete “%1”? Texts that use it keep their motion.</source>
+        <translation>Supprimer « %1 »? Les textes qui l’utilisent gardent leur mouvement.</translation>
     </message>
     <message>
         <source>All</source>
@@ -23437,6 +23808,172 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Supprimer l&apos;image clé</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingInspector</name>
+    <message>
+        <source>Tracking</source>
+        <translation>Suivi</translation>
+    </message>
+    <message>
+        <source>Remove tracking</source>
+        <translation>Retirer le suivi</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objet</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Visage</translation>
+    </message>
+    <message>
+        <source>Click the face to follow on the preview (by default, the one nearest the element).</source>
+        <translation>Cliquez dans l’aperçu sur le visage à suivre (par défaut, celui le plus près de l’élément).</translation>
+    </message>
+    <message>
+        <source>The faces in “%1” are scanned first, then it follows the one nearest the element.</source>
+        <translation>Les visages de «%1» sont d’abord analysés, puis le suivi porte sur celui le plus près de l’élément.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. With nothing picked, it follows what the element covers in “%1”.</source>
+        <translation>Choisissez un objet dans l’aperçu ou tracez un cadre autour. Sans choix, il suit ce que l’élément couvre dans «%1».</translation>
+    </message>
+    <message>
+        <source>Looking…</source>
+        <translation>Recherche…</translation>
+    </message>
+    <message>
+        <source>Detect objects</source>
+        <translation>Détecter les objets</translation>
+    </message>
+    <message>
+        <source>Find people, animals, vehicles and other things at the playhead</source>
+        <translation>Trouver des personnes, des animaux, des véhicules et d’autres choses à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Get object detection</source>
+        <translation>Obtenir la détection d’objets</translation>
+    </message>
+    <message>
+        <source>Install the “Object tracking” extra to find objects automatically</source>
+        <translation>Installez l’extra «Suivi d’objets» pour trouver des objets automatiquement</translation>
+    </message>
+    <message>
+        <source>Clear pick</source>
+        <translation>Effacer le choix</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direction</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation>Les deux</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Avant</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Arrière</translation>
+    </message>
+    <message>
+        <source>Follow from the playhead to both ends of the clip, or only one way</source>
+        <translation>Suivre depuis la tête de lecture vers les deux extrémités du clip, ou dans un seul sens</translation>
+    </message>
+    <message>
+        <source>Scale — grow and shrink with what it follows</source>
+        <translation>Échelle — grandit et rapetisse avec ce qu’il suit</translation>
+    </message>
+    <message>
+        <source>Distance — keep where it is next to what it follows</source>
+        <translation>Distance — garde sa place à côté de ce qu’il suit</translation>
+    </message>
+    <message>
+        <source>Off: the element sits right on top of what it follows</source>
+        <translation>Désactivé : l’élément se place juste sur ce qu’il suit</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Track again from here</source>
+        <translation>Suivre de nouveau à partir d’ici</translation>
+    </message>
+    <message>
+        <source>Start tracking</source>
+        <translation>Lancer le suivi</translation>
+    </message>
+    <message>
+        <source>Follows from the playhead; the element keeps its place against what it follows</source>
+        <translation>Suit depuis la tête de lecture; l’élément garde sa place par rapport à ce qu’il suit</translation>
+    </message>
+    <message>
+        <source>Realign</source>
+        <translation>Réaligner</translation>
+    </message>
+    <message>
+        <source>After moving, trimming or speeding up the video: put the path back on it without analysing again</source>
+        <translation>Après avoir déplacé, raccourci ou accéléré la vidéo : remettre la trajectoire dessus sans refaire l’analyse</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Masquer</translation>
+    </message>
+    <message>
+        <source>A face</source>
+        <translation>Un visage</translation>
+    </message>
+    <message>
+        <source>An object</source>
+        <translation>Un objet</translation>
+    </message>
+    <message>
+        <source>Click the face to hide on the preview (by default, the one nearest the middle). It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Cliquez dans l’aperçu sur le visage à masquer (par défaut, celui le plus près du centre). Il est couvert pendant tout le clip, en le suivant; le calque se place juste au-dessus du clip.</translation>
+    </message>
+    <message>
+        <source>Pick an object on the preview or draw a box around it. It is covered for the whole clip, following it; the layer goes right above the clip.</source>
+        <translation>Choisissez un objet dans l’aperçu ou tracez un cadre autour. Il est couvert pendant tout le clip, en le suivant; le calque se place juste au-dessus du clip.</translation>
+    </message>
+    <message>
+        <source>Pixelate</source>
+        <translation>Pixéliser</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Flouter</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project.</source>
+        <translation>La vidéo suivie n’est plus dans le projet.</translation>
+    </message>
+    <message>
+        <source>The video it followed was replaced: track again so the path fits it.</source>
+        <translation>La vidéo suivie a été remplacée : refaites le suivi pour que la trajectoire corresponde.</translation>
+    </message>
+    <message>
+        <source>Followed in %1 frames; lost in %2. Where it was lost, the element glides between the frames it was found in.</source>
+        <translation>Suivi dans %1 images; perdu dans %2. Là où il a été perdu, l’élément glisse entre les images où il a été trouvé.</translation>
+    </message>
+    <message>
+        <source>Followed in all %1 frames.</source>
+        <translation>Suivi dans les %1 images.</translation>
+    </message>
+</context>
+<context>
+    <name>TrackingOverlay</name>
+    <message>
+        <source>Lost</source>
+        <translation>Perdu</translation>
     </message>
 </context>
 <context>
