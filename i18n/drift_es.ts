@@ -9560,6 +9560,12 @@
         <translation>Líneas de lado a lado</translation>
     </message>
     <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>LÍNEA UNO
+LÍNEA DOS</translation>
+    </message>
+    <message>
         <source>Neon tube strike</source>
         <translation>Tubo de neón</translation>
     </message>
@@ -9876,6 +9882,12 @@
         <translation>Persianas por línea</translation>
     </message>
     <message>
+        <source>NEW
+DROP</source>
+        <translation>LO
+NUEVO</translation>
+    </message>
+    <message>
         <source>Motion-blur sweep</source>
         <translation>Barrido con estela</translation>
     </message>
@@ -10070,6 +10082,12 @@
     <message>
         <source>Venetian blinds</source>
         <translation>Persiana veneciana</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>GRAN
+NOTICIA</translation>
     </message>
     <message>
         <source>Water ripple in</source>
@@ -10490,6 +10508,12 @@
     <message>
         <source>Lines slide down</source>
         <translation>Líneas que bajan</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>NOS VEMOS
+LA PRÓXIMA</translation>
     </message>
     <message>
         <source>Lines slip behind the left edge</source>

@@ -9560,6 +9560,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Neon tube strike</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9876,6 +9881,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>NEW
+DROP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion-blur sweep</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10069,6 +10079,11 @@
     </message>
     <message>
         <source>Venetian blinds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10489,6 +10504,11 @@
     </message>
     <message>
         <source>Lines slide down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

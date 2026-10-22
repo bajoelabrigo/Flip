@@ -2649,19 +2649,19 @@
     </message>
     <message>
         <source>Combo</source>
-        <translation type="unfinished"></translation>
+        <translation>콤보</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>전체</translation>
     </message>
     <message>
         <source>Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>길이</translation>
     </message>
     <message>
         <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
-        <translation type="unfinished"></translation>
+        <translation>0초로 설정하면 클립 전체에 콤보가 재생됩니다. 콤보는 인·아웃 동작을 대체합니다.</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5012,75 +5012,75 @@
     </message>
     <message>
         <source>Motion</source>
-        <translation type="unfinished"></translation>
+        <translation>모션</translation>
     </message>
     <message>
         <source>Motion &amp; path</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 및 경로</translation>
     </message>
     <message>
         <source>Hide &amp; mask</source>
-        <translation type="unfinished"></translation>
+        <translation>숨기기 및 마스크</translation>
     </message>
     <message>
         <source>Mask &amp; reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 및 표시</translation>
     </message>
     <message>
         <source>Fluid</source>
-        <translation type="unfinished"></translation>
+        <translation>유체</translation>
     </message>
     <message>
         <source>Staggered</source>
-        <translation type="unfinished"></translation>
+        <translation>순차</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>빌드</translation>
     </message>
     <message>
         <source>Stylized</source>
-        <translation type="unfinished"></translation>
+        <translation>스타일</translation>
     </message>
     <message>
         <source>Particles</source>
-        <translation type="unfinished"></translation>
+        <translation>파티클</translation>
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>트렌드</translation>
     </message>
     <message>
         <source>Slide</source>
-        <translation type="unfinished"></translation>
+        <translation>슬라이드</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>줌</translation>
     </message>
     <message>
         <source>Spin</source>
-        <translation type="unfinished"></translation>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>바운스</translation>
     </message>
     <message>
         <source>3D</source>
-        <translation type="unfinished"></translation>
+        <translation>3D</translation>
     </message>
     <message>
         <source>Blur</source>
-        <translation type="unfinished"></translation>
+        <translation>흐림</translation>
     </message>
     <message>
         <source>Glitch</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치</translation>
     </message>
     <message>
         <source>Dynamic</source>
-        <translation type="unfinished"></translation>
+        <translation>다이내믹</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9444,915 +9444,933 @@
     </message>
     <message>
         <source>Alternating strobe</source>
-        <translation type="unfinished"></translation>
+        <translation>교차 스트로브</translation>
     </message>
     <message>
         <source>ABCD</source>
-        <translation type="unfinished"></translation>
+        <translation>ABCD</translation>
     </message>
     <message>
         <source>Card turn per letter</source>
-        <translation type="unfinished"></translation>
+        <translation>글자별 카드 회전</translation>
     </message>
     <message>
         <source>Bloom from the centre</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데서 피어나기</translation>
     </message>
     <message>
         <source>Chromatic pop</source>
-        <translation type="unfinished"></translation>
+        <translation>색수차 팝</translation>
     </message>
     <message>
         <source>Colour sweep in</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 스윕</translation>
     </message>
     <message>
         <source>Comic pop with tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>코믹 팝</translation>
     </message>
     <message>
         <source>BAM! POW!</source>
-        <translation type="unfinished"></translation>
+        <translation>쾅! 펑!</translation>
     </message>
     <message>
         <source>Deck spread</source>
-        <translation type="unfinished"></translation>
+        <translation>카드 펼치기</translation>
     </message>
     <message>
         <source>Tumbling dice</source>
-        <translation type="unfinished"></translation>
+        <translation>굴러가는 주사위</translation>
     </message>
     <message>
         <source>Digital decode</source>
-        <translation type="unfinished"></translation>
+        <translation>디지털 해독</translation>
     </message>
     <message>
         <source>Domino stand-up</source>
-        <translation type="unfinished"></translation>
+        <translation>일어서는 도미노</translation>
     </message>
     <message>
         <source>Letter downpour</source>
-        <translation type="unfinished"></translation>
+        <translation>글자 소나기</translation>
     </message>
     <message>
         <source>Drop from the end</source>
-        <translation type="unfinished"></translation>
+        <translation>끝에서 떨어지기</translation>
     </message>
     <message>
         <source>Glitch burst in</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치 인</translation>
     </message>
     <message>
         <source>Glow bloom</source>
-        <translation type="unfinished"></translation>
+        <translation>빛 번짐</translation>
     </message>
     <message>
         <source>Heat haze clearing</source>
-        <translation type="unfinished"></translation>
+        <translation>아지랑이 걷힘</translation>
     </message>
     <message>
         <source>Hologram boot</source>
-        <translation type="unfinished"></translation>
+        <translation>홀로그램 부팅</translation>
     </message>
     <message>
         <source>Ink blot settle</source>
-        <translation type="unfinished"></translation>
+        <translation>잉크 번짐</translation>
     </message>
     <message>
         <source>Lines from both sides</source>
-        <translation type="unfinished"></translation>
+        <translation>양쪽에서 라인</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>첫째 줄
+둘째 줄</translation>
     </message>
     <message>
         <source>Neon tube strike</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 점등</translation>
     </message>
     <message>
         <source>Outline then fill</source>
-        <translation type="unfinished"></translation>
+        <translation>윤곽 후 채우기</translation>
     </message>
     <message>
         <source>Pancake pop</source>
-        <translation type="unfinished"></translation>
+        <translation>납작 팝</translation>
     </message>
     <message>
         <source>Pinwheel letters</source>
-        <translation type="unfinished"></translation>
+        <translation>바람개비 글자</translation>
     </message>
     <message>
         <source>Rainbow letters settling</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개 글자</translation>
     </message>
     <message>
         <source>Roll up from the floor</source>
-        <translation type="unfinished"></translation>
+        <translation>바닥에서 일어나기</translation>
     </message>
     <message>
         <source>Scanline print</source>
-        <translation type="unfinished"></translation>
+        <translation>스캔라인 인쇄</translation>
     </message>
     <message>
         <source>Scatter and gather</source>
-        <translation type="unfinished"></translation>
+        <translation>흩어졌다 모이기</translation>
     </message>
     <message>
         <source>Golden shimmer reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>황금빛 반짝임</translation>
     </message>
     <message>
         <source>Skewed side swap</source>
-        <translation type="unfinished"></translation>
+        <translation>기울어진 측면 진입</translation>
     </message>
     <message>
         <source>Skew snap</source>
-        <translation type="unfinished"></translation>
+        <translation>기울기 스냅</translation>
     </message>
     <message>
         <source>SNAP TO IT</source>
-        <translation type="unfinished"></translation>
+        <translation>가 보자고!</translation>
     </message>
     <message>
         <source>Slam from the lens</source>
-        <translation type="unfinished"></translation>
+        <translation>렌즈에서 튀어나오기</translation>
     </message>
     <message>
         <source>Soft-fade typing</source>
-        <translation type="unfinished"></translation>
+        <translation>부드러운 타이핑</translation>
     </message>
     <message>
         <source>Staircase rise</source>
-        <translation type="unfinished"></translation>
+        <translation>계단식 상승</translation>
     </message>
     <message>
         <source>Two-tone settle</source>
-        <translation type="unfinished"></translation>
+        <translation>투톤</translation>
     </message>
     <message>
         <source>VHS tracking</source>
-        <translation type="unfinished"></translation>
+        <translation>VHS 트래킹</translation>
     </message>
     <message>
         <source>Word by word stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 도장</translation>
     </message>
     <message>
         <source>BIG BOLD NEWS</source>
-        <translation type="unfinished"></translation>
+        <translation>빅 뉴스</translation>
     </message>
     <message>
         <source>Zipper</source>
-        <translation type="unfinished"></translation>
+        <translation>지퍼</translation>
     </message>
     <message>
         <source>Amber terminal block</source>
-        <translation type="unfinished"></translation>
+        <translation>호박색 터미널</translation>
     </message>
     <message>
         <source>Arrow cursor slide</source>
-        <translation type="unfinished"></translation>
+        <translation>화살표 커서</translation>
     </message>
     <message>
         <source>Spinning asterisk cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>회전하는 별표 커서</translation>
     </message>
     <message>
         <source>Typing with lightning</source>
-        <translation type="unfinished"></translation>
+        <translation>번개 타이핑</translation>
     </message>
     <message>
         <source>Burst cursor pops</source>
-        <translation type="unfinished"></translation>
+        <translation>터지는 커서</translation>
     </message>
     <message>
         <source>Typing from the centre</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데서 타이핑</translation>
     </message>
     <message>
         <source>Check mark typing</source>
-        <translation type="unfinished"></translation>
+        <translation>체크 표시 타이핑</translation>
     </message>
     <message>
         <source>Green chevron cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 꺾쇠 커서</translation>
     </message>
     <message>
         <source>Cyan cursor with falling letters</source>
-        <translation type="unfinished"></translation>
+        <translation>청록 커서와 떨어지는 글자</translation>
     </message>
     <message>
         <source>Diamond cursor shards</source>
-        <translation type="unfinished"></translation>
+        <translation>다이아몬드 커서 파편</translation>
     </message>
     <message>
         <source>Bouncing dot cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>통통 튀는 점 커서</translation>
     </message>
     <message>
         <source>Water drop typing</source>
-        <translation type="unfinished"></translation>
+        <translation>물방울 타이핑</translation>
     </message>
     <message>
         <source>Rapid magenta typing</source>
-        <translation type="unfinished"></translation>
+        <translation>빠른 마젠타 타이핑</translation>
     </message>
     <message>
         <source>Fire cursor typing</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃 커서 타이핑</translation>
     </message>
     <message>
         <source>Blooming typing</source>
-        <translation type="unfinished"></translation>
+        <translation>피어나는 타이핑</translation>
     </message>
     <message>
         <source>Typing with a gold star</source>
-        <translation type="unfinished"></translation>
+        <translation>금빛 별 타이핑</translation>
     </message>
     <message>
         <source>Green terminal block</source>
-        <translation type="unfinished"></translation>
+        <translation>초록 터미널</translation>
     </message>
     <message>
         <source>Hashtag cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>해시태그 커서</translation>
     </message>
     <message>
         <source>Typing with hearts</source>
-        <translation type="unfinished"></translation>
+        <translation>하트 타이핑</translation>
     </message>
     <message>
         <source>Microphone typing</source>
-        <translation type="unfinished"></translation>
+        <translation>마이크 타이핑</translation>
     </message>
     <message>
         <source>Moonlit typing</source>
-        <translation type="unfinished"></translation>
+        <translation>달빛 타이핑</translation>
     </message>
     <message>
         <source>Neon trail typing</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 잔상 타이핑</translation>
     </message>
     <message>
         <source>Musical note typing</source>
-        <translation type="unfinished"></translation>
+        <translation>음표 타이핑</translation>
     </message>
     <message>
         <source>Pencil writing</source>
-        <translation type="unfinished"></translation>
+        <translation>연필 글씨</translation>
     </message>
     <message>
         <source>Play button cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>재생 버튼 커서</translation>
     </message>
     <message>
         <source>Plus cursor with flips</source>
-        <translation type="unfinished"></translation>
+        <translation>플러스 커서 회전</translation>
     </message>
     <message>
         <source>Red cursor typing</source>
-        <translation type="unfinished"></translation>
+        <translation>빨간 커서 타이핑</translation>
     </message>
     <message>
         <source>Rocket typing</source>
-        <translation type="unfinished"></translation>
+        <translation>로켓 타이핑</translation>
     </message>
     <message>
         <source>Slash cursor tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>기울어진 슬래시 커서</translation>
     </message>
     <message>
         <source>Slow thoughtful typing</source>
-        <translation type="unfinished"></translation>
+        <translation>느린 타이핑</translation>
     </message>
     <message>
         <source>Snowflake typing</source>
-        <translation type="unfinished"></translation>
+        <translation>눈송이 타이핑</translation>
     </message>
     <message>
         <source>Sparkle typing</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이 타이핑</translation>
     </message>
     <message>
         <source>Tumbling square cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>굴러가는 네모 커서</translation>
     </message>
     <message>
         <source>Underscore typing with focus</source>
-        <translation type="unfinished"></translation>
+        <translation>밑줄 포커스 타이핑</translation>
     </message>
     <message>
         <source>Word by word typing</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 타이핑</translation>
     </message>
     <message>
         <source>TYPE IT OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>써 보세요</translation>
     </message>
     <message>
         <source>Thick yellow cursor pop</source>
-        <translation type="unfinished"></translation>
+        <translation>굵은 노란 커서</translation>
     </message>
     <message>
         <source>Arc up from below</source>
-        <translation type="unfinished"></translation>
+        <translation>아래에서 아치</translation>
     </message>
     <message>
         <source>Arc in from the left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽에서 아치</translation>
     </message>
     <message>
         <source>3D swing open</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 스윙 열기</translation>
     </message>
     <message>
         <source>Boomerang return</source>
-        <translation type="unfinished"></translation>
+        <translation>부메랑</translation>
     </message>
     <message>
         <source>Letters drop and bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>떨어져 튕기는 글자</translation>
     </message>
     <message>
         <source>Card turn</source>
-        <translation type="unfinished"></translation>
+        <translation>카드 뒤집기</translation>
     </message>
     <message>
         <source>Close in from both sides</source>
-        <translation type="unfinished"></translation>
+        <translation>양쪽에서 모이기</translation>
     </message>
     <message>
         <source>Spring out of the corner</source>
-        <translation type="unfinished"></translation>
+        <translation>모서리에서 튀어나오기</translation>
     </message>
     <message>
         <source>Crash down from giant</source>
-        <translation type="unfinished"></translation>
+        <translation>거대하게 떨어지기</translation>
     </message>
     <message>
         <source>Approach from depth</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이에서 다가오기</translation>
     </message>
     <message>
         <source>Diagonal dive from the top left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 위에서 대각선 다이브</translation>
     </message>
     <message>
         <source>Doors open by word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 문 열기</translation>
     </message>
     <message>
         <source>GO BIG NOW</source>
-        <translation type="unfinished"></translation>
+        <translation>크게 가자</translation>
     </message>
     <message>
         <source>Drift into focus</source>
-        <translation type="unfinished"></translation>
+        <translation>떠오르며 초점</translation>
     </message>
     <message>
         <source>Falling leaf</source>
-        <translation type="unfinished"></translation>
+        <translation>떨어지는 잎</translation>
     </message>
     <message>
         <source>Flip down into place</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 뒤집기</translation>
     </message>
     <message>
         <source>Full letter flip</source>
-        <translation type="unfinished"></translation>
+        <translation>글자 한 바퀴</translation>
     </message>
     <message>
         <source>Hanging letters swing in</source>
-        <translation type="unfinished"></translation>
+        <translation>매달린 글자</translation>
     </message>
     <message>
         <source>Swing on a hinge</source>
-        <translation type="unfinished"></translation>
+        <translation>경첩 스윙</translation>
     </message>
     <message>
         <source>Jump up and squash</source>
-        <translation type="unfinished"></translation>
+        <translation>점프 후 찌그러짐</translation>
     </message>
     <message>
         <source>Leaning sprint from the right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽에서 기울여 질주</translation>
     </message>
     <message>
         <source>Lines turn like blinds</source>
-        <translation type="unfinished"></translation>
+        <translation>블라인드처럼 회전</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>신상
+출시</translation>
     </message>
     <message>
         <source>Motion-blur sweep</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 블러 스윕</translation>
     </message>
     <message>
         <source>Orbit in by letter</source>
-        <translation type="unfinished"></translation>
+        <translation>글자별 궤도</translation>
     </message>
     <message>
         <source>Word push from the left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽에서 밀기</translation>
     </message>
     <message>
         <source>Roll in from the left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽에서 굴러오기</translation>
     </message>
     <message>
         <source>Turn in from the side</source>
-        <translation type="unfinished"></translation>
+        <translation>옆에서 회전 진입</translation>
     </message>
     <message>
         <source>Skid to a stop</source>
-        <translation type="unfinished"></translation>
+        <translation>미끄러져 멈추기</translation>
     </message>
     <message>
         <source>Spiral into place</source>
-        <translation type="unfinished"></translation>
+        <translation>나선형 등장</translation>
     </message>
     <message>
         <source>Stretched rise by line</source>
-        <translation type="unfinished"></translation>
+        <translation>늘어나며 상승</translation>
     </message>
     <message>
         <source>Thrown in a parabola</source>
-        <translation type="unfinished"></translation>
+        <translation>포물선 던지기</translation>
     </message>
     <message>
         <source>Words drop with a tilt</source>
-        <translation type="unfinished"></translation>
+        <translation>기울어 떨어지는 단어</translation>
     </message>
     <message>
         <source>Tumbling letters</source>
-        <translation type="unfinished"></translation>
+        <translation>굴러떨어지는 글자</translation>
     </message>
     <message>
         <source>Unfold from the centre</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데서 펼치기</translation>
     </message>
     <message>
         <source>Blown in by the wind</source>
-        <translation type="unfinished"></translation>
+        <translation>바람에 실려 오기</translation>
     </message>
     <message>
         <source>Words flip up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 뒤집히는 단어</translation>
     </message>
     <message>
         <source>Words from far away</source>
-        <translation type="unfinished"></translation>
+        <translation>멀리서 오는 단어</translation>
     </message>
     <message>
         <source>Emerge from behind an edge</source>
-        <translation type="unfinished"></translation>
+        <translation>가장자리 뒤에서 등장</translation>
     </message>
     <message>
         <source>Blob bloom</source>
-        <translation type="unfinished"></translation>
+        <translation>방울 피어나기</translation>
     </message>
     <message>
         <source>Bubble pop</source>
-        <translation type="unfinished"></translation>
+        <translation>버블 팝</translation>
     </message>
     <message>
         <source>Centre-out bounce drop</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데서 바운스</translation>
     </message>
     <message>
         <source>Centre curtain</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데 커튼</translation>
     </message>
     <message>
         <source>Fade through colour</source>
-        <translation type="unfinished"></translation>
+        <translation>컬러 플래시</translation>
     </message>
     <message>
         <source>Dangling letters</source>
-        <translation type="unfinished"></translation>
+        <translation>대롱대롱 글자</translation>
     </message>
     <message>
         <source>Diagonal letter unveil</source>
-        <translation type="unfinished"></translation>
+        <translation>대각선 글자 공개</translation>
     </message>
     <message>
         <source>Drip and splat</source>
-        <translation type="unfinished"></translation>
+        <translation>물방울 철퍽</translation>
     </message>
     <message>
         <source>Drop-down unveil</source>
-        <translation type="unfinished"></translation>
+        <translation>위에서 내려오는 막</translation>
     </message>
     <message>
         <source>Feather float</source>
-        <translation type="unfinished"></translation>
+        <translation>깃털처럼 둥실</translation>
     </message>
     <message>
         <source>Gooey merge</source>
-        <translation type="unfinished"></translation>
+        <translation>끈적한 합체</translation>
     </message>
     <message>
         <source>Hard-edge rise</source>
-        <translation type="unfinished"></translation>
+        <translation>선명한 상승</translation>
     </message>
     <message>
         <source>Soft ink bleed</source>
-        <translation type="unfinished"></translation>
+        <translation>잉크 번지기</translation>
     </message>
     <message>
         <source>Jello skew shake</source>
-        <translation type="unfinished"></translation>
+        <translation>젤리 흔들림</translation>
     </message>
     <message>
         <source>Jelly wobble</source>
-        <translation type="unfinished"></translation>
+        <translation>말랑 젤리</translation>
     </message>
     <message>
         <source>Liquid rise</source>
-        <translation type="unfinished"></translation>
+        <translation>액체처럼 상승</translation>
     </message>
     <message>
         <source>Melt into shape</source>
-        <translation type="unfinished"></translation>
+        <translation>녹으며 형태로</translation>
     </message>
     <message>
         <source>Outline sweep, then fill</source>
-        <translation type="unfinished"></translation>
+        <translation>윤곽 스윕 후 채우기</translation>
     </message>
     <message>
         <source>Razor wipe from the right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽에서 날카로운 와이프</translation>
     </message>
     <message>
         <source>Rewind erase-in</source>
-        <translation type="unfinished"></translation>
+        <translation>되감기 등장</translation>
     </message>
     <message>
         <source>Rubber band snap</source>
-        <translation type="unfinished"></translation>
+        <translation>고무줄 튕기기</translation>
     </message>
     <message>
         <source>Sharpening sweep</source>
-        <translation type="unfinished"></translation>
+        <translation>선명해지는 스윕</translation>
     </message>
     <message>
         <source>Shutter snap</source>
-        <translation type="unfinished"></translation>
+        <translation>셔터</translation>
     </message>
     <message>
         <source>Slit opening</source>
-        <translation type="unfinished"></translation>
+        <translation>틈새 열기</translation>
     </message>
     <message>
         <source>Soft sweep by word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 부드러운 와이프</translation>
     </message>
     <message>
         <source>NEW DROP</source>
-        <translation type="unfinished"></translation>
+        <translation>신상</translation>
     </message>
     <message>
         <source>Springboard words</source>
-        <translation type="unfinished"></translation>
+        <translation>트램펄린 단어</translation>
     </message>
     <message>
         <source>HELLO THERE</source>
-        <translation type="unfinished"></translation>
+        <translation>안녕하세요</translation>
     </message>
     <message>
         <source>Springy letters</source>
-        <translation type="unfinished"></translation>
+        <translation>스프링 글자</translation>
     </message>
     <message>
         <source>Squishy hop</source>
-        <translation type="unfinished"></translation>
+        <translation>말랑 점프</translation>
     </message>
     <message>
         <source>Stretchy slide</source>
-        <translation type="unfinished"></translation>
+        <translation>늘어나는 슬라이드</translation>
     </message>
     <message>
         <source>Stroke-first letters</source>
-        <translation type="unfinished"></translation>
+        <translation>선 먼저, 채우기 나중</translation>
     </message>
     <message>
         <source>Venetian blinds</source>
-        <translation type="unfinished"></translation>
+        <translation>베네치안 블라인드</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>빅
+뉴스</translation>
     </message>
     <message>
         <source>Water ripple in</source>
-        <translation type="unfinished"></translation>
+        <translation>물결 파문</translation>
     </message>
     <message>
         <source>Wavy arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>물결치며 등장</translation>
     </message>
     <message>
         <source>Words through a mask</source>
-        <translation type="unfinished"></translation>
+        <translation>마스크 속 단어</translation>
     </message>
     <message>
         <source>MADE FOR YOU</source>
-        <translation type="unfinished"></translation>
+        <translation>당신을 위해</translation>
     </message>
     <message>
         <source>Zoom-through wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 와이프</translation>
     </message>
     <message>
         <source>Balloon pop</source>
-        <translation type="unfinished"></translation>
+        <translation>풍선 터뜨리기</translation>
     </message>
     <message>
         <source>Birthday candles</source>
-        <translation type="unfinished"></translation>
+        <translation>생일 촛불</translation>
     </message>
     <message>
         <source>Champagne fizz</source>
-        <translation type="unfinished"></translation>
+        <translation>샴페인 거품</translation>
     </message>
     <message>
         <source>Comet arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>혜성 등장</translation>
     </message>
     <message>
         <source>Confetti drop</source>
-        <translation type="unfinished"></translation>
+        <translation>색종이 비</translation>
     </message>
     <message>
         <source>Diamond shower</source>
-        <translation type="unfinished"></translation>
+        <translation>다이아몬드 비</translation>
     </message>
     <message>
         <source>Disco sparkle</source>
-        <translation type="unfinished"></translation>
+        <translation>디스코 반짝임</translation>
     </message>
     <message>
         <source>Fairy dust trail</source>
-        <translation type="unfinished"></translation>
+        <translation>요정 가루</translation>
     </message>
     <message>
         <source>Falling petals</source>
-        <translation type="unfinished"></translation>
+        <translation>흩날리는 꽃잎</translation>
     </message>
     <message>
         <source>Firework words</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 불꽃놀이</translation>
     </message>
     <message>
         <source>BIG NEWS</source>
-        <translation type="unfinished"></translation>
+        <translation>빅 뉴스</translation>
     </message>
     <message>
         <source>Fireworks finale</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃놀이 피날레</translation>
     </message>
     <message>
         <source>Floating hearts</source>
-        <translation type="unfinished"></translation>
+        <translation>떠다니는 하트</translation>
     </message>
     <message>
         <source>Glitter bomb</source>
-        <translation type="unfinished"></translation>
+        <translation>글리터 폭탄</translation>
     </message>
     <message>
         <source>Glitter dust reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>글리터 가루</translation>
     </message>
     <message>
         <source>Gold coin sparkle</source>
-        <translation type="unfinished"></translation>
+        <translation>금화 반짝임</translation>
     </message>
     <message>
         <source>Golden explosion</source>
-        <translation type="unfinished"></translation>
+        <translation>황금 폭발</translation>
     </message>
     <message>
         <source>Halo ripple</source>
-        <translation type="unfinished"></translation>
+        <translation>후광 파문</translation>
     </message>
     <message>
         <source>Heart burst</source>
-        <translation type="unfinished"></translation>
+        <translation>하트 폭발</translation>
     </message>
     <message>
         <source>Sparks on landing</source>
-        <translation type="unfinished"></translation>
+        <translation>착지 불꽃</translation>
     </message>
     <message>
         <source>Lantern glow rise</source>
-        <translation type="unfinished"></translation>
+        <translation>떠오르는 등불</translation>
     </message>
     <message>
         <source>Magic poof</source>
-        <translation type="unfinished"></translation>
+        <translation>마법 펑</translation>
     </message>
     <message>
         <source>Magic wand reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>마법 지팡이</translation>
     </message>
     <message>
         <source>Party popper</source>
-        <translation type="unfinished"></translation>
+        <translation>파티 폭죽</translation>
     </message>
     <message>
         <source>Piñata candy burst</source>
-        <translation type="unfinished"></translation>
+        <translation>피냐타 사탕 폭발</translation>
     </message>
     <message>
         <source>Rainbow burst</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개 폭발</translation>
     </message>
     <message>
         <source>YAY PARTY</source>
-        <translation type="unfinished"></translation>
+        <translation>파티 시작!</translation>
     </message>
     <message>
         <source>Rising bubbles</source>
-        <translation type="unfinished"></translation>
+        <translation>떠오르는 거품</translation>
     </message>
     <message>
         <source>Rising notes</source>
-        <translation type="unfinished"></translation>
+        <translation>떠오르는 음표</translation>
     </message>
     <message>
         <source>Shimmering arrival</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이며 등장</translation>
     </message>
     <message>
         <source>Shooting star letters</source>
-        <translation type="unfinished"></translation>
+        <translation>별똥별 글자</translation>
     </message>
     <message>
         <source>Snow flurry</source>
-        <translation type="unfinished"></translation>
+        <translation>눈보라</translation>
     </message>
     <message>
         <source>Spark fountain</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃 분수</translation>
     </message>
     <message>
         <source>Sparkle rain</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이 비</translation>
     </message>
     <message>
         <source>Sparkler writing</source>
-        <translation type="unfinished"></translation>
+        <translation>스파클러 글씨</translation>
     </message>
     <message>
         <source>Star burst pop</source>
-        <translation type="unfinished"></translation>
+        <translation>별 폭발</translation>
     </message>
     <message>
         <source>Star ring burst</source>
-        <translation type="unfinished"></translation>
+        <translation>별 고리</translation>
     </message>
     <message>
         <source>Streamers</source>
-        <translation type="unfinished"></translation>
+        <translation>색 테이프</translation>
     </message>
     <message>
         <source>Blue flame rise</source>
-        <translation type="unfinished"></translation>
+        <translation>파란 불꽃</translation>
     </message>
     <message>
         <source>Burning edge reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>불타는 가장자리 공개</translation>
     </message>
     <message>
         <source>Dark smoke rising</source>
-        <translation type="unfinished"></translation>
+        <translation>피어오르는 검은 연기</translation>
     </message>
     <message>
         <source>Dust cloud landing</source>
-        <translation type="unfinished"></translation>
+        <translation>먼지 속 착지</translation>
     </message>
     <message>
         <source>Electric zap</source>
-        <translation type="unfinished"></translation>
+        <translation>전기 충격</translation>
     </message>
     <message>
         <source>Rising embers</source>
-        <translation type="unfinished"></translation>
+        <translation>피어오르는 불씨</translation>
     </message>
     <message>
         <source>Energy ball blast</source>
-        <translation type="unfinished"></translation>
+        <translation>에너지 볼</translation>
     </message>
     <message>
         <source>Energy charge-up</source>
-        <translation type="unfinished"></translation>
+        <translation>에너지 충전</translation>
     </message>
     <message>
         <source>Explosion ring</source>
-        <translation type="unfinished"></translation>
+        <translation>폭발 링</translation>
     </message>
     <message>
         <source>Fire ignite</source>
-        <translation type="unfinished"></translation>
+        <translation>불붙기</translation>
     </message>
     <message>
         <source>Firework fountain</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃 분수</translation>
     </message>
     <message>
         <source>Galaxy swirl</source>
-        <translation type="unfinished"></translation>
+        <translation>은하 소용돌이</translation>
     </message>
     <message>
         <source>Ghost appear</source>
-        <translation type="unfinished"></translation>
+        <translation>유령 등장</translation>
     </message>
     <message>
         <source>Ice crystals</source>
-        <translation type="unfinished"></translation>
+        <translation>얼음 결정</translation>
     </message>
     <message>
         <source>Laser scan</source>
-        <translation type="unfinished"></translation>
+        <translation>레이저 스캔</translation>
     </message>
     <message>
         <source>Lightning strike</source>
-        <translation type="unfinished"></translation>
+        <translation>번개</translation>
     </message>
     <message>
         <source>Meteor letters</source>
-        <translation type="unfinished"></translation>
+        <translation>유성 글자</translation>
     </message>
     <message>
         <source>Neon flare pop</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 플레어</translation>
     </message>
     <message>
         <source>Plasma glow</source>
-        <translation type="unfinished"></translation>
+        <translation>플라스마 빛</translation>
     </message>
     <message>
         <source>Power aura</source>
-        <translation type="unfinished"></translation>
+        <translation>파워 오라</translation>
     </message>
     <message>
         <source>Prism burst</source>
-        <translation type="unfinished"></translation>
+        <translation>프리즘 폭발</translation>
     </message>
     <message>
         <source>Sand blow-in</source>
-        <translation type="unfinished"></translation>
+        <translation>모래바람</translation>
     </message>
     <message>
         <source>Shooting star swoop</source>
-        <translation type="unfinished"></translation>
+        <translation>별똥별</translation>
     </message>
     <message>
         <source>Smoke reveal</source>
-        <translation type="unfinished"></translation>
+        <translation>연기 속 등장</translation>
     </message>
     <message>
         <source>Snowstorm drift</source>
-        <translation type="unfinished"></translation>
+        <translation>눈폭풍</translation>
     </message>
     <message>
         <source>Solar flare</source>
-        <translation type="unfinished"></translation>
+        <translation>태양 플레어</translation>
     </message>
     <message>
         <source>Spirit wisps</source>
-        <translation type="unfinished"></translation>
+        <translation>영혼의 빛</translation>
     </message>
     <message>
         <source>Spooky skull</source>
-        <translation type="unfinished"></translation>
+        <translation>으스스한 해골</translation>
     </message>
     <message>
         <source>Stardust settle</source>
-        <translation type="unfinished"></translation>
+        <translation>별가루</translation>
     </message>
     <message>
         <source>Steam jets</source>
-        <translation type="unfinished"></translation>
+        <translation>증기 분사</translation>
     </message>
     <message>
         <source>Stone impact</source>
-        <translation type="unfinished"></translation>
+        <translation>돌 충격</translation>
     </message>
     <message>
         <source>Toxic bubbles</source>
-        <translation type="unfinished"></translation>
+        <translation>독 거품</translation>
     </message>
     <message>
         <source>Static noise in</source>
-        <translation type="unfinished"></translation>
+        <translation>노이즈 인</translation>
     </message>
     <message>
         <source>Lava eruption</source>
-        <translation type="unfinished"></translation>
+        <translation>용암 분출</translation>
     </message>
     <message>
         <source>Water splash</source>
-        <translation type="unfinished"></translation>
+        <translation>물보라</translation>
     </message>
     <message>
         <source>Shockwave per word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 충격파</translation>
     </message>
     <message>
         <source>BOOM POW</source>
-        <translation type="unfinished"></translation>
+        <translation>쾅! 펑!</translation>
     </message>
     <message>
         <source>Karaoke bounce</source>
@@ -10376,359 +10394,365 @@
     </message>
     <message>
         <source>Backspace erase</source>
-        <translation type="unfinished"></translation>
+        <translation>백스페이스 지우기</translation>
     </message>
     <message>
         <source>Blur and drift</source>
-        <translation type="unfinished"></translation>
+        <translation>흐려지며 흘러가기</translation>
     </message>
     <message>
         <source>Bouncy shrink</source>
-        <translation type="unfinished"></translation>
+        <translation>튕기며 축소</translation>
     </message>
     <message>
         <source>Pull back into depth</source>
-        <translation type="unfinished"></translation>
+        <translation>깊이 속으로 멀어지기</translation>
     </message>
     <message>
         <source>Cards turn away</source>
-        <translation type="unfinished"></translation>
+        <translation>돌아서는 카드</translation>
     </message>
     <message>
         <source>Diagonal word wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 대각선 와이프</translation>
     </message>
     <message>
         <source>SEE YOU SOON</source>
-        <translation type="unfinished"></translation>
+        <translation>곧 만나요</translation>
     </message>
     <message>
         <source>Domino fall</source>
-        <translation type="unfinished"></translation>
+        <translation>도미노 쓰러짐</translation>
     </message>
     <message>
         <source>Doors close by word</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 문 닫기</translation>
     </message>
     <message>
         <source>Spinning drop</source>
-        <translation type="unfinished"></translation>
+        <translation>회전하며 떨어지기</translation>
     </message>
     <message>
         <source>Drop the mic</source>
-        <translation type="unfinished"></translation>
+        <translation>마이크 드롭</translation>
     </message>
     <message>
         <source>Evaporate</source>
-        <translation type="unfinished"></translation>
+        <translation>증발</translation>
     </message>
     <message>
         <source>Flicker off</source>
-        <translation type="unfinished"></translation>
+        <translation>깜빡이며 꺼짐</translation>
     </message>
     <message>
         <source>3D flip backwards</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 뒤로 뒤집기</translation>
     </message>
     <message>
         <source>Glitch slice out</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치 컷</translation>
     </message>
     <message>
         <source>Rise into the ceiling</source>
-        <translation type="unfinished"></translation>
+        <translation>천장으로 사라지기</translation>
     </message>
     <message>
         <source>Jump and drop</source>
-        <translation type="unfinished"></translation>
+        <translation>점프 후 낙하</translation>
     </message>
     <message>
         <source>Lean and fold</source>
-        <translation type="unfinished"></translation>
+        <translation>기울어 접히기</translation>
     </message>
     <message>
         <source>Letter shutters</source>
-        <translation type="unfinished"></translation>
+        <translation>글자별 셔터</translation>
     </message>
     <message>
         <source>Lines slide down</source>
-        <translation type="unfinished"></translation>
+        <translation>줄이 아래로</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>다음에
+또 만나요</translation>
     </message>
     <message>
         <source>Lines slip behind the left edge</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 가장자리로 숨는 줄</translation>
     </message>
     <message>
         <source>Melt down</source>
-        <translation type="unfinished"></translation>
+        <translation>녹아내리기</translation>
     </message>
     <message>
         <source>Neon cut out</source>
-        <translation type="unfinished"></translation>
+        <translation>네온 꺼짐</translation>
     </message>
     <message>
         <source>Push out right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 밀어내기</translation>
     </message>
     <message>
         <source>Random pop-off</source>
-        <translation type="unfinished"></translation>
+        <translation>무작위로 사라지기</translation>
     </message>
     <message>
         <source>Roll away left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 굴러가기</translation>
     </message>
     <message>
         <source>Scatter in all directions</source>
-        <translation type="unfinished"></translation>
+        <translation>사방으로 흩어지기</translation>
     </message>
     <message>
         <source>Letters short out</source>
-        <translation type="unfinished"></translation>
+        <translation>글자 합선</translation>
     </message>
     <message>
         <source>Sink through the floor</source>
-        <translation type="unfinished"></translation>
+        <translation>바닥으로 가라앉기</translation>
     </message>
     <message>
         <source>Soft lift wipe</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 부드럽게 지우기</translation>
     </message>
     <message>
         <source>Sparkle delete</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이며 지우기</translation>
     </message>
     <message>
         <source>Spin off the top</source>
-        <translation type="unfinished"></translation>
+        <translation>회전하며 위로</translation>
     </message>
     <message>
         <source>Split apart</source>
-        <translation type="unfinished"></translation>
+        <translation>둘로 갈라지기</translation>
     </message>
     <message>
         <source>Squash and pop</source>
-        <translation type="unfinished"></translation>
+        <translation>찌그러져 터지기</translation>
     </message>
     <message>
         <source>Squeeze to the centre</source>
-        <translation type="unfinished"></translation>
+        <translation>가운데로 모이기</translation>
     </message>
     <message>
         <source>Stretch away</source>
-        <translation type="unfinished"></translation>
+        <translation>늘어나며 사라지기</translation>
     </message>
     <message>
         <source>Stretch up and thin out</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 늘어나 가늘어지기</translation>
     </message>
     <message>
         <source>Swirl out</source>
-        <translation type="unfinished"></translation>
+        <translation>소용돌이 퇴장</translation>
     </message>
     <message>
         <source>Tornado lift</source>
-        <translation type="unfinished"></translation>
+        <translation>토네이도</translation>
     </message>
     <message>
         <source>Tumble down</source>
-        <translation type="unfinished"></translation>
+        <translation>굴러떨어지기</translation>
     </message>
     <message>
         <source>Vanishing point</source>
-        <translation type="unfinished"></translation>
+        <translation>소실점</translation>
     </message>
     <message>
         <source>Wave goodbye</source>
-        <translation type="unfinished"></translation>
+        <translation>안녕 물결</translation>
     </message>
     <message>
         <source>Blown by the wind</source>
-        <translation type="unfinished"></translation>
+        <translation>바람에 날려가기</translation>
     </message>
     <message>
         <source>Word by word drop</source>
-        <translation type="unfinished"></translation>
+        <translation>단어별 낙하</translation>
     </message>
     <message>
         <source>BYE FOR NOW</source>
-        <translation type="unfinished"></translation>
+        <translation>다음에 봐요</translation>
     </message>
     <message>
         <source>Words fly up</source>
-        <translation type="unfinished"></translation>
+        <translation>하늘로 날아가는 단어</translation>
     </message>
     <message>
         <source>Zipper open</source>
-        <translation type="unfinished"></translation>
+        <translation>지퍼 열기</translation>
     </message>
     <message>
         <source>Zoom crush</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 크러시</translation>
     </message>
     <message>
         <source>Crumble to ash</source>
-        <translation type="unfinished"></translation>
+        <translation>재가 되어 부서지기</translation>
     </message>
     <message>
         <source>Backspace with sparks</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃 백스페이스</translation>
     </message>
     <message>
         <source>Black hole</source>
-        <translation type="unfinished"></translation>
+        <translation>블랙홀</translation>
     </message>
     <message>
         <source>Blast off</source>
-        <translation type="unfinished"></translation>
+        <translation>발사</translation>
     </message>
     <message>
         <source>Blue flame exit</source>
-        <translation type="unfinished"></translation>
+        <translation>파란 불꽃 퇴장</translation>
     </message>
     <message>
         <source>Bubbles pop away</source>
-        <translation type="unfinished"></translation>
+        <translation>거품 터지며 사라지기</translation>
     </message>
     <message>
         <source>Burn away</source>
-        <translation type="unfinished"></translation>
+        <translation>불타 사라지기</translation>
     </message>
     <message>
         <source>Confetti blast exit</source>
-        <translation type="unfinished"></translation>
+        <translation>색종이 폭발 퇴장</translation>
     </message>
     <message>
         <source>Turn to dust</source>
-        <translation type="unfinished"></translation>
+        <translation>먼지가 되기</translation>
     </message>
     <message>
         <source>Embers dying out</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼져 가는 불씨</translation>
     </message>
     <message>
         <source>Fireflies fly off</source>
-        <translation type="unfinished"></translation>
+        <translation>날아가는 반딧불</translation>
     </message>
     <message>
         <source>Firework goodbye</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃놀이 작별</translation>
     </message>
     <message>
         <source>SEE YOU</source>
-        <translation type="unfinished"></translation>
+        <translation>또 만나요</translation>
     </message>
     <message>
         <source>Burning fuse</source>
-        <translation type="unfinished"></translation>
+        <translation>타오르는 도화선</translation>
     </message>
     <message>
         <source>Ghostly fade</source>
-        <translation type="unfinished"></translation>
+        <translation>유령처럼 사라지기</translation>
     </message>
     <message>
         <source>Glitter fade</source>
-        <translation type="unfinished"></translation>
+        <translation>사라지는 글리터</translation>
     </message>
     <message>
         <source>Heart burst goodbye</source>
-        <translation type="unfinished"></translation>
+        <translation>하트 작별</translation>
     </message>
     <message>
         <source>Laser cut exit</source>
-        <translation type="unfinished"></translation>
+        <translation>레이저 컷</translation>
     </message>
     <message>
         <source>Struck by lightning</source>
-        <translation type="unfinished"></translation>
+        <translation>번개 맞기</translation>
     </message>
     <message>
         <source>Magic vanish</source>
-        <translation type="unfinished"></translation>
+        <translation>마법처럼 사라지기</translation>
     </message>
     <message>
         <source>Meteor launch</source>
-        <translation type="unfinished"></translation>
+        <translation>유성 발사</translation>
     </message>
     <message>
         <source>Notes fly away</source>
-        <translation type="unfinished"></translation>
+        <translation>날아가는 음표</translation>
     </message>
     <message>
         <source>Paint splat exit</source>
-        <translation type="unfinished"></translation>
+        <translation>페인트 튀기기</translation>
     </message>
     <message>
         <source>Petals in the wind</source>
-        <translation type="unfinished"></translation>
+        <translation>바람 속 꽃잎</translation>
     </message>
     <message>
         <source>Pixel crumble</source>
-        <translation type="unfinished"></translation>
+        <translation>픽셀 붕괴</translation>
     </message>
     <message>
         <source>Poof</source>
-        <translation type="unfinished"></translation>
+        <translation>펑!</translation>
     </message>
     <message>
         <source>Rainbow trail</source>
-        <translation type="unfinished"></translation>
+        <translation>무지개 잔상</translation>
     </message>
     <message>
         <source>Blown away like sand</source>
-        <translation type="unfinished"></translation>
+        <translation>모래처럼 날아가기</translation>
     </message>
     <message>
         <source>Shatter</source>
-        <translation type="unfinished"></translation>
+        <translation>산산조각</translation>
     </message>
     <message>
         <source>Shockwave exit</source>
-        <translation type="unfinished"></translation>
+        <translation>충격파 퇴장</translation>
     </message>
     <message>
         <source>Short circuit</source>
-        <translation type="unfinished"></translation>
+        <translation>합선</translation>
     </message>
     <message>
         <source>Vanish in smoke</source>
-        <translation type="unfinished"></translation>
+        <translation>연기처럼 사라지기</translation>
     </message>
     <message>
         <source>Delete in puffs</source>
-        <translation type="unfinished"></translation>
+        <translation>연기로 지우기</translation>
     </message>
     <message>
         <source>Snow melt</source>
-        <translation type="unfinished"></translation>
+        <translation>눈처럼 녹기</translation>
     </message>
     <message>
         <source>Dissolve into sparks</source>
-        <translation type="unfinished"></translation>
+        <translation>불꽃으로 흩어지기</translation>
     </message>
     <message>
         <source>Sparkle ring pop</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이 고리</translation>
     </message>
     <message>
         <source>Sparkler fizzle</source>
-        <translation type="unfinished"></translation>
+        <translation>꺼지는 스파클러</translation>
     </message>
     <message>
         <source>Star scatter</source>
-        <translation type="unfinished"></translation>
+        <translation>흩어지는 별</translation>
     </message>
     <message>
         <source>Dust devil</source>
-        <translation type="unfinished"></translation>
+        <translation>회오리</translation>
     </message>
     <message>
         <source>Spin into sparkles</source>
-        <translation type="unfinished"></translation>
+        <translation>반짝이며 회전</translation>
     </message>
     <message>
         <source>Splash goodbye</source>
-        <translation type="unfinished"></translation>
+        <translation>물보라 작별</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -10812,351 +10836,351 @@
     </message>
     <message>
         <source>Gust</source>
-        <translation type="unfinished"></translation>
+        <translation>돌풍</translation>
     </message>
     <message>
         <source>Card flip</source>
-        <translation type="unfinished"></translation>
+        <translation>카드 플립</translation>
     </message>
     <message>
         <source>Cube</source>
-        <translation type="unfinished"></translation>
+        <translation>큐브</translation>
     </message>
     <message>
         <source>Diagonal</source>
-        <translation type="unfinished"></translation>
+        <translation>대각선</translation>
     </message>
     <message>
         <source>Doors</source>
-        <translation type="unfinished"></translation>
+        <translation>문</translation>
     </message>
     <message>
         <source>Dream</source>
-        <translation type="unfinished"></translation>
+        <translation>꿈</translation>
     </message>
     <message>
         <source>Drop and spin</source>
-        <translation type="unfinished"></translation>
+        <translation>낙하 후 회전</translation>
     </message>
     <message>
         <source>Earthquake</source>
-        <translation type="unfinished"></translation>
+        <translation>지진</translation>
     </message>
     <message>
         <source>Echo slide</source>
-        <translation type="unfinished"></translation>
+        <translation>에코 슬라이드</translation>
     </message>
     <message>
         <source>Double flash</source>
-        <translation type="unfinished"></translation>
+        <translation>더블 플래시</translation>
     </message>
     <message>
         <source>Flip show</source>
-        <translation type="unfinished"></translation>
+        <translation>플립</translation>
     </message>
     <message>
         <source>Glitch pulse</source>
-        <translation type="unfinished"></translation>
+        <translation>글리치 펄스</translation>
     </message>
     <message>
         <source>Heartbeat</source>
-        <translation type="unfinished"></translation>
+        <translation>심장 박동</translation>
     </message>
     <message>
         <source>Hinge</source>
-        <translation type="unfinished"></translation>
+        <translation>경첩</translation>
     </message>
     <message>
         <source>Hops</source>
-        <translation type="unfinished"></translation>
+        <translation>깡충깡충</translation>
     </message>
     <message>
         <source>Jelly</source>
-        <translation type="unfinished"></translation>
+        <translation>젤리</translation>
     </message>
     <message>
         <source>Ken Burns in</source>
-        <translation type="unfinished"></translation>
+        <translation>켄 번즈 확대</translation>
     </message>
     <message>
         <source>Ken Burns out</source>
-        <translation type="unfinished"></translation>
+        <translation>켄 번즈 축소</translation>
     </message>
     <message>
         <source>Light leak</source>
-        <translation type="unfinished"></translation>
+        <translation>라이트 릭</translation>
     </message>
     <message>
         <source>Orbit</source>
-        <translation type="unfinished"></translation>
+        <translation>궤도</translation>
     </message>
     <message>
         <source>Page flip</source>
-        <translation type="unfinished"></translation>
+        <translation>페이지 넘기기</translation>
     </message>
     <message>
         <source>Pan left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽 패닝</translation>
     </message>
     <message>
         <source>Pan right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽 패닝</translation>
     </message>
     <message>
         <source>Pendulum</source>
-        <translation type="unfinished"></translation>
+        <translation>진자</translation>
     </message>
     <message>
         <source>Pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>픽셀</translation>
     </message>
     <message>
         <source>Colour split</source>
-        <translation type="unfinished"></translation>
+        <translation>색 분리</translation>
     </message>
     <message>
         <source>Ripples</source>
-        <translation type="unfinished"></translation>
+        <translation>파문</translation>
     </message>
     <message>
         <source>Rise and fall</source>
-        <translation type="unfinished"></translation>
+        <translation>상승과 하강</translation>
     </message>
     <message>
         <source>Rock</source>
-        <translation type="unfinished"></translation>
+        <translation>흔들기</translation>
     </message>
     <message>
         <source>Rolling</source>
-        <translation type="unfinished"></translation>
+        <translation>롤링</translation>
     </message>
     <message>
         <source>Roller coaster</source>
-        <translation type="unfinished"></translation>
+        <translation>롤러코스터</translation>
     </message>
     <message>
         <source>Rotate and vanish</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 후 사라지기</translation>
     </message>
     <message>
         <source>Rubber band</source>
-        <translation type="unfinished"></translation>
+        <translation>고무줄</translation>
     </message>
     <message>
         <source>Shockwave</source>
-        <translation type="unfinished"></translation>
+        <translation>충격파</translation>
     </message>
     <message>
         <source>Swift</source>
-        <translation type="unfinished"></translation>
+        <translation>스위프트</translation>
     </message>
     <message>
         <source>Slide through</source>
-        <translation type="unfinished"></translation>
+        <translation>통과</translation>
     </message>
     <message>
         <source>Wave slide</source>
-        <translation type="unfinished"></translation>
+        <translation>물결 슬라이드</translation>
     </message>
     <message>
         <source>Spin around</source>
-        <translation type="unfinished"></translation>
+        <translation>한 바퀴 돌기</translation>
     </message>
     <message>
         <source>Spiral</source>
-        <translation type="unfinished"></translation>
+        <translation>나선</translation>
     </message>
     <message>
         <source>Spring</source>
-        <translation type="unfinished"></translation>
+        <translation>스프링</translation>
     </message>
     <message>
         <source>Sway 3D</source>
-        <translation type="unfinished"></translation>
+        <translation>3D 흔들기</translation>
     </message>
     <message>
         <source>Tumble</source>
-        <translation type="unfinished"></translation>
+        <translation>공중제비</translation>
     </message>
     <message>
         <source>Old TV</source>
-        <translation type="unfinished"></translation>
+        <translation>옛날 TV</translation>
     </message>
     <message>
         <source>Waves</source>
-        <translation type="unfinished"></translation>
+        <translation>파도</translation>
     </message>
     <message>
         <source>Whirlwind</source>
-        <translation type="unfinished"></translation>
+        <translation>회오리바람</translation>
     </message>
     <message>
         <source>Zoom beats</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 비트</translation>
     </message>
     <message>
         <source>Zoom rush</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 러시</translation>
     </message>
     <message>
         <source>Dolly</source>
-        <translation type="unfinished"></translation>
+        <translation>돌리</translation>
     </message>
     <message>
         <source>Far and near</source>
-        <translation type="unfinished"></translation>
+        <translation>멀리 가까이</translation>
     </message>
     <message>
         <source>Zoom punch</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 펀치</translation>
     </message>
     <message>
         <source>Zoom roll</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 롤</translation>
     </message>
     <message>
         <source>Split zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>분할 줌</translation>
     </message>
     <message>
         <source>Cube turn</source>
-        <translation type="unfinished"></translation>
+        <translation>큐브 회전</translation>
     </message>
     <message>
         <source>Door</source>
-        <translation type="unfinished"></translation>
+        <translation>문</translation>
     </message>
     <message>
         <source>Dreamy</source>
-        <translation type="unfinished"></translation>
+        <translation>몽환</translation>
     </message>
     <message>
         <source>Flip down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 뒤집기</translation>
     </message>
     <message>
         <source>Flip over</source>
-        <translation type="unfinished"></translation>
+        <translation>뒤집기</translation>
     </message>
     <message>
         <source>Focus in</source>
-        <translation type="unfinished"></translation>
+        <translation>포커스 인</translation>
     </message>
     <message>
         <source>Glide up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 활공</translation>
     </message>
     <message>
         <source>Hop</source>
-        <translation type="unfinished"></translation>
+        <translation>깡충</translation>
     </message>
     <message>
         <source>Page turn</source>
-        <translation type="unfinished"></translation>
+        <translation>페이지 넘김</translation>
     </message>
     <message>
         <source>Punch in</source>
-        <translation type="unfinished"></translation>
+        <translation>펀치 인</translation>
     </message>
     <message>
         <source>Push from above</source>
-        <translation type="unfinished"></translation>
+        <translation>위에서 밀기</translation>
     </message>
     <message>
         <source>Push from right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽에서 밀기</translation>
     </message>
     <message>
         <source>Push from left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽에서 밀기</translation>
     </message>
     <message>
         <source>Push from below</source>
-        <translation type="unfinished"></translation>
+        <translation>아래에서 밀기</translation>
     </message>
     <message>
         <source>Roll in</source>
-        <translation type="unfinished"></translation>
+        <translation>롤 인</translation>
     </message>
     <message>
         <source>Slide down</source>
-        <translation type="unfinished"></translation>
+        <translation>아래로 슬라이드</translation>
     </message>
     <message>
         <source>Slide left</source>
-        <translation type="unfinished"></translation>
+        <translation>왼쪽으로 슬라이드</translation>
     </message>
     <message>
         <source>Slide right</source>
-        <translation type="unfinished"></translation>
+        <translation>오른쪽으로 슬라이드</translation>
     </message>
     <message>
         <source>Slide up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 슬라이드</translation>
     </message>
     <message>
         <source>Spin blur</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 흐림</translation>
     </message>
     <message>
         <source>Spin anticlockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>시계 반대 방향 회전</translation>
     </message>
     <message>
         <source>Spin clockwise</source>
-        <translation type="unfinished"></translation>
+        <translation>시계 방향 회전</translation>
     </message>
     <message>
         <source>Swift slide</source>
-        <translation type="unfinished"></translation>
+        <translation>빠른 슬라이드</translation>
     </message>
     <message>
         <source>Swing in</source>
-        <translation type="unfinished"></translation>
+        <translation>스윙 인</translation>
     </message>
     <message>
         <source>Tilt up</source>
-        <translation type="unfinished"></translation>
+        <translation>위로 기울이기</translation>
     </message>
     <message>
         <source>Bad signal</source>
-        <translation type="unfinished"></translation>
+        <translation>신호 불량</translation>
     </message>
     <message>
         <source>Wave warp</source>
-        <translation type="unfinished"></translation>
+        <translation>물결 왜곡</translation>
     </message>
     <message>
         <source>Zoom blur</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 흐림</translation>
     </message>
     <message>
         <source>From far away</source>
-        <translation type="unfinished"></translation>
+        <translation>멀리서</translation>
     </message>
     <message>
         <source>Zoom split</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 색 분리</translation>
     </message>
     <message>
         <source>Zoom spin</source>
-        <translation type="unfinished"></translation>
+        <translation>줌 회전</translation>
     </message>
     <message>
         <source>Blow away</source>
-        <translation type="unfinished"></translation>
+        <translation>날려 보내기</translation>
     </message>
     <message>
         <source>Fade into blur</source>
-        <translation type="unfinished"></translation>
+        <translation>흐려지며 페이드</translation>
     </message>
     <message>
         <source>Shrink away</source>
-        <translation type="unfinished"></translation>
+        <translation>작아지며 사라지기</translation>
     </message>
     <message>
         <source>TV off</source>
-        <translation type="unfinished"></translation>
+        <translation>TV 끄기</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -11269,7 +11293,7 @@
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>없음</translation>
     </message>
 </context>
 <context>
