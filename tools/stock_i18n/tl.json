@@ -138,6 +138,7 @@
   "text-style:precios": "Presyo at alok",
   "text-style:retro": "Retro at Y2K",
   "text-style:subtitulos": "Viral na subtitle",
+  "text-style:tendencias": "Trending",
   "text-style:tercios": "Lower third",
   "text-style:terror": "Katakot at misteryo",
   "text-style:titulos": "Pamagat",
@@ -34458,6 +34459,3834 @@
     "vlog",
     "caps",
     "reels"
+   ]
+  },
+  "text-style:tend-a-apertura-morada": {
+   "name": "Pambungad na lilang kislap",
+   "tags": [
+    "pamagat",
+    "pambungad",
+    "intro",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-arte-azul-burbuja": {
+   "name": "Asul na bubble",
+   "tags": [
+    "pamagat",
+    "sining",
+    "asul",
+    "bubble",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-arte-rojo-3d": {
+   "name": "Pulang art na may relief",
+   "tags": [
+    "pamagat",
+    "sining",
+    "pula",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-arte-rosa-sombra": {
+   "name": "Puti na may pink na lalim",
+   "tags": [
+    "pamagat",
+    "sining",
+    "pink",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-banda-roja-dos-lineas": {
+   "name": "Pulang banda na dalawang linya",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "banda",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-base-manuscrita": {
+   "name": "Maluwag na sulat-kamay",
+   "tags": [
+    "pamagat",
+    "sulat-kamay",
+    "kamay",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-bienvenida-canal": {
+   "name": "Maligayang pagdating sa channel",
+   "tags": [
+    "pamagat",
+    "pagbati",
+    "channel",
+    "script",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-cinta-noticias": {
+   "name": "Strip ng balita",
+   "tags": [
+    "pamagat",
+    "balita",
+    "laso",
+    "bar",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-clasico-amarillo": {
+   "name": "Klasikong dilaw",
+   "tags": [
+    "pamagat",
+    "klasiko",
+    "dilaw",
+    "bilog",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-combustion-blanca": {
+   "name": "Teksto sa usok",
+   "tags": [
+    "pamagat",
+    "usok",
+    "sine",
+    "dramatiko",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-comico-celeste": {
+   "name": "Comic na caption na asul",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-competencia-cromo": {
+   "name": "Chrome na kompetisyon",
+   "tags": [
+    "pamagat",
+    "sports",
+    "event",
+    "chrome",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-creditos-reparto": {
+   "name": "Credits ng cast",
+   "tags": [
+    "pamagat",
+    "credits",
+    "cast",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-destapador-blanco": {
+   "name": "Pamagat sa puti",
+   "tags": [
+    "pamagat",
+    "puti",
+    "minimal",
+    "korporatibo",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-diario-viaje": {
+   "name": "Journal ng paglalakbay",
+   "tags": [
+    "pamagat",
+    "paglalakbay",
+    "diary",
+    "sulat-kamay",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-display-3d": {
+   "name": "Candy 3D na display",
+   "tags": [
+    "pamagat",
+    "3d",
+    "candy",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-etiqueta-sobre-titulo": {
+   "name": "Label sa ibabaw ng pamagat",
+   "tags": [
+    "pamagat",
+    "tag",
+    "malinis",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-fin-caja-negra": {
+   "name": "Wakas sa itim na kahon",
+   "tags": [
+    "pamagat",
+    "wakas",
+    "pag-type",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-fin-foco": {
+   "name": "Wakas sa spotlight",
+   "tags": [
+    "pamagat",
+    "wakas",
+    "spotlight",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-galaxia-espaciado": {
+   "name": "Galaxy na may lawak ang letra",
+   "tags": [
+    "pamagat",
+    "galaxy",
+    "kalawakan",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-gracias-dorado-brillo": {
+   "name": "Kumikinang na gintong salamat",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "ginto",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-gracias-estrellas": {
+   "name": "Salamat na may bituin",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "paalam",
+    "bituin",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-graficos-magenta": {
+   "name": "Pamagat na may magenta na bar",
+   "tags": [
+    "pamagat",
+    "magenta",
+    "bar",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-grafiti-negro": {
+   "name": "Itim na graffiti, puting gilid",
+   "tags": [
+    "pamagat",
+    "graffiti",
+    "kalye",
+    "sticker",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-gran-titulo-lineas": {
+   "name": "Malaking pamagat, lilang guhit",
+   "tags": [
+    "pamagat",
+    "malaki",
+    "lila",
+    "guhit",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-gris-desgastado": {
+   "name": "Kupas na abo",
+   "tags": [
+    "pamagat",
+    "pelikula",
+    "abo",
+    "kupas",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-hace-tiempo": {
+   "name": "Noong unang panahon",
+   "tags": [
+    "pamagat",
+    "kuwento",
+    "sine",
+    "intro",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-humo-blanco": {
+   "name": "Paglitaw mula sa usok",
+   "tags": [
+    "pamagat",
+    "usok",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-increible-comic": {
+   "name": "Comic na Hindi kapani-paniwala!",
+   "tags": [
+    "pamagat",
+    "comic",
+    "kamangha-mangha",
+    "apoy",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-juego-antiguo": {
+   "name": "Dilaw na retro game",
+   "tags": [
+    "pamagat",
+    "laro",
+    "retro",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-limpio-blanco": {
+   "name": "Malinis na pamagat",
+   "tags": [
+    "pamagat",
+    "minimal",
+    "malinis",
+    "batayan",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-neon-lineas-suscribete": {
+   "name": "Salamat sa pagitan ng neon na guhit",
+   "tags": [
+    "pamagat",
+    "neon",
+    "salamat",
+    "subscribe",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-neon-rosa": {
+   "name": "Maliwanag na pink na neon",
+   "tags": [
+    "pamagat",
+    "neon",
+    "pink",
+    "kagandahan",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-oro-llama-3d": {
+   "name": "3D na ginto",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "3d",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-pastilla-negra-punto": {
+   "name": "Itim na pill, pulang tuldok",
+   "tags": [
+    "pamagat",
+    "intro",
+    "pill",
+    "itim",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-pelicula-amarilla": {
+   "name": "Dilaw na pamagat ng pelikula",
+   "tags": [
+    "pamagat",
+    "pelikula",
+    "sine",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-pequeno-sobre-grande": {
+   "name": "Maliit sa ibabaw ng malaki",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-piedra-3d": {
+   "name": "3D na bato",
+   "tags": [
+    "pamagat",
+    "bato",
+    "3d",
+    "relief",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-redes-pastilla": {
+   "name": "Pill ng social handle",
+   "tags": [
+    "pamagat",
+    "social media",
+    "username",
+    "pill",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-script-blanca": {
+   "name": "Puting script",
+   "tags": [
+    "pamagat",
+    "script",
+    "kaligrapiya",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-serif-subtitulo": {
+   "name": "Serif na may subtitle",
+   "tags": [
+    "pamagat",
+    "serif",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-subtitulo-amarillo": {
+   "name": "Dilaw sa itim na caption",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "dilaw",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-blanca": {
+   "name": "Caption sa puting kahon",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-subtitulo-caja-negra": {
+   "name": "Caption sa itim na kahon",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "kahon",
+    "itim",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-subtitulo-cine": {
+   "name": "Subtitle ng pelikula",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "sine",
+    "pelikula",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-subtitulo-fino": {
+   "name": "Manipis na subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "manipis",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-suscribete-roja": {
+   "name": "Pulang mag-subscribe",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "pula",
+    "button",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-tercio-blanco-celeste": {
+   "name": "Puti at cyan na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "puti",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-tercio-cinta-dorada": {
+   "name": "Gintong laso",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "laso",
+    "ginto",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-tercio-rojo-flecha": {
+   "name": "Pulang lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-titular-izquierda": {
+   "name": "Headline sa kaliwa",
+   "tags": [
+    "pamagat",
+    "headline",
+    "kaliwa",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-titulo-barra-roja": {
+   "name": "Pamagat na may pulang bar",
+   "tags": [
+    "pamagat",
+    "bar",
+    "pula",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-titulo-fuego": {
+   "name": "Pamagat na nag-aapoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-a-vlog-diario": {
+   "name": "Naka-type na pang-araw-araw na vlog",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "pag-type",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-negro": {
+   "name": "Dilaw na may itim na gilid",
+   "tags": [
+    "pamagat",
+    "sining",
+    "dilaw",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-arte-amarillo-rojo": {
+   "name": "Dilaw na may pulang gilid",
+   "tags": [
+    "pamagat",
+    "sining",
+    "dilaw",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-arte-naranja-espaciado": {
+   "name": "Orange na art na may lawak",
+   "tags": [
+    "pamagat",
+    "sining",
+    "orange",
+    "gradient",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-arte-rojo-3d": {
+   "name": "Pulang 3D art",
+   "tags": [
+    "pamagat",
+    "sining",
+    "pula",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-barrido-luz": {
+   "name": "Pag-sweep ng liwanag",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "kinang",
+    "sweep",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-basico-esquina": {
+   "name": "Batayan sa sulok",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "simple",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-bienvenida-azul": {
+   "name": "Asul na tech na pagbati",
+   "tags": [
+    "pamagat",
+    "pagbati",
+    "asul",
+    "teknolohiya",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-caja-violeta-barra": {
+   "name": "Lilang kahon",
+   "tags": [
+    "pamagat",
+    "kahon",
+    "lila",
+    "lower third",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-caricatura-3d": {
+   "name": "3D na cartoon",
+   "tags": [
+    "pamagat",
+    "cartoon",
+    "3d",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-caricatura-clasica": {
+   "name": "Klasikong cartoon",
+   "tags": [
+    "pamagat",
+    "cartoon",
+    "dilaw",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-cine-espaciado": {
+   "name": "Sinematikong may lawak",
+   "tags": [
+    "pamagat",
+    "sine",
+    "may lawak",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-comercial-caja": {
+   "name": "Pamagat na may kahong pang-komersyal",
+   "tags": [
+    "pamagat",
+    "komersyal",
+    "kahon",
+    "sports",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-credito-director": {
+   "name": "Credit ng direktor",
+   "tags": [
+    "pamagat",
+    "sine",
+    "direktor",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-cursiva-con-pie": {
+   "name": "Italic na may caption",
+   "tags": [
+    "pamagat",
+    "italic",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-destello-fuego": {
+   "name": "Kislap ng apoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-firma-luz-amarilla": {
+   "name": "Script na may dilaw na ilaw",
+   "tags": [
+    "pamagat",
+    "pirma",
+    "script",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-fuente-simple": {
+   "name": "Simpleng serif",
+   "tags": [
+    "pamagat",
+    "serif",
+    "simple",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-gracias-papel-rasgado": {
+   "name": "Salamat na punit na papel",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "papel",
+    "punit",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-gracias-resplandor": {
+   "name": "Kumikinang na salamat",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "ningning",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-haz-de-oro": {
+   "name": "Sinag na ginto",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "ningning",
+    "luho",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-humo-azul": {
+   "name": "Asul na usok",
+   "tags": [
+    "pamagat",
+    "usok",
+    "asul",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-latido": {
+   "name": "Tibok ng puso",
+   "tags": [
+    "pamagat",
+    "tibok",
+    "pag-ibig",
+    "pulso",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-llamada-caja-blanca": {
+   "name": "Puting kahon ng callout",
+   "tags": [
+    "pamagat",
+    "callout",
+    "kahon",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-marco-lima": {
+   "name": "Lime na frame",
+   "tags": [
+    "pamagat",
+    "frame",
+    "lime",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-mecanografiado-hoy": {
+   "name": "Naka-type na pamagat",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "pag-type",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-metal-3d-espada": {
+   "name": "3D na metal",
+   "tags": [
+    "pamagat",
+    "metal",
+    "3d",
+    "medieval",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-moda-caja-blanca": {
+   "name": "Puting bloke pang-fashion",
+   "tags": [
+    "pamagat",
+    "fashion",
+    "kahon",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-movimiento-simple": {
+   "name": "Simpleng galaw",
+   "tags": [
+    "pamagat",
+    "galaw",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-neon-arte-rosa": {
+   "name": "Matingkad na pink na neon",
+   "tags": [
+    "pamagat",
+    "neon",
+    "pink",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-onomatopeya": {
+   "name": "Comic na tunog ng salita",
+   "tags": [
+    "pamagat",
+    "comic",
+    "tunog",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-particulas-titulo": {
+   "name": "Pamagat na may particle",
+   "tags": [
+    "pamagat",
+    "particle",
+    "pink",
+    "may lawak",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-poster-cine-serif": {
+   "name": "Poster ng sinehan",
+   "tags": [
+    "pamagat",
+    "sine",
+    "poster",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-poster-clasico-apilado": {
+   "name": "Nakapatong na klasikong poster",
+   "tags": [
+    "pamagat",
+    "poster",
+    "sine",
+    "katatakutan",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-promo-oscura": {
+   "name": "Madilim na promo",
+   "tags": [
+    "pamagat",
+    "promo",
+    "sine",
+    "madilim",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-proximamente": {
+   "name": "Malapit na",
+   "tags": [
+    "pamagat",
+    "malapit na",
+    "premiere",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-resplandor-amarillo": {
+   "name": "Dilaw na ningning",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-resplandor-azul": {
+   "name": "Asul na ningning",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "asul",
+    "neon",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-serif-3d-gris": {
+   "name": "Matalim na 3D serif",
+   "tags": [
+    "pamagat",
+    "3d",
+    "serif",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-subtitulo-dinamico": {
+   "name": "Dinamikong caption",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "dinamiko",
+    "karaoke",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-subtitulo-negro-amarillo": {
+   "name": "Dilaw sa itim na caption",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "caption",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-suscribete-cinta-roja": {
+   "name": "Subscribe na pulang laso",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "pula",
+    "brush",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-suscribete-resplandor": {
+   "name": "Kumikinang na subscribe",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "ningning",
+    "lila",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-azul-borde": {
+   "name": "Asul na lower third na may gilid",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-barra-rosa": {
+   "name": "Lower third na pink na bar",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-borde-color": {
+   "name": "Lower third na may kulay na gilid",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "lila",
+    "berde",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-naranja-inclinado": {
+   "name": "Nakahilig na orange na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-negrita": {
+   "name": "Bold na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "bold",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tercio-tech": {
+   "name": "Tech na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "teknolohiya",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tienda-bloque": {
+   "name": "Bloke ng tindahan",
+   "tags": [
+    "pamagat",
+    "tindahan",
+    "bold",
+    "benta",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-tinta-pincel": {
+   "name": "Pamagat na tinta",
+   "tags": [
+    "pamagat",
+    "tinta",
+    "brush",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-titular-pincel-azul": {
+   "name": "Asul na headline na brush",
+   "tags": [
+    "pamagat",
+    "brush",
+    "asul",
+    "headline",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-titulo-caja-azul-brillo": {
+   "name": "Pamagat sa kumikinang na asul na kahon",
+   "tags": [
+    "pamagat",
+    "kahon",
+    "asul",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-titulo-cinta-amarilla": {
+   "name": "Pamagat na may dilaw na strip",
+   "tags": [
+    "pamagat",
+    "laso",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-b-titulo-con-epigrafe": {
+   "name": "Pamagat na may kicker",
+   "tags": [
+    "pamagat",
+    "simple",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-acuarela-naranja": {
+   "name": "Orange na watercolor",
+   "tags": [
+    "pamagat",
+    "watercolor",
+    "brush",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-ama-palabras": {
+   "name": "Mahal ang mga salita",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "quote",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-anos-dorados-3d": {
+   "name": "Gintong taon 3D",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-arte-amarillo-grueso": {
+   "name": "Makapal na dilaw na ART",
+   "tags": [
+    "pamagat",
+    "sining",
+    "dilaw",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-arte-azul-wordart": {
+   "name": "Asul na ART na may halo",
+   "tags": [
+    "pamagat",
+    "sining",
+    "asul",
+    "halo",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-borde": {
+   "name": "Pulang ART na may gilid",
+   "tags": [
+    "pamagat",
+    "sining",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-arte-rojo-italica": {
+   "name": "Pulang italic na ART",
+   "tags": [
+    "pamagat",
+    "sining",
+    "pula",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-arte-sombra-azul": {
+   "name": "Asul na anino ART",
+   "tags": [
+    "pamagat",
+    "sining",
+    "anino",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-barra-lateral": {
+   "name": "Pamagat na may side bar",
+   "tags": [
+    "pamagat",
+    "bar",
+    "kaliwa",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-basico-centro": {
+   "name": "Batayang nasa gitna",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "nasa gitna",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-basico-diminuto": {
+   "name": "Maliit na batayan",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "maliit",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-basico-inferior": {
+   "name": "Batayang nasa ibaba",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-basico-nota": {
+   "name": "Batayang tala",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "tala",
+    "maliit",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-brillo-epico": {
+   "name": "Epikong ningning",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "epiko",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-brillo-mono": {
+   "name": "Monong ningning",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "mono",
+    "pixel",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-brillo-respira": {
+   "name": "Ningning na humihinga",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "banayad",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-caida-suave": {
+   "name": "Banayad na pagbagsak",
+   "tags": [
+    "pamagat",
+    "pagbagsak",
+    "slideshow",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-caja-creativa-violeta": {
+   "name": "Malikhaing lilang kahon",
+   "tags": [
+    "pamagat",
+    "kahon",
+    "lila",
+    "malikhain",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-cinematico-metal": {
+   "name": "Metalikong sinematiko",
+   "tags": [
+    "pamagat",
+    "sine",
+    "metal",
+    "trailer",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-combustion": {
+   "name": "Pagkasunog",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "pagkasunog",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-comic-retro-3d": {
+   "name": "Retro comic 3D",
+   "tags": [
+    "pamagat",
+    "comic",
+    "retro",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-condensado-sub": {
+   "name": "Condensed na may subtitle",
+   "tags": [
+    "pamagat",
+    "condensed",
+    "subtitle",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-creditos-lista": {
+   "name": "Listahan ng credits",
+   "tags": [
+    "pamagat",
+    "credits",
+    "listahan",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-cursiva-elegante": {
+   "name": "Eleganteng italic",
+   "tags": [
+    "pamagat",
+    "italic",
+    "script",
+    "batayan",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-cursor-tecleo": {
+   "name": "Cursor ng pag-type",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "cursor",
+    "pag-type",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-deslizar-desenfoque": {
+   "name": "Dumudulas na blur",
+   "tags": [
+    "pamagat",
+    "dumulas",
+    "blur",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-destacados-basico": {
+   "name": "Batayang highlights",
+   "tags": [
+    "pamagat",
+    "highlights",
+    "batayan",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-dia-precioso": {
+   "name": "Nanginginig na magandang araw",
+   "tags": [
+    "pamagat",
+    "cute",
+    "lime",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-duelo-renovado": {
+   "name": "Panibagong tunggalian",
+   "tags": [
+    "pamagat",
+    "sports",
+    "tunggalian",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-dulce-rosa": {
+   "name": "Matamis na pink",
+   "tags": [
+    "pamagat",
+    "pagkain",
+    "matamis",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-efectos-juego": {
+   "name": "Pamagat na game effects",
+   "tags": [
+    "pamagat",
+    "laro",
+    "electric",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-escribir-serif": {
+   "name": "Serif na pag-type",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "serif",
+    "cursor",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-estrella-destello": {
+   "name": "Kislap ng bituin",
+   "tags": [
+    "pamagat",
+    "kislap",
+    "liwanag",
+    "dumulas",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-flujo-luz-3d": {
+   "name": "Agos ng liwanag 3D",
+   "tags": [
+    "pamagat",
+    "liwanag",
+    "pilak",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-gran-titulo-sub": {
+   "name": "Malaking pamagat na may subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-haz-luminoso-rojo": {
+   "name": "Pulang sinag ng liwanag",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "pula",
+    "sinag",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-invierno-hielo": {
+   "name": "Nagyeyelong taglamig",
+   "tags": [
+    "pamagat",
+    "taglamig",
+    "yelo",
+    "malamig",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-irradiar-rayos": {
+   "name": "Kumakalat na sinag",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "sinag",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-izquierda-inferior": {
+   "name": "Pamagat sa ibabang kaliwa",
+   "tags": [
+    "pamagat",
+    "kaliwa",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-luz-neon-blanca": {
+   "name": "Puting neon na ilaw",
+   "tags": [
+    "pamagat",
+    "neon",
+    "liwanag",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-momentos-clave": {
+   "name": "Mga highlight ng sports",
+   "tags": [
+    "pamagat",
+    "sports",
+    "event",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-nota-papel": {
+   "name": "Tala sa papel",
+   "tags": [
+    "pamagat",
+    "paglalakbay",
+    "tala",
+    "papel",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-nuevo-pop": {
+   "name": "Cute na pop na bago",
+   "tags": [
+    "pamagat",
+    "pop",
+    "bago",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-oferta-gigante": {
+   "name": "Higanteng pulang alok",
+   "tags": [
+    "pamagat",
+    "alok",
+    "diskwento",
+    "benta",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-paquete-galaxia": {
+   "name": "Galaxy pack",
+   "tags": [
+    "pamagat",
+    "galaxy",
+    "kalawakan",
+    "may lawak",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-particulas-disueltas": {
+   "name": "Natutunaw na particle",
+   "tags": [
+    "pamagat",
+    "particle",
+    "alikabok",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-particulas-doradas": {
+   "name": "Eleganteng gintong particle",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "particle",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-pop-lindo": {
+   "name": "Cute na pop",
+   "tags": [
+    "pamagat",
+    "pop",
+    "cute",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-predeterminado": {
+   "name": "Default na pamagat",
+   "tags": [
+    "pamagat",
+    "default",
+    "simple",
+    "batayan",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-pregunta-comic": {
+   "name": "Comic na tanong",
+   "tags": [
+    "pamagat",
+    "comic",
+    "tanong",
+    "laro",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-presentacion-contorno": {
+   "name": "Slideshow na may balangkas",
+   "tags": [
+    "pamagat",
+    "balangkas",
+    "slideshow",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-promo-oscura": {
+   "name": "Madilim na promo",
+   "tags": [
+    "pamagat",
+    "promo",
+    "sine",
+    "trailer",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-retro-metal-rojo": {
+   "name": "Pulang metal na retro",
+   "tags": [
+    "pamagat",
+    "retro",
+    "metal",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-script-blanco": {
+   "name": "Puting script",
+   "tags": [
+    "pamagat",
+    "script",
+    "puti",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-script-firma": {
+   "name": "Script na pirma",
+   "tags": [
+    "pamagat",
+    "pirma",
+    "script",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-serif-clasica": {
+   "name": "Klasikong serif",
+   "tags": [
+    "pamagat",
+    "serif",
+    "klasiko",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-subtitulo-amarillo-fino": {
+   "name": "Manipis na dilaw na subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "dilaw",
+    "caption",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-subtitulo-blanco-centro": {
+   "name": "Puting subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "puti",
+    "caption",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-subtitulo-caja-negra": {
+   "name": "Subtitle sa itim na kahon",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "kahon",
+    "itim",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-subtitulo-lima": {
+   "name": "Lime na subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "lime",
+    "caption",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-suenos-infinitos": {
+   "name": "Walang katapusang pangarap",
+   "tags": [
+    "pamagat",
+    "pula",
+    "pangarap",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tecleo-amarillo": {
+   "name": "Dilaw na pag-type",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "pag-type",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tecleo-caja-blanca": {
+   "name": "Pag-type sa puting kahon",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "kahon",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tecleo-mano": {
+   "name": "Pag-type ng kamay",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "pag-type",
+    "kamay",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tecleo-serif": {
+   "name": "Pamagat na serif na pag-type",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tercio-azul-inclinado": {
+   "name": "Nakahilig na asul na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tercio-pastilla-amarilla": {
+   "name": "Dilaw na pill na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "pill",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tercio-promo-violeta": {
+   "name": "Lilang promo na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "promo",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-tercio-turquesa": {
+   "name": "Turquoise na lower third",
+   "tags": [
+    "pamagat",
+    "lower third",
+    "turquoise",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titular-deportivo": {
+   "name": "Dilaw na headline pang-sports",
+   "tags": [
+    "pamagat",
+    "sports",
+    "headline",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulares-hoy": {
+   "name": "Mga headline ngayon",
+   "tags": [
+    "pamagat",
+    "balita",
+    "headlines",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-bokeh": {
+   "name": "Pamagat na kislap",
+   "tags": [
+    "pamagat",
+    "kislap",
+    "apoy",
+    "bokeh",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-brasas": {
+   "name": "Pamagat na baga",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "baga",
+    "particle",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-chispas-doradas": {
+   "name": "Pamagat na gintong kislap",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "kislap",
+    "particle",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-en-recuadro": {
+   "name": "Pamagat na may kahong balangkas",
+   "tags": [
+    "pamagat",
+    "kahon",
+    "frame",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-esquinas": {
+   "name": "Pamagat sa asul na frame",
+   "tags": [
+    "pamagat",
+    "frame",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-grande-sub": {
+   "name": "Malaking pamagat at subtitle",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio": {
+   "name": "Malinis na pamagat",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "malinis",
+    "simple",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-limpio-medio": {
+   "name": "Katamtamang malinis na pamagat",
+   "tags": [
+    "pamagat",
+    "batayan",
+    "malinis",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulo-subrayado-curvo": {
+   "name": "Pamagat na may kurbadong guhit",
+   "tags": [
+    "pamagat",
+    "script",
+    "salungguhit",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulos-liquidos": {
+   "name": "Likidong mga pamagat",
+   "tags": [
+    "pamagat",
+    "likido",
+    "pink",
+    "particle",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-titulos-veloces": {
+   "name": "Mabilis na mga pamagat",
+   "tags": [
+    "pamagat",
+    "sports",
+    "bilis",
+    "epiko",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-ultima-hora": {
+   "name": "Breaking news",
+   "tags": [
+    "pamagat",
+    "balita",
+    "breaking news",
+    "breaking",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-uy-explosivo": {
+   "name": "Sumasabog na Uy",
+   "tags": [
+    "pamagat",
+    "comic",
+    "bulalas",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-vlog-diario": {
+   "name": "Pang-araw-araw na vlog",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "script",
+    "diary",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-vlog-semanal-pincel": {
+   "name": "Lingguhang vlog na brush",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "brush",
+    "kamay",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-vlog-viajes-rojo": {
+   "name": "Pulang travel vlog",
+   "tags": [
+    "pamagat",
+    "paglalakbay",
+    "vlog",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-c-zoom-desenfoque": {
+   "name": "Blur na zoom",
+   "tags": [
+    "pamagat",
+    "zoom",
+    "slideshow",
+    "blur",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-amarillo-negro": {
+   "name": "Dilaw na may itim na balangkas",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "balangkas",
+    "sticker",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-amor-amarillo": {
+   "name": "Dilaw na sinta",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "dilaw",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-amor-rosa": {
+   "name": "Kumikinang na pink na pag-ibig",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-arreglate-conmigo": {
+   "name": "Magbihis tayo nang sabay",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "lila",
+    "kagandahan",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-brasas": {
+   "name": "Pulang baga",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "baga",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-buena-jugada": {
+   "name": "Magandang galaw",
+   "tags": [
+    "pamagat",
+    "sports",
+    "condensed",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-buenas-vibras": {
+   "name": "Good vibes lang",
+   "tags": [
+    "pamagat",
+    "vibes",
+    "retro",
+    "positibo",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-burbuja-pop": {
+   "name": "Pop na bubble letters",
+   "tags": [
+    "pamagat",
+    "bubble",
+    "pop",
+    "kawaii",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-burbuja-violeta": {
+   "name": "Lila at asul na bubble",
+   "tags": [
+    "pamagat",
+    "bubble",
+    "lila",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-caja-rosa-firma": {
+   "name": "Pirma sa pink na kahon",
+   "tags": [
+    "pamagat",
+    "pink",
+    "kahon",
+    "pirma",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-calavera-blanca": {
+   "name": "Pilyong puti",
+   "tags": [
+    "pamagat",
+    "masaya",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-caliente": {
+   "name": "Mainit",
+   "tags": [
+    "pamagat",
+    "puti",
+    "impact",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-calle-3d": {
+   "name": "Kalye 3D",
+   "tags": [
+    "pamagat",
+    "urban",
+    "3d",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-damas-neon": {
+   "name": "Pink na neon ladies",
+   "tags": [
+    "pamagat",
+    "neon",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-degradado-azul": {
+   "name": "Malaking asul na gradient",
+   "tags": [
+    "pamagat",
+    "asul",
+    "gradient",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-destellos-cian": {
+   "name": "Cyan na kislap",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "cyan",
+    "bituin",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-editorial": {
+   "name": "Pulang editoryal",
+   "tags": [
+    "pamagat",
+    "editoryal",
+    "magasin",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-elite": {
+   "name": "Elite",
+   "tags": [
+    "pamagat",
+    "elite",
+    "minimal",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-etiqueta-naranja": {
+   "name": "Orange na tag",
+   "tags": [
+    "pamagat",
+    "tag",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-fantasma-neon": {
+   "name": "Neon na multo",
+   "tags": [
+    "pamagat",
+    "neon",
+    "asul",
+    "multo",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-flechas-dulces": {
+   "name": "Dilaw na may asul na balangkas",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "asul",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-flechazo": {
+   "name": "Crush",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pula",
+    "anino",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-fuego-script": {
+   "name": "Script na tanda ng apoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "neon",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-gatito-rosa": {
+   "name": "Malikot na pink",
+   "tags": [
+    "pamagat",
+    "pusa",
+    "pink",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-humo-rojo": {
+   "name": "Kahon na pulang usok",
+   "tags": [
+    "pamagat",
+    "usok",
+    "pula",
+    "alerto",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-je-taime": {
+   "name": "Kupas na pink na pagsinta",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-llego-otono": {
+   "name": "Narito na ang taglagas",
+   "tags": [
+    "pamagat",
+    "taglagas",
+    "comic",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-menu-otono": {
+   "name": "Menu ng taglagas",
+   "tags": [
+    "pamagat",
+    "taglagas",
+    "menu",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-mini-te-amo": {
+   "name": "Maliit na I love you",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-modo-oscuro": {
+   "name": "Dark mode na cutout",
+   "tags": [
+    "pamagat",
+    "sticker",
+    "ginupit",
+    "itim at puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-momentos-mancha": {
+   "name": "Mga sandali sa orange na mantsa",
+   "tags": [
+    "pamagat",
+    "mantsa",
+    "orange",
+    "sandali",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-montaje": {
+   "name": "Montage",
+   "tags": [
+    "pamagat",
+    "montage",
+    "minimal",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-natural": {
+   "name": "Natural",
+   "tags": [
+    "pamagat",
+    "natural",
+    "berde",
+    "echo",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-neon-azul-onda": {
+   "name": "Electric blue na neon",
+   "tags": [
+    "pamagat",
+    "neon",
+    "asul",
+    "electric",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-noche-naranja": {
+   "name": "Gintong gabi",
+   "tags": [
+    "pamagat",
+    "orange",
+    "gradient",
+    "gabi",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-noches-misterio": {
+   "name": "Mahiwagang gabi",
+   "tags": [
+    "pamagat",
+    "gabi",
+    "misteryo",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-nota-papel": {
+   "name": "Lumang tala sa papel",
+   "tags": [
+    "pamagat",
+    "papel",
+    "tala",
+    "vintage",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-nota-pinzada": {
+   "name": "Tala na nakadikit",
+   "tags": [
+    "pamagat",
+    "tala",
+    "diary",
+    "laso",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-oro-chispas": {
+   "name": "Gintong kislap",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "ningning",
+    "selebrasyon",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-paso-audaz": {
+   "name": "Matapang na hakbang",
+   "tags": [
+    "pamagat",
+    "kahon",
+    "pula",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-pastilla-azul-neon": {
+   "name": "Kumikinang na asul na pill",
+   "tags": [
+    "pamagat",
+    "pill",
+    "asul",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-pastilla-corazones": {
+   "name": "Puting pill na may puso",
+   "tags": [
+    "pamagat",
+    "puso",
+    "pill",
+    "pag-ibig",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-piel-cristal": {
+   "name": "Glass skin",
+   "tags": [
+    "pamagat",
+    "kagandahan",
+    "salamin",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-play-rojo": {
+   "name": "Pula na may puting balangkas",
+   "tags": [
+    "pamagat",
+    "pula",
+    "laro",
+    "play",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-por-fin": {
+   "name": "Sa wakas",
+   "tags": [
+    "pamagat",
+    "minimal",
+    "puti",
+    "sa wakas",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-precioso": {
+   "name": "Magandang pink",
+   "tags": [
+    "pamagat",
+    "pink",
+    "script",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-pregunta-rosa": {
+   "name": "Tanong na may pink na balangkas",
+   "tags": [
+    "pamagat",
+    "tanong",
+    "pink",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-rojo-sticker": {
+   "name": "Pulang sticker",
+   "tags": [
+    "pamagat",
+    "sticker",
+    "pula",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-script-fino": {
+   "name": "Manipis na pang-araw-araw na script",
+   "tags": [
+    "pamagat",
+    "script",
+    "manipis",
+    "kaligrapiya",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-sello-marco": {
+   "name": "Selyong may frame",
+   "tags": [
+    "pamagat",
+    "selyo",
+    "frame",
+    "vintage",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-sombra-humo": {
+   "name": "Puti na may usok na anino",
+   "tags": [
+    "pamagat",
+    "anino",
+    "usok",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-suscribete-mini": {
+   "name": "Tahimik na subscribe",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-te-amo-rosa-fuerte": {
+   "name": "Matingkad na pink na I love you",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "puso",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-te-quiero-rojo": {
+   "name": "Matingkad na pulang pag-ibig",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pula",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-te-quiero-serif": {
+   "name": "Romantikong I love you",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "romantiko",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-terciopelo": {
+   "name": "Gintong pelus",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "script",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-vlog-diario": {
+   "name": "Pang-araw-araw na vlog",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "diary",
+    "pagkain",
+    "trending"
+   ]
+  },
+  "text-style:tend-d-vuelta-clases": {
+   "name": "Balik-eskwela",
+   "tags": [
+    "pamagat",
+    "paaralan",
+    "balangkas",
+    "guwang",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-absoluto-hueco": {
+   "name": "Lilang balangkas",
+   "tags": [
+    "pamagat",
+    "balangkas",
+    "guwang",
+    "lila",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-adios-largo": {
+   "name": "Mahabang paalam",
+   "tags": [
+    "pamagat",
+    "paalam",
+    "wakas",
+    "meme",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-agotado-gastado": {
+   "name": "Kupas na ubos na",
+   "tags": [
+    "pamagat",
+    "ubos",
+    "pula",
+    "tindahan",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-amor-burbuja": {
+   "name": "Pink na kumikinang na pag-ibig",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "valentine",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-aprobado": {
+   "name": "Aprubado na may check",
+   "tags": [
+    "pamagat",
+    "aprubado",
+    "check",
+    "berde",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-atardecer-rgb": {
+   "name": "Lunting-asul na offset",
+   "tags": [
+    "pamagat",
+    "rgb",
+    "berde",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-besos-rojo": {
+   "name": "Pulang halik",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pula",
+    "labi",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-boton-compartir": {
+   "name": "Share button",
+   "tags": [
+    "pamagat",
+    "button",
+    "social media",
+    "share",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-boton-me-gusta": {
+   "name": "Like button",
+   "tags": [
+    "pamagat",
+    "button",
+    "social media",
+    "like",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-boton-seguir": {
+   "name": "Follow button",
+   "tags": [
+    "pamagat",
+    "button",
+    "social media",
+    "follow",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-bruma-violeta": {
+   "name": "Lilang ulap",
+   "tags": [
+    "pamagat",
+    "lila",
+    "mahiwaga",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-cinematico-chico": {
+   "name": "Maliit na sinematiko",
+   "tags": [
+    "pamagat",
+    "sine",
+    "minimal",
+    "may lawak",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-cinematico-sub": {
+   "name": "Sinematiko na may subtitle",
+   "tags": [
+    "pamagat",
+    "sine",
+    "vlog",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-comic-tendencia": {
+   "name": "Dilaw na 3D comic",
+   "tags": [
+    "pamagat",
+    "comic",
+    "3d",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-creditos": {
+   "name": "Pangwakas na credits",
+   "tags": [
+    "pamagat",
+    "credits",
+    "sine",
+    "wakas",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-degradado-azul": {
+   "name": "Asul na gradient",
+   "tags": [
+    "pamagat",
+    "gradient",
+    "asul",
+    "banayad",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-disfruta-vida": {
+   "name": "I-enjoy ang buhay",
+   "tags": [
+    "pamagat",
+    "quote",
+    "elegante",
+    "serif",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-doble-contorno-neon": {
+   "name": "Pink-asul na dobleng balangkas",
+   "tags": [
+    "pamagat",
+    "neon",
+    "balangkas",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-empieza-fuego": {
+   "name": "Pula at dilaw na italic",
+   "tags": [
+    "pamagat",
+    "comic",
+    "aksyon",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-espacio-italico": {
+   "name": "Italic na serif",
+   "tags": [
+    "pamagat",
+    "elegante",
+    "serif",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-frase-tarjeta": {
+   "name": "Quote sa puting card",
+   "tags": [
+    "pamagat",
+    "quote",
+    "motibasyon",
+    "card",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-fuego-circulo": {
+   "name": "Apoy sa neon na singsing",
+   "tags": [
+    "pamagat",
+    "neon",
+    "apoy",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-gracias-por-ver": {
+   "name": "Salamat sa panonood",
+   "tags": [
+    "pamagat",
+    "wakas",
+    "pagsasara",
+    "pixel",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-guau-comic": {
+   "name": "Comic na wow",
+   "tags": [
+    "pamagat",
+    "comic",
+    "sorpresa",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-habla-profunda": {
+   "name": "Serif na may pulang echo",
+   "tags": [
+    "pamagat",
+    "serif",
+    "podcast",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-hola-hola": {
+   "name": "Hello hello",
+   "tags": [
+    "pamagat",
+    "bati",
+    "meme",
+    "caption",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-humo-blanco": {
+   "name": "Puting usok",
+   "tags": [
+    "pamagat",
+    "usok",
+    "hamog",
+    "banayad",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-labial-fino": {
+   "name": "Manipis na serif na may lawak",
+   "tags": [
+    "pamagat",
+    "kagandahan",
+    "elegante",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-letras-fuego": {
+   "name": "Mga letrang apoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-maquillaje-dos": {
+   "name": "Makeup na dalawang font",
+   "tags": [
+    "pamagat",
+    "makeup",
+    "kagandahan",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-marcador-pregunta": {
+   "name": "Dilaw na highlighter",
+   "tags": [
+    "pamagat",
+    "tanong",
+    "highlighter",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-me-gusta-rosa": {
+   "name": "Pink na bubble",
+   "tags": [
+    "pamagat",
+    "pink",
+    "cute",
+    "kawaii",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-meta-bruma": {
+   "name": "Malabong serif",
+   "tags": [
+    "pamagat",
+    "serif",
+    "ulap",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-miel-serif": {
+   "name": "Malambot na berdeng serif",
+   "tags": [
+    "pamagat",
+    "serif",
+    "berde",
+    "banayad",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-mini-vlog": {
+   "name": "Mini vlog na bubble",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "cute",
+    "bubble",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-naranja-bold": {
+   "name": "Bold na orange",
+   "tags": [
+    "pamagat",
+    "orange",
+    "channel",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-neon-celeste-pincel": {
+   "name": "Cyan na neon na iginuhit",
+   "tags": [
+    "pamagat",
+    "neon",
+    "asul",
+    "gabi",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-neon-rojo-letra": {
+   "name": "Pulang neon na script",
+   "tags": [
+    "pamagat",
+    "neon",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-nueva-era": {
+   "name": "Malapad na bagong panahon",
+   "tags": [
+    "pamagat",
+    "minimal",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-oh-no": {
+   "name": "Naku",
+   "tags": [
+    "pamagat",
+    "meme",
+    "reaksyon",
+    "caption",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-opulento": {
+   "name": "Seryosong luho",
+   "tags": [
+    "pamagat",
+    "luho",
+    "minimal",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-opulento-espaciado": {
+   "name": "Malalaking letrang may lawak",
+   "tags": [
+    "pamagat",
+    "luho",
+    "minimal",
+    "may lawak",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-otono-acogedor": {
+   "name": "Maaliwalas na taglagas",
+   "tags": [
+    "pamagat",
+    "taglagas",
+    "kape",
+    "maaliwalas",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-papel-rasgado": {
+   "name": "Punit na papel",
+   "tags": [
+    "pamagat",
+    "papel",
+    "vintage",
+    "litrato",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-pastilla-corazones": {
+   "name": "Pill na may puso",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pink",
+    "cute",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-preparate-conmigo": {
+   "name": "Mga salitang label",
+   "tags": [
+    "pamagat",
+    "grwm",
+    "vlog",
+    "label",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-querido-diario": {
+   "name": "Mahal kong diary",
+   "tags": [
+    "pamagat",
+    "diary",
+    "vlog",
+    "sticker",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-rebajas-ya": {
+   "name": "Sale sa dilaw na kahon",
+   "tags": [
+    "pamagat",
+    "alok",
+    "sale",
+    "tindahan",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-recortes-color": {
+   "name": "Makukulay na ginupit na letra",
+   "tags": [
+    "pamagat",
+    "collage",
+    "makulay",
+    "litrato",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-resplandor-italico": {
+   "name": "Kumikinang na italic",
+   "tags": [
+    "pamagat",
+    "ningning",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-rutina-script": {
+   "name": "Script ng routine",
+   "tags": [
+    "pamagat",
+    "makeup",
+    "script",
+    "elegante",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-salpicadura": {
+   "name": "Talsik ng tubig",
+   "tags": [
+    "pamagat",
+    "tubig",
+    "tag-init",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-sigueme-barra": {
+   "name": "Sundan mo ako na pulang bar",
+   "tags": [
+    "pamagat",
+    "follow",
+    "social media",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-sin-prisa": {
+   "name": "Walang minamadali",
+   "tags": [
+    "pamagat",
+    "quote",
+    "kalma",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-subrayado-blanco": {
+   "name": "Puting salungguhit",
+   "tags": [
+    "pamagat",
+    "quote",
+    "minimal",
+    "salungguhit",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-suscribete-neon": {
+   "name": "Pulang neon na subscribe",
+   "tags": [
+    "pamagat",
+    "neon",
+    "pula",
+    "channel",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-terror-goteo": {
+   "name": "Pulang katatakutan",
+   "tags": [
+    "pamagat",
+    "katatakutan",
+    "pula",
+    "takot",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-titulo-recorte": {
+   "name": "Sticker na letra",
+   "tags": [
+    "pamagat",
+    "sticker",
+    "makulay",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-un-viaje": {
+   "name": "Naka-type na paglalakbay",
+   "tags": [
+    "pamagat",
+    "typewriter",
+    "paglalakbay",
+    "kuwento",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-usuario-etiqueta": {
+   "name": "Tag ng username",
+   "tags": [
+    "pamagat",
+    "username",
+    "social media",
+    "tag",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-vamos": {
+   "name": "Malinis na Tara na",
+   "tags": [
+    "pamagat",
+    "minimal",
+    "aksyon",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-vamos-llamas-azules": {
+   "name": "Asul na apoy",
+   "tags": [
+    "pamagat",
+    "asul",
+    "apoy",
+    "enerhiya",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-verde-lima": {
+   "name": "Lime na balangkas",
+   "tags": [
+    "pamagat",
+    "berde",
+    "dilaw",
+    "laro",
+    "trending"
+   ]
+  },
+  "text-style:tend-e-yupi": {
+   "name": "Puting caption na sigaw",
+   "tags": [
+    "pamagat",
+    "meme",
+    "pusa",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-a-por-todas": {
+   "name": "Orange na sugod lang",
+   "tags": [
+    "pamagat",
+    "orange",
+    "sigla",
+    "motibasyon",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-amar-neon": {
+   "name": "Pink na neon na pag-ibig",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "neon",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-amor-eco-rojo": {
+   "name": "Pulang echo na pag-ibig",
+   "tags": [
+    "pamagat",
+    "pag-ibig",
+    "pula",
+    "3d",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-angel-plata": {
+   "name": "Pilak na anghel",
+   "tags": [
+    "pamagat",
+    "anghel",
+    "pilak",
+    "pakpak",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-aura-llamas": {
+   "name": "Aura na nag-aapoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "aura",
+    "script",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-bam-comic": {
+   "name": "Comic na BAM",
+   "tags": [
+    "pamagat",
+    "comic",
+    "bam",
+    "suntok",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-calle-neon-verde": {
+   "name": "Berdeng neon na kalye",
+   "tags": [
+    "pamagat",
+    "neon",
+    "berde",
+    "kalye",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-cinematico": {
+   "name": "Sinematikong may lawak",
+   "tags": [
+    "pamagat",
+    "sine",
+    "sinematiko",
+    "pelikula",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-cinta-roja": {
+   "name": "Makintab na pulang banda",
+   "tags": [
+    "pamagat",
+    "laso",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-cita-subrayada": {
+   "name": "Quote sa kahon na may guhit",
+   "tags": [
+    "pamagat",
+    "quote",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-creativo-brillo": {
+   "name": "Kumikinang na malikhain",
+   "tags": [
+    "pamagat",
+    "malikhain",
+    "ningning",
+    "liwanag",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-cumple-colores": {
+   "name": "Makulay na kaarawan",
+   "tags": [
+    "pamagat",
+    "kaarawan",
+    "party",
+    "makulay",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-destacados-chispas": {
+   "name": "Highlights na kislap",
+   "tags": [
+    "pamagat",
+    "highlights",
+    "kislap",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-diario-kraft": {
+   "name": "Kraft na journal",
+   "tags": [
+    "pamagat",
+    "diary",
+    "papel",
+    "kraft",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-dorado-cursiva": {
+   "name": "Gintong italic",
+   "tags": [
+    "pamagat",
+    "ginto",
+    "luho",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-eh-comic": {
+   "name": "Comic na huh",
+   "tags": [
+    "pamagat",
+    "comic",
+    "sorpresa",
+    "reaksyon",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-electrico-hielo": {
+   "name": "Electric na yelo",
+   "tags": [
+    "pamagat",
+    "electric",
+    "yelo",
+    "asul",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-en-llamas-rojo": {
+   "name": "Pulang nag-aapoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-energia-caja-brillo": {
+   "name": "Kumikinang na kahon ng enerhiya",
+   "tags": [
+    "pamagat",
+    "enerhiya",
+    "pula",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-estetico": {
+   "name": "Manipis na aesthetic",
+   "tags": [
+    "pamagat",
+    "aesthetic",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-felices-fiestas": {
+   "name": "Maligayang pista opisyal",
+   "tags": [
+    "pamagat",
+    "pasko",
+    "pista opisyal",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-fin-brillo": {
+   "name": "Kumikinang na wakas",
+   "tags": [
+    "pamagat",
+    "wakas",
+    "sine",
+    "ningning",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-fin-capitulo": {
+   "name": "Wakas ng kabanata",
+   "tags": [
+    "pamagat",
+    "kabanata",
+    "wakas",
+    "vlog",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-final-fuego": {
+   "name": "Wakas na nag-aapoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "wakas",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-flor-fuego": {
+   "name": "Salitang baga",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "baga",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-frase-rasgada": {
+   "name": "Quote na punit na papel",
+   "tags": [
+    "pamagat",
+    "quote",
+    "motibasyon",
+    "papel",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-fuego-azul-neon": {
+   "name": "Asul na neon na apoy",
+   "tags": [
+    "pamagat",
+    "neon",
+    "asul",
+    "bilis",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-fuerte-neon-azul": {
+   "name": "Malakas na asul na neon",
+   "tags": [
+    "pamagat",
+    "neon",
+    "asul",
+    "malakas",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-ganador-neon": {
+   "name": "Pink na neon na panalo",
+   "tags": [
+    "pamagat",
+    "panalo",
+    "neon",
+    "pink",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-generacion-creativa": {
+   "name": "Malikhaing henerasyon",
+   "tags": [
+    "pamagat",
+    "elegante",
+    "serif",
+    "dokumentaryo",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-gracias-burbuja": {
+   "name": "Salamat na speech bubble",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "bubble",
+    "usapan",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa": {
+   "name": "Pink na salamat",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "pink",
+    "sticker",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-gracias-rosa-cajas": {
+   "name": "Salamat sa pink na kahon",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "pink",
+    "puso",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-gracias-tiras": {
+   "name": "Salamat na piraso ng papel",
+   "tags": [
+    "pamagat",
+    "salamat",
+    "papel",
+    "pagsasara",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-gran-promocion": {
+   "name": "Malaking promosyon",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "promosyon",
+    "alok",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-guau-estallido": {
+   "name": "Wow na starburst",
+   "tags": [
+    "pamagat",
+    "comic",
+    "wow",
+    "pagsabog",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-historia-boceto": {
+   "name": "Kuwentong sketch",
+   "tags": [
+    "pamagat",
+    "sketch",
+    "doodle",
+    "guhit-guhit",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-historia-comienza": {
+   "name": "Nagsisimula ang kuwento",
+   "tags": [
+    "pamagat",
+    "kuwento",
+    "grunge",
+    "typewriter",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-historia-hoy": {
+   "name": "Makulay na kuwento ngayon",
+   "tags": [
+    "pamagat",
+    "makulay",
+    "kuwento",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-mi-historia-etiqueta": {
+   "name": "Tag ng aking kuwento",
+   "tags": [
+    "pamagat",
+    "tag",
+    "kuwento",
+    "vlog",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-mira-esto": {
+   "name": "Tingnan mo ito, sulat-kamay",
+   "tags": [
+    "pamagat",
+    "palaso",
+    "teksto",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-momento-escena": {
+   "name": "Sandali sa mga puting kahon",
+   "tags": [
+    "pamagat",
+    "eksena",
+    "kahon",
+    "sine",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-momentos-fino": {
+   "name": "Manipis na mga sandali",
+   "tags": [
+    "pamagat",
+    "sandali",
+    "script",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-noticias-corchete": {
+   "name": "Balita na asul na bracket",
+   "tags": [
+    "pamagat",
+    "balita",
+    "lower third",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-nube-contorno": {
+   "name": "Ulap na may balangkas",
+   "tags": [
+    "pamagat",
+    "ulap",
+    "puti",
+    "balangkas",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-oferta-roja": {
+   "name": "Pulang kahon ng sale",
+   "tags": [
+    "pamagat",
+    "alok",
+    "sale",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-papel-rasgado": {
+   "name": "Punit na papel",
+   "tags": [
+    "pamagat",
+    "papel",
+    "punit",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-pelea-cromo": {
+   "name": "Chrome na laban",
+   "tags": [
+    "pamagat",
+    "chrome",
+    "laban",
+    "metal",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-perfecto-verde": {
+   "name": "Berdeng perpekto",
+   "tags": [
+    "pamagat",
+    "perpekto",
+    "berde",
+    "gaming",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-poema-serif": {
+   "name": "Serif na tula",
+   "tags": [
+    "pamagat",
+    "tula",
+    "pag-ibig",
+    "quote",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-pregunta-cajas": {
+   "name": "Mga kahon ng tanong",
+   "tags": [
+    "pamagat",
+    "tanong",
+    "komento",
+    "kahon",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-promo-velocidad": {
+   "name": "Promo na mabilis",
+   "tags": [
+    "pamagat",
+    "promo",
+    "bilis",
+    "chrome",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-redes-pastillas": {
+   "name": "Mga pill ng social",
+   "tags": [
+    "pamagat",
+    "social media",
+    "follow",
+    "like",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-ronda-neon": {
+   "name": "Teal na neon na bilog",
+   "tags": [
+    "pamagat",
+    "neon",
+    "bilog",
+    "gaming",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-serif-halo": {
+   "name": "Serif na may halo",
+   "tags": [
+    "pamagat",
+    "serif",
+    "halo",
+    "klasiko",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-sigue-adelante": {
+   "name": "Tuloy lang, malapad",
+   "tags": [
+    "pamagat",
+    "motibasyon",
+    "minimal",
+    "puti",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-simple-rosa": {
+   "name": "Simpleng namumugtong pink",
+   "tags": [
+    "pamagat",
+    "pink",
+    "namumugto",
+    "masaya",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-subtitulo-naranja": {
+   "name": "Caption na orange na bracket",
+   "tags": [
+    "pamagat",
+    "subtitle",
+    "kahon",
+    "orange",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-suscribete-caja": {
+   "name": "Pulang kahon ng subscribe",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "social media",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-suscribete-pastilla": {
+   "name": "Subscribe na pill",
+   "tags": [
+    "pamagat",
+    "subscribe",
+    "pill",
+    "social media",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-tendencia-circulo": {
+   "name": "Trendy na bilog",
+   "tags": [
+    "pamagat",
+    "uso",
+    "bilog",
+    "pula",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-texto-barra-amarilla": {
+   "name": "Teksto sa dilaw na bar",
+   "tags": [
+    "pamagat",
+    "simple",
+    "kahon",
+    "dilaw",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-titulo-cancion": {
+   "name": "Pamagat ng kanta",
+   "tags": [
+    "pamagat",
+    "musika",
+    "kanta",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-titulo-onda": {
+   "name": "Pamagat na waveform",
+   "tags": [
+    "pamagat",
+    "musika",
+    "audio",
+    "minimal",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-toca-aqui": {
+   "name": "Pindutin dito",
+   "tags": [
+    "pamagat",
+    "pindutin",
+    "callout",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-trofeo-pastilla": {
+   "name": "Lilang pill ng tropeo",
+   "tags": [
+    "pamagat",
+    "tropeo",
+    "lila",
+    "pill",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-ubicacion": {
+   "name": "Pin ng lokasyon",
+   "tags": [
+    "pamagat",
+    "lokasyon",
+    "paglalakbay",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-amarillo": {
+   "name": "Breaking na dilaw na bar",
+   "tags": [
+    "pamagat",
+    "balita",
+    "breaking news",
+    "breaking",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-ultima-hora-tercio": {
+   "name": "Breaking na lower third",
+   "tags": [
+    "pamagat",
+    "balita",
+    "lower third",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-vamos-fuego": {
+   "name": "Tara na, nag-aapoy",
+   "tags": [
+    "pamagat",
+    "apoy",
+    "tara na",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-verano-pincel": {
+   "name": "Dilaw na brush na tag-init",
+   "tags": [
+    "pamagat",
+    "tag-init",
+    "dilaw",
+    "brush",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-vida-tira": {
+   "name": "Strip ng update sa buhay",
+   "tags": [
+    "pamagat",
+    "vlog",
+    "papel",
+    "buhay",
+    "trending"
+   ]
+  },
+  "text-style:tend-f-viral-explosion": {
+   "name": "Pagsabog ng viral",
+   "tags": [
+    "pamagat",
+    "comic",
+    "viral",
+    "pagsabog",
+    "trending"
    ]
   },
   "text-style:ter-a-mano": {

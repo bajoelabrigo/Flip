@@ -17,6 +17,7 @@ account key the run may refresh). The animation presets reach the app through DR
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import os
 import re
@@ -35,7 +36,14 @@ import anims_a  # noqa: E402
 import anims_b  # noqa: E402
 import styles_a  # noqa: E402
 import styles_b  # noqa: E402
-from kit import ROOT, Style, accent, argb, available_fonts, fill, glow, grad, neon_stack, shadow, stroke  # noqa: E402
+from trends_kit import check_slots  # noqa: E402
+import trends_1  # noqa: E402
+import trends_2  # noqa: E402
+import trends_3  # noqa: E402
+import trends_4  # noqa: E402
+import trends_5  # noqa: E402
+import trends_6  # noqa: E402
+from kit import ADDONS, ROOT, Style, accent, argb, available_fonts, fill, glow, grad, neon_stack, shadow, stroke  # noqa: E402
 
 OUT = ROOT / "tienda" / "textos"
 APPDATA = Path(os.environ["APPDATA"]) / "Flip Studio" / "Flip Studio"
@@ -49,12 +57,14 @@ THUMB = 384
 PREVIEW = 360
 US = 1_000_000
 
-STYLES: list[Style] = styles_a.STYLES + styles_b.STYLES
+TRENDS: list[Style] = trends_1.STYLES + trends_2.STYLES + trends_3.STYLES + trends_4.STYLES + trends_5.STYLES + trends_6.STYLES
+STYLES: list[Style] = TRENDS + styles_a.STYLES + styles_b.STYLES
 ANIMS = anims_a.ANIMS + anims_b.ANIMS
 for _i, _a in enumerate(ANIMS):
     _a.order = _i  # gallery order inside the app: the order of the design files
 
 STYLE_CATEGORIES = {
+    "tendencias": {"es": "Tendencias", "en": "Trending"},
     "subtitulos": {"es": "Subtítulos virales", "en": "Viral captions"},
     "titulos": {"es": "Títulos", "en": "Titles"},
     "llamadas": {"es": "Llamadas a la acción", "en": "Calls to action"},
@@ -155,19 +165,80 @@ def project(text: str, style: dict, seconds: float, colors: tuple[str, str], mar
 
 # --- styles -------------------------------------------------------------------------------------
 
+def font_file(family: str, weight: int, italic: bool) -> Path | None:
+    for f in ADDONS.glob("fonts.*/fonts/*/family.json"):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d["family"] != family:
+            continue
+        face = min(d["faces"], key=lambda x: (bool(x["italic"]) != italic, abs(x["weight"] - weight)))
+        return f.parent / face["file"]
+    return None
+
+
+def card_margin(st: Style) -> int:
+    # Boxes and bubbles grow past the text: keep them inside the card.
+    margin = 70 + (round(st.box_pad[0] * st.size) if st.box else 0)
+    if st.box and st.box_shape in ("burst", "shout", "cloud", "thought", "oval"):
+        margin += round(0.35 * st.size)  # these shapes reach well past their padding
+    return margin
+
+
+def card_fit(st: Style) -> Style:
+    """The style at the size its sample fits the card at: no word wider than the card (the engine
+    would break it mid-word) and every line inside it. Only the card shrinks; the style file keeps
+    its size."""
+    from PIL import ImageFont
+
+    path = font_file(st.font, st.weight, st.italic)
+    if not path:
+        return st
+    text = " \n ".join(" ".join(stripped(w) for w in line.split()) for line in st.sample[0].split("\n"))
+    text = text.upper() if st.case == "upper" else text.lower() if st.case == "lower" else text
+    big = max([1.0] + [st.acc.get("sizeScale", 1.0)] if st.acc else [1.0])
+    strokes = [l.get("width", 0) for l in st.layers if l.get("kind") == "stroke"]
+    edge = 2 * max(strokes, default=0)  # em, both sides
+    fitted = dataclasses.replace(st, size=round(st.size * st.card_size)) if st.card_size != 1.0 else st
+    for _ in range(40):
+        size = fitted.size
+        font = ImageFont.truetype(str(path), size)
+        avail = CARD - 2 * card_margin(fitted)
+        pad_x = 2 * fitted.box_pad[0] * size if fitted.box else 0
+        width = lambda w: (font.getlength(w) + st.spacing * size * len(w) + edge * size) * big  # noqa: E731
+        space = font.getlength(" ")
+        lines, longest = 0, 0.0
+        for para in text.split(" \n "):
+            row = 0.0
+            lines += 1
+            for word in para.split():
+                w = width(word)
+                longest = max(longest, w)
+                if row and row + space + w > avail - pad_x:
+                    lines += 1
+                    row = w
+                else:
+                    row += (space if row else 0) + w
+        height = lines * size * st.line + (2 * fitted.box_pad[1] * size if fitted.box else 0) + edge * size
+        if longest <= (avail - pad_x) * 0.94 and height <= avail * 0.94:
+            return fitted
+        fitted = dataclasses.replace(fitted, size=max(8, round(size * 0.94)))
+    return fitted
+
+
+def stripped(word: str) -> str:
+    return word.replace("*", "") if word.count("*") >= 2 else word
+
+
 def style_job(st: Style) -> dict:
     folder = OUT / "estilos" / st.id
     folder.mkdir(parents=True, exist_ok=True)
     doc = st.document()
     (folder / f"{st.id}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
-    render_style = json.loads(json.dumps(doc["style"]))
+    shown = card_fit(st)
+    render_style = shown.style_json()
     render_style["valign"] = "middle"  # the card centres captions and lower thirds
     seconds = 3.0
     render = folder / "render.json"
-    # Boxes and bubbles grow past the text: keep them inside the card.
-    margin = 70 + (round(st.box_pad[0] * st.size) if st.box else 0)
-    if st.box and st.box_shape in ("burst", "shout", "cloud", "thought", "oval"):
-        margin += round(0.35 * st.size)  # these shapes reach well past their padding
+    margin = card_margin(shown)
     render.write_text(json.dumps(project(st.sample[0], render_style, seconds, backdrop(st.card), margin)),
                       encoding="utf-8")
     meta = {"id": st.id, "names": {"es": st.es, "en": st.en}, "category": st.category, "tags": st.tags,
@@ -254,6 +325,7 @@ def check() -> list[str]:
                 problems.append(f"{st.id}: {f} has no weight {w}{' italic' if i else ''}")
         if st.category not in STYLE_CATEGORIES:
             problems.append(f"{st.id}: unknown category {st.category}")
+    problems += check_slots(TRENDS)
     builtin = {p.stem for p in BUILTIN_ANIMS.glob("*.json")}
     seen = set()
     for an in ANIMS:
