@@ -186,6 +186,11 @@ MotionBakeResult bakeMotionTrack(const MotionTrack &track, const Clip &video, Cl
         int hi = i;
         while (hi + 1 < points.size() && hi - i < kSmoothRadius && !points.at(hi + 1).gapBefore)
             ++hi;
+        // Symmetric, so the ends and the edges of a gap are not dragged toward one side: the first
+        // key stays where the target was, not a few frames ahead of it.
+        const int half = qMin(i - lo, hi - i);
+        lo = i - half;
+        hi = i + half;
         QPointF sum;
         double ks = 0.0;
         for (int j = lo; j <= hi; ++j) {

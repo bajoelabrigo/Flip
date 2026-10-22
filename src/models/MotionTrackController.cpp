@@ -623,7 +623,8 @@ void MotionTrackController::blurFace(int trackIndex, int clipIndex, const QStrin
         QPointF centre;
         QSizeF size;
         int n = 0;
-        for (int j = qMax(0, i - 2); j <= qMin(int(keys.size()) - 1, i + 2); ++j) {
+        const int half = qMin(2, qMin(i, int(keys.size()) - 1 - i));
+        for (int j = i - half; j <= i + half; ++j) {
             centre += QPointF(keys.at(j).r.x(), keys.at(j).r.y());
             size += keys.at(j).r.size();
             ++n;
