@@ -8,7 +8,10 @@ import ".."
 //
 // The owner drives `playing` — hover on a desktop, the selected tile on a phone — so at most
 // one sprite runs at a time and the gallery never burns a dozen frame timers.
-Column {
+//
+// The root is an Item, not a Column: the gallery anchors a favourite star and a menu button on
+// each tile, and an anchored child switches a Column off (no height: the tiles vanished).
+Item {
     id: tile
 
     property string slot: "in"
@@ -22,80 +25,86 @@ Column {
     signal clicked()
 
     width: tileWidth
-    spacing: 4
+    height: body.height
 
-    Rectangle {
-        id: frame
-        width: tile.tileWidth
-        height: Math.round(tile.tileWidth * 58 / 104)
-        radius: Theme.radiusSm
-        color: Theme.textStylePreviewBg
-        border.width: tile.selected ? Theme.borderWidthFocus : Theme.borderWidth
-        border.color: tile.selected ? Theme.primary
-                                    : (tileHover.hovered ? Theme.panelMuted : Theme.textStylePreviewBorder)
-        clip: true
+    Column {
+        id: body
+        width: parent.width
+        spacing: 4
 
-        Behavior on border.color {
-            ColorAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
-        }
+        Rectangle {
+            id: frame
+            width: tile.tileWidth
+            height: Math.round(tile.tileWidth * 58 / 104)
+            radius: Theme.radiusSm
+            color: Theme.textStylePreviewBg
+            border.width: tile.selected ? Theme.borderWidthFocus : Theme.borderWidth
+            border.color: tile.selected ? Theme.primary
+                                        : (tileHover.hovered ? Theme.panelMuted : Theme.textStylePreviewBorder)
+            clip: true
 
-        readonly property string spriteBase: tile.presetId.length > 0
-                                             ? "image://textanim/" + tile.slot + "/" + tile.presetId + "?w=104&h=58"
-                                             : ""
+            Behavior on border.color {
+                ColorAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
+            }
 
-        Image {
-            anchors.fill: parent
-            anchors.margins: 1
-            visible: tile.presetId.length > 0 && !tile.playing
-            source: frame.spriteBase.length > 0 ? frame.spriteBase + "&still=1" : ""
-            fillMode: Image.PreserveAspectFit
-            asynchronous: true
-        }
+            readonly property string spriteBase: tile.presetId.length > 0
+                                                 ? "image://textanim/" + tile.slot + "/" + tile.presetId + "?w=104&h=58"
+                                                 : ""
 
-        AnimatedSprite {
-            anchors.fill: parent
-            anchors.margins: 1
-            visible: tile.playing
-            // Only the playing tile renders its 24-frame sheet; the image cache keeps it for a replay.
-            source: tile.playing && frame.spriteBase.length > 0 ? frame.spriteBase + "&frames=24" : ""
-            frameCount: 24
-            frameWidth: 104
-            frameHeight: 58
-            frameRate: 12
-            loops: AnimatedSprite.Infinite
-            interpolate: false
-            running: tile.playing
+            Image {
+                anchors.fill: parent
+                anchors.margins: 1
+                visible: tile.presetId.length > 0 && !tile.playing
+                source: frame.spriteBase.length > 0 ? frame.spriteBase + "&still=1" : ""
+                fillMode: Image.PreserveAspectFit
+                asynchronous: true
+            }
+
+            AnimatedSprite {
+                anchors.fill: parent
+                anchors.margins: 1
+                visible: tile.playing
+                // Only the playing tile renders its 24-frame sheet; the image cache keeps it for a replay.
+                source: tile.playing && frame.spriteBase.length > 0 ? frame.spriteBase + "&frames=24" : ""
+                frameCount: 24
+                frameWidth: 104
+                frameHeight: 58
+                frameRate: 12
+                loops: AnimatedSprite.Infinite
+                interpolate: false
+                running: tile.playing
+            }
+
+            Text {
+                anchors.centerIn: parent
+                visible: tile.presetId.length === 0
+                text: qsTr("None")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            // A tap synthesises hover on a phone, so hover only means anything with a pointer.
+            HoverHandler { id: tileHover; enabled: !Theme.touchUi }
+
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    Haptics.select()
+                    tile.clicked()
+                }
+            }
         }
 
         Text {
-            anchors.centerIn: parent
-            visible: tile.presetId.length === 0
-            text: qsTr("None")
-            color: Theme.mutedForeground
+            width: parent.width
+            text: tile.label
+            elide: Text.ElideRight
+            horizontalAlignment: Text.AlignHCenter
+            color: tile.selected ? Theme.primary : Theme.panelForeground
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
         }
-
-        // A tap synthesises hover on a phone, so hover only means anything with a pointer.
-        HoverHandler { id: tileHover; enabled: !Theme.touchUi }
-
-        MouseArea {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-            onClicked: {
-                Haptics.select()
-                tile.clicked()
-            }
-        }
-    }
-
-    Text {
-        width: parent.width
-        text: tile.label
-        elide: Text.ElideRight
-        horizontalAlignment: Text.AlignHCenter
-        color: tile.selected ? Theme.primary : Theme.panelForeground
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSizeXs
     }
 }
