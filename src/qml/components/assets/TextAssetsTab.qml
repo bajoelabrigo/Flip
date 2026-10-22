@@ -61,13 +61,30 @@ Item {
     // Trending: Stock's text styles, fetched when the section is first shown (and again after
     // signing in). Clicking one that is not installed downloads it and, when it lands, adds it.
     property var pendingTrendIds: ({})
+    // Market.textTrends copied here so a next page is appended without the grid jumping back to
+    // the top (a bound model resets on every change).
+    property var trendItems: []
+    function showTrends() {
+        const before = root.trendItems
+        const next = Market.textTrends
+        const appended = before.length > 0 && next.length > before.length && next[0].id === before[0].id
+        const y = trendsGrid.contentY
+        root.trendItems = next
+        if (appended) {
+            trendsGrid.forceLayout()
+            trendsGrid.contentY = y
+        }
+    }
     function ensureTrends() {
         if (root.section === "trends" && Market.authenticated && Market.textTrends.length === 0
                 && !Market.textTrendsLoading)
             Market.fetchTextTrends()
     }
     onSectionChanged: ensureTrends()
-    Component.onCompleted: ensureTrends()
+    Component.onCompleted: {
+        trendItems = Market.textTrends
+        ensureTrends()
+    }
     function installedTrendId(item) {
         void root.userPresetsTick
         return EditorState.stockTextPresetId(item.id)
@@ -96,6 +113,7 @@ Item {
     Connections {
         target: Market
         function onAuthChanged() { root.ensureTrends() }
+        function onTextTrendsChanged() { root.showTrends() }
         function onDownloadInstalled(itemId, name, where) {
             if (!root.pendingTrendIds[itemId])
                 return
@@ -308,6 +326,8 @@ Item {
             .concat(root.addonCategories.map(c => ({ "id": c.id, "label": c.label })))
             .concat([{ "id": "mine", "label": qsTr("My styles") }])
         activeCategory: root.section
+        // Trending loads page by page: its end is not the end until the last page is in.
+        active: root.section !== "trends" || (!Market.textTrendsHasMore && !Market.textTrendsLoading)
         onCategoryActivated: (categoryId) => root.section = categoryId
     }
 
@@ -424,8 +444,8 @@ Item {
         ScrollBar.vertical: AppScrollBar { }
         cellWidth: Math.floor(width / columnCount)
         cellHeight: cardSize + Theme.spacingSm + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        visible: root.section === "trends" && Market.authenticated && Market.textTrends.length > 0
-        model: Market.textTrends
+        visible: root.section === "trends" && Market.authenticated && root.trendItems.length > 0
+        model: root.trendItems
         // The next page a little before the end, so scrolling does not stop at it.
         onContentYChanged: {
             if (Market.textTrendsHasMore && !Market.textTrendsLoading
@@ -445,6 +465,7 @@ Item {
                 width: parent.width
                 height: width
                 item: trendCard.modelData
+                showDuration: false
                 onOpenRequested: root.useTrend(trendCard.modelData)
 
                 // CapCut's mark: not downloaded yet.

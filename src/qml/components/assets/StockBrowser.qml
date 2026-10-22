@@ -29,6 +29,23 @@ Item {
 
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     readonly property int activeFilterCount: Object.keys(filterValues).length
+    // What the grids show: Market.items, copied here so a next page can be appended without the
+    // view jumping back to the top (a bound model is reset on every change, and loading more at
+    // the bottom of the list then threw the user back to its start).
+    property var shownItems: []
+    function showItems() {
+        const before = root.shownItems
+        const next = Market.items
+        const appended = before.length > 0 && next.length > before.length && next[0].id === before[0].id
+        const view = !appended ? null
+                   : audioList.visible ? audioList : justified.visible ? justified : grid.visible ? grid : null
+        const y = view ? view.contentY : 0
+        root.shownItems = next
+        if (view) {
+            view.forceLayout()
+            view.contentY = y
+        }
+    }
     // Our own catalogues sort by category; it is shown as a row of chips, not only behind Filters.
     readonly property var categoryFilter: {
         const f = Market.filters.find(f => f.id === "category" && f.type === "enum")
@@ -194,7 +211,10 @@ Item {
     }
 
     onVisibleChanged: ensureResults()
-    Component.onCompleted: ensureResults()
+    Component.onCompleted: {
+        shownItems = Market.items
+        ensureResults()
+    }
     function ensureResults() {
         if (!visible || !Market.configured || !Market.consented)
             return
@@ -235,6 +255,7 @@ Item {
         }
         // A link resolves to one item; open it straight away rather than showing a grid of one.
         function onItemsChanged() {
+            root.showItems()
             if (root.lastRequestWasResolve && Market.items.length === 1)
                 root.openDetail(Market.items[0])
         }
@@ -671,7 +692,7 @@ Item {
             cellHeight: tileWidth * root.tileAspect + Theme.fontSizeXs * 4 + Theme.assetCardGap
             cacheBuffer: Math.max(0, Math.round(height))
             clip: true
-            model: visible ? Market.items : []
+            model: visible ? root.shownItems : []
             ScrollBar.vertical: AppScrollBar { }
             activeFocusOnTab: true
             keyNavigationEnabled: true
@@ -734,7 +755,7 @@ Item {
             readonly property real targetHeight: root.compact ? 120 : 96
             readonly property real gap: Theme.spacingSm
             readonly property var rows: {
-                const items = Market.items
+                const items = root.shownItems
                 const width = justified.width
                 if (!visible || width <= 0)
                     return []
@@ -780,7 +801,7 @@ Item {
                         required property var modelData
                         width: Math.floor(modelData.w)
                         height: parent.height
-                        item: Market.items[modelData.index] || ({})
+                        item: root.shownItems[modelData.index] || ({})
                         compact: root.compact
                         onOpenRequested: root.openDetail(item)
                     }
@@ -796,7 +817,7 @@ Item {
             anchors.leftMargin: root.sidePadding
             anchors.rightMargin: root.sidePadding
             visible: Market.items.length > 0 && root.mediaKind === "audio" && !root.showHome
-            model: visible ? Market.items : []
+            model: visible ? root.shownItems : []
             clip: true
             ScrollBar.vertical: AppScrollBar { }
             onAtYEndChanged: if (atYEnd && Market.hasMore && !Market.searching) Market.loadMore()

@@ -8711,9 +8711,13 @@ void AppController::addTextClip(const QString &text, double atSeconds, const QSt
     // it. Passing text keeps the original behaviour. A template from Extras starts
     // with its own words ("Dios te bendiga"), which read better than a placeholder.
     const bool placeholder = trimmed.isEmpty();
-    const QString content = !placeholder ? trimmed
-                            : (addonPreset && !addonPreset->sampleText.isEmpty()) ? addonPreset->sampleText
-                                                                                  : tr("Your text here");
+    // A style from Stock (Titles › Trending) starts with the words on its card too.
+    const std::optional<drift::TextPreset> userPreset =
+        drift::isUserTextPresetId(presetId) ? drift::TextPresetStore::instance().presetForId(presetId) : std::nullopt;
+    const QString sample = addonPreset ? addonPreset->sampleText
+                           : (userPreset && !userPreset->stockId.isEmpty()) ? userPreset->sampleText
+                                                                            : QString();
+    const QString content = !placeholder ? trimmed : !sample.trimmed().isEmpty() ? sample : tr("Your text here");
 
     const drift::Project before = m_project;
     const bool requestedFits = requestedTrack >= 0 && requestedTrack < m_project.tracks().size()
@@ -18129,8 +18133,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             fail(result.value(QStringLiteral("error")).toString());
             return;
         }
-        const QString lutName = result.value(QStringLiteral("name")).toString();
-        setLastMessage(tr("LUT installed: %1 (Adjust › LUT)").arg(lutName), QStringLiteral("success"));
         done(true, tr("In Adjust › LUT"), result.value(QStringLiteral("path")).toString(), QString());
         return;
     }
@@ -18141,7 +18143,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             return;
         }
         emit userEffectPresetsChanged();
-        setLastMessage(tr("Look installed: %1 (My presets)").arg(name), QStringLiteral("success"));
         done(true, tr("In My presets"), QString(), QString());
         return;
     }
@@ -18155,7 +18156,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
         // Stock styles are listed under Titles › Trending, the ones the user made under My styles.
         const bool fromStock = !drift::TextPresetStore::instance().presetForId(id).value_or(drift::TextPreset{}).stockId.isEmpty();
         const QString where = fromStock ? tr("In Titles › Trending") : tr("In Text › My styles");
-        setLastMessage(tr("Text style installed: %1 (%2)").arg(name, where), QStringLiteral("success"));
         done(true, where, QString(), QString());
         return;
     }
@@ -18165,8 +18165,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             fail(result.value(QStringLiteral("error")).toString());
             return;
         }
-        setLastMessage(tr("Text animation installed: %1 (Text › Animation › Imported)").arg(name),
-                       QStringLiteral("success"));
         done(true, tr("In Text › Animation"), QString(), QString());
         return;
     }
@@ -18178,7 +18176,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             return;
         }
         emit userShapesChanged();
-        setLastMessage(tr("Shape installed: %1 (Shapes, and Masks)").arg(name), QStringLiteral("success"));
         done(true, tr("In Shapes"), QDir(drift::userShapesDir()).filePath(
                                         shapeId.mid(int(qstrlen(drift::kUserShapePrefix))) + QStringLiteral(".json")),
              QString());
@@ -18203,7 +18200,6 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
                 done(false, QString(), QString(), error);
                 return;
             }
-            setLastMessage(tr("Transition installed: %1 (Transitions)").arg(name), QStringLiteral("success"));
             done(true, tr("In Transitions"), QString(), QString());
         });
         m_addonManager->installUserPackage();

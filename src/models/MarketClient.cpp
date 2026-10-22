@@ -2093,8 +2093,10 @@ void MarketClient::finishInstalledJob(const QString &itemId, const QString &path
     bumpDownloads();
     rememberDownload(itemId, kept, displayName);
     pumpDownloadQueue();
-    // Not "added to Media": it went where the editor keeps that kind of thing.
-    emit downloadInstalled(itemId, displayName, where);
+    // Not "added to Media": it went where the editor keeps that kind of thing. Named by its title
+    // in Stock, not by the downloaded file ("tend-a-vlog-diario").
+    const auto job = m_jobs.value(itemId);
+    emit downloadInstalled(itemId, job && !job->title.isEmpty() ? job->title : displayName, where);
     refreshLibrary();
 }
 
