@@ -364,6 +364,8 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("brandRole"), clip.brandRole);
     if (clip.motionTrack && !clip.motionTrack->isEmpty())
         json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
+    if (clip.textAutoFit)
+        json.insert(QStringLiteral("textAutoFit"), true);
     return json;
 }
 
@@ -425,6 +427,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.brandRole = object.value(QStringLiteral("brandRole")).toString();
     clip.name = object.value(QStringLiteral("name")).toString();
     clip.textContent = object.value(QStringLiteral("textContent")).toString();
+    clip.textAutoFit = object.value(QStringLiteral("textAutoFit")).toBool(false);
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());
     clip.subtitleCues = subtitleCuesFromJson(object.value(QStringLiteral("subtitleCues")).toArray());
     clip.shapeStyle = shapeStyleFromJson(object.value(QStringLiteral("shapeStyle")).toObject());

@@ -130,6 +130,11 @@ struct Clip
     QString name;
     QString textContent;
     TextStyle textStyle; // meaningful when type == Text or Subtitle
+    // A text whose box hugs its words: editing the text or a style that changes its size refits
+    // the box (AppController). Set on texts added from 0.19 on; a deliberate wrap width (dragging a
+    // side of the box) clears it. Older projects never have it, so their boxes never move.
+    // Saved only when true.
+    bool textAutoFit = false;
     QList<SubtitleCue> subtitleCues; // only meaningful when type == Subtitle
     ShapeStyle shapeStyle; // only meaningful when type == Shape
     VectorSource vector;   // only meaningful when type == Vector

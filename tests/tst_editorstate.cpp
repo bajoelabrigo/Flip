@@ -38,6 +38,7 @@
 #include "engine/MediaProbe.h"
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
+#include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "engine/EffectTemplateCatalog.h"
@@ -145,6 +146,10 @@ private slots:
     void addTextClipEmptyUsesPlaceholder();
     void addTextClipWithTextDoesNotRequestEdit();
     void addTextClipWithPresetAppliesStyle();
+    void newTextBoxHugsItsWordsAndGrowsWithThem();
+    void textBoxGrowsLiveWhileTyping();
+    void oldProjectTextBoxNeverMoves();
+    void sideResizeOfTextBoxStopsHugging();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
@@ -924,6 +929,183 @@ void EditorStateTest::addTextClipWithPresetAppliesStyle()
     const QVariantMap style = clip.value(QStringLiteral("textStyle")).toMap();
     QCOMPARE(style.value(QStringLiteral("packId")).toString(), QStringLiteral("neon"));
     QCOMPARE(style.value(QStringLiteral("fontFamily")).toString(), QStringLiteral("Bebas Neue"));
+}
+
+namespace {
+
+struct TextBox
+{
+    double x = 0, y = 0, w = 0, h = 0;
+    double cx() const { return x + w / 2.0; }
+    double cy() const { return y + h / 2.0; }
+};
+
+TextBox textBoxOf(const drift::Clip &clip)
+{
+    return {clip.transformX.evaluateAt(0), clip.transformY.evaluateAt(0), clip.transformW.evaluateAt(0),
+            clip.transformH.evaluateAt(0)};
+}
+
+} // namespace
+
+// Like CapCut: a new text's box is the size of its words, centred on the canvas, and it grows
+// about its centre as the text gets longer or larger, in the same undo step as the edit.
+void EditorStateTest::newTextBoxHugsItsWordsAndGrowsWithThem()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->setResolution(1280, 720);
+    state.addTextClip(QStringLiteral("Hi"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+
+    QVERIFY(clipNow().textAutoFit);
+    const TextBox first = textBoxOf(clipNow());
+    const QSizeF words = drift::text::naturalTextSize(QStringLiteral("Hi"), clipNow().textStyle, 1280 * 0.9);
+    QVERIFY(words.width() > 0.0);
+    // Holds the words with a little air, nowhere near the old full-width band.
+    QVERIFY(first.w >= words.width());
+    QVERIFY(first.h >= words.height());
+    QVERIFY(first.w < words.width() + clipNow().textStyle.pixelSize * 1.5);
+    QVERIFY(first.w < 1280 * 0.5);
+    QVERIFY(qAbs(first.cx() - 640.0) < 0.5);
+    QVERIFY(qAbs(first.cy() - 360.0) < 0.5);
+
+    // Longer words: wider, same centre.
+    state.setClipTextContent(track, clip, QStringLiteral("Hi there, this is longer"));
+    const TextBox longer = textBoxOf(clipNow());
+    QVERIFY(longer.w > first.w * 2.0);
+    QVERIFY(qAbs(longer.cx() - first.cx()) < 0.5);
+    QVERIFY(qAbs(longer.cy() - first.cy()) < 0.5);
+
+    // Past 90 % of the canvas the words wrap instead: a second line, never wider than the canvas.
+    state.setClipTextContent(track, clip,
+                             QStringLiteral("A sentence long enough that it can never fit on one line of a "
+                                            "1280 pixel wide canvas at the default size"));
+    const TextBox wrapped = textBoxOf(clipNow());
+    QVERIFY(wrapped.w <= 1280.0);
+    QVERIFY(wrapped.h > longer.h * 1.5);
+    QVERIFY(qAbs(wrapped.cx() - first.cx()) < 0.5);
+
+    // One undo step brings the text and its box back together.
+    state.undo();
+    QCOMPARE(clipNow().textContent, QStringLiteral("Hi there, this is longer"));
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - longer.w) < 0.01);
+
+    // A bigger font grows the box too.
+    state.setTextStyle(track, clip, {{QStringLiteral("pixelSize"), clipNow().textStyle.pixelSize * 2}});
+    const TextBox bigger = textBoxOf(clipNow());
+    QVERIFY(bigger.h > longer.h * 1.5);
+    QVERIFY(bigger.w > longer.w * 1.5);
+    QVERIFY(qAbs(bigger.cx() - first.cx()) < 0.5);
+    QVERIFY(clipNow().textAutoFit);
+#endif
+}
+
+void EditorStateTest::textBoxGrowsLiveWhileTyping()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+
+    state.beginInlineTextEdit(track, clip);
+    state.updateInlineTextEdit(track, clip, QStringLiteral("Hello wonderful world"), 21, -1, -1, QString());
+    const TextBox typed = textBoxOf(clipNow());
+    QVERIFY(typed.w > first.w * 2.0);
+    QVERIFY(qAbs(typed.cx() - first.cx()) < 0.5);
+    state.endInlineTextEdit(true);
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - typed.w) < 0.01);
+
+    // The text and its box are one undo step.
+    state.undo();
+    QCOMPARE(clipNow().textContent, QStringLiteral("Hello"));
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - first.w) < 0.01);
+#endif
+}
+
+// A text from a project made before boxes hugged their words has no flag: editing it never
+// moves or resizes its box.
+void EditorStateTest::oldProjectTextBoxNeverMoves()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Project &project = *state.project();
+    project.setResolution(1280, 720);
+    project.tracks().clear();
+    drift::Track textTrack{.type = drift::TrackType::Text};
+    textTrack.id = QStringLiteral("t1");
+    drift::Clip text;
+    text.id = QStringLiteral("old");
+    text.type = drift::ClipType::Text;
+    text.textContent = QStringLiteral("Old");
+    text.timelineDuration = drift::secondsToUs(3.0);
+    text.srcOut = text.timelineDuration;
+    text.transformX.setKeyframe(0, 0.0);
+    text.transformY.setKeyframe(0, 252.0);
+    text.transformW.setKeyframe(0, 1280.0);
+    text.transformH.setKeyframe(0, 216.0);
+    textTrack.clips.append(text);
+    project.tracks().append(textTrack);
+
+    state.setClipTextContent(0, 0, QStringLiteral("Old, and now a good deal longer"));
+    state.setTextStyle(0, 0, {{QStringLiteral("pixelSize"), 120}});
+    const drift::Clip &after = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(!after.textAutoFit);
+    QCOMPARE(after.transformX.evaluateAt(0), 0.0);
+    QCOMPARE(after.transformY.evaluateAt(0), 252.0);
+    QCOMPARE(after.transformW.evaluateAt(0), 1280.0);
+    QCOMPARE(after.transformH.evaluateAt(0), 216.0);
+}
+
+// Dragging a side of the box sets a wrap width on purpose: the text stops hugging and keeps that
+// width as it is edited. A corner scales the whole text and keeps it hugging.
+void EditorStateTest::sideResizeOfTextBoxStopsHugging()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hug"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+
+    // A corner: font and box scale together, and it still hugs.
+    state.beginPreviewDrag(QStringLiteral("Resize text"));
+    state.previewSetTextRect(track, clip, first.x - first.w / 2.0, first.y - first.h / 2.0, first.w * 2.0,
+                             first.h * 2.0, clipNow().textStyle.pixelSize * 2);
+    state.commitPreviewDrag();
+    QVERIFY(clipNow().textAutoFit);
+    QVERIFY(qAbs(textBoxOf(clipNow()).w - first.w * 2.0) < 0.01);
+
+    // A side: a width of its own, kept from now on.
+    const TextBox scaled = textBoxOf(clipNow());
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, scaled.x, scaled.y, 900.0, scaled.h);
+    state.commitPreviewDrag();
+    QVERIFY(!clipNow().textAutoFit);
+    state.setClipTextContent(track, clip, QStringLiteral("Hug, now with many more words in it"));
+    QCOMPARE(textBoxOf(clipNow()).w, 900.0);
+    QCOMPARE(textBoxOf(clipNow()).x, scaled.x);
+
+    // Undoing the side drag brings the hugging back with the box.
+    state.undo();
+    state.undo();
+    QVERIFY(clipNow().textAutoFit);
+#endif
 }
 
 void EditorStateTest::undoRedoClipAdd()
@@ -1837,8 +2019,16 @@ void EditorStateTest::importedMediaIsCentredAndResetsToItsFit()
     const int textTrack = state.selectedTrack();
     state.resetClipTransform(textTrack, 0);
     const drift::Clip &text = state.project()->tracks().at(textTrack).clips.at(0);
+#ifdef DRIFT_WITH_SKIA
+    // A text that hugs its words resets to its fitted box, centred, and keeps hugging.
+    QVERIFY(text.textAutoFit);
+    QVERIFY(text.transformW.evaluateAt(0) < 1920.0 * 0.5);
+    QVERIFY(qAbs(text.transformX.evaluateAt(0) + text.transformW.evaluateAt(0) / 2.0 - 960.0) < 0.5);
+    QVERIFY(qAbs(text.transformY.evaluateAt(0) + text.transformH.evaluateAt(0) / 2.0 - 540.0) < 0.5);
+#else
     QCOMPARE(text.transformX.evaluateAt(0), 0.0);
     QCOMPARE(text.transformW.evaluateAt(0), 1920.0);
+#endif
 }
 
 namespace {

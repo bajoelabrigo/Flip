@@ -84,6 +84,7 @@ private slots:
     void keyframeEaseInterpolation();
     void keyframeBezierTangents();
     void disabledKeyframesFreezeAtFirstKey();
+    void textAutoFitRoundTripsOnlyWhenSet();
     void legacyTrackInterpolationMigratesLosslessly();
     void keyframeNearestQuery();
     void sourceFramingRoundTrip();
@@ -338,6 +339,36 @@ void CoreTest::disabledKeyframesFreezeAtFirstKey()
     QCOMPARE(loadedTrack.keyframes().size(), 2);
     // A project written before the switch existed loads with its animations on.
     QVERIFY(loaded.tracks().at(0).clips.at(0).transformX.enabled());
+}
+
+// A text whose box hugs its words keeps the flag through save and load; one without it writes
+// nothing, so projects from before the flag save exactly as they did.
+void CoreTest::textAutoFitRoundTripsOnlyWhenSet()
+{
+    drift::Project project;
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Video});
+    drift::Clip fitted;
+    fitted.id = QStringLiteral("fitted");
+    fitted.type = drift::ClipType::Text;
+    fitted.textContent = QStringLiteral("Hug me");
+    fitted.timelineDuration = drift::secondsToUs(3.0);
+    fitted.textAutoFit = true;
+    drift::Clip fixed = fitted;
+    fixed.id = QStringLiteral("fixed");
+    fixed.timelineStart = drift::secondsToUs(3.0);
+    fixed.textAutoFit = false;
+    project.tracks()[0].clips = {fitted, fixed};
+
+    const QByteArray saved = QJsonDocument(project.toJson()).toJson(QJsonDocument::Compact);
+    QCOMPARE(saved.count("\"textAutoFit\""), qsizetype(1));
+
+    QString error;
+    const drift::Project loaded = drift::Project::fromJson(project.toJson(), &error);
+    QVERIFY(error.isEmpty());
+    QCOMPARE(loaded.tracks().at(0).clips.size(), 2);
+    QVERIFY(loaded.tracks().at(0).clips.at(0).textAutoFit);
+    QVERIFY(!loaded.tracks().at(0).clips.at(1).textAutoFit);
 }
 
 void CoreTest::keyframeBezierTangents()
