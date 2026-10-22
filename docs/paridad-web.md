@@ -536,6 +536,22 @@ y «Pegatinas» en la pestaña). Si CapCut o Filmora ya resolvieron algo, se cop
   `sourceFrame: null` siempre (un `QRectF` no pasa a JSON): para ver si llegó, guardar con `save_project` y leer el
   manifiesto (zstd).
 
+## 2026-10-21/22: lo de la 0.19 del escritorio, también en la web (rama `web/v019`, desplegada)
+Rama `web/v019` = `web/movil` + `web/tendencias` + `web/seguimiento` + `web/estilos-texto` + `web/ocultar-objeto`
+(worktree `codigolipstudio-app-integra`). **Las próximas ramas de la web salen de `web/v019`.**
+- **Títulos › Tendencias** (estilos de texto de Stock, un clic baja y pone el texto), chips de categorías en Stock,
+  listas que no vuelven arriba, aviso «está listo. En …» con «Ver».
+- **Estilos de texto 100 %** (`src/text/desk/`): el estilo entero del escritorio (`TextClip.ds`: capas, efectos,
+  acento, animaciones), inspector como el del escritorio, «Mis estilos» y animaciones propias. Ya no se instalan
+  simplificados. Falta: pintura con textura y el trazo «sketch» (aproximados).
+- **Máscaras en textos**, medidas sobre la caja del texto.
+- **Cuadro del texto ajustado** (`autoFit`, `textAutoFit` en el `.flip`).
+- **Seguimiento** (`src/tracking/`): objeto y rostro, YOLOX (`/modelos/yolox-tiny/`, ya estaba en el VPS),
+  pestaña Seguimiento, visor, Ocultar un rostro / un objeto, «La máscara sigue lo que tapa», protección contra el
+  desvío. El `.flip` lleva `motionTrack` igual que el escritorio y ahora escribe `path` en cada clip (sin eso el
+  escritorio abría los clips de la web en negro).
+- Trampa: Títulos abre en Tendencias; los estilos incluidos están en «Básicos» (los scripts de prueba lo eligen).
+
 ## Noche del 2026-10-20 (Claude, con agentes en paralelo): todo lo que no necesita IA
 
 Cada cosa probada en el navegador (Playwright) y, lo que viaja en el `.flip`, abierto en la 0.18.2. Desplegado.

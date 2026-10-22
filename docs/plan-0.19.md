@@ -178,12 +178,25 @@ Cada fase: compilar en CI, pruebas, ventana. Las pruebas con video real usan `pr
   (`preview/TrackingOverlay.qml`): recuadro seguido con color por estado, rostros y objetos para elegir con un clic y
   recuadro dibujado a mano (`MotionTrackController::chooser/pick/regionFromCanvas`). Se quitó la sección de
   Transformar (`MotionTrackSection.qml`).
-- **Fase 3, parte hecha:** «Ocultar un rostro» (Pixelar / Desenfocar) en la pestaña Seguimiento de un video o foto:
-  pista de ajuste encima con el efecto y una elipse que sigue la cara (`blurFace`). Falta: «la máscara sigue» a un
-  objeto y ocultar un objeto (no solo caras).
+- **Fase 3 HECHA:** Seguimiento › Ocultar › Un rostro / Un objeto (Pixelar / Desenfocar; `blurFace`, `hideObject`,
+  `addHideLayer`: pista de ajuste encima del clip con una elipse que sigue; bloques ≈ ancho/8) y Máscaras ›
+  Seguimiento › «La máscara sigue lo que tapa» (`maskFollow`; máscara enlazada a un clip, en un carril o suelta).
+- **Fase 4 HECHA (probado en ventana, 2026-10-22):** guardar → volver a abrir → exportar: los cuadros exportados
+  coinciden con la vista previa (PSNR 39–60 dB) con una máscara que sigue y un texto con seguimiento.
+- **Fase 5:** protección contra el desvío (`RegionTracker::kDriftScore` 0,3 / `kLearnScore` 0,5: si lo encontrado ya
+  no se parece al objetivo marcado, queda perdido y se busca de nuevo con la imagen original). Comprobado con los
+  cuadros reales del parapente (`pruebas	racker-testeal.cpp`): con una máscara chica entre el piloto y el borde
+  de la vela, antes se iba por la vela sin avisar; ahora queda perdido. Con la zona del cuerpo del piloto sigue igual
+  que antes, sin pérdidas. **Límite conocido:** un objetivo muy chico que gira junto a un borde marcado se pierde (el
+  detector lo recupera si se eligió con «Detectar objetos»).
+- Errores encontrados en las pruebas y arreglados: recuadros del visor a 0,56× en proyectos verticales (ancho del
+  proyecto no reactivo), clic que llegaba al video de abajo, óvalo de ocultar con tamaño mal sumado (`QSizeF()` vale
+  (−1, −1)), escala de «la máscara sigue» medida contra el primer cuadro, y **un `.flip` de la web se abría sin
+  video en el escritorio** (los clips de la web solo nombran el medio por id: `remapProjectPaths` les pone la ruta del
+  medio, y la web ahora escribe `path` en cada clip).
 - Además: cuadro de texto ajustado a las palabras (rama `flip/texto-ajustado`, `32bc0`, unida) y listas que ya no
   vuelven arriba al cargar la página siguiente (Stock y Tendencias).
-- **Falta probar en ventana** todo lo de la fase 2 y 3 con la compilación nueva, y las fases 4–5.
+- **Editor web:** todo lo anterior también (rama `web/v019` de flipstudio-app, desplegada).
 
 ## Estado de la compilación
 - Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad` (solo falló la prueba de traducciones, ya arreglada).
