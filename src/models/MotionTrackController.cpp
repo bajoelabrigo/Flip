@@ -107,6 +107,57 @@ int nearestFace(const QList<QRectF> &faces, const QPointF &point)
     return best;
 }
 
+// A re-bake owns the element's position (and, with Scale, size) animation: the old path may lie
+// outside the new stretch once the video moved, so it is cleared rather than left to mix in.
+void resetTrackedKeys(drift::Clip &clip)
+{
+    clip.transformX = drift::KeyframeTrack<double>{};
+    clip.transformY = drift::KeyframeTrack<double>{};
+    if (clip.motionTrack && clip.motionTrack->followScale) {
+        clip.transformW = drift::KeyframeTrack<double>{};
+        clip.transformH = drift::KeyframeTrack<double>{};
+        clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
+    }
+}
+
+// The detector's objects of `classId` in a frame, as rects normalized to it.
+QList<QRectF> detectedOfClass(const QImage &frame, int classId)
+{
+    QList<QRectF> out;
+    if (frame.isNull() || frame.width() <= 0 || frame.height() <= 0)
+        return out;
+    for (const drift::Detection &d : drift::ObjectDetector::instance().detect(frame)) {
+        if (d.classId == classId)
+            out.append(QRectF(d.box.x() / frame.width(), d.box.y() / frame.height(), d.box.width() / frame.width(),
+                              d.box.height() / frame.height()));
+    }
+    return out;
+}
+
+// After the tracker lost the subject: the detected object of the same kind that is most likely it,
+// near where it was lost (the radius grows the longer it has been gone) and about its size. Null
+// when none qualifies, so a lost subject stays lost rather than taking another one's place.
+QRectF reacquire(const QList<QRectF> &candidates, const QRectF &last, int lostFrames)
+{
+    QRectF best;
+    double bestDistance = 0.0;
+    const double reach = qMax(last.width(), last.height()) * (1.5 + 0.25 * lostFrames);
+    for (const QRectF &c : candidates) {
+        const double ratio = c.width() * c.height() / qMax(1e-9, last.width() * last.height());
+        if (ratio < 0.4 || ratio > 2.5)
+            continue;
+        const QPointF d = c.center() - last.center();
+        const double distance = std::hypot(d.x(), d.y());
+        if (distance > reach)
+            continue;
+        if (best.isNull() || distance < bestDistance) {
+            best = c;
+            bestDistance = distance;
+        }
+    }
+    return best;
+}
+
 // The object tracker over a video, outward from `t0` in each direction (`forward` starts with t0
 // itself): its samples, or an error. Runs off the GUI thread; shared by an element that follows,
 // Hide an object and a mask that follows. `stepDone` is called once per sample.
@@ -202,57 +253,6 @@ void stepsAround(drift::TimeUs t0, drift::TimeUs start, drift::TimeUs end, drift
         forward->append(t);
     for (drift::TimeUs t = t0 - step; t >= start; t -= step)
         backward->append(t);
-}
-
-// A re-bake owns the element's position (and, with Scale, size) animation: the old path may lie
-// outside the new stretch once the video moved, so it is cleared rather than left to mix in.
-void resetTrackedKeys(drift::Clip &clip)
-{
-    clip.transformX = drift::KeyframeTrack<double>{};
-    clip.transformY = drift::KeyframeTrack<double>{};
-    if (clip.motionTrack && clip.motionTrack->followScale) {
-        clip.transformW = drift::KeyframeTrack<double>{};
-        clip.transformH = drift::KeyframeTrack<double>{};
-        clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
-    }
-}
-
-// The detector's objects of `classId` in a frame, as rects normalized to it.
-QList<QRectF> detectedOfClass(const QImage &frame, int classId)
-{
-    QList<QRectF> out;
-    if (frame.isNull() || frame.width() <= 0 || frame.height() <= 0)
-        return out;
-    for (const drift::Detection &d : drift::ObjectDetector::instance().detect(frame)) {
-        if (d.classId == classId)
-            out.append(QRectF(d.box.x() / frame.width(), d.box.y() / frame.height(), d.box.width() / frame.width(),
-                              d.box.height() / frame.height()));
-    }
-    return out;
-}
-
-// After the tracker lost the subject: the detected object of the same kind that is most likely it,
-// near where it was lost (the radius grows the longer it has been gone) and about its size. Null
-// when none qualifies, so a lost subject stays lost rather than taking another one's place.
-QRectF reacquire(const QList<QRectF> &candidates, const QRectF &last, int lostFrames)
-{
-    QRectF best;
-    double bestDistance = 0.0;
-    const double reach = qMax(last.width(), last.height()) * (1.5 + 0.25 * lostFrames);
-    for (const QRectF &c : candidates) {
-        const double ratio = c.width() * c.height() / qMax(1e-9, last.width() * last.height());
-        if (ratio < 0.4 || ratio > 2.5)
-            continue;
-        const QPointF d = c.center() - last.center();
-        const double distance = std::hypot(d.x(), d.y());
-        if (distance > reach)
-            continue;
-        if (best.isNull() || distance < bestDistance) {
-            best = c;
-            bestDistance = distance;
-        }
-    }
-    return best;
 }
 
 QString stateName(Sample::State state)
