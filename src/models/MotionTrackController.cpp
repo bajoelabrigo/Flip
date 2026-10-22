@@ -762,7 +762,7 @@ void MotionTrackController::addHideLayer(int trackIndex, const drift::Clip &vide
         if (i % 2 != 0 && i != keys.size() - 1)
             continue;
         QPointF centre;
-        QSizeF size;
+        QSizeF size(0.0, 0.0); // not QSizeF(): that is (-1, -1), an invalid size that would skew the sum
         int n = 0;
         const int half = qMin(2, qMin(i, int(keys.size()) - 1 - i));
         for (int j = i - half; j <= i + half; ++j) {
