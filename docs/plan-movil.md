@@ -164,4 +164,8 @@ restaurar; las máscaras en una fila que no tape el video ni la línea de tiempo
 - **Trampa:** en Lucide 1, `FlipHorizontal2` es el icono de arriba/abajo; el de izquierda/derecha es
   `TrianglesCenterlineDashedVertical`.
 - **Trampa:** los catálogos de la web van ordenados con `localeCompare(…, "es")`; un `sort()` simple los reordena enteros.
+- **Máscaras con fotogramas clave (Jorge, 2026-10-22: «no los reconoce»):** con Máscara abierta, ◇+ / ◇− anima la
+  máscara elegida (lugar, tamaño, giro, difuminado; en forma libre, el contorno) y no el clip; los rombos de la línea
+  de tiempo son los de la máscara, y Curvas abierta desde Máscara les da forma y con ✓ vuelve a Máscara. Mover la
+  máscara con un fotograma ya puesto pone otro en el cabezal. El Degradado también muestra el manejador de difuminado.
 - Falta: probarlo Jorge en su celular; arrastrar el recorte en la vista previa (hoy son deslizadores).
