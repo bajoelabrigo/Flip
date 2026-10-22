@@ -1023,6 +1023,8 @@ void MotionTrackController::maskFollow(int trackIndex, int clipIndex, bool follo
     stepsAround(t0, rangeStart, rangeEnd, step, &forward, &backward);
     const int total = forward.size() + backward.size();
     const bool canvasSpace = target.canvasSpace;
+    // Scale is measured against the mask and its target at the playhead, where it was placed.
+    const QSizeF baseSize(now.w, now.h);
 
     m_app->setPlaying(false);
     m_cancel.storeRelaxed(0);
@@ -1034,7 +1036,7 @@ void MotionTrackController::maskFollow(int trackIndex, int clipIndex, bool follo
     const QString maskId = maskClip.id;
     const QString videoId = video.id;
     (void)QtConcurrent::run([this, video, region, t0, forward, backward, total, followScale, maskId, videoId,
-                             canvasSpace, projectW, projectH]() {
+                             canvasSpace, projectW, projectH, baseSize]() {
         int done = 0;
         const ObjectRun run = runObjectTracking(video, region, t0, forward, backward, followScale, -1, m_cancel, [&]() {
             ++done;
@@ -1047,7 +1049,8 @@ void MotionTrackController::maskFollow(int trackIndex, int clipIndex, bool follo
                 emit statusChanged();
             }, Qt::QueuedConnection);
         });
-        QMetaObject::invokeMethod(this, [this, run, followScale, maskId, videoId, canvasSpace, projectW, projectH]() {
+        QMetaObject::invokeMethod(this, [this, run, followScale, maskId, videoId, canvasSpace, projectW, projectH,
+                                         baseSize, t0]() {
             setBusy(false);
             if (!run.error.isEmpty()) {
                 m_status = run.error;
@@ -1104,9 +1107,15 @@ void MotionTrackController::maskFollow(int trackIndex, int clipIndex, bool follo
                 mask.keyframes.remove(QStringLiteral("w"));
                 mask.keyframes.remove(QStringLiteral("h"));
             }
-            // The mask keeps its own size and shape; its centre (and with scale, its size) follows.
-            const QRectF first = points.first().r;
-            const QSizeF base(mask.w, mask.h);
+            // The mask keeps its own size and shape; its centre (and with scale, its size) follows. The
+            // size scales by the target's width against its width at the playhead.
+            const Point *ref = &points.first();
+            for (const Point &p : points) {
+                if (std::llabs(p.t - t0) < std::llabs(ref->t - t0))
+                    ref = &p;
+            }
+            const QRectF first = ref->r;
+            const QSizeF base = baseSize;
             for (int i = 0; i < points.size(); ++i) {
                 if (i % 2 != 0 && i != points.size() - 1)
                     continue;
