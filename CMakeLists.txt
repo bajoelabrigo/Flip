@@ -1670,7 +1670,10 @@ if(Qt6LinguistTools_FOUND)
         # -locations none: source line numbers in .ts files churn on every edit
         # and make i18n/*.ts conflict across PRs. Translators still see context
         # and source text; they lose jump-to-source in Qt Linguist.
-        LUPDATE_OPTIONS -no-obsolete -locations none
+        # No same/similar-text guesses for new strings: lrelease ships unfinished text, so a guess
+        # copied from another context ("Blur" -> "Desenfoque") overrode the base language's real
+        # translation wherever a regional catalog (es_CO) is layered on top of it.
+        LUPDATE_OPTIONS -no-obsolete -locations none -disable-heuristic sametext -disable-heuristic similartext
     )
     if(NOT TARGET update_translations AND TARGET drift_lupdate)
         add_custom_target(update_translations DEPENDS drift_lupdate)

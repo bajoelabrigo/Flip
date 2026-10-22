@@ -536,10 +536,6 @@ void MotionTrackController::blurFace(int trackIndex, int clipIndex, const QStrin
         return;
     if (style == QLatin1String("blur"))
         effect->parameters.insert(QStringLiteral("u_blurRadius"), 40.0);
-    else {
-        effect->parameters.insert(QStringLiteral("width"), 18.0);
-        effect->parameters.insert(QStringLiteral("height"), 18.0);
-    }
 
     const int projectW = project.width();
     const int projectH = project.height();
@@ -598,6 +594,17 @@ void MotionTrackController::blurFace(int trackIndex, int clipIndex, const QStrin
         return;
     }
     std::sort(keys.begin(), keys.end(), [](const Key &a, const Key &b) { return a.t < b.t; });
+
+    if (style != QLatin1String("blur")) {
+        // Blocks sized to the face, about eight across it: small blocks still let a face be
+        // recognised, and a fixed size meant a different look on every video.
+        double faceWidth = 0.0;
+        for (const Key &k : keys)
+            faceWidth += k.r.width() * projectW / 1.35;
+        const double block = qBound(14.0, faceWidth / keys.size() / 8.0, 64.0);
+        effect->parameters.insert(QStringLiteral("width"), block);
+        effect->parameters.insert(QStringLiteral("height"), block);
+    }
 
     drift::Clip layer;
     layer.id = QUuid::createUuid().toString(QUuid::WithoutBraces);

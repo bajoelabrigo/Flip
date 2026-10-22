@@ -565,12 +565,18 @@ py -m aqt install-qt windows desktop 6.10.3 win64_mingw --archives MinGW qttools
 
 # 2. Regenerar los catálogos tras añadir qsTr (y NO editar un .ts a mano: lupdate tiene que
 #    reproducirlo byte a byte o el test Translations falla en los 17 idiomas)
-.\.qtmingw\6.10.3\mingw_64\bin\lupdate.exe src i18n -no-obsolete -locations none -ts (gci i18n\drift*.ts).FullName
+.\.qtmingw\6.10.3\mingw_64\bin\lupdate.exe src i18n -no-obsolete -locations none -disable-heuristic sametext -disable-heuristic similartext -ts (gci i18n\drift*.ts).FullName
 
 # 3. Comprobar que quedó estable (dos pasadas iguales) y ver qué traduce de verdad
 .\.qtmingw\6.10.3\mingw_64\bin\lrelease.exe i18n\drift_es.ts -qm .qmcheck\drift_es.qm
 .\.qtmingw\6.10.3\mingw_64\bin\lconvert.exe -i .qmcheck\drift_es.qm -o .qmcheck\dump.ts
 ```
+
+**Trampa (2026-10-21): las «adivinanzas» de lupdate pisaban el español en Colombia.** Para un texto
+nuevo, lupdate copiaba la traducción de otro texto parecido y la dejaba «sin terminar»; lrelease la
+incluye igual, y como el catálogo regional `drift_es_CO` va encima de `drift_es` (el idioma de Jorge es
+`es_CO`), salían cosas como «Desenfoque» en vez de «Desenfocar». Se vaciaron las 148 de `es_CO` y
+lupdate corre con `-disable-heuristic sametext -disable-heuristic similartext` (también en CMake).
 
 **Trampa que costó dos ciclos de CI:** editar un `.ts` a mano (o con un script de reemplazo) puede
 dejar el archivo en una forma que `lupdate` no reproduce, y entonces el test Translations falla
