@@ -257,8 +257,7 @@ QImage TextAnimPreviewImageProvider::requestImage(const QString &id, QSize *size
     // The sample fits the card: its longest line within the width, all its lines within the height
     // (a long sample such as "Boost your workflow" overflowed at the fixed size).
     {
-        const QStringList lines = sample.split(QLatin1Char('
-'));
+        const QStringList lines = sample.split(QLatin1Char('\n'));
         int longest = 1;
         for (const QString &line : lines)
             longest = qMax(longest, int(line.size()));
