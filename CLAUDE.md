@@ -41,6 +41,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - La clave de firma de Drift (`CutWire`) ya no se usa; los extras se firman con la nuestra.
 - Lo de pago vive en servidores propios; las claves de API nunca dentro del `.exe`.
 - Antes de publicar algo, compilarlo y probarlo en Windows.
+- **REGLA (Jorge, 2026-10-22): todo cambio o actualización se comprueba EN VENTANA antes de publicar**, viendo con
+  los propios ojos que quedó como queremos: abrir cada panel o función que toca el cambio, comprobar que se vea
+  lo que tiene que verse, hacer clic y ver el resultado en la vista previa. Las hojas renderizadas, el MCP sin
+  ventana y las pruebas de CI **no** lo reemplazan (la 0.20.0 salió con Texto › Animación vacío por eso).
+  Portable en `pruebas\`, `tools/e2e/shot.ps1` y `click.ps1` por pid, errores de QML con
+  `-RedirectStandardError`; copia del registro antes y restaurarla después.
 
 ---
 
