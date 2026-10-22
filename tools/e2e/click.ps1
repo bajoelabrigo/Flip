@@ -41,11 +41,16 @@ $r = New-Object FlipInput+RECT
 [void][FlipInput]::GetWindowRect($h, [ref]$r)
 $pt = New-Object FlipInput+POINT
 $pt.X = $r.L + $X; $pt.Y = $r.T + $Y
+$screenLp = [IntPtr](($pt.Y -shl 16) -bor ($pt.X -band 0xFFFF))
 [void][FlipInput]::ScreenToClient($h, [ref]$pt)
 $lp = [IntPtr](($pt.Y -shl 16) -bor ($pt.X -band 0xFFFF))
 if ($Wheel -ne 0) {
+    # WM_MOUSEWHEEL carries screen coordinates (unlike the button messages); the pointer goes
+    # there first so the window knows what is under it.
+    [void][FlipInput]::PostMessageW($h, 0x0200, [IntPtr]0, $lp)   # WM_MOUSEMOVE
+    Start-Sleep -Milliseconds 60
     $wp = [IntPtr](([int]$Wheel -shl 16))
-    [void][FlipInput]::PostMessageW($h, 0x020A, $wp, $lp)   # WM_MOUSEWHEEL
+    [void][FlipInput]::PostMessageW($h, 0x020A, $wp, $screenLp)   # WM_MOUSEWHEEL
     Write-Output "wheel $Wheel at $X,$Y (client $($pt.X),$($pt.Y))"
     exit 0
 }
