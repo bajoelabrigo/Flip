@@ -1000,7 +1000,10 @@ void EditorStateTest::newTextBoxHugsItsWordsAndGrowsWithThem()
     state.setTextStyle(track, clip, {{QStringLiteral("pixelSize"), clipNow().textStyle.pixelSize * 2}});
     const TextBox bigger = textBoxOf(clipNow());
     QVERIFY(bigger.h > longer.h * 1.5);
-    QVERIFY(bigger.w > longer.w * 1.5);
+    // Twice the size no longer fits on one line of this canvas: it wraps, so it is wider but
+    // capped by the 90 % wrap width rather than twice as wide.
+    QVERIFY(bigger.w > longer.w);
+    QVERIFY(bigger.w <= 1280.0);
     QVERIFY(qAbs(bigger.cx() - first.cx()) < 0.5);
     QVERIFY(clipNow().textAutoFit);
 #endif

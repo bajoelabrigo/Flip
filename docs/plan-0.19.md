@@ -160,6 +160,31 @@ nuestro. Lo que sigue es ese pliego traducido a la app real.
 Cada fase: compilar en CI, pruebas, ventana. Las pruebas con video real usan `pruebas\web-videos\medios`
 (`parapente120.mp4`, `retrato.mp4`, `modelos.mp4`).
 
+### Estado (2026-10-21, noche)
+- **Fase 1 HECHA** (`271d6`, CI: compila; EngineTest y EditorStateTest del seguimiento en verde):
+  `core/MotionTrack` (datos + JSON versionado + `bakeMotionTrack` + `followFaceSlot`), `RegionTracker` con
+  recuperación (plantilla original, búsqueda en todo el cuadro, se niega a saltar a un parecido presente desde el
+  primer cuadro), `MotionTrackController::trackWith/setOption/realign/info/faceTargets/targetAt`. Texto con Escala:
+  también se anima su tamaño de letra (`textStyle.keyframes["pixelSize"]`). Un re-horneado reemplaza toda la
+  animación de posición (y tamaño).
+- **Detector de objetos:** YOLOX-Tiny (Apache 2.0, 19,3 MB, ~27 ms/cuadro en CPU) — `engine/ObjectDetector` ya venía de
+  Drift (detección de escenas), ahora con un candado entre hilos. Extra `seguimiento.objetos` (kind `object-model`,
+  raíz `models/yolox-tiny`) preparado en `flip-addons` rama `extra/seguimiento-objetos` (`4bf23`), **sin publicar**.
+  Probado aparte en `pruebas\object-detector` (README con el pre/posprocesado). Para probar la app sin el extra:
+  `DRIFT_OBJECT_MODEL_DIR=pruebas\object-detector\stage-model`. «Detectar objetos» elige una caja; al perder el
+  objeto se vuelve a detectar uno de la misma clase cerca y de tamaño parecido (cada 5 cuadros perdidos).
+- **Fase 2 HECHA (sin compilar todavía):** pestaña «Seguimiento» (`TrackingInspector.qml`, cap `trackable`) con
+  Ninguno/Objeto/Rostro, Dirección, Escala, Distancia, «Seguir de nuevo desde aquí», «Reacomodar», estado; visor
+  (`preview/TrackingOverlay.qml`): recuadro seguido con color por estado, rostros y objetos para elegir con un clic y
+  recuadro dibujado a mano (`MotionTrackController::chooser/pick/regionFromCanvas`). Se quitó la sección de
+  Transformar (`MotionTrackSection.qml`).
+- **Fase 3, parte hecha:** «Ocultar un rostro» (Pixelar / Desenfocar) en la pestaña Seguimiento de un video o foto:
+  pista de ajuste encima con el efecto y una elipse que sigue la cara (`blurFace`). Falta: «la máscara sigue» a un
+  objeto y ocultar un objeto (no solo caras).
+- Además: cuadro de texto ajustado a las palabras (rama `flip/texto-ajustado`, `32bc0`, unida) y listas que ya no
+  vuelven arriba al cargar la página siguiente (Stock y Tendencias).
+- **Falta probar en ventana** todo lo de la fase 2 y 3 con la compilación nueva, y las fases 4–5.
+
 ## Estado de la compilación
 - Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad` (solo falló la prueba de traducciones, ya arreglada).
 - Run 39691308647 sobre `e8f3a`: compila bien; `tests.yml` 17/17 en verde.

@@ -34,6 +34,12 @@ class MotionTrackController : public QObject
     // (canvas pixels), region {x, y, w, h} (normalized to the video frame), classId, score}].
     Q_PROPERTY(QVariantList objectTargets READ objectTargets NOTIFY objectTargetsChanged)
     Q_PROPERTY(bool detectingObjects READ detectingObjects NOTIFY objectTargetsChanged)
+    // What the preview offers to pick while the Tracking tab is open: "" (nothing), "face" (the
+    // scanned faces) or "object" (the detected objects, or a box drawn by hand).
+    Q_PROPERTY(QString chooser READ chooser WRITE setChooser NOTIFY chooserChanged)
+    // What was picked there: {} (follow what the element covers / the nearest face), {faceSlot},
+    // or {region: {x, y, w, h} normalized to the video frame, classId (-1 for a drawn box)}.
+    Q_PROPERTY(QVariantMap pick READ pick WRITE setPick NOTIFY pickChanged)
 
 public:
     explicit MotionTrackController(AppController *app, QObject *parent = nullptr);
@@ -43,6 +49,14 @@ public:
     QString status() const { return m_status; }
     int revision() const { return m_revision; }
     QVariantList objectTargets() const { return m_objectTargets; }
+    QString chooser() const { return m_chooser; }
+    void setChooser(const QString &chooser);
+    QVariantMap pick() const { return m_pick; }
+    void setPick(const QVariantMap &pick);
+    // A box drawn on the preview (canvas pixels) as a region of the video under the element, for
+    // `pick`: {ok, x, y, w, h} normalized to that video's frame.
+    Q_INVOKABLE QVariantMap regionFromCanvas(int trackIndex, int clipIndex, double x, double y, double w,
+                                             double h) const;
     bool detectingObjects() const { return m_detectingObjects; }
     // Whether the object model (the "seguimiento.objetos" extra, YOLOX) is installed.
     Q_INVOKABLE bool objectModelReady() const;
@@ -78,6 +92,11 @@ public:
     // Bakes again against the followed video's current place and timing (after it was moved,
     // trimmed or sped up).
     Q_INVOKABLE bool realign(int trackIndex, int clipIndex);
+    // CapCut's Mosaic: hides a face of this video clip (or photo) for its whole length with a
+    // pixelate ("pixelate") or blur ("blur") layer right above it, its oval mask following the
+    // face. faceSlot -1 = the face nearest the middle of the frame at the playhead. Scans the faces
+    // first if they have not been.
+    Q_INVOKABLE void blurFace(int trackIndex, int clipIndex, const QString &style, int faceSlot = -1);
     Q_INVOKABLE void cancel();
     // Drops the element's tracking and its position and size animation, leaving it where it is at
     // the playhead.
@@ -89,6 +108,8 @@ signals:
     void statusChanged();
     void revisionChanged();
     void objectTargetsChanged();
+    void chooserChanged();
+    void pickChanged();
     void finished(bool ok, const QString &message);
 
 private:
@@ -113,7 +134,11 @@ private:
     // A face track asked for before following a face: resumed when the scan finishes.
     QString m_pendingFaceClipId;
     QVariantMap m_pendingOptions;
+    // A face blur asked for before the faces were scanned: {clipId, style, faceSlot}.
+    QVariantMap m_pendingBlur;
     QVariantList m_objectTargets;
+    QString m_chooser;
+    QVariantMap m_pick;
     bool m_detectingObjects = false;
     int m_objectGeneration = 0;
 };

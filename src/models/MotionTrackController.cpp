@@ -9,6 +9,7 @@
 #include "engine/StillImage.h"
 
 #include <QMetaObject>
+#include <QUuid>
 #include <QtConcurrent>
 
 #include <algorithm>
@@ -175,6 +176,21 @@ MotionTrackController::MotionTrackController(AppController *app, QObject *parent
 {
     // A face track asked for on the way to following a face: carry on once the scan lands.
     connect(m_app->faces(), &FaceTrackingController::finished, this, [this](bool ok, const QString &) {
+        if (!m_pendingBlur.isEmpty()) {
+            const QVariantMap blur = m_pendingBlur;
+            m_pendingBlur.clear();
+            const QString clipId = blur.value(QStringLiteral("clipId")).toString();
+            const QList<drift::Track> &tracks = m_app->m_project.tracks();
+            for (int t = 0; ok && t < tracks.size(); ++t) {
+                for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+                    if (tracks.at(t).clips.at(c).id == clipId) {
+                        blurFace(t, c, blur.value(QStringLiteral("style")).toString(),
+                                 blur.value(QStringLiteral("faceSlot")).toInt());
+                        return;
+                    }
+                }
+            }
+        }
         if (m_pendingFaceClipId.isEmpty())
             return;
         const QString overlayId = m_pendingFaceClipId;
@@ -377,6 +393,50 @@ QVariantMap MotionTrackController::targetAt(int trackIndex, int clipIndex) const
     return out;
 }
 
+void MotionTrackController::setChooser(const QString &chooser)
+{
+    if (m_chooser == chooser)
+        return;
+    m_chooser = chooser;
+    emit chooserChanged();
+}
+
+void MotionTrackController::setPick(const QVariantMap &pick)
+{
+    if (m_pick == pick)
+        return;
+    m_pick = pick;
+    emit pickChanged();
+}
+
+QVariantMap MotionTrackController::regionFromCanvas(int trackIndex, int clipIndex, double x, double y, double w,
+                                                    double h) const
+{
+    QVariantMap out{{QStringLiteral("ok"), false}};
+    if (!m_app->isValidClipIndex(trackIndex, clipIndex) || w <= 0.0 || h <= 0.0)
+        return out;
+    const drift::Project &project = m_app->m_project;
+    const drift::Clip &clip = project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TimeUs at = m_app->playheadUs();
+    const Source source = sourceUnder(trackIndex, clipIndex, clip.containsTime(at) ? at : clip.timelineStart);
+    if (source.trackIndex < 0)
+        return out;
+    const QRectF v = canvasRect(project.tracks().at(source.trackIndex).clips.at(source.clipIndex), at,
+                                project.width(), project.height());
+    if (v.width() <= 0.0 || v.height() <= 0.0)
+        return out;
+    const QRectF n = QRectF((x - v.x()) / v.width(), (y - v.y()) / v.height(), w / v.width(), h / v.height())
+                         .intersected(QRectF(0, 0, 1, 1));
+    if (n.isEmpty())
+        return out;
+    out.insert(QStringLiteral("ok"), true);
+    out.insert(QStringLiteral("x"), n.x());
+    out.insert(QStringLiteral("y"), n.y());
+    out.insert(QStringLiteral("w"), n.width());
+    out.insert(QStringLiteral("h"), n.height());
+    return out;
+}
+
 bool MotionTrackController::objectModelReady() const
 {
     return drift::ObjectDetector::modelPresent();
@@ -444,6 +504,151 @@ void MotionTrackController::detectObjects(int trackIndex, int clipIndex)
                                       QStringLiteral("warning"));
         }, Qt::QueuedConnection);
     });
+}
+
+void MotionTrackController::blurFace(int trackIndex, int clipIndex, const QString &style, int faceSlot)
+{
+    if (m_busy || !m_app->isValidClipIndex(trackIndex, clipIndex))
+        return;
+    m_app->m_project.ensureTrackIds();
+    const drift::Project &project = m_app->m_project;
+    const drift::Clip video = project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!followsVideo(video.type) || video.path.isEmpty()) {
+        m_app->setLastMessage(tr("Select a video or a photo to hide a face in it"), QStringLiteral("warning"));
+        return;
+    }
+    if (video.faceTrackPath.isEmpty()) {
+        m_pendingBlur = QVariantMap{{QStringLiteral("clipId"), video.id}, {QStringLiteral("style"), style},
+                                    {QStringLiteral("faceSlot"), faceSlot}};
+        m_app->setLastMessage(tr("Scanning the faces in the video first…"));
+        m_app->faces()->detect(trackIndex, clipIndex);
+        return;
+    }
+    const std::shared_ptr<const drift::FaceTrack> faces = drift::loadFaceTrackCached(video.faceTrackPath);
+    if (!faces || faces->isEmpty()) {
+        m_app->setLastMessage(tr("No face was found in this clip"), QStringLiteral("warning"));
+        return;
+    }
+    const QString effectId = style == QLatin1String("blur") ? QStringLiteral("builtin.effects.gaussian_blur")
+                                                            : QStringLiteral("stylize.pixelate");
+    std::optional<drift::Effect> effect = m_app->effectWithDefaults(effectId);
+    if (!effect)
+        return;
+    if (style == QLatin1String("blur"))
+        effect->parameters.insert(QStringLiteral("u_blurRadius"), 40.0);
+    else {
+        effect->parameters.insert(QStringLiteral("width"), 18.0);
+        effect->parameters.insert(QStringLiteral("height"), 18.0);
+    }
+
+    const int projectW = project.width();
+    const int projectH = project.height();
+    const int fps = qMax(1, project.fps());
+    const drift::TimeUs step = drift::kUsPerSecond / fps;
+    const drift::TimeUs start = video.timelineStart;
+    const drift::TimeUs end = video.timelineStart + video.timelineDuration;
+    const auto rectsAt = [&](drift::TimeUs t, double aspect) {
+        return faceRects(faces->sampleAll(video.timelineToSourceUs(t) - video.faceTrackSrcOffsetUs), aspect);
+    };
+
+    // The face to hide: the one asked for, else the one nearest the middle of the frame at the
+    // playhead (or at the start, when the playhead is off the clip).
+    drift::TimeUs t0 = m_app->playheadUs();
+    if (!video.containsTime(t0))
+        t0 = start;
+    const QRectF v0 = canvasRect(video, t0, projectW, projectH);
+    if (v0.width() <= 0.0 || v0.height() <= 0.0)
+        return;
+    const QList<QRectF> first = rectsAt(t0, v0.width() / v0.height());
+    int slot = faceSlot >= 0 && faceSlot < first.size() && !first.at(faceSlot).isNull()
+        ? faceSlot
+        : nearestFace(first, QPointF(0.5, 0.5));
+    if (slot < 0) {
+        m_app->setLastMessage(tr("There is no face at the playhead: move to a frame where the face shows"),
+                              QStringLiteral("warning"));
+        return;
+    }
+
+    // The oval in canvas-normalized terms (a standalone layer's mask is measured on the canvas),
+    // followed outward from the anchor in both directions with the same person kept.
+    struct Key { drift::TimeUs t; QRectF r; };
+    QList<Key> keys;
+    for (int pass = 0; pass < 2; ++pass) {
+        int current = slot;
+        QRectF last = first.at(slot);
+        for (drift::TimeUs t = pass == 0 ? t0 : t0 - step; pass == 0 ? t < end : t >= start;
+             t += pass == 0 ? step : -step) {
+            const QRectF v = canvasRect(video, t, projectW, projectH);
+            if (v.width() <= 0.0 || v.height() <= 0.0)
+                continue;
+            const QList<QRectF> rects = rectsAt(t, v.width() / v.height());
+            const int picked = drift::followFaceSlot(rects, last, current);
+            if (picked < 0)
+                continue; // lost: the mask glides between the frames the face was found in
+            current = picked;
+            last = rects.at(picked);
+            const QRectF c = normalizedToCanvas(last, v);
+            // A little larger than the oval of the face, so hair and jaw are covered too.
+            keys.append({t, QRectF((c.center().x()) / projectW, (c.center().y()) / projectH,
+                                   c.width() * 1.35 / projectW, c.height() * 1.35 / projectH)});
+        }
+    }
+    if (keys.isEmpty()) {
+        m_app->setLastMessage(tr("No face was found in this clip"), QStringLiteral("warning"));
+        return;
+    }
+    std::sort(keys.begin(), keys.end(), [](const Key &a, const Key &b) { return a.t < b.t; });
+
+    drift::Clip layer;
+    layer.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    layer.type = drift::ClipType::Adjustment;
+    layer.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    layer.name = style == QLatin1String("blur") ? tr("Blurred face") : tr("Pixelated face");
+    layer.timelineStart = start;
+    layer.timelineDuration = video.timelineDuration;
+    layer.srcIn = 0;
+    layer.srcOut = video.timelineDuration;
+    layer.effects.append(*effect);
+    layer.masksLimitEffects = true;
+    layer.mask.shape = drift::MaskShape::Ellipse;
+    layer.mask.feather = 14.0;
+    layer.mask.x = keys.first().r.x();
+    layer.mask.y = keys.first().r.y();
+    layer.mask.w = keys.first().r.width();
+    layer.mask.h = keys.first().r.height();
+    // A key every other frame, averaged over its neighbours: smooth, and few enough to retouch.
+    for (int i = 0; i < keys.size(); ++i) {
+        if (i % 2 != 0 && i != keys.size() - 1)
+            continue;
+        QPointF centre;
+        QSizeF size;
+        int n = 0;
+        for (int j = qMax(0, i - 2); j <= qMin(int(keys.size()) - 1, i + 2); ++j) {
+            centre += QPointF(keys.at(j).r.x(), keys.at(j).r.y());
+            size += keys.at(j).r.size();
+            ++n;
+        }
+        const drift::TimeUs rel = keys.at(i).t - start;
+        layer.mask.keyframes[QStringLiteral("x")].setKeyframe(rel, centre.x() / n);
+        layer.mask.keyframes[QStringLiteral("y")].setKeyframe(rel, centre.y() / n);
+        layer.mask.keyframes[QStringLiteral("w")].setKeyframe(rel, size.width() / n);
+        layer.mask.keyframes[QStringLiteral("h")].setKeyframe(rel, size.height() / n);
+    }
+
+    const drift::Project before = m_app->m_project;
+    drift::Track layerTrack;
+    layerTrack.type = drift::TrackType::Adjustment;
+    layerTrack.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    layerTrack.clips.append(layer);
+    // Right above the video (track 0 is on top), so it hides the face on that clip and what is
+    // under it, never on what was stacked over it.
+    m_app->m_project.tracks().insert(trackIndex, layerTrack);
+    m_app->pushProjectEdit(before, tr("Hide face"));
+    m_app->finishEdit(tr("Hide face"));
+    m_app->selectClip(trackIndex, 0);
+    m_app->setLastMessage(tr("Face hidden: its layer is above the clip, where it can be trimmed or removed"),
+                          QStringLiteral("success"));
+    bump();
 }
 
 void MotionTrackController::cancel()

@@ -13,6 +13,7 @@
 
 #include "core/ClipAnimation.h"
 #include "core/Keyframe.h"
+#include "core/MotionTrack.h"
 #include "core/Project.h"
 #include "core/SceneTemplateTools.h"
 #include "core/Stabilize.h"
@@ -114,6 +115,8 @@ private slots:
     void legacyBoldMigratesToFontWeight();
     void textPresetsAreWellFormed();
     void userTextPresetsRoundTrip();
+    void motionTrackRoundTripsAndBakes();
+    void followFaceSlotKeepsThePerson();
     void effectStackJsonRoundTrip();
     void effectStackRejectsForeignPayloads();
     void effectKeyframeRescaleIsProportional();
@@ -4778,6 +4781,116 @@ void CoreTest::sliceClipToTimelineRangeKeepsSourceInSync()
 // The user library shares TextStyle's project-file codec, so the risk is not the fields but the
 // wiring around them: the id namespace, disk round-trip, and that a saved pack stops claiming
 // whatever built-in it was edited from.
+void CoreTest::motionTrackRoundTripsAndBakes()
+{
+    // A video filling a 1000x500 canvas from t=0 for 2 s; the target walks right 100 px a second.
+    drift::Clip video;
+    video.id = QStringLiteral("video");
+    video.type = drift::ClipType::Video;
+    video.timelineDuration = drift::secondsToUs(2.0);
+    video.srcOut = video.timelineDuration;
+    drift::MotionTrack track;
+    track.mode = QStringLiteral("object");
+    track.sourceClipId = video.id;
+    track.anchorSourceUs = 0;
+    track.anchorTarget = QRectF(0.1, 0.4, 0.1, 0.2);
+    track.anchorElement = QRectF(100, 100, 80, 40); // 50 px above the target's centre-left
+    for (int i = 0; i <= 20; ++i) {
+        drift::MotionTrackSample s;
+        s.sourceUs = drift::secondsToUs(i * 0.1);
+        s.rect = QRectF(0.1 + 0.01 * i, 0.4, 0.1, 0.2);
+        s.score = 0.9;
+        s.state = i >= 8 && i <= 10 ? drift::MotionTrackSample::State::Lost : drift::MotionTrackSample::State::Tracked;
+        track.samples.append(s);
+    }
+
+    // Round trip, and a newer format than this build knows is dropped rather than misread.
+    QJsonObject json = drift::motionTrackToJson(track);
+    const std::optional<drift::MotionTrack> back = drift::motionTrackFromJson(json);
+    QVERIFY(back.has_value());
+    QCOMPARE(back->samples.size(), track.samples.size());
+    QCOMPARE(back->lostCount(), 3);
+    QCOMPARE(back->anchorElement, track.anchorElement);
+    QVERIFY(std::abs(back->samples.at(5).rect.x() - 0.15) < 1e-9);
+    json.insert(QStringLiteral("version"), drift::MotionTrack::kVersion + 1);
+    QVERIFY(!drift::motionTrackFromJson(json).has_value());
+
+    // A clip carrying it saves and opens with it.
+    drift::Project project;
+    project.setResolution(1000, 500);
+    project.tracks().clear();
+    drift::Track textTrack{.type = drift::TrackType::Text};
+    drift::Clip text;
+    text.id = QStringLiteral("label");
+    text.type = drift::ClipType::Text;
+    text.timelineDuration = drift::secondsToUs(2.0);
+    text.motionTrack = track;
+    textTrack.clips.append(text);
+    project.tracks().append(textTrack);
+    QString error;
+    const drift::Project reopened = drift::Project::fromJson(project.toJson(), &error);
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+    QVERIFY(reopened.tracks().at(0).clips.at(0).motionTrack.has_value());
+    QCOMPARE(reopened.tracks().at(0).clips.at(0).motionTrack->samples.size(), 21);
+
+    // Baked: the element keeps its offset against the target as the target walks.
+    drift::Clip follower = text;
+    const drift::MotionBakeResult baked = drift::bakeMotionTrack(track, video, &follower, 1000, 500);
+    QVERIFY(baked.ok);
+    QCOMPARE(baked.lost, 3);
+    const double offsetX = track.anchorElement.center().x() - (0.15 * 1000);
+    const double atOne = follower.transformX.evaluateAt(drift::secondsToUs(1.5)) + 40.0;
+    QVERIFY2(std::abs(atOne - ((0.1 + 0.15 + 0.05) * 1000 + offsetX)) < 3.0, qPrintable(QString::number(atOne)));
+    // Through the lost stretch it glides: no key there, values between its neighbours.
+    for (const drift::TimeUs t : follower.transformX.keyframes().keys())
+        QVERIFY(t < drift::secondsToUs(0.8) || t > drift::secondsToUs(1.0));
+
+    // Distance off: the element's centre sits on the target's.
+    drift::MotionTrack onTop = track;
+    onTop.keepDistance = false;
+    drift::Clip centred = text;
+    QVERIFY(drift::bakeMotionTrack(onTop, video, &centred, 1000, 500).ok);
+    QVERIFY(std::abs(centred.transformX.evaluateAt(0) + 40.0 - 150.0) < 3.0);
+    QVERIFY(std::abs(centred.transformY.evaluateAt(0) + 20.0 - 250.0) < 3.0);
+
+    // The video moved half a second later: the path moves with it.
+    drift::Clip later = video;
+    later.timelineStart = drift::secondsToUs(0.5);
+    drift::Clip moved = text;
+    moved.timelineDuration = drift::secondsToUs(3.0);
+    QVERIFY(drift::bakeMotionTrack(track, later, &moved, 1000, 500).ok);
+    QVERIFY(moved.transformX.keyframes().firstKey() >= drift::secondsToUs(0.5));
+    QVERIFY(std::abs(moved.transformX.evaluateAt(drift::secondsToUs(0.5)) - follower.transformX.evaluateAt(0)) < 3.0);
+
+    // With Scale, a text's font size follows the target's size.
+    drift::MotionTrack growing = track;
+    growing.followScale = true;
+    growing.anchorPixelSize = 50.0;
+    for (int i = 0; i < growing.samples.size(); ++i)
+        growing.samples[i].rect.setWidth(0.1 * (1.0 + i * 0.05));
+    drift::Clip scaled = text;
+    QVERIFY(drift::bakeMotionTrack(growing, video, &scaled, 1000, 500).ok);
+    const drift::KeyframeTrack<double> size = scaled.textStyle.keyframes.value(QStringLiteral("pixelSize"));
+    QVERIFY(!size.isEmpty());
+    QVERIFY(size.evaluateAt(drift::secondsToUs(2.0)) > 50.0 * 1.6);
+}
+
+void CoreTest::followFaceSlotKeepsThePerson()
+{
+    const QRectF a(0.2, 0.3, 0.1, 0.15);
+    const QRectF b(0.7, 0.3, 0.1, 0.15);
+    // Same person, same slot.
+    QCOMPARE(drift::followFaceSlot({a, b}, a, 0), 0);
+    // The scan swapped the two people's slots: keep following the person, not the slot.
+    QCOMPARE(drift::followFaceSlot({b, a}, a, 0), 1);
+    // The followed face is gone and only the other person is in view: lost, not swapped.
+    QCOMPARE(drift::followFaceSlot({QRectF(), b}, a, 0), -1);
+    // Its own slot moving fast is still that person when nobody else is near.
+    QCOMPARE(drift::followFaceSlot({QRectF(0.45, 0.3, 0.1, 0.15)}, a, 0), 0);
+    // Back after being lost, near where it went.
+    QCOMPARE(drift::followFaceSlot({QRectF(), QRectF(0.21, 0.31, 0.1, 0.15)}, a, 0), 1);
+}
+
 void CoreTest::userTextPresetsRoundTrip()
 {
     const QString org = QCoreApplication::organizationName();

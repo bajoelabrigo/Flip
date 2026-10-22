@@ -1995,6 +1995,9 @@ protected:
     void notifyStabilizeStateChanged(const QString &clipId);
 
     void pushProjectEdit(const drift::Project &before, const QString &text);
+    // A catalogue effect with its fixed and default parameters, as addEffect builds it; nullopt for
+    // an unknown id. For controllers that assemble a layer themselves (MotionTrackController).
+    std::optional<drift::Effect> effectWithDefaults(const QString &effectId) const;
 
     // Lifts one effect, one audio effect, or the whole stack off a clip. Every copy and
     // save-as-preset entry point funnels through this, so all of them produce one payload shape.

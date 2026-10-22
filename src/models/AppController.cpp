@@ -1038,11 +1038,11 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
              << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("stabilizable")
              << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
-             << QStringLiteral("videoTools");
+             << QStringLiteral("videoTools") << QStringLiteral("trackable");
         break;
     case ClipType::Composite:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("audible") << QStringLiteral("retimable");
+             << QStringLiteral("audible") << QStringLiteral("retimable") << QStringLiteral("trackable");
         break;
     case ClipType::Audio:
         caps << QStringLiteral("animatable") << QStringLiteral("audible") << QStringLiteral("retimable");
@@ -1051,7 +1051,7 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
         // Masks cut a text the way they cut a picture (CapCut's text masks); the compositor
         // places them on the text box, where the preview draws their handles.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("textStyled") << QStringLiteral("maskable");
+             << QStringLiteral("textStyled") << QStringLiteral("maskable") << QStringLiteral("trackable");
         break;
     case ClipType::Subtitle:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("textStyled")
@@ -1063,15 +1063,15 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
         // stabilization, sound) stay with video.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
              << QStringLiteral("maskable") << QStringLiteral("adj:videoEffects")
-             << QStringLiteral("videoTools");
+             << QStringLiteral("videoTools") << QStringLiteral("trackable");
         break;
     case ClipType::Shape:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("shape");
+             << QStringLiteral("shape") << QStringLiteral("trackable");
         break;
     case ClipType::Vector:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("vector");
+             << QStringLiteral("vector") << QStringLiteral("trackable");
         break;
     case ClipType::Pdf:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
@@ -18405,6 +18405,21 @@ bool AppController::effectFitsTrack(int trackIndex, const QString &effectId, QSt
                    : tr("Face effects follow one clip's faces, so they go on a clip, not on an adjustment layer.");
     }
     return false;
+}
+
+std::optional<drift::Effect> AppController::effectWithDefaults(const QString &effectId) const
+{
+    const EffectPresetEntry *def = effectDefForId(effectId);
+    if (!def)
+        return std::nullopt;
+    drift::Effect effect;
+    effect.name = def->filterName;
+    effect.catalogId = def->meta.id;
+    for (auto it = def->fixedParams.constBegin(); it != def->fixedParams.constEnd(); ++it)
+        effect.parameters.insert(it.key(), it.value());
+    for (const drift::EffectParamSpec &p : def->meta.parameters)
+        p.insertDefault(effect.parameters);
+    return effect;
 }
 
 void AppController::addEffect(int trackIndex, int clipIndex, const QString &effectId)

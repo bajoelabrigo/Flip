@@ -142,6 +142,9 @@ PanelFrame {
         { id: "stabilize", label: qsTr("Stabilization"), icon: Theme.icons.locateFixed, group: 1,
           needs: ["stabilizable"], keyframes: true },
         { id: "animation", label: qsTr("Animation"), icon: Theme.icons.sparkles, group: 1, needs: ["animatable"] },
+        // CapCut's Tracking tab: the element follows an object or a face in the video under it.
+        { id: "tracking", label: qsTr("Tracking"), icon: Theme.icons.locateFixed, group: 1,
+          needs: ["trackable"], keyframes: true },
         { id: "audio", label: qsTr("Audio"), icon: Theme.icons.volumeHigh, group: 1, needs: ["audible"], keyframes: true },
         { id: "speed", label: qsTr("Speed"), icon: Theme.icons.gauge, group: 1, needs: ["retimable"] },
         { id: "blending", label: qsTr("Blending"), icon: Theme.icons.blend, group: 2, needs: ["blendable"] },
@@ -771,6 +774,12 @@ PanelFrame {
                     active: root.currentTabId === "masks"
                     visible: active
                     sourceComponent: Component { MasksInspector { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "tracking"
+                    visible: active
+                    sourceComponent: Component { TrackingInspector { width: tabColumn.width } }
                 }
 
                 Loader {
