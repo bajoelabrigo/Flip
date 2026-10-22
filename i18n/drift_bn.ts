@@ -11323,6 +11323,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>আগের</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>পরের</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -16211,7 +16222,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">পরবর্তী</translation>
+        <translation>পরের</translation>
     </message>
     <message>
         <source>Done</source>

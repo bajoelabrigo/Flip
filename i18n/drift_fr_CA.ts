@@ -11328,6 +11328,17 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Précédents</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Suivants</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>

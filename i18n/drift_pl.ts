@@ -11364,6 +11364,17 @@ ZOBACZENIA</translation>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Poprzednie</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Następne</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>

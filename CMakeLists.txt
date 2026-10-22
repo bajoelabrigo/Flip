@@ -1452,6 +1452,8 @@ qt_add_qml_module(drift
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml
         src/qml/components/ThemedChip.qml
+        src/qml/components/AnimSlotTabs.qml
+        src/qml/components/ChipScroller.qml
         src/qml/components/ThemedProgressBar.qml
         src/qml/components/MediaPill.qml
         src/qml/components/VfrWarning.qml

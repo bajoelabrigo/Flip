@@ -11323,6 +11323,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChipScroller</name>
+    <message>
+        <source>Previous</source>
+        <translation>Nakaraan</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation>Susunod</translation>
+    </message>
+</context>
+<context>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -16211,7 +16222,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Susunod</translation>
     </message>
     <message>
         <source>Done</source>
