@@ -14843,12 +14843,36 @@
         <translation>Umieść go nad wideo, aby śledzić coś w nim</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Wykrywanie obiektów wymaga dodatku „Śledzenie obiektów”</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Nie znaleziono tu obiektów: narysuj ramkę wokół tego, co ma być śledzone</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Usuń śledzenie</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Usunięto śledzenie</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Śledzonego wideo nie ma już w projekcie</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>Element i śledzona część wideo już się nie pokrywają</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Ustawienia śledzenia</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Wyrównaj śledzenie ponownie</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14873,6 +14897,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>Wideo nie ma zeskanowanych twarzy</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>W miejscu głowicy nie ma twarzy: przejdź do klatki, na której widać twarz</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

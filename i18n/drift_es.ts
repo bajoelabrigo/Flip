@@ -14783,12 +14783,36 @@
         <translation>Ponlo sobre un video para seguir algo en él</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Detectar objetos necesita el extra «Seguimiento de objetos»</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>No se encontraron objetos aquí: dibuja un recuadro alrededor de lo que quieres seguir</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Quitar seguimiento</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Seguimiento quitado</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>El video que seguía ya no está en el proyecto</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>El elemento y la parte seguida del video ya no coinciden</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Ajustes del seguimiento</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Reacomodar el seguimiento</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>El video no tiene rostros analizados</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>No hay ningún rostro en el cabezal: ve a un fotograma donde se vea la cara</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

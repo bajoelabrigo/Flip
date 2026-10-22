@@ -14783,12 +14783,36 @@
         <translation>এতে কিছু অনুসরণ করতে এটি একটি ভিডিওর উপরে রাখুন</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>বস্তু শনাক্তের জন্য “অবজেক্ট ট্র্যাকিং” এক্সট্রা দরকার</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>এখানে কোনো বস্তু পাওয়া যায়নি: যা অনুসরণ করবেন তার চারপাশে একটি বাক্স আঁকুন</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ট্র্যাকিং সরান</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>ট্র্যাকিং সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>যে ভিডিও এটি অনুসরণ করছিল তা আর প্রজেক্টে নেই</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>উপাদান আর ভিডিওর ট্র্যাক করা অংশ আর মিলছে না</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>ট্র্যাকিং সেটিংস</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>ট্র্যাকিং আবার মেলান</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>ভিডিওতে স্ক্যান করা কোনো মুখ নেই</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>প্লেহেডে কোনো মুখ নেই: এমন ফ্রেমে যান যেখানে মুখ দেখা যায়</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

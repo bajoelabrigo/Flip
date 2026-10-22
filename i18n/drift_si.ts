@@ -14783,12 +14783,36 @@
         <translation>එහි යමක් අනුගමනය කිරීමට එය වීඩියෝවක් උඩින් තබන්න</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>වස්තු හඳුනාගැනීමට “වස්තු ලුහුබැඳීම” අමතරය අවශ්‍යයි</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>මෙහි වස්තු හමු නොවීය: ලුහුබැඳිය යුතු දේ වටා කොටුවක් අඳින්න</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>ට්‍රැකින් ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>ට්‍රැකින් ඉවත් කළා</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>එය ලුහුබැඳි වීඩියෝව තවදුරටත් ව්‍යාපෘතියේ නැත</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>මූලද්‍රව්‍යය සහ වීඩියෝවේ ලුහුබැඳි කොටස තවදුරටත් අතිච්ඡාදනය නොවේ</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>ලුහුබැඳීමේ සැකසුම්</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>ලුහුබැඳීම නැවත පෙළගස්වන්න</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>වීඩියෝවේ ස්කෑන් කළ මුහුණු නැත</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>ධාවන හිසේ මුහුණක් නැත: මුහුණ පෙනෙන රාමුවකට යන්න</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

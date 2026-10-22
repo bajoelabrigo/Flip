@@ -14783,12 +14783,36 @@
         <translation>Ilagay ito sa ibabaw ng video para may masundan dito</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Kailangan ng pag-detect ng bagay ang extra na “Pagsubaybay sa bagay”</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Walang nakitang bagay dito: gumuhit ng kahon sa paligid ng susundan</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Alisin ang tracking</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Naalis na ang tracking</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Wala na sa proyekto ang video na sinusundan nito</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>Hindi na nagpapatong ang elemento at ang sinundang bahagi ng video</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Mga setting ng pagsubaybay</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>I-realign ang pagsubaybay</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>Walang na-scan na mukha ang video</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Walang mukha sa playhead: pumunta sa frame kung saan makikita ang mukha</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

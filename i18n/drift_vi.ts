@@ -14723,12 +14723,36 @@
         <translation>Đặt nó lên trên một video để theo dõi thứ gì đó trong video</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Phát hiện vật thể cần tiện ích “Theo dõi vật thể”</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Không tìm thấy vật thể nào ở đây: hãy vẽ khung quanh thứ cần theo dõi</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Xóa theo dõi</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Đã xóa theo dõi</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Video mà nó theo dõi không còn trong dự án</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>Phần tử và đoạn video được theo dõi không còn trùng nhau</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Cài đặt theo dõi</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Căn chỉnh lại theo dõi</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14753,6 +14777,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>Video chưa có khuôn mặt nào được quét</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Không có khuôn mặt ở đầu phát: hãy chuyển đến khung hình có khuôn mặt</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

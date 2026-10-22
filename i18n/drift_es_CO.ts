@@ -14783,11 +14783,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tracking removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14812,6 +14836,10 @@
     </message>
     <message>
         <source>The video has no scanned faces</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

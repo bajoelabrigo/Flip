@@ -15023,12 +15023,36 @@
         <translation>ضعه فوق فيديو لتتبّع شيء فيه</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>يتطلب اكتشاف الكائنات الإضافة «تتبع الكائنات»</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>لم يُعثر على كائنات هنا: ارسم مربعًا حول ما تريد تتبعه</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>إزالة التتبّع</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>تمت إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>الفيديو الذي كان يتتبعه لم يعد في المشروع</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>العنصر والجزء المتتبَّع من الفيديو لم يعودا متداخلين</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>إعدادات التتبع</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>إعادة محاذاة التتبع</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -15053,6 +15077,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>لا توجد وجوه تم فحصها في الفيديو</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>لا يوجد وجه عند رأس التشغيل: انتقل إلى إطار يظهر فيه الوجه</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

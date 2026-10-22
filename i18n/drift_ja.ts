@@ -14723,12 +14723,36 @@
         <translation>動画の上に置くと、その中のものを追跡できます</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>オブジェクト検出には「オブジェクトトラッキング」エクストラが必要です</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>ここにはオブジェクトが見つかりません。追従させたいものを枠で囲んでください</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>トラッキングを削除</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>トラッキングを削除しました</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>追従していた動画はもうプロジェクトにありません</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>要素と動画の追従部分が重なっていません</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>トラッキング設定</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>トラッキングを再調整</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14753,6 +14777,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>この動画にはスキャン済みの顔がありません</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>再生ヘッドの位置に顔がありません。顔が映っているフレームに移動してください</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

@@ -14783,12 +14783,36 @@
         <translation>Mettila sopra un video per seguire qualcosa al suo interno</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>Il rilevamento degli oggetti richiede l’extra «Tracciamento oggetti»</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Nessun oggetto trovato qui: disegna un riquadro attorno a ciò da seguire</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Rimuovi tracciamento</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Tracciamento rimosso</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>Il video che seguiva non è più nel progetto</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>L’elemento e la parte tracciata del video non si sovrappongono più</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Impostazioni del tracciamento</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Riallinea il tracciamento</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>Il video non ha volti analizzati</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Nessun volto alla testina: spostati su un fotogramma in cui il volto è visibile</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

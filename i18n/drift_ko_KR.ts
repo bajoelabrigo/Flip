@@ -14723,12 +14723,36 @@
         <translation>추적하려면 동영상 위에 놓으세요</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>객체 감지에는 “객체 추적” 추가 기능이 필요합니다</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>여기에서 객체를 찾지 못했습니다. 따라갈 대상 주위에 상자를 그리세요</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>트래킹 제거</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>트래킹을 제거했습니다</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>따라가던 동영상이 더 이상 프로젝트에 없습니다</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>요소와 동영상의 추적 구간이 더 이상 겹치지 않습니다</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>추적 설정</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>추적 다시 맞추기</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14753,6 +14777,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>동영상에 스캔된 얼굴이 없습니다</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>재생 헤드에 얼굴이 없습니다. 얼굴이 보이는 프레임으로 이동하세요</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

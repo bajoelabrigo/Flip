@@ -14723,12 +14723,36 @@
         <translation>将其放在视频上方，即可跟踪视频中的内容</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>物体检测需要“物体跟踪”扩展</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>这里没有找到物体：请在要跟随的内容周围画一个框</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>移除跟踪</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>已移除跟踪</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>它跟随的视频已不在项目中</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>元素与视频的跟踪部分不再重叠</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>跟踪设置</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>重新对齐跟踪</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14753,6 +14777,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>视频中没有已扫描的人脸</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>播放头处没有人脸：请移到能看到人脸的帧</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

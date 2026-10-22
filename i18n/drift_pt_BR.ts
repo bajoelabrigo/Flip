@@ -14783,12 +14783,36 @@
         <translation>Coloque-o sobre um vídeo para seguir algo nele</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>A detecção de objetos precisa do extra “Rastreamento de objetos”</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Nenhum objeto encontrado aqui: desenhe um retângulo em volta do que seguir</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Remover rastreamento</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Rastreamento removido</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>O vídeo que ele seguia não está mais no projeto</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>O elemento e a parte rastreada do vídeo não se sobrepõem mais</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Ajustes do rastreamento</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Realinhar rastreamento</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14813,6 +14837,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>O vídeo não tem rostos analisados</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Não há rosto no cursor de reprodução: vá para um quadro em que o rosto apareça</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>

@@ -14786,12 +14786,36 @@
         <translation>Placez-le sur une vidéo pour suivre quelque chose dedans</translation>
     </message>
     <message>
+        <source>Object detection needs the “Object tracking” extra</source>
+        <translation>La détection d’objets nécessite l’extra « Suivi d’objets »</translation>
+    </message>
+    <message>
+        <source>No objects found here: draw a box around what to follow</source>
+        <translation>Aucun objet trouvé ici : tracez un cadre autour de ce qu’il faut suivre</translation>
+    </message>
+    <message>
         <source>Remove tracking</source>
         <translation>Supprimer le suivi</translation>
     </message>
     <message>
         <source>Tracking removed</source>
         <translation>Suivi supprimé</translation>
+    </message>
+    <message>
+        <source>The video it followed is no longer in the project</source>
+        <translation>La vidéo suivie n’est plus dans le projet</translation>
+    </message>
+    <message>
+        <source>The element and the tracked part of the video no longer overlap</source>
+        <translation>L’élément et la partie suivie de la vidéo ne se chevauchent plus</translation>
+    </message>
+    <message>
+        <source>Tracking settings</source>
+        <translation>Réglages du suivi</translation>
+    </message>
+    <message>
+        <source>Realign tracking</source>
+        <translation>Réaligner le suivi</translation>
     </message>
     <message>
         <source>Tracking already in progress</source>
@@ -14816,6 +14840,10 @@
     <message>
         <source>The video has no scanned faces</source>
         <translation>La vidéo ne contient aucun visage analysé</translation>
+    </message>
+    <message>
+        <source>There is no face at the playhead: move to a frame where the face shows</source>
+        <translation>Aucun visage à la tête de lecture : allez à une image où le visage est visible</translation>
     </message>
     <message>
         <source>Could not read the video at the playhead</source>
