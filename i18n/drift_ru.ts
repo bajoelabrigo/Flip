@@ -2610,46 +2610,6 @@
         <translation>Плавный переход</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>Сдвиг вверх</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>Сдвиг вниз</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>Сдвиг влево</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>Сдвиг вправо</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>Увеличение</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>Уменьшение</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>Резкое появление</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>Вращение по часовой стрелке</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>Вращение против часовой стрелки</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>Отскок</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>Линейная</translation>
     </message>
@@ -2686,20 +2646,28 @@
         <translation>Стиль</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>Выберите, как клип появляется и исчезает. Плавный переход — один из вариантов; сдвиг и масштабирование настраиваются так же.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Очистить</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>Начало</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>Конец</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>Комбо</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Длительность</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>При 0 с комбо длится весь клип. Комбо заменяет анимацию появления и исчезновения.</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5067,6 +5035,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>На этом устройстве нет приложения для отправки файла</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>Движение</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>Движение и траектория</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>Скрытие и маска</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>Маска и раскрытие</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>Плавные</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>Поочерёдные</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>Сборка</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>Стильные</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>Частицы</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Сдвиг</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Зум</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Вращение</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Отскок</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Глитч</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>Динамичные</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9477,6 +9517,936 @@
         <translation>Скос</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>Чередующийся стробоскоп</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>Переворот карт</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>Распускание из центра</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>Хроматический поп</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>Цветная волна</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>Комикс-поп</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>БАМ! БАЦ!</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>Веер из карт</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>Катящиеся кубики</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>Цифровая расшифровка</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>Встающее домино</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>Ливень из букв</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>Падение с конца</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>Глитч-появление</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>Расцветающее свечение</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>Тающее марево</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>Запуск голограммы</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>Чернильная клякса</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>Строки с двух сторон</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>СТРОКА ОДИН
+СТРОКА ДВА</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>Неоновая трубка</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>Контур и заливка</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>Сплющенный поп</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>Вертушка из букв</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>Радужные буквы</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>Подъём с пола</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>Печать сканером</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>Разлёт и сбор</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>Золотое раскрытие</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>Косой вход сбоку</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>Косой рывок</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>ВПЕРЁД!</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>Прямо из объектива</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>Набор с растворением</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>Лесенка из букв</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>Два оттенка</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>Сигнал VHS</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>Штамп по словам</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>ГЛАВНЫЕ НОВОСТИ</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>Застёжка-молния</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>Янтарный блок терминала</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>Курсор-стрелка</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>Вращающаяся звёздочка</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>Набор с молнией</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>Курсор-взрыв</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>Набор из центра</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>Набор с галочкой</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>Зелёный уголок-курсор</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>Голубой курсор и падающие буквы</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>Алмазный курсор с осколками</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>Прыгающая точка</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>Набор с каплей</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>Быстрый пурпурный набор</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>Огненный набор</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>Расцветающий набор</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>Набор с золотой звездой</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>Зелёный блок терминала</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>Курсор-хештег</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>Набор с сердечками</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>Набор с микрофоном</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>Набор при луне</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>Набор с неоновым следом</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>Музыкальный набор</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>Карандашом</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>Курсор «Play»</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>Курсор-плюс с переворотом</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>Красный курсор</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>Набор с ракетой</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>Наклонный слеш</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>Неспешный набор</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>Набор со снежинкой</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>Набор с блёстками</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>Кувыркающийся квадрат</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>Подчёркивание с фокусом</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>Набор по словам</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>НАПИШИ ЭТО</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>Жёлтый курсор с отскоком</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>Дуга снизу</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>Дуга слева</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>3D-поворот блока</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>Бумеранг</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>Падение с отскоком</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>Переворот карты</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>С двух сторон к центру</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>Пружина из угла</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>Падение гиганта</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>Наплыв из глубины</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>По диагонали сверху</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>Двери по словам</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>ПО-КРУПНОМУ</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>Вплывают в фокус</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>Падающий лист</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>Переворот вниз</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>Полный переворот букв</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>Висящие буквы</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>Качание на петле</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>Прыжок и сплющивание</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>Наклонный рывок справа</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>Жалюзи по строкам</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>НОВЫЙ
+РЕЛИЗ</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>Смаз движения</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>Орбита из букв</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>Слова слева толчком</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>Накат слева</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>Поворот сбоку</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>Резкое торможение</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>Спираль к центру</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>Растянутый подъём</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>Бросок по параболе</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>Слова падают с наклоном</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>Кувыркающиеся буквы</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>Раскрытие из центра</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>Принесённые ветром</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>Слова поднимаются</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>Слова издалека</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>Из-за края</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>Расцветающая клякса</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>Лопающийся пузырь</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>Отскок из центра</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>Занавес из центра</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>Переход через цвет</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>Свисающие буквы</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>Диагональное раскрытие букв</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>Капля и шлепок</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>Опускающийся занавес</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>Парящее перо</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>Тягучее слияние</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>Подъём с жёстким краем</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>Растекающиеся чернила</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>Желейная тряска</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>Желе по буквам</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>Жидкий подъём</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>Обратное таяние</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>Контур, затем заливка</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>Резкий срез справа</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>Стирание наоборот</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>Резинка</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>Проявление резкости</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>Затвор</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>Раскрывающаяся щель</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>Мягкая волна по словам</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>НОВИНКА</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>Слова с трамплина</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>ВСЕМ ПРИВЕТ</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>Пружинящие буквы</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>Мягкий прыжок</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>Тянущийся сдвиг</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>Сначала контур</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>Венецианские жалюзи</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>ГЛАВНАЯ
+НОВОСТЬ</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>Рябь на воде</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>Волнистое появление</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>Слова сквозь маску</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>СДЕЛАНО ДЛЯ ТЕБЯ</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>Переход с зумом</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>Лопающийся шарик</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>Свечи на торте</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>Пузырьки шампанского</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>Прилёт кометы</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>Дождь конфетти</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>Алмазный дождь</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>Диско-блеск</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>След волшебной пыльцы</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>Падающие лепестки</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>Салют из слов</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>ГЛАВНАЯ НОВОСТЬ</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>Финальный салют</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>Парящие сердца</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>Блестящая бомба</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>Блестящая пыль</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>Блеск золотых монет</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>Золотой взрыв</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>Волна нимба</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>Взрыв сердец</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>Искры при приземлении</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>Летящие фонарики</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>Волшебный пуф</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>Волшебная палочка</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>Хлопушка</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>Пиньята со сладостями</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>Радужный взрыв</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>УРА, ВЕЧЕРИНКА!</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>Поднимающиеся пузырьки</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>Летящие ноты</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>Сияющее появление</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>Буквы-звездопад</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>Снежный вихрь</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>Фонтан искр</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>Дождь блёсток</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>Бенгальский огонь</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>Взрыв звёзд</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>Кольцо звёзд</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>Серпантин</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>Синее пламя</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>Горящий край</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>Чёрный дым</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>Приземление в пыль</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>Электроразряд</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>Летящие угли</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>Энергетический шар</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>Заряд энергии</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>Кольцо взрыва</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>Воспламенение</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>Фонтан фейерверка</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>Вихрь галактики</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>Появление призрака</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>Кристаллы льда</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>Лазерное сканирование</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>Удар молнии</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>Буквы-метеоры</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>Неоновая вспышка</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>Плазменное свечение</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>Аура силы</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>Взрыв призмы</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>Песок по ветру</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>Падающая звезда</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>Из дыма</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>Снежная буря</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>Солнечная вспышка</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>Синие духи</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>Жуткий череп</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>Звёздная пыль</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>Струи пара</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>Удар камня</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>Ядовитые пузыри</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>Помехи</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>Извержение лавы</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>Всплеск воды</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>Волна на каждое слово</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>БУМ-БАХ</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>Караоке с отскоком</translation>
     </message>
@@ -9495,6 +10465,368 @@
     <message>
         <source>Sing along</source>
         <translation>Пой со мной</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>Стирание курсором</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>Размытие и дрейф</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>Сжатие с отскоком</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>Уход в глубину</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>Карты переворачиваются</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>Диагональное стирание слов</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>ДО ВСТРЕЧИ</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>Эффект домино</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>Двери закрываются по словам</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>Падение с вращением</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>Бросить микрофон</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>Испарение</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>Мерцание и затухание</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>3D-переворот назад</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>Глитч-срез</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>Уход в потолок</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>Прыжок и падение</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>Наклон и складывание</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>Жалюзи по буквам</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>Строки съезжают вниз</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>ДО
+ВСТРЕЧИ</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>Строки уходят влево</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>Таяние</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>Гаснущий неон</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>Толчок вправо</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>Случайное исчезновение</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>Укатываются влево</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>Разлёт во все стороны</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>Короткое замыкание букв</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>Провал сквозь пол</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>Стирание вверх</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>Стирание с блёстками</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>Улёт вверх с вращением</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>Раскол надвое</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>Сплющить и лопнуть</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>Сжатие к центру</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>Растянуться и уйти</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>Растяжение вверх</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>Вихрь</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>Торнадо</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>Кувырок вниз</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>Точка схода</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>Прощальная волна</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>Унесённые ветром</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>По словам вниз</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>ПОКА-ПОКА</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>Слова улетают вверх</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>Расстёгнутая молния</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>Сокрушительный зум</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>В пепел</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>Стирание с искрами</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>Чёрная дыра</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>Взлёт</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>Уход в синем пламени</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>Лопающиеся пузыри</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>Сгорание</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>Взрыв конфетти</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>В пыль</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>Угасающие угли</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>Улетающие светлячки</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>Прощальный салют</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>УВИДИМСЯ</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>Горящий фитиль</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>Призрачное исчезновение</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>Гаснущие блёстки</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>Прощание с сердцами</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>Лазерный срез</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>Сражён молнией</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>Волшебное исчезновение</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>Запуск метеора</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>Улетающие ноты</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>Клякса краски</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>Лепестки на ветру</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>Распад на пиксели</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>Пуф!</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>Радужный след</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>Развеянные как песок</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>Вдребезги</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>Ударная волна</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>Замыкание</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>Исчезновение в дыму</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>Стирание облачками</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>Тающий снег</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>Распад на искры</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>Кольцо блёсток</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>Гаснущий бенгальский огонь</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>Россыпь звёзд</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>Пыльный вихрь</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>Вращение в блёстки</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>Прощальный всплеск</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9575,6 +10907,354 @@
     <message>
         <source>STAMP</source>
         <translation>ШТАМП</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>Порыв ветра</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>Переворот карты</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>Куб</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>Диагональ</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>Двери</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>Мечта</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>Падение и вращение</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>Землетрясение</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>Сдвиг с эхом</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>Двойная вспышка</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>Переворот</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>Глитч-пульс</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>Сердцебиение</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>Петля</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>Подскоки</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>Желе</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>Кен Бёрнс: приближение</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>Кен Бёрнс: отдаление</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>Засветка</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>Орбита</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>Перелистывание</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>Панорама влево</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>Панорама вправо</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>Маятник</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>Пиксели</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>Разделение цвета</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>Рябь</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>Подъём и падение</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>Покачивание</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>Качение</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>Американские горки</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>Поворот и исчезновение</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>Резинка</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>Ударная волна</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>Стремительно</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>Пролёт</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>Волнистый сдвиг</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>Оборот</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>Спираль</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>Пружина</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>Покачивание 3D</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>Кувырок</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>Старый телевизор</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>Волны</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>Смерч</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>Зум в ритм</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>Быстрый зум</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>Наезд</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>Далеко и близко</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>Двойной удар зумом</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>Зум с вращением</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>Раздвоенный зум</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>Поворот куба</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>Дверь</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>Мечтательно</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>Переворот вниз</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>Переворот</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>Фокусировка</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>Подъём вверх</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>Прыжок</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>Перелистывание страницы</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>Удар зумом</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>Толчок сверху</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>Толчок справа</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>Толчок слева</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>Толчок снизу</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>Накат</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>Сдвиг вниз</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>Сдвиг влево</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>Сдвиг вправо</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>Сдвиг вверх</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>Вращение с размытием</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>Вращение против часовой</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>Вращение по часовой</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>Быстрый сдвиг</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>Влёт с покачиванием</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>Наклон вверх</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>Плохой сигнал</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>Волнистое искажение</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>Зум с размытием</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>Издалека</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>Зум с разделением цвета</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>Зум с вращением</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>Улёт</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>Растворение в размытии</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>Уменьшение</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>Выключение ТВ</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9681,6 +11361,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>Добавить ключевой кадр %1 на позиции указателя</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
     </message>
 </context>
 <context>

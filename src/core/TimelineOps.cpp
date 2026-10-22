@@ -1259,6 +1259,7 @@ bool splitClipAtOffsetMin(Clip &head, Clip &tail, TimeUs offset, TimeUs minEdgeU
     head.audioFadeOutUs = 0;
     tail.fadeInUs = 0;
     tail.animIn = ClipAnimation{};
+    tail.animCombo = ClipAnimation{};
     tail.audioFadeInUs = 0;
     head.fadeInUs = qMin(head.fadeInUs, head.timelineDuration);
     tail.fadeOutUs = qMin(tail.fadeOutUs, tail.timelineDuration);

@@ -1,0 +1,1 @@
+{"format":1,"id":"in-punch-in","label":"Punch in","category":"zoom","slots":["in"],"order":21,"duration":0.7,"keys":{"scale":[[0,135,"easeOut"],[0.45,94,"easeInOut"],[0.72,103,"easeInOut"],[1,100,"easeInOut"]],"opacity":[[0,0,"linear"],[0.2,100,"easeInOut"]]}}

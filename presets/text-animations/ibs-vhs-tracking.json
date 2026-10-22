@@ -1,0 +1,268 @@
+{
+ "format": 1,
+ "id": "ibs-vhs-tracking",
+ "label": "VHS tracking",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2028,
+ "defaults": {
+  "duration": 0.8,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "position": {
+     "x": {
+      "value": 0.5,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0.5,
+         "hold": true
+        },
+        {
+         "timeUs": 100000,
+         "value": -0.3,
+         "hold": true
+        },
+        {
+         "timeUs": 200000,
+         "value": 0.2,
+         "hold": true
+        },
+        {
+         "timeUs": 320000,
+         "value": -0.1,
+         "hold": true
+        },
+        {
+         "timeUs": 450000,
+         "value": 0.06,
+         "hold": true
+        },
+        {
+         "timeUs": 600000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0,
+         "hold": true
+        }
+       ]
+      }
+     },
+     "y": 0,
+     "unit": "em"
+    },
+    "skew": {
+     "value": 18,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 18,
+        "hold": true
+       },
+       {
+        "timeUs": 150000,
+        "value": -12,
+        "hold": true
+       },
+       {
+        "timeUs": 300000,
+        "value": 8,
+        "hold": true
+       },
+       {
+        "timeUs": 500000,
+        "value": 0,
+        "hold": true
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0,
+        "hold": true
+       }
+      ]
+     }
+    },
+    "blur": {
+     "value": 8,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 8
+       },
+       {
+        "timeUs": 600000,
+        "value": 0
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0,
+        "hold": true
+       },
+       {
+        "timeUs": 50000,
+        "value": 70,
+        "hold": true
+       },
+       {
+        "timeUs": 120000,
+        "value": 30,
+        "hold": true
+       },
+       {
+        "timeUs": 200000,
+        "value": 90,
+        "hold": true
+       },
+       {
+        "timeUs": 600000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 100,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 100000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 200000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 300000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0,
+         "hold": true
+        }
+       ]
+      }
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff3b6b"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 100000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 200000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 300000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 420000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0,
+         "hold": true
+        }
+       ]
+      }
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ff3be8ff"
+   }
+  }
+ ]
+}

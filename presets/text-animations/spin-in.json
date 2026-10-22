@@ -2,7 +2,7 @@
   "format": 1,
   "id": "spin-in",
   "label": "Spin",
-  "category": "character",
+  "category": "build",
   "sampleText": "Spin",
   "slots": [
     "in",

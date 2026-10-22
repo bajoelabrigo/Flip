@@ -1,0 +1,105 @@
+{
+ "format": 1,
+ "id": "ipb-dark-smoke",
+ "label": "Dark smoke rising",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2186,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.35,
+     "unit": "em"
+    },
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff101010"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 12,
+   "colors": [
+    "#ff1c1c20",
+    "#ff2a2a30",
+    "#ff3a3a40"
+   ],
+   "size": [
+    0.5,
+    0.9
+   ],
+   "speed": [
+    0.25,
+    0.55
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 50,
+   "grow": 1.9,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "behind": true
+  }
+ ]
+}

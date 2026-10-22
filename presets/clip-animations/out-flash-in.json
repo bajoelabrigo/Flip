@@ -1,0 +1,1 @@
+{"format":1,"id":"out-flash-in","label":"Flash","category":"glitch","slots":["out"],"order":40,"duration":0.5,"keys":{"opacity":[[0.85,100,"linear"],[1,0,"easeInOut"]]},"effects":[{"id":"strobe_flash","params":{"flash":[[0,0,"easeIn"],[1,1,"easeInOut"]]}}]}

@@ -1,0 +1,1 @@
+{"format":1,"id":"out-tv-off","label":"TV off","category":"glitch","slots":["out"],"order":52,"duration":0.6,"keys":{"scaleY":[[0,100,"easeIn"],[0.6,1.5,"easeIn"],[1,1.5,"easeInOut"]],"scaleX":[[0,100,"hold"],[0.6,100,"easeIn"],[1,0,"easeInOut"]]},"trending":true,"effects":[{"id":"strobe_flash","params":{"flash":[[0,0,"easeIn"],[0.6,1,"easeInOut"]]}}]}

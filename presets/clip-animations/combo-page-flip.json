@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-page-flip","label":"Page flip","category":"3d","slots":["combo"],"order":27,"duration":0,"keys":{"rotationY":[[0.0,-120,"easeOut"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,120,"easeInOut"]],"opacity":[[0.0,0,"linear"],[0.054,100,"easeInOut"],[0.18,100,"linear"],[0.82,100,"linear"],[0.946,100,"linear"],[1.0,0,"easeInOut"]]}}

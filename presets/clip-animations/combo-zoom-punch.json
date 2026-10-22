@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-zoom-punch","label":"Zoom punch","category":"zoom","slots":["combo"],"order":14,"duration":0,"keys":{"scale":[[0.0,135,"easeOut"],[0.081,94,"easeInOut"],[0.1296,103,"easeInOut"],[0.18,100,"easeInOut"],[0.82,100,"backIn"],[1.0,0,"easeInOut"]],"opacity":[[0.0,0,"linear"],[0.036,100,"easeInOut"],[0.18,100,"linear"],[1,100,"linear"]]}}

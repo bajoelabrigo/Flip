@@ -1,0 +1,54 @@
+{
+ "format": 1,
+ "id": "om-drop-spin",
+ "label": "Spinning drop",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2216,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0.4,
+     "y": 2.6,
+     "unit": "em"
+    },
+    "rotation": 220
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

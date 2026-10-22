@@ -1,0 +1,91 @@
+{
+ "format": 1,
+ "id": "op-glitter-fade",
+ "label": "Glitter fade",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2271,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.85,
+  "ease": "linear",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "opacity": 0,
+    "blur": 5
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd76e"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "flare",
+   "trigger": "during",
+   "rate": 20,
+   "colors": [
+    "#fffffbe8",
+    "#ffffd65a",
+    "#ffffe9a8"
+   ],
+   "size": [
+    0.04,
+    0.1
+   ],
+   "speed": [
+    0.05,
+    0.25
+   ],
+   "life": [
+    0.4,
+    0.8
+   ],
+   "angle": 90,
+   "spread": 120,
+   "gravity": 0.6,
+   "glow": 0.7,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true
+  }
+ ]
+}

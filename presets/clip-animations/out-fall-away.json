@@ -1,0 +1,1 @@
+{"format":1,"id":"out-fall-away","label":"Fall","category":"slide","slots":["out"],"order":50,"duration":0.8,"keys":{"y":[[0,0,"easeIn"],[1,1.1,"easeInOut"]],"rotation":[[0,0,"easeIn"],[1,25,"easeInOut"]]}}

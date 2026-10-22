@@ -1,0 +1,78 @@
+{
+ "format": 1,
+ "id": "ipa-shimmer-glints",
+ "label": "Shimmering arrival",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2159,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 8
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 800000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "flare",
+   "count": 2,
+   "colors": [
+    "#ffffffff",
+    "#fffff4cf"
+   ],
+   "size": [
+    0.22,
+    0.38
+   ],
+   "speed": [
+    0.0,
+    0.08
+   ],
+   "life": [
+    0.4,
+    0.65
+   ],
+   "at": 0.7,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.9,
+   "spin": 30,
+   "origin": "area",
+   "additive": true
+  }
+ ]
+}

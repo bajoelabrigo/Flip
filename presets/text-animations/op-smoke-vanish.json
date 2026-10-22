@@ -1,0 +1,79 @@
+{
+ "format": 1,
+ "id": "op-smoke-vanish",
+ "label": "Vanish in smoke",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2281,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.7,
+  "ease": "easeIn",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 26,
+    "scale": 118
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 800000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 12,
+   "colors": [
+    "#ffd7dbe2",
+    "#ffaab0bb",
+    "#ff8a909b"
+   ],
+   "size": [
+    0.45,
+    0.8
+   ],
+   "speed": [
+    0.15,
+    0.4
+   ],
+   "life": [
+    0.7,
+    1.1
+   ],
+   "angle": -90,
+   "spread": 140,
+   "grow": 2.2,
+   "fadeIn": 0.25,
+   "behind": true
+  }
+ ]
+}

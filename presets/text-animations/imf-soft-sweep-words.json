@@ -1,0 +1,63 @@
+{
+ "format": 1,
+ "id": "imf-soft-sweep-words",
+ "label": "Soft sweep by word",
+ "category": "mask",
+ "sampleText": "NEW DROP",
+ "slots": [
+  "in"
+ ],
+ "order": 2073,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.16,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 0,
+     "softness": 0.55
+    },
+    "position": {
+     "x": -0.12,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

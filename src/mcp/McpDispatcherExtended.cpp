@@ -1115,9 +1115,11 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
         if (!ref.valid())
             return clipRefError(args);
         const QString which = args.value(QStringLiteral("which")).toString().trimmed();
-        if (which != QLatin1String("animIn") && which != QLatin1String("animOut"))
-            return err("bad_args", QStringLiteral("which must be animIn or animOut"));
+        if (which != QLatin1String("animIn") && which != QLatin1String("animOut") && which != QLatin1String("animCombo"))
+            return err("bad_args", QStringLiteral("which must be animIn, animOut or animCombo"));
         QVariantMap patch;
+        if (args.contains(QStringLiteral("preset")))
+            patch.insert(QStringLiteral("preset"), args.value(QStringLiteral("preset")).toString());
         if (args.contains(QStringLiteral("kind")))
             patch.insert(QStringLiteral("kind"), args.value(QStringLiteral("kind")).toString());
         if (args.contains(QStringLiteral("duration")))
@@ -1211,6 +1213,26 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
             m_controller->applyTextLook(ref.track, ref.clip, look, params);
         }
         return ok(clipFeedback(ref, {{QStringLiteral("look"), look}}));
+    }
+
+    if (tool == QLatin1String("list_clip_animations")) {
+        const QString q = args.value(QStringLiteral("q")).toString().trimmed().toLower();
+        const QString which = args.value(QStringLiteral("which")).toString();
+        QJsonArray presets;
+        const QStringList slots_ = which.isEmpty() ? QStringList{QStringLiteral("in"), QStringLiteral("out"),
+                                                                 QStringLiteral("combo")}
+                                                   : QStringList{which};
+        for (const QString &slot : slots_) {
+            for (const QVariant &v : m_controller->clipAnimationPresets(slot)) {
+                QVariantMap m = v.toMap();
+                if (!q.isEmpty() && !m.value(QStringLiteral("id")).toString().contains(q)
+                    && !m.value(QStringLiteral("label")).toString().toLower().contains(q))
+                    continue;
+                m.insert(QStringLiteral("slot"), slot);
+                presets.append(QJsonObject::fromVariantMap(m));
+            }
+        }
+        return ok({{QStringLiteral("presets"), presets}, {QStringLiteral("n"), presets.size()}});
     }
 
     if (tool == QLatin1String("list_text_animations")) {

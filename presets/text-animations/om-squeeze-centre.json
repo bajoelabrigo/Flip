@@ -1,0 +1,56 @@
+{
+ "format": 1,
+ "id": "om-squeeze-centre",
+ "label": "Squeeze to the centre",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2227,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.0,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "tracking": -0.55,
+    "trackingUnit": "em",
+    "scale": 40,
+    "blur": 4
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

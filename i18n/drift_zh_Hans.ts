@@ -2604,46 +2604,6 @@
         <translation>淡入淡出</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>向上滑动</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>向下滑动</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>向左滑动</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>向右滑动</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>放大</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>缩小</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>弹出</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>顺时针旋转</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>逆时针旋转</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>弹跳</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>线性</translation>
     </message>
@@ -2680,20 +2640,28 @@
         <translation>样式</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>选择片段的入场和出场方式。淡入淡出只是其中一种——与滑动或缩放使用相同的样式控件。</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>清除</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>入场</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>出场</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>组合</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>全部</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>时长</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>设为 0 秒时，组合动画将贯穿整个片段。组合动画会替换入场和出场动画。</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5041,6 +5009,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>此设备上没有可分享该文件的应用</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>运动</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>运动与路径</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>隐藏与遮罩</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>遮罩与显现</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>流体</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>错落</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>搭建</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>风格化</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>粒子</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>滑动</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>旋转</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>弹跳</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>模糊</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>故障</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>动感</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9403,6 +9443,936 @@
         <translation>倾斜</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>交替频闪</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>逐字翻牌</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>从中心绽放</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>色差弹出</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>色彩扫入</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>漫画弹出</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>砰！啪！</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>卡牌展开</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>滚动骰子</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>数字解码</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>多米诺立起</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>字母大雨</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>从末尾落下</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>故障入场</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>光晕绽放</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>热浪消散</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>全息启动</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>墨迹晕开</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>两侧线条</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>第一行
+第二行</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>霓虹灯亮起</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>先描边后填充</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>压扁弹出</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>风车字母</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>彩虹字母</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>从地面翻起</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>扫描线打印</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>散开再聚合</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>金色闪耀</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>倾斜侧入</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>倾斜弹入</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>冲呀！</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>从镜头冲出</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>柔和打字</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>阶梯上升</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>双色定格</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>VHS 跟踪</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>逐词盖章</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>重大新闻</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>拉链</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>琥珀色终端</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>箭头光标滑动</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>旋转星号光标</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>闪电打字</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>爆裂光标</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>从中心打字</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>对勾打字</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>绿色箭头光标</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>青色光标与下落字母</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>钻石光标碎片</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>弹跳圆点光标</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>水滴打字</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>极速洋红打字</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>火焰光标打字</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>绽放打字</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>金星打字</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>绿色终端</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>话题标签光标</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>爱心打字</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>麦克风打字</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>月光打字</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>霓虹拖尾打字</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>音符打字</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>铅笔书写</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>播放按钮光标</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>加号光标翻转</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>红色光标打字</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>火箭打字</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>斜杠光标</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>缓慢打字</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>雪花打字</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>闪光打字</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>翻滚方块光标</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>下划线聚焦打字</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>逐词打字</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>打出来</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>粗黄光标弹跳</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>从下方弧线入场</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>从左侧弧线入场</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>3D 摆动展开</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>回旋镖</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>字母落下弹跳</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>翻牌</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>从两侧合拢</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>从角落弹出</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>从巨大砸落</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>由远及近</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>左上斜向俯冲</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>逐词开门</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>放大招</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>飘入对焦</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>落叶</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>向下翻转到位</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>字母整圈翻转</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>悬挂字母摆入</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>铰链摆动</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>跳起压扁</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>从右侧倾身冲入</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>百叶窗翻转</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>新品
+上市</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>动态模糊扫入</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>逐字环绕</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>从左侧推入</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>从左侧滚入</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>侧身转入</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>急刹停下</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>螺旋到位</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>拉伸上升</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>抛物线抛入</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>倾斜落词</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>翻滚字母</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>从中心展开</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>随风吹入</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>单词翻起</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>远处飞来的词</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>从边缘后探出</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>水滴绽放</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>泡泡破裂</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>从中心弹落</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>中心幕布</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>彩色闪入</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>晃荡字母</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>对角逐字显现</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>水滴溅开</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>幕布落下</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>羽毛飘浮</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>黏稠融合</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>硬边上升</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>墨水晕染</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>果冻歪斜抖动</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>果冻晃动</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>液体上升</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>融化成形</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>描边扫过再填充</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>从右侧利落擦入</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>倒放显现</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>橡皮筋弹回</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>锐化扫入</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>快门</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>缝隙打开</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>逐词柔和擦入</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>新品上市</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>蹦床单词</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>大家好</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>弹簧字母</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>软萌跳跃</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>弹性滑动</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>先描边再填色</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>百叶窗</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>重大
+新闻</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>水波入场</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>波浪入场</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>遮罩中的文字</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>为你而做</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>缩放擦入</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>气球爆破</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>生日蜡烛</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>香槟气泡</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>彗星降临</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>彩纸飘落</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>钻石雨</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>迪斯科闪光</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>仙尘拖尾</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>花瓣飘落</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>逐词烟花</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>大新闻</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>烟花压轴</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>漂浮爱心</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>亮片炸弹</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>亮粉显现</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>金币闪光</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>黄金爆炸</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>光环涟漪</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>爱心爆发</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>落地火花</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>孔明灯升起</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>魔法一变</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>魔法棒</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>礼花筒</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>皮纳塔糖果</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>彩虹爆发</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>派对开始！</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>上升气泡</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>上升音符</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>闪耀登场</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>流星字母</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>飞雪</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>火花喷泉</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>闪光雨</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>仙女棒写字</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>星星爆开</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>星环爆发</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>彩带</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>蓝色火焰</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>燃烧边缘显现</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>黑烟升起</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>尘土落地</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>电击</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>余烬升腾</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>能量球</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>能量蓄力</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>爆炸光环</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>点燃</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>烟花喷泉</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>星系漩涡</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>幽灵现身</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>冰晶</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>激光扫描</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>雷击</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>陨石字母</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>霓虹耀斑</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>等离子光</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>力量光环</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>棱镜爆发</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>风沙吹入</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>流星划过</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>烟雾中显现</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>暴风雪</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>太阳耀斑</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>幽灵光点</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>诡异骷髅</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>星尘落定</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>蒸汽喷射</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>巨石冲击</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>毒气泡</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>雪花噪点入场</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>熔岩喷发</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>水花飞溅</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>逐词冲击波</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>轰！砰！</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>卡拉OK弹跳</translation>
     </message>
@@ -9421,6 +10391,368 @@
     <message>
         <source>Sing along</source>
         <translation>跟着唱</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>退格删除</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>模糊飘走</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>弹跳缩小</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>退向远方</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>卡牌翻走</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>逐词斜向擦除</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>回头见</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>多米诺倒下</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>逐词关门</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>旋转下落</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>丢麦克风</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>蒸发</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>闪烁熄灭</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>3D 向后翻转</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>故障切出</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>升入天花板</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>跳起落下</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>倾斜折叠</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>逐字百叶窗</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>逐行下滑</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>下次
+再见</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>逐行藏到左侧</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>融化</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>霓虹熄灭</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>向右推出</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>随机消失</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>向左滚走</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>四散飞出</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>字母短路</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>沉入地面</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>向上柔和擦除</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>闪光删除</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>旋转飞出顶部</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>一分为二</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>压扁爆开</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>向中心收拢</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>拉伸离开</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>向上拉伸变细</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>旋涡退出</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>龙卷风</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>翻滚落下</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>消失点</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>挥手告别</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>随风吹走</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>逐词掉落</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>下次见</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>单词飞上天</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>拉链拉开</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>缩放压碎</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>化为灰烬</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>火花退格</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>黑洞</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>发射升空</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>蓝焰退场</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>泡泡破裂消失</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>燃烧殆尽</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>彩纸爆炸退场</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>化为尘埃</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>余烬熄灭</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>萤火虫飞走</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>烟花告别</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>再见</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>燃烧引线</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>幽灵般淡出</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>亮片淡出</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>爱心告别</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>激光切割</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>被雷劈中</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>魔法消失</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>流星发射</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>音符飞走</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>颜料飞溅</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>风中花瓣</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>像素崩塌</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>噗！</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>彩虹拖尾</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>如沙飘散</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>粉碎</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>冲击波退场</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>短路</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>化烟消失</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>烟雾删除</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>如雪融化</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>化作火花</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>闪光光环</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>仙女棒熄灭</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>星星散落</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>尘卷风</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>旋转成闪光</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>水花告别</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9501,6 +10833,354 @@
     <message>
         <source>STAMP</source>
         <translation>STAMP</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>阵风</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>翻牌</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>立方体</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>对角</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>开门</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>梦境</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>下落旋转</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>地震</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>回声滑动</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>双重闪光</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>翻转</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>故障脉冲</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>心跳</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>铰链</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>蹦跳</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>果冻</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>肯·伯恩斯推近</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>肯·伯恩斯拉远</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>漏光</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>环绕</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>翻页</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>向左平移</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>向右平移</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>钟摆</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>像素</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>色彩分离</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>涟漪</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>起伏</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>摇摆</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>滚动</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>过山车</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>旋转消失</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>橡皮筋</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>冲击波</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>疾速</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>穿越</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>波浪滑动</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>转一圈</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>螺旋</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>弹簧</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>3D 摇摆</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>翻跟头</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>老电视</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>波浪</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>旋风</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>缩放节拍</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>急速缩放</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>推轨</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>忽远忽近</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>缩放冲击</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>缩放翻滚</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>分屏缩放</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>立方体旋转</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>门</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>梦幻</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>向下翻转</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>翻面</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>聚焦</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>向上滑翔</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>轻跳</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>翻页</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>冲击推近</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>从上方推入</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>从右侧推入</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>从左侧推入</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>从下方推入</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>滚入</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>向下滑动</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>向左滑动</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>向右滑动</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>向上滑动</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>旋转模糊</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>逆时针旋转</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>顺时针旋转</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>快速滑动</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>摆入</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>向上倾斜</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>信号不良</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>波浪扭曲</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>缩放模糊</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>从远处</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>缩放色彩分离</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>缩放旋转</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>吹走</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>模糊淡出</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>缩小消失</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>关电视</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9607,6 +11287,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>在播放头处添加%1关键帧</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
     </message>
 </context>
 <context>

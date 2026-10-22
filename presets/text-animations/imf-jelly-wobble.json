@@ -1,0 +1,107 @@
+{
+ "format": 1,
+ "id": "imf-jelly-wobble",
+ "label": "Jelly wobble",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2091,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleY": 20
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1350000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.3,
+       1.9
+      ],
+      "c2": [
+       0.5,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleX": 170
+   }
+  }
+ ]
+}

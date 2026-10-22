@@ -1,0 +1,106 @@
+{
+ "format": 1,
+ "id": "ipb-electric-zap",
+ "label": "Electric zap",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2195,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.14,
+  "ease": "linear",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleX": 150,
+    "skew": 22,
+    "position": {
+     "x": 0.15,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2500000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff59d8ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 10,
+   "colors": [
+    "#ff9eeaff",
+    "#ffffffff",
+    "#ff3fb8ff"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    2.0,
+    3.5
+   ],
+   "life": [
+    0.12,
+    0.28
+   ],
+   "at": 0.5,
+   "angle": -90.0,
+   "spread": 360.0,
+   "drag": 6.0,
+   "glow": 0.8,
+   "origin": "area",
+   "additive": true
+  }
+ ]
+}

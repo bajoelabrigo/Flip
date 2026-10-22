@@ -1,0 +1,84 @@
+{
+ "format": 1,
+ "id": "ipb-laser-scan",
+ "label": "Laser scan",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2198,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.12,
+  "duration": 0.3,
+  "ease": "linear",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 0,
+     "softness": 0.08
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff2a3a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 36,
+   "colors": [
+    "#ffff3048",
+    "#ffff9aa0",
+    "#ffffffff"
+   ],
+   "size": [
+    0.025,
+    0.045
+   ],
+   "speed": [
+    1.0,
+    2.2
+   ],
+   "life": [
+    0.15,
+    0.35
+   ],
+   "angle": 0,
+   "spread": 90,
+   "drag": 3.0,
+   "glow": 0.7,
+   "fadeIn": 0.15,
+   "origin": "right",
+   "additive": true
+  }
+ ]
+}

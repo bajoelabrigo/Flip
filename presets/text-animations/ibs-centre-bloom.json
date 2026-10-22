@@ -1,0 +1,76 @@
+{
+ "format": 1,
+ "id": "ibs-centre-bloom",
+ "label": "Bloom from the centre",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2004,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 0,
+    "blur": 3
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

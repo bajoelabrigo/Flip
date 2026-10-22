@@ -2604,46 +2604,6 @@
         <translation>フェード</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>スライドアップ</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>スライドダウン</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>左スライド</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>右スライド</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>ズームイン</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>ズームアウト</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>ポップ</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>時計回り回転</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>反時計回り回転</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>バウンス</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>リニア</translation>
     </message>
@@ -2680,20 +2640,28 @@
         <translation>スタイル</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>クリップの入り方と出方を選択します。フェードは選択肢の1つで、スライドやズームと同じスタイルコントロールが適用されます。</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>クリア</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>イン</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>アウト</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>コンボ</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>すべて</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>長さ</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>0秒にするとクリップ全体でコンボを再生します。コンボはイン・アウトの動きを置き換えます。</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5041,6 +5009,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>このデバイスではそのファイルを共有できません</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>モーション</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>モーションとパス</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>非表示とマスク</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>マスクと表示</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>流れる</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>時間差</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>組み立て</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>スタイル</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>パーティクル</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>スライド</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>ズーム</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>回転</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>バウンス</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ぼかし</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>グリッチ</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>ダイナミック</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9403,6 +9443,936 @@
         <translation>傾斜</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>交互ストロボ</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>一文字ずつカード回転</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>中央から開花</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>色収差ポップ</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>カラースイープ</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>コミック風ポップ</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>バン！ドカン！</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>カードが広がる</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>転がるサイコロ</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>デジタル解読</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>ドミノが起き上がる</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>文字の土砂降り</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>後ろから落下</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>グリッチイン</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>光が咲く</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>陽炎が晴れる</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>ホログラム起動</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>インクのしみ</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>両側からライン</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>1行目
+2行目</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>ネオン点灯</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>輪郭から塗りへ</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>ぺちゃんこポップ</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>風車の文字</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>虹色の文字</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>床から起き上がる</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>走査線プリント</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>散らばって集合</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>金色にきらめく</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>斜めスライドイン</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>斜めスナップ</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>さあ行こう！</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>レンズから飛び出す</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>ふんわりタイピング</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>階段状に上昇</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>ツートーン</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>VHSトラッキング</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>一語ずつスタンプ</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>ビッグニュース</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>ジッパー</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>琥珀色のターミナル</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>矢印カーソル</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>回るアスタリスク</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>稲妻タイピング</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>弾けるカーソル</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>中央からタイピング</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>チェックマーク入力</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>緑の山形カーソル</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>シアンのカーソルと落ちる文字</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>ダイヤカーソルと破片</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>弾むドットカーソル</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>水滴タイピング</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>高速マゼンタ入力</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>炎のカーソル</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>花咲くタイピング</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>金の星タイピング</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>緑のターミナル</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>ハッシュタグカーソル</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>ハートのタイピング</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>マイクタイピング</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>月明かりタイピング</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>ネオンの軌跡</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>音符タイピング</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>鉛筆で書く</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>再生ボタンカーソル</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>プラスカーソルと回転</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>赤いカーソル入力</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>ロケットタイピング</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>斜線カーソル</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>ゆっくりタイピング</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>雪の結晶タイピング</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>きらめきタイピング</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>転がる四角カーソル</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>アンダースコアでフォーカス</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>一語ずつタイピング</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>書いてみよう</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>太い黄色カーソル</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>下からアーチ</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>左からアーチ</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>3Dスイングで開く</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>ブーメラン</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>落ちて弾む文字</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>カードめくり</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>両側から閉じる</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>角から飛び出す</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>巨大化から落下</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>奥から近づく</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>左上から斜めダイブ</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>一語ずつ扉が開く</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>大きくいこう</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>ふわっとピント</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>舞い落ちる葉</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>下へ回転して着地</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>一文字ずつ一回転</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>吊り下げ文字</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>ちょうつがいスイング</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>ジャンプしてつぶれる</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>右から傾いてダッシュ</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>ブラインド回転</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>新作
+登場</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>モーションブラー</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>一文字ずつ軌道</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>左から押し出す</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>左から転がる</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>横から回転</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>スリップ停止</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>らせんで着地</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>伸びて上昇</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>放物線で投げる</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>傾いて落ちる言葉</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>転がる文字</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>中央から広がる</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>風に運ばれて</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>言葉がめくれ上がる</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>遠くから言葉</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>端の裏から出現</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>しずくが咲く</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>泡がはじける</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>中央からバウンス</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>中央カーテン</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>カラーフラッシュ</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>ぶら下がる文字</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>斜めに文字表示</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>しずくがパシャ</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>上から幕が下りる</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>羽のように舞う</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>とろけて合体</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>くっきり上昇</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>インクがにじむ</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>ゼリーのゆがみ</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>ぷるぷるゼリー</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>液体のように上昇</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>溶けて形になる</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>輪郭スイープと塗り</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>右からシャープワイプ</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>巻き戻し表示</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>ゴムが弾ける</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>ピントが合うスイープ</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>シャッター</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>すき間が開く</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>一語ずつソフトワイプ</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>新着</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>トランポリンの言葉</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>こんにちは</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>バネの文字</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>ぷにっとジャンプ</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>伸びるスライド</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>線から塗りへ</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>ベネチアンブラインド</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>ビッグ
+ニュース</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>水の波紋</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>波打って登場</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>マスク越しの言葉</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>あなたのために</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>ズームワイプ</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>風船がはじける</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>誕生日ろうそく</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>シャンパンの泡</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>彗星の到来</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>紙吹雪</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>ダイヤの雨</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>ディスコのきらめき</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>妖精の粉</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>舞う花びら</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>一語ずつ花火</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>ビッグニュース</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>フィナーレ花火</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>浮かぶハート</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>ラメ爆弾</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>ラメの粉</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>金貨のきらめき</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>黄金の爆発</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>光輪の波紋</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>ハートが弾ける</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>着地で火花</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>ランタンが昇る</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>魔法でポン</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>魔法の杖</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>クラッカー</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>ピニャータ</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>虹の爆発</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>パーティーだ！</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>昇る泡</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>昇る音符</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>きらめいて登場</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>流れ星の文字</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>雪が舞う</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>火花の噴水</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>きらめきの雨</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>手持ち花火</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>星がはじける</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>星の輪</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>紙テープ</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>青い炎</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>燃える縁で表示</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>立ち上る黒煙</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>砂ぼこりで着地</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>電撃</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>舞い上がる火の粉</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>エネルギー弾</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>エネルギーチャージ</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>爆発リング</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>炎が点火</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>噴き出す花火</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>銀河の渦</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>幽霊が現れる</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>氷の結晶</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>レーザースキャン</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>落雷</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>流星の文字</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>ネオンフレア</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>プラズマの光</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>パワーオーラ</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>プリズムの光</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>砂嵐</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>流れ星</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>煙から現れる</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>吹雪</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>太陽フレア</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>魂の光</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>不気味なドクロ</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>星くず</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>蒸気の噴射</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>岩の衝撃</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>毒の泡</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>ノイズイン</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>溶岩の噴火</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>水しぶき</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>一語ずつ衝撃波</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>ドカン！バン！</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>カラオケバウンス</translation>
     </message>
@@ -9421,6 +10391,368 @@
     <message>
         <source>Sing along</source>
         <translation>一緒に歌おう</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>バックスペース消去</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>ぼかして流れる</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>弾んで縮む</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>奥へ遠ざかる</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>カードが裏返る</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>斜めに一語ずつ消える</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>またね</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>ドミノ倒し</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>一語ずつ扉が閉じる</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>回転して落下</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>マイクドロップ</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>蒸発</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>ちらついて消える</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>3Dで後ろに回転</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>グリッチで切れる</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>天井へ消える</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>ジャンプして落下</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>傾いて折りたたむ</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>一文字ずつシャッター</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>行が下へスライド</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>また
+次回</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>行が左端へ隠れる</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>溶け落ちる</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>ネオンが切れる</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>右へ押し出す</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>ランダムに消える</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>左へ転がる</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>四方に散らばる</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>文字がショート</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>床に沈む</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>上へふわっと消える</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>きらめいて消去</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>回転して上へ</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>真っ二つ</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>つぶれてはじける</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>中央へ縮む</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>伸びて去る</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>上へ伸びて細く</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>渦巻いて消える</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>竜巻</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>転げ落ちる</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>消失点</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>バイバイの波</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>風に飛ばされる</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>一語ずつ落下</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>またね</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>言葉が空へ</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>ジッパーが開く</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>ズームクラッシュ</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>灰になる</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>火花でバックスペース</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>ブラックホール</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>発射</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>青い炎で退場</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>泡がはじけて消える</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>燃え尽きる</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>紙吹雪で退場</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>塵になる</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>消えゆく火の粉</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>ホタルが飛び去る</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>花火でさよなら</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>またね</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>導火線</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>幽霊のように消える</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>ラメが消える</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>ハートでさよなら</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>レーザーカット</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>雷に打たれる</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>魔法で消える</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>流星で飛び去る</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>音符と消える</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>ペンキが飛び散る</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>風に舞う花びら</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>ピクセル崩壊</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>ポン！</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>虹の軌跡</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>砂のように飛ぶ</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>粉々に砕ける</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>衝撃波</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>ショート</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>煙と消える</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>煙で消去</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>雪のように溶ける</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>火花に溶ける</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>きらめきの輪</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>消える手持ち花火</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>散らばる星</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>つむじ風</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>回転してきらめく</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>しぶきでさよなら</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9501,6 +10833,354 @@
     <message>
         <source>STAMP</source>
         <translation>STAMP</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>突風</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>カードフリップ</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>キューブ</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>斜め</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>扉</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>夢</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>落下と回転</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>地震</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>エコースライド</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>ダブルフラッシュ</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>フリップ</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>グリッチパルス</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>鼓動</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>ちょうつがい</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>ぴょんぴょん</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>ゼリー</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>ケン・バーンズ（寄り）</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>ケン・バーンズ（引き）</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>光漏れ</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>軌道</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>ページめくり</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>左へパン</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>右へパン</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>振り子</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>ピクセル</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>色分離</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>波紋</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>上昇と落下</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>揺れる</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>ローリング</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>ジェットコースター</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>回転して消える</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>ゴム</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>衝撃波</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>スピード</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>すり抜け</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>波スライド</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>ぐるっと回転</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>らせん</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>バネ</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>3Dスウェイ</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>でんぐり返し</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>古いテレビ</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>波</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>つむじ風</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>ズームビート</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>高速ズーム</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>ドリー</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>遠近</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>ズームパンチ</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>ズームロール</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>分割ズーム</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>キューブ回転</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>扉</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>ドリーミー</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>下へフリップ</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>フリップ</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>フォーカスイン</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>ふわっと上へ</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>ぴょん</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>ページめくり</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>パンチイン</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>上から押し込む</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>右から押し込む</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>左から押し込む</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>下から押し込む</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>ロールイン</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>下へスライド</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>左へスライド</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>右へスライド</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>上へスライド</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>回転ぼかし</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>左回転</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>右回転</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>高速スライド</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>スイングイン</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>上へ傾ける</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>電波不良</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>波ゆがみ</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>ズームぼかし</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>遠くから</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>ズーム色分離</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>ズーム回転</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>吹き飛ぶ</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>ぼかしてフェード</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>縮んで消える</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>テレビオフ</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9607,6 +11287,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>再生ヘッド位置に %1 キーフレームを追加</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>なし</translation>
     </message>
 </context>
 <context>

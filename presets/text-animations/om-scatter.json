@@ -1,0 +1,125 @@
+{
+ "format": 1,
+ "id": "om-scatter",
+ "label": "Scatter in all directions",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2219,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.02,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 60,
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0.0,
+     "spatialPhaseDeg": 137.5,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 1.8,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0.0,
+     "spatialPhaseDeg": 137.5,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "temporalPhaseDeg": 90,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 1.4,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

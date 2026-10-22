@@ -1,0 +1,141 @@
+{
+ "format": 1,
+ "id": "ipa-party-popper",
+ "label": "Party popper",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2157,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.42,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.8,
+     "unit": "em"
+    },
+    "scale": 60
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "confetti",
+   "count": 54,
+   "colors": [
+    "#ffff3d7f",
+    "#ffffd23f",
+    "#ff3ec1ff",
+    "#ff7cf06a",
+    "#ffb26bff",
+    "#ffff8a3d"
+   ],
+   "size": [
+    0.08,
+    0.15
+   ],
+   "speed": [
+    3.0,
+    5.0
+   ],
+   "life": [
+    0.9,
+    1.2
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 70,
+   "gravity": 5.0,
+   "drag": 1.2,
+   "spin": 520,
+   "origin": "bottom",
+   "per": "block"
+  },
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.4,
+    0.4
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.3,
+    0.3
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 4.0,
+   "origin": "bottom",
+   "per": "block",
+   "seed": 7
+  }
+ ]
+}

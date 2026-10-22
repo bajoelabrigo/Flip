@@ -1,0 +1,133 @@
+{
+ "format": 1,
+ "id": "im-skid-stop",
+ "label": "Skid to a stop",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2121,
+ "defaults": {
+  "duration": 0.7,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "position": {
+     "x": {
+      "value": 0.6,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0.6
+        },
+        {
+         "timeUs": 400000,
+         "value": -0.035
+        },
+        {
+         "timeUs": 620000,
+         "value": 0.012
+        },
+        {
+         "timeUs": 800000,
+         "value": -0.003
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "y": 0,
+     "unit": "box"
+    },
+    "skew": {
+     "value": -28,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": -28
+       },
+       {
+        "timeUs": 400000,
+        "value": 22
+       },
+       {
+        "timeUs": 620000,
+        "value": -8
+       },
+       {
+        "timeUs": 800000,
+        "value": 2
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "blur": {
+     "value": 24,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 24
+       },
+       {
+        "timeUs": 350000,
+        "value": 0
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 100000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

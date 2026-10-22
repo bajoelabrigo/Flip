@@ -1,0 +1,162 @@
+{
+ "format": 1,
+ "id": "op-bubble-pop",
+ "label": "Bubbles pop away",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2287,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.7,
+     "unit": "em"
+    },
+    "scale": 120
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "strokeColor": "#ff7fd3ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "trigger": "during",
+   "rate": 8,
+   "colors": [
+    "#ffbfeaff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.08,
+    0.18
+   ],
+   "speed": [
+    0.4,
+    0.9
+   ],
+   "life": [
+    0.4,
+    0.8
+   ],
+   "angle": -90,
+   "spread": 60,
+   "fadeIn": 0.15,
+   "origin": "top"
+  },
+  {
+   "shape": "ring",
+   "count": 3,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.2,
+    0.35
+   ],
+   "speed": [
+    0.1,
+    0.3
+   ],
+   "life": [
+    0.25,
+    0.35
+   ],
+   "at": 0.85,
+   "angle": -90.0,
+   "spread": 360,
+   "grow": 2.0,
+   "seed": 6
+  },
+  {
+   "shape": "dot",
+   "count": 8,
+   "colors": [
+    "#ffe2f6ff",
+    "#ff86d4ff",
+    "#ff3f9cff"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    1.2,
+    2.0
+   ],
+   "life": [
+    0.2,
+    0.35
+   ],
+   "at": 0.85,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 2.0,
+   "seed": 7
+  }
+ ]
+}

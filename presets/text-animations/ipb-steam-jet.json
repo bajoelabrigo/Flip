@@ -1,0 +1,131 @@
+{
+ "format": 1,
+ "id": "ipb-steam-jet",
+ "label": "Steam jets",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2188,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.35,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleX": 140,
+    "scaleY": 40,
+    "position": {
+     "x": 0,
+     "y": 0.2,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 800000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "blur": 6
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 7,
+   "colors": [
+    "#ffffffff",
+    "#ffe6eef2"
+   ],
+   "size": [
+    0.2,
+    0.4
+   ],
+   "speed": [
+    1.6,
+    2.6
+   ],
+   "life": [
+    0.45,
+    0.75
+   ],
+   "at": 0.6,
+   "angle": -90,
+   "spread": 30,
+   "drag": 3.5,
+   "grow": 2.4,
+   "fadeIn": 0.1,
+   "origin": "bottom"
+  }
+ ]
+}

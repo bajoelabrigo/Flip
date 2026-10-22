@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "bounce", "label": "Bounce", "category": "basic", "sampleText": "Boing",
+  "format": 1, "id": "bounce", "label": "Bounce", "category": "fluid", "sampleText": "Boing",
   "slots": ["in", "out"], "order": 70,
   "defaults": { "duration": 0.6 },
   "flags": { "easeLocked": true },

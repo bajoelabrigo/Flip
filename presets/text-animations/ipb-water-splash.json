@@ -1,0 +1,104 @@
+{
+ "format": 1,
+ "id": "ipb-water-splash",
+ "label": "Water splash",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2209,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.38,
+  "ease": "bounce",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.9,
+     "unit": "em"
+    },
+    "scaleY": 130
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1400000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff3fb0ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "glyph",
+   "count": 6,
+   "colors": [
+    "#ff4ab8ff",
+    "#ff9fdcff",
+    "#ff1f8fff"
+   ],
+   "size": [
+    0.08,
+    0.14
+   ],
+   "speed": [
+    1.2,
+    2.2
+   ],
+   "life": [
+    0.45,
+    0.7
+   ],
+   "at": 0.4,
+   "angle": -90,
+   "spread": 130,
+   "gravity": 6.0,
+   "origin": "bottom",
+   "glyph": "shape:drop"
+  }
+ ]
+}

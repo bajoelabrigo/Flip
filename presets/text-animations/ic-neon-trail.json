@@ -1,0 +1,177 @@
+{
+ "format": 1,
+ "id": "ic-neon-trail",
+ "label": "Neon trail typing",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2067,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": -0.5,
+     "y": 0,
+     "unit": "em"
+    },
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 150000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff00f0ff"
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "blinkOnUs": 220000,
+  "blinkOffUs": 280000,
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "widthEm": 0.08,
+  "heightEm": 1.0,
+  "shape": "bar",
+  "color": "#ff00f0ff"
+ },
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 36,
+   "colors": [
+    "#ff00f0ff",
+    "#ff7af9ff"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    0.05,
+    0.2
+   ],
+   "life": [
+    0.2,
+    0.4
+   ],
+   "angle": 180,
+   "spread": 30,
+   "glow": 0.8,
+   "grow": 0.4,
+   "fadeIn": 0.15,
+   "origin": "left",
+   "additive": true
+  }
+ ]
+}

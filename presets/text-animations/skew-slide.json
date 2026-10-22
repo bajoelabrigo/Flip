@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "skew-slide", "label": "Skew slide", "category": "kinetic", "sampleText": "Fast lane",
+  "format": 1, "id": "skew-slide", "label": "Skew slide", "category": "motion", "sampleText": "Fast lane",
   "slots": ["in", "out"], "order": 235,
   "defaults": { "unit": "word", "stagger": 0.06, "duration": 0.4, "ease": "easeOut" },
   "params": [

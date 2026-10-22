@@ -1,5 +1,7 @@
 #include "ClipAnimation.h"
 
+#include "ClipAnimationPreset.h"
+
 #include <QEasingCurve>
 
 #include <algorithm>
@@ -34,6 +36,8 @@ QString clipAnimKindToString(ClipAnimKind kind)
         return QStringLiteral("spinCCW");
     case ClipAnimKind::Bounce:
         return QStringLiteral("bounce");
+    case ClipAnimKind::Preset:
+        return QStringLiteral("preset");
     }
     return QStringLiteral("none");
 }
@@ -62,6 +66,8 @@ ClipAnimKind clipAnimKindFromString(const QString &kind)
         return ClipAnimKind::SpinCCW;
     if (kind == QStringLiteral("bounce"))
         return ClipAnimKind::Bounce;
+    if (kind == QStringLiteral("preset"))
+        return ClipAnimKind::Preset;
     return ClipAnimKind::None;
 }
 
@@ -134,6 +140,8 @@ QJsonObject clipAnimationToJson(const ClipAnimation &anim)
     };
     if (anim.curve == FadeCurve::Custom && !anim.shape.isEmpty())
         object.insert(QStringLiteral("shape"), anim.shape.toJson());
+    if (anim.kind == ClipAnimKind::Preset)
+        object.insert(QStringLiteral("preset"), anim.presetId);
     return object;
 }
 
@@ -141,6 +149,9 @@ ClipAnimation clipAnimationFromJson(const QJsonObject &object)
 {
     ClipAnimation anim;
     anim.kind = clipAnimKindFromString(object.value(QStringLiteral("kind")).toString());
+    anim.presetId = object.value(QStringLiteral("preset")).toString();
+    if (anim.kind == ClipAnimKind::Preset && anim.presetId.isEmpty())
+        anim.kind = ClipAnimKind::None;
     if (object.contains(QStringLiteral("durationUs")))
         anim.durationUs = static_cast<TimeUs>(object.value(QStringLiteral("durationUs")).toDouble());
     else if (object.contains(QStringLiteral("duration")))
@@ -174,6 +185,7 @@ void applyKind(ClipAnimKind kind, double settled, bool entering, double layoutW,
     switch (kind) {
     case ClipAnimKind::None:
     case ClipAnimKind::Fade:
+    case ClipAnimKind::Preset:
         break;
     case ClipAnimKind::SlideUp:
         out->dy += sign * away * travelY;
@@ -220,15 +232,51 @@ void applyKind(ClipAnimKind kind, double settled, bool entering, double layoutW,
     }
 }
 
+namespace {
+
+// A preset's pose at `settled` (0 → 1 over its slot). The preset's own curves carry the easing;
+// the slot's style (curve) reshapes the time they are read at.
+void applyPreset(const ClipAnimation &anim, double settled, double layoutW, double layoutH, ClipAnimSample *out)
+{
+    const std::optional<ClipAnimationPreset> preset = ClipAnimationPresetCatalog::instance().presetForId(anim.presetId);
+    if (!preset)
+        return;
+    const double t = anim.curve == FadeCurve::Linear || anim.curve == FadeCurve::Smooth
+                         ? settled
+                         : shapedProgress(qBound(0.0, settled, 1.0), anim.curve, anim.shape);
+    applyClipAnimationPreset(*preset, t, layoutW, layoutH, std::min(layoutW, layoutH), out);
+}
+
+} // namespace
+
 ClipAnimSample evaluateClipAnimation(TimeUs timelineStart, TimeUs timelineDuration,
                                      const ClipAnimation &animIn, const ClipAnimation &animOut,
-                                     TimeUs timelineUs, double layoutW, double layoutH)
+                                     TimeUs timelineUs, double layoutW, double layoutH,
+                                     const ClipAnimation &animCombo)
 {
     ClipAnimSample sample;
     if (timelineDuration <= 0)
         return sample;
 
     const TimeUs rel = qBound(TimeUs{0}, timelineUs - timelineStart, timelineDuration);
+
+    if (animCombo.kind == ClipAnimKind::Preset && !animCombo.presetId.isEmpty()) {
+        const TimeUs length = animCombo.durationUs > 0 ? std::min(animCombo.durationUs, timelineDuration)
+                                                       : timelineDuration;
+        if (length > 0 && rel <= length)
+            applyPreset(animCombo, static_cast<double>(rel) / static_cast<double>(length), layoutW, layoutH, &sample);
+    }
+
+    if (animIn.kind == ClipAnimKind::Preset && animIn.durationUs > 0 && rel < animIn.durationUs) {
+        applyPreset(animIn, static_cast<double>(rel) / static_cast<double>(animIn.durationUs), layoutW, layoutH,
+                    &sample);
+    }
+    if (animOut.kind == ClipAnimKind::Preset && animOut.durationUs > 0) {
+        const TimeUs fromEnd = timelineDuration - rel;
+        if (fromEnd < animOut.durationUs)
+            applyPreset(animOut, 1.0 - static_cast<double>(fromEnd) / static_cast<double>(animOut.durationUs),
+                        layoutW, layoutH, &sample);
+    }
 
     if (animIn.kind != ClipAnimKind::None && animIn.kind != ClipAnimKind::Fade
         && animIn.durationUs > 0 && rel < animIn.durationUs) {

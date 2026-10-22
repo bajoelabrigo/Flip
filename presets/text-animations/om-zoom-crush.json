@@ -1,0 +1,95 @@
+{
+ "format": 1,
+ "id": "om-zoom-crush",
+ "label": "Zoom crush",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2255,
+ "trending": true,
+ "defaults": {
+  "duration": 0.5,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "scale": {
+     "value": 100,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 100
+       },
+       {
+        "timeUs": 300000,
+        "value": 88
+       },
+       {
+        "timeUs": 1000000,
+        "value": 340
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 100,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 100
+       },
+       {
+        "timeUs": 550000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "blur": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 450000,
+        "value": 0
+       },
+       {
+        "timeUs": 1000000,
+        "value": 18
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

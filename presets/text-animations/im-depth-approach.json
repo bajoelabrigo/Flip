@@ -1,0 +1,84 @@
+{
+ "format": 1,
+ "id": "im-depth-approach",
+ "label": "Approach from depth",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2143,
+ "trending": true,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.75,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "rotationX": 70,
+    "scale": 40,
+    "blur": 16,
+    "position": {
+     "x": 0,
+     "y": 0.15,
+     "unit": "box"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

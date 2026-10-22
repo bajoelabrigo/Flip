@@ -1,0 +1,137 @@
+{
+ "format": 1,
+ "id": "op-embers-fade",
+ "label": "Embers dying out",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2264,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.9,
+  "ease": "linear",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 4,
+    "position": {
+     "x": 0,
+     "y": 0.06,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff4a1c"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff4a1208"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 12,
+   "colors": [
+    "#ffffb347",
+    "#ffff6a1f",
+    "#ffffd27a"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    0.15,
+    0.45
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 70,
+   "drag": 0.6,
+   "glow": 0.9,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true
+  }
+ ]
+}

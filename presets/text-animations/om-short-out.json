@@ -1,0 +1,102 @@
+{
+ "format": 1,
+ "id": "om-short-out",
+ "label": "Letters short out",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2254,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.45,
+  "ease": "linear",
+  "order": "random"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {}
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 14,
+     "spatialPhaseDeg": 63,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffe066"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 0.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

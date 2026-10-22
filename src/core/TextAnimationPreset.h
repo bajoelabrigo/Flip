@@ -32,6 +32,8 @@ struct TextAnimationPreset
     QList<TextAnimParamSpec> params;
     QJsonArray animators; // with "{param}" references
     QJsonObject caret;    // optional, with references
+    QJsonValue particles; // optional: an array for every slot, or {"in": [...], "out": [...], "loop": [...]}
+    bool trending = false; // also listed under the Trending chip
     QJsonObject flags;    // unitLocked, orderLocked, durationLocked, hasDirection, mode ("cycle"|"hold"), mirrorForOut
     QStringList report;   // import warnings (Lottie)
 
@@ -85,6 +87,7 @@ struct ResolvedPresetSlot
 {
     QList<TextAnimator> animators;
     std::optional<TextCaret> caret;
+    QList<TextParticleSpec> particles;
     TimeUs durationUs = 0; // for Curves-only presets: the "duration" param
     TimeUs delayUs = 0;    // e.g. the caret lead
     TimeUs periodUs = 0;   // Loop presets: the "period" param

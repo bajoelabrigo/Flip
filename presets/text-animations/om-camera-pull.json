@@ -1,0 +1,51 @@
+{
+ "format": 1,
+ "id": "om-camera-pull",
+ "label": "Pull back into depth",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2260,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 20,
+    "rotationY": -35,
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

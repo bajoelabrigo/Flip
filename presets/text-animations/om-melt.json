@@ -1,0 +1,40 @@
+{
+ "format": 1,
+ "id": "om-melt",
+ "label": "Melt down",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2246,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.75,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.8,
+     "unit": "em"
+    },
+    "scaleY": 190,
+    "scaleX": 80,
+    "blur": 9,
+    "wipe": {
+     "enabled": true,
+     "angleDeg": -90,
+     "softness": 0.5
+    }
+   }
+  }
+ ]
+}

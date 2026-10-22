@@ -1,0 +1,1 @@
+{"format":1,"id":"in-spin-ccw","label":"Spin anticlockwise","category":"basic","slots":["in"],"order":8,"duration":0.6,"keys":{"rotation":[[0,90,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.45,100,"easeInOut"]]}}

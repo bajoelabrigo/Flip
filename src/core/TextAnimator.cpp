@@ -428,6 +428,8 @@ void applyFragmentProps(const TextAnimatorProps &p, double a, double progress, F
         out.dx += resolveLength(p.position.x.at(progress), p.position.unit, true, p.position.maxPx, ctx) * a;
         out.dy += resolveLength(p.position.y.at(progress), p.position.unit, false, p.position.maxPx, ctx) * a;
         out.rotation += p.rotation.at(progress) * a;
+        out.rotationX += p.rotationX.at(progress) * a;
+        out.rotationY += p.rotationY.at(progress) * a;
         out.scaleX *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
         out.scaleY *= 1.0 + (p.scaleY.at(progress) / 100.0 - 1.0) * a;
         out.blurPx += p.blur.at(progress) * ctx.renderScale * a;
@@ -461,6 +463,8 @@ void applyBlockProps(const TextAnimatorProps &p, double a, double progress, Bloc
     out.dx += resolveLength(p.position.x.at(progress), p.position.unit, true, p.position.maxPx, ctx) * a;
     out.dy += resolveLength(p.position.y.at(progress), p.position.unit, false, p.position.maxPx, ctx) * a;
     out.rotation += p.rotation.at(progress) * a;
+    out.rotationX += p.rotationX.at(progress) * a;
+    out.rotationY += p.rotationY.at(progress) * a;
     out.scale *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
     out.blurPx += p.blur.at(progress) * ctx.renderScale * a;
     if (p.hasOpacity)
@@ -526,6 +530,7 @@ bool isIdentity(const FragmentProps &p)
 {
     return qFuzzyIsNull(p.dx) && qFuzzyIsNull(p.dy) && qFuzzyCompare(p.scaleX, 1.0)
         && qFuzzyCompare(p.scaleY, 1.0) && qFuzzyIsNull(p.rotation) && qFuzzyIsNull(p.skew)
+        && qFuzzyIsNull(p.rotationX) && qFuzzyIsNull(p.rotationY)
         && qFuzzyCompare(p.opacity, 1.0) && qFuzzyCompare(p.fillOpacity, 1.0)
         && qFuzzyCompare(p.strokeOpacity, 1.0) && qFuzzyIsNull(p.blurPx)
         && qFuzzyIsNull(p.strokeWidthDelta) && !p.fillColor && !p.strokeColor && p.wipeProgress < 0.0;
@@ -534,7 +539,8 @@ bool isIdentity(const FragmentProps &p)
 bool isIdentity(const BlockProps &b)
 {
     return qFuzzyIsNull(b.dx) && qFuzzyIsNull(b.dy) && qFuzzyCompare(b.scale, 1.0)
-        && qFuzzyIsNull(b.rotation) && qFuzzyCompare(b.opacity, 1.0) && qFuzzyIsNull(b.blurPx)
+        && qFuzzyIsNull(b.rotation) && qFuzzyIsNull(b.rotationX) && qFuzzyIsNull(b.rotationY)
+        && qFuzzyCompare(b.opacity, 1.0) && qFuzzyIsNull(b.blurPx)
         && b.wipeProgress < 0.0;
 }
 
@@ -547,9 +553,12 @@ quint64 poseHashOf(const Frame &frame)
 {
     quint64 h = qHashMulti(0, q(frame.block.dx), q(frame.block.dy), q(frame.block.scale),
                            q(frame.block.rotation), q(frame.block.opacity), q(frame.block.blurPx),
-                           q(frame.block.wipeProgress));
+                           q(frame.block.wipeProgress), q(frame.block.rotationX), q(frame.block.rotationY));
+    for (const ParticleState &p : frame.particles)
+        h = qHashMulti(h, q(p.x), q(p.y), q(p.sizePx), q(p.alpha), q(p.rotation));
     for (const FragmentProps &p : frame.props) {
         h = qHashMulti(h, q(p.dx), q(p.dy), q(p.scaleX), q(p.scaleY), q(p.rotation), q(p.skew),
+                       q(p.rotationX), q(p.rotationY),
                        q(p.opacity), q(p.fillOpacity), q(p.strokeOpacity), q(p.blurPx),
                        q(p.strokeWidthDelta), q(p.wipeProgress),
                        p.fillColor ? p.fillColor->rgba() : 0u, p.strokeColor ? p.strokeColor->rgba() : 0u);
@@ -603,7 +612,175 @@ CaretState caretFor(const TextAnimationSet &set, const ResolvedSlots &resolved, 
     caret.widthPx = c.widthEm * ctx.emPx;
     caret.heightPx = c.heightEm * ctx.emPx;
     caret.color = c.color.isValid() ? c.color : ctx.baseFillColor;
+    caret.shape = c.shape;
+    caret.glyph = c.glyph;
+    caret.gapPx = c.gapEm * ctx.emPx;
+    if (c.shape == TextCaret::Shape::Glyph) {
+        // A glyph is not a cursor: it stays lit unless the preset asks it to blink.
+        caret.visible = c.blinkOffUs <= 0 || caret.visible;
+        const double phase = 2.0 * M_PI * c.swayHz * usToSeconds(elapsed);
+        caret.bobPx = std::sin(phase) * c.bobEm * ctx.emPx;
+        caret.swayDeg = std::sin(phase + M_PI / 2.0) * c.swayDeg;
+    }
     return caret;
+}
+
+// The first per-fragment Stagger selector of a slot: whose timing its particles follow.
+const TextRangeSelector *primaryStagger(const QList<TextAnimator> &animators)
+{
+    for (const TextAnimator &a : animators) {
+        if (!a.enabled)
+            continue;
+        for (const TextRangeSelector &sel : a.selectors)
+            if (sel.driver == TextSelectorDriver::Stagger && sel.domain != TextSelectorDomain::All)
+                return &sel;
+    }
+    return nullptr;
+}
+
+constexpr int kMaxParticles = 1500;
+
+// Where an emitter's particles start, relative to its anchor.
+QPointF particleOrigin(const TextParticleSpec &spec, double w, double h, double r1, double r2)
+{
+    switch (spec.origin) {
+    case TextParticleSpec::Origin::Center:
+        return {0.0, 0.0};
+    case TextParticleSpec::Origin::Area:
+        return {(r1 - 0.5) * w, (r2 - 0.5) * h};
+    case TextParticleSpec::Origin::Top:
+        return {(r1 - 0.5) * w, -0.5 * h};
+    case TextParticleSpec::Origin::Bottom:
+        return {(r1 - 0.5) * w, 0.5 * h};
+    case TextParticleSpec::Origin::Left:
+        return {-0.5 * w, (r2 - 0.5) * h};
+    case TextParticleSpec::Origin::Right:
+        return {0.5 * w, (r2 - 0.5) * h};
+    case TextParticleSpec::Origin::Baseline:
+        return {(r1 - 0.5) * w, 0.4 * h};
+    }
+    return {0.0, 0.0};
+}
+
+// One particle `age` seconds after it was born, or nothing once it has died.
+std::optional<ParticleState> particleAt(const TextParticleSpec &spec, int look, int emitter, int index,
+                                        double age, double w, double h, const EvalContext &ctx)
+{
+    if (age < 0.0)
+        return std::nullopt;
+    const quint32 base = spec.seed * 7919u + static_cast<quint32>(emitter + 1) * 104729u
+                         + static_cast<quint32>(index) * 1299709u;
+    const auto r = [base](quint32 k) { return hash01(base, k); };
+    const double life = lerp(spec.lifeMin, spec.lifeMax, r(1));
+    if (age > life)
+        return std::nullopt;
+    const double u = age / life;
+    const double angle = qDegreesToRadians(spec.angle + (r(2) - 0.5) * spec.spread);
+    const double speed = lerp(spec.speedMin, spec.speedMax, r(3)) * ctx.emPx;
+    const double fall = spec.gravity * ctx.emPx;
+    const double dist = spec.drag > 0.0 ? speed * (1.0 - std::exp(-spec.drag * age)) / spec.drag : speed * age;
+    const double vel = spec.drag > 0.0 ? speed * std::exp(-spec.drag * age) : speed;
+    const QPointF origin = particleOrigin(spec, w, h, r(4), r(5));
+
+    ParticleState p;
+    p.fragment = emitter;
+    p.look = look;
+    p.x = origin.x() + std::cos(angle) * dist;
+    p.y = origin.y() + std::sin(angle) * dist + 0.5 * fall * age * age;
+    const double vx = std::cos(angle) * vel;
+    const double vy = std::sin(angle) * vel + fall * age;
+    p.heading = qRadiansToDegrees(std::atan2(vy, vx));
+    p.speedPx = std::hypot(vx, vy);
+    p.sizePx = lerp(spec.sizeMin, spec.sizeMax, r(6)) * ctx.emPx * (1.0 + (spec.grow - 1.0) * u);
+    p.rotation = r(7) * 360.0 + spec.spin * (r(8) < 0.5 ? -1.0 : 1.0) * age;
+    const double in = spec.fadeIn > 0.0 ? clamp01(u / spec.fadeIn) : 1.0;
+    p.alpha = in * (1.0 - u * u);
+    if (spec.colors.isEmpty())
+        p.color = ctx.baseFillColor;
+    else
+        p.color = spec.colors.at(std::min<int>(spec.colors.size() - 1, int(r(9) * spec.colors.size())));
+    return p;
+}
+
+// The particles one slot has alive at this instant. Each fragment's own clock starts when its
+// motion does (the primary stagger selector says when); a slot without one moves as a whole.
+void slotParticles(const QList<TextParticleSpec> &specs, const QList<TextAnimator> &animators,
+                   const SlotTime &st, const TextAnimationSlot &slot, const QList<FragmentInfo> &fragments,
+                   const Domains &domains, const EvalContext &ctx, Frame &frame)
+{
+    if (!st.active || specs.isEmpty())
+        return;
+    const TextRangeSelector *stagger = primaryStagger(animators);
+    const double motionSec = stagger ? usToSeconds(stagger->durationUs) : usToSeconds(st.durationUs);
+
+    // Seconds since fragment i's motion began.
+    const auto localClock = [&](const FragmentInfo &frag) -> double {
+        if (st.timeDriven) {
+            const double t = st.elapsedSec;
+            return slot.periodUs > 0 ? std::fmod(t, usToSeconds(slot.periodUs)) : t;
+        }
+        if (!stagger) {
+            const double sinceStart = st.isOut ? usToSeconds(st.durationUs - st.staggerElapsedUs)
+                                               : usToSeconds(st.staggerElapsedUs);
+            return sinceStart;
+        }
+        const DomainRef d = domainRef(stagger->domain, frag, domains);
+        double s = reindexForOrder(d.index, d.size, stagger->order, stagger->seed);
+        if (st.isOut) {
+            s = maxReindex(d.size, stagger->order) - s;
+            const double departs = s * usToSeconds(stagger->staggerUs) + usToSeconds(stagger->durationUs);
+            return departs - usToSeconds(st.staggerElapsedUs);
+        }
+        return usToSeconds(st.staggerElapsedUs) - s * usToSeconds(stagger->staggerUs);
+    };
+
+    // The block's extent, for a block emitter's area origin.
+    double blockW = 0.0, lineW = 0.0, ascent = ctx.emPx * 0.7;
+    int line = fragments.isEmpty() ? 0 : fragments.first().lineIndex;
+    for (const FragmentInfo &f : fragments) {
+        if (f.lineIndex != line) {
+            blockW = std::max(blockW, lineW);
+            lineW = 0.0;
+            line = f.lineIndex;
+        }
+        lineW += f.advance;
+        ascent = std::max(ascent, f.ascent);
+    }
+    blockW = std::max(blockW, lineW);
+    const double blockH = ascent * std::max(1, domains.lines);
+
+    for (const TextParticleSpec &spec : specs) {
+        const int look = frame.particleLooks.size();
+        frame.particleLooks.append(spec);
+        const int emitters = spec.perBlock ? 1 : int(fragments.size());
+        for (int e = 0; e < emitters && frame.particles.size() < kMaxParticles; ++e) {
+            const FragmentInfo frag = spec.perBlock ? (fragments.isEmpty() ? FragmentInfo{} : fragments.first())
+                                                    : fragments.at(e);
+            const double clock = localClock(frag);
+            const double w = spec.perBlock ? blockW : frag.advance;
+            const double h = spec.perBlock ? blockH : frag.ascent;
+            const int id = spec.perBlock ? -1 : e;
+            if (spec.trigger == TextParticleSpec::Trigger::Burst) {
+                const double age = clock - spec.at * motionSec;
+                if (age < 0.0 || age > spec.lifeMax)
+                    continue;
+                for (int j = 0; j < spec.count && frame.particles.size() < kMaxParticles; ++j)
+                    if (const auto p = particleAt(spec, look, id, j, age, w, h, ctx))
+                        frame.particles.append(*p);
+                continue;
+            }
+            // During: one particle every 1/rate seconds while the fragment moves (always, in a loop).
+            if (spec.rate <= 0.0 || clock < 0.0)
+                continue;
+            const double window = st.timeDriven ? clock : std::min(clock, std::max(motionSec, 0.25));
+            const double step = 1.0 / spec.rate;
+            const int last = int(std::floor(window / step));
+            const int first = std::max(0, int(std::floor((clock - spec.lifeMax) / step)));
+            for (int j = first; j <= last && frame.particles.size() < kMaxParticles; ++j)
+                if (const auto p = particleAt(spec, look, id, j, clock - j * step, w, h, ctx))
+                    frame.particles.append(*p);
+        }
+    }
 }
 
 } // namespace
@@ -759,15 +936,19 @@ Frame evaluateTextAnimation(const TextAnimationSet &set, const ResolvedSlots &re
 
     frame.caret = caretFor(set, resolved, inTime, outTime, fragments, frame.props, ctx);
 
+    slotParticles(resolved.inParticles, resolved.in, inTime, set.in, fragments, domains, ctx, frame);
+    slotParticles(resolved.outParticles, resolved.out, outTime, set.out, fragments, domains, ctx, frame);
+    slotParticles(resolved.loopParticles, resolved.loop, loopTime, set.loop, fragments, domains, ctx, frame);
+
     bool identity = isIdentity(frame.block);
     for (const FragmentProps &p : frame.props)
         identity = identity && isIdentity(p);
-    frame.isStatic = identity && !timeDriven && !set.caret.enabled;
+    frame.isStatic = identity && !timeDriven && !set.caret.enabled && frame.particles.isEmpty();
     frame.poseHash = frame.isStatic ? 0 : poseHashOf(frame);
     return frame;
 }
 
-Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx)
+Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx, const TextCaret *caret)
 {
     Bounds b;
     // Back / Bounce easings overshoot the resting pose a little; reserve for it.
@@ -784,12 +965,30 @@ Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx)
             if (scale > 1.0)
                 b.maxScale *= scale * kOvershoot;
             b.maxRotationDeg += p.rotation.maxAbs();
+            b.maxRotation3dDeg += std::max(p.rotationX.maxAbs(), p.rotationY.maxAbs());
             b.maxTrackingPx += std::abs(resolveLength(p.tracking.maxAbs(), p.trackingUnit, true, 0.0, ctx));
         }
     };
     visit(resolved.in);
     visit(resolved.out);
     visit(resolved.loop);
+    const auto reach = [&](const QList<TextParticleSpec> &specs) {
+        for (const TextParticleSpec &s : specs) {
+            const double speed = s.speedMax * ctx.emPx;
+            double travel = speed * s.lifeMax;
+            if (s.drag > 0.0)
+                travel = std::min(travel, speed / s.drag);
+            travel += 0.5 * std::abs(s.gravity) * ctx.emPx * s.lifeMax * s.lifeMax;
+            const double size = s.sizeMax * std::max(1.0, s.grow) * ctx.emPx * (1.0 + s.glow);
+            // A block emitter's area origin can start anywhere on the block, already inside the layout.
+            b.maxParticlePx = std::max(b.maxParticlePx, travel + size + ctx.emPx * 0.5);
+        }
+    };
+    reach(resolved.inParticles);
+    reach(resolved.outParticles);
+    reach(resolved.loopParticles);
+    if (caret && caret->enabled && caret->shape == TextCaret::Shape::Glyph)
+        b.maxParticlePx = std::max(b.maxParticlePx, (caret->gapEm + caret->heightEm * 1.2 + caret->bobEm) * ctx.emPx);
     return b;
 }
 
@@ -834,7 +1033,11 @@ const char *const kWaveNames[] = {"sine", "triangle", "noise"};
 const char *const kLengthNames[] = {"px", "em", "box"};
 const char *const kGroupingNames[] = {"character", "word", "line", "all"};
 const char *const kSlotNames[] = {"in", "out", "loop"};
-const char *const kCaretNames[] = {"bar", "underscore", "block"};
+const char *const kCaretNames[] = {"bar", "underscore", "block", "glyph"};
+const char *const kParticleTriggerNames[] = {"burst", "during"};
+const char *const kParticleOriginNames[] = {"center", "area", "top", "bottom", "left", "right", "baseline"};
+const char *const kParticleShapeNames[] = {"dot", "star", "spark", "ring", "square", "heart", "smoke",
+                                           "confetti", "flare", "triangle", "glyph"};
 
 QJsonArray pointToJson(const QPointF &p)
 {
@@ -1035,6 +1238,8 @@ QJsonObject textAnimatorToJson(const TextAnimator &a)
     putParam(props, QStringLiteral("scaleY"), p.scaleY, 100.0);
     putParam(props, QStringLiteral("rotation"), p.rotation, 0.0);
     putParam(props, QStringLiteral("skew"), p.skew, 0.0);
+    putParam(props, QStringLiteral("rotationX"), p.rotationX, 0.0);
+    putParam(props, QStringLiteral("rotationY"), p.rotationY, 0.0);
     if (p.hasOpacity)
         props.insert(QStringLiteral("opacity"), textAnimParamToJson(p.opacity));
     if (p.hasFillOpacity)
@@ -1093,6 +1298,8 @@ TextAnimator textAnimatorFromJson(const QJsonObject &o)
     }
     p.rotation = textAnimParamFromJson(props.value(QStringLiteral("rotation")), 0.0);
     p.skew = textAnimParamFromJson(props.value(QStringLiteral("skew")), 0.0);
+    p.rotationX = textAnimParamFromJson(props.value(QStringLiteral("rotationX")), 0.0);
+    p.rotationY = textAnimParamFromJson(props.value(QStringLiteral("rotationY")), 0.0);
     p.hasOpacity = props.contains(QStringLiteral("opacity"));
     p.opacity = textAnimParamFromJson(props.value(QStringLiteral("opacity")), 100.0);
     p.hasFillOpacity = props.contains(QStringLiteral("fillOpacity"));
@@ -1119,7 +1326,7 @@ TextAnimator textAnimatorFromJson(const QJsonObject &o)
 
 QJsonObject textCaretToJson(const TextCaret &c)
 {
-    return QJsonObject{
+    QJsonObject o{
         {QStringLiteral("enabled"), c.enabled},
         {QStringLiteral("leadUs"), static_cast<qint64>(c.leadUs)},
         {QStringLiteral("blinkOnUs"), static_cast<qint64>(c.blinkOnUs)},
@@ -1130,6 +1337,14 @@ QJsonObject textCaretToJson(const TextCaret &c)
         {QStringLiteral("shape"), textCaretShapeToString(c.shape)},
         {QStringLiteral("color"), c.color.isValid() ? c.color.name(QColor::HexArgb) : QString()},
     };
+    if (c.shape == TextCaret::Shape::Glyph) {
+        o.insert(QStringLiteral("glyph"), c.glyph);
+        putDouble(o, QStringLiteral("gapEm"), c.gapEm, 0.08);
+        putDouble(o, QStringLiteral("bobEm"), c.bobEm, 0.0);
+        putDouble(o, QStringLiteral("swayDeg"), c.swayDeg, 0.0);
+        putDouble(o, QStringLiteral("swayHz"), c.swayHz, 2.0);
+    }
+    return o;
 }
 
 TextCaret textCaretFromJson(const QJsonObject &o)
@@ -1147,7 +1362,101 @@ TextCaret textCaretFromJson(const QJsonObject &o)
     c.shape = textCaretShapeFromString(o.value(QStringLiteral("shape")).toString());
     const QString color = o.value(QStringLiteral("color")).toString();
     c.color = color.isEmpty() ? QColor() : QColor(color);
+    c.glyph = o.value(QStringLiteral("glyph")).toString();
+    c.gapEm = o.value(QStringLiteral("gapEm")).toDouble(c.gapEm);
+    c.bobEm = o.value(QStringLiteral("bobEm")).toDouble(c.bobEm);
+    c.swayDeg = o.value(QStringLiteral("swayDeg")).toDouble(c.swayDeg);
+    c.swayHz = o.value(QStringLiteral("swayHz")).toDouble(c.swayHz);
     return c;
+}
+
+QJsonObject textParticleSpecToJson(const TextParticleSpec &p)
+{
+    const TextParticleSpec d;
+    QJsonObject o{{QStringLiteral("shape"), enumToString(p.shape, kParticleShapeNames)}};
+    if (p.trigger != d.trigger)
+        o.insert(QStringLiteral("trigger"), enumToString(p.trigger, kParticleTriggerNames));
+    if (p.perBlock)
+        o.insert(QStringLiteral("per"), QStringLiteral("block"));
+    if (p.origin != d.origin)
+        o.insert(QStringLiteral("origin"), enumToString(p.origin, kParticleOriginNames));
+    if (!p.glyph.isEmpty())
+        o.insert(QStringLiteral("glyph"), p.glyph);
+    if (!p.colors.isEmpty()) {
+        QJsonArray colors;
+        for (const QColor &c : p.colors)
+            colors.append(c.name(QColor::HexArgb));
+        o.insert(QStringLiteral("colors"), colors);
+    }
+    putDouble(o, QStringLiteral("at"), p.at, d.at);
+    if (p.count != d.count)
+        o.insert(QStringLiteral("count"), p.count);
+    putDouble(o, QStringLiteral("rate"), p.rate, d.rate);
+    o.insert(QStringLiteral("size"), QJsonArray{p.sizeMin, p.sizeMax});
+    o.insert(QStringLiteral("speed"), QJsonArray{p.speedMin, p.speedMax});
+    o.insert(QStringLiteral("life"), QJsonArray{p.lifeMin, p.lifeMax});
+    putDouble(o, QStringLiteral("angle"), p.angle, d.angle);
+    putDouble(o, QStringLiteral("spread"), p.spread, d.spread);
+    putDouble(o, QStringLiteral("gravity"), p.gravity, d.gravity);
+    putDouble(o, QStringLiteral("drag"), p.drag, d.drag);
+    putDouble(o, QStringLiteral("grow"), p.grow, d.grow);
+    putDouble(o, QStringLiteral("spin"), p.spin, d.spin);
+    putDouble(o, QStringLiteral("fadeIn"), p.fadeIn, d.fadeIn);
+    putDouble(o, QStringLiteral("glow"), p.glow, d.glow);
+    if (p.additive)
+        o.insert(QStringLiteral("additive"), true);
+    if (p.behind)
+        o.insert(QStringLiteral("behind"), true);
+    if (p.seed != d.seed)
+        o.insert(QStringLiteral("seed"), static_cast<qint64>(p.seed));
+    return o;
+}
+
+TextParticleSpec textParticleSpecFromJson(const QJsonObject &o)
+{
+    TextParticleSpec p;
+    // A range is [min, max], or one number for both.
+    const auto range = [&o](const char *key, double *lo, double *hi) {
+        const QJsonValue v = o.value(QLatin1String(key));
+        if (v.isArray() && v.toArray().size() >= 2) {
+            *lo = v.toArray().at(0).toDouble(*lo);
+            *hi = v.toArray().at(1).toDouble(*hi);
+        } else if (v.isDouble()) {
+            *lo = *hi = v.toDouble();
+        }
+        if (*hi < *lo)
+            std::swap(*lo, *hi);
+    };
+    p.shape = enumFromString(o.value(QStringLiteral("shape")).toString(), kParticleShapeNames, p.shape);
+    p.trigger = enumFromString(o.value(QStringLiteral("trigger")).toString(), kParticleTriggerNames, p.trigger);
+    p.perBlock = o.value(QStringLiteral("per")).toString() == QLatin1String("block");
+    p.origin = enumFromString(o.value(QStringLiteral("origin")).toString(), kParticleOriginNames, p.origin);
+    p.glyph = o.value(QStringLiteral("glyph")).toString();
+    for (const QJsonValue &c : o.value(QStringLiteral("colors")).toArray()) {
+        const QColor colour(c.toString());
+        if (colour.isValid())
+            p.colors.append(colour);
+    }
+    p.at = qBound(0.0, o.value(QStringLiteral("at")).toDouble(p.at), 1.0);
+    p.count = qBound(0, o.value(QStringLiteral("count")).toInt(p.count), 200);
+    p.rate = qBound(0.0, o.value(QStringLiteral("rate")).toDouble(p.rate), 400.0);
+    range("size", &p.sizeMin, &p.sizeMax);
+    range("speed", &p.speedMin, &p.speedMax);
+    range("life", &p.lifeMin, &p.lifeMax);
+    p.lifeMin = qMax(0.02, p.lifeMin);
+    p.lifeMax = qBound(p.lifeMin, p.lifeMax, 10.0);
+    p.angle = o.value(QStringLiteral("angle")).toDouble(p.angle);
+    p.spread = o.value(QStringLiteral("spread")).toDouble(p.spread);
+    p.gravity = o.value(QStringLiteral("gravity")).toDouble(p.gravity);
+    p.drag = qMax(0.0, o.value(QStringLiteral("drag")).toDouble(p.drag));
+    p.grow = qMax(0.0, o.value(QStringLiteral("grow")).toDouble(p.grow));
+    p.spin = o.value(QStringLiteral("spin")).toDouble(p.spin);
+    p.fadeIn = qBound(0.0, o.value(QStringLiteral("fadeIn")).toDouble(p.fadeIn), 0.9);
+    p.glow = qBound(0.0, o.value(QStringLiteral("glow")).toDouble(p.glow), 1.0);
+    p.additive = jsonBool(o.value(QStringLiteral("additive")), false);
+    p.behind = jsonBool(o.value(QStringLiteral("behind")), false);
+    p.seed = static_cast<quint32>(o.value(QStringLiteral("seed")).toInteger(p.seed));
+    return p;
 }
 
 QJsonObject textAnimationSlotToJson(const TextAnimationSlot &s)
@@ -1166,6 +1475,12 @@ QJsonObject textAnimationSlotToJson(const TextAnimationSlot &s)
         for (const TextAnimator &a : s.animators)
             animators.append(textAnimatorToJson(a));
         o.insert(QStringLiteral("animators"), animators);
+    }
+    if (s.presetId.isEmpty() && !s.particles.isEmpty()) {
+        QJsonArray particles;
+        for (const TextParticleSpec &p : s.particles)
+            particles.append(textParticleSpecToJson(p));
+        o.insert(QStringLiteral("particles"), particles);
     }
     if (s.delayUs != 0)
         o.insert(QStringLiteral("delayUs"), static_cast<qint64>(s.delayUs));
@@ -1187,6 +1502,8 @@ TextAnimationSlot textAnimationSlotFromJson(const QJsonObject &o)
         s.params.insert(it.key(), VectorSlotValue::fromJson(it->toObject()));
     for (const QJsonValue &v : o.value(QStringLiteral("animators")).toArray())
         s.animators.append(textAnimatorFromJson(v.toObject()));
+    for (const QJsonValue &v : o.value(QStringLiteral("particles")).toArray())
+        s.particles.append(textParticleSpecFromJson(v.toObject()));
     s.delayUs = o.value(QStringLiteral("delayUs")).toInteger(0);
     s.durationUs = o.value(QStringLiteral("durationUs")).toInteger(0);
     s.periodUs = o.value(QStringLiteral("periodUs")).toInteger(0);

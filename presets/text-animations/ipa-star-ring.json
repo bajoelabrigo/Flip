@@ -1,0 +1,104 @@
+{
+ "format": 1,
+ "id": "ipa-star-ring",
+ "label": "Star ring burst",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2161,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "rotation": 360,
+    "scale": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "star",
+   "count": 10,
+   "colors": [
+    "#ffffd34d",
+    "#fffff1b8"
+   ],
+   "size": [
+    0.07,
+    0.1
+   ],
+   "speed": [
+    1.5,
+    1.6
+   ],
+   "life": [
+    0.45,
+    0.6
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 2.4,
+   "glow": 0.5,
+   "spin": 160
+  }
+ ]
+}

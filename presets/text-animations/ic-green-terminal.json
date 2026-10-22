@@ -1,0 +1,113 @@
+{
+ "format": 1,
+ "id": "ic-green-terminal",
+ "label": "Green terminal block",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2039,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {}
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 20000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff33ff66"
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "blinkOnUs": 220000,
+  "blinkOffUs": 280000,
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "widthEm": 0.55,
+  "heightEm": 1.0,
+  "shape": "block",
+  "color": "#ff33ff66"
+ }
+}

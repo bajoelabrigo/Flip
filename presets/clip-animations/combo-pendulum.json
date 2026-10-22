@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-pendulum","label":"Pendulum","category":"dynamic","slots":["combo"],"order":12,"duration":0,"keys":{"rotation":[[0.05,0.0,"easeInOut"],[0.23,18.0,"easeInOut"],[0.41,-18.0,"easeInOut"],[0.59,18.0,"easeInOut"],[0.77,-18.0,"easeInOut"],[0.95,0.0,"easeInOut"]],"scale":[[0,90,"linear"],[1,90,"easeInOut"]]}}

@@ -1,0 +1,1 @@
+{"format":1,"id":"out-glitch-in","label":"Glitch","category":"glitch","slots":["out"],"order":38,"duration":0.6,"keys":{"opacity":[[0.78,100,"hold"],[0.86,30,"hold"],[0.92,100,"linear"],[1,0,"easeInOut"]]},"trending":true,"effects":[{"id":"digital_glitch","params":{"intensity":[[0,0,"easeIn"],[1,1,"easeInOut"]],"rgbAmount":24.0,"blockAmount":0.7}}]}

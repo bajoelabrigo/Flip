@@ -1,0 +1,125 @@
+{
+ "format": 1,
+ "id": "ic-word-orange",
+ "label": "Word by word typing",
+ "category": "build",
+ "sampleText": "TYPE IT OUT",
+ "slots": [
+  "in"
+ ],
+ "order": 2043,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.22,
+  "duration": 0.25,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.25,
+     "unit": "em"
+    },
+    "scale": 115
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 200000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "blinkOnUs": 220000,
+  "blinkOffUs": 280000,
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "widthEm": 0.1,
+  "heightEm": 1.0,
+  "shape": "bar",
+  "color": "#ffff8a00"
+ }
+}

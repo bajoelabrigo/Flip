@@ -1,0 +1,1 @@
+{"format":1,"id":"out-wave-in","label":"Wave warp","category":"blur","slots":["out"],"order":37,"duration":0.8,"keys":{"opacity":[[0.6,100,"linear"],[1,0,"easeInOut"]]},"effects":[{"id":"wave_warp","params":{"amount":[[0,0,"easeIn"],[1,0.9,"easeInOut"]],"frequency":8.0}}]}

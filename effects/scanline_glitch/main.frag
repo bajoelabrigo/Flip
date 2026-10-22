@@ -31,14 +31,18 @@ void main() {
     float sx = clamp(v_texCoord.x * res.x - hOff, 0.0, res.x - 1.0);
     float sy = float(sourceY);
     vec3 col;
+    float alpha;
     if (colorShift > 0.0) {
-        float r = texture(u_currentTexture, vec2(clamp(sx + colorShift, 0.0, res.x-1.0), sy) / res).r;
-        float g = texture(u_currentTexture, vec2(sx, sy) / res).g;
-        float b = texture(u_currentTexture, vec2(clamp(sx - colorShift, 0.0, res.x-1.0), sy) / res).b;
-        col = vec3(r,g,b);
+        vec4 r = texture(u_currentTexture, vec2(clamp(sx + colorShift, 0.0, res.x-1.0), sy) / res);
+        vec4 g = texture(u_currentTexture, vec2(sx, sy) / res);
+        vec4 b = texture(u_currentTexture, vec2(clamp(sx - colorShift, 0.0, res.x-1.0), sy) / res);
+        col = vec3(r.r, g.g, b.b);
+        alpha = max(g.a, max(r.a, b.a)); // a text or sticker keeps its see-through background
     } else {
-        col = texture(u_currentTexture, vec2(sx, sy) / res).rgb;
+        vec4 c = texture(u_currentTexture, vec2(sx, sy) / res);
+        col = c.rgb;
+        alpha = c.a;
     }
     if ((y & 1) == 0) col *= (1.0 - lineStrength * 0.55);
-    fragColor = vec4(col, 1.0);
+    fragColor = vec4(col, alpha);
 }

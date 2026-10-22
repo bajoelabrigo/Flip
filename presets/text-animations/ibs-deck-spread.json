@@ -1,0 +1,77 @@
+{
+ "format": 1,
+ "id": "ibs-deck-spread",
+ "label": "Deck spread",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2015,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "tracking": -0.6,
+    "trackingUnit": "em",
+    "rotationY": 70
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

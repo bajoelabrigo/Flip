@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-rock","label":"Rock","category":"dynamic","slots":["combo"],"order":7,"duration":0,"keys":{"rotation":[[0.0,0.0,"easeInOut"],[0.1429,6.0,"easeInOut"],[0.2857,-6.0,"easeInOut"],[0.4286,6.0,"easeInOut"],[0.5714,-6.0,"easeInOut"],[0.7143,6.0,"easeInOut"],[0.8571,-6.0,"easeInOut"],[1.0,0.0,"easeInOut"]],"scale":[[0,112,"linear"],[1,112,"easeInOut"]]}}

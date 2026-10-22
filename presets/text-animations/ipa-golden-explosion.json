@@ -1,0 +1,185 @@
+{
+ "format": 1,
+ "id": "ipa-golden-explosion",
+ "label": "Golden explosion",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2158,
+ "trending": true,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 260,
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2200000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffffff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 50,
+   "colors": [
+    "#ffffd34d",
+    "#ffff9a2e",
+    "#fffff1b8"
+   ],
+   "size": [
+    0.05,
+    0.1
+   ],
+   "speed": [
+    3.0,
+    5.0
+   ],
+   "life": [
+    0.4,
+    0.8
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.0,
+   "drag": 2.6,
+   "glow": 0.6,
+   "additive": true,
+   "per": "block"
+  },
+  {
+   "shape": "ring",
+   "count": 2,
+   "colors": [
+    "#ffffe08a"
+   ],
+   "size": [
+    0.6,
+    0.9
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "life": [
+    0.35,
+    0.5
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.4,
+   "grow": 4.5,
+   "additive": true,
+   "per": "block",
+   "seed": 8
+  },
+  {
+   "shape": "smoke",
+   "count": 10,
+   "colors": [
+    "#ff8a6a3a",
+    "#ff5a4630"
+   ],
+   "size": [
+    0.6,
+    1.0
+   ],
+   "speed": [
+    0.3,
+    0.8
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 1.5,
+   "grow": 1.8,
+   "behind": true,
+   "per": "block",
+   "seed": 9
+  }
+ ]
+}

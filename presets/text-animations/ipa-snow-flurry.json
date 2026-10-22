@@ -1,0 +1,106 @@
+{
+ "format": 1,
+ "id": "ipa-snow-flurry",
+ "label": "Snow flurry",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2153,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.25,
+     "unit": "em"
+    },
+    "blur": 12
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffa8dcff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "glyph",
+   "count": 22,
+   "colors": [
+    "#ffffffff",
+    "#ffdff3ff"
+   ],
+   "size": [
+    0.1,
+    0.2
+   ],
+   "speed": [
+    0.3,
+    0.7
+   ],
+   "life": [
+    1.0,
+    1.2
+   ],
+   "at": 0.0,
+   "angle": 90,
+   "spread": 60,
+   "gravity": 0.6,
+   "spin": 60,
+   "fadeIn": 0.15,
+   "origin": "top",
+   "glyph": "shape:snow",
+   "per": "block"
+  }
+ ]
+}

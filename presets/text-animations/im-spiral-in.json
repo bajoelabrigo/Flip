@@ -1,0 +1,219 @@
+{
+ "format": 1,
+ "id": "im-spiral-in",
+ "label": "Spiral into place",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2122,
+ "trending": true,
+ "defaults": {
+  "duration": 1.0,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "position": {
+     "x": {
+      "value": 0.0,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0.0
+        },
+        {
+         "timeUs": 100000,
+         "value": -0.2746
+        },
+        {
+         "timeUs": 200000,
+         "value": -0.3293
+        },
+        {
+         "timeUs": 300000,
+         "value": -0.1931
+        },
+        {
+         "timeUs": 400000,
+         "value": -0.0
+        },
+        {
+         "timeUs": 500000,
+         "value": 0.1206
+        },
+        {
+         "timeUs": 600000,
+         "value": 0.1248
+        },
+        {
+         "timeUs": 700000,
+         "value": 0.059
+        },
+        {
+         "timeUs": 800000,
+         "value": 0.0
+        },
+        {
+         "timeUs": 900000,
+         "value": -0.0127
+        },
+        {
+         "timeUs": 1000000,
+         "value": -0.0
+        }
+       ]
+      }
+     },
+     "y": {
+      "value": -0.27,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -0.27
+        },
+        {
+         "timeUs": 100000,
+         "value": -0.1647
+        },
+        {
+         "timeUs": 200000,
+         "value": -0.0
+        },
+        {
+         "timeUs": 300000,
+         "value": 0.1159
+        },
+        {
+         "timeUs": 400000,
+         "value": 0.1321
+        },
+        {
+         "timeUs": 500000,
+         "value": 0.0723
+        },
+        {
+         "timeUs": 600000,
+         "value": 0.0
+        },
+        {
+         "timeUs": 700000,
+         "value": -0.0354
+        },
+        {
+         "timeUs": 800000,
+         "value": -0.0284
+        },
+        {
+         "timeUs": 900000,
+         "value": -0.0076
+        },
+        {
+         "timeUs": 1000000,
+         "value": -0.0
+        }
+       ]
+      }
+     },
+     "unit": "box"
+    },
+    "rotation": {
+     "value": -300,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": -300
+       },
+       {
+        "timeUs": 700000,
+        "value": -20
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "scale": {
+     "value": 10,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 10
+       },
+       {
+        "timeUs": 700000,
+        "value": 92
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    },
+    "blur": {
+     "value": 10,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 10
+       },
+       {
+        "timeUs": 600000,
+        "value": 0
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 150000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

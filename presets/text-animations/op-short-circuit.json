@@ -1,0 +1,201 @@
+{
+ "format": 1,
+ "id": "op-short-circuit",
+ "label": "Short circuit",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2290,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "skew": 22,
+    "position": {
+     "x": 0.08,
+     "y": 0,
+     "unit": "em"
+    },
+    "blur": 3
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffbff6ff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "linear",
+     "mode": "add"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 20.0,
+     "spatialPhaseDeg": 57.0,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 10.0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 10,
+   "colors": [
+    "#ffe9feff",
+    "#ff7ff3ff",
+    "#ff22c8ff"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    1.8,
+    3.4
+   ],
+   "life": [
+    0.15,
+    0.3
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 3.0,
+   "glow": 0.6,
+   "additive": true
+  },
+  {
+   "shape": "spark",
+   "count": 8,
+   "colors": [
+    "#ffe9feff",
+    "#ff7ff3ff",
+    "#ff22c8ff"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    1.8,
+    3.4
+   ],
+   "life": [
+    0.15,
+    0.3
+   ],
+   "at": 0.5,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 3.0,
+   "glow": 0.6,
+   "additive": true,
+   "seed": 3
+  },
+  {
+   "shape": "glyph",
+   "count": 1,
+   "colors": [
+    "#ff7ff3ff"
+   ],
+   "size": [
+    0.35,
+    0.4
+   ],
+   "speed": [
+    0.0,
+    0.2
+   ],
+   "life": [
+    0.18,
+    0.25
+   ],
+   "at": 0.25,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.7,
+   "additive": true,
+   "glyph": "shape:bolt",
+   "seed": 5
+  }
+ ]
+}

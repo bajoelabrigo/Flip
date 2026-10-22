@@ -1,0 +1,137 @@
+{
+ "format": 1,
+ "id": "ipa-birthday-candles",
+ "label": "Birthday candles",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2178,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.5,
+     "unit": "em"
+    },
+    "scaleY": 50
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 22,
+   "colors": [
+    "#ffffd34d",
+    "#ffff9a2e",
+    "#fffff4cf"
+   ],
+   "size": [
+    0.06,
+    0.1
+   ],
+   "speed": [
+    0.25,
+    0.5
+   ],
+   "life": [
+    0.3,
+    0.5
+   ],
+   "angle": -90,
+   "spread": 20,
+   "glow": 0.8,
+   "grow": 0.4,
+   "fadeIn": 0.15,
+   "origin": "top",
+   "additive": true
+  },
+  {
+   "shape": "flare",
+   "count": 1,
+   "colors": [
+    "#fffff4cf"
+   ],
+   "size": [
+    0.3,
+    0.3
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.35,
+    0.35
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.9,
+   "origin": "top",
+   "additive": true,
+   "seed": 19
+  }
+ ]
+}

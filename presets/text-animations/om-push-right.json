@@ -1,0 +1,55 @@
+{
+ "format": 1,
+ "id": "om-push-right",
+ "label": "Push out right",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2220,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.035,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "backward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 3.0,
+     "y": 0,
+     "unit": "em"
+    },
+    "scaleX": 120,
+    "blur": 5
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

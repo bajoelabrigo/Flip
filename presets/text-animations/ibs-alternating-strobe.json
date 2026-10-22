@@ -1,0 +1,215 @@
+{
+ "format": 1,
+ "id": "ibs-alternating-strobe",
+ "label": "Alternating strobe",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2022,
+ "defaults": {
+  "duration": 0.7,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 100,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 100000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 200000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 300000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 400000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 500000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0,
+         "hold": true
+        }
+       ]
+      }
+     }
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 180,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "temporalPhaseDeg": 90,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0,
+     "amount": {
+      "value": 100,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 50000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 150000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 250000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 350000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 450000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 550000,
+         "value": 100,
+         "hold": true
+        },
+        {
+         "timeUs": 600000,
+         "value": 0,
+         "hold": true
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0,
+         "hold": true
+        }
+       ]
+      }
+     }
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0,
+     "spatialPhaseDeg": 180,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "temporalPhaseDeg": 270,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "scale": {
+     "value": 118,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 118,
+        "hold": true
+       },
+       {
+        "timeUs": 200000,
+        "value": 110,
+        "hold": true
+       },
+       {
+        "timeUs": 400000,
+        "value": 104,
+        "hold": true
+       },
+       {
+        "timeUs": 600000,
+        "value": 100,
+        "hold": true
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100,
+        "hold": true
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

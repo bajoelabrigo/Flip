@@ -12,6 +12,7 @@
 #include <QStandardPaths>
 
 #include "core/ClipAnimation.h"
+#include "core/ClipAnimationPreset.h"
 #include "core/Keyframe.h"
 #include "core/MotionTrack.h"
 #include "core/Project.h"
@@ -126,7 +127,10 @@ private slots:
     void animatorCompositionOrder();
     void trackingLineAdjust();
     void caretTiming();
+    void glyphCaretSways();
+    void particlesBurstOnArrival();
     void animationBoundsCoverTheEnvelope();
+    void clipAnimationPresetsSample();
     void textStyleMigratesFromV6();
     void textStyleV7RoundTrip();
     void textAnimationPresetsAreWellFormed();
@@ -3993,10 +3997,14 @@ void CoreTest::clipAnimationSerializationAndSample()
     clip.type = drift::ClipType::Shape;
     clip.timelineStart = 0;
     clip.timelineDuration = drift::secondsToUs(2.0);
-    clip.animIn = {drift::ClipAnimKind::Fade, drift::secondsToUs(1.0), drift::ClipAnimEase::Linear,
-                   drift::FadeCurve::Linear};
-    clip.animOut = {drift::ClipAnimKind::ZoomIn, drift::secondsToUs(0.5), drift::ClipAnimEase::EaseOut,
-                    drift::FadeCurve::EqualPower};
+    clip.animIn.kind = drift::ClipAnimKind::Fade;
+    clip.animIn.durationUs = drift::secondsToUs(1.0);
+    clip.animIn.ease = drift::ClipAnimEase::Linear;
+    clip.animIn.curve = drift::FadeCurve::Linear;
+    clip.animOut.kind = drift::ClipAnimKind::ZoomIn;
+    clip.animOut.durationUs = drift::secondsToUs(0.5);
+    clip.animOut.ease = drift::ClipAnimEase::EaseOut;
+    clip.animOut.curve = drift::FadeCurve::EqualPower;
     project.tracks()[0].clips.append(clip);
 
     QString error;
@@ -4019,8 +4027,10 @@ void CoreTest::clipAnimationSerializationAndSample()
     drift::Clip zoom;
     zoom.timelineStart = 0;
     zoom.timelineDuration = drift::secondsToUs(2.0);
-    zoom.animIn = {drift::ClipAnimKind::ZoomIn, drift::secondsToUs(1.0), drift::ClipAnimEase::Linear,
-                   drift::FadeCurve::Linear};
+    zoom.animIn.kind = drift::ClipAnimKind::ZoomIn;
+    zoom.animIn.durationUs = drift::secondsToUs(1.0);
+    zoom.animIn.ease = drift::ClipAnimEase::Linear;
+    zoom.animIn.curve = drift::FadeCurve::Linear;
     const drift::ClipAnimSample zoomMid =
         drift::evaluateClipAnimation(zoom.timelineStart, zoom.timelineDuration, zoom.animIn, {},
                                      drift::secondsToUs(0.5), 100.0, 100.0);
@@ -5640,6 +5650,109 @@ void CoreTest::caretTiming()
     frame = evaluateTextAnimation(set, resolved, frags, domains, contextAt(1'000'000));
     QVERIFY(frame.caret.visible);
     QCOMPARE(frame.caret.afterFragment, 7);
+}
+
+void CoreTest::glyphCaretSways()
+{
+    TextAnimationSet set;
+    set.caret = textCaretFromJson(QJsonObject{{QStringLiteral("enabled"), true}, {QStringLiteral("shape"), QStringLiteral("glyph")},
+                                              {QStringLiteral("glyph"), QStringLiteral("shape:bolt")},
+                                              {QStringLiteral("blinkOffUs"), 0}, {QStringLiteral("holdAfterUs"), -1},
+                                              {QStringLiteral("bobEm"), 0.1}, {QStringLiteral("swayHz"), 1.0}});
+    QCOMPARE(set.caret.shape, TextCaret::Shape::Glyph);
+    QCOMPARE(textCaretFromJson(textCaretToJson(set.caret)).glyph, QStringLiteral("shape:bolt"));
+    TextAnimator type;
+    type.selectors = {stagger(100'000, 0)};
+    type.props.opacity = 0.0;
+    type.props.hasOpacity = true;
+    ResolvedSlots resolved;
+    resolved.in = {type};
+    const QList<FragmentInfo> frags = charFragments(4);
+    const Domains domains = charDomains(4);
+    // A glyph never blinks off and bobs a tenth of an em at a quarter of its period.
+    for (const TimeUs t : {TimeUs(0), TimeUs(125'000), TimeUs(250'000), TimeUs(700'000)}) {
+        const Frame frame = evaluateTextAnimation(set, resolved, frags, domains, contextAt(t));
+        QVERIFY(frame.caret.visible);
+        QCOMPARE(frame.caret.shape, TextCaret::Shape::Glyph);
+    }
+    const Frame quarter = evaluateTextAnimation(set, resolved, frags, domains, contextAt(250'000));
+    QVERIFY(std::abs(quarter.caret.bobPx - 6.4) < 1e-6);
+}
+
+void CoreTest::particlesBurstOnArrival()
+{
+    TextAnimator type;
+    type.selectors = {stagger(100'000, 200'000)};
+    type.props.opacity = 0.0;
+    type.props.hasOpacity = true;
+    TextParticleSpec sparks = textParticleSpecFromJson(
+        QJsonObject{{QStringLiteral("shape"), QStringLiteral("spark")}, {QStringLiteral("count"), 6},
+                    {QStringLiteral("at"), 1.0}, {QStringLiteral("life"), QJsonArray{0.3, 0.3}},
+                    {QStringLiteral("speed"), QJsonArray{2.0, 2.0}}, {QStringLiteral("colors"), QJsonArray{QStringLiteral("#ffcc00")}}});
+    QCOMPARE(sparks.shape, TextParticleSpec::Shape::Spark);
+    QCOMPARE(textParticleSpecFromJson(textParticleSpecToJson(sparks)).count, 6);
+    ResolvedSlots resolved;
+    resolved.in = {type};
+    resolved.inParticles = {sparks};
+    TextAnimationSet set;
+    set.in.presetId = QStringLiteral("x"); // makes the slot active; the resolved animators drive it
+    const QList<FragmentInfo> frags = charFragments(3);
+    const Domains domains = charDomains(3);
+
+    // Fragment 0 lands at 200 ms: nothing before, six sparks just after, gone 300 ms later.
+    QVERIFY(evaluateTextAnimation(set, resolved, frags, domains, contextAt(150'000)).particles.isEmpty());
+    Frame frame = evaluateTextAnimation(set, resolved, frags, domains, contextAt(250'000));
+    QCOMPARE(frame.particles.size(), 6);
+    QVERIFY(!frame.isStatic);
+    for (const ParticleState &p : frame.particles) {
+        QCOMPARE(p.fragment, 0);
+        QCOMPARE(p.color, QColor(QStringLiteral("#ffcc00")));
+        // 50 ms at 2 em/s = 0.1 em = 6.4 px from the cell centre.
+        QVERIFY(std::abs(std::hypot(p.x, p.y) - 6.4) < 1e-6);
+    }
+    // Fragment 1 lands at 300 ms: at 350 ms both 0's and 1's are alive, 2's not yet.
+    QCOMPARE(evaluateTextAnimation(set, resolved, frags, domains, contextAt(350'000)).particles.size(), 12);
+    QVERIFY(evaluateTextAnimation(set, resolved, frags, domains, contextAt(900'000)).particles.isEmpty());
+
+    const Bounds b = animationBounds(resolved, contextAt(0));
+    QVERIFY(b.maxParticlePx >= 2.0 * 64.0 * 0.3);
+}
+
+void CoreTest::clipAnimationPresetsSample()
+{
+    QString error;
+    const auto preset = ClipAnimationPreset::fromJson(QJsonDocument::fromJson(R"({
+        "id": "t", "slots": ["combo"], "duration": 0,
+        "keys": {"x": [[0, -1, "linear"], [0.5, 0, "linear"], [1, 1]], "scale": [[0, 50, "linear"], [1, 150]],
+                 "rotationY": 30, "opacity": [[0, 0, "hold"], [0.5, 100]]},
+        "effects": [{"id": "rgb_split", "params": {"amount": [[0, 20, "linear"], [1, 0]], "angle": 90}}]
+    })").object(), &error);
+    QVERIFY2(preset, qPrintable(error));
+    QCOMPARE(preset->slotKinds, QList<ClipAnimSlot>{ClipAnimSlot::Combo});
+    ClipAnimSample s;
+    applyClipAnimationPreset(*preset, 0.25, 200.0, 100.0, 1080.0, &s);
+    QVERIFY(std::abs(s.dx + 100.0) < 1e-9);  // -0.5 of a 200 px box
+    QVERIFY(std::abs(s.scale - 0.75) < 1e-9);
+    QCOMPARE(s.rotationY, 30.0);
+    QCOMPARE(s.opacity, 0.0);                  // held at 0 until the half
+    QCOMPARE(s.effects.size(), 1);
+    QCOMPARE(s.effects.first().effectId, QStringLiteral("rgb_split"));
+    QVERIFY(std::abs(s.effects.first().params.value(QStringLiteral("amount")) - 15.0) < 1e-9);
+    QCOMPARE(s.effects.first().params.value(QStringLiteral("angle")), 90.0);
+
+    // A preset id on a clip's combo, through the JSON and the evaluator (bundled presets).
+    ClipAnimation combo;
+    combo.kind = ClipAnimKind::Preset;
+    combo.presetId = QStringLiteral("combo-ken-burns-in");
+    combo.durationUs = 0;
+    const ClipAnimation back = clipAnimationFromJson(clipAnimationToJson(combo));
+    QCOMPARE(back.kind, ClipAnimKind::Preset);
+    QCOMPARE(back.presetId, combo.presetId);
+    QVERIFY(ClipAnimationPresetCatalog::instance().presetForId(combo.presetId).has_value());
+    QVERIFY(ClipAnimationPresetCatalog::instance().presetsFor(ClipAnimSlot::Combo).size() >= 50);
+    const ClipAnimSample end = evaluateClipAnimation(0, secondsToUs(4.0), {}, {}, secondsToUs(4.0), 100, 100, combo);
+    QVERIFY(std::abs(end.scale - 1.18) < 1e-6);
+    QVERIFY(clipAnimationActive(combo));
 }
 
 void CoreTest::animationBoundsCoverTheEnvelope()

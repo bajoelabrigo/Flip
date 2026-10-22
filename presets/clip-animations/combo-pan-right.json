@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-pan-right","label":"Pan right","category":"dynamic","slots":["combo"],"order":3,"duration":0,"keys":{"scale":[[0,115,"linear"],[1,115,"easeInOut"]],"x":[[0,-0.06,"linear"],[1,0.06,"easeInOut"]]}}

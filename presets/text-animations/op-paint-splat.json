@@ -1,0 +1,110 @@
+{
+ "format": 1,
+ "id": "op-paint-splat",
+ "label": "Paint splat exit",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2297,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 155,
+    "blur": 4
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff3d8b"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 12,
+   "colors": [
+    "#ffff3d8b",
+    "#ffffd23f",
+    "#ff2fd3c6",
+    "#ff7b5cff"
+   ],
+   "size": [
+    0.08,
+    0.2
+   ],
+   "speed": [
+    1.6,
+    3.2
+   ],
+   "life": [
+    0.5,
+    0.85
+   ],
+   "at": 0.5,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 2.5,
+   "drag": 2.6
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "id": "imf-rewind-erase",
+ "label": "Rewind erase-in",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2084,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.3,
+  "ease": "linear",
+  "order": "backward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 180,
+     "softness": 0.1
+    },
+    "position": {
+     "x": 0.12,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "format": 1,
+ "id": "om-domino",
+ "label": "Domino fall",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2239,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.35,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "rotation": 90,
+    "position": {
+     "x": 0.3,
+     "y": 0.3,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

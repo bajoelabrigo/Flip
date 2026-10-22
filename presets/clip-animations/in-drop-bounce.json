@@ -1,0 +1,1 @@
+{"format":1,"id":"in-drop-bounce","label":"Drop","category":"bounce","slots":["in"],"order":44,"duration":0.9,"keys":{"y":[[0,-1,"bounce"],[1,0,"easeInOut"]]},"trending":true}

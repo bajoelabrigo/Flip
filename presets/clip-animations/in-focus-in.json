@@ -1,0 +1,1 @@
+{"format":1,"id":"in-focus-in","label":"Focus in","category":"blur","slots":["in"],"order":34,"duration":0.8,"keys":{"blur":[[0,60,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.4,100,"easeInOut"]]},"trending":true}

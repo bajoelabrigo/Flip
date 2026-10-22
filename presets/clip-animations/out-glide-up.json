@@ -1,0 +1,1 @@
+{"format":1,"id":"out-glide-up","label":"Glide up","category":"slide","slots":["out"],"order":17,"duration":0.9,"keys":{"y":[[0,0,"easeIn"],[1,-0.12,"easeInOut"]],"scale":[[0,100,"easeIn"],[1,108,"easeInOut"]],"opacity":[[0.3,100,"linear"],[1,0,"easeInOut"]]}}

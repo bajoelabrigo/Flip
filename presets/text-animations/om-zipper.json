@@ -1,0 +1,88 @@
+{
+ "format": 1,
+ "id": "om-zipper",
+ "label": "Zipper open",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2243,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 4
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 0.0,
+     "spatialPhaseDeg": 180,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "temporalPhaseDeg": 90,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.2,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

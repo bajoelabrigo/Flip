@@ -1,0 +1,106 @@
+{
+ "format": 1,
+ "id": "im-orbit-letters",
+ "label": "Orbit in by letter",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2119,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "backward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 1.5,
+     "y": 0,
+     "unit": "em"
+    },
+    "rotation": -180,
+    "scale": 40
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -1.5,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

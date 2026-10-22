@@ -1,0 +1,80 @@
+{
+ "format": 1,
+ "id": "ipa-glitter-dust",
+ "label": "Glitter dust reveal",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2148,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "blur": 16,
+    "scale": 112
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "flare",
+   "trigger": "during",
+   "rate": 30,
+   "colors": [
+    "#ffffffff",
+    "#ffe8e8ff",
+    "#ffffe9a8"
+   ],
+   "size": [
+    0.06,
+    0.12
+   ],
+   "speed": [
+    0.05,
+    0.25
+   ],
+   "life": [
+    0.25,
+    0.55
+   ],
+   "angle": -90.0,
+   "spread": 360,
+   "glow": 0.7,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true
+  }
+ ]
+}

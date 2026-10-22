@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-rise-drift","label":"Rise","category":"dynamic","slots":["combo"],"order":4,"duration":0,"keys":{"scale":[[0,112,"linear"],[1,112,"easeInOut"]],"y":[[0,0.05,"linear"],[1,-0.05,"easeInOut"]]}}

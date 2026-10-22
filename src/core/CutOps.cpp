@@ -81,6 +81,7 @@ void applyEdgeFades(QList<Clip> &segments, const Clip &src, TimeUs declickUs, bo
         const bool last = i == segments.size() - 1;
         seg.fadeInUs = first ? qMin(src.fadeInUs, seg.timelineDuration) : 0;
         seg.animIn = first ? src.animIn : ClipAnimation{};
+        seg.animCombo = first ? src.animCombo : ClipAnimation{};
         seg.fadeOutUs = last ? qMin(src.fadeOutUs, seg.timelineDuration) : 0;
         seg.animOut = last ? src.animOut : ClipAnimation{};
         seg.audioFadeInUs = first && !startCut ? src.audioFadeInUs : qMax(declickUs, first ? src.audioFadeInUs : 0);

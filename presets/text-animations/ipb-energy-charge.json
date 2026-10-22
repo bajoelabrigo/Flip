@@ -1,0 +1,153 @@
+{
+ "format": 1,
+ "id": "ipb-energy-charge",
+ "label": "Energy charge-up",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2199,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 55,
+    "blur": 8
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1300000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff8af7ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 2,
+   "colors": [
+    "#ff7fe9ff",
+    "#ffc2f6ff"
+   ],
+   "size": [
+    1.6,
+    2.0
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.4,
+    0.5
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.4,
+   "grow": 0.05,
+   "fadeIn": 0.3,
+   "additive": true
+  },
+  {
+   "shape": "flare",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.7,
+    0.7
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.3,
+    0.3
+   ],
+   "at": 0.85,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 1.0,
+   "grow": 0.3,
+   "additive": true,
+   "seed": 2
+  }
+ ]
+}

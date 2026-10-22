@@ -1,0 +1,77 @@
+{
+ "format": 1,
+ "id": "im-crash-from-big",
+ "label": "Crash down from giant",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2130,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 420,
+    "blur": 22
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

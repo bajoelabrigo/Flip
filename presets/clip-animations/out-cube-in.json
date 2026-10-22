@@ -1,0 +1,1 @@
+{"format":1,"id":"out-cube-in","label":"Cube turn","category":"3d","slots":["out"],"order":31,"duration":0.8,"keys":{"rotationY":[[0,0,"easeInOut"],[1,-90,"easeInOut"]],"x":[[0,0,"easeInOut"],[1,-0.5,"easeInOut"]],"scale":[[0,100,"easeInOut"],[0.5,85,"easeInOut"],[1,85,"easeInOut"]],"opacity":[[0.65,100,"linear"],[1,0,"easeInOut"]]}}

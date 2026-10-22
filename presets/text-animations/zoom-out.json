@@ -2,7 +2,7 @@
   "format": 1,
   "id": "zoom-out",
   "label": "Zoom out",
-  "category": "basic",
+  "category": "motion",
   "sampleText": "Text",
   "slots": [
     "in",

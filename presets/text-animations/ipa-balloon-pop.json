@@ -1,0 +1,152 @@
+{
+ "format": 1,
+ "id": "ipa-balloon-pop",
+ "label": "Balloon pop",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2164,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 25
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1100000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff3b4e"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.5,
+    0.5
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.22,
+    0.22
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 3.2
+  },
+  {
+   "shape": "confetti",
+   "count": 10,
+   "colors": [
+    "#ffff3d7f",
+    "#ffffd23f",
+    "#ff3ec1ff",
+    "#ff7cf06a",
+    "#ffb26bff",
+    "#ffff8a3d"
+   ],
+   "size": [
+    0.06,
+    0.1
+   ],
+   "speed": [
+    1.4,
+    2.4
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 2.5,
+   "drag": 2.5,
+   "spin": 480,
+   "seed": 11
+  }
+ ]
+}

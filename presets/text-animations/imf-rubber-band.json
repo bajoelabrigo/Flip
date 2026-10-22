@@ -1,0 +1,99 @@
+{
+ "format": 1,
+ "id": "imf-rubber-band",
+ "label": "Rubber band snap",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2094,
+ "trending": true,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       2.4
+      ],
+      "c2": [
+       0.4,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scaleX": 260
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 250000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 800000.0
+     },
+     "ease": "back"
+    }
+   ],
+   "props": {
+    "scaleY": 50
+   }
+  }
+ ]
+}

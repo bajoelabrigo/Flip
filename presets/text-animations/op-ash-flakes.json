@@ -1,0 +1,143 @@
+{
+ "format": 1,
+ "id": "op-ash-flakes",
+ "label": "Crumble to ash",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2265,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.25,
+     "unit": "em"
+    },
+    "blur": 3
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ff3c3c3c"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "square",
+   "trigger": "during",
+   "rate": 22,
+   "colors": [
+    "#ff4a4a4a",
+    "#ff2c2c2c",
+    "#ff7a7a7a"
+   ],
+   "size": [
+    0.03,
+    0.07
+   ],
+   "speed": [
+    0.1,
+    0.4
+   ],
+   "life": [
+    0.6,
+    1.1
+   ],
+   "angle": -60,
+   "spread": 90,
+   "gravity": 1.6,
+   "spin": 220,
+   "fadeIn": 0.15,
+   "origin": "area"
+  },
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 5,
+   "colors": [
+    "#ffff8a3a",
+    "#ffffc26b"
+   ],
+   "size": [
+    0.02,
+    0.04
+   ],
+   "speed": [
+    0.2,
+    0.5
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "angle": -90,
+   "spread": 60,
+   "glow": 0.8,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "seed": 3
+  }
+ ]
+}

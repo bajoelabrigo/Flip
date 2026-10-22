@@ -1041,28 +1041,51 @@ int karaokeWordIndex(const drift::Clip &clip, const drift::SubtitleCue &cue, dri
     return drift::activeWordIndexAt(cue.text, cue.startUs, cue.endUs, localUs);
 }
 
-// CapCut-style body intro/outro: opacity/offset/scale/rotation on top of fades and text anims.
-void applyClipBodyAnimation(const drift::Clip &clip, drift::TimeUs timelineUs, double layoutW,
-                            double layoutH, QRectF *destRect, double *opacity, double *rotation)
+// CapCut-style body intro/outro/combo: opacity/offset/scale/rotation on top of fades and text
+// anims. A preset may also turn the clip in depth (`turnX` / `turnY`, added to its 3D pose) and
+// add a blur and catalog effects for this frame.
+void applyClipBodyAnimation(GpuLayer &layer, const drift::Clip &clip, drift::TimeUs timelineUs, double layoutW,
+                            double layoutH, QRectF *destRect, double *opacity, double *rotation, double *turnX,
+                            double *turnY)
 {
     if (!destRect || !opacity || !rotation)
         return;
     if (clip.type == drift::ClipType::Audio || clip.type == drift::ClipType::Subtitle)
         return;
-    if (clip.animIn.kind == drift::ClipAnimKind::None && clip.animOut.kind == drift::ClipAnimKind::None)
+    if (!drift::clipAnimationActive(clip.animIn) && !drift::clipAnimationActive(clip.animOut)
+        && !drift::clipAnimationActive(clip.animCombo))
         return;
 
     const drift::ClipAnimSample body =
         drift::evaluateClipAnimation(clip.timelineStart, clip.timelineDuration, clip.animIn,
-                                     clip.animOut, timelineUs, layoutW, layoutH);
+                                     clip.animOut, timelineUs, layoutW, layoutH, clip.animCombo);
     *opacity *= body.opacity;
     destRect->translate(body.dx, body.dy);
-    if (!qFuzzyCompare(body.scale, 1.0)) {
+    const double sx = body.scale * body.scaleX;
+    const double sy = body.scale * body.scaleY;
+    if (!qFuzzyCompare(sx, 1.0) || !qFuzzyCompare(sy, 1.0)) {
         const QPointF centre = destRect->center();
-        destRect->setSize(destRect->size() * body.scale);
+        destRect->setSize(QSizeF(destRect->width() * sx, destRect->height() * sy));
         destRect->moveCenter(centre);
     }
     *rotation += body.rotationDeg;
+    if (turnX)
+        *turnX += body.rotationX;
+    if (turnY)
+        *turnY += body.rotationY;
+    if (body.blurPx > 0.5) {
+        drift::Effect blur;
+        blur.catalogId = QStringLiteral("builtin.effects.gaussian_blur");
+        blur.parameters.insert(QStringLiteral("u_blurRadius"), body.blurPx);
+        layer.effects.append(blur);
+    }
+    for (const drift::ClipAnimSampleEffect &sampled : body.effects) {
+        drift::Effect effect;
+        effect.catalogId = sampled.effectId;
+        for (auto it = sampled.params.constBegin(); it != sampled.params.constEnd(); ++it)
+            effect.parameters.insert(it.key(), it.value());
+        layer.effects.append(effect);
+    }
 }
 
 // One media file's pixels at `mediaUs`. Video goes through the preview read, the same path
@@ -1202,7 +1225,7 @@ QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const 
             style, layoutRect, renderScale, windowStartUs, windowDurationUs, timelineUs, activeWordIndex);
         request.frame = drift::textanim::evaluateTextAnimation(anim.set, anim.resolved, request.set->infos,
                                                                request.set->domains, ctx);
-        request.envelope = drift::textanim::animationBounds(anim.resolved, ctx);
+        request.envelope = drift::textanim::animationBounds(anim.resolved, ctx, &anim.set.caret);
     }
     request.layoutRect = layoutRect;
     request.renderScale = renderScale;
@@ -1309,6 +1332,10 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     const QRectF layoutRect(x, y, w, h);
     QRectF destRect = layoutRect;
     double opacity = opacityForClip(clip, timelineUs);
+    // Turns in depth from the text's block motion and the clip's animation presets, added to the
+    // clip's own 3D pose once it is set.
+    double turnX = 0.0;
+    double turnY = 0.0;
 
     // Keyframed style scalars are baked for this instant; the renderers only see numbers.
     drift::Clip resolvedText;
@@ -1342,6 +1369,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         destRect = rasterRect;
         maskLayerRect = rasterRect;
         applyTextBlockMotion(layer, block, &destRect, &opacity, &rotation);
+        turnX += block.rotationX;
+        turnY += block.rotationY;
     } else if (clip.type == drift::ClipType::Subtitle) {
         const drift::TimeUs localUs = timelineUs - clip.timelineStart;
         const drift::SubtitleCue *cue = activeSubtitleCueAt(clip.subtitleCues, localUs);
@@ -1360,6 +1389,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         destRect = rasterRect;
         maskLayerRect = rasterRect;
         applyTextBlockMotion(layer, block, &destRect, &opacity, &rotation);
+        turnX += block.rotationX;
+        turnY += block.rotationY;
     } else if (clip.type == drift::ClipType::Shape) {
 #ifdef DRIFT_WITH_SKIA
         // The painter's image carries a bleed margin for strokes, shadows and glows, so its
@@ -1440,7 +1471,7 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         return layer;
 
     if (!editingText)
-        applyClipBodyAnimation(clip, timelineUs, w, h, &destRect, &opacity, &rotation);
+        applyClipBodyAnimation(layer, clip, timelineUs, w, h, &destRect, &opacity, &rotation, &turnX, &turnY);
 
     fillGpuLayerMasks(layer, clip,
                       maskLayerRect.isEmpty() ? laneMasks : masksInLayerFrame(laneMasks, layoutRect, maskLayerRect),
@@ -1459,6 +1490,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         layer.pose3d.perspective =
             transformValue(clip.perspective, clipTimeUs, drift::kDefaultClipPerspective)
             * renderScale;
+        layer.pose3d.rotationX += turnX;
+        layer.pose3d.rotationY += turnY;
     }
     layer.flipH = clip.flipH;
     layer.flipV = clip.flipV;

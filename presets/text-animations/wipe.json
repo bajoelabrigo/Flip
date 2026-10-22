@@ -2,7 +2,7 @@
   "format": 1,
   "id": "wipe",
   "label": "Wipe",
-  "category": "kinetic",
+  "category": "mask",
   "sampleText": "Type",
   "slots": [
     "in",

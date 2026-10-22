@@ -1,0 +1,1 @@
+{"format":1,"id":"out-tilt-up","label":"Tilt up","category":"3d","slots":["out"],"order":30,"duration":0.6,"keys":{"rotationX":[[0,0,"easeIn"],[1,60,"easeInOut"]],"y":[[0,0,"easeIn"],[1,-0.25,"easeInOut"]],"opacity":[[0.5,100,"linear"],[1,0,"easeInOut"]]}}

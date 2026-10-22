@@ -1,0 +1,1 @@
+{"format":1,"id":"out-bounce","label":"Bounce","category":"basic","slots":["out"],"order":9,"duration":0.8,"keys":{"y":[[0,0,"easeIn"],[1,-0.35,"easeInOut"]],"opacity":[[0.75,100,"linear"],[1,0,"easeInOut"]]}}

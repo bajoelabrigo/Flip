@@ -1,0 +1,96 @@
+{
+ "format": 1,
+ "id": "ibs-shimmer-reveal",
+ "label": "Golden shimmer reveal",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2024,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.4,
+  "ease": "smooth",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 0,
+     "softness": 0.5
+    },
+    "position": {
+     "x": -0.08,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "smooth",
+     "start": 0.0,
+     "end": 18,
+     "offset": {
+      "value": -20,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -20
+        },
+        {
+         "timeUs": 1000000,
+         "value": 118
+        }
+       ]
+      }
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd86b"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "flare",
+   "count": 2,
+   "colors": [
+    "#ffffffff",
+    "#fffff2c0"
+   ],
+   "size": [
+    0.06,
+    0.12
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "life": [
+    0.3,
+    0.5
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.8,
+   "origin": "top",
+   "additive": true
+  }
+ ]
+}

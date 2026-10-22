@@ -1,0 +1,108 @@
+{
+ "format": 1,
+ "id": "op-poof",
+ "label": "Poof",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2283,
+ "trending": true,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.42,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 135
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 700000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 12,
+   "colors": [
+    "#ffffffff",
+    "#ffe4e7ec",
+    "#ffc9ced6"
+   ],
+   "size": [
+    0.6,
+    1.0
+   ],
+   "speed": [
+    1.4,
+    2.6
+   ],
+   "life": [
+    0.5,
+    0.85
+   ],
+   "at": 0.15,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 3.2,
+   "grow": 1.8,
+   "behind": true,
+   "per": "block"
+  },
+  {
+   "shape": "dot",
+   "count": 10,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.05,
+    0.1
+   ],
+   "speed": [
+    2.0,
+    3.4
+   ],
+   "life": [
+    0.3,
+    0.5
+   ],
+   "at": 0.15,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 3.0,
+   "per": "block",
+   "seed": 8
+  }
+ ]
+}

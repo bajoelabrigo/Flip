@@ -1,0 +1,159 @@
+{
+ "format": 1,
+ "id": "ipb-galaxy-swirl",
+ "label": "Galaxy swirl",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2204,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "rotation": -200,
+    "scale": 0,
+    "position": {
+     "x": 0,
+     "y": 0.3,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffa46bff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1600000.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "strokeColor": "#ff3f6bff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "star",
+   "trigger": "during",
+   "rate": 26,
+   "colors": [
+    "#ffb98cff",
+    "#ff6f9bff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.04,
+    0.09
+   ],
+   "speed": [
+    0.6,
+    1.3
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 1.8,
+   "glow": 0.6,
+   "spin": 240,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "behind": true
+  },
+  {
+   "shape": "smoke",
+   "count": 2,
+   "colors": [
+    "#ff5a2fa0",
+    "#ff2a3f9a"
+   ],
+   "size": [
+    0.8,
+    1.1
+   ],
+   "speed": [
+    0.05,
+    0.15
+   ],
+   "life": [
+    0.9,
+    1.2
+   ],
+   "at": 0.2,
+   "angle": -90.0,
+   "spread": 360.0,
+   "grow": 1.5,
+   "fadeIn": 0.3,
+   "additive": true,
+   "behind": true,
+   "seed": 5
+  }
+ ]
+}

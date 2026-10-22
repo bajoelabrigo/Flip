@@ -1,0 +1,1 @@
+{"format":1,"id":"in-flip-y","label":"Flip over","category":"3d","slots":["in"],"order":28,"duration":0.6,"keys":{"rotationY":[[0,-90,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.2,100,"easeInOut"]]},"trending":true}

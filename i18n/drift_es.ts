@@ -2607,46 +2607,6 @@
         <translation>Fundido</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>Deslizar hacia arriba</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>Deslizar hacia abajo</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>Deslizar hacia la izquierda</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>Deslizar hacia la derecha</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>Acercar zoom</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>Alejar zoom</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>Salto</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>Girar en sentido horario</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>Girar en sentido antihorario</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>Rebote</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>Lineal</translation>
     </message>
@@ -2683,20 +2643,28 @@
         <translation>Estilo</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>Elige cómo entra y sale el clip. El fundido es una opción: mismos controles de estilo que deslizar o zoom.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Borrar</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>Entrada</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>Combinado</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todo</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>Con 0 s, la animación combinada dura todo el clip. Una animación combinada reemplaza la de entrada y la de salida.</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5054,6 +5022,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>Nada en este dispositivo puede compartir ese archivo</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>Movimiento</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>Movimiento y trayectoria</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>Ocultar y enmascarar</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>Máscara y revelado</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>Fluido</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>Escalonado</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>Construcción</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>Estilizado</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>Partículas</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Tendencias</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Deslizar</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Girar</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebote</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Desenfoque</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Glitch</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>Dinámico</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9440,6 +9480,936 @@
         <translation>Inclinación</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>Estrobo alterno</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>Cartas que giran</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>Brote desde el centro</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>Pop cromático</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>Barrido de color</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>Pop de cómic</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>¡BAM! ¡POW!</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>Baraja que se abre</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>Dados que ruedan</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>Decodificación digital</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>Dominó que se levanta</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>Aguacero de letras</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>Caen desde el final</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>Glitch de entrada</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>Brillo que florece</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>Calor que se aclara</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>Holograma que arranca</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>Mancha de tinta</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>Líneas de lado a lado</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>LÍNEA UNO
+LÍNEA DOS</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>Tubo de neón</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>Contorno y relleno</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>Pop aplastado</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>Molinete de letras</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>Letras arcoíris</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>Se levantan del piso</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>Impresión por escaneo</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>Dispersas que se juntan</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>Revelado dorado</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>Entrada lateral sesgada</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>Golpe sesgado</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>¡A LA CARGA!</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>Desde la lente</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>Tecleo con fundido</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>Escalera de letras</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>Dos tonos que se asientan</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>Señal VHS</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>Sello palabra a palabra</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>GRANDES NOTICIAS</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>Cremallera</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>Bloque ámbar de terminal</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>Cursor de flecha que desliza</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>Cursor de asterisco que gira</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>Escritura con rayo</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>Cursor de estallido</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>Escritura desde el centro</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>Escritura con visto</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>Cursor en ángulo verde</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>Cursor cian con letras que caen</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>Cursor de diamante con esquirlas</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>Cursor de pelotita</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>Escritura con gota</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>Escritura rápida magenta</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>Escritura con fuego</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>Escritura que florece</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>Escritura con estrella dorada</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>Bloque verde de terminal</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>Cursor de hashtag</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>Escritura con corazones</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>Escritura con micrófono</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>Escritura a la luz de la luna</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>Escritura con estela neón</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>Escritura musical</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>Escrito a lápiz</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>Cursor de reproducir</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>Cursor de más con giro</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>Escritura con cursor rojo</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>Escritura con cohete</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>Cursor de barra inclinada</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>Escritura pausada</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>Escritura con copo de nieve</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>Escritura con destello</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>Cursor de cuadrito que gira</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>Guion bajo que enfoca</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>Escritura palabra por palabra</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>ESCRÍBELO</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>Cursor amarillo con rebote</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>Arco desde abajo</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>Arco desde la izquierda</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>Giro 3D del bloque</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>Bumerán</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>Caída con rebote</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>Vuelta de carta</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>Se juntan desde los lados</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>Resorte desde la esquina</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>Cae desde gigante</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>Acercamiento en profundidad</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>Diagonal desde arriba</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>Puertas por palabra</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>A LO GRANDE</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>Flotan hasta enfocar</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>Hoja que cae</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>Volteo hacia abajo</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>Volteo completo</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>Letras colgantes</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>Balanceo de bisagra</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>Salta y aplasta</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>Llegan inclinadas</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>Persianas por línea</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>LO
+NUEVO</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>Barrido con estela</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>Órbita por letra</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>Empuje de palabras</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>Rodando desde la izquierda</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>Entran de perfil</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>Frenazo</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>Espiral hacia el centro</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>Subida estirada</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>Lanzado en parábola</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>Palabras caen inclinadas</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>Letras que caen girando</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>Se abren desde el centro</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>Traídas por el viento</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>Palabras que se levantan</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>Palabras desde el fondo</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>Sale detrás de un borde</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>Mancha que florece</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>Burbuja que revienta</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>Rebote desde el centro</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>Cortina desde el centro</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>Aparece con destello de color</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>Letras colgantes</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>Revelado diagonal por letra</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>Gota que se aplasta</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>Telón que baja por letra</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>Pluma que flota</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>Fusión viscosa</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>Subida con borde duro</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>Tinta que se expande</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>Temblor de gelatina</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>Gelatina por letra</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>Subida líquida</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>Se derrite al revés</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>Contorno que barre y se rellena</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>Corte limpio desde la derecha</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>Borrado al revés</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>Liga elástica</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>Barrido que enfoca</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>Obturador</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>Rendija que se abre</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>Barrido suave por palabra</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>NUEVO</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>Palabras de trampolín</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>HOLA A TODOS</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>Letras de resorte</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>Salto blandito</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>Deslizamiento elástico</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>Primero el trazo, luego el relleno</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>Persiana veneciana</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>GRAN
+NOTICIA</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>Onda de agua</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>Llegada ondulante</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>Palabras tras la máscara</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>HECHO PARA TI</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>Barrido con zoom</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>Globo que revienta</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>Velas de cumpleaños</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>Burbujas de champán</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>Llegada de cometa</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>Lluvia de confeti</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>Lluvia de diamantes</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>Brillo disco</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>Estela de hada</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>Pétalos al viento</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>Fuegos por palabra</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>NOTICIÓN</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>Gran final de fuegos</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>Corazones flotantes</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>Bomba de brillantina</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>Polvo de brillantina</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>Destello de monedas</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>Explosión dorada</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>Onda de halo</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>Explosión de corazones</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>Chispas al aterrizar</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>Faroles que suben</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>Puf de magia</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>Varita mágica</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>Lanzaconfeti</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>Piñata de dulces</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>Estallido arcoíris</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>¡A CELEBRAR!</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>Burbujas que suben</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>Notas que suben</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>Llegada brillante</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>Letras fugaces</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>Ráfaga de nieve</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>Fuente de chispas</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>Lluvia de destellos</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>Bengala que escribe</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>Estallido de estrellas</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>Anillo de estrellas</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>Serpentinas</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>Fuego azul</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>Revela con borde ardiente</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>Humo negro</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>Aterriza en polvo</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>Chispazo eléctrico</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>Brasas que suben</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>Bola de energía</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>Carga de energía</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>Anillo explosivo</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>Se enciende en llamas</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>Fuente de chispas</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>Remolino galáctico</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>Aparición fantasma</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>Cristales de hielo</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>Escaneo láser</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>Cae un rayo</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>Letras meteoro</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>Destello neón</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>Brillo de plasma</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>Aura de poder</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>Estallido de prisma</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>Arena con viento</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>Estrella fugaz</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>Aparece entre humo</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>Tormenta de nieve</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>Llamarada solar</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>Espíritus azules</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>Calavera tenebrosa</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>Polvo de estrellas</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>Chorros de vapor</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>Impacto de piedra</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>Burbujas tóxicas</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>Ruido de estática</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>Erupción de lava</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>Salpicadura de agua</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>Onda por palabra</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>BUM PUM</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>Karaoke con rebote</translation>
     </message>
@@ -9458,6 +10428,368 @@
     <message>
         <source>Sing along</source>
         <translation>Canta conmigo</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>Borrado con cursor</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>Desenfoque a la deriva</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>Rebote que se encoge</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>Se alejan al fondo</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>Cartas que se voltean</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>Barrido diagonal por palabra</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>HASTA PRONTO</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>Efecto dominó</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>Puertas que se cierran</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>Caída con giro</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>Soltar el micrófono</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>Evaporarse</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>Parpadeo que se apaga</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>Volteo 3D hacia atrás</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>Corte glitch</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>Suben y se esconden</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>Salto y caída</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>Se inclinan y se pliegan</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>Persianas por letra</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>Líneas que bajan</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>NOS VEMOS
+LA PRÓXIMA</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>Líneas que se esconden a la izquierda</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>Se derriten</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>Corte de neón</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>Empujadas a la derecha</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>Desaparecen al azar</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>Se van rodando</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>Se dispersan</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>Letras en cortocircuito</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>Se hunden en el piso</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>Se borran hacia arriba</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>Borrado con destello</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>Salen girando hacia arriba</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>Se parten en dos</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>Aplastar y reventar</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>Se juntan al centro</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>Se estiran y se van</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>Se estiran hacia arriba</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>Remolino</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>Tornado</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>Tropiezo</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>Punto de fuga</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>Ola de despedida</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>Se las lleva el viento</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>Palabra por palabra al suelo</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>CHAO POR AHORA</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>Palabras al cielo</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>Cremallera</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>Golpe de zoom</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>Hecho cenizas</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>Borrado con chispas</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>Agujero negro</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>Despegue</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>Llama azul que se va</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>Burbujas que revientan</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>Se quema</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>Estalla en confeti</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>Se vuelve polvo</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>Brasas que se apagan</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>Luciérnagas que se van</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>Despedida con fuegos artificiales</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>NOS VEMOS</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>Mecha encendida</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>Se va como fantasma</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>Brillo que se apaga</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>Adiós con corazones</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>Corte láser</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>Fulminado</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>Desaparece por arte de magia</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>Salida de meteoro</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>Se va con notas</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>Salpicón de pintura</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>Pétalos al viento</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>Se desmorona en píxeles</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>¡Puf!</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>Estela arcoíris</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>Arena al viento</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>Se hace añicos</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>Onda expansiva</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>Cortocircuito</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>Se esfuma</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>Borrado con humo</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>Se derrite como nieve</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>Se deshace en chispas</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>Aro de destellos</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>Bengala que se apaga</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>Estrellas dispersas</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>Remolino que se lo lleva</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>Giro con destellos</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>Salpicadura</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9538,6 +10870,354 @@
     <message>
         <source>STAMP</source>
         <translation>SELLO</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>Ráfaga</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>Carta que gira</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>Cubo</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>Diagonal</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>Puertas</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>Sueño</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>Caer y girar</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>Terremoto</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>Eco deslizante</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>Flash doble</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>Volteo</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>Pulso glitch</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>Latido</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>Bisagra</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>Saltitos</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>Gelatina</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>Ken Burns acercando</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>Ken Burns alejando</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>Fuga de luz</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>Órbita</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>Voltear página</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>Paneo a la izquierda</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>Paneo a la derecha</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>Péndulo</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>Píxeles</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>Color separado</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>Ondas</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>Subir y caer</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>Mecer</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>Rodando</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>Montaña rusa</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>Rotar y desaparecer</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>Liga</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>Onda expansiva</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>Veloz</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>Atravesar</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>Tobogán de olas</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>Dar la vuelta</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>Espiral</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>Resorte</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>Vaivén 3D</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>Voltereta</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>Tele antigua</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>Oleaje</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>Remolino</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>Pulsos de zoom</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>Zoom veloz</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>Travelling</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>Lejos y cerca</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>Golpe de zoom doble</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>Zoom y giro</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>Zoom separado</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>Giro de cubo</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>Puerta</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>Soñador</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>Voltear hacia abajo</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>Voltear</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>Enfocar</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>Planear hacia arriba</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>Saltito</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>Pasar página</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>Golpe de zoom</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>Empujar desde arriba</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>Empujar desde la derecha</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>Empujar desde la izquierda</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>Empujar desde abajo</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>Rodar</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>Deslizar hacia abajo</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>Deslizar a la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>Deslizar a la derecha</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>Deslizar hacia arriba</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>Giro desenfocado</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>Girar a la izquierda</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>Girar a la derecha</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>Deslizamiento veloz</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>Entrar balanceando</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>Inclinar hacia arriba</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>Mala señal</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>Ondular</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>Zoom desenfocado</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>Desde lejos</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>Zoom con color separado</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>Zoom con giro</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>Volar</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>Fundir en desenfoque</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>Encoger</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>Apagar la tele</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9644,6 +11324,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>Añadir un fotograma clave de %1 en el cabezal</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
     </message>
 </context>
 <context>

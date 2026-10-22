@@ -1,0 +1,110 @@
+{
+ "format": 1,
+ "id": "ipa-sparkler",
+ "label": "Sparkler writing",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2166,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.0,
+  "ease": "linear",
+  "order": "forward"
+ },
+ "flags": {
+  "durationLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "shape:sparkle",
+  "heightEm": 0.6,
+  "gapEm": 0.1,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "#fffff1b8",
+  "swayDeg": 25,
+  "swayHz": 6
+ },
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 12,
+   "colors": [
+    "#fffff4cf",
+    "#ffffd34d",
+    "#ffffffff"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    1.2,
+    2.4
+   ],
+   "life": [
+    0.15,
+    0.35
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 3.0,
+   "glow": 0.5,
+   "origin": "right",
+   "additive": true
+  }
+ ]
+}

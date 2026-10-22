@@ -1,0 +1,104 @@
+{
+ "format": 1,
+ "id": "op-smoky-delete",
+ "label": "Delete in puffs",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2300,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.1,
+  "duration": 0.0,
+  "ease": "linear",
+  "order": "backward"
+ },
+ "flags": {
+  "durationLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "blinkOnUs": 220000,
+  "blinkOffUs": 280000,
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "widthEm": 0.08,
+  "heightEm": 1.0,
+  "shape": "bar",
+  "color": "#ffffffff"
+ },
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 4,
+   "colors": [
+    "#ffffffff",
+    "#ffd9dde4"
+   ],
+   "size": [
+    0.35,
+    0.55
+   ],
+   "speed": [
+    0.3,
+    0.7
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 160,
+   "drag": 2.0,
+   "grow": 1.6,
+   "behind": true
+  }
+ ]
+}

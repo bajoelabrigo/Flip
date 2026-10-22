@@ -1,0 +1,1 @@
+{"format":1,"id":"out-spin-cw","label":"Spin clockwise","category":"basic","slots":["out"],"order":7,"duration":0.6,"keys":{"rotation":[[0,0,"easeIn"],[1,90,"easeInOut"]],"opacity":[[0.55,100,"linear"],[1,0,"easeInOut"]]}}

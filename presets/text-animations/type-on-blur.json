@@ -2,7 +2,7 @@
   "format": 1,
   "id": "type-on-blur",
   "label": "Type-on blur",
-  "category": "character",
+  "category": "build",
   "sampleText": "Text Animation",
   "slots": [
     "in",

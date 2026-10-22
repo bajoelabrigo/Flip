@@ -134,6 +134,10 @@ struct TextAnimatorProps
     TextAnimParam scaleY{100.0};
     TextAnimParam rotation{0.0}; // degrees about the fragment anchor
     TextAnimParam skew{0.0};     // degrees, x shear
+    // Turned in depth about the anchor and seen with a perspective (door, flip, roll in 3D):
+    // + X tips the top edge away, + Y swings the right edge away, as a clip's 3D layer does.
+    TextAnimParam rotationX{0.0};
+    TextAnimParam rotationY{0.0};
 
     TextAnimParam opacity{100.0};
     bool hasOpacity = false;
@@ -168,7 +172,8 @@ struct TextAnimator
 // Typewriter cursor drawn after the last visible fragment.
 struct TextCaret
 {
-    enum class Shape { Bar, Underscore, Block };
+    // Glyph: an emoji or symbol rides after the text instead of a bar ("ABC⚡").
+    enum class Shape { Bar, Underscore, Block, Glyph };
 
     bool enabled = false;
     TimeUs leadUs = 200000;      // blinks alone before the first fragment appears
@@ -179,6 +184,46 @@ struct TextCaret
     double heightEm = 1.0;
     Shape shape = Shape::Bar;
     QColor color;                // invalid → the fill colour
+    QString glyph;               // Glyph: the emoji or symbol, sized by heightEm
+    double gapEm = 0.08;         // Glyph: space between the text and the glyph
+    double bobEm = 0.0;          // Glyph: up-and-down sway amplitude
+    double swayDeg = 0.0;        // Glyph: rocking amplitude
+    double swayHz = 2.0;         // Glyph: sway frequency
+};
+
+// Particles a slot throws off its fragments: sparks, stars, dust, smoke, confetti, rings or a
+// glyph. A burst fires as each fragment arrives (In) or leaves (Out) at `at` of its own motion;
+// "during" keeps emitting while it moves (and for the whole window in a Loop). Lengths in em,
+// times in seconds, angles in degrees (0 = right, -90 = up). Deterministic: same frame, same dots.
+struct TextParticleSpec
+{
+    enum class Trigger { Burst, During };
+    enum class Origin { Center, Area, Top, Bottom, Left, Right, Baseline };
+    enum class Shape { Dot, Star, Spark, Ring, Square, Heart, Smoke, Confetti, Flare, Triangle, Glyph };
+
+    Trigger trigger = Trigger::Burst;
+    bool perBlock = false;    // one emitter at the block's centre instead of one per fragment
+    double at = 0.0;          // Burst: when, as a fraction of the fragment's motion
+    int count = 8;            // Burst: particles per emitter
+    double rate = 20.0;       // During: particles per second per emitter
+    Origin origin = Origin::Center;
+    Shape shape = Shape::Dot;
+    QString glyph;            // Glyph: emoji or symbol
+    QList<QColor> colors;     // picked per particle; empty → the fill colour
+    double sizeMin = 0.05, sizeMax = 0.12;   // em
+    double speedMin = 0.6, speedMax = 1.8;   // em / s
+    double angle = -90.0;     // mean direction
+    double spread = 360.0;    // full cone width
+    double gravity = 0.0;     // em / s², + falls
+    double drag = 0.0;        // 1 / s, exponential slow-down
+    double lifeMin = 0.4, lifeMax = 0.9;     // s
+    double grow = 1.0;        // size at the end of life over the start
+    double spin = 0.0;        // deg / s, signed per particle at random
+    double fadeIn = 0.0;      // fraction of life spent fading in
+    double glow = 0.0;        // 0..1 halo
+    bool additive = false;    // light adds up (sparks, fire)
+    bool behind = false;      // drawn under the text (smoke)
+    quint32 seed = 1;
 };
 
 enum class TextAnimSlotKind { In, Out, Loop };
@@ -190,6 +235,7 @@ struct TextAnimationSlot
     QString presetId;
     QMap<QString, VectorSlotValue> params;
     QList<TextAnimator> animators;
+    QList<TextParticleSpec> particles; // inline slots only; a preset brings its own
     TimeUs delayUs = 0;    // In: after the window start; Out: before the window end
     TimeUs durationUs = 0; // Curves progress length; 0 = derive from the stagger selectors
     TimeUs periodUs = 0;   // Loop: 0 = progress spans the whole window, else periodic
@@ -234,6 +280,8 @@ QString textAnimSlotKindToString(TextAnimSlotKind kind);
 TextAnimSlotKind textAnimSlotKindFromString(const QString &kind);
 QString textCaretShapeToString(TextCaret::Shape shape);
 TextCaret::Shape textCaretShapeFromString(const QString &shape);
+QJsonObject textParticleSpecToJson(const TextParticleSpec &spec);
+TextParticleSpec textParticleSpecFromJson(const QJsonObject &o);
 
 // JSON. A constant param is written as a plain number, a curve as {value, curve}. Defaults are
 // omitted on write and restored on read, so preset files stay short.
@@ -287,6 +335,8 @@ struct FragmentProps
     double scaleY = 1.0;
     double rotation = 0.0;
     double skew = 0.0;
+    double rotationX = 0.0;
+    double rotationY = 0.0;
     double opacity = 1.0;
     double fillOpacity = 1.0;
     double strokeOpacity = 1.0;
@@ -309,6 +359,8 @@ struct BlockProps
     double dy = 0.0;
     double scale = 1.0;
     double rotation = 0.0;
+    double rotationX = 0.0; // the whole layer turned in depth (rides on the GPU layer's 3D pose)
+    double rotationY = 0.0;
     double opacity = 1.0;
     double blurPx = 0.0;
     double wipeProgress = -1.0;
@@ -324,6 +376,27 @@ struct CaretState
     double widthPx = 0.0;
     double heightPx = 0.0;
     QColor color;
+    TextCaret::Shape shape = TextCaret::Shape::Bar; // the resolved caret's, preset or style
+    QString glyph;
+    double gapPx = 0.0;
+    double bobPx = 0.0;     // Glyph: this frame's sway
+    double swayDeg = 0.0;
+};
+
+// One live particle. x/y are render px from its emitter's anchor: the fragment's cell centre at
+// rest (fragment >= 0) or the block's ink centre (-1).
+struct ParticleState
+{
+    int fragment = -1;
+    int look = 0;           // index into Frame::particleLooks
+    double x = 0.0;
+    double y = 0.0;
+    double sizePx = 0.0;
+    double rotation = 0.0;  // degrees
+    double heading = 0.0;   // degrees, direction of travel (sparks stretch along it)
+    double speedPx = 0.0;   // current speed, render px / s
+    double alpha = 1.0;
+    QColor color;
 };
 
 struct Frame
@@ -331,6 +404,8 @@ struct Frame
     QList<FragmentProps> props; // index-parallel with the fragments handed in
     BlockProps block;
     CaretState caret;
+    QList<TextParticleSpec> particleLooks; // shape / glyph / glow / blend of each spec in use
+    QList<ParticleState> particles;
     bool collapseHidden = false;
     bool isStatic = true;  // nothing moves at this instant and nothing is time-driven
     quint64 poseHash = 0;  // quantised props, for cache keys of held poses
@@ -358,6 +433,9 @@ struct ResolvedSlots
     QList<TextAnimator> in;
     QList<TextAnimator> out;
     QList<TextAnimator> loop;
+    QList<TextParticleSpec> inParticles;
+    QList<TextParticleSpec> outParticles;
+    QList<TextParticleSpec> loopParticles;
 };
 
 Frame evaluateTextAnimation(const TextAnimationSet &set, const ResolvedSlots &resolved,
@@ -387,8 +465,11 @@ struct Bounds
     double maxScale = 1.0;
     double maxRotationDeg = 0.0;
     double maxTrackingPx = 0.0;
+    double maxRotation3dDeg = 0.0;
+    double maxParticlePx = 0.0; // farthest a particle reaches from its emitter, plus its size
 };
-Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx);
+// `caret`, when given, adds room for a glyph caret riding after the text.
+Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx, const TextCaret *caret = nullptr);
 
 } // namespace textanim
 } // namespace drift

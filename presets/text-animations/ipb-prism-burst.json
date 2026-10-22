@@ -1,0 +1,108 @@
+{
+ "format": 1,
+ "id": "ipb-prism-burst",
+ "label": "Prism burst",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2206,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 140,
+    "rotationX": 60
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "star",
+   "count": 9,
+   "colors": [
+    "#ffff4a6a",
+    "#ffffb02e",
+    "#ffffe94a",
+    "#ff4aff8a",
+    "#ff4ac8ff",
+    "#ffa46bff"
+   ],
+   "size": [
+    0.06,
+    0.12
+   ],
+   "speed": [
+    1.0,
+    2.0
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "at": 0.7,
+   "angle": -90.0,
+   "spread": 360.0,
+   "drag": 2.5,
+   "glow": 0.4,
+   "spin": 300
+  }
+ ]
+}

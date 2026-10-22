@@ -1,0 +1,150 @@
+{
+ "format": 1,
+ "id": "ic-flower",
+ "label": "Blooming typing",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2061,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 0,
+    "rotation": -90
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 200000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "shape": "glyph",
+  "glyph": "shape:flower",
+  "heightEm": 0.85,
+  "gapEm": 0.1,
+  "blinkOnUs": 220000,
+  "blinkOffUs": 0,
+  "color": "#ffff8fc7",
+  "swayDeg": 20,
+  "swayHz": 1.5
+ },
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 5,
+   "colors": [
+    "#ffff8fc7",
+    "#ffffd1e6"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    0.4,
+    0.9
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "gravity": 0.8
+  }
+ ]
+}

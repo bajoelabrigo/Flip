@@ -1,0 +1,81 @@
+{
+ "format": 1,
+ "id": "imf-springboard-words",
+ "label": "Springboard words",
+ "category": "fluid",
+ "sampleText": "HELLO THERE",
+ "slots": [
+  "in"
+ ],
+ "order": 2103,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.13,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.9,
+     "unit": "em"
+    },
+    "scaleY": 145,
+    "scaleX": 85
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

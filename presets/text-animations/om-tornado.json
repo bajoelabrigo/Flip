@@ -1,0 +1,95 @@
+{
+ "format": 1,
+ "id": "om-tornado",
+ "label": "Tornado lift",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2222,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.04,
+  "duration": 0.7,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -2.2,
+     "unit": "em"
+    },
+    "rotation": 540,
+    "rotationY": 180,
+    "scale": 20
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 400000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "sine",
+     "frequencyHz": 2.5,
+     "spatialPhaseDeg": 60,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0.7,
+     "y": 0,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

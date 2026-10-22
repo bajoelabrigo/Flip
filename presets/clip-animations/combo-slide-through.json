@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-slide-through","label":"Slide through","category":"slide","slots":["combo"],"order":37,"duration":0,"keys":{"x":[[0.0,1,"easeOut"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,-1,"easeInOut"]]},"trending":true}

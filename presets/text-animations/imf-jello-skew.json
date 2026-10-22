@@ -1,0 +1,114 @@
+{
+ "format": 1,
+ "id": "imf-jello-skew",
+ "label": "Jello skew shake",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2104,
+ "defaults": {
+  "duration": 0.85,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "skew": {
+     "value": 32,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 32
+       },
+       {
+        "timeUs": 220000,
+        "value": -20
+       },
+       {
+        "timeUs": 420000,
+        "value": 12
+       },
+       {
+        "timeUs": 600000,
+        "value": -6
+       },
+       {
+        "timeUs": 780000,
+        "value": 2.5
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "scaleX": {
+     "value": 70,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 70
+       },
+       {
+        "timeUs": 220000,
+        "value": 112
+       },
+       {
+        "timeUs": 420000,
+        "value": 95
+       },
+       {
+        "timeUs": 600000,
+        "value": 102
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 120000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

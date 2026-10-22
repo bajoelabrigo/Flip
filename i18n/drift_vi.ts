@@ -2604,46 +2604,6 @@
         <translation>Mờ</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>Trượt lên</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>Trượt xuống</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>Trượt sang trái</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>Trượt sang phải</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>Phóng to</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>Thu nhỏ</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>Bật lên</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>Xoay theo chiều kim đồng hồ</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>Xoay ngược chiều kim đồng hồ</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>Nảy</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>Tuyến tính</translation>
     </message>
@@ -2680,20 +2640,28 @@
         <translation>Kiểu</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>Chọn cách clip đi vào và rời đi. Làm mờ là một tùy chọn — các điều khiển kiểu tương tự như trượt hoặc thu phóng.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Xóa</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>Vào</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>Ra</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>Kết hợp</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Tất cả</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Thời lượng</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>Với 0 giây, hiệu ứng kết hợp chạy suốt clip. Hiệu ứng kết hợp thay thế chuyển động vào và ra.</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5049,6 +5017,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>Không có gì trên thiết bị này có thể chia sẻ tệp đó</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>Chuyển động</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>Chuyển động và quỹ đạo</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>Ẩn và mặt nạ</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>Mặt nạ và hé lộ</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>Mượt mà</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>So le</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>Xây dựng</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>Phong cách</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>Hạt</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Trượt</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Thu phóng</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Xoay</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Nảy</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Làm mờ</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Glitch</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>Năng động</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9403,6 +9443,936 @@
         <translation>Nghiêng</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>Nhấp nháy xen kẽ</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>Lật thẻ từng chữ</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>Nở từ giữa</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>Pop sắc màu</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>Quét màu</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>Pop truyện tranh</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>BÙM! BỐP!</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>Xòe bộ bài</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>Xúc xắc lăn</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>Giải mã số</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>Domino dựng lên</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>Mưa chữ</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>Rơi từ cuối</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>Glitch xuất hiện</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>Ánh sáng nở</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>Hơi nóng tan dần</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>Khởi động hologram</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>Vết mực loang</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>Dòng chữ hai bên</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>DÒNG MỘT
+DÒNG HAI</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>Ống neon</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>Viền rồi tô</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>Pop dẹt</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>Chong chóng chữ</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>Chữ cầu vồng</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>Đứng dậy từ sàn</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>In quét dòng</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>Tản ra rồi tụ lại</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>Hé lộ ánh vàng</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>Lướt nghiêng từ cạnh</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>Bật nghiêng</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>BẮT ĐẦU NÀO!</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>Lao từ ống kính</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>Gõ chữ mờ dần</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>Bậc thang chữ</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>Hai tông màu</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>Tín hiệu VHS</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>Đóng dấu từng từ</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>TIN NÓNG HỔI</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>Khóa kéo</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>Khối terminal hổ phách</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>Con trỏ mũi tên</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>Con trỏ dấu sao xoay</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>Gõ chữ với tia sét</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>Con trỏ bùng nổ</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>Gõ từ giữa</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>Gõ chữ với dấu tích</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>Con trỏ góc xanh lá</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>Con trỏ lam với chữ rơi</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>Con trỏ kim cương vỡ</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>Con trỏ chấm nảy</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>Gõ chữ với giọt nước</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>Gõ nhanh màu hồng tím</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>Gõ chữ với lửa</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>Gõ chữ nở hoa</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>Gõ chữ với ngôi sao vàng</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>Khối terminal xanh lá</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>Con trỏ hashtag</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>Gõ chữ với trái tim</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>Gõ chữ với micro</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>Gõ chữ dưới trăng</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>Gõ chữ vệt neon</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>Gõ chữ âm nhạc</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>Viết bằng bút chì</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>Con trỏ nút phát</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>Con trỏ dấu cộng lật</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>Con trỏ đỏ</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>Gõ chữ với tên lửa</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>Con trỏ gạch nghiêng</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>Gõ chậm rãi</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>Gõ chữ với bông tuyết</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>Gõ chữ lấp lánh</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>Con trỏ ô vuông lăn</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>Gạch dưới lấy nét</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>Gõ từng từ</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>GÕ RA ĐI</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>Con trỏ vàng nảy</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>Vòng cung từ dưới</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>Vòng cung từ trái</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>Xoay 3D khối chữ</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>Boomerang</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>Rơi và nảy</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>Lật thẻ</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>Khép từ hai bên</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>Bật lò xo từ góc</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>Rơi từ khổng lồ</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>Tiến từ xa</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>Chéo từ trên trái</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>Cửa mở từng từ</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>CHƠI LỚN</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>Trôi vào tiêu điểm</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>Lá rơi</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>Lật xuống</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>Lật trọn chữ</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>Chữ treo đung đưa</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>Đung đưa bản lề</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>Nhảy và nén</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>Chạy nghiêng từ phải</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>Rèm theo dòng</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>HÀNG
+MỚI</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>Quét nhòe chuyển động</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>Quỹ đạo từng chữ</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>Đẩy từ từ trái</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>Lăn từ trái</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>Xoay vào từ cạnh</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>Phanh trượt</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>Xoắn ốc vào giữa</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>Kéo giãn đi lên</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>Ném theo parabol</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>Từ rơi nghiêng</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>Chữ lộn nhào</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>Mở ra từ giữa</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>Gió thổi đến</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>Từ bật lên</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>Từ từ xa</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>Hiện ra sau mép</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>Vết loang nở</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>Bong bóng vỡ</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>Nảy từ giữa</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>Rèm từ giữa</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>Hiện qua sắc màu</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>Chữ lủng lẳng</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>Hé lộ chéo từng chữ</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>Giọt rơi bẹp</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>Rèm buông từng chữ</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>Lông vũ bay</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>Hòa quyện dẻo</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>Đi lên viền sắc</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>Mực loang nhẹ</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>Rung thạch nghiêng</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>Thạch từng chữ</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>Dâng lên như nước</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>Tan chảy ngược</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>Viền quét rồi tô</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>Cắt gọn từ phải</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>Xóa ngược</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>Dây thun bật</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>Quét lấy nét</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>Màn trập</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>Khe hé mở</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>Quét nhẹ từng từ</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>MỚI RA MẮT</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>Từ bật nhún</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>XIN CHÀO MỌI NGƯỜI</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>Chữ lò xo</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>Nhảy mềm</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>Trượt co giãn</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>Nét trước, tô sau</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>Rèm sáo</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>TIN
+LỚN</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>Gợn nước</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>Đến dập dềnh</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>Từ qua mặt nạ</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>DÀNH CHO BẠN</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>Quét xuyên thu phóng</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>Bóng bay nổ</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>Nến sinh nhật</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>Bọt sâm panh</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>Sao chổi đến</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>Mưa confetti</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>Mưa kim cương</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>Lấp lánh disco</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>Vệt bụi tiên</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>Cánh hoa rơi</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>Pháo hoa từng từ</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>TIN LỚN</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>Pháo hoa kết màn</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>Trái tim bay</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>Bom kim tuyến</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>Bụi kim tuyến</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>Đồng vàng lấp lánh</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>Vụ nổ vàng</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>Gợn hào quang</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>Bùng nổ trái tim</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>Tia lửa khi đáp</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>Đèn lồng bay lên</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>Phép thuật bùm</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>Đũa thần</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>Pháo giấy</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>Piñata kẹo</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>Bùng nổ cầu vồng</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>TIỆC THÔI!</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>Bong bóng bay lên</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>Nốt nhạc bay lên</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>Xuất hiện lấp lánh</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>Chữ sao băng</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>Tuyết bay</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>Đài phun tia lửa</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>Mưa lấp lánh</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>Que pháo hoa viết chữ</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>Bùng nổ ngôi sao</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>Vòng sao bùng nổ</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>Dây ruy băng</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>Lửa xanh</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>Hé lộ viền cháy</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>Khói đen bốc lên</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>Đáp trong bụi</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>Điện giật</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>Than hồng bay lên</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>Quả cầu năng lượng</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>Tụ năng lượng</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>Vòng nổ</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>Bùng cháy</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>Đài phun pháo hoa</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>Thiên hà xoáy</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>Hồn ma hiện ra</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>Tinh thể băng</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>Quét laser</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>Sét đánh</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>Chữ thiên thạch</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>Lóe sáng neon</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>Ánh plasma</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>Hào quang sức mạnh</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>Lăng kính bùng nổ</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>Cát gió thổi</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>Sao băng lướt</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>Hiện ra từ khói</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>Bão tuyết</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>Bão mặt trời</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>Linh hồn xanh</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>Đầu lâu ma quái</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>Bụi sao</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>Tia hơi nước</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>Đá va chạm</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>Bong bóng độc</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>Nhiễu sóng</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>Dung nham phun trào</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>Nước bắn tung</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>Sóng xung kích từng từ</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>BÙM BỤP</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>Karaoke nảy</translation>
     </message>
@@ -9421,6 +10391,368 @@
     <message>
         <source>Sing along</source>
         <translation>Hát theo</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>Xóa bằng con trỏ</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>Mờ và trôi</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>Nảy thu nhỏ</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>Lùi vào chiều sâu</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>Thẻ lật đi</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>Xóa chéo từng từ</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>HẸN SỚM GẶP LẠI</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>Hiệu ứng domino</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>Cửa đóng từng từ</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>Rơi xoay</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>Thả micro</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>Bốc hơi</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>Chập chờn rồi tắt</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>Lật 3D ra sau</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>Cắt glitch</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>Bay lên trần</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>Nhảy và rơi</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>Nghiêng và gập</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>Rèm từng chữ</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>Dòng trượt xuống</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>HẸN GẶP
+LẦN SAU</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>Dòng khuất bên trái</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>Tan chảy</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>Neon tắt</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>Đẩy sang phải</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>Biến mất ngẫu nhiên</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>Lăn sang trái</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>Tản ra mọi hướng</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>Chữ chập mạch</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>Chìm xuống sàn</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>Xóa nhẹ lên trên</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>Xóa lấp lánh</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>Xoay bay lên</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>Tách đôi</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>Nén và vỡ</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>Ép vào giữa</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>Kéo giãn rồi đi</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>Giãn lên và mảnh dần</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>Xoáy đi</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>Lốc xoáy</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>Lộn nhào xuống</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>Điểm tụ</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>Sóng tạm biệt</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>Gió cuốn đi</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>Rơi từng từ</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>TẠM BIỆT NHÉ</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>Từ bay lên trời</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>Mở khóa kéo</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>Thu phóng nghiền</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>Hóa tro</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>Xóa kèm tia lửa</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>Hố đen</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>Phóng lên</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>Lửa xanh rời đi</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>Bong bóng vỡ tan</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>Cháy rụi</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>Nổ confetti</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>Hóa bụi</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>Than hồng tắt dần</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>Đom đóm bay đi</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>Pháo hoa tạm biệt</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>HẸN GẶP LẠI</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>Ngòi nổ cháy</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>Tan như bóng ma</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>Kim tuyến mờ dần</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>Tạm biệt bằng trái tim</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>Cắt laser</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>Bị sét đánh</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>Biến mất thần kỳ</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>Thiên thạch phóng đi</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>Nốt nhạc bay đi</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>Vệt sơn bắn</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>Cánh hoa trong gió</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>Vỡ vụn thành pixel</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>Bụp!</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>Vệt cầu vồng</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>Bay đi như cát</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>Vỡ tan</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>Sóng xung kích</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>Chập mạch</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>Tan vào khói</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>Xóa thành làn khói</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>Tuyết tan</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>Tan thành tia lửa</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>Vòng lấp lánh</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>Que pháo hoa tắt</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>Sao tản mát</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>Lốc bụi</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>Xoay thành lấp lánh</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>Tạm biệt tung tóe</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9501,6 +10833,354 @@
     <message>
         <source>STAMP</source>
         <translation>ĐÓNG DẤU</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>Cơn gió</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>Lật thẻ</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>Khối lập phương</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>Chéo</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>Cửa</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>Mơ màng</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>Rơi và xoay</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>Động đất</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>Trượt vọng</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>Chớp đôi</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>Lật</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>Nhịp glitch</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>Nhịp tim</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>Bản lề</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>Nhảy nhót</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>Thạch</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>Ken Burns phóng to</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>Ken Burns thu nhỏ</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>Lóa sáng</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>Quỹ đạo</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>Lật trang</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>Lia trái</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>Lia phải</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>Con lắc</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>Pixel</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>Tách màu</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>Gợn sóng</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>Lên và xuống</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>Lắc lư</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>Lăn</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>Tàu lượn</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>Xoay và biến mất</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>Dây thun</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>Sóng xung kích</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>Nhanh</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>Trượt xuyên</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>Trượt sóng</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>Xoay vòng</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>Xoắn ốc</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>Lò xo</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>Đung đưa 3D</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>Lộn nhào</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>TV cũ</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>Sóng</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>Gió xoáy</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>Thu phóng theo nhịp</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>Thu phóng nhanh</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>Dolly</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>Xa và gần</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>Đấm zoom đôi</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>Thu phóng xoay</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>Thu phóng tách</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>Xoay khối</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>Cửa</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>Mộng mơ</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>Lật xuống</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>Lật lại</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>Lấy nét</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>Lướt lên</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>Nhảy</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>Lật trang</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>Đấm zoom</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>Đẩy từ trên</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>Đẩy từ phải</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>Đẩy từ trái</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>Đẩy từ dưới</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>Lăn vào</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>Trượt xuống</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>Trượt sang trái</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>Trượt sang phải</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>Trượt lên</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>Xoay mờ</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>Xoay ngược chiều kim đồng hồ</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>Xoay theo chiều kim đồng hồ</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>Trượt nhanh</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>Đung đưa vào</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>Nghiêng lên</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>Tín hiệu kém</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>Uốn sóng</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>Thu phóng mờ</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>Từ xa</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>Thu phóng tách màu</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>Thu phóng xoay</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>Bay đi</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>Mờ dần</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>Thu nhỏ</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>Tắt TV</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9607,6 +11287,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>Thêm %1 keyframe tại đầu phát</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>Không</translation>
     </message>
 </context>
 <context>

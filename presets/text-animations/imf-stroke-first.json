@@ -1,0 +1,88 @@
+{
+ "format": 1,
+ "id": "imf-stroke-first",
+ "label": "Stroke-first letters",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2081,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.16,
+       1.0
+      ],
+      "c2": [
+       0.3,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "strokeOpacity": 0,
+    "scale": 92
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1500000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.25,
+       0.1
+      ],
+      "c2": [
+       0.25,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillOpacity": 0,
+    "strokeWidth": 6,
+    "strokeColor": "#ffffffff"
+   }
+  }
+ ]
+}

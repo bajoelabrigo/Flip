@@ -1,0 +1,30 @@
+{
+ "format": 1,
+ "id": "om-random-vanish",
+ "label": "Random pop-off",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2238,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.15,
+  "ease": "linear",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 150,
+    "blur": 6,
+    "opacity": 0
+   }
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+ "format": 1,
+ "id": "op-snow-melt",
+ "label": "Snow melt",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2288,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.75,
+  "ease": "easeIn",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 25,
+    "position": {
+     "x": 0,
+     "y": 0.3,
+     "unit": "em"
+    },
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffdff3ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "glyph",
+   "trigger": "during",
+   "rate": 8,
+   "colors": [
+    "#ffffffff",
+    "#ffe3f4ff"
+   ],
+   "size": [
+    0.1,
+    0.16
+   ],
+   "speed": [
+    0.1,
+    0.3
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": -90,
+   "spread": 160,
+   "gravity": 0.6,
+   "spin": 90,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "glyph": "shape:snow"
+  },
+  {
+   "shape": "glyph",
+   "trigger": "during",
+   "rate": 6,
+   "colors": [
+    "#ff8fd3ff",
+    "#ffbfe6ff"
+   ],
+   "size": [
+    0.08,
+    0.12
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "life": [
+    0.35,
+    0.6
+   ],
+   "angle": 90,
+   "spread": 10,
+   "gravity": 5.0,
+   "fadeIn": 0.15,
+   "origin": "bottom",
+   "glyph": "shape:drop",
+   "seed": 2
+  }
+ ]
+}

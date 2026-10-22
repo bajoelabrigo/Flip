@@ -1,0 +1,76 @@
+{
+ "format": 1,
+ "id": "ic-fast-bar",
+ "label": "Rapid magenta typing",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2041,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.035,
+  "duration": 0.0,
+  "ease": "linear",
+  "order": "forward"
+ },
+ "flags": {
+  "durationLocked": true
+ },
+ "params": [
+  {
+   "id": "caret",
+   "type": "bool",
+   "label": "Caret",
+   "default": true
+  },
+  {
+   "id": "lead",
+   "type": "scalar",
+   "label": "Caret lead",
+   "unit": "s",
+   "min": 0,
+   "max": 2,
+   "step": 0.05,
+   "default": 0.3
+  },
+  {
+   "id": "hold",
+   "type": "scalar",
+   "label": "Hold after",
+   "unit": "s",
+   "min": 0,
+   "max": 5,
+   "step": 0.1,
+   "default": 0.6
+  }
+ ],
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "caret": {
+  "enabled": "{caret}",
+  "leadUs": {
+   "$": "lead",
+   "mul": 1000000
+  },
+  "blinkOnUs": 220000,
+  "blinkOffUs": 280000,
+  "holdAfterUs": {
+   "$": "hold",
+   "mul": 1000000
+  },
+  "widthEm": 0.07,
+  "heightEm": 1.0,
+  "shape": "bar",
+  "color": "#ffff2bd6"
+ }
+}

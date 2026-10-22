@@ -10418,8 +10418,10 @@ void EngineTest::clipBodyAnimationFadeRampsOpacity()
     clip.timelineDuration = drift::secondsToUs(2.0);
     clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
     clip.shapeStyle.setSolidFill(Qt::white);
-    clip.animIn = {drift::ClipAnimKind::Fade, drift::secondsToUs(1.0), drift::ClipAnimEase::Linear,
-                   drift::FadeCurve::Linear};
+    clip.animIn.kind = drift::ClipAnimKind::Fade;
+    clip.animIn.durationUs = drift::secondsToUs(1.0);
+    clip.animIn.ease = drift::ClipAnimEase::Linear;
+    clip.animIn.curve = drift::FadeCurve::Linear;
     project.tracks()[0].clips.append(clip);
 
     FrameCompositor compositor;

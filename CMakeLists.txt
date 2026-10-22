@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.19.0 LANGUAGES CXX C)
+project(Drift VERSION 0.20.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -468,6 +468,8 @@ add_library(driftcore STATIC
     src/core/FadeShape.cpp
     src/core/ClipAnimation.h
     src/core/ClipAnimation.cpp
+    src/core/ClipAnimationPreset.h
+    src/core/ClipAnimationPreset.cpp
     src/core/SubtitleCue.h
     src/core/SubtitleCue.cpp
     src/core/Transcript.h
@@ -553,6 +555,13 @@ if(WIN32)
     # AssocQueryStringW: AccountController opens the default browser directly when the shell cannot.
     target_link_libraries(driftcore PUBLIC Shlwapi)
 endif()
+
+file(GLOB DRIFT_CLIP_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/clip-animations/*.json")
+qt_add_resources(driftcore "drift_clip_animations"
+    PREFIX "/clip-animations"
+    BASE "${CMAKE_SOURCE_DIR}/presets/clip-animations"
+    FILES ${DRIFT_CLIP_ANIMATION_FILES}
+)
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
 qt_add_resources(driftcore "drift_text_animations"
@@ -1324,6 +1333,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/GradientStopEditor.qml
         src/qml/components/properties/ShadingLayerRow.qml
         src/qml/components/properties/TextAnimPresetTile.qml
+        src/qml/components/properties/ClipAnimPresetTile.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
         src/qml/components/properties/TrackingInspector.qml

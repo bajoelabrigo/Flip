@@ -1,0 +1,92 @@
+{
+ "format": 1,
+ "id": "ibs-scanline-print",
+ "label": "Scanline print",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2033,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.35,
+  "ease": "linear",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 90,
+     "softness": 0.15
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2000000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff5ef2ff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 20,
+     "spatialPhaseDeg": 97,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "seed": 2,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 4,
+     "y": 0,
+     "unit": "px"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,133 @@
+{
+ "format": 1,
+ "id": "im-thrown-arc",
+ "label": "Thrown in a parabola",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2118,
+ "trending": true,
+ "defaults": {
+  "duration": 0.8,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "position": {
+     "x": {
+      "value": -0.55,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -0.55
+        },
+        {
+         "timeUs": 600000,
+         "value": 0.03
+        },
+        {
+         "timeUs": 820000,
+         "value": -0.008
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "y": {
+      "value": 0.35,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": 0.35
+        },
+        {
+         "timeUs": 300000,
+         "value": -0.16
+        },
+        {
+         "timeUs": 600000,
+         "value": -0.02
+        },
+        {
+         "timeUs": 800000,
+         "value": 0.012
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "unit": "box"
+    },
+    "rotation": {
+     "value": -40,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": -40
+       },
+       {
+        "timeUs": 600000,
+        "value": 6
+       },
+       {
+        "timeUs": 820000,
+        "value": -2
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 150000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

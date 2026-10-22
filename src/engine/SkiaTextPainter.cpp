@@ -1,5 +1,8 @@
 #include "SkiaTextPainter.h"
 
+#include "EmojiCatalog.h"
+#include "SkiaFontCollection.h"
+#include "SkiaFonts.h"
 #include "SkiaPath.h"
 #include "SkiaShading.h"
 #include "SkiaTextGeometry.h"
@@ -16,12 +19,16 @@
 
 #include <algorithm>
 #include <cmath>
+#include <optional>
 
 #include "include/core/SkBlendMode.h"
 #include "include/core/SkBlurTypes.h"
 #include "include/core/SkCanvas.h"
 #include "include/core/SkColorFilter.h"
+#include "include/core/SkFont.h"
+#include "include/core/SkFontMgr.h"
 #include "include/core/SkImage.h"
+#include "include/core/SkM44.h"
 #include "include/core/SkMaskFilter.h"
 #include "include/core/SkMatrix.h"
 #include "include/core/SkPaint.h"
@@ -372,6 +379,243 @@ QColor withAlpha(const QColor &c, double factor)
     return out;
 }
 
+// A fragment turned in depth about its anchor (already at the origin), seen from `distance`.
+SkMatrix perspectiveTurn(double rotationXDeg, double rotationYDeg, double distance)
+{
+    SkM44 persp;
+    persp.setRC(3, 2, float(-1.0 / qMax(1.0, distance)));
+    const SkM44 m = persp * SkM44::Rotate({1, 0, 0}, float(qDegreesToRadians(rotationXDeg)))
+                    * SkM44::Rotate({0, 1, 0}, float(qDegreesToRadians(rotationYDeg)));
+    return m.asM33();
+}
+
+SkPath polygonPath(std::initializer_list<SkPoint> points)
+{
+    SkPathBuilder b;
+    bool first = true;
+    for (const SkPoint &p : points) {
+        if (first)
+            b.moveTo(p);
+        else
+            b.lineTo(p);
+        first = false;
+    }
+    b.close();
+    return b.detach();
+}
+
+// A bar halfWidth wide and 2 * halfLength long through the origin, turned by deg.
+SkPath rotatedBar(float halfWidth, float halfLength, float deg)
+{
+    const float c = float(qCos(qDegreesToRadians(double(deg))));
+    const float sn = float(qSin(qDegreesToRadians(double(deg))));
+    const auto at = [&](float x, float y) { return SkPoint::Make(x * c - y * sn, x * sn + y * c); };
+    return polygonPath({at(-halfWidth, -halfLength), at(halfWidth, -halfLength), at(halfWidth, halfLength),
+                        at(-halfWidth, halfLength)});
+}
+
+// A star with `points` tips, outer radius r, inner radius r * inner, first tip straight up.
+SkPath starPath(double r, int points, double inner)
+{
+    SkPathBuilder b;
+    for (int i = 0; i < points * 2; ++i) {
+        const double rad = (i % 2 ? r * inner : r);
+        const double a = -M_PI / 2.0 + M_PI * i / points;
+        const SkPoint p = SkPoint::Make(float(std::cos(a) * rad), float(std::sin(a) * rad));
+        if (i == 0)
+            b.moveTo(p);
+        else
+            b.lineTo(p);
+    }
+    b.close();
+    return b.detach();
+}
+
+SkPath heartPath(double r)
+{
+    SkPathBuilder b;
+    const float s = float(r);
+    b.moveTo(0, 0.95f * s);
+    b.cubicTo(-1.25f * s, 0.05f * s, -0.8f * s, -1.05f * s, 0, -0.42f * s);
+    b.cubicTo(0.8f * s, -1.05f * s, 1.25f * s, 0.05f * s, 0, 0.95f * s);
+    b.close();
+    return b.detach();
+}
+
+// Symbols drawn as paths, so a glyph caret or particle works without any emoji font:
+// "shape:bolt", "shape:diamond"… Centred on the origin, `r` = half the height.
+std::optional<SkPath> vectorSymbol(const QString &glyph, double r)
+{
+    if (!glyph.startsWith(QLatin1String("shape:")))
+        return std::nullopt;
+    const QString name = glyph.mid(6);
+    const float s = float(r);
+    if (name == QLatin1String("bolt"))
+        return polygonPath({{0.25f * s, -s}, {-0.55f * s, 0.12f * s}, {-0.02f * s, 0.12f * s}, {-0.25f * s, s},
+                            {0.55f * s, -0.15f * s}, {0.03f * s, -0.15f * s}});
+    if (name == QLatin1String("diamond"))
+        return polygonPath({{-0.7f * s, -0.35f * s}, {-0.35f * s, -0.8f * s}, {0.35f * s, -0.8f * s},
+                            {0.7f * s, -0.35f * s}, {0, s}});
+    if (name == QLatin1String("heart"))
+        return heartPath(r);
+    if (name == QLatin1String("star"))
+        return starPath(r, 5, 0.45);
+    if (name == QLatin1String("sparkle"))
+        return starPath(r, 4, 0.22);
+    if (name == QLatin1String("burst"))
+        return starPath(r, 8, 0.5);
+    if (name == QLatin1String("arrow"))
+        return polygonPath({{-s, -0.3f * s}, {0.1f * s, -0.3f * s}, {0.1f * s, -0.75f * s}, {s, 0},
+                            {0.1f * s, 0.75f * s}, {0.1f * s, 0.3f * s}, {-s, 0.3f * s}});
+    if (name == QLatin1String("play") || name == QLatin1String("triangle"))
+        return polygonPath({{-0.6f * s, -0.8f * s}, {0.8f * s, 0}, {-0.6f * s, 0.8f * s}});
+    if (name == QLatin1String("chevron"))
+        return polygonPath({{-0.6f * s, -0.9f * s}, {-0.1f * s, -0.9f * s}, {0.7f * s, 0}, {-0.1f * s, 0.9f * s},
+                            {-0.6f * s, 0.9f * s}, {0.2f * s, 0}});
+    if (name == QLatin1String("check"))
+        return polygonPath({{-0.9f * s, 0}, {-0.6f * s, -0.3f * s}, {-0.25f * s, 0.1f * s}, {0.6f * s, -0.8f * s},
+                            {0.9f * s, -0.5f * s}, {-0.25f * s, 0.7f * s}});
+    if (name == QLatin1String("plus") || name == QLatin1String("cross"))
+        return polygonPath({{-0.25f * s, -s}, {0.25f * s, -s}, {0.25f * s, -0.25f * s}, {s, -0.25f * s},
+                            {s, 0.25f * s}, {0.25f * s, 0.25f * s}, {0.25f * s, s}, {-0.25f * s, s},
+                            {-0.25f * s, 0.25f * s}, {-s, 0.25f * s}, {-s, -0.25f * s}, {-0.25f * s, -0.25f * s}});
+    if (name == QLatin1String("hash")) {
+        SkPathBuilder b;
+        b.addRect(SkRect::MakeLTRB(-0.45f * s, -s, -0.2f * s, s));
+        b.addRect(SkRect::MakeLTRB(0.2f * s, -s, 0.45f * s, s));
+        b.addRect(SkRect::MakeLTRB(-0.9f * s, -0.5f * s, 0.9f * s, -0.25f * s));
+        b.addRect(SkRect::MakeLTRB(-0.9f * s, 0.25f * s, 0.9f * s, 0.5f * s));
+        return b.detach();
+    }
+    if (name == QLatin1String("slash"))
+        return polygonPath({{0.35f * s, -s}, {0.65f * s, -s}, {-0.35f * s, s}, {-0.65f * s, s}});
+    if (name == QLatin1String("asterisk")) {
+        SkPathBuilder b;
+        for (int i = 0; i < 3; ++i) {
+            b.addPath(rotatedBar(0.14f * s, s, float(i * 60)));
+        }
+        return b.detach();
+    }
+    if (name == QLatin1String("circle"))
+        return SkPath::Circle(0, 0, s * 0.8f);
+    if (name == QLatin1String("square"))
+        return SkPath::Rect(SkRect::MakeLTRB(-0.75f * s, -0.75f * s, 0.75f * s, 0.75f * s));
+    if (name == QLatin1String("moon")) {
+        QPainterPath a, c;
+        a.addEllipse(QPointF(0, 0), r * 0.85, r * 0.85);
+        c.addEllipse(QPointF(r * 0.4, -r * 0.25), r * 0.7, r * 0.7);
+        return toSkPath(a.subtracted(c));
+    }
+    if (name == QLatin1String("note")) {
+        QPainterPath p;
+        p.addEllipse(QPointF(-r * 0.35, r * 0.55), r * 0.38, r * 0.3);
+        p.addRect(QRectF(-r * 0.05, -r, r * 0.16, r * 1.5));
+        p.addRect(QRectF(-r * 0.05, -r, r * 0.6, r * 0.22));
+        return toSkPath(p.simplified());
+    }
+    if (name == QLatin1String("flower")) {
+        QPainterPath p;
+        for (int i = 0; i < 5; ++i) {
+            const double a = -M_PI / 2.0 + 2.0 * M_PI * i / 5.0;
+            p.addEllipse(QPointF(std::cos(a) * r * 0.5, std::sin(a) * r * 0.5), r * 0.42, r * 0.42);
+        }
+        return toSkPath(p.simplified());
+    }
+    if (name == QLatin1String("drop")) {
+        SkPathBuilder b;
+        b.moveTo(0, -s);
+        b.cubicTo(0.35f * s, -0.4f * s, 0.75f * s, 0, 0.75f * s, 0.3f * s);
+        b.cubicTo(0.75f * s, 0.75f * s, 0.4f * s, s, 0, s);
+        b.cubicTo(-0.4f * s, s, -0.75f * s, 0.75f * s, -0.75f * s, 0.3f * s);
+        b.cubicTo(-0.75f * s, 0, -0.35f * s, -0.4f * s, 0, -s);
+        b.close();
+        return b.detach();
+    }
+    if (name == QLatin1String("snow")) {
+        SkPathBuilder b;
+        for (int i = 0; i < 3; ++i) {
+            b.addPath(rotatedBar(0.08f * s, s, float(i * 60)));
+        }
+        return b.detach();
+    }
+    return std::nullopt;
+}
+
+// A text glyph (emoji or symbol) as a blob centred on the origin. The emoji addon's face when it
+// carries the glyph, else whatever the platform falls back to for that character.
+sk_sp<SkTypeface> glyphFace(const QString &text, const QString &styleFamily)
+{
+    const SkUnichar first = SkUnichar(text.toUcs4().value(0));
+    std::lock_guard<std::recursive_mutex> lock(textLayoutMutex());
+    sk_sp<SkTypeface> face;
+    const QString emoji = emojiFontFamily();
+    if (!emoji.isEmpty()) {
+        face = registeredTypeface(emoji);
+        if (face && face->unicharToGlyph(first) == 0)
+            face = nullptr;
+    }
+    if (!face) {
+        face = registeredTypeface(styleFamily);
+        if (face && face->unicharToGlyph(first) == 0)
+            face = nullptr;
+    }
+    if (!face) {
+        if (const sk_sp<SkFontMgr> mgr = systemFontMgr())
+            face = mgr->matchFamilyStyleCharacter(nullptr, SkFontStyle(), nullptr, 0, first);
+    }
+    return face;
+}
+
+QMutex g_glyphMutex;
+QCache<QString, sk_sp<SkTextBlob>> g_glyphCache(256);
+
+// The blob for a glyph at a size quantised to a quarter pixel; particles ask for it every frame.
+sk_sp<SkTextBlob> glyphBlob(const QString &glyph, double sizePx, const QString &styleFamily)
+{
+    QString text = glyph;
+    text.remove(QChar(0xFE0F));
+    if (text.isEmpty() || sizePx <= 0.0)
+        return nullptr;
+    const int quarter = qMax(1, qRound(sizePx * 4.0));
+    const QString key = text + QLatin1Char('\x1f') + styleFamily + QLatin1Char('\x1f') + QString::number(quarter);
+    {
+        QMutexLocker lock(&g_glyphMutex);
+        if (const sk_sp<SkTextBlob> *hit = g_glyphCache.object(key))
+            return *hit;
+    }
+    sk_sp<SkTextBlob> blob;
+    if (const sk_sp<SkTypeface> face = glyphFace(text, styleFamily)) {
+        const SkFont font(face, quarter / 4.0f);
+        const QByteArray utf8 = text.toUtf8();
+        const size_t bytes = size_t(utf8.size());
+        const int count = int(font.textToGlyphs(utf8.constData(), bytes, SkTextEncoding::kUTF8, {}));
+        if (count > 0) {
+            SkRect bounds;
+            font.measureText(utf8.constData(), bytes, SkTextEncoding::kUTF8, &bounds);
+            SkTextBlobBuilder builder;
+            const auto &run = builder.allocRun(font, count, -bounds.centerX(), -bounds.centerY());
+            font.textToGlyphs(utf8.constData(), bytes, SkTextEncoding::kUTF8, {run.glyphs, size_t(count)});
+            blob = builder.make();
+        }
+    }
+    QMutexLocker lock(&g_glyphMutex);
+    g_glyphCache.insert(key, new sk_sp<SkTextBlob>(blob));
+    return blob;
+}
+
+// One symbol (vector or text glyph) centred on the origin, `size` tall.
+void drawSymbol(SkCanvas &canvas, const QString &glyph, double size, const SkPaint &paint, const QString &family)
+{
+    if (const std::optional<SkPath> path = vectorSymbol(glyph, size * 0.5)) {
+        canvas.drawPath(*path, paint);
+        return;
+    }
+    if (const sk_sp<SkTextBlob> blob = glyphBlob(glyph, size, family)) {
+        // Colour emoji keep their own colours; the paint carries only the alpha and blend.
+        canvas.drawTextBlob(blob, 0, 0, paint);
+    }
+}
+
 class AnimatedTextPainter final : public VectorPainter
 {
 public:
@@ -397,6 +641,7 @@ public:
 
         if (m_style.boxEnabled && !m_set->ink.isEmpty())
             drawBackground(canvas);
+        drawParticles(canvas, true);
 
         // Pills follow the straight cell geometry, which a bent line no longer has.
         if (!m_bend.active) {
@@ -439,6 +684,7 @@ public:
 
         drawUnderline(canvas);
         drawCaret(canvas);
+        drawParticles(canvas, false);
 
         if (m_frame.block.wipeProgress >= 0.0) {
             SkPaint mask;
@@ -500,6 +746,8 @@ private:
             SkMatrix anim = SkMatrix::Translate(float(anchor.x() + p.dx), float(anchor.y() + p.dy));
             anim.preConcat(SkMatrix::RotateDeg(float(p.rotation)));
             anim.preConcat(SkMatrix::Skew(float(std::tan(qDegreesToRadians(p.skew))), 0.0f));
+            if (!qFuzzyIsNull(p.rotationX) || !qFuzzyIsNull(p.rotationY))
+                anim.preConcat(perspectiveTurn(p.rotationX, p.rotationY, m_style.pixelSize * m_scale * 5.0));
             anim.preConcat(SkMatrix::Scale(float(p.scaleX), float(p.scaleY)));
             anim.preConcat(SkMatrix::Translate(float(-anchor.x()), float(-anchor.y())));
             m.preConcat(anim);
@@ -837,8 +1085,20 @@ private:
             x = piece.cellRect.left() + props(0).dx;
             baseline = piece.baselineY + props(0).dy;
         }
+        if (caret.shape == TextCaret::Shape::Glyph) {
+            const double size = caret.heightPx;
+            SkPaint paint;
+            paint.setAntiAlias(true);
+            paint.setColor(toSkColor(caret.color));
+            canvas.save();
+            canvas.translate(float(x + caret.gapPx + size * 0.5), float(baseline - size * 0.35 + caret.bobPx));
+            canvas.rotate(float(caret.swayDeg));
+            drawSymbol(canvas, caret.glyph, size, paint, m_style.fontFamily);
+            canvas.restore();
+            return;
+        }
         QRectF rect;
-        switch (m_style.animation.caret.shape) {
+        switch (caret.shape) {
         case TextCaret::Shape::Bar:
             rect = QRectF(x, baseline - caret.heightPx * 0.8, qMax(1.0, caret.widthPx), caret.heightPx);
             break;
@@ -851,8 +1111,111 @@ private:
         }
         SkPaint fill;
         fill.setAntiAlias(true);
-        fill.setColor(toSkColor(withAlpha(caret.color, m_style.animation.caret.shape == TextCaret::Shape::Block ? 0.5 : 1.0)));
+        fill.setColor(toSkColor(withAlpha(caret.color, caret.shape == TextCaret::Shape::Block ? 0.5 : 1.0)));
         canvas.drawRect(toSkRect(rect), fill);
+    }
+
+    // The frame's live particles of one depth (behind the text, or over it).
+    void drawParticles(SkCanvas &canvas, bool behind) const
+    {
+        if (m_frame.particles.isEmpty() || m_pieces.isEmpty())
+            return;
+        const QPointF blockCentre = m_set->ink.center();
+        for (const textanim::ParticleState &p : m_frame.particles) {
+            if (p.look < 0 || p.look >= m_frame.particleLooks.size() || p.alpha <= 0.002 || p.sizePx <= 0.05)
+                continue;
+            const TextParticleSpec &look = m_frame.particleLooks.at(p.look);
+            if (look.behind != behind)
+                continue;
+            const QPointF anchor = p.fragment >= 0 && p.fragment < m_pieces.size()
+                                       ? m_pieces.at(p.fragment).cellRect.center()
+                                       : blockCentre;
+            canvas.save();
+            canvas.translate(float(anchor.x() + p.x), float(anchor.y() + p.y));
+            SkPaint paint;
+            paint.setAntiAlias(true);
+            paint.setColor(toSkColor(withAlpha(p.color, p.alpha)));
+            if (look.additive)
+                paint.setBlendMode(SkBlendMode::kPlus);
+            if (look.glow > 0.0) {
+                SkPaint halo = paint;
+                halo.setMaskFilter(SkMaskFilter::MakeBlur(kNormal_SkBlurStyle, float(qMax(0.5, p.sizePx * look.glow))));
+                drawParticleShape(canvas, look, p, halo, 1.6);
+            }
+            drawParticleShape(canvas, look, p, paint, 1.0);
+            canvas.restore();
+        }
+    }
+
+    void drawParticleShape(SkCanvas &canvas, const TextParticleSpec &look, const textanim::ParticleState &p,
+                           const SkPaint &base, double grow) const
+    {
+        const float r = float(p.sizePx * 0.5 * grow);
+        SkPaint paint = base;
+        switch (look.shape) {
+        case TextParticleSpec::Shape::Dot:
+            canvas.drawCircle(0, 0, r, paint);
+            break;
+        case TextParticleSpec::Shape::Star:
+            canvas.rotate(float(p.rotation));
+            canvas.drawPath(starPath(r, 5, 0.45), paint);
+            break;
+        case TextParticleSpec::Shape::Flare:
+            canvas.rotate(float(p.rotation * 0.25));
+            canvas.drawPath(starPath(r, 4, 0.16), paint);
+            break;
+        case TextParticleSpec::Shape::Spark: {
+            // A streak along the direction of travel, longer the faster it goes.
+            const float length = float(qBound(double(r) * 2.0, p.speedPx * 0.05, double(r) * 12.0));
+            canvas.rotate(float(p.heading));
+            paint.setStyle(SkPaint::kStroke_Style);
+            paint.setStrokeCap(SkPaint::kRound_Cap);
+            paint.setStrokeWidth(qMax(0.6f, r * 0.7f));
+            canvas.drawLine(-length, 0, 0, 0, paint);
+            break;
+        }
+        case TextParticleSpec::Shape::Ring:
+            paint.setStyle(SkPaint::kStroke_Style);
+            paint.setStrokeWidth(qMax(0.6f, r * 0.18f));
+            canvas.drawCircle(0, 0, r, paint);
+            break;
+        case TextParticleSpec::Shape::Square:
+            canvas.rotate(float(p.rotation));
+            canvas.drawRect(SkRect::MakeLTRB(-r, -r, r, r), paint);
+            break;
+        case TextParticleSpec::Shape::Triangle:
+            canvas.rotate(float(p.rotation));
+            canvas.drawPath(polygonPath({{0, -r}, {r * 0.87f, r * 0.5f}, {-r * 0.87f, r * 0.5f}}), paint);
+            break;
+        case TextParticleSpec::Shape::Heart:
+            canvas.rotate(float(std::sin(qDegreesToRadians(p.rotation)) * 20.0));
+            canvas.drawPath(heartPath(r), paint);
+            break;
+        case TextParticleSpec::Shape::Confetti:
+            // A paper strip tumbling: its height swings through zero as it flips.
+            canvas.rotate(float(p.rotation));
+            canvas.scale(1.0f, float(qMax(0.15, std::abs(std::cos(qDegreesToRadians(p.rotation * 2.0))))));
+            canvas.drawRect(SkRect::MakeLTRB(-r, -r * 0.45f, r, r * 0.45f), paint);
+            break;
+        case TextParticleSpec::Shape::Smoke: {
+            // A soft puff: the colour at the centre fading to nothing at the edge.
+            const SkColor4f c = paint.getColor4f();
+            const SkColor4f stops[] = {c, {c.fR, c.fG, c.fB, c.fA * 0.45f}, {c.fR, c.fG, c.fB, 0.0f}};
+            const float pos[] = {0.0f, 0.5f, 1.0f};
+            const SkGradient::Colors colors{SkSpan<const SkColor4f>(stops, 3), SkSpan<const float>(pos, 3),
+                                            SkTileMode::kClamp};
+            paint.setShader(SkShaders::RadialGradient(SkPoint::Make(0, 0), r,
+                                                      SkGradient{colors, SkGradient::Interpolation{}}, nullptr));
+            paint.setColor4f({1, 1, 1, 1});
+            paint.setMaskFilter(nullptr);
+            canvas.drawCircle(0, 0, r, paint);
+            break;
+        }
+        case TextParticleSpec::Shape::Glyph:
+            canvas.rotate(float(p.rotation));
+            drawSymbol(canvas, look.glyph, r * 2.0, paint, m_style.fontFamily);
+            break;
+        }
     }
 
     QSize m_size;
@@ -987,9 +1350,11 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
         lines = qMax(lines, w.line + 1);
     }
     const textanim::Bounds &env = request.envelope;
-    const double rotationPad = env.maxRotationDeg > 0.0 ? maxCell * 0.5 : 0.0;
+    // A turn in depth brings the near edge closer, a quarter bigger at most at the distance used.
+    const double rotationPad = (env.maxRotationDeg > 0.0 ? maxCell * 0.5 : 0.0)
+                               + (env.maxRotation3dDeg > 0.0 ? maxCell * 0.25 : 0.0);
     const double envelope = qMax(env.maxDx, env.maxDy) + env.maxBlurPx * 2.0 + (env.maxScale - 1.0) * maxCell * 0.5
-                            + rotationPad + env.maxTrackingPx * lines * 0.5;
+                            + rotationPad + env.maxTrackingPx * lines * 0.5 + env.maxParticlePx;
     const double bleed = std::ceil(text::bleedFor(style) * scale + envelope) + 2.0;
     const int imageW = qMax(1, qRound(request.layoutRect.width() + bleed * 2.0));
     const int imageH = qMax(1, qRound(request.layoutRect.height() + bleed * 2.0));
@@ -1034,7 +1399,7 @@ TextPainterResult makeTextPainter(const Clip &clip, const QString &text, const Q
     const textanim::EvalContext ctx =
         text::evalContextFor(request.style, layoutRect, renderScale, 0, window, t, activeWordIndex);
     request.frame = textanim::evaluateTextAnimation(anim.set, anim.resolved, request.set->infos, request.set->domains, ctx);
-    request.envelope = textanim::animationBounds(anim.resolved, ctx);
+    request.envelope = textanim::animationBounds(anim.resolved, ctx, &anim.set.caret);
     request.layoutRect = layoutRect;
     request.renderScale = renderScale;
     request.timeSec = usToSeconds(t);

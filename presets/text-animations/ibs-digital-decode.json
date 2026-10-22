@@ -1,0 +1,129 @@
+{
+ "format": 1,
+ "id": "ibs-digital-decode",
+ "label": "Digital decode",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2027,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.5,
+  "ease": "linear",
+  "order": "random"
+ },
+ "flags": {
+  "unitLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 0.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 18,
+     "spatialPhaseDeg": 97,
+     "minAmount": 0,
+     "maxAmount": 100,
+     "seed": 13,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": "{ease}"
+    },
+    {
+     "driver": "wiggle",
+     "domain": "character",
+     "wave": "noise",
+     "frequencyHz": 10,
+     "spatialPhaseDeg": 97,
+     "minAmount": -100,
+     "maxAmount": 100,
+     "seed": 17,
+     "mode": "intersect"
+    }
+   ],
+   "props": {
+    "scaleY": 150
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1300000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ff36ff8f"
+   }
+  }
+ ]
+}

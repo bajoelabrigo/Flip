@@ -1,0 +1,132 @@
+{
+ "format": 1,
+ "id": "ipb-volcano",
+ "label": "Lava eruption",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2184,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": 0.9,
+     "unit": "em"
+    },
+    "scaleY": 60
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1500000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff4a0a"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 12,
+   "colors": [
+    "#ffff3a0a",
+    "#ffff7a14",
+    "#ffffc23a"
+   ],
+   "size": [
+    0.05,
+    0.12
+   ],
+   "speed": [
+    1.4,
+    2.6
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "at": 0.55,
+   "angle": -90,
+   "spread": 70,
+   "gravity": 6.0,
+   "glow": 0.5,
+   "grow": 0.6,
+   "origin": "top",
+   "additive": true
+  }
+ ]
+}

@@ -1,0 +1,147 @@
+{
+ "format": 1,
+ "id": "ipb-ice-crystals",
+ "label": "Ice crystals",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2207,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.09,
+  "duration": 0.55,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 135,
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2000000.0
+     },
+     "ease": "easeIn"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffbff4ff"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 2000000.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "strokeColor": "#ff5ac8ff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "glyph",
+   "count": 4,
+   "colors": [
+    "#ffbff4ff",
+    "#ffffffff",
+    "#ff7fd8ff"
+   ],
+   "size": [
+    0.14,
+    0.26
+   ],
+   "speed": [
+    0.4,
+    0.9
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "at": 0.6,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 1.5,
+   "spin": 90,
+   "glyph": "shape:snow"
+  },
+  {
+   "shape": "flare",
+   "count": 3,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.12,
+    0.2
+   ],
+   "speed": [
+    0.1,
+    0.3
+   ],
+   "life": [
+    0.3,
+    0.5
+   ],
+   "at": 0.8,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.8,
+   "origin": "area",
+   "additive": true,
+   "seed": 4
+  }
+ ]
+}

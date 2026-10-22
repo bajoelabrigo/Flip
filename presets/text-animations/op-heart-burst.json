@@ -1,0 +1,111 @@
+{
+ "format": 1,
+ "id": "op-heart-burst",
+ "label": "Heart burst goodbye",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2276,
+ "trending": true,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.07,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 0,
+    "rotation": -12
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 350000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffff6f9f"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "heart",
+   "count": 7,
+   "colors": [
+    "#ffff8fb8",
+    "#ffff4f8b",
+    "#ffffd0e0"
+   ],
+   "size": [
+    0.12,
+    0.22
+   ],
+   "speed": [
+    0.9,
+    1.9
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "at": 0.35,
+   "angle": -90,
+   "spread": 130,
+   "gravity": -0.6,
+   "drag": 1.4,
+   "spin": 90
+  }
+ ]
+}

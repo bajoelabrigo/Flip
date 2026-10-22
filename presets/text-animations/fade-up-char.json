@@ -2,7 +2,7 @@
   "format": 1,
   "id": "fade-up-char",
   "label": "Fade up",
-  "category": "character",
+  "category": "build",
   "sampleText": "Fade up",
   "slots": [
     "in",

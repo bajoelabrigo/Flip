@@ -9,6 +9,7 @@
 #include "MarketClient.h"
 #include "FileDialogs.h"
 #include "core/Clip.h"
+#include "core/ClipAnimationPreset.h"
 #include "core/CubeLut.h"
 #include "core/Mask.h"
 #include "core/SpeedCurve.h"
@@ -4751,15 +4752,24 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
                       clip.fadeShape.handle2().x(), clip.fadeShape.handle2().y()}},
         {QStringLiteral("animIn"), QVariantMap{
              {QStringLiteral("kind"), drift::clipAnimKindToString(clip.animIn.kind)},
+             {QStringLiteral("preset"), clip.animIn.presetId},
              {QStringLiteral("duration"), drift::usToSeconds(clip.animIn.durationUs)},
              {QStringLiteral("ease"), drift::clipAnimEaseToString(clip.animIn.ease)},
              {QStringLiteral("curve"), drift::fadeCurveToString(clip.animIn.curve)},
          }},
         {QStringLiteral("animOut"), QVariantMap{
              {QStringLiteral("kind"), drift::clipAnimKindToString(clip.animOut.kind)},
+             {QStringLiteral("preset"), clip.animOut.presetId},
              {QStringLiteral("duration"), drift::usToSeconds(clip.animOut.durationUs)},
              {QStringLiteral("ease"), drift::clipAnimEaseToString(clip.animOut.ease)},
              {QStringLiteral("curve"), drift::fadeCurveToString(clip.animOut.curve)},
+         }},
+        {QStringLiteral("animCombo"), QVariantMap{
+             {QStringLiteral("kind"), drift::clipAnimKindToString(clip.animCombo.kind)},
+             {QStringLiteral("preset"), clip.animCombo.presetId},
+             // 0 = the whole clip
+             {QStringLiteral("duration"), drift::usToSeconds(clip.animCombo.durationUs)},
+             {QStringLiteral("curve"), drift::fadeCurveToString(clip.animCombo.curve)},
          }},
         {QStringLiteral("effects"), effects},
         {QStringLiteral("audioEffects"), audioEffects},
@@ -7745,6 +7755,7 @@ void AppController::trimClipGroupAt(int trackIndex, int clipIndex, drift::TimeUs
             if (dropLeft) {
                 keep.fadeInUs = qMin(member.fadeInUs, keep.timelineDuration);
                 keep.animIn = member.animIn;
+                keep.animCombo = member.animCombo;
                 keep.audioFadeInUs = member.audioFadeInUs;
             } else {
                 keep.fadeOutUs = qMin(member.fadeOutUs, keep.timelineDuration);
@@ -14165,6 +14176,7 @@ void AppController::convertSubtitleToTextClips(int trackIndex, int clipIndex)
         if (startUs > 0) {
             text.fadeInUs = 0;
             text.animIn = drift::ClipAnimation{};
+            text.animCombo = drift::ClipAnimation{};
         }
         if (endUs < subtitle.timelineDuration) {
             text.fadeOutUs = 0;
@@ -15128,7 +15140,7 @@ bool groupHasNothingOfItsOwn(const drift::Project &project, int trackIndex, cons
     if (qAbs(group.effectiveSpeed() - 1.0) > 1e-9 || group.hasSpeedCurve() || group.reverse || group.flipH
         || group.flipV || group.layer3d || group.blendMode != drift::BlendMode::Normal || !group.effects.isEmpty()
         || group.fadeInUs > 0 || group.fadeOutUs > 0 || group.animIn.kind != drift::ClipAnimKind::None
-        || group.animOut.kind != drift::ClipAnimKind::None) {
+        || group.animOut.kind != drift::ClipAnimKind::None || group.animCombo.kind != drift::ClipAnimKind::None) {
         return false;
     }
     if (!still(group.opacity, 1.0) || !still(group.transformX, 0.0) || !still(group.transformY, 0.0)
@@ -15734,15 +15746,36 @@ void AppController::setClipAnimation(int trackIndex, int clipIndex, const QStrin
 
     const bool isIn = which == QLatin1String("animIn");
     const bool isOut = which == QLatin1String("animOut");
-    if (!isIn && !isOut)
+    const bool isCombo = which == QLatin1String("animCombo");
+    if (!isIn && !isOut && !isCombo)
         return;
 
-    drift::ClipAnimation next = isIn ? clip.animIn : clip.animOut;
+    drift::ClipAnimation next = isIn ? clip.animIn : isOut ? clip.animOut : clip.animCombo;
     if (patch.contains(QStringLiteral("kind")))
         next.kind = drift::clipAnimKindFromString(patch.value(QStringLiteral("kind")).toString());
+    // A preset id alone picks that preset (and its own length, unless the patch gives one).
+    if (patch.contains(QStringLiteral("preset"))) {
+        next.presetId = patch.value(QStringLiteral("preset")).toString();
+        const std::optional<drift::ClipAnimationPreset> preset =
+            next.presetId.isEmpty() ? std::nullopt
+                                    : drift::ClipAnimationPresetCatalog::instance().presetForId(next.presetId);
+        if (preset) {
+            next.kind = drift::ClipAnimKind::Preset;
+            if (!patch.contains(QStringLiteral("duration")))
+                next.durationUs = drift::secondsToUs(preset->defaultSeconds);
+        } else {
+            next.presetId.clear();
+            if (next.kind == drift::ClipAnimKind::Preset)
+                next.kind = drift::ClipAnimKind::None;
+        }
+    }
+    if (next.kind != drift::ClipAnimKind::Preset)
+        next.presetId.clear();
+    if (isCombo && next.kind != drift::ClipAnimKind::Preset)
+        next.kind = drift::ClipAnimKind::None; // a combo is always a preset
     if (patch.contains(QStringLiteral("duration")))
         next.durationUs =
-            drift::secondsToUs(qBound(0.0, patch.value(QStringLiteral("duration")).toDouble(), 10.0));
+            drift::secondsToUs(qBound(0.0, patch.value(QStringLiteral("duration")).toDouble(), isCombo ? 600.0 : 10.0));
     if (patch.contains(QStringLiteral("curve"))) {
         next.curve = drift::fadeCurveFromString(patch.value(QStringLiteral("curve")).toString());
         next.ease = drift::clipAnimCurveToEase(next.curve);
@@ -15753,17 +15786,32 @@ void AppController::setClipAnimation(int trackIndex, int clipIndex, const QStrin
         next.curve = drift::clipAnimEaseToCurve(next.ease);
     }
 
-    if (next.kind != drift::ClipAnimKind::None && next.durationUs <= 0)
+    if (!isCombo && next.kind != drift::ClipAnimKind::None && next.durationUs <= 0)
         next.durationUs = 500000;
     next.durationUs = qMin(next.durationUs, clip.timelineDuration);
 
-    const drift::ClipAnimation &current = isIn ? clip.animIn : clip.animOut;
-    if (next.kind == current.kind && next.durationUs == current.durationUs
+    const drift::ClipAnimation &current = isIn ? clip.animIn : isOut ? clip.animOut : clip.animCombo;
+    if (next.kind == current.kind && next.presetId == current.presetId && next.durationUs == current.durationUs
         && next.curve == current.curve && next.ease == current.ease)
         return;
 
     const drift::Project before = m_project;
     drift::Clip &mutableClip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (isCombo) {
+        // CapCut: a combo replaces the in and out motion, and either of those replaces the combo.
+        mutableClip.animCombo = next;
+        if (next.kind != drift::ClipAnimKind::None) {
+            if (mutableClip.animIn.kind != drift::ClipAnimKind::Fade)
+                mutableClip.animIn = drift::ClipAnimation{};
+            if (mutableClip.animOut.kind != drift::ClipAnimKind::Fade)
+                mutableClip.animOut = drift::ClipAnimation{};
+        }
+        pushProjectEdit(before, tr("Clip animation changed"));
+        finishEdit(tr("Clip animation updated"));
+        return;
+    }
+    if (next.kind != drift::ClipAnimKind::None && next.kind != drift::ClipAnimKind::Fade)
+        mutableClip.animCombo = drift::ClipAnimation{};
     if (isIn)
         mutableClip.animIn = next;
     else
@@ -21518,7 +21566,8 @@ QVariantMap AppController::clipboardAttributes() const
                                            || c.flipH || c.flipV
                                            || !item.masks.isEmpty()
                                            || c.animIn.kind != drift::ClipAnimKind::None
-                                           || c.animOut.kind != drift::ClipAnimKind::None);
+                                           || c.animOut.kind != drift::ClipAnimKind::None
+                                           || c.animCombo.kind != drift::ClipAnimKind::None);
     out.insert(QStringLiteral("hasTransform"), hasTransform);
 
     const bool isAudioOrVideo = (c.type == drift::ClipType::Video || c.type == drift::ClipType::Audio);
@@ -21657,6 +21706,9 @@ void AppController::pasteAttributes(const QVariantMap &options)
             pendingMasks.append(qMakePair(targetClip.id, sourceItem.masks));
             targetClip.animIn = sourceClip.animIn;
             targetClip.animOut = sourceClip.animOut;
+            targetClip.animCombo = sourceClip.animCombo;
+            if (targetClip.animCombo.durationUs > targetDurationUs)
+                targetClip.animCombo.durationUs = targetDurationUs;
             if (targetClip.animIn.durationUs > targetDurationUs)
                 targetClip.animIn.durationUs = targetDurationUs;
             if (targetClip.animOut.durationUs > targetDurationUs)
@@ -26069,6 +26121,7 @@ QVariantMap AppController::textAnimationPresetToMap(const drift::TextAnimationPr
         {QStringLiteral("sampleText"), preset.sampleText},
         {QStringLiteral("slots"), slots_},
         {QStringLiteral("order"), preset.order},
+        {QStringLiteral("trending"), preset.trending},
         {QStringLiteral("builtIn"), preset.builtIn},
         {QStringLiteral("params"), paramSpecsToList(preset.params)},
         {QStringLiteral("flags"), preset.flags.toVariantMap()},
@@ -26089,23 +26142,111 @@ QVariantList AppController::textAnimationPresets(const QString &slot) const
 
 QVariantList AppController::textAnimationCategories(const QString &slot) const
 {
+    // The In / Out chips follow Filmora's: Trending first, then the families in this order.
+    static const QStringList kRevealOrder{QStringLiteral("motion"), QStringLiteral("mask"), QStringLiteral("fluid"),
+                                          QStringLiteral("build"), QStringLiteral("stylized"),
+                                          QStringLiteral("particles")};
     QStringList seen;
+    bool trending = false;
     for (const QVariant &v : textAnimationPresets(slot)) {
-        const QString category = v.toMap().value(QStringLiteral("category")).toString();
+        const QVariantMap m = v.toMap();
+        trending = trending || m.value(QStringLiteral("trending")).toBool();
+        const QString category = m.value(QStringLiteral("category")).toString();
         if (!seen.contains(category))
             seen.append(category);
     }
-    static const QMap<QString, QString> labels{
+    std::stable_sort(seen.begin(), seen.end(), [](const QString &a, const QString &b) {
+        const auto rank = [](const QString &id) {
+            const int i = kRevealOrder.indexOf(id);
+            return i < 0 ? int(kRevealOrder.size()) : i;
+        };
+        return rank(a) < rank(b);
+    });
+    const bool out = slot == QLatin1String("out");
+    const QMap<QString, QString> labels{
         {QStringLiteral("basic"), tr("Basic")},         {QStringLiteral("character"), tr("By character")},
         {QStringLiteral("word"), tr("By word")},        {QStringLiteral("kinetic"), tr("Kinetic")},
         {QStringLiteral("light"), tr("Light")},         {QStringLiteral("colour"), tr("Colour")},
         {QStringLiteral("hold"), tr("Hold")},           {QStringLiteral("imported"), tr("Imported")},
         {QStringLiteral("mine"), tr("Mine")},
+        {QStringLiteral("motion"), out ? tr("Motion") : tr("Motion & path")},
+        {QStringLiteral("mask"), out ? tr("Hide & mask") : tr("Mask & reveal")},
+        {QStringLiteral("fluid"), tr("Fluid")},
+        {QStringLiteral("build"), out ? tr("Staggered") : tr("Build")},
+        {QStringLiteral("stylized"), tr("Stylized")},
+        {QStringLiteral("particles"), tr("Particles")},
+    };
+    QVariantList list;
+    if (trending)
+        list.append(QVariantMap{{QStringLiteral("id"), QStringLiteral("trending")},
+                                {QStringLiteral("label"), tr("Trending")}});
+    for (const QString &id : seen)
+        list.append(QVariantMap{{QStringLiteral("id"), id}, {QStringLiteral("label"), labels.value(id, id)}});
+    return list;
+}
+
+QVariantList AppController::clipAnimationPresets(const QString &slot) const
+{
+    QVariantList out;
+    for (const drift::ClipAnimationPreset &p :
+         drift::ClipAnimationPresetCatalog::instance().presetsFor(drift::clipAnimSlotFromString(slot))) {
+        out.append(QVariantMap{{QStringLiteral("id"), p.id},
+                               {QStringLiteral("label"), p.label},
+                               {QStringLiteral("category"), p.category},
+                               {QStringLiteral("trending"), p.trending},
+                               {QStringLiteral("duration"), p.defaultSeconds}});
+    }
+    return out;
+}
+
+QVariantList AppController::clipAnimationCategories(const QString &slot) const
+{
+    QStringList seen;
+    bool trending = false;
+    for (const QVariant &v : clipAnimationPresets(slot)) {
+        const QVariantMap m = v.toMap();
+        trending = trending || m.value(QStringLiteral("trending")).toBool();
+        const QString category = m.value(QStringLiteral("category")).toString();
+        if (!seen.contains(category))
+            seen.append(category);
+    }
+    static const QMap<QString, QString> labels{
+        {QStringLiteral("basic"), tr("Basic")},
+        {QStringLiteral("slide"), tr("Slide")},
+        {QStringLiteral("zoom"), tr("Zoom")},
+        {QStringLiteral("spin"), tr("Spin")},
+        {QStringLiteral("bounce"), tr("Bounce")},
+        {QStringLiteral("3d"), tr("3D")},
+        {QStringLiteral("blur"), tr("Blur")},
+        {QStringLiteral("glitch"), tr("Glitch")},
+        {QStringLiteral("dynamic"), tr("Dynamic")},
     };
     QVariantList out;
+    if (trending)
+        out.append(QVariantMap{{QStringLiteral("id"), QStringLiteral("trending")},
+                               {QStringLiteral("label"), tr("Trending")}});
     for (const QString &id : seen)
         out.append(QVariantMap{{QStringLiteral("id"), id}, {QStringLiteral("label"), labels.value(id, id)}});
     return out;
+}
+
+QVariantMap AppController::clipAnimationPreviewSample(const QString &presetId, double progress) const
+{
+    const std::optional<drift::ClipAnimationPreset> preset =
+        drift::ClipAnimationPresetCatalog::instance().presetForId(presetId);
+    drift::ClipAnimSample s;
+    // A unit box: offsets come back as fractions of the card, blur in px of a 1080 frame.
+    if (preset)
+        drift::applyClipAnimationPreset(*preset, progress, 1.0, 1.0, 1080.0, &s);
+    return {{QStringLiteral("dx"), s.dx},
+            {QStringLiteral("dy"), s.dy},
+            {QStringLiteral("scaleX"), s.scale * s.scaleX},
+            {QStringLiteral("scaleY"), s.scale * s.scaleY},
+            {QStringLiteral("rotation"), s.rotationDeg},
+            {QStringLiteral("rotationX"), s.rotationX},
+            {QStringLiteral("rotationY"), s.rotationY},
+            {QStringLiteral("opacity"), s.opacity},
+            {QStringLiteral("blur"), s.blurPx}};
 }
 
 double AppController::textAnimationSlotStartSeconds(int trackIndex, int clipIndex, const QString &slot) const

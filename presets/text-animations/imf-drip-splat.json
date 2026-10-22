@@ -1,0 +1,142 @@
+{
+ "format": 1,
+ "id": "imf-drip-splat",
+ "label": "Drip and splat",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2092,
+ "trending": true,
+ "defaults": {
+  "duration": 0.8,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "character",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": {
+      "value": -1.5,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -1.5
+        },
+        {
+         "timeUs": 450000,
+         "value": 0
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "unit": "em"
+    },
+    "scaleY": {
+     "value": 150,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 150
+       },
+       {
+        "timeUs": 420000,
+        "value": 135
+       },
+       {
+        "timeUs": 500000,
+        "value": 62
+       },
+       {
+        "timeUs": 640000,
+        "value": 112
+       },
+       {
+        "timeUs": 800000,
+        "value": 96
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    },
+    "scaleX": {
+     "value": 60,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 60
+       },
+       {
+        "timeUs": 420000,
+        "value": 75
+       },
+       {
+        "timeUs": 500000,
+        "value": 135
+       },
+       {
+        "timeUs": 640000,
+        "value": 92
+       },
+       {
+        "timeUs": 800000,
+        "value": 103
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 150000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

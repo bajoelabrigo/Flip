@@ -1,0 +1,141 @@
+{
+ "format": 1,
+ "id": "op-ghost-rise",
+ "label": "Ghostly fade",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2282,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.08,
+  "duration": 0.65,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -0.6,
+     "unit": "em"
+    },
+    "skew": 10,
+    "blur": 8
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 750000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.75,
+       0.0
+      ],
+      "c2": [
+       0.95,
+       0.15
+      ]
+     }
+    }
+   ],
+   "props": {
+    "fillColor": "#ffe3ecff"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "smoke",
+   "trigger": "during",
+   "rate": 9,
+   "colors": [
+    "#ffffffff",
+    "#ffe6ecff"
+   ],
+   "size": [
+    0.3,
+    0.5
+   ],
+   "speed": [
+    0.3,
+    0.6
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": -90,
+   "spread": 35,
+   "grow": 1.8,
+   "fadeIn": 0.15,
+   "origin": "top",
+   "behind": true
+  },
+  {
+   "shape": "glyph",
+   "count": 1,
+   "colors": [
+    "#ffffffff"
+   ],
+   "size": [
+    0.7,
+    0.7
+   ],
+   "speed": [
+    0.6,
+    0.6
+   ],
+   "life": [
+    1.0,
+    1.1
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 0,
+   "fadeIn": 0.2,
+   "glyph": "👻",
+   "per": "block",
+   "seed": 3
+  }
+ ]
+}

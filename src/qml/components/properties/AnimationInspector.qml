@@ -4,8 +4,9 @@ import QtQuick.Window
 import Drift
 import ".."
 
-// CapCut-style Animation: In / Out only.
-// Fade is one kind among slide/zoom/pop — same duration + style (Linear/Smooth/Natural/Custom).
+// Filmora / CapCut-style Animation: In, Out and Combo galleries of presets
+// (presets/clip-animations), plus Fade, which owns the clip's edge fade. A combo is one motion
+// that brings the clip in and takes it out; it replaces the In and Out motion.
 Item {
     id: root
 
@@ -20,15 +21,6 @@ Item {
                                              || clipKind === "shape" || clipKind === "text"
     readonly property bool supportsFade: supportsBodyAnim || clipKind === "audio"
 
-    readonly property var animKinds: [
-        "none", "fade", "slideUp", "slideDown", "slideLeft", "slideRight",
-        "zoomIn", "zoomOut", "pop", "spinCW", "spinCCW", "bounce"
-    ]
-    readonly property var animKindLabels: [
-        qsTr("None"), qsTr("Fade"), qsTr("Slide up"), qsTr("Slide down"),
-        qsTr("Slide left"), qsTr("Slide right"), qsTr("Zoom in"), qsTr("Zoom out"),
-        qsTr("Pop"), qsTr("Spin CW"), qsTr("Spin CCW"), qsTr("Bounce")
-    ]
     readonly property var styleIds: ["linear", "smooth", "equalPower", "custom", "bezier"]
     readonly property var styleLabels: [qsTr("Linear"), qsTr("Smooth"), qsTr("Natural"), qsTr("Custom"), qsTr("Bezier")]
 
@@ -44,19 +36,65 @@ Item {
                ? clipData.animOut
                : { kind: "none", duration: 0.5, curve: "smooth" }
     }
+    readonly property var animCombo: {
+        void clipDataRevision
+        return (clipData && clipData.animCombo)
+               ? clipData.animCombo
+               : { kind: "none", duration: 0, curve: "smooth" }
+    }
+
+    // ----- Gallery -----------------------------------------------------------------------
+    property string animTab: "in"
+    property string animCategory: ""
+    readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
+    readonly property var currentAnim: animTab === "in" ? animIn : animTab === "out" ? animOut : animCombo
+    readonly property bool currentSlotActive: !!currentAnim && (currentAnim.kind || "none") !== "none"
+    readonly property var animPresets: EditorState.clipAnimationPresets(animTab)
+    readonly property var animCategories: EditorState.clipAnimationCategories(animTab)
+    // The kinds that came before the presets, matched to the preset that replaced each.
+    readonly property var legacyPreset: ({
+        "slideUp": "slide-up", "slideDown": "slide-down", "slideLeft": "slide-left", "slideRight": "slide-right",
+        "zoomIn": "zoom-in", "zoomOut": "zoom-out", "pop": "pop", "spinCW": "spin-cw", "spinCCW": "spin-ccw",
+        "bounce": "bounce"
+    })
+    readonly property var animTileModel: {
+        const filtered = animCategory.length === 0 ? animPresets
+                       : animCategory === "trending" ? animPresets.filter(p => p.trending)
+                       : animPresets.filter(p => p.category === animCategory)
+        const tiles = [{ "label": qsTr("None") }]
+        if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic"))
+            tiles.push({ "kind": "fade", "label": qsTr("Fade"), "duration": 0.5 })
+        for (let i = 0; i < filtered.length; ++i)
+            tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration })
+        return tiles
+    }
+
+    function isTileSelected(tile) {
+        const a = root.currentAnim || {}
+        const kind = a.kind || "none"
+        if (tile.preset)
+            return kind === "preset" ? a.preset === tile.preset
+                                     : root.animTab + "-" + root.legacyPreset[kind] === tile.preset
+        if (tile.kind)
+            return kind === tile.kind
+        return kind === "none"
+    }
+
+    function pickTile(tile) {
+        if (tile.preset) {
+            root.setAnim(root.slotKey, { preset: tile.preset })
+        } else if (tile.kind) {
+            root.setAnim(root.slotKey, { kind: tile.kind, preset: "", duration: root.currentAnim.duration || 0.5 })
+        } else {
+            root.setAnim(root.slotKey, { kind: "none", preset: "" })
+        }
+    }
 
     height: column.height
     implicitHeight: column.height
 
     function setAnim(which, patch) {
         EditorState.setClipAnimation(EditorState.selectedTrack, EditorState.selectedClip, which, patch)
-    }
-
-    function applyBoth(kind) {
-        const curve = kind === "none" ? "smooth" : (root.animIn.curve || "smooth")
-        const duration = 0.5
-        root.setAnim("animIn", { kind: kind, duration: duration, curve: curve })
-        root.setAnim("animOut", { kind: kind, duration: duration, curve: curve })
     }
 
     function styleIndexFor(anim) {
@@ -75,12 +113,8 @@ Item {
     }
 
     function refreshFields() {
-        if (root.supportsBodyAnim) {
-            if (animInDurationField && !animInDurationField.activeFocus)
-                animInDurationField.value = root.animIn.duration || 0.5
-            if (animOutDurationField && !animOutDurationField.activeFocus)
-                animOutDurationField.value = root.animOut.duration || 0.5
-        }
+        if (root.supportsBodyAnim && animDurationField && !animDurationField.activeFocus)
+            animDurationField.value = root.currentAnim.duration || 0
         if (root.clipKind === "audio") {
             if (audioFadeInField && !audioFadeInField.activeFocus)
                 audioFadeInField.value = root.clipData.fadeIn || 0
@@ -97,6 +131,7 @@ Item {
     }
 
     Component.onCompleted: refreshFields()
+    onAnimTabChanged: refreshFields()
 
     Column {
         id: column
@@ -179,114 +214,137 @@ Item {
             }
         }
 
-        // ----- Visual: CapCut In / Out -----------------------------------------------------
-        Text {
+        // ----- Visual: Filmora's In / Out / Combo gallery ---------------------------------
+        Row {
             visible: root.supportsBodyAnim
-            width: parent.width
-            wrapMode: Text.WordWrap
-            text: qsTr("Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-        }
-
-        Flow {
-            visible: root.supportsBodyAnim
-            width: parent.width
-            spacing: 6
+            spacing: Theme.spacingSm
 
             Repeater {
                 model: [
-                    { label: qsTr("Fade"), kind: "fade" },
-                    { label: qsTr("Slide up"), kind: "slideUp" },
-                    { label: qsTr("Pop"), kind: "pop" },
-                    { label: qsTr("Zoom in"), kind: "zoomIn" },
-                    { label: qsTr("Bounce"), kind: "bounce" },
-                    { label: qsTr("Clear"), kind: "none" }
+                    { "id": "in", "label": qsTr("In") },
+                    { "id": "out", "label": qsTr("Out") },
+                    { "id": "combo", "label": qsTr("Combo") }
                 ]
-                delegate: ThemedChip {
+                delegate: ThemedToggleButton {
                     required property var modelData
+                    width: 76
                     text: modelData.label
-                    selected: modelData.kind !== "none"
-                              && root.animIn.kind === modelData.kind
-                              && root.animOut.kind === modelData.kind
-                    onClicked: root.applyBoth(modelData.kind)
+                    checked: root.animTab === modelData.id
+                    onClicked: {
+                        root.animTab = modelData.id
+                        root.animCategory = ""
+                    }
                 }
             }
         }
 
-        Text {
-            visible: root.supportsBodyAnim
-            text: qsTr("In")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
+        Flickable {
+            visible: root.supportsBodyAnim && root.animCategories.length > 0
+            width: parent.width
+            height: Theme.controlHeightSm
+            contentWidth: animCategoryRow.width
+            flickableDirection: Flickable.HorizontalFlick
+            boundsBehavior: Flickable.StopAtBounds
+            clip: true
+            interactive: contentWidth > width
+
+            Row {
+                id: animCategoryRow
+                height: parent.height
+                spacing: Theme.spacingSm
+
+                ThemedChip {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("All")
+                    variant: "secondary"
+                    selected: root.animCategory.length === 0
+                    onClicked: root.animCategory = ""
+                }
+
+                Repeater {
+                    model: root.animCategories
+                    delegate: ThemedChip {
+                        required property var modelData
+                        required property int index
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: modelData.label
+                        variant: "secondary"
+                        accentColor: Theme.categoryColor(index)
+                        selected: root.animCategory === modelData.id
+                        onClicked: root.animCategory = modelData.id
+                    }
+                }
+            }
         }
 
-        Row {
+        Grid {
+            id: animGrid
             visible: root.supportsBodyAnim
+            width: parent.width
+            readonly property real gap: Theme.spacingMd
+            columns: Math.max(3, Math.floor((width + gap) / (76 + gap)))
+            columnSpacing: gap
+            rowSpacing: gap
+            readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
+
+            Repeater {
+                model: root.animTileModel
+                delegate: ClipAnimPresetTile {
+                    required property var modelData
+                    slot: root.animTab
+                    presetId: modelData.preset || ""
+                    kind: modelData.kind || ""
+                    label: modelData.label
+                    seconds: modelData.duration || 0.6
+                    tileWidth: animGrid.tileWidth
+                    selected: root.isTileSelected(modelData)
+                    playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)
+                    onClicked: root.pickTile(modelData)
+                }
+            }
+        }
+
+        // The picked animation's length and style.
+        Row {
+            visible: root.supportsBodyAnim && root.currentSlotActive
             width: parent.width
             spacing: 6
 
-            ThemedComboBox {
-                width: Math.max(40, (parent.width - parent.spacing * 2 - 56) / 2)
-                model: root.animKindLabels
-                currentIndex: Math.max(0, root.animKinds.indexOf(root.animIn.kind || "none"))
-                onActivated: root.setAnim("animIn", { kind: root.animKinds[currentIndex] })
-            }
-            ThemedComboBox {
-                width: Math.max(40, (parent.width - parent.spacing * 2 - 56) / 2)
-                model: root.styleLabels
-                currentIndex: root.styleIndexFor(root.animIn)
-                onActivated: (index) => root.setStyle("animIn", index)
+            Text {
+                width: 72
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Duration")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
             }
             ThemedNumberField {
-                id: animInDurationField
-                to: 10
+                id: animDurationField
+                width: 76
+                to: root.animTab === "combo" ? Math.max(0.1, root.clipData.duration || 1) : 10
                 unit: "s"
-                width: 56
                 decimals: 2
                 step: 0.05
                 from: 0
-                onEdited: v => root.setAnim("animIn", { duration: v })
+                onEdited: v => root.setAnim(root.slotKey, { duration: v })
+            }
+            ThemedComboBox {
+                visible: root.animTab !== "combo"
+                width: Math.max(60, parent.width - 72 - 76 - parent.spacing * 3)
+                model: root.styleLabels
+                currentIndex: root.styleIndexFor(root.currentAnim)
+                onActivated: (index) => root.setStyle(root.slotKey, index)
             }
         }
 
         Text {
-            visible: root.supportsBodyAnim
-            text: qsTr("Out")
+            visible: root.supportsBodyAnim && root.animTab === "combo" && root.currentSlotActive
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr("0 s plays the combo over the whole clip. A combo replaces the In and Out motion.")
             color: Theme.mutedForeground
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
-        }
-
-        Row {
-            visible: root.supportsBodyAnim
-            width: parent.width
-            spacing: 6
-
-            ThemedComboBox {
-                width: Math.max(40, (parent.width - parent.spacing * 2 - 56) / 2)
-                model: root.animKindLabels
-                currentIndex: Math.max(0, root.animKinds.indexOf(root.animOut.kind || "none"))
-                onActivated: root.setAnim("animOut", { kind: root.animKinds[currentIndex] })
-            }
-            ThemedComboBox {
-                width: Math.max(40, (parent.width - parent.spacing * 2 - 56) / 2)
-                model: root.styleLabels
-                currentIndex: root.styleIndexFor(root.animOut)
-                onActivated: (index) => root.setStyle("animOut", index)
-            }
-            ThemedNumberField {
-                id: animOutDurationField
-                to: 10
-                unit: "s"
-                width: 56
-                decimals: 2
-                step: 0.05
-                from: 0
-                onEdited: v => root.setAnim("animOut", { duration: v })
-            }
         }
 
         ThemedButton {

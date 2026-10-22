@@ -1,0 +1,129 @@
+{
+ "format": 1,
+ "id": "ipb-power-aura",
+ "label": "Power aura",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2201,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.6,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 88,
+    "position": {
+     "x": 0,
+     "y": 0.1,
+     "unit": "em"
+    }
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1800000.0
+     },
+     "ease": "easeOut"
+    }
+   ],
+   "props": {
+    "fillColor": "#ffffd84a"
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1800000.0
+     },
+     "ease": "{ease}"
+    }
+   ],
+   "props": {
+    "strokeColor": "#ffffae00"
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 22,
+   "colors": [
+    "#ffffe27a",
+    "#ffffbf2e",
+    "#fffff3c4"
+   ],
+   "size": [
+    0.06,
+    0.14
+   ],
+   "speed": [
+    0.3,
+    0.7
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "angle": -90,
+   "spread": 40,
+   "drag": 1.0,
+   "glow": 1.0,
+   "grow": 0.3,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true,
+   "behind": true
+  }
+ ]
+}

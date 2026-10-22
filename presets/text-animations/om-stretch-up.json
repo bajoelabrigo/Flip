@@ -1,0 +1,56 @@
+{
+ "format": 1,
+ "id": "om-stretch-up",
+ "label": "Stretch up and thin out",
+ "category": "fluid",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2250,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.5,
+  "ease": "smooth",
+  "order": "centerOut"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleY": 280,
+    "scaleX": 35,
+    "position": {
+     "x": 0,
+     "y": -0.9,
+     "unit": "em"
+    },
+    "blur": 6
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 600000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

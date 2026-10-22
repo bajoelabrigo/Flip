@@ -1,0 +1,56 @@
+{
+ "format": 1,
+ "id": "om-stretch-away",
+ "label": "Stretch away",
+ "category": "stylized",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2256,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.03,
+  "duration": 0.4,
+  "ease": "easeOut",
+  "order": "backward"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scaleX": 300,
+    "scaleY": 25,
+    "position": {
+     "x": 1.6,
+     "y": 0,
+     "unit": "em"
+    },
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ]
+}

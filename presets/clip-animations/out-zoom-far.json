@@ -1,0 +1,1 @@
+{"format":1,"id":"out-zoom-far","label":"From far away","category":"zoom","slots":["out"],"order":19,"duration":0.8,"keys":{"scale":[[0,100,"easeIn"],[1,15,"easeInOut"]],"opacity":[[0.7,100,"linear"],[1,0,"easeInOut"]]}}

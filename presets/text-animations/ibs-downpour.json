@@ -1,0 +1,109 @@
+{
+ "format": 1,
+ "id": "ibs-downpour",
+ "label": "Letter downpour",
+ "category": "build",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2001,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.05,
+  "duration": 0.45,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "position": {
+     "x": 0,
+     "y": -3.0,
+     "unit": "em"
+    },
+    "scaleY": 230,
+    "scaleX": 70,
+    "blur": 5
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 300000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "dot",
+   "count": 8,
+   "colors": [
+    "#ffbfe9ff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.02,
+    0.045
+   ],
+   "speed": [
+    0.8,
+    1.6
+   ],
+   "life": [
+    0.25,
+    0.45
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 150,
+   "gravity": 7.0,
+   "origin": "bottom"
+  }
+ ]
+}

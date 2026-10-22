@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-zoom-dolly","label":"Dolly","category":"zoom","slots":["combo"],"order":18,"duration":0,"keys":{"scale":[[0.0,60,"easeOut"],[0.18,100,"linear"],[0.82,125,"easeInOut"],[1.0,60,"easeInOut"]],"opacity":[[0.0,0,"linear"],[0.081,100,"easeInOut"],[0.18,100,"linear"],[0.82,100,"linear"],[0.919,100,"linear"],[1.0,0,"easeInOut"]]}}

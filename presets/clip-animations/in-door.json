@@ -1,0 +1,1 @@
+{"format":1,"id":"in-door","label":"Door","category":"3d","slots":["in"],"order":29,"duration":0.8,"keys":{"rotationY":[[0,85,"easeOut"],[1,0,"easeInOut"]],"x":[[0,0.25,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.3,100,"easeInOut"]]}}

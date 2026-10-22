@@ -1,0 +1,1 @@
+{"format":1,"id":"in-roll-in","label":"Roll in","category":"spin","slots":["in"],"order":24,"duration":0.8,"keys":{"x":[[0,-1,"easeOut"],[1,0,"easeInOut"]],"rotation":[[0,-360,"easeOut"],[1,0,"easeInOut"]]}}

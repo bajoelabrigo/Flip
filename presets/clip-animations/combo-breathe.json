@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-breathe","label":"Breathe","category":"dynamic","slots":["combo"],"order":5,"duration":0,"keys":{"scale":[[0.0,105,"easeInOut"],[0.1429,110,"easeInOut"],[0.2857,100,"easeInOut"],[0.4286,110,"easeInOut"],[0.5714,100,"easeInOut"],[0.7143,110,"easeInOut"],[0.8571,100,"easeInOut"],[1.0,105,"easeInOut"]]}}

@@ -1,0 +1,134 @@
+{
+ "format": 1,
+ "id": "ipa-firework-words",
+ "label": "Firework words",
+ "category": "particles",
+ "sampleText": "BIG NEWS",
+ "slots": [
+  "in"
+ ],
+ "order": 2145,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.3,
+  "duration": 0.35,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.2,
+       2.1
+      ],
+      "c2": [
+       0.45,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "scale": 20
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 450000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "spark",
+   "count": 6,
+   "colors": [
+    "#ffff4d6d",
+    "#ff2ec4ff",
+    "#ffffe14d",
+    "#ffff5fd2"
+   ],
+   "size": [
+    0.04,
+    0.08
+   ],
+   "speed": [
+    2.0,
+    3.4
+   ],
+   "life": [
+    0.45,
+    0.8
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.6,
+   "drag": 2.2,
+   "glow": 0.6,
+   "additive": true
+  },
+  {
+   "shape": "dot",
+   "count": 5,
+   "colors": [
+    "#ffffffff",
+    "#fffff1b8"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    0.6,
+    1.4
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "at": 1.0,
+   "angle": -90.0,
+   "spread": 360,
+   "gravity": 1.2,
+   "drag": 1.5,
+   "glow": 0.5,
+   "additive": true,
+   "seed": 3
+  }
+ ]
+}

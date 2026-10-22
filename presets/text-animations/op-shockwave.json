@@ -1,0 +1,108 @@
+{
+ "format": 1,
+ "id": "op-shockwave",
+ "label": "Shockwave exit",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2293,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.0,
+  "duration": 0.42,
+  "ease": "easeOut",
+  "order": "centerOut"
+ },
+ "flags": {
+  "orderLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 0,
+    "blur": 10
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "ring",
+   "count": 3,
+   "colors": [
+    "#ffffffff",
+    "#ffcfe8ff"
+   ],
+   "size": [
+    0.8,
+    1.6
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "life": [
+    0.45,
+    0.7
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.3,
+   "grow": 3.5,
+   "per": "block"
+  },
+  {
+   "shape": "spark",
+   "count": 20,
+   "colors": [
+    "#ffffffff",
+    "#ffcfe8ff"
+   ],
+   "size": [
+    0.03,
+    0.05
+   ],
+   "speed": [
+    3.0,
+    5.0
+   ],
+   "life": [
+    0.25,
+    0.45
+   ],
+   "at": 0.0,
+   "angle": -90.0,
+   "spread": 360,
+   "drag": 2.5,
+   "additive": true,
+   "per": "block",
+   "seed": 4
+  }
+ ]
+}

@@ -1,0 +1,140 @@
+{
+ "format": 1,
+ "id": "im-hinge-swing",
+ "label": "Swing on a hinge",
+ "category": "motion",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2126,
+ "defaults": {
+  "duration": 1.0,
+  "unit": "block",
+  "ease": "linear"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "curves",
+     "domain": "block",
+     "units": "percent",
+     "shape": "square",
+     "start": 0.0,
+     "end": 100.0
+    }
+   ],
+   "props": {
+    "rotation": {
+     "value": -55,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": -55
+       },
+       {
+        "timeUs": 350000,
+        "value": 20
+       },
+       {
+        "timeUs": 580000,
+        "value": -9
+       },
+       {
+        "timeUs": 780000,
+        "value": 4
+       },
+       {
+        "timeUs": 900000,
+        "value": -1.5
+       },
+       {
+        "timeUs": 1000000,
+        "value": 0
+       }
+      ]
+     }
+    },
+    "position": {
+     "x": {
+      "value": -0.25,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -0.25
+        },
+        {
+         "timeUs": 350000,
+         "value": 0.09
+        },
+        {
+         "timeUs": 580000,
+         "value": -0.04
+        },
+        {
+         "timeUs": 780000,
+         "value": 0.015
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "y": {
+      "value": -0.12,
+      "curve": {
+       "keyframes": [
+        {
+         "timeUs": 0,
+         "value": -0.12
+        },
+        {
+         "timeUs": 350000,
+         "value": -0.015
+        },
+        {
+         "timeUs": 580000,
+         "value": -0.006
+        },
+        {
+         "timeUs": 1000000,
+         "value": 0
+        }
+       ]
+      }
+     },
+     "unit": "box"
+    },
+    "opacity": {
+     "value": 0,
+     "curve": {
+      "keyframes": [
+       {
+        "timeUs": 0,
+        "value": 0
+       },
+       {
+        "timeUs": 150000,
+        "value": 100
+       },
+       {
+        "timeUs": 1000000,
+        "value": 100
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

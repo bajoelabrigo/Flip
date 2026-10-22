@@ -1,0 +1,1 @@
+{"format":1,"id":"out-flip-x","label":"Flip down","category":"3d","slots":["out"],"order":27,"duration":0.6,"keys":{"rotationX":[[0,0,"easeIn"],[1,-90,"easeInOut"]],"opacity":[[0.8,100,"linear"],[1,0,"easeInOut"]]}}

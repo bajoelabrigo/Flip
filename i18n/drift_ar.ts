@@ -2619,46 +2619,6 @@
         <translation>تلاشٍ</translation>
     </message>
     <message>
-        <source>Slide up</source>
-        <translation>انزلاق للأعلى</translation>
-    </message>
-    <message>
-        <source>Slide down</source>
-        <translation>انزلاق للأسفل</translation>
-    </message>
-    <message>
-        <source>Slide left</source>
-        <translation>انزلاق لليسار</translation>
-    </message>
-    <message>
-        <source>Slide right</source>
-        <translation>انزلاق لليمين</translation>
-    </message>
-    <message>
-        <source>Zoom in</source>
-        <translation>تكبير</translation>
-    </message>
-    <message>
-        <source>Zoom out</source>
-        <translation>تصغير</translation>
-    </message>
-    <message>
-        <source>Pop</source>
-        <translation>انبثاق</translation>
-    </message>
-    <message>
-        <source>Spin CW</source>
-        <translation>دوران باتجاه عقارب الساعة</translation>
-    </message>
-    <message>
-        <source>Spin CCW</source>
-        <translation>دوران عكس عقارب الساعة</translation>
-    </message>
-    <message>
-        <source>Bounce</source>
-        <translation>ارتداد</translation>
-    </message>
-    <message>
         <source>Linear</source>
         <translation>خطي</translation>
     </message>
@@ -2695,20 +2655,28 @@
         <translation>النمط</translation>
     </message>
     <message>
-        <source>Pick how the clip enters and leaves. Fade is one option — same style controls as slide or zoom.</source>
-        <translation>اختر كيفية دخول المقطع وخروجه. التلاشي هو أحد الخيارات — تتوفر نفس عناصر التحكم بالنمط مثل الانزلاق أو التكبير والتصغير.</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>مسح</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>دخول</translation>
     </message>
     <message>
         <source>Out</source>
         <translation>خروج</translation>
+    </message>
+    <message>
+        <source>Combo</source>
+        <translation>مدمج</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>الكل</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>المدة</translation>
+    </message>
+    <message>
+        <source>0 s plays the combo over the whole clip. A combo replaces the In and Out motion.</source>
+        <translation>مع 0 ث، يمتد التحريك المدمج على المقطع كله. يحل التحريك المدمج محل حركة الدخول والخروج.</translation>
     </message>
     <message>
         <source>Edit custom curve…</source>
@@ -5094,6 +5062,78 @@
     <message>
         <source>Nothing on this device can share that file</source>
         <translation>لا يوجد شيء على هذا الجهاز يمكنه مشاركة ذلك الملف</translation>
+    </message>
+    <message>
+        <source>Motion</source>
+        <translation>حركة</translation>
+    </message>
+    <message>
+        <source>Motion &amp; path</source>
+        <translation>حركة ومسار</translation>
+    </message>
+    <message>
+        <source>Hide &amp; mask</source>
+        <translation>إخفاء وقناع</translation>
+    </message>
+    <message>
+        <source>Mask &amp; reveal</source>
+        <translation>قناع وكشف</translation>
+    </message>
+    <message>
+        <source>Fluid</source>
+        <translation>انسيابي</translation>
+    </message>
+    <message>
+        <source>Staggered</source>
+        <translation>متتابع</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation>بناء</translation>
+    </message>
+    <message>
+        <source>Stylized</source>
+        <translation>منمّق</translation>
+    </message>
+    <message>
+        <source>Particles</source>
+        <translation>جزيئات</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>رائج</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>انزلاق</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>تكبير</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>دوران</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>ارتداد</translation>
+    </message>
+    <message>
+        <source>3D</source>
+        <translation>3D</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ضبابية</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>غليتش</translation>
+    </message>
+    <message>
+        <source>Dynamic</source>
+        <translation>ديناميكي</translation>
     </message>
     <message>
         <source>Choose an animation first</source>
@@ -9588,6 +9628,936 @@
         <translation>الانحراف</translation>
     </message>
     <message>
+        <source>Alternating strobe</source>
+        <translation>وميض متناوب</translation>
+    </message>
+    <message>
+        <source>ABCD</source>
+        <translation>ABCD</translation>
+    </message>
+    <message>
+        <source>Card turn per letter</source>
+        <translation>بطاقات تدور لكل حرف</translation>
+    </message>
+    <message>
+        <source>Bloom from the centre</source>
+        <translation>تفتّح من المركز</translation>
+    </message>
+    <message>
+        <source>Chromatic pop</source>
+        <translation>بوب لوني</translation>
+    </message>
+    <message>
+        <source>Colour sweep in</source>
+        <translation>مسح لوني للدخول</translation>
+    </message>
+    <message>
+        <source>Comic pop with tilt</source>
+        <translation>بوب كوميكس مائل</translation>
+    </message>
+    <message>
+        <source>BAM! POW!</source>
+        <translation>بام! باو!</translation>
+    </message>
+    <message>
+        <source>Deck spread</source>
+        <translation>أوراق لعب تنفتح</translation>
+    </message>
+    <message>
+        <source>Tumbling dice</source>
+        <translation>نرد يتدحرج</translation>
+    </message>
+    <message>
+        <source>Digital decode</source>
+        <translation>فك تشفير رقمي</translation>
+    </message>
+    <message>
+        <source>Domino stand-up</source>
+        <translation>دومينو ينهض</translation>
+    </message>
+    <message>
+        <source>Letter downpour</source>
+        <translation>مطر من الحروف</translation>
+    </message>
+    <message>
+        <source>Drop from the end</source>
+        <translation>سقوط من النهاية</translation>
+    </message>
+    <message>
+        <source>Glitch burst in</source>
+        <translation>دخول غليتش</translation>
+    </message>
+    <message>
+        <source>Glow bloom</source>
+        <translation>توهج يتفتّح</translation>
+    </message>
+    <message>
+        <source>Heat haze clearing</source>
+        <translation>حرارة تنقشع</translation>
+    </message>
+    <message>
+        <source>Hologram boot</source>
+        <translation>هولوغرام يعمل</translation>
+    </message>
+    <message>
+        <source>Ink blot settle</source>
+        <translation>بقعة حبر تستقر</translation>
+    </message>
+    <message>
+        <source>Lines from both sides</source>
+        <translation>خطوط من الجانبين</translation>
+    </message>
+    <message>
+        <source>LINE ONE
+LINE TWO</source>
+        <translation>السطر الأول
+السطر الثاني</translation>
+    </message>
+    <message>
+        <source>Neon tube strike</source>
+        <translation>أنبوب نيون يضيء</translation>
+    </message>
+    <message>
+        <source>Outline then fill</source>
+        <translation>حدود ثم تعبئة</translation>
+    </message>
+    <message>
+        <source>Pancake pop</source>
+        <translation>بوب مسطّح</translation>
+    </message>
+    <message>
+        <source>Pinwheel letters</source>
+        <translation>حروف مروحة</translation>
+    </message>
+    <message>
+        <source>Rainbow letters settling</source>
+        <translation>حروف قوس قزح تستقر</translation>
+    </message>
+    <message>
+        <source>Roll up from the floor</source>
+        <translation>تنهض من الأرض</translation>
+    </message>
+    <message>
+        <source>Scanline print</source>
+        <translation>طباعة بخطوط المسح</translation>
+    </message>
+    <message>
+        <source>Scatter and gather</source>
+        <translation>تتبعثر ثم تجتمع</translation>
+    </message>
+    <message>
+        <source>Golden shimmer reveal</source>
+        <translation>كشف ذهبي لامع</translation>
+    </message>
+    <message>
+        <source>Skewed side swap</source>
+        <translation>انزلاق جانبي مائل</translation>
+    </message>
+    <message>
+        <source>Skew snap</source>
+        <translation>ضربة مائلة</translation>
+    </message>
+    <message>
+        <source>SNAP TO IT</source>
+        <translation>هيا بسرعة!</translation>
+    </message>
+    <message>
+        <source>Slam from the lens</source>
+        <translation>ضربة من العدسة</translation>
+    </message>
+    <message>
+        <source>Soft-fade typing</source>
+        <translation>كتابة بتلاشٍ ناعم</translation>
+    </message>
+    <message>
+        <source>Staircase rise</source>
+        <translation>درج من الحروف</translation>
+    </message>
+    <message>
+        <source>Two-tone settle</source>
+        <translation>لونان يستقران</translation>
+    </message>
+    <message>
+        <source>VHS tracking</source>
+        <translation>إشارة VHS</translation>
+    </message>
+    <message>
+        <source>Word by word stamp</source>
+        <translation>ختم كلمة بكلمة</translation>
+    </message>
+    <message>
+        <source>BIG BOLD NEWS</source>
+        <translation>أخبار كبيرة</translation>
+    </message>
+    <message>
+        <source>Zipper</source>
+        <translation>سحّاب</translation>
+    </message>
+    <message>
+        <source>Amber terminal block</source>
+        <translation>مؤشر طرفية كهرماني</translation>
+    </message>
+    <message>
+        <source>Arrow cursor slide</source>
+        <translation>مؤشر سهم ينزلق</translation>
+    </message>
+    <message>
+        <source>Spinning asterisk cursor</source>
+        <translation>مؤشر نجمة يدور</translation>
+    </message>
+    <message>
+        <source>Typing with lightning</source>
+        <translation>كتابة مع برق</translation>
+    </message>
+    <message>
+        <source>Burst cursor pops</source>
+        <translation>مؤشر انفجار</translation>
+    </message>
+    <message>
+        <source>Typing from the centre</source>
+        <translation>كتابة من المركز</translation>
+    </message>
+    <message>
+        <source>Check mark typing</source>
+        <translation>كتابة مع علامة صح</translation>
+    </message>
+    <message>
+        <source>Green chevron cursor</source>
+        <translation>مؤشر زاوية أخضر</translation>
+    </message>
+    <message>
+        <source>Cyan cursor with falling letters</source>
+        <translation>مؤشر سماوي وحروف تسقط</translation>
+    </message>
+    <message>
+        <source>Diamond cursor shards</source>
+        <translation>مؤشر ماسي بشظايا</translation>
+    </message>
+    <message>
+        <source>Bouncing dot cursor</source>
+        <translation>مؤشر نقطة تقفز</translation>
+    </message>
+    <message>
+        <source>Water drop typing</source>
+        <translation>كتابة مع قطرة ماء</translation>
+    </message>
+    <message>
+        <source>Rapid magenta typing</source>
+        <translation>كتابة سريعة أرجوانية</translation>
+    </message>
+    <message>
+        <source>Fire cursor typing</source>
+        <translation>كتابة مع مؤشر ناري</translation>
+    </message>
+    <message>
+        <source>Blooming typing</source>
+        <translation>كتابة تتفتّح</translation>
+    </message>
+    <message>
+        <source>Typing with a gold star</source>
+        <translation>كتابة مع نجمة ذهبية</translation>
+    </message>
+    <message>
+        <source>Green terminal block</source>
+        <translation>مؤشر طرفية أخضر</translation>
+    </message>
+    <message>
+        <source>Hashtag cursor</source>
+        <translation>مؤشر هاشتاغ</translation>
+    </message>
+    <message>
+        <source>Typing with hearts</source>
+        <translation>كتابة مع قلوب</translation>
+    </message>
+    <message>
+        <source>Microphone typing</source>
+        <translation>كتابة مع ميكروفون</translation>
+    </message>
+    <message>
+        <source>Moonlit typing</source>
+        <translation>كتابة تحت ضوء القمر</translation>
+    </message>
+    <message>
+        <source>Neon trail typing</source>
+        <translation>كتابة بأثر نيون</translation>
+    </message>
+    <message>
+        <source>Musical note typing</source>
+        <translation>كتابة موسيقية</translation>
+    </message>
+    <message>
+        <source>Pencil writing</source>
+        <translation>كتابة بالقلم الرصاص</translation>
+    </message>
+    <message>
+        <source>Play button cursor</source>
+        <translation>مؤشر زر التشغيل</translation>
+    </message>
+    <message>
+        <source>Plus cursor with flips</source>
+        <translation>مؤشر زائد مع قلب</translation>
+    </message>
+    <message>
+        <source>Red cursor typing</source>
+        <translation>كتابة بمؤشر أحمر</translation>
+    </message>
+    <message>
+        <source>Rocket typing</source>
+        <translation>كتابة مع صاروخ</translation>
+    </message>
+    <message>
+        <source>Slash cursor tilt</source>
+        <translation>مؤشر شرطة مائلة</translation>
+    </message>
+    <message>
+        <source>Slow thoughtful typing</source>
+        <translation>كتابة متأنية</translation>
+    </message>
+    <message>
+        <source>Snowflake typing</source>
+        <translation>كتابة مع ندفة ثلج</translation>
+    </message>
+    <message>
+        <source>Sparkle typing</source>
+        <translation>كتابة مع بريق</translation>
+    </message>
+    <message>
+        <source>Tumbling square cursor</source>
+        <translation>مؤشر مربع يدور</translation>
+    </message>
+    <message>
+        <source>Underscore typing with focus</source>
+        <translation>شرطة سفلية مع تركيز</translation>
+    </message>
+    <message>
+        <source>Word by word typing</source>
+        <translation>كتابة كلمة بكلمة</translation>
+    </message>
+    <message>
+        <source>TYPE IT OUT</source>
+        <translation>اكتبها</translation>
+    </message>
+    <message>
+        <source>Thick yellow cursor pop</source>
+        <translation>مؤشر أصفر عريض يرتد</translation>
+    </message>
+    <message>
+        <source>Arc up from below</source>
+        <translation>قوس من الأسفل</translation>
+    </message>
+    <message>
+        <source>Arc in from the left</source>
+        <translation>قوس من اليسار</translation>
+    </message>
+    <message>
+        <source>3D swing open</source>
+        <translation>تأرجح ثلاثي الأبعاد</translation>
+    </message>
+    <message>
+        <source>Boomerang return</source>
+        <translation>بوميرانغ</translation>
+    </message>
+    <message>
+        <source>Letters drop and bounce</source>
+        <translation>حروف تسقط وترتد</translation>
+    </message>
+    <message>
+        <source>Card turn</source>
+        <translation>قلب البطاقة</translation>
+    </message>
+    <message>
+        <source>Close in from both sides</source>
+        <translation>تلتقي من الجانبين</translation>
+    </message>
+    <message>
+        <source>Spring out of the corner</source>
+        <translation>نابض من الزاوية</translation>
+    </message>
+    <message>
+        <source>Crash down from giant</source>
+        <translation>سقوط من حجم عملاق</translation>
+    </message>
+    <message>
+        <source>Approach from depth</source>
+        <translation>اقتراب من العمق</translation>
+    </message>
+    <message>
+        <source>Diagonal dive from the top left</source>
+        <translation>انقضاض قطري من الأعلى</translation>
+    </message>
+    <message>
+        <source>Doors open by word</source>
+        <translation>أبواب لكل كلمة</translation>
+    </message>
+    <message>
+        <source>GO BIG NOW</source>
+        <translation>بشكل كبير الآن</translation>
+    </message>
+    <message>
+        <source>Drift into focus</source>
+        <translation>تطفو حتى تتضح</translation>
+    </message>
+    <message>
+        <source>Falling leaf</source>
+        <translation>ورقة تسقط</translation>
+    </message>
+    <message>
+        <source>Flip down into place</source>
+        <translation>قلب للأسفل في مكانه</translation>
+    </message>
+    <message>
+        <source>Full letter flip</source>
+        <translation>قلب كامل للحروف</translation>
+    </message>
+    <message>
+        <source>Hanging letters swing in</source>
+        <translation>حروف معلّقة تتأرجح</translation>
+    </message>
+    <message>
+        <source>Swing on a hinge</source>
+        <translation>تأرجح على مفصل</translation>
+    </message>
+    <message>
+        <source>Jump up and squash</source>
+        <translation>قفزة وانضغاط</translation>
+    </message>
+    <message>
+        <source>Leaning sprint from the right</source>
+        <translation>اندفاع مائل من اليمين</translation>
+    </message>
+    <message>
+        <source>Lines turn like blinds</source>
+        <translation>خطوط تدور كالستائر</translation>
+    </message>
+    <message>
+        <source>NEW
+DROP</source>
+        <translation>إصدار
+جديد</translation>
+    </message>
+    <message>
+        <source>Motion-blur sweep</source>
+        <translation>مسح بضبابية حركة</translation>
+    </message>
+    <message>
+        <source>Orbit in by letter</source>
+        <translation>مدار لكل حرف</translation>
+    </message>
+    <message>
+        <source>Word push from the left</source>
+        <translation>دفع الكلمات من اليسار</translation>
+    </message>
+    <message>
+        <source>Roll in from the left</source>
+        <translation>تدحرج من اليسار</translation>
+    </message>
+    <message>
+        <source>Turn in from the side</source>
+        <translation>دوران من الجانب</translation>
+    </message>
+    <message>
+        <source>Skid to a stop</source>
+        <translation>انزلاق حتى التوقف</translation>
+    </message>
+    <message>
+        <source>Spiral into place</source>
+        <translation>حلزون نحو المكان</translation>
+    </message>
+    <message>
+        <source>Stretched rise by line</source>
+        <translation>صعود ممدود لكل سطر</translation>
+    </message>
+    <message>
+        <source>Thrown in a parabola</source>
+        <translation>قذف في قوس</translation>
+    </message>
+    <message>
+        <source>Words drop with a tilt</source>
+        <translation>كلمات تسقط مائلة</translation>
+    </message>
+    <message>
+        <source>Tumbling letters</source>
+        <translation>حروف تسقط متقلبة</translation>
+    </message>
+    <message>
+        <source>Unfold from the centre</source>
+        <translation>انفتاح من المركز</translation>
+    </message>
+    <message>
+        <source>Blown in by the wind</source>
+        <translation>يحملها الريح</translation>
+    </message>
+    <message>
+        <source>Words flip up</source>
+        <translation>كلمات تنقلب للأعلى</translation>
+    </message>
+    <message>
+        <source>Words from far away</source>
+        <translation>كلمات من بعيد</translation>
+    </message>
+    <message>
+        <source>Emerge from behind an edge</source>
+        <translation>تظهر من خلف حافة</translation>
+    </message>
+    <message>
+        <source>Blob bloom</source>
+        <translation>بقعة تتفتّح</translation>
+    </message>
+    <message>
+        <source>Bubble pop</source>
+        <translation>فقاعة تنفجر</translation>
+    </message>
+    <message>
+        <source>Centre-out bounce drop</source>
+        <translation>ارتداد من المركز</translation>
+    </message>
+    <message>
+        <source>Centre curtain</source>
+        <translation>ستارة من المركز</translation>
+    </message>
+    <message>
+        <source>Fade through colour</source>
+        <translation>ظهور بومضة لون</translation>
+    </message>
+    <message>
+        <source>Dangling letters</source>
+        <translation>حروف متدلية</translation>
+    </message>
+    <message>
+        <source>Diagonal letter unveil</source>
+        <translation>كشف قطري للحروف</translation>
+    </message>
+    <message>
+        <source>Drip and splat</source>
+        <translation>قطرة تتناثر</translation>
+    </message>
+    <message>
+        <source>Drop-down unveil</source>
+        <translation>ستارة تنزل لكل حرف</translation>
+    </message>
+    <message>
+        <source>Feather float</source>
+        <translation>ريشة تطفو</translation>
+    </message>
+    <message>
+        <source>Gooey merge</source>
+        <translation>اندماج لزج</translation>
+    </message>
+    <message>
+        <source>Hard-edge rise</source>
+        <translation>صعود بحافة حادة</translation>
+    </message>
+    <message>
+        <source>Soft ink bleed</source>
+        <translation>حبر ينتشر بنعومة</translation>
+    </message>
+    <message>
+        <source>Jello skew shake</source>
+        <translation>اهتزاز جيلي مائل</translation>
+    </message>
+    <message>
+        <source>Jelly wobble</source>
+        <translation>جيلي لكل حرف</translation>
+    </message>
+    <message>
+        <source>Liquid rise</source>
+        <translation>صعود سائل</translation>
+    </message>
+    <message>
+        <source>Melt into shape</source>
+        <translation>ذوبان معكوس</translation>
+    </message>
+    <message>
+        <source>Outline sweep, then fill</source>
+        <translation>مسح الحدود ثم التعبئة</translation>
+    </message>
+    <message>
+        <source>Razor wipe from the right</source>
+        <translation>قطع حاد من اليمين</translation>
+    </message>
+    <message>
+        <source>Rewind erase-in</source>
+        <translation>مسح معكوس</translation>
+    </message>
+    <message>
+        <source>Rubber band snap</source>
+        <translation>شريط مطاطي</translation>
+    </message>
+    <message>
+        <source>Sharpening sweep</source>
+        <translation>مسح يزيد الوضوح</translation>
+    </message>
+    <message>
+        <source>Shutter snap</source>
+        <translation>غالق الكاميرا</translation>
+    </message>
+    <message>
+        <source>Slit opening</source>
+        <translation>شق ينفتح</translation>
+    </message>
+    <message>
+        <source>Soft sweep by word</source>
+        <translation>مسح ناعم لكل كلمة</translation>
+    </message>
+    <message>
+        <source>NEW DROP</source>
+        <translation>جديد</translation>
+    </message>
+    <message>
+        <source>Springboard words</source>
+        <translation>كلمات منطّة</translation>
+    </message>
+    <message>
+        <source>HELLO THERE</source>
+        <translation>مرحبًا بالجميع</translation>
+    </message>
+    <message>
+        <source>Springy letters</source>
+        <translation>حروف نابضية</translation>
+    </message>
+    <message>
+        <source>Squishy hop</source>
+        <translation>قفزة طرية</translation>
+    </message>
+    <message>
+        <source>Stretchy slide</source>
+        <translation>انزلاق مطاطي</translation>
+    </message>
+    <message>
+        <source>Stroke-first letters</source>
+        <translation>الحدود أولًا ثم التعبئة</translation>
+    </message>
+    <message>
+        <source>Venetian blinds</source>
+        <translation>ستائر فينيسية</translation>
+    </message>
+    <message>
+        <source>BIG
+NEWS</source>
+        <translation>خبر
+كبير</translation>
+    </message>
+    <message>
+        <source>Water ripple in</source>
+        <translation>تموج مائي</translation>
+    </message>
+    <message>
+        <source>Wavy arrival</source>
+        <translation>وصول متموج</translation>
+    </message>
+    <message>
+        <source>Words through a mask</source>
+        <translation>كلمات خلف القناع</translation>
+    </message>
+    <message>
+        <source>MADE FOR YOU</source>
+        <translation>صُنع لأجلك</translation>
+    </message>
+    <message>
+        <source>Zoom-through wipe</source>
+        <translation>مسح بالتكبير</translation>
+    </message>
+    <message>
+        <source>Balloon pop</source>
+        <translation>بالون ينفجر</translation>
+    </message>
+    <message>
+        <source>Birthday candles</source>
+        <translation>شموع عيد الميلاد</translation>
+    </message>
+    <message>
+        <source>Champagne fizz</source>
+        <translation>فوران الشمبانيا</translation>
+    </message>
+    <message>
+        <source>Comet arrival</source>
+        <translation>وصول مذنّب</translation>
+    </message>
+    <message>
+        <source>Confetti drop</source>
+        <translation>مطر من الكونفيتي</translation>
+    </message>
+    <message>
+        <source>Diamond shower</source>
+        <translation>مطر من الماس</translation>
+    </message>
+    <message>
+        <source>Disco sparkle</source>
+        <translation>بريق الديسكو</translation>
+    </message>
+    <message>
+        <source>Fairy dust trail</source>
+        <translation>أثر غبار سحري</translation>
+    </message>
+    <message>
+        <source>Falling petals</source>
+        <translation>بتلات متساقطة</translation>
+    </message>
+    <message>
+        <source>Firework words</source>
+        <translation>ألعاب نارية لكل كلمة</translation>
+    </message>
+    <message>
+        <source>BIG NEWS</source>
+        <translation>خبر عاجل</translation>
+    </message>
+    <message>
+        <source>Fireworks finale</source>
+        <translation>ختام بالألعاب النارية</translation>
+    </message>
+    <message>
+        <source>Floating hearts</source>
+        <translation>قلوب طائرة</translation>
+    </message>
+    <message>
+        <source>Glitter bomb</source>
+        <translation>قنبلة لمعان</translation>
+    </message>
+    <message>
+        <source>Glitter dust reveal</source>
+        <translation>كشف بغبار لامع</translation>
+    </message>
+    <message>
+        <source>Gold coin sparkle</source>
+        <translation>بريق العملات الذهبية</translation>
+    </message>
+    <message>
+        <source>Golden explosion</source>
+        <translation>انفجار ذهبي</translation>
+    </message>
+    <message>
+        <source>Halo ripple</source>
+        <translation>تموج الهالة</translation>
+    </message>
+    <message>
+        <source>Heart burst</source>
+        <translation>انفجار القلوب</translation>
+    </message>
+    <message>
+        <source>Sparks on landing</source>
+        <translation>شرر عند الهبوط</translation>
+    </message>
+    <message>
+        <source>Lantern glow rise</source>
+        <translation>فوانيس تصعد</translation>
+    </message>
+    <message>
+        <source>Magic poof</source>
+        <translation>بوف سحري</translation>
+    </message>
+    <message>
+        <source>Magic wand reveal</source>
+        <translation>عصا سحرية</translation>
+    </message>
+    <message>
+        <source>Party popper</source>
+        <translation>مفرقعة الحفلات</translation>
+    </message>
+    <message>
+        <source>Piñata candy burst</source>
+        <translation>بينياتا الحلوى</translation>
+    </message>
+    <message>
+        <source>Rainbow burst</source>
+        <translation>انفجار قوس قزح</translation>
+    </message>
+    <message>
+        <source>YAY PARTY</source>
+        <translation>هيا نحتفل!</translation>
+    </message>
+    <message>
+        <source>Rising bubbles</source>
+        <translation>فقاعات تصعد</translation>
+    </message>
+    <message>
+        <source>Rising notes</source>
+        <translation>نوتات تصعد</translation>
+    </message>
+    <message>
+        <source>Shimmering arrival</source>
+        <translation>وصول لامع</translation>
+    </message>
+    <message>
+        <source>Shooting star letters</source>
+        <translation>حروف كالشهب</translation>
+    </message>
+    <message>
+        <source>Snow flurry</source>
+        <translation>هبّة ثلج</translation>
+    </message>
+    <message>
+        <source>Spark fountain</source>
+        <translation>نافورة شرر</translation>
+    </message>
+    <message>
+        <source>Sparkle rain</source>
+        <translation>مطر من البريق</translation>
+    </message>
+    <message>
+        <source>Sparkler writing</source>
+        <translation>شعلة نارية تكتب</translation>
+    </message>
+    <message>
+        <source>Star burst pop</source>
+        <translation>انفجار نجوم</translation>
+    </message>
+    <message>
+        <source>Star ring burst</source>
+        <translation>حلقة نجوم</translation>
+    </message>
+    <message>
+        <source>Streamers</source>
+        <translation>شرائط ملونة</translation>
+    </message>
+    <message>
+        <source>Blue flame rise</source>
+        <translation>لهب أزرق</translation>
+    </message>
+    <message>
+        <source>Burning edge reveal</source>
+        <translation>كشف بحافة مشتعلة</translation>
+    </message>
+    <message>
+        <source>Dark smoke rising</source>
+        <translation>دخان أسود يتصاعد</translation>
+    </message>
+    <message>
+        <source>Dust cloud landing</source>
+        <translation>هبوط في الغبار</translation>
+    </message>
+    <message>
+        <source>Electric zap</source>
+        <translation>صعقة كهربائية</translation>
+    </message>
+    <message>
+        <source>Rising embers</source>
+        <translation>جمرات تصعد</translation>
+    </message>
+    <message>
+        <source>Energy ball blast</source>
+        <translation>كرة طاقة</translation>
+    </message>
+    <message>
+        <source>Energy charge-up</source>
+        <translation>شحن الطاقة</translation>
+    </message>
+    <message>
+        <source>Explosion ring</source>
+        <translation>حلقة انفجار</translation>
+    </message>
+    <message>
+        <source>Fire ignite</source>
+        <translation>اشتعال النار</translation>
+    </message>
+    <message>
+        <source>Firework fountain</source>
+        <translation>نافورة ألعاب نارية</translation>
+    </message>
+    <message>
+        <source>Galaxy swirl</source>
+        <translation>دوامة مجرّة</translation>
+    </message>
+    <message>
+        <source>Ghost appear</source>
+        <translation>ظهور شبح</translation>
+    </message>
+    <message>
+        <source>Ice crystals</source>
+        <translation>بلورات جليد</translation>
+    </message>
+    <message>
+        <source>Laser scan</source>
+        <translation>مسح ليزري</translation>
+    </message>
+    <message>
+        <source>Lightning strike</source>
+        <translation>ضربة برق</translation>
+    </message>
+    <message>
+        <source>Meteor letters</source>
+        <translation>حروف نيزكية</translation>
+    </message>
+    <message>
+        <source>Neon flare pop</source>
+        <translation>وهج نيون</translation>
+    </message>
+    <message>
+        <source>Plasma glow</source>
+        <translation>توهج بلازما</translation>
+    </message>
+    <message>
+        <source>Power aura</source>
+        <translation>هالة القوة</translation>
+    </message>
+    <message>
+        <source>Prism burst</source>
+        <translation>انفجار منشور</translation>
+    </message>
+    <message>
+        <source>Sand blow-in</source>
+        <translation>رمال مع الريح</translation>
+    </message>
+    <message>
+        <source>Shooting star swoop</source>
+        <translation>انقضاض شهاب</translation>
+    </message>
+    <message>
+        <source>Smoke reveal</source>
+        <translation>ظهور من الدخان</translation>
+    </message>
+    <message>
+        <source>Snowstorm drift</source>
+        <translation>عاصفة ثلجية</translation>
+    </message>
+    <message>
+        <source>Solar flare</source>
+        <translation>توهج شمسي</translation>
+    </message>
+    <message>
+        <source>Spirit wisps</source>
+        <translation>أرواح زرقاء</translation>
+    </message>
+    <message>
+        <source>Spooky skull</source>
+        <translation>جمجمة مخيفة</translation>
+    </message>
+    <message>
+        <source>Stardust settle</source>
+        <translation>غبار النجوم</translation>
+    </message>
+    <message>
+        <source>Steam jets</source>
+        <translation>نفثات بخار</translation>
+    </message>
+    <message>
+        <source>Stone impact</source>
+        <translation>ارتطام حجر</translation>
+    </message>
+    <message>
+        <source>Toxic bubbles</source>
+        <translation>فقاعات سامة</translation>
+    </message>
+    <message>
+        <source>Static noise in</source>
+        <translation>تشويش ساكن</translation>
+    </message>
+    <message>
+        <source>Lava eruption</source>
+        <translation>ثوران الحمم</translation>
+    </message>
+    <message>
+        <source>Water splash</source>
+        <translation>رذاذ ماء</translation>
+    </message>
+    <message>
+        <source>Shockwave per word</source>
+        <translation>موجة صدمة لكل كلمة</translation>
+    </message>
+    <message>
+        <source>BOOM POW</source>
+        <translation>بوم باو</translation>
+    </message>
+    <message>
         <source>Karaoke bounce</source>
         <translation>كاريوكي بالارتداد</translation>
     </message>
@@ -9606,6 +10576,368 @@
     <message>
         <source>Sing along</source>
         <translation>غنِّ معي</translation>
+    </message>
+    <message>
+        <source>Backspace erase</source>
+        <translation>مسح بالمؤشر</translation>
+    </message>
+    <message>
+        <source>Blur and drift</source>
+        <translation>ضبابية وانجراف</translation>
+    </message>
+    <message>
+        <source>Bouncy shrink</source>
+        <translation>ارتداد يتقلص</translation>
+    </message>
+    <message>
+        <source>Pull back into depth</source>
+        <translation>ابتعاد نحو العمق</translation>
+    </message>
+    <message>
+        <source>Cards turn away</source>
+        <translation>بطاقات تنقلب بعيدًا</translation>
+    </message>
+    <message>
+        <source>Diagonal word wipe</source>
+        <translation>مسح قطري لكل كلمة</translation>
+    </message>
+    <message>
+        <source>SEE YOU SOON</source>
+        <translation>أراك قريبًا</translation>
+    </message>
+    <message>
+        <source>Domino fall</source>
+        <translation>سقوط الدومينو</translation>
+    </message>
+    <message>
+        <source>Doors close by word</source>
+        <translation>أبواب تُغلق لكل كلمة</translation>
+    </message>
+    <message>
+        <source>Spinning drop</source>
+        <translation>سقوط مع دوران</translation>
+    </message>
+    <message>
+        <source>Drop the mic</source>
+        <translation>إسقاط الميكروفون</translation>
+    </message>
+    <message>
+        <source>Evaporate</source>
+        <translation>تبخّر</translation>
+    </message>
+    <message>
+        <source>Flicker off</source>
+        <translation>وميض ينطفئ</translation>
+    </message>
+    <message>
+        <source>3D flip backwards</source>
+        <translation>قلب ثلاثي الأبعاد للخلف</translation>
+    </message>
+    <message>
+        <source>Glitch slice out</source>
+        <translation>قطع غليتش</translation>
+    </message>
+    <message>
+        <source>Rise into the ceiling</source>
+        <translation>صعود نحو السقف</translation>
+    </message>
+    <message>
+        <source>Jump and drop</source>
+        <translation>قفزة وسقوط</translation>
+    </message>
+    <message>
+        <source>Lean and fold</source>
+        <translation>ميل وطيّ</translation>
+    </message>
+    <message>
+        <source>Letter shutters</source>
+        <translation>ستائر لكل حرف</translation>
+    </message>
+    <message>
+        <source>Lines slide down</source>
+        <translation>خطوط تنزل</translation>
+    </message>
+    <message>
+        <source>SEE YOU
+NEXT TIME</source>
+        <translation>نراكم
+المرة القادمة</translation>
+    </message>
+    <message>
+        <source>Lines slip behind the left edge</source>
+        <translation>خطوط تختفي يسارًا</translation>
+    </message>
+    <message>
+        <source>Melt down</source>
+        <translation>ذوبان</translation>
+    </message>
+    <message>
+        <source>Neon cut out</source>
+        <translation>قطع نيون</translation>
+    </message>
+    <message>
+        <source>Push out right</source>
+        <translation>دفع إلى اليمين</translation>
+    </message>
+    <message>
+        <source>Random pop-off</source>
+        <translation>اختفاء عشوائي</translation>
+    </message>
+    <message>
+        <source>Roll away left</source>
+        <translation>تدحرج إلى اليسار</translation>
+    </message>
+    <message>
+        <source>Scatter in all directions</source>
+        <translation>تبعثر في كل اتجاه</translation>
+    </message>
+    <message>
+        <source>Letters short out</source>
+        <translation>حروف تتماس كهربائيًا</translation>
+    </message>
+    <message>
+        <source>Sink through the floor</source>
+        <translation>غوص في الأرض</translation>
+    </message>
+    <message>
+        <source>Soft lift wipe</source>
+        <translation>مسح ناعم للأعلى</translation>
+    </message>
+    <message>
+        <source>Sparkle delete</source>
+        <translation>حذف ببريق</translation>
+    </message>
+    <message>
+        <source>Spin off the top</source>
+        <translation>دوران للأعلى</translation>
+    </message>
+    <message>
+        <source>Split apart</source>
+        <translation>انشطار إلى نصفين</translation>
+    </message>
+    <message>
+        <source>Squash and pop</source>
+        <translation>انضغاط وانفجار</translation>
+    </message>
+    <message>
+        <source>Squeeze to the centre</source>
+        <translation>انضغاط نحو المركز</translation>
+    </message>
+    <message>
+        <source>Stretch away</source>
+        <translation>تمدد وابتعاد</translation>
+    </message>
+    <message>
+        <source>Stretch up and thin out</source>
+        <translation>تمدد للأعلى ورقّة</translation>
+    </message>
+    <message>
+        <source>Swirl out</source>
+        <translation>دوامة</translation>
+    </message>
+    <message>
+        <source>Tornado lift</source>
+        <translation>رفع إعصاري</translation>
+    </message>
+    <message>
+        <source>Tumble down</source>
+        <translation>تعثّر وسقوط</translation>
+    </message>
+    <message>
+        <source>Vanishing point</source>
+        <translation>نقطة التلاشي</translation>
+    </message>
+    <message>
+        <source>Wave goodbye</source>
+        <translation>موجة وداع</translation>
+    </message>
+    <message>
+        <source>Blown by the wind</source>
+        <translation>تحملها الريح</translation>
+    </message>
+    <message>
+        <source>Word by word drop</source>
+        <translation>سقوط كلمة بكلمة</translation>
+    </message>
+    <message>
+        <source>BYE FOR NOW</source>
+        <translation>إلى اللقاء الآن</translation>
+    </message>
+    <message>
+        <source>Words fly up</source>
+        <translation>كلمات تطير للأعلى</translation>
+    </message>
+    <message>
+        <source>Zipper open</source>
+        <translation>فتح السحّاب</translation>
+    </message>
+    <message>
+        <source>Zoom crush</source>
+        <translation>سحق بالتكبير</translation>
+    </message>
+    <message>
+        <source>Crumble to ash</source>
+        <translation>يتفتت رمادًا</translation>
+    </message>
+    <message>
+        <source>Backspace with sparks</source>
+        <translation>مسح مع شرر</translation>
+    </message>
+    <message>
+        <source>Black hole</source>
+        <translation>ثقب أسود</translation>
+    </message>
+    <message>
+        <source>Blast off</source>
+        <translation>انطلاق</translation>
+    </message>
+    <message>
+        <source>Blue flame exit</source>
+        <translation>لهب أزرق يرحل</translation>
+    </message>
+    <message>
+        <source>Bubbles pop away</source>
+        <translation>فقاعات تنفجر</translation>
+    </message>
+    <message>
+        <source>Burn away</source>
+        <translation>احتراق</translation>
+    </message>
+    <message>
+        <source>Confetti blast exit</source>
+        <translation>خروج بانفجار كونفيتي</translation>
+    </message>
+    <message>
+        <source>Turn to dust</source>
+        <translation>يتحول إلى غبار</translation>
+    </message>
+    <message>
+        <source>Embers dying out</source>
+        <translation>جمرات تخمد</translation>
+    </message>
+    <message>
+        <source>Fireflies fly off</source>
+        <translation>يراعات تطير</translation>
+    </message>
+    <message>
+        <source>Firework goodbye</source>
+        <translation>وداع بالألعاب النارية</translation>
+    </message>
+    <message>
+        <source>SEE YOU</source>
+        <translation>نراكم</translation>
+    </message>
+    <message>
+        <source>Burning fuse</source>
+        <translation>فتيل مشتعل</translation>
+    </message>
+    <message>
+        <source>Ghostly fade</source>
+        <translation>تلاشٍ كالشبح</translation>
+    </message>
+    <message>
+        <source>Glitter fade</source>
+        <translation>بريق يخبو</translation>
+    </message>
+    <message>
+        <source>Heart burst goodbye</source>
+        <translation>وداع بالقلوب</translation>
+    </message>
+    <message>
+        <source>Laser cut exit</source>
+        <translation>قطع ليزري</translation>
+    </message>
+    <message>
+        <source>Struck by lightning</source>
+        <translation>صاعقة</translation>
+    </message>
+    <message>
+        <source>Magic vanish</source>
+        <translation>اختفاء سحري</translation>
+    </message>
+    <message>
+        <source>Meteor launch</source>
+        <translation>انطلاق نيزك</translation>
+    </message>
+    <message>
+        <source>Notes fly away</source>
+        <translation>نوتات تطير بعيدًا</translation>
+    </message>
+    <message>
+        <source>Paint splat exit</source>
+        <translation>تناثر الطلاء</translation>
+    </message>
+    <message>
+        <source>Petals in the wind</source>
+        <translation>بتلات في الريح</translation>
+    </message>
+    <message>
+        <source>Pixel crumble</source>
+        <translation>تفتت بكسلي</translation>
+    </message>
+    <message>
+        <source>Poof</source>
+        <translation>بوف!</translation>
+    </message>
+    <message>
+        <source>Rainbow trail</source>
+        <translation>أثر قوس قزح</translation>
+    </message>
+    <message>
+        <source>Blown away like sand</source>
+        <translation>تذروه الريح كالرمل</translation>
+    </message>
+    <message>
+        <source>Shatter</source>
+        <translation>تحطّم</translation>
+    </message>
+    <message>
+        <source>Shockwave exit</source>
+        <translation>خروج بموجة صدمة</translation>
+    </message>
+    <message>
+        <source>Short circuit</source>
+        <translation>ماس كهربائي</translation>
+    </message>
+    <message>
+        <source>Vanish in smoke</source>
+        <translation>تلاشٍ في الدخان</translation>
+    </message>
+    <message>
+        <source>Delete in puffs</source>
+        <translation>حذف بنفثات دخان</translation>
+    </message>
+    <message>
+        <source>Snow melt</source>
+        <translation>ذوبان الثلج</translation>
+    </message>
+    <message>
+        <source>Dissolve into sparks</source>
+        <translation>تذوب في شرر</translation>
+    </message>
+    <message>
+        <source>Sparkle ring pop</source>
+        <translation>حلقة بريق</translation>
+    </message>
+    <message>
+        <source>Sparkler fizzle</source>
+        <translation>شعلة تنطفئ</translation>
+    </message>
+    <message>
+        <source>Star scatter</source>
+        <translation>تبعثر النجوم</translation>
+    </message>
+    <message>
+        <source>Dust devil</source>
+        <translation>زوبعة غبار</translation>
+    </message>
+    <message>
+        <source>Spin into sparkles</source>
+        <translation>دوران إلى بريق</translation>
+    </message>
+    <message>
+        <source>Splash goodbye</source>
+        <translation>وداع برذاذ</translation>
     </message>
     <message>
         <source>Pop</source>
@@ -9686,6 +11018,354 @@
     <message>
         <source>STAMP</source>
         <translation>ختم</translation>
+    </message>
+    <message>
+        <source>Gust</source>
+        <translation>هبّة</translation>
+    </message>
+    <message>
+        <source>Card flip</source>
+        <translation>قلب البطاقة</translation>
+    </message>
+    <message>
+        <source>Cube</source>
+        <translation>مكعب</translation>
+    </message>
+    <message>
+        <source>Diagonal</source>
+        <translation>قطري</translation>
+    </message>
+    <message>
+        <source>Doors</source>
+        <translation>أبواب</translation>
+    </message>
+    <message>
+        <source>Dream</source>
+        <translation>حلم</translation>
+    </message>
+    <message>
+        <source>Drop and spin</source>
+        <translation>سقوط ودوران</translation>
+    </message>
+    <message>
+        <source>Earthquake</source>
+        <translation>زلزال</translation>
+    </message>
+    <message>
+        <source>Echo slide</source>
+        <translation>انزلاق بصدى</translation>
+    </message>
+    <message>
+        <source>Double flash</source>
+        <translation>وميض مزدوج</translation>
+    </message>
+    <message>
+        <source>Flip show</source>
+        <translation>قلب</translation>
+    </message>
+    <message>
+        <source>Glitch pulse</source>
+        <translation>نبض غليتش</translation>
+    </message>
+    <message>
+        <source>Heartbeat</source>
+        <translation>نبض القلب</translation>
+    </message>
+    <message>
+        <source>Hinge</source>
+        <translation>مفصل</translation>
+    </message>
+    <message>
+        <source>Hops</source>
+        <translation>قفزات</translation>
+    </message>
+    <message>
+        <source>Jelly</source>
+        <translation>جيلي</translation>
+    </message>
+    <message>
+        <source>Ken Burns in</source>
+        <translation>كين بيرنز تقريب</translation>
+    </message>
+    <message>
+        <source>Ken Burns out</source>
+        <translation>كين بيرنز إبعاد</translation>
+    </message>
+    <message>
+        <source>Light leak</source>
+        <translation>تسرب ضوئي</translation>
+    </message>
+    <message>
+        <source>Orbit</source>
+        <translation>مدار</translation>
+    </message>
+    <message>
+        <source>Page flip</source>
+        <translation>قلب الصفحة</translation>
+    </message>
+    <message>
+        <source>Pan left</source>
+        <translation>تحريك لليسار</translation>
+    </message>
+    <message>
+        <source>Pan right</source>
+        <translation>تحريك لليمين</translation>
+    </message>
+    <message>
+        <source>Pendulum</source>
+        <translation>بندول</translation>
+    </message>
+    <message>
+        <source>Pixels</source>
+        <translation>بكسلات</translation>
+    </message>
+    <message>
+        <source>Colour split</source>
+        <translation>فصل الألوان</translation>
+    </message>
+    <message>
+        <source>Ripples</source>
+        <translation>تموجات</translation>
+    </message>
+    <message>
+        <source>Rise and fall</source>
+        <translation>صعود وهبوط</translation>
+    </message>
+    <message>
+        <source>Rock</source>
+        <translation>تأرجح</translation>
+    </message>
+    <message>
+        <source>Rolling</source>
+        <translation>تدحرج</translation>
+    </message>
+    <message>
+        <source>Roller coaster</source>
+        <translation>أفعوانية</translation>
+    </message>
+    <message>
+        <source>Rotate and vanish</source>
+        <translation>دوران واختفاء</translation>
+    </message>
+    <message>
+        <source>Rubber band</source>
+        <translation>شريط مطاطي</translation>
+    </message>
+    <message>
+        <source>Shockwave</source>
+        <translation>موجة صدمة</translation>
+    </message>
+    <message>
+        <source>Swift</source>
+        <translation>سريع</translation>
+    </message>
+    <message>
+        <source>Slide through</source>
+        <translation>عبور</translation>
+    </message>
+    <message>
+        <source>Wave slide</source>
+        <translation>انزلاق موجي</translation>
+    </message>
+    <message>
+        <source>Spin around</source>
+        <translation>لفّة كاملة</translation>
+    </message>
+    <message>
+        <source>Spiral</source>
+        <translation>حلزون</translation>
+    </message>
+    <message>
+        <source>Spring</source>
+        <translation>نابض</translation>
+    </message>
+    <message>
+        <source>Sway 3D</source>
+        <translation>تمايل ثلاثي الأبعاد</translation>
+    </message>
+    <message>
+        <source>Tumble</source>
+        <translation>شقلبة</translation>
+    </message>
+    <message>
+        <source>Old TV</source>
+        <translation>تلفاز قديم</translation>
+    </message>
+    <message>
+        <source>Waves</source>
+        <translation>أمواج</translation>
+    </message>
+    <message>
+        <source>Whirlwind</source>
+        <translation>زوبعة</translation>
+    </message>
+    <message>
+        <source>Zoom beats</source>
+        <translation>نبضات تكبير</translation>
+    </message>
+    <message>
+        <source>Zoom rush</source>
+        <translation>تكبير سريع</translation>
+    </message>
+    <message>
+        <source>Dolly</source>
+        <translation>دوللي</translation>
+    </message>
+    <message>
+        <source>Far and near</source>
+        <translation>بعيد وقريب</translation>
+    </message>
+    <message>
+        <source>Zoom punch</source>
+        <translation>لكمة تكبير</translation>
+    </message>
+    <message>
+        <source>Zoom roll</source>
+        <translation>تكبير ودوران</translation>
+    </message>
+    <message>
+        <source>Split zoom</source>
+        <translation>تكبير منقسم</translation>
+    </message>
+    <message>
+        <source>Cube turn</source>
+        <translation>دوران المكعب</translation>
+    </message>
+    <message>
+        <source>Door</source>
+        <translation>باب</translation>
+    </message>
+    <message>
+        <source>Dreamy</source>
+        <translation>حالم</translation>
+    </message>
+    <message>
+        <source>Flip down</source>
+        <translation>قلب للأسفل</translation>
+    </message>
+    <message>
+        <source>Flip over</source>
+        <translation>قلب</translation>
+    </message>
+    <message>
+        <source>Focus in</source>
+        <translation>تركيز</translation>
+    </message>
+    <message>
+        <source>Glide up</source>
+        <translation>انسياب للأعلى</translation>
+    </message>
+    <message>
+        <source>Hop</source>
+        <translation>قفزة</translation>
+    </message>
+    <message>
+        <source>Page turn</source>
+        <translation>قلب صفحة</translation>
+    </message>
+    <message>
+        <source>Punch in</source>
+        <translation>تقريب مفاجئ</translation>
+    </message>
+    <message>
+        <source>Push from above</source>
+        <translation>دفع من الأعلى</translation>
+    </message>
+    <message>
+        <source>Push from right</source>
+        <translation>دفع من اليمين</translation>
+    </message>
+    <message>
+        <source>Push from left</source>
+        <translation>دفع من اليسار</translation>
+    </message>
+    <message>
+        <source>Push from below</source>
+        <translation>دفع من الأسفل</translation>
+    </message>
+    <message>
+        <source>Roll in</source>
+        <translation>تدحرج للداخل</translation>
+    </message>
+    <message>
+        <source>Slide down</source>
+        <translation>انزلاق للأسفل</translation>
+    </message>
+    <message>
+        <source>Slide left</source>
+        <translation>انزلاق لليسار</translation>
+    </message>
+    <message>
+        <source>Slide right</source>
+        <translation>انزلاق لليمين</translation>
+    </message>
+    <message>
+        <source>Slide up</source>
+        <translation>انزلاق للأعلى</translation>
+    </message>
+    <message>
+        <source>Spin blur</source>
+        <translation>دوران ضبابي</translation>
+    </message>
+    <message>
+        <source>Spin anticlockwise</source>
+        <translation>دوران عكس عقارب الساعة</translation>
+    </message>
+    <message>
+        <source>Spin clockwise</source>
+        <translation>دوران مع عقارب الساعة</translation>
+    </message>
+    <message>
+        <source>Swift slide</source>
+        <translation>انزلاق سريع</translation>
+    </message>
+    <message>
+        <source>Swing in</source>
+        <translation>دخول بتأرجح</translation>
+    </message>
+    <message>
+        <source>Tilt up</source>
+        <translation>إمالة للأعلى</translation>
+    </message>
+    <message>
+        <source>Bad signal</source>
+        <translation>إشارة ضعيفة</translation>
+    </message>
+    <message>
+        <source>Wave warp</source>
+        <translation>تموج</translation>
+    </message>
+    <message>
+        <source>Zoom blur</source>
+        <translation>تكبير ضبابي</translation>
+    </message>
+    <message>
+        <source>From far away</source>
+        <translation>من بعيد</translation>
+    </message>
+    <message>
+        <source>Zoom split</source>
+        <translation>تكبير بفصل الألوان</translation>
+    </message>
+    <message>
+        <source>Zoom spin</source>
+        <translation>تكبير مع دوران</translation>
+    </message>
+    <message>
+        <source>Blow away</source>
+        <translation>تطاير</translation>
+    </message>
+    <message>
+        <source>Fade into blur</source>
+        <translation>تلاشٍ إلى ضبابية</translation>
+    </message>
+    <message>
+        <source>Shrink away</source>
+        <translation>انكماش</translation>
+    </message>
+    <message>
+        <source>TV off</source>
+        <translation>إطفاء التلفاز</translation>
     </message>
     <message>
         <source>Tilt</source>
@@ -9792,6 +11472,13 @@
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation>إضافة إطار مفتاحي لـ %1 عند مؤشر التشغيل</translation>
+    </message>
+</context>
+<context>
+    <name>ClipAnimPresetTile</name>
+    <message>
+        <source>None</source>
+        <translation>بلا</translation>
     </message>
 </context>
 <context>

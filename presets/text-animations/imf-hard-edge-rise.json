@@ -1,0 +1,61 @@
+{
+ "format": 1,
+ "id": "imf-hard-edge-rise",
+ "label": "Hard-edge rise",
+ "category": "mask",
+ "sampleText": "ABCD",
+ "slots": [
+  "in"
+ ],
+ "order": 2087,
+ "defaults": {
+  "unit": "block",
+  "stagger": 0.05,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "forward"
+ },
+ "flags": {
+  "unitLocked": true,
+  "orderLocked": true,
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": -90,
+     "softness": 0.02
+    },
+    "scaleY": 135
+   }
+  }
+ ]
+}

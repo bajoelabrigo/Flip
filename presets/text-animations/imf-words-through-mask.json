@@ -1,0 +1,63 @@
+{
+ "format": 1,
+ "id": "imf-words-through-mask",
+ "label": "Words through a mask",
+ "category": "mask",
+ "sampleText": "MADE FOR YOU",
+ "slots": [
+  "in"
+ ],
+ "order": 2085,
+ "defaults": {
+  "unit": "word",
+  "stagger": 0.12,
+  "duration": 0.5,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "flags": {
+  "easeLocked": true
+ },
+ "animators": [
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 1000000.0
+     },
+     "ease": {
+      "kind": "bezier",
+      "c1": [
+       0.05,
+       0.9
+      ],
+      "c2": [
+       0.1,
+       1.0
+      ]
+     }
+    }
+   ],
+   "props": {
+    "wipe": {
+     "enabled": true,
+     "angleDeg": 90,
+     "softness": 0.35
+    },
+    "position": {
+     "x": 0,
+     "y": -0.35,
+     "unit": "em"
+    }
+   }
+  }
+ ]
+}

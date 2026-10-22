@@ -1,0 +1,80 @@
+{
+ "format": 1,
+ "id": "op-confetti-blast",
+ "label": "Confetti blast exit",
+ "category": "particles",
+ "sampleText": "ABCD",
+ "slots": [
+  "out"
+ ],
+ "order": 2274,
+ "defaults": {
+  "unit": "character",
+  "stagger": 0.06,
+  "duration": 0.3,
+  "ease": "easeOut",
+  "order": "random"
+ },
+ "animators": [
+  {
+   "selectors": [
+    "stagger"
+   ],
+   "props": {
+    "scale": 150
+   }
+  },
+  {
+   "selectors": [
+    {
+     "driver": "stagger",
+     "domain": "{unit}",
+     "order": "{order}",
+     "staggerUs": {
+      "$": "stagger",
+      "mul": 1000000.0
+     },
+     "durationUs": {
+      "$": "duration",
+      "mul": 500000.0
+     },
+     "ease": "linear"
+    }
+   ],
+   "props": {
+    "opacity": 0
+   }
+  }
+ ],
+ "particles": [
+  {
+   "shape": "confetti",
+   "count": 14,
+   "colors": [
+    "#ffff4d6d",
+    "#ffffd23f",
+    "#ff3ec1d3",
+    "#ff7b5cff",
+    "#ff2ee59d"
+   ],
+   "size": [
+    0.08,
+    0.15
+   ],
+   "speed": [
+    1.4,
+    3.0
+   ],
+   "life": [
+    0.7,
+    1.1
+   ],
+   "at": 0.6,
+   "angle": -90,
+   "spread": 220,
+   "gravity": 4.5,
+   "drag": 1.4,
+   "spin": 540
+  }
+ ]
+}

@@ -2,7 +2,7 @@
   "format": 1,
   "id": "stamp",
   "label": "Rubber stamp",
-  "category": "kinetic",
+  "category": "fluid",
   "sampleText": "STAMP",
   "slots": [
     "in"

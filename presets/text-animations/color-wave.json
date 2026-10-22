@@ -2,7 +2,7 @@
   "format": 1,
   "id": "color-wave",
   "label": "Colour wave",
-  "category": "colour",
+  "category": "stylized",
   "sampleText": "Focus on creativity",
   "slots": [
     "in"
