@@ -1,0 +1,1 @@
+{"format":1,"id":"out-spin-blur","label":"Spin blur","category":"spin","slots":["out"],"order":23,"duration":0.8,"keys":{"rotation":[[0,0,"easeIn"],[1,-360,"easeInOut"]],"scale":[[0,100,"easeIn"],[1,50,"easeInOut"]],"opacity":[[0.7,100,"linear"],[1,0,"easeInOut"]]},"trending":true,"effects":[{"id":"spin_blur","params":{"amount":[[0.1,0,"easeIn"],[1,0.9,"easeInOut"]]}}]}

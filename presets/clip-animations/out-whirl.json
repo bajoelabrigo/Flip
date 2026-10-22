@@ -1,0 +1,1 @@
+{"format":1,"id":"out-whirl","label":"Whirlwind","category":"spin","slots":["out"],"order":26,"duration":1.0,"keys":{"rotation":[[0,0,"easeIn"],[1,720,"easeInOut"]],"scale":[[0,100,"easeIn"],[1,0,"easeInOut"]]}}

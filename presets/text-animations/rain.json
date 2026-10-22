@@ -2,7 +2,7 @@
   "format": 1,
   "id": "rain",
   "label": "Raining",
-  "category": "character",
+  "category": "build",
   "sampleText": "RAIN",
   "slots": [
     "in",

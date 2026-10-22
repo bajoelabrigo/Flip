@@ -1,0 +1,1 @@
+{"format":1,"id":"out-dissolve-blur","label":"Fade into blur","category":"blur","slots":["out"],"order":53,"duration":0.8,"keys":{"blur":[[0,0,"easeIn"],[1,60,"easeInOut"]],"opacity":[[0,100,"easeIn"],[1,0,"easeInOut"]]}}

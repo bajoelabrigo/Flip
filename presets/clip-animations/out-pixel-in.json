@@ -1,0 +1,1 @@
+{"format":1,"id":"out-pixel-in","label":"Pixelate","category":"glitch","slots":["out"],"order":39,"duration":0.7,"keys":{"opacity":[[0.7,100,"linear"],[1,0,"easeInOut"]]},"effects":[{"id":"stylize.pixelate","params":{"width":[[0,2,"easeIn"],[1,56,"easeInOut"]],"height":[[0,2,"easeIn"],[1,56,"easeInOut"]]}}]}

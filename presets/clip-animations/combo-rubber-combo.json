@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-rubber-combo","label":"Rubber band","category":"bounce","slots":["combo"],"order":34,"duration":0,"keys":{"scaleX":[[0.0,160,"elastic"],[0.18,100,"easeInOut"],[0.82,100,"easeIn"],[1.0,160,"easeInOut"]],"scaleY":[[0.0,55,"elastic"],[0.18,100,"easeInOut"],[0.82,100,"easeIn"],[1.0,55,"easeInOut"]]}}

@@ -144,7 +144,9 @@ Item {
                          ? root.animPresets
                          : root.animCategory === "__favorites__"
                            ? root.animPresets.filter(p => EditorState.isAssetFavorite("textAnimations", p.id))
-                           : root.animPresets.filter(p => p.category === root.animCategory)
+                           : root.animCategory === "trending"
+                             ? root.animPresets.filter(p => p.trending)
+                             : root.animPresets.filter(p => p.category === root.animCategory)
         return [{ "id": "", "label": qsTr("None") }].concat(filtered)
     }
     readonly property var animation: (textStyle && textStyle.animation) || ({})

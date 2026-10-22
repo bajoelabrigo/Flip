@@ -1,0 +1,1 @@
+{"format":1,"id":"out-blow-away","label":"Blow away","category":"slide","slots":["out"],"order":51,"duration":0.8,"keys":{"x":[[0,0,"easeIn"],[1,1.2,"easeInOut"]],"y":[[0,0,"easeIn"],[1,-0.4,"easeInOut"]],"rotation":[[0,0,"easeIn"],[1,30,"easeInOut"]],"scale":[[0,100,"easeIn"],[1,60,"easeInOut"]]}}

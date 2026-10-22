@@ -1,0 +1,1 @@
+{"format":1,"id":"out-diagonal","label":"Diagonal","category":"slide","slots":["out"],"order":14,"duration":0.6,"keys":{"x":[[0,0,"easeIn"],[1,0.7,"easeInOut"]],"y":[[0,0,"easeIn"],[1,-0.7,"easeInOut"]],"opacity":[[0.6,100,"linear"],[1,0,"easeInOut"]]}}

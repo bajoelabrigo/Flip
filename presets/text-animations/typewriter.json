@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "typewriter", "label": "Typewriter", "category": "character", "sampleText": "Typing",
+  "format": 1, "id": "typewriter", "label": "Typewriter", "category": "build", "sampleText": "Typing",
   "slots": ["in", "out"], "order": 50,
   "defaults": { "unit": "character", "stagger": 0.06 },
   "flags": { "durationLocked": true, "mirrorForOut": false },

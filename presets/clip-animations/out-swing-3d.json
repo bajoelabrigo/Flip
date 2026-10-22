@@ -1,0 +1,1 @@
+{"format":1,"id":"out-swing-3d","label":"Hinge","category":"3d","slots":["out"],"order":33,"duration":1.1,"keys":{"rotationX":[[0,0,"easeIn"],[1,-95,"easeInOut"]]}}

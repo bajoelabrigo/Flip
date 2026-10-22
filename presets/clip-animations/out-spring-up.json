@@ -1,0 +1,1 @@
+{"format":1,"id":"out-spring-up","label":"Spring","category":"bounce","slots":["out"],"order":46,"duration":1.0,"keys":{"y":[[0,0,"easeIn"],[1,-0.5,"easeInOut"]],"opacity":[[0.8,100,"linear"],[1,0,"easeInOut"]]}}

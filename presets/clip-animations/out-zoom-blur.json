@@ -1,0 +1,1 @@
+{"format":1,"id":"out-zoom-blur","label":"Zoom blur","category":"zoom","slots":["out"],"order":18,"duration":0.6,"keys":{"scale":[[0,100,"easeIn"],[1,170,"easeInOut"]],"opacity":[[0.75,100,"linear"],[1,0,"easeInOut"]]},"trending":true,"effects":[{"id":"zoom_pulse","params":{"punch":[[0.1,0,"easeIn"],[1,1,"easeInOut"]],"blur":0.7}}]}

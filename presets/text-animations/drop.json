@@ -2,7 +2,7 @@
   "format": 1,
   "id": "drop",
   "label": "Drop",
-  "category": "word",
+  "category": "build",
   "sampleText": "Drop in",
   "slots": [
     "in"

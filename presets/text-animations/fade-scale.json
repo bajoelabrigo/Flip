@@ -2,7 +2,7 @@
   "format": 1,
   "id": "fade-scale",
   "label": "Fade zoom",
-  "category": "basic",
+  "category": "motion",
   "sampleText": "Build",
   "slots": [
     "out"

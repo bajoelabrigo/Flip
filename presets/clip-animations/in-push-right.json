@@ -1,0 +1,1 @@
+{"format":1,"id":"in-push-right","label":"Push from left","category":"slide","slots":["in"],"order":11,"duration":0.6,"keys":{"x":[[0,-1,"easeOut"],[1,0,"easeInOut"]]}}

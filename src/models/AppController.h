@@ -942,6 +942,11 @@ public:
     Q_INVOKABLE void clearTextAnimationSlot(int trackIndex, int clipIndex, const QString &slot);
     Q_INVOKABLE QVariantList textAnimationPresets(const QString &slot = {}) const;
     Q_INVOKABLE QVariantList textAnimationCategories(const QString &slot) const;
+    // Video › Animation: the clip animation presets of a slot ("in", "out", "combo"), their chips,
+    // and a preset's pose at a progress (for the gallery's live cards).
+    Q_INVOKABLE QVariantList clipAnimationPresets(const QString &slot) const;
+    Q_INVOKABLE QVariantList clipAnimationCategories(const QString &slot) const;
+    Q_INVOKABLE QVariantMap clipAnimationPreviewSample(const QString &presetId, double progress) const;
     // Where to seek to preview the slot: the window start (In), before the exit (Out), the playhead (Loop).
     Q_INVOKABLE double textAnimationSlotStartSeconds(int trackIndex, int clipIndex, const QString &slot) const;
     // Looks: one-click recipes that rewrite the layer stack from a few params.
@@ -1222,7 +1227,8 @@ public:
     Q_INVOKABLE QVariantMap inspectModel3dClip(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setClipFade(int trackIndex, int clipIndex, double fadeInSeconds, double fadeOutSeconds);
     Q_INVOKABLE void setClipFadeCurve(int trackIndex, int clipIndex, const QString &curve);
-    // which: "animIn" | "animOut". Partial patch: kind / duration / curve (or legacy ease).
+    // which: "animIn" | "animOut" | "animCombo". Partial patch: kind / preset / duration / curve
+    // (or legacy ease). A combo clears the in and out motion; an in or out motion clears the combo.
     Q_INVOKABLE void setClipAnimation(int trackIndex, int clipIndex, const QString &which,
                                       const QVariantMap &patch);
     // linkedAudio: also add the same transition between the two clips' linked audio, when they sit

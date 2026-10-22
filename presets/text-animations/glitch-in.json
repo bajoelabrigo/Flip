@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "glitch-in", "label": "Glitch", "category": "kinetic", "sampleText": "GLITCH",
+  "format": 1, "id": "glitch-in", "label": "Glitch", "category": "stylized", "sampleText": "GLITCH",
   "slots": ["in", "out"], "order": 230,
   "defaults": { "unit": "character", "order": "random", "stagger": 0.02, "duration": 0.3, "ease": "linear" },
   "params": [

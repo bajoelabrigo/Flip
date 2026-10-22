@@ -1,0 +1,1 @@
+{"format":1,"id":"in-zoom-rgb","label":"Zoom split","category":"zoom","slots":["in"],"order":22,"duration":0.6,"keys":{"scale":[[0,130,"easeOut"],[1,100,"easeInOut"]],"opacity":[[0,0,"linear"],[0.3,100,"easeInOut"]]},"effects":[{"id":"rgb_split","params":{"amount":[[0,30,"easeOut"],[1,0,"easeInOut"]],"angle":0.0}}]}

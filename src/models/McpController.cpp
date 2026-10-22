@@ -370,7 +370,7 @@ QJsonObject mcpDetailRow(const QVariantMap &clipMap, const QVariantMap &transfor
                                 "stabilizeStatus"})
             m.remove(QLatin1String(key));
     }
-    for (const char *which : {"animIn", "animOut"}) {
+    for (const char *which : {"animIn", "animOut", "animCombo"}) {
         if (m.value(QLatin1String(which)).toMap().value(QStringLiteral("kind")).toString() == QLatin1String("none"))
             m.remove(QLatin1String(which));
     }

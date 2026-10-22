@@ -1,0 +1,1 @@
+{"format":1,"id":"in-cube-in","label":"Cube turn","category":"3d","slots":["in"],"order":31,"duration":0.8,"keys":{"rotationY":[[0,90,"easeInOut"],[1,0,"easeInOut"]],"x":[[0,0.5,"easeInOut"],[1,0,"easeInOut"]],"scale":[[0,85,"easeInOut"],[0.5,85,"easeInOut"],[1,100,"easeInOut"]]}}

@@ -1,0 +1,1 @@
+{"format":1,"id":"in-page-in","label":"Page turn","category":"3d","slots":["in"],"order":32,"duration":0.9,"keys":{"rotationY":[[0,-120,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.3,100,"easeInOut"]]}}

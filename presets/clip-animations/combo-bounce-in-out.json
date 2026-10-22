@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-bounce-in-out","label":"Bounce","category":"bounce","slots":["combo"],"order":31,"duration":0,"keys":{"y":[[0.0,-1,"bounce"],[0.18,0,"easeInOut"],[0.82,-1.1,"easeOut"],[1.0,0,"easeInOut"]],"rotation":[[0,0,"linear"],[0.82,-25,"easeOut"],[1.0,0,"easeInOut"]]},"trending":true}

@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-orbit","label":"Orbit","category":"dynamic","slots":["combo"],"order":10,"duration":0,"keys":{"rotation":[[0,0,"linear"],[1,360,"easeInOut"]],"scale":[[0,60,"easeOut"],[0.15,75,"easeInOut"],[0.85,75,"easeIn"],[1,0,"easeInOut"]]}}

@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "squash", "label": "Squash & stretch", "category": "kinetic", "sampleText": "Boing",
+  "format": 1, "id": "squash", "label": "Squash & stretch", "category": "fluid", "sampleText": "Boing",
   "slots": ["in"], "order": 240,
   "defaults": { "unit": "word", "stagger": 0.08, "duration": 0.5, "ease": "back" },
   "params": [

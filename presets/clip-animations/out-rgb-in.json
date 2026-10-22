@@ -1,0 +1,1 @@
+{"format":1,"id":"out-rgb-in","label":"Colour split","category":"glitch","slots":["out"],"order":42,"duration":0.5,"keys":{"opacity":[[0.7,100,"linear"],[1,0,"easeInOut"]]},"effects":[{"id":"rgb_split","params":{"amount":[[0,0,"easeIn"],[1,45,"easeInOut"]],"angle":90.0}}]}

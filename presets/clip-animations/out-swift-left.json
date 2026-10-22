@@ -1,0 +1,1 @@
+{"format":1,"id":"out-swift-left","label":"Swift slide","category":"slide","slots":["out"],"order":15,"duration":0.5,"keys":{"x":[[0,0,"easeIn"],[1,-0.8,"easeInOut"]],"blur":[[0.3,0,"easeIn"],[1,40,"easeInOut"]]},"trending":true,"effects":[{"id":"motion_trail","params":{"amount":[[0.2,0,"easeIn"],[1,0.8,"easeInOut"]],"angle":0.0,"length":0.7}}]}

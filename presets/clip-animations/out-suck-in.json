@@ -1,0 +1,1 @@
+{"format":1,"id":"out-suck-in","label":"Black hole","category":"spin","slots":["out"],"order":54,"duration":0.8,"keys":{"scale":[[0,100,"easeIn"],[1,0,"easeInOut"]],"rotation":[[0,0,"easeIn"],[1,540,"easeInOut"]]},"effects":[{"id":"spin_blur","params":{"amount":[[0,0,"easeIn"],[1,0.9,"easeInOut"]]}}]}

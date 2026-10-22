@@ -2,7 +2,7 @@
   "format": 1,
   "id": "shrink",
   "label": "Shrink",
-  "category": "word",
+  "category": "build",
   "sampleText": "Shrink",
   "slots": [
     "out"

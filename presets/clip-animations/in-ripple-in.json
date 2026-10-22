@@ -1,0 +1,1 @@
+{"format":1,"id":"in-ripple-in","label":"Ripple","category":"blur","slots":["in"],"order":36,"duration":0.9,"keys":{"opacity":[[0,0,"linear"],[0.4,100,"easeInOut"]]},"effects":[{"id":"ripple_water","params":{"amplitude":[[0,40,"easeOut"],[1,0,"easeInOut"]],"frequency":14.0}}]}

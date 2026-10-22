@@ -1,0 +1,1 @@
+{"format":1,"id":"in-slide-right","label":"Slide right","category":"basic","slots":["in"],"order":3,"duration":0.6,"keys":{"x":[[0,-0.35,"easeOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.6,100,"easeInOut"]]}}

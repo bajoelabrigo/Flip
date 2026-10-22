@@ -2,7 +2,7 @@
   "format": 1,
   "id": "snap-together",
   "label": "Snap together",
-  "category": "kinetic",
+  "category": "build",
   "sampleText": "Boost your workflow",
   "slots": [
     "in"

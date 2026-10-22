@@ -178,6 +178,10 @@ QJsonObject TextAnimationPreset::toJson() const
     };
     if (!caret.isEmpty())
         o.insert(QStringLiteral("caret"), caret);
+    if (!particles.isUndefined() && !particles.isNull())
+        o.insert(QStringLiteral("particles"), particles);
+    if (trending)
+        o.insert(QStringLiteral("trending"), true);
     if (!flags.isEmpty())
         o.insert(QStringLiteral("flags"), flags);
     if (!report.isEmpty())
@@ -204,6 +208,8 @@ std::optional<TextAnimationPreset> TextAnimationPreset::fromJson(const QJsonObje
     p.order = o.value(QStringLiteral("order")).toInt(100);
     p.flags = o.value(QStringLiteral("flags")).toObject();
     p.caret = o.value(QStringLiteral("caret")).toObject();
+    p.particles = o.value(QStringLiteral("particles"));
+    p.trending = o.value(QStringLiteral("trending")).toBool(false);
     for (const QJsonValue &v : o.value(QStringLiteral("report")).toArray())
         p.report.append(v.toString());
 
@@ -422,6 +428,13 @@ ResolvedPresetSlot resolvePresetSlot(const TextAnimationPreset &preset, const QM
             negateParam(a.props.position.y);
         }
     }
+    if (preset.particles.isArray() || preset.particles.isObject()) {
+        const QJsonValue particles = preset.particles.isArray()
+                                         ? preset.particles
+                                         : preset.particles.toObject().value(textAnimSlotKindToString(kind));
+        for (const QJsonValue &v : substitute(particles, params).toArray())
+            out.particles.append(textParticleSpecFromJson(v.toObject()));
+    }
     if (!preset.caret.isEmpty()) {
         const TextCaret caret = textCaretFromJson(substitute(preset.caret, params).toObject());
         out.caret = caret;
@@ -442,13 +455,14 @@ QMutex g_resolveMutex;
 QCache<quint64, ResolvedTextAnimation> g_resolveCache(64);
 
 void resolveSlot(const TextAnimationSlot &slot, TextAnimSlotKind kind, QList<TextAnimator> *animators,
-                 TextAnimationSlot *effective, std::optional<TextCaret> *caret)
+                 QList<TextParticleSpec> *particles, TextAnimationSlot *effective, std::optional<TextCaret> *caret)
 {
     *effective = slot;
     if (!slot.enabled)
         return;
     if (slot.presetId.isEmpty()) {
         *animators = slot.animators;
+        *particles = slot.particles;
         return;
     }
     const std::optional<TextAnimationPreset> preset = TextAnimationPresetCatalog::instance().presetForId(slot.presetId);
@@ -458,6 +472,7 @@ void resolveSlot(const TextAnimationSlot &slot, TextAnimSlotKind kind, QList<Tex
     if (!resolved.valid)
         return;
     *animators = resolved.animators;
+    *particles = resolved.particles;
     if (resolved.caret)
         *caret = resolved.caret;
     if (effective->durationUs == 0)
@@ -481,9 +496,10 @@ ResolvedTextAnimation resolveTextAnimation(const TextAnimationSet &set)
     ResolvedTextAnimation out;
     out.set = set;
     std::optional<TextCaret> caret;
-    resolveSlot(set.in, TextAnimSlotKind::In, &out.resolved.in, &out.set.in, &caret);
-    resolveSlot(set.out, TextAnimSlotKind::Out, &out.resolved.out, &out.set.out, &caret);
-    resolveSlot(set.loop, TextAnimSlotKind::Loop, &out.resolved.loop, &out.set.loop, &caret);
+    resolveSlot(set.in, TextAnimSlotKind::In, &out.resolved.in, &out.resolved.inParticles, &out.set.in, &caret);
+    resolveSlot(set.out, TextAnimSlotKind::Out, &out.resolved.out, &out.resolved.outParticles, &out.set.out, &caret);
+    resolveSlot(set.loop, TextAnimSlotKind::Loop, &out.resolved.loop, &out.resolved.loopParticles, &out.set.loop,
+                &caret);
     // A preset's caret applies unless the style switched its own caret on explicitly.
     if (caret && !set.caret.enabled)
         out.set.caret = *caret;

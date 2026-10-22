@@ -1,0 +1,1 @@
+{"format":1,"id":"out-rubber","label":"Rubber band","category":"bounce","slots":["out"],"order":47,"duration":0.9,"keys":{"scaleX":[[0,100,"easeIn"],[1,160,"easeInOut"]],"scaleY":[[0,100,"easeIn"],[1,55,"easeInOut"]]}}

@@ -2,7 +2,7 @@
   "format": 1,
   "id": "zoom-in",
   "label": "Zoom in",
-  "category": "basic",
+  "category": "motion",
   "sampleText": "Zoom",
   "slots": [
     "in",

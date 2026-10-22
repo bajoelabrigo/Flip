@@ -1,0 +1,1 @@
+{"format":1,"id":"out-slide-up","label":"Slide up","category":"basic","slots":["out"],"order":0,"duration":0.6,"keys":{"y":[[0,0,"easeIn"],[1,-0.35,"easeInOut"]],"opacity":[[0.4,100,"linear"],[1,0,"easeInOut"]]}}

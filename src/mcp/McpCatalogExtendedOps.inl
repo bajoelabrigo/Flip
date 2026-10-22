@@ -273,11 +273,17 @@
           "confirm with inspect({detail:true}).jobs.reverseRender.active.",
           objectSchema({}) },
         { "set_animation", "canvas", "Slide/zoom/pop a clip on entrance or exit",
-          "Set the clip's entrance (animIn) or exit (animOut) animation. Only the supplied fields "
-          "change. Setting kind to fade makes the animation follow the clip's fade curve.",
+          "Set the clip's entrance (animIn), exit (animOut) or combo (animCombo: one motion that brings "
+          "it in and takes it out) animation. Only the supplied fields change. Setting kind to fade makes "
+          "the animation follow the clip's fade curve. `preset` picks a preset from list_clip_animations "
+          "(its own length unless `duration` is given; a combo of 0 s lasts the whole clip). A combo "
+          "clears the in and out motion, and an in or out motion clears the combo.",
           objectSchema(mergeProps({{QStringLiteral("which"), enumProp(QStringLiteral("Which end of the clip to animate"),
                                                                        {QStringLiteral("animIn"),
-                                                                        QStringLiteral("animOut")})},
+                                                                        QStringLiteral("animOut"),
+                                                                        QStringLiteral("animCombo")})},
+                                   {QStringLiteral("preset"),
+                                    stringProp(QStringLiteral("Preset id from list_clip_animations; empty clears it"))},
                                    {QStringLiteral("kind"),
                                     enumProp(QStringLiteral("Animation kind; unknown values fall back to none"),
                                              {QStringLiteral("none"), QStringLiteral("fade"),
@@ -285,7 +291,8 @@
                                               QStringLiteral("slideLeft"), QStringLiteral("slideRight"),
                                               QStringLiteral("zoomIn"), QStringLiteral("zoomOut"),
                                               QStringLiteral("pop"), QStringLiteral("spinCW"),
-                                              QStringLiteral("spinCCW"), QStringLiteral("bounce")})},
+                                              QStringLiteral("spinCCW"), QStringLiteral("bounce"),
+                                              QStringLiteral("preset")})},
                                    {QStringLiteral("duration"), numberProp(QStringLiteral("Seconds"))},
                                    {QStringLiteral("ease"),
                                     enumProp(QStringLiteral("Easing; unknown values fall back to easeOut"),
@@ -436,6 +443,15 @@
                                                                           {QStringLiteral("description"), QStringLiteral("Param overrides {id: value}")}}}},
                                   clipRefProps()),
                        {QStringLiteral("look")}) },
+        { "list_clip_animations", "canvas", "In / Out / Combo clip animation presets",
+          "Returns {presets:[{id, label, category, trending, duration}]} for Video › Animation. `which` "
+          "filters to one slot (in, out or combo). Apply one with set_animation {which: animIn|animOut|"
+          "animCombo, preset}.",
+          objectSchema({{QStringLiteral("which"), enumProp(QStringLiteral("Slot to list for (default all)"),
+                                                           {QStringLiteral("in"), QStringLiteral("out"),
+                                                            QStringLiteral("combo")})},
+                        {QStringLiteral("q"), stringProp(QStringLiteral("Filter by id or label"))}}),
+          true, false, true },
         { "list_text_animations", "text", "In / Out / Loop text animation presets",
           "Returns {presets:[{id, label, category, slots:[in|out|loop], sampleText, params:[…], "
           "flags:{unitLocked, orderLocked, easeLocked, durationLocked, mirrorForOut, mode}, builtIn, "

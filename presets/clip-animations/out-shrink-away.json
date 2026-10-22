@@ -1,0 +1,1 @@
+{"format":1,"id":"out-shrink-away","label":"Shrink away","category":"zoom","slots":["out"],"order":49,"duration":0.5,"keys":{"scale":[[0,100,"backIn"],[1,0,"easeInOut"]]},"trending":true}

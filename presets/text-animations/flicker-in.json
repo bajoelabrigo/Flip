@@ -1,5 +1,5 @@
 {
-  "format": 1, "id": "flicker-in", "label": "Flicker on", "category": "light", "sampleText": "OPEN",
+  "format": 1, "id": "flicker-in", "label": "Flicker on", "category": "stylized", "sampleText": "OPEN",
   "slots": ["in"], "order": 455,
   "defaults": { "unit": "block", "duration": 0.9, "ease": "linear" },
   "flags": { "unitLocked": true, "orderLocked": true, "easeLocked": true },

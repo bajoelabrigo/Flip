@@ -229,6 +229,8 @@ struct Clip
     // CapCut-style body intro/outro (whole-clip opacity/transform motion).
     ClipAnimation animIn;
     ClipAnimation animOut;
+    // One motion over the clip (or its first durationUs) that both brings it in and takes it out.
+    ClipAnimation animCombo;
 
     // Layout on the project canvas in pixels: top-left origin, size in px.
     // Empty tracks use defaults (0,0,projectW,projectH) at evaluate time.

@@ -2,7 +2,7 @@
   "format": 1,
   "id": "fade-shift",
   "label": "Fade away",
-  "category": "basic",
+  "category": "motion",
   "sampleText": "Bye",
   "slots": [
     "out"

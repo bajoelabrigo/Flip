@@ -2,7 +2,7 @@
   "format": 1,
   "id": "blur-in-words",
   "label": "Blur by word",
-  "category": "word",
+  "category": "build",
   "sampleText": "Blur in",
   "slots": [
     "in",

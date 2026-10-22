@@ -1,0 +1,1 @@
+{"format":1,"id":"out-zoom-out","label":"Zoom out","category":"basic","slots":["out"],"order":5,"duration":0.6,"keys":{"scale":[[0,100,"easeIn"],[1,140,"easeInOut"]],"opacity":[[0.55,100,"linear"],[1,0,"easeInOut"]]}}

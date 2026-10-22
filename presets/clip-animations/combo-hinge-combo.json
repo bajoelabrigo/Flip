@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-hinge-combo","label":"Hinge","category":"3d","slots":["combo"],"order":29,"duration":0,"keys":{"rotationX":[[0.0,95,"elastic"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,-90,"easeInOut"]],"opacity":[[0,100,"linear"],[0.82,100,"linear"],[0.964,100,"linear"],[1.0,0,"easeInOut"]]}}

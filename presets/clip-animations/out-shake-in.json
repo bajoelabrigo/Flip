@@ -1,0 +1,1 @@
+{"format":1,"id":"out-shake-in","label":"Shake","category":"glitch","slots":["out"],"order":41,"duration":0.6,"keys":{"scale":[[0,100,"easeIn"],[1,112,"easeInOut"]]},"effects":[{"id":"beat_shake","params":{"amount":[[0,0,"easeIn"],[1,1,"easeInOut"]],"rotation":0.5}}]}

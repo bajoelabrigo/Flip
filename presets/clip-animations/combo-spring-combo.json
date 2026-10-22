@@ -1,0 +1,1 @@
+{"format":1,"id":"combo-spring-combo","label":"Spring","category":"bounce","slots":["combo"],"order":33,"duration":0,"keys":{"y":[[0.0,0.5,"elastic"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,-0.5,"easeInOut"]],"opacity":[[0.0,0,"linear"],[0.036,100,"easeInOut"],[0.18,100,"linear"],[0.82,100,"linear"],[0.964,100,"linear"],[1.0,0,"easeInOut"]]}}
