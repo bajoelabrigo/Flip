@@ -35,6 +35,12 @@ public:
     // look-alike (the other car, the other player) is not taken for it.
     static constexpr double kRecoverScore = 0.6;
     static constexpr double kRecoverMargin = 0.08;
+    // The match is also compared with the subject as it was framed. Below this it has drifted onto
+    // something else (the blended template slowly learnt the background): lost, and looked for again
+    // with the framed look, rather than followed off the subject.
+    static constexpr double kDriftScore = 0.3;
+    // The template only learns from a match that still looks like the framed subject.
+    static constexpr double kLearnScore = 0.5;
 
     // Returns false when the region is empty or outside the frame.
     bool start(const QImage &frame, const QRectF &region);

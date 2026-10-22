@@ -1378,6 +1378,22 @@ void ProjectFileController::reportMissingAddons(const QList<drift::bundle::Addon
 
 void ProjectFileController::remapProjectPaths(const QHash<QString, QString> &remap)
 {
+    // A .flip from the web editor names a clip's media only by its asset id (the path lives on the
+    // asset): give such clips their asset's path, or they open blank. Before the remap, so the
+    // path then follows the asset to wherever its file was extracted.
+    {
+        QHash<QString, QString> assetPaths;
+        for (const drift::MediaAsset &asset : m_app->m_project.assets())
+            assetPaths.insert(asset.id, asset.path);
+        m_app->m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
+            for (drift::Track &track : tracks) {
+                for (drift::Clip &clip : track.clips) {
+                    if (clip.path.isEmpty() && !clip.assetId.isEmpty() && clip.type != drift::ClipType::Adjustment)
+                        clip.path = assetPaths.value(clip.assetId);
+                }
+            }
+        });
+    }
     if (remap.isEmpty())
         return;
 

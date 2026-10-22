@@ -106,6 +106,39 @@ double RegionTracker::correlate(const Gray &frame, const Gray &templ, int x0, in
     return num / std::sqrt(varF * varT);
 }
 
+namespace {
+
+// Zero-mean normalized cross-correlation of two patches of the same size.
+double similarity(const QVector<float> &a, const QVector<float> &b)
+{
+    const int n = int(qMin(a.size(), b.size()));
+    if (n == 0)
+        return 0.0;
+    double meanA = 0.0;
+    double meanB = 0.0;
+    for (int i = 0; i < n; ++i) {
+        meanA += a[i];
+        meanB += b[i];
+    }
+    meanA /= n;
+    meanB /= n;
+    double num = 0.0;
+    double varA = 0.0;
+    double varB = 0.0;
+    for (int i = 0; i < n; ++i) {
+        const double da = a[i] - meanA;
+        const double db = b[i] - meanB;
+        num += da * db;
+        varA += da * da;
+        varB += db * db;
+    }
+    if (varA < 1e-6 || varB < 1e-6)
+        return 0.0;
+    return num / std::sqrt(varA * varB);
+}
+
+} // namespace
+
 bool RegionTracker::start(const QImage &frame, const QRectF &region)
 {
     m_started = false;
@@ -349,7 +382,12 @@ RegionTracker::Result RegionTracker::step(const QImage &frame, bool followScale)
     }
 
     result.score = bestScore;
-    if (bestScore < kLostScore) {
+    // Still the framed subject there? The blended template can drift onto the background a little
+    // at a time and keep matching it well; the framed look cannot.
+    double framed = 1.0;
+    if (bestScore >= kLostScore)
+        framed = similarity(patch(grey, bestX, bestY, bestScale).px, m_original.px);
+    if (bestScore < kLostScore || framed < kDriftScore) {
         // The whole-frame search costs a few local ones: every other lost frame is enough to pick
         // the subject up again within a frame or two of its return.
         ++m_lostFrames;
@@ -369,7 +407,7 @@ RegionTracker::Result RegionTracker::step(const QImage &frame, bool followScale)
     m_cx = bestX;
     m_cy = bestY;
     m_scale = bestScale;
-    if (bestScore >= kBlendScore) {
+    if (bestScore >= kBlendScore && framed >= kLearnScore) {
         const Gray seen = patch(grey, m_cx, m_cy, m_scale);
         for (int i = 0; i < m_template.px.size(); ++i)
             m_template.px[i] = m_template.px[i] * (1.f - kTemplateBlend) + seen.px[i] * kTemplateBlend;
