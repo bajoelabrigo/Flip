@@ -53,7 +53,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `DRIFT_OBJECT_MODEL_DIR=pruebas\object-detector\stage-model`), elegir rostro u objeto en el visor, «Ocultar un
   rostro», máscaras en textos, textos 100 % editables, Títulos › Tendencias, cuadro de texto ajustado a las palabras.
 - **Editor web publicado (2026-10-21) desde la rama `web/v019` de flipstudio-app** (= `web/movil` + `web/tendencias`
-  + `web/seguimiento` + `web/estilos-texto`; worktree `codigolipstudio-app-integra`): todo lo de arriba también en
+  + `web/seguimiento` + `web/estilos-texto`; worktree `codigo\flipstudio-app-integra`): todo lo de arriba también en
   la web. YOLOX ya estaba en el VPS (`/modelos/yolox-tiny/`). La próxima rama de trabajo de la web sale de `web/v019`.
 - **Falta:** publicar el extra `seguimiento.objetos`, compilar `cffad`, versión 0.19.0 en `CMakeLists.txt`, notas y
   el OK de Jorge.
