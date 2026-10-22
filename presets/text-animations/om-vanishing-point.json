@@ -85,16 +85,16 @@
      "unit": "em"
     },
     "opacity": {
-     "value": 1,
+     "value": 100,
      "curve": {
       "keyframes": [
        {
         "timeUs": 0,
-        "value": 1
+        "value": 100
        },
        {
         "timeUs": 800000,
-        "value": 1
+        "value": 100
        },
        {
         "timeUs": 1000000,

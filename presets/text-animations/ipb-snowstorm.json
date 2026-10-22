@@ -72,32 +72,34 @@
    }
   }
  ],
- "particles": {
-  "shape": "glyph",
-  "trigger": "during",
-  "rate": 18,
-  "colors": [
-   "#ffffffff",
-   "#ffdff6ff"
-  ],
-  "size": [
-   0.07,
-   0.14
-  ],
-  "speed": [
-   0.6,
-   1.2
-  ],
-  "life": [
-   0.6,
-   1.0
-  ],
-  "angle": 160,
-  "spread": 40,
-  "gravity": 0.8,
-  "spin": 120,
-  "fadeIn": 0.15,
-  "origin": "area",
-  "glyph": "shape:snow"
- }
+ "particles": [
+  {
+   "shape": "glyph",
+   "trigger": "during",
+   "rate": 18,
+   "colors": [
+    "#ffffffff",
+    "#ffdff6ff"
+   ],
+   "size": [
+    0.07,
+    0.14
+   ],
+   "speed": [
+    0.6,
+    1.2
+   ],
+   "life": [
+    0.6,
+    1.0
+   ],
+   "angle": 160,
+   "spread": 40,
+   "gravity": 0.8,
+   "spin": 120,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "glyph": "shape:snow"
+  }
+ ]
 }

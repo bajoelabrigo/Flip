@@ -88,31 +88,33 @@
    }
   }
  ],
- "particles": {
-  "shape": "flare",
-  "count": 2,
-  "colors": [
-   "#ffff5ae0",
-   "#ff40f0ff"
-  ],
-  "size": [
-   0.4,
-   0.6
-  ],
-  "speed": [
-   0.0,
-   0.2
-  ],
-  "life": [
-   0.3,
-   0.45
-  ],
-  "at": 0.7,
-  "angle": -90.0,
-  "spread": 360.0,
-  "glow": 1.0,
-  "grow": 0.4,
-  "origin": "top",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "flare",
+   "count": 2,
+   "colors": [
+    "#ffff5ae0",
+    "#ff40f0ff"
+   ],
+   "size": [
+    0.4,
+    0.6
+   ],
+   "speed": [
+    0.0,
+    0.2
+   ],
+   "life": [
+    0.3,
+    0.45
+   ],
+   "at": 0.7,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 1.0,
+   "grow": 0.4,
+   "origin": "top",
+   "additive": true
+  }
+ ]
 }

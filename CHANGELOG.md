@@ -3,6 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.20.0 — Animaciones como Filmora
+
+- **Motor de texto:** `rotationX` / `rotationY` por fragmento (perspectiva en el pintor) y por bloque; cursor de
+  glifo (emoji o símbolo vectorial con rebote y balanceo); partículas por momento (`burst` al llegar o al irse,
+  `stream` continuo: puntos, estrellas, chispas, anillos, humo, confeti, glifos). Todo en el preset JSON.
+- **302 animaciones de texto incluidas** (216 de entrada, 86 de salida) de `tools/text_animations` (`in_*.py`,
+  `out_*.py`, `build.py`), en los chips de Filmora; las 47 de antes se reparten en ellos.
+- **Animaciones de clip con presets:** `ClipAnimationPreset` (curvas de posición, escala, giro, giro 3D, opacidad,
+  desenfoque y efectos del catálogo con parámetros animados), `ClipAnimation::Preset`, `Clip::animCombo`;
+  49 de entrada, 55 de salida y 62 combinadas de `tools/clip_animations/build.py`. Galería con tarjetas
+  (`ClipAnimPresetTile`). MCP: `set_animation` con `animCombo` y `preset`, `list_clip_animations`.
+- **i18n:** `tools/i18n/catalog_strings.py` escapa los saltos de línea (los textos de muestra de dos líneas no
+  llegaban a lupdate); las animaciones nuevas en 12 idiomas.
+
 ## 0.19.0 — Seguimiento como CapCut, textos en tendencia y textos 100 % editables
 
 - **Seguimiento:** `core/MotionTrack` (lo encontrado, en tiempo de origen y coordenadas normalizadas del video, con

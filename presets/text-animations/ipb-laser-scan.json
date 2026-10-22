@@ -50,33 +50,35 @@
    }
   }
  ],
- "particles": {
-  "shape": "spark",
-  "trigger": "during",
-  "rate": 36,
-  "colors": [
-   "#ffff3048",
-   "#ffff9aa0",
-   "#ffffffff"
-  ],
-  "size": [
-   0.025,
-   0.045
-  ],
-  "speed": [
-   1.0,
-   2.2
-  ],
-  "life": [
-   0.15,
-   0.35
-  ],
-  "angle": 0,
-  "spread": 90,
-  "drag": 3.0,
-  "glow": 0.7,
-  "fadeIn": 0.15,
-  "origin": "right",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 36,
+   "colors": [
+    "#ffff3048",
+    "#ffff9aa0",
+    "#ffffffff"
+   ],
+   "size": [
+    0.025,
+    0.045
+   ],
+   "speed": [
+    1.0,
+    2.2
+   ],
+   "life": [
+    0.15,
+    0.35
+   ],
+   "angle": 0,
+   "spread": 90,
+   "drag": 3.0,
+   "glow": 0.7,
+   "fadeIn": 0.15,
+   "origin": "right",
+   "additive": true
+  }
+ ]
 }

@@ -110,6 +110,26 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.20.0)**. Lo nuevo desde la 0.19.0 (que Jorge mandó a certificación el 2026-10-22). Texto de "Novedades de esta versión" del MSIX de la 0.20.0 (unos 571 de 1500 caracteres; en inglés, 517). Si la 0.19.0 **no** llegó a aprobarse, añadir al final las líneas de la 0.19.0.
+
+> Novedades de la 0.20.0
+>
+> - Animaciones de texto como Filmora: más de 300 nuevas de entrada y salida, en Tendencias, Movimiento, Máscara, Fluido, Construcción, Estilizado y Partículas.
+> - Partículas que salen de las letras: chispas, estrellas, humo, confeti, fuegos artificiales, llamas y rayos.
+> - Un símbolo que acompaña al texto mientras se escribe (⚡, ★, ♥…) y giros 3D por letra.
+> - Video › Animación con Entrada, Salida y Combinado: más de 160 animaciones con tarjetas que se mueven.
+> - Las combinadas entran y salen en una sola animación, durante todo el clip o lo que elijas.
+
+En inglés:
+
+> What's new in 0.20.0
+>
+> - Text animations like Filmora: over 300 new ones for in and out, in Trending, Motion, Mask, Fluid, Build, Stylized and Particles.
+> - Particles from the letters: sparks, stars, smoke, confetti, fireworks, flames and lightning.
+> - A symbol that rides along while the text types (⚡, ★, ♥…) and 3D turns per letter.
+> - Video › Animation with In, Out and Combo: over 160 animations with moving previews.
+> - Combos bring the clip in and take it out in one animation, over the whole clip or as long as you pick.
+
 **Notas para la Store (0.19.0)**. Lo nuevo desde la 0.18.3 (que Jorge mandó a certificación el 2026-10-21). Texto de "Novedades de esta versión" del MSIX de la 0.19.0 (728 de 1500 caracteres; en inglés, 693). Si la 0.18.3 **no** llegó a aprobarse, añadir al final las cuatro líneas de la 0.18.3.
 
 > Novedades de la 0.19.0

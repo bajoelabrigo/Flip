@@ -70,33 +70,35 @@
   },
   "widthEm": 0.08,
   "heightEm": 1.0,
-  "shape": "block",
-  "color": "#ffff3b4a"
+  "shape": "bar",
+  "color": "#ffffffff"
  },
- "particles": {
-  "shape": "smoke",
-  "count": 4,
-  "colors": [
-   "#ffffffff",
-   "#ffd9dde4"
-  ],
-  "size": [
-   0.35,
-   0.55
-  ],
-  "speed": [
-   0.3,
-   0.7
-  ],
-  "life": [
-   0.4,
-   0.7
-  ],
-  "at": 0.0,
-  "angle": -90,
-  "spread": 160,
-  "drag": 2.0,
-  "grow": 1.6,
-  "behind": true
- }
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 4,
+   "colors": [
+    "#ffffffff",
+    "#ffd9dde4"
+   ],
+   "size": [
+    0.35,
+    0.55
+   ],
+   "speed": [
+    0.3,
+    0.7
+   ],
+   "life": [
+    0.4,
+    0.7
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 160,
+   "drag": 2.0,
+   "grow": 1.6,
+   "behind": true
+  }
+ ]
 }

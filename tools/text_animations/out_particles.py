@@ -351,7 +351,7 @@ PRESETS = [
                       burst("dot", 4, ("#ffd400",), size=(0.04, 0.06), speed=(0.3, 0.8), life=(0.25, 0.4), at=0.0,
                             angle=-90, spread=120, gravity=3.0, seed=2)]),
     typing("op-smoky-delete", "Delete in puffs", "Borrado con humo", "particles",
-           bar_caret("block", color="#ff3b4a"),
+           bar_caret("bar", color="#ffffff"),
            slots=OUT, order="backward", stagger=0.1,
            particles=burst("smoke", 4, ("#ffffff", "#d9dde4"), size=(0.35, 0.55), speed=(0.3, 0.7), life=(0.4, 0.7),
                            at=0.0, angle=-90, spread=160, drag=2.0, grow=1.6, behind=True)),

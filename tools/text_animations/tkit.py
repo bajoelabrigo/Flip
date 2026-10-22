@@ -83,7 +83,9 @@ class T:
         if self.caret:
             d["caret"] = self.caret
         if self.particles:
-            d["particles"] = self.particles
+            # One spec on its own is a list of one: an object reads as {"in": [...], "out": [...]}.
+            single = isinstance(self.particles, dict) and "shape" in self.particles
+            d["particles"] = [self.particles] if single else self.particles
         return d
 
     def param_defaults(self) -> dict:

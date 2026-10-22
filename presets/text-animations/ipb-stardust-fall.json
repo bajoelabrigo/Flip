@@ -47,33 +47,35 @@
    }
   }
  ],
- "particles": {
-  "shape": "dot",
-  "trigger": "during",
-  "rate": 30,
-  "colors": [
-   "#ffffffff",
-   "#fffff3c4",
-   "#ffcfe3ff"
-  ],
-  "size": [
-   0.015,
-   0.035
-  ],
-  "speed": [
-   0.05,
-   0.25
-  ],
-  "life": [
-   0.7,
-   1.1
-  ],
-  "angle": 90,
-  "spread": 120,
-  "gravity": 0.6,
-  "glow": 0.8,
-  "fadeIn": 0.25,
-  "origin": "top",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 30,
+   "colors": [
+    "#ffffffff",
+    "#fffff3c4",
+    "#ffcfe3ff"
+   ],
+   "size": [
+    0.015,
+    0.035
+   ],
+   "speed": [
+    0.05,
+    0.25
+   ],
+   "life": [
+    0.7,
+    1.1
+   ],
+   "angle": 90,
+   "spread": 120,
+   "gravity": 0.6,
+   "glow": 0.8,
+   "fadeIn": 0.25,
+   "origin": "top",
+   "additive": true
+  }
+ ]
 }

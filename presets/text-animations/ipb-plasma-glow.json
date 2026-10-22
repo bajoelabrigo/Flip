@@ -89,32 +89,34 @@
    }
   }
  ],
- "particles": {
-  "shape": "flare",
-  "count": 3,
-  "colors": [
-   "#ff7fe9ff",
-   "#ff3fb8ff",
-   "#ffffffff"
-  ],
-  "size": [
-   0.18,
-   0.35
-  ],
-  "speed": [
-   0.1,
-   0.35
-  ],
-  "life": [
-   0.5,
-   0.8
-  ],
-  "at": 0.4,
-  "angle": -90.0,
-  "spread": 360.0,
-  "glow": 0.9,
-  "spin": 60,
-  "origin": "area",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "flare",
+   "count": 3,
+   "colors": [
+    "#ff7fe9ff",
+    "#ff3fb8ff",
+    "#ffffffff"
+   ],
+   "size": [
+    0.18,
+    0.35
+   ],
+   "speed": [
+    0.1,
+    0.35
+   ],
+   "life": [
+    0.5,
+    0.8
+   ],
+   "at": 0.4,
+   "angle": -90.0,
+   "spread": 360.0,
+   "glow": 0.9,
+   "spin": 60,
+   "origin": "area",
+   "additive": true
+  }
+ ]
 }

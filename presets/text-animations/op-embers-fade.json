@@ -103,33 +103,35 @@
    }
   }
  ],
- "particles": {
-  "shape": "dot",
-  "trigger": "during",
-  "rate": 12,
-  "colors": [
-   "#ffffb347",
-   "#ffff6a1f",
-   "#ffffd27a"
-  ],
-  "size": [
-   0.03,
-   0.06
-  ],
-  "speed": [
-   0.15,
-   0.45
-  ],
-  "life": [
-   0.8,
-   1.2
-  ],
-  "angle": -90,
-  "spread": 70,
-  "drag": 0.6,
-  "glow": 0.9,
-  "fadeIn": 0.15,
-  "origin": "area",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "dot",
+   "trigger": "during",
+   "rate": 12,
+   "colors": [
+    "#ffffb347",
+    "#ffff6a1f",
+    "#ffffd27a"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    0.15,
+    0.45
+   ],
+   "life": [
+    0.8,
+    1.2
+   ],
+   "angle": -90,
+   "spread": 70,
+   "drag": 0.6,
+   "glow": 0.9,
+   "fadeIn": 0.15,
+   "origin": "area",
+   "additive": true
+  }
+ ]
 }

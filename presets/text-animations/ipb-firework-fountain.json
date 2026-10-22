@@ -99,33 +99,35 @@
    }
   }
  ],
- "particles": {
-  "shape": "spark",
-  "trigger": "during",
-  "rate": 32,
-  "colors": [
-   "#ffffe27a",
-   "#ffffffff",
-   "#ffffb02e"
-  ],
-  "size": [
-   0.03,
-   0.06
-  ],
-  "speed": [
-   2.2,
-   3.4
-  ],
-  "life": [
-   0.45,
-   0.8
-  ],
-  "angle": -90,
-  "spread": 34,
-  "gravity": 6.0,
-  "glow": 0.6,
-  "fadeIn": 0.15,
-  "origin": "bottom",
-  "additive": true
- }
+ "particles": [
+  {
+   "shape": "spark",
+   "trigger": "during",
+   "rate": 32,
+   "colors": [
+    "#ffffe27a",
+    "#ffffffff",
+    "#ffffb02e"
+   ],
+   "size": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    2.2,
+    3.4
+   ],
+   "life": [
+    0.45,
+    0.8
+   ],
+   "angle": -90,
+   "spread": 34,
+   "gravity": 6.0,
+   "glow": 0.6,
+   "fadeIn": 0.15,
+   "origin": "bottom",
+   "additive": true
+  }
+ ]
 }

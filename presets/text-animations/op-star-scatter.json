@@ -52,31 +52,33 @@
    }
   }
  ],
- "particles": {
-  "shape": "star",
-  "count": 9,
-  "colors": [
-   "#ffffd23f",
-   "#fffff2a8",
-   "#ffffb02e"
-  ],
-  "size": [
-   0.09,
-   0.17
-  ],
-  "speed": [
-   1.2,
-   2.4
-  ],
-  "life": [
-   0.5,
-   0.9
-  ],
-  "at": 0.0,
-  "angle": -90,
-  "spread": 300,
-  "gravity": 3.0,
-  "drag": 0.8,
-  "spin": 320
- }
+ "particles": [
+  {
+   "shape": "star",
+   "count": 9,
+   "colors": [
+    "#ffffd23f",
+    "#fffff2a8",
+    "#ffffb02e"
+   ],
+   "size": [
+    0.09,
+    0.17
+   ],
+   "speed": [
+    1.2,
+    2.4
+   ],
+   "life": [
+    0.5,
+    0.9
+   ],
+   "at": 0.0,
+   "angle": -90,
+   "spread": 300,
+   "gravity": 3.0,
+   "drag": 0.8,
+   "spin": 320
+  }
+ ]
 }

@@ -69,29 +69,31 @@
    }
   }
  ],
- "particles": {
-  "shape": "square",
-  "count": 14,
-  "colors": [
-   "#ffffffff",
-   "#ffa0a0a0",
-   "#ff5a5a5a"
-  ],
-  "size": [
-   0.02,
-   0.05
-  ],
-  "speed": [
-   0.1,
-   0.6
-  ],
-  "life": [
-   0.1,
-   0.25
-  ],
-  "at": 0.2,
-  "angle": -90.0,
-  "spread": 360.0,
-  "origin": "area"
- }
+ "particles": [
+  {
+   "shape": "square",
+   "count": 14,
+   "colors": [
+    "#ffffffff",
+    "#ffa0a0a0",
+    "#ff5a5a5a"
+   ],
+   "size": [
+    0.02,
+    0.05
+   ],
+   "speed": [
+    0.1,
+    0.6
+   ],
+   "life": [
+    0.1,
+    0.25
+   ],
+   "at": 0.2,
+   "angle": -90.0,
+   "spread": 360.0,
+   "origin": "area"
+  }
+ ]
 }

@@ -50,31 +50,33 @@
    }
   }
  ],
- "particles": {
-  "shape": "smoke",
-  "count": 6,
-  "colors": [
-   "#ffc8b79a",
-   "#ffa8987e",
-   "#ffd9ccb4"
-  ],
-  "size": [
-   0.3,
-   0.55
-  ],
-  "speed": [
-   0.5,
-   1.1
-  ],
-  "life": [
-   0.6,
-   0.95
-  ],
-  "at": 0.45,
-  "angle": -90,
-  "spread": 170,
-  "drag": 3.0,
-  "grow": 1.9,
-  "origin": "bottom"
- }
+ "particles": [
+  {
+   "shape": "smoke",
+   "count": 6,
+   "colors": [
+    "#ffc8b79a",
+    "#ffa8987e",
+    "#ffd9ccb4"
+   ],
+   "size": [
+    0.3,
+    0.55
+   ],
+   "speed": [
+    0.5,
+    1.1
+   ],
+   "life": [
+    0.6,
+    0.95
+   ],
+   "at": 0.45,
+   "angle": -90,
+   "spread": 170,
+   "drag": 3.0,
+   "grow": 1.9,
+   "origin": "bottom"
+  }
+ ]
 }
