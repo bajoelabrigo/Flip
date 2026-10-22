@@ -44,7 +44,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-22)
+## Estado (actualizado 2026-10-22, tarde)
+
+### 0.20.0 PUBLICADA (2026-10-22) — animaciones como Filmora — **detalle y trampas en `docs/plan-animaciones.md`**
+- PR #32 (`flip/animaciones` → `main`), tag `v0.20.0`, release (run 39819994016) con instalador, portable y `SHA256SUMS`; copia en `versionesFlipStudio-0.20.0` (hashes comprobados); MSIX: run 39826305469; novedades en la web. Texto: giro 3D, cursor de glifo, partículas y **302**
+  animaciones nuevas (216 Entrada, 86 Salida) en chips como Filmora (`tools/text_animations`). Clip: Video ›
+  Animación con **49 Entrada, 55 Salida y 62 Combinado** (`tools/clip_animations/build.py`). Nombres en 12 idiomas.
+- Revisadas en hojas renderizadas con la app (`pruebas\animaciones-texto`, `pruebas\animaciones-clip`) y el panel
+  probado en ventana. Editor web igual (`flipstudio-app` `web/animaciones`, desplegado). Notas de la Store en
+  `docs/store-listing.md` («Notas para la Store (0.20.0)»).
+- **Barra de abajo del celular (iPhone instalado):** era `black-translucent`; con `black` queda abajo. Jorge lo
+  confirmó tras borrar y volver a agregar el ícono.
+- **Falta (Jorge):** cuando aprueben la 0.19.0, mandar la 0.20.0 (MSIX en `tienda\FlipStudio-Store\paquete-0.20.0`)
+  y después TXT `version` = 0.20.0.
 
 ### 0.19.0 PUBLICADA (2026-10-22) — seguimiento como CapCut, Tendencias, textos 100 % editables — **detalle en `docs/plan-0.19.md`**
 - PR #29 (`flip/v0.19.0` → `main`), tag `v0.19.0`, release (run 39723353011) con instalador, portable y `SHA256SUMS`;
