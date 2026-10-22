@@ -78,6 +78,25 @@ Hecho (`398f3`):
   máscara de una capa de ajuste con desenfoque.
 - Web: no tiene seguimiento.
 
+## 4. Títulos › Tendencias como CapCut (pedido de Jorge, 2026-10-21)
+Jorge buscaba los 391 estilos «Tendencias» en el panel Títulos (sus capturas eran de CapCut, Títulos › Tendencias);
+solo estaban en Stock › Estilos de texto. Y al bajar uno desde Stock el aviso decía «se agregó a Medios» y «Ver»
+llevaba a Medios: el estilo se instalaba en Texto › Mis estilos.
+Hecho (`ef885`, traducciones `a53a6`):
+- **Títulos › Texto › Tendencias** (primera sección, la de entrada): todos los estilos de texto de Stock (los de
+  tendencia primero, como los ordena el servidor), página a página (`MarketClient::fetchTextTrends`, `textTrends`).
+  Tarjeta cuadrada con la vista previa animada al pasar el mouse (`StockThumb`) y el icono de descarga si falta;
+  un clic la baja y la pone en el cabezal; ya bajada, clic o arrastre como cualquier estilo. Pide cuenta (aviso
+  con «Iniciar sesión»).
+- **Un estilo de Stock recuerda su id** (`TextPreset::stockId`, `TextPresetStore::idForStockId`): bajarlo otra vez lo
+  actualiza en vez de duplicarlo, sale en Tendencias y no en Mis estilos. Prueba en `CoreTest::userTextPresetsRoundTrip`.
+  Los que Jorge bajó antes de esto no tienen el id: siguen en Mis estilos.
+- **Aviso al instalar** (LUT, look, estilo, animación, transición, forma): `downloadInstalled(itemId, name, where)`
+  dice dónde quedó («En Títulos › Tendencias») y «Ver» abre Títulos › Tendencias.
+- **Stock:** las categorías de nuestros catálogos salen como botones (Todo, Tendencias, Subtítulos…), no solo detrás
+  de Filtros, y Estilos de texto entra en **Tendencias**.
+- **Falta:** probar en ventana con la cuenta (compilación run 39701007841).
+
 ## Estado de la compilación
 - Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad` (solo falló la prueba de traducciones, ya arreglada).
 - Run 39691308647 sobre `e8f3a`: compila bien; `tests.yml` 17/17 en verde.
