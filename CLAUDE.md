@@ -52,6 +52,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-22, tarde)
 
+### 0.20.1 PUBLICADA (2026-10-22, noche) — la galería de Texto › Animación vacía en la 0.20.0
+- La 0.20.0 la **aprobó la Store** con Texto › Animación mostrando solo «Ninguno» (`TextAnimPresetTile` era un
+  `Column` y la estrella de favorito anclada lo apagaba). PR #35, tag `v0.20.1`, release (run 39852585099), copia en
+  `versiones\FlipStudio-0.20.1` (hashes comprobados), novedades en la web. Además: pestañas subrayadas y chips
+  desplazables (`AnimSlotTabs`, `ChipScroller`), textos de muestra que caben. Probada en ventana (capturas).
+- **MSIX: `msstore.yml` run 39857949348** — si la máquina se apagó antes de bajarlo:
+  `gh run download 39857949348 -R bajoelabrigo/Flip` a `tienda\FlipStudio-Store\paquete-0.20.1`.
+- **Falta (Jorge):** subir ese MSIX con las notas «Notas para la Store (0.20.1)» y después TXT `version` = 0.20.1
+  (no 0.20.0).
+- **Web (`flipstudio-app` `web/animaciones`, desplegada):** unida con `web/v019` (se había perdido al desplegar),
+  galería de los textos con estilo del escritorio (`DeskAnimPage`), «Recuperar archivos» arreglado, en el celular
+  «Animaciones» de un texto abre las de letras.
+
 ### 0.20.0 PUBLICADA (2026-10-22) — animaciones como Filmora — **detalle y trampas en `docs/plan-animaciones.md`**
 - PR #32 (`flip/animaciones` → `main`), tag `v0.20.0`, release (run 39819994016) con instalador, portable y `SHA256SUMS`; copia en `versiones\FlipStudio-0.20.0` (hashes comprobados); MSIX: run 39826305469; novedades en la web. Texto: giro 3D, cursor de glifo, partículas y **302**
   animaciones nuevas (216 Entrada, 86 Salida) en chips como Filmora (`tools/text_animations`). Clip: Video ›
