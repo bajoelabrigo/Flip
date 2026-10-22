@@ -169,3 +169,5 @@ restaurar; las máscaras en una fila que no tape el video ni la línea de tiempo
   de tiempo son los de la máscara, y Curvas abierta desde Máscara les da forma y con ✓ vuelve a Máscara. Mover la
   máscara con un fotograma ya puesto pone otro en el cabezal. El Degradado también muestra el manejador de difuminado.
 - Falta: probarlo Jorge en su celular; arrastrar el recorte en la vista previa (hoy son deslizadores).
+
+- **Trampa (2026-10-22):** `apple-mobile-web-app-status-bar-style` va en `black`, no en `black-translucent`: con translúcida, la app instalada en el iPhone mide la pantalla más corta (la barra de estado) y la barra de abajo queda alta aunque todo vaya con `position: fixed; inset: 0`. Así lo tiene la app de gastos (`mern-expenses-tracker`). El iPhone lo lee al instalar: hay que borrar el ícono y volver a agregarlo (`flipstudio-app` `web/movil`).

@@ -404,6 +404,15 @@ SkPath polygonPath(std::initializer_list<SkPoint> points)
     return b.detach();
 }
 
+// A bar halfWidth wide and 2 * halfLength long through the origin, turned by deg.
+SkPath rotatedBar(float halfWidth, float halfLength, float deg)
+{
+    const SkMatrix m = SkMatrix::RotateDeg(deg);
+    const auto at = [&](float x, float y) { return m.mapXY(x, y); };
+    return polygonPath({at(-halfWidth, -halfLength), at(halfWidth, -halfLength), at(halfWidth, halfLength),
+                        at(-halfWidth, halfLength)});
+}
+
 // A star with `points` tips, outer radius r, inner radius r * inner, first tip straight up.
 SkPath starPath(double r, int points, double inner)
 {
@@ -482,9 +491,7 @@ std::optional<SkPath> vectorSymbol(const QString &glyph, double r)
     if (name == QLatin1String("asterisk")) {
         SkPathBuilder b;
         for (int i = 0; i < 3; ++i) {
-            SkPath bar = SkPath::Rect(SkRect::MakeLTRB(-0.14f * s, -s, 0.14f * s, s));
-            bar.transform(SkMatrix::RotateDeg(float(i * 60)));
-            b.addPath(bar);
+            b.addPath(rotatedBar(0.14f * s, s, float(i * 60)));
         }
         return b.detach();
     }
@@ -526,9 +533,7 @@ std::optional<SkPath> vectorSymbol(const QString &glyph, double r)
     if (name == QLatin1String("snow")) {
         SkPathBuilder b;
         for (int i = 0; i < 3; ++i) {
-            SkPath bar = SkPath::Rect(SkRect::MakeLTRB(-0.08f * s, -s, 0.08f * s, s));
-            bar.transform(SkMatrix::RotateDeg(float(i * 60)));
-            b.addPath(bar);
+            b.addPath(rotatedBar(0.08f * s, s, float(i * 60)));
         }
         return b.detach();
     }

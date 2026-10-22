@@ -3997,10 +3997,14 @@ void CoreTest::clipAnimationSerializationAndSample()
     clip.type = drift::ClipType::Shape;
     clip.timelineStart = 0;
     clip.timelineDuration = drift::secondsToUs(2.0);
-    clip.animIn = {drift::ClipAnimKind::Fade, drift::secondsToUs(1.0), drift::ClipAnimEase::Linear,
-                   drift::FadeCurve::Linear};
-    clip.animOut = {drift::ClipAnimKind::ZoomIn, drift::secondsToUs(0.5), drift::ClipAnimEase::EaseOut,
-                    drift::FadeCurve::EqualPower};
+    clip.animIn.kind = drift::ClipAnimKind::Fade;
+    clip.animIn.durationUs = drift::secondsToUs(1.0);
+    clip.animIn.ease = drift::ClipAnimEase::Linear;
+    clip.animIn.curve = drift::FadeCurve::Linear;
+    clip.animOut.kind = drift::ClipAnimKind::ZoomIn;
+    clip.animOut.durationUs = drift::secondsToUs(0.5);
+    clip.animOut.ease = drift::ClipAnimEase::EaseOut;
+    clip.animOut.curve = drift::FadeCurve::EqualPower;
     project.tracks()[0].clips.append(clip);
 
     QString error;
@@ -4023,8 +4027,10 @@ void CoreTest::clipAnimationSerializationAndSample()
     drift::Clip zoom;
     zoom.timelineStart = 0;
     zoom.timelineDuration = drift::secondsToUs(2.0);
-    zoom.animIn = {drift::ClipAnimKind::ZoomIn, drift::secondsToUs(1.0), drift::ClipAnimEase::Linear,
-                   drift::FadeCurve::Linear};
+    zoom.animIn.kind = drift::ClipAnimKind::ZoomIn;
+    zoom.animIn.durationUs = drift::secondsToUs(1.0);
+    zoom.animIn.ease = drift::ClipAnimEase::Linear;
+    zoom.animIn.curve = drift::FadeCurve::Linear;
     const drift::ClipAnimSample zoomMid =
         drift::evaluateClipAnimation(zoom.timelineStart, zoom.timelineDuration, zoom.animIn, {},
                                      drift::secondsToUs(0.5), 100.0, 100.0);
