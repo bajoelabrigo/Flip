@@ -52,8 +52,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `tienda\FlipStudio-Store\paquete-0.19.0`. Novedades en la web (`flipstudio-web` `49b3d`, desplegado). Extra
   `seguimiento.objetos` 1.0.0 publicado (paquete y después índice). Notas de la Store en `docs/store-listing.md`
   («Notas para la Store (0.19.0)»).
-- **Falta (Jorge):** la 0.18.3 sigue en certificación; cuando la aprueben, subir el `.msix` de la 0.19.0 (no el `.exe`)
-  con sus notas y poner el TXT `version` = 0.19.0.
+- **Jorge (2026-10-22):** la 0.18.3 ya fue aprobada y **mandó la 0.19.0 a certificación**. Falta: cuando la
+  aprueben, TXT `version` = 0.19.0.
 - **Trampa:** `lupdate` va con `-disable-heuristic sametext -disable-heuristic similartext` (también en `LUPDATE_OPTIONS`
   de CMake): las heurísticas dejaban traducciones adivinadas sin terminar (es_CO mostraba 148 textos mal).
 
@@ -69,7 +69,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   copia en `versiones\FlipStudio-0.18.3` (hashes comprobados). MSIX: `msstore.yml` run 39481238504 →
   `tienda\FlipStudio-Store\paquete-0.18.3`. Novedades en la web. Notas de la Store en `docs/store-listing.md`
   («Notas para la Store (0.18.3)», 358/1500).
-- **Jorge mandó la 0.18.3 a certificación (2026-10-21).** Falta: cuando la aprueben, TXT `version` = 0.18.3.
+- **Aprobada en la Store (Jorge, 2026-10-22).**
 - **Trampa:** Partner Center da «Tienes que corregir todos los errores de validación del paquete» si se sube el
   instalador `.exe` de `versiones\`: la Store solo acepta el `.msix` de `tienda\FlipStudio-Store\paquete-<versión>\`.
 - Probado en ventana: el espacio que se abre en vivo al arrastrar (`moveRoomPreview`). «Actualizar» con una
