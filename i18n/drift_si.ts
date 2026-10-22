@@ -4369,12 +4369,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
+        <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <source>In Titles › Trending</source>
+        <translation>මාතෘකා › ප්‍රවණතා තුළ</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>පෙළ විලාසය ස්ථාපනය විය: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13290,6 +13294,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>ස්ථාපනය විය</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” සූදානම්. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” ස්ථාපනය විය.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13458,7 +13474,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ස්ථාපනය විය</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -20466,6 +20482,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ප්‍රියතමයන්</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>ප්‍රවණතා</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20492,6 +20512,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>ප්ලේහෙඩ් එක ඇති තැනට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — බාගත කර ධාවන හිසට එක් කිරීමට ක්ලික් කරන්න</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>ප්‍රවණතා පෙළ බැලීමට පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>ප්‍රවණතා පෙළ පූරණය වෙමින්…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>ප්‍රවණතා පෙළ පූරණය කළ නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>ප්‍රවණතා මාතෘකා පැමිණෙන්නේ ස්ටොක් වෙතින්, ඒ සඳහා ඔබේ නොමිලේ ගිණුම අවශ්‍යයි.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

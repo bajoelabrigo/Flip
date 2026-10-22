@@ -4369,12 +4369,16 @@
         <translation>đây không phải là kiểu chữ</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Đã cài kiểu chữ: %1 (Văn bản › Kiểu của tôi)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>Trong Văn bản › Kiểu của tôi</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>Trong Tiêu đề › Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>Đã cài kiểu chữ: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13244,6 +13248,18 @@
         <translation>Hiện</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Đã cài</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” đã sẵn sàng. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Đã cài “%1”.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Kiểm tra cập nhật…</translation>
     </message>
@@ -20389,6 +20405,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Yêu thích</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>Văn bản AI</translation>
     </message>
@@ -20415,6 +20435,34 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Thêm vào đầu phát</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — nhấp để tải về và thêm vào đầu phát</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Đăng nhập để xem chữ thịnh hành</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Đang tải chữ thịnh hành…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Không tải được chữ thịnh hành</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Tiêu đề thịnh hành đến từ Stock, cần tài khoản miễn phí của bạn.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Đăng nhập</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Thử lại</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

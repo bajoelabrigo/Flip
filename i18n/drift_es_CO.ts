@@ -4377,11 +4377,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
+        <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In Text › My styles</source>
+        <source>In Titles › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13290,6 +13294,18 @@
         <translation>Ver</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Buscar actualizaciones…</translation>
     </message>
@@ -20466,6 +20482,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Favoritos</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20492,6 +20512,34 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Añadir en el cabezal de reproducción</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished">Reintentar</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

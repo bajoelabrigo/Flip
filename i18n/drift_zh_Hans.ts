@@ -4361,12 +4361,16 @@
         <translation>这不是文字样式</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>已安装文字样式：%1（文字 › 我的样式）</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>位于 文字 › 我的样式</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>在 标题 › 热门</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>文字样式已安装：%1（%2）</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13244,6 +13248,18 @@
         <translation>显示</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>已安装</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1”已就绪。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1”已安装。</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>检查更新…</translation>
     </message>
@@ -20388,6 +20404,10 @@ If playback stutters, try another.</source>
         <translation>收藏</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI 文字</translation>
     </message>
@@ -20414,6 +20434,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>在播放头处添加</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — 点击下载并添加到播放头处</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>登录以查看热门文字</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>正在加载热门文字…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>无法加载热门文字</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>热门标题来自素材库，需要你的免费账户。</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

@@ -4369,12 +4369,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
+        <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <source>In Titles › Trending</source>
+        <translation>Nasa Mga Pamagat › Trending</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>Na-install ang istilo ng teksto: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13290,6 +13294,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Na-install</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>Handa na ang “%1”. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Na-install ang “%1”.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13458,7 +13474,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Na-install</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -20458,6 +20474,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Trending</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20484,6 +20504,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — i-click para i-download at idagdag sa playhead</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Mag-sign in para makita ang mga trending na teksto</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Nilo-load ang mga trending na teksto…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Hindi ma-load ang mga trending na teksto</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Galing sa Stock ang mga trending na pamagat, na nangangailangan ng libre mong account.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Mag-sign in</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Subukan muli</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

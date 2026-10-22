@@ -4377,12 +4377,16 @@
         <translation>to nie jest styl tekstu</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Zainstalowano styl tekstu: %1 (Tekst › Moje style)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>W Tekst › Moje style</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>W Tytuły › Na czasie</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>Zainstalowano styl tekstu: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13336,6 +13340,18 @@
         <translation>Pokaż</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Zainstalowano</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>„%1” jest gotowy. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Zainstalowano „%1”.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Sprawdź czy są aktualizacje…</translation>
     </message>
@@ -20543,6 +20559,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Ulubione</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>Tekst AI</translation>
     </message>
@@ -20569,6 +20589,34 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Dodaj przy głowicy odtwarzania</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — kliknij, aby pobrać i dodać w miejscu głowicy</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Zaloguj się, aby zobaczyć modne teksty</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Wczytywanie modnych tekstów…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Nie udało się wczytać modnych tekstów</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Modne tytuły pochodzą ze Stock, który wymaga bezpłatnego konta.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Zaloguj się</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Ponów</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

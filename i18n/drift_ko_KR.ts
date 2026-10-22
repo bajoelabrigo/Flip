@@ -4361,12 +4361,16 @@
         <translation>텍스트 스타일이 아닙니다</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>텍스트 스타일 설치됨: %1 (텍스트 › 내 스타일)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>텍스트 › 내 스타일에 있음</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>제목 › 트렌드</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>텍스트 스타일 설치됨: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13244,6 +13248,18 @@
         <translation>보기</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>설치됨</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” 준비 완료. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” 설치됨.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>업데이트 확인…</translation>
     </message>
@@ -20387,6 +20403,10 @@ If playback stutters, try another.</source>
         <translation>즐겨찾기</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI 텍스트</translation>
     </message>
@@ -20413,6 +20433,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>재생 헤드 위치에 추가</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — 클릭하면 다운로드해 재생 헤드에 추가합니다</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>트렌드 텍스트를 보려면 로그인하세요</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>트렌드 텍스트를 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>트렌드 텍스트를 불러오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>트렌드 제목은 무료 계정이 필요한 스톡에서 가져옵니다.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>다시 시도</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

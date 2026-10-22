@@ -4377,12 +4377,16 @@
         <translation>это не стиль текста</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Стиль текста установлен: %1 (Текст › Мои стили)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>В разделе Текст › Мои стили</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>В разделе Титры › В тренде</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>Стиль текста установлен: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13336,6 +13340,18 @@
         <translation>Показать</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Установлено</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» готово. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>«%1» установлено.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Проверить обновления…</translation>
     </message>
@@ -20543,6 +20559,10 @@ If playback stutters, try another.</source>
         <translation>Избранное</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>ИИ-текст</translation>
     </message>
@@ -20569,6 +20589,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — нажмите, чтобы скачать и добавить в позицию указателя</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Войдите, чтобы увидеть популярные тексты</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Загрузка популярных текстов…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Не удалось загрузить популярные тексты</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>Популярные титры берутся из Stock, для которого нужна бесплатная учётная запись.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

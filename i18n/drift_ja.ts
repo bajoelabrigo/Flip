@@ -4361,12 +4361,16 @@
         <translation>テキストスタイルではありません</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>テキストスタイルをインストールしました: %1（テキスト › マイスタイル）</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>テキスト › マイスタイルにあります</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>タイトル › トレンド</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>テキストスタイルをインストールしました: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13244,6 +13248,18 @@
         <translation>表示</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>インストール済み</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>「%1」の準備ができました。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>「%1」をインストールしました。</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>更新の確認…</translation>
     </message>
@@ -20389,6 +20405,10 @@ If playback stutters, try another.</source>
         <translation>お気に入り</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>AI テキスト</translation>
     </message>
@@ -20415,6 +20435,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — クリックするとダウンロードして再生ヘッドに追加します</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>トレンドのテキストを見るにはサインインしてください</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>トレンドのテキストを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>トレンドのテキストを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>トレンドのタイトルは Stock から届きます。無料アカウントが必要です。</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>サインイン</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>再試行</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

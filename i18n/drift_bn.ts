@@ -4469,12 +4469,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
+        <source>In Text › My styles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In Text › My styles</source>
-        <translation type="unfinished"></translation>
+        <source>In Titles › Trending</source>
+        <translation>শিরোনাম › ট্রেন্ডিং-এ</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>টেক্সট স্টাইল ইনস্টল হয়েছে: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13290,6 +13294,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>ইনস্টল হয়েছে</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” প্রস্তুত। %2।</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” ইনস্টল হয়েছে।</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation type="unfinished">আপডেটের জন্য চেক করুন…</translation>
     </message>
@@ -13458,7 +13474,7 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ইনস্টল হয়েছে</translation>
     </message>
     <message>
         <source>Marketplace account connected.</source>
@@ -20474,6 +20490,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রিয়</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>ট্রেন্ডিং</translation>
+    </message>
+    <message>
         <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20508,6 +20528,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished">প্লেহেডে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — ডাউনলোড করে প্লেহেডে যোগ করতে ক্লিক করুন</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>ট্রেন্ডিং টেক্সট দেখতে সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>ট্রেন্ডিং টেক্সট লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>ট্রেন্ডিং টেক্সট লোড করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>ট্রেন্ডিং শিরোনাম আসে Stock থেকে, যার জন্য আপনার বিনামূল্যের অ্যাকাউন্ট দরকার।</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>আবার চেষ্টা করুন</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

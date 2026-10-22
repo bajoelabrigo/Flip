@@ -4369,12 +4369,16 @@
         <translation>non è uno stile di testo</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>Stile di testo installato: %1 (Testo › I miei stili)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>In Testo › I miei stili</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>In Titoli › Di tendenza</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>Stile di testo installato: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13290,6 +13294,18 @@
         <translation>Mostra</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>Installato</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» è pronto. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>«%1» è installato.</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>Cerca aggiornamenti…</translation>
     </message>
@@ -20466,6 +20482,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Preferiti</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>Testo con IA</translation>
     </message>
@@ -20492,6 +20512,34 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Aggiungi alla testina di riproduzione</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — fai clic per scaricarlo e aggiungerlo alla testina</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>Accedi per vedere i testi di tendenza</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>Caricamento dei testi di tendenza…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>Impossibile caricare i testi di tendenza</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>I titoli di tendenza arrivano da Stock, che richiede il tuo account gratuito.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Accedi</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Riprova</translation>
     </message>
     <message>
         <source>Update from the selected text</source>

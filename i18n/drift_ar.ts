@@ -4297,12 +4297,16 @@
         <translation>ليس نمط نص</translation>
     </message>
     <message>
-        <source>Text style installed: %1 (Text › My styles)</source>
-        <translation>تم تثبيت نمط النص: %1 (نص › أنماطي)</translation>
-    </message>
-    <message>
         <source>In Text › My styles</source>
         <translation>في نص › أنماطي</translation>
+    </message>
+    <message>
+        <source>In Titles › Trending</source>
+        <translation>في العناوين › الرائج</translation>
+    </message>
+    <message>
+        <source>Text style installed: %1 (%2)</source>
+        <translation>تم تثبيت نمط النص: %1 (%2)</translation>
     </message>
     <message>
         <source>Text animation installed: %1 (Text › Animation › Imported)</source>
@@ -13474,6 +13478,18 @@
         <translation>عرض</translation>
     </message>
     <message>
+        <source>Installed</source>
+        <translation>مثبّت</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» جاهز. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>تم تثبيت «%1».</translation>
+    </message>
+    <message>
         <source>Check for Updates…</source>
         <translation>البحث عن تحديثات…</translation>
     </message>
@@ -20774,6 +20790,10 @@ If playback stutters, try another.</source>
         <translation>المفضلة</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
         <source>AI text</source>
         <translation>نص بالذكاء الاصطناعي</translation>
     </message>
@@ -20800,6 +20820,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and add it at the playhead</source>
+        <translation>%1 — انقر لتنزيله وإضافته عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending texts</source>
+        <translation>سجّل الدخول لرؤية النصوص الرائجة</translation>
+    </message>
+    <message>
+        <source>Loading trending texts…</source>
+        <translation>جارٍ تحميل النصوص الرائجة…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending texts</source>
+        <translation>تعذّر تحميل النصوص الرائجة</translation>
+    </message>
+    <message>
+        <source>Trending titles come from Stock, which needs your free account.</source>
+        <translation>العناوين الرائجة تأتي من Stock، الذي يحتاج إلى حسابك المجاني.</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>إعادة المحاولة</translation>
     </message>
     <message>
         <source>Update from the selected text</source>
