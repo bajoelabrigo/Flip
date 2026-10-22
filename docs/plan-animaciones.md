@@ -53,11 +53,34 @@ Rama: **`flip/animaciones`** (sale de `main` con la 0.19.0). El editor web va de
   2026-10-22): `.ph` y `.app.is-touch` usan `position: fixed; inset: 0` en vez de `100dvh`, que en
   el iPhone instalado como app medía menos que la pantalla.
 - [x] 1. Motor de texto (commit `01cd8`: giro 3D, cursor de glifo, partículas)
-- [ ] 2. Animaciones de texto: **300 nuevas diseñadas y escritas** (216 Entrada, 84 Salida) en
-  `tools/text_animations/` (`in_*.py`, `out_*.py`, `build.py`, `es.json` con los nombres en español).
-  Falta: pasar `es.json` a `drift_es.ts` (catálogo + `lupdate`), compilar, hojas de revisión con
-  `build.py --sheet` (portable en `pruebas\FlipStudio-animaciones`) y descartar las que se vean mal.
-- [ ] 3. Animaciones de clip: motor y 49 Entrada / 55 Salida / 55 Combinado hechos (`01cd8`); falta
-  probar en ventana
-- [ ] 4. Web
-- [ ] 5. Publicar
+- [x] Lo de arriba no bastaba: la barra seguía alta en el iPhone instalado. La causa era
+  `apple-mobile-web-app-status-bar-style` = `black-translucent`; con `black` queda abajo (como la app de
+  gastos). Hay que borrar el ícono y volver a agregarlo. Jorge lo confirmó (2026-10-22).
+- [x] 2. Animaciones de texto: **302 nuevas** (216 Entrada, 86 Salida) en `tools/text_animations/`, nombres en
+  12 idiomas. Revisadas en hojas (`build.py --sheet`, `pruebasnimaciones-texto`).
+- [x] 3. Animaciones de clip: 49 Entrada / 55 Salida / 62 Combinado, revisadas en hojas (script de la
+  sesión: proyecto con un texto «FLIP», `set_animation` por MCP y `DRIFT_CLIP_ANIMATIONS` apuntando a
+  `presets/clip-animations` para no depender de lo compilado).
+- [x] 4. Web (`flipstudio-app` `web/animaciones`): galería de texto con chips y tarjetas (`TextAnimSection`),
+  galería de clip (`ClipAnimGallery`), el lienzo dibuja partículas, cursor de glifo, giro 3D y barrido;
+  `scripts/sync-desktop-anims.mjs` copia los presets; los 16 idiomas.
+- [ ] 5. Publicar 0.20.0 (notas en `release-notes/0.20.0.md`, CHANGELOG y `docs/store-listing.md`).
+
+## Trampas de esta versión
+
+- **El commit del motor (`01cd8`) nunca había compilado:** `SkPath::transform` y `SkMatrix::mapXY` no
+  existen en nuestro Skia (giro a mano con seno y coseno), y las pruebas inicializaban `ClipAnimation`
+  con llaves (ganó un campo `presetId`).
+- **Una partícula suelta (objeto, no lista) no se dibujaba:** el motor lo leía como `{in, out}` por momento.
+  36 animaciones no mostraban ninguna partícula. `tkit.T.document()` escribe siempre una lista, y el
+  escritorio y la web aceptan también un objeto con `shape`.
+- **Opacidad en las curvas va de 0 a 100**, no de 0 a 1 (tres salidas se veían casi invisibles).
+- **Combinado con una salida que ya es de salida** (`O[...]`): `combo()` la invertía otra vez y el clip se
+  iba a mitad y volvía al final. Ahora solo invierte las de entrada.
+- **«elastic» hace casi todo el movimiento en el primer 10 %:** en la hoja parece quieto. Mejor claves con
+  un rebote visible.
+- **`digital_glitch` y `scanline_glitch` devolvían alfa 1:** sobre un texto o sticker pintaban un recuadro
+  negro. Las capas usan alfa sin premultiplicar: no recortar el color por el alfa.
+- **Los textos de muestra con salto de línea no llegaban a lupdate:** `catalog_strings.py` escapa los saltos de línea (`\n`).
+- Las hojas se revisaron con agentes en paralelo (tres para texto, dos para clip): su lista sirve de
+  punto de partida, pero hay que mirar la hoja antes de cambiar nada (algunos avisos eran del muestreo).
