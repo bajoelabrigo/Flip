@@ -1,1 +1,1 @@
-{"format":1,"id":"combo-rise-fall","label":"Rise and fall","category":"slide","slots":["combo"],"order":39,"duration":0,"keys":{"y":[[0.0,1,"easeOut"],[0.18,0,"easeInOut"],[0.82,-1.1,"easeOut"],[1.0,0,"easeInOut"]],"rotation":[[0,0,"linear"],[0.82,-25,"easeOut"],[1.0,0,"easeInOut"]]}}
+{"format":1,"id":"combo-rise-fall","label":"Rise and fall","category":"slide","slots":["combo"],"order":39,"duration":0,"keys":{"y":[[0.0,1,"easeOut"],[0.18,0,"easeInOut"],[0.82,0,"easeIn"],[1.0,1.1,"easeInOut"]],"rotation":[[0,0,"linear"],[0.82,0,"easeIn"],[1.0,25,"easeInOut"]]}}

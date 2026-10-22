@@ -1,1 +1,1 @@
-{"format":1,"id":"in-swing-3d","label":"Hinge","category":"3d","slots":["in"],"order":33,"duration":1.1,"keys":{"rotationX":[[0,95,"elastic"],[1,0,"easeInOut"]]}}
+{"format":1,"id":"in-swing-3d","label":"Hinge","category":"3d","slots":["in"],"order":33,"duration":1.1,"keys":{"rotationX":[[0,95,"easeOut"],[0.5,-18,"easeInOut"],[0.75,7,"easeInOut"],[1,0,"easeInOut"]],"opacity":[[0,0,"linear"],[0.25,100,"easeInOut"]]}}

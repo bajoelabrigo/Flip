@@ -41,10 +41,12 @@ void main() {
     uint ha = blockGlitchHash(seed, u_timeUs, 3, 3);
     float ang = hash01(ha) * 6.2831853;
     vec2 delta = vec2(cos(ang), sin(ang)) * rgbAmount * intensity;
-    float r = texture(u_currentTexture, clamp(vec2(sx + delta.x, sy + delta.y) / res, 0.0, 1.0)).r;
-    float g = texture(u_currentTexture, clamp(vec2(sx, sy) / res, 0.0, 1.0)).g;
-    float b = texture(u_currentTexture, clamp(vec2(sx - delta.x, sy - delta.y) / res, 0.0, 1.0)).b;
-    vec3 rgb = vec3(r, g, b);
+    vec4 tr = texture(u_currentTexture, clamp(vec2(sx + delta.x, sy + delta.y) / res, 0.0, 1.0));
+    vec4 tg = texture(u_currentTexture, clamp(vec2(sx, sy) / res, 0.0, 1.0));
+    vec4 tb = texture(u_currentTexture, clamp(vec2(sx - delta.x, sy - delta.y) / res, 0.0, 1.0));
+    vec3 rgb = vec3(tr.r, tg.g, tb.b);
+    // Coverage of the shifted channels: a text or sticker keeps its see-through background.
+    float alpha = max(tg.a, max(tr.a, tb.a));
     uint hn = blockGlitchHash(seed, u_timeUs, pix.x, pix.y);
     float n = float(hn & 0xFFu) / 127.5 - 1.0;
     float amp = frequency * intensity * 0.5 * 36.0 / 255.0;
@@ -58,7 +60,9 @@ void main() {
     if (hash01(hj) < frequency * 0.2) {
         float jumpY = hash01h(hj) * 14.0 - 7.0;
         sy = clamp(sy - jumpY, 0.0, res.y - 1.0);
-        rgb = texture(u_currentTexture, vec2(sx, sy) / res).rgb;
+        vec4 jumped = texture(u_currentTexture, vec2(sx, sy) / res);
+        rgb = jumped.rgb;
+        alpha = jumped.a;
     }
-    fragColor = vec4(clamp(rgb, 0.0, 1.0), 1.0);
+    fragColor = vec4(clamp(rgb, 0.0, 1.0), alpha);
 }

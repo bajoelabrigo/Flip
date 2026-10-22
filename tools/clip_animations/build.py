@@ -86,7 +86,8 @@ IN: list[P] = [
     P("zoom-far", "From far away", "Desde lejos", "zoom", {"scale": [k(0, 15, "easeOut"), k(1, 100)], "opacity": appear(0.3)}, duration=0.8),
     P("zoom-spin", "Zoom spin", "Zoom con giro", "zoom",
       {"scale": [k(0, 25, "easeOut"), k(1, 100)], "rotation": [k(0, -180, "easeOut"), k(1, 0)], "opacity": appear(0.3)}, duration=0.8, trending=True),
-    P("punch-in", "Punch in", "Golpe de zoom", "zoom", {"scale": [k(0, 135, "elastic"), k(1, 100)]}, duration=0.7),
+    P("punch-in", "Punch in", "Golpe de zoom", "zoom",
+      {"scale": [k(0, 135, "easeOut"), k(0.45, 94), k(0.72, 103), k(1, 100)], "opacity": appear(0.2)}, duration=0.7),
     P("zoom-rgb", "Zoom split", "Zoom con color separado", "zoom",
       {"scale": [k(0, 130, "easeOut"), k(1, 100)], "opacity": appear(0.3)},
       [fx("rgb_split", amount=[k(0, 30, "easeOut"), k(1, 0)], angle=0.0)]),
@@ -105,9 +106,11 @@ IN: list[P] = [
     P("flip-y", "Flip over", "Voltear", "3d", {"rotationY": [k(0, -90, "easeOut"), k(1, 0)], "opacity": appear(0.2)}, trending=True),
     P("door", "Door", "Puerta", "3d", {"rotationY": [k(0, 85, "easeOut"), k(1, 0)], "x": [k(0, 0.25, "easeOut"), k(1, 0)], "opacity": appear(0.3)}, duration=0.8),
     P("tilt-up", "Tilt up", "Inclinar hacia arriba", "3d", {"rotationX": [k(0, -60, "easeOut"), k(1, 0)], "y": [k(0, 0.25, "easeOut"), k(1, 0)], "opacity": appear(0.5)}),
-    P("cube-in", "Cube turn", "Giro de cubo", "3d", {"rotationY": [k(0, 90, "easeInOut"), k(1, 0)], "x": [k(0, 0.5, "easeInOut"), k(1, 0)], "scale": [k(0, 85), k(0.5, 85), k(1, 100)]}, duration=0.8),
+    P("cube-in", "Cube turn", "Giro de cubo", "3d", {"rotationY": [k(0, 90, "easeInOut"), k(1, 0)], "x": [k(0, 0.5, "easeInOut"), k(1, 0)], "scale": [k(0, 85), k(0.5, 85), k(1, 100)],
+                                                  "opacity": appear(0.35)}, duration=0.8),
     P("page-in", "Page turn", "Pasar página", "3d", {"rotationY": [k(0, -120, "easeOut"), k(1, 0)], "opacity": appear(0.3)}, duration=0.9),
-    P("swing-3d", "Hinge", "Bisagra", "3d", {"rotationX": [k(0, 95, "elastic"), k(1, 0)]}, duration=1.1),
+    P("swing-3d", "Hinge", "Bisagra", "3d",
+      {"rotationX": [k(0, 95, "easeOut"), k(0.5, -18), k(0.75, 7), k(1, 0)], "opacity": appear(0.25)}, duration=1.1),
 
     # blur
     P("focus-in", "Focus in", "Enfocar", "blur", {"blur": [k(0, 60, "easeOut"), k(1, 0)], "opacity": appear(0.4)}, duration=0.8, trending=True),
@@ -117,12 +120,12 @@ IN: list[P] = [
 
     # glitch
     P("glitch-in", "Glitch", "Glitch", "glitch",
-      {"opacity": [k(0, 0, "hold"), k(0.1, 100, "hold"), k(0.18, 30, "hold"), k(0.26, 100)]},
+      {"opacity": [k(0, 0, "linear"), k(0.08, 100, "hold"), k(0.14, 30, "hold"), k(0.22, 100)]},
       [fx("digital_glitch", intensity=[k(0, 1, "easeOut"), k(1, 0)], rgbAmount=24.0, blockAmount=0.7)], duration=0.6, trending=True),
     P("pixel-in", "Pixelate", "Pixelar", "glitch", {"opacity": appear(0.3)},
       [fx("stylize.pixelate", width=[k(0, 56, "easeOut"), k(1, 2)], height=[k(0, 56, "easeOut"), k(1, 2)])], duration=0.7),
     P("flash-in", "Flash", "Destello", "glitch", {"opacity": appear(0.15)}, [fx("strobe_flash", flash=[k(0, 1, "easeOut"), k(1, 0)])], duration=0.5),
-    P("shake-in", "Shake", "Sacudir", "glitch", {"scale": [k(0, 112, "easeOut"), k(1, 100)]}, [fx("beat_shake", amount=[k(0, 1, "easeOut"), k(1, 0)], rotation=0.5)], duration=0.6),
+    P("shake-in", "Shake", "Sacudir", "glitch", {"scale": [k(0, 112, "easeOut"), k(1, 100)], "opacity": appear(0.3)}, [fx("beat_shake", amount=[k(0, 1, "easeOut"), k(1, 0)], rotation=0.5)], duration=0.6),
     P("rgb-in", "Colour split", "Color separado", "glitch", {"opacity": appear(0.3)}, [fx("rgb_split", amount=[k(0, 45, "easeOut"), k(1, 0)], angle=90.0)], duration=0.5),
     P("vhs-in", "Bad signal", "Mala señal", "glitch", {"opacity": appear(0.3)},
       [fx("scanline_glitch", jitter=[k(0, 1, "easeOut"), k(1, 0)], colorShift=[k(0, 18, "easeOut"), k(1, 0)])], duration=0.7),
@@ -132,8 +135,11 @@ IN: list[P] = [
     P("jelly", "Jelly", "Gelatina", "bounce",
       {"scaleX": [k(0, 40), k(0.35, 120), k(0.55, 92), k(0.75, 104), k(1, 100)],
        "scaleY": [k(0, 40), k(0.35, 85), k(0.55, 108), k(0.75, 97), k(1, 100)], "opacity": appear(0.2)}, duration=0.8),
-    P("spring-up", "Spring", "Resorte", "bounce", {"y": [k(0, 0.5, "elastic"), k(1, 0)], "opacity": appear(0.2)}, duration=1.0),
-    P("rubber", "Rubber band", "Liga", "bounce", {"scaleX": [k(0, 160, "elastic"), k(1, 100)], "scaleY": [k(0, 55, "elastic"), k(1, 100)]}, duration=0.9),
+    P("spring-up", "Spring", "Resorte", "bounce",
+      {"y": [k(0, 0.5, "easeOut"), k(0.5, -0.07), k(0.75, 0.025), k(1, 0)], "opacity": appear(0.2)}, duration=1.0),
+    P("rubber", "Rubber band", "Liga", "bounce",
+      {"scaleX": [k(0, 160, "easeOut"), k(0.45, 88), k(0.72, 105), k(1, 100)],
+       "scaleY": [k(0, 55, "easeOut"), k(0.45, 112), k(0.72, 96), k(1, 100)], "opacity": appear(0.2)}, duration=0.9),
     P("hop", "Hop", "Saltito", "bounce",
       {"y": [k(0, 0.3, "easeOut"), k(0.5, -0.06, "easeIn"), k(0.75, 0, "easeOut"), k(0.88, -0.02, "easeIn"), k(1, 0)], "opacity": appear(0.25)}, duration=0.7),
 ]
@@ -205,8 +211,10 @@ def combo(id, en, es, cat, enter: P | None, leave: P | None, middle=None, *, a=0
     if enter:
         for name, track in enter.keys.items():
             add(name, squeeze(track, 0, a))
-    if leave:
-        for name, track in as_out(leave).keys.items():
+    # The exit runs from in place to away: an Out preset already does, an In one is played backwards.
+    gone = (leave if any(leave is o for o in OUTS) else as_out(leave)) if leave else None
+    if gone:
+        for name, track in gone.keys.items():
             add(name, squeeze(track, 1 - b, 1))
     for name, pts in (middle or {}).items():
         add(name, pts)
@@ -236,8 +244,8 @@ def combo(id, en, es, cat, enter: P | None, leave: P | None, middle=None, *, a=0
         for e in enter.effects:
             fx_all.append({"id": e["id"], "params": {n: (squeeze(v, 0, a) + [[a, v[-1][1], "linear"]] if isinstance(v, list) else v)
                                                        for n, v in e["params"].items()}})
-    if leave:
-        for e in as_out(leave).effects:
+    if gone:
+        for e in gone.effects:
             fx_all.append({"id": e["id"], "params": {n: ([[round(1 - b, 4), v[0][1], "linear"]] + squeeze(v, 1 - b, 1) if isinstance(v, list) else v)
                                                        for n, v in e["params"].items()}})
     fx_all.extend(dict(e) for e in effects)
@@ -277,7 +285,7 @@ COMBO: list[P] = [
                      k(0.58, 112, "easeOut"), k(0.66, 100), k(0.74, 108, "easeOut"), k(0.9, 100), k(1, 100)]}, trending=True),
     combo("rock", "Rock", "Mecer", "dynamic", None, None, {**wave("rotation", 6, 3), "scale": [k(0, 112, "linear"), k(1, 112)]}),
     combo("float", "Float", "Flotar", "dynamic", None, None, {**wave("y", 0.03, 3), "scale": [k(0, 108, "linear"), k(1, 108)]}),
-    combo("sway-3d", "Sway 3D", "Vaivén 3D", "dynamic", None, None, {**wave("rotationY", 14, 2), **wave("rotationX", 8, 3, phase=1), "scale": [k(0, 108, "linear"), k(1, 108)]}, trending=True),
+    combo("sway-3d", "Sway 3D", "Vaivén 3D", "dynamic", None, None, {**wave("rotationY", 24, 2), **wave("rotationX", 12, 3, phase=1), "scale": [k(0, 108, "linear"), k(1, 108)]}, trending=True),
     combo("orbit", "Orbit", "Órbita", "dynamic", None, None,
           {"rotation": [k(0, 0, "linear"), k(1, 360)], "scale": [k(0, 60, "easeOut"), k(0.15, 75), k(0.85, 75, "easeIn"), k(1, 0)]}),
     combo("earthquake", "Earthquake", "Terremoto", "dynamic", None, None, {"scale": [k(0, 110, "linear"), k(1, 110)]},

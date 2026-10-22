@@ -429,9 +429,12 @@ ResolvedPresetSlot resolvePresetSlot(const TextAnimationPreset &preset, const QM
         }
     }
     if (preset.particles.isArray() || preset.particles.isObject()) {
-        const QJsonValue particles = preset.particles.isArray()
-                                         ? preset.particles
-                                         : preset.particles.toObject().value(textAnimSlotKindToString(kind));
+        // A list for every slot, {"in": [...], "out": [...]} per slot, or one spec on its own.
+        const QJsonObject asObject = preset.particles.toObject();
+        const QJsonValue particles = preset.particles.isArray() ? preset.particles
+                                     : asObject.contains(QStringLiteral("shape"))
+                                         ? QJsonValue(QJsonArray{asObject})
+                                         : asObject.value(textAnimSlotKindToString(kind));
         for (const QJsonValue &v : substitute(particles, params).toArray())
             out.particles.append(textParticleSpecFromJson(v.toObject()));
     }
