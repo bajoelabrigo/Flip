@@ -97,6 +97,69 @@ Hecho (`ef885`, traducciones `a53a6`):
   de Filtros, y Estilos de texto entra en **Tendencias**.
 - **Falta:** probar en ventana con la cuenta (compilación run 39701007841).
 
+## 5. Seguimiento profesional (pedido de Jorge, 2026-10-21) — PLAN
+Jorge pasó un pliego hecho con ChatGPT (pensado para C#/.NET) y una captura de CapCut (Texto › pestaña
+«Seguimiento»: casilla, Ninguno / Seguimiento de cuerpo, Dirección «Ambos», Escala y Distancia). Pidió adaptarlo a lo
+nuestro. Lo que sigue es ese pliego traducido a la app real.
+
+### Lo que ya hay (auditoría)
+- Qt 6.10 + C++20 + QML; motor de Drift. Vista previa y exportación usan el **mismo compositor**
+  (`FrameCompositor`/`GpuLayer`, con camino de CPU): todo lo que se hornea en fotogramas clave sale igual al
+  exportar, sin código aparte.
+- Fotogramas clave: `KeyframeTrack<double>` en posición/tamaño/giro del clip, en `mask.x|y|w|h|rotation|feather` y
+  en los parámetros de efectos; relativos al inicio del clip; se guardan en el proyecto.
+- Decodificación: `ClipReaderPool::readVideoFrame` (FFmpeg) al tamaño pedido; nunca el video entero en memoria.
+- IA local con ONNX Runtime (`drift::ort::buildSessions`: DirectML/CUDA con vuelta a CPU). Rostros: MediaPipe
+  (Apache 2.0, ya distribuido) en `FaceTrackingController` → `FaceTrack` (archivo aparte por clip, una ranura por
+  cara; detecta y luego sigue por ROI, y vuelve a detectar al perderla: el sistema híbrido que pide el pliego).
+  SAM 2.1 ya está (Quitar fondo) y sigue un objeto en todo el video con su contorno.
+- Objetos: `RegionTracker` (correlación normalizada, CPU, con pruebas) de la 0.19.
+- `MotionTrackController`: hilo aparte, progreso, cancelar, hornea posición (y tamaño) cada 2 fotogramas,
+  suavizado, un solo paso de deshacer.
+- Efectos para tapar: `stylize_pixelate`, `gaussian_blur`; capas de ajuste enlazadas a un clip (carril
+  `ParentTrack`), con máscaras medidas sobre el marco del clip.
+
+### Lo que falta frente al pliego
+- Elegir **qué cara** (hoy siempre la ranura 0) y verla en el visor.
+- Ver en el visor el objetivo seguido y su estado (seguido / perdido / recuperado).
+- Objeto perdido: hoy se queda quieto; falta **volver a encontrarlo** sin saltar a otro parecido.
+- Dirección (adelante / atrás / ambos), **Distancia** (mantener la separación o centrarse encima) y recalcular
+  desde un fotograma.
+- **Guardar los datos del seguimiento** (hoy solo quedan las claves): sin ellos no se puede cambiar Escala o
+  Distancia sin volver a analizar, ni marcar los tramos perdidos, ni reacomodar si se mueve o recorta el video.
+- **Aplicarlo a otras cosas**: difuminar/pixelar una cara (Mosaico de CapCut) y que una máscara siga al objetivo.
+- Pestaña propia «Seguimiento» como CapCut (hoy es una sección al final de Transformar).
+
+### Decisiones
+- Nada de .NET ni OpenCV (sería una dependencia enorme para lo que ya hacen `RegionTracker` y MediaPipe).
+- **Detector de categorías (personas, autos, animales):** necesita un modelo nuevo. YOLOv8/11 de Ultralytics es AGPL
+  (fuera). Candidatos Apache 2.0: YOLOX o RT-DETR en ONNX (~20–40 MB) como extra. Queda para el final y se le pregunta
+  a Jorge antes; mientras, el objeto se marca con el propio elemento (como CapCut) o con un recuadro.
+- Los datos se guardan en **tiempo del video de origen** y coordenadas **normalizadas del fotograma de origen**
+  (0..1): si el video se mueve, se recorta o cambia de velocidad, se vuelve a hornear sin analizar
+  (`Clip::sourceUsToClipLocalUs`). Las claves siguen siendo el resultado: vista previa y exportación no cambian.
+
+### Fases
+1. **Datos y motor.** `drift::MotionTrack` en el clip que sigue (modo, id del video, ranura de cara, dirección,
+   escala, distancia, referencia, muestras {tiempo de origen, rectángulo, confianza, estado}), en el JSON del
+   proyecto con versión (los proyectos viejos no cambian). Horneado aparte (`bakeMotionTrack`), que sirve para
+   rehacer las claves al cambiar Escala/Distancia o al mover el video. Cara elegida (por defecto la más cercana al
+   elemento) con control de identidad para no cambiar de persona. Objeto: búsqueda amplia al perderlo, aceptada
+   solo con un pico claro (no otro objeto parecido). Pruebas con datos sintéticos: quieto, lateral, escala,
+   oclusión, sale y vuelve, objetos parecidos, cancelar.
+2. **Interfaz como CapCut.** Pestaña «Seguimiento» para texto, sticker, imagen y forma: casilla, tarjetas
+   Ninguno / Objeto / Rostro, Dirección, Escala, Distancia, restablecer, progreso y cancelar. En el visor: los
+   rostros detectados para elegir con un clic, y el recuadro seguido con su estado; «Recalcular desde aquí».
+3. **Aplicarlo a otras cosas.** «Difuminar rostro» (pixelado o desenfoque) en la pestaña Video: capa de ajuste
+   enlazada al clip con una máscara elíptica que sigue la cara. «La máscara sigue» en Máscaras.
+4. **Guardar y exportar.** Probar guardar y volver a abrir, exportar y comparar posiciones fotograma a fotograma; aviso
+   y «Reacomodar» si el video se movió o recortó después del seguimiento.
+5. **Rendimiento y cierre.** Memoria en videos largos, archivo dañado, modelo de caras ausente, error de
+   inferencia; documentación y traducciones.
+
+Cada fase: compilar en CI, pruebas, ventana. Las pruebas con video real usan `pruebas\web-videos\medios`
+(`parapente120.mp4`, `retrato.mp4`, `modelos.mp4`).
+
 ## Estado de la compilación
 - Ensayo `build.yml` (Windows) run 39685634394 sobre `38dad` (solo falló la prueba de traducciones, ya arreglada).
 - Run 39691308647 sobre `e8f3a`: compila bien; `tests.yml` 17/17 en verde.
