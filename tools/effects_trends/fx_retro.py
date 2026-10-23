@@ -444,7 +444,7 @@ void main() {
 }
 """,
     variants=[
-        Variant("borrar-pelicula", "Borrar película", "Film burn", photo="woman", thumb=1.6,
+        Variant("borrar-pelicula", "Borrar película", "Film erase", photo="woman", thumb=1.6,
                 tags=["borrar", "erase"]),
     ],
 )

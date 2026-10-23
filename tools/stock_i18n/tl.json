@@ -19,6 +19,20 @@
   "background:fechas": "Espesyal na araw",
   "background:geometricos": "Geometric",
   "background:texturas": "Texture",
+  "effect:abrir": "Bukas at sara",
+  "effect:amor": "Pag-ibig",
+  "effect:audio": "Boses",
+  "effect:camara": "Galaw ng kamera",
+  "effect:desenfoque": "Blur",
+  "effect:dividir": "Hati at kopya",
+  "effect:energia": "Enerhiya at elemento",
+  "effect:estilo": "Estilo",
+  "effect:glitch": "Glitch",
+  "effect:ia": "AI",
+  "effect:luz": "Ilaw at flare",
+  "effect:marcos": "Frame at gilid",
+  "effect:particulas": "Particles at kislap",
+  "effect:retro": "Retro at pelikula",
   "look:arte": "Sining at duotone",
   "look:bn": "Itim at puti",
   "look:boda": "Kasal",
@@ -4133,6 +4147,3394 @@
     "zoom",
     "matingkad",
     "background"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "Chromatic aberration",
+   "tags": [
+    "kulay",
+    "rgb",
+    "lente",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "Patayong pagbukas",
+   "tags": [
+    "patayo",
+    "bukas",
+    "sara"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "Parallax na paglapit",
+   "tags": [
+    "parallax",
+    "lapit",
+    "zoom",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "Yugyog pakaliwa at pakanan",
+   "tags": [
+    "yugyog",
+    "kaliwa",
+    "kanan",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "Yugyog pataas at pababa",
+   "tags": [
+    "yugyog",
+    "taas",
+    "baba",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "Yugyog ng RGB",
+   "tags": [
+    "rgb",
+    "yugyog",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "Zoom na may yugyog",
+   "tags": [
+    "zoom",
+    "yugyog",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "Yugyugin ang kamera",
+   "tags": [
+    "yugyog",
+    "kalog",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "Dilaw na plasma",
+   "tags": [
+    "plasma",
+    "dilaw",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "Palakas ng focus",
+   "tags": [
+    "focus",
+    "linaw",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "Singsing ng kinang",
+   "tags": [
+    "bilog",
+    "glitter",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "Singsing ng apoy",
+   "tags": [
+    "apoy",
+    "bilog",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "Bilog ng musika",
+   "tags": [
+    "musika",
+    "bilog",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "Mga singsing ng ipo-ipo",
+   "tags": [
+    "ipo-ipo",
+    "bilog",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "Dekada 70",
+   "tags": [
+    "dekada 70",
+    "vintage",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "Mabilis na sulo",
+   "tags": [
+    "sulo",
+    "bilis",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "Paglitaw ng tao 1",
+   "tags": [
+    "lilitaw",
+    "tao",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "Pagbukas ng elevator",
+   "tags": [
+    "elevator",
+    "bukas",
+    "pinto",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "Chipmunk",
+   "tags": [
+    "chipmunk",
+    "matinis",
+    "nakakatawa",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "Mga itim na bar ng sine",
+   "tags": [
+    "sine",
+    "letterbox",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "Mga bar ng musika",
+   "tags": [
+    "musika",
+    "equalizer",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "Yugyog ng tibok ng puso",
+   "tags": [
+    "yugyog",
+    "tibok",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "Yugyog ng pulso 03",
+   "tags": [
+    "yugyog",
+    "pulso",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "Banayad na yugyog",
+   "tags": [
+    "yugyog",
+    "banayad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:belleza": {
+   "name": "Ganda",
+   "tags": [
+    "ganda",
+    "mukha",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "Asul na flare",
+   "tags": [
+    "flare",
+    "asul",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "Navy blue na flare",
+   "tags": [
+    "flare",
+    "navy blue",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "Bling bling",
+   "tags": [
+    "bling",
+    "kinang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "Bloke ng glitch 2",
+   "tags": [
+    "bloke",
+    "pixel",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "3D na bokeh",
+   "tags": [
+    "bokeh",
+    "3d",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "Bokeh 5",
+   "tags": [
+    "bokeh",
+    "malabo",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "Makulay na bokeh",
+   "tags": [
+    "bokeh",
+    "kulay",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "Bokeh sa mga sulok",
+   "tags": [
+    "bokeh",
+    "sulok",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "Bokeh ng lungsod",
+   "tags": [
+    "bokeh",
+    "lungsod",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:borde": {
+   "name": "Gilid",
+   "tags": [
+    "gilid",
+    "balangkas",
+    "frame"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "Asul na neon na gilid",
+   "tags": [
+    "neon",
+    "asul",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "Burado na pelikula",
+   "tags": [
+    "pelikula",
+    "bura",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:brasas": {
+   "name": "Baga",
+   "tags": [
+    "baga",
+    "apoy",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "Gintong kinang",
+   "tags": [
+    "ginto",
+    "glow",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "Kislap sa hangin",
+   "tags": [
+    "kinang",
+    "hangin",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "Mga bula ng liwanag",
+   "tags": [
+    "bula",
+    "bilog",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "Paghahanap ng sagot",
+   "tags": [
+    "hanap",
+    "sagot",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "3D na kamera pakanan",
+   "tags": [
+    "3d",
+    "kanan",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "3D na kamera pakaliwa",
+   "tags": [
+    "3d",
+    "kaliwa",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "Instant na kamera",
+   "tags": [
+    "instant",
+    "polaroid",
+    "larawan",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "Galit na kamera",
+   "tags": [
+    "yugyog",
+    "matindi",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "Palit-kulay sa beat",
+   "tags": [
+    "beat",
+    "kulay",
+    "musika",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "Pag-charge sa dilim",
+   "tags": [
+    "dilim",
+    "karga",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "Masayang carousel",
+   "tags": [
+    "carousel",
+    "ikot",
+    "saya",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "Abo ng labanan",
+   "tags": [
+    "abo",
+    "apoy",
+    "labanan",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "Pagsara na may flash",
+   "tags": [
+    "flash",
+    "sara",
+    "bukas"
+   ]
+  },
+  "effect:chispa": {
+   "name": "Tilamsik",
+   "tags": [
+    "tilamsik",
+    "apoy",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "Gintong tilamsik",
+   "tags": [
+    "ginto",
+    "tilamsik",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "Bangga ng hiwa",
+   "tags": [
+    "hiwa",
+    "bangga",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "Mabituing langit",
+   "tags": [
+    "bituin",
+    "langit",
+    "gabi",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "Pahigang pagsara",
+   "tags": [
+    "pahiga",
+    "sara",
+    "bukas"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "Pabilog na pagsara",
+   "tags": [
+    "bilog",
+    "sara",
+    "bukas"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "Retrong sinehan",
+   "tags": [
+    "sine",
+    "vintage",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "Video tape",
+   "tags": [
+    "tape",
+    "vhs",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "Linaw ng pag-ibig",
+   "tags": [
+    "romantiko",
+    "linaw",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "Kumikinang na kopya ng tao",
+   "tags": [
+    "kopya",
+    "tao",
+    "kinang",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:colision": {
+   "name": "Banggaan",
+   "tags": [
+    "bangga",
+    "yanig",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "Collage ng pag-ibig",
+   "tags": [
+    "collage",
+    "larawan",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:color-local": {
+   "name": "Piling kulay",
+   "tags": [
+    "kulay",
+    "piling kulay",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "Makulay na komiks",
+   "tags": [
+    "komiks",
+    "kulay",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "Confetti ng pista",
+   "tags": [
+    "confetti",
+    "pista",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "Lumilipad na confetti",
+   "tags": [
+    "confetti",
+    "party",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "Hinto ng glitch",
+   "tags": [
+    "freeze",
+    "hinto",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "Mga butil ng niyebe",
+   "tags": [
+    "niyebe",
+    "taglamig",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "Pusong kumikislap",
+   "tags": [
+    "kislap",
+    "kinang",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "Puso ng mga ilaw",
+   "tags": [
+    "ilaw",
+    "liwanag",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "Mga pusong bokeh",
+   "tags": [
+    "bokeh",
+    "malabo",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "Mga pusong neon",
+   "tags": [
+    "neon",
+    "kumikinang",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "Mga gintong puso",
+   "tags": [
+    "ginto",
+    "kinang",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:corredor": {
+   "name": "Pasilyo",
+   "tags": [
+    "pasilyo",
+    "alingawngaw",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "Kumikislap na pahilis na hiwa",
+   "tags": [
+    "bevel",
+    "kislap",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "Hating flash cut 1",
+   "tags": [
+    "flash",
+    "cut",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "Umiikot na flash cut",
+   "tags": [
+    "flash",
+    "ikot",
+    "cut",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "Pahilis na hiwa",
+   "tags": [
+    "bevel",
+    "hiwa",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "Hiwa-hiwang piraso",
+   "tags": [
+    "piraso",
+    "guhit",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "Freeze frame ng aksyon",
+   "tags": [
+    "freeze",
+    "aksyon",
+    "hinto",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:cueva": {
+   "name": "Kuweba",
+   "tags": [
+    "kuweba",
+    "alingawngaw",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "Simboryo ng kulog",
+   "tags": [
+    "kulog",
+    "kidlat",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "Kuryenteng tumama",
+   "tags": [
+    "kuryente",
+    "boltahe",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "Blur para burahin",
+   "tags": [
+    "bura",
+    "takip",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "Kuwadradong blur",
+   "tags": [
+    "kuwadrado",
+    "pixel",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "Bokeh blur 5",
+   "tags": [
+    "bokeh",
+    "blur",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "Blur na may direksyon",
+   "tags": [
+    "direksyon",
+    "galaw",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "Simpleng blur ng background",
+   "tags": [
+    "background",
+    "simple",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "Motion blur",
+   "tags": [
+    "galaw",
+    "bilis",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "Blur ng lalim",
+   "tags": [
+    "lalim",
+    "depth",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "Blur na vignette",
+   "tags": [
+    "vignette",
+    "gilid",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "Pahilis na blur",
+   "tags": [
+    "pahilis",
+    "tilt",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "Usad at palaki",
+   "tags": [
+    "usad",
+    "zoom",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "Anamorphic na flare ng TV",
+   "tags": [
+    "anamorphic",
+    "tv",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "Lens flare 3",
+   "tags": [
+    "lens flare",
+    "lente",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "Lens flare 5",
+   "tags": [
+    "lens flare",
+    "lente",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "Lens flare 6",
+   "tags": [
+    "lens flare",
+    "lente",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "Anamorphic na lens flare",
+   "tags": [
+    "anamorphic",
+    "lens flare",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "Asul na lens flare",
+   "tags": [
+    "lens flare",
+    "asul",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "Flash na may uga",
+   "tags": [
+    "flash",
+    "uga",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "Gintong flare",
+   "tags": [
+    "ginto",
+    "flare",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "Pahigang flare",
+   "tags": [
+    "pahiga",
+    "flare",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "Pumipintig na flash",
+   "tags": [
+    "flash",
+    "pintig",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "Mainit na kislap",
+   "tags": [
+    "mainit",
+    "kinang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "Slides ng photobook",
+   "tags": [
+    "photobook",
+    "slideshow",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "Slides ng pelikula 1",
+   "tags": [
+    "slide",
+    "film",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "Slides ng pelikula 2",
+   "tags": [
+    "slide",
+    "film",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "Pahid na blur",
+   "tags": [
+    "pahid",
+    "smear",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "VCR na distortion",
+   "tags": [
+    "vcr",
+    "vhs",
+    "luma",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "Hating flash cut 2",
+   "tags": [
+    "flash",
+    "cut",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "Hati ng mga bula",
+   "tags": [
+    "bula",
+    "bilog",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "Hating RGB",
+   "tags": [
+    "rgb",
+    "hati",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "Glitch na epekto 17",
+   "tags": [
+    "sira",
+    "error",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "Glitch na epekto 20",
+   "tags": [
+    "sira",
+    "error",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "Glitch na epekto 7",
+   "tags": [
+    "sira",
+    "error",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "Light leak na epekto 02",
+   "tags": [
+    "light leak",
+    "pelikula",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "Epektong zoom",
+   "tags": [
+    "zoom",
+    "lapit",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "Pagpapaganda gamit ang AI",
+   "tags": [
+    "ganda",
+    "mukha",
+    "kinis",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "Enerhiya ng shockwave",
+   "tags": [
+    "shockwave",
+    "lakas",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "Masusing focus",
+   "tags": [
+    "focus",
+    "linaw",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "Bumabalot na asul na apoy",
+   "tags": [
+    "apoy",
+    "asul",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "Cyber na error 01",
+   "tags": [
+    "cyber",
+    "error",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "Laki ng gilid",
+   "tags": [
+    "gilid",
+    "laki",
+    "frame"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "Sci-fi na scan 01",
+   "tags": [
+    "scan",
+    "sci-fi",
+    "hinaharap",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "Sci-fi na scan 02",
+   "tags": [
+    "scan",
+    "sci-fi",
+    "hinaharap",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "Scan ng glitch",
+   "tags": [
+    "scan",
+    "linya",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "Scan ng shockwave",
+   "tags": [
+    "scan",
+    "shockwave",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "Scan ng sinag",
+   "tags": [
+    "scan",
+    "sinag",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "Scan ng sinag 04",
+   "tags": [
+    "scan",
+    "sinag",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "Cyber na scan ng sinag 01",
+   "tags": [
+    "cyber",
+    "scan",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "Cyber na scan ng sinag 02",
+   "tags": [
+    "cyber",
+    "scan",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "Electro-optic na scan",
+   "tags": [
+    "scan",
+    "kuryente",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "Nakalalasong usok",
+   "tags": [
+    "usok",
+    "smog",
+    "berde",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "Spectrum ng audio 03",
+   "tags": [
+    "audio",
+    "spectrum",
+    "musika",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "Pagsabog ng mga bituin",
+   "tags": [
+    "bituin",
+    "sabog",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "Pagsabog ng sinag",
+   "tags": [
+    "sinag",
+    "sabog",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "Static sa sahig",
+   "tags": [
+    "static",
+    "ingay",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "Bakas ng galaw",
+   "tags": [
+    "bakas",
+    "trail",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "Rosas na bakas",
+   "tags": [
+    "rosas",
+    "bakas",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "Estilong komiks 3",
+   "tags": [
+    "komiks",
+    "guhit",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "Estilong mababang FPS",
+   "tags": [
+    "fps",
+    "putol-putol",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "Inat at uga",
+   "tags": [
+    "inat",
+    "uga",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "Kumukutitap na bituin 1",
+   "tags": [
+    "bituin",
+    "kutitap",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "Kumukutitap na bituin 5",
+   "tags": [
+    "bituin",
+    "kutitap",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "Mga gintong bituin",
+   "tags": [
+    "ginto",
+    "bituin",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "Malalayong bituin",
+   "tags": [
+    "bituin",
+    "langit",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "Mga bulalakaw",
+   "tags": [
+    "bulalakaw",
+    "bituin",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "Kalat na mga bituin",
+   "tags": [
+    "bituin",
+    "kalat",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "Kumukutitap na mga bituin",
+   "tags": [
+    "bituin",
+    "kutitap",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "Nakapirming strobe",
+   "tags": [
+    "strobe",
+    "kislap",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "Pagsuri ng spectrum",
+   "tags": [
+    "spectrum",
+    "scan",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "Pagsabog ng enerhiya",
+   "tags": [
+    "sabog",
+    "lakas",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "Pagsabog ng liwanag ng bituin",
+   "tags": [
+    "bituin",
+    "sabog",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "Pagsabog ng mga paru-paro",
+   "tags": [
+    "paru-paro",
+    "sabog",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "Sabog ng flash",
+   "tags": [
+    "flash",
+    "sabog",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "Pagsabog ng apoy",
+   "tags": [
+    "apoy",
+    "sabog",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "Prismang pagsabog",
+   "tags": [
+    "prisma",
+    "bahaghari",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "Liwanag sa beat",
+   "tags": [
+    "beat",
+    "liwanag",
+    "musika",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "Flash na exposure",
+   "tags": [
+    "flash",
+    "puti",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:extremo": {
+   "name": "Matindi",
+   "tags": [
+    "matindi",
+    "lakas",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "Kumukurap na glitch",
+   "tags": [
+    "kurap",
+    "kislap",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "Glitch na may filter",
+   "tags": [
+    "filter",
+    "kulay",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "Psychedelic na glitch",
+   "tags": [
+    "psychedelic",
+    "kulay",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "Vintage na glitch 01",
+   "tags": [
+    "vintage",
+    "luma",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "Multong bungo",
+   "tags": [
+    "multo",
+    "bungo",
+    "katatakutan",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "Multong glitch",
+   "tags": [
+    "multo",
+    "katatakutan",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "Lagnat ng neon",
+   "tags": [
+    "neon",
+    "kulay",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "Cartoon filter 01",
+   "tags": [
+    "cartoon",
+    "guhit",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "Cartoon filter 05",
+   "tags": [
+    "cartoon",
+    "guhit",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "Malabong pagtatapos",
+   "tags": [
+    "wakas",
+    "ending",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "Pagbukas na may flash",
+   "tags": [
+    "flash",
+    "bukas",
+    "sara"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "Pamumukadkad ng aura",
+   "tags": [
+    "aura",
+    "glow",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "Daloy ng sinag 2",
+   "tags": [
+    "sinag",
+    "daloy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "Daloy ng sinag 3",
+   "tags": [
+    "sinag",
+    "daloy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "Daloy ng sinag 4",
+   "tags": [
+    "sinag",
+    "daloy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "Daloy ng sinag 6",
+   "tags": [
+    "sinag",
+    "daloy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "Daloy ng sinag 7",
+   "tags": [
+    "sinag",
+    "daloy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "Spotlight ng entablado",
+   "tags": [
+    "spotlight",
+    "entablado",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "Spotlight sa wakas",
+   "tags": [
+    "spotlight",
+    "wakas",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "Background ng pagsabog",
+   "tags": [
+    "sabog",
+    "background",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "Background ng kidlat",
+   "tags": [
+    "kidlat",
+    "background",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "Background ng puso",
+   "tags": [
+    "background",
+    "romantiko",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "Ponograpo",
+   "tags": [
+    "ponograpo",
+    "luma",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "Apoy sa lupa",
+   "tags": [
+    "apoy",
+    "lupa",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "Apoy na umaakyat",
+   "tags": [
+    "apoy",
+    "scan",
+    "pataas",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "Paputok",
+   "tags": [
+    "paputok",
+    "pagdiriwang",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "Paputok na bituin",
+   "tags": [
+    "paputok",
+    "bituin",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "Light leak 1",
+   "tags": [
+    "light leak",
+    "init",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "Light leak 3",
+   "tags": [
+    "light leak",
+    "init",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "Light leak 4",
+   "tags": [
+    "light leak",
+    "init",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "Light leak 5",
+   "tags": [
+    "light leak",
+    "init",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "Light leak 6",
+   "tags": [
+    "light leak",
+    "init",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "Pagsanib ng mga kapat",
+   "tags": [
+    "kapat",
+    "sanib",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "Grunge na guhit-guhit",
+   "tags": [
+    "grunge",
+    "guhit",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "Ikot nang paikot",
+   "tags": [
+    "ikot",
+    "bilog",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "Paikot-ikot",
+   "tags": [
+    "ikot",
+    "pag-ikot",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "Psychedelic na ikot",
+   "tags": [
+    "psychedelic",
+    "ikot",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "MPEG na glitch",
+   "tags": [
+    "mpeg",
+    "pixel",
+    "sira",
+    "glitch"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "Matinding glitch",
+   "tags": [
+    "matindi",
+    "sira",
+    "glitch"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "Puting grunge",
+   "tags": [
+    "grunge",
+    "puti",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "Sinag ng bangga",
+   "tags": [
+    "sinag",
+    "bangga",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "Butil-butil na sinag",
+   "tags": [
+    "butil",
+    "sinag",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "Mababang usok",
+   "tags": [
+    "usok",
+    "sahig",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "Naiwang imahe",
+   "tags": [
+    "bakas",
+    "anino",
+    "trail",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "Pagkiling pabukas",
+   "tags": [
+    "kiling",
+    "bukas",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "Kiling na may perspektiba",
+   "tags": [
+    "perspektiba",
+    "kiling",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "Baha ng guhit",
+   "tags": [
+    "guhit",
+    "drawing",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "Glitch na baligtad-kulay",
+   "tags": [
+    "baligtad",
+    "negatibo",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "Kibot na kurap 01",
+   "tags": [
+    "kurap",
+    "kibot",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "Kibot na paikot",
+   "tags": [
+    "kibot",
+    "ikot",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "Rolyo ng pelikula",
+   "tags": [
+    "rolyo",
+    "film",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "Lampara ng flash",
+   "tags": [
+    "flash",
+    "lampara",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "Paghagis",
+   "tags": [
+    "hagis",
+    "bilis",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "Tibok ng puso",
+   "tags": [
+    "tibok",
+    "pintig",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "Zoom lens na may flash",
+   "tags": [
+    "zoom",
+    "flash",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "Lumang lente ng kamera",
+   "tags": [
+    "lente",
+    "luma",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "Kaunting tilamsik ng putik",
+   "tags": [
+    "putik",
+    "tilamsik",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "Wiper",
+   "tags": [
+    "wiper",
+    "pahid",
+    "ugoy",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "Linya ng gilid 01",
+   "tags": [
+    "linya",
+    "gilid",
+    "frame"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "Mga guhit ng usok",
+   "tags": [
+    "usok",
+    "guhit",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "Mga linya ng bilis",
+   "tags": [
+    "bilis",
+    "anime",
+    "linya",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:linterna": {
+   "name": "Flashlight",
+   "tags": [
+    "flashlight",
+    "dilim",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "Umuulan 1",
+   "tags": [
+    "ulan",
+    "patak",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "Umuulan 2",
+   "tags": [
+    "ulan",
+    "patak",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "Ulan na pang-sine",
+   "tags": [
+    "ulan",
+    "sine",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "Ulan ng rosas na puso",
+   "tags": [
+    "ulan",
+    "rosas",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "Ulan ng liwanag",
+   "tags": [
+    "ulan",
+    "kislap",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "Lumulutang na maliliit na ilaw",
+   "tags": [
+    "ilaw",
+    "lutang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "Mga ilaw ng entablado",
+   "tags": [
+    "entablado",
+    "konsiyerto",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "Mga ilaw ng Pasko",
+   "tags": [
+    "pasko",
+    "ilaw",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "Makatotohanang alitaptap 01",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "Sumasayaw na alitaptap",
+   "tags": [
+    "alitaptap",
+    "gabi",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "Matalas na luma",
+   "tags": [
+    "luma",
+    "talas",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "Ilaw ng disco",
+   "tags": [
+    "disco",
+    "party",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "Liwanag ng bituin",
+   "tags": [
+    "bituin",
+    "liwanag",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "Sikat ng araw 01",
+   "tags": [
+    "araw",
+    "sikat",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "Sikat ng araw 03",
+   "tags": [
+    "araw",
+    "sikat",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "Sikat ng araw 05",
+   "tags": [
+    "araw",
+    "sikat",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "Sikat ng araw 06",
+   "tags": [
+    "araw",
+    "sikat",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "Kuryenteng ilaw",
+   "tags": [
+    "kuryente",
+    "ilaw",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "Natutunaw na liwanag",
+   "tags": [
+    "liwanag",
+    "naglalaho",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "Frame ng bokeh",
+   "tags": [
+    "bokeh",
+    "frame",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "Frame ng alingawngaw 31",
+   "tags": [
+    "echo",
+    "ulit",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "Frame ng apoy",
+   "tags": [
+    "apoy",
+    "init",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "Frame ng liyab",
+   "tags": [
+    "liyab",
+    "apoy",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "Frame ng lagim",
+   "tags": [
+    "katatakutan",
+    "frame",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "Instant frame 02 16:9",
+   "tags": [
+    "instant",
+    "pahiga",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "Instant frame 02 9:16",
+   "tags": [
+    "instant",
+    "patayo",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "Instant frame 03 16:9",
+   "tags": [
+    "instant",
+    "pahiga",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "Instant frame alaala 02 1:1",
+   "tags": [
+    "instant",
+    "alaala",
+    "parisukat",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "Instant frame alaala 03 1:1",
+   "tags": [
+    "instant",
+    "alaala",
+    "parisukat",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "Instant frame stories 03 9:16",
+   "tags": [
+    "instant",
+    "stories",
+    "patayo",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "Frame na marker",
+   "tags": [
+    "marker",
+    "guhit",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "Rosas na frame ng pag-ibig",
+   "tags": [
+    "frame",
+    "rosas",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "Kumikinang na paru-paro",
+   "tags": [
+    "paru-paro",
+    "kinang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "Awtomatikong pagpapaganda",
+   "tags": [
+    "awtomatiko",
+    "pagandahin",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "Maliit na yugyog",
+   "tags": [
+    "yugyog",
+    "maliit",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "Maliit na zoom",
+   "tags": [
+    "zoom",
+    "maliit",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "Monitor ng lagim",
+   "tags": [
+    "katatakutan",
+    "monitor",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "Mosaic",
+   "tags": [
+    "mosaic",
+    "pixel",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "Klasikong mosaic",
+   "tags": [
+    "mosaic",
+    "klasiko",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "Klasikong mosaic na AI",
+   "tags": [
+    "mosaic",
+    "takip",
+    "mukha",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "Malabong mosaic na AI",
+   "tags": [
+    "mosaic",
+    "blur",
+    "takip",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "Mosaic ng guhit-guhit",
+   "tags": [
+    "mosaic",
+    "guhit",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "3D na paikot pakaliwa",
+   "tags": [
+    "3d",
+    "ikot",
+    "kaliwa",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "360° na galaw ng kamera 1",
+   "tags": [
+    "360",
+    "ikot",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "3D na galaw ng kamera",
+   "tags": [
+    "3d",
+    "lalim",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "Kamerang hawak-kamay",
+   "tags": [
+    "handheld",
+    "hawak",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "Lokal na galaw ng kamera",
+   "tags": [
+    "lokal",
+    "bahagi",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "Umuugoy na kamera",
+   "tags": [
+    "ugoy",
+    "pabalik-balik",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "Makinis na galaw ng kamera",
+   "tags": [
+    "makinis",
+    "banayad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "Galaw ng kamera",
+   "tags": [
+    "kilos",
+    "pan",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "Galaw sa isang direksyon",
+   "tags": [
+    "direksyon",
+    "usad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "Pang-sineng kibot",
+   "tags": [
+    "sine",
+    "kibot",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "Kaba ng kaluluwa",
+   "tags": [
+    "kaluluwa",
+    "kibot",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "Pag-ulan ng niyebe",
+   "tags": [
+    "niyebe",
+    "taglamig",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "Parang panaginip na hamog 1",
+   "tags": [
+    "hamog",
+    "panaginip",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "Parang panaginip na hamog 2",
+   "tags": [
+    "hamog",
+    "panaginip",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "Parang panaginip na hamog 3",
+   "tags": [
+    "hamog",
+    "panaginip",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "Parang panaginip na hamog 4",
+   "tags": [
+    "hamog",
+    "panaginip",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "Ulan ng bulaklak",
+   "tags": [
+    "bulaklak",
+    "talulot",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "Makatotohanang niyebe",
+   "tags": [
+    "niyebe",
+    "taglamig",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "Gabi ng niyebe at bituin",
+   "tags": [
+    "niyebe",
+    "bituin",
+    "gabi",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "Nakapaskil na tala",
+   "tags": [
+    "tala",
+    "sticky note",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "Lente ng kamera",
+   "tags": [
+    "lente",
+    "focus",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "Itago",
+   "tags": [
+    "tago",
+    "wala",
+    "bukas",
+    "sara"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "Shockwave 3",
+   "tags": [
+    "shockwave",
+    "yanig",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "Psychedelic na alon",
+   "tags": [
+    "psychedelic",
+    "alon",
+    "kulay",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "Alon ng pag-ibig",
+   "tags": [
+    "alon",
+    "romantiko",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "Pakete ng kislap",
+   "tags": [
+    "kinang",
+    "pakete",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "Banayad na parallax palayo",
+   "tags": [
+    "parallax",
+    "layo",
+    "zoom",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "Magkatabing photobook",
+   "tags": [
+    "photobook",
+    "larawan",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "Kurap ng kulay",
+   "tags": [
+    "kulay",
+    "kurap",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "Lumilipad na tilamsik ng apoy",
+   "tags": [
+    "apoy",
+    "tilamsik",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "Gintong particles",
+   "tags": [
+    "ginto",
+    "butil",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "Gumagalaw na particles",
+   "tags": [
+    "galaw",
+    "butil",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "Sinaunang pelikula 1",
+   "tags": [
+    "vintage",
+    "luma",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "Sinaunang pelikula 2",
+   "tags": [
+    "vintage",
+    "luma",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "Butil-butil na pelikula",
+   "tags": [
+    "butil",
+    "grain",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "Napakaruming pelikula",
+   "tags": [
+    "dumi",
+    "gasgas",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "Pelikulang walang tunog",
+   "tags": [
+    "silent film",
+    "itim at puti",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "Pelikulang walang tunog 2",
+   "tags": [
+    "silent film",
+    "itim at puti",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "Napakalumang pelikula",
+   "tags": [
+    "luma",
+    "gasgas",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "Maruming pelikula",
+   "tags": [
+    "dumi",
+    "gasgas",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "Lumang pelikula",
+   "tags": [
+    "luma",
+    "film",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "Pendulo",
+   "tags": [
+    "pendulo",
+    "ugoy",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "Pinintang mosaic",
+   "tags": [
+    "mosaic",
+    "pinta",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "Comic na maraming panel",
+   "tags": [
+    "komiks",
+    "panel",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "Asul na alikabok",
+   "tags": [
+    "asul",
+    "alikabok",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "Alikabok ng bituin",
+   "tags": [
+    "bituin",
+    "alikabok",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "Lumulutang na alikabok",
+   "tags": [
+    "alikabok",
+    "lutang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:profundo": {
+   "name": "Malalim",
+   "tags": [
+    "malalim",
+    "mababa",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "Pintig sa beat",
+   "tags": [
+    "beat",
+    "pintig",
+    "musika",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "Pintig ng puso",
+   "tags": [
+    "pintig",
+    "tibok",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "Kumikinang na tuldok",
+   "tags": [
+    "tuldok",
+    "kinang",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "Gintong glitter",
+   "tags": [
+    "ginto",
+    "glitter",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "Sunog na pelikula",
+   "tags": [
+    "pelikula",
+    "sunog",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "Alisin ang blur",
+   "tags": [
+    "linaw",
+    "ayos",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "Radius ng vignette",
+   "tags": [
+    "vignette",
+    "radius",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "Kumikinang na bakas ng paa",
+   "tags": [
+    "bakas",
+    "yapak",
+    "kinang",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "Mga guhit ng projector",
+   "tags": [
+    "projector",
+    "guhit",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "Sinag ng liwanag",
+   "tags": [
+    "sinag",
+    "beam",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "Gintong sinag",
+   "tags": [
+    "ginto",
+    "sinag",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "Kidlat 01",
+   "tags": [
+    "kidlat",
+    "kuryente",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "Talbog ng ikot",
+   "tags": [
+    "ikot",
+    "talbog",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "Talbog ng zoom",
+   "tags": [
+    "zoom",
+    "talbog",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "Paikot na talbog",
+   "tags": [
+    "talbog",
+    "ikot",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:recorte": {
+   "name": "Pag-crop",
+   "tags": [
+    "crop",
+    "putol",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "Abuhing grid",
+   "tags": [
+    "grid",
+    "abo",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "Nakasisilaw na kidlat",
+   "tags": [
+    "kidlat",
+    "silaw",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "Ikot ng mga puso",
+   "tags": [
+    "ikot",
+    "ipo-ipo",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "Baluktot na ipo-ipo",
+   "tags": [
+    "ipo-ipo",
+    "distortion",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "Kinang ng gilid 04",
+   "tags": [
+    "kinang",
+    "glow",
+    "frame",
+    "gilid"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "Kinang ng pigura",
+   "tags": [
+    "kinang",
+    "tao",
+    "glow",
+    "ai",
+    "awtomatiko"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "Umuugang kinang",
+   "tags": [
+    "glow",
+    "uga",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "Romcom na pinaganda",
+   "tags": [
+    "romcom",
+    "romantiko",
+    "pelikula",
+    "pag-ibig",
+    "puso"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "Pabilog na pagbukas",
+   "tags": [
+    "bilog",
+    "bukas",
+    "sara"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "Patong-patong na ikot",
+   "tags": [
+    "ikot",
+    "patong",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "Ingay ng pelikula",
+   "tags": [
+    "ingay",
+    "grain",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "Retrong ingay",
+   "tags": [
+    "ingay",
+    "noise",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "Yanig ng putok",
+   "tags": [
+    "putok",
+    "yanig",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "Yanig ng lindol",
+   "tags": [
+    "lindol",
+    "yanig",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:saltar": {
+   "name": "Talon",
+   "tags": [
+    "talon",
+    "lundag",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "Lilang talon 2",
+   "tags": [
+    "talon",
+    "lila",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "Nakakikilabot",
+   "tags": [
+    "nakakatakot",
+    "katatakutan",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "Araw sa sulok",
+   "tags": [
+    "araw",
+    "sulok",
+    "ilaw",
+    "liwanag"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "Anino A",
+   "tags": [
+    "anino",
+    "dilim",
+    "blur",
+    "malabo"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "Surround sound",
+   "tags": [
+    "surround",
+    "palibot",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "3D na kard",
+   "tags": [
+    "3d",
+    "kard",
+    "hati",
+    "split"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "Panginginig ng balangkas",
+   "tags": [
+    "balangkas",
+    "nginig",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:templado": {
+   "name": "Katamtaman",
+   "tags": [
+    "katamtaman",
+    "banayad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "Pulang lagim",
+   "tags": [
+    "katatakutan",
+    "pula",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "Mabilis na pan",
+   "tags": [
+    "pan",
+    "bilis",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "Bagyo ng ulan",
+   "tags": [
+    "bagyo",
+    "ulan",
+    "particles",
+    "kislap"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "Piraso ng keso",
+   "tags": [
+    "keso",
+    "piraso",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "Lumang TV 4x",
+   "tags": [
+    "tv",
+    "luma",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "Mga ugat ng kuryente",
+   "tags": [
+    "kuryente",
+    "ugat",
+    "estilo",
+    "filter"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "VHS static 1",
+   "tags": [
+    "vhs",
+    "static",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "Pag-uga ng gilid na RGB",
+   "tags": [
+    "rgb",
+    "gilid",
+    "uga",
+    "glitch",
+    "sira"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "Lumang video",
+   "tags": [
+    "video",
+    "luma",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "Retrong camcorder",
+   "tags": [
+    "camcorder",
+    "vhs",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "Vignette ng pelikula",
+   "tags": [
+    "vignette",
+    "dilim",
+    "retro",
+    "lumang pelikula"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "Plaka",
+   "tags": [
+    "plaka",
+    "vinyl",
+    "luma",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "Baligtad na zoom",
+   "tags": [
+    "zoom",
+    "baligtad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "Dilaw na ipo-ipo",
+   "tags": [
+    "dilaw",
+    "ipo-ipo",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "Ipo-ipo ng kidlat",
+   "tags": [
+    "kidlat",
+    "ipo-ipo",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "Walkie-talkie",
+   "tags": [
+    "radyo",
+    "walkie-talkie",
+    "boses",
+    "tunog"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "Zoom ng sapot",
+   "tags": [
+    "sapot",
+    "gagamba",
+    "zoom",
+    "enerhiya",
+    "elemento"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "Dumudulas na zoom",
+   "tags": [
+    "zoom",
+    "dulas",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "Mabilis na zoom",
+   "tags": [
+    "zoom",
+    "bilis",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "Banayad na zoom pakanan",
+   "tags": [
+    "zoom",
+    "kanan",
+    "banayad",
+    "kamera",
+    "galaw"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "Banayad na zoom pakaliwa",
+   "tags": [
+    "zoom",
+    "kaliwa",
+    "banayad",
+    "kamera",
+    "galaw"
    ]
   },
   "look:arte-comic": {

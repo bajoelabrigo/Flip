@@ -19,6 +19,20 @@
   "background:fechas": "Ngày đặc biệt",
   "background:geometricos": "Hình học",
   "background:texturas": "Kết cấu",
+  "effect:abrir": "Mở và đóng",
+  "effect:amor": "Tình yêu",
+  "effect:audio": "Giọng nói",
+  "effect:camara": "Chuyển động máy quay",
+  "effect:desenfoque": "Làm mờ",
+  "effect:dividir": "Chia và nhân bản",
+  "effect:energia": "Năng lượng và nguyên tố",
+  "effect:estilo": "Phong cách",
+  "effect:glitch": "Glitch",
+  "effect:ia": "AI",
+  "effect:luz": "Ánh sáng và lóe sáng",
+  "effect:marcos": "Khung và viền",
+  "effect:particulas": "Hạt và lấp lánh",
+  "effect:retro": "Cổ điển và phim",
   "look:arte": "Nghệ thuật hai tông",
   "look:bn": "Đen trắng",
   "look:boda": "Đám cưới",
@@ -4103,6 +4117,3397 @@
     "zoom",
     "ảo giác",
     "rực rỡ"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "Quang sai màu",
+   "tags": [
+    "quang sai",
+    "rgb",
+    "ống kính",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "Mở dọc",
+   "tags": [
+    "dọc",
+    "mở màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "Phóng to thị sai",
+   "tags": [
+    "thị sai",
+    "parallax",
+    "zoom",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "Lắc trái phải",
+   "tags": [
+    "lắc",
+    "trái",
+    "phải",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "Lắc lên xuống",
+   "tags": [
+    "lắc",
+    "lên xuống",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "Rung RGB",
+   "tags": [
+    "rgb",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "Zoom rung",
+   "tags": [
+    "zoom",
+    "rung",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "Lắc máy quay",
+   "tags": [
+    "lắc",
+    "rung",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "Plasma vàng",
+   "tags": [
+    "plasma",
+    "vàng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "Tăng cường lấy nét",
+   "tags": [
+    "lấy nét",
+    "sắc nét",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "Vòng lấp lánh",
+   "tags": [
+    "vòng",
+    "kim tuyến",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "Vòng lửa",
+   "tags": [
+    "lửa",
+    "vòng",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "Vòng nhạc",
+   "tags": [
+    "nhạc",
+    "vòng tròn",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "Vòng xoáy năng lượng",
+   "tags": [
+    "xoáy",
+    "vòng",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "Thập niên 70",
+   "tags": [
+    "thập niên 70",
+    "vintage",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "Đuốc nhanh",
+   "tags": [
+    "ngọn đuốc",
+    "nhanh",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "Người xuất hiện 1",
+   "tags": [
+    "xuất hiện",
+    "người",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "Mở cửa thang máy",
+   "tags": [
+    "thang máy",
+    "mở",
+    "cửa",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "Sóc chuột",
+   "tags": [
+    "sóc chuột",
+    "giọng cao",
+    "hài hước",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "Viền đen điện ảnh",
+   "tags": [
+    "điện ảnh",
+    "letterbox",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "Thanh nhạc",
+   "tags": [
+    "nhạc",
+    "equalizer",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "Rung nhịp tim",
+   "tags": [
+    "rung",
+    "nhịp tim",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "Rung theo nhịp 03",
+   "tags": [
+    "rung",
+    "nhịp",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "Rung nhẹ",
+   "tags": [
+    "rung",
+    "nhẹ",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:belleza": {
+   "name": "Làm đẹp",
+   "tags": [
+    "làm đẹp",
+    "khuôn mặt",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "Lóa sáng xanh",
+   "tags": [
+    "lóa sáng",
+    "xanh dương",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "Lóa sáng xanh hải quân",
+   "tags": [
+    "lóa sáng",
+    "xanh đậm",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "Bling bling",
+   "tags": [
+    "bling",
+    "kim tuyến",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "Khối lỗi 2",
+   "tags": [
+    "khối",
+    "pixel",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "Bokeh 3D",
+   "tags": [
+    "bokeh",
+    "3d",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "Bokeh 5",
+   "tags": [
+    "bokeh",
+    "mờ ảo",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "Bokeh nhiều màu",
+   "tags": [
+    "bokeh",
+    "màu sắc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "Bokeh ở góc",
+   "tags": [
+    "bokeh",
+    "góc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "Bokeh đô thị",
+   "tags": [
+    "bokeh",
+    "thành phố",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:borde": {
+   "name": "Viền",
+   "tags": [
+    "viền",
+    "đường viền",
+    "khung"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "Viền neon xanh",
+   "tags": [
+    "neon",
+    "xanh dương",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "Phim bị xóa mờ",
+   "tags": [
+    "phim",
+    "xóa mờ",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:brasas": {
+   "name": "Than hồng",
+   "tags": [
+    "than hồng",
+    "lửa",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "Ánh vàng",
+   "tags": [
+    "vàng",
+    "phát sáng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "Lấp lánh trong không khí",
+   "tags": [
+    "kim tuyến",
+    "không khí",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "Bong bóng ánh sáng",
+   "tags": [
+    "bong bóng",
+    "tròn",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "Tìm câu trả lời",
+   "tags": [
+    "tìm kiếm",
+    "câu trả lời",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "Máy quay 3D sang phải",
+   "tags": [
+    "3d",
+    "phải",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "Máy quay 3D sang trái",
+   "tags": [
+    "3d",
+    "trái",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "Máy ảnh lấy liền",
+   "tags": [
+    "lấy liền",
+    "polaroid",
+    "ảnh",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "Máy quay cuồng nộ",
+   "tags": [
+    "rung mạnh",
+    "dữ dội",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "Đổi màu theo nhịp",
+   "tags": [
+    "nhịp",
+    "màu",
+    "nhạc",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "Tụ năng lượng trong bóng tối",
+   "tags": [
+    "bóng tối",
+    "tụ lực",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "Vòng quay vui vẻ",
+   "tags": [
+    "vòng quay",
+    "xoay",
+    "vui",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "Tro lửa chiến trận",
+   "tags": [
+    "tro",
+    "lửa",
+    "chiến trận",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "Đóng chớp sáng",
+   "tags": [
+    "chớp sáng",
+    "đóng màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:chispa": {
+   "name": "Tia lửa",
+   "tags": [
+    "tia lửa",
+    "lửa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "Tia lửa vàng",
+   "tags": [
+    "vàng",
+    "tia lửa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "Va chạm cắt cảnh",
+   "tags": [
+    "cắt cảnh",
+    "va chạm",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "Bầu trời sao",
+   "tags": [
+    "sao",
+    "bầu trời",
+    "đêm",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "Đóng ngang",
+   "tags": [
+    "ngang",
+    "đóng màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "Đóng tròn",
+   "tags": [
+    "tròn",
+    "đóng màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "Rạp phim cổ điển",
+   "tags": [
+    "rạp phim",
+    "vintage",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "Băng video",
+   "tags": [
+    "băng từ",
+    "vhs",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "Tình yêu trong trẻo",
+   "tags": [
+    "lãng mạn",
+    "trong trẻo",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "Nhân bản người phát sáng",
+   "tags": [
+    "nhân bản",
+    "người",
+    "phát sáng",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:colision": {
+   "name": "Va chạm",
+   "tags": [
+    "va chạm",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "Ghép ảnh tình yêu",
+   "tags": [
+    "ghép ảnh",
+    "ảnh",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:color-local": {
+   "name": "Màu cục bộ",
+   "tags": [
+    "màu",
+    "giữ màu",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "Truyện tranh màu",
+   "tags": [
+    "truyện tranh",
+    "màu sắc",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "Confetti lễ hội",
+   "tags": [
+    "confetti",
+    "lễ hội",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "Confetti bay",
+   "tags": [
+    "confetti",
+    "tiệc",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "Glitch đóng băng",
+   "tags": [
+    "đóng băng",
+    "dừng hình",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "Bông tuyết",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "Trái tim lấp lánh",
+   "tags": [
+    "lấp lánh",
+    "kim tuyến",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "Trái tim ánh đèn",
+   "tags": [
+    "đèn",
+    "ánh sáng",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "Trái tim bokeh",
+   "tags": [
+    "bokeh",
+    "mờ ảo",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "Trái tim neon",
+   "tags": [
+    "neon",
+    "phát sáng",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "Trái tim vàng",
+   "tags": [
+    "vàng",
+    "lấp lánh",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:corredor": {
+   "name": "Hành lang",
+   "tags": [
+    "hành lang",
+    "tiếng vọng",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "Cắt vát nhấp nháy",
+   "tags": [
+    "vát",
+    "nhấp nháy",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "Chia cắt chớp 1",
+   "tags": [
+    "chớp sáng",
+    "cắt",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "Cắt chớp sáng xoay",
+   "tags": [
+    "chớp sáng",
+    "xoay",
+    "cắt",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "Cắt vát",
+   "tags": [
+    "vát",
+    "cắt",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "Cắt dải",
+   "tags": [
+    "dải",
+    "sọc",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "Đóng băng khung hành động",
+   "tags": [
+    "đóng băng",
+    "hành động",
+    "dừng hình",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:cueva": {
+   "name": "Hang động",
+   "tags": [
+    "hang động",
+    "tiếng vọng",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "Mái vòm sấm sét",
+   "tags": [
+    "sấm sét",
+    "mái vòm",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "Phóng điện",
+   "tags": [
+    "điện",
+    "phóng điện",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "Làm mờ để xóa",
+   "tags": [
+    "xóa",
+    "che",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "Làm mờ ô vuông",
+   "tags": [
+    "ô vuông",
+    "pixel",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "Làm mờ bokeh 5",
+   "tags": [
+    "bokeh",
+    "làm mờ",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "Làm mờ theo hướng",
+   "tags": [
+    "hướng",
+    "chuyển động",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "Làm mờ nền cơ bản",
+   "tags": [
+    "nền",
+    "xóa phông",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "Làm mờ chuyển động",
+   "tags": [
+    "chuyển động",
+    "tốc độ",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "Làm mờ chiều sâu",
+   "tags": [
+    "chiều sâu",
+    "xóa phông",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "Làm mờ viền tối",
+   "tags": [
+    "vignette",
+    "viền",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "Làm mờ xiên",
+   "tags": [
+    "xiên",
+    "tilt",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "Cuộn và phóng to",
+   "tags": [
+    "cuộn",
+    "zoom",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "Lóa anamorphic TV",
+   "tags": [
+    "anamorphic",
+    "tv",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "Lóa ống kính 3",
+   "tags": [
+    "lóa ống kính",
+    "lens flare",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "Lóa ống kính 5",
+   "tags": [
+    "lóa ống kính",
+    "lens flare",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "Lóa ống kính 6",
+   "tags": [
+    "lóa ống kính",
+    "lens flare",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "Lóa ống kính anamorphic",
+   "tags": [
+    "anamorphic",
+    "lóa ống kính",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "Lóa ống kính xanh",
+   "tags": [
+    "lóa ống kính",
+    "xanh dương",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "Chớp sáng rung",
+   "tags": [
+    "chớp sáng",
+    "rung",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "Lóa sáng vàng",
+   "tags": [
+    "vàng",
+    "lóa sáng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "Lóa sáng ngang",
+   "tags": [
+    "ngang",
+    "lóa sáng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "Chớp sáng nhịp nhàng",
+   "tags": [
+    "chớp sáng",
+    "nhịp",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "Lấp lánh ấm áp",
+   "tags": [
+    "ấm áp",
+    "kim tuyến",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "Trình chiếu sách ảnh",
+   "tags": [
+    "sách ảnh",
+    "trình chiếu",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "Phim dương bản 1",
+   "tags": [
+    "dương bản",
+    "slide",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "Phim dương bản 2",
+   "tags": [
+    "dương bản",
+    "slide",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "Làm mờ nhòe",
+   "tags": [
+    "nhòe",
+    "vệt",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "Méo hình VCR",
+   "tags": [
+    "vcr",
+    "vhs",
+    "băng cũ",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "Chia cắt chớp 2",
+   "tags": [
+    "chớp sáng",
+    "cắt",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "Chia bong bóng",
+   "tags": [
+    "bong bóng",
+    "tròn",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "Tách RGB",
+   "tags": [
+    "rgb",
+    "tách màu",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "Hiệu ứng lỗi 17",
+   "tags": [
+    "lỗi",
+    "nhiễu",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "Hiệu ứng lỗi 20",
+   "tags": [
+    "lỗi",
+    "nhiễu",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "Hiệu ứng lỗi 7",
+   "tags": [
+    "lỗi",
+    "nhiễu",
+    "glitch"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "Hiệu ứng rò sáng 02",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "Hiệu ứng zoom",
+   "tags": [
+    "zoom",
+    "phóng to",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "Làm đẹp bằng AI",
+   "tags": [
+    "làm đẹp",
+    "khuôn mặt",
+    "mịn da",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "Năng lượng sóng xung kích",
+   "tags": [
+    "sóng xung kích",
+    "sức mạnh",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "Lấy nét phân tích",
+   "tags": [
+    "lấy nét",
+    "rõ nét",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "Lửa xanh bao quanh",
+   "tags": [
+    "lửa xanh",
+    "bao quanh",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "Lỗi cyber 01",
+   "tags": [
+    "cyber",
+    "lỗi",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "Tỉ lệ viền",
+   "tags": [
+    "viền",
+    "tỉ lệ",
+    "khung"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "Quét khoa học viễn tưởng 01",
+   "tags": [
+    "quét",
+    "viễn tưởng",
+    "tương lai",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "Quét khoa học viễn tưởng 02",
+   "tags": [
+    "quét",
+    "viễn tưởng",
+    "tương lai",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "Quét glitch",
+   "tags": [
+    "quét",
+    "sọc",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "Quét sóng xung kích",
+   "tags": [
+    "quét",
+    "sóng xung kích",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "Quét tia sáng",
+   "tags": [
+    "quét",
+    "tia",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "Quét tia sáng 04",
+   "tags": [
+    "quét",
+    "tia",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "Quét tia cyber 01",
+   "tags": [
+    "cyber",
+    "quét",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "Quét tia cyber 02",
+   "tags": [
+    "cyber",
+    "quét",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "Quét quang điện",
+   "tags": [
+    "quét",
+    "quang điện",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "Khói độc",
+   "tags": [
+    "khói",
+    "sương mù độc",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "Phổ âm thanh 03",
+   "tags": [
+    "âm thanh",
+    "phổ",
+    "nhạc",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "Bùng nổ ngôi sao",
+   "tags": [
+    "sao",
+    "bùng nổ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "Tia sáng bùng nổ",
+   "tags": [
+    "tia sáng",
+    "bùng nổ",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "Nhiễu dưới đáy",
+   "tags": [
+    "nhiễu tĩnh",
+    "nhiễu",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "Vệt chuyển động",
+   "tags": [
+    "vệt",
+    "trail",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "Vệt hồng",
+   "tags": [
+    "hồng",
+    "vệt",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "Phong cách truyện tranh 3",
+   "tags": [
+    "truyện tranh",
+    "nét vẽ",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "Phong cách FPS thấp",
+   "tags": [
+    "fps",
+    "giật hình",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "Kéo giãn rung",
+   "tags": [
+    "kéo giãn",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "Sao lấp lánh 1",
+   "tags": [
+    "sao",
+    "nhấp nháy",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "Sao lấp lánh 5",
+   "tags": [
+    "sao",
+    "nhấp nháy",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "Sao vàng",
+   "tags": [
+    "vàng",
+    "sao",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "Những vì sao xa",
+   "tags": [
+    "sao",
+    "bầu trời",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "Sao băng",
+   "tags": [
+    "sao băng",
+    "sao",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "Sao rải rác",
+   "tags": [
+    "sao",
+    "rải rác",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "Những ngôi sao lấp lánh",
+   "tags": [
+    "sao",
+    "nhấp nháy",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "Đèn chớp khóa",
+   "tags": [
+    "đèn chớp",
+    "strobe",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "Quét quang phổ",
+   "tags": [
+    "quang phổ",
+    "quét",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "Bùng nổ năng lượng",
+   "tags": [
+    "bùng nổ",
+    "sức mạnh",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "Bùng nổ ánh sao",
+   "tags": [
+    "ánh sao",
+    "bùng nổ",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "Bướm bùng nổ",
+   "tags": [
+    "bướm",
+    "bùng nổ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "Chớp nổ",
+   "tags": [
+    "chớp sáng",
+    "nổ",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "Lửa bùng nổ",
+   "tags": [
+    "lửa",
+    "nổ",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "Bùng nổ lăng kính",
+   "tags": [
+    "lăng kính",
+    "cầu vồng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "Phơi sáng theo nhịp",
+   "tags": [
+    "nhịp",
+    "phơi sáng",
+    "nhạc",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "Phơi sáng chớp",
+   "tags": [
+    "chớp sáng",
+    "trắng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:extremo": {
+   "name": "Cực đại",
+   "tags": [
+    "cực mạnh",
+    "mạnh",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "Glitch nhấp nháy",
+   "tags": [
+    "nhấp nháy",
+    "chớp",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "Glitch có bộ lọc",
+   "tags": [
+    "bộ lọc",
+    "màu",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "Glitch ảo giác",
+   "tags": [
+    "ảo giác",
+    "màu sắc",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "Glitch cổ điển 01",
+   "tags": [
+    "cổ điển",
+    "vintage",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "Hồn ma đầu lâu",
+   "tags": [
+    "hồn ma",
+    "đầu lâu",
+    "kinh dị",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "Bóng ma glitch",
+   "tags": [
+    "bóng ma",
+    "kinh dị",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "Cơn sốt neon",
+   "tags": [
+    "neon",
+    "rực rỡ",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "Bộ lọc hoạt hình 01",
+   "tags": [
+    "hoạt hình",
+    "cartoon",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "Bộ lọc hoạt hình 05",
+   "tags": [
+    "hoạt hình",
+    "cartoon",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "Kết thúc mờ",
+   "tags": [
+    "kết thúc",
+    "ending",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "Mở chớp sáng",
+   "tags": [
+    "chớp sáng",
+    "mở màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "Hào quang tỏa sáng",
+   "tags": [
+    "hào quang",
+    "glow",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "Dòng sáng 2",
+   "tags": [
+    "dòng sáng",
+    "chạy viền",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "Dòng sáng 3",
+   "tags": [
+    "dòng sáng",
+    "chạy viền",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "Dòng sáng 4",
+   "tags": [
+    "dòng sáng",
+    "chạy viền",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "Dòng sáng 6",
+   "tags": [
+    "dòng sáng",
+    "chạy viền",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "Dòng sáng 7",
+   "tags": [
+    "dòng sáng",
+    "chạy viền",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "Đèn rọi sân khấu",
+   "tags": [
+    "đèn rọi",
+    "sân khấu",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "Đèn rọi kết thúc",
+   "tags": [
+    "đèn rọi",
+    "kết thúc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "Nền vụ nổ",
+   "tags": [
+    "vụ nổ",
+    "nền",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "Nền tia sét",
+   "tags": [
+    "tia sét",
+    "nền",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "Nền trái tim tình yêu",
+   "tags": [
+    "nền",
+    "lãng mạn",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "Máy hát",
+   "tags": [
+    "máy hát",
+    "cổ điển",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "Lửa cháy mặt đất",
+   "tags": [
+    "lửa",
+    "mặt đất",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "Lửa quét lên",
+   "tags": [
+    "lửa",
+    "quét",
+    "đi lên",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "Pháo hoa",
+   "tags": [
+    "pháo hoa",
+    "lễ hội",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "Pháo hoa ngôi sao",
+   "tags": [
+    "pháo hoa",
+    "sao",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "Rò sáng 1",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "Rò sáng 3",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "Rò sáng 4",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "Rò sáng 5",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "Rò sáng 6",
+   "tags": [
+    "rò sáng",
+    "light leak",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "Hợp nhất bốn phần",
+   "tags": [
+    "bốn phần",
+    "ghép",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "Nét nguệch ngoạc grunge",
+   "tags": [
+    "grunge",
+    "nguệch ngoạc",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "Xoay vòng tròn",
+   "tags": [
+    "xoay",
+    "vòng tròn",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "Xoay tròn",
+   "tags": [
+    "xoay",
+    "quay",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "Xoáy ảo giác",
+   "tags": [
+    "ảo giác",
+    "xoáy",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "Glitch MPEG",
+   "tags": [
+    "mpeg",
+    "pixel",
+    "vỡ hình",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "Glitch mạnh",
+   "tags": [
+    "mạnh",
+    "nhiễu",
+    "glitch"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "Grunge trắng",
+   "tags": [
+    "grunge",
+    "trắng",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "Chùm sáng xung kích",
+   "tags": [
+    "chùm sáng",
+    "xung kích",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "Chùm sáng hạt",
+   "tags": [
+    "hạt nhiễu",
+    "chùm sáng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "Khói là là",
+   "tags": [
+    "khói",
+    "mặt đất",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "Dư ảnh",
+   "tags": [
+    "dư ảnh",
+    "bóng mờ",
+    "trail",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "Nghiêng mở",
+   "tags": [
+    "nghiêng",
+    "mở",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "Nghiêng phối cảnh",
+   "tags": [
+    "phối cảnh",
+    "nghiêng",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "Tràn nét vẽ",
+   "tags": [
+    "nét vẽ",
+    "phác họa",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "Đảo màu lỗi",
+   "tags": [
+    "đảo màu",
+    "âm bản",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "Rung nhấp nháy 01",
+   "tags": [
+    "nhấp nháy",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "Rung xoay",
+   "tags": [
+    "rung",
+    "xoay",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "Cuộn phim",
+   "tags": [
+    "cuộn phim",
+    "film",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "Đèn flash",
+   "tags": [
+    "flash",
+    "đèn",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "Ném",
+   "tags": [
+    "ném",
+    "nhanh",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "Nhịp tim",
+   "tags": [
+    "nhịp tim",
+    "đập",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "Ống kính zoom chớp sáng",
+   "tags": [
+    "zoom",
+    "chớp sáng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "Ống kính máy ảnh cũ",
+   "tags": [
+    "ống kính",
+    "cũ",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "Vệt bùn nhẹ",
+   "tags": [
+    "bùn",
+    "vết bẩn",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "Cần gạt nước",
+   "tags": [
+    "gạt nước",
+    "quét",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "Đường viền 01",
+   "tags": [
+    "đường kẻ",
+    "viền",
+    "khung"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "Vệt khói",
+   "tags": [
+    "khói",
+    "vệt",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "Vạch tốc độ",
+   "tags": [
+    "tốc độ",
+    "anime",
+    "vạch",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:linterna": {
+   "name": "Đèn pin",
+   "tags": [
+    "đèn pin",
+    "bóng tối",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "Trời mưa 1",
+   "tags": [
+    "mưa",
+    "giọt mưa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "Trời mưa 2",
+   "tags": [
+    "mưa",
+    "giọt mưa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "Mưa điện ảnh",
+   "tags": [
+    "mưa",
+    "điện ảnh",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "Mưa tim hồng",
+   "tags": [
+    "mưa",
+    "hồng",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "Mưa ánh sáng",
+   "tags": [
+    "mưa",
+    "lấp lánh",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "Đốm sáng lơ lửng",
+   "tags": [
+    "đốm sáng",
+    "lơ lửng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "Đèn sân khấu",
+   "tags": [
+    "sân khấu",
+    "hòa nhạc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "Đèn Giáng sinh",
+   "tags": [
+    "giáng sinh",
+    "đèn",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "Đom đóm chân thực 01",
+   "tags": [
+    "đom đóm",
+    "đêm",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "Đom đóm nhảy múa",
+   "tags": [
+    "đom đóm",
+    "đêm",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "Luma sắc nét",
+   "tags": [
+    "luma",
+    "sắc nét",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "Đèn disco",
+   "tags": [
+    "disco",
+    "tiệc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "Ánh sao",
+   "tags": [
+    "ánh sao",
+    "sao",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "Nắng 01",
+   "tags": [
+    "nắng",
+    "mặt trời",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "Nắng 03",
+   "tags": [
+    "nắng",
+    "mặt trời",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "Nắng 05",
+   "tags": [
+    "nắng",
+    "mặt trời",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "Nắng 06",
+   "tags": [
+    "nắng",
+    "mặt trời",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "Ánh sáng điện",
+   "tags": [
+    "điện",
+    "ánh sáng",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "Ánh sáng tan biến",
+   "tags": [
+    "ánh sáng",
+    "tan biến",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "Khung bokeh",
+   "tags": [
+    "bokeh",
+    "khung",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "Khung tiếng vọng 31",
+   "tags": [
+    "tiếng vọng",
+    "lặp",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "Khung lửa",
+   "tags": [
+    "lửa",
+    "nóng",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "Khung ngọn lửa",
+   "tags": [
+    "ngọn lửa",
+    "lửa",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "Khung kinh dị",
+   "tags": [
+    "kinh dị",
+    "khung",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "Khung ảnh lấy liền 02 16:9",
+   "tags": [
+    "ảnh lấy liền",
+    "ngang",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "Khung ảnh lấy liền 02 9:16",
+   "tags": [
+    "ảnh lấy liền",
+    "dọc",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "Khung ảnh lấy liền 03 16:9",
+   "tags": [
+    "ảnh lấy liền",
+    "ngang",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "Khung ảnh lấy liền kỷ niệm 02 1:1",
+   "tags": [
+    "ảnh lấy liền",
+    "kỷ niệm",
+    "vuông",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "Khung ảnh lấy liền kỷ niệm 03 1:1",
+   "tags": [
+    "ảnh lấy liền",
+    "kỷ niệm",
+    "vuông",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "Khung ảnh lấy liền stories 03 9:16",
+   "tags": [
+    "ảnh lấy liền",
+    "stories",
+    "dọc",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "Khung bút dạ",
+   "tags": [
+    "bút dạ",
+    "nét vẽ",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "Khung tình yêu hồng",
+   "tags": [
+    "khung",
+    "hồng",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "Bướm phát sáng",
+   "tags": [
+    "bướm",
+    "phát sáng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "Tự động nâng cao",
+   "tags": [
+    "tự động",
+    "nâng cao chất lượng",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "Rung nhỏ",
+   "tags": [
+    "rung",
+    "nhỏ",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "Zoom nhỏ",
+   "tags": [
+    "zoom",
+    "nhỏ",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "Màn hình kinh dị",
+   "tags": [
+    "kinh dị",
+    "màn hình",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "Khảm",
+   "tags": [
+    "khảm",
+    "pixel",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "Khảm cổ điển",
+   "tags": [
+    "khảm",
+    "cổ điển",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "Khảm cổ điển AI",
+   "tags": [
+    "khảm",
+    "che mặt",
+    "làm mờ",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "Khảm làm mờ AI",
+   "tags": [
+    "khảm",
+    "làm mờ",
+    "che mặt",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "Khảm nét nguệch ngoạc",
+   "tags": [
+    "khảm",
+    "nguệch ngoạc",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "Xoay tròn 3D sang trái",
+   "tags": [
+    "3d",
+    "xoay tròn",
+    "trái",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "Chuyển động máy quay 360° 1",
+   "tags": [
+    "360",
+    "xoay vòng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "Chuyển động máy quay 3D",
+   "tags": [
+    "3d",
+    "chiều sâu",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "Máy quay cầm tay",
+   "tags": [
+    "cầm tay",
+    "rung nhẹ",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "Chuyển động máy quay cục bộ",
+   "tags": [
+    "cục bộ",
+    "vùng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "Máy quay lắc lư",
+   "tags": [
+    "lắc lư",
+    "dao động",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "Chuyển động máy quay mượt",
+   "tags": [
+    "mượt",
+    "nhẹ nhàng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "Chuyển động máy quay",
+   "tags": [
+    "di chuyển",
+    "pan",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "Chuyển động một chiều",
+   "tags": [
+    "một chiều",
+    "hướng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "Rung kiểu điện ảnh",
+   "tags": [
+    "điện ảnh",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "Rung động linh hồn",
+   "tags": [
+    "linh hồn",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "Tuyết rơi mùa đông",
+   "tags": [
+    "tuyết rơi",
+    "mùa đông",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "Sương mờ mộng mơ 1",
+   "tags": [
+    "sương mù",
+    "mộng mơ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "Sương mờ mộng mơ 2",
+   "tags": [
+    "sương mù",
+    "mộng mơ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "Sương mờ mộng mơ 3",
+   "tags": [
+    "sương mù",
+    "mộng mơ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "Sương mờ mộng mơ 4",
+   "tags": [
+    "sương mù",
+    "mộng mơ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "Tuyết hoa",
+   "tags": [
+    "hoa",
+    "cánh hoa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "Tuyết chân thực",
+   "tags": [
+    "tuyết",
+    "mùa đông",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "Đêm tuyết và sao",
+   "tags": [
+    "tuyết",
+    "sao",
+    "đêm",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "Ghi chú ghim",
+   "tags": [
+    "ghi chú",
+    "ghim",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "Ống kính máy ảnh",
+   "tags": [
+    "ống kính",
+    "lấy nét",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "Ẩn đi",
+   "tags": [
+    "ẩn",
+    "biến mất",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "Sóng xung kích 3",
+   "tags": [
+    "sóng xung kích",
+    "chấn động",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "Sóng ảo giác",
+   "tags": [
+    "ảo giác",
+    "sóng",
+    "màu sắc",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "Sóng tình yêu",
+   "tags": [
+    "sóng",
+    "lãng mạn",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "Bộ lấp lánh",
+   "tags": [
+    "kim tuyến",
+    "bộ",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "Thu nhỏ thị sai mượt",
+   "tags": [
+    "thị sai",
+    "thu nhỏ",
+    "zoom",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "Sách ảnh song song",
+   "tags": [
+    "sách ảnh",
+    "ảnh",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "Nhấp nháy màu",
+   "tags": [
+    "màu",
+    "nhấp nháy",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "Hạt lửa bay",
+   "tags": [
+    "lửa",
+    "hạt",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "Hạt vàng",
+   "tags": [
+    "vàng",
+    "hạt sáng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "Hạt chuyển động",
+   "tags": [
+    "chuyển động",
+    "hạt sáng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "Phim xưa 1",
+   "tags": [
+    "vintage",
+    "xưa",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "Phim xưa 2",
+   "tags": [
+    "vintage",
+    "xưa",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "Phim hạt",
+   "tags": [
+    "hạt nhiễu",
+    "grain",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "Phim cực bẩn",
+   "tags": [
+    "bẩn",
+    "trầy xước",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "Phim câm",
+   "tags": [
+    "phim câm",
+    "đen trắng",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "Phim câm 2",
+   "tags": [
+    "phim câm",
+    "đen trắng",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "Phim rất cũ",
+   "tags": [
+    "rất cũ",
+    "trầy xước",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "Phim bẩn",
+   "tags": [
+    "bẩn",
+    "trầy xước",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "Phim cũ",
+   "tags": [
+    "cũ",
+    "film",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "Con lắc",
+   "tags": [
+    "con lắc",
+    "đung đưa",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "Khảm vẽ màu",
+   "tags": [
+    "khảm",
+    "vẽ",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "Truyện tranh nhiều khung",
+   "tags": [
+    "truyện tranh",
+    "khung",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "Bụi xanh",
+   "tags": [
+    "xanh dương",
+    "bụi",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "Bụi sao",
+   "tags": [
+    "bụi sao",
+    "sao",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "Bụi lơ lửng",
+   "tags": [
+    "bụi",
+    "lơ lửng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:profundo": {
+   "name": "Trầm",
+   "tags": [
+    "giọng trầm",
+    "thấp",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "Nhịp đập theo nhạc",
+   "tags": [
+    "nhịp",
+    "đập",
+    "nhạc",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "Nhịp đập trái tim",
+   "tags": [
+    "nhịp đập",
+    "đập",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "Chấm sáng lấp lánh",
+   "tags": [
+    "chấm",
+    "phát sáng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "Kim tuyến vàng",
+   "tags": [
+    "kim tuyến",
+    "vàng",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "Cháy phim",
+   "tags": [
+    "cháy phim",
+    "film burn",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "Bỏ mờ",
+   "tags": [
+    "rõ nét",
+    "khử mờ",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "Bán kính viền tối",
+   "tags": [
+    "vignette",
+    "bán kính",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "Dấu chân phát sáng",
+   "tags": [
+    "dấu chân",
+    "phát sáng",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "Vệt máy chiếu",
+   "tags": [
+    "máy chiếu",
+    "vệt",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "Chùm sáng",
+   "tags": [
+    "chùm sáng",
+    "tia",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "Tia nắng vàng",
+   "tags": [
+    "vàng",
+    "tia sáng",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "Tia sét 01",
+   "tags": [
+    "tia sét",
+    "điện",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "Xoay nảy",
+   "tags": [
+    "xoay",
+    "nảy",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "Zoom nảy",
+   "tags": [
+    "zoom",
+    "nảy",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "Nảy xoay vòng",
+   "tags": [
+    "nảy",
+    "xoay",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:recorte": {
+   "name": "Cắt khung",
+   "tags": [
+    "cắt",
+    "crop",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "Lưới xám",
+   "tags": [
+    "lưới",
+    "xám",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "Sét chói lóa",
+   "tags": [
+    "sét",
+    "chói lóa",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "Vòng xoáy trái tim",
+   "tags": [
+    "xoáy",
+    "xoay",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "Xoáy méo",
+   "tags": [
+    "xoáy",
+    "biến dạng",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "Viền phát sáng 04",
+   "tags": [
+    "phát sáng",
+    "glow",
+    "khung",
+    "viền"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "Viền sáng nhân vật",
+   "tags": [
+    "phát sáng",
+    "người",
+    "glow",
+    "ai",
+    "tự động"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "Ánh sáng rung",
+   "tags": [
+    "phát sáng",
+    "rung",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "Romcom nâng tầm",
+   "tags": [
+    "romcom",
+    "lãng mạn",
+    "điện ảnh",
+    "tình yêu",
+    "trái tim"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "Mở tròn",
+   "tags": [
+    "tròn",
+    "mở màn",
+    "mở",
+    "đóng"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "Xoay xếp lớp",
+   "tags": [
+    "xoay",
+    "xếp lớp",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "Nhiễu phim",
+   "tags": [
+    "nhiễu",
+    "grain",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "Nhiễu cổ điển",
+   "tags": [
+    "nhiễu",
+    "noise",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "Rung giật khi bắn",
+   "tags": [
+    "giật",
+    "rung",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "Rung động đất",
+   "tags": [
+    "động đất",
+    "rung",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:saltar": {
+   "name": "Nhảy",
+   "tags": [
+    "nhảy",
+    "bật",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "Cú nhảy tím 2",
+   "tags": [
+    "nhảy",
+    "tím",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "Rùng rợn",
+   "tags": [
+    "đáng sợ",
+    "kinh dị",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "Mặt trời ở góc",
+   "tags": [
+    "mặt trời",
+    "góc",
+    "ánh sáng",
+    "lóe sáng"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "Bóng A",
+   "tags": [
+    "bóng",
+    "tối",
+    "làm mờ",
+    "blur"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "Âm thanh vòm",
+   "tags": [
+    "âm thanh vòm",
+    "surround",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "Thẻ 3D",
+   "tags": [
+    "3d",
+    "thẻ",
+    "chia",
+    "tách"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "Rung đường viền",
+   "tags": [
+    "đường viền",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:templado": {
+   "name": "Ôn hòa",
+   "tags": [
+    "ôn hòa",
+    "nhẹ",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "Kinh dị đỏ",
+   "tags": [
+    "kinh dị",
+    "đỏ",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "Lia máy nhanh",
+   "tags": [
+    "lia máy",
+    "pan",
+    "nhanh",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "Mưa bão",
+   "tags": [
+    "bão",
+    "mưa",
+    "hạt",
+    "lấp lánh"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "Miếng phô mai",
+   "tags": [
+    "phô mai",
+    "mảnh",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "TV cũ 4x",
+   "tags": [
+    "tv",
+    "cũ",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "Mạch điện",
+   "tags": [
+    "điện",
+    "gân",
+    "phong cách",
+    "bộ lọc"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "Nhiễu VHS 1",
+   "tags": [
+    "vhs",
+    "nhiễu tĩnh",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "Rung viền RGB",
+   "tags": [
+    "rgb",
+    "viền",
+    "rung",
+    "glitch",
+    "nhiễu"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "Video cũ",
+   "tags": [
+    "video",
+    "cũ",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "Máy quay cổ điển",
+   "tags": [
+    "máy quay",
+    "vhs",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "Viền tối phim",
+   "tags": [
+    "vignette",
+    "viền tối",
+    "cổ điển",
+    "phim cũ"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "Đĩa than",
+   "tags": [
+    "đĩa than",
+    "vinyl",
+    "cổ điển",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "Lật thu phóng",
+   "tags": [
+    "zoom",
+    "lật",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "Xoáy vàng",
+   "tags": [
+    "vàng",
+    "xoáy",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "Vòng xoáy sét",
+   "tags": [
+    "sét",
+    "xoáy",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "Bộ đàm",
+   "tags": [
+    "bộ đàm",
+    "radio",
+    "giọng nói",
+    "âm thanh"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "Zoom mạng nhện",
+   "tags": [
+    "mạng nhện",
+    "zoom",
+    "năng lượng",
+    "nguyên tố"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "Zoom trượt",
+   "tags": [
+    "zoom",
+    "trượt",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "Zoom nhanh",
+   "tags": [
+    "zoom",
+    "nhanh",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "Zoom mượt sang phải",
+   "tags": [
+    "zoom",
+    "phải",
+    "mượt",
+    "máy quay",
+    "chuyển động"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "Zoom mượt sang trái",
+   "tags": [
+    "zoom",
+    "trái",
+    "mượt",
+    "máy quay",
+    "chuyển động"
    ]
   },
   "look:arte-comic": {
