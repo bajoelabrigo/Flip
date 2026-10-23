@@ -467,7 +467,7 @@ void main() {
 # Fireworks: rockets rise with a fading trail and burst into a ring of streaking sparks that droop and fade.
 FIREWORKS = Family(
     key="en_fireworks", category="energia",
-    params=[INTENSITY, SPEED, color("#ff4fa0"), Param("mix", "Mix", 0.0, 1.0, 0.0), SIZE, DENSITY],
+    params=[INTENSITY, SPEED, color("#ff4fa0"), Param("color_mix", "Mix", 0.0, 1.0, 0.0), SIZE, DENSITY],
     photo="dark", tags=["fuegos artificiales", "fireworks", "fiesta", "party", "festival", "celebracion"],
     defines={"PERIOD": 2.2},
     body=r"""@OCC@
@@ -485,7 +485,7 @@ void main() {
         float n = floor(clk), ph = fract(clk);
         vec3 rr = hash32(vec2(n * 1.3 + fi, fi * 7.1));
         // Random colours; Mix pulls them toward Colour.
-        vec3 hue = mix(hsv2rgb(vec3(rr.z, 0.75, 1.0)), color, mix);
+        vec3 hue = mix(hsv2rgb(vec3(rr.z, 0.75, 1.0)), color, color_mix);
         vec2 top = vec2((rr.x - 0.5) * A * 0.85, -0.35 + rr.y * 0.3);
         vec2 start = vec2(top.x + (rr.y - 0.5) * 0.15, 0.6);
         float launch = 0.35;

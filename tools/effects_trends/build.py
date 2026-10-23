@@ -83,7 +83,7 @@ def manifest(fam, v, hidden=()) -> dict:
 
 
 def load_i18n() -> dict:
-    """tools/stock_i18n/<lang>.json carry the names in the other languages, keyed flip:effect:<id>."""
+    """tools/stock_i18n/<lang>.json carry the names in the other languages, keyed effect:<id>."""
     out: dict[str, dict] = {}
     folder = HERE.parent / "stock_i18n"
     for f in folder.glob("*.json"):
@@ -94,11 +94,11 @@ def load_i18n() -> dict:
             continue
         items = data.get("items", data) if isinstance(data, dict) else {}
         for key, entry in items.items():
-            if not key.startswith("flip:effect:"):
+            if not key.startswith("effect:"):
                 continue
             name = entry.get("name") if isinstance(entry, dict) else entry
             if isinstance(name, str) and name:
-                out.setdefault(key[len("flip:effect:"):], {})[lang] = name
+                out.setdefault(key[len("effect:"):], {})[lang] = name
     return out
 
 

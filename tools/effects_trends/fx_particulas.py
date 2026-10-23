@@ -12,6 +12,8 @@ Particles live in a grid of cells; each one is jittered inside its cell and ever
 neighbouring cells, so nothing is cut at a cell edge and no grid shows.
 """
 
+from dataclasses import replace
+
 from kit import Family, Param, Variant
 
 INTENSITY = Param("intensity", "Intensity", 0.0, 1.5, 1.0)
@@ -62,7 +64,7 @@ FALL = Family(
     photo="lighthouse", tags=["particulas", "particles", "caer", "falling"],
     defines={"SHAPE": "0", "FALL": 1.0, "WIND": 0.1, "SWAY": 0.12, "SPIN": 1.0, "SIZE": 0.07, "DENS": 0.45,
              "PAINT": 1.0, "GLOWK": 0.25, "BLUR": 0.35, "HUEVAR": 0.0, "BRVAR": 0.1, "WHITEMIX": 0.0,
-             "COLUMN": 0.0, "STARS": 0.0, "FOG": 0.0, "TRAIL": 0.0},
+             "COLUMN": 0.0, "STARS": 0.0, "FOG": 0.0, "TRAIL": 0.0, "SAT_K": "1.0"},
     body=COMMON + r"""
 vec3 gLight = vec3(0.0);
 vec4 gPaint = vec4(0.0);
@@ -94,7 +96,7 @@ void fallLayer(vec2 p, float t, float scale, float spd, float seed, float depth)
             float fade = mix(0.55, 1.0, depth) * w;
             float ang = hh.y * TAU + t * SPIN * (hh.z - 0.5) * 3.0;
             vec2 dr = rot(ang) * d;
-            vec3 col = saturateColor(pal(fract(hh.x * 3.1 + hh.z)), saturation);
+            vec3 col = saturateColor(pal(fract(hh.x * 3.1 + hh.z)), SAT_K);
             float a = 0.0;
             float g = 0.0;
 #if SHAPE == 0
@@ -240,7 +242,7 @@ FIELD = Family(
              "TWD": 0.8, "STARFRAC": 0.0, "BOKFRAC": 0.0, "STAR5": 0.0, "RAYS": 2.5, "HUEVAR": 0.05,
              "BRVAR": 0.3, "WHITEMIX": 0.3, "REGION": "0", "RPOS": (0.0, 0.0), "RREACH": 0.6, "LTH": 0.6,
              "GLOWPOS": (0.0, 0.0), "GLOWR": 0.3, "GLOWK": 0.0, "GLOWCOL": "#ffb050", "STREAK": 0.0,
-             "SCALE": 1.0, "SPINR": 0.0},
+             "SCALE": 1.0, "SPINR": 0.0, "BRIGHT_K": "1.0", "ANGLE_K": "angle"},
     body=COMMON + r"""
 // How many particles live here (evaluated at each particle's centre, so they are never cut).
 float regionW(vec2 c, float t) {
@@ -260,7 +262,7 @@ float regionW(vec2 c, float t) {
 vec3 fieldLayer(vec2 p, float t, float scale, float seed, float depth) {
     vec3 acc = vec3(0.0);
     float dm = mix(0.45, 1.0, depth);
-    vec2 drift = rot(radians(angle)) * DRIFT;
+    vec2 drift = rot(radians(ANGLE_K)) * DRIFT;
     vec2 shift = drift * t * dm;
     vec2 q = (p - shift) * scale;
     float aa = 1.2 / max(u_resolution.y, 1.0);
@@ -323,7 +325,7 @@ void main() {
     light += fieldLayer(p, t, 4.5 * SCALE, 13.0, 1.0);
     if (GLOWK > 0.0) {
         float gl = exp(-length((p - GLOWPOS) * vec2(0.8, 1.0)) / GLOWR) * (0.85 + 0.15 * sin(t * 1.3));
-        light += GLOWCOL * gl * GLOWK * brightness;
+        light += GLOWCOL * gl * GLOWK * BRIGHT_K;
     }
     fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
 }
@@ -441,7 +443,7 @@ void main() {
 # ------------------------------------------------------------------------------------------------- fireflies
 FIREFLY = Family(
     key="pt_firefly", category="particulas",
-    params=[INTENSITY, SPEED, DENSITY, colour("#d9ff6a")],
+    params=[INTENSITY, SPEED, DENSITY, colour("#d9ff6a"), SIZE, FLICKER, GLOW],
     photo="nature", tags=["luciernagas", "fireflies", "luces", "lights", "noche", "night"],
     defines={"NUMF": 0.8, "ROAM": 0.12, "WF": 0.6, "RMIN": 0.004, "RMAX": 0.012, "STREAK": 0.0, "BLINK": 0.0,
              "HUEVAR": 0.06, "BRVAR": 0.2, "WHITEMIX": 0.0, "HALO": 0.5},
@@ -463,7 +465,7 @@ void main() {
         vec3 h = hash32(vec2(fi * 1.37 + 0.5, fi * 0.71 + 3.1));
         if (hash11(fi * 9.1 + 4.0) > NUMF * density) continue;
         vec2 pos = flyPos(h, fi, t);
-        float r = mix(RMIN, RMAX, h.y * h.y);
+        float r = mix(RMIN, RMAX, h.y * h.y) * size;
         float d;
         if (STREAK > 0.0) {
             vec2 prev = flyPos(h, fi, t - 0.12);
@@ -471,20 +473,22 @@ void main() {
         } else {
             d = length(p - pos);
         }
-        if (d > r * 14.0 + 0.05) continue;
+        if (d > r * 14.0 * max(glow, 1.0) + 0.05) continue;
         float pulse;
         if (BLINK > 0.0) {
             // Real fireflies: dark most of the time, a slow glow now and then.
             float s = sin(t * BLINK * (0.6 + 0.8 * h.z) + h.x * TAU);
-            pulse = 0.08 + smoothstep(0.2, 0.95, s);
+            pulse = mix(1.0, 0.08 + smoothstep(0.2, 0.95, s), min(flicker, 1.0));
+            pulse = flicker > 1.0 ? mix(pulse, step(0.6, s), flicker - 1.0) : pulse;
         } else {
-            pulse = 0.45 + 0.55 * (0.5 + 0.5 * sin(t * 3.0 * (0.6 + h.z) + h.y * TAU));
+            float depthF = min(0.55 * flicker, 1.0);
+            pulse = 1.0 - depthF + depthF * (0.5 + 0.5 * sin(t * 3.0 * (0.6 + h.z) + h.y * TAU));
         }
         float depth = mix(0.55, 1.0, h.y);
         vec3 c = pal(h.z);
         float core = exp(-d * d / (r * r) * (STREAK > 0.0 ? 0.9 : 1.8));
-        float glow = exp(-d / (r * 3.0)) * HALO;
-        light += (c * glow + mix(c, vec3(1.0), 0.6) * core) * pulse * depth;
+        float haloV = exp(-d / (r * 3.0)) * HALO * glow;
+        light += (c * haloV + mix(c, vec3(1.0), 0.6) * core) * pulse * depth;
     }
     fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
 }
@@ -510,7 +514,7 @@ void main() {
 # ------------------------------------------------------------------------------------------------- along a path
 PATH = Family(
     key="pt_path", category="particulas",
-    params=[INTENSITY, SPEED, DENSITY, colour("#ffd27a")],
+    params=[INTENSITY, SPEED, DENSITY, colour("#ffd27a"), SIZE, ANGLE, GLOW, CENTER_X, CENTER_Y],
     photo="dark", tags=["particulas", "particles", "estela", "trail", "brillos", "sparkles"],
     defines={"MODE": "0", "AMP": 0.12, "FREQ": 3.0, "WAVE": 0.6, "SLOPE": -0.35, "YOFF": 0.05, "WID": 0.06,
              "WIDG": 1.5, "FLOW": 0.25, "CELL": 22.0, "DENS": 0.8, "SIZE": 0.11, "STARFRAC": 0.15, "STREAK": 0.0,
@@ -530,14 +534,15 @@ vec3 sparkle(vec2 d, float r, float kind, float tw, vec3 col, vec2 dir) {
     if (kind < STARFRAC) return col * twinkle(rot(0.4) * d, r * 2.4) * (0.5 + 0.8 * tw);
     if (STREAK > 0.0) {
         float sd = sdSegment(d, vec2(0.0), -dir * r * STREAK);
-        return col * (exp(-sd * sd / (r * r) * 2.0) + 0.2 * exp(-sd / (r * 2.5))) * (0.5 + 0.5 * tw);
+        return col * (exp(-sd * sd / (r * r) * 2.0) + 0.2 * glow * exp(-sd / (r * 2.5))) * (0.5 + 0.5 * tw);
     }
-    return col * (softDot(d, r) + 0.3 * halo(d, r)) * (0.4 + 0.6 * tw);
+    return col * (softDot(d, r) + 0.3 * glow * halo(d, r)) * (0.4 + 0.6 * tw);
 }
 
 void main() {
     vec4 src = S(v_texCoord);
-    vec2 p = toP(v_texCoord);
+    // Center X/Y move the whole path (the ring's centre), Angle turns it.
+    vec2 p = rot(radians(angle)) * (toP(v_texCoord) - vec2(center_x * aspect(), center_y));
     float t = u_time * speed;
     vec3 light = vec3(0.0);
     float hazeAcc = 0.0;
@@ -592,14 +597,14 @@ void main() {
 #endif
             if (h > DENS * density * w) continue;
             vec2 d = p - c;
-            float r = max(1.5 * SIZE / cs * (0.4 + 0.6 * hh.z * hh.z) * mix(0.75, 1.3, depth), minR());
-            if (dot(d, d) > r * r * 60.0) continue;
+            float r = max(1.5 * SIZE * size / cs * (0.4 + 0.6 * hh.z * hh.z) * mix(0.75, 1.3, depth), minR());
+            if (dot(d, d) > r * r * 60.0 * max(glow * glow, 1.0)) continue;
             float tw = 0.5 + 0.5 * sin(t * 6.0 * (0.5 + hh.z) + hh.x * TAU);
             float kind = fract(h * 13.7 + hh.y * 5.1);
             light += sparkle(d, r, kind, tw, pal(fract(hh.x * 3.3 + hh.z)), dir) * mix(0.55, 1.0, depth);
         }
     }
-    light += color * hazeAcc * HAZE;
+    light += color * hazeAcc * HAZE * glow;
     vec3 base = src.rgb;
 #if MODE == 1
     base *= 1.0 - 0.35 * intensity * smoothstep(R0 - 0.02, R0 + 0.12, length(p));
@@ -638,14 +643,14 @@ void main() {
 # ------------------------------------------------------------------------------------------------- bursts
 BURST = Family(
     key="pt_burst", category="particulas",
-    params=[INTENSITY, SPEED, colour("#fff0c0")],
+    params=[INTENSITY, SPEED, colour("#fff0c0"), SIZE, SPREAD, GLOW, CENTER_X, CENTER_Y],
     photo="dark", tags=["estallido", "burst", "estrellas", "stars", "fuegos artificiales", "fireworks"],
     defines={"MODE": "0", "PERIOD": 1.6, "RAD": 0.32, "GRAV": 0.08, "PSIZE": 0.016, "HUEVAR": 0.1, "BRVAR": 0.2,
              "WHITEMIX": 0.5, "FLASH": 0.6},
     body=COMMON + r"""
 vec3 burst(vec2 p, vec2 c, float ph, float seed, float R, vec3 tint, float t) {
     vec3 acc = vec3(0.0);
-    if (length(p - c) > R * 1.5 + 0.08) return acc;
+    if (length(p - c) > R * 1.5 + 0.08 * size) return acc;
     float ex = 1.0 - pow(1.0 - ph, 3.0);
     float fade = pow(1.0 - ph, 1.4) * smoothstep(0.0, 0.1, ph) * mix(0.04, 1.0, smoothstep(0.15, 0.5, ex));
     for (int i = 0; i < 20; ++i) {
@@ -656,23 +661,24 @@ vec3 burst(vec2 p, vec2 c, float ph, float seed, float R, vec3 tint, float t) {
         float sp = mix(0.5, 1.0, h.y);
         vec2 pos = c + dir * R * sp * ex + vec2(0.0, GRAV * ph * ph);
         vec2 d = p - pos;
-        float r = PSIZE * mix(0.6, 1.2, h.z) * (1.0 - 0.4 * ph);
+        float r = PSIZE * size * mix(0.6, 1.2, h.z) * (1.0 - 0.4 * ph);
         float fl = 0.65 + 0.35 * sin(t * 25.0 + h.z * TAU);
         vec3 col = mix(tint, pal(h.x), 0.5);
         // The trail behind the spark, shorter as it slows down.
         float tr = sdSegment(p, pos, pos - dir * R * sp * 0.35 * (1.0 - ph));
         acc += col * exp(-tr * tr / (r * r * 0.25)) * 0.7 * fade;
         float st = star5(rot(h.y * TAU + t * 2.0) * d, r * 1.6, 1.2 / max(u_resolution.y, 1.0));
-        acc += mix(col, vec3(1.0), 0.5) * (st + 0.6 * halo(d, r * 0.6)) * fade * fl;
+        acc += mix(col, vec3(1.0), 0.5) * (st + 0.6 * glow * halo(d, r * 0.6)) * fade * fl;
     }
     // A flash in the middle when it goes off.
-    acc += tint * exp(-length(p - c) / (R * 0.08)) * FLASH * exp(-ph * 14.0);
+    acc += tint * exp(-length(p - c) / (R * 0.08)) * FLASH * glow * exp(-ph * 14.0);
     return acc;
 }
 
 void main() {
     vec4 src = S(v_texCoord);
-    vec2 p = toP(v_texCoord);
+    // Center X/Y move the burst (the fireworks area).
+    vec2 p = toP(v_texCoord) - vec2(center_x * aspect(), center_y);
     float t = u_time * speed;
     vec3 light = vec3(0.0);
 #if MODE == 0
@@ -682,7 +688,7 @@ void main() {
         float n = floor(t / PERIOD + off);
         float ph = fract(t / PERIOD + off);
         vec2 c = (hash22(vec2(n, float(k))) - 0.5) * vec2(0.12, 0.08);
-        light += burst(p, c, ph, n * 7.0 + float(k) * 3.0, RAD, color, t);
+        light += burst(p, c, ph, n * 7.0 + float(k) * 3.0, RAD * spread, color, t);
     }
 #else
     // Fireworks: three bursts here and there, each with its own colour.
@@ -693,7 +699,7 @@ void main() {
         vec2 hc = hash22(vec2(n * 1.7, float(k) * 5.1));
         vec2 c = (hc - 0.5) * vec2(aspect() * 0.75, 0.55) - vec2(0.0, 0.05);
         vec3 tint = hueShift(color, hash11(n * 3.1 + float(k)) * HUEVAR * 4.0);
-        light += burst(p, c, ph, n * 5.0 + float(k) * 11.0, RAD * mix(0.7, 1.1, hc.y), tint, t);
+        light += burst(p, c, ph, n * 5.0 + float(k) * 11.0, RAD * spread * mix(0.7, 1.1, hc.y), tint, t);
     }
 #endif
     fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
@@ -715,7 +721,7 @@ void main() {
 # ------------------------------------------------------------------------------------------------- bokeh
 BOKEH = Family(
     key="pt_bokeh", category="particulas",
-    params=[INTENSITY, SPEED, DENSITY, colour("#e8eef8")],
+    params=[INTENSITY, SPEED, DENSITY, colour("#e8eef8"), SIZE, BRIGHTNESS, FLICKER],
     photo="dark", tags=["bokeh", "desenfoque", "luces", "lights", "circulos", "circles"],
     defines={"MODE": "0", "ZS": 0.12, "DENS": 0.5, "BSIZE": 0.33, "HUEVAR": 0.05, "BRVAR": 0.35, "WHITEMIX": 0.2,
              "EDGE": 0.22, "SPARK": 0.0},
@@ -732,9 +738,10 @@ vec3 bokehLayer(vec2 q, float seed, float aa, float bright, float t, float edgeM
         float w = 1.0;
         if (edgeMode > 0.5) w = 0.0;   // set by the caller through the frame mask below
         if (h > DENS * density) continue;
-        float r = BSIZE * (0.5 + 0.5 * hh.z);
-        float pulse = 0.75 + 0.25 * sin(t * (0.8 + hh.y) + hh.x * TAU);
-        acc += pal(fract(hh.x * 4.1 + hh.y)) * bokehDisc(q - c, r, aa + r * 0.12) * bright * pulse;
+        float r = min(BSIZE * size * (0.5 + 0.5 * hh.z), 0.9);
+        float fk = min(0.25 * flicker, 0.9);
+        float pulse = 1.0 - fk + fk * sin(t * (0.8 + hh.y) * (flicker > 1.0 ? flicker * 2.0 : 1.0) + hh.x * TAU);
+        acc += pal(fract(hh.x * 4.1 + hh.y)) * bokehDisc(q - c, r, aa + r * 0.12) * bright * brightness * pulse;
     }
     return acc;
 }
@@ -775,9 +782,9 @@ void main() {
         float ce = min(aspect() * 0.5 - abs(c.x), 0.5 - abs(c.y));
         if (hash12(cell + 7.0) > SPARK * smoothstep(EDGE * 1.2, 0.0, ce)) continue;
         float tw = pow(0.5 + 0.5 * sin(t * 4.0 * (0.6 + hh.z) + hh.y * TAU), 3.0);
-        light += mix(color, vec3(1.0), 0.6) * twinkle(p - c, 0.025 * (0.5 + hh.z)) * tw;
+        light += mix(color, vec3(1.0), 0.6) * twinkle(p - c, 0.025 * min(size, 2.0) * (0.5 + hh.z)) * tw * brightness;
     }
-    light += color * fw * fw * 0.3;
+    light += color * fw * fw * 0.3 * brightness;
 #endif
     fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
 }
@@ -795,4 +802,29 @@ void main() {
     ],
 )
 
-FAMILIES = [FALL, FIELD, FIREFLY, PATH, BURST, BOKEH]
+
+
+def _split(fam: Family, key: str, ids: set, params: list, defines: dict) -> Family:
+    """Moves the variants `ids` into a twin family (same shader) whose panel has `params`; `defines` wire the
+    macros that stand for a parameter the other twin does not have."""
+    twin = replace(fam, key=key, params=params, defines={**fam.defines, **defines},
+                   variants=[v for v in fam.variants if v.id in ids])
+    fam.variants = [v for v in fam.variants if v.id not in ids]
+    return twin
+
+
+# Saturation only means something on coloured pieces; a white snowfall keeps it out of its panel.
+FALL_COLOUR = _split(FALL, "pt_fall_colour",
+                     {"nieve-de-flores", "confeti-volando", "confeti-de-festival", "luces-navidenas"},
+                     FALL.params, {"SAT_K": "saturation"})
+FALL.params = [p for p in FALL.params if p.id != "saturation"]
+# Brightness drives the warm light some fields have; the others do not show it.
+FIELD_LIT = _split(FIELD, "pt_field_lit", {v.id for v in FIELD.variants if float(v.defines.get("GLOWK", 0)) > 0},
+                   FIELD.params, {"BRIGHT_K": "brightness"})
+FIELD.params = [p for p in FIELD.params if p.id != "brightness"]
+# Glints that stay where they are (on the lights, or scattered) have no drift to turn.
+FIELD_STILL = _split(FIELD, "pt_field_still",
+                     {v.id for v in FIELD.variants if tuple(v.defines.get("DRIFT", (0.0, -0.015))) == (0.0, 0.0)},
+                     [p for p in FIELD.params if p.id != "angle"], {"ANGLE_K": "0.0"})
+
+FAMILIES = [FALL, FALL_COLOUR, FIELD, FIELD_STILL, FIELD_LIT, FIREFLY, PATH, BURST, BOKEH]

@@ -47,9 +47,12 @@ float halftone(vec2 uv, float amount, vec2 drift) {
 # MODE 0 colour comic (saturated, halftone shadows, punch on the beat), 1 cartoon, 2 black and white ink,
 # 3 a pencil sketch that colour floods up from the bottom and drains again.
 CARTOON = Family(
-    key="est_cartoon", category="estilo", params=[INTENSITY, SPEED], photo="woman",
+    key="est_cartoon", category="estilo",
+    params=[INTENSITY, SPEED, Param("detail", "Detail", 2.0, 12.0, 5.0), Param("saturation", "Saturation", 0.0, 2.5, 1.5),
+            Param("edge_width", "Edge Width", 0.3, 3.0, 1.0), Param("color", "Colour", default="#000000")],
+    photo="woman",
     tags=["comic", "cómic", "dibujo", "cartoon", "caricatura", "ilustracion", "illustration"],
-    defines={"MODE": 0, "LEVELS": 5.0, "SATB": 1.5, "EDGE_LO": 0.24, "EDGE_HI": 0.55},
+    defines={"MODE": 0, "EDGE_LO": 0.24, "EDGE_HI": 0.55},
     body=COMMON + r"""
 void main() {
     float t = u_time * speed;
@@ -60,21 +63,21 @@ void main() {
     float bt = stepTime(t, 8.0);
     vec2 suv = cuv + (hash22(vec2(bt, 1.7)) - 0.5) * px() * 1.4 * rs();
     vec3 fl = flatColor(suv);
-    float e = edges(suv, 1.3 * rs());
+    float e = edges(suv, 1.3 * rs() * edge_width);
     float ink = smoothstep(EDGE_LO, EDGE_HI, e) * min(intensity, 1.2);
     vec3 col;
     if (MODE < 0.5) {
-        col = contrastColor(posterize(fl, LEVELS, SATB), 1.12);
+        col = contrastColor(posterize(fl, detail, saturation), 1.12);
         float amt = sat((0.42 - luma(col)) * 2.2);
         col = mix(col, col * 0.4, halftone(cuv, amt, vec2(t * 0.01, 0.0)) * step(0.02, amt));
-        col *= 1.0 - ink * 0.92;
+        col = mix(col, color, ink * 0.92);
     } else if (MODE < 1.5) {
-        col = posterize(pow(fl, vec3(0.8)), LEVELS, SATB);
+        col = posterize(pow(fl, vec3(0.8)), detail, saturation);
         col = mix(col, sat3(col * 1.08 + 0.03), 0.6);
-        col *= 1.0 - ink * 0.85;
+        col = mix(col, color, ink * 0.85);
     } else if (MODE < 2.5) {
         float l = luma(fl);
-        float thr = 0.42 + 0.025 * (hash11(bt * 3.1) - 0.5);
+        float thr = 0.3 + 0.024 * detail + 0.025 * (hash11(bt * 3.1) - 0.5);
         float b = smoothstep(thr - 0.035, thr + 0.035, l);
         // Hatching in the middle tones.
         float hatchZone = (1.0 - smoothstep(thr + 0.05, thr + 0.2, l)) * b;
@@ -83,15 +86,15 @@ void main() {
         b *= 1.0 - hatch * hatchZone * 0.85;
         b *= 1.0 - ink;
         float grain = (hash12(cuv * u_resolution + bt) - 0.5) * 0.04;
-        col = mix(vec3(0.07, 0.065, 0.06), vec3(0.97, 0.955, 0.93), sat(b)) + grain;
+        col = mix(color, vec3(0.97, 0.955, 0.93), sat(b)) + grain;
     } else {
         // Pencil sketch on paper.
         float l = luma(fl);
         vec2 hp = rot(0.7) * (cuv * u_resolution) / (2.4 * rs());
         float hatch = smoothstep(0.3, 0.1, abs(fract(hp.x) - 0.5)) * (1.0 - smoothstep(0.25, 0.6, l));
         vec3 paper = vec3(0.97, 0.965, 0.95) - 0.03 * fbm(cuv * 9.0);
-        vec3 sketch = paper * (1.0 - ink * 0.8) * (1.0 - hatch * 0.35);
-        vec3 paint = posterize(fl, LEVELS, SATB) * (1.0 - ink * 0.6);
+        vec3 sketch = mix(paper, color, ink * 0.8) * (1.0 - hatch * 0.35);
+        vec3 paint = mix(posterize(fl, detail, saturation), color, ink * 0.6);
         float cyc = phase(t, 3.0);
         float fill = easeInOut(linstep(0.05, 0.55, cyc)) * (1.0 - easeInOut(linstep(0.78, 1.0, cyc)));
         float lvl = 1.06 - 1.18 * fill;
@@ -106,14 +109,16 @@ void main() {
 """,
     variants=[
         Variant("comic-en-color", "Cómic en color", "Colour comic", photo="fx-woman-08", thumb=1.0,
+                params={"detail": 5.0, "saturation": 1.5},
                 tags=["color", "colour", "pop art"]),
         Variant("filtro-de-dibujos-animados-01", "Filtro de dibujos animados 01", "Cartoon filter 01",
-                defines={"MODE": 1, "LEVELS": 7.0, "SATB": 1.2, "EDGE_LO": 0.26, "EDGE_HI": 0.6}, photo="fx-woman-05", thumb=1.0),
+                defines={"MODE": 1, "EDGE_LO": 0.26, "EDGE_HI": 0.6}, params={"detail": 7.0, "saturation": 1.2}, photo="fx-woman-05", thumb=1.0),
         Variant("filtro-de-dibujos-animados-05", "Filtro de dibujos animados 05", "Cartoon filter 05",
-                defines={"MODE": 2, "EDGE_LO": 0.2, "EDGE_HI": 0.45}, photo="fx-woman-08", thumb=1.0,
+                defines={"MODE": 2, "EDGE_LO": 0.2, "EDGE_HI": 0.45}, params={"detail": 5.0, "color": "#12110f"},
+                photo="fx-woman-08", thumb=1.0,
                 tags=["blanco y negro", "black and white", "tinta", "ink"]),
         Variant("inundacion-dibujo", "Inundación dibujo", "Drawing flood",
-                defines={"MODE": 3, "LEVELS": 6.0, "SATB": 1.3, "EDGE_LO": 0.12, "EDGE_HI": 0.38},
+                defines={"MODE": 3, "EDGE_LO": 0.12, "EDGE_HI": 0.38}, params={"detail": 6.0, "saturation": 1.3},
                 photo="fx-man-01", thumb=1.4, tags=["boceto", "sketch", "lapiz", "pencil"]),
     ],
 )
@@ -121,16 +126,20 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # A comic page: three panels with the photo at three crops, halftone shading and ink, popping in one by one.
 COMIC_PAGE = Family(
-    key="est_comic_page", category="estilo", params=[INTENSITY, SPEED], photo="man",
+    key="est_comic_page", category="estilo",
+    params=[INTENSITY, SPEED, Param("color", "Colour", default="#2aa6b4"), Param("detail", "Detail", 2.0, 12.0, 5.0),
+            Param("saturation", "Saturation", 0.0, 2.5, 1.45), Param("edge_width", "Edge Width", 0.3, 3.0, 1.0),
+            Param("zoom", "Zoom", 0.5, 2.0, 1.0)],
+    photo="man",
     tags=["comic", "cómic", "viñetas", "panels", "historieta", "halftone"],
-    defines={"PAGE": "#2aa6b4", "FOCUS": (0.45, 0.32)},
+    defines={"FOCUS": (0.45, 0.32)},
     body=COMMON + r"""
 vec3 comicShade(vec2 uv, float bt) {
     vec2 suv = uv + (hash22(vec2(bt, 4.1)) - 0.5) * px() * rs();
-    vec3 col = contrastColor(posterize(flatColor(suv), 5.0, 1.45), 1.1);
+    vec3 col = contrastColor(posterize(flatColor(suv), detail, saturation), 1.1);
     float amt = sat((0.45 - luma(col)) * 2.0);
     col = mix(col, col * 0.45, halftone(uv, amt, vec2(0.0)) * step(0.02, amt));
-    float ink = smoothstep(0.24, 0.55, edges(suv, 1.3 * rs()));
+    float ink = smoothstep(0.24, 0.55, edges(suv, 1.3 * rs() * edge_width));
     return col * (1.0 - ink * 0.9);
 }
 void main() {
@@ -139,7 +148,7 @@ void main() {
     float t = u_time * speed;
     float bt = stepTime(t, 8.0);
     // Page: halftone dots in the page colour.
-    vec3 page = mix(PAGE * 1.15, PAGE * 0.7, halftone(uv, 0.35, vec2(t * 0.02, 0.0)));
+    vec3 page = mix(color * 1.15, color * 0.7, halftone(uv, 0.35, vec2(t * 0.02, 0.0)));
     vec3 col = page;
     float g = 0.012;  // gutter (uv of the height)
     vec2 gx = vec2(g / aspect(), g);
@@ -161,7 +170,7 @@ void main() {
         col = mix(col, col * 0.45, sh * 0.6);
         float inside = step(max(abs(q.x), abs(q.y)), 1.0);
         if (inside < 0.5) continue;
-        float z = zooms[i] * (1.0 + 0.05 * sin(t * 0.6 + fi * 2.0));
+        float z = max(zooms[i] * zoom, 1.0) * (1.0 + 0.05 * sin(t * 0.6 + fi * 2.0));
         vec2 focus = (i == 0) ? vec2(0.5, 0.5) : FOCUS + vec2(0.02 * fi, 0.0);
         vec2 puv = focus + q * h / z + vec2(0.01 * sin(t * 0.4 + fi), 0.0);
         puv = 1.0 - abs(1.0 - mod(puv, 2.0));
@@ -185,7 +194,8 @@ void main() {
 MOSAIC = Family(
     key="est_mosaic", category="estilo",
     params=[INTENSITY, SPEED, Param("size", "Size", 0.3, 2.5, 1.0), Param("amount", "Amount", 0.3, 2.5, 1.0),
-            Param("center_x", "Center X", 0.0, 1.0, 0.5), Param("center_y", "Center Y", 0.0, 1.0, 0.4)],
+            Param("center_x", "Center X", 0.0, 1.0, 0.5), Param("center_y", "Center Y", 0.0, 1.0, 0.4),
+            Param("softness", "Softness", 0.0, 1.0, 0.0)],
     photo="woman", tags=["mosaico", "mosaic", "censura", "censor", "pixel", "ocultar", "hide"],
     defines={"MODE": 0, "REG": (0.13, 0.17), "ROUND": 0.0, "BLOCK": 0.028},
     body=COMMON + r"""
@@ -199,13 +209,13 @@ void main() {
     vec2 hs = REG * size;
     float region;
     if (MODE < 0.5) {
-        region = fillSd(sdRoundBox(d, hs, ROUND * hs.y), 0.002);
+        region = fillSd(sdRoundBox(d, hs, ROUND * hs.y), 0.002 + 0.05 * softness);
     } else {
         // An irregular blob for the painted kinds.
         float a = atan(d.y, d.x);
         float wob = 0.08 * (vnoise(vec2(a * 2.0, stepTime(t, 6.0) * 1.3)) - 0.5);
         float rr = length(d / hs);
-        region = 1.0 - smoothstep(0.9 + wob, 1.05 + wob, rr);
+        region = 1.0 - smoothstep(0.9 + wob - 0.5 * softness, 1.05 + wob, rr);
     }
     vec3 col = src.rgb;
     if (MODE < 0.5) {
@@ -266,57 +276,74 @@ void main() {
 )
 
 # ---------------------------------------------------------------------------------------------------------------
-# Colour grades. MODE 0 local colour (one hue kept, the rest grey), 1 red horror (red monochrome, flicker,
-# jolts and grain).
-GRADE = Family(
-    key="est_grade", category="estilo", params=[INTENSITY, SPEED, Param("color", "Colour", default="#1494c8")],
+# Local colour: one hue kept (Colour), the rest grey; the kept colour pops on the beat.
+LOCAL = Family(
+    key="est_local_color", category="estilo",
+    params=[INTENSITY, SPEED, Param("color", "Colour", default="#1494c8"), Param("spread", "Spread", 0.2, 3.0, 1.0),
+            Param("saturation", "Saturation", 0.0, 2.5, 1.25), Param("contrast", "Contrast", 0.5, 2.0, 1.12)],
     photo="woman", tags=["color", "colour", "filtro", "filter"],
-    defines={"MODE": 0, "TOL": 0.075},
+    defines={"TOL": 0.075},
     body=r"""
 void main() {
     vec2 uv = v_texCoord;
     float t = u_time * speed;
-    if (MODE < 0.5) {
-        vec4 src = S(uv);
-        vec4 c = cam(uv, vec2(0.5), 1.02 + 0.03 * wave01(t, 6.0), 0.0, vec2(0.0));
-        vec3 h = rgb2hsv(c.rgb);
-        float target = rgb2hsv(color).x;
-        float dh = abs(h.x - target);
-        dh = min(dh, 1.0 - dh);
-        float keep = smoothstep(TOL + 0.05, TOL - 0.01, dh) * smoothstep(0.12, 0.28, h.y) * smoothstep(0.05, 0.15, h.z);
-        float pulse = beat(u_time, 0.5, 0.15);
-        vec3 grey = vec3(contrastColor(vec3(luma(c.rgb)), 1.12).r);
-        vec3 kept = saturateColor(c.rgb, 1.25 + 0.25 * pulse);
-        vec3 col = mix(grey, kept, keep);
-        fragColor = vec4(mix(src.rgb, sat3(col), sat(intensity)), src.a);
-    } else {
-        vec4 src = S(uv);
-        float jolt = step(0.8, hash11(floor(t * 5.0) + 1.3));
-        vec2 sh = shake2(t, 18.0) * 0.012 * jolt;
-        vec4 c = cam(uv, vec2(0.5), 1.06 + 0.02 * jolt, sh.x * 0.3, sh);
-        float l = contrastColor(vec3(luma(c.rgb)), 1.3).r;
-        vec3 col = mix(vec3(0.02, 0.0, 0.0), vec3(0.72, 0.03, 0.02), smoothstep(0.0, 0.55, l));
-        col = mix(col, vec3(1.0, 0.58, 0.46), smoothstep(0.55, 1.0, l));
-        float flick = 1.0 - 0.38 * step(0.82, hash11(floor(t * 12.0) + 7.0)) - 0.08 * sin(t * 31.0) * sin(t * 7.0);
-        col *= flick;
-        col *= 0.35 + 0.65 * vignette(uv, 0.28, 0.55);
-        col += (hash12(uv * u_resolution + floor(t * 24.0)) - 0.5) * 0.07;
-        fragColor = vec4(mix(src.rgb, sat3(col), sat(intensity)), src.a);
-    }
+    vec4 src = S(uv);
+    vec4 c = cam(uv, vec2(0.5), 1.02 + 0.03 * wave01(t, 6.0), 0.0, vec2(0.0));
+    vec3 h = rgb2hsv(c.rgb);
+    float target = rgb2hsv(color).x;
+    float dh = abs(h.x - target);
+    dh = min(dh, 1.0 - dh);
+    float tol = TOL * spread;
+    float keep = smoothstep(tol + 0.05, tol - 0.01, dh) * smoothstep(0.12, 0.28, h.y) * smoothstep(0.05, 0.15, h.z);
+    float pulse = beat(u_time, 0.5, 0.15);
+    vec3 grey = vec3(contrastColor(vec3(luma(c.rgb)), contrast).r);
+    vec3 kept = saturateColor(c.rgb, saturation + 0.25 * pulse);
+    vec3 col = mix(grey, kept, keep);
+    fragColor = vec4(mix(src.rgb, sat3(col), sat(intensity)), src.a);
 }
 """,
     variants=[
         Variant("color-local", "Color local", "Local colour", photo="fx-woman-04", thumb=1.0,
                 tags=["un color", "one colour", "color selectivo", "selective colour", "blanco y negro"]),
-        Variant("terror-rojo", "Terror rojo", "Red horror", defines={"MODE": 1}, photo="fx-man-04", thumb=1.3,
-                tags=["terror", "horror", "rojo", "red", "miedo", "scary"]),
+    ],
+)
+
+# Red horror: a monochrome in Colour, flicker, jolts of the camera and grain.
+HORROR = Family(
+    key="est_horror", category="estilo",
+    params=[INTENSITY, SPEED, Param("color", "Colour", default="#b80805"), Param("flicker", "Flicker", 0.0, 2.0, 1.0),
+            Param("grain", "Grain", 0.0, 2.0, 1.0), Param("contrast", "Contrast", 0.5, 2.0, 1.3)],
+    photo="man", tags=["terror", "horror", "miedo", "scary", "filtro", "filter"],
+    body=r"""
+void main() {
+    vec2 uv = v_texCoord;
+    float t = u_time * speed;
+    vec4 src = S(uv);
+    float jolt = step(0.8, hash11(floor(t * 5.0) + 1.3)) * min(flicker, 1.5);
+    vec2 sh = shake2(t, 18.0) * 0.012 * jolt;
+    vec4 c = cam(uv, vec2(0.5), 1.06 + 0.02 * jolt, sh.x * 0.3, sh);
+    float l = contrastColor(vec3(luma(c.rgb)), contrast).r;
+    vec3 col = mix(vec3(0.02, 0.0, 0.0), color, smoothstep(0.0, 0.55, l));
+    col = mix(col, mix(color, vec3(1.0, 0.92, 0.88), 0.58), smoothstep(0.55, 1.0, l));
+    float flick = 1.0 - flicker * (0.38 * step(0.82, hash11(floor(t * 12.0) + 7.0)) + 0.08 * sin(t * 31.0) * sin(t * 7.0));
+    col *= flick;
+    col *= 0.35 + 0.65 * vignette(uv, 0.28, 0.55);
+    col += (hash12(uv * u_resolution + floor(t * 24.0)) - 0.5) * 0.07 * grain;
+    fragColor = vec4(mix(src.rgb, sat3(col), sat(intensity)), src.a);
+}
+""",
+    variants=[
+        Variant("terror-rojo", "Terror rojo", "Red horror", photo="fx-man-04", thumb=1.3, tags=["rojo", "red"]),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
 # Psychedelic. MODE 0 liquid wave (marbled warp, colours flowing around the subject), 1 swirl.
 PSY = Family(
-    key="est_psy", category="estilo", params=[INTENSITY, SPEED], photo="dancer",
+    key="est_psy", category="estilo",
+    params=[INTENSITY, SPEED, Param("frequency", "Frequency", 0.3, 3.0, 1.0), Param("amount", "Amount", 0.0, 2.0, 1.0),
+            Param("hue", "Hue", 0.0, 1.0, 0.0), Param("saturation", "Saturation", 0.0, 2.5, 1.2)],
+    photo="dancer",
     tags=["psicodelico", "psychedelic", "trippy", "onda", "wave", "color"],
     defines={"MODE": 0},
     body=r"""
@@ -327,37 +354,37 @@ void main() {
     vec2 p = toP(uv);
     vec3 col;
     if (MODE < 0.5) {
-        vec2 q = p * 2.4;
+        vec2 q = p * 2.4 * frequency;
         vec2 w = vec2(fbm(q + vec2(t * 0.35, 0.0)), fbm(q + vec2(5.2, -t * 0.3)));
         float far = 0.35 + 0.65 * smoothstep(0.08, 0.42, length(p * vec2(1.3, 0.8)));
-        vec2 off = (w - 0.5) * 0.16 * far * intensity;
+        vec2 off = (w - 0.5) * 0.16 * far * intensity * amount;
         vec4 c = Sm(uv + off / vec2(aspect(), 1.0));
         float l = luma(c.rgb);
         float band = fbm(q * 1.2 + w * 2.5 + vec2(t * 0.12, 0.0));
         float stripes = 0.5 + 0.5 * sin(band * 26.0 - t * 1.5);
-        vec3 pal = 0.5 + 0.5 * cos(TAU * (band * 1.4 + t * 0.08 + vec3(0.55, 0.68, 0.85)));
+        vec3 pal = 0.5 + 0.5 * cos(TAU * (band * 1.4 + t * 0.08 + hue + vec3(0.55, 0.68, 0.85)));
         vec3 liquid = pal * (0.45 + 0.9 * l) * (0.8 + 0.3 * stripes);
         col = mix(c.rgb, liquid, 0.25 + 0.5 * far);
-        col = mix(col, saturateColor(col, 1.4), 0.5);
     } else {
         float r = length(p);
-        float ang = (1.0 + 0.6 * sin(t * 0.9)) * pow(1.0 - smoothstep(0.0, 0.8, r), 2.0) * smoothstep(0.03, 0.25, r) * intensity;
+        float ang = (1.0 + 0.6 * sin(t * 0.9)) * pow(1.0 - smoothstep(0.0, 0.8, r), 2.0) * smoothstep(0.03, 0.25, r) * intensity * amount;
         vec2 sp = rot(ang) * p / 1.08;
         vec4 c = Sm(fromP(sp));
         float a = atan(sp.y, sp.x);
-        float blobs = sin(a * 3.0 + r * 9.0 - t * 2.0) * 0.5 + 0.5;
-        vec3 pal = mix(vec3(0.95, 0.15, 0.85), vec3(0.2, 0.95, 0.45), blobs);
-        vec3 hs = hueShift(c.rgb, r * 0.7 - t * 0.2);
+        float blobs = sin(a * 3.0 + r * 9.0 * frequency - t * 2.0) * 0.5 + 0.5;
+        vec3 pal = hueShift(mix(vec3(0.95, 0.15, 0.85), vec3(0.2, 0.95, 0.45), blobs), hue);
+        vec3 hs = hueShift(c.rgb, r * 0.7 * frequency - t * 0.2 + hue);
         col = mix(c.rgb, hs, 0.55);
         col = mix(col, overlayBlend(col, pal), 0.55 * smoothstep(0.08, 0.5, r));
-        col = saturateColor(col, 1.25);
     }
+    col = saturateColor(col, saturation);
     fragColor = vec4(mix(src.rgb, sat3(col), sat(intensity)), src.a);
 }
 """,
     variants=[
         Variant("onda-psicodelica", "Onda psicodélica", "Psychedelic wave", photo="fx-woman-03", thumb=1.2),
         Variant("giro-psicodelico", "Giro psicodélico", "Psychedelic swirl", defines={"MODE": 1},
+                params={"saturation": 1.25},
                 photo="fx-dancer-06", thumb=1.0, tags=["giro", "swirl", "espiral"]),
     ],
 )
@@ -367,7 +394,8 @@ void main() {
 SKULL = Family(
     key="est_skull", category="estilo",
     params=[INTENSITY, SPEED, Param("size", "Size", 0.4, 2.0, 1.0), Param("center_x", "Center X", 0.0, 1.0, 0.5),
-            Param("center_y", "Center Y", 0.0, 1.0, 0.4), Param("color", "Colour", default="#cfe6ff")],
+            Param("center_y", "Center Y", 0.0, 1.0, 0.4), Param("color", "Colour", default="#cfe6ff"),
+            Param("opacity", "Opacity", 0.0, 1.5, 1.0), Param("flicker", "Flicker", 0.0, 2.0, 1.0)],
     photo="woman", tags=["calavera", "skull", "fantasma", "ghost", "terror", "halloween", "espiritu"],
     body=COMMON + r"""
 // Skull in its own units (about 2 tall, y down). x: body distance, y: holes (eyes, nose), z: teeth lines.
@@ -404,7 +432,7 @@ void main() {
     vec2 c = toP(vec2(center_x, center_y));
     float sz = 0.15 * size;
     vec2 p = toP(uv);
-    float flick = 0.75 + 0.25 * step(0.3, hash11(floor(t * 14.0)));
+    float flick = 1.0 - 0.25 * flicker * (1.0 - step(0.3, hash11(floor(t * 14.0))));
     // The picture: colder and darker, with a shiver when a ghost leaves.
     float cyc = phase(t, 1.0);
     float hit = exp(-cyc * 6.0);
@@ -414,12 +442,12 @@ void main() {
     // A faint skull over the face, and two ghosts that fly out of it, one after the other.
     vec2 g0 = ghost(p, c, sz);
     col = mix(col, col * 0.35, g0.y * 0.6);
-    col = addLight(col, color, g0.x * 0.35 * flick);
+    col = addLight(col, color, g0.x * 0.35 * flick * opacity);
     for (int i = 0; i < 2; ++i) {
         float ph = fract(cyc + float(i) * 0.5);
         float sc = sz * (1.0 + 1.1 * easeOut(ph));
         vec2 gc = c + vec2(0.04 * sin(t * 3.0 + float(i) * 2.0), -0.12 * easeOut(ph));
-        float a = (1.0 - ph) * smoothstep(0.0, 0.05, ph);
+        float a = (1.0 - ph) * smoothstep(0.0, 0.05, ph) * opacity;
         vec2 g = ghost(p, gc, sc);
         col = mix(col, col * 0.5, g.y * a * 0.5);
         col = addLight(col, color, g.x * a * 0.7 * flick);
@@ -437,7 +465,8 @@ void main() {
 # Pieces of holey cheese tumbling down around the picture, in three depth layers.
 CHEESE = Family(
     key="est_cheese", category="estilo",
-    params=[INTENSITY, SPEED, Param("density", "Density", 0.2, 2.0, 1.0), Param("color", "Colour", default="#f6c53c")],
+    params=[INTENSITY, SPEED, Param("density", "Density", 0.2, 2.0, 1.0), Param("color", "Colour", default="#f6c53c"),
+            Param("size", "Size", 0.4, 2.0, 1.0)],
     photo="woman", tags=["queso", "cheese", "divertido", "fun", "comida", "food"],
     body=r"""
 float sdTri(vec2 p, vec2 p0, vec2 p1, vec2 p2) {
@@ -454,8 +483,8 @@ float sdTri(vec2 p, vec2 p0, vec2 p1, vec2 p2) {
 }
 // One piece in a layer: returns colour (rgb) and coverage (a).
 vec4 pieces(vec2 p, float t, float scale, float fall, float seed, float soft) {
-    p *= scale;
-    p.y -= t * fall;
+    p *= scale / size;
+    p.y -= t * fall / size;
     vec2 cell = floor(p), f = fract(p) - 0.5;
     float h = hash12(cell + seed);
     if (h > 0.22 * density) return vec4(0.0);
@@ -467,7 +496,7 @@ vec4 pieces(vec2 p, float t, float scale, float fall, float seed, float soft) {
     float kind = hash12(cell + 3.3);
     float d = kind < 0.5 ? sdTri(q, vec2(-1.0, 0.55), vec2(1.0, 0.55), vec2(-0.1, -0.75)) - 0.08
                          : sdRoundBox(q, vec2(0.75, 0.6), 0.15);
-    float e = soft / sz;
+    float e = soft / sz / size;
     float cover = fillSd(d, e);
     if (cover <= 0.0) return vec4(0.0);
     vec3 col = color * (0.85 + 0.25 * (-q.y * 0.5 + 0.5));
@@ -513,7 +542,9 @@ void main() {
 # A computer screen searching the picture: CRT curve and scanlines, a search bar typing, a magnifier box that
 # jumps between spots and locks on, a loading bar.
 SEARCH = Family(
-    key="est_search", category="estilo", params=[INTENSITY, SPEED, Param("color", "Colour", default="#39d6ff")],
+    key="est_search", category="estilo",
+    params=[INTENSITY, SPEED, Param("color", "Colour", default="#39d6ff"), Param("zoom", "Zoom", 1.0, 3.0, 1.7),
+            Param("size", "Size", 0.5, 2.0, 1.0)],
     photo="man", tags=["busqueda", "search", "pantalla", "screen", "computadora", "computer", "escaner"],
     body=COMMON + r"""
 vec2 target(float i) { return vec2(0.3, 0.28) + hash22(vec2(i, 3.7)) * vec2(0.4, 0.4); }
@@ -532,10 +563,10 @@ void main() {
     vec2 pos = mix(target(seg), target(seg + 1.0), easeInOut(linstep(0.0, 0.45, f)));
     float lock = linstep(0.45, 0.55, f);
     vec2 pp = toP(cuv) - toP(pos);
-    vec2 bs = vec2(0.13, 0.13) * (1.0 - 0.12 * lock * (1.0 - linstep(0.55, 0.7, f)));
+    vec2 bs = vec2(0.13, 0.13) * size * (1.0 - 0.12 * lock * (1.0 - linstep(0.55, 0.7, f)));
     float box = sdRoundBox(pp, bs, 0.01);
     float inside = fillSd(box, 0.003);
-    vec3 zoomed = S(pos + (cuv - pos) / 1.7).rgb * 1.12;
+    vec3 zoomed = S(pos + (cuv - pos) / zoom).rgb * 1.12;
     col = mix(col * 0.72, zoomed, inside);
     // Corner brackets and a crosshair.
     vec2 ap = abs(pp);
@@ -581,15 +612,18 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Neon scans: a bright band sweeps across; the edges it touches light up in two neon colours, and a fading rim
 # stays behind it. Flags add a grid, halftone dots, an RGB split, a ring (shockwave) or electric veins.
-SCAN = Family(
-    key="est_scan", category="estilo",
-    params=[INTENSITY, SPEED, Param("color_a", "Colour A", default="#16b8ff"),
-            Param("color_b", "Colour B", default="#ff2fb4"), Param("width", "Width", 0.3, 3.0, 1.0)],
-    photo="cyber", tags=["escaneo", "scan", "neon", "ciencia ficcion", "sci-fi", "cyber", "brillo", "glow"],
-    defines={"ANG": 0.0, "PERIOD": 2.0, "DARKEN": 0.45, "RIM": 0.6, "ALWAYS": 0.0, "BANDFILL": 0.25, "CORE": 0.6,
-             "GRID": 0.0, "DOTS": 0.0, "RGBSPLIT": 0.0, "RING": 0.0, "ELECTRIC": 0.0, "PINGPONG": 0.0,
-             "SPECTRAL": 0.0, "TINT": 0.3},
-    body=COMMON + r"""
+# Two families share the body: est_scan lights every edge of the picture; est_scan_person ("requires": "depth")
+# lights only the outline of the person (the near part of the depth map) and falls back to every edge without it.
+SCAN_PARAMS = [INTENSITY, SPEED, Param("color_a", "Colour A", default="#16b8ff"),
+               Param("color_b", "Colour B", default="#ff2fb4"), Param("width", "Width", 0.3, 3.0, 1.0),
+               Param("angle", "Angle", -180.0, 180.0, 0.0), Param("glow_amt", "Glow", 0.0, 3.0, 1.0),
+               Param("brightness", "Brightness", 0.0, 1.0, 0.55)]
+SCAN_DEFINES = {"PERIOD": 2.0, "RIM": 0.6, "ALWAYS": 0.0, "BANDFILL": 0.25, "CORE": 0.6,
+                "GRID": 0.0, "DOTS": 0.0, "RGBSPLIT": 0.0, "RING": 0.0, "ELECTRIC": 0.0, "PINGPONG": 0.0,
+                "SPECTRAL": 0.0, "TINT": 0.3}
+
+SCAN_BODY = COMMON + r"""
+//@OUTLINE
 void main() {
     vec2 uv = v_texCoord;
     vec4 src = S(uv);
@@ -600,7 +634,8 @@ void main() {
     float s;
     if (RING > 0.5) s = length(p) / (0.5 * sqrt(a * a + 1.0));
     else {
-        vec2 dir = vec2(cos(ANG), sin(ANG));
+        float ang = radians(angle);
+        vec2 dir = vec2(cos(ang), sin(ang));
         float ext = 0.5 * (abs(dir.x) * a + abs(dir.y));
         s = dot(p, dir) / ext * 0.5 + 0.5;
     }
@@ -616,12 +651,12 @@ void main() {
         vec2 o = vec2(0.012, 0.0) * (band + 0.3 * behind);
         base = vec3(S(uv + o).r, src.g, S(uv - o).b);
     }
-    base *= 1.0 - DARKEN;
+    base *= brightness * backdrop(uv);
     base = mix(base, base * mix(color_a, vec3(1.0), 0.4) * 1.3, TINT);
-    // Edges, thin and wide, make the neon outline.
+    // Outlines, thin and wide, make the neon.
     float r = rs();
-    float e1 = edges(uv, 1.0 * r), e2 = edges(uv, 3.0 * r);
-    float edge = sat(e1 * 1.8 + e2 * 0.8);
+    float e1 = outline(uv, 1.0 * r), e2 = outline(uv, 3.0 * r);
+    float edge = sat(e1 * 1.8 + e2 * 0.8) * glow_amt;
     float g = SPECTRAL > 0.5 ? uv.x + 0.25 * sin(t * 0.8 + uv.y * 3.0) : 0.5 + dist / (bw * 3.0);
     vec3 neon = mix(color_a, color_b, sat(g));
     float lit = ELECTRIC > 0.5 ? ALWAYS : band * 2.4 + behind * RIM + ALWAYS;
@@ -642,53 +677,89 @@ void main() {
         float v = 1.0 - abs(fbm(p * 7.0 + vec2(bt * 0.9, -bt * 0.6)) * 2.0 - 1.0);
         float veins = smoothstep(0.93, 0.985, v) * sat(e2 * 1.6) * smoothstep(0.15, 0.4, luma(src.rgb) + 0.2);
         float fl = 0.7 + 0.3 * hash11(bt * 7.0);
-        glow += mix(color_a, vec3(1.0), 0.4) * veins * 1.4 * fl + neon * e1 * 0.6 * fl;
+        glow += (mix(color_a, vec3(1.0), 0.4) * veins * 1.4 + neon * e1 * 0.6) * fl * glow_amt;
     }
     // Scanlines inside the light.
     glow *= 0.78 + 0.22 * sin(uv.y * u_resolution.y * TAU / (3.0 * r));
     vec3 col = addLight(mix(src.rgb, base, sat(intensity)), glow, intensity);
     fragColor = vec4(col, src.a);
 }
-""",
+"""
+
+OUTLINE_EDGES = r"""
+float outline(vec2 uv, float spread) { return edges(uv, spread); }
+float backdrop(vec2 uv) { return 1.0; }
+"""
+
+# The person = the near part of the depth map. Its outline is where that mask changes within a few pixels; the
+# person's own inner lines (face, clothes) glow a little too. Without a depth map: every edge, as est_scan.
+OUTLINE_PERSON = r"""
+float personAt(vec2 uv) { return smoothstep(CUT - 0.08, CUT + 0.08, driftDepth(uv)); }
+float outline(vec2 uv, float spread) {
+    if (u_hasDepth < 0.5) return edges(uv, spread);
+    vec2 o = px() * spread * 2.0;
+    float c = personAt(uv);
+    float l = personAt(uv - vec2(o.x, 0.0)), rr = personAt(uv + vec2(o.x, 0.0));
+    float u = personAt(uv - vec2(0.0, o.y)), d = personAt(uv + vec2(0.0, o.y));
+    float hi = max(max(max(l, rr), max(u, d)), c), lo = min(min(min(l, rr), min(u, d)), c);
+    float rim = sat((hi - lo) * 2.0);
+    return max(rim, edges(uv, spread) * c * INNER);
+}
+// The background goes a little darker than the person, so the lit outline reads.
+float backdrop(vec2 uv) { return u_hasDepth > 0.5 ? mix(1.0 - BG_DIM, 1.0, personAt(uv)) : 1.0; }
+"""
+
+SCAN_TAGS = ["escaneo", "scan", "neon", "ciencia ficcion", "sci-fi", "cyber", "brillo", "glow"]
+
+SCAN = Family(
+    key="est_scan", category="estilo", params=SCAN_PARAMS, photo="cyber", tags=SCAN_TAGS,
+    defines=dict(SCAN_DEFINES), body=SCAN_BODY.replace("//@OUTLINE", OUTLINE_EDGES),
     variants=[
-        Variant("escaneo-electrooptico", "Escaneo electroóptico", "Electro-optic scan", photo="fx-dancer-02",
-                defines={"ANG": 1.5708, "DARKEN": 0.2, "TINT": 0.35, "RIM": 0.9, "BANDFILL": 0.15},
-                params={"color_a": "#2fd2ff", "color_b": "#3b6bff"}, thumb=1.0),
-        Variant("exploracion-espectral", "Exploración espectral", "Spectral exploration", photo="fx-cyber-03",
-                defines={"SPECTRAL": 1, "ALWAYS": 0.7, "DARKEN": 0.55, "RIM": 0.6, "PERIOD": 2.5},
-                params={"color_a": "#2a7bff", "color_b": "#ff2fa8"}, thumb=1.2),
-        Variant("escaneo-de-ciencia-ficcion-01", "Escaneo de ciencia ficción 01", "Sci-fi scan 01",
-                photo="fx-woman-05", defines={"ANG": 0.0, "DARKEN": 0.55, "RIM": 0.8}, thumb=1.1),
-        Variant("escaneo-de-ciencia-ficcion-02", "Escaneo de ciencia ficción 02", "Sci-fi scan 02",
-                photo="fx-cyber-05", defines={"ANG": 1.5708, "GRID": 1, "DARKEN": 0.5, "RIM": 0.7},
-                params={"color_a": "#20e0ff", "color_b": "#ff3a9a"}, thumb=1.1),
         Variant("escaneo-de-ondas-de-choque", "Escaneo de ondas de choque", "Shockwave scan", photo="fx-woman-05",
-                defines={"RING": 1, "DOTS": 1, "DARKEN": 0.55, "PERIOD": 1.5, "RIM": 0.5},
-                params={"color_a": "#2a9bff", "color_b": "#ff3fc8"}, thumb=0.8,
+                defines={"RING": 1, "DOTS": 1, "PERIOD": 1.5, "RIM": 0.5},
+                params={"color_a": "#2a9bff", "color_b": "#ff3fc8", "brightness": 0.45}, thumb=0.8,
                 tags=["onda de choque", "shockwave", "halftone"]),
         Variant("escaneo-de-rayos", "Escaneo de rayos", "Ray scan", photo="fx-cyber-01",
-                defines={"ANG": 0.6, "DARKEN": 0.35, "TINT": 0.0, "RIM": 0.3, "BANDFILL": 0.3, "CORE": 0.5,
-                         "PERIOD": 1.6},
-                params={"color_a": "#c8d6ff", "color_b": "#8fa8ff", "width": 1.0}, thumb=0.8,
-                tags=["rayo", "ray", "luz", "light"]),
+                defines={"TINT": 0.0, "RIM": 0.3, "BANDFILL": 0.3, "CORE": 0.5, "PERIOD": 1.6},
+                params={"color_a": "#c8d6ff", "color_b": "#8fa8ff", "width": 1.0, "angle": 34.4, "brightness": 0.65},
+                thumb=0.8, tags=["rayo", "ray", "luz", "light"]),
+    ],
+)
+
+SCAN_PERSON = Family(
+    key="est_scan_person", category="estilo", params=SCAN_PARAMS, photo="cyber", requires="depth",
+    tags=SCAN_TAGS + ["persona", "person", "contorno", "outline", "silueta", "silhouette"],
+    defines={**SCAN_DEFINES, "CUT": 0.55, "INNER": 0.35, "BG_DIM": 0.3},
+    body=SCAN_BODY.replace("//@OUTLINE", OUTLINE_PERSON),
+    variants=[
+        Variant("escaneo-electrooptico", "Escaneo electroóptico", "Electro-optic scan", photo="fx-dancer-02",
+                defines={"TINT": 0.35, "RIM": 0.9, "BANDFILL": 0.15},
+                params={"color_a": "#2fd2ff", "color_b": "#3b6bff", "angle": 90.0, "brightness": 0.8}, thumb=1.0),
+        Variant("escaneo-de-ciencia-ficcion-01", "Escaneo de ciencia ficción 01", "Sci-fi scan 01",
+                photo="fx-woman-05", defines={"RIM": 0.8}, params={"angle": 0.0, "brightness": 0.45}, thumb=1.1),
+        Variant("escaneo-de-ciencia-ficcion-02", "Escaneo de ciencia ficción 02", "Sci-fi scan 02",
+                photo="fx-cyber-05", defines={"GRID": 1, "RIM": 0.7},
+                params={"color_a": "#20e0ff", "color_b": "#ff3a9a", "angle": 90.0, "brightness": 0.5}, thumb=1.1),
+        Variant("exploracion-espectral", "Exploración espectral", "Spectral exploration", photo="fx-cyber-03",
+                defines={"SPECTRAL": 1, "ALWAYS": 0.7, "RIM": 0.6, "PERIOD": 2.5},
+                params={"color_a": "#2a7bff", "color_b": "#ff2fa8", "angle": 0.0, "brightness": 0.45}, thumb=1.2),
         Variant("escaneo-de-rayos-04", "Escaneo de rayos 04", "Ray scan 04", photo="fx-cyber-03",
-                defines={"ANG": 0.75, "DARKEN": 0.5, "RIM": 0.7, "BANDFILL": 0.45, "CORE": 1.0, "PERIOD": 1.8},
-                params={"color_a": "#ff3fb0", "color_b": "#3a7dff", "width": 1.2}, thumb=0.9,
-                tags=["rayo", "ray"]),
+                defines={"RIM": 0.7, "BANDFILL": 0.45, "CORE": 1.0, "PERIOD": 1.8},
+                params={"color_a": "#ff3fb0", "color_b": "#3a7dff", "width": 1.2, "angle": 43.0, "brightness": 0.5},
+                thumb=0.9, tags=["rayo", "ray"]),
         Variant("escaneo-de-rayos-ciberneticos-01", "Escaneo de rayos cibernéticos 01", "Cyber ray scan 01",
-                photo="fx-woman-05", defines={"PINGPONG": 1, "PERIOD": 3.0, "DARKEN": 0.6, "RIM": 1.0,
-                                              "BANDFILL": 0.35, "CORE": 1.1},
-                params={"color_a": "#ff2fa8", "color_b": "#2fb8ff"}, thumb=0.6, tags=["cyberpunk"]),
+                photo="fx-woman-05", defines={"PINGPONG": 1, "PERIOD": 3.0, "RIM": 1.0, "BANDFILL": 0.35, "CORE": 1.1},
+                params={"color_a": "#ff2fa8", "color_b": "#2fb8ff", "brightness": 0.4}, thumb=0.6, tags=["cyberpunk"]),
         Variant("escaneo-de-rayos-ciberneticos-02", "Escaneo de rayos cibernéticos 02", "Cyber ray scan 02",
-                photo="fx-cyber-05", defines={"PINGPONG": 1, "PERIOD": 2.6, "RGBSPLIT": 1, "DARKEN": 0.45,
-                                              "RIM": 0.9, "BANDFILL": 0.3, "CORE": 1.0},
-                params={"color_a": "#ff3366", "color_b": "#22e5ff"}, thumb=0.6, tags=["cyberpunk", "rgb"]),
+                photo="fx-cyber-05", defines={"PINGPONG": 1, "PERIOD": 2.6, "RGBSPLIT": 1, "RIM": 0.9, "BANDFILL": 0.3,
+                                              "CORE": 1.0},
+                params={"color_a": "#ff3366", "color_b": "#22e5ff", "brightness": 0.55}, thumb=0.6,
+                tags=["cyberpunk", "rgb"]),
         Variant("venas-electricas", "Venas eléctricas", "Electric veins", photo="fx-dancer-02",
-                defines={"ELECTRIC": 1, "PERIOD": 2.0, "DARKEN": 0.3, "RIM": 0.0, "BANDFILL": 0.0, "CORE": 0.0,
-                         "TINT": 0.2},
-                params={"color_a": "#5fd8ff", "color_b": "#a25bff", "width": 0.7}, thumb=1.0,
+                defines={"ELECTRIC": 1, "PERIOD": 2.0, "RIM": 0.0, "BANDFILL": 0.0, "CORE": 0.0, "TINT": 0.2},
+                params={"color_a": "#5fd8ff", "color_b": "#a25bff", "width": 0.7, "brightness": 0.7}, thumb=1.0,
                 tags=["electricidad", "electricity", "rayos", "lightning", "venas", "veins"]),
     ],
 )
 
-FAMILIES = [CARTOON, COMIC_PAGE, MOSAIC, GRADE, PSY, SKULL, CHEESE, SEARCH, SCAN]
+FAMILIES = [CARTOON, COMIC_PAGE, MOSAIC, LOCAL, HORROR, PSY, SKULL, CHEESE, SEARCH, SCAN, SCAN_PERSON]

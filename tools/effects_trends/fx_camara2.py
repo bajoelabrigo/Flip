@@ -223,16 +223,6 @@ MOVE = Family(
     variants=[
         Variant("zoom-deslizante", "Zoom deslizante", "Sliding zoom", defines={"MODE": 1, "PER": 2.0},
                 photo="fx-skater-03", tags=["deslizar", "slide"], thumb=1.0),
-        Variant("zoom-suave-hacia-la-derecha", "Zoom suave hacia la derecha", "Smooth zoom right",
-                defines={"MODE": 2, "PER": 2.0}, params={"center_x": 0.72}, tags=["suave", "smooth", "derecha", "right"],
-                thumb=1.0),
-        Variant("zoom-suave-hacia-la-izquierda", "Zoom suave hacia la izquierda", "Smooth zoom left",
-                defines={"MODE": 2, "PER": 2.0}, params={"center_x": 0.28}, tags=["suave", "smooth", "izquierda", "left"],
-                photo="fx-skater-03", thumb=1.0),
-        Variant("rebote-de-zoom", "Rebote de zoom", "Zoom bounce",
-                defines={"MODE": 3, "PER": 1.0, "SHUTTER": 0.05}, tags=["rebote", "bounce"], thumb=1.08),
-        Variant("zoom-rapido", "Zoom rápido", "Fast zoom",
-                defines={"MODE": 4, "PER": 1.2, "SHUTTER": 0.09}, tags=["rapido", "fast", "punch"], thumb=0.25),
         Variant("desplazar-y-ampliar", "Desplazar y ampliar", "Scroll and zoom",
                 defines={"MODE": 5, "PER": 2.0, "SHUTTER": 0.06}, params={"direction": 3.0}, tags=["desplazar", "scroll", "ampliar"],
                 thumb=0.15),
@@ -244,12 +234,34 @@ MOVE = Family(
                 thumb=0.6),
         Variant("saltar", "Saltar", "Jump",
                 defines={"MODE": 8, "PER": 0.75, "SHUTTER": 0.05}, params={"direction": 3.0}, tags=["saltar", "jump", "rebote"], thumb=0.3),
-        Variant("paralaje-suave-alejar", "Paralaje suave alejar", "Smooth parallax zoom out",
-                defines={"MODE": 9, "PER": 3.0}, photo="fx-skater-03",
-                tags=["paralaje", "parallax", "alejar", "zoom out"], thumb=1.0),
         Variant("estela-de-movimiento", "Estela de movimiento", "Motion trail",
                 defines={"MODE": 10, "PER": 1.2, "SHUTTER": 0.3, "TRAIL": 2.5},
                 tags=["estela", "trail", "eco", "echo"], thumb=0.3),
+    ],
+)
+
+
+# The same moves without a direction: zooms that stay on their centre (Center X/Y says where).
+MOVE_ZOOM = Family(
+    key="c2_zoom", category="camara",
+    params=POSE_PARAMS + [Param("rotation", "Rotation", -45.0, 45.0, 0.0)],
+    photo="fx-skater-01", tags=["zoom", "camara", "camera", "movimiento", "motion"],
+    defines={"MODE": 2, "PER": 2.0, "direction": 0.0, **RENDER_DEFAULTS},
+    body=POSE_HEAD + MOVE_POSE + RENDER,
+    variants=[
+        Variant("zoom-suave-hacia-la-derecha", "Zoom suave hacia la derecha", "Smooth zoom right",
+                defines={"MODE": 2, "PER": 2.0}, params={"center_x": 0.72}, tags=["suave", "smooth", "derecha", "right"],
+                thumb=1.0),
+        Variant("zoom-suave-hacia-la-izquierda", "Zoom suave hacia la izquierda", "Smooth zoom left",
+                defines={"MODE": 2, "PER": 2.0}, params={"center_x": 0.28}, tags=["suave", "smooth", "izquierda", "left"],
+                photo="fx-skater-03", thumb=1.0),
+        Variant("rebote-de-zoom", "Rebote de zoom", "Zoom bounce",
+                defines={"MODE": 3, "PER": 1.0, "SHUTTER": 0.05}, tags=["rebote", "bounce"], thumb=1.08),
+        Variant("zoom-rapido", "Zoom rápido", "Fast zoom",
+                defines={"MODE": 4, "PER": 1.2, "SHUTTER": 0.09}, tags=["rapido", "fast", "punch"], thumb=0.25),
+        Variant("paralaje-suave-alejar", "Paralaje suave alejar", "Smooth parallax zoom out",
+                defines={"MODE": 9, "PER": 3.0}, photo="fx-skater-03",
+                tags=["paralaje", "parallax", "alejar", "zoom out"], thumb=1.0),
     ],
 )
 
@@ -419,4 +431,4 @@ void main() {
     ],
 )
 
-FAMILIES = [SHAKE, MOVE, TILT, SPIN, SWIRL, SHOCK]
+FAMILIES = [SHAKE, MOVE, MOVE_ZOOM, TILT, SPIN, SWIRL, SHOCK]

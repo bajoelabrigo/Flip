@@ -27,6 +27,7 @@ FOLDERS = {
     "text-style": "estilos-texto",
     "text-animation": "textos-animados",
     "transition": "transiciones",
+    "effect": "efectos",
     "shape": "formas",
 }
 

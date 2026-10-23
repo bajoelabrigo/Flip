@@ -110,6 +110,26 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.21.0)**. Lo nuevo desde la 0.20.1.
+
+> Novedades de la 0.21.0
+>
+> - Efectos › Tendencias: más de 360 efectos animados nuevos, como los de moda: partículas, nieve y brillos, corazones, destellos y fugas de luz, glitch, movimientos de cámara, desenfoques, película retro y VHS, marcos, cómic, rayos y fuego, pantallas divididas, aperturas y cierres.
+> - Efectos con IA que siguen la cara (belleza, mosaico) o a la persona (resplandor, clones), y 9 efectos de voz.
+> - Todos se pueden editar: intensidad, velocidad, color, tamaño, posición y más, con fotogramas clave.
+> - Las tarjetas se reproducen al pasar el mouse; un clic descarga y aplica.
+> - Las Tendencias (títulos, efectos y animaciones) piden iniciar sesión; la cuenta es gratis.
+
+En inglés:
+
+> What's new in 0.21.0
+>
+> - Effects › Trending: over 360 new animated effects, like the ones trending now: particles, snow and sparkle, hearts, flares and light leaks, glitch, camera moves, blurs, retro film and VHS, frames, comic, lightning and fire, split screens, openers and closers.
+> - AI effects that follow the face (beauty, mosaic) or the person (glow, clones), and 9 voice effects.
+> - Every one is editable: intensity, speed, colour, size, position and more, with keyframes.
+> - Cards play when you hover them; one click downloads and applies.
+> - Trending (titles, effects and animations) needs you to sign in; the account is free.
+
 **Notas para la Store (0.20.1)**. Arreglo de la 0.20.0 (aprobada el 2026-10-22).
 
 > Novedades de la 0.20.1

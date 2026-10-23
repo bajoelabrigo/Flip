@@ -421,28 +421,53 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Glow on the outlines of the picture (the person lights up at the edges), at 120 BPM.
 EDGE_GLOW = Family(
-    key="marcos_edge_glow", category="marcos",
-    params=[INTENSITY, SPEED, Param("color", "Colour", default="#e8d6ff")],
-    photo="fashion", tags=["resplandor", "glow", "contorno", "outline", "bordes", "edges"],
+    key="marcos_edge_glow", category="marcos", requires="depth",
+    params=[INTENSITY, SPEED, Param("color", "Colour", default="#e8d6ff"), Param("width", "Width", 0.3, 3.0, 1.0),
+            Param("glow", "Glow", 0.0, 3.0, 1.0), Param("distance", "Distance", 0.1, 0.9, 0.5)],
+    photo="fashion", tags=["resplandor", "glow", "contorno", "outline", "silueta", "silhouette", "persona", "person"],
     body=r"""
+// The nearest subject: 1 where the depth map is nearer than `distance`.
+float nearM(vec2 uv) { return smoothstep(distance - 0.08, distance + 0.08, driftDepth(clamp(uv, px(), 1.0 - px()))); }
+
 void main() {
     vec2 uv = v_texCoord;
     vec4 src = S(uv);
-    float e = edges(uv, 1.5);
-    float ring = 0.0;
-    for (int i = 0; i < 8; ++i) {
-        float a = float(i) * TAU / 8.0;
-        ring += edges(uv + vec2(cos(a), sin(a)) * px() * 4.0, 1.5);
-    }
-    ring /= 8.0;
     float b = beat(u_time * speed, 0.5, 0.2);
     float k = intensity * (0.35 + 0.5 * b);
-    vec3 glow = color * (smoothstep(0.3, 0.9, e) * 0.9 + smoothstep(0.2, 0.7, ring) * 0.6);
-    vec3 col = addLight(src.rgb * (1.0 - 0.12 * intensity), glow, k);
+    vec3 light;
+    if (u_hasDepth > 0.5) {
+        // Glow only on the outline of the person (the near silhouette), with a halo just outside it.
+        float m0 = nearM(uv);
+        float ring = 0.0, ring2 = 0.0;
+        for (int i = 0; i < 8; ++i) {
+            float a = float(i) * TAU / 8.0 + 0.39;
+            vec2 d = vec2(cos(a), sin(a)) * px() * width;
+            ring += nearM(uv + d * 5.0);
+            ring2 += nearM(uv + d * 16.0);
+        }
+        ring /= 8.0;
+        ring2 /= 8.0;
+        float sil = sat(abs(ring - m0) * 2.2);
+        float outer = sat(ring2 - m0) * 1.4;
+        float detail = smoothstep(0.35, 0.9, edges(uv, 1.5)) * m0 * 0.35;
+        light = color * (sil * 1.3 + outer * glow * 0.9 + detail);
+    } else {
+        float e = edges(uv, 1.5);
+        float ring = 0.0;
+        for (int i = 0; i < 8; ++i) {
+            float a = float(i) * TAU / 8.0;
+            ring += edges(uv + vec2(cos(a), sin(a)) * px() * 4.0 * width, 1.5);
+        }
+        ring /= 8.0;
+        light = color * (smoothstep(0.3, 0.9, e) * 0.9 + smoothstep(0.2, 0.7, ring) * 0.6 * glow);
+    }
+    vec3 col = addLight(src.rgb * (1.0 - 0.12 * intensity), light, k);
     fragColor = vec4(col, src.a);
 }
 """,
-    variants=[Variant("resplandor-de-borde-04", "Resplandor de borde 04", "Edge glow 04", thumb=1.0)],
+    variants=[Variant("resplandor-de-borde-04", "Resplandor de borde 04", "Edge glow 04", thumb=1.0,
+                      note={"es": "Brilla en el contorno de la persona (usa la profundidad del clip).",
+                            "en": "Glows on the person's outline (uses the clip's depth)."})],
 )
 
 # ---------------------------------------------------------------------------------------------------------------

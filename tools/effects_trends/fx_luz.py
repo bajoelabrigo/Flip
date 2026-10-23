@@ -2,6 +2,8 @@
 
 Light leaks, lens flares (ghosts, streaks, halo), sun rays and spotlights, bokeh, glows and flashes, disco
 lights. Every light is added with a screen blend so whites never clip hard, and moves on u_time.
+Everything a person would want to move is a parameter: where the light comes from (Center X/Y), where it
+points (Angle, in degrees), how big it is (Size), how many (Density), how wide (Spread).
 """
 
 from kit import Family, Param, Variant
@@ -14,26 +16,42 @@ def colour(default: str) -> Param:
     return Param("color", "Colour", default=default)
 
 
+def center(x: float, y: float) -> list:
+    """Where the light comes from, in frame units (a little past the edges is allowed: a sun off frame)."""
+    return [Param("centerX", "Center X", -0.2, 1.2, x), Param("centerY", "Center Y", -0.2, 1.2, y)]
+
+
+def angle(default: float = 0.0, lo: float = -180.0, hi: float = 180.0) -> Param:
+    return Param("angle", "Angle", lo, hi, default)
+
+
+SIZE = Param("size", "Size", 0.3, 2.0, 1.0)
+
+
 # ---------------------------------------------------------------------------------------------------------------
 # Light leaks: three coloured blobs that drift near the edges, warped by noise, with optional streaks. BURN turns
-# the same field into a film burn (a hot colour ramp that eats into the picture).
+# the same field into a film burn (a hot colour ramp that eats into the picture). Angle turns the whole leak
+# (where it comes in from and the direction of its streaks) about the centre.
 LEAK = Family(
-    key="luz_leak", category="luz", params=[INTENSITY, SPEED, colour("#ff6a1a")], photo="woman",
+    key="luz_leak", category="luz", params=[INTENSITY, SPEED, colour("#ff6a1a"), angle(), SIZE],
+    photo="woman",
     tags=["fuga de luz", "light leak", "luz", "light", "pelicula", "film", "calido", "warm"],
     defines={"COL_B": "#e01a0c", "COL_C": "#ffc040", "P1": (0.0, 0.3), "P2": (1.0, 0.7), "P3": (0.05, 0.95),
              "R1": 0.35, "R2": 0.35, "R3": 0.25, "WARP": 0.5, "STREAK": 0.0, "STREAK_ANG": 0.6, "BURN": 0.0,
              "GAIN": 1.0, "WASH": 0.0},
     body=r"""
-vec2 at(vec2 uv) { return (uv - 0.5) * vec2(aspect(), 1.0); }
+mat2 turn() { return rot(radians(angle)); }
+vec2 at(vec2 uv) { return turn() * ((uv - 0.5) * vec2(aspect(), 1.0)); }
 vec3 field(vec2 p, float t) {
     vec2 w = vec2(fbm(p * 1.4 + vec2(t * 0.11, -t * 0.07)), fbm(p * 1.4 + vec2(-t * 0.09, t * 0.13) + 5.2)) - 0.5;
     vec2 q = p + w * WARP;
     vec2 c1 = at(P1) + 0.13 * vec2(sin(t * 0.70), cos(t * 0.53));
     vec2 c2 = at(P2) + 0.13 * vec2(cos(t * 0.61 + 1.0), sin(t * 0.47 + 2.0));
     vec2 c3 = at(P3) + 0.10 * vec2(sin(t * 0.43 + 4.0), cos(t * 0.71 + 3.0));
-    vec3 acc = color * exp(-dot(q - c1, q - c1) / (R1 * R1));
-    acc += COL_B * exp(-dot(q - c2, q - c2) / (R2 * R2));
-    acc += COL_C * exp(-dot(q - c3, q - c3) / (R3 * R3));
+    float r1 = R1 * size, r2 = R2 * size, r3 = R3 * size;
+    vec3 acc = color * exp(-dot(q - c1, q - c1) / (r1 * r1));
+    acc += COL_B * exp(-dot(q - c2, q - c2) / (r2 * r2));
+    acc += COL_C * exp(-dot(q - c3, q - c3) / (r3 * r3));
     return acc;
 }
 void main() {
@@ -42,9 +60,10 @@ void main() {
     float t = u_time * speed;
     vec3 L = field(p, t);
     if (STREAK > 0.0) {
-        vec2 dir = vec2(cos(STREAK_ANG), sin(STREAK_ANG));
+        float sa = STREAK_ANG - radians(angle);
+        vec2 dir = vec2(cos(sa), sin(sa));
         vec2 per = vec2(-dir.y, dir.x);
-        float s = fbm(vec2(dot(p, per) * 7.0 - t * 0.35, dot(p, dir) * 0.8 + t * 0.05));
+        float s = fbm(vec2(dot(p, per) * 7.0 / size - t * 0.35, dot(p, dir) * 0.8 + t * 0.05));
         float band = pow(smoothstep(0.35, 0.8, s), 2.0) * (0.4 + 0.6 * fbm(p * 1.2 - t * 0.1));
         L += mix(color, COL_C, 0.5 + 0.5 * sin(dot(p, per) * 4.0 + t)) * band * STREAK;
     }
@@ -96,10 +115,12 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Lens flares: a bright source with a starburst, a chromatic halo ring, an anamorphic streak, ghosts along the
 # axis through the centre, an optional beam, a haze and a coloured edge glow (prismatic). The source drifts.
+# Center X/Y = the source, Size = everything's scale, Angle turns the streak and the beam.
 FLARE = Family(
-    key="luz_flare", category="luz", params=[INTENSITY, SPEED, colour("#ffd9a0")], photo="dark",
-    tags=["destello", "flare", "lente", "lens", "sol", "sun"],
-    defines={"SRC": (0.3, 0.15), "DRIFT": 0.06, "CORE": 0.05, "RAYS": 0.6, "RAYS_FALL": 4.0, "HALO_R": 0.0,
+    key="luz_flare", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffd9a0"), *center(0.3, 0.15), SIZE, angle()],
+    photo="dark", tags=["destello", "flare", "lente", "lens", "sol", "sun"],
+    defines={"DRIFT": 0.06, "CORE": 0.05, "RAYS": 0.6, "RAYS_FALL": 4.0, "HALO_R": 0.0,
              "HALO": 0.0, "STREAK": 0.0, "STREAK_COL": "#7ab8ff", "STREAK_L": 0.5, "STREAK_W": 0.012,
              "GHOSTS": 0.6, "GHOST_R": 0.06, "GHOST_COL": "#9fd0ff", "BEAM": 0.0, "BEAM_COL": "#5a8cff",
              "BEAM_W": 0.06, "BEAM_L": 0.9, "BEAM_ANG": 99.0, "HAZE": 0.0, "EDGE": 0.0, "EDGE_COL": "#8a3cff"},
@@ -109,38 +130,42 @@ void main() {
     vec4 src = S(v_texCoord);
     vec2 p = toP(v_texCoord);
     float t = u_time * speed;
-    vec2 s = (SRC + DRIFT * vec2(sin(t * 0.55), 0.6 * cos(t * 0.42)) - 0.5) * vec2(aspect(), 1.0);
+    float k = size;
+    vec2 s = (vec2(centerX, centerY) + DRIFT * vec2(sin(t * 0.55), 0.6 * cos(t * 0.42)) - 0.5) * vec2(aspect(), 1.0);
     vec2 d = p - s;
     float r = length(d);
     float a = atan(d.y, d.x);
     float flick = 0.93 + 0.07 * vnoise(vec2(t * 6.0, 1.3));
+    float core = CORE * k;
     vec3 L = vec3(0.0);
     // Core and glow.
-    L += color * (exp(-r * r / (CORE * CORE)) * 1.3 + 0.45 * exp(-r / (CORE * 3.0)));
-    L += vec3(1.0) * exp(-r * r / (CORE * CORE * 0.12));
+    L += color * (exp(-r * r / (core * core)) * 1.3 + 0.45 * exp(-r / (core * 3.0)));
+    L += vec3(1.0) * exp(-r * r / (core * core * 0.12));
     // Starburst (integer frequencies: no seam at the back of the angle).
     float st = pow(abs(cos(a * 7.0 + t * 0.15)), 40.0) + 0.7 * pow(abs(cos(a * 11.0 - t * 0.11 + 1.0)), 60.0)
              + 0.4 * pow(abs(cos(a * 17.0 + t * 0.07 + 2.0)), 80.0);
-    L += mix(color, vec3(1.0), 0.4) * st * exp(-r * RAYS_FALL) * RAYS;
+    L += mix(color, vec3(1.0), 0.4) * st * exp(-r * RAYS_FALL / k) * RAYS;
     // Chromatic halo ring.
     if (HALO > 0.0) {
-        float w = HALO_R * 0.07;
-        vec3 ring = vec3(ringAt(r, HALO_R * 1.04, w), ringAt(r, HALO_R, w), ringAt(r, HALO_R * 0.96, w));
+        float R = HALO_R * k, w = R * 0.07;
+        vec3 ring = vec3(ringAt(r, R * 1.04, w), ringAt(r, R, w), ringAt(r, R * 0.96, w));
         L += ring * HALO * (0.75 + 0.25 * sin(a * 3.0 + t));
     }
-    // Anamorphic streak.
+    // Anamorphic streak, turned by Angle.
+    vec2 dr = rot(-radians(angle)) * d;
     if (STREAK > 0.0) {
-        float sx = exp(-abs(d.y) / STREAK_W) * exp(-abs(d.x) / STREAK_L);
-        sx += 0.35 * exp(-abs(d.y) / (STREAK_W * 5.0)) * exp(-abs(d.x) / (STREAK_L * 0.6));
+        float sl = STREAK_L * k;
+        float sx = exp(-abs(dr.y) / STREAK_W) * exp(-abs(dr.x) / sl);
+        sx += 0.35 * exp(-abs(dr.y) / (STREAK_W * 5.0)) * exp(-abs(dr.x) / (sl * 0.6));
         L += STREAK_COL * sx * STREAK * (0.85 + 0.15 * sin(t * 2.0));
     }
     // Ghosts on the line through the source and the centre of the frame.
     if (GHOSTS > 0.0) {
         for (int i = 0; i < 6; ++i) {
             float fi = float(i);
-            float k = 0.55 - fi * 0.38 + 0.08 * sin(fi * 3.1);
-            vec2 g = s * k;
-            float gr = GHOST_R * (0.45 + 1.1 * hash11(fi * 7.3 + 1.0));
+            float gk = 0.55 - fi * 0.38 + 0.08 * sin(fi * 3.1);
+            vec2 g = s * gk;
+            float gr = GHOST_R * k * (0.45 + 1.1 * hash11(fi * 7.3 + 1.0));
             float gd = length(p - g);
             float disk = smoothstep(gr, gr * 0.75, gd);
             float rim = exp(-pow((gd - gr * 0.92) / (gr * 0.12), 2.0));
@@ -148,21 +173,22 @@ void main() {
             L += gc * (disk * 0.22 + rim * 0.25) * GHOSTS;
         }
     }
-    // Beam from the source (towards the centre when BEAM_ANG is unset).
+    // Beam from the source (towards the centre when BEAM_ANG is unset), turned by Angle.
     if (BEAM > 0.0) {
         vec2 bd = BEAM_ANG > 50.0 ? normalize(-s + 1e-4) : vec2(cos(BEAM_ANG), sin(BEAM_ANG));
+        bd = rot(radians(angle)) * bd;
         float along = dot(d, bd);
         float perp = abs(dot(d, vec2(-bd.y, bd.x)));
-        float wid = BEAM_W * (0.4 + abs(along) * 1.2);
-        float b = exp(-perp * perp / (wid * wid)) * exp(-max(along, 0.0) / BEAM_L) * smoothstep(-0.05, 0.05, along);
+        float wid = BEAM_W * k * (0.4 + abs(along) * 1.2);
+        float b = exp(-perp * perp / (wid * wid)) * exp(-max(along, 0.0) / (BEAM_L * k)) * smoothstep(-0.05, 0.05, along);
         b *= 0.75 + 0.25 * sin(along * 9.0 - t * 2.0);
         L += BEAM_COL * b * BEAM;
     }
-    if (HAZE > 0.0) L += mix(color, vec3(0.85, 0.9, 1.0), 0.5) * exp(-r * 1.6) * HAZE;
+    if (HAZE > 0.0) L += mix(color, vec3(0.85, 0.9, 1.0), 0.5) * exp(-r * 1.6 / k) * HAZE;
     if (EDGE > 0.0) {
         float ex = v_texCoord.x;
-        float e = exp(-ex / 0.07) * (0.55 + 0.6 * fbm(vec2(v_texCoord.y * 5.0, t * 0.6)));
-        e += 0.5 * exp(-ex / 0.22) * (0.5 + 0.5 * sin(v_texCoord.y * 6.0 + t * 1.5));
+        float e = exp(-ex / (0.07 * k)) * (0.55 + 0.6 * fbm(vec2(v_texCoord.y * 5.0, t * 0.6)));
+        e += 0.5 * exp(-ex / (0.22 * k)) * (0.5 + 0.5 * sin(v_texCoord.y * 6.0 + t * 1.5));
         L += EDGE_COL * e * EDGE * (0.8 + 0.2 * sin(t * 3.0));
     }
     vec3 col = addLight(src.rgb, L * flick, intensity);
@@ -171,52 +197,48 @@ void main() {
 """,
     variants=[
         Variant("luz-del-sol-05", "Luz del sol 05", "Sunlight 05", photo="dark",
-                defines={"SRC": (0.32, 0.18), "GHOSTS": 1.0, "GHOST_R": 0.07, "RAYS": 0.5, "HAZE": 0.25,
-                         "HALO": 0.25, "HALO_R": 0.16},
+                params={"centerX": 0.32, "centerY": 0.18},
+                defines={"GHOSTS": 1.0, "GHOST_R": 0.07, "RAYS": 0.5, "HAZE": 0.25, "HALO": 0.25, "HALO_R": 0.16},
                 tags=["luz del sol", "sunlight"], thumb=1.0),
         Variant("explosion-prismatica", "Explosión prismática", "Prismatic burst", photo="dark",
-                params={"color": "#d8e4ff"},
-                defines={"SRC": (0.48, 0.4), "DRIFT": 0.04, "CORE": 0.035, "STREAK": 1.2, "STREAK_L": 0.7,
+                params={"color": "#d8e4ff", "centerX": 0.48, "centerY": 0.4},
+                defines={"DRIFT": 0.04, "CORE": 0.035, "STREAK": 1.2, "STREAK_L": 0.7,
                          "STREAK_COL": "#6a9cff", "GHOSTS": 0.5, "GHOST_COL": "#b07aff", "EDGE": 1.1,
                          "RAYS": 0.4, "HALO": 0.35, "HALO_R": 0.09},
                 tags=["prisma", "prism", "morado", "purple", "anamorfico", "anamorphic"], thumb=1.2),
         Variant("destello-de-la-lente-5", "Destello de la lente 5", "Lens flare 5", photo="fx-beach-03",
-                params={"color": "#fff1dc"},
-                defines={"SRC": (0.1, 0.12), "DRIFT": 0.08, "CORE": 0.1, "RAYS": 0.08, "RAYS_FALL": 3.0,
+                params={"color": "#fff1dc", "centerX": 0.1, "centerY": 0.12},
+                defines={"DRIFT": 0.08, "CORE": 0.1, "RAYS": 0.08, "RAYS_FALL": 3.0,
                          "HAZE": 0.8, "HALO": 0.45, "HALO_R": 0.42, "GHOSTS": 0.5, "GHOST_R": 0.11},
                 tags=["suave", "soft", "brumoso", "hazy"], thumb=1.5),
         Variant("destello-de-la-lente-3", "Destello de la lente 3", "Lens flare 3", photo="dark",
-                params={"color": "#ffc6d6"},
-                defines={"SRC": (0.88, 0.95), "DRIFT": 0.05, "CORE": 0.07, "RAYS": 0.3, "BEAM": 1.0,
+                params={"color": "#ffc6d6", "centerX": 0.88, "centerY": 0.95},
+                defines={"DRIFT": 0.05, "CORE": 0.07, "RAYS": 0.3, "BEAM": 1.0,
                          "BEAM_COL": "#ff8fb4", "BEAM_W": 0.08, "BEAM_L": 1.2, "BEAM_ANG": -2.3,
                          "GHOSTS": 0.35, "HAZE": 0.2},
                 tags=["rosa", "pink", "diagonal"], thumb=1.4),
         Variant("destello-de-lente-azul", "Destello de lente azul", "Blue lens flare", photo="dark",
-                params={"color": "#e4efff"},
-                defines={"SRC": (0.1, 0.1), "CORE": 0.06, "RAYS": 0.7, "BEAM": 0.9, "BEAM_COL": "#4a7cff",
+                params={"color": "#e4efff", "centerX": 0.1, "centerY": 0.1},
+                defines={"CORE": 0.06, "RAYS": 0.7, "BEAM": 0.9, "BEAM_COL": "#4a7cff",
                          "BEAM_W": 0.05, "BEAM_L": 1.1, "GHOSTS": 0.8, "GHOST_COL": "#7a8cff", "HAZE": 0.2},
                 tags=["azul", "blue"], thumb=1.0),
         Variant("sol-en-la-esquina", "Sol en la esquina", "Sun in the corner", photo="dark",
-                defines={"SRC": (0.04, 0.04), "DRIFT": 0.03, "CORE": 0.09, "RAYS": 1.0, "RAYS_FALL": 2.5,
+                params={"centerX": 0.04, "centerY": 0.04},
+                defines={"DRIFT": 0.03, "CORE": 0.09, "RAYS": 1.0, "RAYS_FALL": 2.5,
                          "HALO": 0.5, "HALO_R": 0.3, "GHOSTS": 0.6, "GHOST_R": 0.08, "HAZE": 0.35},
                 tags=["esquina", "corner", "rayos", "rays"], thumb=1.2),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
-# Rays from a point: god rays, beams, spotlights (with the rest darkened) and a pool on the floor, rainbow neon
-# rays round the subject, and STAGE: six coloured beams sweeping up from the floor.
-RAYS = Family(
-    key="luz_rays", category="luz", params=[INTENSITY, SPEED, colour("#ffc35a")], photo="woman",
-    tags=["rayos", "rays", "haz", "beam", "luz", "light"],
-    defines={"ORIGIN": (0.5, -0.1), "DIR": 1.5708, "CONE": 1.0, "SWAY": 0.08, "FALL": 1.2, "FILL": 0.4,
-             "RAYAMT": 0.9, "SHARP": 3.0, "RAINBOW": 0.0, "PROTECT": 0.0, "DARK": 0.0, "POOL": 0.0,
-             "POOL_AT": (0.5, 0.85), "STAGE": 0.0, "STAGE_B": "#2a6dff", "DUST": 0.3},
-    body=r"""
-float rayPattern(float a, float t) {
-    float n = 0.5 * sin(a * 13.0 + t * 0.6 + 1.5 * sin(a * 5.0 - t * 0.25))
-            + 0.3 * sin(a * 29.0 - t * 0.9 + 2.0) + 0.2 * sin(a * 47.0 + t * 1.3 + 4.0);
-    return pow(sat(0.5 + 0.5 * n), SHARP);
+# Rays from a point: god rays, beams, spotlights (with the rest darkened) and a pool on the floor.
+# Center X/Y = where they come from, Angle = where they point (degrees, 90 = down), Spread = how wide the cone,
+# Density = how many separate rays.
+RAYS_HELPERS = r"""
+float rayPattern(float a, float t, float sharp, float dens) {
+    float n = 0.5 * sin(a * floor(13.0 * dens) + t * 0.6 + 1.5 * sin(a * 5.0 - t * 0.25))
+            + 0.3 * sin(a * floor(29.0 * dens) - t * 0.9 + 2.0) + 0.2 * sin(a * floor(47.0 * dens) + t * 1.3 + 4.0);
+    return pow(sat(0.5 + 0.5 * n), sharp);
 }
 float angDiff(float a, float b) { return atan(sin(a - b), cos(a - b)); }
 float dust(vec2 p, float t) {
@@ -226,47 +248,41 @@ float dust(vec2 p, float t) {
     float tw = 0.5 + 0.5 * sin(t * 2.0 + hash12(c) * 30.0);
     return smoothstep(0.08, 0.0, length(f - o)) * step(0.6, hash12(c + 4.1)) * tw;
 }
+"""
+
+RAYS = Family(
+    key="luz_rays", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffc35a"), *center(0.5, -0.1), angle(90.0),
+            Param("spread", "Spread", 0.3, 2.5, 1.0), Param("density", "Density", 0.4, 2.0, 1.0)],
+    photo="woman", tags=["rayos", "rays", "haz", "beam", "luz", "light"],
+    defines={"CONE": 1.0, "SWAY": 0.08, "FALL": 1.2, "FILL": 0.4, "RAYAMT": 0.9, "SHARP": 3.0, "DARK": 0.0,
+             "POOL": 0.0, "POOL_Y": 0.85, "DUST": 0.3},
+    body=RAYS_HELPERS + r"""
 void main() {
     vec4 src = S(v_texCoord);
     vec2 p = toP(v_texCoord);
     float t = u_time * speed;
-    vec3 L = vec3(0.0);
     vec3 base = src.rgb;
-    if (STAGE > 0.5) {
-        for (int i = 0; i < 6; ++i) {
-            float fi = float(i);
-            vec2 o = (vec2((fi + 0.5) / 6.0, 1.03) - 0.5) * vec2(aspect(), 1.0);
-            float ang = -1.5708 + 0.5 * sin(t * 0.9 + fi * 1.7) * (mod(fi, 2.0) < 0.5 ? 1.0 : -1.0);
-            vec2 d = p - o;
-            float r = length(d);
-            float da = abs(angDiff(atan(d.y, d.x), ang));
-            vec3 c = mod(fi, 2.0) < 0.5 ? color : STAGE_B;
-            float beam = smoothstep(0.14, 0.0, da) * exp(-r * 1.1) + 1.6 * smoothstep(0.03, 0.0, da) * exp(-r * 2.2);
-            L += c * (beam * 0.8 + 1.8 * exp(-r * r / 0.002));
-        }
-        base *= 0.85;
-    } else {
-        vec2 o = (ORIGIN - 0.5) * vec2(aspect(), 1.0);
-        vec2 d = p - o;
-        float r = length(d);
-        float a = atan(d.y, d.x);
-        float dir = DIR + SWAY * sin(t * 0.7);
-        float cone = CONE > 3.0 ? 1.0 : smoothstep(CONE, CONE * 0.35, abs(angDiff(a, dir)));
-        float fall = exp(-r * FALL);
-        float rays = rayPattern(a, t);
-        vec3 c = color;
-        if (RAINBOW > 0.5) c = hsv2rgb(vec3(fract(a / TAU + t * 0.08), 0.75, 1.0));
-        float k = cone * (FILL + RAYAMT * rays) * fall;
-        if (PROTECT > 0.0) k *= mix(1.0, smoothstep(0.08, 0.42, r), PROTECT);
-        L += c * k;
-        L += vec3(1.0) * dust(p, t) * cone * fall * DUST;
-        if (DARK > 0.0) base *= mix(1.0 - DARK * sat(intensity), 1.0, sat(cone * (0.35 + exp(-r * 0.8))));
-        if (POOL > 0.0) {
-            vec2 pc = (POOL_AT + vec2(0.06 * sin(t * 0.7), 0.0) - 0.5) * vec2(aspect(), 1.0);
-            vec2 e = (p - pc) * vec2(1.0, 4.0);
-            float el = length(e);
-            L += color * POOL * (0.8 * exp(-el * el / 0.03) + 0.9 * exp(-pow((el - 0.2) / 0.02, 2.0)));
-        }
+    vec2 o = (vec2(centerX, centerY) - 0.5) * vec2(aspect(), 1.0);
+    vec2 d = p - o;
+    float r = length(d);
+    float a = atan(d.y, d.x);
+    float dir = radians(angle) + SWAY * sin(t * 0.7);
+    float cw = min(CONE * spread, 3.1);
+    float cone = smoothstep(cw, cw * 0.35, abs(angDiff(a, dir)));
+    float fall = exp(-r * FALL);
+    float rays = rayPattern(a, t, SHARP, density);
+    vec3 L = color * cone * (FILL + RAYAMT * rays) * fall;
+    L += vec3(1.0) * dust(p, t) * cone * fall * DUST;
+    if (DARK > 0.0) base *= mix(1.0 - DARK * sat(intensity), 1.0, sat(cone * (0.35 + exp(-r * 0.8))));
+    if (POOL > 0.0) {
+        // The pool lands where the cone meets the floor line below the source.
+        vec2 dd = vec2(cos(dir), sin(dir));
+        float reach = (POOL_Y - 0.5 - o.y) / max(dd.y, 0.2);
+        vec2 pc = o + dd * reach;
+        vec2 e = (p - pc) * vec2(1.0, 4.0) / spread;
+        float el = length(e);
+        L += color * POOL * (0.8 * exp(-el * el / 0.03) + 0.9 * exp(-pow((el - 0.2) / 0.02, 2.0)));
     }
     vec3 col = addLight(base, L, intensity);
     fragColor = vec4(col, src.a);
@@ -276,39 +292,114 @@ void main() {
         Variant("rayo-dorado", "Rayo dorado", "Golden rays", photo="dark",
                 defines={"CONE": 1.1, "FALL": 1.4, "FILL": 0.35}, tags=["dorado", "golden", "dios", "god rays"],
                 thumb=1.2),
-        Variant("rayo-de-luz", "Rayo de luz", "Light beam", photo="dark", params={"color": "#ffe2b0"},
-                defines={"ORIGIN": (0.98, -0.05), "DIR": 2.45, "CONE": 0.32, "SWAY": 0.05, "FALL": 1.0,
-                         "FILL": 0.5, "RAYAMT": 0.7},
+        Variant("rayo-de-luz", "Rayo de luz", "Light beam", photo="dark",
+                params={"color": "#ffe2b0", "centerX": 0.98, "centerY": -0.05, "angle": 140.0},
+                defines={"CONE": 0.32, "SWAY": 0.05, "FALL": 1.0, "FILL": 0.5, "RAYAMT": 0.7},
                 tags=["diagonal", "haz", "beam"], thumb=1.4),
         Variant("luz-del-sol-03", "Luz del sol 03", "Sunlight 03", photo="dark",
-                defines={"ORIGIN": (0.5, -0.05), "CONE": 0.42, "SWAY": 0.06, "FALL": 1.0, "FILL": 0.5,
-                         "POOL": 0.6, "POOL_AT": (0.5, 0.8)},
+                params={"centerY": -0.05},
+                defines={"CONE": 0.42, "SWAY": 0.06, "FALL": 1.0, "FILL": 0.5, "POOL": 0.6, "POOL_Y": 0.8},
                 tags=["foco", "spotlight", "escenario", "stage"], thumb=1.0),
-        Variant("foco-final", "Foco final", "Spotlight finish", photo="lighthouse", params={"color": "#ffffff"},
-                defines={"ORIGIN": (0.5, -0.12), "CONE": 0.3, "SWAY": 0.05, "FALL": 0.6, "FILL": 0.55,
-                         "RAYAMT": 0.3, "DARK": 0.8, "DUST": 0.15},
+        Variant("foco-final", "Foco final", "Spotlight finish", photo="lighthouse",
+                params={"color": "#ffffff", "centerY": -0.12},
+                defines={"CONE": 0.3, "SWAY": 0.05, "FALL": 0.6, "FILL": 0.55, "RAYAMT": 0.3, "DARK": 0.8,
+                         "DUST": 0.15},
                 tags=["foco", "spotlight", "final", "ending"], thumb=1.2),
-        Variant("fiebre-del-neon", "Fiebre del neón", "Neon fever", photo="fashion",
-                defines={"ORIGIN": (0.5, 0.42), "CONE": 4.0, "SWAY": 0.0, "FALL": 0.9, "FILL": 0.05,
-                         "RAYAMT": 1.3, "SHARP": 6.0, "RAINBOW": 1.0, "PROTECT": 0.85, "DUST": 0.0},
-                tags=["neon", "arcoiris", "rainbow", "rayos"], thumb=1.0),
-        Variant("luces-de-escenario", "Luces de escenario", "Stage lights", photo="dark",
-                params={"color": "#ff2fc0"}, defines={"STAGE": 1.0},
-                tags=["escenario", "stage", "concierto", "concert", "fiesta", "party"], thumb=1.0),
+    ],
+)
+
+# Rainbow neon rays round the subject. With the clip's depth map (AI) the nearest thing, the person, covers the
+# rays so they come from behind; without it the rays fade near the centre so the face stays clean.
+NEON_RAYS = Family(
+    key="luz_neon_rays", category="luz", requires="depth",
+    params=[INTENSITY, SPEED, *center(0.5, 0.42), SIZE, Param("density", "Density", 0.4, 2.0, 1.0),
+            Param("saturation", "Saturation", 0.0, 1.0, 0.75)],
+    photo="fashion", tags=["rayos", "rays", "neon", "arcoiris", "rainbow", "detras", "behind"],
+    defines={"SHARP": 6.0},
+    body=RAYS_HELPERS + r"""
+void main() {
+    vec2 uv = v_texCoord;
+    vec4 src = S(uv);
+    vec2 p = toP(uv);
+    float t = u_time * speed;
+    vec2 o = (vec2(centerX, centerY) - 0.5) * vec2(aspect(), 1.0);
+    vec2 d = p - o;
+    float r = length(d);
+    float a = atan(d.y, d.x);
+    float rays = rayPattern(a + t * 0.05, t, SHARP, density);
+    vec3 c = hsv2rgb(vec3(fract(a / TAU + t * 0.08), saturation, 1.0));
+    float k = (0.05 + 1.3 * rays) * exp(-r * 0.9 / size);
+    float front = 0.0;
+    if (u_hasDepth > 0.5) {
+        // Near = the person: depth well above the background's. Rays go behind it, with a thin back-light rim.
+        float z = driftDepth(uv);
+        front = smoothstep(0.45, 0.62, z);
+        float zr = driftDepth(uv + normalize(d + 1e-4) * 0.012 * vec2(1.0 / aspect(), 1.0));
+        float rim = sat(front - smoothstep(0.45, 0.62, zr)) * 2.0;
+        k = k * (1.0 - front) + rim * 0.6 * (0.6 + rays);
+    } else {
+        k *= smoothstep(0.08, 0.42, r) * 0.85 + 0.15;
+    }
+    vec3 col = addLight(src.rgb, c * k, intensity);
+    fragColor = vec4(col, src.a);
+}
+""",
+    variants=[
+        Variant("fiebre-del-neon", "Fiebre del neón", "Neon fever", tags=["fiesta", "party"], thumb=1.0,
+                note={"es": "Con el análisis de profundidad (IA) los rayos salen detrás de la persona.",
+                      "en": "With the depth analysis (AI) the rays come from behind the person."}),
+    ],
+)
+
+# Stage: six coloured beams sweeping up from the floor. Spread = how wide each beam, Angle = how far they swing.
+STAGE = Family(
+    key="luz_stage", category="luz",
+    params=[INTENSITY, SPEED, Param("color", "Colour A", default="#ff2fc0"), Param("colorB", "Colour B",
+            default="#2a6dff"), Param("spread", "Spread", 0.3, 2.5, 1.0), angle(29.0, 0.0, 80.0),
+            Param("density", "Density", 2.0, 8.0, 6.0)],
+    photo="dark", tags=["escenario", "stage", "concierto", "concert", "fiesta", "party", "rayos", "beams"],
+    body=r"""
+float angDiff(float a, float b) { return atan(sin(a - b), cos(a - b)); }
+void main() {
+    vec4 src = S(v_texCoord);
+    vec2 p = toP(v_texCoord);
+    float t = u_time * speed;
+    vec3 L = vec3(0.0);
+    float n = floor(density + 0.5);
+    for (int i = 0; i < 8; ++i) {
+        float fi = float(i);
+        if (fi >= n) break;
+        vec2 o = (vec2((fi + 0.5) / n, 1.03) - 0.5) * vec2(aspect(), 1.0);
+        float ang = -1.5708 + radians(angle) * sin(t * 0.9 + fi * 1.7) * (mod(fi, 2.0) < 0.5 ? 1.0 : -1.0);
+        vec2 d = p - o;
+        float r = length(d);
+        float da = abs(angDiff(atan(d.y, d.x), ang));
+        vec3 c = mod(fi, 2.0) < 0.5 ? color : colorB;
+        float beam = smoothstep(0.14 * spread, 0.0, da) * exp(-r * 1.1)
+                   + 1.6 * smoothstep(0.03 * spread, 0.0, da) * exp(-r * 2.2);
+        L += c * (beam * 0.8 + 1.8 * exp(-r * r / 0.002));
+    }
+    vec3 col = addLight(src.rgb * mix(1.0, 0.85, sat(intensity)), L, intensity);
+    fragColor = vec4(col, src.a);
+}
+""",
+    variants=[
+        Variant("luces-de-escenario", "Luces de escenario", "Stage lights", thumb=1.0),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
 # Bokeh: soft discs with a brighter rim in three depth layers, drifting and twinkling. Palettes: the colour
-# parameter, rainbow, warm gold, grey bubbles. FRAME keeps them on the edges, DEFOCUS blurs the picture behind,
-# FALL makes them rain and TOPGLOW adds a golden haze at the top.
+# parameter, rainbow, warm gold, grey bubbles, city lights. Spread = how much of the frame they cover (from the
+# edges in), Blur = how much the picture behind goes out of focus, Angle = where they drift.
 BOKEH = Family(
     key="luz_bokeh", category="luz",
     params=[INTENSITY, SPEED, colour("#ffd27a"), Param("size", "Size", 0.5, 1.5, 1.0),
-            Param("density", "Density", 0.2, 2.0, 1.0)],
+            Param("density", "Density", 0.2, 2.0, 1.0), Param("spread", "Spread", 0.1, 1.0, 1.0),
+            Param("blur", "Blur", 0.0, 0.06, 0.0), angle(-30.0)],
     photo="citynight", tags=["bokeh", "luces", "lights", "desenfoque", "blur", "circulos", "circles"],
-    defines={"PAL": 0.0, "RIM": 0.5, "SOFT": 0.25, "DRIFT": (0.05, -0.03), "FALL": 0.0, "FRAME": 0.0,
-             "DEFOCUS": 0.0, "TOPGLOW": 0.0, "GAIN": 1.0, "SCALE": 1.0, "FILLK": 0.55},
+    defines={"PAL": 0.0, "RIM": 0.5, "SOFT": 0.25, "DRIFT": 0.058, "FALL": 0.0, "TOPGLOW": 0.0, "GAIN": 1.0,
+             "SCALE": 1.0, "FILLK": 0.55},
     body=r"""
 vec3 palette(float h) {
     if (PAL < 0.5) return color * (0.75 + 0.5 * h);
@@ -321,7 +412,9 @@ vec3 palette(float h) {
 }
 vec3 layer(vec2 p, float t, float sc, float seed, float bright) {
     vec2 q = p * sc;
-    q += DRIFT * t * sc + vec2(sin(t * 0.35 + seed), cos(t * 0.27 + seed * 1.3)) * 0.25;
+    float da = radians(angle);
+    q -= vec2(cos(da), sin(da)) * DRIFT * t * sc;
+    q += vec2(sin(t * 0.35 + seed), cos(t * 0.27 + seed * 1.3)) * 0.25;
     q.y -= FALL * t * sc * 0.35;
     vec2 cell = floor(q), f = fract(q) - 0.5;
     float h = hash12(cell + seed);
@@ -340,15 +433,14 @@ void main() {
     vec2 p = toP(uv);
     float t = u_time * speed;
     vec3 base = src.rgb;
-    if (DEFOCUS > 0.0) base = mix(base, discBlur(uv, DEFOCUS).rgb * 0.85, 0.9);
+    if (blur > 0.0005) base = mix(base, discBlur(uv, blur).rgb * 0.85, 0.9);
     float k = 4.0 * SCALE / size;
     vec3 L = layer(p, t, k * 1.9, 11.0, 0.45) + layer(p, t * 1.2, k * 1.2, 23.0, 0.7)
            + layer(p, t * 1.45, k * 0.75, 37.0, 1.0);
-    float m = 1.0;
-    if (FRAME > 0.0) {
-        float e = max(abs(uv.y - 0.5) * 2.0, abs(uv.x - 0.5) * 2.0 * 0.92);
-        m = mix(1.0, smoothstep(0.5, 0.95, e), FRAME);
-    }
+    // 0 in the middle, 1 at the edges; Spread 1 covers everything, less keeps them to a frame.
+    float e = max(abs(uv.y - 0.5) * 2.0, abs(uv.x - 0.5) * 2.0 * 0.92);
+    float lo = 1.0 - spread * 1.45;
+    float m = smoothstep(lo, lo + 0.45, e);
     if (TOPGLOW > 0.0) {
         m *= mix(1.0, smoothstep(0.85, 0.05, uv.y), 0.85);
         float g = exp(-uv.y * 3.5) * (0.55 + 0.7 * fbm(vec2(p.x * 3.0 - t * 0.2, t * 0.15)));
@@ -360,135 +452,198 @@ void main() {
 """,
     variants=[
         Variant("bokeh-de-colores", "Bokeh de colores", "Colourful bokeh", photo="citynight",
-                defines={"PAL": 1.0, "DEFOCUS": 0.01}, tags=["colores", "colours", "arcoiris"], thumb=1.0),
+                params={"blur": 0.01}, defines={"PAL": 1.0}, tags=["colores", "colours", "arcoiris"], thumb=1.0),
         Variant("desenfoque-de-bokeh-5", "Desenfoque de bokeh 5", "Bokeh blur 5", photo="citynight",
-                defines={"PAL": 4.0, "DEFOCUS": 0.035, "SCALE": 0.7, "SOFT": 0.45, "GAIN": 1.1},
+                params={"blur": 0.035}, defines={"PAL": 4.0, "SCALE": 0.7, "SOFT": 0.45, "GAIN": 1.1},
                 tags=["desenfoque", "blur", "fondo", "background"], thumb=1.2),
         Variant("bokeh-urbano", "Bokeh urbano", "Urban bokeh", photo="citynight",
-                params={"density": 0.6},
-                defines={"PAL": 4.0, "DEFOCUS": 0.012, "SCALE": 0.85, "SOFT": 0.35, "RIM": 0.7, "FILLK": 0.4,
-                         "DRIFT": (0.08, 0.0)},
+                params={"density": 0.6, "blur": 0.012, "angle": 180.0},
+                defines={"PAL": 4.0, "SCALE": 0.85, "SOFT": 0.35, "RIM": 0.7, "FILLK": 0.4, "DRIFT": 0.08},
                 tags=["ciudad", "city", "noche", "night"], thumb=1.4),
         Variant("burbujas-de-luz", "Burbujas de luz", "Light bubbles", photo="dark",
-                params={"density": 0.9},
-                defines={"PAL": 3.0, "RIM": 0.55, "FILLK": 0.18, "SOFT": 0.12, "DRIFT": (0.0, -0.06),
-                         "GAIN": 0.8},
+                params={"density": 0.9, "angle": -90.0},
+                defines={"PAL": 3.0, "RIM": 0.55, "FILLK": 0.18, "SOFT": 0.12, "DRIFT": 0.06, "GAIN": 0.8},
                 tags=["burbujas", "bubbles", "vlog"], thumb=1.4),
-        Variant("bokeh-5", "Bokeh 5", "Bokeh 5", photo="fx-woman-08", params={"density": 1.5},
-                defines={"PAL": 2.0, "FRAME": 1.0, "SCALE": 0.9, "GAIN": 1.2},
+        Variant("bokeh-5", "Bokeh 5", "Bokeh 5", photo="fx-woman-08", params={"density": 1.5, "spread": 0.35},
+                defines={"PAL": 2.0, "SCALE": 0.9, "GAIN": 1.2},
                 tags=["dorado", "golden", "marco", "frame"], thumb=1.0),
         Variant("lluvia-de-luz", "Lluvia de luz", "Light rain", photo="dark", params={"size": 0.6},
                 defines={"PAL": 2.0, "FALL": 1.0, "TOPGLOW": 0.9, "SOFT": 0.5, "RIM": 0.2, "GAIN": 1.3,
-                         "DRIFT": (0.0, 0.0)},
+                         "DRIFT": 0.0},
                 tags=["lluvia", "rain", "dorado", "golden", "streaming"], thumb=1.2),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
-# Glows and flashes on the picture itself. MODE 0 aura bloom, 1 golden plasma frame, 2 star-light burst from the
-# edges, 3 exposure flash, 4 vibrating flash, 5 grainy beam.
-GLOW = Family(
-    key="luz_glow", category="luz", params=[INTENSITY, SPEED, colour("#7ab4ff")], photo="woman",
-    tags=["brillo", "glow", "resplandor", "luz", "light"],
-    defines={"MODE": 0.0},
+# Glows and flashes on the picture itself, one family each so every slider does something.
+
+# Aura bloom: the bright parts bleed a coloured glow that breathes. Size = glow radius, Brightness = what counts
+# as bright (lower glows more of the picture).
+AURA = Family(
+    key="luz_aura", category="luz",
+    params=[INTENSITY, SPEED, colour("#7ab4ff"), SIZE, Param("threshold", "Brightness", 0.2, 0.95, 0.6)],
+    photo="fx-woman-05", tags=["brillo", "glow", "aura", "bloom", "suave", "soft"],
     body=r"""
-float inner(vec2 p) { return -sdBox(p, vec2(aspect() * 0.5, 0.5)); }   // distance in from the frame edge
+void main() {
+    vec2 uv = v_texCoord;
+    vec4 src = S(uv);
+    float t = u_time * speed;
+    vec3 col = src.rgb;
+    float br = 0.7 + 0.3 * sin(t * 1.6);
+    vec3 g = brightGlow(uv, 0.08 * size, threshold);
+    vec3 soft = discBlur(uv, 0.02 * size).rgb;
+    col = mix(col, max(col, soft), 0.45 * sat(intensity));
+    col = addLight(col, (g * 1.3 * mix(vec3(1.0), color, 0.5) + color * 0.12 * luma(soft)) * br, intensity);
+    fragColor = vec4(sat3(col), src.a);
+}
+""",
+    variants=[Variant("floracion-de-aura", "Floración de aura", "Aura bloom", thumb=1.0)],
+)
+
+# Golden plasma crawling on the frame. Width = how thick, Detail = how fine the flames.
+PLASMA = Family(
+    key="luz_plasma", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffb820"), Param("width", "Width", 0.3, 3.0, 1.0),
+            Param("detail", "Detail", 0.5, 2.0, 1.0)],
+    photo="fx-woman-05", tags=["plasma", "amarillo", "yellow", "marco", "frame", "electrico", "electric"],
+    body=r"""
 void main() {
     vec2 uv = v_texCoord;
     vec4 src = S(uv);
     vec2 p = toP(uv);
     float t = u_time * speed;
     vec3 col = src.rgb;
-    if (MODE < 0.5) {
-        // Aura bloom: the bright parts bleed a coloured glow that breathes.
-        float br = 0.7 + 0.3 * sin(t * 1.6);
-        vec3 g = brightGlow(uv, 0.08, 0.6);
-        vec3 soft = discBlur(uv, 0.02).rgb;
-        col = mix(col, max(col, soft), 0.45 * sat(intensity));
-        col = addLight(col, (g * 1.3 * mix(vec3(1.0), color, 0.5) + color * 0.12 * luma(soft)) * br, intensity);
-    } else if (MODE < 1.5) {
-        // Golden plasma crawling on the frame.
-        float d = inner(p);
-        float n = fbm(p * 5.0 + vec2(t * 1.3, -t * 0.9));
-        float n2 = fbm(p * 11.0 - vec2(t * 2.1, t * 1.7));
-        float flame = exp(-max(d - n * 0.07, 0.0) / (0.018 + 0.02 * n2));
-        float arcs = pow(1.0 - abs(vnoise(p * 16.0 + vec2(t * 3.0, -t * 2.0)) * 2.0 - 1.0), 10.0)
-                   * exp(-d / 0.05);
-        float fl = 0.85 + 0.15 * vnoise(vec2(t * 12.0, 3.0));
-        vec3 L = color * (flame * 1.1 + arcs * 0.9) * vec3(1.0, 0.85, 0.6) + vec3(1.0, 0.95, 0.75) * smoothstep(0.8, 1.0, flame) * 0.3;
-        col = mix(col, color * (0.8 + 0.4 * n2), sat(flame * 0.75 * intensity));
-        col = addLight(col, L * fl, intensity);
-    } else if (MODE < 2.5) {
-        // Star-light burst: a pulsing glow from the edges and sparkles inside it.
-        float d = inner(p);
-        float pulse = 0.75 + 0.25 * sin(t * 2.2);
-        float n = fbm(p * 3.0 + vec2(t * 0.4, t * 0.3));
-        float g = exp(-d / (0.08 + 0.05 * pulse)) * (0.6 + 0.8 * n);
-        vec2 q = p * 22.0 + vec2(0.0, -t * 0.6);
-        vec2 c = floor(q), f = fract(q) - 0.5;
-        vec2 o = (hash22(c) - 0.5) * 0.6;
-        float tw = 0.5 + 0.5 * sin(t * 5.0 + hash12(c) * 40.0);
-        float sp = smoothstep(0.12, 0.0, length(f - o)) * step(0.45, hash12(c + 2.0)) * tw;
-        sp *= smoothstep(0.32, 0.0, d) + 0.25;
-        vec3 L = color * g * 1.3 + vec3(1.0, 0.95, 0.7) * sp * 1.4 + vec3(1.0, 0.98, 0.85) * smoothstep(0.5, 1.2, g);
-        col = addLight(col, L, intensity);
-    } else if (MODE < 3.5) {
-        // Exposure flash: a hit every second that burns the picture to white and settles.
-        float b = beat(t, 1.0, 0.28);
-        vec3 g = brightGlow(uv, 0.05, 0.35);
-        float e = 1.0 + (0.35 + 2.6 * b) * intensity;
-        col = 1.0 - exp(-col * e * 1.1);
-        col = addLight(col, (g + color * 0.15) * (0.4 + b), intensity);
-        col = mix(col, vec3(1.0), 0.35 * b * sat(intensity));
-    } else if (MODE < 4.5) {
-        // Vibrating flash: the frame shakes on the beat, a ghost copy and a white bloom.
-        float b = beat(t, 0.5, 0.15);
-        vec2 sh = shake2(t, 18.0) * 0.02 * b * intensity;
-        vec2 cu = camUv(uv, vec2(0.5), 1.06 + 0.04 * b, 0.0, sh);
-        vec3 a = Sm(cu).rgb;
-        vec3 gh = Sm(camUv(uv, vec2(0.5), 1.12 + 0.06 * b, 0.0, -sh * 1.5)).rgb;
-        col = mix(a, screen(a, gh), 0.45 * b);
-        col = 1.0 - exp(-col * (1.2 + 1.6 * b * intensity));
-        col = mix(col, vec3(1.0), 0.25 * b * sat(intensity));
-    } else {
-        // Grainy beam: coloured grain, a bright halo round the middle and dark edges, flickering.
-        float ft = stepTime(t, 24.0);
-        vec3 gr = hash32(uv * u_resolution + ft * 91.0) - 0.5;
-        float r = length(p - vec2(0.05 * sin(t * 0.8), 0.0));
-        float halo = exp(-r * r / 0.14) * (0.85 + 0.15 * vnoise(vec2(t * 10.0, 1.0)));
-        float sweep = exp(-pow((p.x + p.y * 0.4 - (fract(t * 0.25) * 2.4 - 1.2)) / 0.18, 2.0));
-        col = addLight(col, color * (halo * 0.55 + sweep * 0.35), intensity);
-        col += (gr + 0.15 * (gr.x + gr.y + gr.z)) * (0.26 + 0.2 * halo) * intensity;
-        col *= mix(1.0, vignette(uv, 0.45, 0.55), 0.6 * sat(intensity));
-    }
+    float d = -sdBox(p, vec2(aspect() * 0.5, 0.5));
+    float n = fbm(p * 5.0 * detail + vec2(t * 1.3, -t * 0.9));
+    float n2 = fbm(p * 11.0 * detail - vec2(t * 2.1, t * 1.7));
+    float flame = exp(-max(d - n * 0.07 * width, 0.0) / ((0.018 + 0.02 * n2) * width));
+    float arcs = pow(1.0 - abs(vnoise(p * 16.0 * detail + vec2(t * 3.0, -t * 2.0)) * 2.0 - 1.0), 10.0)
+               * exp(-d / (0.05 * width));
+    float fl = 0.85 + 0.15 * vnoise(vec2(t * 12.0, 3.0));
+    vec3 L = color * (flame * 1.1 + arcs * 0.9) * vec3(1.0, 0.85, 0.6)
+           + vec3(1.0, 0.95, 0.75) * smoothstep(0.8, 1.0, flame) * 0.3;
+    col = mix(col, color * (0.8 + 0.4 * n2), sat(flame * 0.75 * intensity));
+    col = addLight(col, L * fl, intensity);
     fragColor = vec4(sat3(col), src.a);
 }
 """,
-    variants=[
-        Variant("floracion-de-aura", "Floración de aura", "Aura bloom", photo="fx-woman-05",
-                defines={"MODE": 0.0}, tags=["aura", "bloom", "suave", "soft"], thumb=1.0),
-        Variant("amarillo-plasma", "Amarillo plasma", "Plasma yellow", photo="fx-woman-05", params={"color": "#ffb820"},
-                defines={"MODE": 1.0}, tags=["plasma", "amarillo", "yellow", "marco", "frame", "electrico"],
-                thumb=1.2),
-        Variant("explosion-de-luz-estelar", "Explosión de luz estelar", "Star-light burst", photo="dark",
-                params={"color": "#ffd640"}, defines={"MODE": 2.0},
-                tags=["estrellas", "stars", "brillos", "sparkle", "amarillo"], thumb=1.0),
-        Variant("exposicion-de-destello", "Exposición de destello", "Flash exposure", photo="fx-skater-01",
-                params={"color": "#ffffff"}, defines={"MODE": 3.0},
-                tags=["flash", "exposicion", "exposure", "blanco", "white"], thumb=0.1),
-        Variant("destello-de-vibracion", "Destello de vibración", "Vibration flash", photo="fx-skater-01",
-                params={"color": "#ffffff"}, defines={"MODE": 4.0},
-                tags=["flash", "vibracion", "shake", "ritmo", "beat"], thumb=0.05),
-        Variant("haz-granulado", "Haz granulado", "Grainy beam", photo="fx-skater-04", params={"color": "#cfe4ff"},
-                defines={"MODE": 5.0}, tags=["grano", "grain", "ruido", "noise", "haz", "beam"], thumb=1.0),
-    ],
+    variants=[Variant("amarillo-plasma", "Amarillo plasma", "Plasma yellow", thumb=1.2)],
+)
+
+# Star-light burst: a pulsing glow from the edges and sparkles inside it. Width = how far in, Density = sparkles.
+STARBURST = Family(
+    key="luz_starburst", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffd640"), Param("width", "Width", 0.3, 3.0, 1.0),
+            Param("density", "Density", 0.2, 2.0, 1.0)],
+    photo="dark", tags=["estrellas", "stars", "brillos", "sparkle", "amarillo", "yellow"],
+    body=r"""
+void main() {
+    vec2 uv = v_texCoord;
+    vec4 src = S(uv);
+    vec2 p = toP(uv);
+    float t = u_time * speed;
+    float d = -sdBox(p, vec2(aspect() * 0.5, 0.5));
+    float pulse = 0.75 + 0.25 * sin(t * 2.2);
+    float n = fbm(p * 3.0 + vec2(t * 0.4, t * 0.3));
+    float g = exp(-d / ((0.08 + 0.05 * pulse) * width)) * (0.6 + 0.8 * n);
+    vec2 q = p * 22.0 + vec2(0.0, -t * 0.6);
+    vec2 c = floor(q), f = fract(q) - 0.5;
+    vec2 o = (hash22(c) - 0.5) * 0.6;
+    float tw = 0.5 + 0.5 * sin(t * 5.0 + hash12(c) * 40.0);
+    float sp = smoothstep(0.12, 0.0, length(f - o)) * step(1.0 - 0.55 * density, hash12(c + 2.0)) * tw;
+    sp *= smoothstep(0.32 * width, 0.0, d) + 0.25;
+    vec3 L = color * g * 1.3 + vec3(1.0, 0.95, 0.7) * sp * 1.4 + vec3(1.0, 0.98, 0.85) * smoothstep(0.5, 1.2, g);
+    fragColor = vec4(sat3(addLight(src.rgb, L, intensity)), src.a);
+}
+""",
+    variants=[Variant("explosion-de-luz-estelar", "Explosión de luz estelar", "Star-light burst", thumb=1.0)],
+)
+
+# Exposure flash: a hit that burns the picture to white and settles. Frequency = flashes per second,
+# Brightness = how much the picture is lifted between flashes.
+FLASH = Family(
+    key="luz_flash", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffffff"), Param("frequency", "Frequency", 0.25, 4.0, 1.0),
+            Param("brightness", "Brightness", 0.0, 1.0, 0.35)],
+    photo="fx-skater-01", tags=["flash", "exposicion", "exposure", "blanco", "white", "destello"],
+    body=r"""
+void main() {
+    vec2 uv = v_texCoord;
+    vec4 src = S(uv);
+    float t = u_time * speed;
+    float b = beat(t, 1.0 / frequency, 0.28 / max(frequency, 1.0));
+    vec3 g = brightGlow(uv, 0.05, 0.35);
+    float e = 1.0 + (brightness + 2.6 * b) * intensity;
+    vec3 col = 1.0 - exp(-src.rgb * e * 1.1);
+    col = addLight(col, (g + color * 0.15) * (0.4 + b), intensity);
+    col = mix(col, color, 0.35 * b * sat(intensity));
+    fragColor = vec4(sat3(col), src.a);
+}
+""",
+    variants=[Variant("exposicion-de-destello", "Exposición de destello", "Flash exposure", thumb=0.1)],
+)
+
+# Vibrating flash: the frame shakes on the beat (120 BPM), a ghost copy and a white bloom. Strength = how hard
+# it shakes, Frequency = hits per second.
+VIBRATE = Family(
+    key="luz_vibrate", category="luz",
+    params=[INTENSITY, SPEED, colour("#ffffff"), Param("strength", "Strength", 0.0, 2.0, 1.0),
+            Param("frequency", "Frequency", 0.5, 4.0, 2.0)],
+    photo="fx-skater-01", tags=["flash", "vibracion", "shake", "ritmo", "beat", "destello"],
+    body=r"""
+void main() {
+    vec2 uv = v_texCoord;
+    float t = u_time * speed;
+    float b = beat(t, 1.0 / frequency, 0.3 / frequency);
+    vec2 sh = shake2(t, 18.0) * 0.02 * b * strength;
+    vec3 a = Sm(camUv(uv, vec2(0.5), 1.06 + 0.04 * b * strength, 0.0, sh)).rgb;
+    vec3 gh = Sm(camUv(uv, vec2(0.5), 1.12 + 0.06 * b * strength, 0.0, -sh * 1.5)).rgb;
+    vec3 col = mix(a, screen(a, gh), 0.45 * b);
+    col = 1.0 - exp(-col * (1.2 + 1.6 * b * intensity));
+    col = mix(col, color, 0.25 * b * sat(intensity));
+    fragColor = vec4(sat3(col), S(uv).a);
+}
+""",
+    variants=[Variant("destello-de-vibracion", "Destello de vibración", "Vibration flash", thumb=0.05)],
+)
+
+# Grainy beam: coloured grain, a bright halo round the middle that a sweep of light crosses, dark edges.
+# Grain = how much grain, Size = the halo, Center X/Y = where the halo sits.
+GRAIN_BEAM = Family(
+    key="luz_grain_beam", category="luz",
+    params=[INTENSITY, SPEED, colour("#cfe4ff"), Param("grain", "Grain", 0.0, 2.0, 1.0), SIZE,
+            *center(0.5, 0.5)],
+    photo="fx-skater-04", tags=["grano", "grain", "ruido", "noise", "haz", "beam"],
+    body=r"""
+void main() {
+    vec2 uv = v_texCoord;
+    vec4 src = S(uv);
+    vec2 p = toP(uv);
+    float t = u_time * speed;
+    vec3 col = src.rgb;
+    float ft = stepTime(t, 24.0);
+    vec3 gr = hash32(uv * u_resolution + ft * 91.0) - 0.5;
+    vec2 c = (vec2(centerX, centerY) - 0.5) * vec2(aspect(), 1.0);
+    float r = length(p - c - vec2(0.05 * sin(t * 0.8), 0.0));
+    float halo = exp(-r * r / (0.14 * size * size)) * (0.85 + 0.15 * vnoise(vec2(t * 10.0, 1.0)));
+    float sweep = exp(-pow((p.x + p.y * 0.4 - (fract(t * 0.25) * 2.4 - 1.2)) / 0.18, 2.0));
+    col = addLight(col, color * (halo * 0.55 + sweep * 0.35), intensity);
+    col += (gr + 0.15 * (gr.x + gr.y + gr.z)) * (0.26 + 0.2 * halo) * grain * sat(intensity);
+    col *= mix(1.0, vignette(uv, 0.45 * size, 0.55), 0.6 * sat(intensity));
+    fragColor = vec4(sat3(col), src.a);
+}
+""",
+    variants=[Variant("haz-granulado", "Haz granulado", "Grainy beam", thumb=1.0)],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
-# Disco: mirror-ball spots turning across the picture, LED columns and a pink wash with soft scanlines.
+# Disco: mirror-ball spots turning across the picture, LED columns and a wash with soft scanlines.
+# Center X/Y = the mirror ball, Size = the spots, Density = how many are lit.
 DISCO = Family(
-    key="luz_disco", category="luz", params=[INTENSITY, SPEED, colour("#ff5fa8")], photo="woman",
-    tags=["discoteca", "disco", "fiesta", "party", "luces", "lights"],
+    key="luz_disco", category="luz",
+    params=[INTENSITY, SPEED, colour("#ff5fa8"), *center(0.5, -0.1), SIZE,
+            Param("density", "Density", 0.2, 2.0, 1.0)],
+    photo="fx-woman-04", tags=["discoteca", "disco", "fiesta", "party", "luces", "lights"],
     body=r"""
 void main() {
     vec2 uv = v_texCoord;
@@ -496,19 +651,20 @@ void main() {
     vec2 p = toP(uv);
     float t = u_time * speed;
     vec3 col = mix(src.rgb, src.rgb * mix(vec3(1.0), color * 1.4, 0.5), 0.45 * sat(intensity));
-    // Mirror-ball spots.
-    vec2 q = rot(t * 0.35) * (p - vec2(0.0, -0.6)) * 5.0;
+    // Mirror-ball spots turning about the ball.
+    vec2 ball = (vec2(centerX, centerY) - 0.5) * vec2(aspect(), 1.0);
+    vec2 q = rot(t * 0.35) * (p - ball) * 5.0 / size;
     q.x += t * 0.4;
     vec2 c = floor(q), f = fract(q) - 0.5;
     vec2 o = (hash22(c) - 0.5) * 0.5;
-    float on = step(0.45, hash12(c + floor(t * 2.0) * 0.37));
+    float on = step(1.0 - 0.55 * density, hash12(c + floor(t * 2.0) * 0.37));
     float spot = smoothstep(0.24, 0.06, length(f - o)) * on;
     vec3 sc = hsv2rgb(vec3(fract(hash12(c + 5.0) * 0.35 + 0.8), 0.6, 1.0));
     // LED columns that change a few times a second.
     float colx = floor(uv.x * 18.0);
-    float led = hash12(vec2(colx, floor(t * 6.0))) ;
+    float led = hash12(vec2(colx, floor(t * 6.0)));
     float ledMask = smoothstep(0.65, 0.95, led) * (0.6 + 0.4 * smoothstep(0.0, 0.3, fract(uv.y * 9.0 + colx)));
-    // A pink wash that sweeps across.
+    // A wash that sweeps across.
     float sweep = 0.5 + 0.5 * sin(p.x * 3.0 - t * 1.8);
     float scan = 0.92 + 0.08 * sin(uv.y * u_resolution.y * 1.2);
     vec3 L = sc * spot * 0.9 + color * ledMask * 0.35 + color * sweep * 0.22;
@@ -517,9 +673,8 @@ void main() {
 }
 """,
     variants=[
-        Variant("luz-de-discoteca", "Luz de discoteca", "Disco light", photo="fx-woman-04",
-                tags=["rosa", "pink"], thumb=1.0),
+        Variant("luz-de-discoteca", "Luz de discoteca", "Disco light", tags=["rosa", "pink"], thumb=1.0),
     ],
 )
 
-FAMILIES = [LEAK, FLARE, RAYS, BOKEH, GLOW, DISCO]
+FAMILIES = [LEAK, FLARE, RAYS, NEON_RAYS, STAGE, BOKEH, AURA, PLASMA, STARBURST, FLASH, VIBRATE, GRAIN_BEAM, DISCO]

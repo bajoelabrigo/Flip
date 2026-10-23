@@ -97,7 +97,7 @@ BEAM = Family(
     params=[INTENSITY, SPEED, color("#ffe2b0"), Param("size", "Size", 0.4, 2.0, 1.0), *centre(0.5, 0.86),
             Param("travel", "Distance", 0.0, 2.0, 1.0),     # how far the light sways / wanders
             Param("softness", "Softness", 0.0, 1.0, 0.5),
-            Param("brightness", "Brightness", 0.0, 1.0, 0.55)],  # how dark the rest of the picture goes
+            Param("brightness", "Brightness", 0.0, 1.0, 0.45)],  # how dark the rest of the picture goes
     photo="dark", tags=["foco", "spotlight", "escenario", "stage", "luz", "light"],
     defines={"MODE": "0"},
     body=r"""
@@ -118,7 +118,7 @@ void main() {
     float depth = p.y - top.y;
     float cx = mix(top.x, floorC.x, sat(depth / max(floorY - top.y, 0.05)));
     float w = (0.02 + depth * 0.32) * size;
-    float cone = smoothstep(w, w * (1.0 - sf * 1.3 + 0.3), abs(p.x - cx)) * smoothstep(floorY + 0.1, floorY - 0.05, p.y);
+    float cone = smoothstep(w, w * max(1.0 - sf * 1.3, 0.0), abs(p.x - cx)) * smoothstep(floorY + 0.1, floorY - 0.05, p.y);
     float dust = 0.65 + 0.35 * fbm(vec2(p.x * 6.0, p.y * 3.0 - t * 0.4));
     float ray = 0.8 + 0.2 * sin((p.x - cx) / max(w, 0.01) * 9.0 + t * 0.5);
     vec2 pq = (p - floorC) / (vec2(0.36, 0.07) * size);
@@ -163,7 +163,7 @@ STREAKS = Family(
     key="luz2_streaks", category="luz",
     params=[INTENSITY, SPEED, color("#4f8dff"), Param("width", "Width", 0.3, 2.5, 1.0), *centre(0.5, -0.2),
             Param("angle", "Angle", -180.0, 180.0, 90.0), Param("spread", "Spread", 0.2, 3.0, 2.4),
-            Param("flicker", "Flicker", 0.0, 1.0, 0.4), Param("glow", "Glow", 0.0, 2.0, 1.0)],
+            Param("flicker", "Flicker", 0.0, 1.0, 0.8), Param("glow", "Glow", 0.0, 2.0, 1.0)],
     photo="dark", tags=["bengala", "flare", "azul", "blue", "rayos", "streaks", "luz", "light"],
     body=r"""
 void main() {
@@ -229,7 +229,7 @@ void main() {
     l += mix(color_a, vec3(1.0, 0.8, 0.6), 0.5) * blob(p, s + vec2(0.1, -0.25) * size + 0.15 * m * vec2(sin(t * 1.3 + 2.0), 0.0),
                                                          vec2(0.18, 0.5) * size, -0.5) * 0.45;
     // A giant out-of-focus orb across from the leak: a soft disc with a brighter, slightly chromatic rim.
-    vec2 oc = toP(vec2(1.0 - center_x, 1.0 - center_y) * 0.95 + vec2(0.0, -0.1)) + 0.06 * m * vec2(sin(t * 0.8), cos(t * 0.6));
+    vec2 oc = toP(vec2(0.98 - center_x, 0.98 - center_y)) + 0.06 * m * vec2(sin(t * 0.8), cos(t * 0.6));
     float od = length(p - oc);
     float R = (0.42 + 0.02 * sin(t * 1.4)) * size;
     float disc = smoothstep(R, R - 0.06, od);
@@ -360,18 +360,17 @@ void main() {
     variants=[
         Variant("destello-horizontal", "Destello horizontal", "Horizontal flare", thumb=1.0, photo="woman",
                 params={"color": "#ff6fd2", "width": 1.8, "center_x": 0.08, "center_y": 0.45, "glow": 1.0,
-                        "flicker": 1.0, "size": 1.4},
+                        "flicker": 1.0},
                 tags=["rosa", "pink", "lateral", "side"]),
         Variant("antorcha-rapida", "Antorcha rápida", "Fast torch", thumb=1.6, defines={"PATH": "1"},
                 params={"width": 2.0, "center_y": 0.55, "frequency": 0.714, "amount": 0.5, "glow": 0.5},
                 tags=["rapida", "fast", "barrido", "sweep", "azul", "blue"]),
         Variant("destello-anamorfico-de-tv", "Destello anamórfico de TV", "Anamorphic TV flare", thumb=1.0,
                 defines={"OVAL": 1.0},
-                params={"color": "#9cc4ff", "width": 1.4, "center_y": 0.52, "flicker": 0.4, "size": 1.2},
+                params={"color": "#9cc4ff", "width": 1.4, "center_y": 0.52, "flicker": 0.4},
                 tags=["tv", "retro", "television"]),
         Variant("destello-de-lente-anamorfico", "Destello de lente anamórfico", "Anamorphic lens flare", thumb=1.2,
-                photo="woman", params={"color": "#7fb0ff", "center_x": 0.3, "center_y": 0.42, "amount": 1.0,
-                                       "size": 1.2},
+                photo="woman", params={"color": "#7fb0ff", "center_x": 0.3, "center_y": 0.42, "amount": 1.0},
                 tags=["lente", "lens", "estrella", "star"]),
     ],
 )
@@ -419,11 +418,10 @@ void main() {
     col = addLight(col, color * hit * 0.35, intensity);
     col += vec3(0.04, 0.0, 0.06) * hit;
 #elif MODE == 2
-    // Pulsing flash: the exposure breathes to white on every beat, strongest round Center X/Y.
+    // Pulsing flash: the exposure breathes to white on every beat, with a small punch-in about Center X/Y.
     float b = beat(t, per, 0.16);
-    float near = 0.7 + 0.3 * exp(-length(p - toP(cc)) * 1.5);
     vec4 a = Sm(camUv(uv, cc, 1.0 + zoom * b, 0.0, vec2(0.0)));
-    float f = (0.1 + 1.4 * b) * intensity * near;
+    float f = (0.1 + 1.4 * b) * intensity;
     col = expose(a.rgb, f);
     col = mix(col, color, sat(b * 0.2 * intensity));
     col = contrastColor(col, 1.0 + 0.15 * b);
