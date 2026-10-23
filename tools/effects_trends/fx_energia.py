@@ -82,8 +82,8 @@ vec2 boltPoint(vec2 a, vec2 b, float s, float amp, float t) {
 }
 float boltLight(float d, float t, float w) {
     float taper = mix(1.0, 0.4, sat(t)) * w;
-    float wc = max(0.0022, px().y * 0.7) * taper;
-    return exp(-d / wc) + 0.7 * exp(-d / (0.016 * taper)) + 0.3 * exp(-d / (0.06 * taper));
+    float wc = max(0.0035, px().y * 0.7) * taper;
+    return exp(-d / wc) + 0.7 * exp(-d / (0.018 * taper)) + 0.3 * exp(-d / (0.07 * taper));
 }
 void main() {
     vec4 src = S(v_texCoord);
@@ -157,29 +157,29 @@ void main() {
 }
 """,
     variants=[
-        Variant("rayos-01", "Rayos 01", "Lightning 01", photo="dark", thumb=1.4,
+        Variant("rayos-01", "Rayos 01", "Lightning 01", photo="dark", thumb=1.7,
                 defines={"NB": 5, "LEN": 0.65}),
-        Variant("relampagos", "Relámpagos", "Dazzling lightning", photo="dark", thumb=0.9,
+        Variant("relampagos", "Relámpagos", "Dazzling lightning", photo="dark", thumb=2.25,
                 defines={"NB": 3, "LEN": 1.0, "AMP": 0.09, "THICK": 1.4, "RATE": 1.2, "FLASH": 0.4},
                 params={"color": "#dfe8ff"}),
-        Variant("fondo-de-relampago", "Fondo de relámpago", "Lightning background", photo="fx-cyber-02", thumb=1.1,
+        Variant("fondo-de-relampago", "Fondo de relámpago", "Lightning background", photo="fx-cyber-02", thumb=2.3,
                 defines={"MODE": 1, "NB": 6, "LEN": 0.45, "R0": 0.22, "CGLOW": 0.6, "DARKEN": 0.25},
                 params={"color": "#3d8bff"}),
-        Variant("descarga-electrica", "Descarga eléctrica", "Electric discharge", photo="cyber", thumb=1.6,
-                defines={"MODE": 1, "NB": 6, "LEN": 0.3, "R0": 0.18, "AMP": 0.12, "RATE": 2.6, "THICK": 0.8,
-                         "DARKEN": 0.15}, params={"color": "#8ab8ff"}),
-        Variant("vortice-de-relampagos", "Vórtice de relámpagos", "Lightning vortex", photo="cyber", thumb=1.2,
+        Variant("descarga-electrica", "Descarga eléctrica", "Electric discharge", photo="cyber", thumb=2.85,
+                defines={"MODE": 1, "NB": 8, "LEN": 0.4, "R0": 0.18, "AMP": 0.12, "RATE": 2.6, "THICK": 1.4,
+                         "DARKEN": 0.3, "FLASH": 0.4}, params={"color": "#8ab8ff"}),
+        Variant("vortice-de-relampagos", "Vórtice de relámpagos", "Lightning vortex", photo="cyber", thumb=1.3,
                 defines={"MODE": 3, "NB": 6, "LEN": 0.55, "R0": 0.16, "RATE": 2.0, "CGLOW": 0.4, "DARKEN": 0.2},
                 params={"color": "#9a6dff"}),
-        Variant("explosion-de-energia", "Explosión de energía", "Energy explosion", photo="dancer", thumb=1.0,
+        Variant("explosion-de-energia", "Explosión de energía", "Energy explosion", photo="dancer", thumb=2.5,
                 defines={"MODE": 1, "NB": 6, "LEN": 0.5, "R0": 0.24, "CGLOW": 1.2, "RATE": 2.2, "FLASH": 0.4,
                          "DARKEN": 0.2}, params={"color": "#c08cff"}),
-        Variant("luz-electrica", "Luz eléctrica", "Electric light", photo="figure", thumb=0.5,
-                defines={"NB": 4, "LEN": 0.8, "FLASH": 0.9, "DARKEN": 0.35, "TINT": 0.8, "THICK": 1.2},
+        Variant("luz-electrica", "Luz eléctrica", "Electric light", photo="figure", thumb=1.2,
+                defines={"NB": 6, "LEN": 0.85, "FLASH": 0.9, "DARKEN": 0.45, "TINT": 0.8, "THICK": 2.0},
                 params={"color": "#b9a8ff"}),
-        Variant("cupula-del-trueno", "Cúpula del trueno", "Thunder dome", photo="figure", thumb=0.4,
-                defines={"MODE": 2, "NB": 1, "AMP": 0.12, "THICK": 1.6, "RATE": 1.0, "FLASH": 0.6, "TINT": 0.9,
-                         "DARKEN": 0.35}, params={"color": "#7ab8ff"}),
+        Variant("cupula-del-trueno", "Cúpula del trueno", "Thunder dome", photo="figure", thumb=2.7,
+                defines={"MODE": 2, "NB": 1, "AMP": 0.12, "THICK": 2.6, "RATE": 1.0, "FLASH": 0.6, "TINT": 0.9,
+                         "DARKEN": 0.45}, params={"color": "#7ab8ff"}),
     ],
 )
 
@@ -477,7 +477,7 @@ void main() {
     float t = u_time * speed;
     float A = aspect();
     vec3 light = vec3(0.0);
-    float nr = clamp(floor(5.0 * density + 0.5), 1.0, 10.0);
+    float nr = clamp(floor(7.0 * density + 0.5), 1.0, 10.0);
     for (int i = 0; i < 10; ++i) {
         if (float(i) >= nr) break;
         float fi = float(i);
@@ -495,11 +495,11 @@ void main() {
             vec2 tail = mix(start, top, max(k - 0.25, 0.0));
             float d = sdSegment(p, tail, head);
             float along = sat(dot(p - tail, head - tail) / max(dot(head - tail, head - tail), 1e-5));
-            light += hue * (exp(-d / 0.003) * along + 0.35 * exp(-d / 0.012) * along);
+            light += hue * (exp(-d / 0.0045) * along + 0.4 * exp(-d / 0.015) * along);
             light += vec3(1.0, 0.9, 0.7) * exp(-length(p - head) / 0.006);
         } else {
             float b = (ph - launch) / (1.0 - launch);
-            float R = 0.3 * size * (0.7 + 0.5 * rr.y) * easeOut(b * 1.3);
+            float R = 0.45 * size * (0.7 + 0.5 * rr.y) * easeOut(b * 1.3);
             vec2 q = p - top - vec2(0.0, 0.12 * b * b);      // gravity
             float N = 18.0;
             float ang = atan(q.y, q.x);
@@ -509,7 +509,7 @@ void main() {
             float Rj = R * (0.85 + 0.3 * hash11(j + n * 5.0 + fi));
             float d = sdSegment(q, dir * Rj * 0.55, dir * Rj);
             float fade = (1.0 - b) * (1.0 - b);
-            float spark = exp(-d / 0.0035) + 0.3 * exp(-d / 0.015);
+            float spark = exp(-d / 0.0055) + 0.4 * exp(-d / 0.02);
             float tw = 0.6 + 0.4 * step(0.4, hash12(vec2(j, floor(t * 14.0) + fi)));
             light += mix(hue, vec3(1.0), 0.3) * spark * fade * tw * 1.2;
             light += hue * exp(-length(q) / 0.12) * 0.25 * exp(-b * 6.0);
@@ -520,7 +520,7 @@ void main() {
 }
 """,
     variants=[
-        Variant("fuegos-artificiales", "Fuegos artificiales", "Fireworks", photo="dark", thumb=1.2),
+        Variant("fuegos-artificiales", "Fuegos artificiales", "Fireworks", photo="dark", thumb=0.95),
     ],
 )
 
@@ -542,16 +542,16 @@ void main() {
     float v2 = vnoise(q * 1.3 + w * 1.5) * 0.6 + vnoise(q * 2.6 + w) * 0.4;
     float c1 = abs(fract(v2 * 3.0) - 0.5);
     lines += exp(-c1 / 0.05) * 0.6 + exp(-c1 / 0.15) * 0.25;
-    float th = 0.42 - 0.15 * (density - 1.0);   // more density, more of the frame in smoke
+    float th = 0.36 - 0.15 * (density - 1.0);   // more density, more of the frame in smoke
     float patch_ = smoothstep(th, th + 0.33, fbm(p * 1.4 / size + vec2(-t * 0.4, t * 0.8)));
     float haze = fbm(q * 0.7 + w) * patch_;
-    float s = lines * patch_ * 0.8 + haze * 0.35;
-    vec3 col = addLight(src.rgb, color, s * intensity * 0.8);
+    float s = lines * patch_ * 1.1 + haze * 0.22;
+    vec3 col = addLight(src.rgb, color, s * intensity);
     fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
-        Variant("lineas-de-humo", "Líneas de humo", "Smoke lines", photo="woman", thumb=1.0),
+        Variant("lineas-de-humo", "Líneas de humo", "Smoke lines", photo="woman", thumb=2.9),
     ],
 )
 
@@ -630,7 +630,7 @@ void main() {
     for (int i = 0; i < 10; ++i) {
         float fi = float(i);
         float k = fi / 9.0;
-        float sc = mix(3.0, 1.5, k) * size;   // perspective: nearer prints are bigger
+        float sc = mix(4.2, 2.2, k) * size;   // perspective: nearer prints are bigger
         vec2 c = mix(a, b, k) + nrm * (mod(fi, 2.0) < 0.5 ? 0.035 : -0.035) * sc;
         float born = fi * 0.075;
         float age = ph - born;
@@ -643,12 +643,12 @@ void main() {
         float d = footSd(q, mod(fi, 2.0) < 0.5 ? 1.0 : -1.0) * sc;
         light += vis * (smoothstep(0.0015, -0.0015, d) * 0.95 + 0.3 * exp(-max(d, 0.0) / 0.008));
     }
-    vec3 col = addLight(src.rgb * (1.0 - 0.12 * sat(intensity)), color, light * intensity);
+    vec3 col = addLight(src.rgb * (1.0 - 0.15 * sat(intensity)), color, light * intensity * 1.4);
     fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
-        Variant("rastro-de-huellas", "Rastro de huellas", "Glowing footprints", photo="figure", thumb=1.5),
+        Variant("rastro-de-huellas", "Rastro de huellas", "Glowing footprints", photo="figure", thumb=0.9),
     ],
 )
 
@@ -667,15 +667,15 @@ void main() {
     float charge = linstep(0.0, 0.42, ph);
     float fl = ph > 0.42 ? exp(-(ph - 0.42) * 14.0) : 0.0;
     float reveal = linstep(0.42, 0.46, ph) * (1.0 - linstep(0.85, 1.0, ph));
-    float dark = mix(0.06, 1.0, reveal);
+    float dark = mix(0.14, 1.0, reveal);
     vec3 base = src.rgb * dark;
     // The ring fills round clockwise from the top, with a bright head.
     float r = length(p), a = fract(atan(p.x, -p.y) / TAU);
-    float R = 0.075;
-    float ring = exp(-abs(r - R) / 0.004);
+    float R = 0.11;
+    float ring = exp(-abs(r - R) / 0.006) + 0.4 * exp(-abs(r - R) / 0.03);
     float filled = step(a, charge);
     float head = exp(-length(p - R * vec2(sin(charge * TAU), -cos(charge * TAU))) / 0.012);
-    float showRing = 1.0 - linstep(0.42, 0.5, ph);
+    float showRing = 1.0 - linstep(0.48, 0.68, ph);
     float l = (ring * (0.15 + 0.85 * filled) + head * 1.2) * showRing;
     l += exp(-r / 0.05) * 0.35 * charge * showRing * (0.7 + 0.3 * sin(t * 20.0));
     // Sparks pulled in toward the ring while charging.
@@ -696,7 +696,7 @@ void main() {
 }
 """,
     variants=[
-        Variant("carga-en-oscuro", "Carga en oscuro", "Charging in the dark", photo="cyber", thumb=1.0),
+        Variant("carga-en-oscuro", "Carga en oscuro", "Charging in the dark", photo="cyber", thumb=1.6),
     ],
 )
 

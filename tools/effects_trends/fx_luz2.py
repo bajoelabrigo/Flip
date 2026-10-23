@@ -186,18 +186,19 @@ void main() {
         float band = exp(-across * across / (w * w)) * smoothstep(-0.05, 0.1, along) * exp(-max(along, 0.0) * (0.9 + h));
         float core = exp(-across * across / (w * w * 0.04)) * smoothstep(-0.02, 0.1, along) * exp(-max(along, 0.0) * 2.5);
         float fl = 1.0 - flicker + flicker * (0.5 + 0.5 * sin(t * (1.3 + h * 2.0) + h * 20.0));
-        l += (color * band * 0.8 + mix(color, vec3(1.0), 0.6) * core * 0.35) * fl;
+        l += (color * band * 1.1 + mix(color, vec3(1.0), 0.6) * core * 0.6) * fl;
     }
     float g = exp(-dist * 3.2) * 0.9 * glow;
     l += mix(color, vec3(1.0), 0.4) * g * (0.85 + 0.15 * sin(t * 2.0));
-    l += color * 0.08 * glow;
+    l += color * 0.04 * glow;
     fragColor = vec4(addLight(src.rgb, l, intensity), src.a);
 }
 """,
     variants=[
-        Variant("bengalas-azules", "Bengalas azules", "Blue flares", thumb=1.0, params={"width": 1.6},
+        Variant("bengalas-azules", "Bengalas azules", "Blue flares", thumb=1.2, photo="fx-citynight-06",
+                params={"width": 1.3, "glow": 0.55},
                 tags=["arriba", "top"]),
-        Variant("bengalas-de-color-azul-marino", "Bengalas de color azul marino", "Navy blue flares", thumb=1.4,
+        Variant("bengalas-de-color-azul-marino", "Bengalas de color azul marino", "Navy blue flares", thumb=1.2, photo="fx-concert-02",
                 params={"color": "#2f5fd0", "center_x": -0.05, "center_y": -0.05, "angle": 35.5, "spread": 0.7},
                 tags=["azul marino", "navy", "diagonal"]),
     ],
@@ -236,11 +237,12 @@ void main() {
     float rim = exp(-abs(od - R + 0.03) * 40.0);
     l += blend * (color_a * disc * 0.35 + vec3(1.0, 0.7, 0.85) * rim * 0.45 + color_b * exp(-abs(od - R) * 25.0) * 0.25);
     float breathe = 0.75 + 0.25 * sin(t * 1.7) * sin(t * 0.9 + 1.0);
-    fragColor = vec4(addLight(src.rgb, l * breathe, intensity), src.a);
+    fragColor = vec4(addLight(src.rgb, l * breathe * 1.4, intensity), src.a);
 }
 """,
     variants=[
-        Variant("fuga-de-luz-3", "Fuga de luz 3", "Light leak 3", thumb=1.2, tags=["morado", "purple", "rosa", "pink"]),
+        Variant("fuga-de-luz-3", "Fuga de luz 3", "Light leak 3", thumb=1.4, photo="fx-concert-01", params={"size": 1.3},
+                 tags=["morado", "purple", "rosa", "pink"]),
         Variant("fuga-de-luz-5", "Fuga de luz 5", "Light leak 5", thumb=1.5,
                 params={"color_a": "#ff2f8f", "color_b": "#c04dff", "center_x": 0.2, "center_y": 0.8, "blend": 1.0},
                 tags=["orbe", "orb", "magenta"]),
@@ -301,9 +303,9 @@ void main() {
         Variant("luz-del-sol-06", "Luz del sol 06", "Sunlight 06", thumb=1.5,
                 params={"center_x": 0.04, "center_y": 0.04, "strength": 0.9, "amount": 1.2, "glow": 0.55},
                 tags=["esquina", "corner", "blanco", "white"]),
-        Variant("luz-del-sol-01", "Luz del sol 01", "Sunlight 01", thumb=1.8,
-                params={"color": "#ffd27a", "size": 1.1, "center_x": 0.96, "center_y": 0.02, "strength": 0.5,
-                        "amount": 1.3, "glow": 0.85, "travel": 0.05},
+        Variant("luz-del-sol-01", "Luz del sol 01", "Sunlight 01", thumb=1.8, photo="fx-citynight-03",
+                params={"color": "#ffd27a", "center_x": 0.88, "center_y": 0.08, "strength": 0.8,
+                        "amount": 1.3, "glow": 1.0, "travel": 0.05, "size": 1.4},
                 tags=["dorado", "golden", "calido", "warm"]),
     ],
 )
@@ -362,8 +364,8 @@ void main() {
                 params={"color": "#ff6fd2", "width": 1.8, "center_x": 0.08, "center_y": 0.45, "glow": 1.0,
                         "flicker": 1.0},
                 tags=["rosa", "pink", "lateral", "side"]),
-        Variant("antorcha-rapida", "Antorcha rápida", "Fast torch", thumb=1.6, defines={"PATH": "1"},
-                params={"width": 2.0, "center_y": 0.55, "frequency": 0.714, "amount": 0.5, "glow": 0.5},
+        Variant("antorcha-rapida", "Antorcha rápida", "Fast torch", thumb=0.7, photo="fx-citynight-04", defines={"PATH": "1"},
+                params={"width": 2.2, "center_y": 0.55, "frequency": 0.714, "amount": 0.8, "glow": 1.0, "size": 1.6},
                 tags=["rapida", "fast", "barrido", "sweep", "azul", "blue"]),
         Variant("destello-anamorfico-de-tv", "Destello anamórfico de TV", "Anamorphic TV flare", thumb=1.0,
                 defines={"OVAL": 1.0},

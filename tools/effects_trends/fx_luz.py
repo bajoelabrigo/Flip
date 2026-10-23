@@ -104,7 +104,7 @@ void main() {
                 defines={"COL_B": "#1a3a8a", "COL_C": "#46c8ff", "P1": (0.6, 0.85), "P2": (0.3, 1.05),
                          "P3": (0.8, 0.6), "R1": 0.3, "R2": 0.35, "R3": 0.18, "GAIN": 0.75},
                 tags=["azul", "blue", "suave", "soft"], thumb=1.2),
-        Variant("quemadura-de-pelicula", "Quemadura de película", "Film burn", photo="fx-walk-04",
+        Variant("quemadura-de-pelicula", "Quemadura de película", "Film burn", photo="fx-woman-05",
                 params={"color": "#8a1a06"},
                 defines={"BURN": 1.0, "COL_B": "#ff6a10", "COL_C": "#ffc24a", "P1": (1.0, 0.2),
                          "P2": (0.85, 0.9), "P3": (0.0, 0.0), "R1": 0.55, "R2": 0.45, "R3": 0.3, "WARP": 0.8},

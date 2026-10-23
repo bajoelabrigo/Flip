@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from kit import PARAM_LABELS, SAMPLES, param_defaults, photo_for, shader  # noqa: E402
+from kit import BLOCKED_PHOTOS, PARAM_LABELS, SAMPLES, param_defaults, photo_for, shader  # noqa: E402
 
 VERT = """#version 330 core
 in vec2 a_position;
@@ -167,6 +167,10 @@ def main() -> int:
             if only and v.id not in only:
                 continue
             photo = photo_for(fam, v)
+            if photo in BLOCKED_PHOTOS:
+                print(f"{v.id}: photo {photo} has a brand or sign in view (kit.BLOCKED_PHOTOS)")
+                failed += 1
+                continue
             if not (SAMPLES / f"{photo}.jpg").exists():
                 print(f"{v.id}: photo {photo} missing")
                 failed += 1

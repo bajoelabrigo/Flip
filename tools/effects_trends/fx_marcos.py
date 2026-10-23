@@ -113,7 +113,7 @@ void main() {
     bg *= mix(1.0, vignette(uv, 0.35, 0.5), 0.5);
 
     float sc = mix(0.9, 1.0, easeOutBack(u_time / 0.5));
-    if (PULSE > 0.5) sc *= 1.0 - 0.08 * beat(u_time, 0.5, 0.22) * k - 0.02 * wave01(t, 4.0);
+    if (PULSE > 0.5) sc *= 1.0 - 0.1 * beat(u_time, 0.5, 0.22) * k - 0.02 * wave01(t, 4.0);
     vec2 hs = cardHalf(size) * sc;
     float ang = radians(angle) + radians(rotation) * k * sin(t * 1.25);
     vec2 off = vec2(0.010 * sin(t * 0.9), 0.008 * sin(t * 1.1 + 1.0)) * k;
@@ -192,8 +192,8 @@ void main() {
                 defines={"FA": 0.0, "SIDE": 0.03, "BG": 1.0, "NOTES": 1.0}, params={"size": 0.8, "angle": 1.1, "rotation": 1.1},
                 tags=["notas", "notes", "post-it", "papel", "paper"], photo="fx-woman-03", thumb=1.0),
         Variant("escala-de-borde", "Escala de borde", "Border scale",
-                defines={"FA": 0.0, "SIDE": 0.012, "BG": 0.0, "PULSE": 1.0}, params={"size": 0.9, "rotation": 0.0, "brightness": 0.75},
-                tags=["escala", "scale", "ritmo", "beat", "pulso", "pulse"], photo="fashion", thumb=1.0),
+                defines={"FA": 0.0, "SIDE": 0.022, "BG": 0.0, "PULSE": 1.0}, params={"size": 0.86, "rotation": 0.0, "brightness": 0.5},
+                tags=["escala", "scale", "ritmo", "beat", "pulso", "pulse"], photo="fashion", thumb=1.02),
     ],
 )
 
@@ -424,7 +424,7 @@ EDGE_GLOW = Family(
     key="marcos_edge_glow", category="marcos", requires="depth",
     params=[INTENSITY, SPEED, Param("color", "Colour", default="#e8d6ff"), Param("width", "Width", 0.3, 3.0, 1.0),
             Param("glow", "Glow", 0.0, 3.0, 1.0), Param("distance", "Distance", 0.1, 0.9, 0.5)],
-    photo="fashion", tags=["resplandor", "glow", "contorno", "outline", "silueta", "silhouette", "persona", "person"],
+    photo="fx-figure-04", tags=["resplandor", "glow", "contorno", "outline", "silueta", "silhouette", "persona", "person"],
     body=r"""
 // The nearest subject: 1 where the depth map is nearer than `distance`.
 float nearM(vec2 uv) { return smoothstep(distance - 0.08, distance + 0.08, driftDepth(clamp(uv, px(), 1.0 - px()))); }
@@ -461,7 +461,7 @@ void main() {
         ring /= 8.0;
         light = color * (smoothstep(0.3, 0.9, e) * 0.9 + smoothstep(0.2, 0.7, ring) * 0.6 * glow);
     }
-    vec3 col = addLight(src.rgb * (1.0 - 0.12 * intensity), light, k);
+    vec3 col = addLight(src.rgb * (1.0 - 0.22 * intensity), light, k);
     fragColor = vec4(col, src.a);
 }
 """,

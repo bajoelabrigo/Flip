@@ -91,7 +91,7 @@ void main() {
         Variant("vibracion-de-borde-rgb", "Vibración de borde RGB", "RGB edge vibration", photo="figure", thumb=0.3,
                 defines={"EDGEONLY": 1.0, "SPLIT": 0.014, "BASE": 0.35, "EDGEGAIN": 0.7, "SHAKE": 0.008, "ZOOM": 1.05},
                 tags=["borde", "edge", "contorno", "outline", "vibracion"]),
-        Variant("temblor-de-contorno", "Temblor de contorno", "Outline tremble", photo="woman", thumb=1.4,
+        Variant("temblor-de-contorno", "Temblor de contorno", "Outline tremble", photo="woman", thumb=1.6,
                 defines={"EDGEONLY": 1.0, "SPLIT": 0.008, "BASE": 0.4, "DIR": (0.7, 0.7), "SHAKE": 0.012,
                          "ZOOM": 1.06, "EDGEA": "#ffffff", "EDGEB": "#ffd0f0", "EDGEGAIN": 0.3, "BPERIOD": 0.5, "BURST": 0.6},
                 tags=["contorno", "outline", "temblor", "tremble"]),
@@ -99,18 +99,18 @@ void main() {
                 defines={"SOUL": 0.35, "SPLIT": 0.012, "SHAKE": 0.01, "ZOOM": 1.06, "BASE": 0.2},
                 tags=["alma", "soul", "fantasma", "ghost", "nervios"]),
         Variant("nerviosismo-cinematografico", "Nerviosismo cinematográfico", "Cinematic jitter", photo="man",
-                thumb=0.3, defines={"SPLIT": 0.01, "SHAKE": 0.012, "ZOOM": 1.08, "ROT": 0.02, "BASE": 0.2,
+                thumb=0.2, params={"intensity": 1.3}, defines={"SPLIT": 0.018, "SHAKE": 0.012, "ZOOM": 1.08, "ROT": 0.02, "BASE": 0.2,
                                     "BPERIOD": 0.5, "BURST": 0.5},
                 tags=["cine", "cinematic", "nervios", "jitter"]),
-        Variant("choque-de-corte", "Choque de corte", "Cut impact", photo="woman", thumb=0.25,
+        Variant("choque-de-corte", "Choque de corte", "Cut impact", photo="woman", thumb=1.6,
                 defines={"PUNCH": 0.18, "ZOOM": 1.04, "SPLIT": 0.03, "SHAKE": 0.02, "BASE": 0.0, "BPERIOD": 0.5,
                          "BURST": 0.3, "BLUR": 0.02, "DIR": (0.0, 1.0)},
                 tags=["choque", "impact", "corte", "cut", "zoom"]),
-        Variant("colision", "Colisión", "Collision", photo="skater", thumb=0.3,
-                defines={"FLASH": 0.75, "BLUR": 0.07, "SPLIT": 0.025, "SHAKE": 0.02, "ZOOM": 1.08, "PUNCH": 0.08,
+        Variant("colision", "Colisión", "Collision", photo="skater", thumb=0.15,
+                defines={"FLASH": 0.45, "BLUR": 0.07, "SPLIT": 0.025, "SHAKE": 0.02, "ZOOM": 1.08, "PUNCH": 0.08,
                          "BASE": 0.0, "BURST": 0.4},
                 tags=["colision", "collision", "destello", "flash", "choque"]),
-        Variant("estiramiento-vibracion", "Estiramiento vibración", "Stretch vibration", photo="skater", thumb=0.3,
+        Variant("estiramiento-vibracion", "Estiramiento vibración", "Stretch vibration", photo="skater", thumb=1.55,
                 defines={"STRETCH": (0.0, 0.4), "SPLIT": 0.012, "SHAKE": 0.012, "ZOOM": 1.05, "BASE": 0.1,
                          "BPERIOD": 0.5, "BURST": 0.55},
                 tags=["estirar", "stretch", "vibracion", "vibration"]),
@@ -297,9 +297,12 @@ void main() {
         float b = floor(t / 0.5);
         float snap = step(0.5, hash11(b * 2.3)) * 0.12;
         uv = camUv(v_texCoord, vec2(0.5), 1.0 + snap * intensity, 0.0, vec2(0.0));
-        col = Sm(uv).rgb;
-        col = mix(col, vec3(1.0), step(ph, 0.09) * 0.85 * sat(intensity));
-        col *= 1.0 - step(0.12, ph) * step(ph, 0.2) * 0.75 * sat(intensity);
+        float fl = pow(1.0 - smoothstep(0.0, 0.26, ph), 2.0);
+        vec2 o = vec2(0.012 * fl * intensity, 0.0);
+        col = vec3(Sm(uv + o).r, Sm(uv).g, Sm(uv - o).b);
+        // The flash fades over ~130 ms; a dark frame follows.
+        col = mix(col, vec3(1.0), fl * 0.85 * sat(intensity));
+        col *= 1.0 - step(0.28, ph) * step(ph, 0.36) * 0.75 * sat(intensity);
     } else if (mode(2.0)) {
         // Inverted frames in the hits, with the channels apart.
         float inv = step(0.45, hash11(floor(t * 12.0) * 3.1)) * step(0.01, e);
@@ -340,17 +343,17 @@ void main() {
 }
 """),
     variants=[
-        Variant("estroboscopio-bloqueado", "Estroboscopio bloqueado", "Locked strobe", photo="woman", thumb=1.0,
+        Variant("estroboscopio-bloqueado", "Estroboscopio bloqueado", "Locked strobe", photo="woman", thumb=0.55,
                 defines={"MODE": 1.0}, tags=["estroboscopio", "strobe", "flash", "ritmo", "beat"]),
         Variant("invertir-alterado", "Invertir alterado", "Glitched invert", photo="man", thumb=0.3,
                 defines={"MODE": 2.0}, tags=["invertir", "invert", "negativo", "negative"]),
         Variant("jitter-de-parpadeo-01", "Jitter de parpadeo 01", "Flicker jitter 01", photo="dancer", thumb=0.3,
                 defines={"MODE": 3.0, "BPERIOD": 0.5, "BURST": 0.6}, tags=["jitter", "brillo", "brightness"]),
-        Variant("falla-de-parpadeo", "Falla de parpadeo", "Flicker glitch", photo="skater", thumb=0.3,
+        Variant("falla-de-parpadeo", "Falla de parpadeo", "Flicker glitch", photo="skater", thumb=2.4,
                 defines={"MODE": 4.0}, tags=["falla", "doble", "double", "negativo"]),
-        Variant("parpadeo-de-color", "Parpadeo de color", "Colour flicker", photo="woman", thumb=0.3,
+        Variant("parpadeo-de-color", "Parpadeo de color", "Colour flicker", photo="woman", thumb=2.2,
                 defines={"MODE": 5.0, "BURST": 0.6}, tags=["color", "colour", "tinte", "tint"]),
-        Variant("fantasma-glitch", "Fantasma glitch", "Glitch haunt", photo="woman", thumb=0.3,
+        Variant("fantasma-glitch", "Fantasma glitch", "Glitch haunt", photo="woman", thumb=1.5,
                 defines={"MODE": 6.0, "BURST": 0.6}, tags=["fantasma", "ghost", "haunt", "terror"]),
     ],
 )
@@ -393,10 +396,10 @@ void main() {
 }
 """),
     variants=[
-        Variant("estilo-de-fps-bajo", "Estilo de FPS bajo", "Low FPS style", photo="skater", thumb=0.8,
+        Variant("estilo-de-fps-bajo", "Estilo de FPS bajo", "Low FPS style", photo="skater", thumb=1.25,
                 defines={"MODE": 1.0}, tags=["fps", "entrecortado", "choppy", "stutter"]),
-        Variant("imagen-remanente", "Imagen remanente", "Afterimage", photo="dancer", thumb=0.8,
-                defines={"MODE": 2.0}, tags=["remanente", "afterimage", "estela", "trail", "eco"]),
+        Variant("imagen-remanente", "Imagen remanente", "Afterimage", photo="dancer", thumb=0.65,
+                params={"distance": 1.6}, defines={"MODE": 2.0}, tags=["remanente", "afterimage", "estela", "trail", "eco"]),
     ],
 )
 

@@ -388,7 +388,7 @@ void main() {
         float fk = float(k);
         vec2 uk = uv + vec2(off + fk * 0.045 * dist * trail, 0.0);
         float mk = figureAt(uk, plate(uk));
-        vec3 ck = mix(S(uk).rgb, vec3(luma(S(uk).rgb)) * vec3(0.9, 1.0, 1.1), 0.4);
+        vec3 ck = mix(S(uk).rgb, vec3(luma(S(uk).rgb)), 0.3);
         col = mix(col, ck, mk * opacity * (1.0 - fk * 0.2) * sat(trail * 1.6));
     }
     // The person: slides in and fades up, with a little motion blur while it moves.
@@ -400,7 +400,7 @@ void main() {
 }
 """,
     variants=[
-        Variant("aparicion-humana-1", "Aparición humana 1", "Human appear 1", photo="fx-woman-04", thumb=0.55,
+        Variant("aparicion-humana-1", "Aparición humana 1", "Human appear 1", photo="fx-figure-06", thumb=0.35,
                 tags=["fantasma", "ghost", "eco", "echo"]),
     ],
 )

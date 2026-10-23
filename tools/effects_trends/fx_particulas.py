@@ -503,7 +503,7 @@ void main() {
                          "HALO": 1.0},
                 params={"color": "#c8ff5a"},
                 tags=["luciernaga", "firefly", "realista", "realistic", "bosque", "forest", "noche", "night"]),
-        Variant("lucecitas-flotantes", "Lucecitas flotantes", "Floating little lights", photo="fx-dancer-01", thumb=1.2,
+        Variant("lucecitas-flotantes", "Lucecitas flotantes", "Floating little lights", photo="fx-concert-04", thumb=1.2,
                 defines={"NUMF": 0.45, "ROAM": 0.2, "WF": 0.8, "RMIN": 0.012, "RMAX": 0.028, "STREAK": 1.2,
                          "HUEVAR": 1.0, "BRVAR": 0.1, "WHITEMIX": 0.2, "HALO": 0.7},
                 params={"color": "#b36bff"},

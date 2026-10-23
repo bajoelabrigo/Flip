@@ -64,6 +64,10 @@ PHOTOS = {
     "dark": ["fx-citynight-02", "fx-concert-01", "fx-cyber-03"],
 }
 
+# Samples with a brand, a sign or a plate in view (fetched with the fx-* themes, then left out of PHOTOS):
+# harness.py refuses them.
+BLOCKED_PHOTOS = {"fx-dancer-01", "fx-dancer-04", "fx-dancer-05", "fx-walk-04", "fx-car-01", "fx-car-04"}
+
 
 @dataclass
 class Param:
