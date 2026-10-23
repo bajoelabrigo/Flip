@@ -89,6 +89,7 @@ class Variant:
     photo: str = ""                                # a sample name, or a PHOTOS theme (picked by id)
     thumb: float = 1.0                             # second of the card frame
     note: dict = field(default_factory=dict)       # {"es", "en"} line for Stock
+    hide: list = field(default_factory=list)       # parameters kept out of the effect panel (fixedParams)
 
 
 @dataclass

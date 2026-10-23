@@ -43,10 +43,16 @@ EXE = ROOT.parent / "pruebas" / "FlipStudio-0.20.1-release" / "Flip Studio" / "f
 MIN_APP = "0.21.0"
 
 
-def manifest(fam, v) -> dict:
+def manifest(fam, v, hidden=()) -> dict:
+    """hidden: parameters that change nothing in this variant (harness.unused_params). They still reach the
+    shader, as fixedParams, but the effect panel only shows controls that do something."""
     defaults = param_defaults(fam, v)
     params = []
+    fixed = {}
     for p in fam.params:
+        if p.id in hidden:
+            fixed[p.id] = defaults[p.id] if p.is_color else round(float(defaults[p.id]), 4)
+            continue
         if p.is_color:
             params.append({"identifier": p.id, "displayName": p.en, "type": "color", "defaultValue": defaults[p.id]})
         else:
@@ -66,6 +72,8 @@ def manifest(fam, v) -> dict:
             "passIndex": 0, "fragmentShader": "main.frag",
             "inputs": [{"type": "source_texture"}], "output": {"type": "canvas"}}]},
     }
+    if fixed:
+        out["fixedParams"] = fixed
     if fam.requires:
         out["requires"] = fam.requires
     names = I18N.get(v.id)
@@ -97,13 +105,13 @@ def load_i18n() -> dict:
 I18N = load_i18n()
 
 
-def write_package(fam, v, folder: Path) -> Path:
+def write_package(fam, v, folder: Path, hidden=()) -> Path:
     pid = package_id(v)
     pkg = folder / "package" / pid
     if pkg.exists():
         shutil.rmtree(pkg)
     pkg.mkdir(parents=True)
-    (pkg / "effect.json").write_text(json.dumps(manifest(fam, v), ensure_ascii=False, indent=2), encoding="utf-8")
+    (pkg / "effect.json").write_text(json.dumps(manifest(fam, v, hidden), ensure_ascii=False, indent=2), encoding="utf-8")
     (pkg / "main.frag").write_text(shader(fam, v), encoding="utf-8")
     return pkg
 
@@ -175,10 +183,13 @@ def main() -> int:
         shutil.rmtree(STAGE)
     STAGE.mkdir(parents=True)
     (WORK / "projects").mkdir(parents=True, exist_ok=True)
+    from harness import Renderer as _Probe, unused_params
+    probe = _Probe((192, 108))
     for fam, v in jobs:
         folder = OUT / v.id
         folder.mkdir(parents=True, exist_ok=True)
-        pkg = write_package(fam, v, folder)
+        hidden = set(v.hide) | set(unused_params(probe, fam, v))
+        pkg = write_package(fam, v, folder, hidden)
         shutil.copytree(pkg, STAGE / pkg.name)
         (WORK / "projects" / f"{v.id}.json").write_text(json.dumps(project(fam, v), ensure_ascii=False), encoding="utf-8")
         (folder / "meta.json").write_text(json.dumps(meta(fam, v), ensure_ascii=False, indent=1), encoding="utf-8")
@@ -187,7 +198,7 @@ def main() -> int:
     if not args.no_render:
         import appsession  # tools/transitions_stock
         import renderlock  # tools/scene_templates
-        from harness import Renderer
+        from harness import Renderer, engine_source
         renderer = Renderer((256, 144))
         suspicious = []
         with renderlock.exclusive("efectos"), appsession.session(WORK, exe=EXE, env={"DRIFT_EFFECTS_DIR": str(STAGE)}) as app:
@@ -202,7 +213,7 @@ def main() -> int:
                     card.save(folder / "thumbnail.png", optimize=True)
                     card.resize((320, 180), Image.LANCZOS).save(folder / "package" / package_id(v) / "thumbnail.png")
                     frame.unlink()
-                    prog = renderer.compile(shader(fam, v))
+                    prog = renderer.compile(engine_source(fam, v))
                     ref = renderer.frames(prog, param_defaults(fam, v), photo_for(fam, v),
                                           [min(v.thumb, fam.preview - 0.05)], fam.preview)[0]
                     prog.release()

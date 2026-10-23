@@ -30,6 +30,29 @@ out vec2 v_texCoord;
 void main() { v_texCoord = a_texCoord; gl_Position = vec4(a_position, 0.0, 1.0); }
 """
 
+ROOT = HERE.parents[1]
+
+
+def _prelude(name: str) -> str:
+    """The engine's own declarations for "requires": "depth" / "mask" packages (src/engine/GlRuntime.cpp)."""
+    src = (ROOT / "src" / "engine" / "GlRuntime.cpp").read_text(encoding="utf-8")
+    start = src.index(f"constexpr const char *{name} = R\"(") + len(f"constexpr const char *{name} = R\"(")
+    return src[start:src.index(')";', start)]
+
+
+PRELUDES = {"depth": _prelude("kDepthPrelude"), "mask": _prelude("kMaskPrelude")}
+
+
+def engine_source(fam, v) -> str:
+    """main.frag as the app compiles it: #version first, then the engine's prelude, then the rest."""
+    src = shader(fam, v)
+    prelude = PRELUDES.get(fam.requires, "")
+    if not prelude:
+        return src
+    first, rest = src.split(chr(10), 1)
+    return first + chr(10) + prelude + rest
+
+
 FACE = {"u_faceValid": 1.0, "u_faceCenterX": 0.5, "u_faceCenterY": 0.4, "u_faceRx": 0.12, "u_faceRy": 0.2,
         "u_faceAngle": 0.0}
 
@@ -94,6 +117,30 @@ class Renderer:
         return out
 
 
+def unused_params(renderer: "Renderer", fam, v, times=(0.1, 0.45, 0.8, 1.15, 1.5, 1.85, 2.2, 2.55, 2.9)) -> list[str]:
+    """The parameters that change nothing in this variant: each one is moved away from its default (another
+    colour, the far end of its range) and the frames compared. build.py keeps those out of the effect panel."""
+    base = param_defaults(fam, v)
+    photo = photo_for(fam, v)
+    prog = renderer.compile(engine_source(fam, v))
+    try:
+        ref = [np.asarray(f, np.float32) for f in renderer.frames(prog, base, photo, times, fam.preview)]
+        out = []
+        for p in fam.params:
+            if p.is_color:
+                d = base[p.id].lstrip("#")
+                alt = "#00ff00" if d.lower() not in ("00ff00",) else "#ff00ff"
+            else:
+                cur = float(base[p.id])
+                alt = p.hi if abs(p.hi - cur) >= abs(cur - p.lo) else p.lo
+            got = renderer.frames(prog, {**base, p.id: alt}, photo, times, fam.preview)
+            if max(float(np.abs(np.asarray(g, np.float32) - r).mean()) for g, r in zip(got, ref)) < 0.15:
+                out.append(p.id)
+        return out
+    finally:
+        prog.release()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
@@ -125,7 +172,7 @@ def main() -> int:
                 failed += 1
                 continue
             try:
-                prog = r.compile(shader(fam, v))
+                prog = r.compile(engine_source(fam, v))
             except Exception as e:  # noqa: BLE001
                 failed += 1
                 print(f"{v.id}: COMPILE FAILED\n{e}")
