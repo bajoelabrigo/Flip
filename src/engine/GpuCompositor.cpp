@@ -723,7 +723,7 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         const std::vector<const GlTarget *> sources{&target};
         const PipelineAux aux{layer.depth, clipMask.isValid() ? clipMask.texture() : 0u};
         GlTarget next = runPipeline(rt, gl, def->meta.id, def->gpu, sources, params,
-                                    layer.clipTimeUs, 0.0, target.size(), &aux);
+                                    layer.clipTimeUs, layer.clipProgress, target.size(), &aux);
         if (!next.isValid())
             return; // grace mode
 
@@ -1626,7 +1626,7 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
                 // describes, so depth packages pass through here.
                 const std::vector<const GlTarget *> sources{&target};
                 GlTarget next = runPipeline(rt, gl, def->meta.id, def->gpu, sources, params,
-                                            item.layer.clipTimeUs, 0.0, target.size());
+                                            item.layer.clipTimeUs, item.layer.clipProgress, target.size());
                 if (!next.isValid())
                     continue;
 

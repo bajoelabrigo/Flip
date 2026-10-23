@@ -330,7 +330,7 @@ COLLAGE = Family(
     key="amor_collage", category="amor", params=[INTENSITY, SPEED, colour("#ff8db5"), Param("blur", "Blur", 0.0, 2.0, 1.0),
             Param("brightness", "Brightness", 0.2, 1.2, 0.72), Param("rotation", "Rotation", 0.0, 3.0, 1.0), SIZE],
     photo="couple",
-    tags=["collage", "fotos", "photos", "polaroid", "marcos", "frames", "amor", "love", "recuerdos", "memories"],
+    tags=["collage", "fotos", "photos", "marcos", "frames", "amor", "love", "recuerdos", "memories"],
     body=HEART_LAYER + r"""
 // One instant photo: centre c, photo half height h, turn a; shows the picture cropped about crop with zoom z.
 vec4 polaroid(vec2 p, vec2 c, float h, float a, vec2 crop, float z, inout float shadow) {

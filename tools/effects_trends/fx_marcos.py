@@ -35,7 +35,7 @@ CARD = Family(
             Param("width", "Width", 0.0, 3.0, 1.0), Param("angle", "Angle", -30.0, 30.0, 0.0),
             Param("rotation", "Rotation", 0.0, 10.0, 2.0), Param("blur", "Blur", 0.0, 3.0, 1.0),
             Param("brightness", "Brightness", 0.0, 1.0, 0.42)],
-    photo="woman", tags=["marco", "frame", "polaroid", "foto instantanea", "instant photo", "papel", "paper"],
+    photo="woman", tags=["marco", "frame", "foto instantanea", "instant photo", "papel", "paper"],
     defines={"FA": 0.5625, "SIDE": 0.06, "BOTTOM": 0.0, "TAPE": 0.0, "TORN": 0.0, "BG": 0.0,
              "BACK": 0.0, "FLASH": 0.0, "NOTES": 0.0, "PULSE": 0.0, "ROUND": 0.0},
     body=PERIM + r"""

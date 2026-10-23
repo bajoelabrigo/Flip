@@ -1497,6 +1497,9 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     layer.flipV = clip.flipV;
     layer.opacity = opacity;
     layer.clipTimeUs = timelineUs - clip.timelineStart;
+    layer.clipProgress = clip.timelineDuration > 0
+                             ? qBound(0.0, double(layer.clipTimeUs) / double(clip.timelineDuration), 1.0)
+                             : 0.0;
     // After the clip's own chain: a lane sits above the clip in the timeline, so it reads as the
     // later treatment. Derived face slots come after, so a lane's face effect binds too.
     // Each adjustment with masks of its own becomes one scope over its run of the chain.
@@ -1816,6 +1819,9 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 item.layer.rect = QRectF(0, 0, width, height);
                 item.layer.opacity = opacityForClip(clip, timelineUs);
                 item.layer.clipTimeUs = timelineUs - clip.timelineStart;
+                item.layer.clipProgress = clip.timelineDuration > 0
+                                              ? qBound(0.0, double(item.layer.clipTimeUs) / double(clip.timelineDuration), 1.0)
+                                              : 0.0;
                 item.layer.faceSlots = faceSlotsForClip(clip, item.layer.effects, timelineUs);
                 scene.items.append(item);
                 continue;
