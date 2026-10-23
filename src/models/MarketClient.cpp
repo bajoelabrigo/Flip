@@ -993,7 +993,14 @@ int MarketClient::activeDownloadCount() const
 
 QVariantMap MarketClient::jobToMap(const Job &job) const
 {
+    // What the Downloads window says under a finished item: where it went. Installed kinds
+    // (effects, transitions, LUTs…) and templates end with that place as their phase; plain
+    // media leave it empty and the window says "in the media bin".
+    const bool installedSomewhere = job.status == QLatin1String("done")
+                                    && (isInstalledDelivery(job.delivery)
+                                        || job.delivery == QLatin1String("scene-template"));
     return QVariantMap{
+        {QStringLiteral("doneDetail"), installedSomewhere ? job.phase : QString()},
         {QStringLiteral("itemId"), job.itemId},
         {QStringLiteral("title"), job.title.isEmpty() ? job.itemId : job.title},
         {QStringLiteral("mediaKind"), job.mediaKind},

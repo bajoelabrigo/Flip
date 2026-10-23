@@ -39,7 +39,7 @@ from scene import Box, cover, layout  # noqa: E402
 W, H = 1280, 720
 WORK = OUT.parent / "trabajo"
 STAGE = WORK / "effects"
-EXE = ROOT.parent / "pruebas" / "FlipStudio-0.20.1-release" / "Flip Studio" / "flipstudio.exe"
+EXE = ROOT.parent / "pruebas" / "FlipStudio-0.21-tendencias" / "Flip Studio" / "flipstudio.exe"
 MIN_APP = "0.21.0"
 
 
