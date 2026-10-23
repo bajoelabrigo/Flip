@@ -21,9 +21,9 @@ Rectangle {
     readonly property string kind: item.media_kind || item.type || ""
     readonly property bool isImage: kind === "photo" || kind === "image"
     readonly property bool isTemplate: Market.sceneTemplateIdForItem(item.id || "") !== ""
-    // A LUT, look, text style or animation, transition or shape: installed where the editor
+    // A LUT, look, text style or animation, transition, effect or shape: installed where the editor
     // keeps it, so there is no folder to choose either.
-    readonly property bool installs: ["lut", "effect-preset", "text-style", "text-animation", "transition", "shape"]
+    readonly property bool installs: ["lut", "effect-preset", "text-style", "text-animation", "transition", "shape", "effect"]
                                      .indexOf(Market.deliveryForItem(item)) >= 0
     readonly property int uses: Number(item.uses || 0)
     readonly property var job: {

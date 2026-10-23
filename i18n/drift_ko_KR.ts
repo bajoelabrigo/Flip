@@ -2656,6 +2656,22 @@
         <translation>전체</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>로그인하고 트렌드 보기</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>트렌드는 로그인한 사용자만 이용할 수 있습니다. 계정은 무료입니다.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>브라우저를 기다리는 중…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>길이</translation>
     </message>
@@ -4343,6 +4359,10 @@
     <message>
         <source>In Transitions</source>
         <translation>전환에 있음</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>효과 › 트렌드에 있음</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12462,6 +12482,14 @@ NEXT TIME</source>
         <translation>Drift Forge에서 만든 .driftfx 파일로 사용자 지정 효과나 전환 설치</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>목소리를 바꾸려면 소리가 있는 클립을 선택하세요</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>조정 레이어 추가 — 클릭하거나 트랙으로 드래그하세요</translation>
     </message>
@@ -12494,12 +12522,48 @@ NEXT TIME</source>
         <translation>Drift Forge에서 만든 .driftfx 파일을 가져와 직접 추가하세요.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — 클릭하면 선택한 클립의 목소리에 적용합니다</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — 클릭하면 선택 항목에 적용하고, 클립 위로 드래그할 수도 있습니다</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — 클릭하면 조정 레이어로 추가하고, 클립 위로 드래그할 수도 있습니다</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — 클릭하면 다운로드해서 적용합니다</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>로그인하고 트렌드 효과 보기</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>트렌드 효과를 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>트렌드 효과를 불러오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>트렌드 효과는 Stock에서 제공되며 무료 계정이 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>브라우저를 기다리는 중…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>다시 시도</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23154,6 +23218,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>로그인하고 트렌드 보기</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>트렌드는 로그인한 사용자만 이용할 수 있습니다. 계정은 무료입니다.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>브라우저를 기다리는 중…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
     </message>
     <message>
         <source>Rename text animation</source>

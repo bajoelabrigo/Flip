@@ -2660,6 +2660,22 @@
         <translation>Tout</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Connectez-vous pour voir les tendances</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Les tendances sont réservées aux personnes connectées. Le compte est gratuit.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>En attente du navigateur…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Se connecter</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
@@ -4356,6 +4372,10 @@
     <message>
         <source>In Transitions</source>
         <translation>Dans Transitions</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>Dans Effets › Tendances</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12506,6 +12526,14 @@ PROCHAINE</translation>
         <translation>Installer un effet ou une transition personnalisés à partir d&apos;un fichier .driftfx créé dans Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Sélectionnez un clip avec du son pour changer sa voix</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Ajouter un calque de réglage — cliquez, ou faites-le glisser sur une piste</translation>
     </message>
@@ -12538,12 +12566,48 @@ PROCHAINE</translation>
         <translation>Importez un fichier .driftfx créé dans Drift Forge pour ajouter les vôtres.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — cliquez pour l’appliquer à la voix du clip sélectionné</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — cliquez pour l&apos;appliquer à la sélection, ou faites-le glisser sur un clip</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — cliquez pour l&apos;ajouter comme calque de réglage, ou faites-le glisser sur un clip</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — cliquez pour le télécharger et l’appliquer</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Connectez-vous pour voir les effets tendance</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Chargement des effets tendance…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>Impossible de charger les effets tendance</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Les effets tendance viennent de Stock, qui demande votre compte gratuit.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>En attente du navigateur…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Se connecter</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Réessayer</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23237,6 +23301,22 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Est lu pour chaque sous-titre</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Connectez-vous pour voir les tendances</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Les tendances sont réservées aux personnes connectées. Le compte est gratuit.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>En attente du navigateur…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Se connecter</translation>
     </message>
     <message>
         <source>Rename text animation</source>

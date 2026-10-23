@@ -2656,6 +2656,22 @@
         <translation>全部</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>登录后查看热门</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>热门仅对已登录用户开放。账号免费。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>时长</translation>
     </message>
@@ -4343,6 +4359,10 @@
     <message>
         <source>In Transitions</source>
         <translation>位于 转场</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>位于 特效 › 热门</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12462,6 +12482,14 @@ NEXT TIME</source>
         <translation>从 Drift Forge 制作的 .driftfx 文件安装自定义特效或转场</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>选择一个有声音的片段来改变它的声音</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>添加调整图层 — 点击，或拖到轨道上</translation>
     </message>
@@ -12494,12 +12522,48 @@ NEXT TIME</source>
         <translation>导入在 Drift Forge 中制作的 .driftfx 文件即可添加你自己的特效。</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — 点击应用到所选片段的声音</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — 点击应用到所选内容，或拖到片段上</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — 点击添加为调整图层，或拖到片段上</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — 点击下载并应用</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>登录后查看热门特效</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>正在加载热门特效…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>无法加载热门特效</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>热门特效来自 Stock，需要你的免费账号。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23155,6 +23219,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>登录后查看热门</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>热门仅对已登录用户开放。账号免费。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
     </message>
     <message>
         <source>Rename text animation</source>

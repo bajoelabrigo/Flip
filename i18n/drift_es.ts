@@ -2659,6 +2659,22 @@
         <translation>Todo</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Inicia sesión para ver las tendencias</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Las tendencias son solo para quienes iniciaron sesión. La cuenta es gratis.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Duración</translation>
     </message>
@@ -4351,6 +4367,10 @@
     <message>
         <source>In Transitions</source>
         <translation>En Transiciones</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>En Efectos › Tendencias</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12505,6 +12525,14 @@ LA PRÓXIMA</translation>
         <translation>Instala un efecto o una transición propios desde un archivo .driftfx creado en Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Tendencias</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Selecciona un clip con sonido para cambiar su voz</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Agregar capa de ajuste — haz clic o arrástrala a una pista</translation>
     </message>
@@ -12537,12 +12565,48 @@ LA PRÓXIMA</translation>
         <translation>Importa un archivo .driftfx creado en Drift Forge para añadir los tuyos.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — haz clic para aplicarlo a la voz del clip seleccionado</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — haz clic para aplicarlo a la selección o arrástralo sobre un clip</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — haz clic para agregarlo como capa de ajuste o arrástralo sobre un clip</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — haz clic para descargarlo y aplicarlo</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Inicia sesión para ver los efectos en tendencia</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Cargando efectos en tendencia…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>No se pudieron cargar los efectos en tendencia</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Los efectos en tendencia vienen de Stock, que necesita tu cuenta gratis.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Reintentar</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23233,6 +23297,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Se reproduce en cada subtítulo</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Inicia sesión para ver las tendencias</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Las tendencias son solo para quienes iniciaron sesión. La cuenta es gratis.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <source>Rename text animation</source>

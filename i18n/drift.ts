@@ -2659,6 +2659,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4350,6 +4366,10 @@
     </message>
     <message>
         <source>In Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12501,6 +12521,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12533,11 +12561,47 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23220,6 +23284,22 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

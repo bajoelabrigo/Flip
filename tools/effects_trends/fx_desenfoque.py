@@ -10,6 +10,10 @@ INTENSITY = Param("intensity", "Intensity", 0.0, 1.5, 1.0)
 SPEED = Param("speed", "Speed", 0.2, 3.0, 1.0)
 BLUR = Param("blur", "Blur", 0.0, 2.0, 1.0)
 SIZE = Param("size", "Size", 0.3, 2.0, 1.0)
+CX = Param("center_x", "Center X", 0.0, 1.0, 0.5)
+CY = Param("center_y", "Center Y", 0.0, 1.0, 0.5)
+ANGLE = Param("angle", "Angle", -180.0, 180.0, 0.0)
+SOFTNESS = Param("softness", "Softness", 0.1, 3.0, 1.0)
 
 # Shared blur helpers (prepended to each body).
 BLURS = r"""
@@ -48,26 +52,25 @@ vec3 lineBlur(vec2 uv, vec2 d) {
 # A blur that leaves one area sharp: round (vignette), a band (tilt / depth) or the top edge (shadow). The sharp
 # area breathes or drifts slowly; the blurred part can also go darker.
 FOCUS_MASK = Family(
-    key="blur_focus_mask", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE],
+    key="blur_focus_mask", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE, SOFTNESS, CX, CY, ANGLE],
     photo="woman", tags=["desenfoque", "blur", "enfoque", "focus", "difuminar"],
     defines={"SHAPE": 0, "RADIUS": 0.17, "SOFT": 0.2, "ELLX": 1.25, "BLUR_R": 0.05, "DARK": 0.12,
-             "BREATHE": 0.22, "PERIOD": 4.0, "ANGLE": 0.0, "DRIFT": 0.0},
+             "BREATHE": 0.22, "PERIOD": 4.0, "DRIFT": 0.0},
     body=BLURS + r"""
 float focusMask(vec2 uv, float t) {
-    vec2 p = toP(uv);
+    vec2 q = toP(uv) - toP(vec2(center_x, center_y));
+    float a = radians(angle);
     float wv = sin(t * TAU / PERIOD);
-    if (SHAPE < 0.5) {                       // round sharp area in the middle
-        float r = RADIUS * size * (1.0 + BREATHE * wv);
-        return smoothstep(r, r + SOFT * size, length(p / vec2(ELLX, 1.0)));
-    } else if (SHAPE < 1.5) {                // a sharp band through the middle (tilt shift)
-        vec2 n = vec2(cos(ANGLE), sin(ANGLE));
-        float d = abs(dot(p, n) - DRIFT * wv);
-        float r = RADIUS * size * (1.0 + BREATHE * wv);
-        return smoothstep(r, r + SOFT * size, d);
+    float r = RADIUS * size * (1.0 + BREATHE * wv);
+    float s = SOFT * size * softness;
+    if (SHAPE < 0.5) {                       // round (or oval, turned by Angle) sharp area
+        vec2 p = rot(-a) * q;
+        return smoothstep(r, r + s, length(p / vec2(ELLX, 1.0)));
     }
-    // the top edge: a shadow that comes down a little and goes back
-    float h = RADIUS * size * (1.0 + BREATHE * wv);
-    return 1.0 - smoothstep(0.0, h, uv.y);
+    // a sharp band through the centre (tilt shift); Angle turns it, it drifts across slowly
+    vec2 n = vec2(cos(a), sin(a));
+    float d = abs(dot(q, n) - DRIFT * wv);
+    return smoothstep(r, r + s, d);
 }
 void main() {
     vec4 src = S(v_texCoord);
@@ -89,24 +92,49 @@ void main() {
                          "BLUR_R": 0.045},
                 tags=["lente", "lens", "oscuro", "dark", "objetivo"], photo="citynight"),
         Variant("desenfoque-oblicuo", "Desenfoque oblicuo", "Oblique blur", thumb=1.0,
-                defines={"SHAPE": 1, "ANGLE": 0.3, "RADIUS": 0.09, "SOFT": 0.14, "BREATHE": 0.1, "DRIFT": 0.08,
+                params={"angle": 17.2},
+                defines={"SHAPE": 1, "RADIUS": 0.09, "SOFT": 0.14, "BREATHE": 0.1, "DRIFT": 0.08,
                          "PERIOD": 5.0, "BLUR_R": 0.055},
                 tags=["oblicuo", "tilt", "inclinado", "diagonal"], photo="woman"),
         Variant("desenfoque-de-profundidad", "Desenfoque de profundidad", "Depth blur", thumb=1.0,
-                defines={"SHAPE": 1, "ANGLE": 1.5708, "RADIUS": 0.07, "SOFT": 0.22, "BREATHE": 0.2,
+                params={"angle": 90.0},
+                defines={"SHAPE": 1, "RADIUS": 0.07, "SOFT": 0.22, "BREATHE": 0.2,
                          "DRIFT": 0.05, "PERIOD": 5.0, "BLUR_R": 0.04},
                 tags=["profundidad", "depth", "tilt shift", "miniatura", "miniature"], photo="walk"),
-        Variant("sombra-a", "Sombra A", "Shadow A", thumb=0.8,
-                defines={"SHAPE": 2, "RADIUS": 0.35, "BREATHE": 0.25, "PERIOD": 3.0, "DARK": 0.92,
-                         "BLUR_R": 0.02},
-                tags=["sombra", "shadow", "borde", "edge"], photo="skater"),
+    ],
+)
+
+# ---------------------------------------------------------------------------------------------------------------
+# A soft shadow that falls from one edge (the top by default; Angle turns it to any edge) and breathes.
+SHADOW = Family(
+    key="blur_edge_shadow", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE, SOFTNESS, ANGLE],
+    photo="skater", tags=["sombra", "shadow", "borde", "edge", "desenfoque", "blur"],
+    defines={"RADIUS": 0.35, "BREATHE": 0.25, "PERIOD": 3.0, "DARK": 0.92, "BLUR_R": 0.02},
+    body=BLURS + r"""
+void main() {
+    vec4 src = S(v_texCoord);
+    float t = u_time * speed;
+    float a = radians(angle);
+    vec2 n = vec2(sin(a), -cos(a));                       // towards the shadowed edge (0 = top)
+    vec2 p = toP(v_texCoord);
+    float d = abs(n.x) * aspect() * 0.5 + abs(n.y) * 0.5 - dot(p, n);   // distance from that edge
+    float h = RADIUS * size * (1.0 + BREATHE * sin(t * TAU / PERIOD));
+    float m = 1.0 - smoothstep(h * max(1.0 - softness, 0.0), h, d);
+    vec3 col = softBlur(v_texCoord, BLUR_R * blur * intensity * m);
+    col *= 1.0 - DARK * pow(m, 1.3) * min(intensity, 1.2);
+    fragColor = vec4(col, src.a);
+}
+""",
+    variants=[
+        Variant("sombra-a", "Sombra A", "Shadow A", thumb=0.8, tags=["arriba", "top"]),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
 # The picture smaller and sharp in the middle, over a blurred, darker copy of itself that drifts slowly.
 BG_BLUR = Family(
-    key="blur_background", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE],
+    key="blur_background", category="desenfoque",
+    params=[INTENSITY, SPEED, BLUR, SIZE, Param("softness", "Softness", 0.0, 1.0, 0.0), CX, CY, ANGLE],
     photo="woman", tags=["fondo", "background", "desenfoque", "blur", "marco"],
     defines={"SCALE": 0.66},
     body=BLURS + r"""
@@ -120,13 +148,13 @@ void main() {
     // Foreground card.
     float sc = mix(1.0, SCALE * size, k) * (1.0 + 0.015 * sin(t * 1.3));
     sc = min(sc, 1.0);
-    vec2 fuv = (v_texCoord - 0.5) / sc + 0.5;
-    vec4 fg = Sc(fuv);
-    vec2 p = toP(v_texCoord);
+    // the card can be moved (Center X/Y) and turned (Angle); Softness feathers its edge
+    vec2 q = rot(radians(angle)) * (toP(v_texCoord) - toP(vec2(center_x, center_y)));
+    vec4 fg = Sc(fromP(q / sc));
     vec2 half_ = vec2(aspect() * 0.5, 0.5) * sc;
-    float sh = 1.0 - smoothstep(0.0, 0.05, sdBox(p - vec2(0.0, 0.012), half_));
+    float sh = 1.0 - smoothstep(0.0, 0.05 + 0.05 * softness, sdBox(q - vec2(0.0, 0.012), half_));
     bg *= 1.0 - 0.45 * sh * k;
-    float edge = fillSd(sdBox(p, half_), 0.0015);
+    float edge = fillSd(sdBox(q, half_), 0.0015 + 0.06 * softness);
     vec3 col = mix(bg, fg.rgb, edge);
     fragColor = vec4(col, src.a);
 }
@@ -141,7 +169,8 @@ void main() {
 # A blurred, slightly cool picture with two square focus windows that roam and lock on: sharp inside, with
 # white corner brackets.
 FOCUS_BOXES = Family(
-    key="blur_focus_boxes", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE, Param("color", "Colour", default="#ffffff")],
+    key="blur_focus_boxes", category="desenfoque", params=[INTENSITY, SPEED, BLUR, SIZE, Param("softness", "Softness", 0.0, 1.0, 0.0),
+            Param("color", "Colour", default="#ffffff")],
     photo="skater", tags=["enfoque", "focus", "analitico", "analytic", "cuadros", "squares", "detector"],
     body=BLURS + r"""
 float bracket(vec2 p, vec2 c, float h) {
@@ -169,7 +198,7 @@ void main() {
         vec2 c = roam(t + float(n) * 0.5, seed);
         float lock = easeOut(linstep(0.45, 0.6, fract(t + float(n) * 0.5)));
         float h = 0.13 * size * (1.25 - 0.25 * lock);
-        inside = max(inside, fillSd(sdBox(p - c, vec2(h)), 0.003));
+        inside = max(inside, fillSd(sdBox(p - c, vec2(h)), 0.003 + 0.06 * softness));
         lines = max(lines, bracket(p, c, h) * (0.6 + 0.4 * lock));
         lines = max(lines, smoothstep(0.003, 0.0, abs(sdBox(p - c, vec2(h)))) * 0.25);
     }
@@ -257,58 +286,64 @@ void main() {
     ],
 )
 
-# ---------------------------------------------------------------------------------------------------------------
-# Focus over time: a lens that racks out and snaps back (looping), and blurs that close the clip.
-FOCUS_PULL = Family(
-    key="blur_focus_pull", category="desenfoque", params=[INTENSITY, SPEED, BLUR],
-    photo="skater", tags=["desenfoque", "blur", "enfoque", "focus"],
-    defines={"MODE": 0, "R": 0.04, "PERIOD": 2.0},
+# A lens that is out of focus, snaps sharp with a small push in (Zoom, about Center X/Y), holds and drifts out
+# again, in a loop.
+FOCUS_PUNCH = Family(
+    key="blur_focus_punch", category="desenfoque",
+    params=[INTENSITY, SPEED, BLUR, Param("zoom", "Zoom", 0.0, 3.0, 1.0), CX, CY],
+    photo="skater", tags=["desenfoque", "blur", "enfoque", "focus", "zoom", "golpe", "punch"],
+    defines={"R": 0.035, "PERIOD": 2.0},
     body=BLURS + r"""
 void main() {
     vec4 src = S(v_texCoord);
     float t = u_time * speed;
-    float amt;
-    vec2 uv = v_texCoord;
-    float fade = 0.0;
-    if (MODE < 0.5) {
-        // out of focus, snaps sharp with a small push in, holds, drifts out again
-        float f = phase(t, PERIOD);
-        float snap = easeOut(linstep(0.0, 0.18, f));
-        float out_ = easeIn(linstep(0.6, 1.0, f));
-        amt = max(1.0 - snap, out_);
-        float push = 1.0 + 0.07 * intensity * (easeOutBack(linstep(0.0, 0.3, f)) * (1.0 - out_));
-        uv = camUv(uv, vec2(0.5), push, 0.0, vec2(0.0));
-    } else if (MODE < 1.5) {
-        // sharp, then blurs out over the last part of the clip
-        amt = easeInOut(linstep(0.55, 1.0, u_progress));
-        fade = 0.15 * amt;
-    } else {
-        // blurs away across the clip until the picture is a soft wash
-        amt = easeInOut(linstep(0.05, 0.9, u_progress));
-        fade = 0.3 * amt;
-    }
-    float r = R * blur * intensity * amt;
-    vec3 col = softBlur(uv, r);
-    if (MODE > 1.5) col = mix(col, softBlur(uv, r * 2.2), sat(amt * 1.4 - 0.4));
-    col = mix(col, vec3(luma(col)) * 0.6 + col * 0.4 + 0.08, fade * sat(intensity));
-    fragColor = vec4(col, src.a);
+    float f = phase(t, PERIOD);
+    float snap = easeOut(linstep(0.0, 0.18, f));
+    float out_ = easeIn(linstep(0.6, 1.0, f));
+    float amt = max(1.0 - snap, out_);
+    float push = 1.0 + 0.07 * zoom * intensity * (easeOutBack(linstep(0.0, 0.3, f)) * (1.0 - out_));
+    vec2 uv = camUv(v_texCoord, vec2(center_x, center_y), push, 0.0, vec2(0.0));
+    fragColor = vec4(softBlur(uv, R * blur * intensity * amt), src.a);
 }
 """,
     variants=[
-        Variant("amplificar-enfoque", "Amplificar enfoque", "Focus boost", thumb=0.15,
-                defines={"R": 0.035}, tags=["zoom", "golpe", "punch"]),
-        Variant("final-borroso", "Final borroso", "Blurry ending", thumb=2.8,
-                defines={"MODE": 1, "R": 0.06}, tags=["final", "ending", "cierre", "outro"]),
-        Variant("desenfocar-para-borrar", "Desenfocar para borrar", "Blur to erase", thumb=2.2,
-                defines={"MODE": 2, "R": 0.07}, tags=["borrar", "erase", "salida", "exit"], photo="woman"),
+        Variant("amplificar-enfoque", "Amplificar enfoque", "Focus boost", thumb=0.15),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
-# Sharpening: unsharp mask on colour or only on brightness, and an automatic enhance (levels, contrast,
-# vibrance, a little sharpening).
+# Blurs that close the clip: sharp, then blurred over its last part; or blurred away across the whole clip into
+# a soft, paler wash (Brightness = how pale it gets).
+FOCUS_END = Family(
+    key="blur_focus_end", category="desenfoque",
+    params=[INTENSITY, BLUR, Param("brightness", "Brightness", 0.0, 2.0, 1.0)],
+    photo="skater", tags=["desenfoque", "blur", "final", "ending", "cierre"],
+    defines={"MODE": 1, "R": 0.06, "FROM": 0.55, "TO": 1.0, "FADE": 0.15},
+    body=BLURS + r"""
+void main() {
+    vec4 src = S(v_texCoord);
+    float amt = easeInOut(linstep(FROM, TO, u_progress));
+    float r = R * blur * intensity * amt;
+    vec3 col = softBlur(v_texCoord, r);
+    if (MODE > 1.5) col = mix(col, softBlur(v_texCoord, r * 2.2), sat(amt * 1.4 - 0.4));
+    col = mix(col, vec3(luma(col)) * 0.6 + col * 0.4 + 0.08, FADE * brightness * amt * sat(intensity));
+    fragColor = vec4(col, src.a);
+}
+""",
+    variants=[
+        Variant("final-borroso", "Final borroso", "Blurry ending", thumb=2.8, tags=["outro"]),
+        Variant("desenfocar-para-borrar", "Desenfocar para borrar", "Blur to erase", thumb=2.2,
+                defines={"MODE": 2, "R": 0.07, "FROM": 0.05, "TO": 0.9, "FADE": 0.3},
+                tags=["borrar", "erase", "salida", "exit"], photo="woman"),
+    ],
+)
+
+# ---------------------------------------------------------------------------------------------------------------
+# Sharpening: unsharp mask on colour or only on brightness (Amount, Size = radius, Contrast = local contrast).
 SHARPEN = Family(
-    key="blur_sharpen", category="desenfoque", params=[INTENSITY, Param("amount", "Amount", 0.0, 2.0, 1.0)],
+    key="blur_sharpen", category="desenfoque",
+    params=[INTENSITY, Param("amount", "Amount", 0.0, 2.0, 1.0), Param("size", "Size", 0.3, 3.0, 1.0),
+            Param("contrast", "Contrast", 0.0, 2.0, 1.0)],
     photo="face", tags=["nitidez", "sharpen", "enfocar", "detalle", "detail"],
     defines={"MODE": 0, "SHARP": 1.4, "RADIUS_PX": 1.6},
     body=r"""
@@ -324,31 +359,19 @@ vec3 ringBlur(vec2 uv, float rpx) {
 void main() {
     vec4 src = S(v_texCoord);
     float k = intensity;
-    float rpx = RADIUS_PX * max(u_resolution.y / 1080.0, 0.5);
+    float rpx = RADIUS_PX * size * max(u_resolution.y / 1080.0, 0.5);
     vec3 b = ringBlur(v_texCoord, rpx);
     vec3 det = src.rgb - b;
     vec3 col;
     if (MODE < 0.5) {
         // fix blur: strong unsharp mask with a little local contrast
         vec3 b2 = ringBlur(v_texCoord, rpx * 3.0);
-        col = src.rgb + det * SHARP * amount * k + (src.rgb - b2) * 0.35 * amount * k;
-    } else if (MODE < 1.5) {
+        col = src.rgb + det * SHARP * amount * k + (src.rgb - b2) * 0.35 * contrast * k;
+    } else {
         // sharp luma: only the brightness gets the detail (no colour fringes), a touch more contrast
         float d = luma(det);
         col = src.rgb + d * SHARP * amount * k;
-        col = contrastColor(col, 1.0 + 0.08 * k);
-    } else {
-        // auto enhance: stretch levels, S-curve, vibrance, light sharpening
-        vec3 c = src.rgb + det * 0.7 * amount * k;
-        vec3 lv = (c - 0.03) / 0.94;
-        c = mix(c, lv, k);
-        vec3 sc = c * c * (3.0 - 2.0 * c);
-        c = mix(c, sc, 0.35 * k);
-        float mx = max(c.r, max(c.g, c.b)), mn = min(c.r, min(c.g, c.b));
-        float satv = mx - mn;
-        c = saturateColor(c, 1.0 + 0.45 * k * (1.0 - satv));
-        c *= 1.0 + 0.04 * k;
-        col = c;
+        col = contrastColor(col, 1.0 + 0.08 * contrast * k);
     }
     fragColor = vec4(sat3(col), src.a);
 }
@@ -358,10 +381,40 @@ void main() {
                 tags=["quitar desenfoque", "unblur", "nitido", "sharp"]),
         Variant("luma-nitido", "Luma nítido", "Sharp luma", thumb=1.0,
                 defines={"MODE": 1, "SHARP": 1.6}, tags=["luma", "brillo", "brightness"], photo="man"),
-        Variant("mejoramiento-automatico", "Mejoramiento automático", "Auto enhance", thumb=1.0,
-                defines={"MODE": 2}, tags=["auto", "mejorar", "enhance", "color", "contraste", "contrast"],
-                photo="beach"),
     ],
 )
 
-FAMILIES = [FOCUS_MASK, BG_BLUR, FOCUS_BOXES, DIRECTIONAL, SQUARE, FOCUS_PULL, SHARPEN]
+# ---------------------------------------------------------------------------------------------------------------
+# Auto enhance: stretch the levels and an S-curve (Contrast), vibrance that lifts the dull colours most
+# (Saturation), light sharpening (Detail) and a touch of light (Brightness).
+ENHANCE = Family(
+    key="blur_auto_enhance", category="desenfoque",
+    params=[INTENSITY, Param("detail", "Detail", 0.0, 2.0, 1.0), Param("contrast", "Contrast", 0.0, 2.0, 1.0),
+            Param("saturation", "Saturation", 0.0, 2.0, 1.0), Param("brightness", "Brightness", 0.0, 2.0, 1.0)],
+    photo="beach", tags=["auto", "mejorar", "enhance", "color", "contraste", "contrast", "nitidez", "sharpen"],
+    body=r"""
+void main() {
+    vec4 src = S(v_texCoord);
+    float k = intensity;
+    vec2 o = px() * 1.6 * max(u_resolution.y / 1080.0, 0.5);
+    vec3 b = src.rgb * 0.25;
+    for (int i = 0; i < 8; ++i) {
+        float a = float(i) * TAU / 8.0;
+        b += S(v_texCoord + vec2(cos(a), sin(a)) * o).rgb * (0.75 / 8.0);
+    }
+    vec3 c = src.rgb + (src.rgb - b) * 0.7 * detail * k;
+    c = mix(c, (c - 0.03 * contrast) / (1.0 - 0.06 * contrast), sat(k));
+    c = mix(c, c * c * (3.0 - 2.0 * c), sat(0.35 * contrast * k));
+    float satv = max(c.r, max(c.g, c.b)) - min(c.r, min(c.g, c.b));
+    c = saturateColor(c, 1.0 + 0.45 * saturation * k * (1.0 - satv));
+    c *= 1.0 + 0.04 * brightness * k;
+    fragColor = vec4(sat3(c), src.a);
+}
+""",
+    variants=[
+        Variant("mejoramiento-automatico", "Mejoramiento automático", "Auto enhance", thumb=1.0),
+    ],
+)
+
+FAMILIES = [FOCUS_MASK, SHADOW, BG_BLUR, FOCUS_BOXES, DIRECTIONAL, SQUARE, FOCUS_PUNCH, FOCUS_END, SHARPEN,
+            ENHANCE]

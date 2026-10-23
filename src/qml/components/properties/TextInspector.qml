@@ -126,6 +126,8 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
+    // Trending is only for signed-in people (Jorge, 2026-10-23), as in Titles and Effects.
+    readonly property bool trendsLocked: animCategory === "trending" && !Market.authenticated
     // Bumped when the user saves, renames or deletes one of their own animations.
     property int animPresetsTick: 0
     readonly property var animPresets: {
@@ -2517,8 +2519,20 @@ Item {
                 }
             }
 
+            EmptyState {
+                width: parent.width
+                visible: root.trendsLocked
+                compact: true
+                glyph: Theme.icons.account
+                title: qsTr("Sign in to see what's trending")
+                hint: qsTr("Trending is only for signed-in users. The account is free.")
+                actionText: Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in")
+                onActionTriggered: Account.signIn()
+            }
+
             Grid {
                 id: presetGrid
+                visible: !root.trendsLocked
                 width: parent.width
                 readonly property real gap: Theme.spacingLg
                 columns: Theme.touchUi

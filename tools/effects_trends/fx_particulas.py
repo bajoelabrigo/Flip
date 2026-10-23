@@ -17,6 +17,17 @@ from kit import Family, Param, Variant
 INTENSITY = Param("intensity", "Intensity", 0.0, 1.5, 1.0)
 SPEED = Param("speed", "Speed", 0.2, 3.0, 1.0)
 DENSITY = Param("density", "Density", 0.2, 2.0, 1.0)
+# Multipliers and offsets: their defaults (1 or 0) give exactly the look each variant was designed with.
+SIZE = Param("size", "Size", 0.3, 3.0, 1.0)
+GLOW = Param("glow", "Glow", 0.0, 3.0, 1.0)
+FLICKER = Param("flicker", "Flicker", 0.0, 2.0, 1.0)
+BRIGHTNESS = Param("brightness", "Brightness", 0.0, 3.0, 1.0)
+ANGLE = Param("angle", "Angle", -90.0, 90.0, 0.0)          # degrees
+DIRECTION = Param("angle", "Direction", -180.0, 180.0, 0.0)  # degrees, turns the drift
+SATURATION = Param("saturation", "Saturation", 0.0, 2.0, 1.0)
+CENTER_X = Param("center_x", "Center X", -0.5, 0.5, 0.0)
+CENTER_Y = Param("center_y", "Center Y", -0.5, 0.5, 0.0)
+SPREAD = Param("spread", "Spread", 0.3, 2.5, 1.0)
 
 
 def colour(default: str) -> Param:
@@ -47,7 +58,7 @@ float bokehDisc(vec2 d, float r, float aa) {
 # ------------------------------------------------------------------------------------------------- falling
 FALL = Family(
     key="pt_fall", category="particulas",
-    params=[INTENSITY, SPEED, DENSITY, colour("#ffffff")],
+    params=[INTENSITY, SPEED, DENSITY, colour("#ffffff"), SIZE, ANGLE, GLOW, SATURATION],
     photo="lighthouse", tags=["particulas", "particles", "caer", "falling"],
     defines={"SHAPE": "0", "FALL": 1.0, "WIND": 0.1, "SWAY": 0.12, "SPIN": 1.0, "SIZE": 0.07, "DENS": 0.45,
              "PAINT": 1.0, "GLOWK": 0.25, "BLUR": 0.35, "HUEVAR": 0.0, "BRVAR": 0.1, "WHITEMIX": 0.0,
@@ -75,7 +86,7 @@ void fallLayer(vec2 p, float t, float scale, float spd, float seed, float depth)
             vec2 pc = c / scale;
             pc.x += t * WIND * spd / scale;
             vec2 d = p - pc;                                 // toP units
-            float r = max(SIZE / scale * (0.55 + 0.45 * hh.z), minR());
+            float r = max(SIZE * size / scale * (0.55 + 0.45 * hh.z), minR());
             if (dot(d, d) > r * r * 30.0) continue;
             float w = 1.0;
             if (COLUMN > 0.0) w = exp(-pow(pc.x / COLUMN, 2.0)) * (0.35 + 0.65 * smoothstep(0.5, -0.3, pc.y));
@@ -83,7 +94,7 @@ void fallLayer(vec2 p, float t, float scale, float spd, float seed, float depth)
             float fade = mix(0.55, 1.0, depth) * w;
             float ang = hh.y * TAU + t * SPIN * (hh.z - 0.5) * 3.0;
             vec2 dr = rot(ang) * d;
-            vec3 col = pal(fract(hh.x * 3.1 + hh.z));
+            vec3 col = saturateColor(pal(fract(hh.x * 3.1 + hh.z)), saturation);
             float a = 0.0;
             float g = 0.0;
 #if SHAPE == 0
@@ -134,7 +145,7 @@ void fallLayer(vec2 p, float t, float scale, float spd, float seed, float depth)
             col *= 0.85 + 0.2 * sin(dr.x / r * 3.5);
 #endif
             gPaint = over(vec4(col, sat(a * PAINT * fade)), gPaint);
-            gLight += col * (g * GLOWK + a * (1.0 - PAINT)) * fade;
+            gLight += col * (g * GLOWK * glow + a * (1.0 - PAINT)) * fade;
         }
     }
 }
@@ -168,9 +179,11 @@ void main() {
         col = mix(col, screen(col, veil * 0.6), FOG * intensity * (0.6 + 0.4 * smoothstep(0.5, -0.5, p.y)));
     }
     if (STARS > 0.0) col = addLight(col, starField(p, t), STARS * intensity);
-    fallLayer(p, t, 10.0, FALL * 0.55, 1.0, 0.0);
-    fallLayer(p, t, 6.0, FALL * 0.85, 7.0, 0.5);
-    fallLayer(p, t, 3.2, FALL * 1.25, 13.0, 1.0);
+    // Angle tilts the fall (the wind keeps blowing across it).
+    vec2 pf = rot(radians(angle)) * p;
+    fallLayer(pf, t, 10.0, FALL * 0.55, 1.0, 0.0);
+    fallLayer(pf, t, 6.0, FALL * 0.85, 7.0, 0.5);
+    fallLayer(pf, t, 3.2, FALL * 1.25, 13.0, 1.0);
     col = mix(col, gPaint.rgb, sat(gPaint.a * intensity));
     col = addLight(col, gLight, intensity);
     fragColor = vec4(col, src.a);
@@ -221,7 +234,7 @@ void main() {
 # ------------------------------------------------------------------------------------------------- floating field
 FIELD = Family(
     key="pt_field", category="particulas",
-    params=[INTENSITY, SPEED, DENSITY, colour("#ffd88a")],
+    params=[INTENSITY, SPEED, DENSITY, colour("#ffd88a"), SIZE, DIRECTION, FLICKER, GLOW, BRIGHTNESS],
     photo="dark", tags=["particulas", "particles", "brillos", "sparkles", "destellos", "glitter"],
     defines={"DRIFT": (0.0, -0.015), "WANDER": 0.15, "SIZE": 0.06, "DENS": 0.5, "TWK": 3.0, "TWP": 2.0,
              "TWD": 0.8, "STARFRAC": 0.0, "BOKFRAC": 0.0, "STAR5": 0.0, "RAYS": 2.5, "HUEVAR": 0.05,
@@ -247,10 +260,11 @@ float regionW(vec2 c, float t) {
 vec3 fieldLayer(vec2 p, float t, float scale, float seed, float depth) {
     vec3 acc = vec3(0.0);
     float dm = mix(0.45, 1.0, depth);
-    vec2 shift = DRIFT * t * dm;
+    vec2 drift = rot(radians(angle)) * DRIFT;
+    vec2 shift = drift * t * dm;
     vec2 q = (p - shift) * scale;
     float aa = 1.2 / max(u_resolution.y, 1.0);
-    vec2 dirN = normalize(DRIFT + vec2(1e-5, 0.0));
+    vec2 dirN = normalize(drift + vec2(1e-5, 0.0));
     for (int j = -1; j <= 1; ++j)
     for (int i = -1; i <= 1; ++i) {
         vec2 cell = floor(q) + vec2(float(i), float(j));
@@ -274,25 +288,25 @@ vec3 fieldLayer(vec2 p, float t, float scale, float seed, float depth) {
         vec2 d = p - c;
         float kind = fract(h * 17.31 + hh.z * 3.7);
         float big = (kind < STARFRAC) ? 1.8 : 1.0;
-        float r = max(1.6 * SIZE / scale * (0.45 + 0.55 * hh.z * hh.z) * big * mix(0.7, 1.0, depth), minR());
+        float r = max(1.6 * SIZE * size / scale * (0.45 + 0.55 * hh.z * hh.z) * big * mix(0.7, 1.0, depth), minR());
         if (dot(d, d) > r * r * RAYS * RAYS * 9.0 + r * r * 40.0) continue;
         float tw = pow(0.5 + 0.5 * sin(t * TWK * (0.6 + 0.8 * hh.z) + hh.y * TAU), TWP);
-        float b = mix(1.0 - TWD, 1.0, tw) * mix(0.5, 1.0, depth);
+        float b = mix(1.0 - min(TWD * flicker, 1.0), 1.0, tw) * mix(0.5, 1.0, depth);
         vec3 col = pal(fract(hh.x * 5.3 + hh.y));
         float v;
         if (kind < STARFRAC) {
             float ang = (hh.y - 0.5) * 0.5 + t * SPINR * (hh.z - 0.5);
-            v = twinkle(rot(ang) * d, r * RAYS) * 1.2 * (0.6 + 0.6 * tw);
+            v = twinkle(rot(ang) * d, r * RAYS * mix(0.6, 1.0, min(glow, 1.0)) * max(glow, 1.0)) * 1.2 * (0.6 + 0.6 * tw);
         } else if (kind < STARFRAC + BOKFRAC) {
             v = bokehDisc(d, r * 3.0, aa + r * 0.6) * 0.32 * mix(0.7, 1.0, tw);
         } else if (STAR5 > 0.5) {
             float ang = hh.y * TAU + t * 0.5 * (hh.z - 0.5);
-            v = star5(rot(ang) * d, r * 1.6 * (0.8 + 0.3 * tw), aa) * 1.1 + 0.5 * halo(d, r);
+            v = star5(rot(ang) * d, r * 1.6 * (0.8 + 0.3 * tw), aa) * 1.1 + 0.5 * glow * halo(d, r);
         } else if (STREAK > 0.0) {
             float sd = sdSegment(d, vec2(0.0), -dirN * r * STREAK);
-            v = exp(-sd * sd / (r * r) * 2.2) + 0.25 * exp(-sd / (r * 2.5));
+            v = exp(-sd * sd / (r * r) * 2.2) + 0.25 * glow * exp(-sd / (r * 2.5));
         } else {
-            v = softDot(d, r) + 0.3 * halo(d, r);
+            v = softDot(d, r) + 0.3 * glow * halo(d, r);
         }
         acc += col * v * b * 1.5;
     }
@@ -309,7 +323,7 @@ void main() {
     light += fieldLayer(p, t, 4.5 * SCALE, 13.0, 1.0);
     if (GLOWK > 0.0) {
         float gl = exp(-length((p - GLOWPOS) * vec2(0.8, 1.0)) / GLOWR) * (0.85 + 0.15 * sin(t * 1.3));
-        light += GLOWCOL * gl * GLOWK;
+        light += GLOWCOL * gl * GLOWK * brightness;
     }
     fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
 }

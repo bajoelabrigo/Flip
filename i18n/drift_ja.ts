@@ -2656,6 +2656,22 @@
         <translation>すべて</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>ログインしてトレンドを表示</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>トレンドはログインした方のみ利用できます。アカウントは無料です。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ブラウザを待っています…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ログイン</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>長さ</translation>
     </message>
@@ -4343,6 +4359,10 @@
     <message>
         <source>In Transitions</source>
         <translation>トランジションにあります</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>エフェクト › トレンドにあります</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12462,6 +12482,14 @@ NEXT TIME</source>
         <translation>Drift Forge で作成した .driftfx ファイルから、カスタムエフェクトまたはトランジションをインストールします</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>声を変えるには音声のあるクリップを選択してください</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>調整レイヤーを追加 — クリックするか、トラックにドラッグします</translation>
     </message>
@@ -12494,12 +12522,48 @@ NEXT TIME</source>
         <translation>Drift Forge で作成した .driftfx ファイルをインポートして、独自のものを追加してください。</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — クリックすると選択したクリップの声に適用します</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — クリックで選択範囲に適用、またはクリップにドラッグ</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — クリックで調整レイヤーとして追加、またはクリップにドラッグ</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — クリックするとダウンロードして適用します</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>ログインしてトレンドのエフェクトを表示</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>トレンドのエフェクトを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>トレンドのエフェクトを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>トレンドのエフェクトは Stock から届きます。無料アカウントが必要です。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ブラウザを待っています…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ログイン</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>再試行</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23156,6 +23220,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>ログインしてトレンドを表示</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>トレンドはログインした方のみ利用できます。アカウントは無料です。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ブラウザを待っています…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>ログイン</translation>
     </message>
     <message>
         <source>Rename text animation</source>

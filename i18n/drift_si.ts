@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -2659,6 +2659,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>ප්‍රවණතා බැලීමට පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>ප්‍රවණතා පුරනය වූ අයට පමණි. ගිණුම නොමිලේ.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>පුරනය වන්න</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4353,6 +4369,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>ප්‍රයෝග › ප්‍රවණතා තුළ</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5061,7 +5081,7 @@
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රවණතා</translation>
     </message>
     <message>
         <source>Slide</source>
@@ -12501,6 +12521,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>ප්‍රවණතා</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>හඬ වෙනස් කිරීමට ශබ්දය ඇති ක්ලිපයක් තෝරන්න</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12533,12 +12561,48 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — තෝරාගත් ක්ලිපයේ හඬට යෙදීමට ක්ලික් කරන්න</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — බාගත කර යෙදීමට ක්ලික් කරන්න</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>ප්‍රවණතා ප්‍රයෝග බැලීමට පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>ප්‍රවණතා ප්‍රයෝග පූරණය වෙමින්…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>ප්‍රවණතා ප්‍රයෝග පූරණය කළ නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>ප්‍රවණතා ප්‍රයෝග Stock වෙතින් එයි, ඒ සඳහා ඔබේ නොමිලේ ගිණුම අවශ්‍යයි.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -15285,7 +15349,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -19623,7 +19687,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -20509,7 +20573,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -23229,6 +23293,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>සෑම උපසිරැසියක් සඳහාම ධාවනය වේ</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>ප්‍රවණතා බැලීමට පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>ප්‍රවණතා පුරනය වූ අයට පමණි. ගිණුම නොමිලේ.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>බ්‍රව්සරය එනතුරු…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>පුරනය වන්න</translation>
     </message>
     <message>
         <source>Rename text animation</source>

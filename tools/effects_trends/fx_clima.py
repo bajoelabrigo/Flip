@@ -126,7 +126,7 @@ def _dir(drift: float, rise: float) -> float:
 
 # ---------------------------------------------------------------------------------------------------------------
 # Fog, mist and smoke: two layers of domain-warped fbm drifting at different speeds. LOW keeps it near the floor;
-# TOXIC tints the picture with it; DREAMY adds a soft bloom of the bright parts.
+# TOXIC tints the picture with it; Glow adds a soft bloom of the bright parts.
 FOG = Family(
     key="clima_fog", category="particulas",
     params=[INTENSITY, SPEED, Param("color", "Colour", default="#d8dde6"), Param("density", "Density", 0.2, 2.0, 1.0),
@@ -191,7 +191,7 @@ void main() {
 
 # ---------------------------------------------------------------------------------------------------------------
 # Rain: streaks in three depth layers (far thin and slow, near wide, soft and fast), the picture darkened and
-# cooled, a mist near the ground. STORM adds lightning flashes.
+# cooled, a mist near the ground. Flicker adds lightning flashes (the storm).
 RAIN = Family(
     key="clima_rain", category="particulas",
     params=[INTENSITY, SPEED, Param("color", "Colour", default="#cfe0f0"), Param("density", "Density", 0.2, 2.0, 1.0),

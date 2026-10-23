@@ -93,6 +93,10 @@ class MarketClient : public QObject
     Q_PROPERTY(QVariantList textTrends READ textTrends NOTIFY textTrendsChanged)
     Q_PROPERTY(bool textTrendsLoading READ textTrendsLoading NOTIFY textTrendsChanged)
     Q_PROPERTY(bool textTrendsHasMore READ textTrendsHasMore NOTIFY textTrendsChanged)
+    // Effects › Trending: Stock's effects (type "effect"), page by page.
+    Q_PROPERTY(QVariantList effectTrends READ effectTrends NOTIFY effectTrendsChanged)
+    Q_PROPERTY(bool effectTrendsLoading READ effectTrendsLoading NOTIFY effectTrendsChanged)
+    Q_PROPERTY(bool effectTrendsHasMore READ effectTrendsHasMore NOTIFY effectTrendsChanged)
 
 public:
     // Installs a Stock download whose delivery is not "media" or "scene-template" (a LUT, a look,
@@ -205,6 +209,10 @@ public:
     QVariantList textTrends() const { return m_textTrends; }
     bool textTrendsLoading() const { return m_textTrendsLoading; }
     bool textTrendsHasMore() const { return !m_textTrendsCursor.isEmpty(); }
+    Q_INVOKABLE void fetchEffectTrends(bool more = false);
+    QVariantList effectTrends() const { return m_effectTrends; }
+    bool effectTrendsLoading() const { return m_effectTrendsLoading; }
+    bool effectTrendsHasMore() const { return !m_effectTrendsCursor.isEmpty(); }
     bool templateSuggestionsLoading() const { return m_templateSuggestionsPending > 0; }
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
@@ -260,6 +268,7 @@ signals:
     void favoritesPushed(const QDateTime &updatedAt);
     void templateSuggestionsChanged();
     void textTrendsChanged();
+    void effectTrendsChanged();
     // A download that installs where the editor keeps it (a LUT, a look, a text style…) is done;
     // `where` says where to find it ("In Titles › Trending").
     void downloadInstalled(const QString &itemId, const QString &name, const QString &where);
@@ -293,6 +302,10 @@ private:
     QString m_textTrendsCursor;
     bool m_textTrendsLoading = false;
     int m_textTrendsGeneration = 0;
+    QVariantList m_effectTrends;
+    QString m_effectTrendsCursor;
+    bool m_effectTrendsLoading = false;
+    int m_effectTrendsGeneration = 0;
     // Resolve is a job now, not a synchronous reply: extraction can outlive any sane HTTP
     // timeout, so the POST only creates it and this polls until it is ready or failed.
     void pollResolve();

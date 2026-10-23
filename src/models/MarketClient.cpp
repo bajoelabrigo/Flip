@@ -139,7 +139,8 @@ bool MarketClient::isInstalledDelivery(const QString &delivery)
 {
     static const QStringList kinds{QStringLiteral("lut"), QStringLiteral("effect-preset"),
                                    QStringLiteral("text-style"), QStringLiteral("text-animation"),
-                                   QStringLiteral("transition"), QStringLiteral("shape")};
+                                   QStringLiteral("transition"), QStringLiteral("shape"),
+                                   QStringLiteral("effect")};
     return kinds.contains(delivery);
 }
 
@@ -374,6 +375,48 @@ void MarketClient::fetchTextTrends(bool more)
             qWarning("MarketClient: text trends: %s", qPrintable(reply->errorString()));
         }
         emit textTrendsChanged();
+    });
+}
+
+void MarketClient::fetchEffectTrends(bool more)
+{
+    if (more && (m_effectTrendsLoading || m_effectTrendsCursor.isEmpty()))
+        return;
+    const int generation = ++m_effectTrendsGeneration;
+    const QString cursor = more ? m_effectTrendsCursor : QString();
+    if (!more) {
+        m_effectTrends.clear();
+        m_effectTrendsCursor.clear();
+    }
+    if (!configured() || !authenticated()) {
+        m_effectTrendsLoading = false;
+        emit effectTrendsChanged();
+        return;
+    }
+    QUrl url = apiUrl(QStringLiteral("/search"));
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("type"), QStringLiteral("effect"));
+    query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
+    if (!cursor.isEmpty())
+        query.addQueryItem(QStringLiteral("cursor"), cursor);
+    url.setQuery(query);
+    m_effectTrendsLoading = true;
+    emit effectTrendsChanged();
+    QNetworkReply *reply = get(url);
+    connect(reply, &QNetworkReply::finished, this, [this, reply, generation] {
+        reply->deleteLater();
+        if (generation != m_effectTrendsGeneration)
+            return;
+        m_effectTrendsLoading = false;
+        if (reply->error() == QNetworkReply::NoError) {
+            const QJsonObject page = QJsonDocument::fromJson(reply->readAll()).object();
+            for (const QJsonValue &value : page.value(QStringLiteral("items")).toArray())
+                m_effectTrends.append(objectToMap(value.toObject()));
+            m_effectTrendsCursor = page.value(QStringLiteral("next_cursor")).toString();
+        } else {
+            qWarning("MarketClient: effect trends: %s", qPrintable(reply->errorString()));
+        }
+        emit effectTrendsChanged();
     });
 }
 
@@ -1050,6 +1093,10 @@ QVariantMap MarketClient::itemById(const QString &itemId) const
     if (m_homeItems.contains(itemId))
         return m_homeItems.value(itemId);
     for (const QVariant &row : m_textTrends) {
+        if (row.toMap().value(QStringLiteral("id")).toString() == itemId)
+            return row.toMap();
+    }
+    for (const QVariant &row : m_effectTrends) {
         if (row.toMap().value(QStringLiteral("id")).toString() == itemId)
             return row.toMap();
     }

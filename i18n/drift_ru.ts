@@ -2662,6 +2662,22 @@
         <translation>Все</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Войдите, чтобы увидеть тренды</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Тренды доступны только после входа. Аккаунт бесплатный.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Длительность</translation>
     </message>
@@ -4359,6 +4375,10 @@
     <message>
         <source>In Transitions</source>
         <translation>В разделе Переходы</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>В «Эффекты › Тренды»</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12548,6 +12568,14 @@ NEXT TIME</source>
         <translation>Установите собственный эффект или переход из файла .driftfx, созданного в Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Тренды</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Выберите клип со звуком, чтобы изменить голос</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Добавить корректирующий слой — нажмите или перетащите на дорожку</translation>
     </message>
@@ -12580,12 +12608,48 @@ NEXT TIME</source>
         <translation>Импортируйте файл .driftfx, созданный в Drift Forge, чтобы добавить свои.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — нажмите, чтобы применить к голосу выбранного клипа</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — нажмите, чтобы применить к выделению, или перетащите на клип</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — нажмите, чтобы добавить как корректирующий слой, или перетащите на клип</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — нажмите, чтобы скачать и применить</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Войдите, чтобы увидеть трендовые эффекты</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Загрузка трендовых эффектов…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>Не удалось загрузить трендовые эффекты</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Трендовые эффекты берутся из Stock, для которого нужен бесплатный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23310,6 +23374,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Войдите, чтобы увидеть тренды</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>Тренды доступны только после входа. Аккаунт бесплатный.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
     </message>
     <message>
         <source>Rename text animation</source>

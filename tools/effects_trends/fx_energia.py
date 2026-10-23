@@ -14,18 +14,53 @@ def color(default: str) -> Param:
     return Param("color", "Colour", default=default)
 
 
+SIZE = Param("size", "Size", 0.3, 2.0, 1.0)
+DENSITY = Param("density", "Density", 0.2, 2.0, 1.0)
+WIDTH = Param("width", "Width", 0.3, 3.0, 1.0)
+CENTER = [Param("center_x", "Center X", 0.0, 1.0, 0.5), Param("center_y", "Center Y", 0.0, 1.0, 0.5)]
+
+# Every body starts with @OCC@: for the plain families an occlude() that changes nothing, and for the «behind the
+# person» ones (requires "depth": the engine puts its depth prelude, driftDepth and u_hasDepth, before the shader)
+# an occlude() that puts the near part of the clip (the person) back in front of the effect. Without a depth map it
+# changes nothing either: the effect covers everything, as in the plain family.
+OCC_NONE = "vec3 occlude(vec3 col, vec3 front, vec2 uv) { return col; }\n"
+OCC_DEPTH = r"""
+vec3 occlude(vec3 col, vec3 front, vec2 uv) {
+    if (u_hasDepth < 0.5) return col;
+    return mix(col, front, smoothstep(0.55, 0.7, driftDepth(uv)));
+}
+"""
+
+
+def _plain(family: Family) -> Family:
+    family.body = family.body.replace("@OCC@", OCC_NONE)
+    return family
+
+
+def _behind(family: Family, key: str, ids: list) -> Family:
+    """Moves the variants `ids` of `family` (still with @OCC@) to a new family drawn behind the person."""
+    moved = [v for v in family.variants if v.id in ids]
+    assert len(moved) == len(ids), ids
+    family.variants = [v for v in family.variants if v.id not in ids]
+    return Family(key=key, category=family.category, body=family.body.replace("@OCC@", OCC_DEPTH),
+                  params=list(family.params), variants=moved, defines=dict(family.defines),
+                  tags=family.tags + ["persona", "person", "detras", "behind"], photo=family.photo,
+                  requires="depth", preview=family.preview)
+
+
 # ---------------------------------------------------------------------------------------------------------------
 # Lightning: jagged bolts (a 1D noise offset along a segment) with a branch, white core and coloured halo. Each bolt
 # strikes, flickers and fades on its own clock, and is drawn somewhere new on the next strike.
 #   MODE 0 scattered across the frame, 1 radiating around the subject, 2 one big bolt top to bottom,
 #   3 radiating and twisted into a vortex.
 LIGHTNING = Family(
-    key="en_lightning", category="energia", params=[INTENSITY, SPEED, color("#5aa0ff")],
+    key="en_lightning", category="energia",
+    params=[INTENSITY, SPEED, color("#5aa0ff"), SIZE, DENSITY, WIDTH] + CENTER,
     photo="dark", tags=["rayos", "lightning", "electricidad", "electric", "relampago", "tormenta", "storm", "energia",
                         "energy"],
     defines={"MODE": 0, "NB": 5, "LEN": 0.7, "AMP": 0.07, "RATE": 1.6, "DARKEN": 0.35, "FLASH": 0.25,
              "CGLOW": 0.0, "TINT": 0.0, "THICK": 1.0, "R0": 0.2},
-    body=r"""
+    body=r"""@OCC@
 float n1(float x, float s) { float i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
                              return mix(hash11(i + s * 13.7), hash11(i + 1.0 + s * 13.7), f) * 2.0 - 1.0; }
 // Jagged offset along the bolt: big wander plus fine kinks.
@@ -52,17 +87,21 @@ float boltLight(float d, float t, float w) {
 }
 void main() {
     vec4 src = S(v_texCoord);
-    vec2 p = toP(v_texCoord);
-    float t = u_time * speed;
     float A = aspect();
+    // Bolts that surround a point follow Center X/Y; scattered ones fill the frame.
+    vec2 cc = MODE > 0.5 ? (vec2(center_x, center_y) - 0.5) * vec2(A, 1.0) : vec2(0.0);
+    vec2 p = toP(v_texCoord) - cc;
+    float t = u_time * speed;
+    float nb = clamp(floor(NB * density + 0.5), 1.0, 8.0);
+    float len = LEN * size, r0 = R0 * size;
     vec2 q = p;
     if (MODE > 2.5) {               // vortex: twist the space around the centre, turning slowly
         float r = length(p);
         q = rot(r * 4.0 - t * 1.2) * p;
     }
     float core = 0.0, halo = 0.0, flash = 0.0;
-    for (int i = 0; i < 6; ++i) {
-        if (float(i) >= NB) break;
+    for (int i = 0; i < 8; ++i) {
+        if (float(i) >= nb) break;
         float fi = float(i);
         float hb = hash11(fi * 7.31 + 1.0);
         float clk = t * RATE * (0.8 + 0.5 * hb) + hb * 5.0;
@@ -77,12 +116,12 @@ void main() {
         if (MODE < 0.5) {
             a = (rr.xy - 0.5) * vec2(A, 1.0) * 0.95;
             float ang = rr.z * TAU;
-            b = a + vec2(cos(ang), sin(ang)) * LEN * (0.6 + 0.4 * hash11(sd));
+            b = a + vec2(cos(ang), sin(ang)) * len * (0.6 + 0.4 * hash11(sd));
         } else if (MODE < 1.5 || MODE > 2.5) {
-            float ang = (fi + rr.x * 0.8) / NB * TAU + rr.y;
+            float ang = (fi + rr.x * 0.8) / nb * TAU + rr.y;
             vec2 dir = vec2(cos(ang), sin(ang));
-            a = dir * R0 * vec2(0.8, 1.15);
-            b = dir * (R0 + LEN * (0.6 + 0.4 * rr.z)) * vec2(1.3, 1.0);
+            a = dir * r0 * vec2(0.8, 1.15);
+            b = dir * (r0 + len * (0.6 + 0.4 * rr.z)) * vec2(1.3, 1.0);
         } else {
             a = vec2((rr.x - 0.5) * A * 0.5, -0.6);
             b = vec2((rr.y - 0.5) * A * 0.6, 0.6);
@@ -90,7 +129,7 @@ void main() {
         float amp = AMP * length(b - a);
         float tt;
         float d = boltD(q, a, b, sd, amp, tt);
-        float l = boltLight(d, tt, THICK);
+        float l = boltLight(d, tt, THICK * width);
         // One branch leaving the bolt part way along.
         float t0 = 0.25 + 0.4 * hash11(sd + 4.0);
         vec2 a2 = boltPoint(a, b, sd, amp, t0);
@@ -98,7 +137,7 @@ void main() {
         vec2 b2 = a2 + dir2 * length(b - a) * (0.3 + 0.25 * hash11(sd + 6.0));
         float t2;
         float d2 = boltD(q, a2, b2, sd + 9.0, amp * 0.8, t2);
-        l += 0.7 * boltLight(d2, 0.4 + 0.6 * t2, THICK * 0.7);
+        l += 0.7 * boltLight(d2, 0.4 + 0.6 * t2, THICK * width * 0.7);
         core += vis * l;
         flash += vis;
     }
@@ -108,13 +147,13 @@ void main() {
     if (CGLOW > 0.0) {
         float r = length(p * vec2(0.8, 1.0));
         float pulse = 0.7 + 0.3 * sin(t * 6.0) * hash11(floor(t * 8.0));
-        float ring = exp(-abs(r - R0 * 1.1) / 0.06) * (0.6 + 0.4 * fbm(vec2(atan(p.y, p.x) * 3.0, t * 2.0)));
+        float ring = exp(-abs(r - r0 * 1.1) / (0.06 * size)) * (0.6 + 0.4 * fbm(vec2(atan(p.y, p.x) * 3.0, t * 2.0)));
         base = addLight(base, color, CGLOW * ring * pulse * intensity * 0.9);
     }
     vec3 light = color * (1.1 * core + 0.12 * FLASH * flash);
     vec3 col = addLight(base, light, intensity);
     col = mix(col, vec3(1.0), sat(core - 0.7) * 0.85 * sat(intensity));
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -149,47 +188,54 @@ void main() {
 #   MODE 0 on the ground, 1 all around the frame, 2 a ring (ellipse RX × RY at CY, turning), 3 a band scanning up,
 #   4 the whole frame (billowing explosion).
 FIRE = Family(
-    key="en_fire", category="energia", params=[INTENSITY, SPEED],
+    key="en_fire", category="energia",
+    params=[INTENSITY, SPEED, Param("color_a", "Colour A", default="#ffd860"),
+            Param("color_b", "Colour B", default="#ff4a0a"), Param("height", "Height", 0.3, 2.5, 1.0), SIZE] + CENTER,
     photo="dark", tags=["fuego", "fire", "llamas", "flames", "incendio", "calor", "heat"],
-    defines={"MODE": 0, "HGT": 0.35, "FREQ": 3.0, "CY": 0.0, "RX": 0.33, "RY": 0.33, "BLUE": 0.0, "DARKEN": 0.3,
+    defines={"MODE": 0, "HGT": 0.35, "FREQ": 3.0, "CY": 0.0, "RX": 0.33, "RY": 0.33, "DARKEN": 0.3,
              "RISE": 1.6, "HEATK": 1.25},
-    body=r"""
+    body=r"""@OCC@
+// Heat 0..1 to colour: the edge colour (B) fading in, the core colour (A) in the hot part, white at the very top.
 vec3 heatRamp(float h) {
     h = sat(h);
-    if (BLUE > 0.5) return sat3(vec3(pow(h, 3.0) * 1.3, pow(h, 1.5) * 1.35, h * 2.0));
-    return sat3(vec3(h * 2.0, pow(h, 1.8) * 1.6, pow(h, 4.0) * 1.4));
+    vec3 c = color_b * sat(h * 2.0);
+    c = mix(c, color_a, smoothstep(0.45, 0.8, h));
+    return sat3(mix(c, vec3(1.0), smoothstep(0.8, 1.0, h) * 0.8));
 }
 void main() {
     vec4 src = S(v_texCoord);
     vec2 p = toP(v_texCoord);
     float t = u_time * speed;
     float A = aspect();
+    float hgt = HGT * height;
+    vec2 cc = (vec2(center_x, center_y) - 0.5) * vec2(A, 1.0);   // ring and explosion centre
     float m;
     vec2 fp = p;
     if (MODE < 0.5) {
-        m = linstep(0.5 - HGT, 0.52, p.y);
+        m = linstep(0.5 - hgt, 0.52, p.y);
         m *= m;
     } else if (MODE < 1.5) {
         float e = min(A * 0.5 - abs(p.x), 0.5 - abs(p.y));
-        float bottom = linstep(0.5 - HGT * 1.4, 0.5, p.y);
-        m = max(1.0 - linstep(0.0, HGT, e), bottom * bottom);
+        float bottom = linstep(0.5 - hgt * 1.4, 0.5, p.y);
+        m = max(1.0 - linstep(0.0, hgt, e), bottom * bottom);
         m = pow(m, 1.6);
     } else if (MODE < 2.5) {
-        vec2 c = p - vec2(0.0, CY);
-        float ang = atan(c.y / RY, c.x / RX);
-        float r = length(c / vec2(RX, RY));
-        float d = abs(r - 1.0) * min(RX, RY);
-        m = 1.0 - linstep(0.0, HGT, d);
+        vec2 c = p - cc - vec2(0.0, CY);
+        vec2 rad = vec2(RX, RY) * size;
+        float ang = atan(c.y / rad.y, c.x / rad.x);
+        float r = length(c / rad);
+        float d = abs(r - 1.0) * min(rad.x, rad.y);
+        m = 1.0 - linstep(0.0, hgt, d);
         m = m * m;
         // Flames lick round the ring.
         fp = vec2(ang * 0.25 - t * 0.35, r * 0.3) * 2.5 + p * 0.6;
     } else if (MODE < 3.5) {
         float yf = 0.75 - fract(t * 0.35) * 1.6;
-        m = linstep(yf - 0.02, yf + HGT * 0.35, p.y) * (1.0 - linstep(yf + HGT * 0.3, yf + HGT, p.y));
+        m = linstep(yf - 0.02, yf + hgt * 0.35, p.y) * (1.0 - linstep(yf + hgt * 0.3, yf + hgt, p.y));
         m = pow(m, 0.8);
     } else {
         float b = beat(t, 2.0, 0.6);
-        m = 0.45 + 0.3 * b - 0.2 * linstep(0.1, 0.8, length(p)) + 0.1 * sin(t * 1.3);
+        m = 0.45 + 0.3 * b - 0.2 * linstep(0.1 * size, 0.8 * size, length(p - cc)) + 0.1 * sin(t * 1.3);
     }
     vec2 qn = vec2(fp.x * FREQ, fp.y * FREQ * 0.8 + t * RISE);
     vec2 warp = vec2(fbm(qn * 0.7 + vec2(0.0, t * 0.4)), fbm(qn * 0.7 + vec2(5.2, 1.3 + t * 0.4))) - 0.5;
@@ -200,11 +246,10 @@ void main() {
     vec3 fire = heatRamp(heat);
     // Smoke-dark under the flames, warm glow around them.
     vec3 base = src.rgb * (1.0 - DARKEN * sat(m) * sat(intensity));
-    vec3 glowC = BLUE > 0.5 ? vec3(0.1, 0.35, 1.0) : vec3(1.0, 0.35, 0.05);
-    base = addLight(base, glowC, 0.35 * m * intensity);
+    base = addLight(base, color_b, 0.35 * m * intensity);
     vec3 col = mix(base, fire, sat(heat * 1.8) * sat(intensity) * 0.85);
     col = addLight(col, fire, intensity * 0.6);
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -219,18 +264,18 @@ void main() {
         Variant("anillo-de-fuego", "Anillo de fuego", "Ring of fire", photo="dark", thumb=1.0,
                 defines={"MODE": 2, "HGT": 0.12, "RX": 0.42, "RY": 0.36, "FREQ": 3.0}),
         Variant("envolvente-de-fuego-azul", "Envolvente de fuego azul", "Blue fire wrap", photo="dancer", thumb=1.0,
-                defines={"MODE": 2, "HGT": 0.09, "RX": 0.3, "RY": 0.08, "CY": 0.12, "BLUE": 1.0, "FREQ": 3.5,
-                         "DARKEN": 0.05}),
+                defines={"MODE": 2, "HGT": 0.09, "RX": 0.3, "RY": 0.08, "CY": 0.12, "FREQ": 3.5,
+                         "DARKEN": 0.05}, params={"color_a": "#a8e8ff", "color_b": "#2a6aff"}),
     ],
 )
 
 # ---------------------------------------------------------------------------------------------------------------
 # Embers and sparks: three depth layers of glowing specks that rise (drift along DIR), wobble, flicker and fade.
 EMBERS = Family(
-    key="en_embers", category="energia", params=[INTENSITY, SPEED, Param("density", "Density", 0.2, 2.0, 1.0)],
+    key="en_embers", category="energia", params=[INTENSITY, SPEED, color("#ff7a1a"), DENSITY, SIZE],
     photo="dark", tags=["brasas", "embers", "chispas", "sparks", "ceniza", "ash", "fuego", "fire"],
-    defines={"TINT": "#ff7a1a", "DIR": (0.0, -1.0), "STREAK": 1.0, "BGLOW": 0.0, "SIZE": 1.0, "FALL": 0.35},
-    body=r"""
+    defines={"DIR": (0.0, -1.0), "STREAK": 1.0, "BGLOW": 0.0, "SIZE": 1.0, "FALL": 0.35},
+    body=r"""@OCC@
 float layer(vec2 p, float t, float scale, float seed, out float hue) {
     vec2 d = normalize(DIR);
     vec2 side = vec2(-d.y, d.x);
@@ -244,7 +289,7 @@ float layer(vec2 p, float t, float scale, float seed, out float hue) {
     hue = hash12(cell + seed + 4.0);
     if (h > 0.45 * density) return 0.0;
     vec2 o = (hash22(cell + seed * 1.7) - 0.5) * 0.7;
-    float r = (0.04 + 0.07 * hash12(cell + 9.1 + seed)) * SIZE;
+    float r = (0.04 + 0.07 * hash12(cell + 9.1 + seed)) * SIZE * size;
     vec2 v = f - o;
     v.y /= STREAK;                  // stretched along the motion
     float g = exp(-dot(v, v) / (r * r)) + 0.25 * exp(-dot(v, v) / (r * r * 9.0));
@@ -259,17 +304,17 @@ void main() {
     float a = layer(p, t, 16.0, 1.0, h1);
     float b = layer(p, t, 9.0, 7.0, h2);
     float c = layer(p, t, 4.5, 13.0, h3);
-    vec3 c1 = mix(TINT, vec3(1.0, 0.85, 0.4), h1 * 0.6);
-    vec3 c2 = mix(TINT, vec3(1.0, 0.8, 0.35), h2 * 0.6);
-    vec3 c3 = mix(TINT, vec3(1.0, 0.75, 0.3), h3 * 0.6);
+    vec3 c1 = mix(color, vec3(1.0, 0.85, 0.4), h1 * 0.6);
+    vec3 c2 = mix(color, vec3(1.0, 0.8, 0.35), h2 * 0.6);
+    vec3 c3 = mix(color, vec3(1.0, 0.75, 0.3), h3 * 0.6);
     vec3 light = c1 * a * 0.6 + c2 * b * 0.9 + c3 * c * 0.8;
     light += vec3(1.0, 0.95, 0.8) * sat(a + b + c - 1.2) * 0.5;
     vec3 base = src.rgb;
     if (BGLOW > 0.0) {
         float g = linstep(0.0, 0.55, p.y) * (0.8 + 0.2 * fbm(vec2(p.x * 3.0, t)));
-        base = addLight(base * (1.0 - 0.25 * BGLOW), TINT * vec3(1.0, 0.6, 0.4), BGLOW * g * g * intensity);
+        base = addLight(base * (1.0 - 0.25 * BGLOW), color * vec3(1.0, 0.6, 0.4), BGLOW * g * g * intensity);
     }
-    fragColor = vec4(addLight(base, light, intensity * 1.2), src.a);
+    fragColor = vec4(occlude(addLight(base, light, intensity * 1.2), src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -277,7 +322,7 @@ void main() {
                 thumb=1.2, defines={"DIR": (0.35, -1.0), "STREAK": 1.0, "SIZE": 0.7, "FALL": 0.25},
                 params={"density": 0.8}),
         Variant("brasas", "Brasas", "Embers", photo="dark", thumb=1.0,
-                defines={"TINT": "#ff4a12", "STREAK": 1.6, "BGLOW": 0.35, "FALL": 0.3}),
+                defines={"STREAK": 1.6, "BGLOW": 0.35, "FALL": 0.3}, params={"color": "#ff4a12"}),
         Variant("particulas-de-llamas-voladoras", "Partículas de llamas voladoras", "Flying flame particles",
                 photo="dark", thumb=1.4, defines={"DIR": (0.5, -1.0), "STREAK": 3.0, "SIZE": 0.9, "FALL": 0.7,
                                                    "BGLOW": 0.2}, params={"density": 0.9}),
@@ -288,15 +333,17 @@ void main() {
 # Warps: the picture bent by energy. MODE 0 shockwave rings that refract outward from the centre, 1 vortex rings
 # that twist everything around the subject, 2 a spiral tunnel of light.
 WARP = Family(
-    key="en_warp", category="energia", params=[INTENSITY, SPEED, color("#2fe0ff")],
+    key="en_warp", category="energia", params=[INTENSITY, SPEED, color("#2fe0ff"), SIZE] + CENTER,
     photo="cyber", tags=["vortice", "vortex", "onda", "wave", "energia", "energy", "remolino", "swirl"],
     defines={"MODE": 0, "PERIOD": 1.0, "R0": 0.18},
-    body=r"""
+    body=r"""@OCC@
 void main() {
     vec2 uv = v_texCoord;
-    vec2 p = toP(uv);
+    vec2 cc = (vec2(center_x, center_y) - 0.5) * vec2(aspect(), 1.0);
+    vec2 p = toP(uv) - cc;
     float t = u_time * speed;
-    float r = length(p), a = atan(p.y, p.x);
+    float r = length(p) / size, a = atan(p.y, p.x);
+    float r0 = R0;
     vec3 col;
     if (MODE < 0.5) {
         // Two rings in flight, each growing over PERIOD and fading as it leaves.
@@ -320,18 +367,18 @@ void main() {
         col = addLight(col, color, glow * (0.5 + 0.8 * ripple) * 1.2 * intensity);
     } else if (MODE < 1.5) {
         // Twist that grows outside the subject, breathing.
-        float k = linstep(R0, R0 + 0.5, r);
+        float k = linstep(r0, r0 + 0.5, r);
         k = k * k;
         float tw = k * (0.7 + 0.35 * sin(t * 1.5)) * intensity;
         vec2 q = rot(tw) * p;
-        vec2 suv = fromP(q);
+        vec2 suv = fromP(q + cc);
         col = Sm(suv).rgb;
-        col = mix(col, spinBlur(suv, vec2(0.5), 0.25 * k * intensity).rgb, k);
+        col = mix(col, spinBlur(suv, fromP(cc), 0.25 * k * intensity).rgb, k);
         // Rings of light turning round the subject.
         float rings = 0.0;
         for (int i = 0; i < 3; ++i) {
             float fi = float(i);
-            float rr = R0 + 0.06 + fi * 0.09 + 0.02 * sin(t * 2.0 + fi);
+            float rr = r0 + 0.06 + fi * 0.09 + 0.02 * sin(t * 2.0 + fi);
             float wob = 0.012 * sin(a * (3.0 + fi) + t * (2.0 + fi));
             rings += exp(-abs(r - rr - wob) / 0.012) * (0.5 + 0.5 * sin(a * 2.0 - t * 3.0 + fi * 2.0));
         }
@@ -347,13 +394,13 @@ void main() {
         vec3 tun = mix(color * 0.12, color * 1.1, band) * (0.55 + 0.7 * n);
         tun = mix(tun, vec3(1.0, 0.95, 0.75), sat(band * n * 1.3 - 0.6));
         vec2 q = rot(0.4 * sin(t) + 0.15 / (r + 0.15)) * p * 0.95;
-        vec3 pic = Sm(fromP(q)).rgb;
-        float hole = 1.0 - smoothstep(R0 * 0.6, R0 * 1.6, r);
+        vec3 pic = Sm(fromP(q + cc)).rgb;
+        float hole = 1.0 - smoothstep(r0 * 0.6, r0 * 1.6, r);
         float alpha = sat(intensity) * 0.85 * (1.0 - hole);
         col = mix(pic, tun, alpha);
-        col = addLight(col, color, exp(-abs(r - R0 * 1.2) / 0.03) * 0.6 * intensity);
+        col = addLight(col, color, exp(-abs(r - r0 * 1.2) / 0.03) * 0.6 * intensity);
     }
-    fragColor = vec4(col, S(uv).a);
+    fragColor = vec4(occlude(col, S(uv).rgb, uv), S(uv).a);
 }
 """,
     variants=[
@@ -369,18 +416,20 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Spider-web zoom: a glowing web (jittered spokes, polygon rings spaced in log radius) that we fly into for ever.
 WEB = Family(
-    key="en_web", category="energia", params=[INTENSITY, SPEED, color("#ff3a4a")],
+    key="en_web", category="energia",
+    params=[INTENSITY, SPEED, color("#ff3a4a"), WIDTH, Param("center_x", "Center X", 0.0, 1.0, 0.517),
+            Param("center_y", "Center Y", 0.0, 1.0, 0.48)],
     photo="dark", tags=["telarana", "spider web", "zoom", "red", "web"],
     defines={"SPOKES": 11.0},
-    body=r"""
+    body=r"""@OCC@
 void main() {
     vec2 uv = v_texCoord;
     vec2 p = toP(uv);
     float t = u_time * speed;
     float zoomPh = fract(t * 0.5);
     // The picture pushes in a little on every loop of the web.
-    vec4 src = zoomBlur(uv, vec2(0.5), 0.04 * intensity * (1.0 - zoomPh));
-    vec2 c = p - vec2(0.03, -0.02);
+    vec4 src = zoomBlur(uv, vec2(center_x, center_y), 0.04 * intensity * (1.0 - zoomPh));
+    vec2 c = p - (vec2(center_x, center_y) - 0.5) * vec2(aspect(), 1.0);
     float r = length(c), a = atan(c.y, c.x) + PI;
     float seg = TAU / SPOKES;
     float k = floor(a / seg);
@@ -398,7 +447,7 @@ void main() {
     float fr = fract(lr) - 0.5;
     float sag = 0.08 * sin(PI * sat((a - a0) / max(a1 - a0, 1e-3)));
     float dRing = abs(fr + sag) * stp * rp;
-    float w = 0.0015 + 0.0015 * r;
+    float w = (0.0015 + 0.0015 * r) * width;
     float line = exp(-dSpoke / w) + exp(-dRing / w);
     float halo = exp(-min(dSpoke, dRing) / (w * 6.0));
     float fadeC = linstep(0.01, 0.06, r);
@@ -406,7 +455,7 @@ void main() {
     vec3 base = src.rgb * (1.0 - 0.45 * sat(intensity));
     vec3 lc = mix(color, vec3(1.0), 0.45 * hash11(floor(lr) + k));
     vec3 col = addLight(base, lc, web * intensity * (0.8 + 0.2 * sin(t * 7.0)));
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, uv), src.a);
 }
 """,
     variants=[
@@ -417,22 +466,26 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Fireworks: rockets rise with a fading trail and burst into a ring of streaking sparks that droop and fade.
 FIREWORKS = Family(
-    key="en_fireworks", category="energia", params=[INTENSITY, SPEED],
+    key="en_fireworks", category="energia",
+    params=[INTENSITY, SPEED, color("#ff4fa0"), Param("mix", "Mix", 0.0, 1.0, 0.0), SIZE, DENSITY],
     photo="dark", tags=["fuegos artificiales", "fireworks", "fiesta", "party", "festival", "celebracion"],
     defines={"PERIOD": 2.2},
-    body=r"""
+    body=r"""@OCC@
 void main() {
     vec4 src = S(v_texCoord);
     vec2 p = toP(v_texCoord);
     float t = u_time * speed;
     float A = aspect();
     vec3 light = vec3(0.0);
-    for (int i = 0; i < 5; ++i) {
+    float nr = clamp(floor(5.0 * density + 0.5), 1.0, 10.0);
+    for (int i = 0; i < 10; ++i) {
+        if (float(i) >= nr) break;
         float fi = float(i);
         float clk = t / PERIOD + hash11(fi * 3.7);
         float n = floor(clk), ph = fract(clk);
         vec3 rr = hash32(vec2(n * 1.3 + fi, fi * 7.1));
-        vec3 hue = hsv2rgb(vec3(rr.z, 0.75, 1.0));
+        // Random colours; Mix pulls them toward Colour.
+        vec3 hue = mix(hsv2rgb(vec3(rr.z, 0.75, 1.0)), color, mix);
         vec2 top = vec2((rr.x - 0.5) * A * 0.85, -0.35 + rr.y * 0.3);
         vec2 start = vec2(top.x + (rr.y - 0.5) * 0.15, 0.6);
         float launch = 0.35;
@@ -446,7 +499,7 @@ void main() {
             light += vec3(1.0, 0.9, 0.7) * exp(-length(p - head) / 0.006);
         } else {
             float b = (ph - launch) / (1.0 - launch);
-            float R = 0.3 * (0.7 + 0.5 * rr.y) * easeOut(b * 1.3);
+            float R = 0.3 * size * (0.7 + 0.5 * rr.y) * easeOut(b * 1.3);
             vec2 q = p - top - vec2(0.0, 0.12 * b * b);      // gravity
             float N = 18.0;
             float ang = atan(q.y, q.x);
@@ -462,7 +515,8 @@ void main() {
             light += hue * exp(-length(q) / 0.12) * 0.25 * exp(-b * 6.0);
         }
     }
-    fragColor = vec4(addLight(src.rgb * (1.0 - 0.15 * sat(intensity)), light, intensity), src.a);
+    vec3 col = addLight(src.rgb * (1.0 - 0.15 * sat(intensity)), light, intensity);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -473,14 +527,14 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Smoke lines: thin wisps (contours of a slowly warped noise) curling up over the picture.
 SMOKE = Family(
-    key="en_smoke", category="energia", params=[INTENSITY, SPEED, color("#ffffff")],
+    key="en_smoke", category="energia", params=[INTENSITY, SPEED, color("#ffffff"), SIZE, DENSITY],
     photo="woman", tags=["humo", "smoke", "lineas", "lines", "niebla", "mist"],
-    body=r"""
+    body=r"""@OCC@
 void main() {
     vec4 src = S(v_texCoord);
     vec2 p = toP(v_texCoord);
     float t = u_time * speed * 0.35;
-    vec2 q = p * 2.2 + vec2(0.0, t * 1.2);
+    vec2 q = p * 2.2 / size + vec2(0.0, t * 1.2);
     vec2 w = vec2(vnoise(q * 0.8 + vec2(t * 0.6, 0.0)) + 0.5 * vnoise(q * 1.7 + 4.0),
                   vnoise(q * 0.8 + vec2(3.1, 7.7) - vec2(0.0, t * 0.5)) + 0.5 * vnoise(q * 1.7 + 9.0)) / 1.5 - 0.5;
     float v = fbm(q + w * 2.2);
@@ -488,11 +542,12 @@ void main() {
     float v2 = vnoise(q * 1.3 + w * 1.5) * 0.6 + vnoise(q * 2.6 + w) * 0.4;
     float c1 = abs(fract(v2 * 3.0) - 0.5);
     lines += exp(-c1 / 0.05) * 0.6 + exp(-c1 / 0.15) * 0.25;
-    float patch_ = smoothstep(0.42, 0.75, fbm(p * 1.4 + vec2(-t * 0.4, t * 0.8)));
+    float th = 0.42 - 0.15 * (density - 1.0);   // more density, more of the frame in smoke
+    float patch_ = smoothstep(th, th + 0.33, fbm(p * 1.4 / size + vec2(-t * 0.4, t * 0.8)));
     float haze = fbm(q * 0.7 + w) * patch_;
     float s = lines * patch_ * 0.8 + haze * 0.35;
     vec3 col = addLight(src.rgb, color, s * intensity * 0.8);
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -503,11 +558,11 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # A ribbon of light that sweeps round the frame, bright at the head and fading along its tail, shedding sparkles.
 TRAIL = Family(
-    key="en_trail", category="energia", params=[INTENSITY, SPEED, color("#ff5fc0")],
+    key="en_trail", category="energia", params=[INTENSITY, SPEED, color("#ff5fc0"), WIDTH, SIZE],
     photo="woman", tags=["estela", "trail", "rosa", "pink", "luz", "light", "brillo"],
-    body=r"""
+    body=r"""@OCC@
 vec2 path(float s) {
-    return vec2(0.38 * aspect() * sin(s * 1.1) * 0.9, 0.32 * sin(s * 1.9 + 0.6) + 0.04 * sin(s * 5.0));
+    return vec2(0.38 * aspect() * sin(s * 1.1) * 0.9, 0.32 * sin(s * 1.9 + 0.6) + 0.04 * sin(s * 5.0)) * size;
 }
 void main() {
     vec4 src = S(v_texCoord);
@@ -520,7 +575,7 @@ void main() {
         vec2 cur = path(s);
         float d = sdSegment(p, prev, cur);
         float age = float(i) / 17.0;
-        float w = mix(0.02, 0.004, age);
+        float w = mix(0.02, 0.004, age) * width;
         float k = (1.0 - age);
         core = max(core, exp(-d / (w * 0.35)) * k);
         glow += exp(-d / (w * 2.5)) * k * 0.25;
@@ -535,7 +590,7 @@ void main() {
     sp *= smoothstep(0.25, 0.0, sdSegment(p, path(t), path(t - 0.6))) ;
     vec3 head = vec3(1.0) * exp(-length(p - path(t)) / 0.012);
     vec3 light = color * (glow + core * 0.6) + vec3(1.0, 0.9, 0.97) * (core * 0.6 + sp) + head;
-    fragColor = vec4(addLight(src.rgb, light, intensity), src.a);
+    fragColor = vec4(occlude(addLight(src.rgb, light, intensity), src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -546,10 +601,10 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Glowing footprints that appear one after another across the floor, then fade.
 FOOT = Family(
-    key="en_foot", category="energia", params=[INTENSITY, SPEED, color("#ffd27a")],
+    key="en_foot", category="energia", params=[INTENSITY, SPEED, color("#ffd27a"), SIZE],
     photo="figure", tags=["huellas", "footprints", "pasos", "steps", "rastro", "trail", "brillo", "glow"],
     defines={"PERIOD": 3.0},
-    body=r"""
+    body=r"""@OCC@
 float footSd(vec2 q, float side) {
     q.x *= side;
     float sole = length((q - vec2(0.0, -0.01)) / vec2(0.0105, 0.021)) - 1.0;
@@ -575,7 +630,7 @@ void main() {
     for (int i = 0; i < 10; ++i) {
         float fi = float(i);
         float k = fi / 9.0;
-        float sc = mix(3.0, 1.5, k);          // perspective: nearer prints are bigger
+        float sc = mix(3.0, 1.5, k) * size;   // perspective: nearer prints are bigger
         vec2 c = mix(a, b, k) + nrm * (mod(fi, 2.0) < 0.5 ? 0.035 : -0.035) * sc;
         float born = fi * 0.075;
         float age = ph - born;
@@ -589,7 +644,7 @@ void main() {
         light += vis * (smoothstep(0.0015, -0.0015, d) * 0.95 + 0.3 * exp(-max(d, 0.0) / 0.008));
     }
     vec3 col = addLight(src.rgb * (1.0 - 0.12 * sat(intensity)), color, light * intensity);
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -600,13 +655,13 @@ void main() {
 # ---------------------------------------------------------------------------------------------------------------
 # Charging in the dark: the picture goes dark, a ring of light charges up in the centre, flashes and reveals it.
 CHARGE = Family(
-    key="en_charge", category="energia", params=[INTENSITY, SPEED, color("#7fe8ff")],
+    key="en_charge", category="energia", params=[INTENSITY, SPEED, color("#7fe8ff"), SIZE] + CENTER,
     photo="cyber", tags=["carga", "charge", "oscuro", "dark", "loading", "brillo", "glow", "revelar", "reveal"],
     defines={"PERIOD": 3.0},
-    body=r"""
+    body=r"""@OCC@
 void main() {
     vec4 src = S(v_texCoord);
-    vec2 p = toP(v_texCoord);
+    vec2 p = (toP(v_texCoord) - (vec2(center_x, center_y) - 0.5) * vec2(aspect(), 1.0)) / size;
     float t = u_time * speed;
     float ph = fract(t / PERIOD);
     float charge = linstep(0.0, 0.42, ph);
@@ -637,7 +692,7 @@ void main() {
     float wave = exp(-abs(r - (ph - 0.42) * 2.5) / 0.05) * fl;
     vec3 col = addLight(base, color, l * intensity);
     col = addLight(col, mix(color, vec3(1.0), 0.6), (fl * 0.8 + wave) * intensity);
-    fragColor = vec4(col, src.a);
+    fragColor = vec4(occlude(col, src.rgb, v_texCoord), src.a);
 }
 """,
     variants=[
@@ -645,4 +700,10 @@ void main() {
     ],
 )
 
-FAMILIES = [LIGHTNING, FIRE, EMBERS, WARP, WEB, FIREWORKS, SMOKE, TRAIL, FOOT, CHARGE]
+# Filmora draws these behind the person: same shaders, but the near part of a depth map stays in front.
+LIGHTNING_BEHIND = _behind(LIGHTNING, "en_lightning_behind", ["fondo-de-relampago", "explosion-de-energia"])
+FIRE_BEHIND = _behind(FIRE, "en_fire_behind", ["fondo-de-explosion", "envolvente-de-fuego-azul"])
+WARP_BEHIND = _behind(WARP, "en_warp_behind", ["anillos-de-vortice"])
+
+FAMILIES = [_plain(f) for f in (LIGHTNING, FIRE, EMBERS, WARP, WEB, FIREWORKS, SMOKE, TRAIL, FOOT, CHARGE)]
+FAMILIES += [LIGHTNING_BEHIND, FIRE_BEHIND, WARP_BEHIND]

@@ -2671,6 +2671,22 @@
         <translation>الكل</translation>
     </message>
     <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>سجّل الدخول لرؤية الرائج</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>الرائج متاح فقط لمن سجّلوا الدخول. الحساب مجاني.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>في انتظار المتصفح…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>المدة</translation>
     </message>
@@ -4279,6 +4295,10 @@
     <message>
         <source>In Transitions</source>
         <translation>في الانتقالات</translation>
+    </message>
+    <message>
+        <source>In Effects › Trending</source>
+        <translation>في التأثيرات › الرائج</translation>
     </message>
     <message>
         <source>this kind of item needs a newer Flip Studio</source>
@@ -12677,6 +12697,14 @@ NEXT TIME</source>
         <translation>ثبّت تأثيرًا أو انتقالًا مخصصًا من ملف .driftfx صُنع في Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>اختر مقطعًا فيه صوت لتغيير صوته</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>إضافة طبقة ضبط — انقر، أو اسحبها إلى مسار</translation>
     </message>
@@ -12709,12 +12737,48 @@ NEXT TIME</source>
         <translation>استورد ملف .driftfx صُنع في Drift Forge لإضافة تأثيراتك.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — انقر لتطبيقه على صوت المقطع المحدد</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — انقر لتطبيقه على التحديد، أو اسحبه إلى مقطع</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — انقر لإضافته كطبقة ضبط، أو اسحبه إلى مقطع</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — انقر لتنزيله وتطبيقه</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>سجّل الدخول لرؤية التأثيرات الرائجة</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>جارٍ تحميل التأثيرات الرائجة…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>تعذّر تحميل التأثيرات الرائجة</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>التأثيرات الرائجة تأتي من Stock، الذي يحتاج إلى حسابك المجاني.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>في انتظار المتصفح…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>إعادة المحاولة</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -23541,6 +23605,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>يتم تشغيله لكل تسمية توضيحية</translation>
+    </message>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>سجّل الدخول لرؤية الرائج</translation>
+    </message>
+    <message>
+        <source>Trending is only for signed-in users. The account is free.</source>
+        <translation>الرائج متاح فقط لمن سجّلوا الدخول. الحساب مجاني.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>في انتظار المتصفح…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
     </message>
     <message>
         <source>Rename text animation</source>
