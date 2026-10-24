@@ -117,3 +117,12 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
   importarla después, ver CLAUDE.md).
 - **Avance (2026-10-24, noche):** `flip/subs-vtt-ass` y `flip/anim-editor` **ya unidas** a `flip/v0.22.1`;
   traducciones completas y lupdate estable. Compilación con todo: run **40129850349**. Siguiente: pruebas en ventana.
+- **Pruebas en ventana (build 40134606463, portable `pruebas\FlipStudio-0.22.1`, proyecto `texto.flip`):**
+  - Probado y bien: D1 (plantilla «neon» conserva Entrada/Salida/Bucle), D3 (cortar un texto no repite la
+    animación en el corte), tachado, pestañas Efectos/Ajustar en el texto, buscador de animaciones, D10 (Bucle
+    muestra solo los controles que usa), Giro continuo, Resplandor que late (el brillo sube y baja cada 1,5 s),
+    «Personalizar animación» (abre las partes; «+ Rotación» gira el texto en la vista previa).
+  - Encontrado y arreglado (commit `c1e30`, build **40136345078**): al editar un texto el inspector saltaba a
+    General; la fila B U S I cortaba el desplegable del peso.
+  - Falta: justificado y espacio entre palabras, círculo, esquinas libres, efectos/LUT en texto, aplicar/pegar
+    estilo, copiar/pegar claves, aviso de fuentes, VTT/ASS, decimales, D2, D4, D5, D6, D9, D12 y exportar.
