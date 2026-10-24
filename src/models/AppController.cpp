@@ -8932,7 +8932,7 @@ bool AppController::importSubtitleFile(const QUrl &url, double atSeconds)
 
     QList<drift::SubtitleCue> cues;
     QString error;
-    if (!drift::parseSrtFile(path, &cues, &error)) {
+    if (!drift::parseSubtitleFile(path, &cues, &error)) {
         setLastMessage(error.isEmpty() ? tr("Could not read subtitle file") : error, QStringLiteral("error"));
         return false;
     }
@@ -8995,7 +8995,7 @@ bool AppController::importSubtitleFileIntoClip(int trackIndex, int clipIndex, co
 
     QList<drift::SubtitleCue> cues;
     QString error;
-    if (!drift::parseSrtFile(path, &cues, &error)) {
+    if (!drift::parseSubtitleFile(path, &cues, &error)) {
         setLastMessage(error.isEmpty() ? tr("Could not read subtitle file") : error, QStringLiteral("error"));
         return false;
     }
@@ -9050,7 +9050,7 @@ bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl
     }
 
     QString error;
-    if (!drift::writeSrtFile(path, cues, &error)) {
+    if (!drift::writeSubtitleFile(path, cues, &error, m_project.width(), m_project.height())) {
         setLastMessage(error.isEmpty() ? tr("Could not write subtitle file") : error, QStringLiteral("error"));
         return false;
     }

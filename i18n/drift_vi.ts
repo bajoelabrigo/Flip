@@ -22217,10 +22217,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhập</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Thay thế các phụ đề này từ tệp .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
     </message>
@@ -22235,10 +22231,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Export</source>
         <translation>Xuất</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Lưu phụ đề dưới dạng tệp .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22311,6 +22303,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Thay thế phụ đề này từ tệp SRT, WebVTT hoặc ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Tệp phụ đề (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Phụ đề WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Phụ đề SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Lưu phụ đề dưới dạng SRT, WebVTT (.vtt) hoặc ASS (.ass): phần mở rộng quyết định định dạng</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Phụ đề Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22431,16 +22447,24 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhập tệp phụ đề</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Nhập tệp .srt làm phụ đề clip</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Tệp phụ đề (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Phụ đề SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Phụ đề WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Phụ đề SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22509,6 +22533,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Caption style</source>
         <translation>Kiểu phụ đề</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Nhập tệp SRT, WebVTT hoặc ASS làm clip phụ đề</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>

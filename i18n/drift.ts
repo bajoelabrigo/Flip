@@ -22283,10 +22283,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22300,10 +22296,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22376,6 +22368,30 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22497,15 +22513,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22574,6 +22598,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -22373,10 +22373,6 @@ If playback stutters, try another.</source>
         <translation>Импорт</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Заменить эти субтитры из файла .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
     </message>
@@ -22391,10 +22387,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>Экспорт</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Сохранить субтитры в файл .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22467,6 +22459,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>Эмодзи</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Заменить эти субтитры из файла SRT, WebVTT или ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Файлы субтитров (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Субтитры WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Субтитры SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Сохранить субтитры как SRT, WebVTT (.vtt) или ASS (.ass): формат выбирается по расширению</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Субтитры Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22587,16 +22603,24 @@ If playback stutters, try another.</source>
         <translation>Импортировать файл субтитров</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Импортировать файл .srt как клип субтитров</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Файлы субтитров (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Субтитры SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Субтитры WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Субтитры SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22665,6 +22689,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>Стиль субтитров</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Импортировать файл SRT, WebVTT или ASS как клип субтитров</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
