@@ -4697,13 +4697,6 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("hasSpeedCurve"), clip.hasSpeedCurve()},
         {QStringLiteral("reverse"), clip.reverse},
         {QStringLiteral("flipH"), clip.flipH},
-        {QStringLiteral("cornerPinEnabled"), clip.cornerPinEnabled},
-        {QStringLiteral("cornerPin"), [&clip] {
-             QVariantList points;
-             for (const QPointF &corner : clip.cornerPin)
-                 points << corner.x() << corner.y();
-             return points;
-         }()},
         {QStringLiteral("layer3d"), clip.layer3d},
         {QStringLiteral("depthOcclude"), clip.depthOcclude},
         {QStringLiteral("flipV"), clip.flipV},
@@ -4797,6 +4790,14 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("audioEffects"), audioEffects},
         {QStringLiteral("keyframes"), keyframesToMap(clip)},
     };
+    // Corner pin, only once it has been used (keeps the agents' inspect rows short).
+    if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
+        QVariantList points;
+        for (const QPointF &corner : clip.cornerPin)
+            points << corner.x() << corner.y();
+        map.insert(QStringLiteral("cornerPinEnabled"), clip.cornerPinEnabled);
+        map.insert(QStringLiteral("cornerPin"), points);
+    }
     if (clip.type == drift::ClipType::Vector)
         map.insert(QStringLiteral("vector"), vectorSourceToMap(clip.vector, clip.timelineStart));
     if (clip.type == drift::ClipType::Model3d)

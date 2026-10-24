@@ -297,6 +297,13 @@ QJsonObject mcpDetailRow(const QVariantMap &clipMap, const QVariantMap &transfor
         }
         if (style.value(QStringLiteral("textCase")).toString() == QLatin1String("none"))
             style.remove(QStringLiteral("textCase"));
+        // 0.22.1 fields, only when used.
+        if (!style.value(QStringLiteral("strikeEnabled")).toBool())
+            style.remove(QStringLiteral("strikeEnabled"));
+        for (const char *key : {"wordSpacing", "pathCircle"}) {
+            if (style.value(QLatin1String(key)).toDouble() == 0.0)
+                style.remove(QLatin1String(key));
+        }
         // The CapCut-style background fields only say something about a box that is drawn, and
         // then only where they differ from the plain box.
         const bool box = style.value(QStringLiteral("boxEnabled")).toBool();
