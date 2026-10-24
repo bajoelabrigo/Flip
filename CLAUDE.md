@@ -65,7 +65,8 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   Todo, inicio y novedades: así la 0.20 no ve los efectos `.driftfx` que no sabe instalar.
 - **Trampa:** `tools/e2e/shot.ps1` y `click.ps1` llevan `-TargetPid` (obligatorio). Con un nombre equivocado
   (`-ProcessId`) lo ignoraban y actuaban sobre la ventana del frente: una vez hicieron clic en otra app de Jorge.
-- **Falta (Jorge):** subir el MSIX de la 0.21.0 cuando aprueben las anteriores, y después TXT `version`.
+- **Jorge (2026-10-24): la 0.20.1 ya está aprobada; sube ahora el MSIX de la 0.21.0** (notas «Notas para la Store
+  (0.21.0)»). Falta: cuando la aprueben, TXT `version` = 0.21.0.
 
 ### Editor web en el celular como CapCut, etapa 7 (2026-10-23, desplegado, `flipstudio-app` `web/movil-capcut`)
 - Capturas de Jorge en `Downloads\capcut movil\1…24.png`; detalle en `docs/plan-movil.md` › Etapa 7. Barras en el
@@ -82,7 +83,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   desplazables (`AnimSlotTabs`, `ChipScroller`), textos de muestra que caben. Probada en ventana (capturas).
 - **MSIX: `msstore.yml` run 39857949348** — si la máquina se apagó antes de bajarlo:
   `gh run download 39857949348 -R bajoelabrigo/Flip` a `tienda\FlipStudio-Store\paquete-0.20.1`.
-- **Falta (Jorge):** subir ese MSIX con las notas «Notas para la Store (0.20.1)» y después TXT `version` = 0.20.1
+- **Aprobada en la Store (Jorge, 2026-10-24).** Su lugar lo toma la 0.21.0
   (no 0.20.0).
 - **Web (`flipstudio-app` `web/animaciones`, desplegada):** unida con `web/v019` (se había perdido al desplegar),
   galería de los textos con estilo del escritorio (`DeskAnimPage`), «Recuperar archivos» arreglado, en el celular
