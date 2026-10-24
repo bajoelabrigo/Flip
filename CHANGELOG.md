@@ -3,6 +3,16 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.22.0 — Fotogramas clave como After Effects, Stock en cada panel, Mi cuenta que aplica
+
+- `KeyframeKeyTools` (uno por línea de tiempo): selección de fotogramas clave, atajos de After Effects, menú y
+  `KeyframeCurvesPopup`, compartidos por `KeyframeGraph` y `TrackKeyframeRows`. `KeyframeGlyph` en las dos; la elegida
+  roja y más grande. Supr borra las elegidas (`Main.qml › dispatchAction`).
+- `AppController::setKeyframesEasing / setKeyframesCurve / removeKeyframes`, imán con fotogramas clave en `snapTime`.
+- Stock en cada panel: `MarketClient::fetchPanelList / panelList / stockChips`, `StockPanelCards.qml`, llamita y
+  estrella en todas las tarjetas; `InstallDone` lleva el id local de lo instalado.
+- Mi cuenta › Descargas: `useStockLibraryItem` guarda en su panel o pone en la edición sin volver a descargar.
+
 ## 0.20.1 — Las animaciones de texto ya aparecen, y las galerías más ordenadas
 
 - `TextAnimPresetTile` pasa de `Column` a `Item` con la columna adentro: la galería ancla una estrella de
