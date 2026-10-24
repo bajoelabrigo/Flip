@@ -178,6 +178,118 @@
         <translation type="unfinished">Template</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -229,15 +341,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
+        <source>No longer in Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
+        <source>It is no longer in the Stock catalog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5752,6 +5868,126 @@
     </message>
     <message>
         <source>My logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -14639,6 +14875,45 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Straight</source>
+        <translation>Tuwid</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Banayad sa pagdating</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Banayad sa pag-alis</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Mga kurba…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Burahin ang mga keyframe</translation>
     </message>
 </context>
 <context>
@@ -25735,42 +26010,6 @@ If playback stutters, try another.</source>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>right-click: Tuwid, Banayad, Hinto, Mga kurba</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation>Tuwid</translation>
-    </message>
-    <message>
-        <source>Smooth</source>
-        <translation>Banayad</translation>
-    </message>
-    <message>
-        <source>Smooth in</source>
-        <translation>Banayad sa pagdating</translation>
-    </message>
-    <message>
-        <source>Smooth out</source>
-        <translation>Banayad sa pag-alis</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>Hinto</translation>
-    </message>
-    <message>
-        <source>Curves…</source>
-        <translation>Mga kurba…</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete keyframes</source>
-        <translation>Burahin ang mga keyframe</translation>
     </message>
 </context>
 <context>

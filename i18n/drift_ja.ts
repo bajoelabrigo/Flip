@@ -178,6 +178,118 @@
         <translation>テンプレート</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>選択中のクリップに、または再生ヘッドの位置の調整レイヤーに</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>選択中のテキストに、または再生ヘッドの位置の新しいテキストに</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>タイムラインの再生ヘッドの位置に置きます</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>エフェクトに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>エフェクト › トレンドに入れます</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>適用</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>マイエフェクトに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>マイエフェクト（インスペクターのエフェクト）に入れます</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>フィルターに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>フィルターと調整 › LUT に入れます</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>トランジションに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>トランジションに入れます</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>選択中のクリップのカットに、または再生ヘッドに最も近いカットに</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>シェイプに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>シェイプに入れます</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>トラックに追加</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>タイトルに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>タイトル › トレンドに入れます</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>アニメーションに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>テキスト › アニメーションに入れます</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>テンプレートに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>テンプレートに入れて、すぐに使えるようにします</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>メディアに追加</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>メディアに保存して、いつでも使えるようにします</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>「%1」をメディアに追加しました。</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>メディアに追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>「%1」の準備ができました。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>「%1」をインストールしました。</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>サインインしていません</translation>
     </message>
@@ -228,16 +340,20 @@
         <translation>Stock からはまだ何もダウンロードしていません。そこでダウンロードした無料のテンプレート、写真、動画はアカウントのここに残ります。</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>このテンプレートを使用: 再生ヘッドの位置に配置されます</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>クリックすると再生ヘッドの位置に置きます。あとで使うために保存することもできます。</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>メディアにあります</translation>
+        <source>No longer in Stock</source>
+        <translation>Stock から削除済み</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>このコンピューターにはありません: Stock で検索して再ダウンロードしてください</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Stock のカタログにはもうありません</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>リストから外す（このコンピューターのファイルは残ります）</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5723,6 +5839,126 @@
     <message>
         <source>My logo</source>
         <translation>マイロゴ</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Stock のアイテム</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>「%1」はすでにテンプレートにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>「%1」はメディアにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>「%1」はすでにインストールされています。対応するパネルで探してください。</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>「%1」をタイムラインに追加できませんでした。</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>「%1」をタイムラインの再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>「%1」はエフェクト › トレンドにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>「%1」を「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>「%1」を調整レイヤーに適用しました。その下にあるすべてが変わります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>「%1」はマイエフェクトにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>「%1」はマイエフェクトにあります。声を変えるには音声のあるクリップを選択してください。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>ルック「%1」を「%2」に適用し、マイエフェクトに保存しました。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>ルック「%1」を調整レイヤーに適用し、マイエフェクトに保存しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>「%1」はフィルターにあります。</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>LUT を適用</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>フィルター「%1」を「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>フィルター「%1」を調整レイヤーに適用しました。その下にあるすべてが変わります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>「%1」はトランジションにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>「%1」はトランジションにあります。使うには、1 つのトラックに連続した 2 つのクリップが必要です。</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>トランジション「%1」を「%2」の後のカットに適用しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>「%1」はシェイプにあります。</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>シェイプ「%1」を再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>「%1」はタイトル › トレンドにあります。</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>スタイル「%1」をテキスト「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>スタイル「%1」のテキストを再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>「%1」はテキスト › アニメーションにあります。</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>アニメーション「%1」をテキスト「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>テキストを追加</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>アニメーション「%1」付きのテキストを再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>「%1」には新しい Flip Studio が必要です。</translation>
     </message>
 </context>
 <context>
@@ -14597,6 +14833,45 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>キーフレームカーブを編集</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Straight</source>
+        <translation>直線</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>スムーズ</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>到着をスムーズに</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>出発をスムーズに</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>カーブ…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>カーブを編集…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>キーフレームを削除</translation>
     </message>
 </context>
 <context>
@@ -25665,42 +25940,6 @@ If playback stutters, try another.</source>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>右クリック：直線、スムーズ、停止、カーブ</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation>直線</translation>
-    </message>
-    <message>
-        <source>Smooth</source>
-        <translation>スムーズ</translation>
-    </message>
-    <message>
-        <source>Smooth in</source>
-        <translation>到着をスムーズに</translation>
-    </message>
-    <message>
-        <source>Smooth out</source>
-        <translation>出発をスムーズに</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Curves…</source>
-        <translation>カーブ…</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>カーブを編集…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>キーフレームを削除</translation>
-    </message>
-    <message>
-        <source>Delete keyframes</source>
-        <translation>キーフレームを削除</translation>
     </message>
 </context>
 <context>

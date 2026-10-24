@@ -178,6 +178,118 @@
         <translation>템플릿</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>선택한 클립에, 또는 재생 헤드 위치의 보정 레이어에</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>선택한 텍스트에, 또는 재생 헤드 위치의 새 텍스트에</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>타임라인의 재생 헤드 위치에 놓습니다</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>효과에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>효과 › 트렌드에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>내 효과에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>내 효과(속성 패널의 효과)에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>필터에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>필터와 조정 › LUT에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>전환에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>전환에 넣습니다</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>선택한 클립의 컷에, 또는 재생 헤드에 가장 가까운 컷에</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>도형에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>도형에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>트랙에 추가</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>제목에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>제목 › 트렌드에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>애니메이션에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>텍스트 › 애니메이션에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>템플릿에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>템플릿에 넣어 바로 쓸 수 있게 합니다</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>미디어에 추가</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>미디어에 보관해 언제든 쓸 수 있게 합니다</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>“%1”을(를) 미디어에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>미디어에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” 준비 완료. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” 설치됨.</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>로그인하지 않음</translation>
     </message>
@@ -228,16 +340,20 @@
         <translation>아직 스톡에서 다운로드한 항목이 없습니다. 스톡에서 다운로드한 무료 템플릿, 사진, 동영상은 계정의 이곳에 남습니다.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>이 템플릿 사용: 재생 헤드 위치에 배치됩니다</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>클릭하면 재생 헤드 위치에 놓습니다. 나중에 쓰도록 보관할 수도 있습니다.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>미디어에 있습니다</translation>
+        <source>No longer in Stock</source>
+        <translation>더 이상 스톡에 없음</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>이 컴퓨터에 없습니다. 스톡에서 검색해 다시 다운로드하세요</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>더 이상 스톡 카탈로그에 없습니다</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>목록에서 빼기(이 컴퓨터의 파일은 남습니다)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5723,6 +5839,126 @@
     <message>
         <source>My logo</source>
         <translation>내 로고</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>스톡 항목</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>“%1”은(는) 이미 템플릿에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>“%1”은(는) 미디어에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>“%1”은(는) 이미 설치되어 있습니다. 해당 패널에서 찾으세요.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>“%1”을(를) 타임라인에 추가할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>“%1”을(를) 타임라인의 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>“%1”은(는) 효과 › 트렌드에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>“%1”을(를) “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>“%1”을(를) 보정 레이어에 넣었습니다. 그 아래의 모든 것이 바뀝니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>“%1”은(는) 내 효과에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>“%1”은(는) 내 효과에 있습니다. 목소리를 바꾸려면 소리가 있는 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>룩 “%1”을(를) “%2”에 적용하고 내 효과에 저장했습니다.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>룩 “%1”을(를) 보정 레이어에 넣고 내 효과에 저장했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>“%1”은(는) 필터에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>LUT 적용</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>필터 “%1”을(를) “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>필터 “%1”을(를) 보정 레이어에 넣었습니다. 그 아래의 모든 것이 바뀝니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>“%1”은(는) 전환에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>“%1”은(는) 전환에 있습니다. 쓰려면 한 트랙에 이어진 클립 두 개가 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>전환 “%1”을(를) “%2” 뒤의 컷에 넣었습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>“%1”은(는) 도형에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>도형 “%1”을(를) 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>“%1”은(는) 제목 › 트렌드에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>스타일 “%1”을(를) 텍스트 “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>스타일 “%1”의 텍스트를 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>“%1”은(는) 텍스트 › 애니메이션에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>애니메이션 “%1”을(를) 텍스트 “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>텍스트 추가</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>애니메이션 “%1”이(가) 적용된 텍스트를 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>“%1”에는 더 새로운 Flip Studio가 필요합니다.</translation>
     </message>
 </context>
 <context>
@@ -14597,6 +14833,45 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>키프레임 곡선 편집</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Straight</source>
+        <translation>직선</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>부드럽게</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>도착을 부드럽게</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>출발을 부드럽게</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>고정</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>곡선…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>커브 편집…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>키프레임 삭제</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>키프레임 삭제</translation>
     </message>
 </context>
 <context>
@@ -25663,42 +25938,6 @@ If playback stutters, try another.</source>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>오른쪽 클릭: 직선, 부드럽게, 고정, 곡선</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation>직선</translation>
-    </message>
-    <message>
-        <source>Smooth</source>
-        <translation>부드럽게</translation>
-    </message>
-    <message>
-        <source>Smooth in</source>
-        <translation>도착을 부드럽게</translation>
-    </message>
-    <message>
-        <source>Smooth out</source>
-        <translation>출발을 부드럽게</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>고정</translation>
-    </message>
-    <message>
-        <source>Curves…</source>
-        <translation>곡선…</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>커브 편집…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>키프레임 삭제</translation>
-    </message>
-    <message>
-        <source>Delete keyframes</source>
-        <translation>키프레임 삭제</translation>
     </message>
 </context>
 <context>

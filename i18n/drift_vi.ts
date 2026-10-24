@@ -178,6 +178,118 @@
         <translation>Mẫu</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>Vào clip đang chọn, hoặc vào một lớp điều chỉnh tại đầu phát</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>Vào văn bản đang chọn, hoặc vào một văn bản mới tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Đặt vào dòng thời gian, tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Lưu vào Hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Đưa vào Hiệu ứng › Xu hướng</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Áp dụng</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Lưu vào Hiệu ứng của tôi</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Đưa vào Hiệu ứng của tôi (Hiệu ứng trong bảng thuộc tính)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Lưu vào Bộ lọc</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Đưa vào Bộ lọc và Điều chỉnh › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Lưu vào Chuyển cảnh</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>Đưa vào Chuyển cảnh</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>Vào điểm cắt của clip đang chọn, hoặc điểm cắt gần đầu phát nhất</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Lưu vào Hình dạng</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>Đưa vào Hình dạng</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Thêm vào track</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Lưu vào Tiêu đề</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Đưa vào Tiêu đề › Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Lưu vào Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>Đưa vào Văn bản › Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Lưu vào Mẫu</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Đưa vào Mẫu, sẵn sàng để dùng</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Thêm vào Phương tiện</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Giữ trong Phương tiện để dùng bất cứ lúc nào</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>Đã thêm “%1” vào Phương tiện.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Đã thêm vào Phương tiện.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” đã sẵn sàng. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Đã cài “%1”.</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Chưa đăng nhập</translation>
     </message>
@@ -228,16 +340,20 @@
         <translation>Chưa tải gì từ Stock. Các mẫu, ảnh và video miễn phí bạn tải về ở đó sẽ được lưu ở đây, trong tài khoản của bạn.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Dùng mẫu này: đặt tại đầu phát</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Nhấp vào một mục để đặt tại đầu phát, hoặc giữ lại để dùng sau.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Có trong Phương tiện của bạn</translation>
+        <source>No longer in Stock</source>
+        <translation>Không còn trong Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Không có trên máy tính này: tìm trong Stock để tải lại</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Mục này không còn trong danh mục Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Bỏ khỏi danh sách (các tệp trên máy này vẫn giữ nguyên)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5723,6 +5839,126 @@
     <message>
         <source>My logo</source>
         <translation>Logo của tôi</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Mục Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>“%1” đã có trong Mẫu.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>“%1” đã có trong Phương tiện.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>“%1” đã được cài. Hãy tìm trong bảng của nó.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Không thể thêm “%1” vào dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>Đã thêm “%1” vào dòng thời gian tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>“%1” ở trong Hiệu ứng › Xu hướng.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>Đã áp dụng “%1” cho “%2”.</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>“%1” nằm trên một lớp điều chỉnh: thay đổi mọi thứ bên dưới.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>“%1” ở trong Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>“%1” ở trong Hiệu ứng của tôi. Chọn một clip có âm thanh để đổi giọng.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Đã áp dụng look “%1” cho “%2” và lưu vào Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Look “%1” nằm trên một lớp điều chỉnh và đã lưu vào Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>“%1” ở trong Bộ lọc.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Áp dụng LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Đã áp dụng bộ lọc “%1” cho “%2”.</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Bộ lọc “%1” nằm trên một lớp điều chỉnh: thay đổi mọi thứ bên dưới.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>“%1” ở trong Chuyển cảnh.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>“%1” ở trong Chuyển cảnh. Để dùng, cần hai clip liền nhau trên một track.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>Đã đặt chuyển cảnh “%1” vào điểm cắt sau “%2”.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>“%1” ở trong Hình dạng.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>Đã thêm hình dạng “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>“%1” ở trong Tiêu đề › Thịnh hành.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Đã áp dụng kiểu “%1” cho văn bản “%2”.</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Đã thêm văn bản có kiểu “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>“%1” ở trong Văn bản › Hoạt ảnh.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>Đã áp dụng hoạt ảnh “%1” cho văn bản “%2”.</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Thêm văn bản</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Đã thêm văn bản có hoạt ảnh “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>“%1” cần phiên bản Flip Studio mới hơn.</translation>
     </message>
 </context>
 <context>
@@ -14597,6 +14833,45 @@ LẦN SAU</translation>
     <message>
         <source>Edit keyframe curve</source>
         <translation>Chỉnh sửa đường cong keyframe</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Straight</source>
+        <translation>Thẳng</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Êm</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Êm khi đến</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Êm khi rời</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Giữ</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Đường cong…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Chỉnh sửa đường cong…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Xóa khung hình chính</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Xóa khung hình chính</translation>
     </message>
 </context>
 <context>
@@ -25665,42 +25940,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>nhấp chuột phải: Thẳng, Êm, Giữ, Đường cong</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation>Thẳng</translation>
-    </message>
-    <message>
-        <source>Smooth</source>
-        <translation>Êm</translation>
-    </message>
-    <message>
-        <source>Smooth in</source>
-        <translation>Êm khi đến</translation>
-    </message>
-    <message>
-        <source>Smooth out</source>
-        <translation>Êm khi rời</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>Giữ</translation>
-    </message>
-    <message>
-        <source>Curves…</source>
-        <translation>Đường cong…</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>Chỉnh sửa đường cong…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>Xóa khung hình chính</translation>
-    </message>
-    <message>
-        <source>Delete keyframes</source>
-        <translation>Xóa khung hình chính</translation>
     </message>
 </context>
 <context>

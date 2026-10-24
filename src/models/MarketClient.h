@@ -270,6 +270,7 @@ public:
     // Drops an in-flight search or resolve. Distinct from cancelDownload: this is the
     // request that fills the grid, not one of the per-item jobs.
     Q_INVOKABLE void cancelSearch();
+    // {status, progress, phase, errorCode, errorMessage, delivery, filePath, assetId, installedId}.
     Q_INVOKABLE QVariantMap downloadInfo(const QString &itemId) const;
     Q_INVOKABLE QVariantMap itemById(const QString &itemId) const;
 

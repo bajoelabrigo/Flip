@@ -178,6 +178,118 @@
         <translation>模板</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>应用到所选片段，或播放头处的调整图层</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>应用到所选文字，或播放头处的新文字</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>放到时间线上的播放头处</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>保存到特效</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>放入 特效 › 热门</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>保存到我的效果</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>放入我的效果（检查器的特效）</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>保存到滤镜</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>放入滤镜和 调节 › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>保存到转场</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>放入转场</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>应用到所选片段的剪切点，或离播放头最近的剪切点</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>保存到形状</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>放入形状</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>添加到轨道</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>保存到标题</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>放入 标题 › 热门</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>保存到动画</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>放入 文字 › 动画</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>保存到模板</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>放入模板，随时可用</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>添加到媒体</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>保存到媒体，随时都能用</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>“%1”已添加到媒体。</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>已添加到媒体。</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1”已就绪。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1”已安装。</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>未登录</translation>
     </message>
@@ -228,16 +340,20 @@
         <translation>还没有从素材库下载任何内容。你在那里下载的免费模板、照片和视频会保存在这里，在你的账号中。</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>使用此模板：将放在播放头处</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>点击一个即可放到播放头处，或先保存以后再用。</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>已在你的媒体库中</translation>
+        <source>No longer in Stock</source>
+        <translation>已不在素材库中</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>不在此电脑上：在素材库中搜索即可重新下载</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>它已不在素材库目录中</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>从列表中移除（这台电脑上的文件会保留）</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5723,6 +5839,126 @@
     <message>
         <source>My logo</source>
         <translation>我的徽标</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>素材库项目</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>“%1”已在模板中。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>“%1”在媒体中。</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>“%1”已安装，可在对应面板中找到。</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>无法将“%1”添加到时间线。</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>已将“%1”添加到时间线的播放头处。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>“%1”位于 特效 › 热门。</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>已将“%1”应用到“%2”。</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>“%1”已放到调整图层上：会影响其下方的所有内容。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>“%1”位于我的效果。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>“%1”位于我的效果。选择一个有声音的片段来改变它的声音。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>已将风格“%1”应用到“%2”，并保存到我的效果。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>风格“%1”已放到调整图层上，并保存到我的效果。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>“%1”位于滤镜。</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>应用 LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>已将滤镜“%1”应用到“%2”。</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>滤镜“%1”已放到调整图层上：会影响其下方的所有内容。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>“%1”位于转场。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>“%1”位于转场。要使用它，需要同一轨道上两个相邻的片段。</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>已将转场“%1”放到“%2”之后的剪切点。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>“%1”位于形状。</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>已在播放头处添加形状“%1”。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>“%1”位于 标题 › 热门。</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>已将样式“%1”应用到文字“%2”。</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>已在播放头处添加样式为“%1”的文字。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>“%1”位于 文字 › 动画。</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>已将动画“%1”应用到文字“%2”。</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>添加文字</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>已在播放头处添加带动画“%1”的文字。</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>“%1”需要更新版本的 Flip Studio。</translation>
     </message>
 </context>
 <context>
@@ -14597,6 +14833,45 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>编辑关键帧曲线</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Straight</source>
+        <translation>直线</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>平滑</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>到达时平滑</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>离开时平滑</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>定格</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>曲线…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>编辑曲线…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>删除关键帧</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>删除关键帧</translation>
     </message>
 </context>
 <context>
@@ -25664,42 +25939,6 @@ If playback stutters, try another.</source>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>右键：直线、平滑、定格、曲线</translation>
-    </message>
-    <message>
-        <source>Straight</source>
-        <translation>直线</translation>
-    </message>
-    <message>
-        <source>Smooth</source>
-        <translation>平滑</translation>
-    </message>
-    <message>
-        <source>Smooth in</source>
-        <translation>到达时平滑</translation>
-    </message>
-    <message>
-        <source>Smooth out</source>
-        <translation>离开时平滑</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>定格</translation>
-    </message>
-    <message>
-        <source>Curves…</source>
-        <translation>曲线…</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>编辑曲线…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>删除关键帧</translation>
-    </message>
-    <message>
-        <source>Delete keyframes</source>
-        <translation>删除关键帧</translation>
     </message>
 </context>
 <context>
