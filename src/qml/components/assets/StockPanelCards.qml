@@ -4,7 +4,7 @@ import Drift
 import ".."
 
 // Stock's items of one type inside its own panel (0.22, the web's StockTrends.tsx): a type's
-// «Trending» (its most used, MarketClient::fetchPanelList with no categories) or, after the panel's
+// «Trending» (all of it, page by page: MarketClient::fetchPanelList with no categories) or, after the panel's
 // own cards in a chip, Stock's items of the categories that chip gathers, page by page. Each card
 // is Stock's (StockThumb: the flame on what is trending, the star, the download state), with
 // Filmora's mark until it is on this computer; one click downloads it and hands it to the panel's

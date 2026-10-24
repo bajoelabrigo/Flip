@@ -351,8 +351,10 @@ void MarketClient::fetchTemplateSuggestions(const QString &photoBucket, const QS
 // most used, one short list: fetchPanelList); these keep the properties the panels bind to.
 void MarketClient::fetchTextTrends(bool more)
 {
-    if (more)
+    if (more) {
+        fetchPanelList(QStringLiteral("text-style"), {}, true);
         return;
+    }
     const QString key = panelListKey(QStringLiteral("text-style"));
     if (!m_panelLists.value(key).loading)
         m_panelLists.remove(key); // asked again: a fresh list
@@ -361,8 +363,10 @@ void MarketClient::fetchTextTrends(bool more)
 
 void MarketClient::fetchEffectTrends(bool more)
 {
-    if (more)
+    if (more) {
+        fetchPanelList(QStringLiteral("effect"), {}, true);
         return;
+    }
     const QString key = panelListKey(QStringLiteral("effect"));
     if (!m_panelLists.value(key).loading)
         m_panelLists.remove(key);
@@ -374,12 +378,12 @@ void MarketClient::mirrorTrends(const QString &key)
     const PanelList list = m_panelLists.value(key);
     if (key == panelListKey(QStringLiteral("text-style"))) {
         m_textTrends = list.items;
-        m_textTrendsCursor.clear();
+        m_textTrendsCursor = list.cursor;
         m_textTrendsLoading = list.loading;
         emit textTrendsChanged();
     } else if (key == panelListKey(QStringLiteral("effect"))) {
         m_effectTrends = list.items;
-        m_effectTrendsCursor.clear();
+        m_effectTrendsCursor = list.cursor;
         m_effectTrendsLoading = list.loading;
         emit effectTrendsChanged();
     }
@@ -387,7 +391,6 @@ void MarketClient::mirrorTrends(const QString &key)
 
 namespace {
 
-constexpr int kTopTrends = 24;
 // Pages of «All» read for the most used (the server sorts it by uses): enough for every type's top.
 constexpr int kUsagePages = 3;
 
@@ -681,51 +684,13 @@ QString MarketClient::fetchPanelList(const QString &type, const QStringList &cat
     setPanelList(key, list);
     const int generation = m_panelGeneration;
 
-    if (categories.isEmpty()) {
-        // Tendencias: this week's most downloaded, the most used of all, then the type's first page.
-        loadUsage([this, key, type, generation](bool) {
-            if (generation != m_panelGeneration)
-                return;
-            searchPage(type, QString(), QString(), [this, key, type, generation](bool ok, const QJsonObject &body) {
-                if (generation != m_panelGeneration)
-                    return;
-                PanelList out;
-                out.loaded = true;
-                out.generation = generation;
-                if (!ok) {
-                    out.error = QStringLiteral("error");
-                    setPanelList(key, out);
-                    return;
-                }
-                QSet<QString> seen;
-                const auto add = [&](const QVariantMap &item) {
-                    const QString id = item.value(QStringLiteral("id")).toString();
-                    if (out.items.size() >= kTopTrends || id.isEmpty() || seen.contains(id)
-                        || item.value(QStringLiteral("type")).toString() != type)
-                        return;
-                    seen.insert(id);
-                    out.items.append(item);
-                };
-                for (const QVariant &row : std::as_const(m_usageWeekly))
-                    add(row.toMap());
-                QVariantList used;
-                for (const QVariant &row : std::as_const(m_usageUsed)) {
-                    if (row.toMap().value(QStringLiteral("uses")).toDouble() > 0)
-                        used.append(row);
-                }
-                std::stable_sort(used.begin(), used.end(), [](const QVariant &a, const QVariant &b) {
-                    return a.toMap().value(QStringLiteral("uses")).toDouble()
-                           > b.toMap().value(QStringLiteral("uses")).toDouble();
-                });
-                for (const QVariant &row : std::as_const(used))
-                    add(row.toMap());
-                for (const QJsonValue &value : body.value(QStringLiteral("items")).toArray())
-                    add(objectToMap(value.toObject()));
-                setPanelList(key, out);
-            });
-        });
-        return key;
-    }
+    // Tendencias is all of the type, page by page, the trending first (the server's order), as the
+    // web's stockTrends.ts › trendsFor (Jorge, 2026-10-24: «no quería que modifiques nada ahí»; «las
+    // tendencias de transiciones no está completo»): a chip with no category filter. This week's
+    // shelf still comes in for weeklyTrendingIds.
+    if (categories.isEmpty() && !more)
+        loadUsage([](bool) {});
+    const QStringList cats = categories.isEmpty() ? QStringList{QString()} : categories;
 
     // A chip's Stock items: its categories one after the other; the cursor is
     // "<category index>:<the server's cursor>".
@@ -733,14 +698,14 @@ QString MarketClient::fetchPanelList(const QString &type, const QStringList &cat
     const int at = cursor.indexOf(QLatin1Char(':'));
     const int index = at > 0 ? cursor.left(at).toInt() : 0;
     const QString server = at > 0 ? cursor.mid(at + 1) : QString();
-    if (index < 0 || index >= categories.size()) {
+    if (index < 0 || index >= cats.size()) {
         list.loading = false;
         list.cursor.clear();
         setPanelList(key, list);
         return key;
     }
-    searchPage(type, categories.at(index), server,
-               [this, key, categories, index, generation](bool ok, const QJsonObject &body) {
+    searchPage(type, cats.at(index), server,
+               [this, key, cats, index, generation](bool ok, const QJsonObject &body) {
         if (generation != m_panelGeneration)
             return;
         PanelList out = m_panelLists.value(key);
@@ -765,7 +730,7 @@ QString MarketClient::fetchPanelList(const QString &type, const QStringList &cat
         }
         const QString next = body.value(QStringLiteral("next_cursor")).toString();
         out.cursor = !next.isEmpty() ? QString::number(index) + QLatin1Char(':') + next
-                   : index + 1 < categories.size() ? QString::number(index + 1) + QLatin1Char(':')
+                   : index + 1 < cats.size() ? QString::number(index + 1) + QLatin1Char(':')
                                                     : QString();
         setPanelList(key, out);
     });
@@ -852,7 +817,17 @@ bool MarketClient::isTrendingItem(const QVariantMap &item) const
     const QString category = item.value(QStringLiteral("category")).toString();
     if (category == QLatin1String("tendencias") || category == QLatin1String("trending"))
         return true;
-    return item.value(QStringLiteral("type")).toString() == QLatin1String("effect");
+    // Each panel's Tendencias lists all of its type, so all of our own Stock with a panel is a trend
+    // (Jorge, 2026-10-24: «en stock casi nada tiene la llamita»); Pexels' and Pixabay's are not.
+    const QString provider = item.value(QStringLiteral("provider")).toString();
+    if (!provider.isEmpty() && provider != QLatin1String("flip"))
+        return false;
+    static const QSet<QString> panelTypes{
+        QStringLiteral("effect"), QStringLiteral("overlay"), QStringLiteral("look"), QStringLiteral("lut"),
+        QStringLiteral("transition"), QStringLiteral("text-style"), QStringLiteral("text-animation"),
+        QStringLiteral("animation"), QStringLiteral("background"), QStringLiteral("shape"),
+        QStringLiteral("music"), QStringLiteral("sound"), QStringLiteral("template")};
+    return panelTypes.contains(item.value(QStringLiteral("type")).toString());
 }
 
 QString MarketClient::placedId(const QString &itemId) const

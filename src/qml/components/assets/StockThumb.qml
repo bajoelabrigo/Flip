@@ -152,14 +152,17 @@ Rectangle {
         }
     }
 
+    // A song or a sound: the flame beside its star, top right (Jorge, 2026-10-24), as the web.
     TrendBadge {
-        anchors.left: parent.left
+        anchors.left: root.isAudio ? undefined : parent.left
+        anchors.right: root.isAudio ? (favButton.visible ? favButton.left : parent.right) : undefined
         anchors.top: parent.top
         anchors.margins: 3
         visible: root.trending && root.price <= 0
     }
 
     AssetFavoriteButton {
+        id: favButton
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.margins: 3

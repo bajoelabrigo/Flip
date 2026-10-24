@@ -224,9 +224,9 @@ public:
     bool templateSuggestionsLoading() const { return m_templateSuggestionsPending > 0; }
 
     // ---- Stock in each panel (0.22, as the web's stockTrends.ts / stockPanels.ts) ----------------
-    // Every Stock type also shows in its own panel: a «Tendencias» chip first with its most used
-    // (this week's most downloaded, then the most used of all, then the type's first page; 24 at
-    // most) and the rest of it spread over the panel's chips by category. A list is named by a key
+    // Every Stock type also shows in its own panel: a «Tendencias» chip first with all of it, page
+    // by page (the trending first, in the server's order), and the rest of it spread over the
+    // panel's chips by category too. A list is named by a key
     // ("top:<type>" or "chip:<type>:<category>,<category>") and read with panelList(key).
     // Needs a signed-in account; every list starts over after signing in or out.
     // Fetches a type's Tendencias (empty `categories`) or the Stock items of those categories, one
@@ -242,7 +242,8 @@ public:
     // {extra: [{id: "stock:<category>", label}], categoriesOf: {<chip id>: [<category>, …]}}.
     Q_INVOKABLE QVariantMap stockChips(const QString &type, const QStringList &localChips);
     // Whether a Stock card wears the flame: the server says so, it is on this week's shelf, its
-    // category is a trend, or it is an effect (every Stock effect is in Efectos › Tendencias).
+    // category is a trend, or it is our own and of a type with a panel (each panel's Tendencias
+    // lists all of its type); Pexels' and Pixabay's are not.
     Q_INVOKABLE bool isTrendingItem(const QVariantMap &item) const;
     QStringList weeklyTrendingIds() const { return QStringList(m_weeklyTrending.cbegin(), m_weeklyTrending.cend()); }
     // What a Stock item became here when it was last installed or imported: an effect's,
