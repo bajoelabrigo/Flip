@@ -46,7 +46,7 @@ Item {
     // ----- Gallery -----------------------------------------------------------------------
     property string animTab: "in"
     property string animCategory: ""
-    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // The presets show for everyone but apply only signed in (Jorge, 2026-10-23/24): picking one
     // signed out asks for the account and applies it once signed in.
     readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
@@ -93,7 +93,7 @@ Item {
     }
 
     function pickTile(tile) {
-        if (tile.trending && root.trendsNeedAccount) {
+        if (tile.preset && root.trendsNeedAccount) {
             const slotKey = root.slotKey
             const track = EditorState.selectedTrack
             const clip = EditorState.selectedClip
@@ -312,7 +312,9 @@ Item {
                     kind: modelData.kind || ""
                     label: modelData.label
                     seconds: modelData.duration || 0.6
-                    trending: !!modelData.trending
+                    // Every preset wears the flame and asks for the account (Jorge, 2026-10-24: In,
+                    // Out and Combo alike); None and Fade do not.
+                    trending: !!modelData.preset
                     tileWidth: animGrid.tileWidth
                     selected: root.isTileSelected(modelData)
                     playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)

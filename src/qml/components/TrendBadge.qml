@@ -14,7 +14,7 @@ Rectangle {
     IconGlyph {
         anchors.centerIn: parent
         glyph: Theme.icons.trending
-        iconSize: 13
+        iconSize: Math.round(root.width * 0.65)
         iconColor: "white"
     }
 }

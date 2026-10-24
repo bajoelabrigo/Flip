@@ -20963,12 +20963,20 @@ If playback stutters, try another.</source>
         <translation>Mag-sign in para magamit ang mga trending</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Mag-sign in para magamit ang boses na ito</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Ang mga trending na animation ay para sa mga naka-sign in. Mag-sign in ka lang gamit ang Google account mo: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Ang mga boses na may apoy ay para sa mga naka-sign in. Kailangan mo lang mag-sign in gamit ang iyong Google account: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

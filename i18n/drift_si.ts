@@ -20970,12 +20970,20 @@ If playback stutters, try another.</source>
         <translation>ප්‍රවණතා භාවිත කිරීමට පුරන්න</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>මෙම හඬ භාවිත කිරීමට පුරන්න</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>ප්‍රවණතා සජීවිකරණ පුරනය වූ අයට පමණි. ඔබේ Google ගිණුමෙන් පුරනය වීම පමණක් අවශ්‍යයි: මොහොතක් ගත වේ, එක් වරක් පමණක් කළ යුතු අතර ඔබේ ව්‍යාපෘතිය එලෙසම පවතී.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>ගිනිදැල් ලකුණ ඇති හඬ පුරනය වූ පරිශීලකයින් සඳහායි. ඔබේ Google ගිණුමෙන් පුරනය වීම පමණක් ප්‍රමාණවත්: එය මොහොතක් ගතවේ, එක් වරක් පමණක් කරයි, ඔබේ ව්‍යාපෘතිය එලෙසම පවතී.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

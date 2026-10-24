@@ -13,7 +13,9 @@ ThemedDialog {
     // What asked: "export", or "trends" (a trending animation picked while signed out).
     property string reason: "export"
 
-    title: root.reason === "trends" ? qsTr("Sign in to use what's trending") : qsTr("Sign in to export")
+    title: root.reason === "trends" ? qsTr("Sign in to use what's trending")
+         : root.reason === "voices" ? qsTr("Sign in to use this voice")
+         : qsTr("Sign in to export")
     showFooter: false
     preferredWidth: Theme.dialogWidthSm
 
@@ -75,6 +77,8 @@ ThemedDialog {
             wrapMode: Text.WordWrap
             text: root.reason === "trends"
                   ? qsTr("Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
+                  : root.reason === "voices"
+                  ? qsTr("The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
                   : qsTr("To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.")
         }
 
