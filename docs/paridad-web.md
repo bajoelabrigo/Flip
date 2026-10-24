@@ -629,3 +629,24 @@ traducido a los 15 idiomas (`--check` 2758/2758). Modelos en el VPS en `/var/www
 - ❓ resueltos leyendo el código de la web y comprobando en el navegador (ver la tabla).
 - Etapa 1 en la rama `web/paridad-1` de `flipstudio-app`, desplegada con `deploy/deploy.sh`.
 - El escritorio lleva el arreglo de «Actualizar a …» en la rama `flip/v0.18.2` (commit `28ed5`), sin compilar.
+
+## Pendientes de la web respecto del escritorio (Jorge, 2026-10-24: «haz todo lo pendiente»)
+
+Orden de trabajo; cada uno se marca al desplegarlo (web en `flipstudio-app` `web/movil-capcut`; lo que toca al escritorio
+va en la rama `flip/v0.21.1`, que se compila y prueba en ventana una sola vez al final).
+
+- [x] `.flip`: un proyecto con animaciones de texto de Stock que el navegador no tiene las baja solo
+      (`ensureStockTextAnims`, como `ensureStockEffects` para Efectos › Tendencias). La exportación ya las lleva
+      «horneadas» (`webToDesktopText.ts`), así que el escritorio las reproduce sin tenerlas.
+- [ ] Medios ocultos de la web (`webHidden`: mattes, fotos de plantillas) también ocultos en el escritorio
+      (`MediaAsset::webHidden`, `MediaAssetsTab.qml`). Escritorio, rama `flip/v0.21.1`.
+- [ ] Medios: vista de árbol y carpetas dentro de carpetas.
+- [ ] Opciones de la vista previa: Calidad, Velocidad de reproducción, Decodificación y conjuntos de guías.
+- [ ] Efectos de audio como carril (hoy van en el clip; al `.flip` ya viajan como carril).
+- [ ] Ocultar por profundidad.
+- [ ] Quitar muletillas («eh», «mmm») con la transcripción (Whisper con tiempos por palabra).
+- [ ] Animaciones de texto karaoke, cursor de máquina de escribir y barrido (tiempos por palabra).
+- [ ] Tiradores 3D en la vista previa y la barra de herramientas sobre el lienzo.
+- [ ] Clonar voz (ver si el modelo del escritorio cabe en el navegador).
+- [ ] IA sin WebGPU más rápida (COOP/COEP): decisión de Jorge.
+- [ ] Tabla de arriba al día (marca como pendientes cosas ya hechas: retoque, RIFE, profundidad, estabilizar…).

@@ -583,6 +583,8 @@ QJsonObject assetToJson(const MediaAsset &asset)
         object.insert(QStringLiteral("variableFrameRate"), asset.variableFrameRate);
     if (asset.editFriendly)
         object.insert(QStringLiteral("editFriendly"), true);
+    if (asset.webHidden)
+        object.insert(QStringLiteral("webHidden"), true);
     // Only when set, so a desktop project's JSON is byte-for-byte what it was before the key
     // existed. Older builds ignore the key; a project without it simply reads back empty.
     if (!asset.sourceUri.isEmpty())
@@ -629,6 +631,7 @@ MediaAsset assetFromJsonV2(const QJsonObject &object)
         asset.variableFrameRate = object.value(QStringLiteral("variableFrameRate")).toBool();
     }
     asset.editFriendly = object.value(QStringLiteral("editFriendly")).toBool();
+    asset.webHidden = object.value(QStringLiteral("webHidden")).toBool();
     if (object.contains(QStringLiteral("hasAudio"))) {
         asset.hasAudioKnown = true;
         asset.hasAudio = object.value(QStringLiteral("hasAudio")).toBool();

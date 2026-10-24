@@ -91,6 +91,9 @@ struct MediaAsset
     bool frameRateKnown = false;
     // This file is Drift's "edit-friendly" constant-rate re-encode of what was imported.
     bool editFriendly = false;
+    // Used by the project but not listed in Media: the web editor's own (a cutout's matte, a
+    // template's picture), marked "webHidden" in its .flip.
+    bool webHidden = false;
 
     QString durationLabel;
     QString thumbnailPath;

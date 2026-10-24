@@ -321,7 +321,8 @@ Item {
         const childAssets = {}
         for (let i = 0; i < assetCount; ++i) {
             const asset = AssetLibrary.assetAt(i)
-            if (!root.assetVisibleFn(asset.kind))
+            // The web editor's own files (a cutout's matte…) stay out of Media, as there.
+            if (asset.hidden || !root.assetVisibleFn(asset.kind))
                 continue
             if (!childAssets[asset.folderId])
                 childAssets[asset.folderId] = []
@@ -453,7 +454,7 @@ Item {
 
         for (let i = 0; i < AssetLibrary.count; ++i) {
             const asset = AssetLibrary.assetAt(i)
-            if (asset.folderId !== currentFolder)
+            if (asset.folderId !== currentFolder || asset.hidden)
                 continue
             if (!root.assetVisibleFn(asset.kind))
                 continue
