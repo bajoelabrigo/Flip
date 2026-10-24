@@ -315,3 +315,36 @@ espacial · sombra/resplandor interior · fuentes variables con ejes.
 3. **0.24 — avanzadas (Prioridad 3).** Texto sobre un trazo (reutiliza el arco), deformar por esquinas (reutiliza
    la pose 3D de la capa), escalado completo del estilo, VTT/ASS, Bucles nuevos. Antes, medir D8 exportando.
 4. **Después — Prioridad 4,** solo si hay demanda.
+
+---
+
+## I. Resultado de la corrección (0.22.1, 2026-10-24)
+
+Rama `flip/v0.22.1`. Compilación final de Windows: run **40139655806** (pruebas automáticas en verde). «Probado en
+ventana» = visto con la app real, el panel abierto y el resultado en la vista previa o en el archivo exportado
+(portables `pruebas\FlipStudio-0.22.1`, `-0.22.1b`, `-0.22.1c`).
+
+| # | Estado | Causa | Arreglo (archivos) | Prueba |
+|---|---|---|---|---|
+| D1 | Corregido | `applyTextPreset` copiaba el estilo entero | `textStyleWithPresetLook` (`TextStyle.cpp`), `AppController::applyTextPreset` | Ventana: «neon» y «Aplicar al texto seleccionado» conservan Entrada/Salida/Bucle |
+| D2 | Corregido | El contorno «Dentro» se pintaba antes del relleno | `SkiaTextPainter.cpp` (`drawLayers`: los de dentro al final) | Prueba automática + ventana (orden de capas) |
+| D3 | Corregido | Cada mitad del corte arrancaba su animación de cero | `TextAnimationSlot::cutUs`, `TimelineOps.cpp` (cortar/unir) | Ventana: capturas a 1,9 y 2,05 s sin repetición |
+| D4 | Corregido | El proyecto solo guardaba el id de la animación | `rememberProjectPreset`, `Project.cpp` («textAnimationPresets») | Ventana: borrar «mi animación» y el texto sigue animado |
+| D5 | Corregido | La clave de la maqueta no incluía grosores ni rellenos | `TextLayout.cpp` (`layoutKey`) | Ventana: el fondo abarca el contorno de 18 px |
+| D6 | Corregido | La escala de bloque usaba un solo factor | `BlockProps` scaleX/scaleY (`FrameCompositor`, `TextAnimator`) | Ventana: «Salta y aplasta» se estira y se aplasta |
+| D7 | Corregido | La esquina solo cambiaba el tamaño de letra | `scaleTextStyle` en `previewSetTextRect`, asa 3D | Prueba automática |
+| D8 | Corregido | Tamaño entero en píxeles de render | `TextStyle::pixelSize` con decimales (`TextLayout`, controladores) | Ventana: 40→41 px crece sin saltos; exportación igual a la vista previa |
+| D9 | Corregido | Rutas «/C:/…» de URLs a medio convertir | `FileDialogs.localPath()`, `SkiaTextEffects.cpp` | Ventana: textura con ruta «/C:/…» visible en vista previa y exportación |
+| D10 | Corregido | El panel mostraba controles que la animación no usa | `slotControlShown()`, `progressDriven` | Ventana: Pulso y Giro continuo muestran solo los suyos |
+| D11 | Corregido | Sin tiempo de fin por palabra | `SubtitleCue::wordEndsUs`, `activeWordIndexAt` | Prueba automática |
+| D12 | Corregido | Volver a seguir borraba claves sin aviso (y la primera vez también) | `MotionTrackController.cpp` (`bakedFromUs/ToUs`, `warnIfKeysReplaced`) | Ventana: aviso al seguir sobre claves puestas a mano |
+| D13 | Corregido | Propiedad inexistente | `AppController::sizeLinked` | Prueba automática |
+| D14 | Corregido | Las plantillas escalaban solo la letra | `scaleTextStyle` en `SceneTemplateLayout.cpp` | Prueba automática |
+
+**Encontrados al probar en ventana y corregidos:** editar un texto saltaba a General; la fila B U S I cortaba el
+peso; el círculo completo pegaba el final con el principio y quedaba debajo del cuadro; las etiquetas de las
+esquinas se cortaban; **un texto con relleno de imagen dejaba el video verde** (venía de antes, también en la 0.21.0:
+Skia dejaba samplers atados, `SkiaRuntime.cpp`).
+
+**Riesgos que quedan:** el recuadro de selección no sigue la deformación por esquinas ni el círculo (el dibujo sí);
+los efectos de un texto se aplican en una capa de ajuste enlazada (no en el clip mismo), como en el resto de la app.
