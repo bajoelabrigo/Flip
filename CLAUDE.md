@@ -65,8 +65,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   Todo, inicio y novedades: así la 0.20 no ve los efectos `.driftfx` que no sabe instalar.
 - **Trampa:** `tools/e2e/shot.ps1` y `click.ps1` llevan `-TargetPid` (obligatorio). Con un nombre equivocado
   (`-ProcessId`) lo ignoraban y actuaban sobre la ventana del frente: una vez hicieron clic en otra app de Jorge.
-- **Jorge (2026-10-24): la 0.20.1 ya está aprobada; sube ahora el MSIX de la 0.21.0** (notas «Notas para la Store
-  (0.21.0)»). Falta: cuando la aprueben, TXT `version` = 0.21.0.
+- **Jorge mandó la 0.21.0 a certificación (2026-10-24)**; la 0.20.1 ya estaba aprobada. Falta: cuando la aprueben,
+  TXT `version` = 0.21.0.
+- **Siguiente (rama `flip/v0.21.1`):** medios ocultos de la web también ocultos en Medios (`webHidden`); build de CI
+  run 40062431397, **falta probarlo en ventana** con un `.flip` de la web que tenga un recorte de persona.
 
 ### Editor web en el celular como CapCut, etapa 7 (2026-10-23, desplegado, `flipstudio-app` `web/movil-capcut`)
 - Capturas de Jorge en `Downloads\capcut movil\1…24.png`; detalle en `docs/plan-movil.md` › Etapa 7. Barras en el
