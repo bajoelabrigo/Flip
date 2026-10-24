@@ -601,12 +601,14 @@ Item {
                 spacing: 6
                 Repeater {
                     model: [qsTr("Top left"), qsTr("Top right"), qsTr("Bottom right"), qsTr("Bottom left")]
-                    delegate: Row {
+                    // The corner's name above its two fields: «Arriba a la izquierda» does not fit
+                    // beside them in a narrow panel.
+                    delegate: Column {
                         id: cornerRow
                         required property string modelData
                         required property int index
                         width: parent.width
-                        spacing: 6
+                        spacing: 2
                         function setPoint(slot, v) {
                             const pts = (root.clipData.cornerPin || [0, 0, 0, 0, 0, 0, 0, 0]).slice()
                             pts[slot] = v
@@ -614,31 +616,34 @@ Item {
                                                          { "enabled": true, "points": pts })
                         }
                         Text {
-                            width: 92
-                            height: Theme.controlHeightSm
-                            verticalAlignment: Text.AlignVCenter
+                            width: parent.width
                             text: cornerRow.modelData
+                            elide: Text.ElideRight
                             color: Theme.mutedForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs
                         }
-                        ThemedNumberField {
-                            width: (cornerRow.width - 92 - 12) / 2
-                            unit: "X"
-                            value: {
-                                void root.clipDataRevision
-                                return Number((root.clipData.cornerPin || [])[cornerRow.index * 2] || 0)
+                        Row {
+                            width: parent.width
+                            spacing: 6
+                            ThemedNumberField {
+                                width: (cornerRow.width - 6) / 2
+                                unit: "X"
+                                value: {
+                                    void root.clipDataRevision
+                                    return Number((root.clipData.cornerPin || [])[cornerRow.index * 2] || 0)
+                                }
+                                onEdited: v => cornerRow.setPoint(cornerRow.index * 2, v)
                             }
-                            onEdited: v => cornerRow.setPoint(cornerRow.index * 2, v)
-                        }
-                        ThemedNumberField {
-                            width: (cornerRow.width - 92 - 12) / 2
-                            unit: "Y"
-                            value: {
-                                void root.clipDataRevision
-                                return Number((root.clipData.cornerPin || [])[cornerRow.index * 2 + 1] || 0)
+                            ThemedNumberField {
+                                width: (cornerRow.width - 6) / 2
+                                unit: "Y"
+                                value: {
+                                    void root.clipDataRevision
+                                    return Number((root.clipData.cornerPin || [])[cornerRow.index * 2 + 1] || 0)
+                                }
+                                onEdited: v => cornerRow.setPoint(cornerRow.index * 2 + 1, v)
                             }
-                            onEdited: v => cornerRow.setPoint(cornerRow.index * 2 + 1, v)
                         }
                     }
                 }
