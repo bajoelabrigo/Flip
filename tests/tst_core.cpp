@@ -110,6 +110,11 @@ private slots:
     void subtitleCuePacking();
     void srtRoundTrip();
     void srtParseEdgeCases();
+    void webVttParse();
+    void webVttRoundTrip();
+    void assParse();
+    void assRoundTrip();
+    void subtitleFormatFromExtension();
     void insertTrackAtTopAllowsDuplicateTypes();
     void multiTrackSerializationRoundTrip();
     void textStyleAndBlendModeSerialization();
@@ -147,6 +152,14 @@ private slots:
     void zipRejectsTruncatedAndOversizedDeflate();
     void secretStoreSealsAndMigrates();
     void textStyleKeyframesSerialization();
+    void textPresetKeepsMotionKeyframesAndCounter();
+    void karaokeFollowsAlignedWordTimes();
+    void scaleTextStyleKeepsProportions();
+    void cornerPinRoundTrips();
+    void textCutPlaysOnThroughTheSplit();
+    void projectCarriesItsOwnTextAnimations();
+    void blockAnimationsScaleXAndYApart();
+    void spinAndGlowLoops();
     void vectorClipIsSyntheticOnGraphicTracks();
     void model3dSourceSerialization();
     void model3dScalarClampsAndResolves();
@@ -1312,6 +1325,193 @@ void CoreTest::srtParseEdgeCases()
     QVERIFY(!error.isEmpty());
 }
 
+void CoreTest::webVttParse()
+{
+    // Header with metadata, NOTE and STYLE blocks, a cue identifier, cue settings, mm:ss.mmm,
+    // inline tags (voice, bold, class, karaoke timestamp) and character references.
+    const QString vtt = QStringLiteral(
+        "\uFEFFWEBVTT - Example\r\n"
+        "Kind: captions\r\n"
+        "\r\n"
+        "NOTE This is a comment\r\n"
+        "spanning two lines\r\n"
+        "\r\n"
+        "STYLE\r\n"
+        "::cue { color: yellow }\r\n"
+        "\r\n"
+        "00:00:10.250 --> 00:00:12.000\r\n"
+        "Tercera\r\n"
+        "\r\n"
+        "intro\r\n"
+        "00:01.000 --> 00:04.500 align:start line:90%\r\n"
+        "<v Ana><b>Hola</b> &amp; <i>adiós</i></v>\r\n"
+        "<c.yellow>segunda</c> <00:00:03.000>línea &lt;3&#33;\r\n");
+
+    QList<drift::SubtitleCue> cues;
+    QString error;
+    QVERIFY2(drift::parseWebVtt(vtt, &cues, &error), qPrintable(error));
+    QCOMPARE(cues.size(), 2);
+    QCOMPARE(cues[0].startUs, drift::secondsToUs(1.0));
+    QCOMPARE(cues[0].endUs, drift::secondsToUs(4.5));
+    QCOMPARE(cues[0].text, QStringLiteral("Hola & adiós\nsegunda línea <3!"));
+    QVERIFY(cues[0].wordEndsUs.isEmpty());
+    QCOMPARE(cues[1].startUs, drift::secondsToUs(10.25));
+    QCOMPARE(cues[1].endUs, drift::secondsToUs(12.0));
+    QCOMPARE(cues[1].text, QStringLiteral("Tercera"));
+
+    QVERIFY(!drift::parseWebVtt(QStringLiteral("WEBVTT\n\nNOTE nothing here\n"), &cues, &error));
+    QVERIFY(!error.isEmpty());
+    QVERIFY(!drift::parseWebVtt(QStringLiteral("WEBVTT\n\n00:01.000 --> later\nx\n"), &cues, &error));
+}
+
+void CoreTest::webVttRoundTrip()
+{
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(4.0), QStringLiteral("Hello")});
+    cues.append({drift::secondsToUs(65.5), drift::secondsToUs(70.25),
+                 QStringLiteral("Line one\nLine two")});
+    cues.append({drift::kUsPerMs * 3'723'004, drift::kUsPerMs * 3'724'000,
+                 QStringLiteral("Tom & Jerry <3")});
+
+    const QString vtt = drift::writeWebVtt(cues);
+    QVERIFY(vtt.startsWith(QStringLiteral("WEBVTT\n\n")));
+    QVERIFY(vtt.contains(QStringLiteral("00:00:01.000 --> 00:00:04.000\nHello\n\n")));
+    QVERIFY(vtt.contains(QStringLiteral("00:01:05.500 --> 00:01:10.250\nLine one\nLine two\n")));
+    QVERIFY(vtt.contains(QStringLiteral("01:02:03.004 --> 01:02:04.000\nTom &amp; Jerry &lt;3\n")));
+
+    QList<drift::SubtitleCue> loaded;
+    QString error;
+    QVERIFY2(drift::parseWebVtt(vtt, &loaded, &error), qPrintable(error));
+    QCOMPARE(loaded.size(), 3);
+    for (int i = 0; i < 3; ++i) {
+        QCOMPARE(loaded[i].startUs, cues[i].startUs);
+        QCOMPARE(loaded[i].endUs, cues[i].endUs);
+        QCOMPARE(loaded[i].text, cues[i].text);
+    }
+}
+
+void CoreTest::assParse()
+{
+    // A Format line in a non-default order (End before Start), commas inside the text, override
+    // blocks, \N and \h, a Comment line, a drawing and a [V4+ Styles] Format line to ignore.
+    const QString ass = QStringLiteral(
+        "[Script Info]\n"
+        "Title: Test\n"
+        "ScriptType: v4.00+\n"
+        "\n"
+        "[V4+ Styles]\n"
+        "Format: Name, Fontname, Fontsize\n"
+        "Style: Default,Arial,20\n"
+        "\n"
+        "[Events]\n"
+        "Format: Layer, Style, End, Start, Name, MarginL, MarginR, MarginV, Effect, Text\n"
+        "Dialogue: 0,Default,0:00:03.50,0:00:01.20,,0,0,0,,{\\an8\\b1}Hola, mundo,{\\i1} y más\\Nsegunda\\hlínea\n"
+        "Comment: 0,Default,0:00:05.00,0:00:04.00,,0,0,0,,ignorar\n"
+        "Dialogue: 0,Default,0:01:05.00,0:01:02.05,,0,0,0,,{\\p1}m 0 0 l 100 0 100 100{\\p0}\n"
+        "Dialogue: 0,Default,1:00:00.00,0:59:59.99,Ana,0,0,0,,Fin\n");
+
+    QList<drift::SubtitleCue> cues;
+    QString error;
+    QVERIFY2(drift::parseAss(ass, &cues, &error), qPrintable(error));
+    QCOMPARE(cues.size(), 2);
+    QCOMPARE(cues[0].startUs, drift::secondsToUs(1.2));
+    QCOMPARE(cues[0].endUs, drift::secondsToUs(3.5));
+    QCOMPARE(cues[0].text, QStringLiteral("Hola, mundo, y más\nsegunda línea"));
+    QCOMPARE(cues[1].startUs, drift::kUsPerMs * 3'599'990);
+    QCOMPARE(cues[1].endUs, drift::secondsToUs(3600.0));
+    QCOMPARE(cues[1].text, QStringLiteral("Fin"));
+
+    // Without [Events] there is nothing to import.
+    QVERIFY(!drift::parseAss(QStringLiteral("[Script Info]\nTitle: x\n"), &cues, &error));
+    QVERIFY(!error.isEmpty());
+}
+
+void CoreTest::assRoundTrip()
+{
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(4.0), QStringLiteral("Hello, world")});
+    cues.append({drift::secondsToUs(65.5), drift::secondsToUs(70.25),
+                 QStringLiteral("Line one\nLine two")});
+    cues.append({drift::secondsToUs(2.0), drift::secondsToUs(3.0), QStringLiteral("{braces}")});
+
+    const QString ass = drift::writeAss(cues, 1080, 1920);
+    QVERIFY(ass.startsWith(QStringLiteral("[Script Info]\n")));
+    QVERIFY(ass.contains(QStringLiteral("PlayResX: 1080\nPlayResY: 1920\n")));
+    QVERIFY(ass.contains(QStringLiteral("[V4+ Styles]\n")));
+    QVERIFY(ass.contains(QStringLiteral("\nStyle: Default,")));
+    QVERIFY(ass.contains(QStringLiteral("[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")));
+    QVERIFY(ass.contains(QStringLiteral("Dialogue: 0,0:00:01.00,0:00:04.00,Default,,0,0,0,,Hello, world\n")));
+    QVERIFY(ass.contains(QStringLiteral("Dialogue: 0,0:01:05.50,0:01:10.25,Default,,0,0,0,,Line one\\NLine two\n")));
+    QVERIFY(ass.contains(QStringLiteral(",,\\{braces\\}\n")));
+
+    QList<drift::SubtitleCue> loaded;
+    QString error;
+    QVERIFY2(drift::parseAss(ass, &loaded, &error), qPrintable(error));
+    QCOMPARE(loaded.size(), 3);
+    QCOMPARE(loaded[0].text, QStringLiteral("Hello, world"));
+    QCOMPARE(loaded[0].startUs, drift::secondsToUs(1.0));
+    QCOMPARE(loaded[0].endUs, drift::secondsToUs(4.0));
+    QCOMPARE(loaded[1].text, QStringLiteral("{braces}"));
+    QCOMPARE(loaded[1].startUs, drift::secondsToUs(2.0));
+    QCOMPARE(loaded[2].text, QStringLiteral("Line one\nLine two"));
+    QCOMPARE(loaded[2].startUs, drift::secondsToUs(65.5));
+    QCOMPARE(loaded[2].endUs, drift::secondsToUs(70.25));
+}
+
+void CoreTest::subtitleFormatFromExtension()
+{
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("C:/a/b.srt")) == drift::SubtitleFormat::Srt);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.VTT")) == drift::SubtitleFormat::WebVtt);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.Ass")) == drift::SubtitleFormat::Ass);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.ssa")) == drift::SubtitleFormat::Ass);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.txt")) == drift::SubtitleFormat::Srt);
+
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(2.0), QStringLiteral("Uno")});
+    cues.append({drift::secondsToUs(3.0), drift::secondsToUs(4.5), QStringLiteral("Dos\nlíneas")});
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const auto readAll = [](const QString &path) {
+        QFile file(path);
+        return file.open(QIODevice::ReadOnly) ? QString::fromUtf8(file.readAll()) : QString();
+    };
+
+    // SRT stays byte for byte what writeSrt gives.
+    const QString srtPath = dir.filePath(QStringLiteral("subs.srt"));
+    QVERIFY(drift::writeSubtitleFile(srtPath, cues));
+    QCOMPARE(readAll(srtPath), drift::writeSrt(cues));
+
+    const QString vttPath = dir.filePath(QStringLiteral("subs.VTT"));
+    QVERIFY(drift::writeSubtitleFile(vttPath, cues));
+    QCOMPARE(readAll(vttPath), drift::writeWebVtt(cues));
+
+    const QString assPath = dir.filePath(QStringLiteral("subs.ass"));
+    QVERIFY(drift::writeSubtitleFile(assPath, cues, nullptr, 1280, 720));
+    QCOMPARE(readAll(assPath), drift::writeAss(cues, 1280, 720));
+
+    for (const QString &path : {srtPath, vttPath, assPath}) {
+        QList<drift::SubtitleCue> loaded;
+        QString error;
+        QVERIFY2(drift::parseSubtitleFile(path, &loaded, &error), qPrintable(error));
+        QCOMPARE(loaded.size(), 2);
+        QCOMPARE(loaded[1].text, QStringLiteral("Dos\nlíneas"));
+        QCOMPARE(loaded[1].endUs, drift::secondsToUs(4.5));
+    }
+
+    // An unknown extension is read by its content.
+    const QString txtPath = dir.filePath(QStringLiteral("subs.txt"));
+    {
+        QFile file(txtPath);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        file.write(drift::writeWebVtt(cues).toUtf8());
+    }
+    QList<drift::SubtitleCue> sniffed;
+    QVERIFY(drift::parseSubtitleFile(txtPath, &sniffed));
+    QCOMPARE(sniffed.size(), 2);
+    QCOMPARE(sniffed[0].text, QStringLiteral("Uno"));
+}
+
 void CoreTest::insertTrackAtTopAllowsDuplicateTypes()
 {
     drift::Project project;
@@ -1425,7 +1625,7 @@ void CoreTest::textStyleAndBlendModeSerialization()
     const drift::TextStyle &s = loadedClip.textStyle;
     QCOMPARE(loadedClip.blendMode, drift::BlendMode::Multiply);
     QCOMPARE(s.fontFamily, QStringLiteral("Courier New"));
-    QCOMPARE(s.pixelSize, 88);
+    QCOMPARE(qRound(s.pixelSize), 88);
     QCOMPARE(s.fontWeight, 300);
     QCOMPARE(s.italic, true);
     QCOMPARE(s.primaryColor(), QColor(10, 20, 30, 200));
@@ -1902,6 +2102,143 @@ void CoreTest::vectorSourceSerialization()
     QCOMPARE(drift::mediaKindToString(drift::MediaKind::Vector), QStringLiteral("vector"));
 }
 
+void CoreTest::scaleTextStyleKeepsProportions()
+{
+    // Doubling a text doubles its whole look, keys included, not only the letters (D7, D14).
+    drift::TextStyle s;
+    s.pixelSize = 50;
+    s.letterSpacing = 2.0;
+    s.boxPadding = 8.0;
+    s.boxRadius = 6.0;
+    s.layers = {drift::shadowLayer(Qt::black, 3.0, 4.0, 5.0, 0.8), drift::strokeLayer(4.0, Qt::black),
+                drift::solidFillLayer(Qt::white)};
+    s.keyframes[QStringLiteral("pixelSize")].setKeyframe(0, 50.0);
+    s.keyframes[QStringLiteral("pixelSize")].setKeyframe(drift::secondsToUs(1.0), 100.0);
+    s.keyframes[QStringLiteral("layer.stroke.width")].setKeyframe(0, 4.0);
+    s.keyframes[QStringLiteral("lineHeight")].setKeyframe(0, 1.2); // a ratio: unchanged
+    drift::scaleTextStyle(s, 2.0);
+    QCOMPARE(qRound(s.pixelSize), 100);
+    QCOMPARE(s.letterSpacing, 4.0);
+    QCOMPARE(s.boxPadding, 16.0);
+    QCOMPARE(s.boxRadius, 12.0);
+    QCOMPARE(s.layers.at(0).offsetX, 6.0);
+    QCOMPARE(s.layers.at(0).offsetY, 8.0);
+    QCOMPARE(s.layers.at(0).blur, 10.0);
+    QCOMPARE(s.layers.at(1).width, 8.0);
+    QCOMPARE(s.keyframes.value(QStringLiteral("pixelSize")).evaluateAt(drift::secondsToUs(1.0)), 200.0);
+    QCOMPARE(s.keyframes.value(QStringLiteral("layer.stroke.width")).evaluateAt(0), 8.0);
+    QCOMPARE(s.keyframes.value(QStringLiteral("lineHeight")).evaluateAt(0), 1.2);
+}
+
+void CoreTest::karaokeFollowsAlignedWordTimes()
+{
+    // Aligned words with uneven timing: «Hola» is long, «a» and «todos» are quick (D11).
+    QList<drift::SubtitleCue> perWord;
+    const auto word = [&perWord](drift::TimeUs start, drift::TimeUs end, const QString &text) {
+        drift::SubtitleCue cue;
+        cue.startUs = start;
+        cue.endUs = end;
+        cue.text = perWord.isEmpty() ? text : QLatin1Char(' ') + text;
+        perWord.append(cue);
+    };
+    word(0, 1'500'000, QStringLiteral("Hola"));
+    word(1'500'000, 1'600'000, QStringLiteral("a"));
+    word(1'600'000, 2'000'000, QStringLiteral("todos"));
+    const QList<drift::SubtitleCue> packed = drift::packSubtitleCues(perWord, 42, 1);
+    QCOMPARE(packed.size(), 1);
+    const drift::SubtitleCue cue = packed.first();
+    QCOMPARE(cue.wordEndsUs, (QList<drift::TimeUs>{1'500'000, 1'600'000, 2'000'000}));
+    // At 1 s the voice is still on «Hola»; the proportional split would already be past it.
+    QCOMPARE(drift::activeWordIndexAt(cue, 1'000'000), 0);
+    QVERIFY(drift::activeWordIndexAt(cue.text, cue.startUs, cue.endUs, 1'000'000) > 0);
+    QCOMPARE(drift::activeWordIndexAt(cue, 1'550'000), 1);
+    QCOMPARE(drift::activeWordIndexAt(cue, 1'700'000), 2);
+
+    // Kept through a save, and moved with the cue.
+    drift::Project project;
+    drift::Clip subtitles;
+    subtitles.id = QStringLiteral("subs");
+    subtitles.type = drift::ClipType::Subtitle;
+    subtitles.timelineDuration = drift::secondsToUs(3.0);
+    subtitles.srcOut = subtitles.timelineDuration;
+    subtitles.subtitleCues = {cue};
+    project.tracks()[0].clips.append(subtitles);
+    const drift::Project reopened = drift::Project::fromJson(project.toJson());
+    QCOMPARE(reopened.tracks().at(0).clips.at(0).subtitleCues.first().wordEndsUs, cue.wordEndsUs);
+    drift::SubtitleCue moved = cue;
+    drift::shiftSubtitleCue(moved, 500'000);
+    QCOMPARE(drift::activeWordIndexAt(moved, 1'500'000), 0);
+
+    // Rewritten text (other words): back to the proportional timing.
+    drift::SubtitleCue edited = cue;
+    edited.text = QStringLiteral("Buenas");
+    QCOMPARE(drift::activeWordIndexAt(edited, 1'000'000),
+             drift::activeWordIndexAt(edited.text, edited.startUs, edited.endUs, 1'000'000));
+}
+
+void CoreTest::cornerPinRoundTrips()
+{
+    drift::Project project;
+    drift::Clip clip;
+    clip.id = QStringLiteral("pinned");
+    clip.type = drift::ClipType::Text;
+    clip.textContent = QStringLiteral("Cartel");
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    clip.srcOut = clip.timelineDuration;
+    project.tracks()[0].clips.append(clip);
+    // Untouched: nothing written, so older files stay the same.
+    QVERIFY(!project.toJson().value(QStringLiteral("tracks")).toArray().first().toObject()
+                 .value(QStringLiteral("clips")).toArray().first().toObject().contains(QStringLiteral("cornerPin")));
+    project.tracks()[0].clips[0].cornerPinEnabled = true;
+    project.tracks()[0].clips[0].cornerPin = {QPointF(10, 5), QPointF(-20, 0), QPointF(0, 30), QPointF(4, -8)};
+    const drift::Project reopened = drift::Project::fromJson(project.toJson());
+    const drift::Clip &back = reopened.tracks().at(0).clips.at(0);
+    QVERIFY(back.cornerPinEnabled);
+    QCOMPARE(back.cornerPin, (QList<QPointF>{QPointF(10, 5), QPointF(-20, 0), QPointF(0, 30), QPointF(4, -8)}));
+}
+
+void CoreTest::textPresetKeepsMotionKeyframesAndCounter()
+{
+    // The user's text: animated In and Loop, a counter, upper case, a keyed size and a keyed
+    // stroke the template does not have.
+    drift::TextStyle current;
+    current.layers.append(drift::strokeLayer(4.0, Qt::black));
+    current.animation.in.presetId = QStringLiteral("fade");
+    current.animation.loop.presetId = QStringLiteral("pulse");
+    current.counter = true;
+    current.counterFrom = 10.0;
+    current.textCase = QStringLiteral("upper");
+    current.keyframes[QStringLiteral("pixelSize")].setKeyframe(0, 40.0);
+    current.keyframes[QStringLiteral("pixelSize")].setKeyframe(drift::secondsToUs(1.0), 80.0);
+    current.keyframes[QStringLiteral("layer.stroke.width")].setKeyframe(0, 2.0);
+    current.keyframes[QStringLiteral("layer.stroke.width")].setKeyframe(drift::secondsToUs(1.0), 8.0);
+
+    // The template: another font and fill, its own Out animation, no stroke.
+    drift::TextStyle preset;
+    preset.fontFamily = QStringLiteral("Bebas Neue");
+    drift::setSolidFill(preset, QColor(255, 200, 0));
+    preset.animation.in.presetId = QStringLiteral("slide-up");
+    preset.animation.out.presetId = QStringLiteral("zoom-out");
+
+    QStringList dropped;
+    const drift::TextStyle out = drift::textStyleWithPresetLook(current, preset, &dropped);
+    QCOMPARE(out.fontFamily, QStringLiteral("Bebas Neue"));
+    QCOMPARE(out.primaryColor(), QColor(255, 200, 0));
+    QCOMPARE(out.animation.in.presetId, QStringLiteral("fade"));     // the user's In stays
+    QCOMPARE(out.animation.out.presetId, QStringLiteral("zoom-out")); // empty slot: the template's
+    QCOMPARE(out.animation.loop.presetId, QStringLiteral("pulse"));
+    QVERIFY(out.counter);
+    QCOMPARE(out.counterFrom, 10.0);
+    QCOMPARE(out.textCase, QStringLiteral("upper"));
+    QVERIFY(out.keyframes.contains(QStringLiteral("pixelSize")));
+    QCOMPARE(qRound(out.resolvedAt(drift::secondsToUs(0.5)).pixelSize), 60);
+    QCOMPARE(dropped, QStringList{QStringLiteral("layer.stroke.width")});
+
+    // A template that sets its own case wins it.
+    preset.textCase = QStringLiteral("lower");
+    QCOMPARE(drift::textStyleWithPresetLook(current, preset).textCase, QStringLiteral("lower"));
+}
+
 void CoreTest::textStyleKeyframesSerialization()
 {
     drift::TextStyle style;
@@ -1919,11 +2256,13 @@ void CoreTest::textStyleKeyframesSerialization()
     QVERIFY(style.isAnimated());
 
     const drift::TextStyle mid = style.resolvedAt(drift::secondsToUs(1.0));
-    QCOMPARE(mid.pixelSize, 60);
+    QCOMPARE(qRound(mid.pixelSize), 60);
     QCOMPARE(mid.primaryColor().greenF(), 1.0);
     QCOMPARE(mid.primaryColor().redF(), 1.0);
     QVERIFY(mid.isAnimated()); // the copy keeps its tracks so renderers can tell it apart
-    QCOMPARE(style.resolvedAt(0).pixelSize, 40);
+    // Between whole pixels too (0.22.1): a slow zoom grows smoothly instead of a pixel at a time.
+    QCOMPARE(style.resolvedAt(drift::secondsToUs(0.0125)).pixelSize, 40.25);
+    QCOMPARE(qRound(style.resolvedAt(0).pixelSize), 40);
 
     const QJsonObject json = drift::textStyleToJson(style);
     const QJsonObject keys = json.value(QStringLiteral("keyframes")).toObject();
@@ -1948,7 +2287,7 @@ void CoreTest::textStyleKeyframesSerialization()
     const drift::TextStyle &back = loaded.tracks()[0].clips[0].textStyle;
     QVERIFY(back.isAnimated());
     QCOMPARE(back.keyframes.size(), 2);
-    QCOMPARE(back.resolvedAt(drift::secondsToUs(2.0)).pixelSize, 80);
+    QCOMPARE(qRound(back.resolvedAt(drift::secondsToUs(2.0)).pixelSize), 80);
     QVERIFY(qAbs(back.resolvedAt(drift::secondsToUs(0.5)).primaryColor().greenF() - 0.5) < 0.001);
 
     // A gradient fill and a bend round-trip too and default to a plain solid fill on a straight line.
@@ -3224,7 +3563,7 @@ void CoreTest::subtitleClipsMergeWithGaps()
     QCOMPARE(merged.timelineDuration, drift::secondsToUs(8.0));
     QCOMPARE(merged.srcIn, drift::TimeUs{0});
     QCOMPARE(merged.srcOut, drift::secondsToUs(8.0));
-    QCOMPARE(merged.textStyle.pixelSize, 80);
+    QCOMPARE(qRound(merged.textStyle.pixelSize), 80);
     QCOMPARE(merged.transformX.keyframes().size(), 1);
     QCOMPARE(merged.fadeOutUs, drift::secondsToUs(0.25));
     QCOMPARE(merged.subtitleCues.size(), 3);
@@ -4848,6 +5187,19 @@ void CoreTest::motionTrackRoundTripsAndBakes()
     const drift::MotionBakeResult baked = drift::bakeMotionTrack(track, video, &follower, 1000, 500);
     QVERIFY(baked.ok);
     QCOMPARE(baked.lost, 3);
+    // It says which stretch it wrote, and the track keeps that through a save (D12): a re-bake
+    // replaces those keys only, not the user's outside them.
+    QVERIFY(baked.fromUs >= 0 && baked.toUs > baked.fromUs);
+    QVERIFY(follower.transformX.keyframes().firstKey() >= baked.fromUs);
+    QVERIFY(follower.transformX.keyframes().lastKey() <= baked.toUs);
+    drift::MotionTrack remembered = track;
+    remembered.bakedFromUs = baked.fromUs;
+    remembered.bakedToUs = baked.toUs;
+    const std::optional<drift::MotionTrack> rememberedBack = drift::motionTrackFromJson(drift::motionTrackToJson(remembered));
+    QVERIFY(rememberedBack.has_value());
+    QCOMPARE(rememberedBack->bakedFromUs, baked.fromUs);
+    QCOMPARE(rememberedBack->bakedToUs, baked.toUs);
+    QCOMPARE(back->bakedFromUs, drift::TimeUs(-1)); // an older track: unknown
     const double offsetX = track.anchorElement.center().x() - (0.15 * 1000);
     const double atOne = follower.transformX.evaluateAt(drift::secondsToUs(1.5)) + 40.0;
     QVERIFY2(std::abs(atOne - ((0.1 + 0.15 + 0.05) * 1000 + offsetX)) < 3.0, qPrintable(QString::number(atOne)));
@@ -4942,7 +5294,7 @@ void CoreTest::userTextPresetsRoundTrip()
     // Resolvable through the shared entry point the preview provider and applyTextPreset use,
     // while staying out of the built-in catalog.
     QVERIFY(drift::textPresetForId(id).has_value());
-    QCOMPARE(drift::textStyleForPresetId(id)->pixelSize, 91);
+    QCOMPARE(qRound(drift::textStyleForPresetId(id)->pixelSize), 91);
     for (const drift::TextPreset &builtin : drift::textPresets())
         QVERIFY(builtin.id != id);
 
@@ -4970,7 +5322,7 @@ void CoreTest::userTextPresetsRoundTrip()
     store.reload();
     QCOMPARE(store.presetForId(id)->label, QStringLiteral("Renamed"));
     QCOMPARE(store.presetForId(id)->sampleText, QStringLiteral("Hello there"));
-    QCOMPARE(store.presetForId(id)->style.pixelSize, 120);
+    QCOMPARE(qRound(store.presetForId(id)->style.pixelSize), 120);
     QCOMPARE(store.presetForId(id)->style.boxShape, QStringLiteral("burst"));
     QVERIFY(store.presetForId(id)->style.packId.isEmpty());
     QVERIFY(store.update(id, style));
@@ -5022,7 +5374,7 @@ void CoreTest::userTextPresetsRoundTrip()
     store.reload();
     QCOMPARE(store.presetForId(stockId)->stockId, QStringLiteral("tend-test"));
     QCOMPARE(store.presetForId(stockId)->label, QStringLiteral("Trend 2"));
-    QCOMPARE(store.presetForId(stockId)->style.pixelSize, 120);
+    QCOMPARE(qRound(store.presetForId(stockId)->style.pixelSize), 120);
     QVERIFY(store.presetForId(importedId)->stockId.isEmpty());
     QFile::remove(stockPath);
 
@@ -5460,6 +5812,156 @@ void CoreTest::staggerMatchesMovingRamp()
         QCOMPARE(reindexForOrder(i, 8, TextAnimOrder::Random, 0), legacy);
     }
     QVERIFY(reindexForOrder(3, 8, TextAnimOrder::Random, 7) != reindexForOrder(3, 8, TextAnimOrder::Random, 0));
+}
+
+void CoreTest::projectCarriesItsOwnTextAnimations()
+{
+    // A user's (or Stock's) text animation travels inside the project: deleted from this computer
+    // or opened on another, the text keeps its motion (auditoría D4).
+    std::optional<drift::TextAnimationPreset> fade = drift::TextAnimationPresetCatalog::instance().presetForId(QStringLiteral("fade"));
+    QVERIFY(fade);
+    drift::TextAnimationPreset mine = *fade;
+    mine.id = QStringLiteral("user:carried-test");
+    mine.builtIn = false;
+
+    drift::Project project;
+    drift::Clip text;
+    text.id = QStringLiteral("txt");
+    text.type = drift::ClipType::Text;
+    text.textContent = QStringLiteral("Hola");
+    text.timelineDuration = drift::secondsToUs(2.0);
+    text.srcOut = text.timelineDuration;
+    text.textStyle.animation.in.presetId = mine.id;
+    text.textStyle.animation.out.presetId = QStringLiteral("fade"); // built in: not carried
+    project.tracks()[0].clips.append(text);
+
+    // Not installed anywhere: nothing to carry, and nothing resolves.
+    QVERIFY(!project.toJson().contains(QStringLiteral("textAnimationPresets")));
+    QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(mine.id));
+
+    // Opening a file that carries it makes it resolve, without listing it in the gallery.
+    QJsonObject json = project.toJson();
+    json.insert(QStringLiteral("textAnimationPresets"), QJsonArray{mine.toJson()});
+    const drift::Project opened = drift::Project::fromJson(json);
+    QVERIFY(drift::TextAnimationPresetCatalog::instance().presetForId(mine.id));
+    bool listed = false;
+    for (const drift::TextAnimationPreset &p : drift::TextAnimationPresetCatalog::instance().presets())
+        listed = listed || p.id == mine.id;
+    QVERIFY(!listed);
+    drift::TextAnimationSet set;
+    set.in.presetId = mine.id;
+    QVERIFY(!drift::resolveTextAnimation(set).resolved.in.isEmpty());
+
+    // Saved again, it carries it on — only the one that is not built in.
+    const QJsonArray carried = opened.toJson().value(QStringLiteral("textAnimationPresets")).toArray();
+    QCOMPARE(carried.size(), 1);
+    QCOMPARE(carried.first().toObject().value(QStringLiteral("id")).toString(), mine.id);
+}
+
+void CoreTest::blockAnimationsScaleXAndYApart()
+{
+    // «Jump up and squash» starts squashed: 72 % wide and 150 % tall, not a plain zoom (D6).
+    using namespace drift::textanim;
+    drift::TextAnimationSet set;
+    set.in.presetId = QStringLiteral("im-jump-squash");
+    const drift::ResolvedTextAnimation anim = drift::resolveTextAnimation(set);
+    QVERIFY(!anim.resolved.in.isEmpty());
+    const Frame first = evaluateTextAnimation(anim.set, anim.resolved, charFragments(4), charDomains(4), contextAt(0, 2'000'000));
+    QVERIFY2(qAbs(first.block.scaleX - 0.72) < 0.02, qPrintable(QString::number(first.block.scaleX)));
+    QVERIFY2(qAbs(first.block.scaleY - 1.5) < 0.02, qPrintable(QString::number(first.block.scaleY)));
+    const Frame settled = evaluateTextAnimation(anim.set, anim.resolved, charFragments(4), charDomains(4), contextAt(1'500'000, 2'000'000));
+    QVERIFY(qFuzzyCompare(settled.block.scaleX, 1.0));
+    QVERIFY(qFuzzyCompare(settled.block.scaleY, 1.0));
+}
+
+void CoreTest::spinAndGlowLoops()
+{
+    // «Continuous spin» turns a full circle each period; «Glow pulse» swells its halo and back.
+    using namespace drift::textanim;
+    drift::TextAnimationSet spin;
+    spin.loop.presetId = QStringLiteral("spin-loop");
+    const drift::ResolvedTextAnimation s = drift::resolveTextAnimation(spin);
+    QVERIFY(!s.resolved.loop.isEmpty());
+    QCOMPARE(s.set.loop.periodUs, drift::TimeUs(2'000'000));
+    const Frame quarter = evaluateTextAnimation(s.set, s.resolved, charFragments(4), charDomains(4), contextAt(500'000, 10'000'000));
+    QVERIFY2(qAbs(quarter.block.rotation - 90.0) < 1.0, qPrintable(QString::number(quarter.block.rotation)));
+    const Frame again = evaluateTextAnimation(s.set, s.resolved, charFragments(4), charDomains(4), contextAt(2'500'000, 10'000'000));
+    QVERIFY(qAbs(again.block.rotation - 90.0) < 1.0); // the next turn, the same pose
+
+    drift::TextAnimationSet glow;
+    glow.loop.presetId = QStringLiteral("glow-pulse");
+    const drift::ResolvedTextAnimation g = drift::resolveTextAnimation(glow);
+    QVERIFY(!g.resolved.loop.isEmpty());
+    const Frame peak = evaluateTextAnimation(g.set, g.resolved, charFragments(4), charDomains(4), contextAt(750'000, 10'000'000));
+    const Frame rest = evaluateTextAnimation(g.set, g.resolved, charFragments(4), charDomains(4), contextAt(0, 10'000'000));
+    QVERIFY2(peak.props.first().glowPx > 15.0, qPrintable(QString::number(peak.props.first().glowPx)));
+    QVERIFY(rest.props.first().glowPx < peak.props.first().glowPx);
+    QVERIFY(!peak.isStatic);
+}
+
+void CoreTest::textCutPlaysOnThroughTheSplit()
+{
+    // Cutting a text in two keeps its In / Out / Loop going instead of replaying them at the cut.
+    drift::Clip head;
+    head.id = QStringLiteral("t");
+    head.type = drift::ClipType::Text;
+    head.textContent = QStringLiteral("Hola");
+    head.timelineStart = 0;
+    head.timelineDuration = 1'000'000;
+    head.srcIn = 0;
+    head.srcOut = 1'000'000;
+    head.textStyle.animation.in.presetId = QStringLiteral("fade");
+    head.textStyle.animation.out.presetId = QStringLiteral("fade");
+    head.textStyle.animation.loop.presetId = QStringLiteral("pulse");
+    drift::Clip tail;
+    QVERIFY(drift::splitClipAtOffset(head, tail, 400'000));
+    QCOMPARE(head.textStyle.animation.in.cutUs, drift::TimeUs(0));
+    QCOMPARE(head.textStyle.animation.out.cutUs, drift::TimeUs(600'000)); // the Out is still 600 ms away
+    QCOMPARE(tail.textStyle.animation.in.cutUs, drift::TimeUs(400'000));  // the In started 400 ms ago
+    QCOMPARE(tail.textStyle.animation.loop.cutUs, drift::TimeUs(400'000));
+    QCOMPARE(tail.textStyle.animation.out.cutUs, drift::TimeUs(0));
+
+    // Saved and opened again.
+    const drift::TextAnimationSet reread =
+        drift::textAnimationSetFromJson(drift::textAnimationSetToJson(tail.textStyle.animation));
+    QCOMPARE(reread.in.cutUs, drift::TimeUs(400'000));
+    QCOMPARE(reread.loop.cutUs, drift::TimeUs(400'000));
+    QCOMPARE(drift::textAnimationSetFromJson(drift::textAnimationSetToJson(drift::TextAnimationSet{})).in.cutUs, drift::TimeUs(0));
+
+    // Joined back: the Out plays at the end again.
+    const drift::Clip merged = drift::mergeClips(head, tail);
+    QCOMPARE(merged.textStyle.animation.out.cutUs, drift::TimeUs(0));
+    QCOMPARE(merged.textStyle.animation.in.cutUs, drift::TimeUs(0));
+
+    using namespace drift::textanim;
+    TextAnimator fade;
+    fade.selectors = {stagger(100'000, 200'000)};
+    fade.props.opacity = 0.0;
+    fade.props.hasOpacity = true;
+
+    // The head's last frames: without the cut offset the Out would be fading them already.
+    ResolvedSlots outOnly;
+    outOnly.out = {fade};
+    TextAnimationSet cutOut;
+    cutOut.out.cutUs = 600'000;
+    QVERIFY(opacities(evaluateTextAnimation(TextAnimationSet{}, outOnly, charFragments(4), charDomains(4),
+                                            contextAt(350'000, 400'000)))
+                .first() < 1.0);
+    VERIFY_LIST(opacities(evaluateTextAnimation(cutOut, outOnly, charFragments(4), charDomains(4),
+                                                contextAt(350'000, 400'000))),
+                (QList<double>{1, 1, 1, 1}));
+
+    // The tail's first frame: the In finished before the cut, so it does not start over.
+    ResolvedSlots inOnly;
+    inOnly.in = {fade};
+    TextAnimationSet cutIn;
+    cutIn.in.cutUs = 600'000; // the whole In (500 ms) is before the cut
+    QVERIFY(opacities(evaluateTextAnimation(TextAnimationSet{}, inOnly, charFragments(4), charDomains(4),
+                                            contextAt(0, 600'000)))
+                .first() < 1.0);
+    VERIFY_LIST(opacities(evaluateTextAnimation(cutIn, inOnly, charFragments(4), charDomains(4),
+                                                contextAt(0, 600'000))),
+                (QList<double>{1, 1, 1, 1}));
 }
 
 void CoreTest::animatorCompositionOrder()
@@ -6058,10 +6560,11 @@ void CoreTest::legacyTextAnimationParity()
         const Frame frame = evaluateTextAnimation(anim.set, anim.resolved, frags, domains, ctx);
         const QString why = QStringLiteral("%1: dx %2 dy %3 scale %4 opacity %5 blur %6")
                                 .arg(QLatin1String(e.kind)).arg(frame.block.dx).arg(frame.block.dy)
-                                .arg(frame.block.scale).arg(frame.block.opacity).arg(frame.block.blurPx);
+                                .arg(frame.block.scaleX).arg(frame.block.opacity).arg(frame.block.blurPx);
         QVERIFY2(qAbs(frame.block.dx - e.dx) < 1e-6, qPrintable(why));
         QVERIFY2(qAbs(frame.block.dy - e.dy) < 1e-6, qPrintable(why));
-        QVERIFY2(qAbs(frame.block.scale - e.scale) < 1e-6, qPrintable(why));
+        QVERIFY2(qAbs(frame.block.scaleX - e.scale) < 1e-6, qPrintable(why));
+        QVERIFY2(qAbs(frame.block.scaleY - e.scale) < 1e-6, qPrintable(why)); // a legacy zoom is uniform
         QVERIFY2(qAbs(frame.block.opacity - e.opacity) < 1e-6, qPrintable(why));
         QVERIFY2(qAbs(frame.block.blurPx - e.blur) < 1e-6, qPrintable(why));
         // Whole-block kinds leave the fragments alone.

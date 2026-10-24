@@ -43,6 +43,8 @@
 #include <QMutex>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPolygonF>
+#include <QTransform>
 #include <QSet>
 #include <cmath>
 #include <QtMath>
@@ -1038,7 +1040,7 @@ int karaokeWordIndex(const drift::Clip &clip, const drift::SubtitleCue &cue, dri
 {
     if (clip.textStyle.accent.rule != drift::WordAccentRule::Karaoke)
         return -1;
-    return drift::activeWordIndexAt(cue.text, cue.startUs, cue.endUs, localUs);
+    return drift::activeWordIndexAt(cue, localUs);
 }
 
 // CapCut-style body intro/outro/combo: opacity/offset/scale/rotation on top of fades and text
@@ -1248,15 +1250,43 @@ QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const 
 #endif
 }
 
+// Corner pin: the placed (rotated) rect's corners moved by the clip's offsets, as a perspective
+// map composed before any transform-layer parent. The compositor's parent path takes a projective
+// QTransform (liftParent keeps its third row), so the warp is real perspective, not a shear.
+void applyCornerPin(GpuLayer &layer, const drift::Clip &clip, double renderScale)
+{
+    if (!clip.cornerPinEnabled || clip.cornerPin.size() != 4 || layer.screenSpace || layer.rect.isEmpty())
+        return;
+    bool moved = false;
+    for (const QPointF &corner : clip.cornerPin)
+        moved = moved || !corner.isNull();
+    if (!moved)
+        return;
+    QTransform turn;
+    turn.translate(layer.rect.center().x(), layer.rect.center().y());
+    turn.rotate(layer.rotation);
+    turn.translate(-layer.rect.center().x(), -layer.rect.center().y());
+    const QPolygonF from{turn.map(layer.rect.topLeft()), turn.map(layer.rect.topRight()),
+                         turn.map(layer.rect.bottomRight()), turn.map(layer.rect.bottomLeft())};
+    QPolygonF to = from;
+    for (int i = 0; i < 4; ++i)
+        to[i] += clip.cornerPin.at(i) * renderScale;
+    QTransform warp;
+    if (!QTransform::quadToQuad(from, to, warp))
+        return;
+    layer.parent = layer.hasParent ? warp * layer.parent : warp;
+    layer.hasParent = true;
+}
+
 // Whole-block motion (opacity, offset, scale, rotation, blur) rides on the GPU layer, never on
 // the pixels, so the painter's image stays the same size for every frame.
 void applyTextBlockMotion(GpuLayer &layer, const drift::textanim::BlockProps &block, QRectF *destRect,
                           double *opacity, double *rotation)
 {
     destRect->translate(block.dx, block.dy);
-    if (!qFuzzyCompare(block.scale, 1.0)) {
+    if (!qFuzzyCompare(block.scaleX, 1.0) || !qFuzzyCompare(block.scaleY, 1.0)) {
         const QPointF centre = destRect->center();
-        destRect->setSize(destRect->size() * block.scale);
+        destRect->setSize(QSizeF(destRect->width() * block.scaleX, destRect->height() * block.scaleY));
         destRect->moveCenter(centre);
     }
     *opacity *= block.opacity;
@@ -1838,6 +1868,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
             if (!item.layer.valid)
                 continue;
             applyParent(item.layer, ti);
+            applyCornerPin(item.layer, clip, renderScale);
             applyCamera(item.layer);
             noteSelection(clip, item.layer);
             applyDepthOcclusion(project, scene, item.layer, nearestOccluder, occluders);

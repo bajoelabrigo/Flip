@@ -1237,8 +1237,8 @@ bool splitClipAtOffsetMin(Clip &head, Clip &tail, TimeUs offset, TimeUs minEdgeU
             }
             if (cue.endUs > offset) {
                 SubtitleCue right = cue;
-                right.startUs = qMax<TimeUs>(cue.startUs - offset, 0);
-                right.endUs = cue.endUs - offset;
+                shiftSubtitleCue(right, -offset);
+                right.startUs = qMax<TimeUs>(right.startUs, 0);
                 if (right.endUs > right.startUs)
                     tailCues.append(right);
             }
@@ -1261,6 +1261,13 @@ bool splitClipAtOffsetMin(Clip &head, Clip &tail, TimeUs offset, TimeUs minEdgeU
     tail.animIn = ClipAnimation{};
     tail.animCombo = ClipAnimation{};
     tail.audioFadeInUs = 0;
+    // The text's own In / Out / Loop go on through the cut too: the head plays its Out as if the
+    // clip still ran to its old end, and the tail carries on the In and the Loop where they were.
+    if (head.type == ClipType::Text) {
+        head.textStyle.animation.out.cutUs += tail.timelineDuration;
+        tail.textStyle.animation.in.cutUs += offset;
+        tail.textStyle.animation.loop.cutUs += offset;
+    }
     head.fadeInUs = qMin(head.fadeInUs, head.timelineDuration);
     tail.fadeOutUs = qMin(tail.fadeOutUs, tail.timelineDuration);
     // Key times are relative to the clip's own start, so the tail — which now starts `offset`
@@ -1366,6 +1373,8 @@ Clip mergeClips(const Clip &left, const Clip &right)
     out.fadeOutUs = right.fadeOutUs;
     out.animOut = right.animOut;
     out.audioFadeOutUs = right.audioFadeOutUs;
+    if (left.type == ClipType::Text)
+        out.textStyle.animation.out = right.textStyle.animation.out;
     return out;
 }
 
@@ -1398,8 +1407,9 @@ Clip mergeSubtitleClips(QList<Clip> clips)
     for (const Clip &clip : clips) {
         const TimeUs offset = clip.timelineStart - out.timelineStart;
         for (SubtitleCue cue : clip.subtitleCues) {
-            cue.startUs = qBound(TimeUs{0}, cue.startUs + offset, out.timelineDuration);
-            cue.endUs = qBound(TimeUs{0}, cue.endUs + offset, out.timelineDuration);
+            shiftSubtitleCue(cue, offset);
+            cue.startUs = qBound(TimeUs{0}, cue.startUs, out.timelineDuration);
+            cue.endUs = qBound(TimeUs{0}, cue.endUs, out.timelineDuration);
             cues.append(cue);
         }
     }

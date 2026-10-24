@@ -16,9 +16,56 @@ Item {
     readonly property string favoritesId: "__favorites__"
     // Shapes installed from Stock come after the built-in ones, in their own categories.
     property int userShapesTick: 0
-    readonly property var categories: {
+    readonly property var ownCategories: {
         void root.userShapesTick
         return EditorState.builtinShapeCategories().concat(EditorState.userShapeCategories())
+    }
+    // Stock's shapes here too (0.22): Trending first (the most used), the rest spread over these
+    // chips by category after the local ones, or in chips of their own («stock:<category>»).
+    readonly property string trendsId: "__trends__"
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips("shape", root.ownCategories.map(c => ({ "id": c.id, "label": c.label })))
+                                    : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var categories: Market.configured
+        ? [{ "id": root.trendsId, "label": qsTr("Trending") }].concat(root.ownCategories).concat(root.stockChips.extra || [])
+        : root.ownCategories
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.trendsId
+                                                 || root.activeCategory.indexOf("stock:") === 0)
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("shapes"), ["shape"], "shapes")
+               : []
+    }
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.stockTick++ }
+        function onCatalogChanged() { root.stockTick++ }
+    }
+
+    // A Stock shape installs as "user-shape:<id>" (drift::installUserShapeFile).
+    function stockShapeId(item) {
+        const placed = Market.placedId(item.id)
+        return placed.length > 0 ? placed : "user-shape:" + String(item.id || "").split(":").pop()
+    }
+    function stockInstalled(item) {
+        void root.userShapesTick
+        const id = root.stockShapeId(item)
+        return root.allShapes.some(s => s.id === id)
+    }
+    function applyStock(item) {
+        root.userShapesTick++
+        EditorState.addShapeClip(root.stockShapeId(item), -1)
+        root.added()
     }
     readonly property var allShapes: {
         void root.userShapesTick
@@ -54,6 +101,8 @@ Item {
                 return EditorState.isAssetFavorite("shapes", s.id)
             })
         }
+        if (root.showingStockOnly)
+            return []
         return root.allShapes.filter(function(s) { return s.category === root.activeCategory })
     }
 
@@ -89,7 +138,7 @@ Item {
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
-                visible: root.currentShapes.length === 0
+                visible: root.currentShapes.length === 0 && !root.showingStockOnly && !root.stockFooter
                 text: root.query.length > 0
                       ? qsTr("No shapes match “%1”.").arg(search.text.trim())
                       : (root.activeCategory === root.favoritesId
@@ -99,6 +148,31 @@ Item {
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
                 wrapMode: Text.WordWrap
+            }
+
+            // Trending, or a chip of Stock's own: Stock's shapes only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyCards.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyCards
+                    y: Theme.pagePadding
+                    width: stockView.width
+                    sidePadding: Theme.pagePadding
+                    flickable: stockView
+                    type: "shape"
+                    layout: "square"
+                    categories: root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.shapes
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
             }
 
             FontMetrics {
@@ -130,7 +204,7 @@ Item {
                 height: parent.height
                 topMargin: Theme.pagePadding
                 bottomMargin: Theme.pagePadding
-                visible: root.currentShapes.length > 0
+                visible: root.currentShapes.length > 0 || root.stockFooter
                 clip: true
                 reuseItems: true
                 boundsBehavior: Flickable.StopAtBounds
@@ -139,6 +213,21 @@ Item {
                 cellWidth: Math.floor(width / columnCount)
                 cellHeight: shapeGrid.cardSize + Theme.spacingSm + Math.ceil(labelMetrics.height) + Theme.assetCardGap
                 model: root.currentShapes
+
+                // The chip's Stock shapes after its own (and the starred ones in Favorites).
+                footer: StockPanelCards {
+                    width: shapeGrid.width - Theme.assetCardGap
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight : 0
+                    bare: true
+                    layout: "square"
+                    flickable: shapeGrid
+                    type: "shape"
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
 
                 delegate: Column {
                     id: shapeCard

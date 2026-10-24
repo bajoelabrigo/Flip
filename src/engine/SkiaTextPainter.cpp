@@ -143,6 +143,39 @@ struct Bend
 Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, double renderScale)
 {
     Bend bend;
+    // Around a circle: the line's own length is the arc, a share of the whole circumference, and
+    // the ring is centred on the line's box, starting at the top (letters outward; inward when
+    // bent down). A whole ring keeps a letter's gap where the end meets the start.
+    if (style.pathCircle > 0.5 && !words.isEmpty()) {
+        double left = words.first().cellRect.left();
+        double right = words.first().cellRect.right();
+        double top = words.first().cellRect.top();
+        double bottom = words.first().cellRect.bottom();
+        for (const text::StyledWord &word : words) {
+            if (word.line != words.first().line)
+                return bend; // multi-line blocks stay straight
+            left = qMin(left, word.cellRect.left());
+            right = qMax(right, word.cellRect.right());
+            top = qMin(top, word.cellRect.top());
+            bottom = qMax(bottom, word.cellRect.bottom());
+        }
+        const double width = right - left;
+        if (width < 1.0)
+            return bend;
+        const double share = qBound(0.1, style.pathCircle / 100.0, 1.0);
+        const double gap = share > 0.95 ? (bottom - top) * 0.6 : 0.0;
+        const double around = width + gap;
+        bend.active = true;
+        bend.up = style.pathBend >= 0.0;
+        bend.left = left;
+        bend.width = width;
+        bend.baseline = words.first().baselineY;
+        bend.radius = around / (6.283185307179586 * share);
+        bend.sweep = 6.283185307179586 * share;
+        bend.arcLen = around;
+        bend.centre = QPointF(left + width / 2.0, (top + bottom) / 2.0);
+        return bend;
+    }
     const double rise = text::textBendRise(style) * renderScale;
     if (rise < 0.5 || words.isEmpty())
         return bend;
@@ -671,18 +704,17 @@ public:
                 continue;
             (props(i).opacity >= 0.999 ? solid : fading).append(i);
         }
-        for (const TextShadingLayer &layer : m_style.layers)
-            drawLayer(canvas, layer, solid, 1.0);
+        drawLayers(canvas, solid);
         for (int i : fading) {
             SkPaint alpha;
             alpha.setAlphaf(float(props(i).opacity));
             canvas.saveLayer(nullptr, &alpha);
-            for (const TextShadingLayer &layer : m_style.layers)
-                drawLayer(canvas, layer, {i}, 1.0);
+            drawLayers(canvas, {i});
             canvas.restore();
         }
 
         drawUnderline(canvas);
+        drawStrike(canvas);
         drawCaret(canvas);
         drawParticles(canvas, false);
 
@@ -859,6 +891,55 @@ private:
 
     // One layer of the stack over the given pieces. Pieces are bucketed by their own blur so
     // a handful of transitional fragments do not force a filter over the whole block.
+    // The style's layers in order, except that an Inside stroke goes on last: it is clipped to the
+    // glyph, so under a fill (where new strokes are put) it would never show (auditoría D2).
+    // The animated halo (FragmentProps::glowPx) behind the letters, in the style's glow colour or
+    // the letters' own. Drawn first, so the style's layers sit on it.
+    void drawAnimatedGlow(SkCanvas &canvas, const QList<int> &pieces) const
+    {
+        QColor colour;
+        for (const TextShadingLayer &layer : m_style.layers) {
+            if (layer.enabled && layer.kind == TextLayerKind::Glow) {
+                colour = layer.paint.color;
+                break;
+            }
+        }
+        if (!colour.isValid())
+            colour = m_style.primaryColor();
+        for (int i : pieces) {
+            const double radius = props(i).glowPx;
+            const Piece &piece = m_pieces.at(i);
+            if (radius <= 0.25 || piece.emoji)
+                continue;
+            canvas.save();
+            canvas.concat(m_matrices.at(i));
+            SkPaint halo;
+            halo.setAntiAlias(true);
+            halo.setColor(toSkColor(colour));
+            halo.setMaskFilter(SkMaskFilter::MakeBlur(kNormal_SkBlurStyle, float(radius * 0.5)));
+            // Twice: one soft pass is too faint to read as a glow on a busy picture.
+            canvas.drawPath(piece.glyphs, halo);
+            canvas.drawPath(piece.glyphs, halo);
+            canvas.restore();
+        }
+    }
+
+    void drawLayers(SkCanvas &canvas, const QList<int> &pieces) const
+    {
+        drawAnimatedGlow(canvas, pieces);
+        const auto inside = [](const TextShadingLayer &layer) {
+            return layer.kind == TextLayerKind::Stroke && layer.strokeAlign == StrokeAlign::Inside;
+        };
+        for (const TextShadingLayer &layer : m_style.layers) {
+            if (!inside(layer))
+                drawLayer(canvas, layer, pieces, 1.0);
+        }
+        for (const TextShadingLayer &layer : m_style.layers) {
+            if (inside(layer))
+                drawLayer(canvas, layer, pieces, 1.0);
+        }
+    }
+
     void drawLayer(SkCanvas &canvas, const TextShadingLayer &layer, const QList<int> &pieces, double alpha) const
     {
         if (!layer.enabled || layer.opacity <= 0.0 || pieces.isEmpty())
@@ -1042,6 +1123,35 @@ private:
             border.setColor(toSkColor(m_style.boxBorderColor));
             canvas.drawPath(path, border);
         }
+    }
+
+    // A line through the letters at about half their x-height, in the text's own colour, as thick
+    // as a regular stroke of the font would be.
+    void drawStrike(SkCanvas &canvas) const
+    {
+        if (m_bend.active || !m_style.strikeEnabled)
+            return;
+        const double thickness = qMax(1.0, m_style.pixelSize * 0.065) * m_scale;
+        const double rise = m_style.pixelSize * 0.3 * m_scale;
+        QHash<int, QRectF> perLine;
+        for (int i = 0; i < m_pieces.size(); ++i) {
+            if (!visible(i))
+                continue;
+            const Piece &piece = m_pieces.at(i);
+            const textanim::FragmentProps &p = props(i);
+            const QRectF rule(piece.cellRect.left() + p.dx, piece.baselineY + p.dy - rise - thickness * 0.5,
+                              piece.cellRect.width(), thickness);
+            const auto it = perLine.find(piece.line);
+            if (it == perLine.end())
+                perLine.insert(piece.line, rule);
+            else
+                *it = it->united(rule);
+        }
+        SkPaint fill;
+        fill.setAntiAlias(true);
+        fill.setColor(toSkColor(m_style.primaryColor()));
+        for (const QRectF &rule : std::as_const(perLine))
+            canvas.drawRect(toSkRect(rule), fill);
     }
 
     void drawUnderline(SkCanvas &canvas) const
@@ -1355,7 +1465,10 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
                                + (env.maxRotation3dDeg > 0.0 ? maxCell * 0.25 : 0.0);
     const double envelope = qMax(env.maxDx, env.maxDy) + env.maxBlurPx * 2.0 + (env.maxScale - 1.0) * maxCell * 0.5
                             + rotationPad + env.maxTrackingPx * lines * 0.5 + env.maxParticlePx;
-    const double bleed = std::ceil(text::bleedFor(style) * scale + envelope) + 2.0;
+    // Around a circle the letters reach a diameter beyond the line, plus a letter's height.
+    const Bend circle = style.pathCircle > 0.5 ? bendFor(request.set->frags, style, scale) : Bend{};
+    const double circleReach = circle.active ? 2.0 * circle.radius + maxCell : 0.0;
+    const double bleed = std::ceil(text::bleedFor(style) * scale + envelope + circleReach) + 2.0;
     const int imageW = qMax(1, qRound(request.layoutRect.width() + bleed * 2.0));
     const int imageH = qMax(1, qRound(request.layoutRect.height() + bleed * 2.0));
 

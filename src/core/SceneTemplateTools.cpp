@@ -453,7 +453,7 @@ BrandApplyResult applyBrandKit(QList<Track> &tracks, const BrandKit &kit)
             for (const Clip &clip : track.clips)
                 anyEditable = anyEditable || (isText(clip) && !clip.placeholderId.isEmpty());
         }
-        int largest = 0;
+        double largest = 0.0;
         for (const Track &track : tracks) {
             for (const Clip &clip : track.clips) {
                 if (isText(clip) && (!anyEditable || !clip.placeholderId.isEmpty()))

@@ -204,6 +204,9 @@ class AppController : public QObject
     Q_PROPERTY(bool projectPortrait READ projectPortrait NOTIFY tracksChanged)
     Q_PROPERTY(bool autoKeyEnabled READ autoKeyEnabled WRITE setAutoKeyEnabled NOTIFY autoKeyEnabledChanged)
     Q_PROPERTY(bool positionLinked READ positionLinked WRITE setPositionLinked NOTIFY positionLinkedChanged)
+    // The Transform size lock (width and height together), one state for the Transform tab and the
+    // Video and Text pages; QML used to write a property that did not exist (auditoria D13).
+    Q_PROPERTY(bool sizeLinked READ sizeLinked WRITE setSizeLinked NOTIFY sizeLinkedChanged)
     Q_PROPERTY(double masterVolume READ masterVolume
                    WRITE setMasterVolume NOTIFY masterVolumeChanged)
     Q_PROPERTY(bool masterMuted READ masterMuted
@@ -403,6 +406,8 @@ public:
     bool autoKeyEnabled() const { return m_autoKeyEnabled; }
     bool positionLinked() const { return m_positionLinked; }
     void setPositionLinked(bool linked);
+    bool sizeLinked() const { return m_sizeLinked; }
+    void setSizeLinked(bool linked);
     double masterVolume() const;
     void setMasterVolume(double volume);
     bool masterMuted() const;
@@ -595,11 +600,11 @@ public:
     Q_INVOKABLE void addSubtitleClip(double atSeconds);
     // A combined template from Extras: one text clip per part, placed and timed together, one undo.
     void addTextTemplate(const drift::TextPreset &preset, double atSeconds);
-    // Import a SubRip (.srt) file as a new subtitle clip at the playhead (or atSeconds).
+    // Import a subtitle file (.srt, .vtt, .ass/.ssa) as a new subtitle clip at the playhead (or atSeconds).
     Q_INVOKABLE bool importSubtitleFile(const QUrl &url, double atSeconds = -1.0);
-    // Replace cues on an existing subtitle clip from a .srt file.
+    // Replace cues on an existing subtitle clip from a subtitle file (.srt, .vtt, .ass/.ssa).
     Q_INVOKABLE bool importSubtitleFileIntoClip(int trackIndex, int clipIndex, const QUrl &url);
-    // Export a subtitle clip's cues to a .srt file. Timestamps are clip-local unless timelineTimes,
+    // Export a subtitle clip's cues as SRT, WebVTT or ASS (by extension). Timestamps are clip-local unless timelineTimes,
     // which offsets them by the clip's start so they line up with the exported video.
     Q_INVOKABLE bool exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url,
                                         bool timelineTimes = false);
@@ -749,7 +754,7 @@ public:
                                         double widthPixels, double heightPixels);
     // Text resizes scale the glyphs along with the box, so the size rides with the rect.
     Q_INVOKABLE void previewSetTextRect(int trackIndex, int clipIndex, double xPixels, double yPixels,
-                                        double widthPixels, double heightPixels, int pixelSize);
+                                        double widthPixels, double heightPixels, double pixelSize);
     Q_INVOKABLE void previewSetClipRotation(int trackIndex, int clipIndex, double degrees);
     Q_INVOKABLE void previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                             double atSeconds, double value);
@@ -975,6 +980,14 @@ public:
     // with the clip's settings as its defaults, listed under "Mine". Returns the new id.
     Q_INVOKABLE QString saveTextAnimationAsPreset(int trackIndex, int clipIndex, const QString &slot,
                                                   const QString &label);
+    // The visual animation editor (Personalizar): a slot as the animator list it plays, to edit
+    // and send back through setTextAnimationSlot({animators, particles, …}). A preset is expanded
+    // for this slot, an inline slot gives its own, an empty one a fade by character (a gentle
+    // wiggle on Loop). Returns {animators, particles, delay, durationOverride, period, source:
+    // "preset"|"inline"|"new", label}.
+    Q_INVOKABLE QVariantMap textAnimationSlotForEditing(int trackIndex, int clipIndex, const QString &slot) const;
+    // The animator list as a slot stores it: defaults dropped, enum spellings settled.
+    Q_INVOKABLE QVariantList normalizeTextAnimators(const QVariantList &animators) const;
     Q_INVOKABLE bool deleteUserTextAnimationPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextAnimationPreset(const QString &presetId, const QUrl &fileUrl);
     // Human label for a text keyframe property ("Shadow · Blur"); empty for non-text props.
@@ -1025,6 +1038,8 @@ public:
     Q_INVOKABLE void cancelReverseRender();
     Q_INVOKABLE bool clipHasReverseProxy(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setClipFlip(int trackIndex, int clipIndex, bool flipH, bool flipV);
+    // Corner pin: {enabled, points: [x0, y0, … x3, y3]} in project px, the corners' offsets.
+    Q_INVOKABLE void setClipCornerPin(int trackIndex, int clipIndex, const QVariantMap &pin);
     // Per-clip "3D layer" switch: the tilt/depth/perspective values render (and get grips) only
     // while it is on. Off keeps the values.
     Q_INVOKABLE void setClipLayer3d(int trackIndex, int clipIndex, bool enabled);
@@ -1298,6 +1313,25 @@ public:
     // The key nearest atSeconds: "linear", "ease", "easeIn", "easeOut" or "hold".
     Q_INVOKABLE void setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
                                          double atSeconds, const QString &mode);
+    // The keys picked on a track's keyframe rows, each {clip, prop, seconds}, as one undo step:
+    // their easing (the modes above), a cubic-bezier on the stretch each one starts (x1, y1, x2,
+    // y2 as CSS's; on a last key, the stretch that ends there: Curvas, as the web's and CapCut's
+    // Gráficos), or removed.
+    Q_INVOKABLE void setKeyframesEasing(int trackIndex, const QVariantList &keys, const QString &mode);
+    Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
+                                       double x2, double y2);
+    Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
+    // Copy and paste of picked keys (0.22.1, After Effects' Ctrl+C / Ctrl+V on keys): the keys
+    // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
+    // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
+    Q_INVOKABLE int copyKeyframes(int trackIndex, const QVariantList &keys);
+    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool hasCopiedKeyframes() const { return !m_keyClipboard.isEmpty(); }
+    // A drag of the picked keys (each {clip, prop, seconds} where it started), inside a preview
+    // drag: the keys that sit fromDelta seconds off their start move to toDelta off it, all
+    // together, keeping their shape. The caller keeps them between their unpicked neighbours.
+    Q_INVOKABLE void previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
+                                           double toDelta);
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
@@ -1317,11 +1351,21 @@ public:
     // (My styles), "text-animation" (text animations), "transition" (a .driftfx package into the
     // transitions folder) or "shape" (the shapes library). `done` runs exactly once, possibly
     // later — a package installs on a worker thread — with ok, a short phrase for the download
-    // list saying where it went, the installed file or folder, and an error.
+    // list saying where it went, the installed file or folder, an error, and what it is called in
+    // its panel now (a LUT's, a style's, a shape's or a preset's id; empty when there is none).
     using StockInstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
-                                                const QString &error)>;
+                                                const QString &error, const QString &localId)>;
     void installStockFile(const QString &delivery, const QString &path, const QString &title,
                           const StockInstallDone &done);
+    // Mi cuenta › Stock downloads. mode "save" keeps the item where it belongs (Media for a file,
+    // its own panel for an effect, a look, a LUT, a transition, a shape, a text style or animation,
+    // a template); "place" also puts it in the edit: on the selected clip, text or cut, else at the
+    // playhead. Downloads it first when this computer does not have it; says what it did on the
+    // status line.
+    Q_INVOKABLE void useStockLibraryItem(const QVariantMap &item, const QString &mode);
+    // How a row of that list is delivered ("media", "lut", "scene-template"…), also for the
+    // signed-out history, which keeps no delivery of its own for older downloads.
+    Q_INVOKABLE QString stockLibraryDelivery(const QVariantMap &item) const;
     // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
     Q_INVOKABLE QVariantMap lutInfo(const QString &path) const;
     // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
@@ -1490,6 +1534,9 @@ public:
     Q_INVOKABLE QVariantList soundEffects() const;
     Q_INVOKABLE QVariantList soundEffectCategories() const;
     Q_INVOKABLE void addSoundEffect(const QString &id);
+    // A file Stock just put in Media (music, a sound, a sticker, an overlay…) onto the timeline at
+    // the playhead, once its length is known (a first import still holds a 5 s placeholder).
+    Q_INVOKABLE void addAssetClipWhenReady(const QString &assetId);
     // CapCut's "remove silences / filler words": keeps only the spoken parts of a clip, dropping
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.
@@ -1873,6 +1920,7 @@ signals:
     void mediaViewModeChanged();
     void autoKeyEnabledChanged();
     void positionLinkedChanged();
+    void sizeLinkedChanged();
     void masterVolumeChanged();
     void masterMutedChanged();
     // Carries the finished benchmark, merged into whatever the dialog already collected.
@@ -2087,6 +2135,12 @@ protected:
                               double outDy, bool corner);
     void syncLinkedTangents(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
                             double inDx, double inDy, double outDx, double outDy, bool corner);
+    // setKeyframeEasingAt without its undo step (and setKeyframesEasing's per key). True on a change.
+    bool applyKeyframeEasing(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                             const QString &mode);
+    // Every clip's keys as magnets for the playhead (After Effects' snap to keyframes), but the
+    // dragged clip's own.
+    void appendKeyframeSnapTargets(QList<drift::TimeUs> *targets, const QString &excludeClipId) const;
     // Recollects m_beatSnapTargets from whichever layers are currently visible.
     void rebuildBeatSnapTargets();
     // Beat onsets plus project bookmarks — anything clips should magnet to when snap is on.
@@ -2300,6 +2354,12 @@ protected:
     QString m_pendingTemplateId;
     QList<QUrl> m_pendingTemplateUrls;
     QString m_pendingTemplateSwap;
+    // Mi cuenta › Stock downloads asked to put these in the edit once downloaded: item id -> name.
+    QHash<QString, QString> m_pendingStockPlace;
+    void placeStockItem(const QString &itemId, const QString &delivery, const QString &name,
+                        const QString &installedId, const QString &filePath, const QString &assetId);
+    QString installedStockId(const QString &delivery, const QString &itemId, const QVariantMap &local) const;
+    QVariantMap stockHistoryEntry(const QString &itemId) const;
     bool m_templateBeatFitRunning = false;
     quint64 m_templateBeatFitGeneration = 0;
     JobRegistry *m_jobs = nullptr;
@@ -2357,6 +2417,7 @@ protected:
     QString m_mediaViewMode = QStringLiteral("grid");
     bool m_autoKeyEnabled = false;
     bool m_positionLinked = true;
+    bool m_sizeLinked = true;
     // One benchmark at a time: it drives the shared decoders and the GL thread, and two
     // sweeps interleaved would measure each other rather than the pipeline.
     std::atomic<bool> m_benchmarkRunning{false};
@@ -2518,6 +2579,13 @@ protected:
         QList<drift::Mask> masks;
     };
     QList<ClipboardItem> m_clipboard;
+    struct CopiedKey
+    {
+        QString prop;
+        drift::TimeUs afterFirstUs = 0;
+        drift::Keyframe<double> key;
+    };
+    QList<CopiedKey> m_keyClipboard;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.

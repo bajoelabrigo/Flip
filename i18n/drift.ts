@@ -150,11 +150,143 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -209,15 +341,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
+        <source>No longer in Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
+        <source>It is no longer in the Stock catalog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2659,6 +2795,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3490,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation type="unfinished"></translation>
@@ -3600,6 +3747,10 @@
     </message>
     <message>
         <source>Clip flip updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3884,6 +4035,36 @@
     </message>
     <message>
         <source>Transition updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5724,6 +5905,126 @@
     </message>
     <message>
         <source>My logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9484,6 +9785,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10857,6 +11170,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Boost your workflow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12509,6 +12830,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13760,6 +14089,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13809,6 +14142,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14377,6 +14714,81 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14519,6 +14931,49 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Edit keyframe curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -15644,6 +16099,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16601,6 +17064,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16947,6 +17414,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17880,6 +18351,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Unpacking project media…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -18949,6 +19424,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation type="unfinished"></translation>
@@ -20401,6 +20880,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20545,11 +21028,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20579,6 +21070,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation type="unfinished"></translation>
@@ -21320,6 +21815,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21600,6 +22103,57 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21729,10 +22283,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21746,10 +22296,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21822,6 +22368,30 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21943,15 +22513,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22020,6 +22598,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Caption style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22215,6 +22797,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22257,6 +23066,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22290,6 +23103,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add at playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22647,10 +23464,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Revert to preset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22835,6 +23648,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22883,6 +23700,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22927,7 +23748,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23151,6 +23980,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23276,6 +24117,34 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25519,31 +26388,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -25884,6 +26729,34 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26163,6 +27036,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

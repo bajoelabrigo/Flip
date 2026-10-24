@@ -201,7 +201,7 @@ Column {
                     const url = FileDialogs.openFile(qsTr("Slot Image"),
                                                      [qsTr("Images (*.png *.jpg *.jpeg *.webp)")])
                     if (url != "")
-                        root.changed(slotRow.spec.id, url.toString().replace(/^file:\/\//, ""))
+                        root.changed(slotRow.spec.id, FileDialogs.localPath(url))
                 }
             }
         }

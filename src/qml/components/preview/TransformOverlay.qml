@@ -727,8 +727,7 @@ Item {
                         if (handle.isText && grip.isCorner) {
                             // Height drives the glyph scale; an edge drag just
                             // re-wraps, since the box is the wrap width.
-                            const size = Math.round(handle.dragStartPixelSize
-                                                    * h / Math.max(1, handle.dragStartH))
+                            const size = handle.dragStartPixelSize * h / Math.max(1, handle.dragStartH)
                             EditorState.previewSetTextRect(
                                 handle.box.track,
                                 handle.box.clip,

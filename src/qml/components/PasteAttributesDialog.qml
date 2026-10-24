@@ -21,9 +21,11 @@ ThemedDialog {
     property bool pasteAudioEffects: false
     property bool pasteTransitions: false
     property bool replaceEffects: false
+    property bool pasteTextStyle: false
 
     readonly property bool hasAnySelected: pasteTransform || pasteSpeed || pasteVolume
                                            || pasteEffects || pasteAudioEffects || pasteTransitions
+                                           || pasteTextStyle
 
     showAccept: hasAnySelected
 
@@ -38,6 +40,7 @@ ThemedDialog {
         pasteEffects = (clipAttrs.hasEffects === true)
         pasteAudioEffects = (clipAttrs.hasAudioEffects === true)
         pasteTransitions = (clipAttrs.hasTransitions === true)
+        pasteTextStyle = (clipAttrs.hasTextStyle === true)
         replaceEffects = false
 
         open()
@@ -56,6 +59,8 @@ ThemedDialog {
             pasteAudioEffects = true
         if (clipAttrs.hasTransitions === true)
             pasteTransitions = true
+        if (clipAttrs.hasTextStyle === true)
+            pasteTextStyle = true
     }
 
     function selectNone() {
@@ -65,6 +70,7 @@ ThemedDialog {
         pasteEffects = false
         pasteAudioEffects = false
         pasteTransitions = false
+        pasteTextStyle = false
     }
 
     onAccepted: {
@@ -75,6 +81,7 @@ ThemedDialog {
             "effects": root.pasteEffects,
             "audioEffects": root.pasteAudioEffects,
             "transitions": root.pasteTransitions,
+            "textStyle": root.pasteTextStyle,
             "replaceEffects": root.replaceEffects
         })
     }
@@ -115,6 +122,13 @@ ThemedDialog {
                 checked: root.pasteTransform
                 enabled: root.clipAttrs.hasTransform !== false
                 onToggled: root.pasteTransform = checked
+            }
+            ThemedCheckBox {
+                width: parent.width
+                visible: root.clipAttrs.hasTextStyle === true
+                text: qsTr("Text style (font, colours, effects and animation; the words stay)")
+                checked: root.pasteTextStyle
+                onToggled: root.pasteTextStyle = checked
             }
 
             ThemedCheckBox {
@@ -181,6 +195,7 @@ ThemedDialog {
                 enabled: (root.clipAttrs.audioEffectCount || 0) > 0
                 onToggled: root.pasteAudioEffects = checked
             }
+
         }
 
         // Transitions Section

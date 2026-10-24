@@ -6554,6 +6554,50 @@ void McpTest::stockInstallsEachDeliveryKind()
     QCOMPARE(client.deliveryForItem({{QStringLiteral("type"), QStringLiteral("template")}}), QStringLiteral("scene-template"));
     QCOMPARE(client.deliveryForItem({{QStringLiteral("type"), QStringLiteral("video")},
                                      {QStringLiteral("delivery"), QStringLiteral("media")}}), QStringLiteral("media"));
+
+    // Mi cuenta › Stock downloads: what is installed goes in the edit straight away, found by the id
+    // the installer gave it, without downloading it again.
+    QCOMPARE(state.stockLibraryDelivery({{QStringLiteral("id"), QStringLiteral("flip:template:intro")}}),
+             QStringLiteral("scene-template"));
+    QCOMPARE(state.stockLibraryDelivery({{QStringLiteral("id"), QStringLiteral("flip:look:warm-test")}}),
+             QStringLiteral("effect-preset"));
+    QCOMPARE(state.stockLibraryDelivery({{QStringLiteral("id"), QStringLiteral("pexels:video:1")},
+                                         {QStringLiteral("delivery"), QStringLiteral("media")}}),
+             QStringLiteral("media"));
+    QVERIFY(!client.downloadInfo(QStringLiteral("flip:look:warm-test")).value(QStringLiteral("installedId")).toString().isEmpty());
+    QCOMPARE(client.downloadInfo(QStringLiteral("flip:shape:heart-test")).value(QStringLiteral("installedId")).toString(),
+             QStringLiteral("user-shape:heart-test"));
+    const auto clipsOf = [&state](drift::ClipType type) {
+        int n = 0;
+        for (const drift::Track &track : state.project()->tracks()) {
+            for (const drift::Clip &clip : track.clips)
+                n += clip.type == type ? 1 : 0;
+        }
+        return n;
+    };
+    const auto row = [](const QString &id, const QString &title, const QString &delivery) {
+        return QVariantMap{{QStringLiteral("id"), id}, {QStringLiteral("title"), title},
+                           {QStringLiteral("delivery"), delivery}};
+    };
+    state.useStockLibraryItem(row(QStringLiteral("flip:shape:heart-test"), QStringLiteral("Test heart"),
+                                  QStringLiteral("shape")), QStringLiteral("place"));
+    QVERIFY2(clipsOf(drift::ClipType::Shape) == 1, qPrintable(state.lastMessage()));
+    QVERIFY(state.lastMessage().contains(QStringLiteral("Test heart")));
+    // The shape is selected, not a text: the style comes as a new text at the playhead.
+    state.useStockLibraryItem(row(QStringLiteral("flip:text-style:neon-test"), QStringLiteral("Neon caption"),
+                                  QStringLiteral("text-style")), QStringLiteral("place"));
+    QVERIFY2(clipsOf(drift::ClipType::Text) == 1, qPrintable(state.lastMessage()));
+    // That text is selected now: the animation goes on it instead of on another one.
+    state.useStockLibraryItem(row(QStringLiteral("flip:text-animation:pop-test"), QStringLiteral("Pop"),
+                                  QStringLiteral("text-animation")), QStringLiteral("place"));
+    QCOMPARE(clipsOf(drift::ClipType::Text), 1);
+    QVERIFY(state.lastMessage().contains(QStringLiteral("Pop")));
+    // Keeping one that is already here only says so.
+    state.useStockLibraryItem(row(QStringLiteral("flip:shape:heart-test"), QStringLiteral("Test heart"),
+                                  QStringLiteral("shape")), QStringLiteral("save"));
+    QCOMPARE(clipsOf(drift::ClipType::Shape), 1);
+    QCOMPARE(client.downloadInfo(QStringLiteral("flip:shape:heart-test")).value(QStringLiteral("status")).toString(),
+             QStringLiteral("done"));
 }
 
 // A shape from the library draws its own outline at any size, survives a project round trip

@@ -14,6 +14,15 @@ Rectangle {
     property bool current: false
     // Off where something else sits in that corner (Titles › Trending's download mark).
     property bool showDuration: true
+    // The flame on what is trending (MarketClient::isTrendingItem), and the star that keeps one of
+    // our own items in its panel's favorites ("stock:<type>:<id>" in the panel's group), as on the web.
+    property bool showTrend: true
+    property bool showFavorite: true
+    readonly property bool trending: {
+        void Market.weeklyTrendingIds
+        return showTrend && Market.isTrendingItem(item)
+    }
+    readonly property bool favoritable: showFavorite && String(item.id || "").indexOf("flip:") === 0
 
     signal openRequested()
 
@@ -141,6 +150,27 @@ Rectangle {
             iconSize: Theme.iconSizeSm
             iconColor: Theme.onMedia
         }
+    }
+
+    // A song or a sound: the flame beside its star, top right (Jorge, 2026-10-24), as the web.
+    TrendBadge {
+        anchors.left: root.isAudio ? undefined : parent.left
+        anchors.right: root.isAudio ? (favButton.visible ? favButton.left : parent.right) : undefined
+        anchors.top: parent.top
+        anchors.margins: 3
+        visible: root.trending && root.price <= 0
+    }
+
+    AssetFavoriteButton {
+        id: favButton
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.margins: 3
+        z: 2
+        visible: root.favoritable && !root.busy
+        tabId: root.favoritable ? Market.stockFavoriteGroup(root.item) : ""
+        itemId: root.favoritable ? Market.stockFavoriteKey(root.item.id) : ""
+        stockItem: root.item
     }
 
     Rectangle {

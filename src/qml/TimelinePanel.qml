@@ -80,6 +80,20 @@ PanelFrame {
     readonly property real minZoom: 0.0001
     readonly property real maxZoom: 40.0
     readonly property real pxPerSecond: Theme.pixelsPerSecondBase * zoom
+    // Delete takes the picked keys first, as After Effects; false when there are none.
+    function deletePickedKeys() {
+        return keyTools.removePicked()
+    }
+    function copyPickedKeys() {
+        return keyTools.copyPicked()
+    }
+    function pasteCopiedKeys() {
+        return keyTools.pasteCopied()
+    }
+    // A clip copied after the keys: Ctrl+V pastes the clip again.
+    function forgetCopiedKeys() {
+        keyTools.keysCopiedLast = false
+    }
     onPxPerSecondChanged: EditorState.setSnapRadius(8, pxPerSecond)
     Component.onCompleted: {
         TouchDrag.registerTarget(root)
@@ -1326,6 +1340,7 @@ PanelFrame {
                         pxPerSecond: root.pxPerSecond
                         labelsWidth: EditorState.preferences.trackLabelsWidth
                         keyframesTab: true
+                        tools: keyTools
                         // Keep keys/playhead lined up with the track scroll view below.
                         contentX: flick.contentX
                         contentWidth: flick.contentWidth
@@ -2422,6 +2437,7 @@ PanelFrame {
                                     trackIndex: trackRow.trackIndex
                                     pxPerSecond: root.pxPerSecond
                                     liveRows: trackRow.keyframeRows
+                                    tools: keyTools
                                 }
 
                                 // Right-click a gap to ripple everything after it (and any
@@ -3115,6 +3131,11 @@ PanelFrame {
             gapContextMenu.popup(anchor, ax, ay)
         else
             gapContextMenu.popup()
+    }
+
+    // The picked keys, shared by the curve editor and the tracks' keyframe rows.
+    KeyframeKeyTools {
+        id: keyTools
     }
 
     ThemedContextMenu {

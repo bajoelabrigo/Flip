@@ -15,13 +15,52 @@ Column {
     // Effects › Trending (first, as in Filmora and CapCut): Stock's effects. Installed ones carry the
     // category "trending" and an id "stockfx_<item>", and are listed here instead of in a chip of their own.
     readonly property string trendsId: "__trends__"
+    // The Stock type this browser shows as its own (0.22): Stock's effects in Effects, its looks in
+    // Filters › Color effects. Its Trending is that type's most used, and the rest of it is spread
+    // over these chips by category (or chips of its own, «stock:<category>»), after the local cards.
+    property string stockType: "effect"
+    // Effects › Overlays: Stock's overlays, a chip of their own after Trending.
+    readonly property string overlaysId: "__stock_overlays__"
+    readonly property bool showOverlays: root.stockType === "effect"
     // Bumped when an addon changes the effects on disk (an imported .driftfx, a pack install).
     property int catalogTick: 0
-    readonly property var categories: {
-        void catalogTick
-        const own = EditorState.effectCategories().filter(c => c.id !== "trending")
-        return Market.configured ? [{ "id": root.trendsId, "label": qsTr("Trending") }].concat(own) : own
+    // Bumped when Stock's categories come in, or the account changes.
+    property int stockTick: 0
+    readonly property var ownCategories: { void catalogTick; return EditorState.effectCategories().filter(c => c.id !== "trending") }
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips(root.stockType, root.ownCategories.map(c => ({ "id": c.id, "label": c.label })))
+                                    : ({ extra: [], categoriesOf: {} })
     }
+    readonly property var categories: {
+        if (!Market.configured)
+            return root.ownCategories
+        const head = [{ "id": root.trendsId, "label": qsTr("Trending") }]
+        if (root.showOverlays)
+            head.push({ "id": root.overlaysId, "label": qsTr("Overlays") })
+        return head.concat(root.ownCategories).concat(root.stockChips.extra || [])
+    }
+    // The Stock categories the open chip gathers (empty: none).
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    // A chip of Stock's own, or Overlays: only Stock cards, in their own view.
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.overlaysId
+                                                 || root.activeCategory.indexOf("stock:") === 0
+                                                 || (root.activeCategory === root.trendsId && root.stockType !== "effect"))
+    // Favorites: the starred Stock items too, drawn from what was kept when they were starred.
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        if (root.activeCategory !== root.favoritesId || root.query.length > 0)
+            return []
+        if (root.stockType === "look")
+            return Market.stockFavoriteItems(EditorState.assetFavoriteIds("looks"), ["look"], "looks")
+        return Market.stockFavoriteItems(EditorState.assetFavoriteIds("effects"), ["effect", "overlay"], "effects")
+            .concat(Market.stockFavoriteItems(EditorState.assetFavoriteIds("voices"), ["effect"], "voices"))
+    }
+    // After the local cards of a chip (or of Favorites): its Stock cards.
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
     readonly property var catalog: { void catalogTick; return EditorState.effectCatalog() }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     property alias searchText: search.text
@@ -61,7 +100,8 @@ Column {
         }
         if (root.activeCategory === root.mineId)
             return root.catalog.filter(function(preset) { return preset.user === true && !root.isStockEffect(preset.id) })
-        if (root.activeCategory === root.trendsId)
+        if (root.activeCategory === root.trendsId || root.activeCategory === root.overlaysId
+                || root.activeCategory.indexOf("stock:") === 0)
             return []
         return root.catalog.filter(function(preset) {
             return preset.category === root.activeCategory
@@ -69,6 +109,41 @@ Column {
     }
 
     readonly property bool showingTrends: root.activeCategory === root.trendsId && root.query.length === 0
+                                          && root.stockType === "effect"
+
+    // What a Stock card does here once it is on this computer: an effect or a voice through
+    // applyTrend, a look onto the selected clip, an overlay at the playhead.
+    function stockInstalled(item) {
+        if (Market.deliveryForItem(item) === "media") {
+            const asset = Market.placedId(item.id)
+            return asset.length > 0 && AssetLibrary.indexOfId(asset) >= 0
+        }
+        if (item.type === "look")
+            return root.lookPresetId(item).length > 0
+        return root.trendInstalled(item)
+    }
+    function lookPresetId(item) {
+        void root.presetsTick
+        const placed = Market.placedId(item.id)
+        if (placed.length > 0 && EditorState.userEffectPresets().some(p => p.id === placed))
+            return placed
+        return root.voicePresetId(item)
+    }
+    function applyStock(item) {
+        if (Market.deliveryForItem(item) === "media") {
+            EditorState.addAssetClipWhenReady(Market.placedId(item.id))
+            return
+        }
+        if (item.type === "look") {
+            if (EditorState.selectedClip < 0) {
+                EditorState.setLastMessage(qsTr("Select a clip to apply the look"), "info")
+                return
+            }
+            EditorState.applyEffectPreset(EditorState.selectedTrack, EditorState.selectedClip, root.lookPresetId(item))
+            return
+        }
+        root.applyTrend(item)
+    }
 
     function isStockEffect(effectId) {
         return (effectId || "").indexOf("stockfx_") === 0
@@ -118,7 +193,8 @@ Column {
         }
     }
     function ensureTrends() {
-        if (root.activeCategory === root.trendsId && Market.authenticated && Market.effectTrends.length === 0
+        if (root.activeCategory === root.trendsId && root.stockType === "effect" && Market.authenticated
+                && Market.effectTrends.length === 0
                 && !Market.effectTrendsLoading)
             Market.fetchEffectTrends()
     }
@@ -159,7 +235,11 @@ Column {
 
     Connections {
         target: Market
-        function onAuthChanged() { root.ensureTrends() }
+        function onAuthChanged() {
+            root.stockTick++
+            root.ensureTrends()
+        }
+        function onCatalogChanged() { root.stockTick++ }
         function onEffectTrendsChanged() { root.showTrends() }
         function onDownloadInstalled(itemId, name, where) {
             if (!root.pendingTrendIds[itemId])
@@ -272,7 +352,8 @@ Column {
                 x: 12
                 y: 12
                 width: parent.width - 24
-                visible: root.visiblePresets.length === 0 && !root.showingTrends
+                visible: root.visiblePresets.length === 0 && !root.showingTrends && !root.showingStockOnly
+                         && !root.stockFooter
                          && !(root.activeCategory === root.mineId && root.query.length === 0)
                 text: root.query.length > 0
                       ? qsTr("No effects match “%1”.").arg(search.text.trim())
@@ -374,14 +455,6 @@ Column {
                             onTapped: root.useTrend(trendCard.modelData)
                         }
 
-                        AssetFavoriteButton {
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.margins: 3
-                            visible: trendCard.installed && !trendCard.voice
-                            tabId: "effects"
-                            itemId: trendCard.effectId
-                        }
 
                         HoverHandler { id: trendHover }
                         ThemedToolTip {
@@ -430,6 +503,31 @@ Column {
                 }
             }
 
+            // Overlays, a chip of Stock's own, or the looks' Trending: Stock's cards only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyCards.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyCards
+                    y: 12
+                    width: stockView.width
+                    sidePadding: 12
+                    flickable: stockView
+                    type: root.activeCategory === root.overlaysId ? "overlay" : root.stockType
+                    categories: root.activeCategory === root.overlaysId ? [""]
+                              : root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.wand
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
+            }
+
             FontMetrics {
                 id: labelMetrics
                 font.family: Theme.fontFamily
@@ -467,7 +565,7 @@ Column {
                 height: parent.height
                 topMargin: 12
                 bottomMargin: 12
-                visible: root.visiblePresets.length > 0
+                visible: root.visiblePresets.length > 0 || root.stockFooter
                 clip: true
                 reuseItems: true
                 boundsBehavior: Flickable.StopAtBounds
@@ -477,6 +575,20 @@ Column {
                 cellHeight: presetGrid.cardSize + 4 + Math.ceil(labelMetrics.height) * 2
                             + 4 + Math.ceil(badgeMetrics.height) + Theme.assetCardGap
                 model: root.visiblePresets
+
+                // The chip's Stock cards after its own (and the starred ones in Favorites).
+                footer: StockPanelCards {
+                    width: presetGrid.width - Theme.assetCardGap
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight : 0
+                    bare: true
+                    flickable: presetGrid
+                    type: root.stockType
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
 
                 delegate: Column {
                     id: presetCard

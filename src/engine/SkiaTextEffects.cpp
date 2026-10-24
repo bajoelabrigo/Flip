@@ -154,8 +154,12 @@ const CompiledEffect *compiledEffect(const QString &id)
 QMutex g_textureMutex;
 QCache<QString, sk_sp<SkImage>> g_textures(24);
 
-sk_sp<SkImage> cachedTexture(const QString &path)
+sk_sp<SkImage> cachedTexture(const QString &rawPath)
 {
+    // Projects saved before 0.22.1 can hold "/C:/x.png" (a file URL with only "file://" cut off).
+    QString path = rawPath;
+    if (path.size() > 3 && path.at(0) == QLatin1Char('/') && path.at(2) == QLatin1Char(':') && path.at(1).isLetter())
+        path.remove(0, 1);
     const QFileInfo info(path);
     const QString key = path + QLatin1Char('|') + QString::number(info.lastModified().toMSecsSinceEpoch());
     {

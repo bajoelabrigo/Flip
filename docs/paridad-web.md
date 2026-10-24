@@ -41,8 +41,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Iniciar sesión con Google | 0.10 | ✅ | `src/account/account.ts` + `AccountButton`: PKCE, vuelta a `/editor/`, canje en el servidor y token con refresco. El servidor usa el cliente web de Google (`GOOGLE_WEB_CLIENT_ID`) |
-| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | 🟡 | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con `media`, `lut`, plantillas de escena **looks** (los 208 con todos sus efectos; van al clip seleccionado y a Mis efectos) y **transiciones** (2026-10-19: lee el `.driftfx`, comprueba su firma SHA-256 y pasa el shader a WebGL2 con `transitions/desktopShader.ts`; las 223 compilan; quedan en Transiciones › Stock). y **formas** (Formas › Stock, con su color y su proporción). y **estilos de texto** (a Títulos › Mis estilos, con `text/desktopTextStyle.ts`: degradado, contorno, sombra, brillo, extrusión, fondo y entrada; la misma conversión abre los textos de un `.flip` del escritorio). y **animaciones de texto** (Texto › Animación, galerías Entrada / Salida / Bucle; reproductor propio en `text/anim/textAnim.ts` — no el `TextAnimator.cpp` de Drift — con escalonado, vaivén y curvas; karaoke no, porque la web no tiene tiempos por palabra; el cursor de máquina de escribir y el barrido tampoco). **Ya se usan en la web todos los tipos de Stock.** Falta: llevar al `.flip` la animación de texto de Stock y los estilos instalados (cada app los guarda por su cuenta). Ojo: algunas miniaturas de Stock de estilos con cursiva («Tarjeta blanca», Lora) salieron rectas; la web la dibuja en cursiva, como dice el estilo. Las transiciones viajan en el `.flip` en los dos sentidos (`transitions/desktopKinds.ts`; probado con la 0.18.2) |
-| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | 🟡 | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Favoritos en la cuenta (2026-10-19) |
+| Stock (plantillas, música, sonidos, LUT, looks, estilos y animaciones de texto, transiciones, formas, stickers, superposiciones, fondos, contadores, kits) | 0.12–0.18 | ✅ | Armado como `MarketTab.qml` desde `/v1/market/catalog`: pestañas Todo/Videos/Fotos, tipos propios como chips bajo Todo, filtros del catálogo. «Usar» funciona con `media`, `lut`, plantillas de escena **looks** (los 208 con todos sus efectos; van al clip seleccionado y a Mis efectos) y **transiciones** (2026-10-19: lee el `.driftfx`, comprueba su firma SHA-256 y pasa el shader a WebGL2 con `transitions/desktopShader.ts`; las 223 compilan; quedan en Transiciones › Stock). y **formas** (Formas › Stock, con su color y su proporción). y **estilos de texto** (a Títulos › Mis estilos, con `text/desktopTextStyle.ts`: degradado, contorno, sombra, brillo, extrusión, fondo y entrada; la misma conversión abre los textos de un `.flip` del escritorio). y **animaciones de texto** (Texto › Animación, galerías Entrada / Salida / Bucle; reproductor propio en `text/anim/textAnim.ts` — no el `TextAnimator.cpp` de Drift — con escalonado, vaivén y curvas; karaoke no, porque la web no tiene tiempos por palabra; el cursor de máquina de escribir y el barrido tampoco). **Ya se usan en la web todos los tipos de Stock.** Falta: llevar al `.flip` la animación de texto de Stock y los estilos instalados (cada app los guarda por su cuenta). Ojo: algunas miniaturas de Stock de estilos con cursiva («Tarjeta blanca», Lora) salieron rectas; la web la dibuja en cursiva, como dice el estilo. Las transiciones viajan en el `.flip` en los dos sentidos (`transitions/desktopKinds.ts`; probado con la 0.18.2). Efectos › Tendencias (`.driftfx` de efecto) también desde 2026-10-23 |
+| Inicio de Stock tipo tienda, búsqueda, favoritos y «Pide una plantilla» | 0.14 | ✅ | Inicio con los estantes de `/v1/market/home`, tarjetas con la forma del elemento, vista previa de audio y video al pasar el mouse, «Usado N veces» y «Pide una plantilla» con votos (`StockRequestsDialog.tsx`). Favoritos en la cuenta (2026-10-19) |
 | Biblioteca de la cuenta («Mis descargas») | 0.12 | ✅ | «Mi cuenta» (`AccountDialog.tsx`, se abre con la foto como en el escritorio): foto, plan, Favoritos por grupo y Descargas de Stock con «Usar» |
 | Pexels y Pixabay | 0.10 | ✅ | Pestañas Videos y Fotos, con la fuente como chip y la orientación como filtro; los archivos se bajan directo de sus CDN (CORS `*`, permitidos en la CSP) |
 
@@ -51,7 +51,7 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Plantillas de escena con huecos «Tu foto aquí» | 0.12 | ✅ | «Usar» abre el paquete de Stock (`templatePackage.ts`), pestaña Plantilla |
 | Plantillas de efectos (Intensidad, Caída, Ritmo) | 0.11 | ✅ | Las 13 de un clip, como capa de ajuste «Plantilla: …» (`b1015`), y Efectos › Plantilla (`55155`); ritmo fijo de 120 BPM |
-| Guardar como plantilla / Mis plantillas | 0.13 | ⬜ | |
+| Guardar como plantilla / Mis plantillas | 0.13 | ✅ | Guardar como plantilla y Mis plantillas (Plantillas › Mis plantillas) |
 
 ### Edición en la línea de tiempo
 | Función | Escritorio | Web | Notas |
@@ -60,11 +60,11 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Cortar, duplicar, invertir, marcadores | sí | ✅ | |
 | Congelar fotograma como CapCut | 0.17 | ✅ | `freezeFrame` corta en el cabezal, mete 3 s congelados y empuja el resto, igual que el escritorio |
 | Mover con cerrar huecos y borrar con cerrar huecos | 0.16–0.17 | ✅ | `removeClipRippled` y los recortes con `ripple`, con el interruptor de la barra |
-| Arrastre «tipo tetris» | 0.18 | ❓ | |
+| Arrastre «tipo tetris» | 0.18 | ✅ | Soltar sobre clips abre espacio (`timeline/tracks.ts › openRoom`) |
 | Seleccionar varias pistas, agrupar y desagrupar | 0.9.9 / 0.12 | ✅ | Clic, Mayús y Ctrl en la cabecera; Supr y el menú las borran; «Agrupar N pistas» vincula sus clips (y desde el 2026-10-20 la web tiene composiciones: ver abajo) |
-| Capas de ajuste con «Aplicar a» | 0.9.9 | 🟡 | Hay `AdjustmentLayerSection.tsx` |
+| Capas de ajuste con «Aplicar a» | 0.9.9 | ✅ | Hay `AdjustmentLayerSection.tsx` |
 | Curvas de velocidad | sí | ✅ | Velocidad › Curva: rampas de CapCut (Montaje, Héroe, Bala, Salto, Destellos) y editor de puntos; vista previa, exportación, cortes y `.flip` (2026-10-19). Las tangentes Bézier del escritorio se leen como curvas suaves |
-| Estabilizar | sí | ⬜ | Solo se conserva al abrir un `.drift` |
+| Estabilizar | sí | ✅ | Pestaña Estabilizar y Calidad del video › Estabilización |
 
 ### Efectos, transiciones, color
 | Función | Escritorio | Web | Notas |
@@ -72,8 +72,8 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 | Efectos | 78 | 🟡 ~25 | Escribirlos desde cero, por categoría, con las mismas tarjetas |
 | Transiciones | 40 | 🟡 10 | Ídem |
 | Antes y después al pasar el mouse | 0.17–0.18 | ✅ | En Efectos (y Efectos de color), sobre las mismas fotos CC0 del escritorio (`public/effect-bases`, sin `beauty.jpg`, que es de Drift) y en Filtros (LUT) |
-| Filtros (LUT) y Efectos de color | 0.16 | 🟡 | Hay `LutPage.tsx` y `cubeLut.ts`; faltan las 200 LUT de Stock |
-| Máscaras | sí | 🟡 | Hay `MaskPage.tsx`; falta texto como máscara (tampoco está en el escritorio) |
+| Filtros (LUT) y Efectos de color | 0.16 | ✅ | `LutPage.tsx`, `cubeLut.ts` y los LUT de Stock (Filtros › LUTs) |
+| Máscaras | sí | ✅ | `MaskPage.tsx`; el texto como máscara no está en ninguno de los dos |
 | Modos de fusión | sí | ✅ | |
 
 ### Texto
@@ -81,14 +81,14 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Básico, Burbuja, Efectos y Animación como CapCut | 0.9.6 | ✅ | |
 | Contadores animados | 0.17–0.18 | ✅ | Texto › Básico › Contador (`text/counter.ts`, el `counterTextAt` del escritorio); van en el `.flip` (2026-10-19) |
-| Texto con IA (describir la idea) | 0.17 | ⬜ | MiniLM puede correr en el navegador |
+| Texto con IA (describir la idea) | 0.17 | ✅ | MiniLM en el navegador |
 
 ### Audio
 | Función | Escritorio | Web | Notas |
 |---|---|---|---|
 | Música y efectos de sonido incluidos | sí | ✅ | `/musica/` en el VPS |
 | Mezclador y efectos de audio | sí | ✅ | `AudioMixer.tsx` y los 31 efectos de audio (2026-10-19) |
-| Golpes de música, cortes al ritmo | sí | 🟡 | Análisis de golpes propio (`audio/beats.ts`) usado por las plantillas de efectos; «Ajustar los cortes al ritmo» en la pestaña Plantilla (`project/templateBeats.ts`, como `retimeTemplateSlotsToBeats`); faltan los marcadores de ritmo en la línea de tiempo |
+| Golpes de música, cortes al ritmo | sí | ✅ | `audio/beats.ts`, «Ajustar los cortes al ritmo» y Ritmos (marcas en la línea de tiempo, 2026-10-23) |
 | Silencios, sonoridad, normalizar | sí | ✅ | «Normalizar a −14 LUFS» (BS.1770, `audio/loudness.ts`) y «Quitar silencios» por energía (`audio/silences.ts`, pausas de 0,6 s o más); las muletillas (eh, mmm) siguen solo en el escritorio, que usa la transcripción (2026-10-19) |
 
 ### IA
@@ -96,10 +96,10 @@ Leyenda: ✅ igual · 🟡 parcial · ⬜ falta · ❓ por comprobar
 |---|---|---|---|
 | Subtítulos con Whisper | sí | ✅ | Whisper base en el navegador |
 | Voz con IA | sí (extra `tts-model`, local) | ✅ | La web usa Kokoro en el navegador; comprobar que las voces e idiomas coincidan |
-| Quitar fondo | sí (IA) | 🟡 | La web usa croma (color), no IA |
-| Transición con IA y cámara lenta suave (RIFE) | 0.17–0.18 | ⬜ | ONNX Runtime Web con WebGPU, como Whisper |
-| Retoque, quitar imperfecciones, cuerpo y cabello | 0.13–0.17 | ⬜ | Necesita caras en el navegador (MediaPipe web) |
-| Profundidad, quitar ruido | sí | ⬜ | Al final, o nunca: muy pesados para el navegador |
+| Quitar fondo | sí (IA) | ✅ | Croma y recortar personas / sujeto con IA (MediaPipe, SAM 2.1) |
+| Transición con IA y cámara lenta suave (RIFE) | 0.17–0.18 | ✅ | RIFE en ONNX Runtime Web (`src/interp`) |
+| Retoque, quitar imperfecciones, cuerpo y cabello | 0.13–0.17 | ✅ | `RetouchPage.tsx`, `BodyRetouch.tsx`, caras con YuNet + MediaPipe |
+| Profundidad, quitar ruido | sí | ✅ | Video Depth Anything small y DeepFilterNet3 |
 
 ### Exportar
 | Función | Escritorio | Web | Notas |
@@ -629,3 +629,31 @@ traducido a los 15 idiomas (`--check` 2758/2758). Modelos en el VPS en `/var/www
 - ❓ resueltos leyendo el código de la web y comprobando en el navegador (ver la tabla).
 - Etapa 1 en la rama `web/paridad-1` de `flipstudio-app`, desplegada con `deploy/deploy.sh`.
 - El escritorio lleva el arreglo de «Actualizar a …» en la rama `flip/v0.18.2` (commit `28ed5`), sin compilar.
+
+## Pendientes de la web respecto del escritorio (Jorge, 2026-10-24: «haz todo lo pendiente»)
+
+Orden de trabajo; cada uno se marca al desplegarlo (web en `flipstudio-app` `web/movil-capcut`; lo que toca al escritorio
+va en la rama `flip/v0.21.1`, que se compila y prueba en ventana una sola vez al final).
+
+- [x] `.flip`: un proyecto con animaciones de texto de Stock que el navegador no tiene las baja solo
+      (`ensureStockTextAnims`, como `ensureStockEffects` para Efectos › Tendencias). La exportación ya las lleva
+      «horneadas» (`webToDesktopText.ts`), así que el escritorio las reproduce sin tenerlas.
+- [x] Medios ocultos de la web (`webHidden`) también ocultos en el escritorio (`MediaAsset::webHidden`,
+      `MediaAssetsTab.qml`). En la rama `flip/v0.21.1`: **falta compilar y probar en ventana**.
+- [x] Medios: vista de árbol y carpetas dentro de carpetas — ya estaba (`flipstudio-app` `d57cd`); la nota era vieja.
+- [x] Opciones de la vista previa: Calidad, Velocidad, Descodificación y conjuntos de guías — ya estaban (`Preview.tsx`, `PreviewGuides.tsx`).
+- [x] Efectos de audio: una franja con sus nombres al pie del clip, como el carril del escritorio (`Timeline.tsx`).
+- [x] Ocultar por profundidad — ya estaba (`ClipSections.tsx`).
+- [x] Quitar silencios también quita muletillas (`audio/silences.ts › isFillerWord/withoutFillers`,
+      `subtitles/words.ts`). **Trampa:** el Whisper del sitio (`/modelos/whisper-base`) no se exportó con
+      `output_attentions`, así que no da tiempos por palabra: se usa el de cada frase repartido por letras. Y Whisper
+      limpia muletillas (quita los «eh», escribe «mmm» como «M-E-M-M»): por eso la regla de los zumbidos (`HUM`).
+- [x] Karaoke: la palabra que suena sale del tiempo del texto repartido por letras (`karaokeWordAt`, como
+      `activeWordIndexAt` del escritorio). El cursor y el barrido ya estaban (`textAnim.ts`, `textFx.ts`).
+- [x] Tiradores para girar una capa 3D en X e Y en la vista previa (`PreviewTransform.tsx`) y «Recortar en la
+      vista previa» en la computadora (`TouchCrop.tsx`, como `CropOverlay.qml`). Las herramientas de la vista 3D del
+      escritorio (cámara de escena, encuadrar) no aplican: la web no tiene escenas 3D con modelos.
+- [ ] ~~Clonar voz~~: **no cabe en el navegador** (Chatterbox pesa 1,5 GB; solo el codificador de la voz, 590 MB).
+      Queda en el escritorio.
+- [ ] IA sin WebGPU más rápida (COOP/COEP): decisión de Jorge.
+- [x] Tabla de arriba al día (2026-10-24).

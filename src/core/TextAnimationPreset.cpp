@@ -352,7 +352,22 @@ std::optional<TextAnimationPreset> TextAnimationPresetCatalog::presetForId(const
     for (const TextAnimationPreset &p : m_presets)
         if (p.id == id)
             return p;
+    const auto carried = m_fromProjects.constFind(id);
+    if (carried != m_fromProjects.constEnd())
+        return *carried;
     return std::nullopt;
+}
+
+void TextAnimationPresetCatalog::rememberProjectPreset(const TextAnimationPreset &preset)
+{
+    if (preset.id.isEmpty() || preset.builtIn)
+        return;
+    QMutexLocker lock(&g_catalogMutex);
+    TextAnimationPreset copy = preset;
+    copy.source.clear(); // not a file: it cannot be renamed or removed from here
+    m_fromProjects.insert(copy.id, copy);
+    lock.unlock();
+    clearTextAnimationResolveCache();
 }
 
 QString TextAnimationPresetCatalog::addUserPreset(TextAnimationPreset preset)
@@ -384,6 +399,8 @@ bool TextAnimationPresetCatalog::removeUserPreset(const QString &id)
         return false;
     if (!QFile::remove(preset->source))
         return false;
+    // Texts in the open project that use it keep playing it, and the next save carries it.
+    rememberProjectPreset(*preset);
     reload();
     return true;
 }

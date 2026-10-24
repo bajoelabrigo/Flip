@@ -46,7 +46,7 @@ Item {
     // ----- Gallery -----------------------------------------------------------------------
     property string animTab: "in"
     property string animCategory: ""
-    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // The presets show for everyone but apply only signed in (Jorge, 2026-10-23/24): picking one
     // signed out asks for the account and applies it once signed in.
     readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
@@ -60,12 +60,20 @@ Item {
         "zoomIn": "zoom-in", "zoomOut": "zoom-out", "pop": "pop", "spinCW": "spin-cw", "spinCCW": "spin-ccw",
         "bounce": "bounce"
     })
+    // Starred ones behind the Favorites chip ("clipAnimations", the web's ClipAnimGallery group).
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
     readonly property var animTileModel: {
+        void root.favoritesTick
         const filtered = animCategory.length === 0 ? animPresets
+                       : animCategory === "__favorites__" ? animPresets.filter(p => EditorState.isAssetFavorite("clipAnimations", p.id))
                        : animCategory === "trending" ? animPresets.filter(p => p.trending)
                        : animPresets.filter(p => p.category === animCategory)
         const tiles = [{ "label": qsTr("None") }]
-        if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic"))
+        if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic") && animCategory !== "__favorites__")
             tiles.push({ "kind": "fade", "label": qsTr("Fade"), "duration": 0.5 })
         for (let i = 0; i < filtered.length; ++i)
             tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration,
@@ -85,7 +93,7 @@ Item {
     }
 
     function pickTile(tile) {
-        if (tile.trending && root.trendsNeedAccount) {
+        if (tile.preset && root.trendsNeedAccount) {
             const slotKey = root.slotKey
             const track = EditorState.selectedTrack
             const clip = EditorState.selectedClip
@@ -256,6 +264,14 @@ Item {
                 onClicked: root.animCategory = ""
             }
 
+            ThemedChip {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Favorites")
+                variant: "secondary"
+                selected: root.animCategory === "__favorites__"
+                onClicked: root.animCategory = "__favorites__"
+            }
+
             Repeater {
                 model: root.animCategories
                 delegate: ThemedChip {
@@ -296,11 +312,14 @@ Item {
                     kind: modelData.kind || ""
                     label: modelData.label
                     seconds: modelData.duration || 0.6
-                    trending: !!modelData.trending
+                    // Every preset wears the flame and asks for the account (Jorge, 2026-10-24: In,
+                    // Out and Combo alike); None and Fade do not.
+                    trending: !!modelData.preset
                     tileWidth: animGrid.tileWidth
                     selected: root.isTileSelected(modelData)
                     playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)
                     onClicked: root.pickTile(modelData)
+                    favoriteTab: "clipAnimations"
                 }
             }
         }

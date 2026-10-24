@@ -150,12 +150,144 @@
         <translation>Chỉnh sửa khuôn mặt</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Tông màu</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Mẫu cảnh</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Hoạt ảnh clip</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Mặt nạ</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Xin chào</translation>
     </message>
     <message>
         <source>Template</source>
         <translation>Mẫu</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>Vào clip đang chọn, hoặc vào một lớp điều chỉnh tại đầu phát</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>Vào văn bản đang chọn, hoặc vào một văn bản mới tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Đặt vào dòng thời gian, tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Lưu vào Hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Đưa vào Hiệu ứng › Xu hướng</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Áp dụng</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Lưu vào Hiệu ứng của tôi</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Đưa vào Hiệu ứng của tôi (Hiệu ứng trong bảng thuộc tính)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Lưu vào Bộ lọc</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Đưa vào Bộ lọc và Điều chỉnh › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Lưu vào Chuyển cảnh</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>Đưa vào Chuyển cảnh</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>Vào điểm cắt của clip đang chọn, hoặc điểm cắt gần đầu phát nhất</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Lưu vào Hình dạng</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>Đưa vào Hình dạng</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Thêm vào track</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Lưu vào Tiêu đề</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Đưa vào Tiêu đề › Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Lưu vào Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>Đưa vào Văn bản › Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Lưu vào Mẫu</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Đưa vào Mẫu, sẵn sàng để dùng</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Thêm vào Phương tiện</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Giữ trong Phương tiện để dùng bất cứ lúc nào</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>Đã thêm “%1” vào Phương tiện.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Đã thêm vào Phương tiện.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” đã sẵn sàng. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>Đã cài “%1”.</translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -208,16 +340,20 @@
         <translation>Chưa tải gì từ Stock. Các mẫu, ảnh và video miễn phí bạn tải về ở đó sẽ được lưu ở đây, trong tài khoản của bạn.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Dùng mẫu này: đặt tại đầu phát</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Nhấp vào một mục để đặt tại đầu phát, hoặc giữ lại để dùng sau.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Có trong Phương tiện của bạn</translation>
+        <source>No longer in Stock</source>
+        <translation>Không còn trong Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Không có trên máy tính này: tìm trong Stock để tải lại</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Mục này không còn trong danh mục Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Bỏ khỏi danh sách (các tệp trên máy này vẫn giữ nguyên)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -2656,6 +2792,10 @@
         <translation>Tất cả</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Thời lượng</translation>
     </message>
@@ -3484,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>Đã áp dụng preset chữ</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Đã áp dụng mẫu. %n thiết lập hoạt ảnh thuộc phần của kiểu cũ mà mẫu này không có nên không được giữ lại.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Không thể lưu kiểu văn bản</translation>
@@ -3595,6 +3741,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation>Đã cập nhật lật clip</translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>Biến dạng góc</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3887,6 +4037,34 @@
     <message>
         <source>Transition updated</source>
         <translation>Đã cập nhật hiệu ứng chuyển cảnh</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Gỡ khung hình chính</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Đã sao chép %n khung hình chính</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Clip này không có thuộc tính nào của các khung hình chính đã sao chép</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Dán khung hình chính</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Đã dán %n khung hình chính</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Di chuyển các keyframe</translation>
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
@@ -5695,6 +5873,126 @@
     <message>
         <source>My logo</source>
         <translation>Logo của tôi</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Mục Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>“%1” đã có trong Mẫu.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>“%1” đã có trong Phương tiện.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>“%1” đã được cài. Hãy tìm trong bảng của nó.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Không thể thêm “%1” vào dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>Đã thêm “%1” vào dòng thời gian tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>“%1” ở trong Hiệu ứng › Xu hướng.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>Đã áp dụng “%1” cho “%2”.</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>“%1” nằm trên một lớp điều chỉnh: thay đổi mọi thứ bên dưới.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>“%1” ở trong Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>“%1” ở trong Hiệu ứng của tôi. Chọn một clip có âm thanh để đổi giọng.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Đã áp dụng look “%1” cho “%2” và lưu vào Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Look “%1” nằm trên một lớp điều chỉnh và đã lưu vào Hiệu ứng của tôi.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>“%1” ở trong Bộ lọc.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Áp dụng LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Đã áp dụng bộ lọc “%1” cho “%2”.</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Bộ lọc “%1” nằm trên một lớp điều chỉnh: thay đổi mọi thứ bên dưới.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>“%1” ở trong Chuyển cảnh.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>“%1” ở trong Chuyển cảnh. Để dùng, cần hai clip liền nhau trên một track.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>Đã đặt chuyển cảnh “%1” vào điểm cắt sau “%2”.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>“%1” ở trong Hình dạng.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>Đã thêm hình dạng “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>“%1” ở trong Tiêu đề › Thịnh hành.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Đã áp dụng kiểu “%1” cho văn bản “%2”.</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Đã thêm văn bản có kiểu “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>“%1” ở trong Văn bản › Hoạt ảnh.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>Đã áp dụng hoạt ảnh “%1” cho văn bản “%2”.</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Thêm văn bản</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Đã thêm văn bản có hoạt ảnh “%1” tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>“%1” cần phiên bản Flip Studio mới hơn.</translation>
     </message>
 </context>
 <context>
@@ -9447,6 +9745,18 @@
         <translation>Nghiêng</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Ánh sáng nhấp nháy</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Ánh sáng khi nghỉ</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Chu kỳ</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Nhấp nháy xen kẽ</translation>
     </message>
@@ -10825,6 +11135,14 @@ LẦN SAU</translation>
     <message>
         <source>Boost your workflow</source>
         <translation>Tăng tốc công việc</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Xoay liên tục</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Xoay</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -12470,6 +12788,14 @@ LẦN SAU</translation>
         <translation>Xu hướng</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Lớp phủ</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Chọn một clip để áp dụng phong cách màu</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Chọn một clip có âm thanh để đổi giọng</translation>
     </message>
@@ -13719,6 +14045,10 @@ LẦN SAU</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Looks</translation>
     </message>
@@ -13769,6 +14099,10 @@ LẦN SAU</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Chưa có LUT nào được nhập. Hãy nhập tệp .cube hoặc lấy LUT trong Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Chưa có mục yêu thích. Chạm vào ngôi sao của bộ lọc để lưu vào đây.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -14336,6 +14670,81 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Gốc</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Tuyến tính</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Vào êm</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Ra êm</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Vào và ra êm</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Vào bậc ba</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Ra bậc ba</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Vào và ra bậc ba</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Vào mạnh</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Ra mạnh</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Vào và ra mạnh</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Tăng tốc</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Giảm tốc</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Lấy đà</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Vượt quá rồi quay lại</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Nảy</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Giữ</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Đường cong</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14478,6 +14887,49 @@ LẦN SAU</translation>
     <message>
         <source>Edit keyframe curve</source>
         <translation>Chỉnh sửa đường cong keyframe</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Di chuyển các keyframe</translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>Thẳng</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Êm</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Êm khi đến</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Êm khi rời</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Giữ</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Đường cong…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Chỉnh sửa đường cong…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Xóa khung hình chính</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Xóa khung hình chính</translation>
     </message>
 </context>
 <context>
@@ -15602,6 +16054,14 @@ LẦN SAU</translation>
         <translation>Tất cả tệp (*)</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Chưa có mục yêu thích. Chạm vào ngôi sao của mặt nạ để lưu vào đây.</translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation>%1 — nhấp để áp dụng, hoặc kéo vào clip</translation>
     </message>
@@ -16545,6 +17005,10 @@ LẦN SAU</translation>
         <translation>Đã xóa theo dõi</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Các khung hình chính vị trí của phần tử này đã được thay bằng theo dõi mới. Hoàn tác (Ctrl+Z) sẽ khôi phục chúng.</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>Video mà nó theo dõi không còn trong dự án</translation>
     </message>
@@ -16891,6 +17355,10 @@ LẦN SAU</translation>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation>Chuyển đổi (chuyển động, vị trí, tỷ lệ, độ mờ đục)</translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Kiểu chữ (phông, màu, hiệu ứng và hoạt ảnh; giữ nguyên chữ)</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17825,6 +18293,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Unpacking project media…</source>
         <translation>Đang giải nén phương tiện dự án…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Đã tải dự án. Dự án dùng phông chữ máy này không có: %1. Văn bản sẽ hiển thị bằng phông khác cho đến khi bạn cài (Nhập phông trong danh sách phông, hoặc gói phông trong Tiện ích).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -18892,6 +19364,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation>Tìm mẫu</translation>
@@ -20340,6 +20816,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Tìm hình dạng</translation>
     </message>
@@ -20484,12 +20964,20 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đăng nhập để dùng xu hướng</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Đăng nhập để dùng giọng này</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio miễn phí: xuất video, Stock và mọi mẫu đều không mất tiền.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Hiệu ứng chuyển động xu hướng dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Các giọng có biểu tượng ngọn lửa dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20518,6 +21006,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Tìm âm thanh</translation>
@@ -21260,6 +21752,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Hình nền</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Tìm nhãn dán</translation>
     </message>
@@ -21538,6 +22038,57 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Đăng nhập để xem nội dung thịnh hành</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Không tải được nội dung thịnh hành</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Đang tải nội dung thịnh hành…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Chưa có gì ở đây.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Nội dung thịnh hành đến từ Stock, cần tài khoản miễn phí của bạn.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Đang chờ trình duyệt…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Đăng nhập</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Thử lại</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — nhấp để dùng</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — nhấp để tải xuống và dùng</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Thêm tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Đang tải…</translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21666,10 +22217,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhập</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Thay thế các phụ đề này từ tệp .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
     </message>
@@ -21684,10 +22231,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Export</source>
         <translation>Xuất</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Lưu phụ đề dưới dạng tệp .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -21760,6 +22303,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Thay thế phụ đề này từ tệp SRT, WebVTT hoặc ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Tệp phụ đề (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Phụ đề WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Phụ đề SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Lưu phụ đề dưới dạng SRT, WebVTT (.vtt) hoặc ASS (.ass): phần mở rộng quyết định định dạng</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Phụ đề Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -21880,16 +22447,24 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhập tệp phụ đề</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Nhập tệp .srt làm phụ đề clip</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Tệp phụ đề (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Phụ đề SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Phụ đề WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Phụ đề SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -21958,6 +22533,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Caption style</source>
         <translation>Kiểu phụ đề</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Nhập tệp SRT, WebVTT hoặc ASS làm clip phụ đề</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22150,6 +22729,233 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Toàn khối</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Ký tự</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Từ</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Dòng</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Tiến tới</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Lùi lại</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Từ giữa ra</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Ngẫu nhiên</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Tuyến tính</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Mượt</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Nhẹ nhàng</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Tăng tốc</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Nhanh gọn</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Quay lại</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Nảy</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Di chuyển X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Di chuyển Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Tỷ lệ X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Tỷ lệ Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Góc xoay</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>Xoay 3D X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>Xoay 3D Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Độ mờ đục</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Làm mờ</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Khoảng cách chữ</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Màu tô</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Chiều rộng nét</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Phát sáng</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Chỉnh sửa hoạt ảnh văn bản</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Tùy chỉnh hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Xem trước hoạt ảnh này</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Đóng trình chỉnh sửa</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>Bắt đầu từ “%1”. Thay đổi của bạn biến nó thành hiệu ứng riêng của văn bản này.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Mỗi phần lắc văn bản theo các giá trị này, lặp đi lặp lại.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Mỗi phần đưa văn bản từ diện mạo của nó tới các giá trị này.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Mỗi phần đưa văn bản từ các giá trị này về diện mạo của nó.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Phần %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Nhân bản phần</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Xóa phần</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Bởi</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Thứ tự</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>So le</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Thời lượng</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Làm mềm</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Giai đoạn</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Phần này giữ thời gian của hiệu ứng gốc.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Di chuyển</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Kết thúc tại</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Bắt đầu từ</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Ngừng tạo chuyển động cho mục này</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Tạo chuyển động</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Thêm phần</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Thêm một chuyển động bên trên, với đơn vị và thời gian riêng</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Lưu thành chuyển động của tôi…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Lưu vào Hiệu ứng của tôi để dùng cho văn bản khác</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22192,6 +22998,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kiểu của tôi · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Tìm kiểu chữ</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Yêu thích</translation>
     </message>
@@ -22226,6 +23036,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Thêm vào đầu phát</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Áp dụng cho văn bản đã chọn</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22698,6 +23512,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Gạch chân</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1” dành cho thẻ khác (Vào, Ra hoặc Lặp): giờ nó đã ở đó.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Nhẹ nhàng</translation>
     </message>
@@ -22746,6 +23564,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đậm</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Gạch ngang</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Hoa/thường</translation>
     </message>
@@ -22790,8 +23612,16 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Chữ được tô bằng hiệu ứng; thay đổi trong Nâng cao</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Khoảng cách từ</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Căn chỉnh</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>Căn đều</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23014,6 +23844,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Độ mạnh</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Quanh vòng tròn</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Phần vòng tròn</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Chữ bên trong vòng tròn</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Lưu thành kiểu của tôi…</translation>
     </message>
@@ -23126,6 +23968,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Mẫu cũng thay đổi phông chữ. Các kiểu khác giữ phông chữ của bạn.</translation>
     </message>
     <message>
+        <source>Search animations</source>
+        <translation>Tìm hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Animation options</source>
         <translation>Tùy chọn chuyển động</translation>
     </message>
@@ -23148,6 +23998,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Delete</source>
         <translation>Xóa</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Yêu thích từ Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Từ Stock</translation>
     </message>
     <message>
         <source>Save as my animation…</source>
@@ -23182,6 +24040,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Làm mềm</translation>
     </message>
     <message>
+        <source>Customize animation</source>
+        <translation>Tùy chỉnh hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Chọn thứ chuyển động, theo chữ cái, từ hoặc dòng, và cách chuyển động</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Hiệu ứng tùy chỉnh: thay đổi bằng Tùy chỉnh hiệu ứng, hoặc quay lại chọn mẫu có sẵn.</translation>
+    </message>
+    <message>
         <source>Rename text animation</source>
         <translation>Đổi tên chuyển động văn bản</translation>
     </message>
@@ -23196,10 +24066,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Advanced</source>
         <translation>Nâng cao</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Trình tạo hoạt ảnh tùy chỉnh (được thiết lập thông qua MCP). Các preset điều khiển đã bị vô hiệu hóa.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -25449,32 +26315,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Di chuyển khung hình chính</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Tuyến tính</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation>Chậm vào và ra</translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation>Chậm vào</translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation>Chậm ra</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>Giữ</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>Chỉnh sửa đường cong…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>Xóa khung hình chính</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>nhấp chuột phải: Thẳng, Êm, Giữ, Đường cong</translation>
     </message>
 </context>
 <context>
@@ -25830,6 +26672,34 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Lật Dọc</translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>Biến dạng (góc)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Di chuyển từng góc riêng để đặt clip vào phối cảnh, như một tấm biển trên tường</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Trên trái</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Trên phải</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Dưới phải</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Dưới trái</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Đặt lại góc</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation>Đặt lại vị trí &amp; kích thước</translation>
     </message>
@@ -26090,6 +26960,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Chọn clip đầu tiên trong hai clip trên dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
     </message>
     <message>
         <source>My Transitions</source>

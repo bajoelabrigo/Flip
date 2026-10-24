@@ -133,6 +133,7 @@ private slots:
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
     void textAnimationSavesAsOwnPreset();
+    void textAnimationEditorRoundTripsAnimators();
     void inlineTextEditCommitsOneUndoStepAndCancelRestores();
     void audioAdjustmentTrackArrivesWithAClip();
     void dropShapeOnNewTrackIsOneUndo();
@@ -698,9 +699,139 @@ void EditorStateTest::textAnimationSavesAsOwnPreset()
     QCOMPARE(saved->param(QStringLiteral("duration"))->defaultValue.scalar, 1.25);
 
     QVERIFY(state.deleteUserTextAnimationPreset(id));
-    QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
+    // Gone from the galleries, but the texts that use it keep playing it (auditoría D4): the
+    // catalog keeps a copy, and the project carries it on save.
+    bool listed = false;
+    for (const drift::TextAnimationPreset &p : drift::TextAnimationPresetCatalog::instance().presets())
+        listed = listed || p.id == id;
+    QVERIFY(!listed);
+    QVERIFY(drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
     QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
     drift::TextAnimationPresetCatalog::instance().reload();
+}
+
+// The animation editor (Personalizar): a preset slot comes back as the animators it plays, an
+// edited list sent through setTextAnimationSlot becomes the slot's own and moves the text
+// differently, undo returns to the preset, and the edited slot saved as my animation plays the same.
+void EditorStateTest::textAnimationEditorRoundTripsAnimators()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    const auto restore = qScopeGuard([] { QStandardPaths::setTestModeEnabled(false); });
+    QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+    drift::TextAnimationPresetCatalog::instance().reload();
+    const auto cleanup = qScopeGuard([] {
+        QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
+        drift::TextAnimationPresetCatalog::instance().reload();
+    });
+
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const QString in = QStringLiteral("in");
+
+    // Five letters on one line; the window is the clip's own (it starts at 0).
+    const auto frameAt = [&](drift::TimeUs t) {
+        const drift::Clip &c = state.project()->tracks().at(track).clips.at(clip);
+        const drift::ResolvedTextAnimation r = drift::resolveTextAnimation(c.textStyle.animation);
+        QList<drift::textanim::FragmentInfo> frags;
+        for (int i = 0; i < 5; ++i) {
+            drift::textanim::FragmentInfo f;
+            f.charIndex = i;
+            f.nonSpaceIndex = i;
+            f.advance = 20.0;
+            f.ascent = 40.0;
+            f.textStart = i;
+            f.textLength = 1;
+            frags.append(f);
+        }
+        drift::textanim::Domains domains;
+        domains.chars = 5;
+        domains.nonSpaceChars = 5;
+        domains.words = 1;
+        domains.lines = 1;
+        drift::textanim::EvalContext ctx;
+        ctx.windowStartUs = 0;
+        ctx.windowDurationUs = 3'000'000;
+        ctx.timelineUs = t;
+        ctx.boxWidthPx = 100.0;
+        ctx.boxHeightPx = 64.0;
+        return drift::textanim::evaluateTextAnimation(r.set, r.resolved, frags, domains, ctx);
+    };
+
+    // An empty slot starts the editor with one part.
+    const QVariantMap fresh = state.textAnimationSlotForEditing(track, clip, in);
+    QCOMPARE(fresh.value(QStringLiteral("source")).toString(), QStringLiteral("new"));
+    QCOMPARE(fresh.value(QStringLiteral("animators")).toList().size(), 1);
+
+    // A preset slot: the editor gets exactly what the catalogue expands for In.
+    state.setTextAnimationSlot(track, clip, in, {{QStringLiteral("preset"), QStringLiteral("fade")}});
+    const QVariantMap fromPreset = state.textAnimationSlotForEditing(track, clip, in);
+    QCOMPARE(fromPreset.value(QStringLiteral("source")).toString(), QStringLiteral("preset"));
+    const std::optional<drift::TextAnimationPreset> fade =
+        drift::TextAnimationPresetCatalog::instance().presetForId(QStringLiteral("fade"));
+    QVERIFY(fade.has_value());
+    const drift::ResolvedPresetSlot expanded = drift::resolvePresetSlot(*fade, {}, drift::TextAnimSlotKind::In);
+    const QVariantList presetAnimators = fromPreset.value(QStringLiteral("animators")).toList();
+    QCOMPARE(presetAnimators.size(), expanded.animators.size());
+    QCOMPARE(QJsonObject::fromVariantMap(presetAnimators.first().toMap()),
+             drift::textAnimatorToJson(expanded.animators.first()));
+    QVERIFY(frameAt(0).block.opacity < 0.01); // the fade (whole block) starts invisible
+
+    // Edited in the editor: letters drop in from 80 px one after another, no fade.
+    const QVariantMap edited{
+        {QStringLiteral("selectors"),
+         QVariantList{QVariantMap{{QStringLiteral("driver"), QStringLiteral("stagger")},
+                                  {QStringLiteral("domain"), QStringLiteral("character")},
+                                  {QStringLiteral("staggerUs"), 100000},
+                                  {QStringLiteral("durationUs"), 300000},
+                                  {QStringLiteral("ease"), QStringLiteral("linear")},
+                                  {QStringLiteral("order"), QStringLiteral("forward")}}}},
+        {QStringLiteral("props"),
+         QVariantMap{{QStringLiteral("position"), QVariantMap{{QStringLiteral("x"), 0.0},
+                                                              {QStringLiteral("y"), 80.0},
+                                                              {QStringLiteral("unit"), QStringLiteral("px")}}}}},
+    };
+    QVariantMap patch = fromPreset;
+    patch.remove(QStringLiteral("source"));
+    patch.remove(QStringLiteral("label"));
+    patch.insert(QStringLiteral("animators"), QVariantList{edited});
+    state.setTextAnimationSlot(track, clip, in, patch);
+
+    const drift::TextAnimationSlot &slot = state.project()->tracks().at(track).clips.at(clip).textStyle.animation.in;
+    QVERIFY(slot.presetId.isEmpty());
+    QCOMPARE(slot.animators.size(), 1);
+    const QVariantMap inlineSlot = state.textAnimationSlotForEditing(track, clip, in);
+    QCOMPARE(inlineSlot.value(QStringLiteral("source")).toString(), QStringLiteral("inline"));
+    QCOMPARE(inlineSlot.value(QStringLiteral("animators")).toList(), state.normalizeTextAnimators(QVariantList{edited}));
+
+    const drift::textanim::Frame start = frameAt(0);
+    QCOMPARE(start.props.first().opacity, 1.0);
+    QCOMPARE(start.props.first().dy, 80.0);
+    const drift::textanim::Frame mid = frameAt(250'000);
+    QVERIFY(mid.props.at(0).dy < mid.props.at(1).dy); // the first letter is further along
+    QVERIFY(qAbs(mid.props.at(1).dy - 40.0) < 0.5);   // halfway: (250 − 100) / 300
+    QCOMPARE(frameAt(1'000'000).props.last().dy, 0.0); // all settled
+
+    // One undo step back to the preset.
+    state.undo();
+    QCOMPARE(state.project()->tracks().at(track).clips.at(clip).textStyle.animation.in.presetId, QStringLiteral("fade"));
+    QCOMPARE(state.textAnimationSlotForEditing(track, clip, in).value(QStringLiteral("source")).toString(),
+             QStringLiteral("preset"));
+
+    // Saved as my animation, it plays the edited motion when picked again.
+    state.setTextAnimationSlot(track, clip, in, patch);
+    const QString id = state.saveTextAnimationAsPreset(track, clip, in, QStringLiteral("Drop"));
+    QVERIFY(drift::isUserTextAnimationPresetId(id));
+    const std::optional<drift::TextAnimationPreset> mine = drift::TextAnimationPresetCatalog::instance().presetForId(id);
+    QVERIFY(mine.has_value());
+    QCOMPARE(mine->category, QStringLiteral("mine"));
+    QVERIFY(mine->supportsSlot(drift::TextAnimSlotKind::In));
+    state.setTextAnimationSlot(track, clip, in, {{QStringLiteral("preset"), id}});
+    const drift::textanim::Frame replayed = frameAt(250'000);
+    QCOMPARE(replayed.props.at(0).dy, mid.props.at(0).dy);
+    QCOMPARE(replayed.props.at(1).dy, mid.props.at(1).dy);
 }
 
 // Motion tracking end to end, on a photo so no video decoder is needed: a text over it follows
@@ -1649,7 +1780,7 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     drift::scaleTemplateLayout(tracks, 1080, 1920, 720, 1280);
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformX.evaluateAt(0), 80.0));
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformW.evaluateAt(0), 360.0));
-    QCOMPARE(tracks.at(0).clips.at(1).textStyle.pixelSize, 54);
+    QCOMPARE(qRound(tracks.at(0).clips.at(1).textStyle.pixelSize), 54);
     // An unset box was the whole canvas: it becomes the whole scaled canvas.
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(1).transformW.evaluateAt(0), 720.0));
 
@@ -6102,7 +6233,7 @@ void EditorStateTest::mergeSelectedSubtitleClips()
     QCOMPARE(clips.size(), 1);
     const drift::Clip &merged = clips.at(0);
     QCOMPARE(merged.id, QStringLiteral("sub-0"));
-    QCOMPARE(merged.textStyle.pixelSize, 40);
+    QCOMPARE(qRound(merged.textStyle.pixelSize), 40);
     QCOMPARE(merged.timelineStart, drift::TimeUs{0});
     QCOMPARE(merged.timelineDuration, drift::secondsToUs(14.0));
     QCOMPARE(merged.subtitleCues.size(), 3);

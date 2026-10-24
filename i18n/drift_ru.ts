@@ -150,12 +150,144 @@
         <translation>Ретушь</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Стили</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Шаблоны сцен</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Анимации клипа</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Маски</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Здравствуйте</translation>
     </message>
     <message>
         <source>Template</source>
         <translation>Шаблон</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>К выбранному клипу или на корректирующий слой у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>К выбранному тексту или к новому тексту у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Помещает на таймлайн, у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Сохранить в «Эффекты»</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Помещает в «Эффекты › Тренды»</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Сохранить в «Мои эффекты»</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Помещает в «Мои эффекты» (вкладка «Эффекты» инспектора)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Сохранить в «Фильтры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Помещает в «Фильтры» и в «Настройка › LUT»</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Сохранить в «Переходы»</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>Помещает в «Переходы»</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>На склейку выбранного клипа или на ближайшую к указателю воспроизведения</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Сохранить в «Фигуры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>Помещает в «Фигуры»</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Добавить на дорожку</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Сохранить в «Титры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Помещает в «Титры › В тренде»</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Сохранить в «Анимация»</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>Помещает в «Текст › Анимация»</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Сохранить в «Шаблоны»</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Помещает в «Шаблоны», готовым к работе</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Добавить в «Медиа»</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Сохраняет в «Медиа», чтобы использовать когда угодно</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>«%1» добавлен в «Медиа».</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Добавлено в «Медиа».</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» готово. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>«%1» установлено.</translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -210,16 +342,20 @@
         <translation>Из Stock пока ничего не загружено. Бесплатные шаблоны, фото и видео, загруженные оттуда, остаются здесь, в вашем аккаунте.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Использовать этот шаблон: он встанет на позицию указателя</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Нажмите, чтобы поместить у указателя воспроизведения, или сохраните на потом.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Уже в ваших медиафайлах</translation>
+        <source>No longer in Stock</source>
+        <translation>Больше нет в Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Нет на этом компьютере: найдите в Stock, чтобы загрузить снова</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Этого больше нет в каталоге Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Убрать из списка (файлы на этом компьютере останутся)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -2662,6 +2798,10 @@
         <translation>Все</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Длительность</translation>
     </message>
@@ -3496,6 +3636,14 @@
         <source>Text preset applied</source>
         <translation>Пресет текста применён</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Шаблон применён. Анимированные настройки (%n) относились к части прежнего стиля, которой нет в этом шаблоне, и не сохранились.</numerusform>
+            <numerusform>Шаблон применён. Анимированные настройки (%n) относились к части прежнего стиля, которой нет в этом шаблоне, и не сохранились.</numerusform>
+            <numerusform>Шаблон применён. Анимированные настройки (%n) относились к части прежнего стиля, которой нет в этом шаблоне, и не сохранились.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Не удалось сохранить стиль текста</translation>
@@ -3607,6 +3755,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation>Отражение клипа обновлено</translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>Деформация по углам</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3891,6 +4043,38 @@
     <message>
         <source>Transition updated</source>
         <translation>Переход обновлён</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>У этого клипа нет ни одного свойства скопированных ключевых кадров</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Вставить ключевые кадры</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Переместить ключевые кадры</translation>
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
@@ -5755,6 +5939,126 @@
     <message>
         <source>My logo</source>
         <translation>Мой логотип</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Элемент Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>«%1» уже в «Шаблоны».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>«%1» в «Медиа».</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>«%1» уже установлено. Найдите его на своей панели.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Не удалось добавить «%1» на таймлайн.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>«%1» добавлено на таймлайн у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>«%1» в «Эффекты › Тренды».</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>«%1» применено к «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>«%1» на корректирующем слое: меняет всё, что под ним.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>«%1» в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>«%1» в «Мои эффекты». Выберите клип со звуком, чтобы изменить голос.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Образ «%1» применён к «%2» и сохранён в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Образ «%1» на корректирующем слое и сохранён в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>«%1» в «Фильтры».</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Применить LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Фильтр «%1» применён к «%2».</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Фильтр «%1» на корректирующем слое: меняет всё, что под ним.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>«%1» в «Переходы».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>«%1» в «Переходы». Чтобы применить, нужны два клипа подряд на одной дорожке.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>Переход «%1» поставлен на склейку после «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>«%1» в «Фигуры».</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>Фигура «%1» добавлена у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>«%1» в «Титры › В тренде».</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Стиль «%1» применён к тексту «%2».</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Текст со стилем «%1» добавлен у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>«%1» в «Текст › Анимация».</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>Анимация «%1» применена к тексту «%2».</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Добавить текст</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Текст с анимацией «%1» добавлен у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>Для «%1» нужна более новая версия Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -9521,6 +9825,18 @@
         <translation>Скос</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Пульсирующее свечение</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Свечение в покое</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Период</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Чередующийся стробоскоп</translation>
     </message>
@@ -10899,6 +11215,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>Ускорьте свою работу</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Непрерывное вращение</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Поворот</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -12556,6 +12880,14 @@ NEXT TIME</source>
         <translation>Тренды</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Наложения</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Выберите клип, чтобы применить лук</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Выберите клип со звуком, чтобы изменить голос</translation>
     </message>
@@ -13809,6 +14141,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Образы</translation>
     </message>
@@ -13859,6 +14195,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Импортированных LUT пока нет. Импортируйте файл .cube или найдите LUT в Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Избранного пока нет. Отметьте фильтр звёздочкой, чтобы сохранить его здесь.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -14426,6 +14766,81 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Исходная</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Линейная</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Плавный вход</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Плавный выход</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Плавные вход и выход</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Кубический вход</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Кубический выход</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Кубические вход и выход</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Сильный вход</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Сильный выход</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Сильные вход и выход</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Торможение</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Замах</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Перелёт и возврат</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Отскок</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Удержание</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Кривые</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14570,6 +14985,49 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>Изменить кривую ключевого кадра</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Переместить ключевые кадры</translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>Прямо</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Плавно</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Плавно на входе</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Плавно на выходе</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Удержание</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Кривые…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Изменить кривую…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Удалить ключевой кадр</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
     </message>
 </context>
 <context>
@@ -15694,6 +16152,14 @@ NEXT TIME</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Избранного пока нет. Отметьте маску звёздочкой, чтобы сохранить её здесь.</translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation>%1 — нажмите, чтобы применить, или перетащите на клип</translation>
     </message>
@@ -16665,6 +17131,10 @@ NEXT TIME</source>
         <translation>Трекинг удалён</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Ключевые кадры положения этого элемента заменены новым отслеживанием. Отменить (Ctrl+Z) вернёт их.</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>Видео, за которым шло отслеживание, больше нет в проекте</translation>
     </message>
@@ -17013,6 +17483,10 @@ NEXT TIME</source>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation>Преобразование (движение, положение, масштаб, непрозрачность)</translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Стиль текста (шрифт, цвета, эффекты и анимация; слова остаются)</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17957,6 +18431,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>Распаковка медиафайлов проекта…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Проект загружен. В нём есть шрифты, которых нет на этом компьютере: %1. Тексты показываются другим шрифтом, пока вы их не установите («Импорт шрифта» в списке шрифтов или пакеты шрифтов в дополнениях).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -19028,6 +19506,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation>Поиск шаблонов</translation>
@@ -20484,6 +20966,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Поиск фигур</translation>
     </message>
@@ -20628,12 +21114,20 @@ If playback stutters, try another.</source>
         <translation>Войдите, чтобы использовать тренды</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Войдите, чтобы использовать этот голос</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio бесплатен: экспорт, Stock и все шаблоны ничего не стоят.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Трендовые анимации доступны тем, кто вошёл в аккаунт. Достаточно войти через аккаунт Google: это займёт минуту, делается один раз, а ваш проект останется как есть.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Голоса с огоньком доступны после входа. Достаточно войти через аккаунт Google: это займёт мгновение, делается один раз, а проект останется как есть.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20662,6 +21156,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Поиск звуков</translation>
@@ -21404,6 +21902,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Фоны</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Поиск стикеров</translation>
     </message>
@@ -21686,6 +22192,57 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Войдите, чтобы увидеть тренды</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Не удалось загрузить тренды</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Загрузка трендов…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Здесь пока ничего нет.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Тренды приходят из Stock, для него нужен бесплатный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — нажмите, чтобы использовать</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — нажмите, чтобы скачать и использовать</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Добавить на позицию указателя</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Загрузка…</translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21816,10 +22373,6 @@ If playback stutters, try another.</source>
         <translation>Импорт</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Заменить эти субтитры из файла .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
     </message>
@@ -21834,10 +22387,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>Экспорт</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Сохранить субтитры в файл .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -21910,6 +22459,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>Эмодзи</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Заменить эти субтитры из файла SRT, WebVTT или ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Файлы субтитров (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Субтитры WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Субтитры SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Сохранить субтитры как SRT, WebVTT (.vtt) или ASS (.ass): формат выбирается по расширению</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Субтитры Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22030,16 +22603,24 @@ If playback stutters, try another.</source>
         <translation>Импортировать файл субтитров</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Импортировать файл .srt как клип субтитров</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Файлы субтитров (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Субтитры SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Субтитры WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Субтитры SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22108,6 +22689,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>Стиль субтитров</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Импортировать файл SRT, WebVTT или ASS как клип субтитров</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22304,6 +22889,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Весь блок</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Символ</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Слово</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Строка</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Вперёд</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>От центра</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Случайно</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Линейно</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Плавно</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Плавная</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Резко</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>С возвратом</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Отскок</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Сдвиг X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Сдвиг Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Масштаб X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Масштаб Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Поворот</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D-поворот X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D-поворот Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Непрозрачность</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Межбуквенный интервал</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Цвет заливки</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Ширина обводки</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Свечение</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Изменить анимацию текста</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Настроить анимацию</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Предпросмотр этой анимации</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Закрыть редактор</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>На основе «%1». С вашими изменениями это станет собственной анимацией текста.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Каждая часть раскачивает текст на эти значения снова и снова.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Каждая часть ведёт текст от его вида к этим значениям.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Каждая часть ведёт текст от этих значений к его виду.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Часть %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Дублировать часть</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Удалить часть</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>По</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Порядок</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Сдвиг</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Длительность</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Плавность</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Эта часть сохраняет время исходной анимации.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Смещается на</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Заканчивается на</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Начинается с</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Не анимировать это</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Анимировать</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Добавить часть</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Ещё одно движение поверх, со своей единицей и временем</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Сохранить как мою анимацию…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Сохранить в «Мои анимации», чтобы применять к другим текстам</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22346,6 +23158,10 @@ If playback stutters, try another.</source>
         <translation>Мои стили · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Поиск стилей текста</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Избранное</translation>
     </message>
@@ -22380,6 +23196,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Применить к выбранному тексту</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22736,10 +23556,6 @@ If playback stutters, try another.</source>
         <translation>Дополнительно</translation>
     </message>
     <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Пользовательская анимация (задаётся через MCP). Управление предустановками отключено.</translation>
-    </message>
-    <message>
         <source>Revert to preset</source>
         <translation>Вернуться к предустановкам</translation>
     </message>
@@ -22924,6 +23740,10 @@ If playback stutters, try another.</source>
         <translation>Подчёркивание</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>«%1» для другой вкладки (Появление, Исчезновение или Цикл): теперь он там.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Плавная</translation>
     </message>
@@ -22972,6 +23792,10 @@ If playback stutters, try another.</source>
         <translation>Жирный</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Зачёркнутый</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Регистр</translation>
     </message>
@@ -23016,8 +23840,16 @@ If playback stutters, try another.</source>
         <translation>Текст закрашен эффектом; измените его в разделе «Дополнительно»</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Интервал между словами</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Выравнивание</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>По ширине</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23240,6 +24072,18 @@ If playback stutters, try another.</source>
         <translation>Сила</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>По кругу</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Часть круга</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Буквы внутри круга</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Сохранить как мой стиль…</translation>
     </message>
@@ -23366,6 +24210,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>Поиск анимаций</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Избранное из Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Из Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Настроить анимацию</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Выберите, что движется — по буквам, словам или строкам — и как</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Своя анимация: измените её через «Настроить анимацию» или вернитесь к выбору готовых.</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -25613,32 +26485,8 @@ If playback stutters, try another.</source>
         <translation>Переместить ключевой кадр</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Линейно</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation>Плавно (вход и выход)</translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation>Плавный вход</translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation>Плавный выход</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>Удержание</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>Изменить кривую…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>Удалить ключевой кадр</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>правый клик: Прямо, Плавно, Удержание, Кривые</translation>
     </message>
 </context>
 <context>
@@ -25978,6 +26826,34 @@ If playback stutters, try another.</source>
         <translation>Отразить по вертикали</translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>Искажение (по углам)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Двигайте каждый угол отдельно, чтобы придать клипу перспективу, как вывеске на стене</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Вверху слева</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Вверху справа</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Внизу справа</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Внизу слева</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Сбросить углы</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation>Сбросить положение и размер</translation>
     </message>
@@ -26262,6 +27138,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Выберите на временной шкале первый из двух клипов.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
     </message>
     <message>
         <source>My Transitions</source>

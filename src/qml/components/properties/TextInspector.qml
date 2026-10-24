@@ -126,6 +126,8 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
+    // The visual animation editor (Personalizar) is open for the current slot.
+    property bool animEditorOpen: false
     // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
     // signed out asks for the account and applies it once signed in.
     readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
@@ -141,8 +143,15 @@ Item {
         void root.animPresetsTick
         return EditorState.textAnimationCategories(root.animSlot)
     }
+    readonly property string animQuery: animSearch.text.trim().toLowerCase()
     readonly property var animTileModel: {
         void root.favoritesTick
+        if (root.animQuery.length > 0) {
+            const q = root.foldText(root.animQuery)
+            return [{ "id": "", "label": qsTr("None") }].concat(
+                root.animPresets.filter(p => root.foldText(p.label || "").indexOf(q) >= 0
+                                             || root.foldText(p.id || "").indexOf(q) >= 0))
+        }
         const filtered = root.animCategory.length === 0
                          ? root.animPresets
                          : root.animCategory === "__favorites__"
@@ -151,6 +160,33 @@ Item {
                              ? root.animPresets.filter(p => p.trending)
                              : root.animPresets.filter(p => p.category === root.animCategory)
         return [{ "id": "", "label": qsTr("None") }].concat(filtered)
+    }
+    // Trending › From Stock (0.22): Stock's text animations under the trending ones that come with
+    // the app; in Favorites, the starred ones from Stock. A click downloads one (once) and sets it on
+    // this slot when it is made for it.
+    readonly property bool animStockShown: root.animCategory === "trending" || root.animCategory === "__favorites__"
+    readonly property var animStockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.animCategory === "__favorites__"
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("textAnimations"), ["text-animation"], "textAnimations")
+               : []
+    }
+    function stockAnimPreset(item) {
+        void root.animPresetsTick
+        const id = Market.placedId(item.id)
+        return id.length > 0 ? EditorState.textAnimationPresets("").find(p => p.id === id) : undefined
+    }
+    function applyStockAnim(item) {
+        root.animPresetsTick++
+        const preset = root.stockAnimPreset(item)
+        if (!preset)
+            return
+        if ((preset.slots || [root.animSlot]).indexOf(root.animSlot) < 0) {
+            EditorState.setLastMessage(qsTr("“%1” is for another tab (In, Out or Loop): it is there now.").arg(item.title || preset.label), "info")
+            return
+        }
+        root.pickPreset(preset.id)
     }
     readonly property var animation: (textStyle && textStyle.animation) || ({})
     readonly property var slotData: animation[animSlot] || ({ "preset": "", "enabled": true, "custom": false })
@@ -163,6 +199,17 @@ Item {
         return null
     }
     readonly property var presetFlags: (selectedPreset && selectedPreset.flags) || ({})
+    // A Loop shows only the controls its animation reads (auditoría D10): Loops declare none of
+    // the reveal's common params, and only a progress-driven one repeats with the period.
+    function slotControlShown(paramId) {
+        if (root.animSlot !== "loop")
+            return true
+        if (!root.selectedPreset)
+            return false
+        if (paramId === "period")
+            return !!root.selectedPreset.progressDriven
+        return (root.selectedPreset.params || []).some(p => p.id === paramId)
+    }
     readonly property var commonAnimParamIds: ["duration", "stagger", "unit", "order", "ease", "period"]
     readonly property var presetOwnParams: selectedPreset
                                            ? (selectedPreset.params || []).filter(p => root.commonAnimParamIds.indexOf(p.id) < 0)
@@ -203,6 +250,11 @@ Item {
         root.textTab = "basic"
         textContentField.forceActiveFocus()
         textContentField.selectAll()
+    }
+
+    // Lower case without accents, so «animacion» finds «Animación».
+    function foldText(text) {
+        return String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
     }
 
     function setTextStyleKey(key, value) {
@@ -490,12 +542,17 @@ Item {
         EditorState.playheadSeconds = EditorState.textAnimationSlotStartSeconds(
                     EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
     }
+    // Every animation that comes with the app wears the flame and asks for the account (Jorge,
+    // 2026-10-24: In, Out and Loop alike); the user's own ones ("user:") do not.
+    function wearsFlame(id) {
+        return id.length > 0 && !id.startsWith("user:")
+    }
     function pickPreset(id) {
         if (id.length === 0) {
             EditorState.clearTextAnimationSlot(EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
             return
         }
-        if (root.trendsNeedAccount && root.animPresets.some(p => p.id === id && p.trending)) {
+        if (root.trendsNeedAccount && root.wearsFlame(id)) {
             const slot = root.animSlot
             const track = EditorState.selectedTrack
             const clip = EditorState.selectedClip
@@ -1007,6 +1064,13 @@ Item {
                     }
                     ThemedToggleButton {
                         width: 34
+                        text: "S"
+                        checked: root.textStyle.strikeEnabled === true
+                        tooltip: qsTr("Strikethrough")
+                        onClicked: root.setTextStyleKey("strikeEnabled", root.textStyle.strikeEnabled !== true)
+                    }
+                    ThemedToggleButton {
+                        width: 34
                         text: "I"
                         checked: root.textStyle.italic === true
                         enabled: root.familyHasItalic
@@ -1016,7 +1080,7 @@ Item {
                     }
                     ThemedComboBox {
                         id: fontWeightBox
-                        width: Math.max(80, parent.width - 74 - 34 * 3 - parent.spacing * 4)
+                        width: Math.max(80, parent.width - 74 - 34 * 4 - parent.spacing * 5) // B, U, S, I
                         model: root.availableWeights.map(w => root.weightLabels[w] || String(w))
                         currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
                         onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
@@ -1151,6 +1215,17 @@ Item {
                     }
                 }
 
+                // Space added between words (0.22.1), apart from the letters' spacing.
+                SliderRow {
+                    width: parent.width
+                    label: qsTr("Word spacing")
+                    from: -20
+                    to: 200
+                    suffix: " px"
+                    value: Number(root.textStyle.wordSpacing) || 0
+                    onCommitted: v => root.setTextStyleKey("wordSpacing", Math.round(v))
+                }
+
                 Text {
                     text: qsTr("Alignment")
                     color: Theme.mutedForeground
@@ -1166,7 +1241,8 @@ Item {
                         model: [
                             { value: "left",   glyph: Theme.icons.alignLeft,   label: qsTr("Align left") },
                             { value: "center", glyph: Theme.icons.alignCenter, label: qsTr("Align centre") },
-                            { value: "right",  glyph: Theme.icons.alignRight,  label: qsTr("Align right") }
+                            { value: "right",  glyph: Theme.icons.alignRight,  label: qsTr("Align right") },
+                            { value: "justify", glyph: Theme.icons.alignJustify, label: qsTr("Justify") }
                         ]
                         delegate: ThemedToggleButton {
                             required property var modelData
@@ -1695,16 +1771,49 @@ Item {
                 visible: root.hasTextStyle
                 showSwitch: true
                 switchChecked: Math.abs(Number(root.textStyle.pathBend) || 0) > 0.01
+                               || Number(root.textStyle.pathCircle) > 0
                 switchTooltip: qsTr("Bend the text")
-                onSwitchToggled: on => root.setTextStyleKey("pathBend", on ? 40 : 0)
+                onSwitchToggled: on => {
+                    if (on)
+                        root.setTextStyleKey("pathBend", 40)
+                    else
+                        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip,
+                                                 { "pathBend": 0, "pathCircle": 0 })
+                }
 
                 PropertyKeyframeRow {
                     width: parent.width
+                    visible: !(Number(root.textStyle.pathCircle) > 0)
                     propDef: root.textProp("pathBend", qsTr("Strength"), 0)
                     keyframeList: root.textKeyframes("pathBend")
                     useSlider: true
                     sliderFrom: -100
                     sliderTo: 100
+                }
+
+                // All the way round (0.22.1): the line wraps a circle instead of an arc.
+                ThemedCheckBox {
+                    width: parent.width
+                    text: qsTr("Around a circle")
+                    checked: Number(root.textStyle.pathCircle) > 0
+                    onToggled: root.setTextStyleKey("pathCircle", checked ? 100 : 0)
+                }
+                SliderRow {
+                    width: parent.width
+                    visible: Number(root.textStyle.pathCircle) > 0
+                    label: qsTr("Circle covered")
+                    from: 10
+                    to: 100
+                    suffix: " %"
+                    value: Number(root.textStyle.pathCircle) || 100
+                    onCommitted: v => root.setTextStyleKey("pathCircle", Math.round(v))
+                }
+                ThemedCheckBox {
+                    width: parent.width
+                    visible: Number(root.textStyle.pathCircle) > 0
+                    text: qsTr("Letters inside the circle")
+                    checked: Number(root.textStyle.pathBend) < 0
+                    onToggled: root.setTextStyleKey("pathBend", checked ? -40 : 40)
                 }
             }
 
@@ -2498,10 +2607,17 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
+            // 349 animations: find one by name (0.22.1). A search spans every category of the tab.
+            ThemedTextField {
+                id: animSearch
+                width: parent.width
+                placeholderText: qsTr("Search animations")
+            }
+
             ChipScroller {
                 id: animChips
                 width: parent.width
-                visible: root.animCategories.length > 1
+                visible: root.animCategories.length > 1 && root.animQuery.length === 0
 
                 ThemedChip {
                     anchors.verticalCenter: parent.verticalCenter
@@ -2517,6 +2633,16 @@ Item {
                     variant: "secondary"
                     selected: root.animCategory === "__favorites__"
                     onClicked: root.animCategory = "__favorites__"
+                }
+
+                // Trending always: Stock's text animations are there too.
+                ThemedChip {
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: Market.configured && !root.animCategories.some(c => c.id === "trending")
+                    text: qsTr("Trending")
+                    variant: "secondary"
+                    selected: root.animCategory === "trending"
+                    onClicked: root.animCategory = "trending"
                 }
 
                 Repeater {
@@ -2558,7 +2684,7 @@ Item {
                         slot: root.animSlot
                         presetId: modelData.id
                         label: modelData.label
-                        trending: !!modelData.trending
+                        trending: root.wearsFlame(modelData.id)
                         tileWidth: presetGrid.tileWidth
                         selected: modelData.id.length === 0
                                   ? (!root.slotHasPreset && !root.slotData.custom)
@@ -2620,6 +2746,27 @@ Item {
                 }
             }
 
+            Text {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                text: root.animCategory === "__favorites__" ? qsTr("Stock favorites") : qsTr("From Stock")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.Medium
+            }
+
+            StockPanelCards {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                type: "text-animation"
+                items: root.animCategory === "__favorites__" ? root.animStockFavorites : null
+                bare: root.animCategory === "__favorites__"
+                glyph: Theme.icons.type
+                isInstalled: function(item) { return !!root.stockAnimPreset(item) }
+                apply: function(item) { root.applyStockAnim(item) }
+            }
+
             // Selected preset's controls.
             Column {
                 width: parent.width
@@ -2673,7 +2820,7 @@ Item {
                 Column {
                     width: parent.width
                     spacing: 4
-                    visible: root.animSlot === "loop" || !root.presetFlags.durationLocked
+                    visible: root.animSlot === "loop" ? root.slotControlShown("period") : !root.presetFlags.durationLocked
 
                     Row {
                         width: parent.width
@@ -2726,11 +2873,12 @@ Item {
                 Row {
                     width: parent.width
                     spacing: 8
+                    visible: (!root.presetFlags.unitLocked && root.slotControlShown("unit")) || root.slotControlShown("stagger")
 
                     Column {
                         width: (parent.width - parent.spacing) / 2
                         spacing: 4
-                        visible: !root.presetFlags.unitLocked
+                        visible: !root.presetFlags.unitLocked && root.slotControlShown("unit")
                         Text {
                             text: qsTr("By")
                             color: Theme.mutedForeground
@@ -2748,6 +2896,7 @@ Item {
                     Column {
                         width: (parent.width - parent.spacing) / 2
                         spacing: 4
+                        visible: root.slotControlShown("stagger")
                         Text {
                             text: root.animSlot === "loop" ? qsTr("Phase") : qsTr("Stagger")
                             HoverHandler { id: staggerHover }
@@ -2790,7 +2939,7 @@ Item {
                 Column {
                     width: (parent.width - 8) / 2
                     spacing: 4
-                    visible: !root.presetFlags.orderLocked
+                    visible: !root.presetFlags.orderLocked && root.slotControlShown("order")
                     Text {
                         text: qsTr("Order")
                         color: Theme.mutedForeground
@@ -2809,7 +2958,7 @@ Item {
                 Column {
                     width: parent.width
                     spacing: 4
-                    visible: !root.presetFlags.easeLocked
+                    visible: !root.presetFlags.easeLocked && root.slotControlShown("ease")
                     Text {
                         text: qsTr("Ease")
                         color: Theme.mutedForeground
@@ -2843,6 +2992,37 @@ Item {
                 }
             }
 
+            // Customize: the slot's animation part by part (TextAnimatorEditor), starting from the
+            // chosen preset, the slot's own animators, or a fade by letter.
+            ThemedButton {
+                width: parent.width
+                visible: !root.animEditorOpen
+                variant: "secondary"
+                glyph: Theme.icons.sliders
+                text: qsTr("Customize animation")
+                tooltip: qsTr("Choose what moves, by letter, word or line, and how")
+                onClicked: root.animEditorOpen = true
+            }
+
+            Loader {
+                width: parent.width
+                active: root.animEditorOpen && root.page === "animate" && root.hasTextStyle
+                visible: active
+                sourceComponent: Component {
+                    TextAnimatorEditor {
+                        width: parent ? parent.width : 0
+                        slot: root.animSlot
+                        trackIndex: EditorState.selectedTrack
+                        clipIndex: EditorState.selectedClip
+                        slotData: root.slotData
+                        onCloseRequested: root.animEditorOpen = false
+                        onPreviewRequested: root.previewAnimation()
+                        onSaveRequested: saveAnimDialog.openWith(qsTr("Save text animation"),
+                                                                 root.selectedPreset ? root.selectedPreset.label : "")
+                    }
+                }
+            }
+
             CollapsibleSection {
                 width: parent.width
                 title: qsTr("Advanced")
@@ -2852,7 +3032,7 @@ Item {
                 Text {
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    text: qsTr("Custom animator (set via MCP). Preset controls are disabled.")
+                    text: qsTr("Custom animation: change it with Customize animation, or go back to picking presets.")
                     color: Theme.mutedForeground
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs

@@ -356,7 +356,7 @@ bool applyTextQuickStyle(TextStyle &style, const QString &id)
     for (const QuickStyle &s : quickStyles()) {
         if (id != QLatin1String(s.id))
             continue;
-        style.layers = s.build(qMax(1, style.pixelSize));
+        style.layers = s.build(qMax(1.0, style.pixelSize));
         // The look gallery's recipe and the style pack no longer describe these layers.
         style.lookId.clear();
         style.lookParams.clear();
@@ -399,7 +399,7 @@ bool applyTextBubble(TextStyle &style, const QString &id)
             style.boxShape = QStringLiteral("rect");
             return true;
         }
-        const double em = qMax(1, style.pixelSize);
+        const double em = qMax(1.0, style.pixelSize);
         style.boxEnabled = true;
         style.boxStyle = QStringLiteral("block");
         style.boxShape = QLatin1String(b.shape);

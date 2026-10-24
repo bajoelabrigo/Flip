@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import Drift
+import "timeline"
 
 // Keyframe strip aligned with the timeline: left gutter matches track labels,
 // graph scroll + playhead share the timeline's contentX / pxPerSecond.
@@ -23,6 +24,10 @@ Item {
     property real labelsWidth: Theme.trackLabelsWidth
     // Whether the open properties tab edits keyframeable properties (PropertiesPanel `keyframes`).
     property bool keyframesTab: false
+    // The picked keys, the key menu and the Curves popup, shared with the tracks' keyframe rows
+    // (KeyframeKeyTools): a key picked here is picked there, and the other way round. Null where
+    // the timeline has no rows (the phone's).
+    property var tools: null
 
     readonly property bool hasClip: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
     readonly property var clip: {
@@ -175,6 +180,14 @@ Item {
     // killing the grab on the first mouse move. Freeze the model while dragging
     // and track the in-flight key separately.
     property bool draggingKey: false
+    // The time the picked keys have moved in a drag of several (KeyframeKeyTools.shifting): the
+    // frozen series draws them there.
+    readonly property real shiftDelta: tools && tools.shifting ? tools.dragDelta : 0
+    function shifted(prop, seconds) {
+        return !!tools && tools.shifting
+               && tools.isShifted(EditorState.selectedTrack,
+                                  { clip: EditorState.selectedClip, prop: prop, seconds: seconds })
+    }
     property var frozenSeries: []
     property string dragProp: ""
     property int dragIndex: -1
@@ -252,7 +265,10 @@ Item {
                     prop: entry.prop,
                     color: entry.color,
                     seconds: entry.points[i].seconds,
-                    value: entry.points[i].value
+                    value: entry.points[i].value,
+                    hold: !!entry.points[i].hold,
+                    halves: root.tools ? root.tools.keyHalves(entry.points, i)
+                                       : { "in": "linear", "out": "linear" }
                 })
             }
         }
@@ -758,6 +774,13 @@ Item {
                                     && ((root.dragProp === "x" && entry.prop === "y") || (root.dragProp === "y" && entry.prop === "x"))
 
                                 const live = entry.points.map(function (p, i) {
+                                    if (root.shifted(entry.prop, p.seconds)) {
+                                        return {
+                                            seconds: p.seconds + root.shiftDelta, value: p.value,
+                                            inDx: p.inDx, inDy: p.inDy,
+                                            outDx: p.outDx, outDy: p.outDy, hold: p.hold
+                                        }
+                                    }
                                     if (entry.prop === root.dragProp) {
                                         if (i === root.dragTangentIndex) {
                                             // Handle being dragged: same key, reshaped.
@@ -884,6 +907,7 @@ Item {
                             function onPaintOriginXChanged() { curveCanvas.requestPaint() }
                             function onDragSecondsChanged() { curveCanvas.requestPaint() }
                             function onDragValueChanged() { curveCanvas.requestPaint() }
+                            function onShiftDeltaChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDxChanged() { curveCanvas.requestPaint() }
                             function onDragTangentInDyChanged() { curveCanvas.requestPaint() }
@@ -904,26 +928,57 @@ Item {
 
                     Repeater {
                         model: root.keyHandles
-                        delegate: Rectangle {
+                        delegate: Item {
                             id: keyDot
                             required property var modelData
                             readonly property var entry: root.series[modelData.seriesIndex]
-                            width: 10
-                            height: 10
-                            rotation: 45
-                            radius: 1
-                            color: modelData.color
-                            border.width: 1
-                            border.color: "#ffffff"
-                            opacity: (root.curveEditing && !root.isFocused(modelData.seriesIndex))
-                                     ? 0.4 : 1.0
+                            readonly property var ref: ({ clip: EditorState.selectedClip,
+                                                          prop: modelData.prop,
+                                                          seconds: modelData.seconds })
+                            readonly property bool isPicked: {
+                                if (!root.tools)
+                                    return false
+                                void root.tools.keys
+                                void root.tools.dragDelta
+                                // While the tracks' rows drag several keys the series is live
+                                // here, so a moved key is matched by where it started.
+                                return root.tools.isPicked(EditorState.selectedTrack, ref)
+                                       || root.tools.isShifted(EditorState.selectedTrack,
+                                              { clip: ref.clip, prop: ref.prop,
+                                                seconds: ref.seconds - root.tools.dragDelta })
+                            }
+                            // Moved with the others in a drag of several picked keys.
+                            readonly property real shiftDx: root.draggingKey
+                                && root.shifted(modelData.prop, modelData.seconds)
+                                ? root.shiftDelta * root.pxPerSecond : 0
+                            property bool groupDrag: false
+                            width: 20
+                            height: 20
+                            opacity: (root.curveEditing && !root.isFocused(modelData.seriesIndex)
+                                      && !isPicked) ? 0.4 : 1.0
                             readonly property bool isLinkedPartnerKey: EditorState.positionLinked
                                 && ((root.dragProp === "x" && modelData.prop === "y") || (root.dragProp === "y" && modelData.prop === "x"))
                                 && root.dragIndex >= 0 && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                 && Math.abs((root.series[root.focusedIndex].points[root.dragIndex] ? root.series[root.focusedIndex].points[root.dragIndex].seconds : -999) - modelData.seconds) < (1 / 30)
-                            x: root.xForSeconds(modelData.seconds) - width / 2 + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
+                            x: root.xForSeconds(modelData.seconds) - width / 2 + shiftDx + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
                             y: root.yForValue(modelData.value, entry) - height / 2 + dragDy
-                            z: 2
+                            z: isPicked ? 3 : 2
+
+                            // The same shapes as the tracks' rows: how the value arrives and
+                            // leaves, red and larger when picked.
+                            KeyframeGlyph {
+                                anchors.centerIn: parent
+                                size: keyDot.isPicked ? 17 : (keyHover.hovered ? 15 : 13)
+                                inHalf: keyDot.modelData.halves["in"]
+                                outHalf: keyDot.modelData.halves["out"]
+                                color: keyDot.modelData.color
+                                picked: keyDot.isPicked
+                                lit: keyHover.hovered
+                            }
+                            HoverHandler {
+                                id: keyHover
+                                cursorShape: Qt.PointingHandCursor
+                            }
 
                             // Offsets rather than direct x/y writes, which would
                             // clobber the bindings above for good.
@@ -942,16 +997,55 @@ Item {
                                 )
                             }
 
+                            // A click picks the key as the tracks' rows do (Ctrl adds or takes
+                            // away, Shift picks a run) and brings the playhead to it.
+                            function pickHere() {
+                                if (!root.tools)
+                                    return
+                                root.tools.press(EditorState.selectedTrack, keyDot.ref,
+                                                 EditorState.keyboardModifiers(), keyDot.entry.points)
+                            }
+
                             TapHandler {
                                 // Finger taps land on touchMove below, which takes the press.
                                 acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
                                                  | PointerDevice.Stylus
-                                onTapped: root.focusedProp = keyDot.modelData.prop
+                                onTapped: {
+                                    root.focusedProp = keyDot.modelData.prop
+                                    keyDot.pickHere()
+                                    if (!(EditorState.keyboardModifiers()
+                                          & (Qt.ControlModifier | Qt.ShiftModifier)))
+                                        EditorState.playheadSeconds = keyDot.modelData.seconds
+                                }
                                 onDoubleTapped: keyDot.remove()
+                            }
+                            TapHandler {
+                                acceptedButtons: Qt.RightButton
+                                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                                                 | PointerDevice.Stylus
+                                onTapped: {
+                                    if (!root.tools)
+                                        return
+                                    root.focusedProp = keyDot.modelData.prop
+                                    root.tools.openMenu(EditorState.selectedTrack, keyDot.ref,
+                                                        keyDot.modelData.halves, keyDot.modelData.hold,
+                                                        true, keyDot,
+                                                        Qt.point(keyDot.width / 2, keyDot.height))
+                                }
                             }
 
                             function beginMove() {
                                 root.focusedProp = keyDot.modelData.prop
+                                if (root.tools && !keyDot.isPicked)
+                                    root.tools.pick(EditorState.selectedTrack, [keyDot.ref])
+                                // Several picked: they all move in time together, values kept.
+                                keyDot.groupDrag = !!root.tools && root.tools.keys.length > 1
+                                if (keyDot.groupDrag) {
+                                    root.frozenSeries = root.series
+                                    root.draggingKey = true
+                                    root.tools.beginShift()
+                                    return
+                                }
                                 keyDot.editSeconds = keyDot.modelData.seconds
                                 root.frozenSeries = root.series
                                 root.dragProp = keyDot.modelData.prop
@@ -962,8 +1056,21 @@ Item {
                                 EditorState.beginPreviewDrag(qsTr("Move keyframe"))
                             }
                             function endMove() {
+                                if (keyDot.groupDrag) {
+                                    // Same order as below: unfreezing destroys this delegate.
+                                    keyDot.groupDrag = false
+                                    root.tools.endShift()
+                                    root.draggingKey = false
+                                    return
+                                }
                                 // Unfreezing rebuilds the Repeater and destroys this
                                 // delegate mid-handler, so every reset has to land first.
+                                // The moved key stays picked at its new time.
+                                if (root.tools)
+                                    root.tools.pick(EditorState.selectedTrack,
+                                                    [{ clip: EditorState.selectedClip,
+                                                       prop: keyDot.modelData.prop,
+                                                       seconds: keyDot.editSeconds }])
                                 root.dragProp = ""
                                 root.dragIndex = -1
                                 keyDot.dragDx = 0
@@ -972,6 +1079,13 @@ Item {
                                 root.draggingKey = false
                             }
                             function moveBy(dx, dy) {
+                                if (keyDot.groupDrag) {
+                                    const from = keyDot.modelData.seconds
+                                    const moved = root.tools.shiftTo(
+                                        EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                    EditorState.playheadSeconds = from + moved
+                                    return
+                                }
                                 const entry = keyDot.entry
                                 const baseSec = keyDot.modelData.seconds
                                 const baseVal = keyDot.modelData.value

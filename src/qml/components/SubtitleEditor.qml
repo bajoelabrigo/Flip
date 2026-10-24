@@ -323,11 +323,15 @@ Item {
                 text: qsTr("Import")
                 variant: "secondary"
                 glyph: Theme.icons.upload
-                tooltip: qsTr("Replace these captions from a .srt file")
+                tooltip: qsTr("Replace these captions from an SRT, WebVTT or ASS file")
                 onClicked: {
                     const url = FileDialogs.openFile(
                         qsTr("Import Subtitles"),
-                        [qsTr("SubRip subtitles (*.srt)"), qsTr("All files (*)")])
+                        [qsTr("Subtitle files (*.srt *.vtt *.ass *.ssa)"),
+                         qsTr("SubRip subtitles (*.srt)"),
+                         qsTr("WebVTT subtitles (*.vtt)"),
+                         qsTr("SubStation Alpha subtitles (*.ass *.ssa)"),
+                         qsTr("All files (*)")])
                     if (url != "")
                         EditorState.importSubtitleFileIntoClip(
                             root.trackIndex, root.clipIndex, url)
@@ -339,12 +343,14 @@ Item {
                 text: qsTr("Export")
                 variant: "secondary"
                 glyph: Theme.icons.save
-                tooltip: qsTr("Save captions as a .srt file")
+                tooltip: qsTr("Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format")
                 enabled: root.cues.length > 0
                 onClicked: {
                     const url = FileDialogs.saveFile(
                         qsTr("Export Subtitles"),
-                        [qsTr("SubRip subtitles (*.srt)")],
+                        [qsTr("SubRip subtitles (*.srt)"),
+                         qsTr("WebVTT subtitles (*.vtt)"),
+                         qsTr("Advanced SubStation Alpha subtitles (*.ass)")],
                         (root.clip && root.clip.name) ? root.clip.name : EditorState.projectFile.projectName,
                         "srt")
                     if (url != "")

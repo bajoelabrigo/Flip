@@ -236,6 +236,12 @@ QList<MediaEntry> collectMedia(const Project &project, bool embedSource)
             }
             appendTextures(clip.textStyle.layers);
             appendTextures(clip.shapeStyle.layers);
+            // A font the user imported is not in any pack: it travels in the file, and opening
+            // the project elsewhere installs it (ProjectFileController).
+            if (clip.type == ClipType::Text || clip.type == ClipType::Subtitle) {
+                for (const QString &font : userFontFilesFor(clip.textStyle.fontFamily))
+                    append(font, MediaRole::Source, true);
+            }
             for (const Effect &effect : clip.effects) {
                 const EffectPresetEntry *def = effectDefForId(effect.catalogId);
                 if (!def)

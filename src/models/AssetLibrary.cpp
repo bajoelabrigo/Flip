@@ -1418,6 +1418,7 @@ QVariantMap AssetLibrary::assetAt(int index) const
         {QStringLiteral("trimOutSeconds"), asset->trimOutUs < 0 ? -1.0 : drift::usToSeconds(asset->trimOutUs)},
         {QStringLiteral("thumbnailPath"), asset->thumbnailPath},
         {QStringLiteral("filmstripPath"), asset->filmstripPath},
+        {QStringLiteral("hidden"), asset->webHidden},
         {QStringLiteral("assetIndex"), index},
         {QStringLiteral("folderId"), asset->folderId},
         {QStringLiteral("sequenceId"), asset->sequenceId},

@@ -13,7 +13,17 @@ struct SubtitleCue
     TimeUs startUs = 0; // relative to the parent clip's timeline start
     TimeUs endUs = 0;
     QString text;
+    // When each word ends, same time base as startUs, from forced alignment (wav2vec2). Empty, or
+    // no longer matching the words (the text was edited, the cue retimed), falls back to the
+    // proportional timing; karaoke follows the voice only with real timings (auditoria D11).
+    QList<TimeUs> wordEndsUs;
 };
+
+// Moves a cue and its word timings by `delta`.
+void shiftSubtitleCue(SubtitleCue &cue, TimeUs delta);
+// The word lit at localUs: from the cue's word timings when they still fit its words and its
+// window, else proportional (activeWordIndexAt below). -1 before the cue starts.
+int activeWordIndexAt(const SubtitleCue &cue, TimeUs localUs);
 
 const SubtitleCue *activeSubtitleCueAt(const QList<SubtitleCue> &cues, TimeUs localUs);
 

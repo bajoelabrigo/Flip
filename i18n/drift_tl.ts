@@ -150,12 +150,144 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Template</source>
         <translation type="unfinished">Template</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -209,15 +341,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
+        <source>No longer in Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
+        <source>It is no longer in the Stock catalog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -633,7 +769,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga kurba</translation>
     </message>
     <message>
         <source>Color wheels</source>
@@ -2659,6 +2795,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3490,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Nailapat ang template. Ang %n animated na setting ay bahagi ng dating istilo na wala sa template na ito at hindi naitago.</numerusform>
+            <numerusform>Nailapat ang template. Ang %n animated na setting ay bahagi ng dating istilo na wala sa template na ito at hindi naitago.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation type="unfinished"></translation>
@@ -3601,6 +3748,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>I-distort ang mga sulok</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3884,6 +4035,36 @@
     </message>
     <message>
         <source>Transition updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Alisin ang mga keyframe</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Nakopya ang %n keyframe</numerusform>
+            <numerusform>Nakopya ang %n keyframe</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Walang alinman sa mga katangian ng kinopyang keyframe ang clip na ito</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>I-paste ang mga keyframe</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Nai-paste ang %n keyframe</numerusform>
+            <numerusform>Nai-paste ang %n keyframe</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5085,7 +5266,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>3D</source>
@@ -5189,7 +5370,7 @@
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Imported</source>
@@ -5724,6 +5905,126 @@
     </message>
     <message>
         <source>My logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7421,7 +7722,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga kurba</translation>
     </message>
     <message>
         <source>Luma 0%</source>
@@ -9361,7 +9662,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>Boing</source>
@@ -9482,6 +9783,18 @@
     <message>
         <source>Skew</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glow pulse</source>
+        <translation>Kumikislap na liwanag</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Liwanag sa pahinga</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Panahon</translation>
     </message>
     <message>
         <source>Alternating strobe</source>
@@ -10860,6 +11173,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Continuous spin</source>
+        <translation>Tuloy-tuloy na pag-ikot</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Ikot</translation>
+    </message>
+    <message>
         <source>Squash &amp; stretch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11834,7 +12155,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Orihinal</translation>
     </message>
     <message>
         <source>Noise removed</source>
@@ -12507,6 +12828,14 @@ NEXT TIME</source>
     <message>
         <source>Trending</source>
         <translation>Uso</translation>
+    </message>
+    <message>
+        <source>Overlays</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select a clip with sound to change its voice</source>
@@ -13760,6 +14089,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13809,6 +14142,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14377,6 +14714,81 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Orihinal</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linear</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Banayad na pasok</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Banayad na labas</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Banayad na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Cubic na pasok</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Cubic na labas</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Cubic na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Malakas na pasok</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Malakas na labas</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Malakas na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bumilis</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Bumagal</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Kumuha ng bwelo</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Lumampas at bumalik</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Talbog</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Mga kurba</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14520,6 +14932,49 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>Tuwid</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Banayad sa pagdating</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Banayad sa pag-alis</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Mga kurba…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Burahin ang mga keyframe</translation>
     </message>
 </context>
 <context>
@@ -15644,6 +16099,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16601,6 +17064,10 @@ NEXT TIME</source>
         <translation>Naalis na ang tracking</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Napalitan ng bagong tracking ang mga keyframe ng posisyon ng elementong ito. Ibinabalik ang mga ito ng Undo (Ctrl+Z).</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>Wala na sa proyekto ang video na sinusundan nito</translation>
     </message>
@@ -16948,6 +17415,10 @@ NEXT TIME</source>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Istilo ng teksto (font, kulay, effect at animation; nananatili ang mga salita)</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17883,6 +18354,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Na-load ang proyekto. Gumagamit ito ng mga font na wala sa computer na ito: %1. Ibang font ang makikita sa mga teksto hanggang mai-install ang mga ito (I-import ang font sa listahan ng font, o ang mga Fonts pack sa Extras).</translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18143,7 +18618,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuwid</translation>
     </message>
     <message>
         <source>Straight — changes at a steady rate between keyframes</source>
@@ -18618,7 +19093,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Orihinal</translation>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
@@ -18949,6 +19424,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation type="unfinished"></translation>
@@ -20401,6 +20880,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20545,12 +21028,20 @@ If playback stutters, try another.</source>
         <translation>Mag-sign in para magamit ang mga trending</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Mag-sign in para magamit ang boses na ito</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Ang mga trending na animation ay para sa mga naka-sign in. Mag-sign in ka lang gamit ang Google account mo: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Ang mga boses na may apoy ay para sa mga naka-sign in. Kailangan mo lang mag-sign in gamit ang iyong Google account: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20579,6 +21070,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation type="unfinished"></translation>
@@ -21320,6 +21815,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21600,6 +22103,57 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21729,10 +22283,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21746,10 +22296,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21823,6 +22369,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Palitan ang mga caption na ito mula sa SRT, WebVTT o ASS na file</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Mga subtitle file (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Mga subtitle na WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Mga subtitle na SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>I-save ang mga caption bilang SRT, WebVTT (.vtt) o ASS (.ass): ang extension ang pipili ng format</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Mga subtitle na Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -21943,16 +22513,24 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Mga subtitle file (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Mga subtitle na WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Mga subtitle na SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22021,6 +22599,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Mag-import ng SRT, WebVTT o ASS na file bilang subtitle clip</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22215,6 +22797,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Buong block</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Titik</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Salita</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Pasulong</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Paatras</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Mula sa gitna</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Random</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linyar</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Makinis</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bilisan</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Mabilis</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Bumalik</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Talbog</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Ilipat X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Ilipat Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Laki X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Laki Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Pag-ikot</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D na ikot X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D na ikot Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacity</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>I-blur</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Pagitan ng titik</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Kulay ng fill</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Kapal ng stroke</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Glow</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>I-edit ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>I-customize ang animation</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>I-preview ang animation na ito</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Isara ang editor</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>Nagsisimula sa “%1”. Dahil sa mga pagbabago mo, magiging sariling animation ito ng tekstong ito.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Iniuugoy ng bawat bahagi ang teksto ayon sa mga value na ito, paulit-ulit.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Dinadala ng bawat bahagi ang teksto mula sa itsura nito papunta sa mga value na ito.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Dinadala ng bawat bahagi ang teksto mula sa mga value na ito papunta sa itsura nito.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Bahagi %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Doblehin ang bahagi</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Alisin ang bahagi</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Ayon sa</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Pagkakasunod</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Paisa-isa</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Tagal</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Ease</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Bilis</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Phase</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Pinananatili ng bahaging ito ang timing ng animation na pinagmulan nito.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Gumagalaw nang</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Nagtatapos sa</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Nagsisimula sa</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Itigil ang pag-animate nito</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>I-animate</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Magdagdag ng bahagi</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Isa pang galaw sa ibabaw, may sariling unit at timing</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>I-save bilang aking animation…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Itago sa Aking mga animation para magamit sa ibang teksto</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22257,6 +23066,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Maghanap ng istilo ng teksto</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22291,6 +23104,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Ilapat sa napiling teksto</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22536,7 +23353,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>Save style…</source>
@@ -22644,10 +23461,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22835,6 +23648,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Banayad</translation>
     </message>
@@ -22883,6 +23700,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Strikethrough</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22927,8 +23748,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Pagitan ng mga salita</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>I-justify</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23151,6 +23980,18 @@ If playback stutters, try another.</source>
         <translation>Tindi</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Paikot sa bilog</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Bahagi ng bilog</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Mga titik sa loob ng bilog</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23279,6 +24120,34 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search animations</source>
+        <translation>Maghanap ng animation</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>I-customize ang animation</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Piliin kung ano ang gagalaw, ayon sa titik, salita o linya, at kung paano</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Custom na animation: baguhin ito sa I-customize ang animation, o bumalik sa pagpili ng mga preset.</translation>
+    </message>
+    <message>
         <source>Rename text animation</source>
         <translation>Palitan ang pangalan ng animation ng teksto</translation>
     </message>
@@ -23300,7 +24169,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished"></translation>
+        <translation>Panahon</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -25519,32 +26388,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation type="unfinished">Linyar</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation type="unfinished"></translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>right-click: Tuwid, Banayad, Hinto, Mga kurba</translation>
     </message>
 </context>
 <context>
@@ -25884,6 +26729,34 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>I-distort (mga sulok)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Igalaw ang bawat sulok nang hiwalay para ilagay ang clip sa perspektibo, gaya ng karatula sa pader</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Itaas na kaliwa</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Itaas na kanan</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Ibabang kanan</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Ibabang kaliwa</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>I-reset ang mga sulok</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26163,6 +27036,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26975,7 +27852,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">Makinis</translation>
+        <translation>Banayad</translation>
     </message>
     <message>
         <source>Evens out the skin</source>

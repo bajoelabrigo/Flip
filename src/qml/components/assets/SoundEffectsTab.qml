@@ -34,9 +34,52 @@ Item {
     }
 
     property var allSounds: ownSounds()
-    property var categories: ownCategories(allSounds)
+    property var localCategories: ownCategories(allSounds)
     readonly property bool hasSounds: allSounds.length > 0
+    // Stock's music or sounds here too (0.22): Trending first (the most used), the rest spread over
+    // these chips by mood or kind after the local ones, or in chips of their own («stock:<category>»).
+    readonly property string stockType: root.music ? "music" : "sound"
+    readonly property string trendsId: "__trends__"
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips(root.stockType, root.localCategories.map(c => ({ "id": c.id, "label": c.label })))
+                                    : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var categories: Market.configured
+        ? [{ "id": root.trendsId, "label": qsTr("Trending") }].concat(root.localCategories).concat(root.stockChips.extra || [])
+        : root.localCategories
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.trendsId
+                                                 || root.activeCategory.indexOf("stock:") === 0)
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds(root.favoritesTab), [root.stockType], root.favoritesTab)
+               : []
+    }
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.stockTick++ }
+        function onCatalogChanged() { root.stockTick++ }
+    }
+
+    // A Stock song or sound is a file in Media: put at the playhead.
+    function stockInstalled(item) {
+        const asset = Market.placedId(item.id)
+        return asset.length > 0 && AssetLibrary.indexOfId(asset) >= 0
+    }
+    function applyStock(item) {
+        player.stop()
+        EditorState.addAssetClipWhenReady(Market.placedId(item.id))
+        root.added()
+    }
     readonly property string query: search.text.trim().toLowerCase()
     readonly property var currentSounds: {
         const q = root.query
@@ -46,6 +89,8 @@ Item {
             void root.favoritesTick
             return root.allSounds.filter(s => EditorState.isAssetFavorite(root.favoritesTab, s.id))
         }
+        if (root.showingStockOnly)
+            return []
         return root.allSounds.filter(s => s.category === root.activeCategory)
     }
 
@@ -55,7 +100,7 @@ Item {
             if (kind !== "sound-effects")
                 return
             root.allSounds = root.ownSounds()
-            root.categories = root.ownCategories(root.allSounds)
+            root.localCategories = root.ownCategories(root.allSounds)
             root.activeCategory = root.categories.length > 0 ? root.categories[0].id : ""
         }
     }
@@ -92,7 +137,7 @@ Item {
         AssetCategoryChips {
             id: chips
             width: parent.width
-            categories: root.hasSounds ? root.categories : []
+            categories: root.hasSounds || Market.configured ? root.categories : []
             activeCategory: root.activeCategory
             searching: root.query.length > 0
             onCategoryActivated: (categoryId) => root.activeCategory = categoryId
@@ -104,7 +149,7 @@ Item {
                              - (root.hasSounds ? Theme.spacingMd : 0) - chips.height)
 
             EmptyState {
-                visible: !root.hasSounds
+                visible: !root.hasSounds && !root.showingStockOnly
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
@@ -121,7 +166,7 @@ Item {
 
             Text {
                 visible: root.hasSounds && root.query.length === 0 && root.activeCategory === root.favoritesId
-                         && root.currentSounds.length === 0
+                         && root.currentSounds.length === 0 && root.stockFavorites.length === 0
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
@@ -130,6 +175,31 @@ Item {
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
+            }
+
+            // Trending, or a chip of Stock's own: Stock's rows only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyRows.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyRows
+                    y: Theme.pagePadding
+                    width: stockView.width
+                    sidePadding: Theme.pagePadding
+                    flickable: stockView
+                    type: root.stockType
+                    layout: "audio"
+                    categories: root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.music
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
             }
 
             // Past the end of a category, the wheel goes on into the next one (CapCut).
@@ -149,12 +219,28 @@ Item {
                 height: parent.height
                 topMargin: Theme.pagePadding
                 bottomMargin: Theme.pagePadding
-                visible: root.currentSounds.length > 0
+                visible: root.currentSounds.length > 0 || root.stockFooter
                 clip: true
                 spacing: Theme.spacingSm
                 boundsBehavior: Flickable.StopAtBounds
                 ScrollBar.vertical: AppScrollBar { }
                 model: root.currentSounds
+
+                // The chip's Stock rows after its own (and the starred ones in Favorites).
+                footer: StockPanelCards {
+                    width: list.width - Theme.spacingMd
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight + Theme.spacingSm : 0
+                    topPadding: Theme.spacingSm
+                    bare: true
+                    layout: "audio"
+                    flickable: list
+                    type: root.stockType
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
 
                 delegate: Rectangle {
                     id: row

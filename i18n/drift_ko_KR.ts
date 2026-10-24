@@ -150,12 +150,144 @@
         <translation>리터치</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>룩</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>장면 템플릿</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>클립 애니메이션</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>마스크</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>안녕하세요</translation>
     </message>
     <message>
         <source>Template</source>
         <translation>템플릿</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>선택한 클립에, 또는 재생 헤드 위치의 보정 레이어에</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>선택한 텍스트에, 또는 재생 헤드 위치의 새 텍스트에</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>타임라인의 재생 헤드 위치에 놓습니다</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>효과에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>효과 › 트렌드에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>내 효과에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>내 효과(속성 패널의 효과)에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>필터에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>필터와 조정 › LUT에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>전환에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>전환에 넣습니다</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>선택한 클립의 컷에, 또는 재생 헤드에 가장 가까운 컷에</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>도형에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>도형에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>트랙에 추가</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>제목에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>제목 › 트렌드에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>애니메이션에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>텍스트 › 애니메이션에 넣습니다</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>템플릿에 저장</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>템플릿에 넣어 바로 쓸 수 있게 합니다</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>미디어에 추가</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>미디어에 보관해 언제든 쓸 수 있게 합니다</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>“%1”을(를) 미디어에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>미디어에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>“%1” 준비 완료. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>“%1” 설치됨.</translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -208,16 +340,20 @@
         <translation>아직 스톡에서 다운로드한 항목이 없습니다. 스톡에서 다운로드한 무료 템플릿, 사진, 동영상은 계정의 이곳에 남습니다.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>이 템플릿 사용: 재생 헤드 위치에 배치됩니다</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>클릭하면 재생 헤드 위치에 놓습니다. 나중에 쓰도록 보관할 수도 있습니다.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>미디어에 있습니다</translation>
+        <source>No longer in Stock</source>
+        <translation>더 이상 스톡에 없음</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>이 컴퓨터에 없습니다. 스톡에서 검색해 다시 다운로드하세요</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>더 이상 스톡 카탈로그에 없습니다</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>목록에서 빼기(이 컴퓨터의 파일은 남습니다)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -2656,6 +2792,10 @@
         <translation>전체</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>길이</translation>
     </message>
@@ -3484,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>텍스트 프리셋이 적용됨</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>템플릿을 적용했습니다. 이전 스타일 중 이 템플릿에 없는 부분의 애니메이션 설정 %n개는 유지되지 않았습니다.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>텍스트 스타일을 저장할 수 없습니다</translation>
@@ -3595,6 +3741,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation>클립 뒤집기가 업데이트됨</translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>모서리 왜곡</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3879,6 +4029,34 @@
     <message>
         <source>Transition updated</source>
         <translation>전환이 업데이트됨</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>키프레임 제거</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>키프레임 %n개를 복사했습니다</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>이 클립에는 복사한 키프레임의 속성이 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>키프레임 붙여넣기</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>키프레임 %n개를 붙여넣었습니다</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
+        <translation>키프레임 이동</translation>
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
@@ -5695,6 +5873,126 @@
     <message>
         <source>My logo</source>
         <translation>내 로고</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>스톡 항목</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>“%1”은(는) 이미 템플릿에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>“%1”은(는) 미디어에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>“%1”은(는) 이미 설치되어 있습니다. 해당 패널에서 찾으세요.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>“%1”을(를) 타임라인에 추가할 수 없습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>“%1”을(를) 타임라인의 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>“%1”은(는) 효과 › 트렌드에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>“%1”을(를) “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>“%1”을(를) 보정 레이어에 넣었습니다. 그 아래의 모든 것이 바뀝니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>“%1”은(는) 내 효과에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>“%1”은(는) 내 효과에 있습니다. 목소리를 바꾸려면 소리가 있는 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>룩 “%1”을(를) “%2”에 적용하고 내 효과에 저장했습니다.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>룩 “%1”을(를) 보정 레이어에 넣고 내 효과에 저장했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>“%1”은(는) 필터에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>LUT 적용</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>필터 “%1”을(를) “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>필터 “%1”을(를) 보정 레이어에 넣었습니다. 그 아래의 모든 것이 바뀝니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>“%1”은(는) 전환에 있습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>“%1”은(는) 전환에 있습니다. 쓰려면 한 트랙에 이어진 클립 두 개가 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>전환 “%1”을(를) “%2” 뒤의 컷에 넣었습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>“%1”은(는) 도형에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>도형 “%1”을(를) 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>“%1”은(는) 제목 › 트렌드에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>스타일 “%1”을(를) 텍스트 “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>스타일 “%1”의 텍스트를 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>“%1”은(는) 텍스트 › 애니메이션에 있습니다.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>애니메이션 “%1”을(를) 텍스트 “%2”에 적용했습니다.</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>텍스트 추가</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>애니메이션 “%1”이(가) 적용된 텍스트를 재생 헤드 위치에 추가했습니다.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>“%1”에는 더 새로운 Flip Studio가 필요합니다.</translation>
     </message>
 </context>
 <context>
@@ -9447,6 +9745,18 @@
         <translation>기울이기</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>맥박치는 광채</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>기본 광채</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>주기</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>교차 스트로브</translation>
     </message>
@@ -10825,6 +11135,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>작업 속도를 높이세요</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>연속 회전</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -12470,6 +12788,14 @@ NEXT TIME</source>
         <translation>트렌드</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>오버레이</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>룩을 적용할 클립을 선택하세요</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>목소리를 바꾸려면 소리가 있는 클립을 선택하세요</translation>
     </message>
@@ -13719,6 +14045,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>룩</translation>
     </message>
@@ -13769,6 +14099,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>아직 가져온 LUT가 없습니다. .cube 파일을 가져오거나 Stock에서 LUT를 받으세요.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>아직 즐겨찾기가 없습니다. 필터의 별을 누르면 여기에 저장됩니다.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -14336,6 +14670,81 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>원본</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>선형</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>서서히 시작</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>서서히 끝</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>서서히 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>큐빅 시작</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>큐빅 끝</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>큐빅 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>강한 시작</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>강한 끝</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>강한 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>감속</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>도움닫기</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>지나쳤다 돌아오기</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>바운스</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>고정</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>곡선</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14478,6 +14887,49 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>키프레임 곡선 편집</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>키프레임 이동</translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>직선</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>부드럽게</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>도착을 부드럽게</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>출발을 부드럽게</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>고정</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>곡선…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>커브 편집…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>키프레임 삭제</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>키프레임 삭제</translation>
     </message>
 </context>
 <context>
@@ -15602,6 +16054,14 @@ NEXT TIME</source>
         <translation>모든 파일(*)</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>아직 즐겨찾기가 없습니다. 마스크의 별을 누르면 여기에 저장됩니다.</translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation>%1 — 클릭하여 적용하거나 클립에 드래그</translation>
     </message>
@@ -16545,6 +17005,10 @@ NEXT TIME</source>
         <translation>트래킹을 제거했습니다</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>이 요소의 위치 키프레임이 새 추적으로 바뀌었습니다. 실행 취소(Ctrl+Z)로 되돌릴 수 있습니다.</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>따라가던 동영상이 더 이상 프로젝트에 없습니다</translation>
     </message>
@@ -16891,6 +17355,10 @@ NEXT TIME</source>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation>변환(모션, 위치, 크기, 불투명도)</translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>텍스트 스타일(글꼴, 색, 효과, 애니메이션. 글자는 그대로)</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17825,6 +18293,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>프로젝트 미디어 압축을 푸는 중…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>프로젝트를 불러왔습니다. 이 컴퓨터에 없는 글꼴을 사용합니다: %1. 설치할 때까지 다른 글꼴로 표시됩니다(글꼴 목록의 글꼴 가져오기 또는 추가 기능의 글꼴 팩).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -18891,6 +19363,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation>템플릿 검색</translation>
@@ -20339,6 +20815,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>도형 검색</translation>
     </message>
@@ -20483,12 +20963,20 @@ If playback stutters, try another.</source>
         <translation>트렌드를 사용하려면 로그인하세요</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>이 목소리를 사용하려면 로그인하세요</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio는 무료입니다. 내보내기, Stock, 모든 템플릿에 비용이 들지 않습니다.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>트렌드 애니메이션은 로그인한 사용자용입니다. Google 계정으로 로그인만 하면 됩니다. 잠깐이면 되고 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>불꽃 표시가 있는 목소리는 로그인한 사용자용입니다. Google 계정으로 로그인하기만 하면 됩니다. 잠깐이면 되고, 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20517,6 +21005,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>사운드 검색</translation>
@@ -21258,6 +21750,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>배경</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>스티커 검색</translation>
     </message>
@@ -21536,6 +22036,57 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>로그인하고 트렌드 보기</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>트렌드를 불러오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>트렌드를 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>아직 아무것도 없습니다.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>트렌드는 Stock에서 오며 무료 계정이 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>브라우저를 기다리는 중…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>다시 시도</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — 클릭해서 사용</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — 클릭해서 다운로드하고 사용</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>재생 헤드에 추가</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>불러오는 중…</translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21664,10 +22215,6 @@ If playback stutters, try another.</source>
         <translation>가져오기</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>.srt 파일에서 이 캡션 교체</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
     </message>
@@ -21682,10 +22229,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>내보내기</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>캡션을 .srt 파일로 저장</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -21758,6 +22301,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>이모지</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>SRT, WebVTT 또는 ASS 파일로 이 자막 바꾸기</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>자막 파일 (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 자막 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 자막 (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>자막을 SRT, WebVTT(.vtt) 또는 ASS(.ass)로 저장: 확장자에 따라 형식이 정해집니다</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Advanced SubStation Alpha 자막 (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -21878,16 +22445,24 @@ If playback stutters, try another.</source>
         <translation>자막 파일 가져오기</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>.srt 파일을 자막 클립으로 가져오기</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>자막 파일 (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>SubRip 자막 (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 자막 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 자막 (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -21956,6 +22531,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>자막 스타일</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>SRT, WebVTT 또는 ASS 파일을 자막 클립으로 가져오기</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22148,6 +22727,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>전체 블록</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>문자</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>단어</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>줄</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>가운데에서 바깥쪽</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>무작위</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>선형</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>부드럽게</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>부드럽게 천천히</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>경쾌하게</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>바운스</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>이동 X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>이동 Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>크기 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>크기 Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>회전</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D 회전 X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D 회전 Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>불투명도</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>흐림</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>문자 간격</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>채우기 색</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>획 너비</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>광선</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>텍스트 애니메이션 편집</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>애니메이션 사용자 지정</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>이 애니메이션 미리보기</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>편집기 닫기</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>“%1”에서 시작합니다. 변경하면 이 텍스트만의 애니메이션이 됩니다.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>각 파트는 이 값만큼 텍스트를 계속 흔듭니다.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>각 파트는 텍스트를 원래 모습에서 이 값으로 가져갑니다.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>각 파트는 텍스트를 이 값에서 원래 모습으로 가져옵니다.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>파트 %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>파트 복제</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>파트 제거</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>기준</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>순서</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>간격</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>재생 시간</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>이징</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>위상</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>이 파트는 원래 애니메이션의 타이밍을 유지합니다.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>움직임 크기</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>끝 값</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>시작 값</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>이 항목 애니메이션 중지</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>파트 추가</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>고유한 단위와 타이밍을 가진 다른 움직임을 위에 추가</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>내 애니메이션으로 저장…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>내 애니메이션에 보관해 다른 텍스트에 사용</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22190,6 +22996,10 @@ If playback stutters, try another.</source>
         <translation>내 스타일 · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>텍스트 스타일 검색</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>즐겨찾기</translation>
     </message>
@@ -22224,6 +23034,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>재생 헤드 위치에 추가</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>선택한 텍스트에 적용</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22580,10 +23394,6 @@ If playback stutters, try another.</source>
         <translation>고급</translation>
     </message>
     <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>사용자 지정 애니메이터(MCP로 설정됨). 프리셋 컨트롤은 비활성화됩니다.</translation>
-    </message>
-    <message>
         <source>Revert to preset</source>
         <translation>프리셋으로 되돌리기</translation>
     </message>
@@ -22768,6 +23578,10 @@ If playback stutters, try another.</source>
         <translation>밑줄</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1”은(는) 다른 탭(인, 아웃, 루프)용입니다. 지금 그곳에 있습니다.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>부드럽게 천천히</translation>
     </message>
@@ -22816,6 +23630,10 @@ If playback stutters, try another.</source>
         <translation>굵게</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>취소선</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>대/소문자</translation>
     </message>
@@ -22860,8 +23678,16 @@ If playback stutters, try another.</source>
         <translation>텍스트가 효과로 채워져 있습니다. 고급에서 바꾸세요</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>단어 간격</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>정렬</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>양쪽 맞춤</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23084,6 +23910,18 @@ If playback stutters, try another.</source>
         <translation>강도</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>원을 따라</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>원 범위</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>글자를 원 안쪽에</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>내 스타일로 저장…</translation>
     </message>
@@ -23210,6 +24048,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>애니메이션 검색</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Stock 즐겨찾기</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Stock에서</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>애니메이션 사용자 지정</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>글자, 단어 또는 줄 단위로 무엇이 어떻게 움직일지 선택</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>사용자 지정 애니메이션: &apos;애니메이션 사용자 지정&apos;으로 바꾸거나 프리셋 선택으로 돌아가세요.</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -25447,32 +26313,8 @@ If playback stutters, try another.</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>선형</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation>이지 이즈</translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation>이지 이즈 인</translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation>이지 이즈 아웃</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>고정</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>커브 편집…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>키프레임 삭제</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>오른쪽 클릭: 직선, 부드럽게, 고정, 곡선</translation>
     </message>
 </context>
 <context>
@@ -25812,6 +26654,34 @@ If playback stutters, try another.</source>
         <translation>세로 뒤집기</translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>왜곡(모서리)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>각 모서리를 따로 움직여 클립에 원근감을 줍니다(벽의 간판처럼)</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>왼쪽 위</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>오른쪽 위</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>오른쪽 아래</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>왼쪽 아래</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>모서리 초기화</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation>위치 및 크기 초기화</translation>
     </message>
@@ -26088,6 +26958,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>타임라인에서 두 클립 중 첫 번째 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
     </message>
     <message>
         <source>My Transitions</source>

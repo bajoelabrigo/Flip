@@ -295,7 +295,7 @@ QString guessCategory(const QList<TextAnimator> &animators)
         ctx.timelineUs = t;
         const Frame f = evaluateTextAnimation(set, resolved, frags, domains, ctx);
         double score = std::abs(1.0 - f.block.opacity) + std::abs(f.block.dx) / 100.0 + std::abs(f.block.dy) / 100.0
-                       + std::abs(1.0 - f.block.scale);
+                       + std::abs(1.0 - f.block.scaleX) + std::abs(1.0 - f.block.scaleY);
         for (const FragmentProps &p : f.props)
             score += (std::abs(1.0 - p.opacity) + std::abs(p.dx) / 100.0 + std::abs(p.dy) / 100.0 + std::abs(1.0 - p.scaleX)
                       + std::abs(p.rotation) / 90.0 + p.blurPx / 20.0) / 12.0;

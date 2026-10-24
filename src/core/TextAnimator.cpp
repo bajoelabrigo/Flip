@@ -337,14 +337,14 @@ SlotTime slotTimeFor(TextAnimSlotKind kind, const TextAnimationSlot &slot,
     st.durationUs = derivedSlotDuration(slot, animators, domains);
     switch (kind) {
     case TextAnimSlotKind::In: {
-        const TimeUs elapsed = t - start - slot.delayUs;
+        const TimeUs elapsed = t - start + slot.cutUs - slot.delayUs;
         st.staggerElapsedUs = elapsed;
         st.progress = clamp01(static_cast<double>(elapsed) / static_cast<double>(st.durationUs));
-        st.elapsedSec = usToSeconds(std::max<TimeUs>(0, t - start));
+        st.elapsedSec = usToSeconds(std::max<TimeUs>(0, t - start) + slot.cutUs);
         break;
     }
     case TextAnimSlotKind::Out: {
-        const TimeUs remaining = end - slot.delayUs - t;
+        const TimeUs remaining = end + slot.cutUs - slot.delayUs - t;
         st.isOut = true;
         st.staggerElapsedUs = remaining;
         st.progress = clamp01(1.0 - static_cast<double>(remaining) / static_cast<double>(st.durationUs));
@@ -352,7 +352,7 @@ SlotTime slotTimeFor(TextAnimSlotKind kind, const TextAnimationSlot &slot,
         break;
     }
     case TextAnimSlotKind::Loop: {
-        const TimeUs elapsed = std::max<TimeUs>(0, t - start);
+        const TimeUs elapsed = std::max<TimeUs>(0, t - start) + slot.cutUs;
         st.timeDriven = true;
         st.staggerElapsedUs = elapsed;
         st.elapsedSec = usToSeconds(elapsed);
@@ -446,6 +446,7 @@ void applyFragmentProps(const TextAnimatorProps &p, double a, double progress, F
     out.tracking += resolveLength(p.tracking.at(progress), p.trackingUnit, true, 0.0, ctx) * a;
     out.lineSpacing += p.lineSpacing.at(progress) * ctx.renderScale * a;
     out.strokeWidthDelta += p.strokeWidth.at(progress) * ctx.renderScale * a;
+    out.glowPx += std::max(0.0, p.glow.at(progress)) * ctx.renderScale * ap;
     if (p.hasFillOpacity)
         out.fillOpacity = lerp(out.fillOpacity, p.fillOpacity.at(progress) / 100.0, ap);
     if (p.hasStrokeOpacity)
@@ -465,7 +466,8 @@ void applyBlockProps(const TextAnimatorProps &p, double a, double progress, Bloc
     out.rotation += p.rotation.at(progress) * a;
     out.rotationX += p.rotationX.at(progress) * a;
     out.rotationY += p.rotationY.at(progress) * a;
-    out.scale *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
+    out.scaleX *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
+    out.scaleY *= 1.0 + (p.scaleY.at(progress) / 100.0 - 1.0) * a;
     out.blurPx += p.blur.at(progress) * ctx.renderScale * a;
     if (p.hasOpacity)
         out.opacity = lerp(out.opacity, p.opacity.at(progress) / 100.0, ap);
@@ -533,12 +535,13 @@ bool isIdentity(const FragmentProps &p)
         && qFuzzyIsNull(p.rotationX) && qFuzzyIsNull(p.rotationY)
         && qFuzzyCompare(p.opacity, 1.0) && qFuzzyCompare(p.fillOpacity, 1.0)
         && qFuzzyCompare(p.strokeOpacity, 1.0) && qFuzzyIsNull(p.blurPx)
-        && qFuzzyIsNull(p.strokeWidthDelta) && !p.fillColor && !p.strokeColor && p.wipeProgress < 0.0;
+        && qFuzzyIsNull(p.strokeWidthDelta) && qFuzzyIsNull(p.glowPx) && !p.fillColor && !p.strokeColor
+        && p.wipeProgress < 0.0;
 }
 
 bool isIdentity(const BlockProps &b)
 {
-    return qFuzzyIsNull(b.dx) && qFuzzyIsNull(b.dy) && qFuzzyCompare(b.scale, 1.0)
+    return qFuzzyIsNull(b.dx) && qFuzzyIsNull(b.dy) && qFuzzyCompare(b.scaleX, 1.0) && qFuzzyCompare(b.scaleY, 1.0)
         && qFuzzyIsNull(b.rotation) && qFuzzyIsNull(b.rotationX) && qFuzzyIsNull(b.rotationY)
         && qFuzzyCompare(b.opacity, 1.0) && qFuzzyIsNull(b.blurPx)
         && b.wipeProgress < 0.0;
@@ -551,7 +554,7 @@ qint64 q(double v)
 
 quint64 poseHashOf(const Frame &frame)
 {
-    quint64 h = qHashMulti(0, q(frame.block.dx), q(frame.block.dy), q(frame.block.scale),
+    quint64 h = qHashMulti(0, q(frame.block.dx), q(frame.block.dy), q(frame.block.scaleX), q(frame.block.scaleY),
                            q(frame.block.rotation), q(frame.block.opacity), q(frame.block.blurPx),
                            q(frame.block.wipeProgress), q(frame.block.rotationX), q(frame.block.rotationY));
     for (const ParticleState &p : frame.particles)
@@ -560,7 +563,7 @@ quint64 poseHashOf(const Frame &frame)
         h = qHashMulti(h, q(p.dx), q(p.dy), q(p.scaleX), q(p.scaleY), q(p.rotation), q(p.skew),
                        q(p.rotationX), q(p.rotationY),
                        q(p.opacity), q(p.fillOpacity), q(p.strokeOpacity), q(p.blurPx),
-                       q(p.strokeWidthDelta), q(p.wipeProgress),
+                       q(p.strokeWidthDelta), q(p.wipeProgress), q(p.glowPx),
                        p.fillColor ? p.fillColor->rgba() : 0u, p.strokeColor ? p.strokeColor->rgba() : 0u);
     }
     return h;
@@ -590,10 +593,10 @@ CaretState caretFor(const TextAnimationSet &set, const ResolvedSlots &resolved, 
     bool show = false;
     if (in.active) {
         const TimeUs revealEnd = set.in.delayUs + in.durationUs;
-        show = c.holdAfterUs < 0 || elapsed <= revealEnd + c.holdAfterUs;
+        show = c.holdAfterUs < 0 || elapsed + set.in.cutUs <= revealEnd + c.holdAfterUs;
     }
     if (out.active && hasStepStagger(resolved.out)) {
-        const TimeUs outStart = end - set.out.delayUs - out.durationUs;
+        const TimeUs outStart = end + set.out.cutUs - set.out.delayUs - out.durationUs;
         show = show || ctx.timelineUs >= outStart;
     }
     if (!in.active && !out.active)
@@ -961,6 +964,7 @@ Bounds animationBounds(const ResolvedSlots &resolved, const EvalContext &ctx, co
             b.maxDx += std::abs(resolveLength(p.position.x.maxAbs(), p.position.unit, true, p.position.maxPx, ctx)) * kOvershoot;
             b.maxDy += std::abs(resolveLength(p.position.y.maxAbs(), p.position.unit, false, p.position.maxPx, ctx)) * kOvershoot;
             b.maxBlurPx += p.blur.maxAbs() * ctx.renderScale;
+            b.maxBlurPx += p.glow.maxAbs() * ctx.renderScale * 1.5; // the halo reaches past the letters
             const double scale = std::max(p.scaleX.maxAbs(), p.scaleY.maxAbs()) / 100.0;
             if (scale > 1.0)
                 b.maxScale *= scale * kOvershoot;
@@ -1256,6 +1260,7 @@ QJsonObject textAnimatorToJson(const TextAnimator &a)
         props.insert(QStringLiteral("trackingUnit"), textLengthUnitToString(p.trackingUnit));
     putParam(props, QStringLiteral("lineSpacing"), p.lineSpacing, 0.0);
     putParam(props, QStringLiteral("strokeWidth"), p.strokeWidth, 0.0);
+    putParam(props, QStringLiteral("glow"), p.glow, 0.0);
     if (p.wipe.enabled)
         props.insert(QStringLiteral("wipe"), QJsonObject{{QStringLiteral("enabled"), true},
                                                          {QStringLiteral("angleDeg"), p.wipe.angleDeg},
@@ -1315,6 +1320,7 @@ TextAnimator textAnimatorFromJson(const QJsonObject &o)
     p.trackingUnit = textLengthUnitFromString(props.value(QStringLiteral("trackingUnit")).toString());
     p.lineSpacing = textAnimParamFromJson(props.value(QStringLiteral("lineSpacing")), 0.0);
     p.strokeWidth = textAnimParamFromJson(props.value(QStringLiteral("strokeWidth")), 0.0);
+    p.glow = textAnimParamFromJson(props.value(QStringLiteral("glow")), 0.0);
     const QJsonObject wipe = props.value(QStringLiteral("wipe")).toObject();
     if (!wipe.isEmpty()) {
         p.wipe.enabled = jsonBool(wipe.value(QStringLiteral("enabled")), true);
@@ -1488,6 +1494,8 @@ QJsonObject textAnimationSlotToJson(const TextAnimationSlot &s)
         o.insert(QStringLiteral("durationUs"), static_cast<qint64>(s.durationUs));
     if (s.periodUs != 0)
         o.insert(QStringLiteral("periodUs"), static_cast<qint64>(s.periodUs));
+    if (s.cutUs != 0)
+        o.insert(QStringLiteral("cutUs"), static_cast<qint64>(s.cutUs));
     if (!s.enabled)
         o.insert(QStringLiteral("enabled"), false);
     return o;
@@ -1507,6 +1515,7 @@ TextAnimationSlot textAnimationSlotFromJson(const QJsonObject &o)
     s.delayUs = o.value(QStringLiteral("delayUs")).toInteger(0);
     s.durationUs = o.value(QStringLiteral("durationUs")).toInteger(0);
     s.periodUs = o.value(QStringLiteral("periodUs")).toInteger(0);
+    s.cutUs = qMax<qint64>(0, o.value(QStringLiteral("cutUs")).toInteger(0));
     s.enabled = jsonBool(o.value(QStringLiteral("enabled")), true);
     return s;
 }

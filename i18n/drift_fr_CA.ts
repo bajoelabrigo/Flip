@@ -150,12 +150,144 @@
         <translation>Retouche</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Rendus</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Modèles de scène</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Animations de clip</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Masques</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Bonjour</translation>
     </message>
     <message>
         <source>Template</source>
         <translation>Modèle</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>Sur le clip sélectionné, ou sur un calque de réglage à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>Sur le texte sélectionné, ou sur un nouveau texte à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Le place dans la ligne du temps, à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Enregistrer dans Effets</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Le place dans Effets › Tendances</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Appliquer</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Enregistrer dans Mes effets</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Le place dans Mes effets (Effets de l&apos;inspecteur)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Enregistrer dans Filtres</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Le place dans Filtres et dans Ajuster › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Enregistrer dans Transitions</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>La place dans Transitions</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>Sur la coupe du clip sélectionné, ou sur celle la plus proche de la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Enregistrer dans Formes</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>La place dans Formes</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Ajouter à la piste</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Enregistrer dans Titres</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Le place dans Titres › Tendances</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Enregistrer dans Animation</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>La place dans Texte › Animation</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Enregistrer dans Modèles</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Le place dans Modèles, prêt à utiliser</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Ajouter aux médias</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Le garde dans les médias pour l&apos;utiliser quand vous voulez</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>« %1 » a été ajouté aux médias.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Ajouté aux médias.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>« %1 » est prêt. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>« %1 » est installé.</translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -209,16 +341,20 @@
         <translation>Rien de téléchargé depuis Stock pour l&apos;instant. Les modèles, photos et vidéos gratuits que vous y téléchargez restent ici, dans votre compte.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Utiliser ce modèle : il se place à la tête de lecture</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Cliquez sur un élément pour le placer à la tête de lecture, ou gardez-le pour plus tard.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Il est dans vos médias</translation>
+        <source>No longer in Stock</source>
+        <translation>N&apos;est plus dans Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Pas sur cet ordinateur : cherchez-le dans Stock pour le télécharger de nouveau</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Il n&apos;est plus dans le catalogue Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Le retirer de la liste (les fichiers de cet ordinateur restent)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -2660,6 +2796,10 @@
         <translation>Tout</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoris</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
@@ -3495,6 +3635,13 @@
         <source>Text preset applied</source>
         <translation>Préréglage de texte appliqué</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Modèle appliqué. %n réglage(s) animé(s) appartenaient à une partie de l’ancien style que ce modèle n’a pas et n’ont pas été conservés.</numerusform>
+            <numerusform>Modèle appliqué. %n réglage(s) animé(s) appartenaient à une partie de l’ancien style que ce modèle n’a pas et n’ont pas été conservés.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Impossible d’enregistrer le style de texte</translation>
@@ -3606,6 +3753,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation>Miroir du clip mis à jour</translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>Déformer les coins</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3890,6 +4041,36 @@
     <message>
         <source>Transition updated</source>
         <translation>Transition mise à jour</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Supprimer les images clés</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>%n image(s) clé copiée(s)</numerusform>
+            <numerusform>%n image(s) clé copiée(s)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Ce clip n’a aucune des propriétés des images clés copiées</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Coller les images clés</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>%n image(s) clé collée(s)</numerusform>
+            <numerusform>%n image(s) clé collée(s)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Déplacer les images clés</translation>
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
@@ -5726,6 +5907,126 @@
     <message>
         <source>My logo</source>
         <translation>Mon logo</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Élément Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>« %1 » est déjà dans Modèles.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>« %1 » est dans les médias.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>« %1 » est déjà installé. Retrouvez-le dans son panneau.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Impossible d&apos;ajouter « %1 » à la ligne du temps.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>« %1 » a été ajouté à la ligne du temps, à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>« %1 » est dans Effets › Tendances.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>« %1 » est sur « %2 ».</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>« %1 » est sur un calque de réglage : il modifie tout ce qui est dessous.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>« %1 » est dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>« %1 » est dans Mes effets. Sélectionnez un clip avec du son pour changer sa voix.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Le look « %1 » est sur « %2 » et enregistré dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Le look « %1 » est sur un calque de réglage et enregistré dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>« %1 » est dans Filtres.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Appliquer la LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Le filtre « %1 » est sur « %2 ».</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Le filtre « %1 » est sur un calque de réglage : il modifie tout ce qui est dessous.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>« %1 » est dans Transitions.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>« %1 » est dans Transitions. Pour l&apos;utiliser, il faut deux clips qui se suivent sur une piste.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>La transition « %1 » est sur la coupe après « %2 ».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>« %1 » est dans Formes.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>La forme « %1 » a été ajoutée à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>« %1 » est dans Titres › Tendances.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Le style « %1 » est sur le texte « %2 ».</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Un texte avec le style « %1 » a été ajouté à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>« %1 » est dans Texte › Animation.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>L&apos;animation « %1 » est sur le texte « %2 ».</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Ajouter du texte</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Un texte avec l&apos;animation « %1 » a été ajouté à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>« %1 » nécessite une version plus récente de Flip Studio.</translation>
     </message>
 </context>
 <context>
@@ -9485,6 +9786,18 @@
         <translation>Inclinaison</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Lueur pulsée</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Lueur au repos</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Période</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Stroboscope alterné</translation>
     </message>
@@ -10863,6 +11176,14 @@ PROCHAINE</translation>
     <message>
         <source>Boost your workflow</source>
         <translation>Boostez votre travail</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Rotation continue</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Rotation</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -12514,6 +12835,14 @@ PROCHAINE</translation>
         <translation>Tendances</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Superpositions</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Sélectionnez un clip pour y appliquer le look</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Sélectionnez un clip avec du son pour changer sa voix</translation>
     </message>
@@ -13765,6 +14094,10 @@ PROCHAINE</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Looks</translation>
     </message>
@@ -13815,6 +14148,10 @@ PROCHAINE</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Aucune LUT importée pour l&apos;instant. Importez un fichier .cube ou trouvez des LUT dans Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Aucun favori pour l’instant. Touchez l’étoile d’un filtre pour le garder ici.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -14383,6 +14720,81 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Original</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linéaire</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Entrée douce</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Sortie douce</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Entrée et sortie douces</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Entrée cubique</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Sortie cubique</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Entrée et sortie cubiques</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Entrée forte</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Sortie forte</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Entrée et sortie fortes</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Accélérer</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Freiner</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Prendre de l&apos;élan</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Dépasser et revenir</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebond</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Maintien</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Courbes</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14526,6 +14938,49 @@ PROCHAINE</translation>
     <message>
         <source>Edit keyframe curve</source>
         <translation>Modifier la courbe des images clés</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Déplacer les images clés</translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>Droit</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Doux</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>Doux à l&apos;arrivée</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Doux au départ</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Maintien</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Courbes…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>Modifier la courbe…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>Supprimer l&apos;image clé</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Supprimer les images clés</translation>
     </message>
 </context>
 <context>
@@ -15650,6 +16105,14 @@ PROCHAINE</translation>
         <translation>Tous les fichiers (*)</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>Favoris</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Aucun favori pour l’instant. Touchez l’étoile d’un masque pour le garder ici.</translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation>%1 — cliquez pour appliquer, ou faites glisser sur un clip</translation>
     </message>
@@ -16607,6 +17070,10 @@ PROCHAINE</translation>
         <translation>Suivi supprimé</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Les images clés de position de cet élément ont été remplacées par le nouveau suivi. Annuler (Ctrl+Z) les récupère.</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>La vidéo suivie n’est plus dans le projet</translation>
     </message>
@@ -16954,6 +17421,10 @@ PROCHAINE</translation>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation>Transformation (mouvement, position, échelle, opacité)</translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Style du texte (police, couleurs, effets et animation; les mots restent)</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17893,6 +18364,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Unpacking project media…</source>
         <translation>Déballage des médias du projet…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Projet chargé. Il utilise des polices absentes de cet ordinateur : %1. Ses textes s’affichent avec une autre police tant qu’elles ne sont pas installées (Importer une police dans la liste, ou les paquets de polices des Extras).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -18962,6 +19437,10 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation>Rechercher des modèles</translation>
@@ -20414,6 +20893,10 @@ Si la lecture saccade, essayez une autre option.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Rechercher des formes</translation>
     </message>
@@ -20558,12 +21041,20 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Connectez-vous pour utiliser les tendances</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Connectez-vous pour utiliser cette voix</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio est gratuit : l&apos;exportation, Stock et tous les modèles ne coûtent rien.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Les animations tendance sont réservées aux personnes connectées. Il suffit de vous connecter avec votre compte Google : cela prend un instant, se fait une seule fois et votre projet reste tel quel.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Les voix avec la flamme sont réservées aux utilisateurs connectés. Il suffit de vous connecter avec votre compte Google : ça prend un instant, ça se fait une seule fois et votre projet reste tel quel.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20592,6 +21083,10 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Rechercher des sons</translation>
@@ -21334,6 +21829,14 @@ Si la lecture saccade, essayez une autre option.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Arrière-plans</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Rechercher des autocollants</translation>
     </message>
@@ -21614,6 +22117,57 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Connectez-vous pour voir les tendances</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Impossible de charger les tendances</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Chargement des tendances…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Rien ici pour l’instant.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Les tendances viennent de Stock, qui demande votre compte gratuit.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>En attente du navigateur…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Se connecter</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Réessayer</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — cliquez pour l’utiliser</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — cliquez pour le télécharger et l’utiliser</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Ajouter à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Chargement…</translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21743,10 +22297,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Importer</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Remplacer ces sous-titres par un fichier .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importer des sous-titres</translation>
     </message>
@@ -21761,10 +22311,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Export</source>
         <translation>Exporter</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Enregistrer les sous-titres en tant que fichier .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -21837,6 +22383,30 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Emojis</source>
         <translation>Émojis</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Remplacer ces sous-titres à partir d&apos;un fichier SRT, WebVTT ou ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Fichiers de sous-titres (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sous-titres WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sous-titres SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Enregistrer les sous-titres en SRT, WebVTT (.vtt) ou ASS (.ass) : l&apos;extension choisit le format</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Sous-titres Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -21957,16 +22527,24 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Importer un fichier de sous-titres</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Importer un fichier .srt comme clip de sous-titres</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importer des sous-titres</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Fichiers de sous-titres (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Sous-titres SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sous-titres WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sous-titres SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22036,6 +22614,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Caption style</source>
         <translation>Style des sous-titres</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Importer un fichier SRT, WebVTT ou ASS comme clip de sous-titres</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22230,6 +22812,233 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Bloc entier</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Caractère</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Mot</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Avant</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Arrière</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Du centre vers l&apos;extérieur</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Aléatoire</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linéaire</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Fluide</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Douce</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Accélérer</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Vif</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Retour</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebond</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Déplacer X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Déplacer Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Échelle X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Échelle Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotation</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>Rotation 3D X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>Rotation 3D Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacité</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Flou</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Interlettrage</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Couleur de remplissage</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Épaisseur du trait</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Lueur</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Modifier l&apos;animation de texte</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Personnaliser l&apos;animation</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Prévisualiser cette animation</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Fermer l&apos;éditeur</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>À partir de « %1 ». Vos modifications en font l&apos;animation propre à ce texte.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Chaque partie balance le texte selon ces valeurs, encore et encore.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Chaque partie amène le texte de son apparence jusqu&apos;à ces valeurs.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Chaque partie amène le texte de ces valeurs jusqu&apos;à son apparence.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Partie %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Dupliquer la partie</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Retirer la partie</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Par</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Ordre</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Décalage</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Durée</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Adouci</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Vitesse</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Phase</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Cette partie garde le minutage de l&apos;animation d&apos;où elle vient.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Bouge de</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Se termine à</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Part de</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Ne plus animer ceci</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Animer</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Ajouter une partie</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Un autre mouvement par-dessus, avec sa propre unité et son propre minutage</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Enregistrer comme mon animation…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>La garder dans Mes animations pour l&apos;utiliser sur d&apos;autres textes</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22273,6 +23082,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Mes styles · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Rechercher des styles de texte</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Favoris</translation>
     </message>
@@ -22307,6 +23120,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Ajouter à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Appliquer au texte sélectionné</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22663,10 +23480,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Avancé</translation>
     </message>
     <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Animateur personnalisé (défini via MCP). Les commandes de préréglage sont désactivées.</translation>
-    </message>
-    <message>
         <source>Revert to preset</source>
         <translation>Revenir au préréglage</translation>
     </message>
@@ -22851,6 +23664,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Souligner</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>« %1 » est pour un autre onglet (Entrée, Sortie ou Boucle) : il s’y trouve maintenant.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Douce</translation>
     </message>
@@ -22899,6 +23716,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Gras</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Barré</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Casse</translation>
     </message>
@@ -22943,8 +23764,16 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Le texte est peint avec un effet; changez-le dans Avancé</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Espacement des mots</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Alignement</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>Justifier</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23167,6 +23996,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Force</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Autour d’un cercle</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Part du cercle</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Lettres à l’intérieur du cercle</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Enregistrer comme mon style…</translation>
     </message>
@@ -23293,6 +24134,34 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Est lu pour chaque sous-titre</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>Rechercher des animations</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Favoris de Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>De Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Personnaliser l&apos;animation</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Choisissez ce qui bouge, par lettre, mot ou ligne, et comment</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Animation personnalisée : modifiez-la avec Personnaliser l&apos;animation, ou revenez aux préréglages.</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -25535,32 +26404,8 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Déplacer l&apos;image clé</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Linéaire</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation>Lissage entrée-sortie</translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation>Lissage à l&apos;entrée</translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation>Lissage à la sortie</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>Maintien</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>Modifier la courbe…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>Supprimer l&apos;image clé</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>clic droit : Droit, Doux, Maintien, Courbes</translation>
     </message>
 </context>
 <context>
@@ -25900,6 +26745,34 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Retourner V</translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>Déformer (coins)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Déplacez chaque coin séparément pour mettre le clip en perspective, comme une affiche sur un mur</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>En haut à gauche</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>En haut à droite</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>En bas à droite</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>En bas à gauche</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Réinitialiser les coins</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation>Réinitialiser position &amp; taille</translation>
     </message>
@@ -26180,6 +27053,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Sélectionnez dans la ligne de temps le premier des deux clips.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Tendances</translation>
     </message>
     <message>
         <source>My Transitions</source>

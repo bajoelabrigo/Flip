@@ -57,8 +57,7 @@ void scaleTemplateLayout(QList<Track> &tracks, int fromW, int fromH, int toW, in
             if (!clip.positionZ.isEmpty())
                 mapTrack(clip.positionZ, scale, 0.0, 0.0);
             if (clip.type == ClipType::Text || clip.type == ClipType::Subtitle) {
-                clip.textStyle.pixelSize = qMax(1, qRound(clip.textStyle.pixelSize * scale));
-                scaleKeyed(clip.textStyle.keyframes, QStringLiteral("pixelSize"), scale);
+                scaleTextStyle(clip.textStyle, scale);
             } else if (clip.type == ClipType::Shape) {
                 clip.shapeStyle.cornerRadius *= scale;
                 scaleKeyed(clip.shapeStyle.keyframes, QStringLiteral("cornerRadius"), scale);

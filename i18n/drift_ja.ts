@@ -150,12 +150,144 @@
         <translation>レタッチ</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>ルック</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>シーンテンプレート</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>クリップのアニメーション</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>マスク</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>こんにちは</translation>
     </message>
     <message>
         <source>Template</source>
         <translation>テンプレート</translation>
+    </message>
+    <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>選択中のクリップに、または再生ヘッドの位置の調整レイヤーに</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>選択中のテキストに、または再生ヘッドの位置の新しいテキストに</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>タイムラインの再生ヘッドの位置に置きます</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>エフェクトに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>エフェクト › トレンドに入れます</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>適用</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>マイエフェクトに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>マイエフェクト（インスペクターのエフェクト）に入れます</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>フィルターに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>フィルターと調整 › LUT に入れます</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>トランジションに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>トランジションに入れます</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>選択中のクリップのカットに、または再生ヘッドに最も近いカットに</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>シェイプに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>シェイプに入れます</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>トラックに追加</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>タイトルに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>タイトル › トレンドに入れます</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>アニメーションに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>テキスト › アニメーションに入れます</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>テンプレートに保存</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>テンプレートに入れて、すぐに使えるようにします</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>メディアに追加</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>メディアに保存して、いつでも使えるようにします</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>「%1」をメディアに追加しました。</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>メディアに追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>「%1」の準備ができました。%2。</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>「%1」をインストールしました。</translation>
     </message>
     <message>
         <source>Not signed in</source>
@@ -208,16 +340,20 @@
         <translation>Stock からはまだ何もダウンロードしていません。そこでダウンロードした無料のテンプレート、写真、動画はアカウントのここに残ります。</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>このテンプレートを使用: 再生ヘッドの位置に配置されます</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>クリックすると再生ヘッドの位置に置きます。あとで使うために保存することもできます。</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>メディアにあります</translation>
+        <source>No longer in Stock</source>
+        <translation>Stock から削除済み</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>このコンピューターにはありません: Stock で検索して再ダウンロードしてください</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Stock のカタログにはもうありません</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>リストから外す（このコンピューターのファイルは残ります）</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -2656,6 +2792,10 @@
         <translation>すべて</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
+    </message>
+    <message>
         <source>Duration</source>
         <translation>長さ</translation>
     </message>
@@ -3484,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>テキストプリセットを適用しました</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>テンプレートを適用しました。前のスタイルのうちこのテンプレートにない部分のアニメーション設定 %n 件は引き継がれませんでした。</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>テキストスタイルを保存できませんでした</translation>
@@ -3595,6 +3741,10 @@
     <message>
         <source>Clip flip updated</source>
         <translation>クリップの反転を更新しました</translation>
+    </message>
+    <message>
+        <source>Corner pin</source>
+        <translation>コーナーピン</translation>
     </message>
     <message>
         <source>Pan changed</source>
@@ -3879,6 +4029,34 @@
     <message>
         <source>Transition updated</source>
         <translation>トランジションを更新しました</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>キーフレームを %n 件コピーしました</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>このクリップにはコピーしたキーフレームのプロパティがありません</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>キーフレームを貼り付け</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>キーフレームを %n 件貼り付けました</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Move keyframes</source>
+        <translation>キーフレームを移動</translation>
     </message>
     <message>
         <source>The LUT library folder could not be created.</source>
@@ -5695,6 +5873,126 @@
     <message>
         <source>My logo</source>
         <translation>マイロゴ</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Stock のアイテム</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>「%1」はすでにテンプレートにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>「%1」はメディアにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>「%1」はすでにインストールされています。対応するパネルで探してください。</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>「%1」をタイムラインに追加できませんでした。</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>「%1」をタイムラインの再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>「%1」はエフェクト › トレンドにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>「%1」を「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>「%1」を調整レイヤーに適用しました。その下にあるすべてが変わります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>「%1」はマイエフェクトにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>「%1」はマイエフェクトにあります。声を変えるには音声のあるクリップを選択してください。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>ルック「%1」を「%2」に適用し、マイエフェクトに保存しました。</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>ルック「%1」を調整レイヤーに適用し、マイエフェクトに保存しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>「%1」はフィルターにあります。</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>LUT を適用</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>フィルター「%1」を「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>フィルター「%1」を調整レイヤーに適用しました。その下にあるすべてが変わります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>「%1」はトランジションにあります。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>「%1」はトランジションにあります。使うには、1 つのトラックに連続した 2 つのクリップが必要です。</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>トランジション「%1」を「%2」の後のカットに適用しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>「%1」はシェイプにあります。</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>シェイプ「%1」を再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>「%1」はタイトル › トレンドにあります。</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>スタイル「%1」をテキスト「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>スタイル「%1」のテキストを再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>「%1」はテキスト › アニメーションにあります。</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>アニメーション「%1」をテキスト「%2」に適用しました。</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>テキストを追加</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>アニメーション「%1」付きのテキストを再生ヘッドの位置に追加しました。</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>「%1」には新しい Flip Studio が必要です。</translation>
     </message>
 </context>
 <context>
@@ -9447,6 +9745,18 @@
         <translation>傾斜</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>脈打つ光</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>静止時の光</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>周期</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>交互ストロボ</translation>
     </message>
@@ -10825,6 +11135,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>ワークフローを加速</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>連続回転</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>回転</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -12470,6 +12788,14 @@ NEXT TIME</source>
         <translation>トレンド</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>オーバーレイ</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>ルックを適用するクリップを選択してください</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>声を変えるには音声のあるクリップを選択してください</translation>
     </message>
@@ -13719,6 +14045,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>ルック</translation>
     </message>
@@ -13769,6 +14099,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>インポートした LUT はまだありません。.cube ファイルをインポートするか、Stock で LUT を入手してください。</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>お気に入りはまだありません。フィルターの星をタップするとここに保存されます。</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -14336,6 +14670,81 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>オリジナル</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>リニア</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>イーズイン</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>イーズアウト</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>イーズインアウト</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>キュービックイン</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>キュービックアウト</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>キュービックインアウト</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>強いイン</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>強いアウト</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>強いインアウト</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>減速</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>助走</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>行き過ぎて戻る</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>バウンス</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>カーブ</translation>
+    </message>
+</context>
+<context>
     <name>KeyframeGraph</name>
     <message>
         <source>X position</source>
@@ -14478,6 +14887,49 @@ NEXT TIME</source>
     <message>
         <source>Edit keyframe curve</source>
         <translation>キーフレームカーブを編集</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>キーフレームを移動</translation>
+    </message>
+    <message>
+        <source>Straight</source>
+        <translation>直線</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>スムーズ</translation>
+    </message>
+    <message>
+        <source>Smooth in</source>
+        <translation>到着をスムーズに</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>出発をスムーズに</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>カーブ…</translation>
+    </message>
+    <message>
+        <source>Edit curve…</source>
+        <translation>カーブを編集…</translation>
+    </message>
+    <message>
+        <source>Delete keyframe</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>キーフレームを削除</translation>
     </message>
 </context>
 <context>
@@ -15602,6 +16054,14 @@ NEXT TIME</source>
         <translation>すべてのファイル (*)</translation>
     </message>
     <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>お気に入りはまだありません。マスクの星をタップするとここに保存されます。</translation>
+    </message>
+    <message>
         <source>%1 — click to apply, or drag onto a clip</source>
         <translation>%1 — クリックして適用するか、クリップにドラッグ</translation>
     </message>
@@ -16545,6 +17005,10 @@ NEXT TIME</source>
         <translation>トラッキングを削除しました</translation>
     </message>
     <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>この要素の位置キーフレームは新しいトラッキングで置き換えられました。元に戻す（Ctrl+Z）で戻せます。</translation>
+    </message>
+    <message>
         <source>The video it followed is no longer in the project</source>
         <translation>追従していた動画はもうプロジェクトにありません</translation>
     </message>
@@ -16891,6 +17355,10 @@ NEXT TIME</source>
     <message>
         <source>Transform (motion, position, scale, opacity)</source>
         <translation>変形 (動き、位置、スケール、不透明度)</translation>
+    </message>
+    <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>テキストスタイル（フォント・色・エフェクト・アニメーション。文字はそのまま）</translation>
     </message>
     <message>
         <source>, reverse</source>
@@ -17825,6 +18293,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>プロジェクトメディアを展開中…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>プロジェクトを読み込みました。このコンピューターにないフォントを使用しています：%1。インストールするまで別のフォントで表示されます（フォント一覧の「フォントをインポート」、またはエクストラのフォントパック）。</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -18892,6 +19364,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SceneTemplateBrowser</name>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
     <message>
         <source>Search templates</source>
         <translation>テンプレートを検索</translation>
@@ -20340,6 +20816,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>シェイプを検索</translation>
     </message>
@@ -20484,12 +20964,20 @@ If playback stutters, try another.</source>
         <translation>トレンドを使うにはログイン</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>この声を使うにはログイン</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio は無料です。書き出しも Stock もすべてのテンプレートも費用はかかりません。</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>トレンドのアニメーションはログインした方向けです。Google アカウントでログインするだけ。すぐに終わり、一度だけで、プロジェクトはそのまま残ります。</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>炎マークの声はログインした方向けです。Google アカウントでログインするだけ：すぐに終わり、一度だけで、プロジェクトはそのまま残ります。</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20518,6 +21006,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>効果音を検索</translation>
@@ -21260,6 +21752,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>背景</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>スタンプを検索</translation>
     </message>
@@ -21538,6 +22038,57 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>サインインしてトレンドを見る</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>トレンドを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>トレンドを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>まだ何もありません。</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>トレンドは Stock から届きます。無料アカウントが必要です。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ブラウザーを待っています…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>サインイン</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>再試行</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — クリックして使う</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — クリックしてダウンロードして使う</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>再生ヘッドに追加</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>読み込み中…</translation>
+    </message>
+</context>
+<context>
     <name>StockRequestsDialog</name>
     <message>
         <source>Ask for a template</source>
@@ -21666,10 +22217,6 @@ If playback stutters, try another.</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>.srt ファイルからこれらのキャプションを置き換え</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
     </message>
@@ -21684,10 +22231,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>エクスポート</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>キャプションを .srt ファイルとして保存</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -21760,6 +22303,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>絵文字</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>SRT、WebVTT、ASS ファイルからこれらのキャプションを置き換え</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>字幕ファイル (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 字幕 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 字幕 (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>キャプションを SRT、WebVTT (.vtt)、ASS (.ass) として保存（拡張子で形式が決まります）</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Advanced SubStation Alpha 字幕 (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -21880,16 +22447,24 @@ If playback stutters, try another.</source>
         <translation>字幕ファイルをインポート</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>.srt ファイルを字幕クリップとしてインポート</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>字幕ファイル (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>SubRip 字幕 (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 字幕 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 字幕 (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -21958,6 +22533,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>字幕のスタイル</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>SRT、WebVTT、ASS ファイルを字幕クリップとしてインポート</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
@@ -22150,6 +22729,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>ブロック全体</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>文字</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>単語</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>行</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>順方向</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>逆方向</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>中央から外へ</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>ランダム</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>リニア</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>スムーズ</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>なめらか弱</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>スナッピー</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>戻る</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>バウンス</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>移動 X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>移動 Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>拡大縮小 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>拡大縮小 Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>回転</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D回転 X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D回転 Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ぼかし</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>文字間隔</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>塗りの色</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>線の太さ</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>グロー</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>テキストアニメーションを編集</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>アニメーションをカスタマイズ</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>このアニメーションをプレビュー</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>エディターを閉じる</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>「%1」から開始します。変更するとこのテキスト専用のアニメーションになります。</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>各パートはこれらの値でテキストを繰り返し揺らします。</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>各パートはテキストを元の見た目からこれらの値へ動かします。</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>各パートはテキストをこれらの値から元の見た目へ動かします。</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>パート %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>パートを複製</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>パートを削除</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>方法</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>順序</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>スタッガー</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>長さ</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>イーズ</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>フェーズ</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>このパートは元のアニメーションのタイミングを保ちます。</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>動く量</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>終了時</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>開始時</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>これのアニメーションをやめる</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>アニメーション</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>パートを追加</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>独自の単位とタイミングを持つ別の動きを重ねます</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>マイアニメーションとして保存…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>マイアニメーションに保存して他のテキストで使います</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -22192,6 +22998,10 @@ If playback stutters, try another.</source>
         <translation>マイスタイル · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>テキストスタイルを検索</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>お気に入り</translation>
     </message>
@@ -22226,6 +23036,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>選択したテキストに適用</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -22582,10 +23396,6 @@ If playback stutters, try another.</source>
         <translation>詳細設定</translation>
     </message>
     <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>カスタムアニメーター (MCP 経由で設定)。プリセットコントロールは無効です。</translation>
-    </message>
-    <message>
         <source>Revert to preset</source>
         <translation>プリセットに戻す</translation>
     </message>
@@ -22770,6 +23580,10 @@ If playback stutters, try another.</source>
         <translation>下線</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>「%1」は別のタブ（イン、アウト、ループ）用です。今はそちらにあります。</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>なめらか弱</translation>
     </message>
@@ -22818,6 +23632,10 @@ If playback stutters, try another.</source>
         <translation>太字</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>取り消し線</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>大文字/小文字</translation>
     </message>
@@ -22862,8 +23680,16 @@ If playback stutters, try another.</source>
         <translation>テキストはエフェクトで塗られています。詳細設定で変更してください</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>単語の間隔</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>配置</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>両端揃え</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23086,6 +23912,18 @@ If playback stutters, try another.</source>
         <translation>強さ</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>円に沿って</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>円の範囲</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>文字を円の内側に</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>マイスタイルとして保存…</translation>
     </message>
@@ -23212,6 +24050,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>アニメーションを検索</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Stock のお気に入り</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Stock から</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>アニメーションをカスタマイズ</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>文字・単語・行ごとに、何をどう動かすかを選びます</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>カスタムアニメーション：「アニメーションをカスタマイズ」で変更するか、プリセットの選択に戻ります。</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -25449,32 +26315,8 @@ If playback stutters, try another.</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>リニア</translation>
-    </message>
-    <message>
-        <source>Easy ease</source>
-        <translation>イージーイーズ</translation>
-    </message>
-    <message>
-        <source>Easy ease in</source>
-        <translation>イージーイーズイン</translation>
-    </message>
-    <message>
-        <source>Easy ease out</source>
-        <translation>イージーイーズアウト</translation>
-    </message>
-    <message>
-        <source>Hold</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Edit curve…</source>
-        <translation>カーブを編集…</translation>
-    </message>
-    <message>
-        <source>Delete keyframe</source>
-        <translation>キーフレームを削除</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>右クリック：直線、スムーズ、停止、カーブ</translation>
     </message>
 </context>
 <context>
@@ -25814,6 +26656,34 @@ If playback stutters, try another.</source>
         <translation>上下反転</translation>
     </message>
     <message>
+        <source>Distort (corner pin)</source>
+        <translation>変形（コーナーピン）</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>各コーナーを個別に動かしてクリップに遠近感を付けます（壁の看板のように）</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>左上</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>右上</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>右下</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>左下</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>コーナーをリセット</translation>
+    </message>
+    <message>
         <source>Reset position &amp; size</source>
         <translation>位置とサイズをリセット</translation>
     </message>
@@ -26090,6 +26960,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>タイムラインで 2 つのクリップのうち最初のクリップを選択してください。</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
     </message>
     <message>
         <source>My Transitions</source>

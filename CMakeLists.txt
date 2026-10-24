@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.21.0 LANGUAGES CXX C)
+project(Drift VERSION 0.22.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1329,6 +1329,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/GeneralInspector.qml
         src/qml/components/properties/TextInspector.qml
         src/qml/components/properties/TextParamSlots.qml
+        src/qml/components/properties/TextAnimatorEditor.qml
         src/qml/components/properties/PaintEditor.qml
         src/qml/components/properties/GradientStopEditor.qml
         src/qml/components/properties/ShadingLayerRow.qml
@@ -1389,6 +1390,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/StockBrowser.qml
         src/qml/components/assets/SfxBrowser.qml
         src/qml/components/assets/StockThumb.qml
+        src/qml/components/assets/StockPanelCards.qml
         src/qml/components/assets/StockItemDetail.qml
         src/qml/components/assets/StockHome.qml
         src/qml/components/assets/StockRequestsDialog.qml
@@ -1400,6 +1402,9 @@ qt_add_qml_module(drift
         src/qml/TimelinePanel.qml
         src/qml/components/timeline/TimelineToolbar.qml
         src/qml/components/timeline/TrackKeyframeRows.qml
+        src/qml/components/timeline/KeyframeGlyph.qml
+        src/qml/components/timeline/KeyframeCurvesPopup.qml
+        src/qml/components/timeline/KeyframeKeyTools.qml
         src/qml/components/timeline/TimelineToolbarCustomizeDialog.qml
         src/qml/components/timeline/TimelineOverview.qml
         src/qml/components/timeline/TrackHeaderColumn.qml

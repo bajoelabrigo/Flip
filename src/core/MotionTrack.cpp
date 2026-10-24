@@ -69,7 +69,7 @@ QJsonObject motionTrackToJson(const MotionTrack &track)
         rows.append(QJsonArray{double(s.sourceUs), s.rect.x(), s.rect.y(), s.rect.width(), s.rect.height(),
                                std::round(s.score * 1000.0) / 1000.0, int(s.state)});
     }
-    return QJsonObject{
+    QJsonObject out{
         {QStringLiteral("version"), MotionTrack::kVersion},
         {QStringLiteral("mode"), track.mode},
         {QStringLiteral("sourceClipId"), track.sourceClipId},
@@ -84,6 +84,11 @@ QJsonObject motionTrackToJson(const MotionTrack &track)
         {QStringLiteral("anchorPixelSize"), track.anchorPixelSize},
         {QStringLiteral("samples"), rows},
     };
+    if (track.bakedFromUs >= 0 && track.bakedToUs >= track.bakedFromUs) {
+        out.insert(QStringLiteral("bakedFromUs"), double(track.bakedFromUs));
+        out.insert(QStringLiteral("bakedToUs"), double(track.bakedToUs));
+    }
+    return out;
 }
 
 std::optional<MotionTrack> motionTrackFromJson(const QJsonObject &object)
@@ -106,6 +111,8 @@ std::optional<MotionTrack> motionTrackFromJson(const QJsonObject &object)
     track.anchorTarget = rectFromJson(object.value(QStringLiteral("anchorTarget")));
     track.anchorElement = rectFromJson(object.value(QStringLiteral("anchorElement")));
     track.anchorPixelSize = object.value(QStringLiteral("anchorPixelSize")).toDouble(0.0);
+    track.bakedFromUs = TimeUs(object.value(QStringLiteral("bakedFromUs")).toDouble(-1.0));
+    track.bakedToUs = TimeUs(object.value(QStringLiteral("bakedToUs")).toDouble(-1.0));
     for (const QJsonValue &value : object.value(QStringLiteral("samples")).toArray()) {
         const QJsonArray row = value.toArray();
         if (row.size() < 7)
@@ -203,6 +210,8 @@ MotionBakeResult bakeMotionTrack(const MotionTrack &track, const Clip &video, Cl
 
     const TimeUs first = smooth.first().t - follower->timelineStart;
     const TimeUs last = smooth.last().t - follower->timelineStart;
+    result.fromUs = first;
+    result.toUs = last;
     const auto clearRange = [&](KeyframeTrack<double> &keys) {
         for (const TimeUs time : keys.keyframes().keys()) {
             if (time >= first && time <= last)

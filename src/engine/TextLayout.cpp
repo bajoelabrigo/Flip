@@ -54,21 +54,28 @@ quint64 styleHash(const drift::TextStyle &s)
                                  s.boxOffsetX, s.boxOffsetY, s.boxBorderColor.rgba(), s.boxBorderWidth),
                       highlightHash(s.wordHighlight), s.underlineEnabled,
                       s.underlineColor.rgba(), s.underlineWidth, s.underlineOffset,
+                      qHashMulti(0, s.strikeEnabled, s.wordSpacing, s.pathCircle),
                       qHashMulti(0, static_cast<int>(a.rule), a.n, a.phase, a.colorEnabled,
                                  a.color.rgba(), a.sizeScale, a.outlineEnabled, a.outlineWidth,
                                  a.outlineColor.rgba(), highlightHash(a.highlight)));
 }
 
-// Only what moves glyphs: the look (colours, strokes) is painted, not laid out.
+// What moves glyphs, plus what sizes the cached ink bounds (paintedBounds): the stroke widths and
+// the highlight paddings. Leaving those out kept the box and the block gradient at the size of the
+// first stroke after the width changed (auditoría D5). The rest of the look is painted, not laid out.
 quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWidth, double blockHeight,
                   double renderScale, int activeWordIndex, WordSplit split)
 {
     const drift::WordAccent &a = s.accent;
+    const auto pad = [](const drift::TextHighlight &h) { return h.enabled ? qRound(h.padding * 4.0) : -1; };
+    const quint64 ink = qHashMulti(0, qRound(drift::textStrokeWidth(s, false) * 4.0),
+                                   qRound(drift::textStrokeWidth(s, true) * 4.0), pad(s.wordHighlight),
+                                   pad(a.highlight));
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split));
+                      static_cast<int>(split), ink, s.wordSpacing);
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
@@ -240,7 +247,8 @@ struct RunData
     std::vector<uint32_t> starts; // count + 1
 };
 
-skt::TextStyle makeTextStyle(const QString &family, int weight, bool italic, double px, double letterSpacing)
+skt::TextStyle makeTextStyle(const QString &family, int weight, bool italic, double px, double letterSpacing,
+                             double wordSpacing = 0.0)
 {
     skt::TextStyle style;
     style.setFontFamilies({SkString(family.toUtf8().constData())});
@@ -248,6 +256,8 @@ skt::TextStyle makeTextStyle(const QString &family, int weight, bool italic, dou
     style.setFontStyle(SkFontStyle(weight, SkFontStyle::kNormal_Width,
                                    italic ? SkFontStyle::kItalic_Slant : SkFontStyle::kUpright_Slant));
     style.setLetterSpacing(float(letterSpacing));
+    if (!qFuzzyIsNull(wordSpacing))
+        style.setWordSpacing(float(wordSpacing));
     return style;
 }
 
@@ -336,13 +346,16 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     const QString emojiFamily = emojiFontFamily();
 
     const double letterSpacing = qFuzzyIsNull(style.letterSpacing) ? 0.0 : style.letterSpacing * renderScale;
-    const int basePx = qMax(4, qRound(style.pixelSize * renderScale));
-    int accentPx = basePx;
+    const double wordSpacing = qFuzzyIsNull(style.wordSpacing) ? 0.0 : style.wordSpacing * renderScale;
+    // Fractional sizes, not whole render pixels: a keyed size grows smoothly, and the preview's
+    // scale and the export's lay out the same line breaks (auditoría D8).
+    const double basePx = qMax(4.0, style.pixelSize * renderScale);
+    double accentPx = basePx;
     const double accentScale = style.accent.sizeScale;
     if (style.accent.rule != drift::WordAccentRule::None && accentScale > 0.0 && !qFuzzyCompare(accentScale, 1.0))
-        accentPx = qMax(1, qRound(style.pixelSize * accentScale * renderScale));
+        accentPx = qMax(1.0, style.pixelSize * accentScale * renderScale);
     const bool anyAccent = std::find(accentFlags.cbegin(), accentFlags.cend(), true) != accentFlags.cend();
-    const bool mixedSizes = accentPx != basePx && anyAccent;
+    const bool mixedSizes = !qFuzzyCompare(accentPx, basePx) && anyAccent;
 
     std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
 
@@ -385,8 +398,8 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
 
     const auto styleFor = [&](bool accent, bool emoji) {
         const double px = accent ? accentPx : basePx;
-        return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing)
-                     : makeTextStyle(resolved.family, resolved.weight, resolved.italic, px, letterSpacing);
+        return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing, wordSpacing)
+                     : makeTextStyle(resolved.family, resolved.weight, resolved.italic, px, letterSpacing, wordSpacing);
     };
 
     skt::ParagraphStyle paragraphStyle;
@@ -525,6 +538,21 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         else if (style.align == drift::TextAlign::Right)
             lineX = wrapWidth - lm.fWidth;
 
+        // Justify: a line the wrap broke (not one a paragraph ends) spreads its spare width over
+        // the gaps between its words; each word moves right by its share.
+        double justifyGap = 0.0;
+        QHash<int, int> wordOrdinal; // word index -> its place on this line
+        if (style.align == drift::TextAlign::Justify && style.wordWrap && !lm.fHardBreak && i + 1 < lineCount) {
+            const int ls = int(lm.fStartIndex);
+            const int le = qMin(int(lm.fEndExcludingWhitespaces), int(source.size()));
+            for (int wi = 0; wi < ranges.size(); ++wi) {
+                if (ranges.at(wi).start < le && ranges.at(wi).start + ranges.at(wi).length > ls)
+                    wordOrdinal.insert(wi, wordOrdinal.size());
+            }
+            if (wordOrdinal.size() > 1)
+                justifyGap = qMax(0.0, (wrapWidth - lm.fWidth) / (wordOrdinal.size() - 1));
+        }
+
         const double baseline = blockTop + lineTop + (mixedSizes ? lm.fAscent : baseMetrics.ascent);
         layoutData->lineX.append(lineX);
         layoutData->lineBaseline.append(baseline);
@@ -552,6 +580,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                 continue;
 
             const Metrics &wordMetrics = accentFlags.at(wi) ? accentMetrics : baseMetrics;
+            const double justifyShift = justifyGap * wordOrdinal.value(wi, 0);
 
             auto appendRun = [&](int from, int to) {
                 QString slice = source.mid(from, to - from);
@@ -578,7 +607,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                         if (run.starts[g] < from8 || run.starts[g] >= to8)
                             continue;
                         anyGlyph = true;
-                        const float gx = float(lineX) + run.originX + run.positions[g].fX;
+                        const float gx = float(lineX + justifyShift) + run.originX + run.positions[g].fX;
                         const float gy = float(baseline) + run.positions[g].fY;
                         gx0 = std::min(gx0, gx);
                         gx1 = std::max(gx1, gx + (g + 1 < run.glyphs.size() ? run.positions[g + 1].fX - run.positions[g].fX
@@ -615,8 +644,8 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                     x0 = std::numeric_limits<double>::max();
                     x1 = std::numeric_limits<double>::lowest();
                     for (const skt::TextBox &box : boxes) {
-                        x0 = std::min(x0, lineX + box.rect.left());
-                        x1 = std::max(x1, lineX + box.rect.right());
+                        x0 = std::min(x0, lineX + justifyShift + box.rect.left());
+                        x1 = std::max(x1, lineX + justifyShift + box.rect.right());
                     }
                 }
 
@@ -1159,7 +1188,7 @@ QSizeF naturalTextSize(const QString &text, const drift::TextStyle &style, doubl
 
 WordSplit splitFor(const drift::textanim::ResolvedSlots &resolved, const drift::TextStyle &style)
 {
-    if (textBendRise(style) > 0.0)
+    if (textBendRise(style) > 0.0 || style.pathCircle > 0.5) // each letter follows the curve
         return WordSplit::Characters;
     const auto perCharacter = [](const QList<drift::TextAnimator> &animators) {
         for (const drift::TextAnimator &a : animators) {
@@ -1191,7 +1220,9 @@ drift::textanim::EvalContext evalContextFor(const drift::TextStyle &style, const
     ctx.boxWidthPx = layoutRect.width();
     ctx.boxHeightPx = layoutRect.height();
     ctx.renderScale = renderScale;
-    ctx.alignFactor = style.align == drift::TextAlign::Left ? 0.0 : (style.align == drift::TextAlign::Right ? 1.0 : 0.5);
+    ctx.alignFactor = style.align == drift::TextAlign::Left || style.align == drift::TextAlign::Justify
+                          ? 0.0
+                          : (style.align == drift::TextAlign::Right ? 1.0 : 0.5);
     ctx.activeWordIndex = activeWordIndex;
     ctx.baseFillColor = drift::textFillColor(style, false);
     ctx.baseStrokeColor = drift::textStrokeColor(style, false);

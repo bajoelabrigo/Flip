@@ -17,6 +17,7 @@
 #include "engine/Exporter.h"
 #include "engine/ProjectDependencies.h"
 #include "engine/FaceTrack.h"
+#include "engine/FontCatalog.h"
 #include "engine/MatteWriter.h"
 #include "engine/MediaEditor.h"
 #include "engine/TransitionCatalog.h"
@@ -1356,6 +1357,44 @@ void ProjectFileController::finishLoad(int generation, const QUrl &url,
     const QString message = tr("Project loaded");
     m_app->setLastMessage(message, QStringLiteral("success"));
     reportMissingAddons(bundle.addons);
+    // Fonts the user had imported on the computer that saved it travel in the file: install the
+    // ones this computer does not have yet, before the texts are drawn with a fallback.
+    {
+        const QString fontDir = QDir::cleanPath(::userFontDir());
+        bool installed = false;
+        for (const drift::bundle::MediaEntry &entry : bundle.media) {
+            if (!entry.embedded || entry.originalPath.isEmpty()
+                || QDir::cleanPath(QFileInfo(entry.originalPath).absolutePath()) != fontDir)
+                continue;
+            const QString local = remap.value(entry.originalPath, entry.originalPath);
+            if (QFileInfo::exists(entry.originalPath) || !QFileInfo::exists(local))
+                continue;
+            QString error;
+            installed = !::importUserFontFile(local, &error).isEmpty() || installed;
+        }
+        if (installed)
+            m_app->emitPreviewFrame();
+    }
+    // Fonts this computer does not have (an imported one, or one from another computer): the texts
+    // fall back to another font, so say which (auditoría: a .flip opened elsewhere changed font
+    // without a word).
+    {
+        QList<drift::Track> all;
+        std::as_const(m_app->m_project).forEachTrackList([&all](const QList<drift::Track> &tracks) { all += tracks; });
+        const QStringList missingFonts = AppController::missingTemplateFonts(all);
+        if (!missingFonts.isEmpty()) {
+            // After «Project loaded», not instead of it: that message is how the load reports in.
+            const QString warning =
+                tr("Project loaded. It uses fonts this computer does not have: %1. Its texts show "
+                   "with another font until they are installed (Import font in the font list, or the "
+                   "Fonts packs in Extras).").arg(missingFonts.join(QStringLiteral(", ")));
+            QPointer<AppController> app(m_app);
+            QTimer::singleShot(1500, this, [app, warning] {
+                if (app)
+                    app->setLastMessage(warning, QStringLiteral("warning"));
+            });
+        }
+    }
     finishProjectLoad(true, message);
 }
 

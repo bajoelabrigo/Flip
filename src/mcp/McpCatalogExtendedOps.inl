@@ -687,19 +687,19 @@
           "Add an empty subtitle clip, creating a subtitle track when needed. Returns {id, track, index}. "
           "Fill it with set_subtitle_cues or import_subtitle_into_clip.",
           objectSchema({{QStringLiteral("at"), numberProp(QStringLiteral("Start seconds (default: playhead)"))}}) },
-        { "import_subtitle_file", "subtitles", "Bring an .srt/.vtt file in as a new subtitle clip",
-          "Import an .srt or .vtt file as a NEW subtitle clip. Returns {id, track, index}. Use "
+        { "import_subtitle_file", "subtitles", "Bring an .srt/.vtt/.ass file in as a new subtitle clip",
+          "Import an .srt, .vtt, .ass or .ssa file as a NEW subtitle clip. Returns {id, track, index}. Use "
           "import_subtitle_into_clip to fill an existing clip instead.",
-          objectSchema({{QStringLiteral("path"), stringProp(QStringLiteral("Absolute .srt or .vtt path"))},
+          objectSchema({{QStringLiteral("path"), stringProp(QStringLiteral("Absolute .srt, .vtt, .ass or .ssa path"))},
                         {QStringLiteral("at"), numberProp(QStringLiteral("Start seconds (default: playhead)"))}},
                        {QStringLiteral("path")}) },
         { "import_subtitle_into_clip", "subtitles", "Load into clip",
           "Import a subtitle file into an existing subtitle clip, replacing its cues.",
-          objectSchema(mergeProps({{QStringLiteral("path"), stringProp(QStringLiteral("Absolute .srt or .vtt path"))}},
+          objectSchema(mergeProps({{QStringLiteral("path"), stringProp(QStringLiteral("Absolute .srt, .vtt, .ass or .ssa path"))}},
                                   clipRefProps()),
                        {QStringLiteral("path")}) },
-        { "export_subtitle_file", "subtitles", "Save a subtitle clip's cues as .srt/.vtt",
-          "Write a subtitle clip's cues to a file. The format follows the path's extension (.srt/.vtt). "
+        { "export_subtitle_file", "subtitles", "Save a subtitle clip's cues as .srt/.vtt/.ass",
+          "Write a subtitle clip's cues to a file. The format follows the path's extension (.srt/.vtt/.ass). "
           "Cue times are clip-local unless timeline_times is true.",
           objectSchema(mergeProps({{QStringLiteral("path"), stringProp(QStringLiteral("Absolute output path; extension picks the format"))},
                                    {QStringLiteral("timeline_times"), boolProp(QStringLiteral("Offset cues by the clip's start so they match the exported video"))}},
@@ -1338,8 +1338,9 @@
                        {QStringLiteral("index"), QStringLiteral("key"), QStringLiteral("value")}) },
         { "apply_text_preset", "text", "Restyle an existing title",
           "Apply a text style pack (builtin from list_text_presets, or a user: id from "
-          "list_user_text_presets) to a text or subtitle clip. Replaces the whole style — font, "
-          "layers AND the in/out/loop animation slots — and records it as packId. Unknown id fails "
+          "list_user_text_presets) to a text or subtitle clip. Replaces the look — font, size, "
+          "layers, curve — and records it as packId; the clip keeps its words, its in/out/loop "
+          "animations when it has them, its counter and its keyframes. Unknown id fails "
           "not_found; a non-text clip fails type_mismatch.",
           objectSchema(mergeProps({{QStringLiteral("preset"), stringProp(QStringLiteral("Preset id from list_text_presets"))}},
                                   clipRefProps()),

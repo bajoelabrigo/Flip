@@ -4,6 +4,7 @@
 #include "TextParamSpec.h"
 #include "VectorSource.h"
 
+#include <QHash>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QList>
@@ -70,6 +71,12 @@ public:
     bool removeUserPreset(const QString &id);
     bool renameUserPreset(const QString &id, const QString &label);
 
+    // A copy of a user or Stock preset that a project carries (Project::toJson writes one for
+    // every non-built-in preset its texts use). presetForId falls back to it when the id is not
+    // installed — deleted, or the project came from another computer — so the text keeps its
+    // motion; the galleries never list it. Kept across reload().
+    void rememberProjectPreset(const TextAnimationPreset &preset);
+
 private:
     TextAnimationPresetCatalog() = default;
     void ensureLoaded() const;
@@ -77,6 +84,7 @@ private:
 
     mutable bool m_loaded = false;
     mutable QList<TextAnimationPreset> m_presets;
+    QHash<QString, TextAnimationPreset> m_fromProjects;
 };
 
 bool isUserTextAnimationPresetId(const QString &id);

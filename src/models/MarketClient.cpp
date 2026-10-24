@@ -21,6 +21,7 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QPointer>
+#include <QRegularExpression>
 #include <QSaveFile>
 #include <QSet>
 #include <QSettings>
@@ -111,6 +112,8 @@ struct MarketClient::Job
     QString destinationDir;
     QString filePath;
     QString assetId;
+    // What the editor calls an installed item (a preset or shape id), when it says.
+    QString installedId;
     // waiting -> queued/processing -> downloading -> importing -> done, or failed/cancelled.
     // "waiting" is ours (behind the concurrency cap); the middle ones come from the service.
     QString status;
@@ -235,7 +238,15 @@ void MarketClient::setAccount(AccountController *account)
     m_account = account;
     if (!account)
         return;
+    m_panelAccount = account->signedIn() ? account->email() : QString();
     connect(account, &AccountController::accountChanged, this, [this] {
+        // Another account (or none): the panels' Stock lists are theirs no more. A refreshed
+        // token is the same account and keeps them.
+        const QString who = m_account->signedIn() ? m_account->email() : QString();
+        if (who != m_panelAccount) {
+            m_panelAccount = who;
+            resetPanelLists();
+        }
         emit authChanged();
         if (!m_account->signedIn()) {
             m_accountLibrary.clear();
@@ -336,88 +347,609 @@ void MarketClient::fetchTemplateSuggestions(const QString &photoBucket, const QS
     emit templateSuggestionsChanged();
 }
 
+// Titles › Trending and Effects › Trending are those types' Tendencias in each panel now (the
+// most used, one short list: fetchPanelList); these keep the properties the panels bind to.
 void MarketClient::fetchTextTrends(bool more)
 {
-    if (more && (m_textTrendsLoading || m_textTrendsCursor.isEmpty()))
-        return;
-    const int generation = ++m_textTrendsGeneration;
-    const QString cursor = more ? m_textTrendsCursor : QString();
-    if (!more) {
-        m_textTrends.clear();
-        m_textTrendsCursor.clear();
-    }
-    if (!configured() || !authenticated()) {
-        m_textTrendsLoading = false;
-        emit textTrendsChanged();
+    if (more) {
+        fetchPanelList(QStringLiteral("text-style"), {}, true);
         return;
     }
-    QUrl url = apiUrl(QStringLiteral("/search"));
-    QUrlQuery query;
-    query.addQueryItem(QStringLiteral("type"), QStringLiteral("text-style"));
-    query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
-    if (!cursor.isEmpty())
-        query.addQueryItem(QStringLiteral("cursor"), cursor);
-    url.setQuery(query);
-    m_textTrendsLoading = true;
-    emit textTrendsChanged();
-    QNetworkReply *reply = get(url);
-    connect(reply, &QNetworkReply::finished, this, [this, reply, generation] {
-        reply->deleteLater();
-        if (generation != m_textTrendsGeneration)
-            return;
-        m_textTrendsLoading = false;
-        if (reply->error() == QNetworkReply::NoError) {
-            const QJsonObject page = QJsonDocument::fromJson(reply->readAll()).object();
-            for (const QJsonValue &value : page.value(QStringLiteral("items")).toArray())
-                m_textTrends.append(objectToMap(value.toObject()));
-            m_textTrendsCursor = page.value(QStringLiteral("next_cursor")).toString();
-        } else {
-            qWarning("MarketClient: text trends: %s", qPrintable(reply->errorString()));
-        }
-        emit textTrendsChanged();
-    });
+    const QString key = panelListKey(QStringLiteral("text-style"));
+    if (!m_panelLists.value(key).loading)
+        m_panelLists.remove(key); // asked again: a fresh list
+    fetchPanelList(QStringLiteral("text-style"));
 }
 
 void MarketClient::fetchEffectTrends(bool more)
 {
-    if (more && (m_effectTrendsLoading || m_effectTrendsCursor.isEmpty()))
+    if (more) {
+        fetchPanelList(QStringLiteral("effect"), {}, true);
         return;
-    const int generation = ++m_effectTrendsGeneration;
-    const QString cursor = more ? m_effectTrendsCursor : QString();
-    if (!more) {
-        m_effectTrends.clear();
-        m_effectTrendsCursor.clear();
     }
-    if (!configured() || !authenticated()) {
-        m_effectTrendsLoading = false;
+    const QString key = panelListKey(QStringLiteral("effect"));
+    if (!m_panelLists.value(key).loading)
+        m_panelLists.remove(key);
+    fetchPanelList(QStringLiteral("effect"));
+}
+
+void MarketClient::mirrorTrends(const QString &key)
+{
+    const PanelList list = m_panelLists.value(key);
+    if (key == panelListKey(QStringLiteral("text-style"))) {
+        m_textTrends = list.items;
+        m_textTrendsCursor = list.cursor;
+        m_textTrendsLoading = list.loading;
+        emit textTrendsChanged();
+    } else if (key == panelListKey(QStringLiteral("effect"))) {
+        m_effectTrends = list.items;
+        m_effectTrendsCursor = list.cursor;
+        m_effectTrendsLoading = list.loading;
         emit effectTrendsChanged();
-        return;
     }
+}
+
+namespace {
+
+// Pages of «All» read for the most used (the server sorts it by uses): enough for every type's top.
+constexpr int kUsagePages = 3;
+
+// Per type, the server's category → the desktop panel's own chip it joins (the web's
+// stockPanels.ts › STOCK_CHIP_MAP, with the desktop's chip ids). A category left out, or whose
+// chip the panel does not have, gets a chip of its own named as Stock names it.
+QString chipForCategory(const QString &type, const QString &category)
+{
+    static const QHash<QString, QHash<QString, QString>> map{
+        // EffectCatalog's categories (EffectBrowser)
+        {QStringLiteral("effect"),
+         {{QStringLiteral("particulas"), QStringLiteral("dreamy")}, {QStringLiteral("luz"), QStringLiteral("dreamy")},
+          {QStringLiteral("energia"), QStringLiteral("impact")}, {QStringLiteral("glitch"), QStringLiteral("glitch")},
+          {QStringLiteral("retro"), QStringLiteral("retro")}, {QStringLiteral("estilo"), QStringLiteral("dreamy")},
+          {QStringLiteral("marcos"), QStringLiteral("artistic")}, {QStringLiteral("amor"), QStringLiteral("dreamy")},
+          {QStringLiteral("camara"), QStringLiteral("impact")}, {QStringLiteral("dividir"), QStringLiteral("impact")}}},
+        // TransitionCatalog's categories (TransitionsTab), the same ids as the web's
+        {QStringLiteral("transition"),
+         {{QStringLiteral("glitch"), QStringLiteral("glitch")}, {QStringLiteral("liquido"), QStringLiteral("liquid")},
+          {QStringLiteral("luz"), QStringLiteral("cinematic")}, {QStringLiteral("formas"), QStringLiteral("geometric")},
+          {QStringLiteral("barridos"), QStringLiteral("basic")}, {QStringLiteral("movimiento"), QStringLiteral("basic")}}},
+        // TextAssetsTab: Trending, Basic and the template packs' categories
+        {QStringLiteral("text-style"), {{QStringLiteral("titulos"), QStringLiteral("builtin")}}},
+        // The music pack's moods (SoundEffectsTab with music)
+        {QStringLiteral("music"),
+         {{QStringLiteral("alegre"), QStringLiteral("alegre")}, {QStringLiteral("tranquilo"), QStringLiteral("tranquila")},
+          {QStringLiteral("epico"), QStringLiteral("epica")}, {QStringLiteral("divertido"), QStringLiteral("divertida")},
+          {QStringLiteral("romantico"), QStringLiteral("romantica")}, {QStringLiteral("suspenso"), QStringLiteral("suspenso")},
+          {QStringLiteral("mundo"), QStringLiteral("del-mundo")}}},
+        // The sounds pack (SoundEffectsTab)
+        {QStringLiteral("sound"),
+         {{QStringLiteral("transiciones"), QStringLiteral("transiciones")}, {QStringLiteral("impactos"), QStringLiteral("impactos")},
+          {QStringLiteral("interfaz"), QStringLiteral("botones")}, {QStringLiteral("comedia"), QStringLiteral("comedia")},
+          {QStringLiteral("magia"), QStringLiteral("magia")}}},
+        // The stickers pack (StickersTab)
+        {QStringLiteral("animation"),
+         {{QStringLiteral("celebracion"), QStringLiteral("celebracion")}, {QStringLiteral("emociones"), QStringLiteral("amor")},
+          {QStringLiteral("clima"), QStringLiteral("naturaleza")}, {QStringLiteral("flechas"), QStringLiteral("senales")}}},
+        // ShapeStyle's categories (ShapesTab)
+        {QStringLiteral("shape"),
+         {{QStringLiteral("geometric"), QStringLiteral("basic")}, {QStringLiteral("arrows"), QStringLiteral("arrows")},
+          {QStringLiteral("bubbles"), QStringLiteral("bubbles")}, {QStringLiteral("hearts"), QStringLiteral("fun")},
+          {QStringLiteral("stars"), QStringLiteral("fun")}, {QStringLiteral("clouds"), QStringLiteral("fun")},
+          {QStringLiteral("symbols"), QStringLiteral("fun")}}},
+    };
+    return map.value(type).value(category);
+}
+
+// The favorites group of each Stock type: the panel's (the web's stockFavorites.ts).
+QString favoriteGroupForType(const QString &type)
+{
+    static const QHash<QString, QString> groups{
+        {QStringLiteral("effect"), QStringLiteral("effects")},
+        {QStringLiteral("overlay"), QStringLiteral("effects")},
+        {QStringLiteral("look"), QStringLiteral("looks")},
+        {QStringLiteral("lut"), QStringLiteral("luts")},
+        {QStringLiteral("transition"), QStringLiteral("transitions")},
+        {QStringLiteral("text-style"), QStringLiteral("textStyles")},
+        {QStringLiteral("text-animation"), QStringLiteral("textAnimations")},
+        {QStringLiteral("animation"), QStringLiteral("stickers")},
+        {QStringLiteral("background"), QStringLiteral("stickers")},
+        {QStringLiteral("shape"), QStringLiteral("shapes")},
+        {QStringLiteral("music"), QStringLiteral("music")},
+        {QStringLiteral("sound"), QStringLiteral("sounds")},
+        {QStringLiteral("template"), QStringLiteral("sceneTemplates")},
+    };
+    return groups.value(type, QStringLiteral("stock"));
+}
+
+// What the server delivers each type as, and the folder of its files (flipstudio-api › PACKS): a
+// starred item with nothing kept about it is drawn from these.
+QString deliveryForType(const QString &type)
+{
+    static const QHash<QString, QString> deliveries{
+        {QStringLiteral("lut"), QStringLiteral("lut")},
+        {QStringLiteral("look"), QStringLiteral("effect-preset")},
+        {QStringLiteral("text-style"), QStringLiteral("text-style")},
+        {QStringLiteral("text-animation"), QStringLiteral("text-animation")},
+        {QStringLiteral("transition"), QStringLiteral("transition")},
+        {QStringLiteral("effect"), QStringLiteral("effect")},
+        {QStringLiteral("shape"), QStringLiteral("shape")},
+        {QStringLiteral("template"), QStringLiteral("scene-template")},
+    };
+    return deliveries.value(type, QStringLiteral("media"));
+}
+
+QString folderForType(const QString &type)
+{
+    static const QHash<QString, QString> folders{
+        {QStringLiteral("animation"), QStringLiteral("animaciones")},
+        {QStringLiteral("overlay"), QStringLiteral("superposiciones")},
+        {QStringLiteral("background"), QStringLiteral("fondos")},
+        {QStringLiteral("sound"), QStringLiteral("sonidos")},
+        {QStringLiteral("music"), QStringLiteral("musica")},
+        {QStringLiteral("lut"), QStringLiteral("luts")},
+        {QStringLiteral("look"), QStringLiteral("looks")},
+        {QStringLiteral("text-style"), QStringLiteral("estilos-texto")},
+        {QStringLiteral("text-animation"), QStringLiteral("textos-animados")},
+        {QStringLiteral("transition"), QStringLiteral("transiciones")},
+        {QStringLiteral("effect"), QStringLiteral("efectos")},
+        {QStringLiteral("shape"), QStringLiteral("formas")},
+        {QStringLiteral("template"), QString()},
+    };
+    return folders.value(type, QStringLiteral("?"));
+}
+
+QString favoriteItemsKey()
+{
+    return QStringLiteral("market/favoriteItems");
+}
+
+} // namespace
+
+QString MarketClient::panelListKey(const QString &type, const QStringList &categories) const
+{
+    if (categories.isEmpty())
+        return QStringLiteral("top:") + type;
+    return QStringLiteral("chip:") + type + QLatin1Char(':') + categories.join(QLatin1Char(','));
+}
+
+QVariantMap MarketClient::panelList(const QString &key) const
+{
+    const auto it = m_panelLists.constFind(key);
+    if (it == m_panelLists.cend())
+        return {};
+    return QVariantMap{
+        {QStringLiteral("items"), it->items},
+        {QStringLiteral("loading"), it->loading},
+        {QStringLiteral("loaded"), it->loaded},
+        {QStringLiteral("hasMore"), !it->cursor.isEmpty()},
+        {QStringLiteral("error"), it->error},
+    };
+}
+
+void MarketClient::setPanelList(const QString &key, const PanelList &list)
+{
+    m_panelLists.insert(key, list);
+    mirrorTrends(key);
+    emit panelListChanged(key);
+}
+
+void MarketClient::resetPanelLists()
+{
+    const QStringList keys(m_panelLists.keyBegin(), m_panelLists.keyEnd());
+    ++m_panelGeneration;
+    m_panelLists.clear();
+    m_usageLoaded = false;
+    m_usageLoading = false;
+    m_usageWeekly.clear();
+    m_usageUsed.clear();
+    const auto waiting = std::exchange(m_usageWaiting, {});
+    for (const auto &then : waiting)
+        then(false);
+    m_catalogAsked = false;
+    m_panelTypes.clear();
+    if (!m_weeklyTrending.isEmpty()) {
+        m_weeklyTrending.clear();
+        emit weeklyTrendingChanged();
+    }
+    for (const QString &key : keys)
+        emit panelListChanged(key);
+    mirrorTrends(panelListKey(QStringLiteral("text-style")));
+    mirrorTrends(panelListKey(QStringLiteral("effect")));
+    emit catalogChanged();
+}
+
+void MarketClient::searchPage(const QString &type, const QString &category, const QString &cursor,
+                              const std::function<void(bool, const QJsonObject &)> &then)
+{
     QUrl url = apiUrl(QStringLiteral("/search"));
     QUrlQuery query;
-    query.addQueryItem(QStringLiteral("type"), QStringLiteral("effect"));
+    query.addQueryItem(QStringLiteral("type"), type);
     query.addQueryItem(QStringLiteral("provider"), QStringLiteral("flip"));
+    if (!category.isEmpty())
+        query.addQueryItem(QStringLiteral("category"), category);
     if (!cursor.isEmpty())
         query.addQueryItem(QStringLiteral("cursor"), cursor);
     url.setQuery(query);
-    m_effectTrendsLoading = true;
-    emit effectTrendsChanged();
     QNetworkReply *reply = get(url);
-    connect(reply, &QNetworkReply::finished, this, [this, reply, generation] {
+    connect(reply, &QNetworkReply::finished, this, [reply, then] {
         reply->deleteLater();
-        if (generation != m_effectTrendsGeneration)
+        if (reply->error() != QNetworkReply::NoError) {
+            qWarning("MarketClient: panel list: %s", qPrintable(reply->errorString()));
+            then(false, QJsonObject());
             return;
-        m_effectTrendsLoading = false;
-        if (reply->error() == QNetworkReply::NoError) {
-            const QJsonObject page = QJsonDocument::fromJson(reply->readAll()).object();
-            for (const QJsonValue &value : page.value(QStringLiteral("items")).toArray())
-                m_effectTrends.append(objectToMap(value.toObject()));
-            m_effectTrendsCursor = page.value(QStringLiteral("next_cursor")).toString();
-        } else {
-            qWarning("MarketClient: effect trends: %s", qPrintable(reply->errorString()));
         }
-        emit effectTrendsChanged();
+        then(true, QJsonDocument::fromJson(reply->readAll()).object());
     });
+}
+
+void MarketClient::loadUsage(const std::function<void(bool)> &then)
+{
+    if (m_usageLoaded) {
+        then(true);
+        return;
+    }
+    m_usageWaiting.append(then);
+    if (m_usageLoading)
+        return;
+    m_usageLoading = true;
+    const int generation = m_panelGeneration;
+    const auto finish = [this, generation](bool ok) {
+        if (generation != m_panelGeneration)
+            return;
+        m_usageLoading = false;
+        m_usageLoaded = ok;
+        const auto waiting = std::exchange(m_usageWaiting, {});
+        for (const auto &next : waiting)
+            next(ok);
+    };
+    QNetworkReply *reply = get(apiUrl(QStringLiteral("/home")));
+    connect(reply, &QNetworkReply::finished, this, [this, reply, generation, finish] {
+        reply->deleteLater();
+        if (generation != m_panelGeneration)
+            return;
+        // The home is a help, not a must: without it Tendencias is the most used and the first page.
+        if (reply->error() == QNetworkReply::NoError) {
+            QSet<QString> weekly;
+            const QJsonArray shelves = QJsonDocument::fromJson(reply->readAll()).object().value(QStringLiteral("shelves")).toArray();
+            for (const QJsonValue &value : shelves) {
+                const QJsonObject shelf = value.toObject();
+                if (shelf.value(QStringLiteral("id")).toString() != QLatin1String("trending")
+                    && shelf.value(QStringLiteral("kind")).toString() != QLatin1String("trending"))
+                    continue;
+                for (const QJsonValue &row : shelf.value(QStringLiteral("items")).toArray()) {
+                    const QVariantMap item = objectToMap(row.toObject());
+                    const QString id = item.value(QStringLiteral("id")).toString();
+                    if (id.isEmpty())
+                        continue;
+                    weekly.insert(id);
+                    m_usageWeekly.append(item);
+                }
+            }
+            if (weekly != m_weeklyTrending) {
+                m_weeklyTrending = weekly;
+                emit weeklyTrendingChanged();
+            }
+        }
+        // Then «All», sorted by uses, a few pages of it.
+        auto page = std::make_shared<std::function<void(int, const QString &)>>();
+        *page = [this, generation, finish, page](int index, const QString &cursor) {
+            searchPage(QStringLiteral("all"), QString(), cursor,
+                       [this, generation, finish, page, index](bool ok, const QJsonObject &body) {
+                if (generation != m_panelGeneration) {
+                    QTimer::singleShot(0, this, [page] { *page = nullptr; });
+                    return;
+                }
+                if (ok) {
+                    for (const QJsonValue &value : body.value(QStringLiteral("items")).toArray())
+                        m_usageUsed.append(objectToMap(value.toObject()));
+                }
+                const QString next = ok ? body.value(QStringLiteral("next_cursor")).toString() : QString();
+                if (ok && !next.isEmpty() && index + 1 < kUsagePages) {
+                    (*page)(index + 1, next);
+                    return;
+                }
+                finish(true);
+                // Breaks the cycle the function holds on itself, after it is done with it.
+                QTimer::singleShot(0, this, [page] { *page = nullptr; });
+            });
+        };
+        (*page)(0, QString());
+    });
+}
+
+QString MarketClient::fetchPanelList(const QString &type, const QStringList &categories, bool more)
+{
+    const QString key = panelListKey(type, categories);
+    if (type.isEmpty())
+        return key;
+    PanelList list = m_panelLists.value(key);
+    if (list.loading)
+        return key;
+    if (more && list.cursor.isEmpty())
+        return key;
+    // Asked again with its first page in: kept, unless it failed or came back empty.
+    if (!more && list.loaded && list.error.isEmpty() && !list.items.isEmpty())
+        return key;
+    if (!configured() || !authenticated()) {
+        PanelList out;
+        out.loaded = true;
+        out.error = QStringLiteral("auth");
+        setPanelList(key, out);
+        return key;
+    }
+    if (!more)
+        list = PanelList();
+    list.loading = true;
+    list.error.clear();
+    list.generation = m_panelGeneration;
+    setPanelList(key, list);
+    const int generation = m_panelGeneration;
+
+    // Tendencias is all of the type, page by page, the trending first (the server's order), as the
+    // web's stockTrends.ts › trendsFor (Jorge, 2026-10-24: «no quería que modifiques nada ahí»; «las
+    // tendencias de transiciones no está completo»): a chip with no category filter. This week's
+    // shelf still comes in for weeklyTrendingIds.
+    if (categories.isEmpty() && !more)
+        loadUsage([](bool) {});
+    const QStringList cats = categories.isEmpty() ? QStringList{QString()} : categories;
+
+    // A chip's Stock items: its categories one after the other; the cursor is
+    // "<category index>:<the server's cursor>".
+    const QString cursor = more ? list.cursor : QString();
+    const int at = cursor.indexOf(QLatin1Char(':'));
+    const int index = at > 0 ? cursor.left(at).toInt() : 0;
+    const QString server = at > 0 ? cursor.mid(at + 1) : QString();
+    if (index < 0 || index >= cats.size()) {
+        list.loading = false;
+        list.cursor.clear();
+        setPanelList(key, list);
+        return key;
+    }
+    searchPage(type, cats.at(index), server,
+               [this, key, cats, index, generation](bool ok, const QJsonObject &body) {
+        if (generation != m_panelGeneration)
+            return;
+        PanelList out = m_panelLists.value(key);
+        out.loading = false;
+        out.loaded = true;
+        if (!ok) {
+            out.error = QStringLiteral("error");
+            setPanelList(key, out);
+            return;
+        }
+        // Appended, never replaced: the cards already shown stay where they are.
+        QSet<QString> seen;
+        for (const QVariant &row : std::as_const(out.items))
+            seen.insert(row.toMap().value(QStringLiteral("id")).toString());
+        for (const QJsonValue &value : body.value(QStringLiteral("items")).toArray()) {
+            const QVariantMap item = objectToMap(value.toObject());
+            const QString id = item.value(QStringLiteral("id")).toString();
+            if (id.isEmpty() || seen.contains(id))
+                continue;
+            seen.insert(id);
+            out.items.append(item);
+        }
+        const QString next = body.value(QStringLiteral("next_cursor")).toString();
+        out.cursor = !next.isEmpty() ? QString::number(index) + QLatin1Char(':') + next
+                   : index + 1 < cats.size() ? QString::number(index + 1) + QLatin1Char(':')
+                                                    : QString();
+        setPanelList(key, out);
+    });
+    return key;
+}
+
+QVariantList MarketClient::stockCategories(const QString &type)
+{
+    if (!configured() || !authenticated())
+        return {};
+    if (m_panelTypes.isEmpty()) {
+        // The catalogue's types, apart from the Stock tab's own (applyCatalog moves its type).
+        if (!m_catalogAsked) {
+            m_catalogAsked = true;
+            const int generation = m_panelGeneration;
+            QNetworkReply *reply = get(apiUrl(QStringLiteral("/catalog")));
+            connect(reply, &QNetworkReply::finished, this, [this, reply, generation] {
+                reply->deleteLater();
+                if (generation != m_panelGeneration)
+                    return;
+                if (reply->error() != QNetworkReply::NoError) {
+                    m_catalogAsked = false; // asked again the next time a panel opens
+                    return;
+                }
+                m_panelTypes = objectToMap(QJsonDocument::fromJson(reply->readAll()).object())
+                                   .value(QStringLiteral("types")).toList();
+                emit catalogChanged();
+            });
+        }
+        return {};
+    }
+    for (const QVariant &row : std::as_const(m_panelTypes)) {
+        const QVariantMap map = row.toMap();
+        if (map.value(QStringLiteral("id")).toString() != type)
+            continue;
+        const QVariantList providers = map.value(QStringLiteral("providers")).toList();
+        QVariantMap provider = providers.isEmpty() ? QVariantMap() : providers.first().toMap();
+        for (const QVariant &p : providers) {
+            if (p.toMap().value(QStringLiteral("id")).toString() == QLatin1String("flip"))
+                provider = p.toMap();
+        }
+        for (const QVariant &f : provider.value(QStringLiteral("filters")).toList()) {
+            const QVariantMap filter = f.toMap();
+            if (filter.value(QStringLiteral("id")).toString() == QLatin1String("category"))
+                return filter.value(QStringLiteral("options")).toList();
+        }
+        return {};
+    }
+    return {};
+}
+
+QVariantMap MarketClient::stockChips(const QString &type, const QVariantList &localChips)
+{
+    // Names compared without case or accents: «Redes sociales» from Stock is the panel's «Redes sociales».
+    const auto fold = [](const QString &text) {
+        QString out;
+        for (const QChar c : text.normalized(QString::NormalizationForm_D)) {
+            if (c.category() != QChar::Mark_NonSpacing)
+                out.append(c.toLower());
+        }
+        return out.simplified();
+    };
+    QSet<QString> have;
+    QHash<QString, QString> chipByName;
+    for (const QVariant &chip : localChips) {
+        const QVariantMap map = chip.toMap();
+        const QString id = map.isEmpty() ? chip.toString() : map.value(QStringLiteral("id")).toString();
+        if (id.isEmpty())
+            continue;
+        have.insert(id);
+        const QString label = map.value(QStringLiteral("label")).toString();
+        if (!label.isEmpty() && !chipByName.contains(fold(label)))
+            chipByName.insert(fold(label), id);
+    }
+    static const QSet<QString> trendNames{QStringLiteral("tendencias"), QStringLiteral("trending"),
+                                          QStringLiteral("tendencia")};
+    QVariantList extra;
+    QVariantMap categoriesOf;
+    for (const QVariant &row : stockCategories(type)) {
+        const QVariantMap option = row.toMap();
+        const QString category = option.value(QStringLiteral("id")).toString();
+        if (category.isEmpty() || category == QLatin1String("mine"))
+            continue;
+        const QString label = option.value(QStringLiteral("label")).toString();
+        // Already in Tendencias, which lists all of the type.
+        if (trendNames.contains(fold(category)) || trendNames.contains(fold(label)))
+            continue;
+        QString into = chipForCategory(type, category);
+        if (into.isEmpty() || !have.contains(into))
+            into = chipByName.value(fold(label.isEmpty() ? category : label));
+        const QString chip = !into.isEmpty() && have.contains(into) ? into : QStringLiteral("stock:") + category;
+        if (chip.startsWith(QLatin1String("stock:")) && !categoriesOf.contains(chip)) {
+            extra.append(QVariantMap{
+                {QStringLiteral("id"), chip},
+                {QStringLiteral("label"), label.isEmpty() ? category : label},
+            });
+        }
+        QStringList cats = categoriesOf.value(chip).toStringList();
+        cats.append(category);
+        categoriesOf.insert(chip, cats);
+    }
+    return QVariantMap{{QStringLiteral("extra"), extra}, {QStringLiteral("categoriesOf"), categoriesOf}};
+}
+
+bool MarketClient::isTrendingItem(const QVariantMap &item) const
+{
+    if (item.value(QStringLiteral("trending")).toBool())
+        return true;
+    if (m_weeklyTrending.contains(item.value(QStringLiteral("id")).toString()))
+        return true;
+    const QString category = item.value(QStringLiteral("category")).toString();
+    if (category == QLatin1String("tendencias") || category == QLatin1String("trending"))
+        return true;
+    // Each panel's Tendencias lists all of its type, so all of our own Stock with a panel is a trend
+    // (Jorge, 2026-10-24: «en stock casi nada tiene la llamita»); Pexels' and Pixabay's are not.
+    const QString provider = item.value(QStringLiteral("provider")).toString();
+    if (!provider.isEmpty() && provider != QLatin1String("flip"))
+        return false;
+    static const QSet<QString> panelTypes{
+        QStringLiteral("effect"), QStringLiteral("overlay"), QStringLiteral("look"), QStringLiteral("lut"),
+        QStringLiteral("transition"), QStringLiteral("text-style"), QStringLiteral("text-animation"),
+        QStringLiteral("animation"), QStringLiteral("background"), QStringLiteral("shape"),
+        QStringLiteral("music"), QStringLiteral("sound"), QStringLiteral("template")};
+    return panelTypes.contains(item.value(QStringLiteral("type")).toString());
+}
+
+QString MarketClient::placedId(const QString &itemId) const
+{
+    return QSettings().value(settingsKey("placed")).toMap().value(itemId).toString();
+}
+
+void MarketClient::rememberPlaced(const QString &itemId, const QString &localId)
+{
+    if (itemId.isEmpty() || localId.isEmpty())
+        return;
+    QSettings settings;
+    QVariantMap placed = settings.value(settingsKey("placed")).toMap();
+    placed.insert(itemId, localId);
+    settings.setValue(settingsKey("placed"), placed);
+}
+
+QString MarketClient::stockFavoriteGroup(const QVariantMap &item) const
+{
+    const QString type = item.value(QStringLiteral("type")).toString();
+    // The voice presets among the effects are «voices», as the voice changer's.
+    if (type == QLatin1String("effect") && deliveryForItem(item) == QLatin1String("effect-preset"))
+        return QStringLiteral("voices");
+    return favoriteGroupForType(type);
+}
+
+QString MarketClient::stockFavoriteKey(const QString &itemId) const
+{
+    // "flip:transition:acordeon" → "stock:transition:acordeon"
+    const QStringList parts = itemId.split(QLatin1Char(':'));
+    if (parts.size() < 3)
+        return {};
+    return QStringLiteral("stock:") + parts.at(1) + QLatin1Char(':') + parts.mid(2).join(QLatin1Char(':'));
+}
+
+void MarketClient::keepFavoriteItem(const QVariantMap &item)
+{
+    const QString key = stockFavoriteKey(item.value(QStringLiteral("id")).toString());
+    if (key.isEmpty())
+        return;
+    QVariantMap kept;
+    for (const char *field : {"id", "type", "delivery", "media_kind", "provider", "title", "thumb_url", "preview_url",
+                              "thumb_wide_url", "preview_wide_url", "duration_ms", "width", "height", "category"}) {
+        const QString name = QLatin1String(field);
+        if (item.contains(name))
+            kept.insert(name, item.value(name));
+    }
+    QSettings settings;
+    QVariantMap all = settings.value(favoriteItemsKey()).toMap();
+    all.insert(key, kept);
+    settings.setValue(favoriteItemsKey(), all);
+    ++m_favoriteItemsRevision;
+    emit favoriteItemsChanged();
+}
+
+QVariantList MarketClient::stockFavoriteItems(const QStringList &keys, const QStringList &types,
+                                              const QString &group) const
+{
+    static const QRegularExpression pattern(QStringLiteral("^stock:([a-z][a-z-]*):([^:]+)$"));
+    const QVariantMap kept = QSettings().value(favoriteItemsKey()).toMap();
+    QVariantList out;
+    for (const QString &key : keys) {
+        const QRegularExpressionMatch match = pattern.match(key);
+        if (!match.hasMatch())
+            continue;
+        const QString type = match.captured(1);
+        const QString id = match.captured(2);
+        QVariantMap item = kept.value(key).toMap();
+        if (item.isEmpty()) {
+            // Starred on another computer: drawn from its key, its card where Stock keeps them.
+            const QString folder = folderForType(type);
+            if (folder == QLatin1String("?"))
+                continue;
+            QString title = id;
+            title.replace(QLatin1Char('-'), QLatin1Char(' ')).replace(QLatin1Char('_'), QLatin1Char(' '));
+            if (!title.isEmpty())
+                title[0] = title.at(0).toUpper();
+            item = QVariantMap{
+                {QStringLiteral("id"), QStringLiteral("flip:") + type + QLatin1Char(':') + id},
+                {QStringLiteral("type"), type},
+                {QStringLiteral("delivery"), group == QLatin1String("voices") ? QStringLiteral("effect-preset")
+                                                                              : deliveryForType(type)},
+                {QStringLiteral("provider"), QStringLiteral("flip")},
+                {QStringLiteral("title"), title},
+                {QStringLiteral("thumb_url"), QStringLiteral("https://api.getflipstudio.com/plantillas/")
+                                                  + (folder.isEmpty() ? QString() : folder + QLatin1Char('/'))
+                                                  + QString::fromUtf8(QUrl::toPercentEncoding(id))
+                                                  + QStringLiteral("/thumbnail.png")},
+            };
+        }
+        if (!types.isEmpty() && !types.contains(item.value(QStringLiteral("type")).toString()))
+            continue;
+        out.append(item);
+    }
+    return out;
 }
 
 void MarketClient::removeFromLibrary(const QString &itemId)
@@ -1089,6 +1621,10 @@ QVariantMap MarketClient::downloadInfo(const QString &itemId) const
         {QStringLiteral("phase"), job->phase},
         {QStringLiteral("errorCode"), job->errorCode},
         {QStringLiteral("errorMessage"), job->errorMessage},
+        {QStringLiteral("delivery"), job->delivery},
+        {QStringLiteral("filePath"), job->filePath},
+        {QStringLiteral("assetId"), job->assetId},
+        {QStringLiteral("installedId"), job->installedId},
     };
 }
 
@@ -1106,6 +1642,19 @@ QVariantMap MarketClient::itemById(const QString &itemId) const
     for (const QVariant &row : m_effectTrends) {
         if (row.toMap().value(QStringLiteral("id")).toString() == itemId)
             return row.toMap();
+    }
+    // The panels' Stock lists, and the starred cards of their Favoritos.
+    for (const PanelList &list : m_panelLists) {
+        for (const QVariant &row : list.items) {
+            if (row.toMap().value(QStringLiteral("id")).toString() == itemId)
+                return row.toMap();
+        }
+    }
+    const QString key = stockFavoriteKey(itemId);
+    if (!key.isEmpty()) {
+        const QVariantList kept = stockFavoriteItems({key});
+        if (!kept.isEmpty())
+            return kept.first().toMap();
     }
     return {};
 }
@@ -2055,9 +2604,10 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         QPointer<MarketClient> self(this);
         m_installer(job->delivery, path, job->title.isEmpty() ? displayName : job->title,
                     [self, itemId, path, displayName](bool ok, const QString &where, const QString &installedPath,
-                                                      const QString &error) {
+                                                      const QString &error, const QString &localId) {
                         if (self)
-                            self->finishInstalledJob(itemId, path, displayName, ok, where, installedPath, error);
+                            self->finishInstalledJob(itemId, path, displayName, ok, where, installedPath, error,
+                                                     localId);
                     });
         return;
     }
@@ -2114,6 +2664,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
     }
     bumpDownloads();
     rememberDownload(itemId, path, displayName);
+    rememberPlaced(itemId, ids.first());
     // A finished job frees a slot for whatever is waiting behind it.
     pumpDownloadQueue();
     emit downloadImported(itemId, displayName);
@@ -2122,7 +2673,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
 
 void MarketClient::finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
                                       bool ok, const QString &where, const QString &installedPath,
-                                      const QString &error)
+                                      const QString &error, const QString &localId)
 {
     if (!ok) {
         failJob(itemId, QStringLiteral("download_failed"),
@@ -2134,11 +2685,32 @@ void MarketClient::finishInstalledJob(const QString &itemId, const QString &path
     if (!installedPath.isEmpty() && QFileInfo(installedPath).absoluteFilePath() != QFileInfo(path).absoluteFilePath())
         QFile::remove(path);
     const QString kept = installedPath.isEmpty() ? path : installedPath;
+    {
+        // What it is called in its panel now, so the panel can apply it with no second download.
+        QString local = localId;
+        const QString slug = itemId.section(QLatin1Char(':'), -1).toLower();
+        QString underscored;
+        for (const QChar ch : slug)
+            underscored.append((ch >= QLatin1Char('a') && ch <= QLatin1Char('z')) || ch.isDigit() ? ch : QLatin1Char('_'));
+        while (underscored.startsWith(QLatin1Char('_')))
+            underscored.remove(0, 1);
+        while (underscored.endsWith(QLatin1Char('_')))
+            underscored.chop(1);
+        const auto job = m_jobs.value(itemId);
+        const QString delivery = job ? job->delivery : QString();
+        // A .driftfx installs under the ids tools/effects_trends and tools/transitions_stock give it.
+        if (local.isEmpty() && delivery == QLatin1String("effect"))
+            local = QStringLiteral("stockfx_") + underscored;
+        else if (local.isEmpty() && delivery == QLatin1String("transition"))
+            local = QStringLiteral("stock.") + underscored;
+        rememberPlaced(itemId, local);
+    }
     if (const auto job = m_jobs.value(itemId)) {
         job->status = QStringLiteral("done");
         job->phase = where.isEmpty() ? tr("Installed") : where;
         job->progress = 1;
         job->filePath = kept;
+        job->installedId = localId;
         job->finishedAt = QDateTime::currentDateTime();
         job->speedBytesPerSec = 0;
         if (job->title.isEmpty())
@@ -2171,6 +2743,9 @@ void MarketClient::rememberDownload(const QString &itemId, const QString &path,
         {QStringLiteral("thumb"), item.value(QStringLiteral("thumb_url"))},
         {QStringLiteral("author"), item.value(QStringLiteral("creator")).toMap().value(QStringLiteral("name"))},
         {QStringLiteral("filePath"), path},
+        // Mi cuenta › Descargas uses these to put it in the edit again without downloading it.
+        {QStringLiteral("delivery"), job ? job->delivery : QString()},
+        {QStringLiteral("installedId"), job ? job->installedId : QString()},
         {QStringLiteral("at"), QDateTime::currentDateTime()},
     };
     QVariantList history = QSettings().value(settingsKey("history")).toList();

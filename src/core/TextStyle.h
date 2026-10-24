@@ -18,7 +18,7 @@
 
 namespace drift {
 
-enum class TextAlign { Left, Center, Right };
+enum class TextAlign { Left, Center, Right, Justify }; // Justify: wrapped lines fill the box, the last one starts left
 enum class TextVAlign { Top, Middle, Bottom };
 
 // Which words a style pack accents. The positional rules are time-independent, so the layout
@@ -83,7 +83,9 @@ struct TextStyle
 {
     QString packId; // last applied style pack; cleared once the style is hand-edited
     QString fontFamily = QStringLiteral("Inter");
-    int pixelSize = 64; // at project height
+    // At project height. A real number since 0.22.1, so a keyed zoom grows smoothly instead of
+    // a pixel at a time, and the preview and the export lay out the same size.
+    double pixelSize = 64.0;
     int fontWeight = 700; // 100..900
     bool italic = false;
 
@@ -97,12 +99,16 @@ struct TextStyle
     // Bends a single-line block along an arc: -100..100, the rise at the middle as a fraction of
     // two em (positive arches upward). Multi-line blocks ignore it.
     double pathBend = 0.0;
+    // Text around a circle (0.22.1): 0 = off; else how much of the circle the line wraps, in percent
+    // (100 = all the way round, as a round logo). The bend's sign still says outward (+) or inward.
+    double pathCircle = 0.0;
 
     TextAlign align = TextAlign::Center;
     TextVAlign valign = TextVAlign::Middle;
     bool wordWrap = true;
     double lineHeight = 1.2; // multiple of the font's natural line spacing
     double letterSpacing = 0.0; // px at pixelSize
+    double wordSpacing = 0.0;   // px added to every space between words (0.22.1)
     // "none", "upper", "lower" or "title": applied when the text is laid out, so the typed words
     // are kept and switching back restores them.
     QString textCase = QStringLiteral("none");
@@ -140,6 +146,7 @@ struct TextStyle
     QColor underlineColor = QColor(230, 40, 40);
     double underlineWidth = 6.0;
     double underlineOffset = 4.0; // below the baseline
+    bool strikeEnabled = false;   // a line through the middle of the letters, in the text's colour (0.22.1)
 
     WordAccent accent;
 
@@ -193,6 +200,11 @@ QString textKeyframeLabel(const QString &key, const TextStyle &style);
 // an unknown key. Legacy aliases are accepted.
 bool textStyleScalar(const TextStyle &style, const QString &key, double *out);
 bool setTextStyleScalar(TextStyle &style, const QString &key, double value);
+// Grows or shrinks the whole look by `factor`, not only the letters: the size, the spacing, every
+// layer's stroke width, blur, spread and offset, the box and pill paddings, radii and borders, the
+// underline, and the keyframes of all of those. A template put on another canvas and a text
+// scaled from its corner keep their proportions (auditoria D7, D14).
+void scaleTextStyle(TextStyle &style, double factor);
 
 // One text of a combined template: its look, its words, where it sits (fractions of the canvas)
 // and how long after the template's start it comes in.
@@ -229,6 +241,14 @@ const QList<TextPreset> &textPresets();
 // preview provider resolves ids on the image-loading thread.
 std::optional<TextPreset> textPresetForId(const QString &id);
 std::optional<TextStyle> textStyleForPresetId(const QString &id);
+// `preset`'s look put on a text that already has `current`: the template brings the look, and
+// what the user did to this text stays (Jorge, 2026-10-24: a template used to wipe the motion).
+// Kept from `current`: each In / Out / Loop slot the user set (the template's own fills the empty
+// ones), the counter, a case the template does not set, and every keyframe track that still names
+// a property of the new style. `dropped`, when given, gets the keyframe tracks that could not
+// stay (a layer the template does not have).
+TextStyle textStyleWithPresetLook(const TextStyle &current, const TextStyle &preset,
+                                  QStringList *dropped = nullptr);
 
 // Styles from installed text-style add-ons, ids "pack:<pack>/<style>". The engine's catalog
 // (TextStyleCatalog) reads the packs and hands them over here, so textPresetForId resolves them

@@ -59,7 +59,7 @@ Column {
         const url = FileDialogs.openFile(qsTr("Texture Image"),
                                          [qsTr("Images (*.png *.jpg *.jpeg *.webp)")])
         if (url != "")
-            root.setPaint({ "texture": { "path": url.toString().replace(/^file:\/\//, "") } })
+            root.setPaint({ "texture": { "path": FileDialogs.localPath(url) } })
     }
 
     Row {

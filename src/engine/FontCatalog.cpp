@@ -340,6 +340,17 @@ bool removeUserFont(const QString &family)
     return removed;
 }
 
+QStringList userFontFilesFor(const QString &family)
+{
+    QMutexLocker lock(&g_userMutex);
+    QStringList files;
+    for (const UserFont &font : std::as_const(g_userFonts)) {
+        if (font.families.contains(family, Qt::CaseInsensitive) && !files.contains(font.path))
+            files.append(font.path);
+    }
+    return files;
+}
+
 QStringList systemFontFamilies()
 {
 #ifdef DRIFT_WITH_SKIA

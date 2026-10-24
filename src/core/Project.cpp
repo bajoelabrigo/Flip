@@ -2,6 +2,7 @@
 
 #include "Clip.h"
 #include "SubtitleCue.h"
+#include "TextAnimationPreset.h"
 #include "TimelineOps.h"
 
 #include <QCoreApplication>
@@ -225,11 +226,18 @@ QJsonArray subtitleCuesToJson(const QList<SubtitleCue> &cues)
 {
     QJsonArray array;
     for (const SubtitleCue &cue : cues) {
-        array.append(QJsonObject{
+        QJsonObject object{
             {QStringLiteral("startUs"), static_cast<double>(cue.startUs)},
             {QStringLiteral("endUs"), static_cast<double>(cue.endUs)},
             {QStringLiteral("text"), cue.text},
-        });
+        };
+        if (!cue.wordEndsUs.isEmpty()) {
+            QJsonArray ends;
+            for (const TimeUs end : cue.wordEndsUs)
+                ends.append(static_cast<double>(end));
+            object.insert(QStringLiteral("wordEndsUs"), ends);
+        }
+        array.append(object);
     }
     return array;
 }
@@ -243,6 +251,8 @@ QList<SubtitleCue> subtitleCuesFromJson(const QJsonArray &array)
         cue.startUs = static_cast<TimeUs>(object.value(QStringLiteral("startUs")).toDouble());
         cue.endUs = static_cast<TimeUs>(object.value(QStringLiteral("endUs")).toDouble());
         cue.text = object.value(QStringLiteral("text")).toString();
+        for (const QJsonValue &end : object.value(QStringLiteral("wordEndsUs")).toArray())
+            cue.wordEndsUs.append(static_cast<TimeUs>(end.toDouble()));
         cues.append(cue);
     }
     sortSubtitleCues(cues);
@@ -367,6 +377,13 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
     if (clip.textAutoFit)
         json.insert(QStringLiteral("textAutoFit"), true);
+    if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
+        QJsonArray pin;
+        for (const QPointF &corner : clip.cornerPin)
+            pin << corner.x() << corner.y();
+        json.insert(QStringLiteral("cornerPin"), pin);
+        json.insert(QStringLiteral("cornerPinEnabled"), clip.cornerPinEnabled);
+    }
     return json;
 }
 
@@ -446,6 +463,14 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.speedCurve = SpeedCurve::fromJson(object.value(QStringLiteral("speedCurve")).toArray());
     clip.reverse = object.value(QStringLiteral("reverse")).toBool(false);
     clip.flipH = object.value(QStringLiteral("flipH")).toBool(false);
+    {
+        const QJsonArray pin = object.value(QStringLiteral("cornerPin")).toArray();
+        if (pin.size() == 8) {
+            clip.cornerPinEnabled = object.value(QStringLiteral("cornerPinEnabled")).toBool(true);
+            for (int i = 0; i < 4; ++i)
+                clip.cornerPin[i] = QPointF(pin.at(i * 2).toDouble(), pin.at(i * 2 + 1).toDouble());
+        }
+    }
     clip.flipV = object.value(QStringLiteral("flipV")).toBool(false);
     clip.mask = maskFromJson(object.value(QStringLiteral("mask")).toObject());
     clip.faceTrackPath = object.value(QStringLiteral("faceTrackPath")).toString();
@@ -583,6 +608,8 @@ QJsonObject assetToJson(const MediaAsset &asset)
         object.insert(QStringLiteral("variableFrameRate"), asset.variableFrameRate);
     if (asset.editFriendly)
         object.insert(QStringLiteral("editFriendly"), true);
+    if (asset.webHidden)
+        object.insert(QStringLiteral("webHidden"), true);
     // Only when set, so a desktop project's JSON is byte-for-byte what it was before the key
     // existed. Older builds ignore the key; a project without it simply reads back empty.
     if (!asset.sourceUri.isEmpty())
@@ -629,6 +656,7 @@ MediaAsset assetFromJsonV2(const QJsonObject &object)
         asset.variableFrameRate = object.value(QStringLiteral("variableFrameRate")).toBool();
     }
     asset.editFriendly = object.value(QStringLiteral("editFriendly")).toBool();
+    asset.webHidden = object.value(QStringLiteral("webHidden")).toBool();
     if (object.contains(QStringLiteral("hasAudio"))) {
         asset.hasAudioKnown = true;
         asset.hasAudio = object.value(QStringLiteral("hasAudio")).toBool();
@@ -1190,6 +1218,14 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
         drift::ensureTrackIds(sequence.tracks);
         project.m_sequences.insert(sequence.id, sequence);
     }
+    // The user's and Stock's text animations this project uses, carried so a deleted one or one
+    // this computer never had still plays (TextAnimationPresetCatalog::rememberProjectPreset).
+    for (const QJsonValue &value : object.value(QStringLiteral("textAnimationPresets")).toArray()) {
+        if (std::optional<TextAnimationPreset> preset = TextAnimationPreset::fromJson(value.toObject())) {
+            preset->builtIn = false;
+            TextAnimationPresetCatalog::instance().rememberProjectPreset(*preset);
+        }
+    }
     for (const QJsonValue &value : object.value(QStringLiteral("openSequenceTabs")).toArray()) {
         const QString id = value.toString();
         if (project.m_sequences.contains(id) && !project.m_openSequenceTabs.contains(id))
@@ -1388,6 +1424,33 @@ QJsonObject Project::toJson(bool includeTranscripts) const
     };
     if (!sequencesArray.isEmpty())
         root.insert(QStringLiteral("sequences"), sequencesArray);
+    // A copy of every text animation the texts use that does not come with the app (the user's
+    // own, Stock's): deleting it, or opening the file elsewhere, must not leave a text still.
+    {
+        QStringList ids;
+        const auto collect = [&ids](const auto &tracks) {
+            for (const Track &track : tracks) {
+                for (const Clip &clip : track.clips) {
+                    const TextAnimationSet &set = clip.textStyle.animation;
+                    for (const TextAnimationSlot *slot : {&set.in, &set.out, &set.loop}) {
+                        if (!slot->presetId.isEmpty() && !ids.contains(slot->presetId))
+                            ids.append(slot->presetId);
+                    }
+                }
+            }
+        };
+        collect(rootTracks());
+        for (const QString &id : sequenceIds)
+            collect(sequenceTracks(id));
+        QJsonArray carried;
+        for (const QString &id : std::as_const(ids)) {
+            const std::optional<TextAnimationPreset> preset = TextAnimationPresetCatalog::instance().presetForId(id);
+            if (preset && !preset->builtIn)
+                carried.append(preset->toJson());
+        }
+        if (!carried.isEmpty())
+            root.insert(QStringLiteral("textAnimationPresets"), carried);
+    }
     if (!m_openSequenceTabs.isEmpty())
         root.insert(QStringLiteral("openSequenceTabs"), QJsonArray::fromStringList(m_openSequenceTabs));
     if (hasWorkArea()) {

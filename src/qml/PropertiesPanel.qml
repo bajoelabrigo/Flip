@@ -43,7 +43,6 @@ PanelFrame {
     // Inspector view state that outlives the tab being unloaded.
     QtObject {
         id: inspectorUi
-        property bool sizeLinked: true
         property string textTab: "basic"
         property string animSlot: "in"
         property string animCategory: ""
@@ -207,9 +206,13 @@ PanelFrame {
         const here = root.tabs[root.activeTab]
         if (here && here.opens && root.caps.indexOf(here.opens) >= 0 && root.tabVisible(here.id))
             return
+        // A text keeps its own tabs: its effects are on hand in Adjust / Effects (0.22.1), but
+        // selecting or editing a text must not jump there.
+        if (root.clipKind === "text" || root.clipKind === "subtitle")
+            return
         for (let i = 0; i < root.tabs.length; i++) {
             const opens = root.tabs[i].opens
-            if (opens && root.caps.indexOf(opens) >= 0) {
+            if (opens && root.caps.indexOf(opens) >= 0 && root.tabVisible(root.tabs[i].id)) {
                 root.activeTab = i
                 return
             }
@@ -653,8 +656,8 @@ PanelFrame {
                     sourceComponent: Component {
                         TransformInspector {
                             width: tabColumn.width
-                            sizeLinked: inspectorUi.sizeLinked
-                            onSizeLinkedChanged: inspectorUi.sizeLinked = sizeLinked
+                            sizeLinked: EditorState.sizeLinked
+                            onSizeLinkedChanged: EditorState.sizeLinked = sizeLinked
                             positionLinked: EditorState.positionLinked
                             onPositionLinkedChanged: EditorState.positionLinked = positionLinked
                         }

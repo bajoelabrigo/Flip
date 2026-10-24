@@ -7,7 +7,13 @@ import ".."
 // layer's properties do in After Effects: one line per animated property, its keys drawn where
 // they fall on the timeline. Keys are dragged to move them, double-click on a line adds one with
 // the value the property already has there, and right-click shapes or removes a key. A key's
-// glyph shows its shape: a diamond is linear, a round side eases, a square holds.
+// glyph shows its shape as After Effects draws it (KeyframeGlyph): its left half how the value
+// arrives, its right half how it leaves.
+//
+// Keys are picked like After Effects': a click picks one (and brings the playhead to it), Ctrl
+// adds or takes one away, Shift picks the run on that line. The menu and After Effects' keys
+// (F9 Suave, Shift+F9 Suave al llegar, Ctrl+Shift+F9 Suave al salir, Ctrl+Alt+H Salto,
+// Ctrl+Alt+K Recto) act on every picked key at once.
 Item {
     id: root
 
@@ -20,20 +26,14 @@ Item {
     property var rows: []
     property bool dragging: false
     readonly property real rowHeight: Theme.keyframeRowHeight
+    // The picked keys, the menu and the Curves popup, shared with the curve editor above the
+    // tracks (KeyframeKeyTools, one per timeline).
+    property KeyframeKeyTools tools: null
 
     height: rows.length * rowHeight
     onLiveRowsChanged: if (!dragging) rows = liveRows
     onDraggingChanged: if (!dragging) rows = liveRows
     Component.onCompleted: rows = liveRows
-
-    function keyAt(clipEntry, seconds) {
-        const keys = clipEntry.keys || []
-        for (let i = 0; i < keys.length; ++i) {
-            if (Math.abs(keys[i].seconds - seconds) < 1e-4)
-                return i
-        }
-        return -1
-    }
 
     Repeater {
         model: root.rows
@@ -104,7 +104,10 @@ Item {
                             EditorState.addClipKeyframeAt(root.trackIndex, span.modelData.clip,
                                                           span.modelData.prop, at)
                         }
-                        onClicked: EditorState.selectClip(root.trackIndex, span.modelData.clip)
+                        onClicked: {
+                            root.tools.clear()
+                            EditorState.selectClip(root.trackIndex, span.modelData.clip)
+                        }
 
                         ThemedToolTip {
                             visible: parent.containsMouse
@@ -123,49 +126,41 @@ Item {
                             property real dragDx: 0
                             property real pressX: 0
                             property bool moved: false
-                            readonly property bool easeIn: !modelData.hold && modelData.inDx < -1e-6
-                                                           && Math.abs(modelData.inDy) < 1e-6
-                            readonly property bool easeOut: !modelData.hold && modelData.outDx > 1e-6
-                                                            && Math.abs(modelData.outDy) < 1e-6
-                            readonly property real glyph: 10
-                            readonly property bool atPlayhead:
-                                Math.abs(EditorState.playheadSeconds - modelData.seconds) < 1 / 60
+                            property bool dragArmed: false
+                            readonly property var ref: ({ clip: span.modelData.clip,
+                                                          prop: span.modelData.prop,
+                                                          seconds: modelData.seconds })
+                            readonly property var halves: root.tools.keyHalves(span.modelData.keys, index)
+                            readonly property bool isPicked: {
+                                void root.tools.keys
+                                return root.tools.isPicked(root.trackIndex, ref)
+                            }
 
-                            width: 14
+                            width: 20
                             height: span.height
+                            // Keys moved with others (a drag of several picked) ride the
+                            // shared offset: the rows are frozen while it lasts.
+                            readonly property real shiftDx: {
+                                void root.tools.dragDelta
+                                return root.tools.isShifted(root.trackIndex, ref)
+                                       ? root.tools.dragDelta * root.pxPerSecond : 0
+                            }
+                            // Dragging several picked keys rather than this one alone.
+                            property bool groupDrag: false
                             x: (modelData.seconds - span.modelData.start) * root.pxPerSecond
-                               - width / 2 + dragDx
-                            z: keyMouse.pressed ? 2 : 1
+                               - width / 2 + dragDx + shiftDx
+                            z: keyMouse.pressed || isPicked ? 2 : 1
 
-                            // Each half of the glyph is its own shape: the left half is how the key
-                            // is entered, the right half how it is left.
-                            Repeater {
-                                model: 2
-                                delegate: Item {
-                                    required property int index
-                                    readonly property bool rightSide: index === 1
-                                    readonly property bool eased: rightSide ? keyItem.easeOut : keyItem.easeIn
-                                    x: rightSide ? keyItem.width / 2 : keyItem.width / 2 - keyItem.glyph / 2
-                                    y: (keyItem.height - keyItem.glyph) / 2
-                                    width: keyItem.glyph / 2
-                                    height: keyItem.glyph
-                                    clip: true
-
-                                    Rectangle {
-                                        // Centred on the key, so the clip shows one half of it.
-                                        x: parent.rightSide ? -keyItem.glyph / 2 : 0
-                                        width: keyItem.glyph
-                                        height: keyItem.glyph
-                                        rotation: keyItem.modelData.hold || parent.eased ? 0 : 45
-                                        scale: keyItem.modelData.hold || parent.eased ? 0.9 : 0.72
-                                        radius: parent.eased ? width / 2 : 1
-                                        color: keyMouse.containsMouse || keyMouse.pressed || keyItem.atPlayhead
-                                               ? Qt.lighter(span.keyColor, 1.35) : span.keyColor
-                                        border.width: keyItem.atPlayhead ? 1.5 : 1
-                                        border.color: keyItem.atPlayhead ? Theme.panelForeground
-                                                                         : Qt.rgba(0, 0, 0, 0.55)
-                                    }
-                                }
+                            KeyframeGlyph {
+                                anchors.centerIn: parent
+                                size: keyItem.isPicked ? 17 : (keyMouse.containsMouse ? 15 : 13)
+                                inHalf: keyItem.halves["in"]
+                                outHalf: keyItem.halves["out"]
+                                color: span.keyColor
+                                picked: keyItem.isPicked
+                                // Only the pointer lights a key: lighting every key under the
+                                // playhead read as several picked at once (X and Y together).
+                                lit: keyMouse.containsMouse || keyMouse.pressed
                             }
 
                             MouseArea {
@@ -178,14 +173,22 @@ Item {
                                 preventStealing: true
 
                                 onPressed: (mouse) => {
-                                    if (mouse.button !== Qt.LeftButton)
+                                    // The menu opens on release (onClicked), on the picked keys
+                                    // when this is one of them.
+                                    if (mouse.button === Qt.RightButton)
                                         return
+                                    const ctrl = mouse.modifiers & Qt.ControlModifier
+                                    const shift = mouse.modifiers & Qt.ShiftModifier
+                                    root.tools.press(root.trackIndex, keyItem.ref, mouse.modifiers,
+                                                     span.modelData.keys)
+                                    // Only a plain press drags (as the clip strip's keys).
+                                    keyItem.dragArmed = !ctrl && !shift
                                     keyItem.pressX = mapToItem(root, mouse.x, mouse.y).x
                                     keyItem.editSeconds = keyItem.modelData.seconds
                                     keyItem.moved = false
                                 }
                                 onPositionChanged: (mouse) => {
-                                    if (!pressed || !(mouse.buttons & Qt.LeftButton))
+                                    if (!pressed || !keyItem.dragArmed || !(mouse.buttons & Qt.LeftButton))
                                         return
                                     const dx = mapToItem(root, mouse.x, mouse.y).x - keyItem.pressX
                                     if (!keyItem.moved) {
@@ -193,7 +196,18 @@ Item {
                                             return
                                         keyItem.moved = true
                                         root.dragging = true
-                                        EditorState.beginPreviewDrag(qsTr("Move keyframe"))
+                                        keyItem.groupDrag = keyItem.isPicked && root.tools.keys.length > 1
+                                        if (keyItem.groupDrag)
+                                            root.tools.beginShift()
+                                        else
+                                            EditorState.beginPreviewDrag(qsTr("Move keyframe"))
+                                    }
+                                    if (keyItem.groupDrag) {
+                                        const from = keyItem.modelData.seconds
+                                        const moved = root.tools.shiftTo(
+                                            EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                        EditorState.playheadSeconds = from + moved
+                                        return
                                     }
                                     // Between its neighbours: passing one would land on it and
                                     // overwrite it.
@@ -219,19 +233,33 @@ Item {
                                 onReleased: (mouse) => {
                                     if (mouse.button !== Qt.LeftButton)
                                         return
-                                    if (keyItem.moved) {
+                                    if (keyItem.moved && keyItem.groupDrag) {
+                                        // The picked keys stay picked at their new times.
+                                        root.tools.endShift()
+                                        keyItem.groupDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved) {
                                         EditorState.commitPreviewDrag()
                                         keyItem.dragDx = 0
                                         root.dragging = false
-                                    } else {
+                                        // The moved key stays picked at its new time.
+                                        root.tools.pick(root.trackIndex, [{ clip: span.modelData.clip,
+                                                                           prop: span.modelData.prop,
+                                                                           seconds: keyItem.editSeconds }])
+                                    } else if (keyItem.dragArmed) {
                                         // A click: the clip and the playhead go to the key, so the
                                         // inspector shows the value it holds.
                                         EditorState.selectClip(root.trackIndex, span.modelData.clip)
+                                        root.tools.pick(root.trackIndex, [keyItem.ref])
                                         EditorState.playheadSeconds = keyItem.modelData.seconds
                                     }
                                 }
                                 onCanceled: {
-                                    if (keyItem.moved) {
+                                    if (keyItem.moved && keyItem.groupDrag) {
+                                        root.tools.endShift()
+                                        keyItem.groupDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved) {
                                         EditorState.commitPreviewDrag()
                                         keyItem.dragDx = 0
                                         root.dragging = false
@@ -239,7 +267,9 @@ Item {
                                 }
                                 onClicked: (mouse) => {
                                     if (mouse.button === Qt.RightButton)
-                                        keyMenu.popup()
+                                        root.tools.openMenu(root.trackIndex, keyItem.ref, keyItem.halves,
+                                                            !!keyItem.modelData.hold, false, keyItem,
+                                                            Qt.point(keyItem.width / 2, keyItem.height))
                                 }
                             }
 
@@ -247,60 +277,7 @@ Item {
                                 visible: keyMouse.containsMouse && !keyMouse.pressed
                                 text: rowItem.modelData.label + " · "
                                       + keyItem.modelData.seconds.toFixed(2) + " s"
-                            }
-
-                            ThemedContextMenu {
-                                id: keyMenu
-
-                                function shape(mode) {
-                                    EditorState.setKeyframeEasingAt(root.trackIndex, span.modelData.clip,
-                                                                    span.modelData.prop,
-                                                                    keyItem.modelData.seconds, mode)
-                                }
-
-                                ThemedMenuItem {
-                                    text: qsTr("Linear")
-                                    icon.name: !keyItem.modelData.hold && !keyItem.easeIn && !keyItem.easeOut
-                                               && !keyItem.modelData.custom ? Theme.icons.check : ""
-                                    onTriggered: keyMenu.shape("linear")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Easy ease")
-                                    icon.name: keyItem.easeIn && keyItem.easeOut ? Theme.icons.check : ""
-                                    onTriggered: keyMenu.shape("ease")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Easy ease in")
-                                    icon.name: keyItem.easeIn && !keyItem.easeOut ? Theme.icons.check : ""
-                                    onTriggered: keyMenu.shape("easeIn")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Easy ease out")
-                                    icon.name: keyItem.easeOut && !keyItem.easeIn ? Theme.icons.check : ""
-                                    onTriggered: keyMenu.shape("easeOut")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Hold")
-                                    icon.name: keyItem.modelData.hold ? Theme.icons.check : ""
-                                    onTriggered: keyMenu.shape("hold")
-                                }
-                                ThemedMenuSeparator {}
-                                ThemedMenuItem {
-                                    text: qsTr("Edit curve…")
-                                    icon.name: Theme.icons.penCurve
-                                    onTriggered: {
-                                        EditorState.selectClip(root.trackIndex, span.modelData.clip)
-                                        EditorState.playheadSeconds = keyItem.modelData.seconds
-                                        EditorState.preferences.curveEditorVisible = true
-                                    }
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Delete keyframe")
-                                    icon.name: Theme.icons.trash
-                                    onTriggered: EditorState.removeClipKeyframe(
-                                        root.trackIndex, span.modelData.clip, span.modelData.prop,
-                                        keyItem.modelData.seconds)
-                                }
+                                      + " · " + qsTr("right-click: Straight, Smooth, Hold, Curves")
                             }
                         }
                     }

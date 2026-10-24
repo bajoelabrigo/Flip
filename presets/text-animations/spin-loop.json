@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "id": "spin-loop",
+  "label": "Continuous spin",
+  "category": "kinetic",
+  "sampleText": "Spin",
+  "slots": [
+    "loop"
+  ],
+  "order": 495,
+  "params": [
+    {
+      "id": "angle",
+      "type": "scalar",
+      "label": "Turn",
+      "unit": "°",
+      "min": -1080,
+      "max": 1080,
+      "step": 15,
+      "default": 360
+    },
+    {
+      "id": "period",
+      "type": "scalar",
+      "label": "Period",
+      "unit": "s",
+      "min": 0.2,
+      "max": 10,
+      "step": 0.1,
+      "default": 2
+    }
+  ],
+  "animators": [
+    {
+      "selectors": [],
+      "props": {
+        "rotation": {
+          "value": 0,
+          "curve": {
+            "keyframes": [
+              {
+                "timeUs": 0,
+                "value": 0
+              },
+              {
+                "timeUs": 1000000,
+                "value": "{angle}"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
