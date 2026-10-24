@@ -61,7 +61,16 @@ elemento de Stock va en la subcategoría de su panel según su tipo (un texto ne
       (`KeyframeGraph.qml`) comparte todo con las filas de la pista: misma selección, mismas figuras, clic derecho con
       el mismo menú y Curvas, mismos atajos (`components/timeline/KeyframeKeyTools.qml`, uno por línea de tiempo en
       `TimelinePanel`). **Supr** borra las claves elegidas antes que el clip (`Main.qml › dispatchAction`).
-- [ ] Compilación de `flip/v0.22.0` (run 40080859016), probar en ventana (fotogramas clave arriba y abajo, Mi
+- [x] Arrastrar varias claves elegidas a la vez en el escritorio, abajo y en la ventana de curvas
+      (`KeyframeKeyTools.beginShift/shiftTo/endShift`, `AppController::previewShiftKeyframes`).
+- [x] **Tendencias como antes, completas (Jorge, 2026-10-24, tarde):** la sesión anterior las había dejado en «los 24
+      más usados»; Jorge: «no quería que modifiques nada ahí, solo la llamita y repartirlas en las subcategorías».
+      Ahora cada Tendencias es **todo su tipo, página a página** (web `stockTrends.ts › trendsFor = allOf`, escritorio
+      `MarketClient::fetchPanelList` sin categorías), y **todo lo nuestro de Stock lleva la llamita** (Pexels y Pixabay
+      no). En los audios de Stock la llamita va junto a la estrella, siempre visible. Web desplegada (rama
+      `web/v022-tendencias`, comprobada contra getflipstudio.com con `scripts/check-trends-full.mjs`,
+      `check-stock-flames.mjs` y `check-stock-audio-marks.mjs`).
+- [ ] Compilación de `flip/v0.22.0` (run 40083533988), probar en ventana (fotogramas clave arriba y abajo, Mi
       cuenta › Descargas, Stock en cada panel, `webHidden`), versión 0.22.0 en `CMakeLists.txt`,
       `release-notes/0.22.0.md`, publicar.
 - Ojo: el 2026-10-24 había otra sesión («Tipos de keyframe y stock») tocando `flip/v0.21.1`; no se pudo hablar con
