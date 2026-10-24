@@ -93,3 +93,25 @@ Rama `flip/v0.22.1` (desde `flip/v0.22.0`), worktree `.claude/worktrees/v0221`.
 - Subtítulos VTT/ASS: agente aparte en la rama `flip/subs-vtt-ass` (unirla cuando esté en verde).
 - Pendiente para después: tamaño de letra con decimales, editor visual de animaciones propias, web igual (D1, D3, D6,
   los Bucles nuevos necesitan la propiedad `glow` en el motor de la web).
+
+### Estado al 2026-10-24, noche (para seguir con cualquier asistente)
+Jorge (2026-10-24): **todo esto entra en esta versión** — incluso el tamaño con decimales, el editor visual de
+animaciones y el editor web igual. Nada de lo de abajo está publicado ni probado en ventana todavía.
+- **Escritorio, rama `flip/v0.22.1`** (worktree `.claude/worktrees/v0221`), sobre `flip/v0.22.0`:
+  arreglos D1–D14 (D8 por el tamaño con decimales), funciones básicas y avanzadas, tamaño con decimales.
+  Commits en orden: arreglos → funciones → plan → decimales → prueba decimales → arreglos de compilación.
+  CI: run **40122730530** (las anteriores fallaron por errores ya corregidos o se cancelaron).
+- **Subtítulos VTT/ASS**: rama `flip/subs-vtt-ass` (sobre `flip/v0.22.1`), pruebas Core y Translations en verde; su
+  CI falló solo por los errores de `flip/v0.22.1` ya arreglados → **unirla** a `flip/v0.22.1` cuando ésta compile.
+- **Editor visual de animaciones propias**: agente trabajando en la rama `flip/anim-editor` (sobre `flip/v0.22.1`).
+- **Web**: rama `web/v0221-texto` de `flipstudio-app` (sobre `web/v022`), lista y probada (510 pruebas, navegador;
+  capturas en `pruebas\web-texto-0221`), **sin desplegar**. La web no hace deformar por esquinas en textos.
+- **Falta, en este orden**: CI verde → unir `flip/subs-vtt-ass` y `flip/anim-editor` → una compilación → **probar en
+  ventana cada punto** (lista: plantilla con animación, cortar texto, contorno Dentro, borrar animación propia,
+  im-jump-squash, controles de Bucle, fondo con contorno, seguimiento, efectos/LUT en texto, aplicar/pegar estilo,
+  tachado/justificado/espacio, buscadores, copiar/pegar claves, aviso de fuentes, círculo, esquinas, Giro y
+  Resplandor, VTT/ASS, editor de animaciones, decimales) → unir a `flip/v0.22.0` → versión 0.22.0 → publicar
+  (escritorio + web desde `web/v022` unida con `web/v0221-texto`) → MSIX para la Store.
+- **Registro**: la copia de prueba tiene la sesión de Google de Jorge (la inició él). Al terminar: restaurar
+  `pruebas\FlipStudio-0.22.0-llamitaeg-antes.reg` **conservando** la clave `account` (exportarla antes y volver a
+  importarla después, ver CLAUDE.md).
