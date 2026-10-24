@@ -150,6 +150,26 @@
         <translation>Ретушь</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Стили</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Шаблоны сцен</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Анимации клипа</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Маски</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Здравствуйте</translation>
     </message>
@@ -2660,6 +2680,10 @@
     <message>
         <source>All</source>
         <translation>Все</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12560,6 +12584,14 @@ NEXT TIME</source>
         <translation>Тренды</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Наложения</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Выберите клип, чтобы применить лук</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Выберите клип со звуком, чтобы изменить голос</translation>
     </message>
@@ -13813,6 +13845,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Образы</translation>
     </message>
@@ -13863,6 +13899,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Импортированных LUT пока нет. Импортируйте файл .cube или найдите LUT в Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Избранного пока нет. Отметьте фильтр звёздочкой, чтобы сохранить его здесь.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15771,6 +15811,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Избранного пока нет. Отметьте маску звёздочкой, чтобы сохранить её здесь.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19108,6 +19156,10 @@ If playback stutters, try another.</source>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Поиск шаблонов</translation>
     </message>
@@ -20563,6 +20615,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Поиск фигур</translation>
     </message>
@@ -20741,6 +20797,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Поиск звуков</translation>
@@ -21483,6 +21543,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Фоны</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Поиск стикеров</translation>
     </message>
@@ -21762,6 +21830,57 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>Изменить</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Войдите, чтобы увидеть тренды</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Не удалось загрузить тренды</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Загрузка трендов…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Здесь пока ничего нет.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Тренды приходят из Stock, для него нужен бесплатный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — нажмите, чтобы использовать</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — нажмите, чтобы скачать и использовать</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Добавить на позицию указателя</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Загрузка…</translation>
     </message>
 </context>
 <context>
@@ -23003,6 +23122,10 @@ If playback stutters, try another.</source>
         <translation>Подчёркивание</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>«%1» для другой вкладки (Появление, Исчезновение или Цикл): теперь он там.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Плавная</translation>
     </message>
@@ -23445,6 +23568,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Избранное из Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Из Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26353,6 +26488,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Выберите на временной шкале первый из двух клипов.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>В тренде</translation>
     </message>
     <message>
         <source>My Transitions</source>

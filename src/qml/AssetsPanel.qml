@@ -1558,6 +1558,8 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     EffectBrowser {
+                        // Stock's looks here: their Trending and their categories.
+                        stockType: "look"
                         Component.onCompleted: {
                             const saved = root.tabState["colorfx"] || {}
                             activeCategory = saved.category !== undefined ? saved.category : "color"

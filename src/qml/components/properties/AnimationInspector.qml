@@ -60,12 +60,20 @@ Item {
         "zoomIn": "zoom-in", "zoomOut": "zoom-out", "pop": "pop", "spinCW": "spin-cw", "spinCCW": "spin-ccw",
         "bounce": "bounce"
     })
+    // Starred ones behind the Favorites chip ("clipAnimations", the web's ClipAnimGallery group).
+    property int favoritesTick: 0
+    Connections {
+        target: EditorState
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
+    }
     readonly property var animTileModel: {
+        void root.favoritesTick
         const filtered = animCategory.length === 0 ? animPresets
+                       : animCategory === "__favorites__" ? animPresets.filter(p => EditorState.isAssetFavorite("clipAnimations", p.id))
                        : animCategory === "trending" ? animPresets.filter(p => p.trending)
                        : animPresets.filter(p => p.category === animCategory)
         const tiles = [{ "label": qsTr("None") }]
-        if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic"))
+        if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic") && animCategory !== "__favorites__")
             tiles.push({ "kind": "fade", "label": qsTr("Fade"), "duration": 0.5 })
         for (let i = 0; i < filtered.length; ++i)
             tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration,
@@ -256,6 +264,14 @@ Item {
                 onClicked: root.animCategory = ""
             }
 
+            ThemedChip {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Favorites")
+                variant: "secondary"
+                selected: root.animCategory === "__favorites__"
+                onClicked: root.animCategory = "__favorites__"
+            }
+
             Repeater {
                 model: root.animCategories
                 delegate: ThemedChip {
@@ -301,6 +317,7 @@ Item {
                     selected: root.isTileSelected(modelData)
                     playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)
                     onClicked: root.pickTile(modelData)
+                    favoriteTab: "clipAnimations"
                 }
             }
         }

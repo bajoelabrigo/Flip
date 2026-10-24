@@ -150,6 +150,26 @@
         <translation>التنقيح</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>المظاهر</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>جداول LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>قوالب المشاهد</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>حركات المقطع</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>الأقنعة</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>مرحبًا</translation>
     </message>
@@ -2669,6 +2689,10 @@
     <message>
         <source>All</source>
         <translation>الكل</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>المفضلة</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12689,6 +12713,14 @@ NEXT TIME</source>
         <translation>الرائج</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>التراكبات</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>اختر مقطعًا لتطبيق المظهر عليه</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>اختر مقطعًا فيه صوت لتغيير صوته</translation>
     </message>
@@ -13948,6 +13980,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>المظاهر</translation>
     </message>
@@ -13998,6 +14034,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>لا توجد LUTs مستوردة بعد. استورد ملف ‎.cube أو احصل على LUTs من Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>لا توجد مفضلة بعد. اضغط على نجمة أي فلتر لحفظه هنا.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15909,6 +15949,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>جميع الملفات (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>المفضلة</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>لا توجد مفضلة بعد. اضغط على نجمة أي قناع لحفظه هنا.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19312,6 +19360,10 @@ If playback stutters, try another.</source>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>البحث في القوالب</translation>
     </message>
@@ -20779,6 +20831,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>البحث في الأشكال</translation>
     </message>
@@ -20957,6 +21013,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>البحث في الأصوات</translation>
@@ -21699,6 +21759,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>الخلفيات</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>البحث في الملصقات</translation>
     </message>
@@ -21984,6 +22052,57 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>تغيير</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>سجّل الدخول لترى الرائج</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>تعذّر تحميل الرائج</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>جارٍ تحميل الرائج…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>لا يوجد شيء هنا بعد.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>الرائج يأتي من Stock، ويحتاج إلى حسابك المجاني.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>في انتظار المتصفح…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>تسجيل الدخول</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>إعادة المحاولة</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — انقر لاستخدامه</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — انقر لتنزيله واستخدامه</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>جارٍ التحميل…</translation>
     </message>
 </context>
 <context>
@@ -23234,6 +23353,10 @@ If playback stutters, try another.</source>
         <translation>تسطير</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>«%1» مخصص لعلامة تبويب أخرى (دخول أو خروج أو تكرار): وهو موجود هناك الآن.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>لطيف</translation>
     </message>
@@ -23676,6 +23799,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>يتم تشغيله لكل تسمية توضيحية</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>مفضلة Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>من Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26611,6 +26746,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>حدّد في المخطط الزمني أول المقطعين.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>الرائج</translation>
     </message>
     <message>
         <source>My Transitions</source>

@@ -8,6 +8,9 @@ IconButton {
 
     property string tabId: ""
     property string itemId: ""
+    // A Stock card: what it looks like is kept with the star, so the panel's Favoritos shows it
+    // before it is downloaded (MarketClient::keepFavoriteItem).
+    property var stockItem: null
 
     // A binding rather than a one-shot read so a card recycled onto another item re-reads it.
     property int _favoritesTick: 0
@@ -30,5 +33,9 @@ IconButton {
         }
     }
 
-    onClicked: EditorState.toggleAssetFavorite(tabId, itemId)
+    onClicked: {
+        if (stockItem && !favorited)
+            Market.keepFavoriteItem(stockItem)
+        EditorState.toggleAssetFavorite(tabId, itemId)
+    }
 }

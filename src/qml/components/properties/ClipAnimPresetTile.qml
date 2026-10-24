@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Effects
 import Drift
 import ".."
+import "../assets"
 
 // One preset in Video › Animation: a small landscape that moves the way the preset moves a clip,
 // with the label under it, as Filmora's gallery shows it. The pose is the preset's own curves,
@@ -21,6 +22,8 @@ Column {
     // A trending preset: the flame in the corner (signed out, picking it asks for the account).
     property bool trending: false
     property real tileWidth: 76
+    // Set to show the favorite star in the corner (Video › Animation › Favorites).
+    property string favoriteTab: ""
     readonly property alias hovered: tileHover.hovered
     readonly property bool isNone: presetId.length === 0 && kind.length === 0
 
@@ -209,6 +212,19 @@ Column {
                 Haptics.select()
                 tile.clicked()
             }
+        }
+
+        // Inside the card, not on the tile: the tile is a Column, which would lay it out under it.
+        AssetFavoriteButton {
+            visible: tile.favoriteTab.length > 0 && tile.presetId.length > 0
+                     && (tileHover.hovered || favorited || Theme.touchUi)
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: 2
+            buttonSize: 16
+            iconSize: 10
+            tabId: tile.favoriteTab
+            itemId: tile.presetId
         }
     }
 

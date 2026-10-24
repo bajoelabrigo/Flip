@@ -11,10 +11,69 @@ Item {
 
     // Bumped when an addon changes the transitions on disk (an imported .driftfx, a pack install).
     property int catalogTick: 0
-    readonly property var categories: { void catalogTick; return EditorState.transitionCategories() }
+    readonly property var ownCategories: { void catalogTick; return EditorState.transitionCategories() }
     readonly property var catalog: { void catalogTick; return EditorState.transitionKinds() }
     readonly property string favoritesId: "__favorites__"
     readonly property string mineId: "__mine__"
+    // Stock's transitions here too (0.22): Trending first (the most used), the rest spread over the
+    // chips by category after the local cards, or in chips of their own («stock:<category>»).
+    readonly property string trendsId: "__trends__"
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips("transition", root.ownCategories.map(c => c.id))
+                                    : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var categories: Market.configured
+                                      ? [{ "id": root.trendsId, "label": qsTr("Trending") }].concat(root.ownCategories)
+                                            .concat(root.stockChips.extra || [])
+                                      : root.ownCategories
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.trendsId
+                                                 || root.activeCategory.indexOf("stock:") === 0)
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("transitions"), ["transition"], "transitions")
+               : []
+    }
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.stockTick++ }
+        function onCatalogChanged() { root.stockTick++ }
+    }
+
+    // A Stock transition installs as "stock.<id>" (tools/transitions_stock › package_id).
+    function stockKind(item) {
+        const placed = Market.placedId(item.id)
+        if (placed.length > 0)
+            return placed
+        const slug = String(item.id || "").split(":").pop().toLowerCase()
+        return "stock." + slug.replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "")
+    }
+    function stockInstalled(item) {
+        void root.catalogTick
+        const kind = root.stockKind(item)
+        return root.catalog.some(t => t.kind === kind)
+    }
+    function applyKind(kind) {
+        if (EditorState.selectedTransitionTrack >= 0)
+            EditorState.addTransition(EditorState.selectedTransitionTrack,
+                                      EditorState.selectedTransitionLeftClip, kind, 0.5)
+        else if (EditorState.selectedClip >= 0)
+            EditorState.addTransition(EditorState.selectedTrack, EditorState.selectedClip, kind, 0.5)
+        else
+            Toasts.info(qsTr("Select the first of the two clips on the timeline."))
+    }
+    function applyStock(item) {
+        root.catalogTick++
+        root.applyKind(root.stockKind(item))
+    }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     property alias searchText: transitionSearch.text
     readonly property string query: transitionSearch.text.trim().toLowerCase()
@@ -53,6 +112,8 @@ Item {
         }
         if (root.activeCategory === root.mineId)
             return root.catalog.filter(function(item) { return item.user === true })
+        if (root.activeCategory === root.trendsId || root.activeCategory.indexOf("stock:") === 0)
+            return []
         return root.catalog.filter(function(item) {
             return item.category === root.activeCategory
         })
@@ -144,7 +205,7 @@ Item {
             EmptyState {
                 anchors.centerIn: parent
                 width: Math.min(parent.width - Theme.spacing3xl, 260)
-                visible: root.categories.length === 0
+                visible: root.ownCategories.length === 0 && !root.showingStockOnly
                 glyph: Theme.icons.chevronsRight
                 title: qsTr("No transitions available")
                 hint: qsTr("Install a transitions pack to add more.")
@@ -152,11 +213,35 @@ Item {
                 onActionTriggered: root.Window.window.openAddonManager()
             }
 
+            // Trending, or a chip of Stock's own: Stock's cards only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyCards.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyCards
+                    y: Theme.pagePadding
+                    width: stockView.width
+                    sidePadding: Theme.pagePadding
+                    flickable: stockView
+                    type: "transition"
+                    categories: root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.chevronsRight
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
+            }
+
             EmptyState {
                 anchors.centerIn: parent
                 width: Math.min(parent.width - Theme.spacing3xl, 260)
                 visible: root.categories.length > 0
-                         && root.visibleTransitions.length === 0
+                         && root.visibleTransitions.length === 0 && !root.showingStockOnly && !root.stockFooter
                 compact: true
                 glyph: Theme.icons.search
                 title: root.query.length > 0
@@ -209,7 +294,7 @@ Item {
                 topMargin: Theme.pagePadding
                 bottomMargin: Theme.spacing3xl
                 visible: root.categories.length > 0
-                         && root.visibleTransitions.length > 0
+                         && (root.visibleTransitions.length > 0 || root.stockFooter)
                 clip: true
                 reuseItems: true
                 boundsBehavior: Flickable.StopAtBounds
@@ -218,6 +303,20 @@ Item {
                 cellWidth: Math.floor(width / columnCount)
                 cellHeight: transitionGrid.cardSize + 4 + Math.ceil(labelMetrics.height) * 2 + Theme.assetCardGap
                 model: root.visibleTransitions
+
+                // The chip's Stock cards after its own (and the starred ones in Favorites).
+                footer: StockPanelCards {
+                    width: transitionGrid.width - Theme.assetCardGap
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight : 0
+                    bare: true
+                    flickable: transitionGrid
+                    type: "transition"
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
 
                 delegate: Column {
                     id: transitionCard

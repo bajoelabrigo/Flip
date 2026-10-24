@@ -4,6 +4,8 @@
 #include <QHash>
 #include <QObject>
 #include <QPointer>
+#include <QSet>
+#include <QStringList>
 #include <QUrl>
 #include <QVariantList>
 #include <QVariantMap>
@@ -97,13 +99,19 @@ class MarketClient : public QObject
     Q_PROPERTY(QVariantList effectTrends READ effectTrends NOTIFY effectTrendsChanged)
     Q_PROPERTY(bool effectTrendsLoading READ effectTrendsLoading NOTIFY effectTrendsChanged)
     Q_PROPERTY(bool effectTrendsHasMore READ effectTrendsHasMore NOTIFY effectTrendsChanged)
+    // What Stock counts as trending this week: the ids on the home's «Tendencias de la semana»
+    // shelf (the most downloaded). Empty signed out, filled with the first panel's Tendencias.
+    Q_PROPERTY(QStringList weeklyTrendingIds READ weeklyTrendingIds NOTIFY weeklyTrendingChanged)
+    // Bumped when a starred Stock item's card is kept or forgotten (stockFavoriteItems).
+    Q_PROPERTY(int favoriteItemsRevision READ favoriteItemsRevision NOTIFY favoriteItemsChanged)
 
 public:
     // Installs a Stock download whose delivery is not "media" or "scene-template" (a LUT, a look,
     // a text style or animation, a transition, a shape). The editor provides it; `done` must run
-    // exactly once: ok, a short phrase saying where it went, the installed path, an error.
+    // exactly once: ok, a short phrase saying where it went, the installed path, an error, and the
+    // id it has in its panel (placedId), when it has one.
     using InstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
-                                           const QString &error)>;
+                                           const QString &error, const QString &localId)>;
     using StockInstaller = std::function<void(const QString &delivery, const QString &path,
                                               const QString &title, const InstallDone &done)>;
     void setStockInstaller(StockInstaller installer) { m_installer = std::move(installer); }
@@ -214,6 +222,44 @@ public:
     bool effectTrendsLoading() const { return m_effectTrendsLoading; }
     bool effectTrendsHasMore() const { return !m_effectTrendsCursor.isEmpty(); }
     bool templateSuggestionsLoading() const { return m_templateSuggestionsPending > 0; }
+
+    // ---- Stock in each panel (0.22, as the web's stockTrends.ts / stockPanels.ts) ----------------
+    // Every Stock type also shows in its own panel: a «Tendencias» chip first with its most used
+    // (this week's most downloaded, then the most used of all, then the type's first page; 24 at
+    // most) and the rest of it spread over the panel's chips by category. A list is named by a key
+    // ("top:<type>" or "chip:<type>:<category>,<category>") and read with panelList(key).
+    // Needs a signed-in account; every list starts over after signing in or out.
+    // Fetches a type's Tendencias (empty `categories`) or the Stock items of those categories, one
+    // category after the other, page by page (`more` appends the next page).
+    Q_INVOKABLE QString fetchPanelList(const QString &type, const QStringList &categories = {}, bool more = false);
+    Q_INVOKABLE QString panelListKey(const QString &type, const QStringList &categories = {}) const;
+    // {items, loading, loaded, hasMore, error} of a list; an empty map before it is asked for.
+    Q_INVOKABLE QVariantMap panelList(const QString &key) const;
+    // Stock's categories of a type as the server names them [{id, label}]; asks for the catalogue
+    // once when it is not in yet (catalogChanged answers). Empty signed out.
+    Q_INVOKABLE QVariantList stockCategories(const QString &type);
+    // Where Stock's categories of `type` go among a panel's chips (`localChips`, their ids):
+    // {extra: [{id: "stock:<category>", label}], categoriesOf: {<chip id>: [<category>, …]}}.
+    Q_INVOKABLE QVariantMap stockChips(const QString &type, const QStringList &localChips);
+    // Whether a Stock card wears the flame: the server says so, it is on this week's shelf, its
+    // category is a trend, or it is an effect (every Stock effect is in Efectos › Tendencias).
+    Q_INVOKABLE bool isTrendingItem(const QVariantMap &item) const;
+    QStringList weeklyTrendingIds() const { return QStringList(m_weeklyTrending.cbegin(), m_weeklyTrending.cend()); }
+    // What a Stock item became here when it was last installed or imported: an effect's,
+    // transition's, shape's, LUT's ("user:<file>"), style's or preset's id, or a Media asset id.
+    Q_INVOKABLE QString placedId(const QString &itemId) const;
+    // The favorites group of a Stock item, as the panel it shows in names it (the web's
+    // stockFavorites.ts › STOCK_FAV_GROUP), and its key there: "stock:<type>:<id>".
+    Q_INVOKABLE QString stockFavoriteGroup(const QVariantMap &item) const;
+    Q_INVOKABLE QString stockFavoriteKey(const QString &itemId) const;
+    // Keeps what a starred card looks like, so the panel's Favoritos shows it before it is
+    // downloaded (and on another computer it is drawn from its key alone).
+    Q_INVOKABLE void keepFavoriteItem(const QVariantMap &item);
+    // The Stock items among these starred keys (EditorState.assetFavoriteIds), of these types
+    // (all of them when empty).
+    Q_INVOKABLE QVariantList stockFavoriteItems(const QStringList &keys, const QStringList &types = {},
+                                                const QString &group = QString()) const;
+    int favoriteItemsRevision() const { return m_favoriteItemsRevision; }
     // The scene template id a Stock item stands for ("flip:template:<id>"), or empty.
     Q_INVOKABLE QString sceneTemplateIdForItem(const QString &itemId) const;
     Q_INVOKABLE bool sceneTemplateInstalled(const QString &itemId) const;
@@ -269,6 +315,9 @@ signals:
     void templateSuggestionsChanged();
     void textTrendsChanged();
     void effectTrendsChanged();
+    void panelListChanged(const QString &key);
+    void weeklyTrendingChanged();
+    void favoriteItemsChanged();
     // A download that installs where the editor keeps it (a LUT, a look, a text style…) is done;
     // `where` says where to find it ("In Titles › Trending").
     void downloadInstalled(const QString &itemId, const QString &name, const QString &where);
@@ -306,6 +355,36 @@ private:
     QString m_effectTrendsCursor;
     bool m_effectTrendsLoading = false;
     int m_effectTrendsGeneration = 0;
+    // Stock in each panel: one list per key, and what is used (the home's trending shelf and the
+    // most used of all) loaded once per session for every type's Tendencias.
+    struct PanelList
+    {
+        QVariantList items;
+        QString cursor; // the next page's; "<category index>:<server cursor>" for a chip list
+        bool loading = false;
+        bool loaded = false;
+        QString error;
+        int generation = 0;
+    };
+    QHash<QString, PanelList> m_panelLists;
+    int m_panelGeneration = 0;
+    bool m_usageLoaded = false;
+    bool m_usageLoading = false;
+    QVariantList m_usageWeekly;
+    QVariantList m_usageUsed;
+    QList<std::function<void(bool)>> m_usageWaiting;
+    QSet<QString> m_weeklyTrending;
+    bool m_catalogAsked = false;
+    QString m_panelAccount; // whose the lists are
+    QVariantList m_panelTypes; // the catalogue's types, for stockCategories
+    int m_favoriteItemsRevision = 0;
+    void loadUsage(const std::function<void(bool)> &then);
+    void searchPage(const QString &type, const QString &category, const QString &cursor,
+                    const std::function<void(bool ok, const QJsonObject &page)> &then);
+    void setPanelList(const QString &key, const PanelList &list);
+    void resetPanelLists();
+    void mirrorTrends(const QString &key);
+    void rememberPlaced(const QString &itemId, const QString &localId);
     // Resolve is a job now, not a synchronous reply: extraction can outlive any sane HTTP
     // timeout, so the POST only creates it and this polls until it is ready or failed.
     void pollResolve();
@@ -336,7 +415,8 @@ private:
     void failJob(const QString &itemId, const QString &code, const QString &message);
     void importReadyFile(const QString &itemId, const QString &path, const QString &displayName);
     void finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
-                            bool ok, const QString &where, const QString &installedPath, const QString &error);
+                            bool ok, const QString &where, const QString &installedPath, const QString &error,
+                            const QString &localId);
     // /v1/me/... next to the market base (…/v1/market).
     QUrl accountUrl(const QString &path) const;
     QNetworkReply *sendJson(const QByteArray &verb, const QUrl &url, const QByteArray &body);

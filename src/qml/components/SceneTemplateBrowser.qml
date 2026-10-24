@@ -30,8 +30,27 @@ Column {
         return out
     }
     readonly property var catalog: installed.concat(cloud)
+    // Stock's templates here too (0.22): Trending first, the most used of them.
+    readonly property string trendsId: "__trends__"
+    readonly property bool showingTrends: root.activeCategory === root.trendsId && root.query.length === 0
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("sceneTemplates"), ["template"], "sceneTemplates")
+               : []
+    }
+    function stockInstalled(item) {
+        void root.installed
+        return Market.sceneTemplateInstalled(item.id)
+    }
+    function applyStock(item) {
+        EditorState.insertSceneTemplate(Market.sceneTemplateIdForItem(item.id))
+    }
     readonly property var categories: {
-        const out = EditorState.sceneTemplateCategoryList()
+        const out = Market.configured ? [{ id: root.trendsId, label: qsTr("Trending") }] : []
+        for (const c of EditorState.sceneTemplateCategoryList())
+            out.push(c)
         for (let i = 0; i < cloud.length; ++i) {
             if (cloud[i].category && !out.some(c => c.id === cloud[i].category))
                 out.push({ id: cloud[i].category, label: cloud[i].categoryLabel })
@@ -75,6 +94,8 @@ Column {
         }
         if (root.activeCategory === root.favoritesId)
             return root.catalog.filter(t => EditorState.isAssetFavorite("sceneTemplates", t.id))
+        if (root.activeCategory === root.trendsId)
+            return []
         return root.catalog.filter(t => t.category === root.activeCategory)
     }
 
@@ -138,7 +159,7 @@ Column {
         EmptyState {
             anchors.centerIn: parent
             width: Math.min(parent.width - Theme.spacing3xl, 260)
-            visible: root.catalog.length === 0
+            visible: root.catalog.length === 0 && !root.showingTrends && root.stockFavorites.length === 0
             compact: true
             glyph: Theme.icons.layers
             title: qsTr("No scene templates yet")
@@ -151,7 +172,8 @@ Column {
             x: 12
             y: 12
             width: parent.width - 24
-            visible: root.catalog.length > 0 && root.visibleTemplates.length === 0
+            visible: root.catalog.length > 0 && root.visibleTemplates.length === 0 && !root.showingTrends
+                     && root.stockFavorites.length === 0
             text: root.query.length > 0
                   ? qsTr("No templates match “%1”.").arg(search.text.trim())
                   : (root.activeCategory === root.favoritesId
@@ -168,6 +190,30 @@ Column {
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeCard
             font.weight: Font.Medium
+        }
+
+        // Trending: Stock's most used templates.
+        Flickable {
+            id: stockView
+            anchors.fill: parent
+            visible: root.showingTrends
+            clip: true
+            contentHeight: stockOnlyCards.height + Theme.spacingXl
+            boundsBehavior: Flickable.StopAtBounds
+            ScrollBar.vertical: AppScrollBar { }
+
+            StockPanelCards {
+                id: stockOnlyCards
+                y: 12
+                width: stockView.width
+                sidePadding: 12
+                flickable: stockView
+                type: "template"
+                layout: "tall"
+                glyph: Theme.icons.layers
+                isInstalled: function(item) { return root.stockInstalled(item) }
+                apply: function(item) { root.applyStock(item) }
+            }
         }
 
         CategoryScrollOn {
@@ -190,7 +236,7 @@ Column {
             height: parent.height
             topMargin: 12
             bottomMargin: 12
-            visible: root.visibleTemplates.length > 0
+            visible: !root.showingTrends && (root.visibleTemplates.length > 0 || root.stockFavorites.length > 0)
             clip: true
             reuseItems: true
             boundsBehavior: Flickable.StopAtBounds
@@ -199,6 +245,19 @@ Column {
             cellWidth: Math.floor(width / columnCount)
             cellHeight: cardHeight + 4 + Math.ceil(labelMetrics.height) * 2 + Theme.assetCardGap
             model: root.visibleTemplates
+
+            // The starred Stock templates after the local ones in Favorites.
+            footer: StockPanelCards {
+                width: grid.width - Theme.assetCardGap
+                visible: root.stockFavorites.length > 0
+                height: visible ? implicitHeight : 0
+                bare: true
+                layout: "tall"
+                type: "template"
+                items: root.stockFavorites
+                isInstalled: function(item) { return root.stockInstalled(item) }
+                apply: function(item) { root.applyStock(item) }
+            }
 
             delegate: Column {
                 id: card

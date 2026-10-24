@@ -41,7 +41,42 @@ Item {
             void root.favoritesTick
             return root.presets.concat(root.addonPresets).filter(p => EditorState.isAssetFavorite("textStyles", p.id))
         }
+        if (root.section.indexOf("stock:") === 0)
+            return []
         return root.addonPresets.filter(p => p.category === root.section)
+    }
+
+    // Stock's text styles also in these chips by category (0.22), after the local cards; the ones
+    // with no chip here in chips of their own («stock:<category>», named as Stock names them).
+    // Trending keeps the most used.
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated
+               ? Market.stockChips("text-style", ["builtin"].concat(root.addonCategories.map(c => c.id)))
+               : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.section] || []
+    readonly property bool showingStockOnly: root.section.indexOf("stock:") === 0
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.section === "favorites"
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("textStyles"), ["text-style"], "textStyles")
+               : []
+    }
+    readonly property bool stockFooter: !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
+    function stockInstalled(item) {
+        void root.userPresetsTick
+        return EditorState.stockTextPresetId(item.id).length > 0
+    }
+    function applyStock(item) {
+        const presetId = EditorState.stockTextPresetId(item.id)
+        if (presetId.length === 0)
+            return
+        EditorState.addTextClip("", -1, presetId)
+        root.added()
     }
 
     Connections {
@@ -120,7 +155,11 @@ Item {
 
     Connections {
         target: Market
-        function onAuthChanged() { root.ensureTrends() }
+        function onAuthChanged() {
+            root.stockTick++
+            root.ensureTrends()
+        }
+        function onCatalogChanged() { root.stockTick++ }
         function onTextTrendsChanged() { root.showTrends() }
         function onDownloadInstalled(itemId, name, where) {
             if (!root.pendingTrendIds[itemId])
@@ -200,6 +239,17 @@ Item {
 
             Repeater {
                 model: root.addonCategories
+                delegate: ThemedChip {
+                    required property var modelData
+                    text: modelData.label
+                    variant: "outline"
+                    selected: root.section === modelData.id
+                    onClicked: root.section = modelData.id
+                }
+            }
+
+            Repeater {
+                model: root.stockChips.extra || []
                 delegate: ThemedChip {
                     required property var modelData
                     text: modelData.label
@@ -332,6 +382,7 @@ Item {
         flickable: root.section === "mine" ? userGrid : (root.section === "trends" ? trendsGrid : packGrid)
         categories: [{ "id": "trends", "label": qsTr("Trending") }, { "id": "builtin", "label": qsTr("Basic") }]
             .concat(root.addonCategories.map(c => ({ "id": c.id, "label": c.label })))
+            .concat(root.stockChips.extra || [])
             .concat([{ "id": "mine", "label": qsTr("My styles") }])
         activeCategory: root.section
         // Trending loads page by page: its end is not the end until the last page is in.
@@ -359,8 +410,24 @@ Item {
         cellWidth: Math.floor(width / columnCount)
         cellHeight: Math.round(cardSize * 0.55) + Theme.spacingSm
                     + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        visible: root.section !== "mine" && root.section !== "trends"
+        visible: root.section !== "mine" && root.section !== "trends" && !root.showingStockOnly
         model: root.gridPresets
+
+        // The chip's Stock styles after its own (and the starred ones in Favorites).
+        footer: StockPanelCards {
+            width: packGrid.width - Theme.assetCardGap
+            visible: root.stockFooter
+            height: visible ? implicitHeight : 0
+            bare: true
+            layout: "square"
+            flickable: packGrid
+            type: "text-style"
+            categories: root.stockCategoriesHere
+            items: root.section === "favorites" ? root.stockFavorites : null
+            glyph: Theme.icons.type
+            isInstalled: function(item) { return root.stockInstalled(item) }
+            apply: function(item) { root.applyStock(item) }
+        }
 
         delegate: Column {
             id: packCard
@@ -524,6 +591,32 @@ Item {
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
             }
+        }
+    }
+
+    // A chip of Stock's own: its styles only.
+    Flickable {
+        id: stockView
+        y: toolbar.height + Theme.spacingSm
+        width: parent.width
+        height: parent.height - y
+        visible: root.showingStockOnly
+        clip: true
+        contentHeight: stockOnlyCards.height + Theme.spacing3xl
+        boundsBehavior: Flickable.StopAtBounds
+        ScrollBar.vertical: AppScrollBar { }
+
+        StockPanelCards {
+            id: stockOnlyCards
+            width: stockView.width
+            sidePadding: Theme.pagePadding
+            layout: "square"
+            flickable: stockView
+            type: "text-style"
+            categories: root.stockCategoriesHere
+            glyph: Theme.icons.type
+            isInstalled: function(item) { return root.stockInstalled(item) }
+            apply: function(item) { root.applyStock(item) }
         }
     }
 

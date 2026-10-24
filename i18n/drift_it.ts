@@ -150,6 +150,26 @@
         <translation>Ritocco</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Look</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Modelli di scena</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Animazioni della clip</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Maschere</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Ciao</translation>
     </message>
@@ -2657,6 +2677,10 @@
     <message>
         <source>All</source>
         <translation>Tutto</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Preferiti</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12517,6 +12541,14 @@ LA PROSSIMA</translation>
         <translation>Tendenze</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Sovrapposizioni</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Seleziona una clip per applicarle il look</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Seleziona una clip con audio per cambiarne la voce</translation>
     </message>
@@ -13768,6 +13800,10 @@ LA PROSSIMA</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Look</translation>
     </message>
@@ -13818,6 +13854,10 @@ LA PROSSIMA</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Nessuna LUT importata. Importa un file .cube o trova LUT in Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Nessun preferito. Tocca la stella di un filtro per salvarlo qui.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15725,6 +15765,14 @@ LA PROSSIMA</translation>
     <message>
         <source>All files (*)</source>
         <translation>Tutti i file (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Preferiti</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Nessun preferito. Tocca la stella di una maschera per salvarla qui.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19040,6 +19088,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Cerca modelli</translation>
     </message>
@@ -20491,6 +20543,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Cerca forme</translation>
     </message>
@@ -20669,6 +20725,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Cerca suoni</translation>
@@ -21411,6 +21471,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Sfondi</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Cerca adesivi</translation>
     </message>
@@ -21688,6 +21756,57 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Change</source>
         <translation>Cambia</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Accedi per vedere le tendenze</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Impossibile caricare le tendenze</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Caricamento delle tendenze…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Ancora niente qui.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Le tendenze arrivano da Stock, che richiede il tuo account gratuito.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>In attesa del browser…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Accedi</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Riprova</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — clic per usarlo</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — clic per scaricarlo e usarlo</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Aggiungi alla testina</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Caricamento…</translation>
     </message>
 </context>
 <context>
@@ -22926,6 +23045,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Sottolineatura</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>«%1» è per un&apos;altra scheda (Entrata, Uscita o Ciclo): ora si trova lì.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Morbida</translation>
     </message>
@@ -23368,6 +23491,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Viene riprodotta per ogni sottotitolo</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Preferiti di Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Da Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26267,6 +26402,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Seleziona nella timeline la prima delle due clip.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Di tendenza</translation>
     </message>
     <message>
         <source>My Transitions</source>

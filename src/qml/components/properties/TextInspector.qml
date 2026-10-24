@@ -152,6 +152,33 @@ Item {
                              : root.animPresets.filter(p => p.category === root.animCategory)
         return [{ "id": "", "label": qsTr("None") }].concat(filtered)
     }
+    // Trending › From Stock (0.22): Stock's text animations under the trending ones that come with
+    // the app; in Favorites, the starred ones from Stock. A click downloads one (once) and sets it on
+    // this slot when it is made for it.
+    readonly property bool animStockShown: root.animCategory === "trending" || root.animCategory === "__favorites__"
+    readonly property var animStockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.animCategory === "__favorites__"
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("textAnimations"), ["text-animation"], "textAnimations")
+               : []
+    }
+    function stockAnimPreset(item) {
+        void root.animPresetsTick
+        const id = Market.placedId(item.id)
+        return id.length > 0 ? EditorState.textAnimationPresets("").find(p => p.id === id) : undefined
+    }
+    function applyStockAnim(item) {
+        root.animPresetsTick++
+        const preset = root.stockAnimPreset(item)
+        if (!preset)
+            return
+        if ((preset.slots || [root.animSlot]).indexOf(root.animSlot) < 0) {
+            EditorState.setLastMessage(qsTr("“%1” is for another tab (In, Out or Loop): it is there now.").arg(item.title || preset.label), "info")
+            return
+        }
+        root.pickPreset(preset.id)
+    }
     readonly property var animation: (textStyle && textStyle.animation) || ({})
     readonly property var slotData: animation[animSlot] || ({ "preset": "", "enabled": true, "custom": false })
     readonly property bool slotHasPreset: !!slotData.preset && slotData.preset.length > 0
@@ -2519,6 +2546,16 @@ Item {
                     onClicked: root.animCategory = "__favorites__"
                 }
 
+                // Trending always: Stock's text animations are there too.
+                ThemedChip {
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: Market.configured && !root.animCategories.some(c => c.id === "trending")
+                    text: qsTr("Trending")
+                    variant: "secondary"
+                    selected: root.animCategory === "trending"
+                    onClicked: root.animCategory = "trending"
+                }
+
                 Repeater {
                     model: root.animCategories
                     delegate: ThemedChip {
@@ -2618,6 +2655,27 @@ Item {
                         }
                     }
                 }
+            }
+
+            Text {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                text: root.animCategory === "__favorites__" ? qsTr("Stock favorites") : qsTr("From Stock")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.Medium
+            }
+
+            StockPanelCards {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                type: "text-animation"
+                items: root.animCategory === "__favorites__" ? root.animStockFavorites : null
+                bare: root.animCategory === "__favorites__"
+                glyph: Theme.icons.type
+                isInstalled: function(item) { return !!root.stockAnimPreset(item) }
+                apply: function(item) { root.applyStockAnim(item) }
             }
 
             // Selected preset's controls.
