@@ -107,16 +107,40 @@ int nearestFace(const QList<QRectF> &faces, const QPointF &point)
     return best;
 }
 
-// A re-bake owns the element's position (and, with Scale, size) animation: the old path may lie
-// outside the new stretch once the video moved, so it is cleared rather than left to mix in.
-void resetTrackedKeys(drift::Clip &clip)
+// Before a re-bake: the old path may lie outside the new stretch once the video moved, so the
+// keys the last bake wrote are removed rather than left to mix in. Only those: keys the user set
+// outside the tracked stretch stay (auditoria D12). A track from before 0.22.1 does not know its
+// stretch, so it clears the whole animation as it always did, and returns how many keys that
+// removed so the caller can say so (Undo brings them back).
+int resetTrackedKeys(drift::Clip &clip)
 {
-    clip.transformX = drift::KeyframeTrack<double>{};
-    clip.transformY = drift::KeyframeTrack<double>{};
-    if (clip.motionTrack && clip.motionTrack->followScale) {
-        clip.transformW = drift::KeyframeTrack<double>{};
-        clip.transformH = drift::KeyframeTrack<double>{};
-        clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
+    const bool scale = clip.motionTrack && clip.motionTrack->followScale;
+    QList<drift::KeyframeTrack<double> *> tracks{&clip.transformX, &clip.transformY};
+    if (scale) {
+        tracks << &clip.transformW << &clip.transformH;
+        if (clip.textStyle.keyframes.contains(QStringLiteral("pixelSize")))
+            tracks << &clip.textStyle.keyframes[QStringLiteral("pixelSize")];
+    }
+    const drift::TimeUs from = clip.motionTrack ? clip.motionTrack->bakedFromUs : -1;
+    const drift::TimeUs to = clip.motionTrack ? clip.motionTrack->bakedToUs : -1;
+    int removed = 0;
+    for (drift::KeyframeTrack<double> *keys : tracks) {
+        for (const drift::TimeUs time : keys->keyframes().keys()) {
+            if (from >= 0 && (time < from || time > to))
+                continue;
+            keys->removeKeyframe(time);
+            ++removed;
+        }
+    }
+    return from < 0 ? removed : 0;
+}
+
+// The bake's stretch, kept so the next re-bake knows which keys are the tracker's.
+void rememberBake(drift::Clip &clip, const drift::MotionBakeResult &baked)
+{
+    if (clip.motionTrack && baked.ok) {
+        clip.motionTrack->bakedFromUs = baked.fromUs;
+        clip.motionTrack->bakedToUs = baked.toUs;
     }
 }
 
@@ -1191,6 +1215,17 @@ void MotionTrackController::clear(int trackIndex, int clipIndex)
     bump();
 }
 
+// A tracking made before 0.22.1 does not know which keys it wrote, so its re-bake replaced the
+// whole position animation: say so instead of losing the user's keys in silence.
+void MotionTrackController::warnIfKeysReplaced(int removed)
+{
+    if (removed <= 0)
+        return;
+    m_app->setLastMessage(tr("The position keyframes of this element were replaced by the new tracking. "
+                             "Undo (Ctrl+Z) brings them back."),
+                          QStringLiteral("warning"));
+}
+
 bool MotionTrackController::rebake(int trackIndex, int clipIndex, const QString &undoText)
 {
     drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
@@ -1201,7 +1236,7 @@ bool MotionTrackController::rebake(int trackIndex, int clipIndex, const QString 
     }
     const drift::Project before = m_app->m_project;
     const drift::Clip videoCopy = *video;
-    resetTrackedKeys(clip);
+    const int removed = resetTrackedKeys(clip);
     const drift::MotionBakeResult baked = drift::bakeMotionTrack(*clip.motionTrack, videoCopy, &clip,
                                                                  m_app->m_project.width(), m_app->m_project.height());
     if (!baked.ok) {
@@ -1210,8 +1245,10 @@ bool MotionTrackController::rebake(int trackIndex, int clipIndex, const QString 
                               QStringLiteral("warning"));
         return false;
     }
+    rememberBake(clip, baked);
     m_app->pushProjectEdit(before, undoText);
     m_app->finishEdit(undoText);
+    warnIfKeysReplaced(removed);
     bump();
     return true;
 }
@@ -1250,15 +1287,17 @@ bool MotionTrackController::setOption(int trackIndex, int clipIndex, const QStri
     } else {
         clip.motionTrack->keepDistance = value.toBool();
     }
-    resetTrackedKeys(clip);
+    const int removed = resetTrackedKeys(clip);
     const drift::MotionBakeResult baked = drift::bakeMotionTrack(*clip.motionTrack, videoCopy, &clip,
                                                                  m_app->m_project.width(), m_app->m_project.height());
     if (!baked.ok) {
         m_app->m_project = before;
         return false;
     }
+    rememberBake(clip, baked);
     m_app->pushProjectEdit(before, tr("Tracking settings"));
     m_app->finishEdit(tr("Tracking settings"));
+    warnIfKeysReplaced(removed);
     bump();
     return true;
 }
@@ -1511,9 +1550,13 @@ void MotionTrackController::trackWith(int trackIndex, int clipIndex, const QVari
             const drift::Clip videoCopy = *video;
             const drift::Project before = m_app->m_project;
             drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
+            // Tracking again: the previous run's keys go, only those it wrote when it knows them.
+            if (clip.motionTrack && clip.motionTrack->bakedFromUs >= 0)
+                resetTrackedKeys(clip);
             clip.motionTrack = result;
             const drift::MotionBakeResult baked =
                 drift::bakeMotionTrack(result, videoCopy, &clip, m_app->m_project.width(), m_app->m_project.height());
+            rememberBake(clip, baked);
             if (!baked.ok) {
                 m_app->m_project = before;
                 const QString message = tr("Nothing to follow was found");

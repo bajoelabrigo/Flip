@@ -3680,6 +3680,13 @@
         <source>Text preset applied</source>
         <translation type="unfinished">টেক্সট প্রিসেট প্রয়োগ করা হয়েছে</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>টেমপ্লেট প্রয়োগ হয়েছে। %nটি অ্যানিমেটেড সেটিং আগের স্টাইলের এমন অংশের ছিল যা এই টেমপ্লেটে নেই, তাই রাখা হয়নি।</numerusform>
+            <numerusform>টেমপ্লেট প্রয়োগ হয়েছে। %nটি অ্যানিমেটেড সেটিং আগের স্টাইলের এমন অংশের ছিল যা এই টেমপ্লেটে নেই, তাই রাখা হয়নি।</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation type="unfinished">টেক্সট শৈলী সংরক্ষণ করা যায়নি</translation>
@@ -17009,6 +17016,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>ট্র্যাকিং সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>এই উপাদানের অবস্থানের কীফ্রেমগুলো নতুন ট্র্যাকিং দিয়ে বদলে গেছে। পূর্বাবস্থা (Ctrl+Z) সেগুলো ফিরিয়ে আনে।</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

@@ -337,14 +337,14 @@ SlotTime slotTimeFor(TextAnimSlotKind kind, const TextAnimationSlot &slot,
     st.durationUs = derivedSlotDuration(slot, animators, domains);
     switch (kind) {
     case TextAnimSlotKind::In: {
-        const TimeUs elapsed = t - start - slot.delayUs;
+        const TimeUs elapsed = t - start + slot.cutUs - slot.delayUs;
         st.staggerElapsedUs = elapsed;
         st.progress = clamp01(static_cast<double>(elapsed) / static_cast<double>(st.durationUs));
-        st.elapsedSec = usToSeconds(std::max<TimeUs>(0, t - start));
+        st.elapsedSec = usToSeconds(std::max<TimeUs>(0, t - start) + slot.cutUs);
         break;
     }
     case TextAnimSlotKind::Out: {
-        const TimeUs remaining = end - slot.delayUs - t;
+        const TimeUs remaining = end + slot.cutUs - slot.delayUs - t;
         st.isOut = true;
         st.staggerElapsedUs = remaining;
         st.progress = clamp01(1.0 - static_cast<double>(remaining) / static_cast<double>(st.durationUs));
@@ -352,7 +352,7 @@ SlotTime slotTimeFor(TextAnimSlotKind kind, const TextAnimationSlot &slot,
         break;
     }
     case TextAnimSlotKind::Loop: {
-        const TimeUs elapsed = std::max<TimeUs>(0, t - start);
+        const TimeUs elapsed = std::max<TimeUs>(0, t - start) + slot.cutUs;
         st.timeDriven = true;
         st.staggerElapsedUs = elapsed;
         st.elapsedSec = usToSeconds(elapsed);
@@ -465,7 +465,8 @@ void applyBlockProps(const TextAnimatorProps &p, double a, double progress, Bloc
     out.rotation += p.rotation.at(progress) * a;
     out.rotationX += p.rotationX.at(progress) * a;
     out.rotationY += p.rotationY.at(progress) * a;
-    out.scale *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
+    out.scaleX *= 1.0 + (p.scaleX.at(progress) / 100.0 - 1.0) * a;
+    out.scaleY *= 1.0 + (p.scaleY.at(progress) / 100.0 - 1.0) * a;
     out.blurPx += p.blur.at(progress) * ctx.renderScale * a;
     if (p.hasOpacity)
         out.opacity = lerp(out.opacity, p.opacity.at(progress) / 100.0, ap);
@@ -538,7 +539,7 @@ bool isIdentity(const FragmentProps &p)
 
 bool isIdentity(const BlockProps &b)
 {
-    return qFuzzyIsNull(b.dx) && qFuzzyIsNull(b.dy) && qFuzzyCompare(b.scale, 1.0)
+    return qFuzzyIsNull(b.dx) && qFuzzyIsNull(b.dy) && qFuzzyCompare(b.scaleX, 1.0) && qFuzzyCompare(b.scaleY, 1.0)
         && qFuzzyIsNull(b.rotation) && qFuzzyIsNull(b.rotationX) && qFuzzyIsNull(b.rotationY)
         && qFuzzyCompare(b.opacity, 1.0) && qFuzzyIsNull(b.blurPx)
         && b.wipeProgress < 0.0;
@@ -551,7 +552,7 @@ qint64 q(double v)
 
 quint64 poseHashOf(const Frame &frame)
 {
-    quint64 h = qHashMulti(0, q(frame.block.dx), q(frame.block.dy), q(frame.block.scale),
+    quint64 h = qHashMulti(0, q(frame.block.dx), q(frame.block.dy), q(frame.block.scaleX), q(frame.block.scaleY),
                            q(frame.block.rotation), q(frame.block.opacity), q(frame.block.blurPx),
                            q(frame.block.wipeProgress), q(frame.block.rotationX), q(frame.block.rotationY));
     for (const ParticleState &p : frame.particles)
@@ -590,10 +591,10 @@ CaretState caretFor(const TextAnimationSet &set, const ResolvedSlots &resolved, 
     bool show = false;
     if (in.active) {
         const TimeUs revealEnd = set.in.delayUs + in.durationUs;
-        show = c.holdAfterUs < 0 || elapsed <= revealEnd + c.holdAfterUs;
+        show = c.holdAfterUs < 0 || elapsed + set.in.cutUs <= revealEnd + c.holdAfterUs;
     }
     if (out.active && hasStepStagger(resolved.out)) {
-        const TimeUs outStart = end - set.out.delayUs - out.durationUs;
+        const TimeUs outStart = end + set.out.cutUs - set.out.delayUs - out.durationUs;
         show = show || ctx.timelineUs >= outStart;
     }
     if (!in.active && !out.active)
@@ -1488,6 +1489,8 @@ QJsonObject textAnimationSlotToJson(const TextAnimationSlot &s)
         o.insert(QStringLiteral("durationUs"), static_cast<qint64>(s.durationUs));
     if (s.periodUs != 0)
         o.insert(QStringLiteral("periodUs"), static_cast<qint64>(s.periodUs));
+    if (s.cutUs != 0)
+        o.insert(QStringLiteral("cutUs"), static_cast<qint64>(s.cutUs));
     if (!s.enabled)
         o.insert(QStringLiteral("enabled"), false);
     return o;
@@ -1507,6 +1510,7 @@ TextAnimationSlot textAnimationSlotFromJson(const QJsonObject &o)
     s.delayUs = o.value(QStringLiteral("delayUs")).toInteger(0);
     s.durationUs = o.value(QStringLiteral("durationUs")).toInteger(0);
     s.periodUs = o.value(QStringLiteral("periodUs")).toInteger(0);
+    s.cutUs = qMax<qint64>(0, o.value(QStringLiteral("cutUs")).toInteger(0));
     s.enabled = jsonBool(o.value(QStringLiteral("enabled")), true);
     return s;
 }

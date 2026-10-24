@@ -27,6 +27,8 @@ public:
     Q_INVOKABLE QUrl openFile(const QString &title, const QStringList &nameFilters,
                               const QStringList &mimeTypeFilters = QStringList()) const;
     Q_INVOKABLE QList<QUrl> openFiles(const QString &title, const QStringList &nameFilters) const;
+    // A picked file's path on disk ("C:/x.png" on Windows; stripping "file://" in QML left "/C:/x.png").
+    Q_INVOKABLE QString localPath(const QUrl &url) const { return url.isLocalFile() ? url.toLocalFile() : url.toString(); }
     // Native directory picker, for importing a folder's contents with its structure preserved.
     // Empty URL when cancelled. Not offered on Android: SAF's tree picker (ACTION_OPEN_DOCUMENT_TREE)
     // is a different flow than the document picker this class wraps, and isn't wired up.

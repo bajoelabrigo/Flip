@@ -3624,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>Đã áp dụng preset chữ</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Đã áp dụng mẫu. %n thiết lập hoạt ảnh thuộc phần của kiểu cũ mà mẫu này không có nên không được giữ lại.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Không thể lưu kiểu văn bản</translation>
@@ -16953,6 +16959,10 @@ LẦN SAU</translation>
     <message>
         <source>Tracking removed</source>
         <translation>Đã xóa theo dõi</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Các khung hình chính vị trí của phần tử này đã được thay bằng theo dõi mới. Hoàn tác (Ctrl+Z) sẽ khôi phục chúng.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

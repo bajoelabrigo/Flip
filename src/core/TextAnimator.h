@@ -239,6 +239,10 @@ struct TextAnimationSlot
     TimeUs delayUs = 0;    // In: after the window start; Out: before the window end
     TimeUs durationUs = 0; // Curves progress length; 0 = derive from the stagger selectors
     TimeUs periodUs = 0;   // Loop: 0 = progress spans the whole window, else periodic
+    // A cut half (splitClipAtOffset): how much of the text's original window lies outside this
+    // clip on this slot's side — before its start for In and Loop, after its end for Out — so a
+    // cut plays on as if it were not there instead of replaying In / Out at it. 0 = not cut.
+    TimeUs cutUs = 0;
     bool enabled = true;
 
     bool isActive() const { return enabled && (!presetId.isEmpty() || !animators.isEmpty()); }
@@ -357,7 +361,8 @@ struct BlockProps
 {
     double dx = 0.0;
     double dy = 0.0;
-    double scale = 1.0;
+    double scaleX = 1.0; // the whole block, around its centre; X and Y apart so a squash and
+    double scaleY = 1.0; // stretch («im-jump-squash») is not a plain zoom
     double rotation = 0.0;
     double rotationX = 0.0; // the whole layer turned in depth (rides on the GPU layer's 3D pose)
     double rotationY = 0.0;

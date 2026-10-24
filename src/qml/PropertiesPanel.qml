@@ -43,7 +43,6 @@ PanelFrame {
     // Inspector view state that outlives the tab being unloaded.
     QtObject {
         id: inspectorUi
-        property bool sizeLinked: true
         property string textTab: "basic"
         property string animSlot: "in"
         property string animCategory: ""
@@ -653,8 +652,8 @@ PanelFrame {
                     sourceComponent: Component {
                         TransformInspector {
                             width: tabColumn.width
-                            sizeLinked: inspectorUi.sizeLinked
-                            onSizeLinkedChanged: inspectorUi.sizeLinked = sizeLinked
+                            sizeLinked: EditorState.sizeLinked
+                            onSizeLinkedChanged: EditorState.sizeLinked = sizeLinked
                             positionLinked: EditorState.positionLinked
                             onPositionLinkedChanged: EditorState.positionLinked = positionLinked
                         }

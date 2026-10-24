@@ -3630,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation>Ajuste predeterminado de texto aplicado</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>No se pudo guardar el estilo de texto</translation>
@@ -17008,6 +17015,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Tracking removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

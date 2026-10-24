@@ -204,6 +204,9 @@ class AppController : public QObject
     Q_PROPERTY(bool projectPortrait READ projectPortrait NOTIFY tracksChanged)
     Q_PROPERTY(bool autoKeyEnabled READ autoKeyEnabled WRITE setAutoKeyEnabled NOTIFY autoKeyEnabledChanged)
     Q_PROPERTY(bool positionLinked READ positionLinked WRITE setPositionLinked NOTIFY positionLinkedChanged)
+    // The Transform size lock (width and height together), one state for the Transform tab and the
+    // Video and Text pages; QML used to write a property that did not exist (auditoria D13).
+    Q_PROPERTY(bool sizeLinked READ sizeLinked WRITE setSizeLinked NOTIFY sizeLinkedChanged)
     Q_PROPERTY(double masterVolume READ masterVolume
                    WRITE setMasterVolume NOTIFY masterVolumeChanged)
     Q_PROPERTY(bool masterMuted READ masterMuted
@@ -403,6 +406,8 @@ public:
     bool autoKeyEnabled() const { return m_autoKeyEnabled; }
     bool positionLinked() const { return m_positionLinked; }
     void setPositionLinked(bool linked);
+    bool sizeLinked() const { return m_sizeLinked; }
+    void setSizeLinked(bool linked);
     double masterVolume() const;
     void setMasterVolume(double volume);
     bool masterMuted() const;
@@ -1899,6 +1904,7 @@ signals:
     void mediaViewModeChanged();
     void autoKeyEnabledChanged();
     void positionLinkedChanged();
+    void sizeLinkedChanged();
     void masterVolumeChanged();
     void masterMutedChanged();
     // Carries the finished benchmark, merged into whatever the dialog already collected.
@@ -2395,6 +2401,7 @@ protected:
     QString m_mediaViewMode = QStringLiteral("grid");
     bool m_autoKeyEnabled = false;
     bool m_positionLinked = true;
+    bool m_sizeLinked = true;
     // One benchmark at a time: it drives the shared decoders and the GL thread, and two
     // sweeps interleaved would measure each other rather than the pipeline.
     std::atomic<bool> m_benchmarkRunning{false};

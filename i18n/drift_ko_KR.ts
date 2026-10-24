@@ -3624,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>텍스트 프리셋이 적용됨</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>템플릿을 적용했습니다. 이전 스타일 중 이 템플릿에 없는 부분의 애니메이션 설정 %n개는 유지되지 않았습니다.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>텍스트 스타일을 저장할 수 없습니다</translation>
@@ -16953,6 +16959,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>트래킹을 제거했습니다</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>이 요소의 위치 키프레임이 새 추적으로 바뀌었습니다. 실행 취소(Ctrl+Z)로 되돌릴 수 있습니다.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

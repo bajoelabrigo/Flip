@@ -59,16 +59,22 @@ quint64 styleHash(const drift::TextStyle &s)
                                  a.outlineColor.rgba(), highlightHash(a.highlight)));
 }
 
-// Only what moves glyphs: the look (colours, strokes) is painted, not laid out.
+// What moves glyphs, plus what sizes the cached ink bounds (paintedBounds): the stroke widths and
+// the highlight paddings. Leaving those out kept the box and the block gradient at the size of the
+// first stroke after the width changed (auditoría D5). The rest of the look is painted, not laid out.
 quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWidth, double blockHeight,
                   double renderScale, int activeWordIndex, WordSplit split)
 {
     const drift::WordAccent &a = s.accent;
+    const auto pad = [](const drift::TextHighlight &h) { return h.enabled ? qRound(h.padding * 4.0) : -1; };
+    const quint64 ink = qHashMulti(0, qRound(drift::textStrokeWidth(s, false) * 4.0),
+                                   qRound(drift::textStrokeWidth(s, true) * 4.0), pad(s.wordHighlight),
+                                   pad(a.highlight));
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split));
+                      static_cast<int>(split), ink);
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,

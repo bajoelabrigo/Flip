@@ -3636,6 +3636,14 @@
         <source>Text preset applied</source>
         <translation>Zastosowano preset tekstu</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Zastosowano szablon. Animowane ustawienia (%n) należały do części poprzedniego stylu, której ten szablon nie ma, i nie zostały zachowane.</numerusform>
+            <numerusform>Zastosowano szablon. Animowane ustawienia (%n) należały do części poprzedniego stylu, której ten szablon nie ma, i nie zostały zachowane.</numerusform>
+            <numerusform>Zastosowano szablon. Animowane ustawienia (%n) należały do części poprzedniego stylu, której ten szablon nie ma, i nie zostały zachowane.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Nie udało się zapisać stylu tekstu</translation>
@@ -17073,6 +17081,10 @@ ZOBACZENIA</translation>
     <message>
         <source>Tracking removed</source>
         <translation>Usunięto śledzenie</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Klatki kluczowe pozycji tego elementu zostały zastąpione nowym śledzeniem. Cofnij (Ctrl+Z) je przywraca.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

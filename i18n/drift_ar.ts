@@ -3546,6 +3546,17 @@
         <source>Text preset applied</source>
         <translation>تم تطبيق الإعداد المسبق للنص</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+            <numerusform>طُبّق القالب. %n من الإعدادات المتحركة كانت لجزء من النمط السابق لا يوجد في هذا القالب ولم تُحفظ.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>تعذر حفظ نمط النص</translation>
@@ -17253,6 +17264,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>تمت إزالة التتبّع</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>استُبدلت الإطارات الرئيسية لموضع هذا العنصر بالتتبع الجديد. التراجع (Ctrl+Z) يعيدها.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

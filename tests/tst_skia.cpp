@@ -305,6 +305,7 @@ private slots:
     void fragmentAnimationRendersPerCharacter();
     void bleedIsTimeInvariant();
     void shadingLayersCompositeInOrder();
+    void inkBoundsFollowTheStrokeWidth();
     void gradientOffsetShiftsColour();
     void wipeMaskRevealsBottomUp();
     void caretDrawsAfterLastVisibleFragment();
@@ -1398,6 +1399,44 @@ void SkiaTest::shadingLayersCompositeInOrder()
     style.layers = {strokeLayer(6.0, QColor(0, 255, 0)), hollow};
     const Ink hollowed = inkOf(skiaText(textClip(style, text), text, layout, 1.0, -1, nullptr));
     QVERIFY2(hollowed.count < stroked.count * 0.8 && hollowed.count > 0, qPrintable(describe(stroked, hollowed)));
+
+    // An Inside stroke under an opaque fill (where new strokes go) still shows, and stays inside
+    // the glyph: red ink along the edges, no wider than the plain text (auditoría D2).
+    TextShadingLayer inside = strokeLayer(5.0, QColor(255, 0, 0));
+    inside.strokeAlign = StrokeAlign::Inside;
+    style.layers = {inside, solidFillLayer(Qt::white)};
+    const QImage insideImage = skiaText(textClip(style, text), text, layout, 1.0, -1, nullptr)
+                                   .convertToFormat(QImage::Format_RGBA8888);
+    const Ink insideInk = inkOf(insideImage);
+    int red = 0;
+    for (int y = 0; y < insideImage.height(); ++y)
+        for (int x = 0; x < insideImage.width(); ++x) {
+            const QRgb px = insideImage.pixel(x, y);
+            if (qAlpha(px) > 200 && qRed(px) > 200 && qGreen(px) < 80 && qBlue(px) < 80)
+                ++red;
+        }
+    QVERIFY2(red > plain.count / 10, qPrintable(QString::number(red)));
+    QVERIFY2(insideInk.bbox.width() <= plain.bbox.width() + 2, qPrintable(describe(plain, insideInk)));
+}
+
+// The cached layout's ink bounds (what the box and a block gradient size to) follow the stroke
+// width: the same text with a thicker stroke must not reuse the thinner one's bounds (D5).
+void SkiaTest::inkBoundsFollowTheStrokeWidth()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+    TextStyle thin;
+    thin.fontFamily = QStringLiteral("Inter");
+    thin.pixelSize = 64;
+    thin.layers = {strokeLayer(2.0, Qt::black), solidFillLayer(Qt::white)};
+    TextStyle thick = thin;
+    thick.layers = {strokeLayer(12.0, Qt::black), solidFillLayer(Qt::white)};
+    const QString text = QStringLiteral("Caja");
+    const auto a = fragmentsFor(text, thin, 400.0, 120.0, 1.0, -1, WordSplit::Whole);
+    const auto b = fragmentsFor(text, thick, 400.0, 120.0, 1.0, -1, WordSplit::Whole);
+    QVERIFY(a && b);
+    QVERIFY2(b->ink.width() >= a->ink.width() + 15.0,
+             qPrintable(QStringLiteral("%1 vs %2").arg(a->ink.width()).arg(b->ink.width())));
 }
 
 // A repeating left→right gradient slides with its offset, and maps per word when asked.

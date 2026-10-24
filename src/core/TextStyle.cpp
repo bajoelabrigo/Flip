@@ -8,6 +8,7 @@
 #include "TextAnimationPreset.h"
 #include "TextLook.h"
 #include "TextPresetStore.h"
+#include "TimelineOps.h"
 
 #include <QCoreApplication>
 #include <QJsonArray>
@@ -934,6 +935,39 @@ std::optional<TextStyle> textStyleForPresetId(const QString &id)
     return preset->style;
 }
 
+TextStyle textStyleWithPresetLook(const TextStyle &current, const TextStyle &preset, QStringList *dropped)
+{
+    TextStyle out = preset;
+    if (current.animation.in.isActive())
+        out.animation.in = current.animation.in;
+    if (current.animation.out.isActive())
+        out.animation.out = current.animation.out;
+    if (current.animation.loop.isActive())
+        out.animation.loop = current.animation.loop;
+    if (current.animation.isActive()) {
+        out.animation.caret = current.animation.caret;
+        out.animation.anchorGrouping = current.animation.anchorGrouping;
+        out.animation.anchorAlignment = current.animation.anchorAlignment;
+    }
+    if (current.counter) {
+        out.counter = true;
+        out.counterFrom = current.counterFrom;
+        out.counterSeconds = current.counterSeconds;
+    }
+    if (preset.textCase.isEmpty() || preset.textCase == QLatin1String("none"))
+        out.textCase = current.textCase;
+    for (auto it = current.keyframes.constBegin(); it != current.keyframes.constEnd(); ++it) {
+        const QString key = textKeyframeCanonicalKey(it.key(), out);
+        if (key.isEmpty()) {
+            if (dropped)
+                dropped->append(it.key());
+            continue;
+        }
+        out.keyframes.insert(key, it.value());
+    }
+    return out;
+}
+
 // ---------------------------------------------------------------------------------------------
 // Highlight / accent JSON
 
@@ -1054,6 +1088,52 @@ QString textKeyframeCanonicalKey(const QString &key, const TextStyle &s)
         return {};
     double probe = 0.0;
     return shadingLayerScalar(*layer, path.field, &probe) ? candidate : QString();
+}
+
+void scaleTextStyle(TextStyle &s, double factor)
+{
+    if (!(factor > 0.0) || qFuzzyCompare(factor, 1.0))
+        return;
+    s.pixelSize = qMax(1, qRound(s.pixelSize * factor));
+    s.letterSpacing *= factor;
+    s.boxPadding *= factor;
+    if (s.boxPaddingX >= 0.0)
+        s.boxPaddingX *= factor;
+    if (s.boxPaddingY >= 0.0)
+        s.boxPaddingY *= factor;
+    s.boxRadius *= factor;
+    s.boxOffsetX *= factor;
+    s.boxOffsetY *= factor;
+    s.boxBorderWidth *= factor;
+    s.wordHighlight.padding *= factor;
+    s.wordHighlight.radius *= factor;
+    s.accent.highlight.padding *= factor;
+    s.accent.highlight.radius *= factor;
+    s.accent.outlineWidth *= factor;
+    s.underlineWidth *= factor;
+    s.underlineOffset *= factor;
+    for (TextShadingLayer &layer : s.layers) {
+        layer.offsetX *= factor;
+        layer.offsetY *= factor;
+        layer.blur *= factor;
+        layer.width *= factor;
+        layer.spread *= factor;
+        layer.sketchLength *= factor;
+        layer.sketchDeviation *= factor;
+    }
+    static const QStringList kFlat{QStringLiteral("pixelSize"), QStringLiteral("letterSpacing"),
+                                   QStringLiteral("boxPadding")};
+    static const QStringList kLayerFields{QStringLiteral("offsetX"), QStringLiteral("offsetY"), QStringLiteral("blur"),
+                                          QStringLiteral("width"), QStringLiteral("spread")};
+    for (auto it = s.keyframes.begin(); it != s.keyframes.end(); ++it) {
+        const QString &key = it.key();
+        const bool lengthKey = kFlat.contains(key)
+                               || (key.startsWith(QLatin1String("layer."))
+                                   && kLayerFields.contains(key.section(QLatin1Char('.'), -1)));
+        if (!lengthKey || it->isEmpty())
+            continue;
+        scaleTrackValues(*it, factor);
+    }
 }
 
 QString textKeyframeLabel(const QString &key, const TextStyle &s)

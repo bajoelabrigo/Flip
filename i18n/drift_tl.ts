@@ -3630,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Nailapat ang template. Ang %n animated na setting ay bahagi ng dating istilo na wala sa template na ito at hindi naitago.</numerusform>
+            <numerusform>Nailapat ang template. Ang %n animated na setting ay bahagi ng dating istilo na wala sa template na ito at hindi naitago.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation type="unfinished"></translation>
@@ -17009,6 +17016,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>Naalis na ang tracking</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>Napalitan ng bagong tracking ang mga keyframe ng posisyon ng elementong ito. Ibinabalik ang mga ito ng Undo (Ctrl+Z).</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

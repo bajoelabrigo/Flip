@@ -3630,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation>පෙළ පෙරසැකසුම යොදන ලදී</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>සැකිල්ල යෙදිණි. පෙර ශෛලියේ මෙම සැකිල්ලේ නැති කොටසකට අයත් සජීවිකරණ සැකසුම් %n ක් රඳවා නොගැනිණි.</numerusform>
+            <numerusform>සැකිල්ල යෙදිණි. පෙර ශෛලියේ මෙම සැකිල්ලේ නැති කොටසකට අයත් සජීවිකරණ සැකසුම් %n ක් රඳවා නොගැනිණි.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>පෙළ විලාසය සුරැකීමට නොහැකි විය</translation>
@@ -17009,6 +17016,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>ට්‍රැකින් ඉවත් කළා</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>මෙම මූලද්‍රව්‍යයේ පිහිටීම් යතුරු රාමු නව ලුහුබැඳීමෙන් ප්‍රතිස්ථාපනය විය. අහෝසි කිරීම (Ctrl+Z) ඒවා ආපසු ගෙනේ.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

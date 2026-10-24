@@ -137,6 +137,7 @@ private:
     // The followed video of a stored track: by id, else whatever is under the element now.
     const drift::Clip *followedVideo(const drift::Clip &follower, int trackIndex, int clipIndex) const;
     bool rebake(int trackIndex, int clipIndex, const QString &undoText);
+    void warnIfKeysReplaced(int removed);
     // One oval key of a hide layer: its centre and size, normalized to the canvas, at a timeline time.
     struct HideKey
     {

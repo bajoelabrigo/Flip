@@ -49,6 +49,11 @@ struct MotionTrack
     // A text's font size there: with followScale a text grows and shrinks its letters, not only
     // its box (resizing a text box rewraps the words, it does not scale them). 0 for anything else.
     double anchorPixelSize = 0.0;
+    // The stretch the last bake wrote, in the element's own time (-1 = unknown, a file from before
+    // 0.22.1). A re-bake replaces only the keys inside it, so keys the user set outside the
+    // tracked part are kept (auditoria D12).
+    TimeUs bakedFromUs = -1;
+    TimeUs bakedToUs = -1;
     QList<MotionTrackSample> samples; // in source-time order
 
     bool isEmpty() const { return samples.isEmpty(); }
@@ -63,6 +68,8 @@ struct MotionBakeResult
     int keys = 0;     // keyframes written per animated property
     int samples = 0;  // samples inside both clips
     int lost = 0;     // of those, not trusted
+    TimeUs fromUs = -1; // the stretch written, in the follower's own time
+    TimeUs toUs = -1;
     bool ok = false;  // false when no trusted sample falls where the two clips overlap
 };
 

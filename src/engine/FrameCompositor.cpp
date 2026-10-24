@@ -1038,7 +1038,7 @@ int karaokeWordIndex(const drift::Clip &clip, const drift::SubtitleCue &cue, dri
 {
     if (clip.textStyle.accent.rule != drift::WordAccentRule::Karaoke)
         return -1;
-    return drift::activeWordIndexAt(cue.text, cue.startUs, cue.endUs, localUs);
+    return drift::activeWordIndexAt(cue, localUs);
 }
 
 // CapCut-style body intro/outro/combo: opacity/offset/scale/rotation on top of fades and text
@@ -1254,9 +1254,9 @@ void applyTextBlockMotion(GpuLayer &layer, const drift::textanim::BlockProps &bl
                           double *opacity, double *rotation)
 {
     destRect->translate(block.dx, block.dy);
-    if (!qFuzzyCompare(block.scale, 1.0)) {
+    if (!qFuzzyCompare(block.scaleX, 1.0) || !qFuzzyCompare(block.scaleY, 1.0)) {
         const QPointF centre = destRect->center();
-        destRect->setSize(destRect->size() * block.scale);
+        destRect->setSize(QSizeF(destRect->width() * block.scaleX, destRect->height() * block.scaleY));
         destRect->moveCenter(centre);
     }
     *opacity *= block.opacity;

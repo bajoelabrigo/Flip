@@ -3624,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>テキストプリセットを適用しました</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>テンプレートを適用しました。前のスタイルのうちこのテンプレートにない部分のアニメーション設定 %n 件は引き継がれませんでした。</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>テキストスタイルを保存できませんでした</translation>
@@ -16953,6 +16959,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>トラッキングを削除しました</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>この要素の位置キーフレームは新しいトラッキングで置き換えられました。元に戻す（Ctrl+Z）で戻せます。</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

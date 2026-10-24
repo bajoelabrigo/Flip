@@ -193,6 +193,11 @@ QString textKeyframeLabel(const QString &key, const TextStyle &style);
 // an unknown key. Legacy aliases are accepted.
 bool textStyleScalar(const TextStyle &style, const QString &key, double *out);
 bool setTextStyleScalar(TextStyle &style, const QString &key, double value);
+// Grows or shrinks the whole look by `factor`, not only the letters: the size, the spacing, every
+// layer's stroke width, blur, spread and offset, the box and pill paddings, radii and borders, the
+// underline, and the keyframes of all of those. A template put on another canvas and a text
+// scaled from its corner keep their proportions (auditoria D7, D14).
+void scaleTextStyle(TextStyle &style, double factor);
 
 // One text of a combined template: its look, its words, where it sits (fractions of the canvas)
 // and how long after the template's start it comes in.
@@ -229,6 +234,14 @@ const QList<TextPreset> &textPresets();
 // preview provider resolves ids on the image-loading thread.
 std::optional<TextPreset> textPresetForId(const QString &id);
 std::optional<TextStyle> textStyleForPresetId(const QString &id);
+// `preset`'s look put on a text that already has `current`: the template brings the look, and
+// what the user did to this text stays (Jorge, 2026-10-24: a template used to wipe the motion).
+// Kept from `current`: each In / Out / Loop slot the user set (the template's own fills the empty
+// ones), the counter, a case the template does not set, and every keyframe track that still names
+// a property of the new style. `dropped`, when given, gets the keyframe tracks that could not
+// stay (a layer the template does not have).
+TextStyle textStyleWithPresetLook(const TextStyle &current, const TextStyle &preset,
+                                  QStringList *dropped = nullptr);
 
 // Styles from installed text-style add-ons, ids "pack:<pack>/<style>". The engine's catalog
 // (TextStyleCatalog) reads the packs and hands them over here, so textPresetForId resolves them

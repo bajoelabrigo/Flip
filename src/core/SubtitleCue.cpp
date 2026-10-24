@@ -114,6 +114,37 @@ int activeWordIndexAt(const QString &text, TimeUs startUs, TimeUs endUs, TimeUs 
     return words.isEmpty() ? -1 : words.size() - 1;
 }
 
+void shiftSubtitleCue(SubtitleCue &cue, TimeUs delta)
+{
+    cue.startUs += delta;
+    cue.endUs += delta;
+    for (TimeUs &end : cue.wordEndsUs)
+        end += delta;
+}
+
+int activeWordIndexAt(const SubtitleCue &cue, TimeUs localUs)
+{
+    if (cue.endUs <= cue.startUs || localUs < cue.startUs)
+        return -1;
+    const QList<TimedWord> words = wordsFromCue(cue);
+    // A word added after alignment at the end (the caption's emoji) still lets the timings drive
+    // the words before it; fewer words than timings (one removed, or the text rewritten) does not.
+    bool timed = !cue.wordEndsUs.isEmpty() && cue.wordEndsUs.size() <= words.size()
+                 && words.size() - cue.wordEndsUs.size() <= 1;
+    for (int i = 0; timed && i < cue.wordEndsUs.size(); ++i) {
+        const TimeUs end = cue.wordEndsUs.at(i);
+        timed = end > cue.startUs && end <= cue.endUs + kUsPerSecond / 10
+                && (i == 0 || end >= cue.wordEndsUs.at(i - 1));
+    }
+    if (!timed)
+        return activeWordIndexAt(cue.text, cue.startUs, cue.endUs, localUs);
+    for (int i = 0; i < cue.wordEndsUs.size(); ++i) {
+        if (localUs < cue.wordEndsUs.at(i))
+            return i;
+    }
+    return words.size() - 1;
+}
+
 const SubtitleCue *activeSubtitleCueAt(const QList<SubtitleCue> &cues, TimeUs localUs)
 {
     for (const SubtitleCue &cue : cues) {
@@ -175,6 +206,10 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
         for (const TimedWord &w : subtitle)
             text += w.word;
         cue.text = text.trimmed().replace(QLatin1Char('\n'), QLatin1Char(' '));
+        for (const TimedWord &w : subtitle) {
+            if (!w.word.trimmed().isEmpty())
+                cue.wordEndsUs.append(w.endUs);
+        }
         if (!cue.text.isEmpty() && cue.endUs > cue.startUs)
             packed.append(cue);
         subtitle.clear();

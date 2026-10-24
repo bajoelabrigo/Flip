@@ -671,14 +671,12 @@ public:
                 continue;
             (props(i).opacity >= 0.999 ? solid : fading).append(i);
         }
-        for (const TextShadingLayer &layer : m_style.layers)
-            drawLayer(canvas, layer, solid, 1.0);
+        drawLayers(canvas, solid);
         for (int i : fading) {
             SkPaint alpha;
             alpha.setAlphaf(float(props(i).opacity));
             canvas.saveLayer(nullptr, &alpha);
-            for (const TextShadingLayer &layer : m_style.layers)
-                drawLayer(canvas, layer, {i}, 1.0);
+            drawLayers(canvas, {i});
             canvas.restore();
         }
 
@@ -859,6 +857,23 @@ private:
 
     // One layer of the stack over the given pieces. Pieces are bucketed by their own blur so
     // a handful of transitional fragments do not force a filter over the whole block.
+    // The style's layers in order, except that an Inside stroke goes on last: it is clipped to the
+    // glyph, so under a fill (where new strokes are put) it would never show (auditoría D2).
+    void drawLayers(SkCanvas &canvas, const QList<int> &pieces) const
+    {
+        const auto inside = [](const TextShadingLayer &layer) {
+            return layer.kind == TextLayerKind::Stroke && layer.strokeAlign == StrokeAlign::Inside;
+        };
+        for (const TextShadingLayer &layer : m_style.layers) {
+            if (!inside(layer))
+                drawLayer(canvas, layer, pieces, 1.0);
+        }
+        for (const TextShadingLayer &layer : m_style.layers) {
+            if (inside(layer))
+                drawLayer(canvas, layer, pieces, 1.0);
+        }
+    }
+
     void drawLayer(SkCanvas &canvas, const TextShadingLayer &layer, const QList<int> &pieces, double alpha) const
     {
         if (!layer.enabled || layer.opacity <= 0.0 || pieces.isEmpty())

@@ -1520,6 +1520,7 @@ void applyTextAnimationSlotPatch(drift::TextAnimationSlot *slot, const QVariantM
             slot->durationUs = 0;
             slot->delayUs = 0;
             slot->periodUs = 0;
+            slot->cutUs = 0; // a new choice plays at this clip's own edges, not a cut's
             slot->enabled = true;
         }
     }
@@ -1529,6 +1530,7 @@ void applyTextAnimationSlotPatch(drift::TextAnimationSlot *slot, const QVariantM
             slot->animators.append(drift::textAnimatorFromJson(QJsonObject::fromVariantMap(v.toMap())));
         slot->presetId.clear();
         slot->params.clear();
+        slot->cutUs = 0;
         slot->enabled = true;
     }
     const QList<drift::TextAnimParamSpec> specs = specsForSlot(*slot);
@@ -1942,10 +1944,14 @@ QVariantList subtitleCuesToMap(const QList<drift::SubtitleCue> &cues)
 {
     QVariantList out;
     for (const drift::SubtitleCue &cue : cues) {
+        QVariantList ends;
+        for (const drift::TimeUs end : cue.wordEndsUs)
+            ends.append(drift::usToSeconds(end));
         out.append(QVariantMap{
             {QStringLiteral("start"), drift::usToSeconds(cue.startUs)},
             {QStringLiteral("end"), drift::usToSeconds(cue.endUs)},
             {QStringLiteral("text"), cue.text},
+            {QStringLiteral("wordEnds"), ends},
         });
     }
     return out;
@@ -1961,6 +1967,9 @@ QList<drift::SubtitleCue> subtitleCuesFromMap(const QVariantList &list)
         cue.startUs = drift::secondsToUs(map.value(QStringLiteral("start")).toDouble());
         cue.endUs = drift::secondsToUs(map.value(QStringLiteral("end")).toDouble());
         cue.text = map.value(QStringLiteral("text")).toString();
+        // Kept through the editor; activeWordIndexAt ignores them once they stop fitting.
+        for (const QVariant &end : map.value(QStringLiteral("wordEnds")).toList())
+            cue.wordEndsUs.append(drift::secondsToUs(end.toDouble()));
         cues.append(cue);
     }
     drift::sortSubtitleCues(cues);
@@ -5627,6 +5636,14 @@ void AppController::setPositionLinked(bool linked)
     emit positionLinkedChanged();
 }
 
+void AppController::setSizeLinked(bool linked)
+{
+    if (m_sizeLinked == linked)
+        return;
+    m_sizeLinked = linked;
+    emit sizeLinkedChanged();
+}
+
 double AppController::masterVolume() const
 {
     return m_playback.masterVolume();
@@ -8072,10 +8089,8 @@ AppController::TrimComputation AppController::computeTrimLeft(int trackIndex, in
         // Cue times are relative to the clip's timeline start, so they have to travel with it or
         // every subtitle would slide by the trim amount. Cues pushed outside the clip keep their
         // (possibly negative) offsets so dragging the edge back restores them.
-        for (drift::SubtitleCue &cue : clip.subtitleCues) {
-            cue.startUs -= delta;
-            cue.endUs -= delta;
-        }
+        for (drift::SubtitleCue &cue : clip.subtitleCues)
+            drift::shiftSubtitleCue(cue, -delta);
         syncSyntheticSourceRange(clip);
         finishRipple(clip);
         out.clip = clip;
@@ -9443,6 +9458,14 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 m.startUs = s;
                 m.endUs = e;
                 m.text = cue.text;
+                // The aligned words' ends, mapped the same way, so karaoke follows the voice.
+                if (!source.reverse) {
+                    for (const drift::TimeUs end : cue.wordEndsUs) {
+                        const double src = drift::usToSeconds(qBound<drift::TimeUs>(0, end - spanStartUs, spanLengthUs));
+                        m.wordEndsUs.append(offset + qBound<drift::TimeUs>(0, drift::secondsToUs(src / source.speed),
+                                                                           source.timelineDuration));
+                    }
+                }
                 mapped.append(m);
             }
         }
@@ -13147,10 +13170,17 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
         return;
 
     const drift::Project before = m_project;
-    clip.textStyle = *preset;
+    // The template brings the look; the text keeps its motion, keyframes and counter.
+    QStringList dropped;
+    clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
     clip.textStyle.packId = presetId;
     pushProjectEdit(before, tr("Apply text preset"));
     finishEdit(tr("Text preset applied"));
+    if (!dropped.isEmpty()) {
+        setLastMessage(tr("Text preset applied. %n animated setting(s) belonged to a part of the old style "
+                          "that this one does not have and were left out.", "", int(dropped.size())),
+                       QStringLiteral("warning"));
+    }
 }
 
 QVariantList AppController::textPresets() const
@@ -13518,10 +13548,11 @@ void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPi
     if (clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle)
         return;
 
-    // The rect follows the same auto-key rules as previewSetClipRect. The glyph size is a plain
-    // style field rather than a keyframed track, so it is always applied — the two move together
-    // under one undo entry, because resizing a text clip should scale what you see, not just the
-    // invisible wrap container.
+    // The rect follows the same auto-key rules as previewSetClipRect. The corner scales the whole
+    // look with it — letters, strokes, shadows, box, and their keyframes (scaleTextStyle) — in the
+    // same undo entry, because resizing a text clip should scale what you see, not just the
+    // invisible wrap container; scaling only the size left the outline thin and a keyed size
+    // unchanged (auditoría D7).
     beginImplicitPreviewDrag(tr("Resize text"));
     const drift::TimeUs relative = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart);
     bool wrote = false;
@@ -13533,7 +13564,8 @@ void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPi
             || wrote;
 
     const int clamped = qBound(8, pixelSize, 800);
-    if (clip.textStyle.pixelSize != clamped) {
+    if (clip.textStyle.pixelSize != clamped && clip.textStyle.pixelSize > 0) {
+        drift::scaleTextStyle(clip.textStyle, double(clamped) / clip.textStyle.pixelSize);
         clip.textStyle.pixelSize = clamped;
         wrote = true;
     }
@@ -26351,6 +26383,11 @@ QVariantMap AppController::textAnimationPresetToMap(const drift::TextAnimationPr
         {QStringLiteral("trending"), preset.trending},
         {QStringLiteral("builtIn"), preset.builtIn},
         {QStringLiteral("params"), paramSpecsToList(preset.params)},
+        // A Loop that runs on its own clock (wiggle: «speed»; karaoke: the words' timing) ignores
+        // the slot's period; only a progress-driven one («slow-zoom») repeats with it.
+        {QStringLiteral("progressDriven"),
+         !QJsonDocument(preset.animators).toJson(QJsonDocument::Compact).contains("\"wiggle\"")
+             && !QJsonDocument(preset.animators).toJson(QJsonDocument::Compact).contains("\"karaoke\"")},
         {QStringLiteral("flags"), preset.flags.toVariantMap()},
         {QStringLiteral("report"), preset.report},
     };

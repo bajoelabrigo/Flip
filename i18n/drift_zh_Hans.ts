@@ -3624,6 +3624,12 @@
         <source>Text preset applied</source>
         <translation>已应用文本预设</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>已应用模板。旧样式中此模板没有的部分有 %n 项动画设置未保留。</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>无法保存文本样式</translation>
@@ -16953,6 +16959,10 @@ NEXT TIME</source>
     <message>
         <source>Tracking removed</source>
         <translation>已移除跟踪</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>此元素的位置关键帧已被新的跟踪替换。撤销（Ctrl+Z）可恢复。</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

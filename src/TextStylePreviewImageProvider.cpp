@@ -97,7 +97,7 @@ QImage renderTextCard(const drift::Clip &clip, const QString &text, const QSize 
         const QPointF centre = painted.rect.center() + QPointF(block.dx, block.dy);
         p.translate(centre);
         p.rotate(block.rotation);
-        p.scale(block.scale, block.scale);
+        p.scale(block.scaleX, block.scaleY);
         p.translate(-painted.rect.center());
         p.drawImage(painted.rect.topLeft(), raster);
     }

@@ -3630,6 +3630,13 @@
         <source>Text preset applied</source>
         <translation>Predefinito testo applicato</translation>
     </message>
+    <message numerus="yes">
+        <source>Text preset applied. %n animated setting(s) belonged to a part of the old style that this one does not have and were left out.</source>
+        <translation>
+            <numerusform>Modello applicato. %n impostazione/i animata/e appartenevano a una parte dello stile precedente che questo modello non ha e non sono state mantenute.</numerusform>
+            <numerusform>Modello applicato. %n impostazione/i animata/e appartenevano a una parte dello stile precedente che questo modello non ha e non sono state mantenute.</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Could not save the text style</source>
         <translation>Impossibile salvare lo stile di testo</translation>
@@ -17013,6 +17020,10 @@ LA PROSSIMA</translation>
     <message>
         <source>Tracking removed</source>
         <translation>Tracciamento rimosso</translation>
+    </message>
+    <message>
+        <source>The position keyframes of this element were replaced by the new tracking. Undo (Ctrl+Z) brings them back.</source>
+        <translation>I fotogrammi chiave di posizione di questo elemento sono stati sostituiti dal nuovo tracciamento. Annulla (Ctrl+Z) li ripristina.</translation>
     </message>
     <message>
         <source>The video it followed is no longer in the project</source>

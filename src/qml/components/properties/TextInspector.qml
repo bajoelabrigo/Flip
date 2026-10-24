@@ -190,6 +190,17 @@ Item {
         return null
     }
     readonly property var presetFlags: (selectedPreset && selectedPreset.flags) || ({})
+    // A Loop shows only the controls its animation reads (auditoría D10): Loops declare none of
+    // the reveal's common params, and only a progress-driven one repeats with the period.
+    function slotControlShown(paramId) {
+        if (root.animSlot !== "loop")
+            return true
+        if (!root.selectedPreset)
+            return false
+        if (paramId === "period")
+            return !!root.selectedPreset.progressDriven
+        return (root.selectedPreset.params || []).some(p => p.id === paramId)
+    }
     readonly property var commonAnimParamIds: ["duration", "stagger", "unit", "order", "ease", "period"]
     readonly property var presetOwnParams: selectedPreset
                                            ? (selectedPreset.params || []).filter(p => root.commonAnimParamIds.indexOf(p.id) < 0)
@@ -2736,7 +2747,7 @@ Item {
                 Column {
                     width: parent.width
                     spacing: 4
-                    visible: root.animSlot === "loop" || !root.presetFlags.durationLocked
+                    visible: root.animSlot === "loop" ? root.slotControlShown("period") : !root.presetFlags.durationLocked
 
                     Row {
                         width: parent.width
@@ -2789,11 +2800,12 @@ Item {
                 Row {
                     width: parent.width
                     spacing: 8
+                    visible: (!root.presetFlags.unitLocked && root.slotControlShown("unit")) || root.slotControlShown("stagger")
 
                     Column {
                         width: (parent.width - parent.spacing) / 2
                         spacing: 4
-                        visible: !root.presetFlags.unitLocked
+                        visible: !root.presetFlags.unitLocked && root.slotControlShown("unit")
                         Text {
                             text: qsTr("By")
                             color: Theme.mutedForeground
@@ -2811,6 +2823,7 @@ Item {
                     Column {
                         width: (parent.width - parent.spacing) / 2
                         spacing: 4
+                        visible: root.slotControlShown("stagger")
                         Text {
                             text: root.animSlot === "loop" ? qsTr("Phase") : qsTr("Stagger")
                             HoverHandler { id: staggerHover }
@@ -2853,7 +2866,7 @@ Item {
                 Column {
                     width: (parent.width - 8) / 2
                     spacing: 4
-                    visible: !root.presetFlags.orderLocked
+                    visible: !root.presetFlags.orderLocked && root.slotControlShown("order")
                     Text {
                         text: qsTr("Order")
                         color: Theme.mutedForeground
@@ -2872,7 +2885,7 @@ Item {
                 Column {
                     width: parent.width
                     spacing: 4
-                    visible: !root.presetFlags.easeLocked
+                    visible: !root.presetFlags.easeLocked && root.slotControlShown("ease")
                     Text {
                         text: qsTr("Ease")
                         color: Theme.mutedForeground
