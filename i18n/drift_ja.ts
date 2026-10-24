@@ -22165,10 +22165,6 @@ If playback stutters, try another.</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>.srt ファイルからこれらのキャプションを置き換え</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
     </message>
@@ -22183,10 +22179,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>エクスポート</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>キャプションを .srt ファイルとして保存</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22259,6 +22251,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>絵文字</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>SRT、WebVTT、ASS ファイルからこれらのキャプションを置き換え</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>字幕ファイル (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 字幕 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 字幕 (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>キャプションを SRT、WebVTT (.vtt)、ASS (.ass) として保存（拡張子で形式が決まります）</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Advanced SubStation Alpha 字幕 (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22379,16 +22395,24 @@ If playback stutters, try another.</source>
         <translation>字幕ファイルをインポート</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>.srt ファイルを字幕クリップとしてインポート</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>字幕ファイル (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>SubRip 字幕 (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 字幕 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 字幕 (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22457,6 +22481,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>字幕のスタイル</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>SRT、WebVTT、ASS ファイルを字幕クリップとしてインポート</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>

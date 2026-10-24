@@ -22241,10 +22241,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Importa</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Sostituisci questi sottotitoli da un file .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importa sottotitoli</translation>
     </message>
@@ -22259,10 +22255,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Export</source>
         <translation>Esporta</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Salva i sottotitoli come file .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22335,6 +22327,30 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Sostituisci questi sottotitoli da un file SRT, WebVTT o ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>File di sottotitoli (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sottotitoli WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sottotitoli SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Salva i sottotitoli come SRT, WebVTT (.vtt) o ASS (.ass): l&apos;estensione sceglie il formato</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Sottotitoli Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22455,16 +22471,24 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Importa file di sottotitoli</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Importa un file .srt come clip di sottotitoli</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importa sottotitoli</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>File di sottotitoli (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Sottotitoli SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sottotitoli WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sottotitoli SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22533,6 +22557,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Caption style</source>
         <translation>Stile dei sottotitoli</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Importa un file SRT, WebVTT o ASS come clip di sottotitoli</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>

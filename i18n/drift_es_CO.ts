@@ -22237,10 +22237,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Importar</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Reemplazar estos subtítulos desde un archivo .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importar subtítulos</translation>
     </message>
@@ -22255,10 +22251,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Export</source>
         <translation>Exportar</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Guardar subtítulos como archivo .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22331,6 +22323,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Reemplazar estos subtítulos desde un archivo SRT, WebVTT o ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Archivos de subtítulos (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Subtítulos WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Subtítulos SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Guardar subtítulos como SRT, WebVTT (.vtt) o ASS (.ass): la extensión elige el formato</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Subtítulos Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22451,16 +22467,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Importar archivo de subtítulos</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Importar un archivo .srt como clip de subtítulos</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importar subtítulos</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Archivos de subtítulos (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Subtítulos SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Subtítulos WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Subtítulos SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22529,6 +22553,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Caption style</source>
         <translation>Estilo de subtítulos</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Importar un archivo SRT, WebVTT o ASS como clip de subtítulos</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
