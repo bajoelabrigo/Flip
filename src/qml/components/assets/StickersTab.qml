@@ -17,10 +17,55 @@ Item {
     property bool emojiPickerOpen: false
 
     readonly property string favoritesId: "__favorites__"
-    property var categories: EditorState.builtinStickerCategories()
+    property var ownCategories: EditorState.builtinStickerCategories()
     property var allStickers: EditorState.builtinStickers()
     readonly property bool hasStickers: allStickers.length > 0
+    // Stock's animated stickers (Lottie) and backgrounds here too (0.22): Trending first (the most
+    // used), Backgrounds, and the stickers spread over these chips by category after the local
+    // ones, or in chips of their own («stock:<category>»).
+    readonly property string trendsId: "__trends__"
+    readonly property string backgroundsId: "__stock_backgrounds__"
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips("animation", root.ownCategories.map(c => c.id))
+                                    : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var categories: Market.configured
+        ? [{ "id": root.trendsId, "label": qsTr("Trending") }, { "id": root.backgroundsId, "label": qsTr("Backgrounds") }]
+              .concat(root.ownCategories).concat(root.stockChips.extra || [])
+        : root.ownCategories
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.trendsId
+                                                 || root.activeCategory === root.backgroundsId
+                                                 || root.activeCategory.indexOf("stock:") === 0)
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("stickers"), ["animation", "background"], "stickers")
+               : []
+    }
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.stockTick++ }
+        function onCatalogChanged() { root.stockTick++ }
+    }
+
+    // A Stock sticker or background is a file in Media: put at the playhead.
+    function stockInstalled(item) {
+        const asset = Market.placedId(item.id)
+        return asset.length > 0 && AssetLibrary.indexOfId(asset) >= 0
+    }
+    function applyStock(item) {
+        EditorState.addAssetClipWhenReady(Market.placedId(item.id))
+        root.added()
+    }
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
     property int favoritesTick: 0
@@ -47,6 +92,8 @@ Item {
                 return EditorState.isAssetFavorite("stickers", s.id)
             })
         }
+        if (root.showingStockOnly)
+            return []
         return root.allStickers.filter(function(s) { return s.category === root.activeCategory })
     }
 
@@ -55,7 +102,7 @@ Item {
         function onKindChanged(kind) {
             if (kind !== "stickers")
                 return
-            root.categories = EditorState.builtinStickerCategories()
+            root.ownCategories = EditorState.builtinStickerCategories()
             root.allStickers = EditorState.builtinStickers()
             root.activeCategory = root.categories.length > 0 ? root.categories[0].id : ""
         }
@@ -91,7 +138,7 @@ Item {
         AssetCategoryChips {
             id: categoryChips
             width: parent.width
-            categories: root.hasStickers ? root.categories : []
+            categories: root.hasStickers || Market.configured ? root.categories : []
             activeCategory: root.activeCategory
             searching: root.query.length > 0
             onCategoryActivated: (categoryId) => root.activeCategory = categoryId
@@ -103,7 +150,7 @@ Item {
                              - (root.hasStickers ? Theme.spacingSm : 0) - categoryChips.height)
 
             EmptyState {
-                visible: !root.hasStickers
+                visible: !root.hasStickers && !root.showingStockOnly
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
@@ -116,8 +163,35 @@ Item {
                 onActionTriggered: root.Window.window.openAddonManager("stickers")
             }
 
+            // Trending, Backgrounds, or a chip of Stock's own: Stock's cards only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyCards.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyCards
+                    y: Theme.pagePadding
+                    width: stockView.width
+                    sidePadding: Theme.pagePadding
+                    flickable: stockView
+                    type: root.activeCategory === root.backgroundsId ? "background" : "animation"
+                    layout: root.activeCategory === root.backgroundsId ? "tall" : "square"
+                    categories: root.activeCategory === root.backgroundsId ? [""]
+                              : root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.smile
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
+            }
+
             EmptyState {
-                visible: root.hasStickers && root.currentStickers.length === 0
+                visible: root.hasStickers && root.currentStickers.length === 0 && !root.showingStockOnly
+                         && !root.stockFooter
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
@@ -164,7 +238,7 @@ Item {
                 height: parent.height
                 topMargin: Theme.pagePadding
                 bottomMargin: Theme.pagePadding
-                visible: root.currentStickers.length > 0
+                visible: root.currentStickers.length > 0 || root.stockFooter
                 clip: true
                 reuseItems: true
                 // A mouse drag on a card drags the sticker; the wheel and touchpad scroll.
@@ -174,6 +248,21 @@ Item {
                 cellWidth: Math.floor(width / columnCount)
                 cellHeight: stickerGrid.cardSize + Theme.spacingSm + Math.ceil(labelMetrics.height) + Theme.assetCardGap
                 model: root.currentStickers
+
+                // The chip's Stock stickers after its own (and the starred ones in Favorites).
+                footer: StockPanelCards {
+                    width: stickerGrid.width - Theme.assetCardGap
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight : 0
+                    bare: true
+                    layout: "square"
+                    flickable: stickerGrid
+                    type: "animation"
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return root.stockInstalled(item) }
+                    apply: function(item) { root.applyStock(item) }
+                }
 
                 delegate: Column {
                     required property var modelData

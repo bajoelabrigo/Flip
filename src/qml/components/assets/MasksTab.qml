@@ -37,13 +37,24 @@ Item {
 
     // Shapes installed from Stock mask with their own outline, after the built-in masks.
     property int userShapesTick: 0
+    // The star on each mask, and the Favorites filter ("masks", as the web's Masks panel).
+    property bool favoritesOnly: false
+    property int favoritesTick: 0
     readonly property var masks: {
         void root.userShapesTick
-        return EditorState.maskCatalog()
+        void root.favoritesTick
+        const all = EditorState.maskCatalog()
+        return root.favoritesOnly ? all.filter(m => EditorState.isAssetFavorite("masks", root.favoriteKey(m.id))) : all
+    }
+    // The star's key, as the web names the same masks (look.ts › MASK_SHAPES), so a favorite
+    // follows the account to the browser.
+    function favoriteKey(maskId) {
+        return ({ "rectangle": "rect", "bars": "bar" })[maskId] || maskId
     }
     Connections {
         target: EditorState
         function onUserShapesChanged() { root.userShapesTick++ }
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
     }
 
     function applyMask(maskId) {
@@ -176,10 +187,35 @@ Item {
             height: Theme.spacingLg
         }
 
+        Row {
+            id: maskFilters
+            x: Theme.pagePadding
+            spacing: Theme.spacingSm
+
+            IconButton {
+                glyph: Theme.icons.star
+                variant: "ghost"
+                buttonSize: Theme.controlHeightSm
+                iconSize: 14
+                active: root.favoritesOnly
+                tooltip: qsTr("Favorites")
+                onClicked: root.favoritesOnly = !root.favoritesOnly
+            }
+
+            Text {
+                anchors.verticalCenter: parent.verticalCenter
+                visible: root.favoritesOnly && root.masks.length === 0
+                text: qsTr("No favorites yet. Star masks to save them here.")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+        }
+
         Flickable {
             width: parent.width
             height: Math.max(0, parent.height - tip.height - segmentSection.height
-                             - Theme.spacingLg)
+                             - Theme.spacingLg - maskFilters.height)
             contentHeight: maskGrid.height + Theme.pagePadding * 2
             clip: true
             acceptedButtons: Theme.touchUi ? Qt.LeftButton : Qt.NoButton
@@ -294,6 +330,14 @@ Item {
                                     enabled: root.hasVisualSelection
                                     onTriggered: maskDrag.tapped()
                                 }
+                            }
+
+                            AssetFavoriteButton {
+                                anchors.right: parent.right
+                                anchors.top: parent.top
+                                anchors.margins: 3
+                                tabId: "masks"
+                                itemId: root.favoriteKey(maskCard.modelData.id)
                             }
                         }
 

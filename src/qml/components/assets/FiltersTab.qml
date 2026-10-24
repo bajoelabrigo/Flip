@@ -12,12 +12,56 @@ Item {
 
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
-    property string activeCategory: "factory"
-    readonly property var categories: [
-        { id: "factory", label: qsTr("Looks") },
-        { id: "imported", label: qsTr("Imported") }
-    ]
+    // Stock's LUTs here too (0.22): Trending first (the most used), then Stock's categories in chips
+    // of their own after these; none matches a chip of this tab.
+    readonly property string trendsId: "__trends__"
+    readonly property string favoritesId: "__favorites__"
+    property string activeCategory: Market.configured ? trendsId : "factory"
+    property int stockTick: 0
+    readonly property var stockChips: {
+        void root.stockTick
+        return Market.authenticated ? Market.stockChips("lut", ["factory", "imported"])
+                                    : ({ extra: [], categoriesOf: {} })
+    }
+    readonly property var categories: (Market.configured ? [{ id: root.trendsId, label: qsTr("Trending") }] : [])
+        .concat([
+            { id: "factory", label: qsTr("Looks") },
+            { id: "imported", label: qsTr("Imported") }
+        ]).concat(root.stockChips.extra || [])
+    readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
+    readonly property bool showingStockOnly: root.query.length === 0
+                                             && (root.activeCategory === root.trendsId
+                                                 || root.activeCategory.indexOf("stock:") === 0)
+    property int favoritesTick: 0
+    readonly property var stockFavorites: {
+        void root.favoritesTick
+        void Market.favoriteItemsRevision
+        return root.activeCategory === root.favoritesId && root.query.length === 0
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("luts"), ["lut"], "luts")
+               : []
+    }
+    readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
+                                        && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
     property string importError: ""
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.stockTick++ }
+        function onCatalogChanged() { root.stockTick++ }
+    }
+
+    // The star's key, as the web's (lutStore.ts): "factory:cinematic" for the looks that come with
+    // the app, so a favorite follows the account to the browser; an imported one keeps its own id.
+    function favoriteKey(lut) {
+        const id = String(lut.id || "")
+        return lut.factory ? id.replace(/\.cube$/i, "") : id
+    }
+    // A Stock LUT lands in the library as "user:<file>" (MarketClient::placedId).
+    function stockLut(item) {
+        void root.libraryRevision
+        const placed = Market.placedId(item.id)
+        return placed.length > 0 ? root.library.find(l => l.id === placed) : undefined
+    }
 
     property int libraryRevision: 0
     readonly property var library: {
@@ -28,6 +72,7 @@ Item {
     Connections {
         target: EditorState
         function onLutLibraryChanged() { root.libraryRevision++ }
+        function onAssetFavoritesChanged() { root.favoritesTick++ }
     }
 
     readonly property var effects: EditorState.selectedClipEffects || []
@@ -60,6 +105,12 @@ Item {
         const q = root.query
         if (q.length > 0)
             return root.library.filter(l => String(l.name || "").toLowerCase().indexOf(q) >= 0)
+        if (root.activeCategory === root.favoritesId) {
+            void root.favoritesTick
+            return root.library.filter(l => EditorState.isAssetFavorite("luts", root.favoriteKey(l)))
+        }
+        if (root.activeCategory !== "factory" && root.activeCategory !== "imported")
+            return []
         const factory = root.activeCategory === "factory"
         return root.library.filter(l => !!l.factory === factory)
     }
@@ -117,7 +168,6 @@ Item {
             categories: root.categories
             activeCategory: root.activeCategory
             searching: root.query.length > 0
-            showFavorites: false
             onCategoryActivated: (categoryId) => root.activeCategory = categoryId
         }
 
@@ -172,16 +222,46 @@ Item {
                 x: Theme.pagePadding
                 y: Theme.pagePadding
                 width: parent.width - Theme.pagePadding * 2
-                visible: root.visibleLuts.length === 0
+                visible: root.visibleLuts.length === 0 && !root.showingStockOnly && !root.stockFooter
                 text: root.query.length > 0
                       ? qsTr("No filters match “%1”.").arg(search.text.trim())
                       : (root.activeCategory === "imported"
                          ? qsTr("No imported LUTs yet. Import a .cube file, or get LUTs in Stock.")
+                         : root.activeCategory === root.favoritesId
+                         ? qsTr("No favorites yet. Star filters to save them here.")
                          : qsTr("Nothing in this category."))
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
                 wrapMode: Text.WordWrap
+            }
+
+            // Trending, or a chip of Stock's own: Stock's LUTs only.
+            Flickable {
+                id: stockView
+                anchors.fill: parent
+                visible: root.showingStockOnly
+                clip: true
+                contentHeight: stockOnlyCards.height + Theme.spacingXl
+                boundsBehavior: Flickable.StopAtBounds
+                ScrollBar.vertical: AppScrollBar { }
+
+                StockPanelCards {
+                    id: stockOnlyCards
+                    width: stockView.width
+                    sidePadding: Theme.pagePadding
+                    flickable: stockView
+                    type: "lut"
+                    categories: root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
+                    glyph: Theme.icons.blend
+                    isInstalled: function(item) { return !!root.stockLut(item) }
+                    apply: function(item) {
+                        root.libraryRevision++
+                        const lut = root.stockLut(item)
+                        if (lut)
+                            root.use(lut.path)
+                    }
+                }
             }
 
             GridView {
@@ -198,8 +278,28 @@ Item {
                 // With a mouse the grid scrolls by wheel only and leaves the press to the tile, as the
                 // other asset grids do; otherwise the flick took the click and no filter was applied.
                 acceptedButtons: Theme.touchUi ? Qt.LeftButton : Qt.NoButton
+                visible: !root.showingStockOnly
                 model: root.visibleLuts
                 ScrollBar.vertical: AppScrollBar {}
+
+                // The starred Stock LUTs after the local ones in Favorites.
+                footer: StockPanelCards {
+                    width: lutGrid.width - Theme.assetCardGap
+                    visible: root.stockFooter
+                    height: visible ? implicitHeight : 0
+                    bare: true
+                    flickable: lutGrid
+                    type: "lut"
+                    categories: root.stockCategoriesHere
+                    items: root.activeCategory === root.favoritesId ? root.stockFavorites : null
+                    isInstalled: function(item) { return !!root.stockLut(item) }
+                    apply: function(item) {
+                        root.libraryRevision++
+                        const lut = root.stockLut(item)
+                        if (lut)
+                            root.use(lut.path)
+                    }
+                }
 
                 delegate: Item {
                     id: tile
@@ -230,6 +330,15 @@ Item {
                             beforeSource: EditorState.lutReference(tile.modelData.path)
                             afterSource: EditorState.lutThumbnail(tile.modelData.path)
                             playing: tileHover.hovered
+                        }
+
+                        AssetFavoriteButton {
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.margins: 3
+                            z: 2
+                            tabId: "luts"
+                            itemId: root.favoriteKey(tile.modelData)
                         }
                     }
 

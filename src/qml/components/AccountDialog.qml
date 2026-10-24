@@ -37,7 +37,13 @@ ThemedDialog {
         { id: "fonts", label: qsTr("Fonts"), tab: "text" },
         { id: "captionStyles", label: qsTr("Caption styles"), tab: "subtitles" },
         { id: "voices", label: qsTr("Voices"), tab: "speech" },
-        { id: "retouch", label: qsTr("Retouch"), tab: "" }
+        { id: "retouch", label: qsTr("Retouch"), tab: "" },
+        // As the web names them, so the account keeps one set for both (0.22).
+        { id: "looks", label: qsTr("Looks"), tab: "colorfx" },
+        { id: "luts", label: qsTr("LUTs"), tab: "filters" },
+        { id: "sceneTemplates", label: qsTr("Scene templates"), tab: "templates" },
+        { id: "clipAnimations", label: qsTr("Clip animations"), tab: "" },
+        { id: "masks", label: qsTr("Masks"), tab: "masks" }
     ]
 
     readonly property var favorites: {
@@ -151,7 +157,29 @@ ThemedDialog {
                 add(qsTranslate("VideoInspector", root.retouchLabels[id] || id),
                     { source: "qrc:/retouch/" + id + ".jpg" })
             break
+        case "luts":
+            for (const l of EditorState.lutLibrary().filter(l => isFav(l.factory ? String(l.id).replace(/\.cube$/i, "") : l.id)))
+                add(l.name, { source: EditorState.lutThumbnail(l.path) })
+            break
+        case "sceneTemplates":
+            for (const t of EditorState.sceneTemplates().filter(t => isFav(t.id)))
+                add(t.name, { source: t.thumbnail || "", glyph: Theme.icons.layers })
+            break
+        case "clipAnimations":
+            for (const a of ["in", "out", "combo"].flatMap(s => EditorState.clipAnimationPresets(s)).filter(a => isFav(a.id)))
+                add(a.label, { glyph: Theme.icons.play })
+            break
+        case "masks": {
+            const key = id => ({ "rectangle": "rect", "bars": "bar" })[id] || id
+            for (const m of EditorState.maskCatalog().filter(m => isFav(key(m.id))))
+                add(m.label, { glyph: Theme.icons.mask })
+            break
         }
+        }
+        // Stock's starred items in this group ("stock:<type>:<id>"), downloaded or not.
+        void Market.favoriteItemsRevision
+        for (const it of Market.stockFavoriteItems(EditorState.assetFavoriteIds(groupId), [], groupId))
+            add(it.title || "", { source: it.thumb_wide_url || it.thumb_url || "" })
         return out
     }
 
