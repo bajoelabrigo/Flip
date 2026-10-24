@@ -132,5 +132,11 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
     («VIDEOFLIP») y quedaba debajo del cuadro; las etiquetas de las esquinas se cortaban. Build **40137288533**.
   - Menús de clic derecho con la ventana de fondo: `py tools/e2e/ctxclick.py <pid> x y` (avisa a la ventana que
     está activa con mensajes; sin eso el menú no abre).
-  - Falta: aviso de fuentes, VTT/ASS, D2, D4, D5, D6, D9, D12, exportar, y repetir con la build nueva lo de las
-    esquinas (el salto a General se comía el segundo número).
+  - Con la build 40137288533 (`pruebas\FlipStudio-0.22.1b`): editar ya no salta a General, fila B U S I entera,
+    círculo con hueco, esquinas con dos números seguidos, D4 (borrar «mi animación»: el texto sigue animado), aviso
+    de fuentes al abrir, VTT/ASS (importar y exportar a ASS/VTT/SRT), D5 (el fondo abarca el contorno), D6 (salta y
+    aplasta), D9 (textura con ruta «/C:/…»), exportar (el video coincide con la vista previa).
+  - **Fallo viejo encontrado (también en la 0.21.0, solo con ventana):** un texto con relleno de imagen dejaba todo
+    el video verde. Causa probable: Skia deja samplers atados. Arreglo en `SkiaRuntime.cpp` (`restoreGlState`),
+    build **40139435273**: comprobar que el video ya no se pone verde con un texto con textura.
+  - Falta: D12 (seguimiento que reemplaza claves) en ventana.
