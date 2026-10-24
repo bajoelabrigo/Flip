@@ -158,6 +158,118 @@
         <translation>قالب</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>على المقطع المحدد، أو على طبقة ضبط عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>على النص المحدد، أو على نص جديد عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>يضعه في المخطط الزمني، عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>حفظ في التأثيرات</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>يضعه في التأثيرات › الرائج</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>تطبيق</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>حفظ في تأثيراتي</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>يضعه في تأثيراتي (تأثيرات المراقب)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>حفظ في الفلاتر</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>يضعه في الفلاتر وفي ضبط › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>حفظ في الانتقالات</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>يضعه في الانتقالات</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>على قطع المقطع المحدد، أو على أقرب قطع إلى رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>حفظ في الأشكال</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>يضعه في الأشكال</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>إضافة إلى المسار</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>حفظ في العناوين</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>يضعه في العناوين › الرائج</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>حفظ في الحركة</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>يضعه في نص › حركة</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>حفظ في القوالب</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>يضعه في القوالب، جاهزًا للاستخدام</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>إضافة إلى الوسائط</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>يحفظه في الوسائط لتستخدمه متى شئت</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>تمت إضافة «%1» إلى الوسائط.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>تمت الإضافة إلى الوسائط.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» جاهز. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>تم تثبيت «%1».</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>لم تسجّل الدخول</translation>
     </message>
@@ -213,16 +325,20 @@
         <translation>لم تنزّل شيئًا من Stock بعد. القوالب والصور ومقاطع الفيديو المجانية التي تنزّلها هناك تبقى هنا، في حسابك.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>استخدم هذا القالب: يوضع عند مؤشر التشغيل</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>انقر على عنصر لوضعه عند رأس التشغيل، أو احتفظ به لوقت لاحق.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>إنه في الوسائط</translation>
+        <source>No longer in Stock</source>
+        <translation>لم يعد في Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>غير موجود على هذا الكمبيوتر: ابحث عنه في Stock لتنزيله مجددًا</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>لم يعد في كتالوج Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>إزالته من القائمة (تبقى الملفات على هذا الكمبيوتر)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5849,6 +5965,126 @@
     <message>
         <source>My logo</source>
         <translation>شعاري</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>عنصر Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>«%1» موجود بالفعل في القوالب.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>«%1» في الوسائط.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>«%1» مثبّت بالفعل. ابحث عنه في لوحته.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>تعذّرت إضافة «%1» إلى المخطط الزمني.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>تمت إضافة «%1» إلى المخطط الزمني عند رأس التشغيل.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>«%1» في التأثيرات › الرائج.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>تم تطبيق «%1» على «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>تم وضع «%1» على طبقة ضبط: تغيّر كل ما تحتها.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>«%1» في تأثيراتي.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>«%1» في تأثيراتي. اختر مقطعًا فيه صوت لتغيير صوته.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>تم تطبيق المظهر «%1» على «%2» وحفظه في تأثيراتي.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>تم وضع المظهر «%1» على طبقة ضبط وحفظه في تأثيراتي.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>«%1» في الفلاتر.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>تطبيق LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>تم تطبيق الفلتر «%1» على «%2».</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>تم وضع الفلتر «%1» على طبقة ضبط: تغيّر كل ما تحتها.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>«%1» في الانتقالات.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>«%1» في الانتقالات. لاستخدامه تحتاج إلى مقطعين متتاليين في مسار واحد.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>تم وضع الانتقال «%1» على القطع بعد «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>«%1» في الأشكال.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>تمت إضافة الشكل «%1» عند رأس التشغيل.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>«%1» في العناوين › الرائج.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>تم تطبيق النمط «%1» على النص «%2».</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>تمت إضافة نص بالنمط «%1» عند رأس التشغيل.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>«%1» في نص › حركة.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>تم تطبيق الحركة «%1» على النص «%2».</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>إضافة نص</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>تمت إضافة نص بالحركة «%1» عند رأس التشغيل.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>يحتاج «%1» إلى إصدار أحدث من Flip Studio.</translation>
     </message>
 </context>
 <context>

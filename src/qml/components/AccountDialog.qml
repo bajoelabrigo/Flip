@@ -203,8 +203,62 @@ ThemedDialog {
     function sourceName(item) {
         if (isTemplate(item))
             return qsTr("Template")
-        return item.provider === "pixabay" ? "Pixabay" : "Pexels"
+        if (item.provider === "pixabay")
+            return "Pixabay"
+        return item.provider === "pexels" ? "Pexels" : "Stock"
     }
+
+    // What a row offers, as the web editor's: keep it where it belongs, or put it in the edit now.
+    // Null when it is gone from Stock.
+    function libraryActions(item) {
+        if (!item || !item.id || item.downloadable === false)
+            return null
+        const applyHint = qsTr("On the selected clip, or on an adjustment layer at the playhead")
+        const textHint = qsTr("On the selected text, or on a new text at the playhead")
+        const placeHint = qsTr("Puts it on the timeline, at the playhead")
+        switch (EditorState.stockLibraryDelivery(item)) {
+        case "effect":
+            return { save: qsTr("Save in Effects"), saveHint: qsTr("Puts it in Effects › Trending"),
+                     place: qsTr("Apply"), placeHint: applyHint }
+        case "effect-preset":
+            return { save: qsTr("Save in My presets"), saveHint: qsTr("Puts it in My presets (the inspector's Effects)"),
+                     place: qsTr("Apply"), placeHint: applyHint }
+        case "lut":
+            return { save: qsTr("Save in Filters"), saveHint: qsTr("Puts it in Filters and in Adjust › LUT"),
+                     place: qsTr("Apply"), placeHint: applyHint }
+        case "transition":
+            return { save: qsTr("Save in Transitions"), saveHint: qsTr("Puts it in Transitions"),
+                     place: qsTr("Apply"), placeHint: qsTr("On the selected clip's cut, or the one nearest the playhead") }
+        case "shape":
+            return { save: qsTr("Save in Shapes"), saveHint: qsTr("Puts it in Shapes"),
+                     place: qsTr("Add to track"), placeHint: placeHint }
+        case "text-style":
+            return { save: qsTr("Save in Titles"), saveHint: qsTr("Puts it in Titles › Trending"),
+                     place: qsTr("Apply"), placeHint: textHint }
+        case "text-animation":
+            return { save: qsTr("Save in Animation"), saveHint: qsTr("Puts it in Text › Animation"),
+                     place: qsTr("Apply"), placeHint: textHint }
+        case "scene-template":
+            return { save: qsTr("Save in Templates"), saveHint: qsTr("Puts it in Templates, ready to use"),
+                     place: qsTr("Add to track"), placeHint: placeHint }
+        default:
+            // Video, photo, music, sound, sticker, animation, overlay, background: a file for Media.
+            return { save: qsTr("Add to Media"), saveHint: qsTr("Keeps it in Media to use whenever you like"),
+                     place: qsTr("Add to track"), placeHint: placeHint }
+        }
+    }
+
+    // "place" puts it in the edit, so the dialog goes and the result shows; "save" leaves the
+    // dialog open and says here what happened (the status line is behind it).
+    property string note: ""
+    function useItem(item, mode) {
+        root.note = ""
+        root.watchingMessages = mode === "save"
+        EditorState.useStockLibraryItem(item, mode)
+        if (mode === "place")
+            root.close()
+    }
+    property bool watchingMessages: false
 
     readonly property int projectCount: EditorState.projectFile.recentProjects.length
 
@@ -217,6 +271,25 @@ ThemedDialog {
     Connections {
         target: Market
         function onDownloadHistoryChanged() { root.revision++ }
+        function onDownloadImported(itemId, name) {
+            if (root.watchingMessages)
+                root.note = name.length > 0 ? qsTr("“%1” was added to Media.").arg(name) : qsTr("Added to Media.")
+        }
+        function onDownloadInstalled(itemId, name, where) {
+            if (root.watchingMessages)
+                root.note = where.length > 0 ? qsTr("“%1” is ready. %2.").arg(name).arg(where) : qsTr("“%1” is installed.").arg(name)
+        }
+        function onDownloadFailed(itemId, code, message) {
+            if (root.watchingMessages)
+                root.note = message
+        }
+    }
+    Connections {
+        target: EditorState
+        function onLastMessageChanged() {
+            if (root.watchingMessages && root.visible)
+                root.note = EditorState.lastMessage
+        }
     }
     Connections {
         target: EditorState
@@ -529,102 +602,170 @@ ThemedDialog {
                 text: qsTr("Nothing downloaded from Stock yet. Free templates, photos and videos you download there stay here, in your account.")
             }
 
+            ThemedLabel {
+                width: parent.width
+                visible: root.downloads.length > 0
+                text: qsTr("Click one to put it at the playhead, or keep it for later.")
+            }
+
             Flickable {
                 width: parent.width
-                height: Math.min(downloadGrid.implicitHeight, 300)
-                contentHeight: downloadGrid.implicitHeight
+                height: Math.min(downloadList.implicitHeight, 300)
+                contentHeight: downloadList.implicitHeight
                 clip: true
                 visible: root.downloads.length > 0
                 boundsBehavior: Flickable.StopAtBounds
                 ScrollBar.vertical: AppScrollBar { }
 
-                Flow {
-                    id: downloadGrid
+                Column {
+                    id: downloadList
                     width: parent.width
-                    spacing: Theme.spacingLg
+                    spacing: Theme.spacingSm
 
                     Repeater {
                         model: root.downloads
-                        delegate: Column {
+                        delegate: Rectangle {
+                            id: downloadRow
                             required property var modelData
-                            width: 132
-                            spacing: Theme.spacingXs
+                            readonly property var item: modelData
+                            readonly property var actions: root.libraryActions(item)
+                            readonly property var local: root.localEntry(item.id)
+                            readonly property bool here: root.isTemplate(item) ? Market.sceneTemplateInstalled(item.id)
+                                                                              : !!(local && local.exists)
+                            width: downloadList.width - Theme.spacingMd
+                            height: 60
+                            radius: Theme.radiusSm
+                            color: rowHover.hovered && actions ? Theme.panelSecondaryBg : "transparent"
+
+                            HoverHandler { id: rowHover }
+                            ThemedToolTip {
+                                visible: rowHover.hovered && !!downloadRow.actions && !saveButton.hovered
+                                         && !placeButton.hovered && !removeArea.containsMouse
+                                text: downloadRow.actions ? downloadRow.actions.placeHint : ""
+                            }
+                            // The row's own click: what the person most likely meant, put it in the edit.
+                            // Under the buttons, which take their own clicks.
+                            MouseArea {
+                                anchors.fill: parent
+                                enabled: !!downloadRow.actions
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: root.useItem(downloadRow.item, "place")
+                            }
 
                             Rectangle {
-                                width: 132
-                                height: 84
+                                id: rowThumb
+                                x: Theme.spacingXs
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: 80
+                                height: 50
                                 radius: Theme.radiusSm
                                 color: Theme.panelSecondaryBg
                                 clip: true
-
-                                id: downloadCard
-                                readonly property var item: parent.modelData
-                                readonly property var local: root.localEntry(item.id)
-                                readonly property bool here: root.isTemplate(item) ? Market.sceneTemplateInstalled(item.id)
-                                                                                  : !!(local && local.exists)
-
                                 Image {
                                     anchors.fill: parent
-                                    source: downloadCard.item.thumb_url || ""
+                                    source: downloadRow.item.thumb_url || ""
                                     fillMode: Image.PreserveAspectCrop
                                     asynchronous: true
-                                    opacity: downloadCard.here || root.isTemplate(downloadCard.item) ? 1 : 0.45
+                                    opacity: downloadRow.here || root.isTemplate(downloadRow.item) ? 1 : 0.6
                                 }
-                                HoverHandler { id: downloadHover; cursorShape: Qt.PointingHandCursor }
-                                ThemedToolTip {
-                                    visible: downloadHover.hovered
-                                    text: root.isTemplate(downloadCard.item)
-                                          ? qsTr("Use this template: it goes at the playhead")
-                                          : (downloadCard.here ? qsTr("It is in your media bin")
-                                                               : qsTr("Not on this computer: search for it in Stock to download it again"))
-                                }
-                                TapHandler {
-                                    onTapped: {
-                                        if (root.isTemplate(downloadCard.item)) {
-                                            Market.useSceneTemplate(downloadCard.item.id, downloadCard.item.title || "")
-                                            root.close()
-                                        } else if (downloadCard.here) {
-                                            root.assetsTabRequested("media")
-                                        }
-                                    }
-                                }
+                            }
 
-                                // Off the account's list; the files on this computer stay.
-                                Rectangle {
-                                    anchors.right: parent.right
-                                    anchors.top: parent.top
-                                    anchors.margins: 4
-                                    visible: Account.signedIn && downloadHover.hovered
-                                    width: 22
-                                    height: 22
-                                    radius: 11
-                                    color: Qt.rgba(0, 0, 0, 0.7)
-                                    IconGlyph {
-                                        anchors.centerIn: parent
-                                        glyph: Theme.icons.x
-                                        iconSize: 12
-                                        iconColor: "white"
-                                    }
-                                    TapHandler { onTapped: Market.removeFromLibrary(downloadCard.item.id) }
+                            Column {
+                                anchors.left: rowThumb.right
+                                anchors.leftMargin: Theme.spacingMd
+                                anchors.right: rowButtons.left
+                                anchors.rightMargin: Theme.spacingMd
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: 2
+                                ThemedLabel {
+                                    width: parent.width
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.NoWrap
+                                    tone: "default"
+                                    text: downloadRow.item.title || ""
+                                }
+                                ThemedLabel {
+                                    width: parent.width
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.NoWrap
+                                    text: [root.sourceName(downloadRow.item),
+                                           Qt.formatDate(new Date(downloadRow.item.last_at), Qt.locale().dateFormat(Locale.ShortFormat))].join(" · ")
                                 }
                             }
-                            ThemedLabel {
-                                width: parent.width
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                                tone: "default"
-                                text: parent.modelData.title || ""
+
+                            Row {
+                                id: rowButtons
+                                anchors.right: removeButton.visible ? removeButton.left : parent.right
+                                anchors.rightMargin: Theme.spacingSm
+                                anchors.verticalCenter: parent.verticalCenter
+                                spacing: Theme.spacingSm
+
+                                ThemedLabel {
+                                    visible: !downloadRow.actions
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: qsTr("No longer in Stock")
+                                    HoverHandler { id: goneHover }
+                                    ThemedToolTip {
+                                        visible: goneHover.hovered
+                                        text: qsTr("It is no longer in the Stock catalog")
+                                    }
+                                }
+                                ThemedButton {
+                                    id: saveButton
+                                    visible: !!downloadRow.actions
+                                    variant: "ghost"
+                                    text: downloadRow.actions ? downloadRow.actions.save : ""
+                                    tooltip: downloadRow.actions ? downloadRow.actions.saveHint : ""
+                                    onClicked: root.useItem(downloadRow.item, "save")
+                                }
+                                ThemedButton {
+                                    id: placeButton
+                                    visible: !!downloadRow.actions
+                                    variant: "primary"
+                                    text: downloadRow.actions ? downloadRow.actions.place : ""
+                                    tooltip: downloadRow.actions ? downloadRow.actions.placeHint : ""
+                                    onClicked: root.useItem(downloadRow.item, "place")
+                                }
                             }
-                            ThemedLabel {
-                                width: parent.width
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                                text: [root.sourceName(parent.modelData),
-                                       Qt.formatDate(new Date(parent.modelData.last_at), Qt.locale().dateFormat(Locale.ShortFormat))].join(" · ")
+
+                            // Off the account's list; the files on this computer stay.
+                            Rectangle {
+                                id: removeButton
+                                anchors.right: parent.right
+                                anchors.rightMargin: Theme.spacingXs
+                                anchors.verticalCenter: parent.verticalCenter
+                                visible: Account.signedIn
+                                width: 22
+                                height: 22
+                                radius: 11
+                                color: removeArea.containsMouse ? Theme.panelSecondaryBg : "transparent"
+                                IconGlyph {
+                                    anchors.centerIn: parent
+                                    glyph: Theme.icons.x
+                                    iconSize: 12
+                                    iconColor: Theme.panelForeground
+                                }
+                                MouseArea {
+                                    id: removeArea
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: Market.removeFromLibrary(downloadRow.item.id)
+                                }
+                                ThemedToolTip {
+                                    visible: removeArea.containsMouse
+                                    text: qsTr("Take it off the list (the files on this computer stay)")
+                                }
                             }
                         }
                     }
                 }
+            }
+
+            ThemedLabel {
+                width: parent.width
+                visible: root.note.length > 0 && root.downloads.length > 0
+                text: root.note
             }
 
             ThemedButton {

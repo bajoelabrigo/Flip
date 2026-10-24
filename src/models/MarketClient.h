@@ -101,9 +101,10 @@ class MarketClient : public QObject
 public:
     // Installs a Stock download whose delivery is not "media" or "scene-template" (a LUT, a look,
     // a text style or animation, a transition, a shape). The editor provides it; `done` must run
-    // exactly once: ok, a short phrase saying where it went, the installed path, an error.
+    // exactly once: ok, a short phrase saying where it went, the installed path, the id the editor
+    // knows it by (a preset or shape id; empty when it has none), an error.
     using InstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
-                                           const QString &error)>;
+                                           const QString &installedId, const QString &error)>;
     using StockInstaller = std::function<void(const QString &delivery, const QString &path,
                                               const QString &title, const InstallDone &done)>;
     void setStockInstaller(StockInstaller installer) { m_installer = std::move(installer); }
@@ -224,6 +225,7 @@ public:
     // Drops an in-flight search or resolve. Distinct from cancelDownload: this is the
     // request that fills the grid, not one of the per-item jobs.
     Q_INVOKABLE void cancelSearch();
+    // {status, progress, phase, errorCode, errorMessage, delivery, filePath, assetId, installedId}.
     Q_INVOKABLE QVariantMap downloadInfo(const QString &itemId) const;
     Q_INVOKABLE QVariantMap itemById(const QString &itemId) const;
 
@@ -336,7 +338,8 @@ private:
     void failJob(const QString &itemId, const QString &code, const QString &message);
     void importReadyFile(const QString &itemId, const QString &path, const QString &displayName);
     void finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
-                            bool ok, const QString &where, const QString &installedPath, const QString &error);
+                            bool ok, const QString &where, const QString &installedPath,
+                            const QString &installedId, const QString &error);
     // /v1/me/... next to the market base (…/v1/market).
     QUrl accountUrl(const QString &path) const;
     QNetworkReply *sendJson(const QByteArray &verb, const QUrl &url, const QByteArray &body);

@@ -18283,7 +18283,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
     const QString name = title.trimmed().isEmpty() ? QFileInfo(path).completeBaseName() : title.trimmed();
     const auto fail = [&](const QString &error) {
         setLastMessage(tr("Could not install “%1”: %2").arg(name, error), QStringLiteral("error"));
-        done(false, QString(), QString(), error);
+        done(false, QString(), QString(), QString(), error);
     };
     if (!QFileInfo::exists(path)) {
         fail(tr("the file is missing"));
@@ -18323,7 +18323,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             fail(result.value(QStringLiteral("error")).toString());
             return;
         }
-        done(true, tr("In Adjust › LUT"), result.value(QStringLiteral("path")).toString(), QString());
+        done(true, tr("In Adjust › LUT"), result.value(QStringLiteral("path")).toString(), QString(), QString());
         return;
     }
     if (delivery == QLatin1String("effect-preset")) {
@@ -18333,7 +18333,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             return;
         }
         emit userEffectPresetsChanged();
-        done(true, tr("In My presets"), QString(), QString());
+        done(true, tr("In My presets"), QString(), id, QString());
         return;
     }
     if (delivery == QLatin1String("text-style")) {
@@ -18346,7 +18346,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
         // Stock styles are listed under Titles › Trending, the ones the user made under My styles.
         const bool fromStock = !drift::TextPresetStore::instance().presetForId(id).value_or(drift::TextPreset{}).stockId.isEmpty();
         const QString where = fromStock ? tr("In Titles › Trending") : tr("In Text › My styles");
-        done(true, where, QString(), QString());
+        done(true, where, QString(), id, QString());
         return;
     }
     if (delivery == QLatin1String("text-animation")) {
@@ -18355,7 +18355,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             fail(result.value(QStringLiteral("error")).toString());
             return;
         }
-        done(true, tr("In Text › Animation"), QString(), QString());
+        done(true, tr("In Text › Animation"), QString(), result.value(QStringLiteral("id")).toString(), QString());
         return;
     }
     if (delivery == QLatin1String("shape")) {
@@ -18368,7 +18368,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
         emit userShapesChanged();
         done(true, tr("In Shapes"), QDir(drift::userShapesDir()).filePath(
                                         shapeId.mid(int(qstrlen(drift::kUserShapePrefix))) + QStringLiteral(".json")),
-             QString());
+             shapeId, QString());
         return;
     }
     if (delivery == QLatin1String("transition") || delivery == QLatin1String("effect")) {
@@ -18387,12 +18387,12 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
             disconnect(*connection);
             if (!error.isEmpty()) {
                 setLastMessage(tr("Could not install “%1”: %2").arg(name, error), QStringLiteral("error"));
-                done(false, QString(), QString(), error);
+                done(false, QString(), QString(), QString(), error);
                 return;
             }
             // Effects › Trending lists the Stock effects (category "trending" in their effect.json).
             done(true, delivery == QLatin1String("effect") ? tr("In Effects › Trending") : tr("In Transitions"),
-                 QString(), QString());
+                 QString(), QString(), QString());
         });
         m_addonManager->installUserPackage();
         return;

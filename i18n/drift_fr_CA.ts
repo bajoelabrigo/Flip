@@ -158,6 +158,118 @@
         <translation>Modèle</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>Sur le clip sélectionné, ou sur un calque de réglage à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>Sur le texte sélectionné, ou sur un nouveau texte à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Le place dans la ligne du temps, à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Enregistrer dans Effets</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Le place dans Effets › Tendances</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Appliquer</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Enregistrer dans Mes effets</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Le place dans Mes effets (Effets de l&apos;inspecteur)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Enregistrer dans Filtres</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Le place dans Filtres et dans Ajuster › LUT</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Enregistrer dans Transitions</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>La place dans Transitions</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>Sur la coupe du clip sélectionné, ou sur celle la plus proche de la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Enregistrer dans Formes</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>La place dans Formes</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Ajouter à la piste</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Enregistrer dans Titres</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Le place dans Titres › Tendances</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Enregistrer dans Animation</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>La place dans Texte › Animation</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Enregistrer dans Modèles</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Le place dans Modèles, prêt à utiliser</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Ajouter aux médias</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Le garde dans les médias pour l&apos;utiliser quand vous voulez</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>« %1 » a été ajouté aux médias.</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Ajouté aux médias.</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>« %1 » est prêt. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>« %1 » est installé.</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Non connecté</translation>
     </message>
@@ -209,16 +321,20 @@
         <translation>Rien de téléchargé depuis Stock pour l&apos;instant. Les modèles, photos et vidéos gratuits que vous y téléchargez restent ici, dans votre compte.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Utiliser ce modèle : il se place à la tête de lecture</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Cliquez sur un élément pour le placer à la tête de lecture, ou gardez-le pour plus tard.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Il est dans vos médias</translation>
+        <source>No longer in Stock</source>
+        <translation>N&apos;est plus dans Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Pas sur cet ordinateur : cherchez-le dans Stock pour le télécharger de nouveau</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Il n&apos;est plus dans le catalogue Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Le retirer de la liste (les fichiers de cet ordinateur restent)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5730,6 +5846,126 @@
     <message>
         <source>My logo</source>
         <translation>Mon logo</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Élément Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>« %1 » est déjà dans Modèles.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>« %1 » est dans les médias.</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>« %1 » est déjà installé. Retrouvez-le dans son panneau.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Impossible d&apos;ajouter « %1 » à la ligne du temps.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>« %1 » a été ajouté à la ligne du temps, à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>« %1 » est dans Effets › Tendances.</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>« %1 » est sur « %2 ».</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>« %1 » est sur un calque de réglage : il modifie tout ce qui est dessous.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>« %1 » est dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>« %1 » est dans Mes effets. Sélectionnez un clip avec du son pour changer sa voix.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Le look « %1 » est sur « %2 » et enregistré dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Le look « %1 » est sur un calque de réglage et enregistré dans Mes effets.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>« %1 » est dans Filtres.</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Appliquer la LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Le filtre « %1 » est sur « %2 ».</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Le filtre « %1 » est sur un calque de réglage : il modifie tout ce qui est dessous.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>« %1 » est dans Transitions.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>« %1 » est dans Transitions. Pour l&apos;utiliser, il faut deux clips qui se suivent sur une piste.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>La transition « %1 » est sur la coupe après « %2 ».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>« %1 » est dans Formes.</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>La forme « %1 » a été ajoutée à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>« %1 » est dans Titres › Tendances.</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Le style « %1 » est sur le texte « %2 ».</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Un texte avec le style « %1 » a été ajouté à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>« %1 » est dans Texte › Animation.</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>L&apos;animation « %1 » est sur le texte « %2 ».</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Ajouter du texte</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Un texte avec l&apos;animation « %1 » a été ajouté à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>« %1 » nécessite une version plus récente de Flip Studio.</translation>
     </message>
 </context>
 <context>

@@ -158,6 +158,118 @@
         <translation>Шаблон</translation>
     </message>
     <message>
+        <source>On the selected clip, or on an adjustment layer at the playhead</source>
+        <translation>К выбранному клипу или на корректирующий слой у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>On the selected text, or on a new text at the playhead</source>
+        <translation>К выбранному тексту или к новому тексту у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Puts it on the timeline, at the playhead</source>
+        <translation>Помещает на таймлайн, у указателя воспроизведения</translation>
+    </message>
+    <message>
+        <source>Save in Effects</source>
+        <translation>Сохранить в «Эффекты»</translation>
+    </message>
+    <message>
+        <source>Puts it in Effects › Trending</source>
+        <translation>Помещает в «Эффекты › Тренды»</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <source>Save in My presets</source>
+        <translation>Сохранить в «Мои эффекты»</translation>
+    </message>
+    <message>
+        <source>Puts it in My presets (the inspector&apos;s Effects)</source>
+        <translation>Помещает в «Мои эффекты» (вкладка «Эффекты» инспектора)</translation>
+    </message>
+    <message>
+        <source>Save in Filters</source>
+        <translation>Сохранить в «Фильтры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Filters and in Adjust › LUT</source>
+        <translation>Помещает в «Фильтры» и в «Настройка › LUT»</translation>
+    </message>
+    <message>
+        <source>Save in Transitions</source>
+        <translation>Сохранить в «Переходы»</translation>
+    </message>
+    <message>
+        <source>Puts it in Transitions</source>
+        <translation>Помещает в «Переходы»</translation>
+    </message>
+    <message>
+        <source>On the selected clip&apos;s cut, or the one nearest the playhead</source>
+        <translation>На склейку выбранного клипа или на ближайшую к указателю воспроизведения</translation>
+    </message>
+    <message>
+        <source>Save in Shapes</source>
+        <translation>Сохранить в «Фигуры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Shapes</source>
+        <translation>Помещает в «Фигуры»</translation>
+    </message>
+    <message>
+        <source>Add to track</source>
+        <translation>Добавить на дорожку</translation>
+    </message>
+    <message>
+        <source>Save in Titles</source>
+        <translation>Сохранить в «Титры»</translation>
+    </message>
+    <message>
+        <source>Puts it in Titles › Trending</source>
+        <translation>Помещает в «Титры › В тренде»</translation>
+    </message>
+    <message>
+        <source>Save in Animation</source>
+        <translation>Сохранить в «Анимация»</translation>
+    </message>
+    <message>
+        <source>Puts it in Text › Animation</source>
+        <translation>Помещает в «Текст › Анимация»</translation>
+    </message>
+    <message>
+        <source>Save in Templates</source>
+        <translation>Сохранить в «Шаблоны»</translation>
+    </message>
+    <message>
+        <source>Puts it in Templates, ready to use</source>
+        <translation>Помещает в «Шаблоны», готовым к работе</translation>
+    </message>
+    <message>
+        <source>Add to Media</source>
+        <translation>Добавить в «Медиа»</translation>
+    </message>
+    <message>
+        <source>Keeps it in Media to use whenever you like</source>
+        <translation>Сохраняет в «Медиа», чтобы использовать когда угодно</translation>
+    </message>
+    <message>
+        <source>“%1” was added to Media.</source>
+        <translation>«%1» добавлен в «Медиа».</translation>
+    </message>
+    <message>
+        <source>Added to Media.</source>
+        <translation>Добавлено в «Медиа».</translation>
+    </message>
+    <message>
+        <source>“%1” is ready. %2.</source>
+        <translation>«%1» готово. %2.</translation>
+    </message>
+    <message>
+        <source>“%1” is installed.</source>
+        <translation>«%1» установлено.</translation>
+    </message>
+    <message>
         <source>Not signed in</source>
         <translation>Вход не выполнен</translation>
     </message>
@@ -210,16 +322,20 @@
         <translation>Из Stock пока ничего не загружено. Бесплатные шаблоны, фото и видео, загруженные оттуда, остаются здесь, в вашем аккаунте.</translation>
     </message>
     <message>
-        <source>Use this template: it goes at the playhead</source>
-        <translation>Использовать этот шаблон: он встанет на позицию указателя</translation>
+        <source>Click one to put it at the playhead, or keep it for later.</source>
+        <translation>Нажмите, чтобы поместить у указателя воспроизведения, или сохраните на потом.</translation>
     </message>
     <message>
-        <source>It is in your media bin</source>
-        <translation>Уже в ваших медиафайлах</translation>
+        <source>No longer in Stock</source>
+        <translation>Больше нет в Stock</translation>
     </message>
     <message>
-        <source>Not on this computer: search for it in Stock to download it again</source>
-        <translation>Нет на этом компьютере: найдите в Stock, чтобы загрузить снова</translation>
+        <source>It is no longer in the Stock catalog</source>
+        <translation>Этого больше нет в каталоге Stock</translation>
+    </message>
+    <message>
+        <source>Take it off the list (the files on this computer stay)</source>
+        <translation>Убрать из списка (файлы на этом компьютере останутся)</translation>
     </message>
     <message>
         <source>Clear the list</source>
@@ -5759,6 +5875,126 @@
     <message>
         <source>My logo</source>
         <translation>Мой логотип</translation>
+    </message>
+    <message>
+        <source>Stock item</source>
+        <translation>Элемент Stock</translation>
+    </message>
+    <message>
+        <source>“%1” is already in Templates.</source>
+        <translation>«%1» уже в «Шаблоны».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Media.</source>
+        <translation>«%1» в «Медиа».</translation>
+    </message>
+    <message>
+        <source>“%1” is already installed. Find it in its panel.</source>
+        <translation>«%1» уже установлено. Найдите его на своей панели.</translation>
+    </message>
+    <message>
+        <source>Could not add “%1” to the timeline.</source>
+        <translation>Не удалось добавить «%1» на таймлайн.</translation>
+    </message>
+    <message>
+        <source>“%1” was added to the timeline at the playhead.</source>
+        <translation>«%1» добавлено на таймлайн у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Effects › Trending.</source>
+        <translation>«%1» в «Эффекты › Тренды».</translation>
+    </message>
+    <message>
+        <source>“%1” is on “%2”.</source>
+        <translation>«%1» применено к «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>«%1» на корректирующем слое: меняет всё, что под ним.</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets.</source>
+        <translation>«%1» в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>“%1” is in My presets. Select a clip with sound to change its voice.</source>
+        <translation>«%1» в «Мои эффекты». Выберите клип со звуком, чтобы изменить голос.</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on “%2” and saved in My presets.</source>
+        <translation>Образ «%1» применён к «%2» и сохранён в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>Look “%1” is on an adjustment layer and saved in My presets.</source>
+        <translation>Образ «%1» на корректирующем слое и сохранён в «Мои эффекты».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Filters.</source>
+        <translation>«%1» в «Фильтры».</translation>
+    </message>
+    <message>
+        <source>Apply LUT</source>
+        <translation>Применить LUT</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on “%2”.</source>
+        <translation>Фильтр «%1» применён к «%2».</translation>
+    </message>
+    <message>
+        <source>Filter “%1” is on an adjustment layer: it changes everything below it.</source>
+        <translation>Фильтр «%1» на корректирующем слое: меняет всё, что под ним.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions.</source>
+        <translation>«%1» в «Переходы».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Transitions. To use it, two clips in a row on one track are needed.</source>
+        <translation>«%1» в «Переходы». Чтобы применить, нужны два клипа подряд на одной дорожке.</translation>
+    </message>
+    <message>
+        <source>Transition “%1” is on the cut after “%2”.</source>
+        <translation>Переход «%1» поставлен на склейку после «%2».</translation>
+    </message>
+    <message>
+        <source>“%1” is in Shapes.</source>
+        <translation>«%1» в «Фигуры».</translation>
+    </message>
+    <message>
+        <source>Shape “%1” was added at the playhead.</source>
+        <translation>Фигура «%1» добавлена у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Titles › Trending.</source>
+        <translation>«%1» в «Титры › В тренде».</translation>
+    </message>
+    <message>
+        <source>Style “%1” is on the text “%2”.</source>
+        <translation>Стиль «%1» применён к тексту «%2».</translation>
+    </message>
+    <message>
+        <source>A text with the style “%1” was added at the playhead.</source>
+        <translation>Текст со стилем «%1» добавлен у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” is in Text › Animation.</source>
+        <translation>«%1» в «Текст › Анимация».</translation>
+    </message>
+    <message>
+        <source>Animation “%1” is on the text “%2”.</source>
+        <translation>Анимация «%1» применена к тексту «%2».</translation>
+    </message>
+    <message>
+        <source>Add text</source>
+        <translation>Добавить текст</translation>
+    </message>
+    <message>
+        <source>A text with the animation “%1” was added at the playhead.</source>
+        <translation>Текст с анимацией «%1» добавлен у указателя воспроизведения.</translation>
+    </message>
+    <message>
+        <source>“%1” needs a newer Flip Studio.</source>
+        <translation>Для «%1» нужна более новая версия Flip Studio.</translation>
     </message>
 </context>
 <context>

@@ -1325,11 +1325,21 @@ public:
     // (My styles), "text-animation" (text animations), "transition" (a .driftfx package into the
     // transitions folder) or "shape" (the shapes library). `done` runs exactly once, possibly
     // later — a package installs on a worker thread — with ok, a short phrase for the download
-    // list saying where it went, the installed file or folder, and an error.
+    // list saying where it went, the installed file or folder, the id the editor knows it by (a
+    // preset or shape id, empty when there is none), and an error.
     using StockInstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
-                                                const QString &error)>;
+                                                const QString &installedId, const QString &error)>;
     void installStockFile(const QString &delivery, const QString &path, const QString &title,
                           const StockInstallDone &done);
+    // Mi cuenta › Stock downloads. mode "save" keeps the item where it belongs (Media for a file,
+    // its own panel for an effect, a look, a LUT, a transition, a shape, a text style or animation,
+    // a template); "place" also puts it in the edit: on the selected clip, text or cut, else at the
+    // playhead. Downloads it first when this computer does not have it; says what it did on the
+    // status line.
+    Q_INVOKABLE void useStockLibraryItem(const QVariantMap &item, const QString &mode);
+    // How a row of that list is delivered ("media", "lut", "scene-template"…), also for the
+    // signed-out history, which keeps no delivery of its own for older downloads.
+    Q_INVOKABLE QString stockLibraryDelivery(const QVariantMap &item) const;
     // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
     Q_INVOKABLE QVariantMap lutInfo(const QString &path) const;
     // A small picture graded by the LUT (the real table applied on the CPU to a reference photo),
@@ -2314,6 +2324,12 @@ protected:
     QString m_pendingTemplateId;
     QList<QUrl> m_pendingTemplateUrls;
     QString m_pendingTemplateSwap;
+    // Mi cuenta › Stock downloads asked to put these in the edit once downloaded: item id -> name.
+    QHash<QString, QString> m_pendingStockPlace;
+    void placeStockItem(const QString &itemId, const QString &delivery, const QString &name,
+                        const QString &installedId, const QString &filePath, const QString &assetId);
+    QString installedStockId(const QString &delivery, const QString &itemId, const QVariantMap &local) const;
+    QVariantMap stockHistoryEntry(const QString &itemId) const;
     bool m_templateBeatFitRunning = false;
     quint64 m_templateBeatFitGeneration = 0;
     JobRegistry *m_jobs = nullptr;

@@ -6,10 +6,16 @@
 #include "AssetLibrary.h"
 #include "MarketClient.h"
 #include "MediaBinController.h"
+#include "McpController.h"
 #include "McpDetail.h"
 #include "core/SceneTemplateLayout.h"
 #include "core/SceneTemplateTools.h"
+#include "core/TextAnimationPreset.h"
+#include "core/TextPresetStore.h"
+#include "core/Transition.h"
 #include "engine/AudioOnsets.h"
+#include "engine/EffectCatalog.h"
+#include "engine/TransitionCatalog.h"
 #include "engine/MediaProbe.h"
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
@@ -20,6 +26,7 @@
 #include <QFontDatabase>
 #include <QLocale>
 #include <QDir>
+#include <QEventLoop>
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>
@@ -34,9 +41,13 @@
 #include <QSet>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QTimer>
 #include <QUrl>
 #include <QUuid>
 #include <QtConcurrent>
+
+#include <limits>
+#include <optional>
 
 #include <algorithm>
 #include <memory>
@@ -240,11 +251,28 @@ void AppController::setMarketClient(MarketClient *client)
     client->setStockInstaller([self](const QString &delivery, const QString &path, const QString &title,
                                      const MarketClient::InstallDone &done) {
         if (!self) {
-            done(false, QString(), QString(), QStringLiteral("the editor is gone"));
+            done(false, QString(), QString(), QString(), QStringLiteral("the editor is gone"));
             return;
         }
         self->installStockFile(delivery, path, title, done);
     });
+    // Mi cuenta › Stock downloads › "Add to track" / "Apply": what was downloaded for it goes in.
+    const auto placeWhenReady = [this](const QString &itemId) {
+        if (!m_pendingStockPlace.contains(itemId) || !m_marketClient)
+            return;
+        const QString name = m_pendingStockPlace.take(itemId);
+        const QVariantMap info = m_marketClient->downloadInfo(itemId);
+        placeStockItem(itemId, info.value(QStringLiteral("delivery")).toString(), name,
+                       info.value(QStringLiteral("installedId")).toString(),
+                       info.value(QStringLiteral("filePath")).toString(),
+                       info.value(QStringLiteral("assetId")).toString());
+    };
+    connect(client, &MarketClient::downloadImported, this,
+            [placeWhenReady](const QString &itemId, const QString &) { placeWhenReady(itemId); });
+    connect(client, &MarketClient::downloadInstalled, this,
+            [placeWhenReady](const QString &itemId, const QString &, const QString &) { placeWhenReady(itemId); });
+    connect(client, &MarketClient::downloadFailed, this,
+            [this](const QString &itemId, const QString &, const QString &) { m_pendingStockPlace.remove(itemId); });
     connect(client, &MarketClient::favoritesFetched, this, &AppController::mergeAccountFavorites);
     connect(client, &MarketClient::favoritesPushed, this, [](const QDateTime &updatedAt) {
         QSettings settings;
@@ -2016,4 +2044,439 @@ int AppController::fillLogoSlots(const QString &sequenceId, const QStringList &p
             ++filled;
     }
     return filled;
+}
+
+// --- Mi cuenta › Stock downloads: keep it, or put it in the edit -------------------------------
+
+namespace {
+
+// The slug a Stock package names its ids after ("flip:effect:Luz-del-sol 05" -> luz_del_sol_05),
+// as tools/effects_trends and tools/transitions_stock write them.
+QString stockPackageSlug(const QString &itemId)
+{
+    const QString last = itemId.section(QLatin1Char(':'), -1).toLower();
+    QString out;
+    bool gap = false;
+    for (const QChar ch : last) {
+        const bool keep = (ch >= QLatin1Char('a') && ch <= QLatin1Char('z'))
+                          || (ch >= QLatin1Char('0') && ch <= QLatin1Char('9'));
+        if (!keep) {
+            gap = true;
+            continue;
+        }
+        if (gap && !out.isEmpty())
+            out.append(QLatin1Char('_'));
+        gap = false;
+        out.append(ch);
+    }
+    return out;
+}
+
+// Takes video effects: a picture clip, or an effects adjustment layer.
+bool clipTakesVideoEffects(const drift::Clip &clip)
+{
+    if (clip.type == drift::ClipType::Adjustment)
+        return clip.adjustmentKind == drift::AdjustmentKind::VideoEffects;
+    return clip.type != drift::ClipType::Audio && clip.type != drift::ClipType::Subtitle;
+}
+
+// How a clip is called in a message: a text by its first line.
+QString clipDisplayName(const drift::Clip &clip)
+{
+    if (clip.type == drift::ClipType::Text) {
+        const QString line = clip.textContent.section(QLatin1Char('\n'), 0, 0).trimmed().left(30);
+        if (!line.isEmpty())
+            return line;
+    }
+    return clip.name;
+}
+
+} // namespace
+
+QVariantMap AppController::stockHistoryEntry(const QString &itemId) const
+{
+    if (!m_marketClient)
+        return {};
+    for (const QVariant &row : m_marketClient->downloadHistory()) {
+        const QVariantMap entry = row.toMap();
+        if (entry.value(QStringLiteral("itemId")).toString() == itemId)
+            return entry;
+    }
+    return {};
+}
+
+QString AppController::stockLibraryDelivery(const QVariantMap &item) const
+{
+    const QString own = item.value(QStringLiteral("delivery")).toString();
+    if (!own.isEmpty())
+        return own;
+    const QString itemId = item.value(QStringLiteral("id")).toString();
+    const QString kept = stockHistoryEntry(itemId).value(QStringLiteral("delivery")).toString();
+    if (!kept.isEmpty())
+        return kept;
+    // "flip:<type>:<id>": our own packs say their type in the id.
+    const QStringList parts = itemId.split(QLatin1Char(':'));
+    if (parts.size() == 3 && parts.first() == QLatin1String("flip")) {
+        static const QHash<QString, QString> byType{
+            {QStringLiteral("template"), QStringLiteral("scene-template")},
+            {QStringLiteral("lut"), QStringLiteral("lut")},
+            {QStringLiteral("look"), QStringLiteral("effect-preset")},
+            {QStringLiteral("text-style"), QStringLiteral("text-style")},
+            {QStringLiteral("text-animation"), QStringLiteral("text-animation")},
+            {QStringLiteral("transition"), QStringLiteral("transition")},
+            {QStringLiteral("effect"), QStringLiteral("effect")},
+            {QStringLiteral("shape"), QStringLiteral("shape")},
+        };
+        return byType.value(parts.at(1), QStringLiteral("media"));
+    }
+    return m_marketClient ? m_marketClient->deliveryForItem(item) : QStringLiteral("media");
+}
+
+QString AppController::installedStockId(const QString &delivery, const QString &itemId,
+                                        const QVariantMap &local) const
+{
+    const QString keptId = local.value(QStringLiteral("installedId")).toString();
+    const QString filePath = local.value(QStringLiteral("filePath")).toString();
+    if (delivery == QLatin1String("effect")) {
+        const QString id = QStringLiteral("stockfx_") + stockPackageSlug(itemId);
+        return effectDefForId(id) ? id : QString();
+    }
+    if (delivery == QLatin1String("transition")) {
+        const QString id = QStringLiteral("stock.") + stockPackageSlug(itemId);
+        return transitionDefForId(id) ? id : QString();
+    }
+    if (delivery == QLatin1String("text-style")) {
+        const QString byStock = stockTextPresetId(itemId);
+        if (!byStock.isEmpty())
+            return byStock;
+        return !keptId.isEmpty() && drift::TextPresetStore::instance().presetForId(keptId).has_value() ? keptId
+                                                                                                      : QString();
+    }
+    if (delivery == QLatin1String("effect-preset")) {
+        return !keptId.isEmpty() && drift::EffectStackStore::instance().presetForId(keptId).has_value() ? keptId
+                                                                                                        : QString();
+    }
+    if (delivery == QLatin1String("text-animation")) {
+        return !keptId.isEmpty() && drift::TextAnimationPresetCatalog::instance().presetForId(keptId).has_value()
+                   ? keptId
+                   : QString();
+    }
+    if (delivery == QLatin1String("shape"))
+        return !keptId.isEmpty() && QFileInfo::exists(filePath) ? keptId : QString();
+    if (delivery == QLatin1String("lut"))
+        return !filePath.isEmpty() && QFileInfo::exists(filePath) ? filePath : QString();
+    return {};
+}
+
+void AppController::useStockLibraryItem(const QVariantMap &item, const QString &mode)
+{
+    if (!m_marketClient)
+        return;
+    const QString itemId = item.value(QStringLiteral("id")).toString();
+    if (itemId.isEmpty())
+        return;
+    const QString title = item.value(QStringLiteral("title")).toString().trimmed();
+    const QString name = title.isEmpty() ? tr("Stock item") : title;
+    const QString delivery = stockLibraryDelivery(item);
+    const bool place = mode == QLatin1String("place");
+
+    if (delivery == QLatin1String("scene-template")) {
+        // "Use" in Stock › Templates: downloaded first when needed, then at the playhead.
+        if (place) {
+            m_marketClient->useSceneTemplate(itemId, title);
+            return;
+        }
+        if (m_marketClient->sceneTemplateInstalled(itemId)) {
+            setLastMessage(tr("“%1” is already in Templates.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        m_marketClient->download(itemId, QString(), QUrl(), title, QStringLiteral("template"));
+        return;
+    }
+
+    const QVariantMap local = stockHistoryEntry(itemId);
+    const QString filePath = local.value(QStringLiteral("filePath")).toString();
+    if (delivery == QLatin1String("media")) {
+        // Still on this computer: back into Media without downloading it again (the bin keeps one
+        // asset per file).
+        if (m_assetLibrary && !filePath.isEmpty() && QFileInfo::exists(filePath)) {
+            const QStringList ids = m_assetLibrary->importLocalPaths({filePath});
+            if (!ids.isEmpty()) {
+                if (place)
+                    placeStockItem(itemId, delivery, name, QString(), filePath, ids.first());
+                else
+                    setLastMessage(tr("“%1” is in Media.").arg(name), QStringLiteral("success"));
+                return;
+            }
+        }
+    } else {
+        const QString installedId = installedStockId(delivery, itemId, local);
+        if (!installedId.isEmpty()) {
+            if (place) {
+                placeStockItem(itemId, delivery, name, installedId, filePath, QString());
+            } else {
+                setLastMessage(tr("“%1” is already installed. Find it in its panel.").arg(name),
+                               QStringLiteral("info"));
+            }
+            return;
+        }
+    }
+
+    if (place)
+        m_pendingStockPlace.insert(itemId, name);
+    else
+        m_pendingStockPlace.remove(itemId);
+    const QString kind = item.value(QStringLiteral("media_kind"), item.value(QStringLiteral("type"))).toString();
+    m_marketClient->download(itemId, QString(), QUrl(), title, kind);
+}
+
+void AppController::placeStockItem(const QString &itemId, const QString &delivery, const QString &name,
+                                   const QString &installedId, const QString &filePath, const QString &assetId)
+{
+    const QList<drift::Track> &tracks = m_project.tracks();
+    const bool hasSelection = m_selectedTrack >= 0 && m_selectedTrack < tracks.size() && m_selectedClip >= 0
+                              && m_selectedClip < tracks.at(m_selectedTrack).clips.size();
+    const drift::Clip *selected = hasSelection ? &tracks.at(m_selectedTrack).clips.at(m_selectedClip) : nullptr;
+    const bool pictureSelected = selected && clipTakesVideoEffects(*selected) && !isTrackLocked(m_selectedTrack);
+    const bool textSelected = selected && selected->type == drift::ClipType::Text && !isTrackLocked(m_selectedTrack);
+    const QString selectedName = selected ? clipDisplayName(*selected) : QString();
+
+    if (delivery == QLatin1String("media")) {
+        if (!m_assetLibrary || assetId.isEmpty()) {
+            setLastMessage(tr("Could not add “%1” to the timeline.").arg(name), QStringLiteral("error"));
+            return;
+        }
+        {
+            // Placing needs the probed duration (a first import still holds a placeholder one).
+            QEventLoop loop;
+            QTimer timeout;
+            timeout.setSingleShot(true);
+            timeout.start(15000);
+            connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+            connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
+            while (timeout.isActive() && m_assetLibrary->isImportPending(assetId))
+                loop.exec();
+        }
+        const int index = m_assetLibrary->indexOfId(assetId);
+        if (index < 0) {
+            setLastMessage(tr("Could not add “%1” to the timeline.").arg(name), QStringLiteral("error"));
+            return;
+        }
+        // Music and sounds land on an audio track, pictures on a video one: each by its kind.
+        addClipFromAsset(index);
+        setLastMessage(tr("“%1” was added to the timeline at the playhead.").arg(name), QStringLiteral("success"));
+        return;
+    }
+
+    if (delivery == QLatin1String("effect")) {
+        const QString effectId = installedId.isEmpty() ? QStringLiteral("stockfx_") + stockPackageSlug(itemId)
+                                                       : installedId;
+        if (!effectDefForId(effectId)) {
+            setLastMessage(tr("“%1” is in Effects › Trending.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        if (pictureSelected) {
+            addEffect(m_selectedTrack, m_selectedClip, effectId);
+            setLastMessage(tr("“%1” is on “%2”.").arg(name, selectedName), QStringLiteral("success"));
+        } else {
+            addAdjustmentClipWithEffect(effectId, -1, -1.0);
+            setLastMessage(tr("“%1” is on an adjustment layer: it changes everything below it.").arg(name),
+                           QStringLiteral("success"));
+        }
+        return;
+    }
+
+    if (delivery == QLatin1String("effect-preset")) {
+        const std::optional<drift::EffectStackPreset> preset =
+            installedId.isEmpty() ? std::optional<drift::EffectStackPreset>()
+                                  : drift::EffectStackStore::instance().presetForId(installedId);
+        if (!preset) {
+            setLastMessage(tr("“%1” is in My presets.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        // A voice (audio effects only) goes on a clip with sound; an adjustment layer has none.
+        const bool voice = preset->effects.isEmpty() && !preset->audioEffects.isEmpty();
+        if (voice) {
+            if (!selected) {
+                setLastMessage(tr("“%1” is in My presets. Select a clip with sound to change its voice.").arg(name),
+                               QStringLiteral("info"));
+                return;
+            }
+            applyEffectPreset(m_selectedTrack, m_selectedClip, installedId);
+            setLastMessage(tr("“%1” is on “%2”.").arg(name, selectedName), QStringLiteral("success"));
+            return;
+        }
+        if (pictureSelected) {
+            applyEffectPreset(m_selectedTrack, m_selectedClip, installedId);
+            setLastMessage(tr("Look “%1” is on “%2” and saved in My presets.").arg(name, selectedName),
+                           QStringLiteral("success"));
+            return;
+        }
+        m_mcpController->beginBatch();
+        addAdjustmentClipWithEffect(QString(), -1, -1.0);
+        if (m_selectedTrack >= 0 && m_selectedClip >= 0)
+            applyEffectPreset(m_selectedTrack, m_selectedClip, installedId);
+        m_mcpController->endBatch(tr("Add adjustment layer"), true);
+        setLastMessage(tr("Look “%1” is on an adjustment layer and saved in My presets.").arg(name),
+                       QStringLiteral("success"));
+        return;
+    }
+
+    if (delivery == QLatin1String("lut")) {
+        const QString lutPath = installedId.isEmpty() ? filePath : installedId;
+        if (lutPath.isEmpty() || !QFileInfo::exists(lutPath)) {
+            setLastMessage(tr("“%1” is in Filters.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        // As Filters and Adjust › LUT do: the clip's color.lut effect, pointed at the file.
+        const auto lutIndex = [this] {
+            const QVariantList effects = selectedClipEffects();
+            for (int i = int(effects.size()) - 1; i >= 0; --i) {
+                if (effects.at(i).toMap().value(QStringLiteral("catalogId")).toString() == QLatin1String("color.lut"))
+                    return i;
+            }
+            return -1;
+        };
+        m_mcpController->beginBatch();
+        if (pictureSelected) {
+            if (lutIndex() < 0)
+                addEffect(m_selectedTrack, m_selectedClip, QStringLiteral("color.lut"));
+        } else {
+            addAdjustmentClipWithEffect(QStringLiteral("color.lut"), -1, -1.0);
+        }
+        const int index = lutIndex();
+        if (index >= 0) {
+            setEffectStringParam(m_selectedTrack, m_selectedClip, index, QStringLiteral("lut"),
+                                 QUrl::fromLocalFile(lutPath));
+        }
+        m_mcpController->endBatch(tr("Apply LUT"), true);
+        if (index < 0) {
+            setLastMessage(tr("“%1” is in Filters.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        setLastMessage(pictureSelected
+                           ? tr("Filter “%1” is on “%2”.").arg(name, selectedName)
+                           : tr("Filter “%1” is on an adjustment layer: it changes everything below it.").arg(name),
+                       QStringLiteral("success"));
+        return;
+    }
+
+    if (delivery == QLatin1String("transition")) {
+        const QString kind = installedId.isEmpty() ? QStringLiteral("stock.") + stockPackageSlug(itemId) : installedId;
+        if (!transitionDefForId(kind)) {
+            setLastMessage(tr("“%1” is in Transitions.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        // The clip that follows `from` on its track, as addTransition pairs them.
+        const auto partnerOf = [&tracks](int t, int from) {
+            const drift::Track &track = tracks.at(t);
+            const drift::Clip &fromClip = track.clips.at(from);
+            int best = -1;
+            drift::TimeUs bestStart = std::numeric_limits<drift::TimeUs>::min();
+            for (int i = 0; i < track.clips.size(); ++i) {
+                if (i == from || !drift::clipsEligibleForTransition(fromClip, track.clips.at(i)))
+                    continue;
+                if (track.clips.at(i).timelineStart > bestStart) {
+                    bestStart = track.clips.at(i).timelineStart;
+                    best = i;
+                }
+            }
+            return best;
+        };
+        const auto takesPictureTransitions = [this, &tracks](int t) {
+            const drift::TrackType type = tracks.at(t).type;
+            return !isTrackLocked(t) && !tracks.at(t).isAdjustmentLane()
+                   && (type == drift::TrackType::Video || type == drift::TrackType::Shape
+                       || type == drift::TrackType::Text);
+        };
+        int cutTrack = -1;
+        int cutClip = -1;
+        // The selected clip's own cut first, else the cut nearest the playhead.
+        if (selected && takesPictureTransitions(m_selectedTrack) && partnerOf(m_selectedTrack, m_selectedClip) >= 0) {
+            cutTrack = m_selectedTrack;
+            cutClip = m_selectedClip;
+        } else {
+            drift::TimeUs bestDistance = std::numeric_limits<drift::TimeUs>::max();
+            for (int t = 0; t < tracks.size(); ++t) {
+                if (!takesPictureTransitions(t))
+                    continue;
+                for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+                    if (partnerOf(t, c) < 0)
+                        continue;
+                    const drift::TimeUs distance = qAbs(tracks.at(t).clips.at(c).timelineEnd() - m_playheadUs);
+                    if (distance < bestDistance) {
+                        bestDistance = distance;
+                        cutTrack = t;
+                        cutClip = c;
+                    }
+                }
+            }
+        }
+        if (cutTrack < 0) {
+            setLastMessage(tr("“%1” is in Transitions. To use it, two clips in a row on one track are needed.").arg(name),
+                           QStringLiteral("info"));
+            return;
+        }
+        const QString leftName = clipDisplayName(tracks.at(cutTrack).clips.at(cutClip));
+        addTransition(cutTrack, cutClip, kind, 0.5);
+        setLastMessage(tr("Transition “%1” is on the cut after “%2”.").arg(name, leftName), QStringLiteral("success"));
+        return;
+    }
+
+    if (delivery == QLatin1String("shape")) {
+        if (installedId.isEmpty()) {
+            setLastMessage(tr("“%1” is in Shapes.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        addShapeClipAt(installedId, -1, -1.0);
+        setLastMessage(tr("Shape “%1” was added at the playhead.").arg(name), QStringLiteral("success"));
+        return;
+    }
+
+    if (delivery == QLatin1String("text-style")) {
+        const QString presetId = installedId.isEmpty() ? stockTextPresetId(itemId) : installedId;
+        if (presetId.isEmpty()) {
+            setLastMessage(tr("“%1” is in Titles › Trending.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        if (textSelected) {
+            applyTextPreset(m_selectedTrack, m_selectedClip, presetId);
+            setLastMessage(tr("Style “%1” is on the text “%2”.").arg(name, selectedName), QStringLiteral("success"));
+        } else {
+            addTextClip(QString(), -1.0, presetId);
+            setLastMessage(tr("A text with the style “%1” was added at the playhead.").arg(name),
+                           QStringLiteral("success"));
+        }
+        return;
+    }
+
+    if (delivery == QLatin1String("text-animation")) {
+        const std::optional<drift::TextAnimationPreset> preset =
+            installedId.isEmpty() ? std::optional<drift::TextAnimationPreset>()
+                                  : drift::TextAnimationPresetCatalog::instance().presetForId(installedId);
+        if (!preset) {
+            setLastMessage(tr("“%1” is in Text › Animation.").arg(name), QStringLiteral("info"));
+            return;
+        }
+        // An entrance when it is one, else the first slot it is made for.
+        QString slot = QStringLiteral("in");
+        if (!preset->slotKinds.isEmpty() && !preset->slotKinds.contains(drift::textAnimSlotKindFromString(slot)))
+            slot = drift::textAnimSlotKindToString(preset->slotKinds.first());
+        const QVariantMap patch{{QStringLiteral("preset"), installedId}};
+        if (textSelected) {
+            setTextAnimationSlot(m_selectedTrack, m_selectedClip, slot, patch);
+            setLastMessage(tr("Animation “%1” is on the text “%2”.").arg(name, selectedName), QStringLiteral("success"));
+            return;
+        }
+        m_mcpController->beginBatch();
+        addTextClip(QString(), -1.0);
+        if (m_selectedTrack >= 0 && m_selectedClip >= 0)
+            setTextAnimationSlot(m_selectedTrack, m_selectedClip, slot, patch);
+        m_mcpController->endBatch(tr("Add text"), true);
+        setLastMessage(tr("A text with the animation “%1” was added at the playhead.").arg(name),
+                       QStringLiteral("success"));
+        return;
+    }
+
+    setLastMessage(tr("“%1” needs a newer Flip Studio.").arg(name), QStringLiteral("warning"));
 }

@@ -111,6 +111,8 @@ struct MarketClient::Job
     QString destinationDir;
     QString filePath;
     QString assetId;
+    // What the editor calls an installed item (a preset or shape id), when it says.
+    QString installedId;
     // waiting -> queued/processing -> downloading -> importing -> done, or failed/cancelled.
     // "waiting" is ours (behind the concurrency cap); the middle ones come from the service.
     QString status;
@@ -1089,6 +1091,10 @@ QVariantMap MarketClient::downloadInfo(const QString &itemId) const
         {QStringLiteral("phase"), job->phase},
         {QStringLiteral("errorCode"), job->errorCode},
         {QStringLiteral("errorMessage"), job->errorMessage},
+        {QStringLiteral("delivery"), job->delivery},
+        {QStringLiteral("filePath"), job->filePath},
+        {QStringLiteral("assetId"), job->assetId},
+        {QStringLiteral("installedId"), job->installedId},
     };
 }
 
@@ -2055,9 +2061,10 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
         QPointer<MarketClient> self(this);
         m_installer(job->delivery, path, job->title.isEmpty() ? displayName : job->title,
                     [self, itemId, path, displayName](bool ok, const QString &where, const QString &installedPath,
-                                                      const QString &error) {
+                                                      const QString &installedId, const QString &error) {
                         if (self)
-                            self->finishInstalledJob(itemId, path, displayName, ok, where, installedPath, error);
+                            self->finishInstalledJob(itemId, path, displayName, ok, where, installedPath,
+                                                     installedId, error);
                     });
         return;
     }
@@ -2122,7 +2129,7 @@ void MarketClient::importReadyFile(const QString &itemId, const QString &path,
 
 void MarketClient::finishInstalledJob(const QString &itemId, const QString &path, const QString &displayName,
                                       bool ok, const QString &where, const QString &installedPath,
-                                      const QString &error)
+                                      const QString &installedId, const QString &error)
 {
     if (!ok) {
         failJob(itemId, QStringLiteral("download_failed"),
@@ -2139,6 +2146,7 @@ void MarketClient::finishInstalledJob(const QString &itemId, const QString &path
         job->phase = where.isEmpty() ? tr("Installed") : where;
         job->progress = 1;
         job->filePath = kept;
+        job->installedId = installedId;
         job->finishedAt = QDateTime::currentDateTime();
         job->speedBytesPerSec = 0;
         if (job->title.isEmpty())
@@ -2171,6 +2179,9 @@ void MarketClient::rememberDownload(const QString &itemId, const QString &path,
         {QStringLiteral("thumb"), item.value(QStringLiteral("thumb_url"))},
         {QStringLiteral("author"), item.value(QStringLiteral("creator")).toMap().value(QStringLiteral("name"))},
         {QStringLiteral("filePath"), path},
+        // Mi cuenta › Descargas uses these to put it in the edit again without downloading it.
+        {QStringLiteral("delivery"), job ? job->delivery : QString()},
+        {QStringLiteral("installedId"), job ? job->installedId : QString()},
         {QStringLiteral("at"), QDateTime::currentDateTime()},
     };
     QVariantList history = QSettings().value(settingsKey("history")).toList();
