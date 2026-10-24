@@ -138,5 +138,9 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
     aplasta), D9 (textura con ruta «/C:/…»), exportar (el video coincide con la vista previa).
   - **Fallo viejo encontrado (también en la 0.21.0, solo con ventana):** un texto con relleno de imagen dejaba todo
     el video verde. Causa probable: Skia deja samplers atados. Arreglo en `SkiaRuntime.cpp` (`restoreGlState`),
-    build **40139435273**: comprobar que el video ya no se pone verde con un texto con textura.
-  - Falta: D12 (seguimiento que reemplaza claves) en ventana.
+    Comprobado con la build **40139655806** (`pruebas\FlipStudio-0.22.1c`): el video conserva sus colores.
+  - D12: el primer seguimiento tampoco avisaba al pisar claves de posición puestas a mano; ahora avisa (probado en
+    ventana con la build 40139655806).
+  - **Todo lo de la lista quedó probado en ventana.** Siguiente: unir `flip/v0.22.1` a `flip/v0.22.0`, versión
+    0.22.0, notas, publicar escritorio y web (unir `web/v0221-texto` a `web/v022`), MSIX, y restaurar el registro
+    conservando `account`.
