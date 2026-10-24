@@ -124,5 +124,13 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
     «Personalizar animación» (abre las partes; «+ Rotación» gira el texto en la vista previa).
   - Encontrado y arreglado (commit `c1e30`, build **40136345078**): al editar un texto el inspector saltaba a
     General; la fila B U S I cortaba el desplegable del peso.
-  - Falta: justificado y espacio entre palabras, círculo, esquinas libres, efectos/LUT en texto, aplicar/pegar
-    estilo, copiar/pegar claves, aviso de fuentes, VTT/ASS, decimales, D2, D4, D5, D6, D9, D12 y exportar.
+  - Probado y bien después: justificado (última línea normal), espacio entre palabras, Curva y «Alrededor de un
+    círculo», deformar por esquinas, efecto (Separación RGB) y Ajustar › Brillo sobre un texto, «Aplicar al texto
+    seleccionado» (Títulos, menú), «Pegar atributos › Estilo de texto», copiar/pegar claves (Editar › Copiar/Pegar
+    con una clave elegida), tamaño con decimales (de 40 a 41 px crece sin saltos).
+  - Arreglado (commits `b7184`, `7e2dc`; web también): el círculo completo pegaba el final con el principio
+    («VIDEOFLIP») y quedaba debajo del cuadro; las etiquetas de las esquinas se cortaban. Build **40137288533**.
+  - Menús de clic derecho con la ventana de fondo: `py tools/e2e/ctxclick.py <pid> x y` (avisa a la ventana que
+    está activa con mensajes; sin eso el menú no abre).
+  - Falta: aviso de fuentes, VTT/ASS, D2, D4, D5, D6, D9, D12, exportar, y repetir con la build nueva lo de las
+    esquinas (el salto a General se comía el segundo número).
