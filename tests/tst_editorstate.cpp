@@ -698,7 +698,13 @@ void EditorStateTest::textAnimationSavesAsOwnPreset()
     QCOMPARE(saved->param(QStringLiteral("duration"))->defaultValue.scalar, 1.25);
 
     QVERIFY(state.deleteUserTextAnimationPreset(id));
-    QVERIFY(!drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
+    // Gone from the galleries, but the texts that use it keep playing it (auditoría D4): the
+    // catalog keeps a copy, and the project carries it on save.
+    bool listed = false;
+    for (const drift::TextAnimationPreset &p : drift::TextAnimationPresetCatalog::instance().presets())
+        listed = listed || p.id == id;
+    QVERIFY(!listed);
+    QVERIFY(drift::TextAnimationPresetCatalog::instance().presetForId(id).has_value());
     QDir(drift::TextAnimationPresetCatalog::userDir()).removeRecursively();
     drift::TextAnimationPresetCatalog::instance().reload();
 }

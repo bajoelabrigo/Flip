@@ -1360,7 +1360,7 @@ void ProjectFileController::finishLoad(int generation, const QUrl &url,
     // Fonts the user had imported on the computer that saved it travel in the file: install the
     // ones this computer does not have yet, before the texts are drawn with a fallback.
     {
-        const QString fontDir = QDir::cleanPath(drift::userFontDir());
+        const QString fontDir = QDir::cleanPath(::userFontDir());
         bool installed = false;
         for (const drift::bundle::MediaEntry &entry : bundle.media) {
             if (!entry.embedded || entry.originalPath.isEmpty()
@@ -1370,7 +1370,7 @@ void ProjectFileController::finishLoad(int generation, const QUrl &url,
             if (QFileInfo::exists(entry.originalPath) || !QFileInfo::exists(local))
                 continue;
             QString error;
-            installed = !drift::importUserFontFile(local, &error).isEmpty() || installed;
+            installed = !::importUserFontFile(local, &error).isEmpty() || installed;
         }
         if (installed)
             m_app->emitPreviewFrame();

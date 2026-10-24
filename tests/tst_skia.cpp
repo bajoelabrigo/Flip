@@ -1432,9 +1432,9 @@ void SkiaTest::inkBoundsFollowTheStrokeWidth()
     thin.layers = {strokeLayer(2.0, Qt::black), solidFillLayer(Qt::white)};
     TextStyle thick = thin;
     thick.layers = {strokeLayer(12.0, Qt::black), solidFillLayer(Qt::white)};
-    const QString text = QStringLiteral("Caja");
-    const auto a = fragmentsFor(text, thin, 400.0, 120.0, 1.0, -1, WordSplit::Whole);
-    const auto b = fragmentsFor(text, thick, 400.0, 120.0, 1.0, -1, WordSplit::Whole);
+    const QString sample = QStringLiteral("Caja");
+    const auto a = text::fragmentsFor(sample, thin, 400.0, 120.0, 1.0, -1, text::WordSplit::Whole);
+    const auto b = text::fragmentsFor(sample, thick, 400.0, 120.0, 1.0, -1, text::WordSplit::Whole);
     QVERIFY(a && b);
     QVERIFY2(b->ink.width() >= a->ink.width() + 15.0,
              qPrintable(QStringLiteral("%1 vs %2").arg(a->ink.width()).arg(b->ink.width())));
@@ -1450,18 +1450,18 @@ void SkiaTest::justifyWordSpacingAndStrike()
     style.fontFamily = QStringLiteral("Inter");
     style.pixelSize = 40;
     style.align = TextAlign::Left;
-    const QString text = QStringLiteral("uno dos tres cuatro cinco seis siete ocho nueve diez");
+    const QString sample = QStringLiteral("uno dos tres cuatro cinco seis siete ocho nueve diez");
     const double box = 360.0;
-    const auto left = fragmentsFor(text, style, box, 400.0, 1.0, -1, WordSplit::Whole);
+    const auto left = text::fragmentsFor(sample, style, box, 400.0, 1.0, -1, text::WordSplit::Whole);
     style.align = TextAlign::Justify;
-    const auto justified = fragmentsFor(text, style, box, 400.0, 1.0, -1, WordSplit::Whole);
+    const auto justified = text::fragmentsFor(sample, style, box, 400.0, 1.0, -1, text::WordSplit::Whole);
     QVERIFY(left && justified);
     // The first line's last word ends at the box's right edge once justified.
     double leftEnd = 0.0, justifiedEnd = 0.0;
-    for (const StyledWord &w : left->frags)
+    for (const text::StyledWord &w : left->frags)
         if (w.line == 0)
             leftEnd = qMax(leftEnd, w.cellRect.right());
-    for (const StyledWord &w : justified->frags)
+    for (const text::StyledWord &w : justified->frags)
         if (w.line == 0)
             justifiedEnd = qMax(justifiedEnd, w.cellRect.right());
     QVERIFY2(justifiedEnd > leftEnd + 2.0 && qAbs(justifiedEnd - box) < 4.0,
@@ -1473,9 +1473,9 @@ void SkiaTest::justifyWordSpacingAndStrike()
     spaced.fontFamily = QStringLiteral("Inter");
     spaced.pixelSize = 40;
     spaced.wordWrap = false;
-    const auto plain = fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, WordSplit::Whole);
+    const auto plain = text::fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, text::WordSplit::Whole);
     spaced.wordSpacing = 30.0;
-    const auto wide = fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, WordSplit::Whole);
+    const auto wide = text::fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, text::WordSplit::Whole);
     QVERIFY2(wide->ink.width() >= plain->ink.width() + 50.0,
              qPrintable(QStringLiteral("%1 vs %2").arg(plain->ink.width()).arg(wide->ink.width())));
 
