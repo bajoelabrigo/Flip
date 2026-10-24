@@ -196,6 +196,18 @@ static void restoreGlState(QOpenGLExtraFunctions *gl)
     gl->glBlendEquation(GL_FUNC_ADD);
     gl->glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     gl->glBindVertexArray(0);
+    // Skia samples through sampler objects and leaves them bound: a mipmapped one on the unit where
+    // a video's chroma plane is read next makes that texture incomplete, it reads as zero and the
+    // whole picture turns green (a text with a picture fill did it). Units Skia may have touched.
+    GLint units = 0;
+    gl->glGetIntegerv(GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &units);
+    for (int unit = qMin(units, 16) - 1; unit >= 0; --unit) {
+        gl->glActiveTexture(GLenum(GL_TEXTURE0 + unit));
+        gl->glBindSampler(GLuint(unit), 0);
+        gl->glBindTexture(GL_TEXTURE_2D, 0);
+    }
+    gl->glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+    gl->glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
     gl->glActiveTexture(GL_TEXTURE0);
     gl->glBindTexture(GL_TEXTURE_2D, 0);
     gl->glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
