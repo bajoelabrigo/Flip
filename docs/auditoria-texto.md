@@ -137,7 +137,7 @@ TP = `src/engine/SkiaTextPainter.cpp`, TA = `src/core/TextAnimator.cpp`.
 | Controles de Bucle (Período, Por, Curva) | DEFECTUOSA | TI:2739, 2796, 2875 | No hacen nada en 10–13 de las 13 (D10) | código |
 | Bucle: giro continuo y resplandor | AUSENTE | — | — | código |
 | Mis animaciones: guardar, renombrar, borrar, exportar | PARCIAL | AC:26721-26842 | Al guardar se pierden retraso/período; **no hay botón Importar**; importar dos veces duplica | código |
-| Animación a medida | PARCIAL | TI («Custom animator») | Solo por MCP, sin editor | código |
+| Animación a medida | IMPLEMENTADA (falta verla en ventana) | `TextAnimatorEditor.qml`, AC `textAnimationSlotForEditing` | «Personalizar animación» en Animación: partes con Por, Orden, escalonado, duración, curva y las propiedades que se mueven (mover, escala, giro y giro 3D, opacidad, desenfoque, espaciado, color, contorno, resplandor); parte del preset elegido; «Guardar como mi animación…». El cursor de máquina de escribir de un preset no pasa al convertirla | código (`textAnimationEditorRoundTripsAnimators`) |
 | Animación de clip sobre un texto | IMPLEMENTADA | FC:1047-1088 | Se suma a la de texto (un «Fundido» de clip + «fade» de texto = doble) | código + ventana |
 | Llamita y cuenta en todas las animaciones | IMPLEMENTADA | TI `wearsFlame`, `AnimationInspector.qml` | Pedido de Jorge 0.22 | ventana |
 | Búsqueda en la galería de animaciones | AUSENTE | — | — | código |

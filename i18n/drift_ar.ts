@@ -23101,6 +23101,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>الكتلة بأكملها</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>حرف</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>كلمة</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>سطر</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>للأمام</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>للخلف</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>من المركز إلى الخارج</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>عشوائي</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>خطي</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>سلس</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>لطيف</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>تسريع</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>سريع</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>رجوع</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>ارتداد</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>تحريك X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>تحريك Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>تحجيم X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>تحجيم Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>الدوران</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>دوران ثلاثي الأبعاد X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>دوران ثلاثي الأبعاد Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>العتامة</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>التمويه</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>تباعد الأحرف</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>لون التعبئة</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>عرض الحد</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>التوهج</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>تعديل حركة النص</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>تخصيص الحركة</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>معاينة هذه الحركة</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>إغلاق المحرر</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>البداية من «%1». تعديلاتك تجعلها حركة خاصة بهذا النص.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>كل جزء يهز النص بهذه القيم مرارًا وتكرارًا.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>كل جزء ينقل النص من مظهره إلى هذه القيم.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>كل جزء ينقل النص من هذه القيم إلى مظهره.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>الجزء %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>تكرار الجزء</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>إزالة الجزء</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>حسب</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>الترتيب</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>تتابع</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>المدة</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>الانسيابية</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>الطور</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>يحتفظ هذا الجزء بتوقيت الحركة التي جاء منها.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>يتحرك بمقدار</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>ينتهي عند</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>يبدأ من</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>إيقاف تحريك هذا</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>تحريك</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>إضافة جزء</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>حركة أخرى فوقها، بوحدتها وتوقيتها الخاصين</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>حفظ كحركة خاصة بي…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>احفظها في «حركاتي» لاستخدامها في نصوص أخرى</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23539,10 +23766,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>متقدم</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>محرِّك مخصص (تم تعيينه عبر MCP). عناصر التحكم في الإعداد المسبق معطلة.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -24215,6 +24438,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation>من Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>تخصيص الحركة</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>اختر ما يتحرك، حسب الحرف أو الكلمة أو السطر، وكيف</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>حركة مخصصة: غيّرها عبر «تخصيص الحركة»، أو عد إلى اختيار الإعدادات المسبقة.</translation>
     </message>
     <message>
         <source>Rename text animation</source>

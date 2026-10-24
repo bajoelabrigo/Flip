@@ -1329,6 +1329,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/GeneralInspector.qml
         src/qml/components/properties/TextInspector.qml
         src/qml/components/properties/TextParamSlots.qml
+        src/qml/components/properties/TextAnimatorEditor.qml
         src/qml/components/properties/PaintEditor.qml
         src/qml/components/properties/GradientStopEditor.qml
         src/qml/components/properties/ShadingLayerRow.qml

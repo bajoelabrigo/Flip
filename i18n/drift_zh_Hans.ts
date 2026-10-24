@@ -22700,6 +22700,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>整个文本块</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>字符</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>词</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>行</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>正向</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>反向</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>从中心向外</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>随机</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>线性</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>平滑</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>柔和</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>干脆</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>回弹</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>弹跳</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>移动 X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>移动 Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>缩放 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>缩放 Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>旋转</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D 旋转 X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D 旋转 Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>模糊</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>字间距</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>填充颜色</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>描边宽度</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>发光</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>编辑文字动画</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>自定义动画</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>预览此动画</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>关闭编辑器</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>基于“%1”。你的修改会使其成为此文本专属的动画。</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>每个部分按这些值反复摆动文本。</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>每个部分将文本从原本外观带到这些值。</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>每个部分将文本从这些值带回其原本外观。</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>部分 %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>复制部分</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>移除部分</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>按</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>顺序</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>错开</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>时长</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>缓动</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>变速</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>相位</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>此部分保留其来源动画的时间。</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>移动量</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>结束于</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>起始于</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>停止为此添加动画</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>动画</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>添加部分</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>在上面叠加另一个动作，拥有自己的单位和时间</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>另存为我的动画…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>保存到“我的动画”，用于其他文本</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23138,10 +23365,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>高级</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>自定义动画器（通过 MCP 设置）。预设控件已停用。</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23814,6 +24037,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation>来自 Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>自定义动画</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>按字母、单词或行选择要移动的内容以及移动方式</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>自定义动画：通过“自定义动画”修改，或返回选择预设。</translation>
     </message>
     <message>
         <source>Rename text animation</source>

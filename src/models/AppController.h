@@ -980,6 +980,14 @@ public:
     // with the clip's settings as its defaults, listed under "Mine". Returns the new id.
     Q_INVOKABLE QString saveTextAnimationAsPreset(int trackIndex, int clipIndex, const QString &slot,
                                                   const QString &label);
+    // The visual animation editor (Personalizar): a slot as the animator list it plays, to edit
+    // and send back through setTextAnimationSlot({animators, particles, …}). A preset is expanded
+    // for this slot, an inline slot gives its own, an empty one a fade by character (a gentle
+    // wiggle on Loop). Returns {animators, particles, delay, durationOverride, period, source:
+    // "preset"|"inline"|"new", label}.
+    Q_INVOKABLE QVariantMap textAnimationSlotForEditing(int trackIndex, int clipIndex, const QString &slot) const;
+    // The animator list as a slot stores it: defaults dropped, enum spellings settled.
+    Q_INVOKABLE QVariantList normalizeTextAnimators(const QVariantList &animators) const;
     Q_INVOKABLE bool deleteUserTextAnimationPreset(const QString &presetId);
     Q_INVOKABLE bool exportUserTextAnimationPreset(const QString &presetId, const QUrl &fileUrl);
     // Human label for a text keyframe property ("Shadow · Blur"); empty for non-text props.

@@ -22777,6 +22777,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>සම්පූර්ණ කොටස</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>අක්ෂරය</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>වචනය</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>පේළිය</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>පසුපසට</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>මැද සිට පිටතට</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>අහඹු</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>රේඛීය</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>සුමට</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>මෘදු</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>වේගවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>වේගවත් (Snappy)</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>ආපසු</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>ගැසීම (Bounce)</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>ගෙන යන්න X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>ගෙන යන්න Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>පරිමාණය X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>පරිමාණය Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>භ්‍රමණය</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D කරකැවීම X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D කරකැවීම Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>බොඳ කිරීම</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>අකුරු අතර පරතරය</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>පිරවුම් වර්ණය</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>දළ සටහනේ පළල</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>දීප්තිය (Glow)</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>පෙළ සජීවිකරණය සංස්කරණය කරන්න</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>සජීවීකරණය අභිරුචිකරණය</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>මෙම සජීවිකරණය පෙරදසුන් කරන්න</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>සංස්කාරකය වසන්න</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>«%1» සිට ආරම්භ වේ. ඔබේ වෙනස්කම් එය මෙම පාඨයේම සජීවීකරණයක් කරයි.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>සෑම කොටසක්ම මෙම අගයන්ගෙන් පාඨය නැවත නැවතත් පද්දයි.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>සෑම කොටසක්ම පාඨය එහි පෙනුමෙන් මෙම අගයන් දක්වා ගෙන යයි.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>සෑම කොටසක්ම පාඨය මෙම අගයන්ගෙන් එහි පෙනුමට ගෙන එයි.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>කොටස %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>කොටස අනුපිටපත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>කොටස ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>මඟින් (By)</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>පිළිවෙළ</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Stagger</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>කාලසීමාව</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Ease</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>වේගය</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>කලාව (Phase)</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>මෙම කොටස එය පැමිණි සජීවීකරණයේ කාලය රඳවා ගනී.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>චලනය වන ප්‍රමාණය</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>අවසන් වන්නේ</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>ආරම්භ වන්නේ</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>මෙය සජීවීකරණය නවත්වන්න</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>සජීවීකරණය</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>කොටසක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>තමන්ගේම ඒකකය සහ කාලය සහිත තවත් චලනයක් ඉහළින්</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>මගේ සජීවීකරණයක් ලෙස සුරකින්න…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>වෙනත් පාඨවල භාවිතයට «මගේ සජීවීකරණ» තුළ තබා ගන්න</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23215,10 +23442,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>උසස්</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>අභිරුචි සජීවිකරණය (MCP මඟින් සකසා ඇත). පෙරසැකසුම් පාලක අක්‍රිය කර ඇත.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23891,6 +24114,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>සජීවීකරණය අභිරුචිකරණය</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>අකුරෙන්, වචනයෙන් හෝ පේළියෙන් චලනය වන්නේ කුමක්ද සහ කෙසේද යන්න තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>අභිරුචි සජීවීකරණය: «සජීවීකරණය අභිරුචිකරණය» මගින් වෙනස් කරන්න, නැතහොත් පෙරසැකසුම් තේරීමට ආපසු යන්න.</translation>
     </message>
     <message>
         <source>Rename text animation</source>

@@ -22861,6 +22861,233 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Cały blok</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Znak</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Słowo</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linia</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Do przodu</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Do tyłu</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Od środka</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Losowo</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Liniowy</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Płynny</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Łagodna</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Przyspieszenie</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Dynamiczny</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Wstecz</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Odbicie</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Przesuń X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Przesuń Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Skala X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Skala Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Obrót</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>Obrót 3D X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>Obrót 3D Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Krycie</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Rozmycie</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Odstępy między literami</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Kolor wypełnienia</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Szerokość obrysu</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Poświata</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Edytuj animację tekstu</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Dostosuj animację</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Podgląd tej animacji</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Zamknij edytor</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>Na podstawie „%1”. Twoje zmiany czynią ją własną animacją tego tekstu.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Każda część kołysze tekstem o te wartości, raz za razem.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Każda część prowadzi tekst od jego wyglądu do tych wartości.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Każda część prowadzi tekst od tych wartości do jego wyglądu.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Część %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Powiel część</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Usuń część</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Przez</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Kolejność</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Przesunięcie</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Czas trwania</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Łagodzenie</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Prędkość</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Faza</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Ta część zachowuje czas animacji, z której pochodzi.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Porusza o</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Kończy na</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Zaczyna od</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Przestań to animować</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Animuj</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Dodaj część</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Kolejny ruch na wierzchu, z własną jednostką i czasem</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Zapisz jako moją animację…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Zachowaj w Moich animacjach, aby użyć w innych tekstach</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23299,10 +23526,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Advanced</source>
         <translation>Zaawansowane</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Niestandardowy animator (ustawiony przez MCP). Sterowanie presetami wyłączone.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23975,6 +24198,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>From Stock</source>
         <translation>Ze Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Dostosuj animację</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Wybierz, co się porusza, literami, słowami lub wierszami, i jak</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Animacja własna: zmień ją przez Dostosuj animację albo wróć do wybierania gotowych ustawień.</translation>
     </message>
     <message>
         <source>Rename text animation</source>

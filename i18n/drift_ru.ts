@@ -22861,6 +22861,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Весь блок</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Символ</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Слово</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Строка</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Вперёд</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Назад</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>От центра</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Случайно</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Линейно</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Плавно</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Плавная</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Резко</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>С возвратом</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Отскок</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Сдвиг X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Сдвиг Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Масштаб X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Масштаб Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Поворот</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D-поворот X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D-поворот Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Непрозрачность</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Размытие</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Межбуквенный интервал</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Цвет заливки</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Ширина обводки</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Свечение</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Изменить анимацию текста</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Настроить анимацию</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Предпросмотр этой анимации</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Закрыть редактор</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>На основе «%1». С вашими изменениями это станет собственной анимацией текста.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Каждая часть раскачивает текст на эти значения снова и снова.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Каждая часть ведёт текст от его вида к этим значениям.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Каждая часть ведёт текст от этих значений к его виду.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Часть %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Дублировать часть</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Удалить часть</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>По</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Порядок</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Сдвиг</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Длительность</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Плавность</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Эта часть сохраняет время исходной анимации.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Смещается на</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Заканчивается на</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Начинается с</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Не анимировать это</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Анимировать</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Добавить часть</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Ещё одно движение поверх, со своей единицей и временем</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Сохранить как мою анимацию…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Сохранить в «Мои анимации», чтобы применять к другим текстам</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23299,10 +23526,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>Дополнительно</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Пользовательская анимация (задаётся через MCP). Управление предустановками отключено.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23975,6 +24198,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation>Из Stock</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Настроить анимацию</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Выберите, что движется — по буквам, словам или строкам — и как</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Своя анимация: измените её через «Настроить анимацию» или вернитесь к выбору готовых.</translation>
     </message>
     <message>
         <source>Rename text animation</source>
