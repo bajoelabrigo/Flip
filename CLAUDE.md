@@ -68,7 +68,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Falta (Jorge):** subir el MSIX de la 0.21.0 cuando aprueben las anteriores, y después TXT `version`.
 
 ### Editor web en el celular como CapCut, etapa 7 (2026-10-23, desplegado, `flipstudio-app` `web/movil-capcut`)
-- Capturas de Jorge en `Downloads\capcut movil…24.png`; detalle en `docs/plan-movil.md` › Etapa 7. Barras en el
+- Capturas de Jorge en `Downloads\capcut movil\1…24.png`; detalle en `docs/plan-movil.md` › Etapa 7. Barras en el
   orden de CapCut, paneles de una fila (`TouchPanels.tsx`), Recortar a pantalla completa (`TouchCrop.tsx`),
   Sustituir, Superposición ⇄ Pista principal, Ritmos, Subtítulos y Seguimiento. Simulación:
   `scripts/check-phone-bar.mjs` y `check-phone-actions.mjs` (con `FLIP_BASE=` contra la web publicada).
