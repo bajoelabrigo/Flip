@@ -1,7 +1,10 @@
 # Posts a click (or wheel) to a running Flip Studio window, without moving the real mouse.
 # Coordinates are those of the window picture a screenshot shows (frame included).
+# -TargetPid is required: without it the click went to whatever window was in front (2026-10-23 it
+# landed in another app of Jorge's because the pid came as -ProcessId, which was silently ignored).
+[CmdletBinding()]
 param(
-    [int]$TargetPid = 0,
+    [Parameter(Mandatory = $true)][ValidateRange(1, [int]::MaxValue)][int]$TargetPid,
     [int]$X = 0,
     [int]$Y = 0,
     [ValidateSet('left', 'right')][string]$Button = 'left',

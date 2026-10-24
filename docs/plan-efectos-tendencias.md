@@ -45,6 +45,13 @@ Pedido de Jorge (2026-10-23): crear todos los efectos de 16 capturas (`Downloads
       «Inicia sesión…». Transiciones no tiene chip de tendencias (lo de Stock ya pide cuenta). Las animaciones de
       «Todo» son las que vienen con la app; Tendencias es una selección de ellas y lo que se bloquea es el chip.
 - [x] `TextAssetsTab.qml` usaba `labelMetrics` sin declararlo (ReferenceError desde la 0.19): declarado.
+- [x] **Cambio de Jorge (2026-10-23): las animaciones de tendencia (texto y clip) se ven en todas partes** con una
+      llamita naranja (`TrendBadge.qml`, no una corona) y, sin sesión, al elegir una sale «Inicia sesión para usar
+      las tendencias» (`SignInRequiredDialog` con `reason: "trends"`); tras iniciar sesión se aplica sola. Lo que hoy
+      pide la cuenta será premium más adelante. Igual en la web (`useTrendsGate`, `TrendBadge`). Probado en ventana
+      (portable de `59675`) y en el navegador.
+- [x] `tools/e2e/shot.ps1` y `click.ps1` exigen `-TargetPid`: con `-ProcessId` (nombre equivocado) lo ignoraban y
+      capturaban y hacían clic en la ventana que estuviera al frente (cayó en otra app de Jorge).
 - [ ] Desplegar: servidor `stock-efectos` → `publicar\efectos` + `publicar\i18n` → web `web/tendencias-login`
       (unir antes con lo último desplegado) → PR, tag `v0.21.0`, MSIX, novedades en la web.
 
