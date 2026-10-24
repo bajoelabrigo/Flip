@@ -110,6 +110,11 @@ private slots:
     void subtitleCuePacking();
     void srtRoundTrip();
     void srtParseEdgeCases();
+    void webVttParse();
+    void webVttRoundTrip();
+    void assParse();
+    void assRoundTrip();
+    void subtitleFormatFromExtension();
     void insertTrackAtTopAllowsDuplicateTypes();
     void multiTrackSerializationRoundTrip();
     void textStyleAndBlendModeSerialization();
@@ -1318,6 +1323,193 @@ void CoreTest::srtParseEdgeCases()
 
     QVERIFY(!drift::parseSrt(QString(), &cues, &error));
     QVERIFY(!error.isEmpty());
+}
+
+void CoreTest::webVttParse()
+{
+    // Header with metadata, NOTE and STYLE blocks, a cue identifier, cue settings, mm:ss.mmm,
+    // inline tags (voice, bold, class, karaoke timestamp) and character references.
+    const QString vtt = QStringLiteral(
+        "\uFEFFWEBVTT - Example\r\n"
+        "Kind: captions\r\n"
+        "\r\n"
+        "NOTE This is a comment\r\n"
+        "spanning two lines\r\n"
+        "\r\n"
+        "STYLE\r\n"
+        "::cue { color: yellow }\r\n"
+        "\r\n"
+        "00:00:10.250 --> 00:00:12.000\r\n"
+        "Tercera\r\n"
+        "\r\n"
+        "intro\r\n"
+        "00:01.000 --> 00:04.500 align:start line:90%\r\n"
+        "<v Ana><b>Hola</b> &amp; <i>adiós</i></v>\r\n"
+        "<c.yellow>segunda</c> <00:00:03.000>línea &lt;3&#33;\r\n");
+
+    QList<drift::SubtitleCue> cues;
+    QString error;
+    QVERIFY2(drift::parseWebVtt(vtt, &cues, &error), qPrintable(error));
+    QCOMPARE(cues.size(), 2);
+    QCOMPARE(cues[0].startUs, drift::secondsToUs(1.0));
+    QCOMPARE(cues[0].endUs, drift::secondsToUs(4.5));
+    QCOMPARE(cues[0].text, QStringLiteral("Hola & adiós\nsegunda línea <3!"));
+    QVERIFY(cues[0].wordEndsUs.isEmpty());
+    QCOMPARE(cues[1].startUs, drift::secondsToUs(10.25));
+    QCOMPARE(cues[1].endUs, drift::secondsToUs(12.0));
+    QCOMPARE(cues[1].text, QStringLiteral("Tercera"));
+
+    QVERIFY(!drift::parseWebVtt(QStringLiteral("WEBVTT\n\nNOTE nothing here\n"), &cues, &error));
+    QVERIFY(!error.isEmpty());
+    QVERIFY(!drift::parseWebVtt(QStringLiteral("WEBVTT\n\n00:01.000 --> later\nx\n"), &cues, &error));
+}
+
+void CoreTest::webVttRoundTrip()
+{
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(4.0), QStringLiteral("Hello")});
+    cues.append({drift::secondsToUs(65.5), drift::secondsToUs(70.25),
+                 QStringLiteral("Line one\nLine two")});
+    cues.append({drift::kUsPerMs * 3'723'004, drift::kUsPerMs * 3'724'000,
+                 QStringLiteral("Tom & Jerry <3")});
+
+    const QString vtt = drift::writeWebVtt(cues);
+    QVERIFY(vtt.startsWith(QStringLiteral("WEBVTT\n\n")));
+    QVERIFY(vtt.contains(QStringLiteral("00:00:01.000 --> 00:00:04.000\nHello\n\n")));
+    QVERIFY(vtt.contains(QStringLiteral("00:01:05.500 --> 00:01:10.250\nLine one\nLine two\n")));
+    QVERIFY(vtt.contains(QStringLiteral("01:02:03.004 --> 01:02:04.000\nTom &amp; Jerry &lt;3\n")));
+
+    QList<drift::SubtitleCue> loaded;
+    QString error;
+    QVERIFY2(drift::parseWebVtt(vtt, &loaded, &error), qPrintable(error));
+    QCOMPARE(loaded.size(), 3);
+    for (int i = 0; i < 3; ++i) {
+        QCOMPARE(loaded[i].startUs, cues[i].startUs);
+        QCOMPARE(loaded[i].endUs, cues[i].endUs);
+        QCOMPARE(loaded[i].text, cues[i].text);
+    }
+}
+
+void CoreTest::assParse()
+{
+    // A Format line in a non-default order (End before Start), commas inside the text, override
+    // blocks, \N and \h, a Comment line, a drawing and a [V4+ Styles] Format line to ignore.
+    const QString ass = QStringLiteral(
+        "[Script Info]\n"
+        "Title: Test\n"
+        "ScriptType: v4.00+\n"
+        "\n"
+        "[V4+ Styles]\n"
+        "Format: Name, Fontname, Fontsize\n"
+        "Style: Default,Arial,20\n"
+        "\n"
+        "[Events]\n"
+        "Format: Layer, Style, End, Start, Name, MarginL, MarginR, MarginV, Effect, Text\n"
+        "Dialogue: 0,Default,0:00:03.50,0:00:01.20,,0,0,0,,{\\an8\\b1}Hola, mundo,{\\i1} y más\\Nsegunda\\hlínea\n"
+        "Comment: 0,Default,0:00:05.00,0:00:04.00,,0,0,0,,ignorar\n"
+        "Dialogue: 0,Default,0:01:05.00,0:01:02.05,,0,0,0,,{\\p1}m 0 0 l 100 0 100 100{\\p0}\n"
+        "Dialogue: 0,Default,1:00:00.00,0:59:59.99,Ana,0,0,0,,Fin\n");
+
+    QList<drift::SubtitleCue> cues;
+    QString error;
+    QVERIFY2(drift::parseAss(ass, &cues, &error), qPrintable(error));
+    QCOMPARE(cues.size(), 2);
+    QCOMPARE(cues[0].startUs, drift::secondsToUs(1.2));
+    QCOMPARE(cues[0].endUs, drift::secondsToUs(3.5));
+    QCOMPARE(cues[0].text, QStringLiteral("Hola, mundo, y más\nsegunda línea"));
+    QCOMPARE(cues[1].startUs, drift::kUsPerMs * 3'599'990);
+    QCOMPARE(cues[1].endUs, drift::secondsToUs(3600.0));
+    QCOMPARE(cues[1].text, QStringLiteral("Fin"));
+
+    // Without [Events] there is nothing to import.
+    QVERIFY(!drift::parseAss(QStringLiteral("[Script Info]\nTitle: x\n"), &cues, &error));
+    QVERIFY(!error.isEmpty());
+}
+
+void CoreTest::assRoundTrip()
+{
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(4.0), QStringLiteral("Hello, world")});
+    cues.append({drift::secondsToUs(65.5), drift::secondsToUs(70.25),
+                 QStringLiteral("Line one\nLine two")});
+    cues.append({drift::secondsToUs(2.0), drift::secondsToUs(3.0), QStringLiteral("{braces}")});
+
+    const QString ass = drift::writeAss(cues, 1080, 1920);
+    QVERIFY(ass.startsWith(QStringLiteral("[Script Info]\n")));
+    QVERIFY(ass.contains(QStringLiteral("PlayResX: 1080\nPlayResY: 1920\n")));
+    QVERIFY(ass.contains(QStringLiteral("[V4+ Styles]\n")));
+    QVERIFY(ass.contains(QStringLiteral("\nStyle: Default,")));
+    QVERIFY(ass.contains(QStringLiteral("[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")));
+    QVERIFY(ass.contains(QStringLiteral("Dialogue: 0,0:00:01.00,0:00:04.00,Default,,0,0,0,,Hello, world\n")));
+    QVERIFY(ass.contains(QStringLiteral("Dialogue: 0,0:01:05.50,0:01:10.25,Default,,0,0,0,,Line one\\NLine two\n")));
+    QVERIFY(ass.contains(QStringLiteral(",,\\{braces\\}\n")));
+
+    QList<drift::SubtitleCue> loaded;
+    QString error;
+    QVERIFY2(drift::parseAss(ass, &loaded, &error), qPrintable(error));
+    QCOMPARE(loaded.size(), 3);
+    QCOMPARE(loaded[0].text, QStringLiteral("Hello, world"));
+    QCOMPARE(loaded[0].startUs, drift::secondsToUs(1.0));
+    QCOMPARE(loaded[0].endUs, drift::secondsToUs(4.0));
+    QCOMPARE(loaded[1].text, QStringLiteral("{braces}"));
+    QCOMPARE(loaded[1].startUs, drift::secondsToUs(2.0));
+    QCOMPARE(loaded[2].text, QStringLiteral("Line one\nLine two"));
+    QCOMPARE(loaded[2].startUs, drift::secondsToUs(65.5));
+    QCOMPARE(loaded[2].endUs, drift::secondsToUs(70.25));
+}
+
+void CoreTest::subtitleFormatFromExtension()
+{
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("C:/a/b.srt")) == drift::SubtitleFormat::Srt);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.VTT")) == drift::SubtitleFormat::WebVtt);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.Ass")) == drift::SubtitleFormat::Ass);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.ssa")) == drift::SubtitleFormat::Ass);
+    QVERIFY(drift::subtitleFormatForPath(QStringLiteral("b.txt")) == drift::SubtitleFormat::Srt);
+
+    QList<drift::SubtitleCue> cues;
+    cues.append({drift::secondsToUs(1.0), drift::secondsToUs(2.0), QStringLiteral("Uno")});
+    cues.append({drift::secondsToUs(3.0), drift::secondsToUs(4.5), QStringLiteral("Dos\nlíneas")});
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const auto readAll = [](const QString &path) {
+        QFile file(path);
+        return file.open(QIODevice::ReadOnly) ? QString::fromUtf8(file.readAll()) : QString();
+    };
+
+    // SRT stays byte for byte what writeSrt gives.
+    const QString srtPath = dir.filePath(QStringLiteral("subs.srt"));
+    QVERIFY(drift::writeSubtitleFile(srtPath, cues));
+    QCOMPARE(readAll(srtPath), drift::writeSrt(cues));
+
+    const QString vttPath = dir.filePath(QStringLiteral("subs.VTT"));
+    QVERIFY(drift::writeSubtitleFile(vttPath, cues));
+    QCOMPARE(readAll(vttPath), drift::writeWebVtt(cues));
+
+    const QString assPath = dir.filePath(QStringLiteral("subs.ass"));
+    QVERIFY(drift::writeSubtitleFile(assPath, cues, nullptr, 1280, 720));
+    QCOMPARE(readAll(assPath), drift::writeAss(cues, 1280, 720));
+
+    for (const QString &path : {srtPath, vttPath, assPath}) {
+        QList<drift::SubtitleCue> loaded;
+        QString error;
+        QVERIFY2(drift::parseSubtitleFile(path, &loaded, &error), qPrintable(error));
+        QCOMPARE(loaded.size(), 2);
+        QCOMPARE(loaded[1].text, QStringLiteral("Dos\nlíneas"));
+        QCOMPARE(loaded[1].endUs, drift::secondsToUs(4.5));
+    }
+
+    // An unknown extension is read by its content.
+    const QString txtPath = dir.filePath(QStringLiteral("subs.txt"));
+    {
+        QFile file(txtPath);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        file.write(drift::writeWebVtt(cues).toUtf8());
+    }
+    QList<drift::SubtitleCue> sniffed;
+    QVERIFY(drift::parseSubtitleFile(txtPath, &sniffed));
+    QCOMPARE(sniffed.size(), 2);
+    QCOMPARE(sniffed[0].text, QStringLiteral("Uno"));
 }
 
 void CoreTest::insertTrackAtTopAllowsDuplicateTypes()

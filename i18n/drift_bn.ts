@@ -22291,10 +22291,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ইমপোর্ট</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation type="unfinished">একটি .srt ফাইল থেকে এই ক্যাপশনগুলি প্রতিস্থাপন করুন</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished">সাবটাইটেল ইমপোর্ট করুন।</translation>
     </message>
@@ -22311,12 +22307,32 @@ If playback stutters, try another.</source>
         <translation>এক্সপোর্ট</translation>
     </message>
     <message>
-        <source>Save captions as a .srt file</source>
-        <translation type="unfinished">ক্যাপশন .srt ফাইল হিসাবে সংরক্ষণ করুন</translation>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>একটি SRT, WebVTT বা ASS ফাইল থেকে এই ক্যাপশনগুলো বদলে দিন</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>সাবটাইটেল ফাইল (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT সাবটাইটেল (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha সাবটাইটেল (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>ক্যাপশন SRT, WebVTT (.vtt) বা ASS (.ass) হিসেবে সংরক্ষণ করুন: এক্সটেনশন ফরম্যাট ঠিক করে</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
         <translation type="unfinished">সাবটাইটেল এক্সপোর্ট করুন</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Advanced SubStation Alpha সাবটাইটেল (*.ass)</translation>
     </message>
     <message>
         <source>Timestamps from the start of the video</source>
@@ -22505,16 +22521,28 @@ If playback stutters, try another.</source>
         <translation type="unfinished">সাবটাইটেল ফাইল ইমপোর্ট করুন</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation type="unfinished">একটি সাবটাইটেল ক্লিপ হিসাবে একটি .srt ফাইল ইমপোর্ট করুন।</translation>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>একটি SRT, WebVTT বা ASS ফাইল সাবটাইটেল ক্লিপ হিসেবে ইমপোর্ট করুন</translation>
     </message>
     <message>
         <source>Import Subtitles</source>
         <translation type="unfinished">সাবটাইটেল ইমপোর্ট করুন।</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>সাবটাইটেল ফাইল (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>SubRip সাবটাইটেল (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT সাবটাইটেল (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha সাবটাইটেল (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>

@@ -600,11 +600,11 @@ public:
     Q_INVOKABLE void addSubtitleClip(double atSeconds);
     // A combined template from Extras: one text clip per part, placed and timed together, one undo.
     void addTextTemplate(const drift::TextPreset &preset, double atSeconds);
-    // Import a SubRip (.srt) file as a new subtitle clip at the playhead (or atSeconds).
+    // Import a subtitle file (.srt, .vtt, .ass/.ssa) as a new subtitle clip at the playhead (or atSeconds).
     Q_INVOKABLE bool importSubtitleFile(const QUrl &url, double atSeconds = -1.0);
-    // Replace cues on an existing subtitle clip from a .srt file.
+    // Replace cues on an existing subtitle clip from a subtitle file (.srt, .vtt, .ass/.ssa).
     Q_INVOKABLE bool importSubtitleFileIntoClip(int trackIndex, int clipIndex, const QUrl &url);
-    // Export a subtitle clip's cues to a .srt file. Timestamps are clip-local unless timelineTimes,
+    // Export a subtitle clip's cues as SRT, WebVTT or ASS (by extension). Timestamps are clip-local unless timelineTimes,
     // which offsets them by the clip's start so they line up with the exported video.
     Q_INVOKABLE bool exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url,
                                         bool timelineTimes = false);

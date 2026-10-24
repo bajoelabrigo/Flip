@@ -22297,10 +22297,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Importer</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>Remplacer ces sous-titres par un fichier .srt</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importer des sous-titres</translation>
     </message>
@@ -22315,10 +22311,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Export</source>
         <translation>Exporter</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>Enregistrer les sous-titres en tant que fichier .srt</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22391,6 +22383,30 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Emojis</source>
         <translation>Émojis</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>Remplacer ces sous-titres à partir d&apos;un fichier SRT, WebVTT ou ASS</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Fichiers de sous-titres (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sous-titres WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sous-titres SubStation Alpha (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>Enregistrer les sous-titres en SRT, WebVTT (.vtt) ou ASS (.ass) : l&apos;extension choisit le format</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Sous-titres Advanced SubStation Alpha (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22511,16 +22527,24 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Importer un fichier de sous-titres</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>Importer un fichier .srt comme clip de sous-titres</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importer des sous-titres</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>Fichiers de sous-titres (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>Sous-titres SubRip (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>Sous-titres WebVTT (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>Sous-titres SubStation Alpha (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22590,6 +22614,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Caption style</source>
         <translation>Style des sous-titres</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>Importer un fichier SRT, WebVTT ou ASS comme clip de sous-titres</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>

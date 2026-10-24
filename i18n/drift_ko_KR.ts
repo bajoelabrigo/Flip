@@ -22215,10 +22215,6 @@ If playback stutters, try another.</source>
         <translation>가져오기</translation>
     </message>
     <message>
-        <source>Replace these captions from a .srt file</source>
-        <translation>.srt 파일에서 이 캡션 교체</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
     </message>
@@ -22233,10 +22229,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Export</source>
         <translation>내보내기</translation>
-    </message>
-    <message>
-        <source>Save captions as a .srt file</source>
-        <translation>캡션을 .srt 파일로 저장</translation>
     </message>
     <message>
         <source>Export Subtitles</source>
@@ -22309,6 +22301,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>이모지</translation>
+    </message>
+    <message>
+        <source>Replace these captions from an SRT, WebVTT or ASS file</source>
+        <translation>SRT, WebVTT 또는 ASS 파일로 이 자막 바꾸기</translation>
+    </message>
+    <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>자막 파일 (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 자막 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 자막 (*.ass *.ssa)</translation>
+    </message>
+    <message>
+        <source>Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format</source>
+        <translation>자막을 SRT, WebVTT(.vtt) 또는 ASS(.ass)로 저장: 확장자에 따라 형식이 정해집니다</translation>
+    </message>
+    <message>
+        <source>Advanced SubStation Alpha subtitles (*.ass)</source>
+        <translation>Advanced SubStation Alpha 자막 (*.ass)</translation>
     </message>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
@@ -22429,16 +22445,24 @@ If playback stutters, try another.</source>
         <translation>자막 파일 가져오기</translation>
     </message>
     <message>
-        <source>Import a .srt file as a subtitle clip</source>
-        <translation>.srt 파일을 자막 클립으로 가져오기</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
     </message>
     <message>
+        <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
+        <translation>자막 파일 (*.srt *.vtt *.ass *.ssa)</translation>
+    </message>
+    <message>
         <source>SubRip subtitles (*.srt)</source>
         <translation>SubRip 자막 (*.srt)</translation>
+    </message>
+    <message>
+        <source>WebVTT subtitles (*.vtt)</source>
+        <translation>WebVTT 자막 (*.vtt)</translation>
+    </message>
+    <message>
+        <source>SubStation Alpha subtitles (*.ass *.ssa)</source>
+        <translation>SubStation Alpha 자막 (*.ass *.ssa)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -22507,6 +22531,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Caption style</source>
         <translation>자막 스타일</translation>
+    </message>
+    <message>
+        <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
+        <translation>SRT, WebVTT 또는 ASS 파일을 자막 클립으로 가져오기</translation>
     </message>
     <message>
         <source>Tip: install “Word sync” in Extras so captions start and end exactly on the voice.</source>
