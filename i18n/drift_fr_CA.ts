@@ -20929,12 +20929,20 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Connectez-vous pour utiliser les tendances</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Connectez-vous pour utiliser cette voix</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio est gratuit : l&apos;exportation, Stock et tous les modèles ne coûtent rien.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Les animations tendance sont réservées aux personnes connectées. Il suffit de vous connecter avec votre compte Google : cela prend un instant, se fait une seule fois et votre projet reste tel quel.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Les voix avec la flamme sont réservées aux utilisateurs connectés. Il suffit de vous connecter avec votre compte Google : ça prend un instant, ça se fait une seule fois et votre projet reste tel quel.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

@@ -52,8 +52,26 @@ Item {
     implicitHeight: column.implicitHeight
     height: implicitHeight
 
+    // Every voice wears the flame and applies only signed in (Jorge, 2026-10-24), like the trending
+    // animations: picking one signed out asks for the account and applies it once signed in.
+    readonly property bool voicesNeedAccount: Account.available && !Account.signedIn
+
     function apply(id) {
+        if (id !== "" && root.voicesNeedAccount) {
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            const all = root.applyToAll
+            signInLoader.active = true
+            signInLoader.item.openFor(() => EditorState.setVoiceFilter(track, clip, id, all))
+            return
+        }
         EditorState.setVoiceFilter(EditorState.selectedTrack, EditorState.selectedClip, id, root.applyToAll)
+    }
+
+    Loader {
+        id: signInLoader
+        active: false
+        sourceComponent: Component { SignInRequiredDialog { reason: "voices" } }
     }
 
     Connections {
@@ -218,6 +236,15 @@ Item {
                                 }
                                 root.apply(tile.modelData.id)
                             }
+                        }
+
+                        TrendBadge {
+                            visible: tile.modelData.id !== ""
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            implicitWidth: 16
+                            implicitHeight: 16
                         }
 
                         // A star to click, as in the left-hand library; right-click still works.

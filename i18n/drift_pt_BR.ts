@@ -20927,12 +20927,20 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Entre para usar as tendências</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Entre para usar esta voz</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>O Flip Studio é grátis: exportar, o Stock e todos os modelos não custam nada.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>As animações em alta são para quem entrou na conta. Basta entrar com sua conta do Google: leva um instante, é feito uma vez só e seu projeto fica do jeito que está.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>As vozes com a chama são para quem entrou na conta. Basta entrar com sua conta do Google: leva um instante, é feito uma vez só e seu projeto continua do jeito que está.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

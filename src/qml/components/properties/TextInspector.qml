@@ -517,12 +517,17 @@ Item {
         EditorState.playheadSeconds = EditorState.textAnimationSlotStartSeconds(
                     EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
     }
+    // Every animation that comes with the app wears the flame and asks for the account (Jorge,
+    // 2026-10-24: In, Out and Loop alike); the user's own ones ("user:") do not.
+    function wearsFlame(id) {
+        return id.length > 0 && !id.startsWith("user:")
+    }
     function pickPreset(id) {
         if (id.length === 0) {
             EditorState.clearTextAnimationSlot(EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
             return
         }
-        if (root.trendsNeedAccount && root.animPresets.some(p => p.id === id && p.trending)) {
+        if (root.trendsNeedAccount && root.wearsFlame(id)) {
             const slot = root.animSlot
             const track = EditorState.selectedTrack
             const clip = EditorState.selectedClip
@@ -2595,7 +2600,7 @@ Item {
                         slot: root.animSlot
                         presetId: modelData.id
                         label: modelData.label
-                        trending: !!modelData.trending
+                        trending: root.wearsFlame(modelData.id)
                         tileWidth: presetGrid.tileWidth
                         selected: modelData.id.length === 0
                                   ? (!root.slotHasPreset && !root.slotData.custom)

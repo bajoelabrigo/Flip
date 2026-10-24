@@ -20855,12 +20855,20 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đăng nhập để dùng xu hướng</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>Đăng nhập để dùng giọng này</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio miễn phí: xuất video, Stock và mọi mẫu đều không mất tiền.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Hiệu ứng chuyển động xu hướng dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Các giọng có biểu tượng ngọn lửa dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

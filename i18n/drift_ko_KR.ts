@@ -20854,12 +20854,20 @@ If playback stutters, try another.</source>
         <translation>트렌드를 사용하려면 로그인하세요</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>이 목소리를 사용하려면 로그인하세요</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio는 무료입니다. 내보내기, Stock, 모든 템플릿에 비용이 들지 않습니다.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>트렌드 애니메이션은 로그인한 사용자용입니다. Google 계정으로 로그인만 하면 됩니다. 잠깐이면 되고 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>불꽃 표시가 있는 목소리는 로그인한 사용자용입니다. Google 계정으로 로그인하기만 하면 됩니다. 잠깐이면 되고, 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

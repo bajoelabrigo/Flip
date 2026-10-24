@@ -20923,12 +20923,20 @@ If playback stutters, try another.</source>
         <translation>ট্রেন্ডিং ব্যবহার করতে সাইন ইন করুন</translation>
     </message>
     <message>
+        <source>Sign in to use this voice</source>
+        <translation>এই কণ্ঠ ব্যবহার করতে সাইন ইন করুন</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>ট্রেন্ডিং অ্যানিমেশন সাইন ইন করা ব্যবহারকারীদের জন্য। শুধু আপনার Google অ্যাকাউন্ট দিয়ে সাইন ইন করুন: এক মুহূর্ত লাগে, একবারই করতে হয়, আর আপনার প্রজেক্ট যেমন আছে তেমনই থাকে।</translation>
+    </message>
+    <message>
+        <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>আগুনের চিহ্নওয়ালা কণ্ঠগুলো সাইন ইন করা ব্যবহারকারীদের জন্য। শুধু আপনার Google অ্যাকাউন্ট দিয়ে সাইন ইন করুন: এক মুহূর্ত লাগে, একবারই করতে হয়, আর আপনার প্রজেক্ট যেমন আছে তেমনই থাকে।</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
