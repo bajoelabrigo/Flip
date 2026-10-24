@@ -1383,10 +1383,16 @@ void ProjectFileController::finishLoad(int generation, const QUrl &url,
         std::as_const(m_app->m_project).forEachTrackList([&all](const QList<drift::Track> &tracks) { all += tracks; });
         const QStringList missingFonts = AppController::missingTemplateFonts(all);
         if (!missingFonts.isEmpty()) {
-            m_app->setLastMessage(tr("Project loaded. It uses fonts this computer does not have: %1. Its texts show "
-                                     "with another font until they are installed (Import font in the font list, or the "
-                                     "Fonts packs in Extras).").arg(missingFonts.join(QStringLiteral(", "))),
-                                  QStringLiteral("warning"));
+            // After «Project loaded», not instead of it: that message is how the load reports in.
+            const QString warning =
+                tr("Project loaded. It uses fonts this computer does not have: %1. Its texts show "
+                   "with another font until they are installed (Import font in the font list, or the "
+                   "Fonts packs in Extras).").arg(missingFonts.join(QStringLiteral(", ")));
+            QPointer<AppController> app(m_app);
+            QTimer::singleShot(1500, this, [app, warning] {
+                if (app)
+                    app->setLastMessage(warning, QStringLiteral("warning"));
+            });
         }
     }
     finishProjectLoad(true, message);
