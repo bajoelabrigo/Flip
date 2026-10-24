@@ -1551,12 +1551,22 @@ void MotionTrackController::trackWith(int trackIndex, int clipIndex, const QVari
             const drift::Project before = m_app->m_project;
             drift::Clip &clip = m_app->m_project.tracks()[trackIndex].clips[clipIndex];
             // Tracking again: the previous run's keys go, only those it wrote when it knows them.
-            if (clip.motionTrack && clip.motionTrack->bakedFromUs >= 0)
+            const bool firstRun = !(clip.motionTrack && clip.motionTrack->bakedFromUs >= 0);
+            if (!firstRun)
                 resetTrackedKeys(clip);
+            // The first run writes over position keys the user set by hand: say so (auditoría D12).
+            const QList<drift::TimeUs> ownKeys = firstRun
+                ? clip.transformX.keyframes().keys() + clip.transformY.keyframes().keys()
+                : QList<drift::TimeUs>{};
             clip.motionTrack = result;
             const drift::MotionBakeResult baked =
                 drift::bakeMotionTrack(result, videoCopy, &clip, m_app->m_project.width(), m_app->m_project.height());
             rememberBake(clip, baked);
+            int replaced = 0;
+            for (const drift::TimeUs time : ownKeys) {
+                if (baked.ok && time >= baked.fromUs && time <= baked.toUs)
+                    ++replaced;
+            }
             if (!baked.ok) {
                 m_app->m_project = before;
                 const QString message = tr("Nothing to follow was found");
@@ -1577,6 +1587,7 @@ void MotionTrackController::trackWith(int trackIndex, int clipIndex, const QVari
             emit statusChanged();
             m_app->setLastMessage(message, baked.lost > baked.samples / 3 ? QStringLiteral("warning")
                                                                           : QStringLiteral("success"));
+            warnIfKeysReplaced(replaced);
             bump();
             emit finished(true, message);
         }, Qt::QueuedConnection);
