@@ -40,8 +40,11 @@ Pedido de Jorge (2026-10-23): crear todos los efectos de 16 capturas (`Downloads
 - [x] Arreglos encontrados en la prueba: la ventana de Descargas decía «en la biblioteca de medios» para todo lo que
       se instala (ahora dice dónde quedó); el servidor mandaba `effect` también para las voces (ahora cada elemento
       puede llevar su `delivery`).
-- [ ] App sin sesión en ventana (Efectos › Tendencias y Tendencias de animación): probar quitando la clave
-      `account` del registro con copia, **sin** cerrar sesión (cerrar sesión revoca la familia de tokens).
+- [x] App sin sesión en ventana (portable de `daccd`, clave `account` quitada con copia y restaurada): Efectos ›
+      Tendencias, Títulos › Tendencias, Texto › Animación › Tendencias y Animación de clip › Tendencias muestran
+      «Inicia sesión…». Transiciones no tiene chip de tendencias (lo de Stock ya pide cuenta). Las animaciones de
+      «Todo» son las que vienen con la app; Tendencias es una selección de ellas y lo que se bloquea es el chip.
+- [x] `TextAssetsTab.qml` usaba `labelMetrics` sin declararlo (ReferenceError desde la 0.19): declarado.
 - [ ] Desplegar: servidor `stock-efectos` → `publicar\efectos` + `publicar\i18n` → web `web/tendencias-login`
       (unir antes con lo último desplegado) → PR, tag `v0.21.0`, MSIX, novedades en la web.
 
