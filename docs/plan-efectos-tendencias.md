@@ -20,9 +20,16 @@ Pedido de Jorge (2026-10-23): crear todos los efectos de 16 capturas (`Downloads
   de Stock, nombres por idioma en `EffectPackageLoader`/`TransitionPackageLoader`, Tendencias de animación con
   sesión (`AnimationInspector.qml`, `TextInspector.qml`).
 - **Servidor:** `flipstudio-api` rama `stock-efectos` (tipo `effect`, carpeta `efectos`, 15 idiomas). **Sin desplegar.**
-- **Web:** `flipstudio-app` rama `web/tendencias-login` (las Tendencias de animación piden sesión). **Sin desplegar.**
-  Los efectos de Tendencias en el editor web quedan para después (la web tendría que correr los `.driftfx` de efecto
-  en WebGL2, como ya hace con las transiciones).
+- **Web (desplegado 2026-10-23, `flipstudio-app` `web/movil-capcut`):** Efectos › Tendencias también en la web
+  (computadora y celular). `effects/stockEffects.ts` instala el `.driftfx` (shader convertido con
+  `desktopShaderToWeb`, parámetros, `fixedParams`, requisitos) y lo registra como efecto (`library.ts ›
+  setExtraEffects`); `effects/gl.ts` le pasa los uniforms del escritorio (`u_currentTexture`, `u_resolution`,
+  `u_time`, `u_progress`, parámetros por su nombre, preludio propio de profundidad, `u_faceCenterX/Y`).
+  `components/EffectTrends.tsx` = chip «Tendencias» primero (pide sesión), tarjetas 16:9, un clic baja y aplica (sin
+  clip: capa de ajuste); las voces van a los efectos de audio del clip. `.flip` en los dos sentidos
+  (`driftBundle.ts`) y un proyecto que trae efectos no instalados los baja solo (`ensureStockEffects`).
+- **Comprobado:** los 364 shaders compilan en WebGL2 y, renderizados en el navegador con la misma foto que el arnés
+  del escritorio (`harness.py`), la diferencia media más grande es **0,3/255** (profundidad y cara incluidas).
 
 ## Estado (2026-10-23, noche)
 - [x] Herramientas y piloto probado con la app (carga, `u_time`, tarjeta, video).

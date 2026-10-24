@@ -50,7 +50,30 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-22, tarde)
+## Estado (actualizado 2026-10-23, noche)
+
+### 0.21.0 PUBLICADA (2026-10-23) — Efectos › Tendencias — **detalle y trampas en `docs/plan-efectos-tendencias.md`**
+- PR #37 (`flip/efectos-tendencias` → `main`), tag `v0.21.0`, release (run 40052598335); copia en
+  `versiones\FlipStudio-0.21.0` (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40057246669 →
+  `tienda\FlipStudio-Store\paquete-0.21.0`. Notas de la Store: «Notas para la Store (0.21.0)».
+- 364 efectos GPU propios + 9 voces (`tools/effects_trends`), en Efectos › Tendencias y Stock (tipo `effect`).
+  Servidor `flipstudio-api` rama `stock-efectos` y contenido (`publicar\efectos` + `i18n`) **desplegados**.
+- **Lo que pide cuenta será premium más adelante (Jorge):** Títulos/Efectos › Tendencias se ven con sesión; las
+  animaciones de tendencia se ven con una **llamita naranja** y al elegirlas sin sesión piden la cuenta
+  (`SignInRequiredDialog` `reason: "trends"`; web `useTrendsGate`).
+- **Trampa:** el servidor oculta a una app vieja lo que tiene `minAppVersion` mayor (cabecera `X-Cutwire-App`) en
+  Todo, inicio y novedades: así la 0.20 no ve los efectos `.driftfx` que no sabe instalar.
+- **Trampa:** `tools/e2e/shot.ps1` y `click.ps1` llevan `-TargetPid` (obligatorio). Con un nombre equivocado
+  (`-ProcessId`) lo ignoraban y actuaban sobre la ventana del frente: una vez hicieron clic en otra app de Jorge.
+- **Falta (Jorge):** subir el MSIX de la 0.21.0 cuando aprueben las anteriores, y después TXT `version`.
+
+### Editor web en el celular como CapCut, etapa 7 (2026-10-23, desplegado, `flipstudio-app` `web/movil-capcut`)
+- Capturas de Jorge en `Downloads\capcut movil\1…24.png`; detalle en `docs/plan-movil.md` › Etapa 7. Barras en el
+  orden de CapCut, paneles de una fila (`TouchPanels.tsx`), Recortar a pantalla completa (`TouchCrop.tsx`),
+  Sustituir, Superposición ⇄ Pista principal, Ritmos, Subtítulos y Seguimiento. Simulación:
+  `scripts/check-phone-bar.mjs` y `check-phone-actions.mjs` (con `FLIP_BASE=` contra la web publicada).
+- **Trampa:** en `flipstudio-app` los tipos se revisan con `npx tsc -b`; `tsc -p .` no revisa nada.
+
 
 ### 0.20.1 PUBLICADA (2026-10-22, noche) — la galería de Texto › Animación vacía en la 0.20.0
 - La 0.20.0 la **aprobó la Store** con Texto › Animación mostrando solo «Ninguno» (`TextAnimPresetTile` era un
