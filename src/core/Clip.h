@@ -18,6 +18,7 @@
 #include "VectorSource.h"
 
 #include <QList>
+#include <QPointF>
 #include <QString>
 
 namespace drift {
@@ -164,6 +165,11 @@ struct Clip
     bool reverse = false; // play source range backward; speed still applies as magnitude
     bool flipH = false;
     bool flipV = false;
+    // Corner pin (0.22.1, After Effects' Corner Pin / CapCut's «Deformar»): each corner of the
+    // placed picture moved by this many project px — top-left, top-right, bottom-right,
+    // bottom-left — a perspective warp drawn by the compositor (FrameCompositor applyCornerPin).
+    bool cornerPinEnabled = false;
+    QList<QPointF> cornerPin{QPointF(), QPointF(), QPointF(), QPointF()};
     // Meaningful on a Mask-kind adjustment clip and nowhere else — a media clip's masks live on
     // the adjustments pinned to it, which is what makes them timed, stackable and visible on the
     // timeline. Reach them through drift::laneMasksAt / setLinkedMask, never through this.

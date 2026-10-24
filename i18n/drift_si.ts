@@ -3750,6 +3750,10 @@
         <translation>ක්ලිප් පෙරළීම යාවත්කාලීන විය</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>කොන් විකෘතිය</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>පෑන් (Pan) වෙනස් කරන ලදී</translation>
     </message>
@@ -4036,6 +4040,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation>ප්‍රධාන රාමු ඉවත් කරන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>යතුරු රාමු %n ක් පිටපත් කළා</numerusform>
+            <numerusform>යතුරු රාමු %n ක් පිටපත් කළා</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>මෙම ක්ලිපයේ පිටපත් කළ යතුරු රාමුවල ගුණාංග කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>යතුරු රාමු අලවන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>යතුරු රාමු %n ක් ඇලෙව්වා</numerusform>
+            <numerusform>යතුරු රාමු %n ක් ඇලෙව්වා</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9759,6 +9785,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>ස්පන්දනය වන දීප්තිය</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>විවේක දීප්තිය</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>කාල සීමාව</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11133,6 +11171,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>අඛණ්ඩ කරකැවීම</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>කරකැවීම</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17371,6 +17417,10 @@ NEXT TIME</source>
         <translation>පරිණාමනය (චලනය, පිහිටීම, පරිමාණය, පාරාන්ධතාව)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>පෙළ ශෛලිය (අකුරු, වර්ණ, ප්‍රයෝග හා සජීවිකරණය; වචන එලෙසම)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, ප්‍රතිලෝම</translation>
     </message>
@@ -18308,6 +18358,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>ව්‍යාපෘති මාධ්‍ය දිගහරිමින්…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>ව්‍යාපෘතිය පූරණය විය. මෙම පරිගණකයේ නැති අකුරු භාවිත කරයි: %1. ඒවා ස්ථාපනය කරන තුරු පෙළ වෙනත් අකුරකින් පෙන්වයි (අකුරු ලැයිස්තුවේ අකුරු ආනයනය, හෝ Extras හි අකුරු ඇසුරුම්).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22765,6 +22819,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>පෙළ ශෛලි සොයන්න</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished">ප්‍රියතමයන්</translation>
     </message>
@@ -22799,6 +22857,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>ප්ලේහෙඩ් එක ඇති තැනට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>තෝරාගත් පෙළට යොදන්න</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23395,6 +23457,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>ඉරි ඇඳීම</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23439,8 +23505,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>වචන පරතරය</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>දෙපසට පෙළගස්වන්න</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23663,6 +23737,18 @@ If playback stutters, try another.</source>
         <translation>තීව්‍රතාව</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>රවුමක් වටා</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>රවුමේ කොටස</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>අකුරු රවුම ඇතුළත</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23789,6 +23875,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>සෑම උපසිරැසියක් සඳහාම ධාවනය වේ</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>සජීවිකරණ සොයන්න</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26382,6 +26472,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>සිරස්ව පෙරළන්න (Flip V)</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>විකෘති කරන්න (කොන්)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>එක් එක් කොන වෙන වෙනම ගෙනයාමෙන් ක්ලිපයට ඉදිරිදර්ශනය දෙන්න, බිත්තියක පුවරුවක් මෙන්</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>ඉහළ වම</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>ඉහළ දකුණ</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>පහළ දකුණ</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>පහළ වම</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>කොන් යළි සකසන්න</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

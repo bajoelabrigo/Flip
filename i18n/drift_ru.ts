@@ -3757,6 +3757,10 @@
         <translation>Отражение клипа обновлено</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>Деформация по углам</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>Панорама изменена</translation>
     </message>
@@ -4043,6 +4047,30 @@
     <message>
         <source>Remove keyframes</source>
         <translation>Удалить ключевые кадры</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+            <numerusform>Скопировано ключевых кадров: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>У этого клипа нет ни одного свойства скопированных ключевых кадров</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Вставить ключевые кадры</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+            <numerusform>Вставлено ключевых кадров: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9797,6 +9825,18 @@
         <translation>Скос</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Пульсирующее свечение</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Свечение в покое</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Период</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Чередующийся стробоскоп</translation>
     </message>
@@ -11175,6 +11215,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>Ускорьте свою работу</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Непрерывное вращение</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Поворот</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17437,6 +17485,10 @@ NEXT TIME</source>
         <translation>Преобразование (движение, положение, масштаб, непрозрачность)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Стиль текста (шрифт, цвета, эффекты и анимация; слова остаются)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, обратное воспроизведение</translation>
     </message>
@@ -18379,6 +18431,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>Распаковка медиафайлов проекта…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Проект загружен. В нём есть шрифты, которых нет на этом компьютере: %1. Тексты показываются другим шрифтом, пока вы их не установите («Импорт шрифта» в списке шрифтов или пакеты шрифтов в дополнениях).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22847,6 +22903,10 @@ If playback stutters, try another.</source>
         <translation>Мои стили · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Поиск стилей текста</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Избранное</translation>
     </message>
@@ -22881,6 +22941,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>Добавить на позицию курсора воспроизведения</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Применить к выбранному тексту</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23477,6 +23541,10 @@ If playback stutters, try another.</source>
         <translation>Жирный</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Зачёркнутый</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Регистр</translation>
     </message>
@@ -23521,8 +23589,16 @@ If playback stutters, try another.</source>
         <translation>Текст закрашен эффектом; измените его в разделе «Дополнительно»</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Интервал между словами</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Выравнивание</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>По ширине</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23745,6 +23821,18 @@ If playback stutters, try another.</source>
         <translation>Сила</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>По кругу</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Часть круга</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Буквы внутри круга</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Сохранить как мой стиль…</translation>
     </message>
@@ -23871,6 +23959,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>Воспроизводится для каждой записи субтитров</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>Поиск анимаций</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26469,6 +26561,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>Отразить по вертикали</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>Искажение (по углам)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Двигайте каждый угол отдельно, чтобы придать клипу перспективу, как вывеске на стене</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Вверху слева</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Вверху справа</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Внизу справа</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Внизу слева</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Сбросить углы</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

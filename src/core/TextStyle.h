@@ -18,7 +18,7 @@
 
 namespace drift {
 
-enum class TextAlign { Left, Center, Right };
+enum class TextAlign { Left, Center, Right, Justify }; // Justify: wrapped lines fill the box, the last one starts left
 enum class TextVAlign { Top, Middle, Bottom };
 
 // Which words a style pack accents. The positional rules are time-independent, so the layout
@@ -97,12 +97,16 @@ struct TextStyle
     // Bends a single-line block along an arc: -100..100, the rise at the middle as a fraction of
     // two em (positive arches upward). Multi-line blocks ignore it.
     double pathBend = 0.0;
+    // Text around a circle (0.22.1): 0 = off; else how much of the circle the line wraps, in percent
+    // (100 = all the way round, as a round logo). The bend's sign still says outward (+) or inward.
+    double pathCircle = 0.0;
 
     TextAlign align = TextAlign::Center;
     TextVAlign valign = TextVAlign::Middle;
     bool wordWrap = true;
     double lineHeight = 1.2; // multiple of the font's natural line spacing
     double letterSpacing = 0.0; // px at pixelSize
+    double wordSpacing = 0.0;   // px added to every space between words (0.22.1)
     // "none", "upper", "lower" or "title": applied when the text is laid out, so the typed words
     // are kept and switching back restores them.
     QString textCase = QStringLiteral("none");
@@ -140,6 +144,7 @@ struct TextStyle
     QColor underlineColor = QColor(230, 40, 40);
     double underlineWidth = 6.0;
     double underlineOffset = 4.0; // below the baseline
+    bool strikeEnabled = false;   // a line through the middle of the letters, in the text's colour (0.22.1)
 
     WordAccent accent;
 

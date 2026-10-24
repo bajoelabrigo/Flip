@@ -306,6 +306,7 @@ private slots:
     void bleedIsTimeInvariant();
     void shadingLayersCompositeInOrder();
     void inkBoundsFollowTheStrokeWidth();
+    void justifyWordSpacingAndStrike();
     void gradientOffsetShiftsColour();
     void wipeMaskRevealsBottomUp();
     void caretDrawsAfterLastVisibleFragment();
@@ -1437,6 +1438,57 @@ void SkiaTest::inkBoundsFollowTheStrokeWidth()
     QVERIFY(a && b);
     QVERIFY2(b->ink.width() >= a->ink.width() + 15.0,
              qPrintable(QStringLiteral("%1 vs %2").arg(a->ink.width()).arg(b->ink.width())));
+}
+
+// Justify fills the wrapped lines to the box, word spacing widens a line, and the strike adds ink
+// across the letters (0.22.1).
+void SkiaTest::justifyWordSpacingAndStrike()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+    TextStyle style;
+    style.fontFamily = QStringLiteral("Inter");
+    style.pixelSize = 40;
+    style.align = TextAlign::Left;
+    const QString text = QStringLiteral("uno dos tres cuatro cinco seis siete ocho nueve diez");
+    const double box = 360.0;
+    const auto left = fragmentsFor(text, style, box, 400.0, 1.0, -1, WordSplit::Whole);
+    style.align = TextAlign::Justify;
+    const auto justified = fragmentsFor(text, style, box, 400.0, 1.0, -1, WordSplit::Whole);
+    QVERIFY(left && justified);
+    // The first line's last word ends at the box's right edge once justified.
+    double leftEnd = 0.0, justifiedEnd = 0.0;
+    for (const StyledWord &w : left->frags)
+        if (w.line == 0)
+            leftEnd = qMax(leftEnd, w.cellRect.right());
+    for (const StyledWord &w : justified->frags)
+        if (w.line == 0)
+            justifiedEnd = qMax(justifiedEnd, w.cellRect.right());
+    QVERIFY2(justifiedEnd > leftEnd + 2.0 && qAbs(justifiedEnd - box) < 4.0,
+             qPrintable(QStringLiteral("%1 %2").arg(leftEnd).arg(justifiedEnd)));
+    QCOMPARE(textAlignFromString(textAlignToString(TextAlign::Justify)), TextAlign::Justify);
+
+    // Word spacing on one line widens it.
+    TextStyle spaced;
+    spaced.fontFamily = QStringLiteral("Inter");
+    spaced.pixelSize = 40;
+    spaced.wordWrap = false;
+    const auto plain = fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, WordSplit::Whole);
+    spaced.wordSpacing = 30.0;
+    const auto wide = fragmentsFor(QStringLiteral("a b c"), spaced, 1000.0, 200.0, 1.0, -1, WordSplit::Whole);
+    QVERIFY2(wide->ink.width() >= plain->ink.width() + 50.0,
+             qPrintable(QStringLiteral("%1 vs %2").arg(plain->ink.width()).arg(wide->ink.width())));
+
+    // The strike line adds ink across the letters.
+    TextStyle struck;
+    struck.fontFamily = QStringLiteral("Inter");
+    struck.pixelSize = 64;
+    struck.layers = {solidFillLayer(Qt::white)};
+    const QRectF layout(0, 0, 400, 120);
+    const Ink before = inkOf(skiaText(textClip(struck, QStringLiteral("nnnn")), QStringLiteral("nnnn"), layout, 1.0, -1, nullptr));
+    struck.strikeEnabled = true;
+    const Ink after = inkOf(skiaText(textClip(struck, QStringLiteral("nnnn")), QStringLiteral("nnnn"), layout, 1.0, -1, nullptr));
+    QVERIFY2(after.count > before.count + 20, qPrintable(describe(before, after)));
 }
 
 // A repeating left→right gradient slides with its offset, and maps per word when asked.

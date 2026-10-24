@@ -141,8 +141,15 @@ Item {
         void root.animPresetsTick
         return EditorState.textAnimationCategories(root.animSlot)
     }
+    readonly property string animQuery: animSearch.text.trim().toLowerCase()
     readonly property var animTileModel: {
         void root.favoritesTick
+        if (root.animQuery.length > 0) {
+            const q = root.foldText(root.animQuery)
+            return [{ "id": "", "label": qsTr("None") }].concat(
+                root.animPresets.filter(p => root.foldText(p.label || "").indexOf(q) >= 0
+                                             || root.foldText(p.id || "").indexOf(q) >= 0))
+        }
         const filtered = root.animCategory.length === 0
                          ? root.animPresets
                          : root.animCategory === "__favorites__"
@@ -241,6 +248,11 @@ Item {
         root.textTab = "basic"
         textContentField.forceActiveFocus()
         textContentField.selectAll()
+    }
+
+    // Lower case without accents, so «animacion» finds «Animación».
+    function foldText(text) {
+        return String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
     }
 
     function setTextStyleKey(key, value) {
@@ -1050,6 +1062,13 @@ Item {
                     }
                     ThemedToggleButton {
                         width: 34
+                        text: "S"
+                        checked: root.textStyle.strikeEnabled === true
+                        tooltip: qsTr("Strikethrough")
+                        onClicked: root.setTextStyleKey("strikeEnabled", root.textStyle.strikeEnabled !== true)
+                    }
+                    ThemedToggleButton {
+                        width: 34
                         text: "I"
                         checked: root.textStyle.italic === true
                         enabled: root.familyHasItalic
@@ -1194,6 +1213,17 @@ Item {
                     }
                 }
 
+                // Space added between words (0.22.1), apart from the letters' spacing.
+                SliderRow {
+                    width: parent.width
+                    label: qsTr("Word spacing")
+                    from: -20
+                    to: 200
+                    suffix: " px"
+                    value: Number(root.textStyle.wordSpacing) || 0
+                    onCommitted: v => root.setTextStyleKey("wordSpacing", Math.round(v))
+                }
+
                 Text {
                     text: qsTr("Alignment")
                     color: Theme.mutedForeground
@@ -1209,7 +1239,8 @@ Item {
                         model: [
                             { value: "left",   glyph: Theme.icons.alignLeft,   label: qsTr("Align left") },
                             { value: "center", glyph: Theme.icons.alignCenter, label: qsTr("Align centre") },
-                            { value: "right",  glyph: Theme.icons.alignRight,  label: qsTr("Align right") }
+                            { value: "right",  glyph: Theme.icons.alignRight,  label: qsTr("Align right") },
+                            { value: "justify", glyph: Theme.icons.alignJustify, label: qsTr("Justify") }
                         ]
                         delegate: ThemedToggleButton {
                             required property var modelData
@@ -1738,16 +1769,49 @@ Item {
                 visible: root.hasTextStyle
                 showSwitch: true
                 switchChecked: Math.abs(Number(root.textStyle.pathBend) || 0) > 0.01
+                               || Number(root.textStyle.pathCircle) > 0
                 switchTooltip: qsTr("Bend the text")
-                onSwitchToggled: on => root.setTextStyleKey("pathBend", on ? 40 : 0)
+                onSwitchToggled: on => {
+                    if (on)
+                        root.setTextStyleKey("pathBend", 40)
+                    else
+                        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip,
+                                                 { "pathBend": 0, "pathCircle": 0 })
+                }
 
                 PropertyKeyframeRow {
                     width: parent.width
+                    visible: !(Number(root.textStyle.pathCircle) > 0)
                     propDef: root.textProp("pathBend", qsTr("Strength"), 0)
                     keyframeList: root.textKeyframes("pathBend")
                     useSlider: true
                     sliderFrom: -100
                     sliderTo: 100
+                }
+
+                // All the way round (0.22.1): the line wraps a circle instead of an arc.
+                ThemedCheckBox {
+                    width: parent.width
+                    text: qsTr("Around a circle")
+                    checked: Number(root.textStyle.pathCircle) > 0
+                    onToggled: root.setTextStyleKey("pathCircle", checked ? 100 : 0)
+                }
+                SliderRow {
+                    width: parent.width
+                    visible: Number(root.textStyle.pathCircle) > 0
+                    label: qsTr("Circle covered")
+                    from: 10
+                    to: 100
+                    suffix: " %"
+                    value: Number(root.textStyle.pathCircle) || 100
+                    onCommitted: v => root.setTextStyleKey("pathCircle", Math.round(v))
+                }
+                ThemedCheckBox {
+                    width: parent.width
+                    visible: Number(root.textStyle.pathCircle) > 0
+                    text: qsTr("Letters inside the circle")
+                    checked: Number(root.textStyle.pathBend) < 0
+                    onToggled: root.setTextStyleKey("pathBend", checked ? -40 : 40)
                 }
             }
 
@@ -2541,10 +2605,17 @@ Item {
                 font.pixelSize: Theme.fontSizeXs
             }
 
+            // 349 animations: find one by name (0.22.1). A search spans every category of the tab.
+            ThemedTextField {
+                id: animSearch
+                width: parent.width
+                placeholderText: qsTr("Search animations")
+            }
+
             ChipScroller {
                 id: animChips
                 width: parent.width
-                visible: root.animCategories.length > 1
+                visible: root.animCategories.length > 1 && root.animQuery.length === 0
 
                 ThemedChip {
                     anchors.verticalCenter: parent.verticalCenter

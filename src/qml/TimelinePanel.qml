@@ -84,6 +84,16 @@ PanelFrame {
     function deletePickedKeys() {
         return keyTools.removePicked()
     }
+    function copyPickedKeys() {
+        return keyTools.copyPicked()
+    }
+    function pasteCopiedKeys() {
+        return keyTools.pasteCopied()
+    }
+    // A clip copied after the keys: Ctrl+V pastes the clip again.
+    function forgetCopiedKeys() {
+        keyTools.keysCopiedLast = false
+    }
     onPxPerSecondChanged: EditorState.setSnapRadius(8, pxPerSecond)
     Component.onCompleted: {
         TouchDrag.registerTarget(root)

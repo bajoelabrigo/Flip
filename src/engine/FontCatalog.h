@@ -53,6 +53,9 @@ QStringList importUserFontFile(const QString &path, QString *error = nullptr);
 // Unregisters the family and deletes the files that provide it.
 bool removeUserFont(const QString &family);
 QStringList userFontFamilies(); // sorted
+// The imported files that provide `family` (empty for a bundled or system font): a project saves
+// them inside the .flip so its texts look the same on another computer (0.22.1).
+QStringList userFontFilesFor(const QString &family);
 QString userFontDir();
 
 // Families the platform font manager enumerates (the Skia manager's list when built with Skia,

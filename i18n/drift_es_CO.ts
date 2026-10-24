@@ -3750,6 +3750,10 @@
         <translation>Volteo del clip actualizado</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>Panorámica cambiada</translation>
     </message>
@@ -4044,6 +4048,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9759,6 +9785,18 @@
         <translation>Inclinación</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11133,6 +11171,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>Impulsa tu trabajo</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17371,6 +17417,10 @@ NEXT TIME</source>
         <translation>Transformación (movimiento, posición, escala, opacidad)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, inversa</translation>
     </message>
@@ -18308,6 +18358,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Unpacking project media…</source>
         <translation>Desempaquetando medios del proyecto…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22765,6 +22819,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mis estilos · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Favoritos</translation>
     </message>
@@ -22799,6 +22857,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Añadir en el cabezal de reproducción</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23323,6 +23385,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Negrita</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>May./min.</translation>
     </message>
@@ -23367,8 +23433,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>El texto está pintado con un efecto; cámbialo en Avanzado</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Alineación</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23591,6 +23665,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Intensidad</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Guardar como mi estilo…</translation>
     </message>
@@ -23701,6 +23787,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26398,6 +26488,34 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Flip V</source>
         <translation>Voltear V</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

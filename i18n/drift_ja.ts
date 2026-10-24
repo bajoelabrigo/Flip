@@ -3743,6 +3743,10 @@
         <translation>クリップの反転を更新しました</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>コーナーピン</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>パンを変更しました</translation>
     </message>
@@ -4029,6 +4033,26 @@
     <message>
         <source>Remove keyframes</source>
         <translation>キーフレームを削除</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>キーフレームを %n 件コピーしました</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>このクリップにはコピーしたキーフレームのプロパティがありません</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>キーフレームを貼り付け</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>キーフレームを %n 件貼り付けました</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9721,6 +9745,18 @@
         <translation>傾斜</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>脈打つ光</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>静止時の光</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>周期</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>交互ストロボ</translation>
     </message>
@@ -11099,6 +11135,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>ワークフローを加速</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>連続回転</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>回転</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17313,6 +17357,10 @@ NEXT TIME</source>
         <translation>変形 (動き、位置、スケール、不透明度)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>テキストスタイル（フォント・色・エフェクト・アニメーション。文字はそのまま）</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, 逆再生</translation>
     </message>
@@ -18245,6 +18293,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>プロジェクトメディアを展開中…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>プロジェクトを読み込みました。このコンピューターにないフォントを使用しています：%1。インストールするまで別のフォントで表示されます（フォント一覧の「フォントをインポート」、またはエクストラのフォントパック）。</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22691,6 +22743,10 @@ If playback stutters, try another.</source>
         <translation>マイスタイル · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>テキストスタイルを検索</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>お気に入り</translation>
     </message>
@@ -22725,6 +22781,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>再生ヘッド位置に追加</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>選択したテキストに適用</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23321,6 +23381,10 @@ If playback stutters, try another.</source>
         <translation>太字</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>取り消し線</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>大文字/小文字</translation>
     </message>
@@ -23365,8 +23429,16 @@ If playback stutters, try another.</source>
         <translation>テキストはエフェクトで塗られています。詳細設定で変更してください</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>単語の間隔</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>配置</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>両端揃え</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23589,6 +23661,18 @@ If playback stutters, try another.</source>
         <translation>強さ</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>円に沿って</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>円の範囲</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>文字を円の内側に</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>マイスタイルとして保存…</translation>
     </message>
@@ -23715,6 +23799,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>アニメーションを検索</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26303,6 +26391,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>上下反転</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>変形（コーナーピン）</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>各コーナーを個別に動かしてクリップに遠近感を付けます（壁の看板のように）</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>左上</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>右上</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>右下</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>左下</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>コーナーをリセット</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

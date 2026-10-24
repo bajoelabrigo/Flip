@@ -1051,8 +1051,11 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
     case ClipType::Text:
         // Masks cut a text the way they cut a picture (CapCut's text masks); the compositor
         // places them on the text box, where the preview draws their handles.
+        // Effects, LUTs and colour too (0.22.1, as on CapCut): they live on an adjustment linked to
+        // the text, the same as a video's, which effectHostRef already makes for any clip.
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
-             << QStringLiteral("textStyled") << QStringLiteral("maskable") << QStringLiteral("trackable");
+             << QStringLiteral("textStyled") << QStringLiteral("maskable") << QStringLiteral("trackable")
+             << QStringLiteral("adj:videoEffects");
         break;
     case ClipType::Subtitle:
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("textStyled")
@@ -1862,11 +1865,13 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("lookId"), s.lookId},
         {QStringLiteral("lookParams"), paramsToMap(s.lookParams)},
         {QStringLiteral("pathBend"), s.pathBend},
+        {QStringLiteral("pathCircle"), s.pathCircle},
         {QStringLiteral("align"), drift::textAlignToString(s.align)},
         {QStringLiteral("valign"), drift::textVAlignToString(s.valign)},
         {QStringLiteral("wordWrap"), s.wordWrap},
         {QStringLiteral("lineHeight"), s.lineHeight},
         {QStringLiteral("letterSpacing"), s.letterSpacing},
+        {QStringLiteral("wordSpacing"), s.wordSpacing},
         {QStringLiteral("boxEnabled"), s.boxEnabled},
         {QStringLiteral("boxColor"), s.boxColor.name(QColor::HexArgb)},
         {QStringLiteral("boxPadding"), s.boxPadding},
@@ -1888,6 +1893,7 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
         {QStringLiteral("underlineWidth"), s.underlineWidth},
         {QStringLiteral("underlineOffset"), s.underlineOffset},
+        {QStringLiteral("strikeEnabled"), s.strikeEnabled},
         {QStringLiteral("accent"), wordAccentToMap(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToMap(s.animation)},
     };
@@ -3832,7 +3838,7 @@ bool refitTextClipBox(drift::Clip &clip, int canvasW, int canvasH)
         turned = turned || !qFuzzyIsNull(key.value);
     const drift::TextStyle &style = clip.textStyle;
     const double fx = turned || style.align == drift::TextAlign::Center ? 0.5
-                      : style.align == drift::TextAlign::Left        ? 0.0
+                      : style.align == drift::TextAlign::Left || style.align == drift::TextAlign::Justify ? 0.0
                                                                      : 1.0;
     const double fy = turned || style.valign == drift::TextVAlign::Middle ? 0.5
                       : style.valign == drift::TextVAlign::Top          ? 0.0
@@ -4691,6 +4697,13 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("hasSpeedCurve"), clip.hasSpeedCurve()},
         {QStringLiteral("reverse"), clip.reverse},
         {QStringLiteral("flipH"), clip.flipH},
+        {QStringLiteral("cornerPinEnabled"), clip.cornerPinEnabled},
+        {QStringLiteral("cornerPin"), [&clip] {
+             QVariantList points;
+             for (const QPointF &corner : clip.cornerPin)
+                 points << corner.x() << corner.y();
+             return points;
+         }()},
         {QStringLiteral("layer3d"), clip.layer3d},
         {QStringLiteral("depthOcclude"), clip.depthOcclude},
         {QStringLiteral("flipV"), clip.flipV},
@@ -12988,6 +13001,8 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.italic = m.value(QStringLiteral("italic")).toBool();
     if (m.contains(QStringLiteral("pathBend")))
         s.pathBend = qBound(-100.0, m.value(QStringLiteral("pathBend")).toDouble(), 100.0);
+    if (m.contains(QStringLiteral("pathCircle")))
+        s.pathCircle = qBound(0.0, m.value(QStringLiteral("pathCircle")).toDouble(), 100.0);
     if (m.contains(QStringLiteral("align")))
         s.align = drift::textAlignFromString(m.value(QStringLiteral("align")).toString());
     if (m.contains(QStringLiteral("valign")))
@@ -12998,6 +13013,8 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.lineHeight = qBound(0.5, m.value(QStringLiteral("lineHeight")).toDouble(), 4.0);
     if (m.contains(QStringLiteral("letterSpacing")))
         s.letterSpacing = m.value(QStringLiteral("letterSpacing")).toDouble();
+    if (m.contains(QStringLiteral("wordSpacing")))
+        s.wordSpacing = qBound(-50.0, m.value(QStringLiteral("wordSpacing")).toDouble(), 400.0);
     if (m.contains(QStringLiteral("boxEnabled")))
         s.boxEnabled = m.value(QStringLiteral("boxEnabled")).toBool();
     if (m.contains(QStringLiteral("boxColor")))
@@ -13044,6 +13061,8 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.underlineWidth = qMax(0.0, m.value(QStringLiteral("underlineWidth")).toDouble());
     if (m.contains(QStringLiteral("underlineOffset")))
         s.underlineOffset = m.value(QStringLiteral("underlineOffset")).toDouble();
+    if (m.contains(QStringLiteral("strikeEnabled")))
+        s.strikeEnabled = m.value(QStringLiteral("strikeEnabled")).toBool();
     applyTextHighlightPatch(&s.wordHighlight, m.value(QStringLiteral("wordHighlight")).toMap());
     applyWordAccentPatch(&s.accent, m.value(QStringLiteral("accent")).toMap());
 
@@ -13844,6 +13863,28 @@ void AppController::setClipFlip(int trackIndex, int clipIndex, bool flipH, bool 
     clip.flipV = flipV;
     pushProjectEdit(before, tr("Flip changed"));
     finishEdit(tr("Clip flip updated"));
+}
+
+void AppController::setClipCornerPin(int trackIndex, int clipIndex, const QVariantMap &pin)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type == drift::ClipType::Audio)
+        return;
+    const drift::Project before = m_project;
+    if (pin.contains(QStringLiteral("enabled")))
+        clip.cornerPinEnabled = pin.value(QStringLiteral("enabled")).toBool();
+    const QVariantList points = pin.value(QStringLiteral("points")).toList();
+    if (points.size() == 8) {
+        for (int i = 0; i < 4; ++i)
+            clip.cornerPin[i] = QPointF(points.at(i * 2).toDouble(), points.at(i * 2 + 1).toDouble());
+    }
+    if (clip.cornerPinEnabled == before.tracks().at(trackIndex).clips.at(clipIndex).cornerPinEnabled
+        && clip.cornerPin == before.tracks().at(trackIndex).clips.at(clipIndex).cornerPin)
+        return;
+    pushProjectEdit(before, tr("Corner pin"));
+    finishEdit(tr("Corner pin"));
 }
 
 // Snapshot first, then index: Project's tracks deep-detach on copy (see drift::TrackList), so
@@ -17966,6 +18007,87 @@ void AppController::removeKeyframes(int trackIndex, const QVariantList &keys)
     finishEdit(tr("Keyframe removed"));
 }
 
+int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
+{
+    QList<CopiedKey> copied;
+    QSet<QString> seen;
+    auto take = [&](int clipIndex, const QString &p, double atSeconds) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0 || c >= m_project.tracks().at(t).clips.size())
+            return;
+        const drift::Clip &clip = m_project.tracks().at(t).clips.at(c);
+        const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p);
+        if (!kt)
+            return;
+        const drift::TimeUs rel = qMax<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart);
+        const drift::TimeUs nearest = kt->nearestKeyframe(rel, kKeyframeToleranceUs);
+        if (nearest < 0)
+            return;
+        const QString id = p + QLatin1Char('@') + QString::number(nearest);
+        if (seen.contains(id))
+            return;
+        seen.insert(id);
+        copied.append(CopiedKey{p, clip.timelineStart + nearest, kt->keyframes().value(nearest)});
+    };
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        const int c = k.value(QStringLiteral("clip")).toInt();
+        const QString p = k.value(QStringLiteral("prop")).toString();
+        const double s = k.value(QStringLiteral("seconds")).toDouble();
+        take(c, p, s);
+        // Linked position: x and y travel together, as removeKeyframes deletes them together.
+        if (m_positionLinked && (p == QLatin1String("x") || p == QLatin1String("y")))
+            take(c, p == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"), s);
+    }
+    if (copied.isEmpty())
+        return 0;
+    drift::TimeUs first = copied.first().afterFirstUs;
+    for (const CopiedKey &key : std::as_const(copied))
+        first = qMin(first, key.afterFirstUs);
+    for (CopiedKey &key : copied)
+        key.afterFirstUs -= first;
+    m_keyClipboard = copied;
+    setLastMessage(tr("Copied %n keyframe(s)", "", int(copied.size())), QStringLiteral("success"));
+    return int(copied.size());
+}
+
+bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
+{
+    if (m_keyClipboard.isEmpty() || !isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Project before = m_project;
+    int pasted = 0;
+    QStringList missing;
+    for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, copied.prop);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0 || c >= m_project.tracks().at(t).clips.size())
+            continue;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, copied.prop, /*createIfMissing=*/true);
+        if (!kt) {
+            if (!missing.contains(copied.prop))
+                missing.append(copied.prop);
+            continue;
+        }
+        const drift::TimeUs at = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart) + copied.afterFirstUs;
+        kt->setKeyframe(at, copied.key);
+        ++pasted;
+    }
+    if (pasted == 0) {
+        m_project = before;
+        setLastMessage(tr("This clip has none of the copied keyframes' properties"), QStringLiteral("warning"));
+        return false;
+    }
+    pushProjectEdit(before, tr("Paste keyframes"));
+    finishEdit(tr("Paste keyframes"));
+    setLastMessage(tr("Pasted %n keyframe(s)", "", pasted), QStringLiteral("success"));
+    return true;
+}
+
 void AppController::previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
                                           double toDelta)
 {
@@ -21848,6 +21970,9 @@ QVariantMap AppController::clipboardAttributes() const
 
     out.insert(QStringLiteral("hasTransitions"), !item.transitions.isEmpty());
     out.insert(QStringLiteral("transitionCount"), item.transitions.size());
+    // A text's look and motion, for other texts (CapCut's «Pegar estilo»).
+    out.insert(QStringLiteral("hasTextStyle"),
+               c.type == drift::ClipType::Text || c.type == drift::ClipType::Subtitle);
 
     int count = 0;
     if (!m_selection.isEmpty()) {
@@ -21884,8 +22009,10 @@ void AppController::pasteAttributes(const QVariantMap &options)
     const bool pasteAudioEffects = options.value(QStringLiteral("audioEffects"), false).toBool();
     const bool pasteTransitions = options.value(QStringLiteral("transitions"), false).toBool();
     const bool replaceEffects = options.value(QStringLiteral("replaceEffects"), false).toBool();
+    const bool pasteTextStyle = options.value(QStringLiteral("textStyle"), false).toBool();
 
-    if (!pasteTransform && !pasteSpeed && !pasteVolume && !pasteEffects && !pasteAudioEffects && !pasteTransitions)
+    if (!pasteTransform && !pasteSpeed && !pasteVolume && !pasteEffects && !pasteAudioEffects && !pasteTransitions
+        && !pasteTextStyle)
         return;
 
     QList<QPair<int, int>> pairs;
@@ -21972,6 +22099,23 @@ void AppController::pasteAttributes(const QVariantMap &options)
                 targetClip.animIn.durationUs = targetDurationUs;
             if (targetClip.animOut.durationUs > targetDurationUs)
                 targetClip.animOut.durationUs = targetDurationUs;
+            clipModified = true;
+        }
+
+        // 2b. Text style: the source text's whole look and its In / Out / Loop, onto texts and
+        // subtitles; their words stay. Style keyframes are stretched to the target like the
+        // transform's.
+        const bool textLike = [](const drift::Clip &c) {
+            return c.type == drift::ClipType::Text || c.type == drift::ClipType::Subtitle;
+        }(targetClip);
+        if (pasteTextStyle && textLike
+            && (sourceClip.type == drift::ClipType::Text || sourceClip.type == drift::ClipType::Subtitle)) {
+            drift::TextStyle style = sourceClip.textStyle;
+            for (auto it = style.keyframes.begin(); it != style.keyframes.end(); ++it)
+                *it = rescaleKeyframeTrackTimes(*it, srcDurationUs, targetDurationUs);
+            for (drift::TextAnimationSlot *slot : {&style.animation.in, &style.animation.out, &style.animation.loop})
+                slot->cutUs = 0; // the source's cut offsets are the source's
+            targetClip.textStyle = style;
             clipModified = true;
         }
 

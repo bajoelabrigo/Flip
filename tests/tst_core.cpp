@@ -150,9 +150,11 @@ private slots:
     void textPresetKeepsMotionKeyframesAndCounter();
     void karaokeFollowsAlignedWordTimes();
     void scaleTextStyleKeepsProportions();
+    void cornerPinRoundTrips();
     void textCutPlaysOnThroughTheSplit();
     void projectCarriesItsOwnTextAnimations();
     void blockAnimationsScaleXAndYApart();
+    void spinAndGlowLoops();
     void vectorClipIsSyntheticOnGraphicTracks();
     void model3dSourceSerialization();
     void model3dScalarClampsAndResolves();
@@ -1980,6 +1982,27 @@ void CoreTest::karaokeFollowsAlignedWordTimes()
     edited.text = QStringLiteral("Buenas");
     QCOMPARE(drift::activeWordIndexAt(edited, 1'000'000),
              drift::activeWordIndexAt(edited.text, edited.startUs, edited.endUs, 1'000'000));
+}
+
+void CoreTest::cornerPinRoundTrips()
+{
+    drift::Project project;
+    drift::Clip clip;
+    clip.id = QStringLiteral("pinned");
+    clip.type = drift::ClipType::Text;
+    clip.textContent = QStringLiteral("Cartel");
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    clip.srcOut = clip.timelineDuration;
+    project.tracks()[0].clips.append(clip);
+    // Untouched: nothing written, so older files stay the same.
+    QVERIFY(!project.toJson().value(QStringLiteral("tracks")).toArray().first().toObject()
+                 .value(QStringLiteral("clips")).toArray().first().toObject().contains(QStringLiteral("cornerPin")));
+    project.tracks()[0].clips[0].cornerPinEnabled = true;
+    project.tracks()[0].clips[0].cornerPin = {QPointF(10, 5), QPointF(-20, 0), QPointF(0, 30), QPointF(4, -8)};
+    const drift::Project reopened = drift::Project::fromJson(project.toJson());
+    const drift::Clip &back = reopened.tracks().at(0).clips.at(0);
+    QVERIFY(back.cornerPinEnabled);
+    QCOMPARE(back.cornerPin, (QList<QPointF>{QPointF(10, 5), QPointF(-20, 0), QPointF(0, 30), QPointF(4, -8)}));
 }
 
 void CoreTest::textPresetKeepsMotionKeyframesAndCounter()
@@ -5655,6 +5678,31 @@ void CoreTest::blockAnimationsScaleXAndYApart()
     const Frame settled = evaluateTextAnimation(anim.set, anim.resolved, charFragments(4), charDomains(4), contextAt(1'500'000, 2'000'000));
     QVERIFY(qFuzzyCompare(settled.block.scaleX, 1.0));
     QVERIFY(qFuzzyCompare(settled.block.scaleY, 1.0));
+}
+
+void CoreTest::spinAndGlowLoops()
+{
+    // «Continuous spin» turns a full circle each period; «Glow pulse» swells its halo and back.
+    using namespace drift::textanim;
+    drift::TextAnimationSet spin;
+    spin.loop.presetId = QStringLiteral("spin-loop");
+    const drift::ResolvedTextAnimation s = drift::resolveTextAnimation(spin);
+    QVERIFY(!s.resolved.loop.isEmpty());
+    QCOMPARE(s.set.loop.periodUs, drift::TimeUs(2'000'000));
+    const Frame quarter = evaluateTextAnimation(s.set, s.resolved, charFragments(4), charDomains(4), contextAt(500'000, 10'000'000));
+    QVERIFY2(qAbs(quarter.block.rotation - 90.0) < 1.0, qPrintable(QString::number(quarter.block.rotation)));
+    const Frame again = evaluateTextAnimation(s.set, s.resolved, charFragments(4), charDomains(4), contextAt(2'500'000, 10'000'000));
+    QVERIFY(qAbs(again.block.rotation - 90.0) < 1.0); // the next turn, the same pose
+
+    drift::TextAnimationSet glow;
+    glow.loop.presetId = QStringLiteral("glow-pulse");
+    const drift::ResolvedTextAnimation g = drift::resolveTextAnimation(glow);
+    QVERIFY(!g.resolved.loop.isEmpty());
+    const Frame peak = evaluateTextAnimation(g.set, g.resolved, charFragments(4), charDomains(4), contextAt(750'000, 10'000'000));
+    const Frame rest = evaluateTextAnimation(g.set, g.resolved, charFragments(4), charDomains(4), contextAt(0, 10'000'000));
+    QVERIFY2(peak.props.first().glowPx > 15.0, qPrintable(QString::number(peak.props.first().glowPx)));
+    QVERIFY(rest.props.first().glowPx < peak.props.first().glowPx);
+    QVERIFY(!peak.isStatic);
 }
 
 void CoreTest::textCutPlaysOnThroughTheSplit()

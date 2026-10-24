@@ -3807,6 +3807,10 @@
         <translation type="unfinished">ক্লিপ ফ্লিপ আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>কোণ বিকৃতি</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation type="unfinished">প্যান পরিবর্তন করা হয়েছে</translation>
     </message>
@@ -4093,6 +4097,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation>কীফ্রেম সরান</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>%nটি কীফ্রেম কপি হয়েছে</numerusform>
+            <numerusform>%nটি কীফ্রেম কপি হয়েছে</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>এই ক্লিপে কপি করা কীফ্রেমগুলোর কোনো বৈশিষ্ট্য নেই</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>কীফ্রেম পেস্ট করুন</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>%nটি কীফ্রেম পেস্ট হয়েছে</numerusform>
+            <numerusform>%nটি কীফ্রেম পেস্ট হয়েছে</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9759,6 +9785,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>স্পন্দিত আভা</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>বিশ্রামের আভা</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>পর্যায়কাল</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11133,6 +11171,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>অবিরাম ঘূর্ণন</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>ঘূর্ণন</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17371,6 +17417,10 @@ NEXT TIME</source>
         <translation type="unfinished">ট্রান্সফর্ম (গতি, অবস্থান, স্কেল, অস্বচ্ছতা)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>টেক্সট স্টাইল (ফন্ট, রং, ইফেক্ট ও অ্যানিমেশন; শব্দগুলো থাকে)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation type="unfinished">, বিপরীত</translation>
     </message>
@@ -18312,6 +18362,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation type="unfinished">প্রকল্প মিডিয়া আনপ্যাক করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>প্রজেক্ট লোড হয়েছে। এতে এমন ফন্ট আছে যা এই কম্পিউটারে নেই: %1। সেগুলো ইনস্টল না করা পর্যন্ত টেক্সট অন্য ফন্টে দেখাবে (ফন্ট তালিকায় ফন্ট ইমপোর্ট, বা Extras-এর ফন্ট প্যাক)।</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22773,6 +22827,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>টেক্সট স্টাইল খুঁজুন</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished">প্রিয়</translation>
     </message>
@@ -22815,6 +22873,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished">প্লেহেডে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>নির্বাচিত টেক্সটে প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23431,6 +23493,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>স্ট্রাইকথ্রু</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23475,8 +23541,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>শব্দের ব্যবধান</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>জাস্টিফাই</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23699,6 +23773,18 @@ If playback stutters, try another.</source>
         <translation>তীব্রতা</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>বৃত্তের চারপাশে</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>বৃত্তের অংশ</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>অক্ষর বৃত্তের ভেতরে</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23827,6 +23913,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রতিটি ক্যাপশনের জন্য খেলে</translation>
     </message>
     <message>
+        <source>Search animations</source>
+        <translation>অ্যানিমেশন খুঁজুন</translation>
+    </message>
+    <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23860,7 +23950,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished">সময়কাল</translation>
+        <translation>পর্যায়কাল</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -26382,6 +26472,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation type="unfinished">ফ্লিপ V</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>বিকৃত করুন (কোণ)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>প্রতিটি কোণ আলাদা করে সরিয়ে ক্লিপটিকে পার্সপেক্টিভে আনুন, যেমন দেয়ালে একটি সাইনবোর্ড</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>উপরে বামে</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>উপরে ডানে</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>নিচে ডানে</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>নিচে বামে</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>কোণ রিসেট করুন</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

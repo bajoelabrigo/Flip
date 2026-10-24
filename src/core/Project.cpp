@@ -377,6 +377,13 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
     if (clip.textAutoFit)
         json.insert(QStringLiteral("textAutoFit"), true);
+    if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
+        QJsonArray pin;
+        for (const QPointF &corner : clip.cornerPin)
+            pin << corner.x() << corner.y();
+        json.insert(QStringLiteral("cornerPin"), pin);
+        json.insert(QStringLiteral("cornerPinEnabled"), clip.cornerPinEnabled);
+    }
     return json;
 }
 
@@ -456,6 +463,14 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.speedCurve = SpeedCurve::fromJson(object.value(QStringLiteral("speedCurve")).toArray());
     clip.reverse = object.value(QStringLiteral("reverse")).toBool(false);
     clip.flipH = object.value(QStringLiteral("flipH")).toBool(false);
+    {
+        const QJsonArray pin = object.value(QStringLiteral("cornerPin")).toArray();
+        if (pin.size() == 8) {
+            clip.cornerPinEnabled = object.value(QStringLiteral("cornerPinEnabled")).toBool(true);
+            for (int i = 0; i < 4; ++i)
+                clip.cornerPin[i] = QPointF(pin.at(i * 2).toDouble(), pin.at(i * 2 + 1).toDouble());
+        }
+    }
     clip.flipV = object.value(QStringLiteral("flipV")).toBool(false);
     clip.mask = maskFromJson(object.value(QStringLiteral("mask")).toObject());
     clip.faceTrackPath = object.value(QStringLiteral("faceTrackPath")).toString();

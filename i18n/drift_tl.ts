@@ -3750,6 +3750,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>I-distort ang mga sulok</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4036,6 +4040,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation>Alisin ang mga keyframe</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Nakopya ang %n keyframe</numerusform>
+            <numerusform>Nakopya ang %n keyframe</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Walang alinman sa mga katangian ng kinopyang keyframe ang clip na ito</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>I-paste ang mga keyframe</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Nai-paste ang %n keyframe</numerusform>
+            <numerusform>Nai-paste ang %n keyframe</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9759,6 +9785,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Kumikislap na liwanag</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Liwanag sa pahinga</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Panahon</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11133,6 +11171,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Tuloy-tuloy na pag-ikot</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Ikot</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17371,6 +17417,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Istilo ng teksto (font, kulay, effect at animation; nananatili ang mga salita)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18302,6 +18352,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Na-load ang proyekto. Gumagamit ito ng mga font na wala sa computer na ito: %1. Ibang font ang makikita sa mga teksto hanggang mai-install ang mga ito (I-import ang font sa listahan ng font, o ang mga Fonts pack sa Extras).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22757,6 +22811,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Maghanap ng istilo ng teksto</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22791,6 +22849,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Ilapat sa napiling teksto</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23387,6 +23449,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Strikethrough</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23431,8 +23497,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Pagitan ng mga salita</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>I-justify</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23655,6 +23729,18 @@ If playback stutters, try another.</source>
         <translation>Tindi</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Paikot sa bilog</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Bahagi ng bilog</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Mga titik sa loob ng bilog</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23783,6 +23869,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search animations</source>
+        <translation>Maghanap ng animation</translation>
+    </message>
+    <message>
         <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23816,7 +23906,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Period</source>
-        <translation type="unfinished"></translation>
+        <translation>Panahon</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -26374,6 +26464,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>I-distort (mga sulok)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Igalaw ang bawat sulok nang hiwalay para ilagay ang clip sa perspektibo, gaya ng karatula sa pader</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Itaas na kaliwa</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Itaas na kanan</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Ibabang kanan</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Ibabang kaliwa</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>I-reset ang mga sulok</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

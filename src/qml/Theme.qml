@@ -853,6 +853,7 @@ QtObject {
         alignLeft: "text-align-start",
         alignCenter: "text-align-center",
         alignRight: "text-align-end",
+        alignJustify: "text-align-justify",
         // Lucide names these *-horizontal, but they are the correct valign glyphs.
         alignTop: "align-start-horizontal",
         alignMiddle: "align-center-horizontal",

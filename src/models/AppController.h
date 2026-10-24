@@ -1030,6 +1030,8 @@ public:
     Q_INVOKABLE void cancelReverseRender();
     Q_INVOKABLE bool clipHasReverseProxy(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setClipFlip(int trackIndex, int clipIndex, bool flipH, bool flipV);
+    // Corner pin: {enabled, points: [x0, y0, … x3, y3]} in project px, the corners' offsets.
+    Q_INVOKABLE void setClipCornerPin(int trackIndex, int clipIndex, const QVariantMap &pin);
     // Per-clip "3D layer" switch: the tilt/depth/perspective values render (and get grips) only
     // while it is on. Off keeps the values.
     Q_INVOKABLE void setClipLayer3d(int trackIndex, int clipIndex, bool enabled);
@@ -1311,6 +1313,12 @@ public:
     Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
                                        double x2, double y2);
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
+    // Copy and paste of picked keys (0.22.1, After Effects' Ctrl+C / Ctrl+V on keys): the keys
+    // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
+    // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
+    Q_INVOKABLE int copyKeyframes(int trackIndex, const QVariantList &keys);
+    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool hasCopiedKeyframes() const { return !m_keyClipboard.isEmpty(); }
     // A drag of the picked keys (each {clip, prop, seconds} where it started), inside a preview
     // drag: the keys that sit fromDelta seconds off their start move to toDelta off it, all
     // together, keeping their shape. The caller keeps them between their unpicked neighbours.
@@ -2563,6 +2571,13 @@ protected:
         QList<drift::Mask> masks;
     };
     QList<ClipboardItem> m_clipboard;
+    struct CopiedKey
+    {
+        QString prop;
+        drift::TimeUs afterFirstUs = 0;
+        drift::Keyframe<double> key;
+    };
+    QList<CopiedKey> m_keyClipboard;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.

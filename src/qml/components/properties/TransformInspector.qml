@@ -581,6 +581,75 @@ Item {
                 }
             }
 
+            // Corner pin (0.22.1): move each corner to warp the picture in perspective — a sign
+            // on a wall, a screen. Offsets in project px from where the corner sits now.
+            ThemedSwitch {
+                text: qsTr("Distort (corner pin)")
+                tooltip: qsTr("Move each corner on its own to put the clip in perspective, like a sign on a wall")
+                Binding on checked {
+                    value: {
+                        void root.clipDataRevision
+                        return !!root.clipData.cornerPinEnabled
+                    }
+                }
+                onToggled: EditorState.setClipCornerPin(EditorState.selectedTrack, EditorState.selectedClip,
+                                                        { "enabled": checked })
+            }
+            Column {
+                width: parent.width
+                visible: !!root.clipData.cornerPinEnabled
+                spacing: 6
+                Repeater {
+                    model: [qsTr("Top left"), qsTr("Top right"), qsTr("Bottom right"), qsTr("Bottom left")]
+                    delegate: Row {
+                        id: cornerRow
+                        required property string modelData
+                        required property int index
+                        width: parent.width
+                        spacing: 6
+                        function setPoint(slot, v) {
+                            const pts = (root.clipData.cornerPin || [0, 0, 0, 0, 0, 0, 0, 0]).slice()
+                            pts[slot] = v
+                            EditorState.setClipCornerPin(EditorState.selectedTrack, EditorState.selectedClip,
+                                                         { "enabled": true, "points": pts })
+                        }
+                        Text {
+                            width: 92
+                            height: Theme.controlHeightSm
+                            verticalAlignment: Text.AlignVCenter
+                            text: cornerRow.modelData
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ThemedNumberField {
+                            width: (cornerRow.width - 92 - 12) / 2
+                            unit: "X"
+                            value: {
+                                void root.clipDataRevision
+                                return Number((root.clipData.cornerPin || [])[cornerRow.index * 2] || 0)
+                            }
+                            onEdited: v => cornerRow.setPoint(cornerRow.index * 2, v)
+                        }
+                        ThemedNumberField {
+                            width: (cornerRow.width - 92 - 12) / 2
+                            unit: "Y"
+                            value: {
+                                void root.clipDataRevision
+                                return Number((root.clipData.cornerPin || [])[cornerRow.index * 2 + 1] || 0)
+                            }
+                            onEdited: v => cornerRow.setPoint(cornerRow.index * 2 + 1, v)
+                        }
+                    }
+                }
+            }
+            ThemedButton {
+                visible: !!root.clipData.cornerPinEnabled
+                text: qsTr("Reset corners")
+                onClicked: EditorState.setClipCornerPin(EditorState.selectedTrack, EditorState.selectedClip,
+                                                        { "points": [0, 0, 0, 0, 0, 0, 0, 0] })
+            }
+
             ThemedButton {
                 text: qsTr("Reset position & size")
                 onClicked: EditorState.resetClipTransform(

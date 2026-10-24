@@ -3670,6 +3670,10 @@
         <translation>تم تحديث انعكاس المقطع</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>تشويه الزوايا</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>تم تغيير التحريك الأفقي</translation>
     </message>
@@ -4342,6 +4346,36 @@
     <message>
         <source>Remove keyframes</source>
         <translation>إزالة الإطارات الرئيسية</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+            <numerusform>نُسخ %n إطار رئيسي</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>لا يحتوي هذا المقطع على أي من خصائص الإطارات الرئيسية المنسوخة</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>لصق الإطارات الرئيسية</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+            <numerusform>لُصق %n إطار رئيسي</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9911,6 +9945,18 @@
         <translation>الانحراف</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>توهج نابض</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>التوهج في السكون</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>الدورة</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>وميض متناوب</translation>
     </message>
@@ -11289,6 +11335,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>عزّز سير عملك</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>دوران مستمر</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>الدوران</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17623,6 +17677,10 @@ NEXT TIME</source>
         <translation>التحويل (الحركة، الموضع، الحجم، العتامة)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>نمط النص (الخط والألوان والتأثيرات والحركة؛ تبقى الكلمات)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>، معكوس</translation>
     </message>
@@ -18580,6 +18638,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>جارٍ فك وسائط المشروع…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>تم تحميل المشروع. يستخدم خطوطًا غير موجودة على هذا الحاسوب: %1. تظهر نصوصه بخط آخر حتى تثبيتها (استيراد خط في قائمة الخطوط، أو حزم الخطوط في الإضافات).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -23081,6 +23143,10 @@ If playback stutters, try another.</source>
         <translation>أنماطي · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>البحث في أنماط النص</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>المفضلة</translation>
     </message>
@@ -23115,6 +23181,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>إضافة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>تطبيق على النص المحدد</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23711,6 +23781,10 @@ If playback stutters, try another.</source>
         <translation>عريض</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>يتوسطه خط</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>حالة الأحرف</translation>
     </message>
@@ -23755,8 +23829,16 @@ If playback stutters, try another.</source>
         <translation>النص ملوّن بتأثير؛ غيّره في «متقدم»</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>التباعد بين الكلمات</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>المحاذاة</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>ضبط</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23979,6 +24061,18 @@ If playback stutters, try another.</source>
         <translation>القوة</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>حول دائرة</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>الجزء المغطى من الدائرة</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>الحروف داخل الدائرة</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>حفظ كنمط خاص بي…</translation>
     </message>
@@ -24105,6 +24199,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>يتم تشغيله لكل تسمية توضيحية</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>البحث في الحركات</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26718,6 +26816,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>انعكاس رأسي</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>تشويه (الزوايا)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>حرّك كل زاوية على حدة لوضع المقطع في منظور، مثل لافتة على جدار</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>أعلى اليسار</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>أعلى اليمين</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>أسفل اليمين</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>أسفل اليسار</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>إعادة ضبط الزوايا</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

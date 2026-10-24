@@ -25,6 +25,8 @@ QString textAlignToString(TextAlign align)
         return QStringLiteral("left");
     case TextAlign::Right:
         return QStringLiteral("right");
+    case TextAlign::Justify:
+        return QStringLiteral("justify");
     case TextAlign::Center:
         return QStringLiteral("center");
     }
@@ -37,6 +39,8 @@ TextAlign textAlignFromString(const QString &align)
         return TextAlign::Left;
     if (align == QStringLiteral("right"))
         return TextAlign::Right;
+    if (align == QStringLiteral("justify"))
+        return TextAlign::Justify;
     return TextAlign::Center;
 }
 
@@ -1096,6 +1100,7 @@ void scaleTextStyle(TextStyle &s, double factor)
         return;
     s.pixelSize = qMax(1, qRound(s.pixelSize * factor));
     s.letterSpacing *= factor;
+    s.wordSpacing *= factor;
     s.boxPadding *= factor;
     if (s.boxPaddingX >= 0.0)
         s.boxPaddingX *= factor;
@@ -1255,6 +1260,9 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("underlineColor"), s.underlineColor.name(QColor::HexArgb)},
         {QStringLiteral("underlineWidth"), s.underlineWidth},
         {QStringLiteral("underlineOffset"), s.underlineOffset},
+        {QStringLiteral("strikeEnabled"), s.strikeEnabled},
+        {QStringLiteral("pathCircle"), s.pathCircle},
+        {QStringLiteral("wordSpacing"), s.wordSpacing},
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToJson(s.animation)},
     };
@@ -1398,6 +1406,9 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.underlineColor = QColor(o.value(QStringLiteral("underlineColor")).toString(s.underlineColor.name(QColor::HexArgb)));
     s.underlineWidth = o.value(QStringLiteral("underlineWidth")).toDouble(s.underlineWidth);
     s.underlineOffset = o.value(QStringLiteral("underlineOffset")).toDouble(s.underlineOffset);
+    s.strikeEnabled = o.value(QStringLiteral("strikeEnabled")).toBool(s.strikeEnabled);
+    s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
+    s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());
 
     if (o.contains(QStringLiteral("layers"))) {

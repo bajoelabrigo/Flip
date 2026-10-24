@@ -3750,6 +3750,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4036,6 +4040,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9759,6 +9785,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11132,6 +11170,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Boost your workflow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17371,6 +17417,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18301,6 +18351,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Unpacking project media…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22757,6 +22811,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22790,6 +22848,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add at playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23387,6 +23449,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23431,7 +23497,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23655,6 +23729,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23780,6 +23866,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search animations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26373,6 +26463,34 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Flip V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

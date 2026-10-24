@@ -3743,6 +3743,10 @@
         <translation>Đã cập nhật lật clip</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>Biến dạng góc</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>Đã thay đổi xoay</translation>
     </message>
@@ -4037,6 +4041,26 @@
     <message>
         <source>Remove keyframes</source>
         <translation>Gỡ khung hình chính</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>Đã sao chép %n khung hình chính</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Clip này không có thuộc tính nào của các khung hình chính đã sao chép</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Dán khung hình chính</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>Đã dán %n khung hình chính</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9721,6 +9745,18 @@
         <translation>Nghiêng</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Ánh sáng nhấp nháy</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Ánh sáng khi nghỉ</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Chu kỳ</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Nhấp nháy xen kẽ</translation>
     </message>
@@ -11099,6 +11135,14 @@ LẦN SAU</translation>
     <message>
         <source>Boost your workflow</source>
         <translation>Tăng tốc công việc</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Xoay liên tục</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Xoay</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17313,6 +17357,10 @@ LẦN SAU</translation>
         <translation>Chuyển đổi (chuyển động, vị trí, tỷ lệ, độ mờ đục)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Kiểu chữ (phông, màu, hiệu ứng và hoạt ảnh; giữ nguyên chữ)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, đảo ngược</translation>
     </message>
@@ -18245,6 +18293,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Unpacking project media…</source>
         <translation>Đang giải nén phương tiện dự án…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Đã tải dự án. Dự án dùng phông chữ máy này không có: %1. Văn bản sẽ hiển thị bằng phông khác cho đến khi bạn cài (Nhập phông trong danh sách phông, hoặc gói phông trong Tiện ích).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22691,6 +22743,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kiểu của tôi · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Tìm kiểu chữ</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Yêu thích</translation>
     </message>
@@ -22725,6 +22781,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Thêm vào đầu phát</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Áp dụng cho văn bản đã chọn</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23249,6 +23309,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đậm</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Gạch ngang</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Hoa/thường</translation>
     </message>
@@ -23293,8 +23357,16 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Chữ được tô bằng hiệu ứng; thay đổi trong Nâng cao</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Khoảng cách từ</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Căn chỉnh</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>Căn đều</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23517,6 +23589,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Độ mạnh</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Quanh vòng tròn</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Phần vòng tròn</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Chữ bên trong vòng tròn</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Lưu thành kiểu của tôi…</translation>
     </message>
@@ -23627,6 +23711,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Mẫu cũng thay đổi phông chữ. Các kiểu khác giữ phông chữ của bạn.</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>Tìm hoạt ảnh</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26319,6 +26407,34 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Flip V</source>
         <translation>Lật Dọc</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>Biến dạng (góc)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Di chuyển từng góc riêng để đặt clip vào phối cảnh, như một tấm biển trên tường</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>Trên trái</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>Trên phải</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>Dưới phải</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>Dưới trái</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Đặt lại góc</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

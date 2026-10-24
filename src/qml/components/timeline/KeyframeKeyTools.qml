@@ -177,6 +177,22 @@ Item {
             EditorState.setKeyframesEasing(root.track, root.keys, mode)
     }
 
+    // Ctrl+C on picked keys copies them (not the clip); Ctrl+V pastes them on the selected clip
+    // at the playhead while keys were the last thing copied.
+    property bool keysCopiedLast: false
+    function copyPicked() {
+        if (!root.hasPick)
+            return false
+        root.keysCopiedLast = EditorState.copyKeyframes(root.track, root.keys) > 0
+        return root.keysCopiedLast
+    }
+    function pasteCopied() {
+        if (!root.keysCopiedLast || !EditorState.hasCopiedKeyframes()
+                || EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
+            return false
+        return EditorState.pasteKeyframes(EditorState.selectedTrack, EditorState.selectedClip)
+    }
+
     function removePicked() {
         if (!root.hasPick)
             return false

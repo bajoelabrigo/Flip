@@ -3743,6 +3743,10 @@
         <translation>已更新片段翻转</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>边角变形</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>已更改声像</translation>
     </message>
@@ -4029,6 +4033,26 @@
     <message>
         <source>Remove keyframes</source>
         <translation>移除关键帧</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>已复制 %n 个关键帧</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>此片段没有所复制关键帧的任何属性</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>粘贴关键帧</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>已粘贴 %n 个关键帧</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9721,6 +9745,18 @@
         <translation>倾斜</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>脉动光晕</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>静止光晕</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>周期</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>交替频闪</translation>
     </message>
@@ -11099,6 +11135,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>提升你的工作效率</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>持续旋转</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>旋转</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17313,6 +17357,10 @@ NEXT TIME</source>
         <translation>变换（运动、位置、缩放、不透明度）</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>文字样式（字体、颜色、效果和动画；文字保持不变）</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>，倒放</translation>
     </message>
@@ -18245,6 +18293,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>正在解包项目素材…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>项目已加载。它使用了此电脑没有的字体：%1。安装前，文字会以其他字体显示（在字体列表中导入字体，或安装扩展中的字体包）。</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22690,6 +22742,10 @@ If playback stutters, try another.</source>
         <translation>我的样式 · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>搜索文字样式</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>收藏</translation>
     </message>
@@ -22724,6 +22780,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>在播放头处添加</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>应用到所选文字</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23320,6 +23380,10 @@ If playback stutters, try another.</source>
         <translation>粗体</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>删除线</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>大小写</translation>
     </message>
@@ -23364,8 +23428,16 @@ If playback stutters, try another.</source>
         <translation>文字使用效果填充；请在“高级”中更改</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>词间距</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>两端对齐</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23588,6 +23660,18 @@ If playback stutters, try another.</source>
         <translation>强度</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>环绕圆形</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>覆盖圆周</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>文字在圆内侧</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>另存为我的样式…</translation>
     </message>
@@ -23714,6 +23798,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>搜索动画</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26302,6 +26390,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>垂直翻转</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>变形（边角）</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>单独移动每个角，让片段呈现透视效果，就像墙上的招牌</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>左上</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>右上</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>右下</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>左下</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>重置边角</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

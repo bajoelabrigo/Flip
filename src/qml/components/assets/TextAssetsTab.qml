@@ -34,7 +34,19 @@ Item {
     property var addonCategories: EditorState.addonTextPresetCategories()
     // Starred styles, from the built-in set and every template pack.
     property int favoritesTick: 0
+    // A search (0.22.1) looks through every style on this computer, whatever the section.
+    readonly property string query: titleSearch.text.trim()
+    readonly property bool searching: query.length > 0
+    function foldText(text) {
+        return String(text).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    }
     readonly property var gridPresets: {
+        if (root.searching) {
+            void root.userPresetsTick
+            const q = root.foldText(root.query)
+            return root.presets.concat(root.addonPresets).concat(EditorState.userTextPresets())
+                .filter(p => root.foldText(p.label || "").indexOf(q) >= 0)
+        }
         if (section === "builtin")
             return root.presets
         if (section === "favorites") {
@@ -50,6 +62,10 @@ Item {
     // with no chip here in chips of their own («stock:<category>», named as Stock names them).
     // Trending keeps the most used.
     property int stockTick: 0
+    // A text or subtitle is selected: the cards' menus can put their look on it.
+    readonly property bool selectedTextClip: EditorState.selectedClip >= 0
+                                             && (EditorState.selectedClipData.kind === "text"
+                                                 || EditorState.selectedClipData.kind === "subtitle")
     readonly property var stockChips: {
         void root.stockTick
         return Market.authenticated
@@ -203,13 +219,23 @@ Item {
     Item {
         id: toolbar
         width: parent.width
-        height: Theme.pagePadding + chips.height + Theme.spacingMd + aiText.height
+        height: Theme.pagePadding + titleSearch.height + Theme.spacingSm + (chips.visible ? chips.height : 0)
+                + Theme.spacingMd + aiText.height
+
+        ThemedTextField {
+            id: titleSearch
+            x: Theme.pagePadding
+            y: Theme.pagePadding
+            width: parent.width - Theme.pagePadding * 2 - Theme.controlHeight - Theme.spacingSm
+            placeholderText: qsTr("Search text styles")
+        }
 
         // Wraps: with template packs installed there is a chip per category.
         Flow {
             id: chips
             x: Theme.pagePadding
-            y: Theme.pagePadding
+            y: titleSearch.y + titleSearch.height + Theme.spacingSm
+            visible: !root.searching
             width: parent.width - Theme.pagePadding * 2 - Theme.controlHeight - Theme.spacingSm
             spacing: Theme.spacingSm
 
@@ -290,7 +316,7 @@ Item {
             id: aiText
             property bool open: false
             x: Theme.pagePadding
-            y: chips.y + chips.height + Theme.spacingMd
+            y: (chips.visible ? chips.y + chips.height : titleSearch.y + titleSearch.height) + Theme.spacingMd
             width: parent.width - Theme.pagePadding * 2
             height: aiColumn.implicitHeight + Theme.spacingMd * 2
             radius: Theme.radiusSm
@@ -410,7 +436,8 @@ Item {
         cellWidth: Math.floor(width / columnCount)
         cellHeight: Math.round(cardSize * 0.55) + Theme.spacingSm
                     + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        visible: root.section !== "mine" && root.section !== "trends" && !root.showingStockOnly
+        visible: root.searching
+                 || (root.section !== "mine" && root.section !== "trends" && !root.showingStockOnly)
         model: root.gridPresets
 
         // The chip's Stock styles after its own (and the starred ones in Favorites).
@@ -483,6 +510,14 @@ Item {
                         icon.name: Theme.icons.plus
                         onTriggered: packDrag.tapped()
                     }
+                    // Its look on the text that is selected; the text keeps its words and motion.
+                    ThemedMenuItem {
+                        text: qsTr("Apply to the selected text")
+                        icon.name: Theme.icons.type
+                        enabled: root.selectedTextClip
+                        onTriggered: EditorState.applyTextPreset(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                 packCard.modelData.id)
+                    }
                 }
             }
 
@@ -519,7 +554,7 @@ Item {
         ScrollBar.vertical: AppScrollBar { }
         cellWidth: Math.floor(width / columnCount)
         cellHeight: cardSize + Theme.spacingSm + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        visible: root.section === "trends" && Market.authenticated && root.trendItems.length > 0
+        visible: root.section === "trends" && Market.authenticated && root.trendItems.length > 0 && !root.searching
         model: root.trendItems
         // The next page a little before the end, so scrolling does not stop at it.
         onContentYChanged: {
@@ -600,7 +635,7 @@ Item {
         y: toolbar.height + Theme.spacingSm
         width: parent.width
         height: parent.height - y
-        visible: root.showingStockOnly
+        visible: root.showingStockOnly && !root.searching
         clip: true
         contentHeight: stockOnlyCards.height + Theme.spacing3xl
         boundsBehavior: Flickable.StopAtBounds
@@ -625,7 +660,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         y: toolbar.height + Math.max(0, (parent.height - toolbar.height - height) / 2)
         width: Math.min(parent.width - Theme.spacing3xl, 260)
-        visible: root.section === "trends" && (!Market.authenticated || Market.textTrends.length === 0)
+        visible: root.section === "trends" && (!Market.authenticated || Market.textTrends.length === 0) && !root.searching
         compact: true
         glyph: Theme.icons.type
         title: !Market.authenticated ? qsTr("Sign in to see trending texts")
@@ -661,7 +696,7 @@ Item {
         cellWidth: Math.floor(width / columnCount)
         cellHeight: Math.round(cardSize * 0.55) + Theme.spacingSm
                     + Math.ceil(labelMetrics.height) + Theme.assetCardGap
-        visible: root.section === "mine" && root.userPresets.length > 0
+        visible: root.section === "mine" && root.userPresets.length > 0 && !root.searching
         model: root.userPresets
 
         delegate: Column {
@@ -719,6 +754,13 @@ Item {
                     id: cardMenu
 
                     ThemedMenuItem {
+                        text: qsTr("Apply to the selected text")
+                        icon.name: Theme.icons.type
+                        enabled: root.selectedTextClip
+                        onTriggered: EditorState.applyTextPreset(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                 userCard.modelData.id)
+                    }
+                    ThemedMenuItem {
                         text: qsTr("Rename…")
                         icon.name: Theme.icons.pencil
                         onTriggered: renameDialog.openFor(userCard.modelData)
@@ -769,7 +811,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         y: toolbar.height + Math.max(0, (parent.height - toolbar.height - height) / 2)
         width: Math.min(parent.width - Theme.spacing3xl, 260)
-        visible: root.section === "mine" && root.userPresets.length === 0
+        visible: root.section === "mine" && root.userPresets.length === 0 && !root.searching
         compact: true
         glyph: Theme.icons.type
         title: qsTr("No saved styles")

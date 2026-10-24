@@ -155,6 +155,9 @@ struct TextAnimatorProps
     TextLengthUnit trackingUnit = TextLengthUnit::Px;
     TextAnimParam lineSpacing{0.0}; // project px
     TextAnimParam strokeWidth{0.0}; // project px, additive
+    // A soft halo around the letters, its radius in project px (0.22.1): the glow loops pulse it.
+    // In the text glow layer's colour when the style has one, else in the letters' own.
+    TextAnimParam glow{0.0};
     TextAnimWipe wipe;
 };
 
@@ -348,6 +351,7 @@ struct FragmentProps
     double tracking = 0.0; // the raw per-fragment tracking that produced part of dx
     double lineSpacing = 0.0;
     double strokeWidthDelta = 0.0;
+    double glowPx = 0.0; // render px, the animated halo's radius
     std::optional<QColor> fillColor;
     std::optional<QColor> strokeColor;
     double wipeProgress = -1.0; // revealed fraction 0..1; -1 = no wipe

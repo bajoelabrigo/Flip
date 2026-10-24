@@ -3755,6 +3755,10 @@
         <translation>Miroir du clip mis à jour</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>Déformer les coins</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>Pan modifié</translation>
     </message>
@@ -4041,6 +4045,28 @@
     <message>
         <source>Remove keyframes</source>
         <translation>Supprimer les images clés</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>%n image(s) clé copiée(s)</numerusform>
+            <numerusform>%n image(s) clé copiée(s)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>Ce clip n’a aucune des propriétés des images clés copiées</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Coller les images clés</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>%n image(s) clé collée(s)</numerusform>
+            <numerusform>%n image(s) clé collée(s)</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9760,6 +9786,18 @@
         <translation>Inclinaison</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>Lueur pulsée</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>Lueur au repos</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>Période</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>Stroboscope alterné</translation>
     </message>
@@ -11138,6 +11176,14 @@ PROCHAINE</translation>
     <message>
         <source>Boost your workflow</source>
         <translation>Boostez votre travail</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>Rotation continue</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>Rotation</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17377,6 +17423,10 @@ PROCHAINE</translation>
         <translation>Transformation (mouvement, position, échelle, opacité)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>Style du texte (police, couleurs, effets et animation; les mots restent)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, inversion</translation>
     </message>
@@ -18314,6 +18364,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Unpacking project media…</source>
         <translation>Déballage des médias du projet…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>Projet chargé. Il utilise des polices absentes de cet ordinateur : %1. Ses textes s’affichent avec une autre police tant qu’elles ne sont pas installées (Importer une police dans la liste, ou les paquets de polices des Extras).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22773,6 +22827,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Mes styles · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>Rechercher des styles de texte</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>Favoris</translation>
     </message>
@@ -22807,6 +22865,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Add at playhead</source>
         <translation>Ajouter à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>Appliquer au texte sélectionné</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23403,6 +23465,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Gras</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>Barré</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>Casse</translation>
     </message>
@@ -23447,8 +23513,16 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Le texte est peint avec un effet; changez-le dans Avancé</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>Espacement des mots</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>Alignement</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>Justifier</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23671,6 +23745,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Force</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>Autour d’un cercle</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>Part du cercle</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>Lettres à l’intérieur du cercle</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Enregistrer comme mon style…</translation>
     </message>
@@ -23797,6 +23883,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Est lu pour chaque sous-titre</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>Rechercher des animations</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26390,6 +26480,34 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Flip V</source>
         <translation>Retourner V</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>Déformer (coins)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>Déplacez chaque coin séparément pour mettre le clip en perspective, comme une affiche sur un mur</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>En haut à gauche</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>En haut à droite</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>En bas à droite</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>En bas à gauche</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>Réinitialiser les coins</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>

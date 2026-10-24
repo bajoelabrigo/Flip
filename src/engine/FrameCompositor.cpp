@@ -43,6 +43,8 @@
 #include <QMutex>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPolygonF>
+#include <QTransform>
 #include <QSet>
 #include <cmath>
 #include <QtMath>
@@ -1248,6 +1250,34 @@ QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const 
 #endif
 }
 
+// Corner pin: the placed (rotated) rect's corners moved by the clip's offsets, as a perspective
+// map composed before any transform-layer parent. The compositor's parent path takes a projective
+// QTransform (liftParent keeps its third row), so the warp is real perspective, not a shear.
+void applyCornerPin(GpuLayer &layer, const drift::Clip &clip, double renderScale)
+{
+    if (!clip.cornerPinEnabled || clip.cornerPin.size() != 4 || layer.screenSpace || layer.rect.isEmpty())
+        return;
+    bool moved = false;
+    for (const QPointF &corner : clip.cornerPin)
+        moved = moved || !corner.isNull();
+    if (!moved)
+        return;
+    QTransform turn;
+    turn.translate(layer.rect.center().x(), layer.rect.center().y());
+    turn.rotate(layer.rotation);
+    turn.translate(-layer.rect.center().x(), -layer.rect.center().y());
+    const QPolygonF from{turn.map(layer.rect.topLeft()), turn.map(layer.rect.topRight()),
+                         turn.map(layer.rect.bottomRight()), turn.map(layer.rect.bottomLeft())};
+    QPolygonF to = from;
+    for (int i = 0; i < 4; ++i)
+        to[i] += clip.cornerPin.at(i) * renderScale;
+    QTransform warp;
+    if (!QTransform::quadToQuad(from, to, warp))
+        return;
+    layer.parent = layer.hasParent ? warp * layer.parent : warp;
+    layer.hasParent = true;
+}
+
 // Whole-block motion (opacity, offset, scale, rotation, blur) rides on the GPU layer, never on
 // the pixels, so the painter's image stays the same size for every frame.
 void applyTextBlockMotion(GpuLayer &layer, const drift::textanim::BlockProps &block, QRectF *destRect,
@@ -1838,6 +1868,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
             if (!item.layer.valid)
                 continue;
             applyParent(item.layer, ti);
+            applyCornerPin(item.layer, clip, renderScale);
             applyCamera(item.layer);
             noteSelection(clip, item.layer);
             applyDepthOcclusion(project, scene, item.layer, nearestOccluder, occluders);

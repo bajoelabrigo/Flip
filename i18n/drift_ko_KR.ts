@@ -3743,6 +3743,10 @@
         <translation>클립 뒤집기가 업데이트됨</translation>
     </message>
     <message>
+        <source>Corner pin</source>
+        <translation>모서리 왜곡</translation>
+    </message>
+    <message>
         <source>Pan changed</source>
         <translation>패닝 변경됨</translation>
     </message>
@@ -4029,6 +4033,26 @@
     <message>
         <source>Remove keyframes</source>
         <translation>키프레임 제거</translation>
+    </message>
+    <message numerus="yes">
+        <source>Copied %n keyframe(s)</source>
+        <translation>
+            <numerusform>키프레임 %n개를 복사했습니다</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This clip has none of the copied keyframes&apos; properties</source>
+        <translation>이 클립에는 복사한 키프레임의 속성이 없습니다</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>키프레임 붙여넣기</translation>
+    </message>
+    <message numerus="yes">
+        <source>Pasted %n keyframe(s)</source>
+        <translation>
+            <numerusform>키프레임 %n개를 붙여넣었습니다</numerusform>
+        </translation>
     </message>
     <message>
         <source>Move keyframes</source>
@@ -9721,6 +9745,18 @@
         <translation>기울이기</translation>
     </message>
     <message>
+        <source>Glow pulse</source>
+        <translation>맥박치는 광채</translation>
+    </message>
+    <message>
+        <source>Resting glow</source>
+        <translation>기본 광채</translation>
+    </message>
+    <message>
+        <source>Period</source>
+        <translation>주기</translation>
+    </message>
+    <message>
         <source>Alternating strobe</source>
         <translation>교차 스트로브</translation>
     </message>
@@ -11099,6 +11135,14 @@ NEXT TIME</source>
     <message>
         <source>Boost your workflow</source>
         <translation>작업 속도를 높이세요</translation>
+    </message>
+    <message>
+        <source>Continuous spin</source>
+        <translation>연속 회전</translation>
+    </message>
+    <message>
+        <source>Turn</source>
+        <translation>회전</translation>
     </message>
     <message>
         <source>Squash &amp; stretch</source>
@@ -17313,6 +17357,10 @@ NEXT TIME</source>
         <translation>변환(모션, 위치, 크기, 불투명도)</translation>
     </message>
     <message>
+        <source>Text style (font, colours, effects and animation; the words stay)</source>
+        <translation>텍스트 스타일(글꼴, 색, 효과, 애니메이션. 글자는 그대로)</translation>
+    </message>
+    <message>
         <source>, reverse</source>
         <translation>, 반전</translation>
     </message>
@@ -18245,6 +18293,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Unpacking project media…</source>
         <translation>프로젝트 미디어 압축을 푸는 중…</translation>
+    </message>
+    <message>
+        <source>Project loaded. It uses fonts this computer does not have: %1. Its texts show with another font until they are installed (Import font in the font list, or the Fonts packs in Extras).</source>
+        <translation>프로젝트를 불러왔습니다. 이 컴퓨터에 없는 글꼴을 사용합니다: %1. 설치할 때까지 다른 글꼴로 표시됩니다(글꼴 목록의 글꼴 가져오기 또는 추가 기능의 글꼴 팩).</translation>
     </message>
     <message>
         <source>No recovery file found</source>
@@ -22689,6 +22741,10 @@ If playback stutters, try another.</source>
         <translation>내 스타일 · %1</translation>
     </message>
     <message>
+        <source>Search text styles</source>
+        <translation>텍스트 스타일 검색</translation>
+    </message>
+    <message>
         <source>Favorites</source>
         <translation>즐겨찾기</translation>
     </message>
@@ -22723,6 +22779,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Add at playhead</source>
         <translation>재생 헤드 위치에 추가</translation>
+    </message>
+    <message>
+        <source>Apply to the selected text</source>
+        <translation>선택한 텍스트에 적용</translation>
     </message>
     <message>
         <source>%1 — click to download it and add it at the playhead</source>
@@ -23319,6 +23379,10 @@ If playback stutters, try another.</source>
         <translation>굵게</translation>
     </message>
     <message>
+        <source>Strikethrough</source>
+        <translation>취소선</translation>
+    </message>
+    <message>
         <source>Case</source>
         <translation>대/소문자</translation>
     </message>
@@ -23363,8 +23427,16 @@ If playback stutters, try another.</source>
         <translation>텍스트가 효과로 채워져 있습니다. 고급에서 바꾸세요</translation>
     </message>
     <message>
+        <source>Word spacing</source>
+        <translation>단어 간격</translation>
+    </message>
+    <message>
         <source>Alignment</source>
         <translation>정렬</translation>
+    </message>
+    <message>
+        <source>Justify</source>
+        <translation>양쪽 맞춤</translation>
     </message>
     <message>
         <source>Preset style</source>
@@ -23587,6 +23659,18 @@ If playback stutters, try another.</source>
         <translation>강도</translation>
     </message>
     <message>
+        <source>Around a circle</source>
+        <translation>원을 따라</translation>
+    </message>
+    <message>
+        <source>Circle covered</source>
+        <translation>원 범위</translation>
+    </message>
+    <message>
+        <source>Letters inside the circle</source>
+        <translation>글자를 원 안쪽에</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>내 스타일로 저장…</translation>
     </message>
@@ -23713,6 +23797,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Search animations</source>
+        <translation>애니메이션 검색</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -26301,6 +26389,34 @@ If playback stutters, try another.</source>
     <message>
         <source>Flip V</source>
         <translation>세로 뒤집기</translation>
+    </message>
+    <message>
+        <source>Distort (corner pin)</source>
+        <translation>왜곡(모서리)</translation>
+    </message>
+    <message>
+        <source>Move each corner on its own to put the clip in perspective, like a sign on a wall</source>
+        <translation>각 모서리를 따로 움직여 클립에 원근감을 줍니다(벽의 간판처럼)</translation>
+    </message>
+    <message>
+        <source>Top left</source>
+        <translation>왼쪽 위</translation>
+    </message>
+    <message>
+        <source>Top right</source>
+        <translation>오른쪽 위</translation>
+    </message>
+    <message>
+        <source>Bottom right</source>
+        <translation>오른쪽 아래</translation>
+    </message>
+    <message>
+        <source>Bottom left</source>
+        <translation>왼쪽 아래</translation>
+    </message>
+    <message>
+        <source>Reset corners</source>
+        <translation>모서리 초기화</translation>
     </message>
     <message>
         <source>Reset position &amp; size</source>
