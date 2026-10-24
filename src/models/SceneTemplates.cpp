@@ -240,7 +240,7 @@ void AppController::setMarketClient(MarketClient *client)
     client->setStockInstaller([self](const QString &delivery, const QString &path, const QString &title,
                                      const MarketClient::InstallDone &done) {
         if (!self) {
-            done(false, QString(), QString(), QStringLiteral("the editor is gone"));
+            done(false, QString(), QString(), QStringLiteral("the editor is gone"), QString());
             return;
         }
         self->installStockFile(delivery, path, title, done);

@@ -1325,9 +1325,10 @@ public:
     // (My styles), "text-animation" (text animations), "transition" (a .driftfx package into the
     // transitions folder) or "shape" (the shapes library). `done` runs exactly once, possibly
     // later — a package installs on a worker thread — with ok, a short phrase for the download
-    // list saying where it went, the installed file or folder, and an error.
+    // list saying where it went, the installed file or folder, an error, and what it is called in
+    // its panel now (a LUT's, a style's, a shape's or a preset's id; empty when there is none).
     using StockInstallDone = std::function<void(bool ok, const QString &where, const QString &installedPath,
-                                                const QString &error)>;
+                                                const QString &error, const QString &localId)>;
     void installStockFile(const QString &delivery, const QString &path, const QString &title,
                           const StockInstallDone &done);
     // {ok, name, missing, error, size, is3d} for a LUT path as a project saved it.
@@ -1498,6 +1499,9 @@ public:
     Q_INVOKABLE QVariantList soundEffects() const;
     Q_INVOKABLE QVariantList soundEffectCategories() const;
     Q_INVOKABLE void addSoundEffect(const QString &id);
+    // A file Stock just put in Media (music, a sound, a sticker, an overlay…) onto the timeline at
+    // the playhead, once its length is known (a first import still holds a 5 s placeholder).
+    Q_INVOKABLE void addAssetClipWhenReady(const QString &assetId);
     // CapCut's "remove silences / filler words": keeps only the spoken parts of a clip, dropping
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.
