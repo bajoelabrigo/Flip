@@ -12,6 +12,9 @@ registro heredado de Drift.
 - Stock en cada panel: `MarketClient::fetchPanelList / panelList / stockChips`, `StockPanelCards.qml`, llamita y
   estrella en todas las tarjetas; `InstallDone` lleva el id local de lo instalado.
 - Mi cuenta › Descargas: `useStockLibraryItem` guarda en su panel o pone en la edición sin volver a descargar.
+- Llamita en todas las animaciones de texto incluidas y de Stock (`TextInspector.wearsFlame`; no en las propias
+  `user:`), en todos los preajustes de clip (`AnimationInspector`) y en las voces (`VoiceChanger`); sin sesión piden
+  la cuenta (`SignInRequiredDialog`, motivo nuevo `voices`). `TrendBadge` escala su icono con su tamaño.
 
 ## 0.20.1 — Las animaciones de texto ya aparecen, y las galerías más ordenadas
 

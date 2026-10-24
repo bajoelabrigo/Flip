@@ -70,6 +70,13 @@ elemento de Stock va en la subcategoría de su panel según su tipo (un texto ne
       no). En los audios de Stock la llamita va junto a la estrella, siempre visible. Web desplegada (rama
       `web/v022-tendencias`, comprobada contra getflipstudio.com con `scripts/check-trends-full.mjs`,
       `check-stock-flames.mjs` y `check-stock-audio-marks.mjs`).
+- [x] **Llamita en todas las animaciones y voces (Jorge, 2026-10-24, tarde):** Texto › Animación (Entrada, Salida,
+      Bucle: las incluidas y las de Stock, no las propias `user:`), Video › Animación (Entrada, Salida, Combinado: todos
+      los preajustes, no Ninguna ni Fundido) y el Modificador de voz. Jorge eligió «en todas, y piden cuenta»: sin sesión
+      se ven y al elegir una se pide la cuenta (voces: `SignInRequiredDialog reason: "voices"`). Web desplegada
+      (`web/v022` `9175d`, comprobada contra getflipstudio.com con `scripts/check-flames-anims.mjs`); escritorio `5d0f8`.
+      **Trampa de ese día:** se desplegó `web/v022` sin `web/v022-tendencias` y la web perdió unos minutos las
+      Tendencias completas; ya unida y redesplegada. Antes de desplegar, mirar **todas** las ramas `web/*` recientes.
 - [ ] Compilación de `flip/v0.22.0` (run 40083533988), probar en ventana (fotogramas clave arriba y abajo, Mi
       cuenta › Descargas, Stock en cada panel, `webHidden`), versión 0.22.0 en `CMakeLists.txt`,
       `release-notes/0.22.0.md`, publicar.

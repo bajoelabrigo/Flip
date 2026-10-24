@@ -110,6 +110,26 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.22.0)**. Lo nuevo desde la 0.21.0.
+
+> Novedades de la 0.22.0
+>
+> - Fotogramas clave como After Effects: cada uno muestra cómo llega y cómo sale (recto, suave, salto o curva); clic derecho para cambiarlo o abrir 17 curvas, y varios a la vez con Ctrl y Mayús.
+> - La ventana de curvas y la pista comparten la selección; el cabezal y los clips se pegan a los fotogramas clave.
+> - Stock también en cada panel: efectos, transiciones, LUTs, textos, formas, stickers, música, sonidos y plantillas, con Tendencias primero y repartidos en sus categorías.
+> - La llamita naranja en todo lo nuestro de Stock, en las animaciones de texto y de clip y en el Modificador de voz; se usan con la cuenta (gratis).
+> - Estrella de favorito en todas las tarjetas, y Mi cuenta › Descargas pone lo bajado en la edición sin volver a descargarlo.
+
+En inglés:
+
+> What's new in 0.22.0
+>
+> - Keyframes like After Effects: each one shows how it comes in and goes out (linear, smooth, hold or curve); right-click to change it or open 17 curves, and several at once with Ctrl and Shift.
+> - The curve editor and the track share the selection; the playhead and clips snap to keyframes.
+> - Stock in every panel too: effects, transitions, LUTs, texts, shapes, stickers, music, sounds and templates, with Trending first and the rest in their categories.
+> - The orange flame on all our Stock, on the text and clip animations and in the Voice changer; they are used with the account (free).
+> - A favourite star on every card, and My account › Downloads puts what you got into your edit without downloading it again.
+
 **Notas para la Store (0.21.0)**. Lo nuevo desde la 0.20.1.
 
 > Novedades de la 0.21.0
