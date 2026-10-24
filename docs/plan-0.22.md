@@ -113,5 +113,5 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
   Resplandor, VTT/ASS, editor de animaciones, decimales) → unir a `flip/v0.22.0` → versión 0.22.0 → publicar
   (escritorio + web desde `web/v022` unida con `web/v0221-texto`) → MSIX para la Store.
 - **Registro**: la copia de prueba tiene la sesión de Google de Jorge (la inició él). Al terminar: restaurar
-  `pruebas\FlipStudio-0.22.0-llamitaeg-antes.reg` **conservando** la clave `account` (exportarla antes y volver a
+  `pruebas\FlipStudio-0.22.0-llamita\reg-antes.reg` **conservando** la clave `account` (exportarla antes y volver a
   importarla después, ver CLAUDE.md).
