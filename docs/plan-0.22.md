@@ -115,3 +115,5 @@ animaciones y el editor web igual. Nada de lo de abajo está publicado ni probad
 - **Registro**: la copia de prueba tiene la sesión de Google de Jorge (la inició él). Al terminar: restaurar
   `pruebas\FlipStudio-0.22.0-llamita\reg-antes.reg` **conservando** la clave `account` (exportarla antes y volver a
   importarla después, ver CLAUDE.md).
+- **Avance (2026-10-24, noche):** `flip/subs-vtt-ass` y `flip/anim-editor` **ya unidas** a `flip/v0.22.1`;
+  traducciones completas y lupdate estable. Compilación con todo: run **40129850349**. Siguiente: pruebas en ventana.
