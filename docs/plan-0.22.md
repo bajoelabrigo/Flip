@@ -41,11 +41,17 @@ elemento de Stock va en la subcategoría de su panel según su tipo (un texto ne
   que tenga un recorte de persona.
 - Cuando la Store apruebe la 0.21.0: TXT `version` = 0.21.0 (Jorge).
 
-## Estado
-- [x] Fotogramas clave: web
-- [x] Fotogramas clave: escritorio (código) — [ ] en ventana
-- [x] Mi cuenta: web — [ ] escritorio
-- [ ] Stock por panel: web — [ ] escritorio
-- [ ] Traducir los textos nuevos de la web (16 idiomas) al unir las ramas
-- [ ] Unir las ramas web, desplegar
-- [ ] Una compilación del escritorio con todo, prueba en ventana, versión, publicar
+## Estado (2026-10-24, mañana)
+- [x] Fotogramas clave: web, **desplegada** (rama `web/v022`, comprobada en getflipstudio.com/editor con
+      `scripts/check-key-types.mjs`).
+- [x] Fotogramas clave: escritorio, **probado en ventana** (portable de `84337`, run 40072114035): figuras, menú,
+      Suave al salir, Curvas › Salida de cubo, imán del cabezal. Arreglado después: «Salto» (decía «Mantener»),
+      Curvas ya no se sale de la ventana (`a1438`, sin compilar).
+- [x] Mi cuenta: web desplegada — [ ] escritorio (rama `flip/cuenta-usar`, en CI)
+- [x] Stock en cada panel + estrellas en todo: web desplegada (`web/stock-categorias` unida en `web/v022`; probada
+      con servidor simulado, falta con la cuenta real) — [ ] escritorio (rama `flip/stock-paneles`, en CI)
+- [x] Favoritos también en Mis efectos y estilos de subtítulos (web).
+- [x] Textos nuevos de la web en 15 idiomas (`f6a72`).
+- [ ] Unir `flip/cuenta-usar` y `flip/stock-paneles` en `flip/v0.21.1`, una compilación, prueba en ventana, versión
+      0.22.0, publicar.
+- Nota de traducción: en la web «Salto» es la misma clave que la animación «Salto» (en inglés sale «Pop»).
