@@ -1433,7 +1433,7 @@ void CoreTest::textStyleAndBlendModeSerialization()
     const drift::TextStyle &s = loadedClip.textStyle;
     QCOMPARE(loadedClip.blendMode, drift::BlendMode::Multiply);
     QCOMPARE(s.fontFamily, QStringLiteral("Courier New"));
-    QCOMPARE(s.pixelSize, 88);
+    QCOMPARE(qRound(s.pixelSize), 88);
     QCOMPARE(s.fontWeight, 300);
     QCOMPARE(s.italic, true);
     QCOMPARE(s.primaryColor(), QColor(10, 20, 30, 200));
@@ -1925,7 +1925,7 @@ void CoreTest::scaleTextStyleKeepsProportions()
     s.keyframes[QStringLiteral("layer.stroke.width")].setKeyframe(0, 4.0);
     s.keyframes[QStringLiteral("lineHeight")].setKeyframe(0, 1.2); // a ratio: unchanged
     drift::scaleTextStyle(s, 2.0);
-    QCOMPARE(s.pixelSize, 100);
+    QCOMPARE(qRound(s.pixelSize), 100);
     QCOMPARE(s.letterSpacing, 4.0);
     QCOMPARE(s.boxPadding, 16.0);
     QCOMPARE(s.boxRadius, 12.0);
@@ -2039,7 +2039,7 @@ void CoreTest::textPresetKeepsMotionKeyframesAndCounter()
     QCOMPARE(out.counterFrom, 10.0);
     QCOMPARE(out.textCase, QStringLiteral("upper"));
     QVERIFY(out.keyframes.contains(QStringLiteral("pixelSize")));
-    QCOMPARE(out.resolvedAt(drift::secondsToUs(0.5)).pixelSize, 60);
+    QCOMPARE(qRound(out.resolvedAt(drift::secondsToUs(0.5)).pixelSize), 60);
     QCOMPARE(dropped, QStringList{QStringLiteral("layer.stroke.width")});
 
     // A template that sets its own case wins it.
@@ -2064,11 +2064,11 @@ void CoreTest::textStyleKeyframesSerialization()
     QVERIFY(style.isAnimated());
 
     const drift::TextStyle mid = style.resolvedAt(drift::secondsToUs(1.0));
-    QCOMPARE(mid.pixelSize, 60);
+    QCOMPARE(qRound(mid.pixelSize), 60);
     QCOMPARE(mid.primaryColor().greenF(), 1.0);
     QCOMPARE(mid.primaryColor().redF(), 1.0);
     QVERIFY(mid.isAnimated()); // the copy keeps its tracks so renderers can tell it apart
-    QCOMPARE(style.resolvedAt(0).pixelSize, 40);
+    QCOMPARE(qRound(style.resolvedAt(0).pixelSize), 40);
 
     const QJsonObject json = drift::textStyleToJson(style);
     const QJsonObject keys = json.value(QStringLiteral("keyframes")).toObject();
@@ -2093,7 +2093,7 @@ void CoreTest::textStyleKeyframesSerialization()
     const drift::TextStyle &back = loaded.tracks()[0].clips[0].textStyle;
     QVERIFY(back.isAnimated());
     QCOMPARE(back.keyframes.size(), 2);
-    QCOMPARE(back.resolvedAt(drift::secondsToUs(2.0)).pixelSize, 80);
+    QCOMPARE(qRound(back.resolvedAt(drift::secondsToUs(2.0)).pixelSize), 80);
     QVERIFY(qAbs(back.resolvedAt(drift::secondsToUs(0.5)).primaryColor().greenF() - 0.5) < 0.001);
 
     // A gradient fill and a bend round-trip too and default to a plain solid fill on a straight line.
@@ -3369,7 +3369,7 @@ void CoreTest::subtitleClipsMergeWithGaps()
     QCOMPARE(merged.timelineDuration, drift::secondsToUs(8.0));
     QCOMPARE(merged.srcIn, drift::TimeUs{0});
     QCOMPARE(merged.srcOut, drift::secondsToUs(8.0));
-    QCOMPARE(merged.textStyle.pixelSize, 80);
+    QCOMPARE(qRound(merged.textStyle.pixelSize), 80);
     QCOMPARE(merged.transformX.keyframes().size(), 1);
     QCOMPARE(merged.fadeOutUs, drift::secondsToUs(0.25));
     QCOMPARE(merged.subtitleCues.size(), 3);
@@ -5100,7 +5100,7 @@ void CoreTest::userTextPresetsRoundTrip()
     // Resolvable through the shared entry point the preview provider and applyTextPreset use,
     // while staying out of the built-in catalog.
     QVERIFY(drift::textPresetForId(id).has_value());
-    QCOMPARE(drift::textStyleForPresetId(id)->pixelSize, 91);
+    QCOMPARE(qRound(drift::textStyleForPresetId(id)->pixelSize), 91);
     for (const drift::TextPreset &builtin : drift::textPresets())
         QVERIFY(builtin.id != id);
 
@@ -5128,7 +5128,7 @@ void CoreTest::userTextPresetsRoundTrip()
     store.reload();
     QCOMPARE(store.presetForId(id)->label, QStringLiteral("Renamed"));
     QCOMPARE(store.presetForId(id)->sampleText, QStringLiteral("Hello there"));
-    QCOMPARE(store.presetForId(id)->style.pixelSize, 120);
+    QCOMPARE(qRound(store.presetForId(id)->style.pixelSize), 120);
     QCOMPARE(store.presetForId(id)->style.boxShape, QStringLiteral("burst"));
     QVERIFY(store.presetForId(id)->style.packId.isEmpty());
     QVERIFY(store.update(id, style));
@@ -5180,7 +5180,7 @@ void CoreTest::userTextPresetsRoundTrip()
     store.reload();
     QCOMPARE(store.presetForId(stockId)->stockId, QStringLiteral("tend-test"));
     QCOMPARE(store.presetForId(stockId)->label, QStringLiteral("Trend 2"));
-    QCOMPARE(store.presetForId(stockId)->style.pixelSize, 120);
+    QCOMPARE(qRound(store.presetForId(stockId)->style.pixelSize), 120);
     QVERIFY(store.presetForId(importedId)->stockId.isEmpty());
     QFile::remove(stockPath);
 

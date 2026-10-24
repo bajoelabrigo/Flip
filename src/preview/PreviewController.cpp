@@ -329,9 +329,11 @@ QVariantMap PreviewController::applyGizmoDrag(const QVariantMap &start, const QS
     // Scaling a text box both ways scales what it shows, as the 2D corner grips do.
     const bool isText = clip.type == drift::ClipType::Text || clip.type == drift::ClipType::Subtitle;
     if (isText && handle == QLatin1String("xy")) {
-        const int pixelSize = qBound(
-            8, qRound(start.value(QStringLiteral("pixelSize"), 64).toDouble() * result.uniformFactor), 800);
-        if (clip.textStyle.pixelSize != pixelSize) {
+        const double pixelSize = qBound(
+            8.0, start.value(QStringLiteral("pixelSize"), 64).toDouble() * result.uniformFactor, 800.0);
+        if (!qFuzzyCompare(clip.textStyle.pixelSize, pixelSize) && clip.textStyle.pixelSize > 0) {
+            // The whole look grows with it, as the 2D corner does (scaleTextStyle).
+            drift::scaleTextStyle(clip.textStyle, pixelSize / clip.textStyle.pixelSize);
             clip.textStyle.pixelSize = pixelSize;
             wrote = true;
             keys << QStringLiteral("text.pixelSize");

@@ -3749,7 +3749,7 @@ QSizeF fittedTextSizeForStyle(const QString &text, const drift::TextStyle &style
     const QSizeF natural = drift::text::naturalTextSize(text, style, maxWidth);
     if (!natural.isValid())
         return {};
-    const double em = qMax(1, style.pixelSize);
+    const double em = qMax(1.0, style.pixelSize);
     const double stroke = qMax(0.0, drift::textStrokeWidth(style, false));
     // The preview lays the same words out at its own scale, where the font size is rounded to
     // whole render pixels: the relative share keeps a line from wrapping there.
@@ -10252,7 +10252,7 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     if (translated) {
         // The English line sits right above the original captions, a little smaller.
         clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
-        clip.textStyle.pixelSize = qMax(12, int(clip.textStyle.pixelSize * 0.85));
+        clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
         clip.name = tr("English subtitles");
     }
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
@@ -12994,7 +12994,7 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
     if (m.contains(QStringLiteral("fontFamily")))
         s.fontFamily = m.value(QStringLiteral("fontFamily")).toString();
     if (m.contains(QStringLiteral("pixelSize")))
-        s.pixelSize = qBound(8, m.value(QStringLiteral("pixelSize")).toInt(), 800);
+        s.pixelSize = qBound(8.0, m.value(QStringLiteral("pixelSize")).toDouble(), 800.0);
     if (m.contains(QStringLiteral("fontWeight")))
         s.fontWeight = qBound(100, m.value(QStringLiteral("fontWeight")).toInt(), 900);
     if (m.contains(QStringLiteral("italic")))
@@ -13554,7 +13554,7 @@ bool AppController::removeUserFont(const QString &family)
 }
 
 void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPixels, double yPixels,
-                                       double widthPixels, double heightPixels, int pixelSize)
+                                       double widthPixels, double heightPixels, double pixelSize)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
@@ -13582,8 +13582,8 @@ void AppController::previewSetTextRect(int trackIndex, int clipIndex, double xPi
     wrote = writeKeyframeValue(clip.transformH, relative, qMax(1.0, heightPixels), m_autoKeyEnabled, false)
             || wrote;
 
-    const int clamped = qBound(8, pixelSize, 800);
-    if (clip.textStyle.pixelSize != clamped && clip.textStyle.pixelSize > 0) {
+    const double clamped = qBound(8.0, pixelSize, 800.0);
+    if (!qFuzzyCompare(clip.textStyle.pixelSize, clamped) && clip.textStyle.pixelSize > 0) {
         drift::scaleTextStyle(clip.textStyle, double(clamped) / clip.textStyle.pixelSize);
         clip.textStyle.pixelSize = clamped;
         wrote = true;

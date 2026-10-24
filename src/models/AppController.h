@@ -754,7 +754,7 @@ public:
                                         double widthPixels, double heightPixels);
     // Text resizes scale the glyphs along with the box, so the size rides with the rect.
     Q_INVOKABLE void previewSetTextRect(int trackIndex, int clipIndex, double xPixels, double yPixels,
-                                        double widthPixels, double heightPixels, int pixelSize);
+                                        double widthPixels, double heightPixels, double pixelSize);
     Q_INVOKABLE void previewSetClipRotation(int trackIndex, int clipIndex, double degrees);
     Q_INVOKABLE void previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                             double atSeconds, double value);

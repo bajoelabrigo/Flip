@@ -1649,7 +1649,7 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     drift::scaleTemplateLayout(tracks, 1080, 1920, 720, 1280);
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformX.evaluateAt(0), 80.0));
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(0).transformW.evaluateAt(0), 360.0));
-    QCOMPARE(tracks.at(0).clips.at(1).textStyle.pixelSize, 54);
+    QCOMPARE(qRound(tracks.at(0).clips.at(1).textStyle.pixelSize), 54);
     // An unset box was the whole canvas: it becomes the whole scaled canvas.
     QVERIFY(qFuzzyCompare(tracks.at(0).clips.at(1).transformW.evaluateAt(0), 720.0));
 
@@ -6102,7 +6102,7 @@ void EditorStateTest::mergeSelectedSubtitleClips()
     QCOMPARE(clips.size(), 1);
     const drift::Clip &merged = clips.at(0);
     QCOMPARE(merged.id, QStringLiteral("sub-0"));
-    QCOMPARE(merged.textStyle.pixelSize, 40);
+    QCOMPARE(qRound(merged.textStyle.pixelSize), 40);
     QCOMPARE(merged.timelineStart, drift::TimeUs{0});
     QCOMPARE(merged.timelineDuration, drift::secondsToUs(14.0));
     QCOMPARE(merged.subtitleCues.size(), 3);

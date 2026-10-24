@@ -347,13 +347,15 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
 
     const double letterSpacing = qFuzzyIsNull(style.letterSpacing) ? 0.0 : style.letterSpacing * renderScale;
     const double wordSpacing = qFuzzyIsNull(style.wordSpacing) ? 0.0 : style.wordSpacing * renderScale;
-    const int basePx = qMax(4, qRound(style.pixelSize * renderScale));
-    int accentPx = basePx;
+    // Fractional sizes, not whole render pixels: a keyed size grows smoothly, and the preview's
+    // scale and the export's lay out the same line breaks (auditoría D8).
+    const double basePx = qMax(4.0, style.pixelSize * renderScale);
+    double accentPx = basePx;
     const double accentScale = style.accent.sizeScale;
     if (style.accent.rule != drift::WordAccentRule::None && accentScale > 0.0 && !qFuzzyCompare(accentScale, 1.0))
-        accentPx = qMax(1, qRound(style.pixelSize * accentScale * renderScale));
+        accentPx = qMax(1.0, style.pixelSize * accentScale * renderScale);
     const bool anyAccent = std::find(accentFlags.cbegin(), accentFlags.cend(), true) != accentFlags.cend();
-    const bool mixedSizes = accentPx != basePx && anyAccent;
+    const bool mixedSizes = !qFuzzyCompare(accentPx, basePx) && anyAccent;
 
     std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
 

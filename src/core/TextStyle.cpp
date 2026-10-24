@@ -1098,7 +1098,7 @@ void scaleTextStyle(TextStyle &s, double factor)
 {
     if (!(factor > 0.0) || qFuzzyCompare(factor, 1.0))
         return;
-    s.pixelSize = qMax(1, qRound(s.pixelSize * factor));
+    s.pixelSize = qMax(1.0, s.pixelSize * factor);
     s.letterSpacing *= factor;
     s.wordSpacing *= factor;
     s.boxPadding *= factor;
@@ -1186,7 +1186,7 @@ bool setTextStyleScalar(TextStyle &s, const QString &rawKey, double value)
     if (key.isEmpty())
         return false;
     if (key == QStringLiteral("pixelSize"))
-        s.pixelSize = qMax(1, qRound(value));
+        s.pixelSize = qMax(1.0, value);
     else if (key == QStringLiteral("letterSpacing"))
         s.letterSpacing = value;
     else if (key == QStringLiteral("lineHeight"))
@@ -1371,7 +1371,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
         return s; // old projects: keep defaults
     s.packId = o.value(QStringLiteral("packId")).toString(s.packId);
     s.fontFamily = o.value(QStringLiteral("fontFamily")).toString(s.fontFamily);
-    s.pixelSize = o.value(QStringLiteral("pixelSize")).toInt(s.pixelSize);
+    s.pixelSize = o.value(QStringLiteral("pixelSize")).toDouble(s.pixelSize);
     // Projects written before the weight ladder only had a bold flag.
     if (o.contains(QStringLiteral("fontWeight")))
         s.fontWeight = qBound(100, o.value(QStringLiteral("fontWeight")).toInt(s.fontWeight), 900);

@@ -1205,7 +1205,7 @@ void MotionTrackController::clear(int trackIndex, int clipIndex)
         && clip.textStyle.keyframes.contains(QStringLiteral("pixelSize"))) {
         const drift::KeyframeTrack<double> size = clip.textStyle.keyframes.value(QStringLiteral("pixelSize"));
         if (!size.isEmpty())
-            clip.textStyle.pixelSize = int(std::lround(size.evaluateAt(at - clip.timelineStart)));
+            clip.textStyle.pixelSize = size.evaluateAt(at - clip.timelineStart);
         clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
     }
     clip.motionTrack.reset();
@@ -1281,7 +1281,7 @@ bool MotionTrackController::setOption(int trackIndex, int clipIndex, const QStri
             clip.transformH.setKeyframe(0, anchor.height());
             if (isText(clip) && clip.motionTrack->anchorPixelSize > 0.0) {
                 clip.textStyle.keyframes.remove(QStringLiteral("pixelSize"));
-                clip.textStyle.pixelSize = int(std::lround(clip.motionTrack->anchorPixelSize));
+                clip.textStyle.pixelSize = clip.motionTrack->anchorPixelSize;
             }
         }
     } else {

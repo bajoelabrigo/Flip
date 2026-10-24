@@ -83,7 +83,9 @@ struct TextStyle
 {
     QString packId; // last applied style pack; cleared once the style is hand-edited
     QString fontFamily = QStringLiteral("Inter");
-    int pixelSize = 64; // at project height
+    // At project height. A real number since 0.22.1, so a keyed zoom grows smoothly instead of
+    // a pixel at a time, and the preview and the export lay out the same size.
+    double pixelSize = 64.0;
     int fontWeight = 700; // 100..900
     bool italic = false;
 
