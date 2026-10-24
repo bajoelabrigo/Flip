@@ -644,7 +644,10 @@ va en la rama `flip/v0.21.1`, que se compila y prueba en ventana una sola vez al
 - [x] Opciones de la vista previa: Calidad, Velocidad, Descodificación y conjuntos de guías — ya estaban (`Preview.tsx`, `PreviewGuides.tsx`).
 - [ ] Efectos de audio como carril (hoy van en el clip; al `.flip` ya viajan como carril).
 - [x] Ocultar por profundidad — ya estaba (`ClipSections.tsx`).
-- [ ] Quitar muletillas («eh», «mmm») con la transcripción (Whisper con tiempos por palabra).
+- [x] Quitar silencios también quita muletillas (`audio/silences.ts › isFillerWord/withoutFillers`,
+      `subtitles/words.ts`). **Trampa:** el Whisper del sitio (`/modelos/whisper-base`) no se exportó con
+      `output_attentions`, así que no da tiempos por palabra: se usa el de cada frase repartido por letras. Y Whisper
+      limpia muletillas (quita los «eh», escribe «mmm» como «M-E-M-M»): por eso la regla de los zumbidos (`HUM`).
 - [x] Karaoke: la palabra que suena sale del tiempo del texto repartido por letras (`karaokeWordAt`, como
       `activeWordIndexAt` del escritorio). El cursor y el barrido ya estaban (`textAnim.ts`, `textFx.ts`).
 - [ ] Tiradores 3D en la vista previa y la barra de herramientas sobre el lienzo.
