@@ -144,30 +144,36 @@ Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, doubl
 {
     Bend bend;
     // Around a circle: the line's own length is the arc, a share of the whole circumference, and
-    // the middle of the line stays on the baseline with the circle below it (above, inward).
+    // the ring is centred on the line's box, starting at the top (letters outward; inward when
+    // bent down). A whole ring keeps a letter's gap where the end meets the start.
     if (style.pathCircle > 0.5 && !words.isEmpty()) {
         double left = words.first().cellRect.left();
         double right = words.first().cellRect.right();
+        double top = words.first().cellRect.top();
+        double bottom = words.first().cellRect.bottom();
         for (const text::StyledWord &word : words) {
             if (word.line != words.first().line)
                 return bend; // multi-line blocks stay straight
             left = qMin(left, word.cellRect.left());
             right = qMax(right, word.cellRect.right());
+            top = qMin(top, word.cellRect.top());
+            bottom = qMax(bottom, word.cellRect.bottom());
         }
         const double width = right - left;
         if (width < 1.0)
             return bend;
         const double share = qBound(0.1, style.pathCircle / 100.0, 1.0);
+        const double gap = share > 0.95 ? (bottom - top) * 0.6 : 0.0;
+        const double around = width + gap;
         bend.active = true;
         bend.up = style.pathBend >= 0.0;
         bend.left = left;
         bend.width = width;
         bend.baseline = words.first().baselineY;
-        bend.radius = width / (6.283185307179586 * share);
+        bend.radius = around / (6.283185307179586 * share);
         bend.sweep = 6.283185307179586 * share;
-        bend.arcLen = width;
-        const double mid = left + width / 2.0;
-        bend.centre = bend.up ? QPointF(mid, bend.baseline + bend.radius) : QPointF(mid, bend.baseline - bend.radius);
+        bend.arcLen = around;
+        bend.centre = QPointF(left + width / 2.0, (top + bottom) / 2.0);
         return bend;
     }
     const double rise = text::textBendRise(style) * renderScale;
