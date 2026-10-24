@@ -233,12 +233,14 @@ Item {
 
                             KeyframeGlyph {
                                 anchors.centerIn: parent
-                                size: keyItem.isPicked || keyMouse.containsMouse ? 13 : 11
+                                size: keyItem.isPicked ? 15 : (keyMouse.containsMouse ? 13 : 11)
                                 inHalf: keyItem.halves["in"]
                                 outHalf: keyItem.halves["out"]
                                 color: span.keyColor
                                 picked: keyItem.isPicked
-                                lit: keyMouse.containsMouse || keyMouse.pressed || keyItem.atPlayhead
+                                // Only the pointer lights a key: lighting every key under the
+                                // playhead read as several picked at once (X and Y together).
+                                lit: keyMouse.containsMouse || keyMouse.pressed
                             }
 
                             MouseArea {

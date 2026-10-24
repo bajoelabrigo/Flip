@@ -31,8 +31,8 @@ Item {
         "hold": "M6 0 L11 0 Q12 0 12 1 L12 11 Q12 12 11 12 L6 12 Z",
         "bezier": "M6 0 A6 6 0 0 1 6 12 Z"
     })
-    // Picked keys turn yellow, as After Effects' selected keys.
-    readonly property color face: picked ? "#ffd23f" : (lit ? Qt.lighter(color, 1.35) : color)
+    // Picked keys turn red and grow (Jorge: easier to see than After Effects' yellow).
+    readonly property color face: picked ? "#ff3b45" : (lit ? Qt.lighter(color, 1.35) : color)
 
     Shape {
         anchors.centerIn: parent
