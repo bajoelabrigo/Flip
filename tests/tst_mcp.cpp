@@ -6581,12 +6581,12 @@ void McpTest::stockInstallsEachDeliveryKind()
     };
     state.useStockLibraryItem(row(QStringLiteral("flip:shape:heart-test"), QStringLiteral("Test heart"),
                                   QStringLiteral("shape")), QStringLiteral("place"));
-    QCOMPARE(clipsOf(drift::ClipType::Shape), 1);
+    QVERIFY2(clipsOf(drift::ClipType::Shape) == 1, qPrintable(state.lastMessage()));
     QVERIFY(state.lastMessage().contains(QStringLiteral("Test heart")));
     // The shape is selected, not a text: the style comes as a new text at the playhead.
     state.useStockLibraryItem(row(QStringLiteral("flip:text-style:neon-test"), QStringLiteral("Neon caption"),
                                   QStringLiteral("text-style")), QStringLiteral("place"));
-    QCOMPARE(clipsOf(drift::ClipType::Text), 1);
+    QVERIFY2(clipsOf(drift::ClipType::Text) == 1, qPrintable(state.lastMessage()));
     // That text is selected now: the animation goes on it instead of on another one.
     state.useStockLibraryItem(row(QStringLiteral("flip:text-animation:pop-test"), QStringLiteral("Pop"),
                                   QStringLiteral("text-animation")), QStringLiteral("place"));

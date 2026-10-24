@@ -2097,6 +2097,15 @@ QVariantMap AppController::stockHistoryEntry(const QString &itemId) const
 {
     if (!m_marketClient)
         return {};
+    // A download finished in this run knows best (the history may be older, or not kept).
+    const QVariantMap job = m_marketClient->downloadInfo(itemId);
+    if (job.value(QStringLiteral("status")).toString() == QLatin1String("done")
+        && !job.value(QStringLiteral("filePath")).toString().isEmpty()) {
+        return QVariantMap{{QStringLiteral("itemId"), itemId},
+                           {QStringLiteral("filePath"), job.value(QStringLiteral("filePath"))},
+                           {QStringLiteral("installedId"), job.value(QStringLiteral("installedId"))},
+                           {QStringLiteral("delivery"), job.value(QStringLiteral("delivery"))}};
+    }
     for (const QVariant &row : m_marketClient->downloadHistory()) {
         const QVariantMap entry = row.toMap();
         if (entry.value(QStringLiteral("itemId")).toString() == itemId)
