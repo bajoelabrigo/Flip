@@ -53,6 +53,17 @@ elemento de Stock va en la subcategoría de su panel según su tipo (un texto ne
       con servidor simulado, falta con la cuenta real) — [ ] escritorio (rama `flip/stock-paneles`, en CI)
 - [x] Favoritos también en Mis efectos y estilos de subtítulos (web).
 - [x] Textos nuevos de la web en 15 idiomas (`f6a72`).
-- [ ] Unir `flip/cuenta-usar` y `flip/stock-paneles` en `flip/v0.21.1`, una compilación, prueba en ventana, versión
-      0.22.0, publicar.
+- [x] Unidas `flip/stock-paneles`, `flip/v0.21.1` y `flip/cuenta-usar` en la rama **`flip/v0.22.0`** (`d24b1`).
+      Conflicto resuelto: el aviso de instalación de Stock lleva `(…, error, localId)` (orden de Stock); en Mi cuenta
+      un LUT se aplica por su archivo (su id es `user:<archivo>`).
+- [x] Fotogramas clave (Jorge, 2026-10-24, tarde): la elegida **roja y más grande** (17 px; el resto 13), el cabezal
+      ya no ilumina las claves de ese instante (parecían dos elegidas, X e Y), y la **ventana de curvas de arriba**
+      (`KeyframeGraph.qml`) comparte todo con las filas de la pista: misma selección, mismas figuras, clic derecho con
+      el mismo menú y Curvas, mismos atajos (`components/timeline/KeyframeKeyTools.qml`, uno por línea de tiempo en
+      `TimelinePanel`). **Supr** borra las claves elegidas antes que el clip (`Main.qml › dispatchAction`).
+- [ ] Compilación de `flip/v0.22.0` (run 40080859016), probar en ventana (fotogramas clave arriba y abajo, Mi
+      cuenta › Descargas, Stock en cada panel, `webHidden`), versión 0.22.0 en `CMakeLists.txt`,
+      `release-notes/0.22.0.md`, publicar.
+- Ojo: el 2026-10-24 había otra sesión («Tipos de keyframe y stock») tocando `flip/v0.21.1`; no se pudo hablar con
+  ella. Antes de publicar, mirar que no haya commits nuevos en `flip/v0.21.1` sin unir.
 - Nota de traducción: en la web «Salto» es la misma clave que la animación «Salto» (en inglés sale «Pop»).
