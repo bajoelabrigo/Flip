@@ -34,7 +34,8 @@ Jorge: «al darle clic a algo de esa lista no lo aplica; deberían salir 2 opcio
 Ver `docs/plan-stock-por-categoria.md`. Jorge (2026-10-24): Tendencias reúne **solo lo más usado**; además cada
 elemento de Stock va en la subcategoría de su panel según su tipo (un texto neón en Títulos › Neón, etc.).
 - **Web**: en curso (rama `web/stock-categorias`).
-- **Escritorio**: después de la web.
+- **Escritorio** (rama `flip/stock-paneles`, desde `flip/v0.21.1`): hecho en código, ver
+  `docs/plan-stock-por-categoria.md` › «Escritorio». **Falta: probar en ventana** con la cuenta.
 
 ## 4. Lo que ya estaba pendiente
 - 0.21.1: medios ocultos de la web también ocultos en Medios (`webHidden`), probar en ventana con un `.flip` de la web

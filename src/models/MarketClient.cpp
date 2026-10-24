@@ -629,8 +629,10 @@ void MarketClient::loadUsage(const std::function<void(bool)> &then)
         *page = [this, generation, finish, page](int index, const QString &cursor) {
             searchPage(QStringLiteral("all"), QString(), cursor,
                        [this, generation, finish, page, index](bool ok, const QJsonObject &body) {
-                if (generation != m_panelGeneration)
+                if (generation != m_panelGeneration) {
+                    QTimer::singleShot(0, this, [page] { *page = nullptr; });
                     return;
+                }
                 if (ok) {
                     for (const QJsonValue &value : body.value(QStringLiteral("items")).toArray())
                         m_usageUsed.append(objectToMap(value.toObject()));

@@ -180,7 +180,7 @@ Item {
                     sidePadding: Theme.pagePadding
                     flickable: stockView
                     type: root.activeCategory === root.backgroundsId ? "background" : "animation"
-                    layout: root.activeCategory === root.backgroundsId ? "tall" : "square"
+                    layout: root.activeCategory === root.backgroundsId ? "wide" : "square"
                     categories: root.activeCategory === root.backgroundsId ? [""]
                               : root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
                     glyph: Theme.icons.smile
