@@ -171,3 +171,60 @@ restaurar; las máscaras en una fila que no tape el video ni la línea de tiempo
 - Falta: probarlo Jorge en su celular; arrastrar el recorte en la vista previa (hoy son deslizadores).
 
 - **Trampa (2026-10-22):** `apple-mobile-web-app-status-bar-style` va en `black`, no en `black-translucent`: con translúcida, la app instalada en el iPhone mide la pantalla más corta (la barra de estado) y la barra de abajo queda alta aunque todo vaya con `position: fixed; inset: 0`. Así lo tiene la app de gastos (`mern-expenses-tracker`). El iPhone lo lee al instalar: hay que borrar el ícono y volver a agregarlo (`flipstudio-app` `web/movil`).
+
+## Etapa 7: menús y paneles de CapCut, uno por uno (Jorge, 2026-10-23, capturas `Downloads\capcut movil\1…23.png`)
+
+Pedido: «adaptes estas fotos a lo que tenemos y lo que no tenemos o capcut no tiene lo adaptas a lo nuestro»; será
+también el formato del `.apk`. Simulación nueva: `node scripts/check-phone-bar.mjs <carpeta> 5199` recorre las dos
+barras y abre cada herramienta (capturas por paso). Hoy casi todo existe, pero se abre en hojas altas tipo inspector
+que tapan la línea de tiempo; CapCut usa filas compactas con ✓ y sub-filas con «‹».
+
+**Barra sin clip (1–2):** Ediciones · Audio · Texto · Efectos · Superposición · Subtítulos · Filtros · Ajustar ·
+Stickers | Transiciones · Plantillas · Stock (lo nuestro) | Texto a voz (IA) · Relación de aspecto · Fondo.
+- «Editar» → «Ediciones»; «Formato» → «Relación de aspecto»; «Ajustar» sin clip agrega una capa de ajuste con Ajustar
+  abierto (como CapCut). «Genera archivos multimedia» y «Avatar de IA» no los tenemos: en su lugar Texto a voz.
+- Separadores entre grupos (`TouchTool.sep`).
+
+**Barra con video (3–7):** Dividir · Volumen · Animaciones · Efectos · Eliminar · Velocidad · Ritmos · Recortar ·
+Duplicar | Sustituir · Superposición/Pista principal · Ajustar · Filtros | Retoque · Calidad del video · Eliminar
+fondo | Opacidad | Transformación · Estabilización · Seguimiento | Extraer audio · Reducir ruido | Efectos de audio |
+Congelar · Revertir · Máscara · Desvincular (si tiene audio enlazado).
+- Sin equivalente (IA en la nube de CapCut): Ampliación/Remix/Contacto visual/Sincronización labial/Traductor/Aislar voz.
+
+**Paneles (8–23), compactos, sobre la línea de tiempo:**
+- 8 Volumen: un deslizador 0–1000 % y «Reducir el ruido» (el de la web).
+- 9 Animaciones: ya es así (TouchAnim); revisar chips «En tendencia» primero.
+- 10 Efectos: sub-fila Efectos de video · Plantillas de efectos · Efectos de color · Efectos con IA (Retoque/Cuerpo).
+- 11–13 Velocidad: sub-fila Normal · Curva. Normal = regla 0.1×–100× con duración antes → después y «Cambiar tono del
+  audio»; Curva = fila de tarjetas (Ninguna, Personalizada, Montaje, Héroe, Bala, Salto, Destellos).
+- 14 Recortar: pantalla completa con la imagen y el marco, regla de girar (−45°…45°) y relaciones (A medida, 9:16, 16:9,
+  1:1, 4:3, 2:1, 2.35:1), Restablecer.
+- 15 Sustituir: el selector del teléfono (solo medios); el clip se queda con su lugar, duración y todo lo aplicado.
+- 16–17 Ajustar y 18 Filtros: ya están (TouchAdjustPage); revisar que la hoja sea baja.
+- 19 Calidad del video: botones redondos (Mejorar video IA, Estabilización, Reducir ruido de imagen si lo hay, Cámara lenta fluida).
+- 20–22 Eliminar fondo: sub-fila Eliminación automática · Eliminación personalizada · Chroma key. Chroma = selector de
+  color en la vista previa + Intensidad, Sombra (reflejo), Borde difuminado.
+- 23 Seguimiento: Rostro · Cuerpo · Personalizado + «Seguir».
+
+- 24 Subtítulos automáticos: Generar desde · Idioma de origen · Plantillas (fila) · Opciones avanzadas (plegadas:
+  palabras por línea y todos los estilos) · Generar abajo (`SubtitlesPanel.tsx`, con `TouchUiContext`).
+
+**Hecho (2026-10-23, `flipstudio-app` rama `web/movil-capcut`):**
+- Barras en el orden y con los nombres de CapCut, con separadores entre grupos (`TouchTool.sep`) y lo nuestro al final.
+- `components/TouchPanels.tsx`: Volumen, Velocidad › Normal (regla logarítmica 0.25×–4×, duración antes → después,
+  Cámara lenta fluida) y › Curva (tarjetas con el dibujo de la curva), Chroma key (selector de color tocando la vista
+  previa + Intensidad/Sombra/Borde difuminado), Calidad del video (botones redondos).
+- Sub-filas: Velocidad (Normal · Curva), Efectos (de video · Plantillas · de color · IA · Aplicados), Eliminar fondo
+  (automática · personalizada · Chroma key).
+- Acciones nuevas: Sustituir (el selector del teléfono; el clip conserva lugar y efectos, se fija el formato y se quita
+  el recorte viejo), Superposición ⇄ Pista principal, Ritmos (marcas amarillas en la regla con los golpes de la música;
+  otro toque las quita), Reducir el ruido, Desvincular, Ajustar sin clip (capa de ajuste con Ajustar abierto).
+- `components/TouchCrop.tsx`: Recortar a pantalla completa (marco con esquinas y lados, tercios, Rotar en regla,
+  relaciones de aspecto, Restablecer, ✕/✓).
+- Seguimiento: «Selecciona el objeto…», Rostro / Personalizado y «Seguir» ancho. Se llama «Seguimiento» y no «de
+  cámara»: el nuestro hace que un elemento siga algo del video; el de CapCut mueve el encuadre (no lo tenemos).
+- Pruebas: `scripts/check-phone-bar.mjs` (barras, herramientas y sub-filas) y `scripts/check-phone-actions.mjs`
+  (Superposición ⇄ Pista principal, Recortar, Sustituir, Chroma, Ritmos, Subtítulos), iPhone 13 emulado.
+- **Trampa:** en este repo los tipos se revisan con `npx tsc -b` (el `tsconfig.json` solo tiene referencias); `tsc -p .`
+  no revisa nada y sale limpio.
+- Falta: probarlo Jorge en su celular; Animaciones con «En tendencia» primero; Ajustar/Filtros como hoja baja.
