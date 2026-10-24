@@ -150,6 +150,26 @@
         <translation>리터치</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>룩</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>장면 템플릿</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>클립 애니메이션</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>마스크</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>안녕하세요</translation>
     </message>
@@ -2654,6 +2674,10 @@
     <message>
         <source>All</source>
         <translation>전체</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12474,6 +12498,14 @@ NEXT TIME</source>
         <translation>트렌드</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>오버레이</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>룩을 적용할 클립을 선택하세요</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>목소리를 바꾸려면 소리가 있는 클립을 선택하세요</translation>
     </message>
@@ -13723,6 +13755,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>룩</translation>
     </message>
@@ -13773,6 +13809,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>아직 가져온 LUT가 없습니다. .cube 파일을 가져오거나 Stock에서 LUT를 받으세요.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>아직 즐겨찾기가 없습니다. 필터의 별을 누르면 여기에 저장됩니다.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15679,6 +15719,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>모든 파일(*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>아직 즐겨찾기가 없습니다. 마스크의 별을 누르면 여기에 저장됩니다.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -18971,6 +19019,10 @@ If playback stutters, try another.</source>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>템플릿 검색</translation>
     </message>
@@ -20418,6 +20470,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>도형 검색</translation>
     </message>
@@ -20596,6 +20652,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>사운드 검색</translation>
@@ -21337,6 +21397,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>배경</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>스티커 검색</translation>
     </message>
@@ -21612,6 +21680,57 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>변경</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>로그인하고 트렌드 보기</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>트렌드를 불러오지 못했습니다</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>트렌드를 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>아직 아무것도 없습니다.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>트렌드는 Stock에서 오며 무료 계정이 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>브라우저를 기다리는 중…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>로그인</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>다시 시도</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — 클릭해서 사용</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — 클릭해서 다운로드하고 사용</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>재생 헤드에 추가</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>불러오는 중…</translation>
     </message>
 </context>
 <context>
@@ -22847,6 +22966,10 @@ If playback stutters, try another.</source>
         <translation>밑줄</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1”은(는) 다른 탭(인, 아웃, 루프)용입니다. 지금 그곳에 있습니다.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>부드럽게 천천히</translation>
     </message>
@@ -23289,6 +23412,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Stock 즐겨찾기</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Stock에서</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26179,6 +26314,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>타임라인에서 두 클립 중 첫 번째 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>트렌드</translation>
     </message>
     <message>
         <source>My Transitions</source>

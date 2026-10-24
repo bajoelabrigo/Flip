@@ -150,6 +150,26 @@
         <translation>レタッチ</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>ルック</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>シーンテンプレート</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>クリップのアニメーション</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>マスク</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>こんにちは</translation>
     </message>
@@ -2654,6 +2674,10 @@
     <message>
         <source>All</source>
         <translation>すべて</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12474,6 +12498,14 @@ NEXT TIME</source>
         <translation>トレンド</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>オーバーレイ</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>ルックを適用するクリップを選択してください</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>声を変えるには音声のあるクリップを選択してください</translation>
     </message>
@@ -13723,6 +13755,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>ルック</translation>
     </message>
@@ -13773,6 +13809,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>インポートした LUT はまだありません。.cube ファイルをインポートするか、Stock で LUT を入手してください。</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>お気に入りはまだありません。フィルターの星をタップするとここに保存されます。</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15679,6 +15719,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>お気に入りはまだありません。マスクの星をタップするとここに保存されます。</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -18972,6 +19020,10 @@ If playback stutters, try another.</source>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>テンプレートを検索</translation>
     </message>
@@ -20419,6 +20471,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>シェイプを検索</translation>
     </message>
@@ -20597,6 +20653,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>効果音を検索</translation>
@@ -21339,6 +21399,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>背景</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>スタンプを検索</translation>
     </message>
@@ -21614,6 +21682,57 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>変更</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>サインインしてトレンドを見る</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>トレンドを読み込めませんでした</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>トレンドを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>まだ何もありません。</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>トレンドは Stock から届きます。無料アカウントが必要です。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ブラウザーを待っています…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>サインイン</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>再試行</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — クリックして使う</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — クリックしてダウンロードして使う</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>再生ヘッドに追加</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>読み込み中…</translation>
     </message>
 </context>
 <context>
@@ -22849,6 +22968,10 @@ If playback stutters, try another.</source>
         <translation>下線</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>「%1」は別のタブ（イン、アウト、ループ）用です。今はそちらにあります。</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>なめらか弱</translation>
     </message>
@@ -23291,6 +23414,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Stock のお気に入り</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Stock から</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26181,6 +26316,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>タイムラインで 2 つのクリップのうち最初のクリップを選択してください。</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>トレンド</translation>
     </message>
     <message>
         <source>My Transitions</source>

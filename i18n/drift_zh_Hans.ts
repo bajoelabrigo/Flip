@@ -150,6 +150,26 @@
         <translation>美颜</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>风格</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>场景模板</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>片段动画</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>蒙版</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>你好</translation>
     </message>
@@ -2654,6 +2674,10 @@
     <message>
         <source>All</source>
         <translation>全部</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>收藏</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12474,6 +12498,14 @@ NEXT TIME</source>
         <translation>热门</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>叠加</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>请选择一个片段来应用风格</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>选择一个有声音的片段来改变它的声音</translation>
     </message>
@@ -13723,6 +13755,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>风格</translation>
     </message>
@@ -13773,6 +13809,10 @@ NEXT TIME</source>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>还没有导入的 LUT。导入 .cube 文件，或在 Stock 中获取 LUT。</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>还没有收藏。点击滤镜上的星标即可保存到这里。</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15679,6 +15719,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>收藏</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>还没有收藏。点击蒙版上的星标即可保存到这里。</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -18972,6 +19020,10 @@ If playback stutters, try another.</source>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>搜索模板</translation>
     </message>
@@ -20419,6 +20471,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>搜索形状</translation>
     </message>
@@ -20597,6 +20653,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>搜索音效</translation>
@@ -21338,6 +21398,14 @@ If playback stutters, try another.</source>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>背景</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>搜索贴纸</translation>
     </message>
@@ -21613,6 +21681,57 @@ If playback stutters, try another.</source>
     <message>
         <source>Change</source>
         <translation>更改</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>登录以查看热门内容</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>无法加载热门内容</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>正在加载热门内容…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>这里还没有内容。</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>热门内容来自 Stock，需要你的免费账户。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — 点击使用</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — 点击下载并使用</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>添加到播放头</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>正在加载…</translation>
     </message>
 </context>
 <context>
@@ -22848,6 +22967,10 @@ If playback stutters, try another.</source>
         <translation>下划线</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1”属于另一个标签页（入场、出场或循环）：现在已在那里。</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>柔和</translation>
     </message>
@@ -23290,6 +23413,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Stock 收藏</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>来自 Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26180,6 +26315,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>请在时间线上选择两个片段中的第一个。</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>热门</translation>
     </message>
     <message>
         <source>My Transitions</source>

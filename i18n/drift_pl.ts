@@ -150,6 +150,26 @@
         <translation>Retusz</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Looki</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT-y</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Szablony scen</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Animacje klipu</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Maski</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Cześć</translation>
     </message>
@@ -2660,6 +2680,10 @@
     <message>
         <source>All</source>
         <translation>Wszystko</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Ulubione</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12560,6 +12584,14 @@ ZOBACZENIA</translation>
         <translation>Trendy</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Nakładki</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Zaznacz klip, aby nałożyć look</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Zaznacz klip z dźwiękiem, aby zmienić jego głos</translation>
     </message>
@@ -13813,6 +13845,10 @@ ZOBACZENIA</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Looki</translation>
     </message>
@@ -13863,6 +13899,10 @@ ZOBACZENIA</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Nie masz jeszcze zaimportowanych LUT-ów. Zaimportuj plik .cube albo pobierz LUT-y ze Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Brak ulubionych. Oznacz filtr gwiazdką, aby go tu zapisać.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15771,6 +15811,14 @@ ZOBACZENIA</translation>
     <message>
         <source>All files (*)</source>
         <translation>Wszystkie pliki (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Ulubione</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Brak ulubionych. Oznacz maskę gwiazdką, aby ją tu zapisać.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19108,6 +19156,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Szukaj szablonów</translation>
     </message>
@@ -20563,6 +20615,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Szukaj kształtów</translation>
     </message>
@@ -20741,6 +20797,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Szukaj dźwięków</translation>
@@ -21483,6 +21543,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Tła</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Szukaj naklejek</translation>
     </message>
@@ -21762,6 +21830,57 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Change</source>
         <translation>Zmień</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Zaloguj się, aby zobaczyć, co jest na czasie</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Nie udało się wczytać tego, co na czasie</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Wczytywanie tego, co na czasie…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Na razie nic tu nie ma.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>To, co na czasie, pochodzi ze Stock, który wymaga darmowego konta.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Czekanie na przeglądarkę…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Zaloguj się</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Ponów</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — kliknij, aby użyć</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — kliknij, aby pobrać i użyć</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Dodaj przy głowicy</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Wczytywanie…</translation>
     </message>
 </context>
 <context>
@@ -23003,6 +23122,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Podkreślenie</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>„%1” jest dla innej karty (Wejście, Wyjście lub Pętla): teraz jest tam.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Łagodna</translation>
     </message>
@@ -23445,6 +23568,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Odtwarza dla każdego napisu</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Ulubione ze Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Ze Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26353,6 +26488,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Zaznacz na osi czasu pierwszy z dwóch klipów.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Na czasie</translation>
     </message>
     <message>
         <source>My Transitions</source>

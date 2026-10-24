@@ -150,6 +150,26 @@
         <translation>Retoque</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Hola</translation>
     </message>
@@ -2656,6 +2676,10 @@
     </message>
     <message>
         <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12513,6 +12537,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13764,6 +13796,10 @@ NEXT TIME</source>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13813,6 +13849,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15721,6 +15761,14 @@ NEXT TIME</source>
     <message>
         <source>All files (*)</source>
         <translation>Todos los archivos (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19036,6 +19084,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Buscar plantillas</translation>
     </message>
@@ -20487,6 +20539,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Buscar formas</translation>
     </message>
@@ -20665,6 +20721,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Buscar sonidos</translation>
@@ -21407,6 +21467,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Buscar pegatinas</translation>
     </message>
@@ -21684,6 +21752,57 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Change</source>
         <translation>Cambiar</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -22850,6 +22969,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subrayado</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23278,6 +23401,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Animation options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23299,6 +23426,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26262,6 +26397,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

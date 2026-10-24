@@ -150,6 +150,26 @@
         <translation>Chỉnh sửa khuôn mặt</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Tông màu</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUT</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Mẫu cảnh</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Hoạt ảnh clip</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Mặt nạ</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Xin chào</translation>
     </message>
@@ -2654,6 +2674,10 @@
     <message>
         <source>All</source>
         <translation>Tất cả</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12474,6 +12498,14 @@ LẦN SAU</translation>
         <translation>Xu hướng</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Lớp phủ</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Chọn một clip để áp dụng phong cách màu</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Chọn một clip có âm thanh để đổi giọng</translation>
     </message>
@@ -13723,6 +13755,10 @@ LẦN SAU</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Looks</translation>
     </message>
@@ -13773,6 +13809,10 @@ LẦN SAU</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Chưa có LUT nào được nhập. Hãy nhập tệp .cube hoặc lấy LUT trong Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Chưa có mục yêu thích. Chạm vào ngôi sao của bộ lọc để lưu vào đây.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15679,6 +15719,14 @@ LẦN SAU</translation>
     <message>
         <source>All files (*)</source>
         <translation>Tất cả tệp (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Chưa có mục yêu thích. Chạm vào ngôi sao của mặt nạ để lưu vào đây.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -18972,6 +19020,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Tìm mẫu</translation>
     </message>
@@ -20419,6 +20471,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Tìm hình dạng</translation>
     </message>
@@ -20597,6 +20653,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Tìm âm thanh</translation>
@@ -21339,6 +21399,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Hình nền</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Tìm nhãn dán</translation>
     </message>
@@ -21614,6 +21682,57 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Change</source>
         <translation>Thay đổi</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Đăng nhập để xem nội dung thịnh hành</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Không tải được nội dung thịnh hành</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Đang tải nội dung thịnh hành…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Chưa có gì ở đây.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>Nội dung thịnh hành đến từ Stock, cần tài khoản miễn phí của bạn.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Đang chờ trình duyệt…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Đăng nhập</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Thử lại</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — nhấp để dùng</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — nhấp để tải xuống và dùng</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Thêm tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Đang tải…</translation>
     </message>
 </context>
 <context>
@@ -22777,6 +22896,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Gạch chân</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1” dành cho thẻ khác (Vào, Ra hoặc Lặp): giờ nó đã ở đó.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Nhẹ nhàng</translation>
     </message>
@@ -23205,6 +23328,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Mẫu cũng thay đổi phông chữ. Các kiểu khác giữ phông chữ của bạn.</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
+    </message>
+    <message>
         <source>Animation options</source>
         <translation>Tùy chọn chuyển động</translation>
     </message>
@@ -23227,6 +23354,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Delete</source>
         <translation>Xóa</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Yêu thích từ Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Từ Stock</translation>
     </message>
     <message>
         <source>Save as my animation…</source>
@@ -26181,6 +26316,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Chọn clip đầu tiên trong hai clip trên dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Thịnh hành</translation>
     </message>
     <message>
         <source>My Transitions</source>

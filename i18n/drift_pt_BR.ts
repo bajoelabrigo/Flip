@@ -150,6 +150,26 @@
         <translation>Retoque</translation>
     </message>
     <message>
+        <source>Looks</source>
+        <translation>Visuais</translation>
+    </message>
+    <message>
+        <source>LUTs</source>
+        <translation>LUTs</translation>
+    </message>
+    <message>
+        <source>Scene templates</source>
+        <translation>Modelos de cena</translation>
+    </message>
+    <message>
+        <source>Clip animations</source>
+        <translation>Animações de clipe</translation>
+    </message>
+    <message>
+        <source>Masks</source>
+        <translation>Máscaras</translation>
+    </message>
+    <message>
         <source>Hello</source>
         <translation>Olá</translation>
     </message>
@@ -2657,6 +2677,10 @@
     <message>
         <source>All</source>
         <translation>Todas</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -12517,6 +12541,14 @@ PRÓXIMA</translation>
         <translation>Tendências</translation>
     </message>
     <message>
+        <source>Overlays</source>
+        <translation>Sobreposições</translation>
+    </message>
+    <message>
+        <source>Select a clip to apply the look</source>
+        <translation>Selecione um clipe para aplicar o look</translation>
+    </message>
+    <message>
         <source>Select a clip with sound to change its voice</source>
         <translation>Selecione um clipe com som para mudar a voz</translation>
     </message>
@@ -13768,6 +13800,10 @@ PRÓXIMA</translation>
 <context>
     <name>FiltersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
+    <message>
         <source>Looks</source>
         <translation>Looks</translation>
     </message>
@@ -13818,6 +13854,10 @@ PRÓXIMA</translation>
     <message>
         <source>No imported LUTs yet. Import a .cube file, or get LUTs in Stock.</source>
         <translation>Você ainda não tem LUTs importados. Importe um arquivo .cube ou obtenha LUTs no Stock.</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star filters to save them here.</source>
+        <translation>Ainda não há favoritos. Toque na estrela de um filtro para guardá-lo aqui.</translation>
     </message>
     <message>
         <source>Nothing in this category.</source>
@@ -15725,6 +15765,14 @@ PRÓXIMA</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos os arquivos (*)</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritos</translation>
+    </message>
+    <message>
+        <source>No favorites yet. Star masks to save them here.</source>
+        <translation>Ainda não há favoritos. Toque na estrela de uma máscara para guardá-la aqui.</translation>
     </message>
     <message>
         <source>%1 — click to apply, or drag onto a clip</source>
@@ -19040,6 +19088,10 @@ Se a reprodução travar, tente outra opção.</translation>
 <context>
     <name>SceneTemplateBrowser</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
+    <message>
         <source>Search templates</source>
         <translation>Buscar modelos</translation>
     </message>
@@ -20491,6 +20543,10 @@ Se a reprodução travar, tente outra opção.</translation>
 <context>
     <name>ShapesTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
+    <message>
         <source>Search shapes</source>
         <translation>Buscar formas</translation>
     </message>
@@ -20669,6 +20725,10 @@ Se a reprodução travar, tente outra opção.</translation>
 </context>
 <context>
     <name>SoundEffectsTab</name>
+    <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
     <message>
         <source>Search sounds</source>
         <translation>Buscar sons</translation>
@@ -21411,6 +21471,14 @@ Se a reprodução travar, tente outra opção.</translation>
 <context>
     <name>StickersTab</name>
     <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
+    <message>
+        <source>Backgrounds</source>
+        <translation>Fundos</translation>
+    </message>
+    <message>
         <source>Search stickers</source>
         <translation>Buscar adesivos</translation>
     </message>
@@ -21688,6 +21756,57 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Change</source>
         <translation>Alterar</translation>
+    </message>
+</context>
+<context>
+    <name>StockPanelCards</name>
+    <message>
+        <source>Sign in to see what&apos;s trending</source>
+        <translation>Entre para ver as tendências</translation>
+    </message>
+    <message>
+        <source>Couldn’t load what&apos;s trending</source>
+        <translation>Não foi possível carregar as tendências</translation>
+    </message>
+    <message>
+        <source>Loading what&apos;s trending…</source>
+        <translation>Carregando as tendências…</translation>
+    </message>
+    <message>
+        <source>Nothing here yet.</source>
+        <translation>Ainda não há nada aqui.</translation>
+    </message>
+    <message>
+        <source>Trending comes from Stock, which needs your free account.</source>
+        <translation>As tendências vêm do Stock, que precisa da sua conta gratuita.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Aguardando o navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Entrar</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Tentar de novo</translation>
+    </message>
+    <message>
+        <source>%1 — click to use it</source>
+        <translation>%1 — clique para usar</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and use it</source>
+        <translation>%1 — clique para baixar e usar</translation>
+    </message>
+    <message>
+        <source>Add at the playhead</source>
+        <translation>Adicionar no cursor</translation>
+    </message>
+    <message>
+        <source>Loading…</source>
+        <translation>Carregando…</translation>
     </message>
 </context>
 <context>
@@ -22926,6 +23045,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Sublinhado</translation>
     </message>
     <message>
+        <source>“%1” is for another tab (In, Out or Loop): it is there now.</source>
+        <translation>“%1” é para outra aba (Entrada, Saída ou Loop): já está lá.</translation>
+    </message>
+    <message>
         <source>Gentle</source>
         <translation>Suave</translation>
     </message>
@@ -23368,6 +23491,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Reproduz em cada legenda</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
+    </message>
+    <message>
+        <source>Stock favorites</source>
+        <translation>Favoritos do Stock</translation>
+    </message>
+    <message>
+        <source>From Stock</source>
+        <translation>Do Stock</translation>
     </message>
     <message>
         <source>Rename text animation</source>
@@ -26267,6 +26402,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Select the first of the two clips on the timeline.</source>
         <translation>Selecione na linha do tempo o primeiro dos dois clipes.</translation>
+    </message>
+    <message>
+        <source>Trending</source>
+        <translation>Tendências</translation>
     </message>
     <message>
         <source>My Transitions</source>
