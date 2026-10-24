@@ -782,9 +782,31 @@ QVariantList MarketClient::stockCategories(const QString &type)
     return {};
 }
 
-QVariantMap MarketClient::stockChips(const QString &type, const QStringList &localChips)
+QVariantMap MarketClient::stockChips(const QString &type, const QVariantList &localChips)
 {
-    const QSet<QString> have(localChips.cbegin(), localChips.cend());
+    // Names compared without case or accents: «Redes sociales» from Stock is the panel's «Redes sociales».
+    const auto fold = [](const QString &text) {
+        QString out;
+        for (const QChar c : text.normalized(QString::NormalizationForm_D)) {
+            if (c.category() != QChar::Mark_NonSpacing)
+                out.append(c.toLower());
+        }
+        return out.simplified();
+    };
+    QSet<QString> have;
+    QHash<QString, QString> chipByName;
+    for (const QVariant &chip : localChips) {
+        const QVariantMap map = chip.toMap();
+        const QString id = map.isEmpty() ? chip.toString() : map.value(QStringLiteral("id")).toString();
+        if (id.isEmpty())
+            continue;
+        have.insert(id);
+        const QString label = map.value(QStringLiteral("label")).toString();
+        if (!label.isEmpty() && !chipByName.contains(fold(label)))
+            chipByName.insert(fold(label), id);
+    }
+    static const QSet<QString> trendNames{QStringLiteral("tendencias"), QStringLiteral("trending"),
+                                          QStringLiteral("tendencia")};
     QVariantList extra;
     QVariantMap categoriesOf;
     for (const QVariant &row : stockCategories(type)) {
@@ -792,13 +814,18 @@ QVariantMap MarketClient::stockChips(const QString &type, const QStringList &loc
         const QString category = option.value(QStringLiteral("id")).toString();
         if (category.isEmpty() || category == QLatin1String("mine"))
             continue;
-        const QString into = chipForCategory(type, category);
+        const QString label = option.value(QStringLiteral("label")).toString();
+        // Already in Tendencias, which lists all of the type.
+        if (trendNames.contains(fold(category)) || trendNames.contains(fold(label)))
+            continue;
+        QString into = chipForCategory(type, category);
+        if (into.isEmpty() || !have.contains(into))
+            into = chipByName.value(fold(label.isEmpty() ? category : label));
         const QString chip = !into.isEmpty() && have.contains(into) ? into : QStringLiteral("stock:") + category;
         if (chip.startsWith(QLatin1String("stock:")) && !categoriesOf.contains(chip)) {
             extra.append(QVariantMap{
                 {QStringLiteral("id"), chip},
-                {QStringLiteral("label"), option.value(QStringLiteral("label")).toString().isEmpty()
-                                              ? category : option.value(QStringLiteral("label")).toString()},
+                {QStringLiteral("label"), label.isEmpty() ? category : label},
             });
         }
         QStringList cats = categoriesOf.value(chip).toStringList();

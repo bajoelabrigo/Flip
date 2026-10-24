@@ -238,9 +238,10 @@ public:
     // Stock's categories of a type as the server names them [{id, label}]; asks for the catalogue
     // once when it is not in yet (catalogChanged answers). Empty signed out.
     Q_INVOKABLE QVariantList stockCategories(const QString &type);
-    // Where Stock's categories of `type` go among a panel's chips (`localChips`, their ids):
-    // {extra: [{id: "stock:<category>", label}], categoriesOf: {<chip id>: [<category>, …]}}.
-    Q_INVOKABLE QVariantMap stockChips(const QString &type, const QStringList &localChips);
+    // Where Stock's categories of `type` go among a panel's chips (`localChips`: ids, or
+    // {id, label}): {extra: [{id: "stock:<category>", label}], categoriesOf: {<chip id>: [<category>, …]}}.
+    // A category whose name is a chip's name joins that chip, and «Tendencias» makes no chip of its own.
+    Q_INVOKABLE QVariantMap stockChips(const QString &type, const QVariantList &localChips);
     // Whether a Stock card wears the flame: the server says so, it is on this week's shelf, its
     // category is a trend, or it is our own and of a type with a panel (each panel's Tendencias
     // lists all of its type); Pexels' and Pixabay's are not.

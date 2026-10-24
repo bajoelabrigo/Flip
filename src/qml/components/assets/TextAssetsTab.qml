@@ -53,7 +53,7 @@ Item {
     readonly property var stockChips: {
         void root.stockTick
         return Market.authenticated
-               ? Market.stockChips("text-style", ["builtin"].concat(root.addonCategories.map(c => c.id)))
+               ? Market.stockChips("text-style", [{ "id": "builtin", "label": qsTr("Basic") }].concat(root.addonCategories))
                : ({ extra: [], categoriesOf: {} })
     }
     readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.section] || []
