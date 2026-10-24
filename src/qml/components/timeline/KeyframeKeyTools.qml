@@ -97,6 +97,81 @@ Item {
         }
     }
 
+    // A drag of every picked key at once, as the web's: they all move by the same time, none past
+    // a neighbour that is not picked nor out of its clip. `shifting` while it lasts; `dragDelta`
+    // is how far they have gone, which the frozen rows and the graph add to the picked keys.
+    property bool shifting: false
+    property real dragDelta: 0
+    property var dragBase: []
+    property real dragLo: 0
+    property real dragHi: 0
+
+    // Whether `key`, as it sat when the drag began, is one of those being dragged.
+    function isShifted(trackIndex, key) {
+        if (!root.shifting || trackIndex !== root.track)
+            return false
+        for (let i = 0; i < root.dragBase.length; ++i) {
+            if (sameKey(root.dragBase[i], key))
+                return true
+        }
+        return false
+    }
+
+    function beginShift() {
+        const frame = 1 / 60
+        let lo = -Infinity
+        let hi = Infinity
+        for (let i = 0; i < root.keys.length; ++i) {
+            const k = root.keys[i]
+            const clip = EditorState.clipAt(root.track, k.clip)
+            const start = clip.start || 0
+            const end = start + (clip.duration || 0)
+            const all = (EditorState.clipKeyframes(root.track, k.clip, k.prop) || [])
+                        .map((p) => p.seconds).sort((a, b) => a - b)
+            let before = start
+            let after = end
+            for (let j = 0; j < all.length; ++j) {
+                const s = all[j]
+                if (isPicked(root.track, { clip: k.clip, prop: k.prop, seconds: s }))
+                    continue
+                if (s < k.seconds - 1e-4)
+                    before = Math.max(before, s + frame)
+                else if (s > k.seconds + 1e-4)
+                    after = Math.min(after, s - frame)
+            }
+            lo = Math.max(lo, before - k.seconds)
+            hi = Math.min(hi, after - k.seconds)
+        }
+        root.dragLo = Math.min(0, lo)
+        root.dragHi = Math.max(0, hi)
+        root.dragBase = root.keys.slice()
+        root.dragDelta = 0
+        root.shifting = true
+        EditorState.beginPreviewDrag(qsTr("Move keyframes"))
+    }
+
+    // `delta` is the time the key under the pointer wants to move; the rest follow it.
+    function shiftTo(delta) {
+        const d = Math.max(root.dragLo, Math.min(root.dragHi, delta))
+        if (Math.abs(d - root.dragDelta) < 1e-6)
+            return root.dragDelta
+        EditorState.previewShiftKeyframes(root.track, root.dragBase, root.dragDelta, d)
+        root.dragDelta = d
+        return d
+    }
+
+    function endShift() {
+        if (!root.shifting)
+            return
+        EditorState.commitPreviewDrag()
+        const d = root.dragDelta
+        root.keys = root.dragBase.map((k) => ({ clip: k.clip, prop: k.prop, seconds: k.seconds + d }))
+        root.runFrom = null
+        root.shifting = false
+        root.dragDelta = 0
+        root.dragBase = []
+    }
+
     function applyEasing(mode) {
         if (root.hasPick)
             EditorState.setKeyframesEasing(root.track, root.keys, mode)

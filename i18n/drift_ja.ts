@@ -4025,6 +4025,10 @@
         <translation>キーフレームを削除</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>キーフレームを移動</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>LUT ライブラリのフォルダーを作成できませんでした。</translation>
     </message>
@@ -14837,6 +14841,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>キーフレームを移動</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>直線</translation>

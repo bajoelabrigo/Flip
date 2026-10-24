@@ -4025,6 +4025,10 @@
         <translation>移除关键帧</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>移动关键帧</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>无法创建 LUT 库文件夹。</translation>
     </message>
@@ -14837,6 +14841,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>移动关键帧</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>直线</translation>

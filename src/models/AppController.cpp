@@ -17934,6 +17934,73 @@ void AppController::removeKeyframes(int trackIndex, const QVariantList &keys)
     finishEdit(tr("Keyframe removed"));
 }
 
+void AppController::previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
+                                          double toDelta)
+{
+    if (keys.isEmpty() || qAbs(toDelta - fromDelta) < 1e-9)
+        return;
+    // Per property track, the start times of its picked keys: all of them are lifted before any
+    // lands, so a key never lands on another picked one that has not moved yet.
+    struct Group {
+        int track = -1;
+        int clip = -1;
+        QString prop;
+        QList<double> starts;
+    };
+    QList<Group> groups;
+    auto add = [&](int clipIndex, const QString &p, double seconds) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        for (Group &g : groups) {
+            if (g.track == t && g.clip == c && g.prop == p) {
+                for (const double s : std::as_const(g.starts)) {
+                    if (qAbs(s - seconds) < 1e-4)
+                        return;
+                }
+                g.starts.append(seconds);
+                return;
+            }
+        }
+        groups.append(Group{t, c, p, {seconds}});
+    };
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        const int c = k.value(QStringLiteral("clip")).toInt();
+        const QString p = k.value(QStringLiteral("prop")).toString();
+        const double s = k.value(QStringLiteral("seconds")).toDouble();
+        add(c, p, s);
+        if (m_positionLinked && (p == QLatin1String("x") || p == QLatin1String("y")))
+            add(c, p == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"), s);
+    }
+    if (!m_previewDragActive)
+        beginPreviewDrag(tr("Move keyframes"));
+    for (const Group &g : std::as_const(groups)) {
+        if (g.track < 0 || g.track >= m_project.tracks().size() || g.clip < 0
+            || g.clip >= m_project.tracks().at(g.track).clips.size())
+            continue;
+        drift::Clip &clip = m_project.tracks()[g.track].clips[g.clip];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, g.prop, /*createIfMissing=*/false);
+        if (!kt)
+            continue;
+        QList<QPair<drift::TimeUs, drift::Keyframe<double>>> lifted;
+        for (const double start : g.starts) {
+            const drift::TimeUs fromRel =
+                qMax<drift::TimeUs>(0, drift::secondsToUs(start + fromDelta) - clip.timelineStart);
+            const drift::TimeUs nearest = kt->nearestKeyframe(fromRel, kKeyframeToleranceUs);
+            if (nearest < 0)
+                continue;
+            const drift::TimeUs toRel =
+                qMax<drift::TimeUs>(0, drift::secondsToUs(start + toDelta) - clip.timelineStart);
+            lifted.append({toRel, kt->keyframes().value(nearest)});
+            kt->removeKeyframe(nearest);
+        }
+        for (const auto &key : std::as_const(lifted))
+            kt->setKeyframe(key.first, key.second);
+    }
+    emitPreviewFrame();
+}
+
 bool AppController::applyKeyframeEasing(int trackIndex, int clipIndex, const QString &prop,
                                         double atSeconds, const QString &mode)
 {

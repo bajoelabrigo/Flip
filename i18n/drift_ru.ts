@@ -4037,6 +4037,10 @@
         <translation>Удалить ключевые кадры</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>Переместить ключевые кадры</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Не удалось создать папку библиотеки LUT.</translation>
     </message>
@@ -14929,6 +14933,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Переместить ключевые кадры</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Прямо</translation>

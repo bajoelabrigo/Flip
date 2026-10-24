@@ -138,8 +138,17 @@ Item {
 
                             width: 20
                             height: span.height
+                            // Keys moved with others (a drag of several picked) ride the
+                            // shared offset: the rows are frozen while it lasts.
+                            readonly property real shiftDx: {
+                                void root.tools.dragDelta
+                                return root.tools.isShifted(root.trackIndex, ref)
+                                       ? root.tools.dragDelta * root.pxPerSecond : 0
+                            }
+                            // Dragging several picked keys rather than this one alone.
+                            property bool groupDrag: false
                             x: (modelData.seconds - span.modelData.start) * root.pxPerSecond
-                               - width / 2 + dragDx
+                               - width / 2 + dragDx + shiftDx
                             z: keyMouse.pressed || isPicked ? 2 : 1
 
                             KeyframeGlyph {
@@ -187,7 +196,18 @@ Item {
                                             return
                                         keyItem.moved = true
                                         root.dragging = true
-                                        EditorState.beginPreviewDrag(qsTr("Move keyframe"))
+                                        keyItem.groupDrag = keyItem.isPicked && root.tools.keys.length > 1
+                                        if (keyItem.groupDrag)
+                                            root.tools.beginShift()
+                                        else
+                                            EditorState.beginPreviewDrag(qsTr("Move keyframe"))
+                                    }
+                                    if (keyItem.groupDrag) {
+                                        const from = keyItem.modelData.seconds
+                                        const moved = root.tools.shiftTo(
+                                            EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                        EditorState.playheadSeconds = from + moved
+                                        return
                                     }
                                     // Between its neighbours: passing one would land on it and
                                     // overwrite it.
@@ -213,7 +233,12 @@ Item {
                                 onReleased: (mouse) => {
                                     if (mouse.button !== Qt.LeftButton)
                                         return
-                                    if (keyItem.moved) {
+                                    if (keyItem.moved && keyItem.groupDrag) {
+                                        // The picked keys stay picked at their new times.
+                                        root.tools.endShift()
+                                        keyItem.groupDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved) {
                                         EditorState.commitPreviewDrag()
                                         keyItem.dragDx = 0
                                         root.dragging = false
@@ -230,7 +255,11 @@ Item {
                                     }
                                 }
                                 onCanceled: {
-                                    if (keyItem.moved) {
+                                    if (keyItem.moved && keyItem.groupDrag) {
+                                        root.tools.endShift()
+                                        keyItem.groupDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved) {
                                         EditorState.commitPreviewDrag()
                                         keyItem.dragDx = 0
                                         root.dragging = false

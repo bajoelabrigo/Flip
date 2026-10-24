@@ -180,6 +180,14 @@ Item {
     // killing the grab on the first mouse move. Freeze the model while dragging
     // and track the in-flight key separately.
     property bool draggingKey: false
+    // The time the picked keys have moved in a drag of several (KeyframeKeyTools.shifting): the
+    // frozen series draws them there.
+    readonly property real shiftDelta: tools && tools.shifting ? tools.dragDelta : 0
+    function shifted(prop, seconds) {
+        return !!tools && tools.shifting
+               && tools.isShifted(EditorState.selectedTrack,
+                                  { clip: EditorState.selectedClip, prop: prop, seconds: seconds })
+    }
     property var frozenSeries: []
     property string dragProp: ""
     property int dragIndex: -1
@@ -766,6 +774,13 @@ Item {
                                     && ((root.dragProp === "x" && entry.prop === "y") || (root.dragProp === "y" && entry.prop === "x"))
 
                                 const live = entry.points.map(function (p, i) {
+                                    if (root.shifted(entry.prop, p.seconds)) {
+                                        return {
+                                            seconds: p.seconds + root.shiftDelta, value: p.value,
+                                            inDx: p.inDx, inDy: p.inDy,
+                                            outDx: p.outDx, outDy: p.outDy, hold: p.hold
+                                        }
+                                    }
                                     if (entry.prop === root.dragProp) {
                                         if (i === root.dragTangentIndex) {
                                             // Handle being dragged: same key, reshaped.
@@ -892,6 +907,7 @@ Item {
                             function onPaintOriginXChanged() { curveCanvas.requestPaint() }
                             function onDragSecondsChanged() { curveCanvas.requestPaint() }
                             function onDragValueChanged() { curveCanvas.requestPaint() }
+                            function onShiftDeltaChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDxChanged() { curveCanvas.requestPaint() }
                             function onDragTangentInDyChanged() { curveCanvas.requestPaint() }
@@ -923,8 +939,19 @@ Item {
                                 if (!root.tools)
                                     return false
                                 void root.tools.keys
+                                void root.tools.dragDelta
+                                // While the tracks' rows drag several keys the series is live
+                                // here, so a moved key is matched by where it started.
                                 return root.tools.isPicked(EditorState.selectedTrack, ref)
+                                       || root.tools.isShifted(EditorState.selectedTrack,
+                                              { clip: ref.clip, prop: ref.prop,
+                                                seconds: ref.seconds - root.tools.dragDelta })
                             }
+                            // Moved with the others in a drag of several picked keys.
+                            readonly property real shiftDx: root.draggingKey
+                                && root.shifted(modelData.prop, modelData.seconds)
+                                ? root.shiftDelta * root.pxPerSecond : 0
+                            property bool groupDrag: false
                             width: 20
                             height: 20
                             opacity: (root.curveEditing && !root.isFocused(modelData.seriesIndex)
@@ -933,7 +960,7 @@ Item {
                                 && ((root.dragProp === "x" && modelData.prop === "y") || (root.dragProp === "y" && modelData.prop === "x"))
                                 && root.dragIndex >= 0 && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                 && Math.abs((root.series[root.focusedIndex].points[root.dragIndex] ? root.series[root.focusedIndex].points[root.dragIndex].seconds : -999) - modelData.seconds) < (1 / 30)
-                            x: root.xForSeconds(modelData.seconds) - width / 2 + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
+                            x: root.xForSeconds(modelData.seconds) - width / 2 + shiftDx + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
                             y: root.yForValue(modelData.value, entry) - height / 2 + dragDy
                             z: isPicked ? 3 : 2
 
@@ -1011,6 +1038,14 @@ Item {
                                 root.focusedProp = keyDot.modelData.prop
                                 if (root.tools && !keyDot.isPicked)
                                     root.tools.pick(EditorState.selectedTrack, [keyDot.ref])
+                                // Several picked: they all move in time together, values kept.
+                                keyDot.groupDrag = !!root.tools && root.tools.keys.length > 1
+                                if (keyDot.groupDrag) {
+                                    root.frozenSeries = root.series
+                                    root.draggingKey = true
+                                    root.tools.beginShift()
+                                    return
+                                }
                                 keyDot.editSeconds = keyDot.modelData.seconds
                                 root.frozenSeries = root.series
                                 root.dragProp = keyDot.modelData.prop
@@ -1021,6 +1056,13 @@ Item {
                                 EditorState.beginPreviewDrag(qsTr("Move keyframe"))
                             }
                             function endMove() {
+                                if (keyDot.groupDrag) {
+                                    // Same order as below: unfreezing destroys this delegate.
+                                    keyDot.groupDrag = false
+                                    root.tools.endShift()
+                                    root.draggingKey = false
+                                    return
+                                }
                                 // Unfreezing rebuilds the Repeater and destroys this
                                 // delegate mid-handler, so every reset has to land first.
                                 // The moved key stays picked at its new time.
@@ -1037,6 +1079,13 @@ Item {
                                 root.draggingKey = false
                             }
                             function moveBy(dx, dy) {
+                                if (keyDot.groupDrag) {
+                                    const from = keyDot.modelData.seconds
+                                    const moved = root.tools.shiftTo(
+                                        EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                    EditorState.playheadSeconds = from + moved
+                                    return
+                                }
                                 const entry = keyDot.entry
                                 const baseSec = keyDot.modelData.seconds
                                 const baseVal = keyDot.modelData.value

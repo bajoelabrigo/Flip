@@ -1306,6 +1306,11 @@ public:
     Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
                                        double x2, double y2);
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
+    // A drag of the picked keys (each {clip, prop, seconds} where it started), inside a preview
+    // drag: the keys that sit fromDelta seconds off their start move to toDelta off it, all
+    // together, keeping their shape. The caller keeps them between their unpicked neighbours.
+    Q_INVOKABLE void previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
+                                           double toDelta);
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);

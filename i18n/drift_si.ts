@@ -4031,6 +4031,10 @@
         <translation>ප්‍රධාන රාමු ඉවත් කරන්න</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>කීෆ්‍රේම ගෙනයන්න</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14879,6 +14883,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>කීෆ්‍රේම ගෙනයන්න</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>සෘජු</translation>

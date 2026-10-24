@@ -4031,6 +4031,10 @@
         <translation>Alisin ang mga keyframe</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14879,6 +14883,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Tuwid</translation>

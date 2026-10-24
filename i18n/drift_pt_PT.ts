@@ -4031,6 +4031,10 @@
         <translation>Remover fotogramas-chave</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>Mover quadros-chave</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Não foi possível criar a pasta da biblioteca de LUT.</translation>
     </message>
@@ -14883,6 +14887,10 @@ PRÓXIMA</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Mover quadros-chave</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Recto</translation>

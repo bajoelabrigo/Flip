@@ -4037,6 +4037,10 @@
         <translation>Usuń klatki kluczowe</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>Przenieś klatki kluczowe</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Nie udało się utworzyć folderu biblioteki LUT.</translation>
     </message>
@@ -14929,6 +14933,10 @@ ZOBACZENIA</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Przenieś klatki kluczowe</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Prosto</translation>

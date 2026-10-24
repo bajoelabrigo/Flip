@@ -4036,6 +4036,10 @@
         <translation>Supprimer les images clés</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>Déplacer les images clés</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Impossible de créer le dossier de la bibliothèque de LUT.</translation>
     </message>
@@ -14885,6 +14889,10 @@ PROCHAINE</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Déplacer les images clés</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Droit</translation>

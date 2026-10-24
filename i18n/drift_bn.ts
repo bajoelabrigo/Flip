@@ -4088,6 +4088,10 @@
         <translation>কীফ্রেম সরান</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>কীফ্রেমগুলো সরান</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14879,6 +14883,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>কীফ্রেমগুলো সরান</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>সোজা</translation>

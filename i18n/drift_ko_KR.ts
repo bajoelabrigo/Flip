@@ -4025,6 +4025,10 @@
         <translation>키프레임 제거</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>키프레임 이동</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>LUT 라이브러리 폴더를 만들 수 없습니다.</translation>
     </message>
@@ -14837,6 +14841,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>키프레임 이동</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>직선</translation>

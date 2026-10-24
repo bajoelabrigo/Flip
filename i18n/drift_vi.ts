@@ -4033,6 +4033,10 @@
         <translation>Gỡ khung hình chính</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>Di chuyển các keyframe</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Không thể tạo thư mục thư viện LUT.</translation>
     </message>
@@ -14837,6 +14841,10 @@ LẦN SAU</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>Di chuyển các keyframe</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>Thẳng</translation>

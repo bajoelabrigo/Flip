@@ -4333,6 +4333,10 @@
         <translation>إزالة الإطارات الرئيسية</translation>
     </message>
     <message>
+        <source>Move keyframes</source>
+        <translation>تحريك الإطارات المفتاحية</translation>
+    </message>
+    <message>
         <source>Keyframe curve changed</source>
         <translation>تم تغيير منحنى الإطار المفتاحي</translation>
     </message>
@@ -15067,6 +15071,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Move keyframes</source>
+        <translation>تحريك الإطارات المفتاحية</translation>
+    </message>
     <message>
         <source>Straight</source>
         <translation>مستقيم</translation>
