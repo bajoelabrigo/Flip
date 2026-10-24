@@ -640,12 +640,13 @@ va en la rama `flip/v0.21.1`, que se compila y prueba en ventana una sola vez al
       «horneadas» (`webToDesktopText.ts`), así que el escritorio las reproduce sin tenerlas.
 - [ ] Medios ocultos de la web (`webHidden`: mattes, fotos de plantillas) también ocultos en el escritorio
       (`MediaAsset::webHidden`, `MediaAssetsTab.qml`). Escritorio, rama `flip/v0.21.1`.
-- [ ] Medios: vista de árbol y carpetas dentro de carpetas.
-- [ ] Opciones de la vista previa: Calidad, Velocidad de reproducción, Decodificación y conjuntos de guías.
+- [x] Medios: vista de árbol y carpetas dentro de carpetas — ya estaba (`flipstudio-app` `d57cd`); la nota era vieja.
+- [x] Opciones de la vista previa: Calidad, Velocidad, Descodificación y conjuntos de guías — ya estaban (`Preview.tsx`, `PreviewGuides.tsx`).
 - [ ] Efectos de audio como carril (hoy van en el clip; al `.flip` ya viajan como carril).
-- [ ] Ocultar por profundidad.
+- [x] Ocultar por profundidad — ya estaba (`ClipSections.tsx`).
 - [ ] Quitar muletillas («eh», «mmm») con la transcripción (Whisper con tiempos por palabra).
-- [ ] Animaciones de texto karaoke, cursor de máquina de escribir y barrido (tiempos por palabra).
+- [x] Karaoke: la palabra que suena sale del tiempo del texto repartido por letras (`karaokeWordAt`, como
+      `activeWordIndexAt` del escritorio). El cursor y el barrido ya estaban (`textAnim.ts`, `textFx.ts`).
 - [ ] Tiradores 3D en la vista previa y la barra de herramientas sobre el lienzo.
 - [ ] Clonar voz (ver si el modelo del escritorio cabe en el navegador).
 - [ ] IA sin WebGPU más rápida (COOP/COEP): decisión de Jorge.
