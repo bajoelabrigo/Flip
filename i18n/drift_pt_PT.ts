@@ -2659,22 +2659,6 @@
         <translation>Todas</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Inicie sessão para ver as tendências</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>As tendências são só para quem iniciou sessão. A conta é gratuita.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>À espera do navegador…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Iniciar sessão</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>Duração</translation>
     </message>
@@ -20568,8 +20552,16 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Inicie sessão para exportar</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Inicie sessão para usar as tendências</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>O Flip Studio é gratuito: exportar, o Stock e todos os modelos não custam nada.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>As animações em tendência são para quem iniciou sessão. Basta iniciar sessão com a sua conta Google: demora um instante, faz-se uma vez e o seu projeto fica tal como está.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23297,22 +23289,6 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Reproduz em cada legenda</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Inicie sessão para ver as tendências</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>As tendências são só para quem iniciou sessão. A conta é gratuita.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>À espera do navegador…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Iniciar sessão</translation>
     </message>
     <message>
         <source>Rename text animation</source>

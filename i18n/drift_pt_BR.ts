@@ -2659,22 +2659,6 @@
         <translation>Todas</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Entre para ver as tendências</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>As tendências são só para quem entrou na conta. A conta é grátis.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Aguardando o navegador…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Entrar</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>Duração</translation>
     </message>
@@ -20568,8 +20552,16 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Faça login para exportar</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Entre para usar as tendências</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>O Flip Studio é grátis: exportar, o Stock e todos os modelos não custam nada.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>As animações em alta são para quem entrou na conta. Basta entrar com sua conta do Google: leva um instante, é feito uma vez só e seu projeto fica do jeito que está.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23297,22 +23289,6 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Reproduz em cada legenda</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Entre para ver as tendências</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>As tendências são só para quem entrou na conta. A conta é grátis.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Aguardando o navegador…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Entrar</translation>
     </message>
     <message>
         <source>Rename text animation</source>

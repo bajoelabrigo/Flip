@@ -2659,22 +2659,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>ট্রেন্ড দেখতে সাইন ইন করুন</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>ট্রেন্ড শুধু সাইন ইন করা ব্যবহারকারীদের জন্য। অ্যাকাউন্ট বিনামূল্যে।</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>ব্রাউজারের অপেক্ষায়…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>সাইন ইন</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20564,8 +20548,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>ট্রেন্ডিং ব্যবহার করতে সাইন ইন করুন</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>ট্রেন্ডিং অ্যানিমেশন সাইন ইন করা ব্যবহারকারীদের জন্য। শুধু আপনার Google অ্যাকাউন্ট দিয়ে সাইন ইন করুন: এক মুহূর্ত লাগে, একবারই করতে হয়, আর আপনার প্রজেক্ট যেমন আছে তেমনই থাকে।</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23329,22 +23321,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished">প্রতিটি ক্যাপশনের জন্য খেলে</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>ট্রেন্ড দেখতে সাইন ইন করুন</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>ট্রেন্ড শুধু সাইন ইন করা ব্যবহারকারীদের জন্য। অ্যাকাউন্ট বিনামূল্যে।</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>ব্রাউজারের অপেক্ষায়…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>সাইন ইন</translation>
     </message>
     <message>
         <source>Rename text animation</source>

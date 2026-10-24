@@ -2659,22 +2659,6 @@
         <translation>Tutto</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Accedi per vedere le tendenze</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Le tendenze sono solo per chi ha effettuato l’accesso. L’account è gratuito.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>In attesa del browser…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Accedi</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>Durata</translation>
     </message>
@@ -20568,8 +20552,16 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Accedi per esportare</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Accedi per usare le tendenze</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio è gratis: esportare, Stock e tutti i modelli non costano nulla.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Le animazioni di tendenza sono per chi ha effettuato l’accesso. Basta accedere con il tuo account Google: richiede un attimo, si fa una volta sola e il tuo progetto resta così com’è.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23297,22 +23289,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Viene riprodotta per ogni sottotitolo</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Accedi per vedere le tendenze</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Le tendenze sono solo per chi ha effettuato l’accesso. L’account è gratuito.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>In attesa del browser…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Accedi</translation>
     </message>
     <message>
         <source>Rename text animation</source>

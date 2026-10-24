@@ -126,8 +126,9 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
-    // Trending is only for signed-in people (Jorge, 2026-10-23), as in Titles and Effects.
-    readonly property bool trendsLocked: animCategory === "trending" && !Market.authenticated
+    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // signed out asks for the account and applies it once signed in.
+    readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     // Bumped when the user saves, renames or deletes one of their own animations.
     property int animPresetsTick: 0
     readonly property var animPresets: {
@@ -492,6 +493,20 @@ Item {
     function pickPreset(id) {
         if (id.length === 0) {
             EditorState.clearTextAnimationSlot(EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
+            return
+        }
+        if (root.trendsNeedAccount && root.animPresets.some(p => p.id === id && p.trending)) {
+            const slot = root.animSlot
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            animSignInLoader.active = true
+            animSignInLoader.item.openFor(() => {
+                // Only onto the text that asked, still on the same slot.
+                if (root.animSlot !== slot || EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                    return
+                root.setSlot({ "preset": id })
+                root.seekToSlotStart()
+            })
             return
         }
         root.setSlot({ "preset": id })
@@ -2519,20 +2534,14 @@ Item {
                 }
             }
 
-            EmptyState {
-                width: parent.width
-                visible: root.trendsLocked
-                compact: true
-                glyph: Theme.icons.account
-                title: qsTr("Sign in to see what's trending")
-                hint: qsTr("Trending is only for signed-in users. The account is free.")
-                actionText: Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in")
-                onActionTriggered: Account.signIn()
+            Loader {
+                id: animSignInLoader
+                active: false
+                sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
             }
 
             Grid {
                 id: presetGrid
-                visible: !root.trendsLocked
                 width: parent.width
                 readonly property real gap: Theme.spacingLg
                 columns: Theme.touchUi

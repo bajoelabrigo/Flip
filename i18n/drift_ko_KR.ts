@@ -2656,22 +2656,6 @@
         <translation>전체</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>로그인하고 트렌드 보기</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>트렌드는 로그인한 사용자만 이용할 수 있습니다. 계정은 무료입니다.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>브라우저를 기다리는 중…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>로그인</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>길이</translation>
     </message>
@@ -20495,8 +20479,16 @@ If playback stutters, try another.</source>
         <translation>내보내려면 로그인하세요</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>트렌드를 사용하려면 로그인하세요</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio는 무료입니다. 내보내기, Stock, 모든 템플릿에 비용이 들지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>트렌드 애니메이션은 로그인한 사용자용입니다. Google 계정으로 로그인만 하면 됩니다. 잠깐이면 되고 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23218,22 +23210,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>모든 캡션에서 재생</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>로그인하고 트렌드 보기</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>트렌드는 로그인한 사용자만 이용할 수 있습니다. 계정은 무료입니다.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>브라우저를 기다리는 중…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>로그인</translation>
     </message>
     <message>
         <source>Rename text animation</source>

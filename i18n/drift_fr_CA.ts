@@ -2660,22 +2660,6 @@
         <translation>Tout</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Connectez-vous pour voir les tendances</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Les tendances sont réservées aux personnes connectées. Le compte est gratuit.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>En attente du navigateur…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Se connecter</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
@@ -20570,8 +20554,16 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Connectez-vous pour exporter</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Connectez-vous pour utiliser les tendances</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio est gratuit : l&apos;exportation, Stock et tous les modèles ne coûtent rien.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Les animations tendance sont réservées aux personnes connectées. Il suffit de vous connecter avec votre compte Google : cela prend un instant, se fait une seule fois et votre projet reste tel quel.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23301,22 +23293,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Plays for every caption</source>
         <translation>Est lu pour chaque sous-titre</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Connectez-vous pour voir les tendances</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Les tendances sont réservées aux personnes connectées. Le compte est gratuit.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>En attente du navigateur…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Se connecter</translation>
     </message>
     <message>
         <source>Rename text animation</source>

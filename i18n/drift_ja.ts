@@ -2656,22 +2656,6 @@
         <translation>すべて</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>ログインしてトレンドを表示</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>トレンドはログインした方のみ利用できます。アカウントは無料です。</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>ブラウザを待っています…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>ログイン</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>長さ</translation>
     </message>
@@ -20496,8 +20480,16 @@ If playback stutters, try another.</source>
         <translation>書き出すにはサインインしてください</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>トレンドを使うにはログイン</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio は無料です。書き出しも Stock もすべてのテンプレートも費用はかかりません。</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>トレンドのアニメーションはログインした方向けです。Google アカウントでログインするだけ。すぐに終わり、一度だけで、プロジェクトはそのまま残ります。</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23220,22 +23212,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>すべてのキャプションで再生</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>ログインしてトレンドを表示</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>トレンドはログインした方のみ利用できます。アカウントは無料です。</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>ブラウザを待っています…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>ログイン</translation>
     </message>
     <message>
         <source>Rename text animation</source>

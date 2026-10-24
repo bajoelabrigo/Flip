@@ -2656,22 +2656,6 @@
         <translation>Tất cả</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Đăng nhập để xem xu hướng</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Xu hướng chỉ dành cho người đã đăng nhập. Tài khoản miễn phí.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Đang chờ trình duyệt…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Đăng nhập</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>Thời lượng</translation>
     </message>
@@ -20496,8 +20480,16 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đăng nhập để xuất video</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Đăng nhập để dùng xu hướng</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio miễn phí: xuất video, Stock và mọi mẫu đều không mất tiền.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Hiệu ứng chuyển động xu hướng dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23132,22 +23124,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Mẫu cũng thay đổi phông chữ. Các kiểu khác giữ phông chữ của bạn.</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Đăng nhập để xem xu hướng</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Xu hướng chỉ dành cho người đã đăng nhập. Tài khoản miễn phí.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Đang chờ trình duyệt…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Đăng nhập</translation>
     </message>
     <message>
         <source>Animation options</source>

@@ -2656,22 +2656,6 @@
         <translation>全部</translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>登录后查看热门</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>热门仅对已登录用户开放。账号免费。</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>正在等待浏览器…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>登录</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation>时长</translation>
     </message>
@@ -20496,8 +20480,16 @@ If playback stutters, try another.</source>
         <translation>登录以导出</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>登录以使用热门内容</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio 是免费的：导出、Stock 和所有模板都不花钱。</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>热门动画仅供已登录用户使用。只需用你的 Google 账号登录：片刻即可完成，只需一次，你的项目保持不变。</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23219,22 +23211,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation>每条字幕都会播放</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>登录后查看热门</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>热门仅对已登录用户开放。账号免费。</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>正在等待浏览器…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>登录</translation>
     </message>
     <message>
         <source>Rename text animation</source>

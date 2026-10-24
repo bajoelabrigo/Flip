@@ -2659,22 +2659,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Mag-sign in para makita ang mga uso</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Para lang sa mga naka-sign in ang mga uso. Libre ang account.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Hinihintay ang browser…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Mag-sign in</translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20557,8 +20541,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Mag-sign in para magamit ang mga trending</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Ang mga trending na animation ay para sa mga naka-sign in. Mag-sign in ka lang gamit ang Google account mo: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -23285,22 +23277,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Plays for every caption</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation>Mag-sign in para makita ang mga uso</translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation>Para lang sa mga naka-sign in ang mga uso. Libre ang account.</translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation>Hinihintay ang browser…</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Mag-sign in</translation>
     </message>
     <message>
         <source>Rename text animation</source>

@@ -2659,22 +2659,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20564,7 +20548,15 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23205,22 +23197,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Templates change the font too. The other styles keep yours.</source>
         <translation>Las plantillas también cambian la fuente. Los demás estilos mantienen la tuya.</translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animation options</source>

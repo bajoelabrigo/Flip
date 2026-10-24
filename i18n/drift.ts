@@ -2659,22 +2659,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Duration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20557,7 +20541,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23284,22 +23276,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Plays for every caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in to see what&apos;s trending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Trending is only for signed-in users. The account is free.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

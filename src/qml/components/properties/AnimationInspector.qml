@@ -46,8 +46,9 @@ Item {
     // ----- Gallery -----------------------------------------------------------------------
     property string animTab: "in"
     property string animCategory: ""
-    // Trending is only for signed-in people (Jorge, 2026-10-23), as in Titles and Effects.
-    readonly property bool trendsLocked: animCategory === "trending" && !Market.authenticated
+    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // signed out asks for the account and applies it once signed in.
+    readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
     readonly property var currentAnim: animTab === "in" ? animIn : animTab === "out" ? animOut : animCombo
     readonly property bool currentSlotActive: !!currentAnim && (currentAnim.kind || "none") !== "none"
@@ -67,7 +68,8 @@ Item {
         if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic"))
             tiles.push({ "kind": "fade", "label": qsTr("Fade"), "duration": 0.5 })
         for (let i = 0; i < filtered.length; ++i)
-            tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration })
+            tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration,
+                         "trending": !!filtered[i].trending })
         return tiles
     }
 
@@ -83,6 +85,14 @@ Item {
     }
 
     function pickTile(tile) {
+        if (tile.trending && root.trendsNeedAccount) {
+            const slotKey = root.slotKey
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            signInLoader.active = true
+            signInLoader.item.openFor(() => EditorState.setClipAnimation(track, clip, slotKey, { preset: tile.preset }))
+            return
+        }
         if (tile.preset) {
             root.setAnim(root.slotKey, { preset: tile.preset })
         } else if (tile.kind) {
@@ -261,20 +271,15 @@ Item {
             }
         }
 
-        EmptyState {
-            width: parent.width
-            visible: root.supportsBodyAnim && root.trendsLocked
-            compact: true
-            glyph: Theme.icons.account
-            title: qsTr("Sign in to see what's trending")
-            hint: qsTr("Trending is only for signed-in users. The account is free.")
-            actionText: Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in")
-            onActionTriggered: Account.signIn()
+        Loader {
+            id: signInLoader
+            active: false
+            sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
         }
 
         Grid {
             id: animGrid
-            visible: root.supportsBodyAnim && !root.trendsLocked
+            visible: root.supportsBodyAnim
             width: parent.width
             readonly property real gap: Theme.spacingMd
             columns: Math.max(3, Math.floor((width + gap) / (76 + gap)))
