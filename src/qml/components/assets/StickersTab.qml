@@ -28,7 +28,7 @@ Item {
     property int stockTick: 0
     readonly property var stockChips: {
         void root.stockTick
-        return Market.authenticated ? Market.stockChips("animation", root.ownCategories)
+        return Market.authenticated ? Market.stockChips("animation", root.ownCategories.map(c => ({ "id": c.id, "label": c.label })))
                                     : ({ extra: [], categoriesOf: {} })
     }
     readonly property var categories: Market.configured

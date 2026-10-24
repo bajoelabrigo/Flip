@@ -29,7 +29,7 @@ Column {
     readonly property var ownCategories: { void catalogTick; return EditorState.effectCategories().filter(c => c.id !== "trending") }
     readonly property var stockChips: {
         void root.stockTick
-        return Market.authenticated ? Market.stockChips(root.stockType, root.ownCategories)
+        return Market.authenticated ? Market.stockChips(root.stockType, root.ownCategories.map(c => ({ "id": c.id, "label": c.label })))
                                     : ({ extra: [], categoriesOf: {} })
     }
     readonly property var categories: {
