@@ -83,3 +83,13 @@ elemento de Stock va en la subcategoría de su panel según su tipo (un texto ne
 - Ojo: el 2026-10-24 había otra sesión («Tipos de keyframe y stock») tocando `flip/v0.21.1`; no se pudo hablar con
   ella. Antes de publicar, mirar que no haya commits nuevos en `flip/v0.21.1` sin unir.
 - Nota de traducción: en la web «Salto» es la misma clave que la animación «Salto» (en inglés sale «Pop»).
+
+## 0.22.1 — arreglos y funciones de texto (Jorge, 2026-10-24, tarde): **antes de mandar la 0.22 a la Store**
+Jorge: «sería bueno corregir estos errores, subir las funciones básicas y funciones avanzadas antes de subir la 0.22 al
+partner». Así que la 0.22.0 **no se publica todavía**: se une con esto y sale todo junto. Base: `docs/auditoria-texto.md`.
+Rama `flip/v0.22.1` (desde `flip/v0.22.0`), worktree `.claude/worktrees/v0221`.
+- Commit `arreglos` (D1–D7, D9–D14) y commit `funciones` (básicas + avanzadas). Detalle de cada uno en los mensajes.
+- CI: run 40117188461 (arreglos) y 40118259607 (todo). **Falta: pruebas en ventana de cada punto** y medir D8 exportando.
+- Subtítulos VTT/ASS: agente aparte en la rama `flip/subs-vtt-ass` (unirla cuando esté en verde).
+- Pendiente para después: tamaño de letra con decimales, editor visual de animaciones propias, web igual (D1, D3, D6,
+  los Bucles nuevos necesitan la propiedad `glow` en el motor de la web).
