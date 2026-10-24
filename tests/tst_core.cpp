@@ -2068,6 +2068,8 @@ void CoreTest::textStyleKeyframesSerialization()
     QCOMPARE(mid.primaryColor().greenF(), 1.0);
     QCOMPARE(mid.primaryColor().redF(), 1.0);
     QVERIFY(mid.isAnimated()); // the copy keeps its tracks so renderers can tell it apart
+    // Between whole pixels too (0.22.1): a slow zoom grows smoothly instead of a pixel at a time.
+    QCOMPARE(style.resolvedAt(drift::secondsToUs(0.0125)).pixelSize, 40.25);
     QCOMPARE(qRound(style.resolvedAt(0).pixelSize), 40);
 
     const QJsonObject json = drift::textStyleToJson(style);
