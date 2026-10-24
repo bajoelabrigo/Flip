@@ -24,16 +24,26 @@ Pedido de Jorge (2026-10-23): crear todos los efectos de 16 capturas (`Downloads
   Los efectos de Tendencias en el editor web quedan para después (la web tendría que correr los `.driftfx` de efecto
   en WebGL2, como ya hace con las transiciones).
 
-## Estado
+## Estado (2026-10-23, noche)
 - [x] Herramientas y piloto probado con la app (carga, `u_time`, tarjeta, video).
-- [x] 15 módulos escritos por agentes y revisados en hojas; segunda pasada «todo editable».
-- [x] Cambios de la app, servidor y web (ver arriba); traducciones de la app en 15 idiomas.
-- [ ] `build.py` completo con la app (tarjetas + videos de los ~370) y revisar `catalogo-*.png`.
-- [ ] Nombres en 13 idiomas (`tools/stock_i18n`, claves `flip:effect:<id>`), y volver a correr `build.py --no-render`
-      para meterlos en los `names` de cada paquete.
-- [ ] Compilar (CI `build.yml`), probar **en ventana**: Efectos › Tendencias con y sin sesión, aplicar uno, editar sus
-      controles, uno de profundidad, uno de cara, una voz; Tendencias de animación sin sesión.
-- [ ] Desplegar: servidor `stock-efectos` → paquetes `publicar/efectos` → web; luego PR, tag `v0.21.0`, MSIX.
+- [x] 16 módulos (364 efectos en 121 familias) + 9 voces; todos con controles editables (los que no hacen nada en
+      una variante van a `fixedParams`); familias con profundidad para lo que va detrás de la persona.
+- [x] **Motor:** los efectos reciben el avance del clip en `u_progress` (antes siempre 0: aperturas y cierres).
+- [x] Tarjetas y videos renderizados por la app 0.21 (CI run 40035973172), revisados en `tienda\efectos\catalogo-*.png`.
+- [x] Nombres en 13 idiomas (`tools/stock_i18n`, claves `effect:<id>`) dentro de cada paquete y en `publicar\i18n`.
+- [x] `publicar\efectos` armado (373 elementos, 30 MB).
+- [x] **Probado en ventana** (portable 0.21 contra `flipstudio-api` local con `DRIFT_MARKET_API_URL`): Efectos ›
+      Tendencias carga página a página, un clic baja e instala «Nieve realista» y la aplica; su panel en español
+      (Intensidad, Velocidad, Densidad, Tamaño, Color, Ángulo) cambia la vista previa y crea fotogramas clave;
+      «Ardilla listada» se aplica como efecto de voz al clip.
+- [x] Web: Texto › Animación › Tendencias sin sesión muestra el aviso (rama `web/tendencias-login`, local).
+- [x] Arreglos encontrados en la prueba: la ventana de Descargas decía «en la biblioteca de medios» para todo lo que
+      se instala (ahora dice dónde quedó); el servidor mandaba `effect` también para las voces (ahora cada elemento
+      puede llevar su `delivery`).
+- [ ] App sin sesión en ventana (Efectos › Tendencias y Tendencias de animación): probar quitando la clave
+      `account` del registro con copia, **sin** cerrar sesión (cerrar sesión revoca la familia de tokens).
+- [ ] Desplegar: servidor `stock-efectos` → `publicar\efectos` + `publicar\i18n` → web `web/tendencias-login`
+      (unir antes con lo último desplegado) → PR, tag `v0.21.0`, MSIX, novedades en la web.
 
 ## Trampas
 - Un efecto con `requires: "depth"` o `"face"` no va en una capa de ajuste: hace falta un clip seleccionado.
