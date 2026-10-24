@@ -52,6 +52,13 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-23, noche)
 
+### 0.22 SIN PUBLICAR: primero el texto completo (2026-10-24) — **estado y orden en `docs/plan-0.22.md`**
+- Jorge: la 0.22 no va a la Store hasta tener los arreglos de `docs/auditoria-texto.md`, las funciones básicas y
+  avanzadas de texto, el tamaño con decimales, el editor visual de animaciones y todo igual en la web.
+- Ramas: `flip/v0.22.1` (worktree `.claude/worktrees/v0221`), `flip/subs-vtt-ass`, `flip/anim-editor`; web
+  `web/v0221-texto` (sin desplegar). La copia de prueba tiene la sesión de Google de Jorge: al terminar, restaurar el
+  registro **conservando** la clave `account`.
+
 ### 0.21.0 PUBLICADA (2026-10-23) — Efectos › Tendencias — **detalle y trampas en `docs/plan-efectos-tendencias.md`**
 - PR #37 (`flip/efectos-tendencias` → `main`), tag `v0.21.0`, release (run 40052598335); copia en
   `versiones\FlipStudio-0.21.0` (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40057246669 →
