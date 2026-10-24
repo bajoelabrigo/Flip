@@ -4353,6 +4353,10 @@
         <translation>En Transiciones</translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>En Efectos › Tendencias</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation>este tipo de elemento necesita una versión más nueva de Flip Studio</translation>
     </message>
@@ -12505,6 +12509,14 @@ LA PRÓXIMA</translation>
         <translation>Instala un efecto o una transición propios desde un archivo .driftfx creado en Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Tendencias</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Selecciona un clip con sonido para cambiar su voz</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Agregar capa de ajuste — haz clic o arrástrala a una pista</translation>
     </message>
@@ -12537,12 +12549,48 @@ LA PRÓXIMA</translation>
         <translation>Importa un archivo .driftfx creado en Drift Forge para añadir los tuyos.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — haz clic para aplicarlo a la voz del clip seleccionado</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — haz clic para aplicarlo a la selección o arrástralo sobre un clip</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — haz clic para agregarlo como capa de ajuste o arrástralo sobre un clip</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — haz clic para descargarlo y aplicarlo</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Inicia sesión para ver los efectos en tendencia</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Cargando efectos en tendencia…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>No se pudieron cargar los efectos en tendencia</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Los efectos en tendencia vienen de Stock, que necesita tu cuenta gratis.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Esperando al navegador…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Iniciar sesión</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Reintentar</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -20504,8 +20552,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Inicia sesión para exportar</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Inicia sesión para usar las tendencias</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio es gratis: exportar, Stock y todas las plantillas no cuestan nada.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Las animaciones en tendencia son para quienes iniciaron sesión. Solo tienes que entrar con tu cuenta de Google: toma un momento, se hace una vez y tu proyecto queda tal como está.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

@@ -12,9 +12,16 @@ Column {
 
     readonly property string favoritesId: "__favorites__"
     readonly property string mineId: "__mine__"
+    // Effects › Trending (first, as in Filmora and CapCut): Stock's effects. Installed ones carry the
+    // category "trending" and an id "stockfx_<item>", and are listed here instead of in a chip of their own.
+    readonly property string trendsId: "__trends__"
     // Bumped when an addon changes the effects on disk (an imported .driftfx, a pack install).
     property int catalogTick: 0
-    readonly property var categories: { void catalogTick; return EditorState.effectCategories() }
+    readonly property var categories: {
+        void catalogTick
+        const own = EditorState.effectCategories().filter(c => c.id !== "trending")
+        return Market.configured ? [{ "id": root.trendsId, "label": qsTr("Trending") }].concat(own) : own
+    }
     readonly property var catalog: { void catalogTick; return EditorState.effectCatalog() }
     property string activeCategory: categories.length > 0 ? categories[0].id : ""
     property alias searchText: search.text
@@ -53,10 +60,126 @@ Column {
             })
         }
         if (root.activeCategory === root.mineId)
-            return root.catalog.filter(function(preset) { return preset.user === true })
+            return root.catalog.filter(function(preset) { return preset.user === true && !root.isStockEffect(preset.id) })
+        if (root.activeCategory === root.trendsId)
+            return []
         return root.catalog.filter(function(preset) {
             return preset.category === root.activeCategory
         })
+    }
+
+    readonly property bool showingTrends: root.activeCategory === root.trendsId && root.query.length === 0
+
+    function isStockEffect(effectId) {
+        return (effectId || "").indexOf("stockfx_") === 0
+    }
+    // The effect id a Stock item installs as ("flip:effect:luz-del-sol-05" -> stockfx_luz_del_sol_05).
+    function stockEffectId(item) {
+        const slug = String(item.id || "").split(":").pop().toLowerCase()
+        return "stockfx_" + slug.replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "")
+    }
+    function trendInstalled(item) {
+        void root.catalogTick
+        if (Market.deliveryForItem(item) === "effect-preset")
+            return root.voicePresetId(item).length > 0
+        const id = root.stockEffectId(item)
+        return root.catalog.some(p => p.id === id)
+    }
+    // Voice effects come as effect presets (audio only), labelled with their Spanish name, which is
+    // also the item's id ("flip:effect:ardilla-listada" <- "Ardilla listada"): found again by it in
+    // any UI language.
+    property int presetsTick: 0
+    function slugOf(text) {
+        return String(text || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")
+    }
+    function voicePresetId(item) {
+        void root.presetsTick
+        const slug = String(item.id || "").split(":").pop()
+        const preset = EditorState.userEffectPresets().find(p => root.slugOf(p.label) === slug)
+        return preset ? preset.id : ""
+    }
+
+    // Trending: fetched when first shown (and again after signing in). A click on one that is not
+    // installed downloads it and applies it when it lands.
+    property var pendingTrendIds: ({})
+    // Market.effectTrends copied here so a next page is appended without the grid jumping back to
+    // the top (a bound model resets on every change).
+    property var trendItems: []
+    function showTrends() {
+        const before = root.trendItems
+        const next = Market.effectTrends
+        const appended = before.length > 0 && next.length > before.length && next[0].id === before[0].id
+        const y = trendsGrid.contentY
+        root.trendItems = next
+        if (appended) {
+            trendsGrid.forceLayout()
+            trendsGrid.contentY = y
+        }
+    }
+    function ensureTrends() {
+        if (root.activeCategory === root.trendsId && Market.authenticated && Market.effectTrends.length === 0
+                && !Market.effectTrendsLoading)
+            Market.fetchEffectTrends()
+    }
+    onActiveCategoryChanged: ensureTrends()
+    Component.onCompleted: {
+        trendItems = Market.effectTrends
+        ensureTrends()
+    }
+    function applyTrend(item) {
+        if (Market.deliveryForItem(item) === "effect-preset") {
+            if (EditorState.selectedClip < 0) {
+                EditorState.setLastMessage(qsTr("Select a clip with sound to change its voice"), "info")
+                return
+            }
+            EditorState.applyEffectPreset(EditorState.selectedTrack, EditorState.selectedClip, root.voicePresetId(item))
+            return
+        }
+        root.applyPreset(root.stockEffectId(item))
+    }
+    function useTrend(item) {
+        if (root.trendInstalled(item)) {
+            root.applyTrend(item)
+            return
+        }
+        const job = Market.downloadInfo(item.id)
+        if (["waiting", "queued", "processing", "downloading", "importing"].indexOf(job.status) >= 0)
+            return
+        const pending = Object.assign({}, root.pendingTrendIds)
+        pending[item.id] = true
+        root.pendingTrendIds = pending
+        Market.download(item.id, "", "", item.title || "", item.media_kind || item.type || "")
+    }
+    function dropPending(itemId) {
+        const pending = Object.assign({}, root.pendingTrendIds)
+        delete pending[itemId]
+        root.pendingTrendIds = pending
+    }
+
+    Connections {
+        target: Market
+        function onAuthChanged() { root.ensureTrends() }
+        function onEffectTrendsChanged() { root.showTrends() }
+        function onDownloadInstalled(itemId, name, where) {
+            if (!root.pendingTrendIds[itemId])
+                return
+            root.dropPending(itemId)
+            root.catalogTick++
+            root.presetsTick++
+            const item = Market.itemById(itemId)
+            if (item && item.id && root.trendInstalled(item))
+                root.applyTrend(item)
+        }
+        function onDownloadFailed(itemId, code, message) {
+            if (root.pendingTrendIds[itemId])
+                root.dropPending(itemId)
+        }
+    }
+
+    Connections {
+        target: EditorState
+        function onUserEffectPresetsChanged() { root.presetsTick++ }
     }
 
     function applyPreset(effectId) {
@@ -149,7 +272,7 @@ Column {
                 x: 12
                 y: 12
                 width: parent.width - 24
-                visible: root.visiblePresets.length === 0
+                visible: root.visiblePresets.length === 0 && !root.showingTrends
                          && !(root.activeCategory === root.mineId && root.query.length === 0)
                 text: root.query.length > 0
                       ? qsTr("No effects match “%1”.").arg(search.text.trim())
@@ -176,6 +299,135 @@ Column {
                 hint: qsTr("Import a .driftfx file made in Drift Forge to add your own.")
                 actionText: qsTr("Import")
                 onActionTriggered: root.Window.window.importUserPackage("")
+            }
+
+            GridView {
+                id: trendsGrid
+                // Wide cards: Stock's effect cards are 16:9, like Filmora's.
+                readonly property int columnCount: Math.max(1, Math.round(width / (Theme.assetCardWidth * 1.35 + Theme.assetCardGap)))
+                readonly property real cardWidth: Math.floor(width / columnCount) - Theme.assetCardGap
+                x: 12
+                width: parent.width - 24 + Theme.assetCardGap
+                height: parent.height
+                topMargin: 12
+                bottomMargin: 12
+                clip: true
+                reuseItems: true
+                boundsBehavior: Flickable.StopAtBounds
+                acceptedButtons: Theme.touchUi ? Qt.LeftButton : Qt.NoButton
+                ScrollBar.vertical: AppScrollBar { }
+                cellWidth: Math.floor(width / columnCount)
+                cellHeight: Math.round(cardWidth * 9 / 16) + 4 + Math.ceil(labelMetrics.height) + Theme.assetCardGap
+                visible: root.showingTrends && Market.authenticated && root.trendItems.length > 0
+                model: root.trendItems
+                // The next page a little before the end, so scrolling does not stop at it.
+                onContentYChanged: {
+                    if (Market.effectTrendsHasMore && !Market.effectTrendsLoading
+                            && contentY + height > contentHeight - cellHeight * 3)
+                        Market.fetchEffectTrends(true)
+                }
+
+                delegate: Column {
+                    id: trendCard
+                    required property var modelData
+                    readonly property bool installed: root.trendInstalled(modelData)
+                    readonly property string effectId: root.stockEffectId(modelData)
+                    readonly property bool voice: Market.deliveryForItem(modelData) === "effect-preset"
+                    width: trendsGrid.cardWidth
+                    spacing: 4
+
+                    StockThumb {
+                        id: trendThumb
+                        width: parent.width
+                        height: Math.round(width * 9 / 16)
+                        item: trendCard.modelData
+                        showDuration: false
+                        onOpenRequested: root.useTrend(trendCard.modelData)
+
+                        // Not downloaded yet (Filmora's mark).
+                        Rectangle {
+                            visible: !trendCard.installed && !trendThumb.busy
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                            anchors.margins: Theme.spacingXs
+                            width: 20
+                            height: 20
+                            radius: width / 2
+                            color: Theme.scrimStrong
+                            IconGlyph {
+                                anchors.centerIn: parent
+                                glyph: Theme.icons.download
+                                iconSize: 12
+                                iconColor: Theme.onMedia
+                            }
+                        }
+
+                        // Downloaded: drag it onto a clip like any other effect.
+                        AssetDragSource {
+                            anchors.fill: parent
+                            enabled: trendCard.installed && !trendCard.voice
+                            visible: enabled
+                            kind: "effect"
+                            payload: trendCard.effectId
+                            label: trendCard.modelData.title || ""
+                            glyph: Theme.icons.wand
+                            onTapped: root.useTrend(trendCard.modelData)
+                        }
+
+                        AssetFavoriteButton {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 3
+                            visible: trendCard.installed && !trendCard.voice
+                            tabId: "effects"
+                            itemId: trendCard.effectId
+                        }
+
+                        HoverHandler { id: trendHover }
+                        ThemedToolTip {
+                            text: trendCard.voice
+                                  ? qsTr("%1 — click to apply it to the selected clip's voice").arg(trendCard.modelData.title || "")
+                                  : trendCard.installed
+                                    ? (EditorState.selectedClip >= 0
+                                       ? qsTr("%1 — click to apply to the selection, or drag onto a clip").arg(trendCard.modelData.title || "")
+                                       : qsTr("%1 — click to add as an adjustment layer, or drag onto a clip").arg(trendCard.modelData.title || ""))
+                                    : qsTr("%1 — click to download it and apply it").arg(trendCard.modelData.title || "")
+                            visible: trendHover.hovered && !trendThumb.busy
+                        }
+                    }
+
+                    Text {
+                        width: parent.width
+                        text: trendCard.modelData.title || ""
+                        elide: Text.ElideRight
+                        horizontalAlignment: Text.AlignHCenter
+                        color: trendHover.hovered ? Theme.panelForeground : Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeCard
+                        font.weight: Font.Medium
+                    }
+                }
+            }
+
+            // Trending before there is anything to show: signed out, loading, or the request failed.
+            EmptyState {
+                anchors.centerIn: parent
+                width: Math.min(parent.width - Theme.spacing3xl, 260)
+                visible: root.showingTrends && (!Market.authenticated || root.trendItems.length === 0)
+                compact: true
+                glyph: Theme.icons.wand
+                title: !Market.authenticated ? qsTr("Sign in to see trending effects")
+                                             : (Market.effectTrendsLoading ? qsTr("Loading trending effects…")
+                                                                           : qsTr("Couldn’t load trending effects"))
+                hint: !Market.authenticated ? qsTr("Trending effects come from Stock, which needs your free account.") : ""
+                actionText: !Market.authenticated ? (Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in"))
+                                                  : (Market.effectTrendsLoading ? "" : qsTr("Retry"))
+                onActionTriggered: {
+                    if (!Market.authenticated)
+                        Account.signIn()
+                    else
+                        Market.fetchEffectTrends()
+                }
             }
 
             FontMetrics {

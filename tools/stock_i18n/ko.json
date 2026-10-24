@@ -19,6 +19,20 @@
   "background:fechas": "기념일",
   "background:geometricos": "기하학",
   "background:texturas": "텍스처",
+  "effect:abrir": "열기 및 닫기",
+  "effect:amor": "러브",
+  "effect:audio": "음성",
+  "effect:camara": "카메라 무빙",
+  "effect:desenfoque": "블러",
+  "effect:dividir": "분할 및 복제",
+  "effect:energia": "에너지 및 원소",
+  "effect:estilo": "스타일",
+  "effect:glitch": "글리치",
+  "effect:ia": "AI",
+  "effect:luz": "빛과 플레어",
+  "effect:marcos": "프레임 및 테두리",
+  "effect:particulas": "파티클 및 반짝임",
+  "effect:retro": "레트로 및 필름",
   "look:arte": "아트·듀오톤",
   "look:bn": "흑백",
   "look:boda": "웨딩",
@@ -4165,6 +4179,2996 @@
     "줌",
     "배경",
     "비비드"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "색수차",
+   "tags": [
+    "색수차",
+    "rgb",
+    "번짐"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "세로 열기",
+   "tags": [
+    "열기",
+    "세로",
+    "전환"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "패럴랙스 줌인",
+   "tags": [
+    "패럴랙스",
+    "줌",
+    "깊이"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "좌우 흔들기",
+   "tags": [
+    "흔들림",
+    "좌우",
+    "카메라"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "상하 흔들기",
+   "tags": [
+    "흔들림",
+    "상하",
+    "카메라"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "RGB 셰이크",
+   "tags": [
+    "rgb",
+    "흔들림",
+    "글리치"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "셰이크 줌",
+   "tags": [
+    "흔들림",
+    "줌",
+    "카메라"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "카메라 흔들기",
+   "tags": [
+    "흔들림",
+    "카메라",
+    "진동"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "플라즈마 옐로",
+   "tags": [
+    "플라즈마",
+    "노랑",
+    "빛"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "포커스 부스트",
+   "tags": [
+    "포커스",
+    "선명",
+    "초점"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "반짝이 링",
+   "tags": [
+    "링",
+    "반짝임",
+    "글리터"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "불의 고리",
+   "tags": [
+    "불꽃",
+    "링",
+    "불"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "뮤직 링",
+   "tags": [
+    "음악",
+    "링",
+    "파형"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "소용돌이 링",
+   "tags": [
+    "소용돌이",
+    "링",
+    "에너지"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "70년대",
+   "tags": [
+    "70년대",
+    "레트로",
+    "빈티지"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "빠른 횃불",
+   "tags": [
+    "횃불",
+    "빛",
+    "플래시"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "인물 등장 1",
+   "tags": [
+    "ai",
+    "인물",
+    "등장"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "엘리베이터 열기",
+   "tags": [
+    "엘리베이터",
+    "열기",
+    "분할"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "다람쥐 목소리",
+   "tags": [
+    "음성변조",
+    "높은목소리",
+    "재미"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "시네마 바",
+   "tags": [
+    "시네마",
+    "영화",
+    "레터박스"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "뮤직 바",
+   "tags": [
+    "음악",
+    "이퀄라이저",
+    "오디오"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "심장박동 셰이크",
+   "tags": [
+    "심장박동",
+    "흔들림",
+    "비트"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "펄스 셰이크 03",
+   "tags": [
+    "펄스",
+    "흔들림",
+    "비트"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "소프트 셰이크",
+   "tags": [
+    "부드러운",
+    "흔들림",
+    "카메라"
+   ]
+  },
+  "effect:belleza": {
+   "name": "뷰티",
+   "tags": [
+    "뷰티",
+    "피부",
+    "보정"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "블루 플레어",
+   "tags": [
+    "플레어",
+    "파랑",
+    "빛"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "네이비 플레어",
+   "tags": [
+    "플레어",
+    "네이비",
+    "빛"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "블링블링",
+   "tags": [
+    "반짝임",
+    "광채",
+    "다이아"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "글리치 블록 2",
+   "tags": [
+    "글리치",
+    "블록",
+    "노이즈"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "3D 보케",
+   "tags": [
+    "3d",
+    "보케",
+    "빛"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "보케 5",
+   "tags": [
+    "보케",
+    "빛",
+    "빛망울"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "컬러풀 보케",
+   "tags": [
+    "보케",
+    "컬러풀",
+    "빛"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "코너 보케",
+   "tags": [
+    "보케",
+    "코너",
+    "빛"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "도시 보케",
+   "tags": [
+    "보케",
+    "도시",
+    "밤"
+   ]
+  },
+  "effect:borde": {
+   "name": "테두리",
+   "tags": [
+    "테두리",
+    "프레임",
+    "보더"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "블루 네온 테두리",
+   "tags": [
+    "네온",
+    "테두리",
+    "파랑"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "필름 타는 효과",
+   "tags": [
+    "필름",
+    "번",
+    "빛번짐"
+   ]
+  },
+  "effect:brasas": {
+   "name": "불씨",
+   "tags": [
+    "불씨",
+    "불꽃",
+    "파티클"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "골드 광채",
+   "tags": [
+    "골드",
+    "광채",
+    "반짝임"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "공중의 반짝임",
+   "tags": [
+    "반짝임",
+    "빛",
+    "파티클"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "빛 방울",
+   "tags": [
+    "방울",
+    "빛",
+    "보케"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "정답 찾기",
+   "tags": [
+    "검색",
+    "스캔",
+    "밈"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "3D 카메라 오른쪽",
+   "tags": [
+    "3d",
+    "카메라",
+    "오른쪽"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "3D 카메라 왼쪽",
+   "tags": [
+    "3d",
+    "카메라",
+    "왼쪽"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "즉석카메라",
+   "tags": [
+    "즉석카메라",
+    "카메라",
+    "사진"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "격렬한 카메라",
+   "tags": [
+    "격렬한",
+    "흔들림",
+    "카메라"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "비트에 맞춘 색 변화",
+   "tags": [
+    "비트",
+    "색",
+    "음악"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "어둠 속 충전",
+   "tags": [
+    "충전",
+    "에너지",
+    "어둠"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "해피 회전목마",
+   "tags": [
+    "회전",
+    "카메라",
+    "즐거운"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "전투 불씨",
+   "tags": [
+    "불씨",
+    "재",
+    "불꽃"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "플래시 닫기",
+   "tags": [
+    "닫기",
+    "플래시",
+    "전환"
+   ]
+  },
+  "effect:chispa": {
+   "name": "스파크",
+   "tags": [
+    "불꽃",
+    "스파크",
+    "빛"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "골드 불꽃",
+   "tags": [
+    "불꽃",
+    "골드",
+    "스파크"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "컷 임팩트",
+   "tags": [
+    "임팩트",
+    "컷",
+    "충격"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "별이 빛나는 하늘",
+   "tags": [
+    "별하늘",
+    "별",
+    "밤"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "가로 닫기",
+   "tags": [
+    "닫기",
+    "가로",
+    "전환"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "원형 닫기",
+   "tags": [
+    "닫기",
+    "원형",
+    "전환"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "레트로 시네마",
+   "tags": [
+    "레트로",
+    "영화",
+    "시네마"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "비디오테이프",
+   "tags": [
+    "비디오",
+    "vhs",
+    "레트로"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "러브 클래리티",
+   "tags": [
+    "하트",
+    "핑크",
+    "사랑",
+    "글로우"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "빛나는 인물 복제",
+   "tags": [
+    "ai",
+    "복제",
+    "인물",
+    "빛"
+   ]
+  },
+  "effect:colision": {
+   "name": "충돌",
+   "tags": [
+    "충돌",
+    "충격",
+    "임팩트"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "러브 콜라주",
+   "tags": [
+    "콜라주",
+    "사랑",
+    "사진"
+   ]
+  },
+  "effect:color-local": {
+   "name": "부분 컬러",
+   "tags": [
+    "컬러",
+    "흑백",
+    "색"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "컬러 코믹",
+   "tags": [
+    "만화",
+    "코믹",
+    "컬러"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "축제 색종이",
+   "tags": [
+    "색종이",
+    "축제",
+    "축하"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "날리는 색종이",
+   "tags": [
+    "색종이",
+    "축하",
+    "파티"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "글리치 프리즈",
+   "tags": [
+    "글리치",
+    "정지",
+    "프리즈"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "눈송이",
+   "tags": [
+    "눈",
+    "눈송이",
+    "겨울"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "반짝이 하트",
+   "tags": [
+    "하트",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "빛의 하트",
+   "tags": [
+    "하트",
+    "조명",
+    "빛"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "하트 보케",
+   "tags": [
+    "하트",
+    "보케",
+    "빛"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "네온 하트",
+   "tags": [
+    "하트",
+    "네온",
+    "빛"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "골드 하트",
+   "tags": [
+    "하트",
+    "골드",
+    "반짝임"
+   ]
+  },
+  "effect:corredor": {
+   "name": "복도",
+   "tags": [
+    "리버브",
+    "울림",
+    "음성"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "깜빡이는 베벨 컷",
+   "tags": [
+    "베벨",
+    "깜빡임",
+    "컷"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "분할 플래시 컷 1",
+   "tags": [
+    "분할",
+    "플래시",
+    "컷"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "회전 플래시 컷",
+   "tags": [
+    "플래시",
+    "회전",
+    "컷"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "베벨 컷",
+   "tags": [
+    "베벨",
+    "컷",
+    "분할"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "스트립 컷",
+   "tags": [
+    "줄무늬",
+    "분할",
+    "컷"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "액션 정지 화면",
+   "tags": [
+    "정지",
+    "프리즈",
+    "액션"
+   ]
+  },
+  "effect:cueva": {
+   "name": "동굴",
+   "tags": [
+    "에코",
+    "울림",
+    "음성"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "썬더 돔",
+   "tags": [
+    "천둥",
+    "돔",
+    "전기"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "전기 방전",
+   "tags": [
+    "전기",
+    "번개",
+    "스파크"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "블러로 지우기",
+   "tags": [
+    "블러",
+    "지우기",
+    "전환"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "사각 블러",
+   "tags": [
+    "블러",
+    "사각",
+    "모자이크"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "보케 블러 5",
+   "tags": [
+    "보케",
+    "블러",
+    "빛"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "방향 블러",
+   "tags": [
+    "블러",
+    "방향",
+    "움직임"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "기본 배경 블러",
+   "tags": [
+    "블러",
+    "배경",
+    "기본"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "모션 블러",
+   "tags": [
+    "블러",
+    "움직임",
+    "속도"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "심도 블러",
+   "tags": [
+    "블러",
+    "심도",
+    "배경"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "비네트 블러",
+   "tags": [
+    "블러",
+    "비네트",
+    "가장자리"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "사선 블러",
+   "tags": [
+    "블러",
+    "사선",
+    "틸트"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "스크롤 앤 줌",
+   "tags": [
+    "스크롤",
+    "줌",
+    "카메라"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "아나모픽 TV 플레어",
+   "tags": [
+    "아나모픽",
+    "플레어",
+    "tv"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "렌즈 플레어 3",
+   "tags": [
+    "렌즈플레어",
+    "빛",
+    "플레어"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "렌즈 플레어 5",
+   "tags": [
+    "렌즈플레어",
+    "빛",
+    "플레어"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "렌즈 플레어 6",
+   "tags": [
+    "렌즈플레어",
+    "빛",
+    "플레어"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "아나모픽 렌즈 플레어",
+   "tags": [
+    "아나모픽",
+    "렌즈플레어",
+    "영화"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "블루 렌즈 플레어",
+   "tags": [
+    "렌즈플레어",
+    "파랑",
+    "빛"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "진동 플래시",
+   "tags": [
+    "플래시",
+    "진동",
+    "빛"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "골드 플레어",
+   "tags": [
+    "플레어",
+    "골드",
+    "빛"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "수평 플레어",
+   "tags": [
+    "플레어",
+    "수평",
+    "빛"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "맥동 플래시",
+   "tags": [
+    "플래시",
+    "펄스",
+    "깜빡임"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "따뜻한 반짝임",
+   "tags": [
+    "반짝임",
+    "따뜻한",
+    "빛"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "포토북 슬라이드",
+   "tags": [
+    "포토북",
+    "슬라이드",
+    "사진"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "필름 슬라이드 1",
+   "tags": [
+    "필름",
+    "슬라이드",
+    "사진"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "필름 슬라이드 2",
+   "tags": [
+    "필름",
+    "슬라이드",
+    "사진"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "번짐 블러",
+   "tags": [
+    "블러",
+    "번짐",
+    "움직임"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "VCR 왜곡",
+   "tags": [
+    "비디오",
+    "vhs",
+    "왜곡"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "분할 플래시 컷 2",
+   "tags": [
+    "분할",
+    "플래시",
+    "컷"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "버블 분할",
+   "tags": [
+    "버블",
+    "분할",
+    "거품"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "RGB 분리",
+   "tags": [
+    "rgb",
+    "분리",
+    "글리치"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "글리치 효과 17",
+   "tags": [
+    "글리치",
+    "노이즈",
+    "디지털"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "글리치 효과 20",
+   "tags": [
+    "글리치",
+    "노이즈",
+    "디지털"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "글리치 효과 7",
+   "tags": [
+    "글리치",
+    "노이즈",
+    "디지털"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "빛 번짐 효과 02",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "필름"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "줌 효과",
+   "tags": [
+    "줌",
+    "카메라",
+    "움직임"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "AI 뷰티",
+   "tags": [
+    "ai",
+    "뷰티",
+    "보정"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "충격파 에너지",
+   "tags": [
+    "충격파",
+    "에너지",
+    "파워"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "분석 포커스",
+   "tags": [
+    "포커스",
+    "초점",
+    "블러"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "푸른 불꽃 감싸기",
+   "tags": [
+    "불꽃",
+    "파랑",
+    "오라"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "사이버 에러 01",
+   "tags": [
+    "사이버",
+    "에러",
+    "글리치"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "테두리 크기",
+   "tags": [
+    "테두리",
+    "확대",
+    "프레임"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "SF 스캔 01",
+   "tags": [
+    "스캔",
+    "sf",
+    "미래"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "SF 스캔 02",
+   "tags": [
+    "스캔",
+    "sf",
+    "미래"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "글리치 스캔",
+   "tags": [
+    "글리치",
+    "스캔",
+    "노이즈"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "충격파 스캔",
+   "tags": [
+    "스캔",
+    "충격파",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "광선 스캔",
+   "tags": [
+    "스캔",
+    "광선",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "광선 스캔 04",
+   "tags": [
+    "스캔",
+    "광선",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "사이버 광선 스캔 01",
+   "tags": [
+    "사이버",
+    "스캔",
+    "광선"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "사이버 광선 스캔 02",
+   "tags": [
+    "사이버",
+    "스캔",
+    "광선"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "전기광학 스캔",
+   "tags": [
+    "스캔",
+    "전기",
+    "sf"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "독성 스모그",
+   "tags": [
+    "연기",
+    "스모그",
+    "초록"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "오디오 스펙트럼 03",
+   "tags": [
+    "음악",
+    "스펙트럼",
+    "파형"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "별 폭발",
+   "tags": [
+    "별",
+    "폭발",
+    "반짝임"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "광선 폭발",
+   "tags": [
+    "광선",
+    "폭발",
+    "빛"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "바닥 노이즈",
+   "tags": [
+    "노이즈",
+    "지직",
+    "레트로"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "모션 트레일",
+   "tags": [
+    "잔상",
+    "움직임",
+    "궤적"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "핑크 트레일",
+   "tags": [
+    "궤적",
+    "핑크",
+    "빛"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "코믹 스타일 3",
+   "tags": [
+    "만화",
+    "코믹",
+    "스타일"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "저프레임 스타일",
+   "tags": [
+    "fps",
+    "끊김",
+    "프레임"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "스트레치 진동",
+   "tags": [
+    "늘리기",
+    "진동",
+    "글리치"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "반짝이는 별 1",
+   "tags": [
+    "별",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "반짝이는 별 5",
+   "tags": [
+    "별",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "골드 별",
+   "tags": [
+    "별",
+    "골드",
+    "반짝임"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "먼 별",
+   "tags": [
+    "별",
+    "밤",
+    "우주"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "떨어지는 별",
+   "tags": [
+    "별똥별",
+    "별",
+    "밤"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "흩어진 별",
+   "tags": [
+    "별",
+    "반짝임",
+    "파티클"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "깜빡이는 별",
+   "tags": [
+    "별",
+    "반짝임",
+    "밤"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "고정 스트로브",
+   "tags": [
+    "스트로브",
+    "깜빡임",
+    "글리치"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "스펙트럼 스캔",
+   "tags": [
+    "스캔",
+    "스펙트럼",
+    "무지개"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "에너지 폭발",
+   "tags": [
+    "폭발",
+    "에너지",
+    "파워"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "별빛 폭발",
+   "tags": [
+    "별",
+    "폭발",
+    "빛"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "나비 폭발",
+   "tags": [
+    "나비",
+    "폭발",
+    "파티클"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "플래시 폭발",
+   "tags": [
+    "플래시",
+    "폭발",
+    "빛"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "불꽃 폭발",
+   "tags": [
+    "폭발",
+    "불꽃",
+    "불"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "프리즘 버스트",
+   "tags": [
+    "프리즘",
+    "무지개",
+    "빛"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "비트 노출",
+   "tags": [
+    "비트",
+    "노출",
+    "플래시"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "플래시 노출",
+   "tags": [
+    "플래시",
+    "노출",
+    "하양"
+   ]
+  },
+  "effect:extremo": {
+   "name": "익스트림",
+   "tags": [
+    "강렬한",
+    "흔들림",
+    "카메라"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "깜빡임 글리치",
+   "tags": [
+    "깜빡임",
+    "글리치",
+    "노이즈"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "필터 글리치",
+   "tags": [
+    "글리치",
+    "필터",
+    "노이즈"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "사이키델릭 글리치",
+   "tags": [
+    "사이키델릭",
+    "글리치",
+    "컬러풀"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "빈티지 글리치 01",
+   "tags": [
+    "빈티지",
+    "글리치",
+    "레트로"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "해골 유령",
+   "tags": [
+    "해골",
+    "유령",
+    "공포"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "글리치 유령",
+   "tags": [
+    "글리치",
+    "유령",
+    "잔상"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "네온 피버",
+   "tags": [
+    "네온",
+    "빛",
+    "컬러풀"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "카툰 필터 01",
+   "tags": [
+    "카툰",
+    "일러스트",
+    "필터"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "카툰 필터 05",
+   "tags": [
+    "카툰",
+    "일러스트",
+    "필터"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "흐릿한 엔딩",
+   "tags": [
+    "블러",
+    "엔딩",
+    "마무리"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "플래시 열기",
+   "tags": [
+    "열기",
+    "플래시",
+    "전환"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "오라 블룸",
+   "tags": [
+    "오라",
+    "글로우",
+    "빛"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "빔 플로우 2",
+   "tags": [
+    "빔",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "빔 플로우 3",
+   "tags": [
+    "빔",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "빔 플로우 4",
+   "tags": [
+    "빔",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "빔 플로우 6",
+   "tags": [
+    "빔",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "빔 플로우 7",
+   "tags": [
+    "빔",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "무대 스포트라이트",
+   "tags": [
+    "스포트라이트",
+    "무대",
+    "조명"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "스포트라이트 엔딩",
+   "tags": [
+    "스포트라이트",
+    "엔딩",
+    "빛"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "폭발 배경",
+   "tags": [
+    "폭발",
+    "배경",
+    "불꽃"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "번개 배경",
+   "tags": [
+    "번개",
+    "배경",
+    "천둥"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "러브 하트 배경",
+   "tags": [
+    "하트",
+    "배경",
+    "사랑"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "축음기",
+   "tags": [
+    "축음기",
+    "레트로",
+    "음성"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "불타는 땅",
+   "tags": [
+    "불꽃",
+    "불",
+    "땅"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "위로 번지는 불",
+   "tags": [
+    "불꽃",
+    "불",
+    "스캔"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "불꽃놀이",
+   "tags": [
+    "불꽃놀이",
+    "축하",
+    "밤"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "별 불꽃놀이",
+   "tags": [
+    "별",
+    "불꽃놀이",
+    "축하"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "빛 번짐 1",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "따뜻한"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "빛 번짐 3",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "따뜻한"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "빛 번짐 4",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "따뜻한"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "빛 번짐 5",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "따뜻한"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "빛 번짐 6",
+   "tags": [
+    "빛번짐",
+    "라이트릭",
+    "따뜻한"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "4분할 합치기",
+   "tags": [
+    "분할",
+    "4분할",
+    "합치기"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "그런지 낙서",
+   "tags": [
+    "그런지",
+    "낙서",
+    "손그림"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "빙글빙글 회전",
+   "tags": [
+    "회전",
+    "원",
+    "스핀"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "회전 스핀",
+   "tags": [
+    "회전",
+    "스핀",
+    "카메라"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "사이키델릭 소용돌이",
+   "tags": [
+    "사이키델릭",
+    "소용돌이",
+    "컬러풀"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "MPEG 글리치",
+   "tags": [
+    "글리치",
+    "블록",
+    "디지털"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "강한 글리치",
+   "tags": [
+    "글리치",
+    "노이즈",
+    "강렬한"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "화이트 그런지",
+   "tags": [
+    "그런지",
+    "하양",
+    "질감"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "충격 빔",
+   "tags": [
+    "빔",
+    "충격",
+    "광선"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "거친 광선",
+   "tags": [
+    "광선",
+    "입자",
+    "필름"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "낮은 연기",
+   "tags": [
+    "연기",
+    "안개",
+    "스모크"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "잔상",
+   "tags": [
+    "잔상",
+    "움직임",
+    "유령"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "틸트 오픈",
+   "tags": [
+    "틸트",
+    "열기",
+    "카메라"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "원근 틸트",
+   "tags": [
+    "원근",
+    "틸트",
+    "3d"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "드로잉 플러드",
+   "tags": [
+    "스케치",
+    "선화",
+    "일러스트"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "글리치 반전",
+   "tags": [
+    "반전",
+    "글리치",
+    "네거티브"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "깜빡임 지터 01",
+   "tags": [
+    "깜빡임",
+    "지터",
+    "글리치"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "회전 지터",
+   "tags": [
+    "회전",
+    "지터",
+    "흔들림"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "필름 롤",
+   "tags": [
+    "필름",
+    "롤",
+    "레트로"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "플래시 램프",
+   "tags": [
+    "플래시",
+    "스트로브",
+    "빛"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "던지기",
+   "tags": [
+    "던지기",
+    "움직임",
+    "카메라"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "심장박동",
+   "tags": [
+    "심장박동",
+    "줌",
+    "비트"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "플래시 줌 렌즈",
+   "tags": [
+    "줌",
+    "플래시",
+    "렌즈"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "오래된 카메라 렌즈",
+   "tags": [
+    "렌즈",
+    "빈티지",
+    "카메라"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "가벼운 진흙 튀김",
+   "tags": [
+    "진흙",
+    "얼룩",
+    "필름"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "와이퍼",
+   "tags": [
+    "와이퍼",
+    "진자",
+    "카메라"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "보더 라인 01",
+   "tags": [
+    "테두리",
+    "라인",
+    "보더"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "연기 라인",
+   "tags": [
+    "연기",
+    "라인",
+    "스모크"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "스피드 라인",
+   "tags": [
+    "스피드라인",
+    "만화",
+    "집중선"
+   ]
+  },
+  "effect:linterna": {
+   "name": "손전등",
+   "tags": [
+    "손전등",
+    "조명",
+    "어둠"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "비 1",
+   "tags": [
+    "비",
+    "날씨",
+    "빗방울"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "비 2",
+   "tags": [
+    "비",
+    "날씨",
+    "빗방울"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "시네마틱 비",
+   "tags": [
+    "비",
+    "영화",
+    "시네마"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "핑크 하트 비",
+   "tags": [
+    "하트",
+    "핑크",
+    "비"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "빛의 비",
+   "tags": [
+    "비",
+    "빛",
+    "반짝임"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "떠다니는 작은 빛",
+   "tags": [
+    "빛",
+    "파티클",
+    "부드러운"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "무대 조명",
+   "tags": [
+    "무대",
+    "조명",
+    "공연"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "크리스마스 조명",
+   "tags": [
+    "크리스마스",
+    "조명",
+    "일루미네이션"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "사실적인 반딧불 01",
+   "tags": [
+    "반딧불",
+    "빛",
+    "자연"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "춤추는 반딧불",
+   "tags": [
+    "반딧불",
+    "빛",
+    "밤"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "선명 루마",
+   "tags": [
+    "선명",
+    "밝기",
+    "또렷한"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "디스코 조명",
+   "tags": [
+    "디스코",
+    "파티",
+    "조명"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "별빛",
+   "tags": [
+    "별",
+    "빛",
+    "밤"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "햇살 01",
+   "tags": [
+    "햇살",
+    "태양",
+    "빛"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "햇살 03",
+   "tags": [
+    "햇살",
+    "태양",
+    "빛"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "햇살 05",
+   "tags": [
+    "햇살",
+    "태양",
+    "빛"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "햇살 06",
+   "tags": [
+    "햇살",
+    "태양",
+    "빛"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "전기 빛",
+   "tags": [
+    "전기",
+    "빛",
+    "스파크"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "녹아드는 빛",
+   "tags": [
+    "ai",
+    "빛",
+    "디졸브"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "보케 프레임",
+   "tags": [
+    "보케",
+    "프레임",
+    "빛"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "에코 프레임 31",
+   "tags": [
+    "에코",
+    "프레임",
+    "잔상"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "불꽃 프레임",
+   "tags": [
+    "불꽃",
+    "프레임",
+    "불"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "화염 프레임",
+   "tags": [
+    "화염",
+    "프레임",
+    "테두리"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "공포 프레임",
+   "tags": [
+    "공포",
+    "프레임",
+    "무서운"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "인스턴트 프레임 02 16:9",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "가로"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "인스턴트 프레임 02 9:16",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "세로"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "인스턴트 프레임 03 16:9",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "가로"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "인스턴트 프레임 추억 02 1:1",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "추억",
+    "정사각형"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "인스턴트 프레임 추억 03 1:1",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "추억",
+    "정사각형"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "인스턴트 프레임 스토리 03 9:16",
+   "tags": [
+    "인스턴트",
+    "프레임",
+    "스토리",
+    "세로"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "마커 프레임",
+   "tags": [
+    "마커",
+    "손그림",
+    "프레임"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "핑크 러브 프레임",
+   "tags": [
+    "프레임",
+    "핑크",
+    "사랑"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "빛나는 나비",
+   "tags": [
+    "나비",
+    "빛",
+    "반짝임"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "자동 보정",
+   "tags": [
+    "보정",
+    "자동",
+    "화질"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "미니 셰이크",
+   "tags": [
+    "흔들림",
+    "작은",
+    "카메라"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "미니 줌",
+   "tags": [
+    "줌",
+    "작은",
+    "카메라"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "공포 모니터",
+   "tags": [
+    "공포",
+    "모니터",
+    "cctv"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "모자이크",
+   "tags": [
+    "모자이크",
+    "블러",
+    "가리기"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "클래식 모자이크",
+   "tags": [
+    "모자이크",
+    "픽셀",
+    "가리기"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "AI 클래식 모자이크",
+   "tags": [
+    "ai",
+    "모자이크",
+    "얼굴"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "AI 블러 모자이크",
+   "tags": [
+    "ai",
+    "모자이크",
+    "블러"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "낙서 모자이크",
+   "tags": [
+    "모자이크",
+    "낙서",
+    "가리기"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "3D 원형 무빙 왼쪽",
+   "tags": [
+    "3d",
+    "원형",
+    "회전",
+    "왼쪽"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "360° 카메라 무빙 1",
+   "tags": [
+    "360",
+    "회전",
+    "카메라"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "3D 카메라 무빙",
+   "tags": [
+    "3d",
+    "카메라",
+    "움직임"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "핸드헬드 카메라",
+   "tags": [
+    "핸드헬드",
+    "흔들림",
+    "카메라"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "로컬 카메라 무빙",
+   "tags": [
+    "카메라",
+    "움직임",
+    "부분"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "흔들리는 카메라 무빙",
+   "tags": [
+    "흔들림",
+    "카메라",
+    "움직임"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "부드러운 카메라 무빙",
+   "tags": [
+    "부드러운",
+    "카메라",
+    "움직임"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "카메라 움직임",
+   "tags": [
+    "카메라",
+    "움직임",
+    "팬"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "한 방향 무빙",
+   "tags": [
+    "움직임",
+    "카메라",
+    "슬라이드"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "시네마틱 지터",
+   "tags": [
+    "지터",
+    "영화",
+    "흔들림"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "소울 지터",
+   "tags": [
+    "지터",
+    "잔상",
+    "영혼"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "겨울 눈",
+   "tags": [
+    "눈",
+    "겨울",
+    "강설"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "몽환 안개 1",
+   "tags": [
+    "안개",
+    "몽환",
+    "부드러운"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "몽환 안개 2",
+   "tags": [
+    "안개",
+    "몽환",
+    "부드러운"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "몽환 안개 3",
+   "tags": [
+    "안개",
+    "몽환",
+    "부드러운"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "몽환 안개 4",
+   "tags": [
+    "안개",
+    "몽환",
+    "부드러운"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "꽃눈",
+   "tags": [
+    "꽃잎",
+    "꽃",
+    "봄"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "사실적인 눈",
+   "tags": [
+    "눈",
+    "겨울",
+    "날씨"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "눈 내리는 별밤",
+   "tags": [
+    "눈",
+    "별",
+    "밤"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "고정 메모",
+   "tags": [
+    "메모",
+    "핀",
+    "포스트잇"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "카메라 렌즈",
+   "tags": [
+    "렌즈",
+    "블러",
+    "카메라"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "숨기기",
+   "tags": [
+    "숨기기",
+    "사라짐",
+    "닫기"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "충격파 3",
+   "tags": [
+    "충격파",
+    "파동",
+    "임팩트"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "사이키델릭 웨이브",
+   "tags": [
+    "사이키델릭",
+    "물결",
+    "컬러풀"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "러브 웨이브",
+   "tags": [
+    "하트",
+    "물결",
+    "사랑"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "반짝이 팩",
+   "tags": [
+    "반짝임",
+    "팩",
+    "광채"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "부드러운 패럴랙스 줌아웃",
+   "tags": [
+    "패럴랙스",
+    "줌아웃",
+    "깊이"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "나란히 포토북",
+   "tags": [
+    "포토북",
+    "사진",
+    "앨범"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "컬러 깜빡임",
+   "tags": [
+    "깜빡임",
+    "컬러",
+    "색"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "날리는 불꽃 파티클",
+   "tags": [
+    "불꽃",
+    "파티클",
+    "불씨"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "골드 파티클",
+   "tags": [
+    "파티클",
+    "골드",
+    "반짝임"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "움직이는 파티클",
+   "tags": [
+    "파티클",
+    "움직임",
+    "빛"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "빈티지 필름 1",
+   "tags": [
+    "필름",
+    "빈티지",
+    "레트로"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "빈티지 필름 2",
+   "tags": [
+    "필름",
+    "빈티지",
+    "레트로"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "그레인 필름",
+   "tags": [
+    "필름",
+    "입자",
+    "노이즈"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "아주 더러운 필름",
+   "tags": [
+    "필름",
+    "얼룩",
+    "스크래치"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "무성영화",
+   "tags": [
+    "무성영화",
+    "흑백",
+    "영화"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "무성영화 2",
+   "tags": [
+    "무성영화",
+    "흑백",
+    "영화"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "아주 오래된 필름",
+   "tags": [
+    "필름",
+    "오래된",
+    "빈티지"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "더러운 필름",
+   "tags": [
+    "필름",
+    "얼룩",
+    "스크래치"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "오래된 필름",
+   "tags": [
+    "필름",
+    "오래된",
+    "빈티지"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "진자",
+   "tags": [
+    "진자",
+    "흔들림",
+    "카메라"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "페인트 모자이크",
+   "tags": [
+    "모자이크",
+    "페인트",
+    "아트"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "멀티 패널 만화",
+   "tags": [
+    "만화",
+    "컷",
+    "분할"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "푸른 가루",
+   "tags": [
+    "가루",
+    "파랑",
+    "파티클"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "별가루",
+   "tags": [
+    "별가루",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "떠다니는 먼지",
+   "tags": [
+    "먼지",
+    "파티클",
+    "빛"
+   ]
+  },
+  "effect:profundo": {
+   "name": "깊은 목소리",
+   "tags": [
+    "낮은목소리",
+    "음성변조",
+    "깊은"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "비트 펄스",
+   "tags": [
+    "비트",
+    "펄스",
+    "음악"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "하트비트 펄스",
+   "tags": [
+    "하트",
+    "심장박동",
+    "펄스"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "반짝이 점",
+   "tags": [
+    "점",
+    "반짝임",
+    "빛"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "골드 글리터",
+   "tags": [
+    "글리터",
+    "골드",
+    "반짝임"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "필름 번",
+   "tags": [
+    "필름",
+    "번",
+    "빛번짐"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "블러 제거",
+   "tags": [
+    "블러",
+    "선명",
+    "또렷한"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "비네트 반경",
+   "tags": [
+    "비네트",
+    "가장자리",
+    "어둡게"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "빛나는 발자국",
+   "tags": [
+    "발자국",
+    "빛",
+    "궤적"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "영사기 줄무늬",
+   "tags": [
+    "영사기",
+    "필름",
+    "줄무늬"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "빛줄기",
+   "tags": [
+    "광선",
+    "빔",
+    "빛"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "황금빛 광선",
+   "tags": [
+    "광선",
+    "골드",
+    "빛"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "번개 01",
+   "tags": [
+    "번개",
+    "천둥",
+    "전기"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "스핀 바운스",
+   "tags": [
+    "스핀",
+    "바운스",
+    "회전"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "줌 바운스",
+   "tags": [
+    "줌",
+    "바운스",
+    "튕김"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "회전 바운스",
+   "tags": [
+    "회전",
+    "바운스",
+    "튕김"
+   ]
+  },
+  "effect:recorte": {
+   "name": "자르기",
+   "tags": [
+    "자르기",
+    "크롭",
+    "프레임"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "회색 격자",
+   "tags": [
+    "격자",
+    "회색",
+    "선"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "눈부신 번개",
+   "tags": [
+    "번개",
+    "천둥",
+    "빛"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "하트 소용돌이",
+   "tags": [
+    "하트",
+    "소용돌이",
+    "회전"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "왜곡 소용돌이",
+   "tags": [
+    "소용돌이",
+    "왜곡",
+    "회전"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "가장자리 글로우 04",
+   "tags": [
+    "글로우",
+    "테두리",
+    "빛"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "인물 글로우",
+   "tags": [
+    "ai",
+    "인물",
+    "글로우"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "흔들리는 글로우",
+   "tags": [
+    "글로우",
+    "흔들림",
+    "빛"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "설렘 로코",
+   "tags": [
+    "로맨틱코미디",
+    "사랑",
+    "로맨틱"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "원형 열기",
+   "tags": [
+    "열기",
+    "원형",
+    "전환"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "겹친 회전",
+   "tags": [
+    "회전",
+    "겹침",
+    "카메라"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "필름 노이즈",
+   "tags": [
+    "필름",
+    "노이즈",
+    "입자"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "레트로 노이즈",
+   "tags": [
+    "노이즈",
+    "레트로",
+    "입자"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "반동 흔들림",
+   "tags": [
+    "반동",
+    "흔들림",
+    "액션"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "지진 흔들림",
+   "tags": [
+    "지진",
+    "흔들림",
+    "강렬한"
+   ]
+  },
+  "effect:saltar": {
+   "name": "점프",
+   "tags": [
+    "점프",
+    "움직임",
+    "카메라"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "바이올렛 점프 2",
+   "tags": [
+    "점프",
+    "보라",
+    "카메라"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "으스스한 목소리",
+   "tags": [
+    "공포",
+    "음성변조",
+    "으스스"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "코너 햇살",
+   "tags": [
+    "태양",
+    "햇살",
+    "빛"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "섀도 A",
+   "tags": [
+    "그림자",
+    "블러",
+    "어둡게"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "서라운드 사운드",
+   "tags": [
+    "서라운드",
+    "입체음향",
+    "음성"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "3D 카드",
+   "tags": [
+    "3d",
+    "카드",
+    "회전"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "윤곽 떨림",
+   "tags": [
+    "윤곽",
+    "떨림",
+    "글리치"
+   ]
+  },
+  "effect:templado": {
+   "name": "템퍼드",
+   "tags": [
+    "흔들림",
+    "카메라",
+    "움직임"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "붉은 공포",
+   "tags": [
+    "공포",
+    "빨강",
+    "무서운"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "빠른 팬",
+   "tags": [
+    "팬",
+    "빠른",
+    "카메라"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "폭풍우",
+   "tags": [
+    "비",
+    "폭풍",
+    "날씨"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "치즈 조각",
+   "tags": [
+    "치즈",
+    "구멍",
+    "재미"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "옛날 TV 4x",
+   "tags": [
+    "tv",
+    "레트로",
+    "브라운관"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "전기 핏줄",
+   "tags": [
+    "전기",
+    "번개",
+    "핏줄"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "VHS 노이즈 1",
+   "tags": [
+    "vhs",
+    "노이즈",
+    "지직"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "RGB 가장자리 진동",
+   "tags": [
+    "rgb",
+    "윤곽",
+    "진동"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "옛날 비디오",
+   "tags": [
+    "비디오",
+    "레트로",
+    "vhs"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "레트로 캠코더",
+   "tags": [
+    "캠코더",
+    "레트로",
+    "녹화"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "필름 비네트",
+   "tags": [
+    "필름",
+    "비네트",
+    "가장자리"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "바이닐",
+   "tags": [
+    "레코드",
+    "레트로",
+    "음성"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "플립 줌",
+   "tags": [
+    "줌",
+    "뒤집기",
+    "카메라"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "노란 소용돌이",
+   "tags": [
+    "소용돌이",
+    "노랑",
+    "에너지"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "번개 소용돌이",
+   "tags": [
+    "번개",
+    "소용돌이",
+    "전기"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "무전기",
+   "tags": [
+    "무전기",
+    "무선",
+    "음성"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "거미줄 줌",
+   "tags": [
+    "거미줄",
+    "줌",
+    "균열"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "슬라이딩 줌",
+   "tags": [
+    "줌",
+    "슬라이드",
+    "카메라"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "빠른 줌",
+   "tags": [
+    "줌",
+    "빠른",
+    "카메라"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "부드러운 줌 오른쪽",
+   "tags": [
+    "줌",
+    "오른쪽",
+    "부드러운"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "부드러운 줌 왼쪽",
+   "tags": [
+    "줌",
+    "왼쪽",
+    "부드러운"
    ]
   },
   "look:arte-comic": {

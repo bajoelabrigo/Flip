@@ -18,6 +18,8 @@ Column {
     property real seconds: 0.6
     property bool selected: false
     property bool playing: false
+    // A trending preset: the flame in the corner (signed out, picking it asks for the account).
+    property bool trending: false
     property real tileWidth: 76
     readonly property alias hovered: tileHover.hovered
     readonly property bool isNone: presetId.length === 0 && kind.length === 0
@@ -191,6 +193,13 @@ Column {
         }
 
         // A tap synthesises hover on a phone, so hover only means anything with a pointer.
+        TrendBadge {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.margins: 3
+            visible: tile.trending
+        }
+
         HoverHandler { id: tileHover; enabled: !Theme.touchUi }
 
         MouseArea {

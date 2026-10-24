@@ -18229,7 +18229,7 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
              QString());
         return;
     }
-    if (delivery == QLatin1String("transition")) {
+    if (delivery == QLatin1String("transition") || delivery == QLatin1String("effect")) {
         if (!m_addonManager) {
             fail(tr("packages cannot be installed here"));
             return;
@@ -18241,14 +18241,16 @@ void AppController::installStockFile(const QString &delivery, const QString &pat
         }
         auto connection = std::make_shared<QMetaObject::Connection>();
         *connection = connect(m_addonManager, &AddonManager::userPackageInstalled, this,
-                              [this, connection, done, name](const QString &, const QString &error) {
+                              [this, connection, done, name, delivery](const QString &, const QString &error) {
             disconnect(*connection);
             if (!error.isEmpty()) {
                 setLastMessage(tr("Could not install “%1”: %2").arg(name, error), QStringLiteral("error"));
                 done(false, QString(), QString(), error);
                 return;
             }
-            done(true, tr("In Transitions"), QString(), QString());
+            // Effects › Trending lists the Stock effects (category "trending" in their effect.json).
+            done(true, delivery == QLatin1String("effect") ? tr("In Effects › Trending") : tr("In Transitions"),
+                 QString(), QString());
         });
         m_addonManager->installUserPackage();
         return;

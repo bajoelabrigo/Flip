@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -4453,6 +4453,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>ইফেক্ট › ট্রেন্ডে আছে</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5161,7 +5165,7 @@
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>ট্রেন্ড</translation>
     </message>
     <message>
         <source>Slide</source>
@@ -12501,6 +12505,14 @@ NEXT TIME</source>
         <translation type="unfinished">Drift ফোরজে তৈরি একটি .driftfx ফাইল থেকে একটি কাস্টম ইফেক্ট বা ট্রানজিশন ইনস্টল করুন</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>ট্রেন্ড</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>কণ্ঠ বদলাতে শব্দসহ একটি ক্লিপ বেছে নিন</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12533,12 +12545,48 @@ NEXT TIME</source>
         <translation type="unfinished">আপনার নিজস্ব যোগ করতে Drift ফোর্জে তৈরি একটি .driftfx ফাইল ইমপোর্ট করুন.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — নির্বাচিত ক্লিপের কণ্ঠে প্রয়োগ করতে ক্লিক করুন</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — ডাউনলোড করে প্রয়োগ করতে ক্লিক করুন</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>ট্রেন্ডিং ইফেক্ট দেখতে সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>ট্রেন্ডিং ইফেক্ট লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>ট্রেন্ডিং ইফেক্ট লোড করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>ট্রেন্ডিং ইফেক্ট Stock থেকে আসে, যার জন্য আপনার বিনামূল্যের অ্যাকাউন্ট লাগে।</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>সাইন ইন</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>আবার চেষ্টা করুন</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -15285,7 +15333,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -19659,7 +19707,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -20500,8 +20548,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>ট্রেন্ডিং ব্যবহার করতে সাইন ইন করুন</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>ট্রেন্ডিং অ্যানিমেশন সাইন ইন করা ব্যবহারকারীদের জন্য। শুধু আপনার Google অ্যাকাউন্ট দিয়ে সাইন ইন করুন: এক মুহূর্ত লাগে, একবারই করতে হয়, আর আপনার প্রজেক্ট যেমন আছে তেমনই থাকে।</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20509,7 +20565,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>ব্রাউজারের অপেক্ষায়…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>

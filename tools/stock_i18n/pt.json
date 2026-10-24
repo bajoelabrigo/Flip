@@ -19,6 +19,20 @@
   "background:fechas": "Datas especiais",
   "background:geometricos": "Geométricos",
   "background:texturas": "Texturas",
+  "effect:abrir": "Abrir e fechar",
+  "effect:amor": "Amor",
+  "effect:audio": "Voz",
+  "effect:camara": "Movimento de câmera",
+  "effect:desenfoque": "Desfoque",
+  "effect:dividir": "Divisão e clones",
+  "effect:energia": "Energia e elementos",
+  "effect:estilo": "Estilizar",
+  "effect:glitch": "Glitch",
+  "effect:ia": "IA",
+  "effect:luz": "Luz e reflexos",
+  "effect:marcos": "Molduras e bordas",
+  "effect:particulas": "Partículas e brilhos",
+  "effect:retro": "Retrô e filme",
   "look:arte": "Arte e duotone",
   "look:bn": "Preto e branco",
   "look:boda": "Casamentos",
@@ -4239,6 +4253,3356 @@
     "psicodélico",
     "fundo",
     "vibrante"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "Aberração cromática",
+   "tags": [
+    "aberração cromática",
+    "rgb",
+    "cores",
+    "lente"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "Abertura vertical",
+   "tags": [
+    "abrir",
+    "vertical",
+    "entrada",
+    "revelar"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "Zoom com paralaxe",
+   "tags": [
+    "paralaxe",
+    "zoom",
+    "aproximar",
+    "3d"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "Tremor lateral",
+   "tags": [
+    "tremor",
+    "lados",
+    "agitar",
+    "câmera"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "Tremor vertical",
+   "tags": [
+    "tremor",
+    "cima",
+    "baixo",
+    "câmera"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "Tremor RGB",
+   "tags": [
+    "rgb",
+    "tremor",
+    "glitch",
+    "cores"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "Zoom com tremor",
+   "tags": [
+    "zoom",
+    "tremor",
+    "agitar",
+    "câmera"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "Câmera tremida",
+   "tags": [
+    "tremor",
+    "câmera",
+    "agitar",
+    "impacto"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "Plasma amarelo",
+   "tags": [
+    "plasma",
+    "amarelo",
+    "energia",
+    "brilho"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "Realçar foco",
+   "tags": [
+    "foco",
+    "realçar",
+    "nitidez",
+    "destaque"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "Anel de brilhos",
+   "tags": [
+    "anel",
+    "brilho",
+    "glitter",
+    "círculo"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "Anel de fogo",
+   "tags": [
+    "anel",
+    "fogo",
+    "chamas",
+    "círculo"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "Anel de música",
+   "tags": [
+    "música",
+    "anel",
+    "espectro",
+    "ritmo"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "Anéis de vórtice",
+   "tags": [
+    "anéis",
+    "vórtice",
+    "energia",
+    "giro"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "Anos 70",
+   "tags": [
+    "anos 70",
+    "retrô",
+    "vintage",
+    "filme"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "Tocha rápida",
+   "tags": [
+    "tocha",
+    "luz",
+    "rápido",
+    "flash"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "Aparição humana 1",
+   "tags": [
+    "aparecer",
+    "pessoa",
+    "entrada",
+    "ia"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "Abertura de elevador",
+   "tags": [
+    "abrir",
+    "elevador",
+    "portas",
+    "transição"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "Esquilo",
+   "tags": [
+    "voz",
+    "esquilo",
+    "aguda",
+    "engraçado"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "Barras de cinema",
+   "tags": [
+    "barras",
+    "cinema",
+    "letterbox",
+    "widescreen"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "Barras de música",
+   "tags": [
+    "música",
+    "barras",
+    "equalizador",
+    "ritmo"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "Tremor de batimento",
+   "tags": [
+    "coração",
+    "batida",
+    "tremor",
+    "pulso"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "Tremor de pulso 03",
+   "tags": [
+    "pulso",
+    "tremor",
+    "batida",
+    "câmera"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "Tremor suave",
+   "tags": [
+    "tremor",
+    "suave",
+    "agitar",
+    "câmera"
+   ]
+  },
+  "effect:belleza": {
+   "name": "Beleza",
+   "tags": [
+    "beleza",
+    "pele",
+    "retoque",
+    "rosto"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "Reflexos azuis",
+   "tags": [
+    "reflexo",
+    "azul",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "Reflexos azul-marinho",
+   "tags": [
+    "reflexo",
+    "azul-marinho",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "Bling bling",
+   "tags": [
+    "bling",
+    "brilho",
+    "cintilante",
+    "glamour"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "Blocos de glitch 2",
+   "tags": [
+    "glitch",
+    "blocos",
+    "falha",
+    "digital"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "Bokeh 3D",
+   "tags": [
+    "bokeh",
+    "3d",
+    "luzes",
+    "profundidade"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "Bokeh 5",
+   "tags": [
+    "bokeh",
+    "luzes",
+    "desfoque",
+    "brilho"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "Bokeh colorido",
+   "tags": [
+    "bokeh",
+    "cores",
+    "luzes",
+    "desfoque"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "Bokeh nos cantos",
+   "tags": [
+    "bokeh",
+    "cantos",
+    "luzes",
+    "moldura"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "Bokeh urbano",
+   "tags": [
+    "bokeh",
+    "cidade",
+    "luzes",
+    "noite"
+   ]
+  },
+  "effect:borde": {
+   "name": "Borda",
+   "tags": [
+    "borda",
+    "moldura",
+    "contorno",
+    "linha"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "Borda neon azul",
+   "tags": [
+    "borda",
+    "neon",
+    "azul",
+    "brilho"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "Queima de filme",
+   "tags": [
+    "queima",
+    "filme",
+    "transição",
+    "retrô"
+   ]
+  },
+  "effect:brasas": {
+   "name": "Brasas",
+   "tags": [
+    "brasas",
+    "fogo",
+    "faíscas",
+    "partículas"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "Brilho dourado",
+   "tags": [
+    "brilho",
+    "dourado",
+    "luz",
+    "glamour"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "Brilhos no ar",
+   "tags": [
+    "brilho",
+    "ar",
+    "cintilante",
+    "partículas"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "Bolhas de luz",
+   "tags": [
+    "bolhas",
+    "luz",
+    "bokeh",
+    "brilho"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "Busca de resposta",
+   "tags": [
+    "busca",
+    "resposta",
+    "pergunta",
+    "escanear"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "Câmera 3D à direita",
+   "tags": [
+    "câmera",
+    "3d",
+    "direita",
+    "movimento"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "Câmera 3D à esquerda",
+   "tags": [
+    "câmera",
+    "3d",
+    "esquerda",
+    "movimento"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "Câmera instantânea",
+   "tags": [
+    "câmera",
+    "instantânea",
+    "foto"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "Câmera furiosa",
+   "tags": [
+    "câmera",
+    "tremor",
+    "intenso",
+    "agitar"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "Cor no ritmo",
+   "tags": [
+    "ritmo",
+    "cor",
+    "batida",
+    "música"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "Carga no escuro",
+   "tags": [
+    "carga",
+    "escuro",
+    "energia",
+    "poder"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "Carrossel feliz",
+   "tags": [
+    "carrossel",
+    "giro",
+    "alegre",
+    "movimento"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "Cinzas de batalha",
+   "tags": [
+    "cinzas",
+    "fogo",
+    "batalha",
+    "brasas"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "Fechar com flash",
+   "tags": [
+    "fechar",
+    "flash",
+    "saída",
+    "transição"
+   ]
+  },
+  "effect:chispa": {
+   "name": "Faísca",
+   "tags": [
+    "faísca",
+    "brilho",
+    "fogo",
+    "partículas"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "Faíscas douradas",
+   "tags": [
+    "faíscas",
+    "dourado",
+    "brilho",
+    "fogo"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "Impacto de corte",
+   "tags": [
+    "corte",
+    "impacto",
+    "choque",
+    "transição"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "Céu estrelado",
+   "tags": [
+    "céu",
+    "estrelas",
+    "noite",
+    "brilho"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "Fechamento horizontal",
+   "tags": [
+    "fechar",
+    "horizontal",
+    "saída",
+    "ocultar"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "Fechamento circular",
+   "tags": [
+    "fechar",
+    "círculo",
+    "íris",
+    "saída"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "Cinema retrô",
+   "tags": [
+    "cinema",
+    "retrô",
+    "filme",
+    "vintage"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "Fita de vídeo",
+   "tags": [
+    "fita",
+    "vhs",
+    "vídeo",
+    "retrô"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "Brilho do amor",
+   "tags": [
+    "amor",
+    "brilho",
+    "coração",
+    "romântico"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "Clone humano brilhante",
+   "tags": [
+    "clone",
+    "brilho",
+    "pessoa",
+    "ia"
+   ]
+  },
+  "effect:colision": {
+   "name": "Colisão",
+   "tags": [
+    "colisão",
+    "impacto",
+    "choque",
+    "tremor"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "Colagem de amor",
+   "tags": [
+    "colagem",
+    "amor",
+    "fotos",
+    "coração"
+   ]
+  },
+  "effect:color-local": {
+   "name": "Cor seletiva",
+   "tags": [
+    "cor",
+    "seletiva",
+    "preto e branco",
+    "destaque"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "Quadrinho colorido",
+   "tags": [
+    "quadrinhos",
+    "cor",
+    "hq",
+    "desenho"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "Confete de festival",
+   "tags": [
+    "confete",
+    "festival",
+    "festa",
+    "celebração"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "Confete voando",
+   "tags": [
+    "confete",
+    "festa",
+    "celebração",
+    "cores"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "Glitch congelado",
+   "tags": [
+    "glitch",
+    "congelar",
+    "falha",
+    "pausa"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "Flocos de neve",
+   "tags": [
+    "neve",
+    "flocos",
+    "inverno",
+    "frio"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "Coração de brilhos",
+   "tags": [
+    "coração",
+    "brilho",
+    "cintilante",
+    "amor"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "Coração de luzes",
+   "tags": [
+    "coração",
+    "luzes",
+    "brilho",
+    "amor"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "Corações bokeh",
+   "tags": [
+    "coração",
+    "bokeh",
+    "luzes",
+    "amor"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "Corações neon",
+   "tags": [
+    "coração",
+    "neon",
+    "brilho",
+    "amor"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "Corações dourados",
+   "tags": [
+    "coração",
+    "dourado",
+    "brilho",
+    "amor"
+   ]
+  },
+  "effect:corredor": {
+   "name": "Corredor",
+   "tags": [
+    "voz",
+    "corredor",
+    "eco",
+    "reverb"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "Corte chanfrado piscante",
+   "tags": [
+    "chanfro",
+    "piscar",
+    "corte",
+    "flash"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "Corte dividido com flash 1",
+   "tags": [
+    "dividir",
+    "flash",
+    "corte",
+    "transição"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "Corte com flash giratório",
+   "tags": [
+    "flash",
+    "giro",
+    "corte",
+    "transição"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "Corte chanfrado",
+   "tags": [
+    "chanfro",
+    "corte",
+    "dividir",
+    "diagonal"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "Cortes em tiras",
+   "tags": [
+    "tiras",
+    "cortes",
+    "dividir",
+    "faixas"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "Congelar ação",
+   "tags": [
+    "congelar",
+    "ação",
+    "quadro",
+    "pausa"
+   ]
+  },
+  "effect:cueva": {
+   "name": "Caverna",
+   "tags": [
+    "voz",
+    "caverna",
+    "eco",
+    "reverb"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "Cúpula de trovões",
+   "tags": [
+    "cúpula",
+    "trovão",
+    "raio",
+    "energia"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "Descarga elétrica",
+   "tags": [
+    "elétrico",
+    "descarga",
+    "raio",
+    "energia"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "Desfocar para apagar",
+   "tags": [
+    "desfoque",
+    "apagar",
+    "ocultar",
+    "transição"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "Desfoque quadrado",
+   "tags": [
+    "desfoque",
+    "quadrado",
+    "blocos",
+    "pixel"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "Desfoque bokeh 5",
+   "tags": [
+    "bokeh",
+    "desfoque",
+    "luzes",
+    "fundo"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "Desfoque direcional",
+   "tags": [
+    "desfoque",
+    "direção",
+    "movimento",
+    "linear"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "Desfoque de fundo básico",
+   "tags": [
+    "desfoque",
+    "fundo",
+    "básico",
+    "foco"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "Desfoque de movimento",
+   "tags": [
+    "desfoque",
+    "movimento",
+    "velocidade",
+    "rastro"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "Desfoque de profundidade",
+   "tags": [
+    "desfoque",
+    "profundidade",
+    "foco",
+    "fundo"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "Desfoque de vinheta",
+   "tags": [
+    "desfoque",
+    "vinheta",
+    "bordas",
+    "foco"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "Desfoque oblíquo",
+   "tags": [
+    "desfoque",
+    "oblíquo",
+    "diagonal",
+    "tilt-shift"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "Deslizar e ampliar",
+   "tags": [
+    "deslizar",
+    "zoom",
+    "ampliar",
+    "câmera"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "Reflexo anamórfico de TV",
+   "tags": [
+    "anamórfico",
+    "tv",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "Reflexo de lente 3",
+   "tags": [
+    "reflexo",
+    "lente",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "Reflexo de lente 5",
+   "tags": [
+    "reflexo",
+    "lente",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "Reflexo de lente 6",
+   "tags": [
+    "reflexo",
+    "lente",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "Reflexo de lente anamórfico",
+   "tags": [
+    "anamórfico",
+    "lente",
+    "flare",
+    "cinema"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "Reflexo de lente azul",
+   "tags": [
+    "reflexo",
+    "lente",
+    "azul",
+    "flare"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "Flash vibrante",
+   "tags": [
+    "flash",
+    "vibração",
+    "luz",
+    "tremor"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "Reflexo dourado",
+   "tags": [
+    "reflexo",
+    "dourado",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "Reflexo horizontal",
+   "tags": [
+    "reflexo",
+    "horizontal",
+    "flare",
+    "luz"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "Flash pulsante",
+   "tags": [
+    "flash",
+    "pulso",
+    "luz",
+    "ritmo"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "Brilhos quentes",
+   "tags": [
+    "brilho",
+    "quente",
+    "cintilante",
+    "luz"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "Slides de fotolivro",
+   "tags": [
+    "fotolivro",
+    "slides",
+    "álbum",
+    "fotos"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "Slides de filme 1",
+   "tags": [
+    "slides",
+    "filme",
+    "diapositivo",
+    "retrô"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "Slides de filme 2",
+   "tags": [
+    "slides",
+    "filme",
+    "diapositivo",
+    "retrô"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "Desfoque borrado",
+   "tags": [
+    "desfoque",
+    "borrão",
+    "manchar",
+    "movimento"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "Distorção VCR",
+   "tags": [
+    "vcr",
+    "vhs",
+    "distorção",
+    "retrô"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "Corte dividido com flash 2",
+   "tags": [
+    "dividir",
+    "flash",
+    "corte",
+    "transição"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "Divisão em bolhas",
+   "tags": [
+    "bolhas",
+    "dividir",
+    "círculos",
+    "clones"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "Divisão RGB",
+   "tags": [
+    "rgb",
+    "divisão",
+    "glitch",
+    "cores"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "Efeito glitch 17",
+   "tags": [
+    "glitch",
+    "falha",
+    "distorção",
+    "digital"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "Efeito glitch 20",
+   "tags": [
+    "glitch",
+    "falha",
+    "distorção",
+    "digital"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "Efeito glitch 7",
+   "tags": [
+    "glitch",
+    "falha",
+    "distorção",
+    "digital"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "Vazamento de luz 02",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "Efeito zoom",
+   "tags": [
+    "zoom",
+    "aproximar",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "Embelezar com IA",
+   "tags": [
+    "ia",
+    "beleza",
+    "retoque",
+    "rosto"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "Energia de onda de choque",
+   "tags": [
+    "onda de choque",
+    "energia",
+    "impacto",
+    "poder"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "Foco analítico",
+   "tags": [
+    "foco",
+    "nítido",
+    "detalhe",
+    "análise"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "Fogo azul envolvente",
+   "tags": [
+    "fogo",
+    "azul",
+    "chamas",
+    "aura"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "Erro cibernético 01",
+   "tags": [
+    "erro",
+    "cibernético",
+    "glitch",
+    "cyber"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "Escala de borda",
+   "tags": [
+    "borda",
+    "escala",
+    "moldura",
+    "zoom"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "Varredura sci-fi 01",
+   "tags": [
+    "ficção científica",
+    "sci-fi",
+    "varredura",
+    "futurista"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "Varredura sci-fi 02",
+   "tags": [
+    "ficção científica",
+    "sci-fi",
+    "varredura",
+    "futurista"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "Varredura glitch",
+   "tags": [
+    "glitch",
+    "varredura",
+    "falha",
+    "scan"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "Varredura de onda de choque",
+   "tags": [
+    "varredura",
+    "onda de choque",
+    "energia",
+    "scan"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "Varredura de raios",
+   "tags": [
+    "varredura",
+    "raios",
+    "luz",
+    "scan"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "Varredura de raios 04",
+   "tags": [
+    "varredura",
+    "raios",
+    "luz",
+    "scan"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "Varredura cibernética 01",
+   "tags": [
+    "cibernético",
+    "varredura",
+    "cyber",
+    "futurista"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "Varredura cibernética 02",
+   "tags": [
+    "cibernético",
+    "varredura",
+    "cyber",
+    "futurista"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "Varredura eletro-óptica",
+   "tags": [
+    "varredura",
+    "eletro-óptico",
+    "luz",
+    "tecnologia"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "Névoa tóxica",
+   "tags": [
+    "névoa",
+    "tóxico",
+    "fumaça",
+    "verde"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "Espectro de áudio 03",
+   "tags": [
+    "áudio",
+    "espectro",
+    "música",
+    "equalizador"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "Explosão de estrelas",
+   "tags": [
+    "estrelas",
+    "explosão",
+    "brilho",
+    "celebração"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "Explosão de raios",
+   "tags": [
+    "raios",
+    "explosão",
+    "luz",
+    "brilho"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "Estática no chão",
+   "tags": [
+    "estática",
+    "ruído",
+    "tv",
+    "retrô"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "Rastro de movimento",
+   "tags": [
+    "rastro",
+    "movimento",
+    "borrão",
+    "eco"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "Rastro rosa",
+   "tags": [
+    "rastro",
+    "rosa",
+    "brilho",
+    "movimento"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "Estilo quadrinho 3",
+   "tags": [
+    "quadrinhos",
+    "hq",
+    "estilo",
+    "desenho"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "Estilo FPS baixo",
+   "tags": [
+    "fps",
+    "baixo",
+    "quadros",
+    "travado"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "Vibração esticada",
+   "tags": [
+    "esticar",
+    "vibração",
+    "distorção",
+    "glitch"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "Estrela cintilante 1",
+   "tags": [
+    "estrela",
+    "cintilante",
+    "brilho",
+    "piscar"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "Estrela cintilante 5",
+   "tags": [
+    "estrela",
+    "cintilante",
+    "brilho",
+    "piscar"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "Estrelas douradas",
+   "tags": [
+    "estrelas",
+    "dourado",
+    "brilho",
+    "celebração"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "Estrelas distantes",
+   "tags": [
+    "estrelas",
+    "distantes",
+    "céu",
+    "noite"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "Estrelas cadentes",
+   "tags": [
+    "estrelas",
+    "cadentes",
+    "céu",
+    "brilho"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "Estrelas espalhadas",
+   "tags": [
+    "estrelas",
+    "espalhadas",
+    "brilho",
+    "céu"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "Estrelas piscando",
+   "tags": [
+    "estrelas",
+    "piscar",
+    "cintilante",
+    "brilho"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "Estroboscópio travado",
+   "tags": [
+    "estroboscópio",
+    "flash",
+    "piscar",
+    "glitch"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "Varredura espectral",
+   "tags": [
+    "espectral",
+    "varredura",
+    "cores",
+    "luz"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "Explosão de energia",
+   "tags": [
+    "explosão",
+    "energia",
+    "poder",
+    "impacto"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "Explosão de luz estelar",
+   "tags": [
+    "estrela",
+    "luz",
+    "explosão",
+    "brilho"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "Explosão de borboletas",
+   "tags": [
+    "borboleta",
+    "explosão",
+    "voar",
+    "mágico"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "Explosão de flash",
+   "tags": [
+    "flash",
+    "explosão",
+    "luz",
+    "impacto"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "Explosão de fogo",
+   "tags": [
+    "explosão",
+    "fogo",
+    "chamas",
+    "impacto"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "Explosão prismática",
+   "tags": [
+    "prisma",
+    "explosão",
+    "cores",
+    "luz"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "Exposição no ritmo",
+   "tags": [
+    "ritmo",
+    "exposição",
+    "flash",
+    "batida"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "Exposição com flash",
+   "tags": [
+    "flash",
+    "exposição",
+    "luz",
+    "branco"
+   ]
+  },
+  "effect:extremo": {
+   "name": "Extremo",
+   "tags": [
+    "extremo",
+    "tremor",
+    "câmera",
+    "intenso"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "Glitch piscante",
+   "tags": [
+    "glitch",
+    "piscar",
+    "falha",
+    "flash"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "Glitch com filtro",
+   "tags": [
+    "glitch",
+    "filtro",
+    "falha",
+    "cores"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "Glitch psicodélico",
+   "tags": [
+    "glitch",
+    "psicodélico",
+    "cores",
+    "falha"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "Glitch vintage 01",
+   "tags": [
+    "glitch",
+    "vintage",
+    "retrô",
+    "falha"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "Caveira fantasma",
+   "tags": [
+    "caveira",
+    "fantasma",
+    "terror",
+    "assustador"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "Fantasma glitch",
+   "tags": [
+    "glitch",
+    "fantasma",
+    "eco",
+    "assustador"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "Febre neon",
+   "tags": [
+    "neon",
+    "brilho",
+    "cores",
+    "festa"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "Filtro de desenho 01",
+   "tags": [
+    "desenho animado",
+    "cartoon",
+    "filtro",
+    "estilo"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "Filtro de desenho 05",
+   "tags": [
+    "desenho animado",
+    "cartoon",
+    "filtro",
+    "estilo"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "Final desfocado",
+   "tags": [
+    "desfoque",
+    "final",
+    "saída",
+    "fade"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "Abrir com flash",
+   "tags": [
+    "abrir",
+    "flash",
+    "entrada",
+    "transição"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "Aura brilhante",
+   "tags": [
+    "aura",
+    "brilho",
+    "bloom",
+    "luz"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "Fluxo de luz 2",
+   "tags": [
+    "feixe",
+    "fluxo",
+    "luz",
+    "borda"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "Fluxo de luz 3",
+   "tags": [
+    "feixe",
+    "fluxo",
+    "luz",
+    "borda"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "Fluxo de luz 4",
+   "tags": [
+    "feixe",
+    "fluxo",
+    "luz",
+    "borda"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "Fluxo de luz 6",
+   "tags": [
+    "feixe",
+    "fluxo",
+    "luz",
+    "borda"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "Fluxo de luz 7",
+   "tags": [
+    "feixe",
+    "fluxo",
+    "luz",
+    "borda"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "Holofote de palco",
+   "tags": [
+    "holofote",
+    "palco",
+    "luz",
+    "show"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "Holofote final",
+   "tags": [
+    "holofote",
+    "final",
+    "foco",
+    "palco"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "Fundo de explosão",
+   "tags": [
+    "explosão",
+    "fundo",
+    "fogo",
+    "impacto"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "Fundo de relâmpagos",
+   "tags": [
+    "relâmpago",
+    "fundo",
+    "raio",
+    "tempestade"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "Fundo de coração",
+   "tags": [
+    "coração",
+    "fundo",
+    "amor",
+    "romântico"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "Fonógrafo",
+   "tags": [
+    "voz",
+    "fonógrafo",
+    "retrô",
+    "antigo"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "Chão em chamas",
+   "tags": [
+    "fogo",
+    "chamas",
+    "chão",
+    "queimar"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "Fogo subindo",
+   "tags": [
+    "fogo",
+    "chamas",
+    "subir",
+    "varredura"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "Fogos de artifício",
+   "tags": [
+    "fogos",
+    "artifício",
+    "festa",
+    "celebração"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "Fogos de estrelas",
+   "tags": [
+    "estrelas",
+    "fogos",
+    "artifício",
+    "celebração"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "Vazamento de luz 1",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "Vazamento de luz 3",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "Vazamento de luz 4",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "Vazamento de luz 5",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "Vazamento de luz 6",
+   "tags": [
+    "vazamento de luz",
+    "luz",
+    "filme",
+    "quente"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "Junção em quartos",
+   "tags": [
+    "quartos",
+    "juntar",
+    "dividir",
+    "tela"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "Rabiscos grunge",
+   "tags": [
+    "grunge",
+    "rabiscos",
+    "textura",
+    "desenho"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "Girar em círculos",
+   "tags": [
+    "girar",
+    "círculo",
+    "rotação",
+    "câmera"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "Rotação",
+   "tags": [
+    "rotação",
+    "giro",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "Espiral psicodélica",
+   "tags": [
+    "psicodélico",
+    "espiral",
+    "giro",
+    "cores"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "Glitch MPEG",
+   "tags": [
+    "glitch",
+    "mpeg",
+    "compressão",
+    "digital"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "Glitch forte",
+   "tags": [
+    "glitch",
+    "forte",
+    "falha",
+    "distorção"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "Grunge branco",
+   "tags": [
+    "grunge",
+    "branco",
+    "textura",
+    "moldura"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "Feixe de impacto",
+   "tags": [
+    "feixe",
+    "impacto",
+    "luz",
+    "energia"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "Feixe granulado",
+   "tags": [
+    "feixe",
+    "granulado",
+    "luz",
+    "textura"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "Fumaça baixa",
+   "tags": [
+    "fumaça",
+    "chão",
+    "névoa",
+    "atmosfera"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "Imagem residual",
+   "tags": [
+    "eco",
+    "rastro",
+    "fantasma",
+    "movimento"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "Inclinar e abrir",
+   "tags": [
+    "inclinar",
+    "abrir",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "Inclinação em perspectiva",
+   "tags": [
+    "perspectiva",
+    "inclinar",
+    "3d",
+    "câmera"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "Desenho que inunda",
+   "tags": [
+    "desenho",
+    "traço",
+    "revelar",
+    "artístico"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "Inversão com glitch",
+   "tags": [
+    "inverter",
+    "glitch",
+    "negativo",
+    "cores"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "Tremido piscante 01",
+   "tags": [
+    "piscar",
+    "tremido",
+    "jitter",
+    "glitch"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "Tremido rotacional",
+   "tags": [
+    "tremido",
+    "rotação",
+    "jitter",
+    "câmera"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "Rolo de filme",
+   "tags": [
+    "rolo",
+    "filme",
+    "película",
+    "retrô"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "Lâmpada de flash",
+   "tags": [
+    "flash",
+    "lâmpada",
+    "luz",
+    "foto"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "Arremessar",
+   "tags": [
+    "arremessar",
+    "lançar",
+    "movimento",
+    "câmera"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "Batimento cardíaco",
+   "tags": [
+    "coração",
+    "batida",
+    "pulso",
+    "zoom"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "Zoom com flash",
+   "tags": [
+    "zoom",
+    "flash",
+    "lente",
+    "câmera"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "Lentes de câmera antigas",
+   "tags": [
+    "lente",
+    "câmera",
+    "antiga",
+    "vintage"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "Respingos leves de lama",
+   "tags": [
+    "lama",
+    "respingos",
+    "sujo",
+    "textura"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "Limpador de para-brisa",
+   "tags": [
+    "limpador",
+    "balanço",
+    "pêndulo",
+    "movimento"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "Linha de borda 01",
+   "tags": [
+    "borda",
+    "linha",
+    "moldura",
+    "contorno"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "Linhas de fumaça",
+   "tags": [
+    "fumaça",
+    "linhas",
+    "névoa",
+    "rastro"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "Linhas de velocidade",
+   "tags": [
+    "velocidade",
+    "linhas",
+    "anime",
+    "movimento"
+   ]
+  },
+  "effect:linterna": {
+   "name": "Lanterna",
+   "tags": [
+    "lanterna",
+    "luz",
+    "escuro",
+    "foco"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "Chovendo 1",
+   "tags": [
+    "chuva",
+    "chover",
+    "gotas",
+    "clima"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "Chovendo 2",
+   "tags": [
+    "chuva",
+    "chover",
+    "gotas",
+    "clima"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "Chuva cinematográfica",
+   "tags": [
+    "chuva",
+    "cinema",
+    "gotas",
+    "dramático"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "Chuva de corações rosa",
+   "tags": [
+    "coração",
+    "chuva",
+    "rosa",
+    "amor"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "Chuva de luz",
+   "tags": [
+    "chuva",
+    "luz",
+    "brilho",
+    "partículas"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "Luzinhas flutuantes",
+   "tags": [
+    "luzes",
+    "flutuar",
+    "brilho",
+    "bokeh"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "Luzes de palco",
+   "tags": [
+    "palco",
+    "luzes",
+    "show",
+    "festa"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "Luzes de Natal",
+   "tags": [
+    "natal",
+    "luzes",
+    "pisca-pisca",
+    "festas"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "Vaga-lume realista 01",
+   "tags": [
+    "vaga-lume",
+    "realista",
+    "luz",
+    "noite"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "Vaga-lumes dançando",
+   "tags": [
+    "vaga-lumes",
+    "luzes",
+    "noite",
+    "mágico"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "Luma nítida",
+   "tags": [
+    "nitidez",
+    "luma",
+    "detalhe",
+    "contraste"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "Luz de discoteca",
+   "tags": [
+    "discoteca",
+    "luzes",
+    "festa",
+    "dança"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "Luz das estrelas",
+   "tags": [
+    "estrelas",
+    "luz",
+    "brilho",
+    "noite"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "Luz do sol 01",
+   "tags": [
+    "sol",
+    "luz",
+    "quente",
+    "raios"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "Luz do sol 03",
+   "tags": [
+    "sol",
+    "luz",
+    "quente",
+    "raios"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "Luz do sol 05",
+   "tags": [
+    "sol",
+    "luz",
+    "quente",
+    "raios"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "Luz do sol 06",
+   "tags": [
+    "sol",
+    "luz",
+    "quente",
+    "raios"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "Luz elétrica",
+   "tags": [
+    "luz",
+    "elétrico",
+    "brilho",
+    "energia"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "Luz que se dissolve",
+   "tags": [
+    "luz",
+    "dissolver",
+    "brilho",
+    "ia"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "Moldura de bokeh",
+   "tags": [
+    "bokeh",
+    "moldura",
+    "luzes",
+    "brilho"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "Moldura de eco 31",
+   "tags": [
+    "eco",
+    "moldura",
+    "repetição",
+    "borda"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "Moldura de fogo",
+   "tags": [
+    "moldura",
+    "fogo",
+    "chamas",
+    "borda"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "Moldura de chamas",
+   "tags": [
+    "moldura",
+    "chamas",
+    "fogo",
+    "borda"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "Moldura de terror",
+   "tags": [
+    "terror",
+    "moldura",
+    "horror",
+    "assustador"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "Moldura instantânea 02 16:9",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "horizontal"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "Moldura instantânea 02 9:16",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "vertical"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "Moldura instantânea 03 16:9",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "horizontal"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "Moldura instantânea memórias 02 1:1",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "memórias"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "Moldura instantânea memórias 03 1:1",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "memórias"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "Moldura instantânea stories 03 9:16",
+   "tags": [
+    "moldura",
+    "instantânea",
+    "stories"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "Moldura de marcador",
+   "tags": [
+    "marcador",
+    "moldura",
+    "desenho",
+    "rabisco"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "Moldura rosa de amor",
+   "tags": [
+    "moldura",
+    "rosa",
+    "coração",
+    "amor"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "Borboleta brilhante",
+   "tags": [
+    "borboleta",
+    "brilho",
+    "luz",
+    "mágico"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "Melhoria automática",
+   "tags": [
+    "melhorar",
+    "automático",
+    "nitidez",
+    "cor"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "Mini tremor",
+   "tags": [
+    "tremor",
+    "mini",
+    "agitar",
+    "câmera"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "Mini zoom",
+   "tags": [
+    "zoom",
+    "mini",
+    "aproximar",
+    "câmera"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "Monitor de terror",
+   "tags": [
+    "terror",
+    "monitor",
+    "horror",
+    "câmera"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "Mosaico",
+   "tags": [
+    "mosaico",
+    "pixel",
+    "censura",
+    "blocos"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "Mosaico clássico",
+   "tags": [
+    "mosaico",
+    "clássico",
+    "pixel",
+    "censura"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "Mosaico clássico com IA",
+   "tags": [
+    "ia",
+    "mosaico",
+    "censura",
+    "rosto"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "Mosaico desfocado com IA",
+   "tags": [
+    "ia",
+    "mosaico",
+    "desfoque",
+    "censura"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "Mosaico de rabiscos",
+   "tags": [
+    "mosaico",
+    "rabiscos",
+    "desenho",
+    "censura"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "Círculo 3D à esquerda",
+   "tags": [
+    "3d",
+    "círculo",
+    "esquerda",
+    "câmera"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "Câmera 360° 1",
+   "tags": [
+    "360",
+    "câmera",
+    "giro",
+    "rotação"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "Movimento de câmera 3D",
+   "tags": [
+    "câmera",
+    "3d",
+    "movimento",
+    "perspectiva"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "Câmera na mão",
+   "tags": [
+    "câmera",
+    "mão",
+    "tremor",
+    "realista"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "Movimento de câmera local",
+   "tags": [
+    "câmera",
+    "movimento",
+    "local",
+    "zoom"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "Câmera oscilante",
+   "tags": [
+    "câmera",
+    "oscilar",
+    "balanço",
+    "movimento"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "Câmera suave",
+   "tags": [
+    "câmera",
+    "suave",
+    "movimento",
+    "cinematográfico"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "Movimento de câmera",
+   "tags": [
+    "câmera",
+    "movimento",
+    "pan",
+    "zoom"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "Movimento em uma direção",
+   "tags": [
+    "movimento",
+    "direção",
+    "câmera",
+    "deslizar"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "Tremido cinematográfico",
+   "tags": [
+    "cinematográfico",
+    "tremido",
+    "cinema",
+    "jitter"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "Tremido da alma",
+   "tags": [
+    "alma",
+    "tremido",
+    "fantasma",
+    "eco"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "Nevasca de inverno",
+   "tags": [
+    "neve",
+    "inverno",
+    "nevasca",
+    "frio"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "Névoa de sonho 1",
+   "tags": [
+    "névoa",
+    "sonho",
+    "neblina",
+    "suave"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "Névoa de sonho 2",
+   "tags": [
+    "névoa",
+    "sonho",
+    "neblina",
+    "suave"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "Névoa de sonho 3",
+   "tags": [
+    "névoa",
+    "sonho",
+    "neblina",
+    "suave"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "Névoa de sonho 4",
+   "tags": [
+    "névoa",
+    "sonho",
+    "neblina",
+    "suave"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "Neve de flores",
+   "tags": [
+    "flores",
+    "pétalas",
+    "cair",
+    "primavera"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "Neve realista",
+   "tags": [
+    "neve",
+    "inverno",
+    "flocos",
+    "realista"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "Noite de neve e estrelas",
+   "tags": [
+    "neve",
+    "estrelas",
+    "noite",
+    "inverno"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "Notas fixadas",
+   "tags": [
+    "notas",
+    "fixadas",
+    "papel",
+    "moldura"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "Lente de câmera",
+   "tags": [
+    "lente",
+    "câmera",
+    "foco",
+    "desfoque"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "Ocultar",
+   "tags": [
+    "ocultar",
+    "sumir",
+    "saída",
+    "fade"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "Onda de choque 3",
+   "tags": [
+    "onda de choque",
+    "impacto",
+    "distorção",
+    "energia"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "Onda psicodélica",
+   "tags": [
+    "psicodélico",
+    "onda",
+    "cores",
+    "distorção"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "Ondas de amor",
+   "tags": [
+    "amor",
+    "ondas",
+    "coração",
+    "romântico"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "Pacote de brilhos",
+   "tags": [
+    "brilho",
+    "pacote",
+    "cintilante",
+    "estrelas"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "Afastar com paralaxe suave",
+   "tags": [
+    "paralaxe",
+    "afastar",
+    "zoom",
+    "suave"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "Fotolivro paralelo",
+   "tags": [
+    "fotolivro",
+    "álbum",
+    "fotos",
+    "moldura"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "Cores piscantes",
+   "tags": [
+    "cor",
+    "piscar",
+    "flash",
+    "ritmo"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "Partículas de fogo voando",
+   "tags": [
+    "fogo",
+    "partículas",
+    "chamas",
+    "voar"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "Partículas douradas",
+   "tags": [
+    "partículas",
+    "dourado",
+    "brilho",
+    "luz"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "Partículas em movimento",
+   "tags": [
+    "partículas",
+    "movimento",
+    "brilho",
+    "fluxo"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "Filme antigo 1",
+   "tags": [
+    "filme",
+    "antigo",
+    "vintage",
+    "retrô"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "Filme antigo 2",
+   "tags": [
+    "filme",
+    "antigo",
+    "vintage",
+    "retrô"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "Filme granulado",
+   "tags": [
+    "grão",
+    "filme",
+    "textura",
+    "retrô"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "Filme muito sujo",
+   "tags": [
+    "filme",
+    "sujo",
+    "arranhões",
+    "antigo"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "Cinema mudo",
+   "tags": [
+    "cinema mudo",
+    "preto e branco",
+    "filme",
+    "antigo"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "Cinema mudo 2",
+   "tags": [
+    "cinema mudo",
+    "preto e branco",
+    "filme",
+    "antigo"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "Filme muito antigo",
+   "tags": [
+    "filme",
+    "antigo",
+    "arranhões",
+    "vintage"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "Filme sujo",
+   "tags": [
+    "filme",
+    "sujo",
+    "arranhões",
+    "retrô"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "Filme velho",
+   "tags": [
+    "filme",
+    "velho",
+    "retrô",
+    "vintage"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "Pêndulo",
+   "tags": [
+    "pêndulo",
+    "balanço",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "Mosaico pintado",
+   "tags": [
+    "mosaico",
+    "pintura",
+    "artístico",
+    "blocos"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "Quadrinhos em painéis",
+   "tags": [
+    "quadrinhos",
+    "painéis",
+    "hq",
+    "dividir"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "Poeira azul",
+   "tags": [
+    "poeira",
+    "azul",
+    "partículas",
+    "brilho"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "Poeira estelar",
+   "tags": [
+    "poeira",
+    "estrelas",
+    "brilho",
+    "mágico"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "Poeira flutuante",
+   "tags": [
+    "poeira",
+    "flutuar",
+    "partículas",
+    "luz"
+   ]
+  },
+  "effect:profundo": {
+   "name": "Grave",
+   "tags": [
+    "voz",
+    "grave",
+    "profunda",
+    "baixa"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "Pulso no ritmo",
+   "tags": [
+    "ritmo",
+    "pulso",
+    "batida",
+    "música"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "Pulso do coração",
+   "tags": [
+    "coração",
+    "pulso",
+    "batida",
+    "amor"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "Pontos brilhantes",
+   "tags": [
+    "pontos",
+    "brilho",
+    "cintilante",
+    "partículas"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "Glitter dourado",
+   "tags": [
+    "glitter",
+    "dourado",
+    "brilho",
+    "purpurina"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "Queima de filme",
+   "tags": [
+    "queima",
+    "filme",
+    "luz",
+    "retrô"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "Tirar desfoque",
+   "tags": [
+    "nitidez",
+    "desfoque",
+    "foco",
+    "revelar"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "Raio da vinheta",
+   "tags": [
+    "vinheta",
+    "raio",
+    "bordas",
+    "escuro"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "Pegadas brilhantes",
+   "tags": [
+    "pegadas",
+    "brilho",
+    "rastro",
+    "passos"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "Riscos de projetor",
+   "tags": [
+    "projetor",
+    "riscos",
+    "filme",
+    "retrô"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "Feixe de luz",
+   "tags": [
+    "feixe",
+    "luz",
+    "raio",
+    "brilho"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "Raios dourados",
+   "tags": [
+    "raios",
+    "dourado",
+    "luz",
+    "sol"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "Raios 01",
+   "tags": [
+    "raio",
+    "elétrico",
+    "energia",
+    "tempestade"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "Giro com quique",
+   "tags": [
+    "giro",
+    "quique",
+    "rebote",
+    "rotação"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "Zoom com quique",
+   "tags": [
+    "zoom",
+    "quique",
+    "rebote",
+    "câmera"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "Rebote rotacional",
+   "tags": [
+    "rotação",
+    "rebote",
+    "giro",
+    "câmera"
+   ]
+  },
+  "effect:recorte": {
+   "name": "Recorte",
+   "tags": [
+    "recorte",
+    "cortar",
+    "moldura",
+    "tela"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "Grade cinza",
+   "tags": [
+    "grade",
+    "cinza",
+    "linhas",
+    "textura"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "Relâmpagos",
+   "tags": [
+    "relâmpago",
+    "raio",
+    "elétrico",
+    "tempestade"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "Redemoinho de corações",
+   "tags": [
+    "coração",
+    "redemoinho",
+    "giro",
+    "amor"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "Redemoinho distorcido",
+   "tags": [
+    "redemoinho",
+    "distorção",
+    "giro",
+    "espiral"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "Brilho de borda 04",
+   "tags": [
+    "borda",
+    "brilho",
+    "neon",
+    "moldura"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "Brilho da silhueta",
+   "tags": [
+    "silhueta",
+    "brilho",
+    "contorno",
+    "ia"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "Brilho trêmulo",
+   "tags": [
+    "brilho",
+    "tremor",
+    "luz",
+    "vibração"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "Comédia romântica",
+   "tags": [
+    "romântico",
+    "amor",
+    "comédia",
+    "rosa"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "Abertura circular",
+   "tags": [
+    "abrir",
+    "círculo",
+    "íris",
+    "entrada"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "Rotação empilhada",
+   "tags": [
+    "rotação",
+    "camadas",
+    "giro",
+    "câmera"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "Ruído de filme",
+   "tags": [
+    "ruído",
+    "filme",
+    "grão",
+    "retrô"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "Ruído retrô",
+   "tags": [
+    "ruído",
+    "retrô",
+    "grão",
+    "vintage"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "Tremor de recuo",
+   "tags": [
+    "recuo",
+    "tremor",
+    "impacto",
+    "câmera"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "Terremoto",
+   "tags": [
+    "terremoto",
+    "tremor",
+    "agitar",
+    "câmera"
+   ]
+  },
+  "effect:saltar": {
+   "name": "Pular",
+   "tags": [
+    "pular",
+    "salto",
+    "movimento",
+    "câmera"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "Salto violeta 2",
+   "tags": [
+    "salto",
+    "violeta",
+    "movimento",
+    "câmera"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "Sinistra",
+   "tags": [
+    "voz",
+    "sinistra",
+    "terror",
+    "assustador"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "Sol no canto",
+   "tags": [
+    "sol",
+    "canto",
+    "luz",
+    "quente"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "Sombra A",
+   "tags": [
+    "sombra",
+    "escuro",
+    "vinheta",
+    "contraste"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "Som surround",
+   "tags": [
+    "voz",
+    "surround",
+    "som",
+    "espacial"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "Cartão 3D",
+   "tags": [
+    "cartão",
+    "3d",
+    "giro",
+    "perspectiva"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "Contorno trêmulo",
+   "tags": [
+    "contorno",
+    "tremor",
+    "borda",
+    "vibração"
+   ]
+  },
+  "effect:templado": {
+   "name": "Moderado",
+   "tags": [
+    "moderado",
+    "suave",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "Terror vermelho",
+   "tags": [
+    "terror",
+    "vermelho",
+    "horror",
+    "assustador"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "Pan rápido",
+   "tags": [
+    "pan",
+    "rápido",
+    "panorâmica",
+    "câmera"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "Tempestade",
+   "tags": [
+    "tempestade",
+    "chuva",
+    "trovão",
+    "clima"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "Pedaços de queijo",
+   "tags": [
+    "queijo",
+    "divertido",
+    "engraçado",
+    "comida"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "TV antiga 4x",
+   "tags": [
+    "tv",
+    "antiga",
+    "retrô",
+    "tela"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "Veias elétricas",
+   "tags": [
+    "veias",
+    "elétrico",
+    "energia",
+    "raio"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "Estática VHS 1",
+   "tags": [
+    "vhs",
+    "estática",
+    "ruído",
+    "retrô"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "Vibração de borda RGB",
+   "tags": [
+    "rgb",
+    "borda",
+    "vibração",
+    "glitch"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "Vídeo antigo",
+   "tags": [
+    "vídeo",
+    "antigo",
+    "retrô",
+    "vhs"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "Filmadora retrô",
+   "tags": [
+    "filmadora",
+    "retrô",
+    "vhs",
+    "câmera"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "Vinheta de filme",
+   "tags": [
+    "vinheta",
+    "filme",
+    "bordas",
+    "retrô"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "Vinil",
+   "tags": [
+    "voz",
+    "vinil",
+    "retrô",
+    "disco"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "Zoom com giro",
+   "tags": [
+    "zoom",
+    "giro",
+    "virar",
+    "câmera"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "Vórtice amarelo",
+   "tags": [
+    "vórtice",
+    "amarelo",
+    "giro",
+    "energia"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "Vórtice de raios",
+   "tags": [
+    "vórtice",
+    "raio",
+    "elétrico",
+    "energia"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "Walkie-talkie",
+   "tags": [
+    "voz",
+    "rádio",
+    "walkie-talkie",
+    "comunicação"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "Zoom teia de aranha",
+   "tags": [
+    "teia",
+    "aranha",
+    "zoom",
+    "impacto"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "Zoom deslizante",
+   "tags": [
+    "zoom",
+    "deslizar",
+    "câmera",
+    "movimento"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "Zoom rápido",
+   "tags": [
+    "zoom",
+    "rápido",
+    "aproximar",
+    "câmera"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "Zoom suave à direita",
+   "tags": [
+    "zoom",
+    "suave",
+    "direita",
+    "câmera"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "Zoom suave à esquerda",
+   "tags": [
+    "zoom",
+    "suave",
+    "esquerda",
+    "câmera"
    ]
   },
   "look:arte-comic": {

@@ -4353,6 +4353,10 @@
         <translation>Trong Chuyển cảnh</translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>Trong Hiệu ứng › Xu hướng</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation>loại mục này cần phiên bản Flip Studio mới hơn</translation>
     </message>
@@ -12462,6 +12466,14 @@ LẦN SAU</translation>
         <translation>Cài đặt một hiệu ứng hoặc hiệu ứng âm thanh tùy chỉnh từ tệp .driftfx được tạo trong Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Xu hướng</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Chọn một clip có âm thanh để đổi giọng</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Thêm lớp điều chỉnh — nhấp, hoặc kéo vào một rãnh</translation>
     </message>
@@ -12494,12 +12506,48 @@ LẦN SAU</translation>
         <translation>Nhập tệp .driftfx được tạo trong Drift Forge để thêm tệp của riêng bạn.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — nhấp để áp dụng cho giọng của clip đã chọn</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — nhấp để áp dụng cho vùng chọn, hoặc kéo vào một clip</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — nhấp để thêm làm lớp điều chỉnh, hoặc kéo vào một clip</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — nhấp để tải xuống và áp dụng</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Đăng nhập để xem hiệu ứng xu hướng</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Đang tải hiệu ứng xu hướng…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>Không tải được hiệu ứng xu hướng</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Hiệu ứng xu hướng đến từ Stock, cần tài khoản miễn phí của bạn.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Đang chờ trình duyệt…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Đăng nhập</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Thử lại</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -20432,8 +20480,16 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đăng nhập để xuất video</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Đăng nhập để dùng xu hướng</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio miễn phí: xuất video, Stock và mọi mẫu đều không mất tiền.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Hiệu ứng chuyển động xu hướng dành cho người đã đăng nhập. Bạn chỉ cần đăng nhập bằng tài khoản Google: mất một chút, chỉ làm một lần và dự án của bạn vẫn giữ nguyên.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

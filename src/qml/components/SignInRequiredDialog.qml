@@ -10,8 +10,10 @@ ThemedDialog {
 
     // What to do once signed in; null to just close.
     property var afterSignIn: null
+    // What asked: "export", or "trends" (a trending animation picked while signed out).
+    property string reason: "export"
 
-    title: qsTr("Sign in to export")
+    title: root.reason === "trends" ? qsTr("Sign in to use what's trending") : qsTr("Sign in to export")
     showFooter: false
     preferredWidth: Theme.dialogWidthSm
 
@@ -71,7 +73,9 @@ ThemedDialog {
         ThemedLabel {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: qsTr("To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.")
+            text: root.reason === "trends"
+                  ? qsTr("Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
+                  : qsTr("To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.")
         }
 
         ThemedButton {

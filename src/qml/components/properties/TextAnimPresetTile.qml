@@ -19,6 +19,8 @@ Item {
     property string label: qsTr("None")
     property bool selected: false
     property bool playing: false
+    // A trending preset: the flame in the corner (signed out, picking it asks for the account).
+    property bool trending: false
     property real tileWidth: 104
     readonly property alias hovered: tileHover.hovered
 
@@ -82,6 +84,13 @@ Item {
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
+            }
+
+            TrendBadge {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.margins: 3
+                visible: tile.trending
             }
 
             // A tap synthesises hover on a phone, so hover only means anything with a pointer.

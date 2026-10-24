@@ -804,6 +804,7 @@ QtObject {
         package: "package",
         store: "store",
         gem: "gem",
+        trending: "flame",
         fileText: "file-text",
 
         // Status / feedback

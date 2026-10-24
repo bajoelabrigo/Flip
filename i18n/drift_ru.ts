@@ -4361,6 +4361,10 @@
         <translation>В разделе Переходы</translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>В «Эффекты › Тренды»</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation>для этого типа элемента нужна более новая версия Flip Studio</translation>
     </message>
@@ -12548,6 +12552,14 @@ NEXT TIME</source>
         <translation>Установите собственный эффект или переход из файла .driftfx, созданного в Drift Forge</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Тренды</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Выберите клип со звуком, чтобы изменить голос</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>Добавить корректирующий слой — нажмите или перетащите на дорожку</translation>
     </message>
@@ -12580,12 +12592,48 @@ NEXT TIME</source>
         <translation>Импортируйте файл .driftfx, созданный в Drift Forge, чтобы добавить свои.</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — нажмите, чтобы применить к голосу выбранного клипа</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — нажмите, чтобы применить к выделению, или перетащите на клип</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — нажмите, чтобы добавить как корректирующий слой, или перетащите на клип</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — нажмите, чтобы скачать и применить</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Войдите, чтобы увидеть трендовые эффекты</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Загрузка трендовых эффектов…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>Не удалось загрузить трендовые эффекты</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Трендовые эффекты берутся из Stock, для которого нужен бесплатный аккаунт.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Ожидание браузера…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Войти</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Повторить</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -20576,8 +20624,16 @@ If playback stutters, try another.</source>
         <translation>Войдите, чтобы экспортировать</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Войдите, чтобы использовать тренды</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio бесплатен: экспорт, Stock и все шаблоны ничего не стоят.</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Трендовые анимации доступны тем, кто вошёл в аккаунт. Достаточно войти через аккаунт Google: это займёт минуту, делается один раз, а ваш проект останется как есть.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>

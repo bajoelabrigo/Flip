@@ -4353,6 +4353,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12501,6 +12505,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12533,11 +12545,47 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20493,7 +20541,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

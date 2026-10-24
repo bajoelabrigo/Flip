@@ -183,10 +183,10 @@ Item {
         }
         const title = item.title || ""
         const kind = item.media_kind || item.type || ""
-        // A LUT, look, text style or animation, transition or shape installs where the editor
+        // A LUT, look, text style or animation, transition, effect or shape installs where the editor
         // keeps it: no folder to ask for.
         const delivery = Market.deliveryForItem(item)
-        if (["lut", "effect-preset", "text-style", "text-animation", "transition", "shape"].indexOf(delivery) >= 0) {
+        if (["lut", "effect-preset", "text-style", "text-animation", "transition", "shape", "effect"].indexOf(delivery) >= 0) {
             Market.download(item.id, "", "", title, kind)
             return
         }

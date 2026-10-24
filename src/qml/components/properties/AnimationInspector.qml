@@ -46,6 +46,9 @@ Item {
     // ----- Gallery -----------------------------------------------------------------------
     property string animTab: "in"
     property string animCategory: ""
+    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // signed out asks for the account and applies it once signed in.
+    readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
     readonly property var currentAnim: animTab === "in" ? animIn : animTab === "out" ? animOut : animCombo
     readonly property bool currentSlotActive: !!currentAnim && (currentAnim.kind || "none") !== "none"
@@ -65,7 +68,8 @@ Item {
         if (animTab !== "combo" && (animCategory.length === 0 || animCategory === "basic"))
             tiles.push({ "kind": "fade", "label": qsTr("Fade"), "duration": 0.5 })
         for (let i = 0; i < filtered.length; ++i)
-            tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration })
+            tiles.push({ "preset": filtered[i].id, "label": filtered[i].label, "duration": filtered[i].duration,
+                         "trending": !!filtered[i].trending })
         return tiles
     }
 
@@ -81,6 +85,14 @@ Item {
     }
 
     function pickTile(tile) {
+        if (tile.trending && root.trendsNeedAccount) {
+            const slotKey = root.slotKey
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            signInLoader.active = true
+            signInLoader.item.openFor(() => EditorState.setClipAnimation(track, clip, slotKey, { preset: tile.preset }))
+            return
+        }
         if (tile.preset) {
             root.setAnim(root.slotKey, { preset: tile.preset })
         } else if (tile.kind) {
@@ -259,6 +271,12 @@ Item {
             }
         }
 
+        Loader {
+            id: signInLoader
+            active: false
+            sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
+        }
+
         Grid {
             id: animGrid
             visible: root.supportsBodyAnim
@@ -278,6 +296,7 @@ Item {
                     kind: modelData.kind || ""
                     label: modelData.label
                     seconds: modelData.duration || 0.6
+                    trending: !!modelData.trending
                     tileWidth: animGrid.tileWidth
                     selected: root.isTileSelected(modelData)
                     playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)

@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLocale>
 #include <QSet>
 
 #include <algorithm>
@@ -59,6 +60,19 @@ EffectPresetEntry EffectPackageLoader::loadPackage(const QString &packageDir, QS
 
     entry.meta.id = root.value(QStringLiteral("id")).toString();
     entry.meta.displayName = drift::catalogText(root.value(QStringLiteral("displayName")).toString());
+    // Stock effects carry their name in every language ("names": {"es": …, "pt_BR": …}): the UI
+    // language's wins, then its base language, then the catalogue translation of displayName.
+    {
+        const QJsonObject names = root.value(QStringLiteral("names")).toObject();
+        const QString locale = QLocale().name();
+        for (const QString &key : {locale, locale.section(QLatin1Char('_'), 0, 0)}) {
+            const QString name = names.value(key).toString().trimmed();
+            if (!name.isEmpty()) {
+                entry.meta.displayName = name;
+                break;
+            }
+        }
+    }
     if (entry.meta.displayName.isEmpty())
         entry.meta.displayName = entry.meta.id;
     const QString categoryRaw = root.value(QStringLiteral("category")).toString();

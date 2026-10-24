@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinihintay ang browser…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinihintay ang browser…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -4353,6 +4353,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>Nasa Effects › Uso</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5065,7 +5069,7 @@
     </message>
     <message>
         <source>Trending</source>
-        <translation type="unfinished"></translation>
+        <translation>Uso</translation>
     </message>
     <message>
         <source>Slide</source>
@@ -12501,6 +12505,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>Uso</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>Pumili ng clip na may tunog para palitan ang boses nito</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12533,12 +12545,48 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — i-click para ilapat sa boses ng napiling clip</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — i-click para i-download at ilapat</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>Mag-sign in para makita ang mga usong effect</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>Nilo-load ang mga usong effect…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>Hindi ma-load ang mga usong effect</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>Galing sa Stock ang mga usong effect, na kailangan ang libre mong account.</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>Hinihintay ang browser…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Mag-sign in</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Subukang muli</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -15285,7 +15333,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinihintay ang browser…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -19616,7 +19664,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinihintay ang browser…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>
@@ -20493,8 +20541,16 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>Mag-sign in para magamit ang mga trending</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>Ang mga trending na animation ay para sa mga naka-sign in. Mag-sign in ka lang gamit ang Google account mo: sandali lang, isang beses lang, at mananatili ang proyekto mo gaya ng dati.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -20502,7 +20558,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Waiting for the browser…</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinihintay ang browser…</translation>
     </message>
     <message>
         <source>Sign in with Google</source>

@@ -19,6 +19,20 @@
   "background:fechas": "記念日・イベント",
   "background:geometricos": "幾何学",
   "background:texturas": "テクスチャ",
+  "effect:abrir": "オープン＆クローズ",
+  "effect:amor": "ラブ",
+  "effect:audio": "ボイス",
+  "effect:camara": "カメラワーク",
+  "effect:desenfoque": "ぼかし",
+  "effect:dividir": "分割＆クローン",
+  "effect:energia": "エネルギー＆エレメント",
+  "effect:estilo": "スタイライズ",
+  "effect:glitch": "グリッチ",
+  "effect:ia": "AI",
+  "effect:luz": "ライト＆フレア",
+  "effect:marcos": "フレーム＆枠",
+  "effect:particulas": "パーティクル＆キラキラ",
+  "effect:retro": "レトロ＆フィルム",
   "look:arte": "アートとデュオトーン",
   "look:bn": "モノクロ",
   "look:boda": "ウェディング",
@@ -4048,6 +4062,2996 @@
     "ズーム",
     "サイケデリック",
     "背景"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "色収差",
+   "tags": [
+    "色収差",
+    "rgb",
+    "にじみ"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "縦オープン",
+   "tags": [
+    "オープン",
+    "縦",
+    "トランジション"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "パララックスズームイン",
+   "tags": [
+    "パララックス",
+    "ズーム",
+    "奥行き"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "左右シェイク",
+   "tags": [
+    "揺れ",
+    "左右",
+    "カメラ"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "上下シェイク",
+   "tags": [
+    "揺れ",
+    "上下",
+    "カメラ"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "RGBシェイク",
+   "tags": [
+    "rgb",
+    "揺れ",
+    "グリッチ"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "シェイクズーム",
+   "tags": [
+    "揺れ",
+    "ズーム",
+    "カメラ"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "カメラシェイク",
+   "tags": [
+    "揺れ",
+    "カメラ",
+    "振動"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "プラズマイエロー",
+   "tags": [
+    "プラズマ",
+    "黄色",
+    "光"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "フォーカスブースト",
+   "tags": [
+    "フォーカス",
+    "シャープ",
+    "ピント"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "キラキラリング",
+   "tags": [
+    "リング",
+    "キラキラ",
+    "ラメ"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "炎のリング",
+   "tags": [
+    "炎",
+    "リング",
+    "火"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "ミュージックリング",
+   "tags": [
+    "音楽",
+    "リング",
+    "波形"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "渦のリング",
+   "tags": [
+    "渦",
+    "リング",
+    "エネルギー"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "70年代",
+   "tags": [
+    "70年代",
+    "レトロ",
+    "ヴィンテージ"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "高速トーチ",
+   "tags": [
+    "トーチ",
+    "光",
+    "フラッシュ"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "人物の出現 1",
+   "tags": [
+    "ai",
+    "人物",
+    "出現"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "エレベーターオープン",
+   "tags": [
+    "エレベーター",
+    "オープン",
+    "分割"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "リス声",
+   "tags": [
+    "ボイスチェンジ",
+    "高い声",
+    "面白い"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "シネマバー",
+   "tags": [
+    "シネマ",
+    "映画",
+    "黒帯"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "ミュージックバー",
+   "tags": [
+    "音楽",
+    "イコライザー",
+    "オーディオ"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "鼓動シェイク",
+   "tags": [
+    "鼓動",
+    "揺れ",
+    "ビート"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "パルスシェイク 03",
+   "tags": [
+    "パルス",
+    "揺れ",
+    "ビート"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "ソフトシェイク",
+   "tags": [
+    "やさしい",
+    "揺れ",
+    "カメラ"
+   ]
+  },
+  "effect:belleza": {
+   "name": "ビューティー",
+   "tags": [
+    "美肌",
+    "美容",
+    "補正"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "青いフレア",
+   "tags": [
+    "フレア",
+    "青",
+    "光"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "ネイビーのフレア",
+   "tags": [
+    "フレア",
+    "ネイビー",
+    "光"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "ブリンブリン",
+   "tags": [
+    "キラキラ",
+    "輝き",
+    "ダイヤ"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "グリッチブロック 2",
+   "tags": [
+    "グリッチ",
+    "ブロック",
+    "ノイズ"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "3Dボケ",
+   "tags": [
+    "3d",
+    "ボケ",
+    "光"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "ボケ 5",
+   "tags": [
+    "ボケ",
+    "光",
+    "玉ボケ"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "カラフルボケ",
+   "tags": [
+    "ボケ",
+    "カラフル",
+    "光"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "隅のボケ",
+   "tags": [
+    "ボケ",
+    "隅",
+    "光"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "街のボケ",
+   "tags": [
+    "ボケ",
+    "街",
+    "夜"
+   ]
+  },
+  "effect:borde": {
+   "name": "枠",
+   "tags": [
+    "枠",
+    "フレーム",
+    "ボーダー"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "青いネオン枠",
+   "tags": [
+    "ネオン",
+    "枠",
+    "青"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "フィルム焼け",
+   "tags": [
+    "フィルム",
+    "焼け",
+    "光漏れ"
+   ]
+  },
+  "effect:brasas": {
+   "name": "残り火",
+   "tags": [
+    "火の粉",
+    "炎",
+    "パーティクル"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "ゴールドの輝き",
+   "tags": [
+    "ゴールド",
+    "輝き",
+    "キラキラ"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "舞うキラキラ",
+   "tags": [
+    "キラキラ",
+    "光",
+    "パーティクル"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "光の泡",
+   "tags": [
+    "泡",
+    "光",
+    "ボケ"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "答えを探す",
+   "tags": [
+    "検索",
+    "スキャン",
+    "ミーム"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "3Dカメラ・右",
+   "tags": [
+    "3d",
+    "カメラ",
+    "右"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "3Dカメラ・左",
+   "tags": [
+    "3d",
+    "カメラ",
+    "左"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "インスタントカメラ",
+   "tags": [
+    "インスタント",
+    "カメラ",
+    "写真"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "荒ぶるカメラ",
+   "tags": [
+    "激しい",
+    "揺れ",
+    "カメラ"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "ビートで色チェンジ",
+   "tags": [
+    "ビート",
+    "色",
+    "音楽"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "闇のチャージ",
+   "tags": [
+    "チャージ",
+    "エネルギー",
+    "暗闇"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "ハッピーメリーゴーランド",
+   "tags": [
+    "回転",
+    "カメラ",
+    "楽しい"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "戦場の火の粉",
+   "tags": [
+    "火の粉",
+    "灰",
+    "炎"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "フラッシュクローズ",
+   "tags": [
+    "クローズ",
+    "フラッシュ",
+    "トランジション"
+   ]
+  },
+  "effect:chispa": {
+   "name": "スパーク",
+   "tags": [
+    "火花",
+    "スパーク",
+    "光"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "金の火花",
+   "tags": [
+    "火花",
+    "ゴールド",
+    "スパーク"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "カットインパクト",
+   "tags": [
+    "インパクト",
+    "カット",
+    "衝撃"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "星空",
+   "tags": [
+    "星空",
+    "星",
+    "夜"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "横クローズ",
+   "tags": [
+    "クローズ",
+    "横",
+    "トランジション"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "丸クローズ",
+   "tags": [
+    "クローズ",
+    "円",
+    "トランジション"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "レトロシネマ",
+   "tags": [
+    "レトロ",
+    "映画",
+    "シネマ"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "ビデオテープ",
+   "tags": [
+    "ビデオ",
+    "vhs",
+    "レトロ"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "ラブクリア",
+   "tags": [
+    "ハート",
+    "ピンク",
+    "恋愛",
+    "グロー"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "光る人物クローン",
+   "tags": [
+    "ai",
+    "クローン",
+    "人物",
+    "光"
+   ]
+  },
+  "effect:colision": {
+   "name": "衝突",
+   "tags": [
+    "衝突",
+    "衝撃",
+    "インパクト"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "ラブコラージュ",
+   "tags": [
+    "コラージュ",
+    "恋愛",
+    "写真"
+   ]
+  },
+  "effect:color-local": {
+   "name": "パートカラー",
+   "tags": [
+    "カラー",
+    "モノクロ",
+    "色"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "カラーコミック",
+   "tags": [
+    "コミック",
+    "漫画",
+    "カラー"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "お祭りの紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "お祭り",
+    "お祝い"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "舞う紙吹雪",
+   "tags": [
+    "紙吹雪",
+    "お祝い",
+    "パーティー"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "グリッチフリーズ",
+   "tags": [
+    "グリッチ",
+    "フリーズ",
+    "静止"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "雪の結晶",
+   "tags": [
+    "雪",
+    "結晶",
+    "冬"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "キラキラハート",
+   "tags": [
+    "ハート",
+    "キラキラ",
+    "輝き"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "光のハート",
+   "tags": [
+    "ハート",
+    "ライト",
+    "光"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "ハートのボケ",
+   "tags": [
+    "ハート",
+    "ボケ",
+    "光"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "ネオンハート",
+   "tags": [
+    "ハート",
+    "ネオン",
+    "光"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "ゴールドハート",
+   "tags": [
+    "ハート",
+    "ゴールド",
+    "キラキラ"
+   ]
+  },
+  "effect:corredor": {
+   "name": "廊下",
+   "tags": [
+    "リバーブ",
+    "反響",
+    "ボイス"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "点滅ベベルカット",
+   "tags": [
+    "ベベル",
+    "点滅",
+    "カット"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "分割フラッシュカット 1",
+   "tags": [
+    "分割",
+    "フラッシュ",
+    "カット"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "回転フラッシュカット",
+   "tags": [
+    "フラッシュ",
+    "回転",
+    "カット"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "ベベルカット",
+   "tags": [
+    "ベベル",
+    "カット",
+    "分割"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "ストリップカット",
+   "tags": [
+    "ストライプ",
+    "分割",
+    "カット"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "アクションフリーズ",
+   "tags": [
+    "フリーズ",
+    "静止画",
+    "アクション"
+   ]
+  },
+  "effect:cueva": {
+   "name": "洞窟",
+   "tags": [
+    "エコー",
+    "反響",
+    "ボイス"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "サンダードーム",
+   "tags": [
+    "雷",
+    "ドーム",
+    "電気"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "放電",
+   "tags": [
+    "電気",
+    "稲妻",
+    "スパーク"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "ぼかして消す",
+   "tags": [
+    "ぼかし",
+    "消す",
+    "トランジション"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "スクエアぼかし",
+   "tags": [
+    "ぼかし",
+    "四角",
+    "モザイク"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "ボケぼかし 5",
+   "tags": [
+    "ボケ",
+    "ぼかし",
+    "光"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "方向ぼかし",
+   "tags": [
+    "ぼかし",
+    "方向",
+    "動き"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "ベーシック背景ぼかし",
+   "tags": [
+    "ぼかし",
+    "背景",
+    "ベーシック"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "モーションブラー",
+   "tags": [
+    "ぼかし",
+    "動き",
+    "スピード"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "被写界深度ぼかし",
+   "tags": [
+    "ぼかし",
+    "奥行き",
+    "背景"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "ビネットぼかし",
+   "tags": [
+    "ぼかし",
+    "ビネット",
+    "周辺"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "斜めぼかし",
+   "tags": [
+    "ぼかし",
+    "斜め",
+    "ティルト"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "スクロール＆ズーム",
+   "tags": [
+    "スクロール",
+    "ズーム",
+    "カメラ"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "アナモルフィックTVフレア",
+   "tags": [
+    "アナモルフィック",
+    "フレア",
+    "テレビ"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "レンズフレア 3",
+   "tags": [
+    "レンズフレア",
+    "光",
+    "フレア"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "レンズフレア 5",
+   "tags": [
+    "レンズフレア",
+    "光",
+    "フレア"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "レンズフレア 6",
+   "tags": [
+    "レンズフレア",
+    "光",
+    "フレア"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "アナモルフィックレンズフレア",
+   "tags": [
+    "アナモルフィック",
+    "レンズフレア",
+    "映画"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "青いレンズフレア",
+   "tags": [
+    "レンズフレア",
+    "青",
+    "光"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "振動フラッシュ",
+   "tags": [
+    "フラッシュ",
+    "振動",
+    "光"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "ゴールドフレア",
+   "tags": [
+    "フレア",
+    "ゴールド",
+    "光"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "水平フレア",
+   "tags": [
+    "フレア",
+    "水平",
+    "光"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "脈打つフラッシュ",
+   "tags": [
+    "フラッシュ",
+    "パルス",
+    "点滅"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "あたたかいきらめき",
+   "tags": [
+    "きらめき",
+    "暖色",
+    "キラキラ"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "フォトブックスライド",
+   "tags": [
+    "フォトブック",
+    "スライド",
+    "写真"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "フィルムスライド 1",
+   "tags": [
+    "フィルム",
+    "スライド",
+    "写真"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "フィルムスライド 2",
+   "tags": [
+    "フィルム",
+    "スライド",
+    "写真"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "スミアぼかし",
+   "tags": [
+    "ぼかし",
+    "にじみ",
+    "動き"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "VCRディストーション",
+   "tags": [
+    "ビデオ",
+    "vhs",
+    "ゆがみ"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "分割フラッシュカット 2",
+   "tags": [
+    "分割",
+    "フラッシュ",
+    "カット"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "バブル分割",
+   "tags": [
+    "バブル",
+    "分割",
+    "泡"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "RGBスプリット",
+   "tags": [
+    "rgb",
+    "分割",
+    "グリッチ"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "グリッチエフェクト 17",
+   "tags": [
+    "グリッチ",
+    "ノイズ",
+    "デジタル"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "グリッチエフェクト 20",
+   "tags": [
+    "グリッチ",
+    "ノイズ",
+    "デジタル"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "グリッチエフェクト 7",
+   "tags": [
+    "グリッチ",
+    "ノイズ",
+    "デジタル"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "光漏れエフェクト 02",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "フィルム"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "ズームエフェクト",
+   "tags": [
+    "ズーム",
+    "カメラ",
+    "動き"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "AI美肌",
+   "tags": [
+    "ai",
+    "美肌",
+    "補正"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "衝撃波エネルギー",
+   "tags": [
+    "衝撃波",
+    "エネルギー",
+    "パワー"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "アナリティックフォーカス",
+   "tags": [
+    "フォーカス",
+    "ピント",
+    "ぼかし"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "青い炎のオーラ",
+   "tags": [
+    "炎",
+    "青",
+    "オーラ"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "サイバーエラー 01",
+   "tags": [
+    "サイバー",
+    "エラー",
+    "グリッチ"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "枠スケール",
+   "tags": [
+    "枠",
+    "拡大",
+    "フレーム"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "SFスキャン 01",
+   "tags": [
+    "スキャン",
+    "sf",
+    "未来"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "SFスキャン 02",
+   "tags": [
+    "スキャン",
+    "sf",
+    "未来"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "グリッチスキャン",
+   "tags": [
+    "グリッチ",
+    "スキャン",
+    "ノイズ"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "衝撃波スキャン",
+   "tags": [
+    "スキャン",
+    "衝撃波",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "光線スキャン",
+   "tags": [
+    "スキャン",
+    "光線",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "光線スキャン 04",
+   "tags": [
+    "スキャン",
+    "光線",
+    "sf"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "サイバー光線スキャン 01",
+   "tags": [
+    "サイバー",
+    "スキャン",
+    "光線"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "サイバー光線スキャン 02",
+   "tags": [
+    "サイバー",
+    "スキャン",
+    "光線"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "電光スキャン",
+   "tags": [
+    "スキャン",
+    "電気",
+    "sf"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "毒スモッグ",
+   "tags": [
+    "煙",
+    "スモッグ",
+    "緑"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "オーディオスペクトラム 03",
+   "tags": [
+    "音楽",
+    "スペクトラム",
+    "波形"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "スターバースト",
+   "tags": [
+    "星",
+    "バースト",
+    "キラキラ"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "光線バースト",
+   "tags": [
+    "光線",
+    "バースト",
+    "光"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "足元のノイズ",
+   "tags": [
+    "ノイズ",
+    "砂嵐",
+    "レトロ"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "モーショントレイル",
+   "tags": [
+    "残像",
+    "動き",
+    "軌跡"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "ピンクの軌跡",
+   "tags": [
+    "軌跡",
+    "ピンク",
+    "光"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "コミック風 3",
+   "tags": [
+    "コミック",
+    "漫画",
+    "スタイル"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "低FPS風",
+   "tags": [
+    "fps",
+    "カクカク",
+    "コマ落ち"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "ストレッチ振動",
+   "tags": [
+    "伸縮",
+    "振動",
+    "グリッチ"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "きらめく星 1",
+   "tags": [
+    "星",
+    "きらめき",
+    "キラキラ"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "きらめく星 5",
+   "tags": [
+    "星",
+    "きらめき",
+    "キラキラ"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "金の星",
+   "tags": [
+    "星",
+    "ゴールド",
+    "キラキラ"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "遠い星",
+   "tags": [
+    "星",
+    "夜",
+    "宇宙"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "流れ星",
+   "tags": [
+    "流れ星",
+    "星",
+    "夜"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "散らばる星",
+   "tags": [
+    "星",
+    "キラキラ",
+    "パーティクル"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "瞬く星",
+   "tags": [
+    "星",
+    "きらめき",
+    "夜"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "ロックストロボ",
+   "tags": [
+    "ストロボ",
+    "点滅",
+    "グリッチ"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "スペクトルスキャン",
+   "tags": [
+    "スキャン",
+    "スペクトル",
+    "虹色"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "エネルギー爆発",
+   "tags": [
+    "爆発",
+    "エネルギー",
+    "パワー"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "星明かりバースト",
+   "tags": [
+    "星",
+    "バースト",
+    "光"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "蝶のバースト",
+   "tags": [
+    "蝶",
+    "バースト",
+    "パーティクル"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "フラッシュ爆発",
+   "tags": [
+    "フラッシュ",
+    "爆発",
+    "光"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "炎の爆発",
+   "tags": [
+    "爆発",
+    "炎",
+    "火"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "プリズムバースト",
+   "tags": [
+    "プリズム",
+    "虹色",
+    "光"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "ビートで露出",
+   "tags": [
+    "ビート",
+    "露出",
+    "フラッシュ"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "フラッシュ露出",
+   "tags": [
+    "フラッシュ",
+    "露出",
+    "白"
+   ]
+  },
+  "effect:extremo": {
+   "name": "エクストリーム",
+   "tags": [
+    "激しい",
+    "揺れ",
+    "カメラ"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "フリッカーグリッチ",
+   "tags": [
+    "点滅",
+    "グリッチ",
+    "ノイズ"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "フィルターグリッチ",
+   "tags": [
+    "グリッチ",
+    "フィルター",
+    "ノイズ"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "サイケデリックグリッチ",
+   "tags": [
+    "サイケ",
+    "グリッチ",
+    "カラフル"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "ヴィンテージグリッチ 01",
+   "tags": [
+    "ヴィンテージ",
+    "グリッチ",
+    "レトロ"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "ドクロゴースト",
+   "tags": [
+    "ドクロ",
+    "ゴースト",
+    "ホラー"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "グリッチの亡霊",
+   "tags": [
+    "グリッチ",
+    "ゴースト",
+    "残像"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "ネオンフィーバー",
+   "tags": [
+    "ネオン",
+    "光",
+    "カラフル"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "アニメフィルター 01",
+   "tags": [
+    "アニメ",
+    "イラスト",
+    "フィルター"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "アニメフィルター 05",
+   "tags": [
+    "アニメ",
+    "イラスト",
+    "フィルター"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "ぼかしエンディング",
+   "tags": [
+    "ぼかし",
+    "エンディング",
+    "終わり"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "フラッシュオープン",
+   "tags": [
+    "オープン",
+    "フラッシュ",
+    "トランジション"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "オーラブルーム",
+   "tags": [
+    "オーラ",
+    "グロー",
+    "光"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "ビームフロー 2",
+   "tags": [
+    "ビーム",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "ビームフロー 3",
+   "tags": [
+    "ビーム",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "ビームフロー 4",
+   "tags": [
+    "ビーム",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "ビームフロー 6",
+   "tags": [
+    "ビーム",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "ビームフロー 7",
+   "tags": [
+    "ビーム",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "ステージスポットライト",
+   "tags": [
+    "スポットライト",
+    "ステージ",
+    "照明"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "スポットライトで締め",
+   "tags": [
+    "スポットライト",
+    "エンディング",
+    "光"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "爆発の背景",
+   "tags": [
+    "爆発",
+    "背景",
+    "炎"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "稲妻の背景",
+   "tags": [
+    "稲妻",
+    "背景",
+    "雷"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "ラブハート背景",
+   "tags": [
+    "ハート",
+    "背景",
+    "恋愛"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "蓄音機",
+   "tags": [
+    "蓄音機",
+    "レトロ",
+    "ボイス"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "燃える地面",
+   "tags": [
+    "炎",
+    "火",
+    "地面"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "せり上がる炎",
+   "tags": [
+    "炎",
+    "火",
+    "スキャン"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "花火",
+   "tags": [
+    "花火",
+    "お祝い",
+    "夜"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "星の花火",
+   "tags": [
+    "星",
+    "花火",
+    "お祝い"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "光漏れ 1",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "光漏れ 3",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "光漏れ 4",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "光漏れ 5",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "光漏れ 6",
+   "tags": [
+    "光漏れ",
+    "ライトリーク",
+    "暖色"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "4分割マージ",
+   "tags": [
+    "分割",
+    "4分割",
+    "合体"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "グランジ落書き",
+   "tags": [
+    "グランジ",
+    "落書き",
+    "手書き"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "くるくる回転",
+   "tags": [
+    "回転",
+    "円",
+    "スピン"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "回転スピン",
+   "tags": [
+    "回転",
+    "スピン",
+    "カメラ"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "サイケデリックスワール",
+   "tags": [
+    "サイケ",
+    "渦",
+    "カラフル"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "MPEGグリッチ",
+   "tags": [
+    "グリッチ",
+    "ブロック",
+    "デジタル"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "ヘビーグリッチ",
+   "tags": [
+    "グリッチ",
+    "ノイズ",
+    "激しい"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "ホワイトグランジ",
+   "tags": [
+    "グランジ",
+    "白",
+    "質感"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "衝撃ビーム",
+   "tags": [
+    "ビーム",
+    "衝撃",
+    "光線"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "ざらつく光線",
+   "tags": [
+    "光線",
+    "粒子",
+    "フィルム"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "足元の煙",
+   "tags": [
+    "煙",
+    "霧",
+    "スモーク"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "残像",
+   "tags": [
+    "残像",
+    "動き",
+    "ゴースト"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "チルトオープン",
+   "tags": [
+    "チルト",
+    "オープン",
+    "カメラ"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "パースチルト",
+   "tags": [
+    "パース",
+    "チルト",
+    "3d"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "ドローイングフラッド",
+   "tags": [
+    "スケッチ",
+    "線画",
+    "イラスト"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "グリッチ反転",
+   "tags": [
+    "反転",
+    "グリッチ",
+    "ネガ"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "フリッカージッター 01",
+   "tags": [
+    "点滅",
+    "ジッター",
+    "グリッチ"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "回転ジッター",
+   "tags": [
+    "回転",
+    "ジッター",
+    "揺れ"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "フィルムロール",
+   "tags": [
+    "フィルム",
+    "ロール",
+    "レトロ"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "フラッシュランプ",
+   "tags": [
+    "フラッシュ",
+    "ストロボ",
+    "光"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "スロー",
+   "tags": [
+    "投げる",
+    "動き",
+    "カメラ"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "ハートビート",
+   "tags": [
+    "鼓動",
+    "ズーム",
+    "ビート"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "フラッシュズームレンズ",
+   "tags": [
+    "ズーム",
+    "フラッシュ",
+    "レンズ"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "古いカメラレンズ",
+   "tags": [
+    "レンズ",
+    "ヴィンテージ",
+    "カメラ"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "軽い泥はね",
+   "tags": [
+    "泥",
+    "汚れ",
+    "フィルム"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "ワイパー",
+   "tags": [
+    "ワイパー",
+    "振り子",
+    "カメラ"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "ボーダーライン 01",
+   "tags": [
+    "枠",
+    "ライン",
+    "ボーダー"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "煙のライン",
+   "tags": [
+    "煙",
+    "ライン",
+    "スモーク"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "スピード線",
+   "tags": [
+    "スピード線",
+    "漫画",
+    "集中線"
+   ]
+  },
+  "effect:linterna": {
+   "name": "懐中電灯",
+   "tags": [
+    "懐中電灯",
+    "ライト",
+    "暗闇"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "雨 1",
+   "tags": [
+    "雨",
+    "天気",
+    "しずく"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "雨 2",
+   "tags": [
+    "雨",
+    "天気",
+    "しずく"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "シネマの雨",
+   "tags": [
+    "雨",
+    "映画",
+    "シネマ"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "ピンクのハートの雨",
+   "tags": [
+    "ハート",
+    "ピンク",
+    "雨"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "光の雨",
+   "tags": [
+    "雨",
+    "光",
+    "キラキラ"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "浮かぶ小さな光",
+   "tags": [
+    "光",
+    "パーティクル",
+    "ふんわり"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "ステージライト",
+   "tags": [
+    "ステージ",
+    "照明",
+    "ライブ"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "クリスマスライト",
+   "tags": [
+    "クリスマス",
+    "ライト",
+    "イルミネーション"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "リアルなホタル 01",
+   "tags": [
+    "ホタル",
+    "光",
+    "自然"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "踊るホタル",
+   "tags": [
+    "ホタル",
+    "光",
+    "夜"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "シャープルマ",
+   "tags": [
+    "シャープ",
+    "明るさ",
+    "くっきり"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "ディスコライト",
+   "tags": [
+    "ディスコ",
+    "パーティー",
+    "照明"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "星明かり",
+   "tags": [
+    "星",
+    "光",
+    "夜"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "日差し 01",
+   "tags": [
+    "日差し",
+    "太陽",
+    "光"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "日差し 03",
+   "tags": [
+    "日差し",
+    "太陽",
+    "光"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "日差し 05",
+   "tags": [
+    "日差し",
+    "太陽",
+    "光"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "日差し 06",
+   "tags": [
+    "日差し",
+    "太陽",
+    "光"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "電光",
+   "tags": [
+    "電気",
+    "光",
+    "スパーク"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "溶ける光",
+   "tags": [
+    "ai",
+    "光",
+    "ディゾルブ"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "ボケフレーム",
+   "tags": [
+    "ボケ",
+    "フレーム",
+    "光"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "エコーフレーム 31",
+   "tags": [
+    "エコー",
+    "フレーム",
+    "残像"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "炎のフレーム",
+   "tags": [
+    "炎",
+    "フレーム",
+    "火"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "メラメラフレーム",
+   "tags": [
+    "炎",
+    "フレーム",
+    "枠"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "ホラーフレーム",
+   "tags": [
+    "ホラー",
+    "フレーム",
+    "怖い"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "インスタントフレーム 02 16:9",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "横型"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "インスタントフレーム 02 9:16",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "縦型"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "インスタントフレーム 03 16:9",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "横型"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "インスタントフレーム 思い出 02 1:1",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "思い出",
+    "正方形"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "インスタントフレーム 思い出 03 1:1",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "思い出",
+    "正方形"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "インスタントフレーム ストーリー 03 9:16",
+   "tags": [
+    "インスタント",
+    "フレーム",
+    "ストーリー",
+    "縦型"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "マーカーフレーム",
+   "tags": [
+    "マーカー",
+    "手書き",
+    "フレーム"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "ピンクのラブフレーム",
+   "tags": [
+    "フレーム",
+    "ピンク",
+    "恋愛"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "光る蝶",
+   "tags": [
+    "蝶",
+    "光",
+    "キラキラ"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "自動補正",
+   "tags": [
+    "補正",
+    "自動",
+    "画質"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "ミニシェイク",
+   "tags": [
+    "揺れ",
+    "小さい",
+    "カメラ"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "ミニズーム",
+   "tags": [
+    "ズーム",
+    "小さい",
+    "カメラ"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "ホラーモニター",
+   "tags": [
+    "ホラー",
+    "モニター",
+    "監視カメラ"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "モザイク",
+   "tags": [
+    "モザイク",
+    "ぼかし",
+    "隠す"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "クラシックモザイク",
+   "tags": [
+    "モザイク",
+    "ピクセル",
+    "隠す"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "AIクラシックモザイク",
+   "tags": [
+    "ai",
+    "モザイク",
+    "顔"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "AIぼかしモザイク",
+   "tags": [
+    "ai",
+    "モザイク",
+    "ぼかし"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "落書きモザイク",
+   "tags": [
+    "モザイク",
+    "落書き",
+    "隠す"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "3D円運動・左",
+   "tags": [
+    "3d",
+    "円",
+    "回転",
+    "左"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "360°カメラムーブ 1",
+   "tags": [
+    "360",
+    "回転",
+    "カメラ"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "3Dカメラワーク",
+   "tags": [
+    "3d",
+    "カメラ",
+    "動き"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "手持ちカメラ",
+   "tags": [
+    "手持ち",
+    "揺れ",
+    "カメラ"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "ローカルカメラワーク",
+   "tags": [
+    "カメラ",
+    "動き",
+    "部分"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "揺れるカメラワーク",
+   "tags": [
+    "揺れ",
+    "カメラ",
+    "動き"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "なめらかカメラワーク",
+   "tags": [
+    "なめらか",
+    "カメラ",
+    "動き"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "カメラムーブ",
+   "tags": [
+    "カメラ",
+    "動き",
+    "パン"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "一方向モーション",
+   "tags": [
+    "動き",
+    "カメラ",
+    "スライド"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "シネマジッター",
+   "tags": [
+    "ジッター",
+    "映画",
+    "揺れ"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "ソウルジッター",
+   "tags": [
+    "ジッター",
+    "残像",
+    "魂"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "冬の雪",
+   "tags": [
+    "雪",
+    "冬",
+    "降雪"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "夢の霧 1",
+   "tags": [
+    "霧",
+    "幻想",
+    "ふんわり"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "夢の霧 2",
+   "tags": [
+    "霧",
+    "幻想",
+    "ふんわり"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "夢の霧 3",
+   "tags": [
+    "霧",
+    "幻想",
+    "ふんわり"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "夢の霧 4",
+   "tags": [
+    "霧",
+    "幻想",
+    "ふんわり"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "花吹雪",
+   "tags": [
+    "花びら",
+    "花",
+    "春"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "リアルな雪",
+   "tags": [
+    "雪",
+    "冬",
+    "天気"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "雪の星空",
+   "tags": [
+    "雪",
+    "星空",
+    "夜"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "ピン留めメモ",
+   "tags": [
+    "メモ",
+    "ピン",
+    "付箋"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "カメラレンズ",
+   "tags": [
+    "レンズ",
+    "ぼかし",
+    "カメラ"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "隠す",
+   "tags": [
+    "隠す",
+    "消す",
+    "クローズ"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "衝撃波 3",
+   "tags": [
+    "衝撃波",
+    "波紋",
+    "インパクト"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "サイケデリックウェーブ",
+   "tags": [
+    "サイケ",
+    "波",
+    "カラフル"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "ラブウェーブ",
+   "tags": [
+    "ハート",
+    "波",
+    "恋愛"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "キラキラパック",
+   "tags": [
+    "キラキラ",
+    "パック",
+    "輝き"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "なめらかパララックスズームアウト",
+   "tags": [
+    "パララックス",
+    "ズームアウト",
+    "奥行き"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "並べるフォトブック",
+   "tags": [
+    "フォトブック",
+    "写真",
+    "アルバム"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "カラーフリッカー",
+   "tags": [
+    "点滅",
+    "カラー",
+    "色"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "舞う炎のパーティクル",
+   "tags": [
+    "炎",
+    "パーティクル",
+    "火の粉"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "金のパーティクル",
+   "tags": [
+    "パーティクル",
+    "ゴールド",
+    "キラキラ"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "動くパーティクル",
+   "tags": [
+    "パーティクル",
+    "動き",
+    "光"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "ヴィンテージフィルム 1",
+   "tags": [
+    "フィルム",
+    "ヴィンテージ",
+    "レトロ"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "ヴィンテージフィルム 2",
+   "tags": [
+    "フィルム",
+    "ヴィンテージ",
+    "レトロ"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "粒子フィルム",
+   "tags": [
+    "フィルム",
+    "粒子",
+    "ノイズ"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "すごく汚れたフィルム",
+   "tags": [
+    "フィルム",
+    "汚れ",
+    "傷"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "サイレント映画",
+   "tags": [
+    "サイレント",
+    "モノクロ",
+    "映画"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "サイレント映画 2",
+   "tags": [
+    "サイレント",
+    "モノクロ",
+    "映画"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "とても古いフィルム",
+   "tags": [
+    "フィルム",
+    "古い",
+    "ヴィンテージ"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "汚れたフィルム",
+   "tags": [
+    "フィルム",
+    "汚れ",
+    "傷"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "古いフィルム",
+   "tags": [
+    "フィルム",
+    "古い",
+    "ヴィンテージ"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "振り子",
+   "tags": [
+    "振り子",
+    "揺れ",
+    "カメラ"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "ペイントモザイク",
+   "tags": [
+    "モザイク",
+    "ペイント",
+    "アート"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "コマ割りコミック",
+   "tags": [
+    "コミック",
+    "コマ",
+    "分割"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "青い粉",
+   "tags": [
+    "粉",
+    "青",
+    "パーティクル"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "星くず",
+   "tags": [
+    "星くず",
+    "キラキラ",
+    "光"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "浮かぶほこり",
+   "tags": [
+    "ほこり",
+    "パーティクル",
+    "光"
+   ]
+  },
+  "effect:profundo": {
+   "name": "低音ボイス",
+   "tags": [
+    "低い声",
+    "ボイスチェンジ",
+    "深い"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "ビートパルス",
+   "tags": [
+    "ビート",
+    "パルス",
+    "音楽"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "ハートビートパルス",
+   "tags": [
+    "ハート",
+    "鼓動",
+    "パルス"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "光るドット",
+   "tags": [
+    "ドット",
+    "キラキラ",
+    "光"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "金のラメ",
+   "tags": [
+    "ラメ",
+    "ゴールド",
+    "キラキラ"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "フィルムバーン",
+   "tags": [
+    "フィルム",
+    "焼け",
+    "光漏れ"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "ぼかし解除",
+   "tags": [
+    "ぼかし",
+    "シャープ",
+    "くっきり"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "ビネット半径",
+   "tags": [
+    "ビネット",
+    "周辺",
+    "暗く"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "光る足あと",
+   "tags": [
+    "足あと",
+    "光",
+    "軌跡"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "映写機の線",
+   "tags": [
+    "映写機",
+    "フィルム",
+    "線"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "光のビーム",
+   "tags": [
+    "光線",
+    "ビーム",
+    "光"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "金色の光線",
+   "tags": [
+    "光線",
+    "ゴールド",
+    "光"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "稲妻 01",
+   "tags": [
+    "稲妻",
+    "雷",
+    "電気"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "スピンバウンス",
+   "tags": [
+    "スピン",
+    "バウンス",
+    "回転"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "ズームバウンス",
+   "tags": [
+    "ズーム",
+    "バウンス",
+    "弾む"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "回転バウンス",
+   "tags": [
+    "回転",
+    "バウンス",
+    "弾む"
+   ]
+  },
+  "effect:recorte": {
+   "name": "クロップ",
+   "tags": [
+    "切り抜き",
+    "クロップ",
+    "フレーム"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "グレーのグリッド",
+   "tags": [
+    "グリッド",
+    "グレー",
+    "線"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "まばゆい稲妻",
+   "tags": [
+    "稲妻",
+    "雷",
+    "光"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "ハートの渦",
+   "tags": [
+    "ハート",
+    "渦",
+    "回転"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "ゆがみの渦",
+   "tags": [
+    "渦",
+    "ゆがみ",
+    "回転"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "エッジグロー 04",
+   "tags": [
+    "グロー",
+    "枠",
+    "光"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "人物グロー",
+   "tags": [
+    "ai",
+    "人物",
+    "グロー"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "揺れるグロー",
+   "tags": [
+    "グロー",
+    "揺れ",
+    "光"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "ときめきラブコメ",
+   "tags": [
+    "ラブコメ",
+    "恋愛",
+    "ロマンチック"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "丸オープン",
+   "tags": [
+    "オープン",
+    "円",
+    "トランジション"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "スタック回転",
+   "tags": [
+    "回転",
+    "重ね",
+    "カメラ"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "フィルムノイズ",
+   "tags": [
+    "フィルム",
+    "ノイズ",
+    "粒子"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "レトロノイズ",
+   "tags": [
+    "ノイズ",
+    "レトロ",
+    "粒子"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "反動シェイク",
+   "tags": [
+    "反動",
+    "揺れ",
+    "アクション"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "地震シェイク",
+   "tags": [
+    "地震",
+    "揺れ",
+    "激しい"
+   ]
+  },
+  "effect:saltar": {
+   "name": "ジャンプ",
+   "tags": [
+    "ジャンプ",
+    "動き",
+    "カメラ"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "バイオレットジャンプ 2",
+   "tags": [
+    "ジャンプ",
+    "紫",
+    "カメラ"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "不気味な声",
+   "tags": [
+    "ホラー",
+    "ボイスチェンジ",
+    "不気味"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "隅の太陽",
+   "tags": [
+    "太陽",
+    "日差し",
+    "光"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "シャドウA",
+   "tags": [
+    "影",
+    "ぼかし",
+    "暗く"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "サラウンド",
+   "tags": [
+    "サラウンド",
+    "立体音響",
+    "ボイス"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "3Dカード",
+   "tags": [
+    "3d",
+    "カード",
+    "回転"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "輪郭の震え",
+   "tags": [
+    "輪郭",
+    "震え",
+    "グリッチ"
+   ]
+  },
+  "effect:templado": {
+   "name": "テンパード",
+   "tags": [
+    "揺れ",
+    "カメラ",
+    "動き"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "赤いホラー",
+   "tags": [
+    "ホラー",
+    "赤",
+    "怖い"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "高速パン",
+   "tags": [
+    "パン",
+    "高速",
+    "カメラ"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "暴風雨",
+   "tags": [
+    "雨",
+    "嵐",
+    "天気"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "チーズのかけら",
+   "tags": [
+    "チーズ",
+    "穴",
+    "面白い"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "古いテレビ 4x",
+   "tags": [
+    "テレビ",
+    "レトロ",
+    "ブラウン管"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "電気の血管",
+   "tags": [
+    "電気",
+    "稲妻",
+    "血管"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "VHSノイズ 1",
+   "tags": [
+    "vhs",
+    "ノイズ",
+    "砂嵐"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "RGBエッジ振動",
+   "tags": [
+    "rgb",
+    "輪郭",
+    "振動"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "古いビデオ",
+   "tags": [
+    "ビデオ",
+    "レトロ",
+    "vhs"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "レトロなビデオカメラ",
+   "tags": [
+    "ビデオカメラ",
+    "レトロ",
+    "録画"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "フィルムビネット",
+   "tags": [
+    "フィルム",
+    "ビネット",
+    "周辺"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "レコード",
+   "tags": [
+    "レコード",
+    "レトロ",
+    "ボイス"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "フリップズーム",
+   "tags": [
+    "ズーム",
+    "反転",
+    "カメラ"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "黄色い渦",
+   "tags": [
+    "渦",
+    "黄色",
+    "エネルギー"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "稲妻の渦",
+   "tags": [
+    "稲妻",
+    "渦",
+    "電気"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "トランシーバー",
+   "tags": [
+    "無線",
+    "トランシーバー",
+    "ボイス"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "クモの巣ズーム",
+   "tags": [
+    "クモの巣",
+    "ズーム",
+    "ひび"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "スライドズーム",
+   "tags": [
+    "ズーム",
+    "スライド",
+    "カメラ"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "高速ズーム",
+   "tags": [
+    "ズーム",
+    "高速",
+    "カメラ"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "なめらかズーム・右",
+   "tags": [
+    "ズーム",
+    "右",
+    "なめらか"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "なめらかズーム・左",
+   "tags": [
+    "ズーム",
+    "左",
+    "なめらか"
    ]
   },
   "look:arte-comic": {

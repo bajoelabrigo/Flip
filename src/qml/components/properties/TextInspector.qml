@@ -126,6 +126,9 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
+    // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
+    // signed out asks for the account and applies it once signed in.
+    readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     // Bumped when the user saves, renames or deletes one of their own animations.
     property int animPresetsTick: 0
     readonly property var animPresets: {
@@ -490,6 +493,20 @@ Item {
     function pickPreset(id) {
         if (id.length === 0) {
             EditorState.clearTextAnimationSlot(EditorState.selectedTrack, EditorState.selectedClip, root.animSlot)
+            return
+        }
+        if (root.trendsNeedAccount && root.animPresets.some(p => p.id === id && p.trending)) {
+            const slot = root.animSlot
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            animSignInLoader.active = true
+            animSignInLoader.item.openFor(() => {
+                // Only onto the text that asked, still on the same slot.
+                if (root.animSlot !== slot || EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                    return
+                root.setSlot({ "preset": id })
+                root.seekToSlotStart()
+            })
             return
         }
         root.setSlot({ "preset": id })
@@ -2517,6 +2534,12 @@ Item {
                 }
             }
 
+            Loader {
+                id: animSignInLoader
+                active: false
+                sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
+            }
+
             Grid {
                 id: presetGrid
                 width: parent.width
@@ -2535,6 +2558,7 @@ Item {
                         slot: root.animSlot
                         presetId: modelData.id
                         label: modelData.label
+                        trending: !!modelData.trending
                         tileWidth: presetGrid.tileWidth
                         selected: modelData.id.length === 0
                                   ? (!root.slotHasPreset && !root.slotData.custom)

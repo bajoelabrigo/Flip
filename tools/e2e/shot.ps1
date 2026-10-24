@@ -1,5 +1,7 @@
 # Saves a PrintWindow picture of a running Flip Studio window (no mouse moves, no desktop capture).
-param([string]$OutFile = "$env:TEMP\shot.png", [int]$TargetPid = 0)
+# -TargetPid is required: without it the picture was of whatever window was in front (see click.ps1).
+[CmdletBinding()]
+param([string]$OutFile = "$env:TEMP\shot.png", [Parameter(Mandatory = $true)][ValidateRange(1, [int]::MaxValue)][int]$TargetPid)
 Add-Type -AssemblyName System.Drawing
 if (-not ("FlipShotWin" -as [type])) {
 Add-Type @"

@@ -19,6 +19,20 @@
   "background:fechas": "节日",
   "background:geometricos": "几何",
   "background:texturas": "纹理",
+  "effect:abrir": "开合",
+  "effect:amor": "爱心",
+  "effect:audio": "变声",
+  "effect:camara": "运镜",
+  "effect:desenfoque": "模糊",
+  "effect:dividir": "分屏与分身",
+  "effect:energia": "能量与元素",
+  "effect:estilo": "风格化",
+  "effect:glitch": "故障",
+  "effect:ia": "AI",
+  "effect:luz": "光效与光斑",
+  "effect:marcos": "边框",
+  "effect:particulas": "粒子与闪光",
+  "effect:retro": "复古与胶片",
   "look:arte": "艺术双色调",
   "look:bn": "黑白",
   "look:boda": "婚礼",
@@ -4090,6 +4104,3558 @@
     "迷幻",
     "鲜艳",
     "背景"
+   ]
+  },
+  "effect:aberracion-cromatica": {
+   "name": "色差",
+   "tags": [
+    "色差",
+    "rgb",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:abierto-vertical": {
+   "name": "竖向开幕",
+   "tags": [
+    "竖向",
+    "开场",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:acercamiento-de-paralaje": {
+   "name": "视差推近",
+   "tags": [
+    "视差",
+    "推近",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:agitar-a-izquierda-y-derecha": {
+   "name": "左右摇晃",
+   "tags": [
+    "摇晃",
+    "左右",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:agitar-arriba-y-abajo": {
+   "name": "上下摇晃",
+   "tags": [
+    "摇晃",
+    "上下",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:agitar-rgb": {
+   "name": "RGB 抖动",
+   "tags": [
+    "rgb",
+    "抖动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:agitar-zoom": {
+   "name": "抖动缩放",
+   "tags": [
+    "抖动",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:agite-la-camara": {
+   "name": "镜头晃动",
+   "tags": [
+    "晃动",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:amarillo-plasma": {
+   "name": "等离子黄",
+   "tags": [
+    "等离子",
+    "黄色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:amplificar-enfoque": {
+   "name": "焦点增强",
+   "tags": [
+    "锐化",
+    "清晰",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:anillo-de-brillos": {
+   "name": "闪光环",
+   "tags": [
+    "圆环",
+    "亮片",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:anillo-de-fuego": {
+   "name": "火环",
+   "tags": [
+    "火焰",
+    "圆环",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:anillo-de-musica": {
+   "name": "音乐环",
+   "tags": [
+    "音乐",
+    "圆环",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:anillos-de-vortice": {
+   "name": "漩涡光环",
+   "tags": [
+    "漩涡",
+    "圆环",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:anos-70": {
+   "name": "70 年代",
+   "tags": [
+    "70年代",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:antorcha-rapida": {
+   "name": "快速火炬光",
+   "tags": [
+    "火炬",
+    "快速",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:aparicion-humana-1": {
+   "name": "人物出现 1",
+   "tags": [
+    "人物",
+    "出现",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:apertura-de-ascensor": {
+   "name": "电梯门开启",
+   "tags": [
+    "开门",
+    "转场",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:ardilla-listada": {
+   "name": "花栗鼠",
+   "tags": [
+    "花栗鼠",
+    "尖声",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:barras-de-cine": {
+   "name": "电影黑边",
+   "tags": [
+    "黑边",
+    "宽银幕",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:barras-de-musica": {
+   "name": "音乐柱",
+   "tags": [
+    "音乐",
+    "频谱",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:batido-de-latidos-del-corazon": {
+   "name": "心跳抖动",
+   "tags": [
+    "心跳",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:batido-de-pulso-03": {
+   "name": "脉冲抖动 03",
+   "tags": [
+    "脉冲",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:batido-suave": {
+   "name": "轻柔抖动",
+   "tags": [
+    "轻柔",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:belleza": {
+   "name": "美颜",
+   "tags": [
+    "美颜",
+    "人像",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:bengalas-azules": {
+   "name": "蓝色炫光",
+   "tags": [
+    "炫光",
+    "蓝色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:bengalas-de-color-azul-marino": {
+   "name": "藏青炫光",
+   "tags": [
+    "炫光",
+    "藏青",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:bling-bling": {
+   "name": "布灵布灵",
+   "tags": [
+    "亮晶晶",
+    "闪耀",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:bloque-de-falla-2": {
+   "name": "故障方块 2",
+   "tags": [
+    "方块",
+    "数码",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:bokeh-3d": {
+   "name": "3D 光斑",
+   "tags": [
+    "3d",
+    "光斑",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:bokeh-5": {
+   "name": "光斑 5",
+   "tags": [
+    "光斑",
+    "虚化",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:bokeh-de-colores": {
+   "name": "彩色光斑",
+   "tags": [
+    "光斑",
+    "彩色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:bokeh-en-las-esquinas": {
+   "name": "角落光斑",
+   "tags": [
+    "光斑",
+    "角落",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:bokeh-urbano": {
+   "name": "城市光斑",
+   "tags": [
+    "光斑",
+    "城市",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:borde": {
+   "name": "边框线",
+   "tags": [
+    "画框",
+    "线条",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:borde-azul-neon": {
+   "name": "蓝色霓虹边框",
+   "tags": [
+    "霓虹",
+    "蓝色",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:borrar-pelicula": {
+   "name": "胶片烧灼",
+   "tags": [
+    "烧灼",
+    "转场",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:brasas": {
+   "name": "余烬火星",
+   "tags": [
+    "火星",
+    "余烬",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:brillo-dorado": {
+   "name": "金色光芒",
+   "tags": [
+    "金色",
+    "发光",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:brillos-al-aire": {
+   "name": "空中闪光",
+   "tags": [
+    "闪光",
+    "漂浮",
+    "粒子",
+    "特效"
+   ]
+  },
+  "effect:burbujas-de-luz": {
+   "name": "光泡",
+   "tags": [
+    "光斑",
+    "泡泡",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:busqueda-de-respuesta": {
+   "name": "寻找答案",
+   "tags": [
+    "搜索",
+    "搞笑",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:camara-3d-derecha": {
+   "name": "3D 右移镜头",
+   "tags": [
+    "3d",
+    "向右",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:camara-3d-izquierda": {
+   "name": "3D 左移镜头",
+   "tags": [
+    "3d",
+    "向左",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:camara-instantanea": {
+   "name": "拍立得相机",
+   "tags": [
+    "拍立得",
+    "相机",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:camara-rabiosa": {
+   "name": "狂暴镜头",
+   "tags": [
+    "抖动",
+    "强烈",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:cambio-de-color-al-ritmo": {
+   "name": "卡点变色",
+   "tags": [
+    "卡点",
+    "节奏",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:carga-en-oscuro": {
+   "name": "暗夜蓄力",
+   "tags": [
+    "蓄力",
+    "黑暗",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:carrusel-feliz": {
+   "name": "欢乐旋转木马",
+   "tags": [
+    "旋转",
+    "欢乐",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:ceniza-de-fuego-de-batalla": {
+   "name": "战火余烬",
+   "tags": [
+    "余烬",
+    "战斗",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:cerrar-flash": {
+   "name": "闪光闭幕",
+   "tags": [
+    "闪光",
+    "结尾",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:chispa": {
+   "name": "火花",
+   "tags": [
+    "火花",
+    "闪耀",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:chispas-doradas": {
+   "name": "金色火花",
+   "tags": [
+    "火花",
+    "金色",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:choque-de-corte": {
+   "name": "剪切冲击",
+   "tags": [
+    "冲击",
+    "剪切",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:cielo-estrellado": {
+   "name": "星空",
+   "tags": [
+    "星空",
+    "夜晚",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:cierre-horizontal": {
+   "name": "横向闭幕",
+   "tags": [
+    "横向",
+    "结尾",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:cierre-redondo": {
+   "name": "圆形闭幕",
+   "tags": [
+    "圆形",
+    "结尾",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:cine-retro": {
+   "name": "复古电影",
+   "tags": [
+    "电影",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:cinta-de-video": {
+   "name": "录像带",
+   "tags": [
+    "录像带",
+    "vhs",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:claridad-de-amor": {
+   "name": "爱心柔光",
+   "tags": [
+    "柔光",
+    "粉色",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:clon-humano-brillando": {
+   "name": "发光人物分身",
+   "tags": [
+    "分身",
+    "发光",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:colision": {
+   "name": "碰撞",
+   "tags": [
+    "碰撞",
+    "冲击",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:collage-de-amor": {
+   "name": "爱心拼贴",
+   "tags": [
+    "拼贴",
+    "照片",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:color-local": {
+   "name": "局部色彩",
+   "tags": [
+    "局部",
+    "色彩",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:comic-en-color": {
+   "name": "彩色漫画",
+   "tags": [
+    "漫画",
+    "彩色",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:confeti-de-festival": {
+   "name": "节日彩纸",
+   "tags": [
+    "彩纸",
+    "节日",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:confeti-volando": {
+   "name": "飞舞彩纸",
+   "tags": [
+    "彩纸",
+    "庆祝",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:congelacion-de-fallas": {
+   "name": "故障定格",
+   "tags": [
+    "定格",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:copos-de-nieve": {
+   "name": "雪花",
+   "tags": [
+    "雪",
+    "冬天",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:corazon-de-brillos": {
+   "name": "闪光爱心",
+   "tags": [
+    "闪光",
+    "亮片",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:corazon-de-luces": {
+   "name": "灯光爱心",
+   "tags": [
+    "灯光",
+    "发光",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:corazones-bokeh": {
+   "name": "爱心光斑",
+   "tags": [
+    "光斑",
+    "虚化",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:corazones-de-neon": {
+   "name": "霓虹爱心",
+   "tags": [
+    "霓虹",
+    "发光",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:corazones-dorados": {
+   "name": "金色爱心",
+   "tags": [
+    "金色",
+    "闪耀",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:corredor": {
+   "name": "走廊",
+   "tags": [
+    "走廊",
+    "回声",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:corte-biselado-parpadeante": {
+   "name": "闪烁斜切",
+   "tags": [
+    "闪烁",
+    "斜切",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:corte-de-destello-dividido-1": {
+   "name": "分屏闪切 1",
+   "tags": [
+    "闪切",
+    "闪光",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:corte-de-flash-giratorio": {
+   "name": "旋转闪切",
+   "tags": [
+    "旋转",
+    "闪光",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:corte-en-bisel": {
+   "name": "斜切",
+   "tags": [
+    "斜切",
+    "切割",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:cortes-en-tiras": {
+   "name": "条状切割",
+   "tags": [
+    "条纹",
+    "切割",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:cuadro-congelado-de-accion": {
+   "name": "动作定格",
+   "tags": [
+    "定格",
+    "动作",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:cueva": {
+   "name": "山洞",
+   "tags": [
+    "山洞",
+    "回声",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:cupula-del-trueno": {
+   "name": "雷电穹顶",
+   "tags": [
+    "雷电",
+    "护罩",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:descarga-electrica": {
+   "name": "电流放电",
+   "tags": [
+    "电流",
+    "电光",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:desenfocar-para-borrar": {
+   "name": "模糊消失",
+   "tags": [
+    "消失",
+    "转场",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-cuadrado": {
+   "name": "方块模糊",
+   "tags": [
+    "方块",
+    "像素",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-bokeh-5": {
+   "name": "光斑虚化 5",
+   "tags": [
+    "光斑",
+    "虚化",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-direccion": {
+   "name": "方向模糊",
+   "tags": [
+    "方向",
+    "运动",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-fondo-basico": {
+   "name": "基础背景模糊",
+   "tags": [
+    "背景",
+    "虚化",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-movimiento": {
+   "name": "动态模糊",
+   "tags": [
+    "运动",
+    "速度",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-profundidad": {
+   "name": "景深模糊",
+   "tags": [
+    "景深",
+    "背景",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-de-vineta": {
+   "name": "暗角模糊",
+   "tags": [
+    "暗角",
+    "边缘",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desenfoque-oblicuo": {
+   "name": "斜向模糊",
+   "tags": [
+    "斜向",
+    "移轴",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:desplazar-y-ampliar": {
+   "name": "平移放大",
+   "tags": [
+    "平移",
+    "放大",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:destello-anamorfico-de-tv": {
+   "name": "变形宽银幕电视炫光",
+   "tags": [
+    "变形宽银幕",
+    "电视",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-la-lente-3": {
+   "name": "镜头光晕 3",
+   "tags": [
+    "镜头光晕",
+    "炫光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-la-lente-5": {
+   "name": "镜头光晕 5",
+   "tags": [
+    "镜头光晕",
+    "炫光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-lente-6": {
+   "name": "镜头光晕 6",
+   "tags": [
+    "镜头光晕",
+    "炫光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-lente-anamorfico": {
+   "name": "变形宽银幕镜头光晕",
+   "tags": [
+    "变形宽银幕",
+    "镜头光晕",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-lente-azul": {
+   "name": "蓝色镜头光晕",
+   "tags": [
+    "镜头光晕",
+    "蓝色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-de-vibracion": {
+   "name": "震动闪光",
+   "tags": [
+    "震动",
+    "闪光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-dorado": {
+   "name": "金色炫光",
+   "tags": [
+    "金色",
+    "炫光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-horizontal": {
+   "name": "水平炫光",
+   "tags": [
+    "水平",
+    "炫光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destello-palpitante": {
+   "name": "脉动闪光",
+   "tags": [
+    "脉动",
+    "闪光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:destellos-calidos": {
+   "name": "暖色闪光",
+   "tags": [
+    "暖色",
+    "闪光",
+    "粒子",
+    "特效"
+   ]
+  },
+  "effect:diapositivas-de-fotolibros": {
+   "name": "相册幻灯片",
+   "tags": [
+    "相册",
+    "幻灯片",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-1": {
+   "name": "胶片幻灯片 1",
+   "tags": [
+    "幻灯片",
+    "胶卷",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:diapositivas-de-la-pelicula-2": {
+   "name": "胶片幻灯片 2",
+   "tags": [
+    "幻灯片",
+    "胶卷",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:dibujo-desenfoque": {
+   "name": "涂抹模糊",
+   "tags": [
+    "涂抹",
+    "拖影",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:distorsion-vcr": {
+   "name": "录像机失真",
+   "tags": [
+    "录像带",
+    "vhs",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:dividir-flash-cut-2": {
+   "name": "分屏闪切 2",
+   "tags": [
+    "闪切",
+    "闪光",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:division-de-burbujas": {
+   "name": "气泡分割",
+   "tags": [
+    "气泡",
+    "分割",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:division-rgb": {
+   "name": "RGB 分离",
+   "tags": [
+    "rgb",
+    "分离",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:efecto-de-falla-17": {
+   "name": "故障效果 17",
+   "tags": [
+    "失真",
+    "数码",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:efecto-de-falla-20": {
+   "name": "故障效果 20",
+   "tags": [
+    "失真",
+    "数码",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:efecto-de-falla-7": {
+   "name": "故障效果 7",
+   "tags": [
+    "失真",
+    "数码",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:efecto-de-fuga-de-luz-02": {
+   "name": "漏光效果 02",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:efecto-zoom": {
+   "name": "缩放效果",
+   "tags": [
+    "缩放",
+    "推拉",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:embellecer-con-ia": {
+   "name": "AI 美化",
+   "tags": [
+    "美颜",
+    "人像",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:energia-de-onda-de-choque": {
+   "name": "冲击波能量",
+   "tags": [
+    "冲击波",
+    "爆发",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:enfoque-analitico": {
+   "name": "分析对焦",
+   "tags": [
+    "对焦",
+    "清晰",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:envolvente-de-fuego-azul": {
+   "name": "蓝焰环绕",
+   "tags": [
+    "蓝色",
+    "火焰",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:error-cibernetico-01": {
+   "name": "赛博错误 01",
+   "tags": [
+    "赛博",
+    "错误",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:escala-de-borde": {
+   "name": "边框缩放",
+   "tags": [
+    "缩放",
+    "画框",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-01": {
+   "name": "科幻扫描 01",
+   "tags": [
+    "扫描",
+    "科幻",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-ciencia-ficcion-02": {
+   "name": "科幻扫描 02",
+   "tags": [
+    "扫描",
+    "科幻",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-fallas": {
+   "name": "故障扫描",
+   "tags": [
+    "扫描",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-ondas-de-choque": {
+   "name": "冲击波扫描",
+   "tags": [
+    "扫描",
+    "冲击波",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-rayos": {
+   "name": "光线扫描",
+   "tags": [
+    "扫描",
+    "光线",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-rayos-04": {
+   "name": "光线扫描 04",
+   "tags": [
+    "扫描",
+    "光线",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-01": {
+   "name": "赛博光线扫描 01",
+   "tags": [
+    "扫描",
+    "赛博",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-de-rayos-ciberneticos-02": {
+   "name": "赛博光线扫描 02",
+   "tags": [
+    "扫描",
+    "赛博",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:escaneo-electrooptico": {
+   "name": "电光扫描",
+   "tags": [
+    "扫描",
+    "电光",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:esmog-toxico": {
+   "name": "毒雾",
+   "tags": [
+    "烟雾",
+    "绿色",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:espectro-de-audio-03": {
+   "name": "音频频谱 03",
+   "tags": [
+    "频谱",
+    "音乐",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:estallido-de-estrellas": {
+   "name": "星星爆发",
+   "tags": [
+    "星星",
+    "爆发",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estallido-de-rayos": {
+   "name": "光线爆发",
+   "tags": [
+    "光线",
+    "爆发",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:estatica-en-el-suelo": {
+   "name": "底部雪花噪点",
+   "tags": [
+    "噪点",
+    "信号",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:estela-de-movimiento": {
+   "name": "运动拖尾",
+   "tags": [
+    "拖尾",
+    "残影",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:estela-rosa": {
+   "name": "粉色拖尾",
+   "tags": [
+    "拖尾",
+    "粉色",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:estilo-de-comic-3": {
+   "name": "漫画风格 3",
+   "tags": [
+    "漫画",
+    "手绘",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:estilo-de-fps-bajo": {
+   "name": "低帧率风格",
+   "tags": [
+    "低帧率",
+    "卡顿",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:estiramiento-vibracion": {
+   "name": "拉伸震动",
+   "tags": [
+    "拉伸",
+    "震动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:estrella-centelleante-1": {
+   "name": "闪烁星星 1",
+   "tags": [
+    "星星",
+    "闪烁",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrella-centelleante-5": {
+   "name": "闪烁星星 5",
+   "tags": [
+    "星星",
+    "闪烁",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrellas-doradas": {
+   "name": "金色星星",
+   "tags": [
+    "星星",
+    "金色",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrellas-lejanas": {
+   "name": "遥远星辰",
+   "tags": [
+    "星星",
+    "夜晚",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrellas-que-caen": {
+   "name": "流星雨",
+   "tags": [
+    "星星",
+    "流星",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrellas-sueltas": {
+   "name": "散落星星",
+   "tags": [
+    "星星",
+    "散落",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estrellas-titilantes": {
+   "name": "星光闪烁",
+   "tags": [
+    "星星",
+    "闪烁",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:estroboscopio-bloqueado": {
+   "name": "锁定频闪",
+   "tags": [
+    "频闪",
+    "闪烁",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:exploracion-espectral": {
+   "name": "光谱扫描",
+   "tags": [
+    "扫描",
+    "光谱",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:explosion-de-energia": {
+   "name": "能量爆发",
+   "tags": [
+    "爆发",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:explosion-de-luz-estelar": {
+   "name": "星光爆发",
+   "tags": [
+    "星光",
+    "爆发",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:explosion-de-mariposas": {
+   "name": "蝴蝶爆发",
+   "tags": [
+    "蝴蝶",
+    "飞舞",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:explosion-flash": {
+   "name": "闪光爆发",
+   "tags": [
+    "闪光",
+    "爆发",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:explosion-fuego": {
+   "name": "火焰爆炸",
+   "tags": [
+    "爆炸",
+    "火焰",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:explosion-prismatica": {
+   "name": "棱镜爆发",
+   "tags": [
+    "棱镜",
+    "彩虹",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:exposicion-al-ritmo": {
+   "name": "卡点曝光",
+   "tags": [
+    "卡点",
+    "曝光",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:exposicion-de-destello": {
+   "name": "闪光曝光",
+   "tags": [
+    "闪光",
+    "曝光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:extremo": {
+   "name": "极限",
+   "tags": [
+    "强烈",
+    "快速",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:falla-de-parpadeo": {
+   "name": "闪烁故障",
+   "tags": [
+    "闪烁",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:fallo-con-filtro": {
+   "name": "滤镜故障",
+   "tags": [
+    "滤镜",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:fallo-psicodelico": {
+   "name": "迷幻故障",
+   "tags": [
+    "迷幻",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:fallo-vintage-01": {
+   "name": "复古故障 01",
+   "tags": [
+    "复古",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:fantasma-calavera": {
+   "name": "骷髅幽灵",
+   "tags": [
+    "骷髅",
+    "幽灵",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:fantasma-glitch": {
+   "name": "故障幽灵",
+   "tags": [
+    "幽灵",
+    "残影",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:fiebre-del-neon": {
+   "name": "霓虹狂热",
+   "tags": [
+    "霓虹",
+    "彩色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-01": {
+   "name": "卡通滤镜 01",
+   "tags": [
+    "卡通",
+    "滤镜",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:filtro-de-dibujos-animados-05": {
+   "name": "卡通滤镜 05",
+   "tags": [
+    "卡通",
+    "滤镜",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:final-borroso": {
+   "name": "模糊结尾",
+   "tags": [
+    "结尾",
+    "淡出",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:flash-abierto": {
+   "name": "闪光开幕",
+   "tags": [
+    "闪光",
+    "开场",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:floracion-de-aura": {
+   "name": "光环绽放",
+   "tags": [
+    "光环",
+    "发光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:flujo-de-haz-2": {
+   "name": "流光边框 2",
+   "tags": [
+    "流光",
+    "光束",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:flujo-de-haz-3": {
+   "name": "流光边框 3",
+   "tags": [
+    "流光",
+    "光束",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:flujo-de-haz-4": {
+   "name": "流光边框 4",
+   "tags": [
+    "流光",
+    "光束",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:flujo-de-haz-6": {
+   "name": "流光边框 6",
+   "tags": [
+    "流光",
+    "光束",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:flujo-de-haz-7": {
+   "name": "流光边框 7",
+   "tags": [
+    "流光",
+    "光束",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:foco-de-escenario": {
+   "name": "舞台聚光灯",
+   "tags": [
+    "聚光灯",
+    "舞台",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:foco-final": {
+   "name": "聚光收尾",
+   "tags": [
+    "聚光灯",
+    "结尾",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fondo-de-explosion": {
+   "name": "爆炸背景",
+   "tags": [
+    "爆炸",
+    "背景",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:fondo-de-relampago": {
+   "name": "闪电背景",
+   "tags": [
+    "闪电",
+    "背景",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:fondo-del-corazon-del-amor": {
+   "name": "爱心背景",
+   "tags": [
+    "背景",
+    "粉色",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:fonografo": {
+   "name": "留声机",
+   "tags": [
+    "留声机",
+    "复古",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:fuego-en-el-suelo": {
+   "name": "地面火焰",
+   "tags": [
+    "火焰",
+    "燃烧",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:fuego-escaneando-hacia-arriba": {
+   "name": "火焰上扫",
+   "tags": [
+    "火焰",
+    "扫描",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:fuegos-artificiales": {
+   "name": "烟花",
+   "tags": [
+    "烟花",
+    "庆祝",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:fuegos-de-estrellas": {
+   "name": "星光烟花",
+   "tags": [
+    "烟花",
+    "星星",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:fuga-de-luz-1": {
+   "name": "漏光 1",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fuga-de-luz-3": {
+   "name": "漏光 3",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fuga-de-luz-4": {
+   "name": "漏光 4",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fuga-de-luz-5": {
+   "name": "漏光 5",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fuga-de-luz-6": {
+   "name": "漏光 6",
+   "tags": [
+    "漏光",
+    "暖色",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:fusion-de-cuartos": {
+   "name": "四格合并",
+   "tags": [
+    "四格",
+    "合并",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:garabatos-grunge": {
+   "name": "垃圾风涂鸦",
+   "tags": [
+    "涂鸦",
+    "做旧",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:girar-en-circulos": {
+   "name": "转圈",
+   "tags": [
+    "旋转",
+    "转圈",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:giro-de-rotacion": {
+   "name": "旋转回转",
+   "tags": [
+    "旋转",
+    "转动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:giro-psicodelico": {
+   "name": "迷幻漩涡",
+   "tags": [
+    "迷幻",
+    "漩涡",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:glitch-de-mpeg": {
+   "name": "MPEG 故障",
+   "tags": [
+    "mpeg",
+    "压缩",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:glitch-fuerte": {
+   "name": "强烈故障",
+   "tags": [
+    "强烈",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:grunge-blanco": {
+   "name": "白色做旧",
+   "tags": [
+    "做旧",
+    "白色",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:haz-de-choque": {
+   "name": "冲击光束",
+   "tags": [
+    "冲击",
+    "光束",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:haz-granulado": {
+   "name": "颗粒光束",
+   "tags": [
+    "颗粒",
+    "光束",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:humo-bajo": {
+   "name": "低空烟雾",
+   "tags": [
+    "烟雾",
+    "地面",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:imagen-remanente": {
+   "name": "残影",
+   "tags": [
+    "残影",
+    "拖影",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:inclinar-abierto": {
+   "name": "倾斜展开",
+   "tags": [
+    "倾斜",
+    "展开",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:inclinar-en-perspectiva": {
+   "name": "透视倾斜",
+   "tags": [
+    "透视",
+    "倾斜",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:inundacion-dibujo": {
+   "name": "手绘漫溢",
+   "tags": [
+    "手绘",
+    "线稿",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:invertir-alterado": {
+   "name": "故障反色",
+   "tags": [
+    "反色",
+    "失真",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:jitter-de-parpadeo-01": {
+   "name": "闪烁抖动 01",
+   "tags": [
+    "闪烁",
+    "抖动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:jitter-rotacional": {
+   "name": "旋转抖动",
+   "tags": [
+    "旋转",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:laminacion-de-pelicula": {
+   "name": "胶片卷动",
+   "tags": [
+    "胶卷",
+    "滚动",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:lampara-de-flash": {
+   "name": "闪光灯",
+   "tags": [
+    "闪光灯",
+    "拍照",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:lanzar": {
+   "name": "甩出",
+   "tags": [
+    "甩动",
+    "快速",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:latido-del-corazon": {
+   "name": "心跳",
+   "tags": [
+    "心跳",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:lente-de-zoom-con-flash": {
+   "name": "闪光缩放",
+   "tags": [
+    "闪光",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:lentes-de-camara-viejas": {
+   "name": "老式相机镜头",
+   "tags": [
+    "镜头",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:ligeras-salpicaduras-de-barro": {
+   "name": "轻微泥点",
+   "tags": [
+    "泥点",
+    "做旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:limpiaparabrisas": {
+   "name": "雨刷摆动",
+   "tags": [
+    "摆动",
+    "雨刷",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:linea-fronteriza-01": {
+   "name": "边框线条 01",
+   "tags": [
+    "线条",
+    "画框",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:lineas-de-humo": {
+   "name": "烟雾线条",
+   "tags": [
+    "烟雾",
+    "线条",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:lineas-de-velocidad": {
+   "name": "速度线",
+   "tags": [
+    "速度线",
+    "漫画",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:linterna": {
+   "name": "手电筒",
+   "tags": [
+    "手电筒",
+    "光圈",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:lloviendo-1": {
+   "name": "下雨 1",
+   "tags": [
+    "雨",
+    "天气",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:lloviendo-2": {
+   "name": "下雨 2",
+   "tags": [
+    "雨",
+    "天气",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:lluvia-de-cine": {
+   "name": "电影感雨",
+   "tags": [
+    "雨",
+    "电影感",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:lluvia-de-corazones-rosas": {
+   "name": "粉色爱心雨",
+   "tags": [
+    "爱心雨",
+    "粉色",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:lluvia-de-luz": {
+   "name": "光雨",
+   "tags": [
+    "光点",
+    "下落",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:lucecitas-flotantes": {
+   "name": "漂浮小光点",
+   "tags": [
+    "光点",
+    "漂浮",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:luces-de-escenario": {
+   "name": "舞台灯光",
+   "tags": [
+    "舞台",
+    "灯光",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luces-navidenas": {
+   "name": "圣诞灯",
+   "tags": [
+    "圣诞",
+    "灯光",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:luciernaga-realista-01": {
+   "name": "逼真萤火虫 01",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:luciernagas-bailando": {
+   "name": "萤火虫飞舞",
+   "tags": [
+    "萤火虫",
+    "夜晚",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:luma-nitido": {
+   "name": "亮度锐化",
+   "tags": [
+    "锐化",
+    "亮度",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:luz-de-discoteca": {
+   "name": "迪斯科灯光",
+   "tags": [
+    "迪斯科",
+    "派对",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luz-de-las-estrellas": {
+   "name": "星光",
+   "tags": [
+    "星光",
+    "夜晚",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:luz-del-sol-01": {
+   "name": "阳光 01",
+   "tags": [
+    "阳光",
+    "温暖",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luz-del-sol-03": {
+   "name": "阳光 03",
+   "tags": [
+    "阳光",
+    "温暖",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luz-del-sol-05": {
+   "name": "阳光 05",
+   "tags": [
+    "阳光",
+    "温暖",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luz-del-sol-06": {
+   "name": "阳光 06",
+   "tags": [
+    "阳光",
+    "温暖",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:luz-electrica": {
+   "name": "电光",
+   "tags": [
+    "电流",
+    "发光",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:luz-que-se-disuelve": {
+   "name": "光芒消散",
+   "tags": [
+    "消散",
+    "发光",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:marco-de-bokeh": {
+   "name": "光斑边框",
+   "tags": [
+    "光斑",
+    "边框",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:marco-de-eco-31": {
+   "name": "回声边框 31",
+   "tags": [
+    "回声",
+    "画框",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-de-fuego": {
+   "name": "火焰边框",
+   "tags": [
+    "火焰",
+    "画框",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-de-llamas": {
+   "name": "烈焰边框",
+   "tags": [
+    "火焰",
+    "画框",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-de-terror": {
+   "name": "恐怖边框",
+   "tags": [
+    "恐怖",
+    "边框",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-02-16-9": {
+   "name": "拍立得边框 02 16:9",
+   "tags": [
+    "拍立得",
+    "横屏",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-02-9-16": {
+   "name": "拍立得边框 02 9:16",
+   "tags": [
+    "拍立得",
+    "竖屏",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-03-16-9": {
+   "name": "拍立得边框 03 16:9",
+   "tags": [
+    "拍立得",
+    "横屏",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-memories-02-1-1": {
+   "name": "拍立得回忆边框 02 1:1",
+   "tags": [
+    "拍立得",
+    "方形",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-memories-03-1-1": {
+   "name": "拍立得回忆边框 03 1:1",
+   "tags": [
+    "拍立得",
+    "方形",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-instantaneo-stories-03-9-16": {
+   "name": "拍立得快拍边框 03 9:16",
+   "tags": [
+    "拍立得",
+    "竖屏",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-marcador": {
+   "name": "马克笔边框",
+   "tags": [
+    "马克笔",
+    "手绘",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:marco-rosa-de-amor": {
+   "name": "粉色爱心边框",
+   "tags": [
+    "边框",
+    "粉色",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:mariposa-brillante": {
+   "name": "发光蝴蝶",
+   "tags": [
+    "蝴蝶",
+    "发光",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:mejoramiento-automatico": {
+   "name": "自动增强",
+   "tags": [
+    "增强",
+    "画质",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:mini-batido": {
+   "name": "微抖动",
+   "tags": [
+    "抖动",
+    "轻微",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:mini-zoom": {
+   "name": "微缩放",
+   "tags": [
+    "缩放",
+    "轻微",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:monitor-de-terror": {
+   "name": "恐怖监视器",
+   "tags": [
+    "恐怖",
+    "监控",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:mosaico": {
+   "name": "马赛克",
+   "tags": [
+    "马赛克",
+    "像素",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:mosaico-clasico": {
+   "name": "经典马赛克",
+   "tags": [
+    "马赛克",
+    "像素",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:mosaico-clasico-de-ia": {
+   "name": "AI 经典马赛克",
+   "tags": [
+    "马赛克",
+    "打码",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:mosaico-de-desenfoque-de-ia": {
+   "name": "AI 模糊马赛克",
+   "tags": [
+    "马赛克",
+    "模糊",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:mosaico-de-garabatos": {
+   "name": "涂鸦马赛克",
+   "tags": [
+    "马赛克",
+    "涂鸦",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:movimiento-3d-circular-izquierda": {
+   "name": "3D 向左环绕",
+   "tags": [
+    "3d",
+    "环绕",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-360-1": {
+   "name": "360° 运镜 1",
+   "tags": [
+    "360",
+    "环绕",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-3d": {
+   "name": "3D 运镜",
+   "tags": [
+    "3d",
+    "立体",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-en-mano": {
+   "name": "手持镜头",
+   "tags": [
+    "手持",
+    "晃动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-local": {
+   "name": "局部运镜",
+   "tags": [
+    "局部",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-oscilante": {
+   "name": "摇摆运镜",
+   "tags": [
+    "摇摆",
+    "晃动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-camara-sedoso": {
+   "name": "丝滑运镜",
+   "tags": [
+    "丝滑",
+    "流畅",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-de-la-camara": {
+   "name": "镜头运动",
+   "tags": [
+    "运动",
+    "移动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:movimiento-unidireccional": {
+   "name": "单向运动",
+   "tags": [
+    "平移",
+    "方向",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:nerviosismo-cinematografico": {
+   "name": "电影感抖动",
+   "tags": [
+    "电影感",
+    "抖动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:nerviosismo-del-alma": {
+   "name": "灵魂抖动",
+   "tags": [
+    "灵魂出窍",
+    "抖动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:nevada-de-invierno": {
+   "name": "冬日飘雪",
+   "tags": [
+    "雪",
+    "冬天",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:niebla-de-ensueno-1": {
+   "name": "梦幻薄雾 1",
+   "tags": [
+    "雾",
+    "梦幻",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:niebla-de-ensueno-2": {
+   "name": "梦幻薄雾 2",
+   "tags": [
+    "雾",
+    "梦幻",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:niebla-de-ensueno-3": {
+   "name": "梦幻薄雾 3",
+   "tags": [
+    "雾",
+    "梦幻",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:niebla-de-ensueno-4": {
+   "name": "梦幻薄雾 4",
+   "tags": [
+    "雾",
+    "梦幻",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:nieve-de-flores": {
+   "name": "花瓣雪",
+   "tags": [
+    "花瓣",
+    "飘落",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:nieve-realista": {
+   "name": "逼真雪花",
+   "tags": [
+    "雪",
+    "冬天",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:noche-de-nieve-y-estrellas": {
+   "name": "雪夜星空",
+   "tags": [
+    "雪",
+    "星空",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:notas-fijadas": {
+   "name": "便签贴纸",
+   "tags": [
+    "便签",
+    "照片",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:objetivo-de-camara": {
+   "name": "相机镜头",
+   "tags": [
+    "镜头",
+    "对焦",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:ocultar": {
+   "name": "隐藏",
+   "tags": [
+    "消失",
+    "结尾",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:onda-de-choque-3": {
+   "name": "冲击波 3",
+   "tags": [
+    "冲击波",
+    "震动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:onda-psicodelica": {
+   "name": "迷幻波浪",
+   "tags": [
+    "迷幻",
+    "波浪",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:ondas-de-amor": {
+   "name": "爱心波纹",
+   "tags": [
+    "波纹",
+    "粉色",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:paquete-de-brillos": {
+   "name": "闪光合集",
+   "tags": [
+    "闪光",
+    "合集",
+    "粒子",
+    "特效"
+   ]
+  },
+  "effect:paralaje-suave-alejar": {
+   "name": "视差平滑拉远",
+   "tags": [
+    "视差",
+    "拉远",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:paralelo-photobook": {
+   "name": "并排相册",
+   "tags": [
+    "相册",
+    "照片",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:parpadeo-de-color": {
+   "name": "色彩闪烁",
+   "tags": [
+    "闪烁",
+    "色彩",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:particulas-de-llamas-voladoras": {
+   "name": "飞舞火焰粒子",
+   "tags": [
+    "火焰",
+    "粒子",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:particulas-doradas": {
+   "name": "金色粒子",
+   "tags": [
+    "金色",
+    "漂浮",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:particulas-en-movimiento": {
+   "name": "动态粒子",
+   "tags": [
+    "动态",
+    "漂浮",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:pelicula-antigua-1": {
+   "name": "旧胶片 1",
+   "tags": [
+    "老电影",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-antigua-2": {
+   "name": "旧胶片 2",
+   "tags": [
+    "老电影",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-de-grano": {
+   "name": "颗粒胶片",
+   "tags": [
+    "颗粒",
+    "噪点",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-extremadamente-sucia": {
+   "name": "重度脏污胶片",
+   "tags": [
+    "脏污",
+    "做旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-muda": {
+   "name": "默片",
+   "tags": [
+    "默片",
+    "黑白",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-muda-2": {
+   "name": "默片 2",
+   "tags": [
+    "默片",
+    "黑白",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-muy-antigua": {
+   "name": "古老胶片",
+   "tags": [
+    "老电影",
+    "黑白",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-sucia": {
+   "name": "脏污胶片",
+   "tags": [
+    "脏污",
+    "做旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pelicula-vieja": {
+   "name": "老电影",
+   "tags": [
+    "老电影",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:pendulo": {
+   "name": "钟摆",
+   "tags": [
+    "摆动",
+    "摇晃",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:pintar-mosaico": {
+   "name": "绘画马赛克",
+   "tags": [
+    "马赛克",
+    "绘画",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:pista-multiple-de-comics": {
+   "name": "多格漫画",
+   "tags": [
+    "漫画",
+    "多格",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:polvo-azul": {
+   "name": "蓝色微尘",
+   "tags": [
+    "尘埃",
+    "蓝色",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:polvo-estelar": {
+   "name": "星尘",
+   "tags": [
+    "星尘",
+    "闪耀",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:polvo-flotante": {
+   "name": "漂浮尘埃",
+   "tags": [
+    "尘埃",
+    "漂浮",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:profundo": {
+   "name": "低沉",
+   "tags": [
+    "低沉",
+    "男声",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:pulso-al-ritmo": {
+   "name": "卡点脉冲",
+   "tags": [
+    "卡点",
+    "节奏",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:pulso-de-corazon": {
+   "name": "心跳脉冲",
+   "tags": [
+    "心跳",
+    "脉冲",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:puntos-brillantes": {
+   "name": "亮点",
+   "tags": [
+    "亮点",
+    "闪烁",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:purpurina-dorada": {
+   "name": "金色亮片",
+   "tags": [
+    "亮片",
+    "金色",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:quemadura-de-pelicula": {
+   "name": "胶片灼烧",
+   "tags": [
+    "胶片",
+    "灼烧",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:quitar-desenfoque": {
+   "name": "去模糊",
+   "tags": [
+    "清晰",
+    "锐化",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:radio-de-la-vineta": {
+   "name": "暗角半径",
+   "tags": [
+    "暗角",
+    "半径",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:rastro-de-huellas": {
+   "name": "发光脚印",
+   "tags": [
+    "脚印",
+    "发光",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:rayas-de-proyector": {
+   "name": "放映机划痕",
+   "tags": [
+    "放映机",
+    "划痕",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:rayo-de-luz": {
+   "name": "光束",
+   "tags": [
+    "光束",
+    "光线",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:rayo-dorado": {
+   "name": "金色光束",
+   "tags": [
+    "金色",
+    "光束",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:rayos-01": {
+   "name": "闪电 01",
+   "tags": [
+    "闪电",
+    "雷电",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:rebote-de-giro": {
+   "name": "旋转弹跳",
+   "tags": [
+    "旋转",
+    "弹跳",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:rebote-de-zoom": {
+   "name": "缩放弹跳",
+   "tags": [
+    "缩放",
+    "弹跳",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:rebote-rotacional": {
+   "name": "回旋弹跳",
+   "tags": [
+    "回旋",
+    "弹跳",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:recorte": {
+   "name": "裁剪",
+   "tags": [
+    "裁剪",
+    "画面",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:rejilla-gris": {
+   "name": "灰色网格",
+   "tags": [
+    "网格",
+    "灰色",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:relampagos": {
+   "name": "炫目闪电",
+   "tags": [
+    "闪电",
+    "雷电",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:remolino-de-corazones": {
+   "name": "爱心漩涡",
+   "tags": [
+    "漩涡",
+    "旋转",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:remolino-distorsionado": {
+   "name": "扭曲漩涡",
+   "tags": [
+    "扭曲",
+    "漩涡",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:resplandor-de-borde-04": {
+   "name": "边缘光晕 04",
+   "tags": [
+    "发光",
+    "边缘",
+    "边框",
+    "特效"
+   ]
+  },
+  "effect:resplandor-de-la-figura": {
+   "name": "人物光晕",
+   "tags": [
+    "人物",
+    "发光",
+    "ai",
+    "智能",
+    "特效"
+   ]
+  },
+  "effect:resplandor-vibrar": {
+   "name": "震动光晕",
+   "tags": [
+    "震动",
+    "光晕",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:romcom-elevada": {
+   "name": "浪漫喜剧",
+   "tags": [
+    "梦幻",
+    "粉紫",
+    "爱心",
+    "浪漫",
+    "特效"
+   ]
+  },
+  "effect:ronda-abierta": {
+   "name": "圆形开幕",
+   "tags": [
+    "圆形",
+    "开场",
+    "开合",
+    "转场",
+    "特效"
+   ]
+  },
+  "effect:rotacion-apilada": {
+   "name": "叠层旋转",
+   "tags": [
+    "旋转",
+    "叠加",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:ruido-de-pelicula": {
+   "name": "胶片噪点",
+   "tags": [
+    "噪点",
+    "颗粒",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:ruido-retro": {
+   "name": "复古噪点",
+   "tags": [
+    "噪点",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:sacudida-de-disparo": {
+   "name": "后坐力抖动",
+   "tags": [
+    "后坐力",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:sacudida-del-terremoto": {
+   "name": "地震抖动",
+   "tags": [
+    "地震",
+    "抖动",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:saltar": {
+   "name": "跳跃",
+   "tags": [
+    "跳跃",
+    "弹跳",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:salto-violeta-2": {
+   "name": "紫色跳跃 2",
+   "tags": [
+    "跳跃",
+    "紫色",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:siniestra": {
+   "name": "阴森",
+   "tags": [
+    "阴森",
+    "恐怖",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:sol-en-la-esquina": {
+   "name": "角落阳光",
+   "tags": [
+    "阳光",
+    "角落",
+    "光效",
+    "特效"
+   ]
+  },
+  "effect:sombra-a": {
+   "name": "阴影 A",
+   "tags": [
+    "阴影",
+    "暗部",
+    "模糊",
+    "特效"
+   ]
+  },
+  "effect:sonido-envolvente": {
+   "name": "环绕声",
+   "tags": [
+    "环绕",
+    "立体声",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:tarjeta-3d": {
+   "name": "3D 卡片",
+   "tags": [
+    "3d",
+    "卡片",
+    "分屏",
+    "特效"
+   ]
+  },
+  "effect:temblor-de-contorno": {
+   "name": "轮廓颤动",
+   "tags": [
+    "轮廓",
+    "颤动",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:templado": {
+   "name": "平缓",
+   "tags": [
+    "柔和",
+    "缓慢",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:terror-rojo": {
+   "name": "红色恐怖",
+   "tags": [
+    "恐怖",
+    "红色",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:toma-panoramica-rapida": {
+   "name": "快速摇镜",
+   "tags": [
+    "摇镜",
+    "快速",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:tormenta-de-lluvia": {
+   "name": "暴风雨",
+   "tags": [
+    "暴雨",
+    "天气",
+    "粒子",
+    "闪光",
+    "特效"
+   ]
+  },
+  "effect:trozos-de-queso": {
+   "name": "奶酪碎块",
+   "tags": [
+    "碎块",
+    "搞笑",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:tv-antigua-4x": {
+   "name": "老电视 4x",
+   "tags": [
+    "老电视",
+    "屏幕",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:venas-electricas": {
+   "name": "电流脉络",
+   "tags": [
+    "电流",
+    "脉络",
+    "风格化",
+    "特效"
+   ]
+  },
+  "effect:vhs-estatico-1": {
+   "name": "VHS 雪花噪点 1",
+   "tags": [
+    "vhs",
+    "噪点",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:vibracion-de-borde-rgb": {
+   "name": "RGB 边缘震动",
+   "tags": [
+    "rgb",
+    "边缘",
+    "故障",
+    "特效"
+   ]
+  },
+  "effect:video-antiguo": {
+   "name": "老录像",
+   "tags": [
+    "录像",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:videocamara-retro": {
+   "name": "复古摄像机",
+   "tags": [
+    "摄像机",
+    "vhs",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:vineta-de-pelicula": {
+   "name": "胶片暗角",
+   "tags": [
+    "暗角",
+    "怀旧",
+    "复古",
+    "胶片",
+    "特效"
+   ]
+  },
+  "effect:vinilo": {
+   "name": "黑胶唱片",
+   "tags": [
+    "黑胶",
+    "复古",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:voltear-zoom": {
+   "name": "翻转缩放",
+   "tags": [
+    "翻转",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:vortice-amarillo": {
+   "name": "黄色漩涡",
+   "tags": [
+    "漩涡",
+    "黄色",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:vortice-de-relampagos": {
+   "name": "闪电漩涡",
+   "tags": [
+    "闪电",
+    "漩涡",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:walkie-talkies": {
+   "name": "对讲机",
+   "tags": [
+    "对讲机",
+    "无线电",
+    "变声",
+    "音效",
+    "特效"
+   ]
+  },
+  "effect:zoom-de-telarana": {
+   "name": "蛛网缩放",
+   "tags": [
+    "蛛网",
+    "缩放",
+    "能量",
+    "元素",
+    "特效"
+   ]
+  },
+  "effect:zoom-deslizante": {
+   "name": "滑动缩放",
+   "tags": [
+    "滑动",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:zoom-rapido": {
+   "name": "快速缩放",
+   "tags": [
+    "快速",
+    "缩放",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-derecha": {
+   "name": "向右平滑缩放",
+   "tags": [
+    "平滑",
+    "向右",
+    "运镜",
+    "镜头",
+    "特效"
+   ]
+  },
+  "effect:zoom-suave-hacia-la-izquierda": {
+   "name": "向左平滑缩放",
+   "tags": [
+    "平滑",
+    "向左",
+    "运镜",
+    "镜头",
+    "特效"
    ]
   },
   "look:arte-comic": {

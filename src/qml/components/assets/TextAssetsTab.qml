@@ -19,6 +19,14 @@ Item {
     // "trends", "builtin", "mine", or the id of a template category from Extras.
     property string section: "trends"
 
+    // Card label height, for the grids' cell heights.
+    FontMetrics {
+        id: labelMetrics
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeCard
+        font.weight: Font.Medium
+    }
+
     readonly property var presets: EditorState.textPresets()
 
     // Template packs from Extras, by category, each behind its own chip.

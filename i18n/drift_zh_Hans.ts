@@ -4345,6 +4345,10 @@
         <translation>位于 转场</translation>
     </message>
     <message>
+        <source>In Effects › Trending</source>
+        <translation>位于 特效 › 热门</translation>
+    </message>
+    <message>
         <source>this kind of item needs a newer Flip Studio</source>
         <translation>此类项目需要更新版本的 Flip Studio</translation>
     </message>
@@ -12462,6 +12466,14 @@ NEXT TIME</source>
         <translation>从 Drift Forge 制作的 .driftfx 文件安装自定义特效或转场</translation>
     </message>
     <message>
+        <source>Trending</source>
+        <translation>热门</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to change its voice</source>
+        <translation>选择一个有声音的片段来改变它的声音</translation>
+    </message>
+    <message>
         <source>Add adjustment layer — click, or drag it onto a track</source>
         <translation>添加调整图层 — 点击，或拖到轨道上</translation>
     </message>
@@ -12494,12 +12506,48 @@ NEXT TIME</source>
         <translation>导入在 Drift Forge 中制作的 .driftfx 文件即可添加你自己的特效。</translation>
     </message>
     <message>
+        <source>%1 — click to apply it to the selected clip&apos;s voice</source>
+        <translation>%1 — 点击应用到所选片段的声音</translation>
+    </message>
+    <message>
         <source>%1 — click to apply to the selection, or drag onto a clip</source>
         <translation>%1 — 点击应用到所选内容，或拖到片段上</translation>
     </message>
     <message>
         <source>%1 — click to add as an adjustment layer, or drag onto a clip</source>
         <translation>%1 — 点击添加为调整图层，或拖到片段上</translation>
+    </message>
+    <message>
+        <source>%1 — click to download it and apply it</source>
+        <translation>%1 — 点击下载并应用</translation>
+    </message>
+    <message>
+        <source>Sign in to see trending effects</source>
+        <translation>登录后查看热门特效</translation>
+    </message>
+    <message>
+        <source>Loading trending effects…</source>
+        <translation>正在加载热门特效…</translation>
+    </message>
+    <message>
+        <source>Couldn’t load trending effects</source>
+        <translation>无法加载热门特效</translation>
+    </message>
+    <message>
+        <source>Trending effects come from Stock, which needs your free account.</source>
+        <translation>热门特效来自 Stock，需要你的免费账号。</translation>
+    </message>
+    <message>
+        <source>Waiting for the browser…</source>
+        <translation>正在等待浏览器…</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登录</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
     </message>
     <message>
         <source>Apply to selected clip</source>
@@ -20432,8 +20480,16 @@ If playback stutters, try another.</source>
         <translation>登录以导出</translation>
     </message>
     <message>
+        <source>Sign in to use what&apos;s trending</source>
+        <translation>登录以使用热门内容</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio 是免费的：导出、Stock 和所有模板都不花钱。</translation>
+    </message>
+    <message>
+        <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
+        <translation>热门动画仅供已登录用户使用。只需用你的 Google 账号登录：片刻即可完成，只需一次，你的项目保持不变。</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
