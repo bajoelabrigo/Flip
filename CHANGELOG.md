@@ -3,8 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
-## 0.22.0 — Fotogramas clave como After Effects, Stock en cada panel, Mi cuenta que aplica
+## 0.22.0 — Texto renovado, fotogramas clave como After Effects, Stock en cada panel
 
+- Texto (auditoría en `docs/auditoria-texto.md`, D1–D14): `textStyleWithPresetLook`, `TextAnimationSlot::cutUs`,
+  `rememberProjectPreset` + «textAnimationPresets» en el proyecto, `layoutKey` con grosores, `BlockProps`
+  scaleX/scaleY, `scaleTextStyle`, `TextStyle::pixelSize` con decimales, `FileDialogs.localPath()`,
+  `slotControlShown()`, `SubtitleCue::wordEndsUs`, `MotionTrack::bakedFromUs/ToUs` + `warnIfKeysReplaced`,
+  `AppController::sizeLinked`.
+- Funciones nuevas: tachado (`strikeEnabled`), `TextAlign::Justify`, `wordSpacing`, `pathCircle`, `Clip::cornerPin`
+  (`applyCornerPin` en `FrameCompositor`), brillo animable (`glow`), presets `spin-loop` y `glow-pulse`,
+  `TextAnimatorEditor.qml`, `copyKeyframes/pasteKeyframes`, VTT/ASS en `SrtIO`, aviso y empaquetado de fuentes
+  (`userFontFilesFor`), texto con `adj:videoEffects`.
+- `SkiaRuntime::restoreGlState` suelta samplers y búferes de píxeles en todas las unidades (el video quedaba verde
+  tras pintar una imagen con Skia).
+- `tools/e2e/ctxclick.py`: clic derecho que abre menús con la ventana de fondo.
 - `KeyframeKeyTools` (uno por línea de tiempo): selección de fotogramas clave, atajos de After Effects, menú y
   `KeyframeCurvesPopup`, compartidos por `KeyframeGraph` y `TrackKeyframeRows`. `KeyframeGlyph` en las dos; la elegida
   roja y más grande. Supr borra las elegidas (`Main.qml › dispatchAction`).

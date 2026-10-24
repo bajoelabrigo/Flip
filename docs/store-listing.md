@@ -114,6 +114,9 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > Novedades de la 0.22.0
 >
+> - Texto renovado: efectos, LUT y ajustes en los textos; tachado, justificar, espacio entre palabras y tamaño con decimales; texto alrededor de un círculo y deformar por esquinas.
+> - Editor de animaciones propias, bucles nuevos (Giro continuo, Resplandor que late), buscadores en Títulos y Animación, y copiar y pegar fotogramas clave.
+> - Subtítulos en VTT y ASS, aviso de fuentes que faltan, y muchos arreglos: aplicar un estilo o cortar un texto ya no estropea su animación.
 > - Fotogramas clave como After Effects: cada uno muestra cómo llega y cómo sale (recto, suave, salto o curva); clic derecho para cambiarlo o abrir 17 curvas, y varios a la vez con Ctrl y Mayús.
 > - La ventana de curvas y la pista comparten la selección; el cabezal y los clips se pegan a los fotogramas clave.
 > - Stock también en cada panel: efectos, transiciones, LUTs, textos, formas, stickers, música, sonidos y plantillas, con Tendencias primero y repartidos en sus categorías.
@@ -124,6 +127,9 @@ En inglés:
 
 > What's new in 0.22.0
 >
+> - Text overhaul: effects, LUTs and adjustments on texts; strikethrough, justify, word spacing and decimal sizes; text around a circle and corner pin.
+> - Your own animation editor, new loops (Continuous spin, Pulsing glow), search in Titles and Animation, and copy and paste keyframes.
+> - VTT and ASS subtitles, a missing-fonts warning, and many fixes: applying a style or cutting a text no longer breaks its animation.
 > - Keyframes like After Effects: each one shows how it comes in and goes out (linear, smooth, hold or curve); right-click to change it or open 17 curves, and several at once with Ctrl and Shift.
 > - The curve editor and the track share the selection; the playhead and clips snap to keyframes.
 > - Stock in every panel too: effects, transitions, LUTs, texts, shapes, stickers, music, sounds and templates, with Trending first and the rest in their categories.
