@@ -296,6 +296,7 @@ Item {
                     kind: modelData.kind || ""
                     label: modelData.label
                     seconds: modelData.duration || 0.6
+                    trending: !!modelData.trending
                     tileWidth: animGrid.tileWidth
                     selected: root.isTileSelected(modelData)
                     playing: root.visible && !EditorState.playing && (Theme.touchUi ? selected : hovered)

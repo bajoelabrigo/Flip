@@ -2558,6 +2558,7 @@ Item {
                         slot: root.animSlot
                         presetId: modelData.id
                         label: modelData.label
+                        trending: !!modelData.trending
                         tileWidth: presetGrid.tileWidth
                         selected: modelData.id.length === 0
                                   ? (!root.slotHasPreset && !root.slotData.custom)

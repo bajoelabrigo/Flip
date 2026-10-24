@@ -1476,6 +1476,7 @@ qt_add_qml_module(drift
         src/qml/components/AccountDialog.qml
         src/qml/components/AccountWelcomeDialog.qml
         src/qml/components/SignInRequiredDialog.qml
+        src/qml/components/TrendBadge.qml
         src/qml/components/AiBadge.qml
         src/qml/components/BeforeAfterImage.qml
         src/qml/components/CopySignInLinkButton.qml
