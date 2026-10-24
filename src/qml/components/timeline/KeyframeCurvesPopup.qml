@@ -50,6 +50,8 @@ Popup {
     }
 
     padding: Theme.spacingMd
+    // Kept inside the window: opened low on the timeline it went off the bottom.
+    margins: Theme.spacingMd
     modal: false
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside

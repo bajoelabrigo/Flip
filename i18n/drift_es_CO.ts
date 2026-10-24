@@ -25627,7 +25627,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Hold</source>
-        <translation>Mantener</translation>
+        <translation>Salto</translation>
     </message>
     <message>
         <source>Curves…</source>
