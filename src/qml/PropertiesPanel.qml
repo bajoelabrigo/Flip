@@ -206,9 +206,13 @@ PanelFrame {
         const here = root.tabs[root.activeTab]
         if (here && here.opens && root.caps.indexOf(here.opens) >= 0 && root.tabVisible(here.id))
             return
+        // A text keeps its own tabs: its effects are on hand in Adjust / Effects (0.22.1), but
+        // selecting or editing a text must not jump there.
+        if (root.clipKind === "text" || root.clipKind === "subtitle")
+            return
         for (let i = 0; i < root.tabs.length; i++) {
             const opens = root.tabs[i].opens
-            if (opens && root.caps.indexOf(opens) >= 0) {
+            if (opens && root.caps.indexOf(opens) >= 0 && root.tabVisible(root.tabs[i].id)) {
                 root.activeTab = i
                 return
             }

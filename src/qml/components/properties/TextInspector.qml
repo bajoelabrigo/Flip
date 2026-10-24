@@ -1080,7 +1080,7 @@ Item {
                     }
                     ThemedComboBox {
                         id: fontWeightBox
-                        width: Math.max(80, parent.width - 74 - 34 * 3 - parent.spacing * 4)
+                        width: Math.max(80, parent.width - 74 - 34 * 4 - parent.spacing * 5) // B, U, S, I
                         model: root.availableWeights.map(w => root.weightLabels[w] || String(w))
                         currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
                         onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
