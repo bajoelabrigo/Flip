@@ -80,9 +80,10 @@ PanelFrame {
     readonly property real minZoom: 0.0001
     readonly property real maxZoom: 40.0
     readonly property real pxPerSecond: Theme.pixelsPerSecondBase * zoom
-    // The track whose keyframe rows hold the picked keys: picking keys on another track drops them,
-    // so After Effects' keys (F9…) act on one set.
-    property int keyPickTrack: -1
+    // Delete takes the picked keys first, as After Effects; false when there are none.
+    function deletePickedKeys() {
+        return keyTools.removePicked()
+    }
     onPxPerSecondChanged: EditorState.setSnapRadius(8, pxPerSecond)
     Component.onCompleted: {
         TouchDrag.registerTarget(root)
@@ -1329,6 +1330,7 @@ PanelFrame {
                         pxPerSecond: root.pxPerSecond
                         labelsWidth: EditorState.preferences.trackLabelsWidth
                         keyframesTab: true
+                        tools: keyTools
                         // Keep keys/playhead lined up with the track scroll view below.
                         contentX: flick.contentX
                         contentWidth: flick.contentWidth
@@ -2425,8 +2427,7 @@ PanelFrame {
                                     trackIndex: trackRow.trackIndex
                                     pxPerSecond: root.pxPerSecond
                                     liveRows: trackRow.keyframeRows
-                                    pickActive: root.keyPickTrack === trackRow.trackIndex
-                                    onPicking: root.keyPickTrack = trackRow.trackIndex
+                                    tools: keyTools
                                 }
 
                                 // Right-click a gap to ripple everything after it (and any
@@ -3120,6 +3121,11 @@ PanelFrame {
             gapContextMenu.popup(anchor, ax, ay)
         else
             gapContextMenu.popup()
+    }
+
+    // The picked keys, shared by the curve editor and the tracks' keyframe rows.
+    KeyframeKeyTools {
+        id: keyTools
     }
 
     ThemedContextMenu {

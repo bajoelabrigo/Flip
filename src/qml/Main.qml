@@ -1817,6 +1817,9 @@ ApplicationWindow {
             timelinePanel.timelineTool = ""
             return
         }
+        // Picked keyframes go before the clip they are on, as in After Effects.
+        if (id === "delete" && timelinePanel.visible && timelinePanel.deletePickedKeys())
+            return
         // Tool modes are QML state, so they are dispatched here rather
         // than by triggerAction.
         if (id === "selectTool") {

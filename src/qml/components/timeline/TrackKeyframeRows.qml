@@ -26,104 +26,14 @@ Item {
     property var rows: []
     property bool dragging: false
     readonly property real rowHeight: Theme.keyframeRowHeight
-    // The picked keys, each {clip, prop, seconds}; only while this track holds the pick.
-    property var picked: []
-    property bool pickActive: false
-    readonly property var pickedKeys: pickActive ? picked : []
-    // A run with Shift starts here: {clip, prop, seconds}.
-    property var runFrom: null
-    signal picking()
+    // The picked keys, the menu and the Curves popup, shared with the curve editor above the
+    // tracks (KeyframeKeyTools, one per timeline).
+    property KeyframeKeyTools tools: null
 
     height: rows.length * rowHeight
     onLiveRowsChanged: if (!dragging) rows = liveRows
     onDraggingChanged: if (!dragging) rows = liveRows
     Component.onCompleted: rows = liveRows
-
-    function keyAt(clipEntry, seconds) {
-        const keys = clipEntry.keys || []
-        for (let i = 0; i < keys.length; ++i) {
-            if (Math.abs(keys[i].seconds - seconds) < 1e-4)
-                return i
-        }
-        return -1
-    }
-
-    function sameKey(a, b) {
-        return a.clip === b.clip && a.prop === b.prop && Math.abs(a.seconds - b.seconds) < 1e-4
-    }
-
-    function isPicked(key) {
-        for (let i = 0; i < root.pickedKeys.length; ++i) {
-            if (sameKey(root.pickedKeys[i], key))
-                return true
-        }
-        return false
-    }
-
-    function setPicked(list) {
-        root.picking()
-        root.picked = list
-    }
-
-    // How a key arrives and leaves, from its handles: none is straight, a flat one eased, any
-    // other a shape of its own; a hold on the key before squares the way in.
-    function halfOf(dx, dy) {
-        if (Math.abs(dx) < 1e-9 && Math.abs(dy) < 1e-9)
-            return "linear"
-        return Math.abs(dy) < 1e-6 ? "ease" : "bezier"
-    }
-    function keyHalves(keys, i) {
-        const k = keys[i]
-        const prev = i > 0 ? keys[i - 1] : null
-        const next = i < keys.length - 1 ? keys[i + 1] : null
-        const inHalf = prev ? (prev.hold ? "hold" : halfOf(k.inDx, k.inDy)) : null
-        const outHalf = next ? (k.hold ? "hold" : halfOf(k.outDx, k.outDy)) : null
-        return {
-            "in": inHalf !== null ? inHalf : (outHalf !== null ? outHalf : (k.hold ? "hold" : "linear")),
-            "out": outHalf !== null ? outHalf : (k.hold ? "hold" : (inHalf !== null ? inHalf : "linear"))
-        }
-    }
-
-    function applyEasing(mode) {
-        if (root.pickedKeys.length)
-            EditorState.setKeyframesEasing(root.trackIndex, root.pickedKeys, mode)
-    }
-
-    Shortcut {
-        sequence: "F9"
-        enabled: root.pickedKeys.length > 0
-        onActivated: root.applyEasing("ease")
-    }
-    Shortcut {
-        sequence: "Shift+F9"
-        enabled: root.pickedKeys.length > 0
-        onActivated: root.applyEasing("easeIn")
-    }
-    Shortcut {
-        sequence: "Ctrl+Shift+F9"
-        enabled: root.pickedKeys.length > 0
-        onActivated: root.applyEasing("easeOut")
-    }
-    Shortcut {
-        sequence: "Ctrl+Alt+H"
-        enabled: root.pickedKeys.length > 0
-        onActivated: root.applyEasing("hold")
-    }
-    Shortcut {
-        sequence: "Ctrl+Alt+K"
-        enabled: root.pickedKeys.length > 0
-        onActivated: root.applyEasing("linear")
-    }
-
-    KeyframeCurvesPopup {
-        id: curvesPopup
-        onCurvePicked: (x1, y1, x2, y2, hold) => {
-            if (hold)
-                root.applyEasing("hold")
-            else if (root.pickedKeys.length)
-                EditorState.setKeyframesCurve(root.trackIndex, root.pickedKeys, x1, y1, x2, y2)
-        }
-    }
 
     Repeater {
         model: root.rows
@@ -195,7 +105,7 @@ Item {
                                                           span.modelData.prop, at)
                         }
                         onClicked: {
-                            root.picked = []
+                            root.tools.clear()
                             EditorState.selectClip(root.trackIndex, span.modelData.clip)
                         }
 
@@ -220,12 +130,13 @@ Item {
                             readonly property var ref: ({ clip: span.modelData.clip,
                                                           prop: span.modelData.prop,
                                                           seconds: modelData.seconds })
-                            readonly property var halves: root.keyHalves(span.modelData.keys, index)
-                            readonly property bool atPlayhead:
-                                Math.abs(EditorState.playheadSeconds - modelData.seconds) < 1 / 60
-                            readonly property bool isPicked: root.isPicked(ref)
+                            readonly property var halves: root.tools.keyHalves(span.modelData.keys, index)
+                            readonly property bool isPicked: {
+                                void root.tools.keys
+                                return root.tools.isPicked(root.trackIndex, ref)
+                            }
 
-                            width: 16
+                            width: 20
                             height: span.height
                             x: (modelData.seconds - span.modelData.start) * root.pxPerSecond
                                - width / 2 + dragDx
@@ -233,12 +144,14 @@ Item {
 
                             KeyframeGlyph {
                                 anchors.centerIn: parent
-                                size: keyItem.isPicked || keyMouse.containsMouse ? 13 : 11
+                                size: keyItem.isPicked ? 17 : (keyMouse.containsMouse ? 15 : 13)
                                 inHalf: keyItem.halves["in"]
                                 outHalf: keyItem.halves["out"]
                                 color: span.keyColor
                                 picked: keyItem.isPicked
-                                lit: keyMouse.containsMouse || keyMouse.pressed || keyItem.atPlayhead
+                                // Only the pointer lights a key: lighting every key under the
+                                // playhead read as several picked at once (X and Y together).
+                                lit: keyMouse.containsMouse || keyMouse.pressed
                             }
 
                             MouseArea {
@@ -251,32 +164,14 @@ Item {
                                 preventStealing: true
 
                                 onPressed: (mouse) => {
-                                    if (mouse.button === Qt.RightButton) {
-                                        // The menu acts on the picked keys when this is one of them.
-                                        if (!keyItem.isPicked)
-                                            root.setPicked([keyItem.ref])
+                                    // The menu opens on release (onClicked), on the picked keys
+                                    // when this is one of them.
+                                    if (mouse.button === Qt.RightButton)
                                         return
-                                    }
                                     const ctrl = mouse.modifiers & Qt.ControlModifier
                                     const shift = mouse.modifiers & Qt.ShiftModifier
-                                    if (ctrl) {
-                                        root.setPicked(keyItem.isPicked
-                                            ? root.pickedKeys.filter((k) => !root.sameKey(k, keyItem.ref))
-                                            : root.pickedKeys.concat([keyItem.ref]))
-                                    } else if (shift && root.runFrom && root.runFrom.clip === keyItem.ref.clip
-                                               && root.runFrom.prop === keyItem.ref.prop) {
-                                        const lo = Math.min(root.runFrom.seconds, keyItem.ref.seconds) - 1e-4
-                                        const hi = Math.max(root.runFrom.seconds, keyItem.ref.seconds) + 1e-4
-                                        root.setPicked(span.modelData.keys
-                                            .filter((k) => k.seconds >= lo && k.seconds <= hi)
-                                            .map((k) => ({ clip: span.modelData.clip,
-                                                           prop: span.modelData.prop,
-                                                           seconds: k.seconds })))
-                                    } else if (!keyItem.isPicked) {
-                                        root.setPicked([keyItem.ref])
-                                    }
-                                    if (!shift)
-                                        root.runFrom = keyItem.ref
+                                    root.tools.press(root.trackIndex, keyItem.ref, mouse.modifiers,
+                                                     span.modelData.keys)
                                     // Only a plain press drags (as the clip strip's keys).
                                     keyItem.dragArmed = !ctrl && !shift
                                     keyItem.pressX = mapToItem(root, mouse.x, mouse.y).x
@@ -323,14 +218,14 @@ Item {
                                         keyItem.dragDx = 0
                                         root.dragging = false
                                         // The moved key stays picked at its new time.
-                                        root.setPicked([{ clip: span.modelData.clip,
-                                                          prop: span.modelData.prop,
-                                                          seconds: keyItem.editSeconds }])
+                                        root.tools.pick(root.trackIndex, [{ clip: span.modelData.clip,
+                                                                           prop: span.modelData.prop,
+                                                                           seconds: keyItem.editSeconds }])
                                     } else if (keyItem.dragArmed) {
                                         // A click: the clip and the playhead go to the key, so the
                                         // inspector shows the value it holds.
-                                        root.setPicked([keyItem.ref])
                                         EditorState.selectClip(root.trackIndex, span.modelData.clip)
+                                        root.tools.pick(root.trackIndex, [keyItem.ref])
                                         EditorState.playheadSeconds = keyItem.modelData.seconds
                                     }
                                 }
@@ -343,7 +238,9 @@ Item {
                                 }
                                 onClicked: (mouse) => {
                                     if (mouse.button === Qt.RightButton)
-                                        keyMenu.popup()
+                                        root.tools.openMenu(root.trackIndex, keyItem.ref, keyItem.halves,
+                                                            !!keyItem.modelData.hold, false, keyItem,
+                                                            Qt.point(keyItem.width / 2, keyItem.height))
                                 }
                             }
 
@@ -352,76 +249,6 @@ Item {
                                 text: rowItem.modelData.label + " · "
                                       + keyItem.modelData.seconds.toFixed(2) + " s"
                                       + " · " + qsTr("right-click: Straight, Smooth, Hold, Curves")
-                            }
-
-                            ThemedContextMenu {
-                                id: keyMenu
-
-                                readonly property bool one: root.pickedKeys.length <= 1
-                                function check(inHalf, outHalf) {
-                                    return keyMenu.one && keyItem.halves["in"] === inHalf
-                                           && keyItem.halves["out"] === outHalf ? Theme.icons.check : ""
-                                }
-
-                                ThemedMenuItem {
-                                    text: qsTr("Straight")
-                                    shortcutText: "Ctrl+Alt+K"
-                                    icon.name: keyMenu.check("linear", "linear")
-                                    onTriggered: root.applyEasing("linear")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Smooth")
-                                    shortcutText: "F9"
-                                    icon.name: keyMenu.check("ease", "ease")
-                                    onTriggered: root.applyEasing("ease")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Smooth in")
-                                    shortcutText: "Shift+F9"
-                                    icon.name: keyMenu.check("ease", "linear")
-                                    onTriggered: root.applyEasing("easeIn")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Smooth out")
-                                    shortcutText: "Ctrl+Shift+F9"
-                                    icon.name: keyMenu.check("linear", "ease")
-                                    onTriggered: root.applyEasing("easeOut")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Hold")
-                                    shortcutText: "Ctrl+Alt+H"
-                                    icon.name: keyMenu.one && keyItem.modelData.hold ? Theme.icons.check : ""
-                                    onTriggered: root.applyEasing("hold")
-                                }
-                                ThemedMenuItem {
-                                    text: qsTr("Curves…")
-                                    icon.name: Theme.icons.penCurve
-                                    onTriggered: {
-                                        const p = keyItem.mapToItem(root, keyItem.width / 2, keyItem.height)
-                                        curvesPopup.x = p.x
-                                        curvesPopup.y = p.y
-                                        curvesPopup.open()
-                                    }
-                                }
-                                ThemedMenuSeparator {}
-                                ThemedMenuItem {
-                                    text: qsTr("Edit curve…")
-                                    icon.name: Theme.icons.penCurve
-                                    onTriggered: {
-                                        EditorState.selectClip(root.trackIndex, span.modelData.clip)
-                                        EditorState.playheadSeconds = keyItem.modelData.seconds
-                                        EditorState.preferences.curveEditorVisible = true
-                                    }
-                                }
-                                ThemedMenuItem {
-                                    text: keyMenu.one ? qsTr("Delete keyframe") : qsTr("Delete keyframes")
-                                    icon.name: Theme.icons.trash
-                                    onTriggered: {
-                                        EditorState.removeKeyframes(root.trackIndex, root.pickedKeys.length
-                                                                    ? root.pickedKeys : [keyItem.ref])
-                                        root.picked = []
-                                    }
-                                }
                             }
                         }
                     }
