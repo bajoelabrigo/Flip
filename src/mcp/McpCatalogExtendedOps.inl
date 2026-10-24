@@ -1338,8 +1338,9 @@
                        {QStringLiteral("index"), QStringLiteral("key"), QStringLiteral("value")}) },
         { "apply_text_preset", "text", "Restyle an existing title",
           "Apply a text style pack (builtin from list_text_presets, or a user: id from "
-          "list_user_text_presets) to a text or subtitle clip. Replaces the whole style — font, "
-          "layers AND the in/out/loop animation slots — and records it as packId. Unknown id fails "
+          "list_user_text_presets) to a text or subtitle clip. Replaces the look — font, size, "
+          "layers, curve — and records it as packId; the clip keeps its words, its in/out/loop "
+          "animations when it has them, its counter and its keyframes. Unknown id fails "
           "not_found; a non-text clip fails type_mismatch.",
           objectSchema(mergeProps({{QStringLiteral("preset"), stringProp(QStringLiteral("Preset id from list_text_presets"))}},
                                   clipRefProps()),
