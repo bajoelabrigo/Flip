@@ -1500,6 +1500,68 @@ QVariantMap textAnimationSetToMap(const drift::TextAnimationSet &set)
     };
 }
 
+// A slot authored in the animation editor (inline animators) as a preset to keep in My
+// animations. Its motion is fixed: the reveal controls stay locked, as on an imported one, and
+// only a Curves timing or a Loop's period travel as params.
+drift::TextAnimationPreset inlineTextAnimationPreset(const drift::TextAnimationSlot &slot, drift::TextAnimSlotKind kind)
+{
+    drift::TextAnimationPreset preset;
+    preset.builtIn = false;
+    preset.slotKinds = {kind};
+    preset.sampleText = QStringLiteral("Your text");
+    for (const drift::TextAnimator &a : slot.animators)
+        preset.animators.append(drift::textAnimatorToJson(a));
+    if (!slot.particles.isEmpty()) {
+        QJsonArray particles;
+        for (const drift::TextParticleSpec &p : slot.particles)
+            particles.append(drift::textParticleSpecToJson(p));
+        preset.particles = particles;
+    }
+    preset.flags = QJsonObject{{QStringLiteral("unitLocked"), true}, {QStringLiteral("orderLocked"), true},
+                               {QStringLiteral("easeLocked"), true}, {QStringLiteral("staggerLocked"), true},
+                               {QStringLiteral("durationLocked"), true}};
+    const auto seconds = [](const char *id, const char *label, double max, drift::TimeUs us) {
+        drift::TextAnimParamSpec spec;
+        spec.id = QLatin1String(id);
+        spec.label = QLatin1String(label);
+        spec.unit = QStringLiteral("s");
+        spec.min = 0.0;
+        spec.max = max;
+        spec.step = 0.01;
+        spec.defaultValue = drift::VectorSlotValue::fromScalar(drift::usToSeconds(us));
+        return spec;
+    };
+    if (kind == drift::TextAnimSlotKind::Loop && slot.periodUs > 0)
+        preset.params.append(seconds("period", "Period", 10.0, slot.periodUs));
+    else if (kind != drift::TextAnimSlotKind::Loop && slot.durationUs > 0)
+        preset.params.append(seconds("duration", "Duration", 5.0, slot.durationUs));
+    return preset;
+}
+
+// The animator the editor starts from on an empty slot: letters fading up one after another,
+// or a gentle wave on Loop.
+drift::TextAnimator defaultEditorAnimator(drift::TextAnimSlotKind kind)
+{
+    drift::TextAnimator a;
+    drift::TextRangeSelector sel;
+    sel.domain = drift::TextSelectorDomain::CharsExcludingSpaces;
+    if (kind == drift::TextAnimSlotKind::Loop) {
+        sel.driver = drift::TextSelectorDriver::Wiggle;
+        sel.frequencyHz = 1.0;
+        a.props.position.y = drift::TextAnimParam(12.0);
+    } else {
+        sel.driver = drift::TextSelectorDriver::Stagger;
+        sel.staggerUs = 50000;
+        sel.durationUs = 400000;
+        sel.ease.kind = drift::TextEaseKind::EaseOut;
+        a.props.hasOpacity = true;
+        a.props.opacity = drift::TextAnimParam(0.0);
+        a.props.position.y = drift::TextAnimParam(40.0);
+    }
+    a.selectors.append(sel);
+    return a;
+}
+
 // Partial patch of one slot. Choosing a preset resets its params to the preset's defaults
 // (the reveal controls are kept when `keepControls` is set); `animators` makes the slot inline.
 void applyTextAnimationSlotPatch(drift::TextAnimationSlot *slot, const QVariantMap &m)
@@ -1535,6 +1597,12 @@ void applyTextAnimationSlotPatch(drift::TextAnimationSlot *slot, const QVariantM
         slot->params.clear();
         slot->cutUs = 0;
         slot->enabled = true;
+    }
+    // Inline slots carry their own particles (a preset turned into animators keeps its sparks).
+    if (m.contains(QStringLiteral("particles"))) {
+        slot->particles.clear();
+        for (const QVariant &v : m.value(QStringLiteral("particles")).toList())
+            slot->particles.append(drift::textParticleSpecFromJson(QJsonObject::fromVariantMap(v.toMap())));
     }
     const QList<drift::TextAnimParamSpec> specs = specsForSlot(*slot);
     mergeParamsFromMap(&slot->params, m.value(QStringLiteral("params")).toMap(), specs);
@@ -26964,8 +27032,10 @@ QString AppController::saveTextAnimationAsPreset(int trackIndex, int clipIndex, 
     const drift::TextAnimationSlot &source = slot == QLatin1String("out")    ? set.out
                                              : slot == QLatin1String("loop") ? set.loop
                                                                              : set.in;
-    const std::optional<drift::TextAnimationPreset> base =
+    std::optional<drift::TextAnimationPreset> base =
         drift::TextAnimationPresetCatalog::instance().presetForId(source.presetId);
+    if (!base && source.presetId.isEmpty() && !source.animators.isEmpty())
+        base = inlineTextAnimationPreset(source, drift::textAnimSlotKindFromString(slot));
     if (!base) {
         setLastMessage(tr("Choose an animation first"), QStringLiteral("warning"));
         return {};
@@ -26989,6 +27059,72 @@ QString AppController::saveTextAnimationAsPreset(int trackIndex, int clipIndex, 
     emit userTextAnimationPresetsChanged();
     setLastMessage(tr("Saved to My animations"), QStringLiteral("success"));
     return id;
+}
+
+QVariantMap AppController::textAnimationSlotForEditing(int trackIndex, int clipIndex, const QString &slot) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle)
+        return {};
+    const drift::TextAnimSlotKind kind = drift::textAnimSlotKindFromString(slot);
+    const drift::TextAnimationSet &set = clip.textStyle.animation;
+    const drift::TextAnimationSlot &source = kind == drift::TextAnimSlotKind::Out    ? set.out
+                                             : kind == drift::TextAnimSlotKind::Loop ? set.loop
+                                                                                     : set.in;
+    QList<drift::TextAnimator> animators;
+    QList<drift::TextParticleSpec> particles;
+    drift::TimeUs durationUs = source.durationUs;
+    drift::TimeUs periodUs = source.periodUs;
+    QString from = QStringLiteral("new");
+    QString label;
+    if (!source.presetId.isEmpty()) {
+        if (const std::optional<drift::TextAnimationPreset> preset =
+                drift::TextAnimationPresetCatalog::instance().presetForId(source.presetId)) {
+            const drift::ResolvedPresetSlot resolved = drift::resolvePresetSlot(*preset, source.params, kind);
+            if (resolved.valid) {
+                animators = resolved.animators;
+                particles = resolved.particles;
+                if (durationUs == 0)
+                    durationUs = resolved.durationUs;
+                if (periodUs == 0)
+                    periodUs = resolved.periodUs;
+                from = QStringLiteral("preset");
+                label = preset->label;
+            }
+        }
+    } else if (!source.animators.isEmpty()) {
+        animators = source.animators;
+        particles = source.particles;
+        from = QStringLiteral("inline");
+    }
+    if (animators.isEmpty())
+        animators.append(defaultEditorAnimator(kind));
+    QVariantList animatorList;
+    for (const drift::TextAnimator &a : animators)
+        animatorList.append(drift::textAnimatorToJson(a).toVariantMap());
+    QVariantList particleList;
+    for (const drift::TextParticleSpec &p : particles)
+        particleList.append(drift::textParticleSpecToJson(p).toVariantMap());
+    return {
+        {QStringLiteral("animators"), animatorList},
+        {QStringLiteral("particles"), particleList},
+        {QStringLiteral("delay"), drift::usToSeconds(source.delayUs)},
+        {QStringLiteral("durationOverride"), drift::usToSeconds(durationUs)},
+        {QStringLiteral("period"), drift::usToSeconds(periodUs)},
+        {QStringLiteral("source"), from},
+        {QStringLiteral("label"), label},
+    };
+}
+
+QVariantList AppController::normalizeTextAnimators(const QVariantList &animators) const
+{
+    QVariantList out;
+    for (const QVariant &v : animators)
+        out.append(drift::textAnimatorToJson(drift::textAnimatorFromJson(QJsonObject::fromVariantMap(v.toMap())))
+                       .toVariantMap());
+    return out;
 }
 
 bool AppController::renameUserTextAnimationPreset(const QString &presetId, const QString &label)

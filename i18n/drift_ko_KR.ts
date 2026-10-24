@@ -22727,6 +22727,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>전체 블록</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>문자</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>단어</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>줄</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>앞으로</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>가운데에서 바깥쪽</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>무작위</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>선형</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>부드럽게</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>부드럽게 천천히</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>경쾌하게</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>뒤로</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>바운스</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>이동 X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>이동 Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>크기 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>크기 Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>회전</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D 회전 X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D 회전 Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>불투명도</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>흐림</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>문자 간격</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>채우기 색</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>획 너비</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>광선</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>텍스트 애니메이션 편집</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>애니메이션 사용자 지정</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>이 애니메이션 미리보기</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>편집기 닫기</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>“%1”에서 시작합니다. 변경하면 이 텍스트만의 애니메이션이 됩니다.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>각 파트는 이 값만큼 텍스트를 계속 흔듭니다.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>각 파트는 텍스트를 원래 모습에서 이 값으로 가져갑니다.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>각 파트는 텍스트를 이 값에서 원래 모습으로 가져옵니다.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>파트 %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>파트 복제</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>파트 제거</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>기준</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>순서</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>간격</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>재생 시간</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>이징</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>위상</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>이 파트는 원래 애니메이션의 타이밍을 유지합니다.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>움직임 크기</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>끝 값</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>시작 값</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>이 항목 애니메이션 중지</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>파트 추가</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>고유한 단위와 타이밍을 가진 다른 움직임을 위에 추가</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>내 애니메이션으로 저장…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>내 애니메이션에 보관해 다른 텍스트에 사용</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23165,10 +23392,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>고급</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>사용자 지정 애니메이터(MCP로 설정됨). 프리셋 컨트롤은 비활성화됩니다.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23841,6 +24064,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation>Stock에서</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>애니메이션 사용자 지정</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>글자, 단어 또는 줄 단위로 무엇이 어떻게 움직일지 선택</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>사용자 지정 애니메이션: &apos;애니메이션 사용자 지정&apos;으로 바꾸거나 프리셋 선택으로 돌아가세요.</translation>
     </message>
     <message>
         <source>Rename text animation</source>

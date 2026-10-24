@@ -22797,6 +22797,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Buong block</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Titik</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Salita</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Pasulong</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Paatras</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Mula sa gitna</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Random</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linyar</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Makinis</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Banayad</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bilisan</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Mabilis</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Bumalik</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Talbog</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Ilipat X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Ilipat Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Laki X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Laki Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Pag-ikot</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D na ikot X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D na ikot Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacity</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>I-blur</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Pagitan ng titik</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Kulay ng fill</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Kapal ng stroke</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Glow</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>I-edit ang animation ng teksto</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>I-customize ang animation</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>I-preview ang animation na ito</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Isara ang editor</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>Nagsisimula sa “%1”. Dahil sa mga pagbabago mo, magiging sariling animation ito ng tekstong ito.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Iniuugoy ng bawat bahagi ang teksto ayon sa mga value na ito, paulit-ulit.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Dinadala ng bawat bahagi ang teksto mula sa itsura nito papunta sa mga value na ito.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Dinadala ng bawat bahagi ang teksto mula sa mga value na ito papunta sa itsura nito.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Bahagi %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Doblehin ang bahagi</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Alisin ang bahagi</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Ayon sa</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Pagkakasunod</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Paisa-isa</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Tagal</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Ease</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Bilis</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Phase</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Pinananatili ng bahaging ito ang timing ng animation na pinagmulan nito.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Gumagalaw nang</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Nagtatapos sa</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Nagsisimula sa</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Itigil ang pag-animate nito</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>I-animate</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Magdagdag ng bahagi</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Isa pang galaw sa ibabaw, may sariling unit at timing</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>I-save bilang aking animation…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Itago sa Aking mga animation para magamit sa ibang teksto</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23234,10 +23461,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23911,6 +24134,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>I-customize ang animation</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Piliin kung ano ang gagalaw, ayon sa titik, salita o linya, at kung paano</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Custom na animation: baguhin ito sa I-customize ang animation, o bumalik sa pagpili ng mga preset.</translation>
     </message>
     <message>
         <source>Rename text animation</source>

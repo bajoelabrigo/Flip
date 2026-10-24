@@ -22729,6 +22729,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>ブロック全体</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>文字</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>単語</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>行</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>順方向</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>逆方向</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>中央から外へ</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>ランダム</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>リニア</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>スムーズ</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>なめらか弱</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>スナッピー</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>戻る</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>バウンス</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>移動 X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>移動 Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>拡大縮小 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>拡大縮小 Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>回転</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D回転 X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D回転 Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ぼかし</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>文字間隔</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>塗りの色</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>線の太さ</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>グロー</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>テキストアニメーションを編集</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>アニメーションをカスタマイズ</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>このアニメーションをプレビュー</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>エディターを閉じる</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>「%1」から開始します。変更するとこのテキスト専用のアニメーションになります。</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>各パートはこれらの値でテキストを繰り返し揺らします。</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>各パートはテキストを元の見た目からこれらの値へ動かします。</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>各パートはテキストをこれらの値から元の見た目へ動かします。</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>パート %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>パートを複製</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>パートを削除</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>方法</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>順序</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>スタッガー</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>長さ</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>イーズ</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>フェーズ</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>このパートは元のアニメーションのタイミングを保ちます。</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>動く量</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>終了時</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>開始時</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>これのアニメーションをやめる</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>アニメーション</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>パートを追加</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>独自の単位とタイミングを持つ別の動きを重ねます</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>マイアニメーションとして保存…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>マイアニメーションに保存して他のテキストで使います</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23167,10 +23394,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>詳細設定</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>カスタムアニメーター (MCP 経由で設定)。プリセットコントロールは無効です。</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23843,6 +24066,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation>Stock から</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>アニメーションをカスタマイズ</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>文字・単語・行ごとに、何をどう動かすかを選びます</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>カスタムアニメーション：「アニメーションをカスタマイズ」で変更するか、プリセットの選択に戻ります。</translation>
     </message>
     <message>
         <source>Rename text animation</source>

@@ -22729,6 +22729,233 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>Toàn khối</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>Ký tự</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>Từ</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Dòng</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Tiến tới</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>Lùi lại</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>Từ giữa ra</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Ngẫu nhiên</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Tuyến tính</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>Mượt</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>Nhẹ nhàng</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Tăng tốc</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>Nhanh gọn</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Quay lại</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Nảy</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>Di chuyển X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>Di chuyển Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Tỷ lệ X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Tỷ lệ Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Góc xoay</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>Xoay 3D X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>Xoay 3D Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Độ mờ đục</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>Làm mờ</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Khoảng cách chữ</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>Màu tô</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Chiều rộng nét</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>Phát sáng</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>Chỉnh sửa hoạt ảnh văn bản</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>Tùy chỉnh hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>Xem trước hoạt ảnh này</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>Đóng trình chỉnh sửa</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>Bắt đầu từ “%1”. Thay đổi của bạn biến nó thành hiệu ứng riêng của văn bản này.</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>Mỗi phần lắc văn bản theo các giá trị này, lặp đi lặp lại.</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>Mỗi phần đưa văn bản từ diện mạo của nó tới các giá trị này.</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>Mỗi phần đưa văn bản từ các giá trị này về diện mạo của nó.</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>Phần %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>Nhân bản phần</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>Xóa phần</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>Bởi</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>Thứ tự</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>So le</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Thời lượng</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Làm mềm</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Giai đoạn</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>Phần này giữ thời gian của hiệu ứng gốc.</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>Di chuyển</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>Kết thúc tại</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>Bắt đầu từ</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>Ngừng tạo chuyển động cho mục này</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>Tạo chuyển động</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>Thêm phần</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>Thêm một chuyển động bên trên, với đơn vị và thời gian riêng</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>Lưu thành chuyển động của tôi…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>Lưu vào Hiệu ứng của tôi để dùng cho văn bản khác</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23813,6 +24040,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Làm mềm</translation>
     </message>
     <message>
+        <source>Customize animation</source>
+        <translation>Tùy chỉnh hiệu ứng</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>Chọn thứ chuyển động, theo chữ cái, từ hoặc dòng, và cách chuyển động</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>Hiệu ứng tùy chỉnh: thay đổi bằng Tùy chỉnh hiệu ứng, hoặc quay lại chọn mẫu có sẵn.</translation>
+    </message>
+    <message>
         <source>Rename text animation</source>
         <translation>Đổi tên chuyển động văn bản</translation>
     </message>
@@ -23827,10 +24066,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Advanced</source>
         <translation>Nâng cao</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation>Trình tạo hoạt ảnh tùy chỉnh (được thiết lập thông qua MCP). Các preset điều khiển đã bị vô hiệu hóa.</translation>
     </message>
     <message>
         <source>Revert to preset</source>

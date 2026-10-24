@@ -126,6 +126,8 @@ Item {
     // ----- Animation ---------------------------------------------------------
     property string animSlot: "in"
     property string animCategory: ""
+    // The visual animation editor (Personalizar) is open for the current slot.
+    property bool animEditorOpen: false
     // Trending ones show for everyone but apply only signed in (Jorge, 2026-10-23): picking one
     // signed out asks for the account and applies it once signed in.
     readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
@@ -2990,6 +2992,37 @@ Item {
                 }
             }
 
+            // Customize: the slot's animation part by part (TextAnimatorEditor), starting from the
+            // chosen preset, the slot's own animators, or a fade by letter.
+            ThemedButton {
+                width: parent.width
+                visible: !root.animEditorOpen
+                variant: "secondary"
+                glyph: Theme.icons.sliders
+                text: qsTr("Customize animation")
+                tooltip: qsTr("Choose what moves, by letter, word or line, and how")
+                onClicked: root.animEditorOpen = true
+            }
+
+            Loader {
+                width: parent.width
+                active: root.animEditorOpen && root.page === "animate" && root.hasTextStyle
+                visible: active
+                sourceComponent: Component {
+                    TextAnimatorEditor {
+                        width: parent ? parent.width : 0
+                        slot: root.animSlot
+                        trackIndex: EditorState.selectedTrack
+                        clipIndex: EditorState.selectedClip
+                        slotData: root.slotData
+                        onCloseRequested: root.animEditorOpen = false
+                        onPreviewRequested: root.previewAnimation()
+                        onSaveRequested: saveAnimDialog.openWith(qsTr("Save text animation"),
+                                                                 root.selectedPreset ? root.selectedPreset.label : "")
+                    }
+                }
+            }
+
             CollapsibleSection {
                 width: parent.width
                 title: qsTr("Advanced")
@@ -2999,7 +3032,7 @@ Item {
                 Text {
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    text: qsTr("Custom animator (set via MCP). Preset controls are disabled.")
+                    text: qsTr("Custom animation: change it with Customize animation, or go back to picking presets.")
                     color: Theme.mutedForeground
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs

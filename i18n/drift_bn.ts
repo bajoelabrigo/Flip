@@ -22805,6 +22805,233 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAnimatorEditor</name>
+    <message>
+        <source>Whole block</source>
+        <translation>পুরো ব্লক</translation>
+    </message>
+    <message>
+        <source>Character</source>
+        <translation>অক্ষর</translation>
+    </message>
+    <message>
+        <source>Word</source>
+        <translation>শব্দ</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>লাইন</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>সামনে</translation>
+    </message>
+    <message>
+        <source>Backward</source>
+        <translation>পিছনে</translation>
+    </message>
+    <message>
+        <source>Center out</source>
+        <translation>মাঝ থেকে বাইরে</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>এলোমেলো</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>সরলরৈখিক</translation>
+    </message>
+    <message>
+        <source>Smooth</source>
+        <translation>মসৃণ</translation>
+    </message>
+    <message>
+        <source>Gentle</source>
+        <translation>কোমল</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>গতি বাড়ান</translation>
+    </message>
+    <message>
+        <source>Snappy</source>
+        <translation>চটপটে</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>ফিরে যান</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>বাউন্স</translation>
+    </message>
+    <message>
+        <source>Move X</source>
+        <translation>সরান X</translation>
+    </message>
+    <message>
+        <source>Move Y</source>
+        <translation>সরান Y</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>স্কেল X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>স্কেল Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>ঘূর্ণন</translation>
+    </message>
+    <message>
+        <source>3D turn X</source>
+        <translation>3D ঘোরানো X</translation>
+    </message>
+    <message>
+        <source>3D turn Y</source>
+        <translation>3D ঘোরানো Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>অস্বচ্ছতা</translation>
+    </message>
+    <message>
+        <source>Blur</source>
+        <translation>ঝাপসা</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>অক্ষরের ব্যবধান</translation>
+    </message>
+    <message>
+        <source>Fill colour</source>
+        <translation>ভরাট রং</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>স্ট্রোকের প্রস্থ</translation>
+    </message>
+    <message>
+        <source>Glow</source>
+        <translation>গ্লো</translation>
+    </message>
+    <message>
+        <source>Edit text animation</source>
+        <translation>টেক্সট অ্যানিমেশন সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>অ্যানিমেশন কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <source>Preview this animation</source>
+        <translation>এই অ্যানিমেশনের প্রিভিউ</translation>
+    </message>
+    <message>
+        <source>Close the editor</source>
+        <translation>এডিটর বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Starting from “%1”. Your changes make it this text&apos;s own animation.</source>
+        <translation>«%1» থেকে শুরু। আপনার পরিবর্তনে এটি এই টেক্সটের নিজস্ব অ্যানিমেশন হয়ে যায়।</translation>
+    </message>
+    <message>
+        <source>Each part sways the text by these values, over and over.</source>
+        <translation>প্রতিটি অংশ এই মানগুলো দিয়ে টেক্সটকে বারবার দোলায়।</translation>
+    </message>
+    <message>
+        <source>Each part takes the text from its look to these values.</source>
+        <translation>প্রতিটি অংশ টেক্সটকে তার চেহারা থেকে এই মানগুলোতে নিয়ে যায়।</translation>
+    </message>
+    <message>
+        <source>Each part brings the text from these values to its look.</source>
+        <translation>প্রতিটি অংশ টেক্সটকে এই মানগুলো থেকে তার চেহারায় আনে।</translation>
+    </message>
+    <message>
+        <source>Part %1</source>
+        <translation>অংশ %1</translation>
+    </message>
+    <message>
+        <source>Duplicate part</source>
+        <translation>অংশ ডুপ্লিকেট করুন</translation>
+    </message>
+    <message>
+        <source>Remove part</source>
+        <translation>অংশ সরান</translation>
+    </message>
+    <message>
+        <source>By</source>
+        <translation>অনুযায়ী</translation>
+    </message>
+    <message>
+        <source>Order</source>
+        <translation>ক্রম</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>ধাপে ধাপে বিলম্ব</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>সময়কাল</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>ইজ</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>গতি</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>ফেজ</translation>
+    </message>
+    <message>
+        <source>This part keeps the timing of the animation it came from.</source>
+        <translation>এই অংশটি যে অ্যানিমেশন থেকে এসেছে তার সময় ধরে রাখে।</translation>
+    </message>
+    <message>
+        <source>Moves by</source>
+        <translation>নড়ে</translation>
+    </message>
+    <message>
+        <source>Ends at</source>
+        <translation>শেষ হয়</translation>
+    </message>
+    <message>
+        <source>Starts from</source>
+        <translation>শুরু হয়</translation>
+    </message>
+    <message>
+        <source>Stop animating this</source>
+        <translation>এটি অ্যানিমেট করা বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Animate</source>
+        <translation>অ্যানিমেট করুন</translation>
+    </message>
+    <message>
+        <source>Add part</source>
+        <translation>অংশ যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Another motion on top, with its own unit and timing</source>
+        <translation>উপরে আরেকটি গতি, নিজস্ব একক ও সময়সহ</translation>
+    </message>
+    <message>
+        <source>Save as my animation…</source>
+        <translation>আমার অ্যানিমেশন হিসেবে সংরক্ষণ…</translation>
+    </message>
+    <message>
+        <source>Keep it in My animations to use on other texts</source>
+        <translation>অন্য টেক্সটে ব্যবহারের জন্য «আমার অ্যানিমেশন»-এ রাখুন</translation>
+    </message>
+</context>
+<context>
     <name>TextAssetsTab</name>
     <message>
         <source>Import text style</source>
@@ -23243,10 +23470,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Advanced</source>
         <translation>উন্নত সেটিংস</translation>
-    </message>
-    <message>
-        <source>Custom animator (set via MCP). Preset controls are disabled.</source>
-        <translation type="unfinished">কাস্টম অ্যানিমেটর (MCP এর মাধ্যমে সেট)। প্রিসেট নিয়ন্ত্রণ নিষ্ক্রিয় করা হয়.</translation>
     </message>
     <message>
         <source>Revert to preset</source>
@@ -23955,6 +24178,18 @@ If playback stutters, try another.</source>
     <message>
         <source>From Stock</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize animation</source>
+        <translation>অ্যানিমেশন কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <source>Choose what moves, by letter, word or line, and how</source>
+        <translation>কী নড়বে, অক্ষর, শব্দ বা লাইন ধরে, আর কীভাবে, তা বেছে নিন</translation>
+    </message>
+    <message>
+        <source>Custom animation: change it with Customize animation, or go back to picking presets.</source>
+        <translation>কাস্টম অ্যানিমেশন: «অ্যানিমেশন কাস্টমাইজ করুন» দিয়ে বদলান, অথবা প্রিসেট বাছাইয়ে ফিরে যান।</translation>
     </message>
     <message>
         <source>Rename text animation</source>
