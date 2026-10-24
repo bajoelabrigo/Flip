@@ -3887,6 +3887,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14373,6 +14377,81 @@ NEXT TIME</source>
     <name>JobRegistry</name>
     <message>
         <source>Queued</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -25519,23 +25598,31 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Linear</source>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease</source>
+        <source>Straight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease in</source>
+        <source>Smooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease out</source>
+        <source>Smooth in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25544,6 +25631,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

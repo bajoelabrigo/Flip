@@ -3895,6 +3895,10 @@
         <translation>Transición actualizada</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>No se pudo crear la carpeta de la biblioteca de LUT.</translation>
     </message>
@@ -14374,6 +14378,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>En cola</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25527,24 +25606,32 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mover fotograma clave</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Lineal</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>Suave (entrada y salida)</translation>
+        <source>Straight</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>Entrada suave</translation>
+        <source>Smooth</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>Salida suave</translation>
+        <source>Smooth in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25553,6 +25640,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Borrar fotograma clave</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

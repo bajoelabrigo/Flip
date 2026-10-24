@@ -3887,6 +3887,10 @@
         <translation>Transição atualizada</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>Remover quadros-chave</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Não foi possível criar a pasta da biblioteca de LUT.</translation>
     </message>
@@ -14378,6 +14382,81 @@ PRÓXIMA</translation>
     <message>
         <source>Queued</source>
         <translation>Na fila</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Original</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linear</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Entrada suave</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Saída suave</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Entrada e saída suaves</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Entrada cúbica</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Saída cúbica</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Entrada e saída cúbicas</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Entrada forte</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Saída forte</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Entrada e saída fortes</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Acelerar</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Frear</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Pegar impulso</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Passar e voltar</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Quique</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Salto</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Curvas</translation>
     </message>
 </context>
 <context>
@@ -25531,24 +25610,32 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Mover quadro-chave</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Linear</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>clique direito: Reto, Suave, Salto, Curvas</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>Suavização (entrada e saída)</translation>
+        <source>Straight</source>
+        <translation>Reto</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>Entrada suave</translation>
+        <source>Smooth</source>
+        <translation>Suave</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>Saída suave</translation>
+        <source>Smooth in</source>
+        <translation>Suave ao chegar</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Suave ao sair</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>Manter</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Curvas…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25557,6 +25644,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Excluir quadro-chave</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Excluir quadros-chave</translation>
     </message>
 </context>
 <context>

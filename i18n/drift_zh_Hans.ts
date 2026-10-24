@@ -3881,6 +3881,10 @@
         <translation>已更新转场</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>移除关键帧</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>无法创建 LUT 库文件夹。</translation>
     </message>
@@ -14333,6 +14337,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>排队中</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>原始</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>线性</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>缓入</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>缓出</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>缓入缓出</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>三次缓入</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>三次缓出</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>三次缓入缓出</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>强缓入</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>强缓出</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>强缓入缓出</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>减速</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>蓄力</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>冲过头再回来</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>弹跳</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>定格</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>曲线</translation>
     </message>
 </context>
 <context>
@@ -25448,24 +25527,32 @@ If playback stutters, try another.</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>线性</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>右键：直线、平滑、定格、曲线</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>缓入缓出</translation>
+        <source>Straight</source>
+        <translation>直线</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>缓入</translation>
+        <source>Smooth</source>
+        <translation>平滑</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>缓出</translation>
+        <source>Smooth in</source>
+        <translation>到达时平滑</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>离开时平滑</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>定格</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>曲线…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25473,6 +25560,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation>删除关键帧</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation>删除关键帧</translation>
     </message>
 </context>

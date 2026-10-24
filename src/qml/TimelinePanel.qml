@@ -80,6 +80,9 @@ PanelFrame {
     readonly property real minZoom: 0.0001
     readonly property real maxZoom: 40.0
     readonly property real pxPerSecond: Theme.pixelsPerSecondBase * zoom
+    // The track whose keyframe rows hold the picked keys: picking keys on another track drops them,
+    // so After Effects' keys (F9…) act on one set.
+    property int keyPickTrack: -1
     onPxPerSecondChanged: EditorState.setSnapRadius(8, pxPerSecond)
     Component.onCompleted: {
         TouchDrag.registerTarget(root)
@@ -2422,6 +2425,8 @@ PanelFrame {
                                     trackIndex: trackRow.trackIndex
                                     pxPerSecond: root.pxPerSecond
                                     liveRows: trackRow.keyframeRows
+                                    pickActive: root.keyPickTrack === trackRow.trackIndex
+                                    onPicking: root.keyPickTrack = trackRow.trackIndex
                                 }
 
                                 // Right-click a gap to ripple everything after it (and any

@@ -3893,6 +3893,10 @@
         <translation>Переход обновлён</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Не удалось создать папку библиотеки LUT.</translation>
     </message>
@@ -14423,6 +14427,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>В очереди</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Исходная</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Линейная</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Плавный вход</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Плавный выход</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Плавные вход и выход</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Кубический вход</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Кубический выход</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Кубические вход и выход</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Сильный вход</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Сильный выход</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Сильные вход и выход</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Ускорение</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Торможение</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Замах</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Перелёт и возврат</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Отскок</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Удержание</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Кривые</translation>
     </message>
 </context>
 <context>
@@ -25613,24 +25692,32 @@ If playback stutters, try another.</source>
         <translation>Переместить ключевой кадр</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Линейно</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>правый клик: Прямо, Плавно, Удержание, Кривые</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>Плавно (вход и выход)</translation>
+        <source>Straight</source>
+        <translation>Прямо</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>Плавный вход</translation>
+        <source>Smooth</source>
+        <translation>Плавно</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>Плавный выход</translation>
+        <source>Smooth in</source>
+        <translation>Плавно на входе</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Плавно на выходе</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>Удержание</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Кривые…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25639,6 +25726,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>Удалить ключевой кадр</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
     </message>
 </context>
 <context>

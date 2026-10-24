@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>কার্ভ</translation>
     </message>
     <message>
         <source>Color wheels</source>
@@ -3944,6 +3944,10 @@
         <translation type="unfinished">পরিবর্তন আপডেট করা হয়েছে।</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>কীফ্রেম সরান</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5181,7 +5185,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>বাউন্স</translation>
     </message>
     <message>
         <source>3D</source>
@@ -5285,7 +5289,7 @@
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished">ধরে রাখুন</translation>
+        <translation>স্থির</translation>
     </message>
     <message>
         <source>Imported</source>
@@ -7421,7 +7425,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>কার্ভ</translation>
     </message>
     <message>
         <source>Luma 0%</source>
@@ -9361,7 +9365,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished">বাউন্স</translation>
+        <translation>বাউন্স</translation>
     </message>
     <message>
         <source>Boing</source>
@@ -11834,7 +11838,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished">আসল</translation>
+        <translation>মূল</translation>
     </message>
     <message>
         <source>Noise removed</source>
@@ -14374,6 +14378,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation type="unfinished">সারিবদ্ধ</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>মূল</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>রৈখিক</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>ধীরে শুরু</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>ধীরে শেষ</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>ধীরে শুরু ও শেষ</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>কিউবিক শুরু</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>কিউবিক শেষ</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>কিউবিক শুরু ও শেষ</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>জোরালো শুরু</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>জোরালো শেষ</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>জোরালো শুরু ও শেষ</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>গতি বাড়ান</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>গতি কমান</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>দম নেওয়া</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>পেরিয়ে ফিরে আসা</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>বাউন্স</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>স্থির</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>কার্ভ</translation>
     </message>
 </context>
 <context>
@@ -18149,7 +18228,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished">সোজা</translation>
+        <translation>সোজা</translation>
     </message>
     <message>
         <source>Straight — changes at a steady rate between keyframes</source>
@@ -18625,7 +18704,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished">আসল</translation>
+        <translation>মূল</translation>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
@@ -22544,7 +22623,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished">বাউন্স</translation>
+        <translation>বাউন্স</translation>
     </message>
     <message>
         <source>Save style…</source>
@@ -25527,24 +25606,32 @@ If playback stutters, try another.</source>
         <translation type="unfinished">কীফ্রেম সরান</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation type="unfinished">সরলরৈখিক</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>ডান-ক্লিক: সোজা, মসৃণ, স্থির, কার্ভ</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation type="unfinished"></translation>
+        <source>Straight</source>
+        <translation>সোজা</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth</source>
+        <translation>মসৃণ</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth in</source>
+        <translation>পৌঁছাতে মসৃণ</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>ছাড়তে মসৃণ</translation>
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished">ধরে রাখুন</translation>
+        <translation>স্থির</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>কার্ভ…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25553,6 +25640,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>কীফ্রেম মুছুন</translation>
     </message>
 </context>
 <context>
@@ -26983,7 +27074,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">মসৃণ</translation>
+        <translation>মসৃণ</translation>
     </message>
     <message>
         <source>Evens out the skin</source>

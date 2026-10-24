@@ -4189,6 +4189,10 @@
         <translation>تم تحديث تسهيل الإطار المفتاحي</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>إزالة الإطارات الرئيسية</translation>
+    </message>
+    <message>
         <source>Keyframe curve changed</source>
         <translation>تم تغيير منحنى الإطار المفتاحي</translation>
     </message>
@@ -14558,6 +14562,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>في قائمة الانتظار</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>الأصلي</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>خطي</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>دخول ناعم</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>خروج ناعم</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>دخول وخروج ناعمان</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>دخول تكعيبي</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>خروج تكعيبي</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>دخول وخروج تكعيبيان</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>دخول قوي</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>خروج قوي</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>دخول وخروج قويان</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>تسريع</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>إبطاء</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>أخذ زخم</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>تجاوز ثم عودة</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>ارتداد</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>تثبيت</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>المنحنيات</translation>
     </message>
 </context>
 <context>
@@ -25859,24 +25938,32 @@ If playback stutters, try another.</source>
         <translation>نقل الإطار المفتاحي</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>خطي</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>نقرة يمنى: مستقيم، ناعم، تثبيت، منحنيات</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>تسارع وتباطؤ سلس</translation>
+        <source>Straight</source>
+        <translation>مستقيم</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>دخول سلس</translation>
+        <source>Smooth</source>
+        <translation>ناعم</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>خروج سلس</translation>
+        <source>Smooth in</source>
+        <translation>ناعم عند الوصول</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>ناعم عند المغادرة</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>تثبيت</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>المنحنيات…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25885,6 +25972,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation>حذف الإطار المفتاحي</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>حذف الإطارات الرئيسية</translation>
     </message>
 </context>
 <context>

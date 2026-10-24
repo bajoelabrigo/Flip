@@ -3889,6 +3889,10 @@
         <translation>Đã cập nhật hiệu ứng chuyển cảnh</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>Gỡ khung hình chính</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Không thể tạo thư mục thư viện LUT.</translation>
     </message>
@@ -14333,6 +14337,81 @@ LẦN SAU</translation>
     <message>
         <source>Queued</source>
         <translation>Đã xếp hàng đợi</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Gốc</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Tuyến tính</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Vào êm</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Ra êm</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Vào và ra êm</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Vào bậc ba</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Ra bậc ba</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Vào và ra bậc ba</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Vào mạnh</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Ra mạnh</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Vào và ra mạnh</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Tăng tốc</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Giảm tốc</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Lấy đà</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Vượt quá rồi quay lại</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Nảy</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Giữ</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Đường cong</translation>
     </message>
 </context>
 <context>
@@ -25449,24 +25528,32 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Di chuyển khung hình chính</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Tuyến tính</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>nhấp chuột phải: Thẳng, Êm, Giữ, Đường cong</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>Chậm vào và ra</translation>
+        <source>Straight</source>
+        <translation>Thẳng</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>Chậm vào</translation>
+        <source>Smooth</source>
+        <translation>Êm</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>Chậm ra</translation>
+        <source>Smooth in</source>
+        <translation>Êm khi đến</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Êm khi rời</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>Giữ</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Đường cong…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25474,6 +25561,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation>Xóa khung hình chính</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation>Xóa khung hình chính</translation>
     </message>
 </context>

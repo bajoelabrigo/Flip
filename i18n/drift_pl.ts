@@ -3893,6 +3893,10 @@
         <translation>Zaktualizowano przejście</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>Usuń klatki kluczowe</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>Nie udało się utworzyć folderu biblioteki LUT.</translation>
     </message>
@@ -14423,6 +14427,81 @@ ZOBACZENIA</translation>
     <message>
         <source>Queued</source>
         <translation>W kolejce</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Oryginalna</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Liniowa</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Łagodne wejście</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Łagodne wyjście</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Łagodne wejście i wyjście</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Wejście sześcienne</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Wyjście sześcienne</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Wejście i wyjście sześcienne</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Mocne wejście</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Mocne wyjście</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Mocne wejście i wyjście</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Przyspiesz</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Zwolnij</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Zamach</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Przestrzel i wróć</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Odbicie</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Wstrzymanie</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Krzywe</translation>
     </message>
 </context>
 <context>
@@ -25613,24 +25692,32 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przesuń klatkę kluczową</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>Liniowa</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>prawy klik: Prosto, Łagodnie, Wstrzymanie, Krzywe</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>Łagodne wejście i wyjście</translation>
+        <source>Straight</source>
+        <translation>Prosto</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>Łagodne wejście</translation>
+        <source>Smooth</source>
+        <translation>Łagodnie</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>Łagodne wyjście</translation>
+        <source>Smooth in</source>
+        <translation>Łagodnie na wejściu</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Łagodnie na wyjściu</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>Przytrzymanie</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Krzywe…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25639,6 +25726,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Delete keyframe</source>
         <translation>Usuń klatkę kluczową</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Usuń klatki kluczowe</translation>
     </message>
 </context>
 <context>

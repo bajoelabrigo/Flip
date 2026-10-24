@@ -3881,6 +3881,10 @@
         <translation>전환이 업데이트됨</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>키프레임 제거</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>LUT 라이브러리 폴더를 만들 수 없습니다.</translation>
     </message>
@@ -14333,6 +14337,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>대기 중</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>원본</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>선형</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>서서히 시작</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>서서히 끝</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>서서히 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>큐빅 시작</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>큐빅 끝</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>큐빅 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>강한 시작</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>강한 끝</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>강한 시작과 끝</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>가속</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>감속</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>도움닫기</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>지나쳤다 돌아오기</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>바운스</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>고정</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>곡선</translation>
     </message>
 </context>
 <context>
@@ -25447,24 +25526,32 @@ If playback stutters, try another.</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>선형</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>오른쪽 클릭: 직선, 부드럽게, 고정, 곡선</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>이지 이즈</translation>
+        <source>Straight</source>
+        <translation>직선</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>이지 이즈 인</translation>
+        <source>Smooth</source>
+        <translation>부드럽게</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>이지 이즈 아웃</translation>
+        <source>Smooth in</source>
+        <translation>도착을 부드럽게</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>출발을 부드럽게</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>고정</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>곡선…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25472,6 +25559,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation>키프레임 삭제</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation>키프레임 삭제</translation>
     </message>
 </context>

@@ -6316,9 +6316,32 @@ QString AppController::filmstripTileUrl(const QString &path, int level, double i
 
 double AppController::snapTime(double seconds, const QString &excludeClipId) const
 {
+    if (!m_snapEnabled)
+        return qMax(0.0, seconds);
+    QList<drift::TimeUs> targets = extraSnapTargetsCached();
+    appendKeyframeSnapTargets(&targets, excludeClipId);
     return drift::usToSeconds(drift::snapTime(m_project, drift::secondsToUs(seconds), m_snapEnabled,
-                                              m_playheadUs, extraSnapTargetsCached(), excludeClipId,
+                                              m_playheadUs, targets, excludeClipId,
                                               m_snapThresholdUs));
+}
+
+void AppController::appendKeyframeSnapTargets(QList<drift::TimeUs> *targets,
+                                              const QString &excludeClipId) const
+{
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (track.isAdjustmentLane())
+            continue;
+        for (int c = 0; c < track.clips.size(); ++c) {
+            if (!excludeClipId.isEmpty() && track.clips.at(c).id == excludeClipId)
+                continue;
+            for (const QString &prop : clipAnimatedProperties(t, c)) {
+                for (const QVariant &key : clipKeyframes(t, c, prop))
+                    targets->append(drift::secondsToUs(
+                        key.toMap().value(QStringLiteral("seconds")).toDouble()));
+            }
+        }
+    }
 }
 
 void AppController::setSnapRadius(double pixels, double pxPerSecond)
@@ -17792,6 +17815,128 @@ void AppController::setKeyframeEasingAt(int trackIndex, int clipIndex, const QSt
                                         double atSeconds, const QString &mode)
 {
     const drift::Project before = m_project;
+    if (!applyKeyframeEasing(trackIndex, clipIndex, prop, atSeconds, mode))
+        return;
+    pushProjectEdit(before, tr("Keyframe easing changed"));
+    finishEdit(tr("Keyframe easing updated"));
+}
+
+void AppController::setKeyframesEasing(int trackIndex, const QVariantList &keys, const QString &mode)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        changed |= applyKeyframeEasing(trackIndex, k.value(QStringLiteral("clip")).toInt(),
+                                       k.value(QStringLiteral("prop")).toString(),
+                                       k.value(QStringLiteral("seconds")).toDouble(), mode);
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Keyframe easing changed"));
+    finishEdit(tr("Keyframe easing updated"));
+}
+
+void AppController::setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
+                                      double x2, double y2)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    // A straight preset is no handles at all (a linear key), an eased end a flat handle: the
+    // keys then read as the named shapes, not as hand-drawn ones.
+    const bool straightStart = qAbs(x1 - y1) < 1e-3;
+    const bool straightEnd = qAbs(x2 - y2) < 1e-3;
+    auto bend = [&](int clipIndex, const QString &p, double atSeconds) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0
+            || c >= m_project.tracks().at(t).clips.size())
+            return;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        if (!kt || kt->keyframes().size() < 2)
+            return;
+        const drift::TimeUs at =
+            kt->nearestKeyframe(drift::secondsToUs(atSeconds) - clip.timelineStart, kKeyframeToleranceUs);
+        if (at < 0)
+            return;
+        auto it = kt->keyframes().constFind(at);
+        if (std::next(it) == kt->keyframes().constEnd())
+            it = std::prev(it);
+        const drift::TimeUs from = it.key();
+        const drift::TimeUs to = std::next(it).key();
+        drift::Keyframe<double> *a = kt->keyframeRef(from);
+        drift::Keyframe<double> *b = kt->keyframeRef(to);
+        if (!a || !b)
+            return;
+        const double span = static_cast<double>(to - from);
+        const double dv = b->value - a->value;
+        a->hold = false;
+        a->outDx = straightStart ? 0.0 : x1 * span;
+        a->outDy = straightStart ? 0.0 : y1 * dv;
+        a->corner = true;
+        b->inDx = straightEnd ? 0.0 : (x2 - 1.0) * span;
+        b->inDy = straightEnd ? 0.0 : (y2 - 1.0) * dv;
+        b->corner = true;
+        changed = true;
+    };
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        const int c = k.value(QStringLiteral("clip")).toInt();
+        const QString p = k.value(QStringLiteral("prop")).toString();
+        const double s = k.value(QStringLiteral("seconds")).toDouble();
+        bend(c, p, s);
+        if (m_positionLinked && (p == QLatin1String("x") || p == QLatin1String("y")))
+            bend(c, p == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"), s);
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Keyframe easing changed"));
+    finishEdit(tr("Keyframe easing updated"));
+}
+
+void AppController::removeKeyframes(int trackIndex, const QVariantList &keys)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    auto drop = [&](int clipIndex, const QString &p, double atSeconds) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, p);
+        if (t < 0 || t >= m_project.tracks().size() || c < 0
+            || c >= m_project.tracks().at(t).clips.size())
+            return;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        if (!kt)
+            return;
+        const drift::TimeUs rel =
+            qMax<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart);
+        const drift::TimeUs nearest = kt->nearestKeyframe(rel, kKeyframeToleranceUs);
+        if (nearest < 0)
+            return;
+        kt->removeKeyframe(nearest);
+        changed = true;
+    };
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        const int c = k.value(QStringLiteral("clip")).toInt();
+        const QString p = k.value(QStringLiteral("prop")).toString();
+        const double s = k.value(QStringLiteral("seconds")).toDouble();
+        drop(c, p, s);
+        if (m_positionLinked && (p == QLatin1String("x") || p == QLatin1String("y")))
+            drop(c, p == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"), s);
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, keys.size() > 1 ? tr("Remove keyframes") : tr("Remove keyframe"));
+    finishEdit(tr("Keyframe removed"));
+}
+
+bool AppController::applyKeyframeEasing(int trackIndex, int clipIndex, const QString &prop,
+                                        double atSeconds, const QString &mode)
+{
     bool changed = false;
     auto shape = [&](const QString &p) {
         int t = trackIndex;
@@ -17829,10 +17974,7 @@ void AppController::setKeyframeEasingAt(int trackIndex, int clipIndex, const QSt
     shape(prop);
     if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y")))
         shape(prop == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"));
-    if (!changed)
-        return;
-    pushProjectEdit(before, tr("Keyframe easing changed"));
-    finishEdit(tr("Keyframe easing updated"));
+    return changed;
 }
 
 // Double-click on a keyframe row: a key at that time holding the value the property has there,

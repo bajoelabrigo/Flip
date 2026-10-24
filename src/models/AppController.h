@@ -1298,6 +1298,14 @@ public:
     // The key nearest atSeconds: "linear", "ease", "easeIn", "easeOut" or "hold".
     Q_INVOKABLE void setKeyframeEasingAt(int trackIndex, int clipIndex, const QString &prop,
                                          double atSeconds, const QString &mode);
+    // The keys picked on a track's keyframe rows, each {clip, prop, seconds}, as one undo step:
+    // their easing (the modes above), a cubic-bezier on the stretch each one starts (x1, y1, x2,
+    // y2 as CSS's; on a last key, the stretch that ends there: Curvas, as the web's and CapCut's
+    // Gráficos), or removed.
+    Q_INVOKABLE void setKeyframesEasing(int trackIndex, const QVariantList &keys, const QString &mode);
+    Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
+                                       double x2, double y2);
+    Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
@@ -2087,6 +2095,12 @@ protected:
                               double outDy, bool corner);
     void syncLinkedTangents(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
                             double inDx, double inDy, double outDx, double outDy, bool corner);
+    // setKeyframeEasingAt without its undo step (and setKeyframesEasing's per key). True on a change.
+    bool applyKeyframeEasing(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                             const QString &mode);
+    // Every clip's keys as magnets for the playhead (After Effects' snap to keyframes), but the
+    // dragged clip's own.
+    void appendKeyframeSnapTargets(QList<drift::TimeUs> *targets, const QString &excludeClipId) const;
     // Recollects m_beatSnapTargets from whichever layers are currently visible.
     void rebuildBeatSnapTargets();
     // Beat onsets plus project bookmarks — anything clips should magnet to when snap is on.

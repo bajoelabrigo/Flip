@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga kurba</translation>
     </message>
     <message>
         <source>Color wheels</source>
@@ -3887,6 +3887,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>Alisin ang mga keyframe</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5085,7 +5089,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>3D</source>
@@ -5189,7 +5193,7 @@
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Imported</source>
@@ -7421,7 +7425,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga kurba</translation>
     </message>
     <message>
         <source>Luma 0%</source>
@@ -9361,7 +9365,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>Boing</source>
@@ -11834,7 +11838,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Orihinal</translation>
     </message>
     <message>
         <source>Noise removed</source>
@@ -14374,6 +14378,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>Orihinal</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Linear</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>Banayad na pasok</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Banayad na labas</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>Banayad na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>Cubic na pasok</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>Cubic na labas</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>Cubic na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>Malakas na pasok</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>Malakas na labas</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>Malakas na pasok at labas</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>Bumilis</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>Bumagal</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>Kumuha ng bwelo</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Lumampas at bumalik</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Talbog</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Mga kurba</translation>
     </message>
 </context>
 <context>
@@ -18143,7 +18222,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Straight</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuwid</translation>
     </message>
     <message>
         <source>Straight — changes at a steady rate between keyframes</source>
@@ -18618,7 +18697,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Orihinal</translation>
     </message>
     <message>
         <source>Enhanced — out of date, preview again</source>
@@ -22536,7 +22615,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>Talbog</translation>
     </message>
     <message>
         <source>Save style…</source>
@@ -25519,24 +25598,32 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation type="unfinished">Linyar</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>right-click: Tuwid, Banayad, Hinto, Mga kurba</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation type="unfinished"></translation>
+        <source>Straight</source>
+        <translation>Tuwid</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth</source>
+        <translation>Banayad</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth in</source>
+        <translation>Banayad sa pagdating</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>Banayad sa pag-alis</translation>
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>Mga kurba…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25545,6 +25632,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Burahin ang mga keyframe</translation>
     </message>
 </context>
 <context>
@@ -26975,7 +27066,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished">Makinis</translation>
+        <translation>Banayad</translation>
     </message>
     <message>
         <source>Evens out the skin</source>

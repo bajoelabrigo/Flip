@@ -3881,6 +3881,10 @@
         <translation>トランジションを更新しました</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation>LUT ライブラリのフォルダーを作成できませんでした。</translation>
     </message>
@@ -14333,6 +14337,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>待機中</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>オリジナル</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>リニア</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>イーズイン</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>イーズアウト</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>イーズインアウト</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>キュービックイン</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>キュービックアウト</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>キュービックインアウト</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>強いイン</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>強いアウト</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>強いインアウト</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>加速</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>減速</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>助走</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>行き過ぎて戻る</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>バウンス</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>カーブ</translation>
     </message>
 </context>
 <context>
@@ -25449,24 +25528,32 @@ If playback stutters, try another.</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation>リニア</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>右クリック：直線、スムーズ、停止、カーブ</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation>イージーイーズ</translation>
+        <source>Straight</source>
+        <translation>直線</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation>イージーイーズイン</translation>
+        <source>Smooth</source>
+        <translation>スムーズ</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation>イージーイーズアウト</translation>
+        <source>Smooth in</source>
+        <translation>到着をスムーズに</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>出発をスムーズに</translation>
     </message>
     <message>
         <source>Hold</source>
         <translation>停止</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>カーブ…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25474,6 +25561,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete keyframe</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
         <translation>キーフレームを削除</translation>
     </message>
 </context>

@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>වක්‍ර</translation>
     </message>
     <message>
         <source>Color wheels</source>
@@ -3887,6 +3887,10 @@
         <translation>සංක්‍රාන්තිය යාවත්කාලීන විය</translation>
     </message>
     <message>
+        <source>Remove keyframes</source>
+        <translation>ප්‍රධාන රාමු ඉවත් කරන්න</translation>
+    </message>
+    <message>
         <source>The LUT library folder could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5081,7 +5085,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished"></translation>
+        <translation>පනින්න</translation>
     </message>
     <message>
         <source>3D</source>
@@ -7421,7 +7425,7 @@
     </message>
     <message>
         <source>Curves</source>
-        <translation type="unfinished"></translation>
+        <translation>වක්‍ර</translation>
     </message>
     <message>
         <source>Luma 0%</source>
@@ -9361,7 +9365,7 @@
     </message>
     <message>
         <source>Bounce</source>
-        <translation type="unfinished">ගැසීම (Bounce)</translation>
+        <translation>පනින්න</translation>
     </message>
     <message>
         <source>Boing</source>
@@ -14374,6 +14378,81 @@ NEXT TIME</source>
     <message>
         <source>Queued</source>
         <translation>පෝලිම්ගතයි</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeCurvesPopup</name>
+    <message>
+        <source>Original</source>
+        <translation>මුල්</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>රේඛීය</translation>
+    </message>
+    <message>
+        <source>Ease in</source>
+        <translation>සෙමින් ඇතුළු වීම</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>සෙමින් පිටවීම</translation>
+    </message>
+    <message>
+        <source>Ease in and out</source>
+        <translation>සෙමින් ඇතුළු වීම සහ පිටවීම</translation>
+    </message>
+    <message>
+        <source>Cubic in</source>
+        <translation>ඝන ඇතුළු වීම</translation>
+    </message>
+    <message>
+        <source>Cubic out</source>
+        <translation>ඝන පිටවීම</translation>
+    </message>
+    <message>
+        <source>Cubic in and out</source>
+        <translation>ඝන ඇතුළු වීම සහ පිටවීම</translation>
+    </message>
+    <message>
+        <source>Strong in</source>
+        <translation>ප්‍රබල ඇතුළු වීම</translation>
+    </message>
+    <message>
+        <source>Strong out</source>
+        <translation>ප්‍රබල පිටවීම</translation>
+    </message>
+    <message>
+        <source>Strong in and out</source>
+        <translation>ප්‍රබල ඇතුළු වීම සහ පිටවීම</translation>
+    </message>
+    <message>
+        <source>Speed up</source>
+        <translation>වේගවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Slow down</source>
+        <translation>මන්දගාමී කරන්න</translation>
+    </message>
+    <message>
+        <source>Wind up</source>
+        <translation>ගැම්ම ගැනීම</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>ඉක්මවා ආපසු</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>පනින්න</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>රඳවන්න</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>වක්‍ර</translation>
     </message>
 </context>
 <context>
@@ -25527,24 +25606,32 @@ If playback stutters, try another.</source>
         <translation type="unfinished">කීෆ්‍රේමය ගෙනයන්න</translation>
     </message>
     <message>
-        <source>Linear</source>
-        <translation type="unfinished">රේඛීය</translation>
+        <source>right-click: Straight, Smooth, Hold, Curves</source>
+        <translation>දකුණු ක්ලික්: සෘජු, සිනිඳු, රඳවන්න, වක්‍ර</translation>
     </message>
     <message>
-        <source>Easy ease</source>
-        <translation type="unfinished"></translation>
+        <source>Straight</source>
+        <translation>සෘජු</translation>
     </message>
     <message>
-        <source>Easy ease in</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth</source>
+        <translation>සිනිඳු</translation>
     </message>
     <message>
-        <source>Easy ease out</source>
-        <translation type="unfinished"></translation>
+        <source>Smooth in</source>
+        <translation>පැමිණීමේදී සිනිඳු</translation>
+    </message>
+    <message>
+        <source>Smooth out</source>
+        <translation>පිටවීමේදී සිනිඳු</translation>
     </message>
     <message>
         <source>Hold</source>
-        <translation type="unfinished">රඳවාගැනීම (Hold)</translation>
+        <translation>රඳවන්න</translation>
+    </message>
+    <message>
+        <source>Curves…</source>
+        <translation>වක්‍ර…</translation>
     </message>
     <message>
         <source>Edit curve…</source>
@@ -25553,6 +25640,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete keyframe</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>ප්‍රධාන රාමු මකන්න</translation>
     </message>
 </context>
 <context>
@@ -26983,7 +27074,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Smooth</source>
-        <translation type="unfinished"></translation>
+        <translation>සිනිඳු</translation>
     </message>
     <message>
         <source>Evens out the skin</source>
