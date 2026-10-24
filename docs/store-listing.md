@@ -118,7 +118,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > - Efectos con IA que siguen la cara (belleza, mosaico) o a la persona (resplandor, clones), y 9 efectos de voz.
 > - Todos se pueden editar: intensidad, velocidad, color, tamaño, posición y más, con fotogramas clave.
 > - Las tarjetas se reproducen al pasar el mouse; un clic descarga y aplica.
-> - Las Tendencias (títulos, efectos y animaciones) piden iniciar sesión; la cuenta es gratis.
+> - Las Tendencias (títulos, efectos y las animaciones con la llamita naranja) piden iniciar sesión; la cuenta es gratis.
 
 En inglés:
 
@@ -128,7 +128,7 @@ En inglés:
 > - AI effects that follow the face (beauty, mosaic) or the person (glow, clones), and 9 voice effects.
 > - Every one is editable: intensity, speed, colour, size, position and more, with keyframes.
 > - Cards play when you hover them; one click downloads and applies.
-> - Trending (titles, effects and animations) needs you to sign in; the account is free.
+> - Trending (titles, effects and the animations with the orange flame) needs you to sign in; the account is free.
 
 **Notas para la Store (0.20.1)**. Arreglo de la 0.20.0 (aprobada el 2026-10-22).
 
