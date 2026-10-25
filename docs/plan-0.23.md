@@ -26,3 +26,73 @@ Jorge: «¿en un solo texto es posible poner letras de diferentes colores?» →
 - Que sobreviva a: editar el texto (los tramos se mueven con lo escrito), cortar el clip, aplicar un estilo (decidir
   si los conserva: sí, como las animaciones), copiar/pegar atributos, plantillas, `.flip` y la web.
 - Igual en el editor web. Probar en ventana: seleccionar «O» de «HOLA», ponerla roja y más grande, exportar.
+
+**Jorge (2026-10-25): el punto 2 se hace en «Texto avanzado», como Filmora** (ver el punto 3).
+
+## 3. Editor de «Texto avanzado» como Filmora (Jorge, 2026-10-25) — incluye el punto 2
+Captura de referencia: `docs/capturas/filmora-texto-avanzado.png` (Filmora › botón **AVANZADO** abajo a la derecha
+del inspector de Títulos → ventana «Texto avanzado Editar»).
+
+- **Qué es:** una ventana grande (diálogo modal, ~1200×700) que se abre desde un botón **«Avanzado»** al pie del
+  inspector de Texto (`src/qml/components/properties/TextInspector.qml`; hoy «Avanzado» es solo una sección
+  plegable, `advancedOpen`, línea ~1858, y el botón «Edit in Advanced» ~1183 la abre: que abran la ventana).
+- **Arriba, barra de herramientas:** añadir texto (T), añadir cuadro, imagen, borrar · fuente · tamaño · alinear
+  vertical · **B / I / U** · mayúsculas · las 4 alineaciones · interlineado · espaciado entre letras.
+  **B/I/U, color, tamaño y fuente se aplican a lo seleccionado** dentro del texto (si no hay selección, a todo):
+  aquí entra el punto 2 (tramos con estilo propio; en la captura «YO» va en rojo y el resto en blanco).
+- **Centro:** vista previa grande del texto sobre negro con el cuadro de selección (asas en las esquinas y el
+  tirador de giro), donde se puede **escribir y seleccionar letras directamente** (como un TextEdit sobre la vista).
+  Debajo, controles de reproducción (atrás, reproducir, parar, barra, tiempo `00:00:00:00 / 00:00:05:00`, zoom) y
+  una **mini línea de tiempo** propia con una fila por capa de texto (ojo y candado), para varios textos en el
+  mismo título.
+- **Derecha, pestañas:** **Estilo** (estilos rápidos, los de `core/TextQuickStyles`), **Personalizar**, **Animación**,
+  **Burbuja**. Personalizar, en secciones plegables con casilla: «Texto de entrada» (cuadro con contador `16/1500`),
+  «Texto en perspectiva» (Eje X/Y/Z, Intensidad de perspectiva, Desenfoque — ya existe el giro 3D de la 0.20),
+  «Relleno» (Tipo: Color de relleno/degradado/imagen, + / − colores, Efecto, Opacidad, Desenfoque), «Contorno» (con
+  «+» para varios contornos), «Sombra», «Fondo», «Brillo»… Reusar los controles que ya están en `TextInspector.qml`
+  (no duplicar lógica: extraerlos a componentes y usarlos en los dos sitios).
+- **Abajo:** «Guardar como personalizado» (va a Mis estilos), «Aplicar cambios» (con flecha: aplicar a este / a
+  todos los textos), casilla «Utilizar fuente predeterminada para texto nuevo», **Aplicar** y **Cancelar** (Cancelar
+  deshace todo lo hecho en la ventana: una sola entrada de deshacer al Aplicar).
+- **Modelo (punto 2):** `TextStyle` gana una lista de tramos `{inicio, fin, cambios}` (color, tamaño, negrita,
+  cursiva, subrayado, fuente, contorno, fondo) guardada en el proyecto y en el `.flip`; `TextLayout` (ya parte en
+  `StyledWord`) los aplica por carácter; las animaciones por letra siguen funcionando. Los tramos se mueven al editar
+  el texto. Pruebas en `tst_*` para guardar/abrir y para editar el texto con tramos.
+- **Web** (`flipstudio-app`): la misma ventana después del escritorio.
+- **Probar en ventana:** abrir Avanzado, seleccionar «YO» de «YOUR TITLE HERE», ponerlo rojo y en negrita, Aplicar,
+  ver la vista previa y exportar; Cancelar no deja cambios; deshacer/rehacer.
+
+## 4. Panel izquierdo como Filmora: subcategorías en la barra lateral (Jorge, 2026-10-25)
+Captura de referencia: `docs/capturas/filmora-panel-izquierdo.png` (Filmora › Filtros).
+
+- **Problema:** cada pestaña (Efectos, Títulos, Stock…) muestra sus subcategorías como **chips debajo del buscador**
+  (`ChipScroller`, `activeCategory` de cada navegador). Como crecieron, ocupan tanto alto que no dejan ver las
+  miniaturas.
+- **Cómo queda (Filmora):** se quitan los chips de debajo del buscador. La barra lateral izquierda (la que ya lista las
+  pestañas de la categoría: `tabRail` en `src/qml/AssetsPanel.qml`, ~línea 1036; categorías en `categories`, ~752)
+  pasa a ser un **árbol**: cada pestaña con una **flechita** (› cerrada / ⌄ abierta) y, al abrirla, **sus
+  subcategorías debajo, una por línea, con sangría** (en la captura: «› Mío», «⌄ Filtros» → Básico, Premium, Blanco y
+  negro…). La elegida va resaltada con fondo; un punto rojo para las que tienen novedades. Clic en una subcategoría =
+  lo que hoy hace el chip (`activeCategory`). Recordar qué grupos quedaron abiertos y la última elegida
+  (`lastTabInCategory` y el guardado de búsqueda/categoría, ~línea 811, ya existen).
+- Arriba del contenido queda solo: buscador y «…», y el **título de la subcategoría elegida** en mayúsculas
+  («BÁSICO»), como Filmora. Las entradas especiales («Favoritos» `__favorites__`, «Míos» `__mine__`, «Tendencias»)
+  también van en el árbol.
+- Aunque la categoría tenga una sola pestaña (Efectos, Transiciones), ahora **sí** se muestra la barra lateral con
+  sus subcategorías (hoy se oculta, `showSideList`).
+- **Stock, con un cambio:** la sección **«Todo»** de Stock (la que abre todo el submenú de tipos: plantillas,
+  música, LUTs, looks, stickers…) va en el árbol de la izquierda como **«Stock»** con sus pestañas debajo (cada tipo
+  de Stock = una línea). **«Videos» y «Fotos» (Pexels y Pixabay) se dejan tal y como están hoy**, con su selector de
+  proveedor por defecto (`StockBrowser.qml`, ~línea 325) — no se tocan.
+- Cuidar: el ancho del panel (`sideListWidth`, que no se coma las miniaturas: lateral ~150 px como Filmora), el
+  teclado (↑/↓ en el árbol, `tabRail.step`), el modo hoja del celular/Android (`sheetMode`: ahí siguen los chips),
+  y que nada se quede sin poder elegir.
+- **Web:** igual en `flipstudio-app` (mismo árbol en el panel izquierdo).
+- **Probar en ventana:** recorrer cada categoría de la fila de arriba, abrir y cerrar grupos, elegir subcategorías,
+  ver que las miniaturas llenan el alto; en Stock, «Stock» con sus tipos en el árbol y Videos/Fotos como siempre.
+
+## Orden sugerido
+1. Punto 4 (panel izquierdo): es solo QML y se nota en toda la app.
+2. Punto 3 (Texto avanzado + letras de colores): modelo `TextStyle`/`TextLayout` con pruebas, después la ventana.
+3. Compilar una vez (`gh workflow run build.yml --ref <rama> -f platforms=windows`), **probar en ventana** (regla de
+   Jorge) y publicar como 0.23.0 (rutina en `CLAUDE.md`). La 0.22.0 aún espera subir el MSIX tras aprobarse la 0.21.0.
