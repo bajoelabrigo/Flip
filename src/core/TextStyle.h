@@ -50,11 +50,6 @@ TextStyle withWordMarkDefaults(const TextStyle &style);
 // that are not common Spanish/English function words.
 bool isKeyword(const QString &word);
 
-// Los tramos ordenados, recortados al texto y sin solapes: donde dos se pisan gana el último.
-QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
-// El tramo que cubre ese desplazamiento, o nullptr si ninguno.
-const TextRun *textRunAt(const QList<TextRun> &runs, int at);
-
 // Rounded pill drawn behind a word. Used both for "every word" backgrounds and for the
 // accent-only highlight a pack paints under its chosen words.
 struct TextHighlight
@@ -104,6 +99,11 @@ struct TextRun
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }
 };
+
+// Los tramos ordenados, recortados al texto y sin solapes: donde dos se pisan gana el último.
+QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
+// El tramo que cubre ese desplazamiento, o nullptr si ninguno.
+const TextRun *textRunAt(const QList<TextRun> &runs, int at);
 
 struct TextStyle
 {
