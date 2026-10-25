@@ -62,6 +62,30 @@ del inspector de Títulos → ventana «Texto avanzado Editar»).
 - **Probar en ventana:** abrir Avanzado, seleccionar «YO» de «YOUR TITLE HERE», ponerlo rojo y en negrita, Aplicar,
   ver la vista previa y exportar; Cancelar no deja cambios; deshacer/rehacer.
 
+### Hecho (2026-10-25, rama `flip/v0.22.1`): el árbol, en el escritorio
+- `AssetsPanel.qml`: la barra lateral ya no es una lista de pestañas, es un **árbol**. Cada pestaña lleva una
+  **flechita** (› cerrada, ⌄ abierta) y, al abrirse, **sus subcategorías una por línea con sangría**; la elegida va
+  con fondo. La fila de la pestaña abre la pestaña; la flechita solo abre y cierra. La pestaña que se abre se
+  despliega sola (`expandGroup`), y arriba del árbol va el **nombre de la subcategoría en mayúsculas**.
+- **Los chips desaparecen** de los navegadores: `AssetCategoryChips` gana `panelDriven` y se oculta cuando el panel
+  lleva la categoría. Cada navegador (Efectos, Títulos, Transiciones, Stickers, Formas, Filtros, Audio, Plantillas
+  de efectos, Escenas, Pegatinas del emoji…) gana `property bool panelDriven: false` y lo recibe del panel
+  (`panelDriven: !root.sheetMode`), así que **en el celular/Android (modo hoja) los chips siguen**, como está hoy.
+- El panel conoce cada navegador por su `Loader` (los 19 tienen id) y le pasa la categoría elegida; la pestaña
+  recuerda búsqueda y categoría como siempre (`tabState`).
+- La barra lateral se ve **siempre** (antes se ocultaba en las categorías de una sola pestaña: Efectos,
+  Transiciones, Stock), con 168 px.
+- `qmllint` limpio en los 20 archivos tocados (sin errores de sintaxis ni propiedades que no existan).
+
+**Lo que falta de este punto:**
+1. **La web** (`flipstudio-app`): el mismo árbol en el panel izquierdo (hoy son chips bajo el buscador).
+2. **Stock**: el árbol solo tiene lo que expone cada navegador; la sección «Todo» de Stock con sus tipos por línea
+   (plantillas, música, LUTs, looks, stickers…) queda para su tanda; Videos y Fotos se dejan como están.
+3. **Las subcategorías de una pestaña que no está abierta** no se pueden dibujar (los navegadores se instancian al
+   abrir su pestaña): el grupo enseña la flechita al abrirlo. Se puede resolver guardando la lista en `tabState`.
+4. Puntos rojos de novedades en las subcategorías, y el teclado ↑/↓ recorriendo el árbol (ya recorre las filas).
+5. **Probar en ventana** (regla de Jorge) en cuanto haya build de CI: recorrer cada categoría, abrir y cerrar grupos,
+   elegir subcategorías y ver que las miniaturas llenan el alto que ganan.
 ## 4. Panel izquierdo como Filmora: subcategorías en la barra lateral (Jorge, 2026-10-25)
 Captura de referencia: `docs/capturas/filmora-panel-izquierdo.png` (Filmora › Filtros).
 

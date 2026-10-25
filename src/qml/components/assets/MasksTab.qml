@@ -12,6 +12,8 @@ import "."
 // and only ever with the mask clip itself selected.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // A mask landed on the timeline. The phone shell closes the sheet on this.
     signal added()

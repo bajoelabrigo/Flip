@@ -103,6 +103,7 @@ Column {
 
         AssetCategoryChips {
             id: categoryChips
+            panelDriven: root.panelDriven
             width: parent.width
             categories: root.categories
             activeCategory: root.activeCategory

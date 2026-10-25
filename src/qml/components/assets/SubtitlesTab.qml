@@ -7,6 +7,8 @@ import ".."
 // Subtitles tab: timed caption clips, .srt import, and auto-caption from speech.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // A clip landed on the timeline. The phone shell closes the sheet on this —
     // the thing you came for is behind it. Auto-caption deliberately does not

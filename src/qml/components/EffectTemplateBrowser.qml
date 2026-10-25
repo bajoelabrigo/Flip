@@ -7,6 +7,8 @@ import "assets"
 // Beat-synced multi-effect presets: category chips + card grid.
 Column {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
     spacing: 0
 
     readonly property string favoritesId: "__favorites__"
@@ -71,6 +73,7 @@ Column {
 
     AssetCategoryChips {
         id: categoryChips
+        panelDriven: root.panelDriven
         width: parent.width
         categories: root.categories
         activeCategory: root.activeCategory

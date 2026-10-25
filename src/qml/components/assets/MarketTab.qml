@@ -8,6 +8,8 @@ import ".."
 // tabs only, which is where the quotas and third-party terms it explains actually apply.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // Phone layout. Defaults to the window's own size class; the host can force it.
     property bool compact: Theme.compact

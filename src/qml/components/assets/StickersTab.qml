@@ -8,6 +8,8 @@ import "."
 // Stickers tab: category bar over a grid of the built-in sticker set.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // A clip landed on the timeline. The phone shell closes the sheet on this —
     // the thing you came for is behind it.
@@ -137,6 +139,7 @@ Item {
 
         AssetCategoryChips {
             id: categoryChips
+            panelDriven: root.panelDriven
             width: parent.width
             categories: root.hasStickers || Market.configured ? root.categories : []
             activeCategory: root.activeCategory

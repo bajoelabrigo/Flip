@@ -12,6 +12,8 @@ import "."
 // the categories that have any.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     signal added()
 
@@ -136,6 +138,8 @@ Item {
 
         AssetCategoryChips {
             id: chips
+            panelDriven: root.panelDriven
+            panelDriven: root.panelDriven
             width: parent.width
             categories: root.hasSounds || Market.configured ? root.categories : []
             activeCategory: root.activeCategory

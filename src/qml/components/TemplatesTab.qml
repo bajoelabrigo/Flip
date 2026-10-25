@@ -6,6 +6,8 @@ import Drift
 // effect templates (music-synced effects for a clip you already have), one at a time.
 Column {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
     spacing: 0
 
     // "scenes" | "effects"; the panel remembers it with the tab.

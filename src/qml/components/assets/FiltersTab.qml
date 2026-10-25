@@ -9,6 +9,8 @@ import "."
 // strength, on/off and removing it stay there). LUTs from Stock land in "Imported".
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
@@ -164,6 +166,7 @@ Item {
 
         AssetCategoryChips {
             id: categoryChips
+            panelDriven: root.panelDriven
             width: parent.width
             categories: root.categories
             activeCategory: root.activeCategory

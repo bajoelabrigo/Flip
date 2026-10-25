@@ -8,6 +8,8 @@ import "."
 // Transitions tab: category bar over a grid of transition kinds, dragged onto clip overlaps.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // Bumped when an addon changes the transitions on disk (an imported .driftfx, a pack install).
     property int catalogTick: 0
@@ -186,6 +188,7 @@ Item {
 
         AssetCategoryChips {
             id: transitionCategoryChips
+            panelDriven: root.panelDriven
             width: parent.width
             categories: root.categories
             activeCategory: root.activeCategory

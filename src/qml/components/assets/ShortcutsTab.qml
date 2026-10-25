@@ -7,6 +7,8 @@ import ".."
 // enough that the binding list was permanently below the fold.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
