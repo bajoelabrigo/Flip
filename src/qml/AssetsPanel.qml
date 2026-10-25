@@ -1242,7 +1242,7 @@ PanelFrame {
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: parent.width - x - Theme.spacingSm
-                                       - (sideButtonLabel.visible ? sideButtonLabel.width + parent.spacing : 0)
+                                       - (treeAi.visible ? treeAi.width + parent.spacing : 0)
                                 elide: Text.ElideRight
                                 text: treeRow.isSub ? treeRow.modelData.label : root.tabLabel(treeRow.modelData.tabId)
                                 color: treeRow.current ? Theme.foreground : Theme.mutedForeground
@@ -1252,7 +1252,7 @@ PanelFrame {
                             }
 
                             AiBadge {
-                                id: sideButtonLabel
+                                id: treeAi
                                 anchors.verticalCenter: parent.verticalCenter
                                 visible: !treeRow.isSub && !!root.aiInfo[treeRow.modelData.tabId]
                                 info: root.aiInfo[treeRow.modelData.tabId] || ""
