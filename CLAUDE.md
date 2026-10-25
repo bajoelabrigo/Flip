@@ -50,14 +50,25 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-23, noche)
+## Estado (actualizado 2026-10-24, noche)
 
-### 0.22 SIN PUBLICAR: primero el texto completo (2026-10-24) — **estado y orden en `docs/plan-0.22.md`**
-- Jorge: la 0.22 no va a la Store hasta tener los arreglos de `docs/auditoria-texto.md`, las funciones básicas y
-  avanzadas de texto, el tamaño con decimales, el editor visual de animaciones y todo igual en la web.
-- Ramas: `flip/v0.22.1` (worktree `.claude/worktrees/v0221`), `flip/subs-vtt-ass`, `flip/anim-editor`; web
-  `web/v0221-texto` (sin desplegar). La copia de prueba tiene la sesión de Google de Jorge: al terminar, restaurar el
-  registro **conservando** la clave `account`.
+### 0.22.0 PUBLICADA (2026-10-24) — texto renovado, fotogramas clave como After Effects, Stock en cada panel — **detalle en `docs/plan-0.22.md` y `docs/auditoria-texto.md` (sección I)**
+- PR #38 (`flip/v0.22.0` → `main`), tag `v0.22.0`, release (run 40140992912); copia en `versiones\FlipStudio-0.22.0`
+  (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40145802386 → `tienda\FlipStudio-Store\paquete-0.22.0`.
+  Notas de la Store: «Notas para la Store (0.22.0)» (1248/1500). Editor web (`web/v022`, une `web/v0221-texto`) desplegado.
+- Auditoría de texto D1–D14 corregida y **todo probado en ventana** (portables `pruebas\FlipStudio-0.22.1`, `-b`, `-c`).
+  Funciones nuevas: efectos/LUT/Ajustar en textos, tachado, justificar, espacio entre palabras, tamaño con decimales,
+  círculo, deformar por esquinas, editor de animaciones propias, Giro continuo y Resplandor que late, buscadores,
+  aplicar/pegar estilo, copiar/pegar claves, VTT/ASS, aviso de fuentes.
+- **Fallo viejo arreglado:** un texto con relleno de imagen dejaba el video verde en ventana (Skia dejaba samplers
+  atados; `SkiaRuntime::restoreGlState`). Venía de antes (también en la 0.21.0).
+- **Falta (Jorge):** subir el MSIX de la 0.22.0 a Partner Center cuando aprueben la 0.21.0, y después TXT `version`.
+- Siguiente: `docs/plan-0.23.md` (colorear letras sueltas dentro de un texto, como CapCut).
+- **Trampa:** los menús de clic derecho y los desplegables no se abren con clics simulados si la ventana está de
+  fondo: `py tools/e2e/ctxclick.py <pid> x y` (avisa a la ventana que está activa; no toca el mouse). El menú sale
+  donde está el ratón real de Jorge.
+- **Trampa:** `type_text` no confirma un campo numérico: hace falta otro clic en otro campo o la tecla Enter
+  (WM_KEYDOWN 0x0D) para que se guarde.
 
 ### 0.21.0 PUBLICADA (2026-10-23) — Efectos › Tendencias — **detalle y trampas en `docs/plan-efectos-tendencias.md`**
 - PR #37 (`flip/efectos-tendencias` → `main`), tag `v0.21.0`, release (run 40052598335); copia en
