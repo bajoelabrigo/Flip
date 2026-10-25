@@ -50,6 +50,11 @@ TextStyle withWordMarkDefaults(const TextStyle &style);
 // that are not common Spanish/English function words.
 bool isKeyword(const QString &word);
 
+// Los tramos ordenados, recortados al texto y sin solapes: donde dos se pisan gana el último.
+QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
+// El tramo que cubre ese desplazamiento, o nullptr si ninguno.
+const TextRun *textRunAt(const QList<TextRun> &runs, int at);
+
 // Rounded pill drawn behind a word. Used both for "every word" backgrounds and for the
 // accent-only highlight a pack paints under its chosen words.
 struct TextHighlight
@@ -79,8 +84,31 @@ struct WordAccent
     TextHighlight highlight;
 };
 
+// Un tramo del texto con su propio color, tamaño y negrita/cursiva (0.23): lo que el editor de
+// Texto avanzado llama «las letras seleccionadas». Los desplazamientos son UTF-16 dentro del texto
+// del bloque y la lista la deja ordenada, recortada al texto y sin solapes normalizedTextRuns().
+struct TextRun
+{
+    int start = 0;
+    int end = 0; // uno más allá del último
+
+    bool colorEnabled = false;
+    QColor color = QColor(255, 214, 64);
+    bool sizeEnabled = false;
+    double sizeScale = 1.0; // relativo al pixelSize del bloque; cambia el trazado
+    bool boldEnabled = false;
+    bool bold = true;
+    bool italicEnabled = false;
+    bool italic = true;
+
+    int length() const { return qMax(0, end - start); }
+    bool contains(int at) const { return at >= start && at < end; }
+};
+
 struct TextStyle
 {
+    // Tramos con estilo propio (0.23). Vacío: todo el bloque usa este estilo.
+    QList<TextRun> runs;
     QString packId; // last applied style pack; cleared once the style is hand-edited
     QString fontFamily = QStringLiteral("Inter");
     // At project height. A real number since 0.22.1, so a keyed zoom grows smoothly instead of

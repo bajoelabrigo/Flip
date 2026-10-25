@@ -997,6 +997,76 @@ TextHighlight textHighlightFromJson(const QJsonObject &o, const TextHighlight &f
     return h;
 }
 
+QJsonObject textRunToJson(const TextRun &r)
+{
+    return QJsonObject{
+        {QStringLiteral("start"), r.start},
+        {QStringLiteral("end"), r.end},
+        {QStringLiteral("colorEnabled"), r.colorEnabled},
+        {QStringLiteral("color"), r.color.name(QColor::HexArgb)},
+        {QStringLiteral("sizeEnabled"), r.sizeEnabled},
+        {QStringLiteral("sizeScale"), r.sizeScale},
+        {QStringLiteral("boldEnabled"), r.boldEnabled},
+        {QStringLiteral("bold"), r.bold},
+        {QStringLiteral("italicEnabled"), r.italicEnabled},
+        {QStringLiteral("italic"), r.italic},
+    };
+}
+
+TextRun textRunFromJson(const QJsonObject &o)
+{
+    TextRun r;
+    r.start = o.value(QStringLiteral("start")).toInt(r.start);
+    r.end = o.value(QStringLiteral("end")).toInt(r.end);
+    r.colorEnabled = o.value(QStringLiteral("colorEnabled")).toBool(r.colorEnabled);
+    r.color = QColor(o.value(QStringLiteral("color")).toString(r.color.name(QColor::HexArgb)));
+    r.sizeEnabled = o.value(QStringLiteral("sizeEnabled")).toBool(r.sizeEnabled);
+    r.sizeScale = qBound(0.1, o.value(QStringLiteral("sizeScale")).toDouble(r.sizeScale), 10.0);
+    r.boldEnabled = o.value(QStringLiteral("boldEnabled")).toBool(r.boldEnabled);
+    r.bold = o.value(QStringLiteral("bold")).toBool(r.bold);
+    r.italicEnabled = o.value(QStringLiteral("italicEnabled")).toBool(r.italicEnabled);
+    r.italic = o.value(QStringLiteral("italic")).toBool(r.italic);
+    return r;
+}
+
+// Los tramos, en orden, sin solapes y sin salirse del texto. Un tramo que queda vacío se va.
+QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength)
+{
+    QList<TextRun> sorted;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        r.start = qBound(0, r.start, textLength);
+        r.end = qBound(0, r.end, textLength);
+        if (r.end <= r.start)
+            continue;
+        sorted.append(r);
+    }
+    std::stable_sort(sorted.begin(), sorted.end(),
+                     [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
+    // Donde dos tramos se pisan, el que va después recorta al de antes.
+    QList<TextRun> out;
+    int covered = 0;
+    for (TextRun &run : sorted) {
+        if (run.start < covered) {
+            run.start = covered;
+            if (run.end <= run.start)
+                continue;
+        }
+        out.append(run);
+        covered = qMax(covered, run.end);
+    }
+    return out;
+}
+
+const TextRun *textRunAt(const QList<TextRun> &runs, int at)
+{
+    for (const TextRun &run : runs) {
+        if (run.contains(at))
+            return &run;
+    }
+    return nullptr;
+}
+
 QJsonObject wordAccentToJson(const WordAccent &a)
 {
     return QJsonObject{
@@ -1266,6 +1336,12 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToJson(s.animation)},
     };
+    if (!s.runs.isEmpty()) {
+        QJsonArray runs;
+        for (const TextRun &run : s.runs)
+            runs.append(textRunToJson(run));
+        json.insert(QStringLiteral("runs"), runs);
+    }
     if (!s.lookId.isEmpty()) {
         json.insert(QStringLiteral("lookId"), s.lookId);
         json.insert(QStringLiteral("lookParams"), lookParams);
@@ -1410,6 +1486,9 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
     s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());
+    s.runs.clear();
+    for (const QJsonValue &v : o.value(QStringLiteral("runs")).toArray())
+        s.runs.append(textRunFromJson(v.toObject()));
 
     if (o.contains(QStringLiteral("layers"))) {
         s.layers.clear();

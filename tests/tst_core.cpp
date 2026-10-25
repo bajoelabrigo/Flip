@@ -88,6 +88,7 @@ private slots:
     void disabledKeyframesFreezeAtFirstKey();
     void textAutoFitRoundTripsOnlyWhenSet();
     void legacyTrackInterpolationMigratesLosslessly();
+    void textRunsStyleStretchesOfTheText();
     void keyframeNearestQuery();
     void sourceFramingRoundTrip();
     void clipPose3dRoundTrip();
@@ -7483,4 +7484,57 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
 }
 
 QTEST_MAIN(CoreTest)
+// Punto 2 del plan 0.23: tramos con color, tamaño y negrita/cursiva propios. Se guardan en el
+// proyecto y la lista se ordena, se recorta al texto y se queda sin solapes.
+void CoreTest::textRunsStyleStretchesOfTheText()
+{
+    drift::TextStyle style;
+    const QColor red(220, 40, 40);
+    drift::TextRun first;
+    first.start = 5;
+    first.end = 7;
+    first.colorEnabled = true;
+    first.color = red;
+    first.sizeEnabled = true;
+    first.sizeScale = 1.4;
+    first.boldEnabled = true;
+    first.bold = true;
+    style.runs = {first};
+
+    // Un tramo vacío no se guarda, y without tramos el proyecto se escribe como siempre.
+    const QJsonObject json = drift::textStyleToJson(style);
+    QVERIFY(json.contains(QStringLiteral("runs")));
+    const drift::TextStyle loaded = drift::textStyleFromJson(json);
+    QCOMPARE(loaded.runs.size(), 1);
+    QCOMPARE(loaded.runs.at(0).start, 5);
+    QCOMPARE(loaded.runs.at(0).end, 7);
+    QVERIFY(loaded.runs.at(0).colorEnabled);
+    QCOMPARE(loaded.runs.at(0).color.name(QColor::HexArgb), red.name(QColor::HexArgb));
+    QVERIFY(loaded.runs.at(0).sizeEnabled);
+    QCOMPARE(loaded.runs.at(0).sizeScale, 1.4);
+    QVERIFY(loaded.runs.at(0).boldEnabled);
+    QVERIFY(loaded.runs.at(0).bold);
+
+    drift::TextStyle plain;
+    QVERIFY(!drift::textStyleToJson(plain).contains(QStringLiteral("runs")));
+
+    // La normalización: recorta al texto, ordena y el que va después se queda con lo que pisa.
+    drift::TextRun late;
+    late.start = 4;
+    late.end = 9;
+    drift::TextRun early;
+    early.start = 0;
+    early.end = 6;
+    QList<drift::TextRun> normalized = drift::normalizedTextRuns({late, early, first}, 8);
+    QCOMPARE(normalized.size(), 2);
+    QCOMPARE(normalized.at(0).start, 0);
+    QCOMPARE(normalized.at(0).end, 4); // lo que le deja el que empieza en 4
+    QCOMPARE(normalized.at(1).start, 4);
+    QCOMPARE(normalized.at(1).end, 8); // recortado al texto (era 9)
+
+    // Fuera del texto no hay tramo.
+    QVERIFY(!drift::textRunAt(normalized, 9));
+    QVERIFY(drift::textRunAt(normalized, 6));
+}
+
 #include "tst_core.moc"
