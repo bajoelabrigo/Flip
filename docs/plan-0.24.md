@@ -183,19 +183,20 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
       columna de la derecha de Texto avanzado deja el hueco de la barra de desplazamiento.
 - [x] Catálogos: el run que falló en Traducciones subió `i18n-regenerated`; copiado a `i18n/`, «Se aplica a las letras
       seleccionadas» en `drift_es.ts`, y el CI siguiente en verde.
-- [x] **Primera pasada en ventana** (portable del run 40370485636, en `pruebas/portable-0.24/app`): la app abre
-      con `mcp_e2e.py --window`, crea proyecto y texto (`add_text` → «HOLA MUNDO» en la línea de tiempo y en la
-      vista previa), y **`stderr.log` sale vacío: ni un error de QML** con el inspector nuevo (`applyStyle`).
-      Registro copiado y restaurado, y el `autosave.json` de Jorge devuelto a su sitio.
-- [ ] **Prueba de los seis efectos con y sin selección** (lo que falta para decir «hecho»): el arnés se quedó
-      esperando al hacer clic sobre «Crear proyecto» (se lanzan dos instancias y el clic va a la que no es), así que
-      conviene hacerlo con shot.ps1/click.ps1 -TargetPid sobre **una** instancia, y drag.ps1 para sombrear
-      letras en «Texto de entrada». Con el portable de antes: 
-      descargado y descomprimido en `pruebas\portable-0.24\app`, registro copiado y restaurado. El ejecutable sale
-      enseguida con `--mcp-stdio` («MCP is off») aunque `mcp/startOnLaunch` esté en el registro: hay que abrirlo con
-      el arnés (`py tools/e2e/mcp_e2e.py --window …`) y no con el flag suelto, y después `shot.ps1`/`click.ps1`
-      con `-TargetPid` y `drag.ps1` para sombrear letras. Probar los seis (preset, fondo, resplandor, sombra,
-      transformación, trazo) con y sin selección, en el panel normal **y** en Texto avanzado.
+- [x] **Los dos workflows en verde con el arreglo de pruebas**: `Tests` run 40382869307 y `Build` run
+      40385029357, los dos en `9d55c`. Ojo: antes de eso `Tests` fallaba en
+      `SkiaTest::textRunEffectsStayInsideTheirLetters` (runs 40370485680, 40373586041, 40377649004) y el
+      «Estado» decía que estaba en verde: era falso. Causa: `inkOf` leía los canales como ARGB sobre una
+      imagen RGBA8888 (el rojo salía en el azul) y el estilo base de la prueba no pintaba letras, así que
+      las comparaciones no significaban nada. Arreglado el lector, con relleno blanco de base, pilas
+      completas en el tramo y las regiones de medida lejos de la frontera de la letra 5.
+- [x] **La app abre el proyecto en ventana, una sola instancia** (`.drift` con «HOLA MUNDO» hecho por MCP y
+      abierto con el ejecutable): texto en la vista previa y en la línea de tiempo, `stderr` sin errores de
+      QML. Capturas en `pruebas/v024-capturas` (`01_texto_seleccionado.png`).
+- [ ] **Recorrido de los seis efectos con y sin letras sombreadas** (panel normal y Texto avanzado): los
+      clics simulados en la línea de tiempo no seleccionaron el clip (el clic cayó en la regla y movió el
+      cabezal a 2,12 s), así que sigue pendiente. Con el clip ya seleccionado a mano, o con `drag.ps1` para
+      sombrear letras, es el siguiente paso.
 - [ ] Valores del tramo bajo el cursor en los controles (hoy muestran los del bloque).
 - [ ] Transformar (mover/girar/escalar) desde la sección Transformar del inspector cuando hay selección: hoy el
       modelo y el pintado lo admiten, pero esa sección no pasa por `applyStyle`.

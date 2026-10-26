@@ -1,0 +1,3 @@
+{"tool": "add_text", "args": {"text": "HOLA MUNDO"}}
+{"tool": "save_project", "args": {"path": "C:\\Users\\bajoe\\Downloads\\FlipStudio\\pruebas\\v024-capturas\\hola.drift"}}
+{"tool": "inspect", "args": {}}
