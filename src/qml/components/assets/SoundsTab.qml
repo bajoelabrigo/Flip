@@ -10,6 +10,7 @@ Item {
     property alias searchText: browser.searchText
     property alias activeCategory: browser.activeCategory
     property alias categories: browser.categories
+    readonly property string favoritesId: browser.favoritesId
 
     AudioEffectBrowser {
         id: browser

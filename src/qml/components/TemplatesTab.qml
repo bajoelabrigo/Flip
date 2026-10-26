@@ -18,6 +18,7 @@ Column {
     // The Scenes / Effects chips. Off on the desktop, where the sidebar lists the two as
     // Templates › My templates and Effect templates (AssetsPanel).
     property bool showModeChips: true
+    readonly property string favoritesId: "__favorites__"
     // The open browser's categories, for the panel's tree (0.23).
     readonly property var categories: modeLoader.item && modeLoader.item.categories ? modeLoader.item.categories : []
     // The tree sets activeCategory here; it goes on to the open browser.

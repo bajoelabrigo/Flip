@@ -20,6 +20,15 @@ Item {
 
     // "trends", "builtin", "mine", or the id of a template category from Extras.
     property string section: "trends"
+    // For the panel's tree (0.23): the chips below as a list, and the one picked.
+    property alias activeCategory: root.section
+    readonly property var categories: [{ "id": "favorites", "label": qsTr("Favorites") },
+                                       { "id": "trends", "label": qsTr("Trending") },
+                                       { "id": "builtin", "label": qsTr("Basic") }]
+        .concat(root.addonCategories.map(c => ({ "id": c.id, "label": c.label })))
+        .concat((root.stockChips.extra || []).map(c => ({ "id": c.id, "label": c.label })))
+        .concat([{ "id": "mine", "label": root.userPresets.length > 0 ? qsTr("My styles · %1").arg(root.userPresets.length)
+                                                                     : qsTr("My styles") }])
 
     // Card label height, for the grids' cell heights.
     FontMetrics {
@@ -242,6 +251,7 @@ Item {
             spacing: Theme.spacingSm
 
             IconButton {
+                visible: !root.panelDriven
                 glyph: Theme.icons.star
                 variant: "ghost"
                 buttonSize: Theme.controlHeightSm
@@ -252,6 +262,7 @@ Item {
             }
 
             ThemedChip {
+                visible: !root.panelDriven
                 text: qsTr("Trending")
                 variant: "outline"
                 selected: root.section === "trends"
@@ -259,6 +270,7 @@ Item {
             }
 
             ThemedChip {
+                visible: !root.panelDriven
                 text: qsTr("Basic")
                 variant: "outline"
                 selected: root.section === "builtin"
@@ -266,7 +278,7 @@ Item {
             }
 
             Repeater {
-                model: root.addonCategories
+                model: root.panelDriven ? [] : root.addonCategories
                 delegate: ThemedChip {
                     required property var modelData
                     text: modelData.label
@@ -277,7 +289,7 @@ Item {
             }
 
             Repeater {
-                model: root.stockChips.extra || []
+                model: root.panelDriven ? [] : (root.stockChips.extra || [])
                 delegate: ThemedChip {
                     required property var modelData
                     text: modelData.label
@@ -288,6 +300,7 @@ Item {
             }
 
             ThemedChip {
+                visible: !root.panelDriven
                 text: root.userPresets.length > 0 ? qsTr("My styles · %1").arg(root.userPresets.length)
                                                   : qsTr("My styles")
                 variant: "outline"

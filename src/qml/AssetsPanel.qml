@@ -790,7 +790,8 @@ PanelFrame {
             return categories
         // The star and «Mine» lived on the chips row; with the chips gone they lead the tree.
         // Same texts (and catalog entries) as the chips that offered them.
-        const lead = [{ id: "__favorites__", label: qsTranslate("AssetCategoryChips", "Favorites") }]
+        const lead = browser.favoritesId !== undefined
+                     ? [{ id: "__favorites__", label: qsTranslate("AssetCategoryChips", "Favorites") }] : []
         const mine = root.mineLabels[tabId]
         if (mine)
             lead.push({ id: "__mine__", label: mine })

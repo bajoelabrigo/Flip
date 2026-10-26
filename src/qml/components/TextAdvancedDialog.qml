@@ -113,7 +113,7 @@ ThemedDialog {
         const run = root.runFor(root.selectionStart, root.selectionEnd)
         run.colorEnabled = true
         run.color = String(root.brushColor)
-        if (!qFuzzyCompare(root.brushSize, 1.0)) {
+        if (!Math.abs(root.brushSize - 1.0) < 1e-6) {
             run.sizeEnabled = true
             run.sizeScale = root.brushSize
         }
@@ -136,7 +136,7 @@ ThemedDialog {
         return {
             "colorEnabled": true,
             "color": String(root.brushColor),
-            "sizeEnabled": !qFuzzyCompare(root.brushSize, 1.0),
+            "sizeEnabled": !Math.abs(root.brushSize - 1.0) < 1e-6,
             "sizeScale": root.brushSize,
             "boldEnabled": root.brushBold,
             "bold": true,
@@ -214,7 +214,7 @@ ThemedDialog {
                 spacing: Theme.spacingSm
 
                 // --- La barra: lo que se aplica a las letras elegidas --------------------------------
-                RowLayout {
+                Flow {
                     Layout.fillWidth: true
                     spacing: Theme.spacingSm
 
@@ -233,18 +233,26 @@ ThemedDialog {
                     Repeater {
                         model: ["#ff4d4d", "#ffd23f", "#4dd2ff", "#7bff6b", "#c47bff", "#ffffff"]
 
-                        delegate: Rectangle {
+                        // As tall as the buttons, so the bar's rows line up when it wraps.
+                        delegate: Item {
+                            id: swatch
                             required property string modelData
                             width: 24
-                            height: 24
-                            radius: width / 2
-                            color: modelData
-                            border.width: String(root.brushColor).toLowerCase() === modelData ? 3 : 1
-                            border.color: border.width > 1 ? Theme.foreground : Theme.panelBorder
+                            height: Theme.controlHeight
+
+                            Rectangle {
+                                anchors.centerIn: parent
+                                width: 24
+                                height: 24
+                                radius: width / 2
+                                color: swatch.modelData
+                                border.width: String(root.brushColor).toLowerCase() === swatch.modelData ? 3 : 1
+                                border.color: border.width > 1 ? Theme.foreground : Theme.panelBorder
+                            }
                             MouseArea {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
-                                onClicked: root.brushColor = modelData
+                                onClicked: root.brushColor = swatch.modelData
                             }
                         }
                     }
@@ -261,6 +269,8 @@ ThemedDialog {
                     }
 
                     Text {
+                        height: Theme.controlHeight
+                        verticalAlignment: Text.AlignVCenter
                         text: qsTr("Size")
                         color: Theme.mutedForeground
                         font.family: Theme.fontFamily
@@ -272,8 +282,6 @@ ThemedDialog {
                         currentIndex: 2
                         onActivated: (index) => root.brushSize = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0][index]
                     }
-
-                    Item { Layout.fillWidth: true }
 
                     ThemedButton {
                         text: qsTr("Apply to selection")

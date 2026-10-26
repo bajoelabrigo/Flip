@@ -47,14 +47,19 @@ Item {
     // our own kinds under it; Videos and Photos stay up here as they were.
     readonly property var categories: root.panelDriven ? root.ownCategories : []
     property string activeCategory: ""
-    onSectionChanged: root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+    onSectionChanged: root.syncActiveCategory()
+    // The kinds arrive with the catalog, after the tab opened on Home.
+    onOwnCategoriesChanged: root.syncActiveCategory()
+    function syncActiveCategory() {
+        root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+    }
     onActiveCategoryChanged: {
         if (root.activeCategory.length > 0 && root.activeCategory !== root.section)
             root.showSection(root.activeCategory)
     }
     Component.onCompleted: {
         root.ensureCatalog()
-        root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+        root.syncActiveCategory()
     }
 
     // Android Back, forwarded by its host.
