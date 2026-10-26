@@ -2210,12 +2210,13 @@ void SkiaTest::textRunsPaintWithTheirOwnColourAndSize()
     const QList<text::StyledWord> tall =
         text::layoutStyledText(plain, bigger, 1.0, 400.0, 240.0, -1, text::WordSplit::Whole).words;
     QVERIFY(!tall.isEmpty());
+    // La caja de la línea la fija el bloque; lo que crece es la tinta de las letras del tramo.
     double plainH = 0, tallH = 0;
     for (const text::StyledWord &w : one)
-        plainH = qMax(plainH, w.cellRect.height());
+        plainH = qMax(plainH, w.inkRect.height());
     for (const text::StyledWord &w : tall)
-        tallH = qMax(tallH, w.cellRect.height());
-    QVERIFY2(tallH > plainH * 1.3, qPrintable(QStringLiteral("%1 contra %2").arg(tallH).arg(plainH)));
+        tallH = qMax(tallH, w.inkRect.height());
+    QVERIFY2(tallH > plainH * 1.5, qPrintable(QStringLiteral("%1 contra %2").arg(tallH).arg(plainH)));
 }
 
 #include "tst_skia.moc"
