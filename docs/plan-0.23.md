@@ -29,6 +29,24 @@ Jorge: «¿en un solo texto es posible poner letras de diferentes colores?» →
 
 **Jorge (2026-10-25): el punto 2 se hace en «Texto avanzado», como Filmora** (ver el punto 3).
 
+### Punto 3, segunda pieza (2026-10-26): ya se ven, y hay API para la ventana
+- **El trazado parte por tramo** (`TextLayout.cpp`): el párrafo se compone en trozos por (acento, emoji, tramo) con
+  el **tamaño** (`pixelSize × sizeScale`) y el **peso/cursiva** del tramo, y cada trozo (`StyledWord`) sabe si su
+  tramo trae color. La palabra se parte donde empieza o acaba un tramo, aunque sea en medio.
+- **El relleno usa ese color** (`SkiaTextPainter.cpp`): el color del tramo va por delante del acento y por detrás del
+  que ponga un animador. (Contorno, sombra y degradado siguen como estaban: el color de tramo solo cambia el relleno.)
+- **API para QML** (`AppController::textRuns` / `setTextRuns`): leer los tramos de un clip y reemplazarlos de una vez,
+  con una sola entrada de deshacer; al escribir se normalizan (orden, recorte, sin solapes).
+- Pruebas: la del modelo (JSON, orden, solapes) y `SkiaTest::textRunsPaintWithTheirOwnColourAndSize` (el trozo lleva
+  su color, la palabra se parte y la tinta del tramo grande crece). **CI en verde** (run 40258486574: 125 + 191
+  pruebas y el paquete de Windows).
+- **Trampas de esta pieza:** en `TextLayout.cpp` ya existe un `runs` (los tramos de Skia) — los del estilo se llaman
+  `textRuns`; y el test de **Traducciones** falla si se añade un `tr(...)` nuevo sin pasar `lupdate`, así que la API
+  reusa los textos que ya existían.
+- **Falta:** la **ventana** de Texto avanzado (selección de letras con `TextEdit.selectionStart/selectionEnd` y
+  `select()`, barra B/I/U + color + tamaño sobre lo seleccionado, pestañas reusadas del inspector, Aplicar/Cancelar
+  con un solo paso de deshacer), el «aplicar a todos los textos», la web, y la prueba en ventana.
+
 ### Estado del punto 3 (2026-10-26): el modelo, hecho; falta pintarlo y la ventana
 - **`TextRun`** en `core/TextStyle.h`: tramos `{start, end}` con **color**, **tamaño** (relativo al `pixelSize`) y
   **negrita/cursiva** propios, en `TextStyle::runs`. Se guardan en el proyecto (`"runs"`, solo si hay) y
