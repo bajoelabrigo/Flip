@@ -644,12 +644,12 @@ PanelFrame {
                             onTextTabChanged: inspectorUi.textTab = textTab
                             onAnimSlotChanged: inspectorUi.animSlot = animSlot
                             onAnimCategoryChanged: inspectorUi.animCategory = animCategory
-                            // Sin la comparación, escribir aquí vuelve a evaluar el binding y
-                            // el aviso «Binding loop detected» sale en cada sesión.
-                            onExpandedLayerIdsChanged: {
+                            // La escritura va diferida: hacerla aquí mismo reevalúa el binding y
+                            // Qt avisa «Binding loop detected for property "expandedLayerIds"».
+                            onExpandedLayerIdsChanged: Qt.callLater(function() {
                                 if (inspectorUi.textExpandedLayerIds !== expandedLayerIds)
                                     inspectorUi.textExpandedLayerIds = expandedLayerIds
-                            }
+                            })
                             onContentFieldHeightChanged: inspectorUi.contentFieldHeight = contentFieldHeight
                         }
                     }

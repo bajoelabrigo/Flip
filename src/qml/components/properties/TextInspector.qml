@@ -490,7 +490,9 @@ Item {
             root.setLayerKey(existing, { "enabled": true })
             return
         }
-        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind)
+        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind, -1,
+                                            root.hasRunSelection ? root.runSelectionStart : -1,
+                                            root.hasRunSelection ? root.runSelectionEnd : -1)
         if (id && id.length > 0)
             EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, id, defaults)
     }
@@ -1045,12 +1047,9 @@ Item {
                     // Las letras sombreadas aquí son las que reciben los estilos (0.24).
                     onSelectionStartChanged: root.runSelectionStart = selectionStart
                     onSelectionEndChanged: root.runSelectionEnd = selectionEnd
-                    onCursorPositionChanged: {
-                        if (selectionStart === selectionEnd) {
-                            root.runSelectionStart = -1
-                            root.runSelectionEnd = -1
-                        }
-                    }
+                    // No se limpia en onCursorPositionChanged: al empezar el arrastre la selección
+                    // está colapsada y borraba el comienzo, así que el sombreado nunca llegaba
+                    // (con la selección vacía hasRunSelection ya es falso por sí solo).
                 }
 
                 // A qué se aplica lo que se toque debajo.
