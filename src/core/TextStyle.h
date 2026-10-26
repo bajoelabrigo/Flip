@@ -100,6 +100,25 @@ struct TextRun
     bool fontEnabled = false; // another font for these letters
     QString fontFamily;
 
+    // La pila de sombreado entera de estas letras (relleno, trazo, sombra, resplandor, extrusión):
+    // así un estilo preestablecido o un look se aplica solo a lo sombreado (0.24).
+    bool layersEnabled = false;
+    QList<TextShadingLayer> layers;
+    // Un fondo detrás de estas letras (uno por línea si el tramo se parte en dos).
+    bool boxEnabled = false;
+    QColor boxColor = QColor(0, 0, 0, 128);
+    double boxPadding = 6.0;   // px al pixelSize del bloque
+    double boxRadius = 4.0;
+    double boxBorderWidth = 0.0;
+    QColor boxBorderColor = QColor(255, 255, 255);
+    // Mueve, escala y gira estas letras alrededor del centro de su propia caja. No cambia el
+    // trazado del resto (como Filmora): los desplazamientos van en px al pixelSize del bloque.
+    bool transformEnabled = false;
+    double offsetX = 0.0;
+    double offsetY = 0.0;
+    double transformScale = 1.0;
+    double rotation = 0.0; // grados
+
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }
 };

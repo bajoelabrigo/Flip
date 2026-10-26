@@ -999,7 +999,7 @@ TextHighlight textHighlightFromJson(const QJsonObject &o, const TextHighlight &f
 
 QJsonObject textRunToJson(const TextRun &r)
 {
-    return QJsonObject{
+    QJsonObject json{
         {QStringLiteral("start"), r.start},
         {QStringLiteral("end"), r.end},
         {QStringLiteral("colorEnabled"), r.colorEnabled},
@@ -1015,6 +1015,29 @@ QJsonObject textRunToJson(const TextRun &r)
         {QStringLiteral("fontEnabled"), r.fontEnabled},
         {QStringLiteral("fontFamily"), r.fontFamily},
     };
+    // Lo nuevo de la 0.24 se escribe solo cuando se usó: un proyecto de la 0.23 se guarda igual.
+    if (r.layersEnabled) {
+        QJsonArray layers;
+        for (const TextShadingLayer &layer : r.layers)
+            layers.append(textShadingLayerToJson(layer));
+        json.insert(QStringLiteral("layers"), layers);
+    }
+    if (r.boxEnabled) {
+        json.insert(QStringLiteral("boxColor"), r.boxColor.name(QColor::HexArgb));
+        json.insert(QStringLiteral("boxPadding"), r.boxPadding);
+        json.insert(QStringLiteral("boxRadius"), r.boxRadius);
+        if (r.boxBorderWidth > 0.0) {
+            json.insert(QStringLiteral("boxBorderWidth"), r.boxBorderWidth);
+            json.insert(QStringLiteral("boxBorderColor"), r.boxBorderColor.name(QColor::HexArgb));
+        }
+    }
+    if (r.transformEnabled) {
+        json.insert(QStringLiteral("offsetX"), r.offsetX);
+        json.insert(QStringLiteral("offsetY"), r.offsetY);
+        json.insert(QStringLiteral("transformScale"), r.transformScale);
+        json.insert(QStringLiteral("rotation"), r.rotation);
+    }
+    return json;
 }
 
 TextRun textRunFromJson(const QJsonObject &o)
@@ -1034,6 +1057,24 @@ TextRun textRunFromJson(const QJsonObject &o)
     r.underline = o.value(QStringLiteral("underline")).toBool(r.underline);
     r.fontEnabled = o.value(QStringLiteral("fontEnabled")).toBool(r.fontEnabled);
     r.fontFamily = o.value(QStringLiteral("fontFamily")).toString();
+    if (o.contains(QStringLiteral("layers"))) {
+        r.layersEnabled = true;
+        for (const QJsonValue &v : o.value(QStringLiteral("layers")).toArray())
+            r.layers.append(textShadingLayerFromJson(v.toObject()));
+    }
+    r.boxColor = QColor(o.value(QStringLiteral("boxColor")).toString(r.boxColor.name(QColor::HexArgb)));
+    const double padding = o.value(QStringLiteral("boxPadding")).toDouble(r.boxPadding);
+    r.boxPadding = qBound(0.0, padding, 200.0);
+    r.boxRadius = qBound(0.0, o.value(QStringLiteral("boxRadius")).toDouble(r.boxRadius), 200.0);
+    r.boxBorderWidth = qBound(0.0, o.value(QStringLiteral("boxBorderWidth")).toDouble(r.boxBorderWidth), 40.0);
+    r.boxBorderColor = QColor(o.value(QStringLiteral("boxBorderColor")).toString(r.boxBorderColor.name(QColor::HexArgb)));
+    r.boxEnabled = o.contains(QStringLiteral("boxColor"));
+    r.offsetX = o.value(QStringLiteral("offsetX")).toDouble(r.offsetX);
+    r.offsetY = o.value(QStringLiteral("offsetY")).toDouble(r.offsetY);
+    r.transformScale = qBound(0.05, o.value(QStringLiteral("transformScale")).toDouble(r.transformScale), 20.0);
+    r.rotation = o.value(QStringLiteral("rotation")).toDouble(r.rotation);
+    r.transformEnabled = o.contains(QStringLiteral("offsetX")) || o.contains(QStringLiteral("offsetY"))
+                         || o.contains(QStringLiteral("transformScale")) || o.contains(QStringLiteral("rotation"));
     return r;
 }
 
@@ -1141,6 +1182,25 @@ QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int sta
         if (patch.fontEnabled) {
             r.fontEnabled = true;
             r.fontFamily = patch.fontFamily;
+        }
+        if (patch.layersEnabled) {
+            r.layersEnabled = true;
+            r.layers = patch.layers;
+        }
+        if (patch.boxEnabled) {
+            r.boxEnabled = true;
+            r.boxColor = patch.boxColor;
+            r.boxPadding = patch.boxPadding;
+            r.boxRadius = patch.boxRadius;
+            r.boxBorderWidth = patch.boxBorderWidth;
+            r.boxBorderColor = patch.boxBorderColor;
+        }
+        if (patch.transformEnabled) {
+            r.transformEnabled = true;
+            r.offsetX = patch.offsetX;
+            r.offsetY = patch.offsetY;
+            r.transformScale = patch.transformScale;
+            r.rotation = patch.rotation;
         }
         return r;
     };

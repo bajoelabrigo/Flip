@@ -76,7 +76,13 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
     for (const drift::TextRun &r : s.runs)
         runs = qHashMulti(runs, r.start, r.end, r.colorEnabled, r.color.rgba(), r.sizeEnabled,
                           qRound(r.sizeScale * 1000.0), r.boldEnabled, r.bold, r.italicEnabled, r.italic,
-                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily);
+                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily,
+                          // 0.24: la pila, el fondo y la transformación cambian lo que se pinta.
+                          r.layersEnabled, drift::textLayersHash(r.layers), r.boxEnabled, r.boxColor.rgba(),
+                          qRound(r.boxPadding * 4.0), qRound(r.boxRadius * 4.0),
+                          qRound(r.boxBorderWidth * 4.0), r.boxBorderColor.rgba(),
+                          r.transformEnabled, qRound(r.offsetX * 4.0), qRound(r.offsetY * 4.0),
+                          qRound(r.transformScale * 1000.0), qRound(r.rotation * 100.0));
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
