@@ -13078,18 +13078,19 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         run.start = m.value(QStringLiteral("start")).toInt();
         run.end = m.value(QStringLiteral("end")).toInt();
         run.colorEnabled = m.value(QStringLiteral("colorEnabled")).toBool();
-        run.color = QColor(m.value(QStringLiteral("color")).toString(QStringLiteral("#FFFFFFFF")));
+        const QString colorName = m.value(QStringLiteral("color")).toString();
+        run.color = colorName.isEmpty() ? QColor(255, 214, 64) : QColor(colorName);
         run.sizeEnabled = m.value(QStringLiteral("sizeEnabled")).toBool();
-        run.sizeScale = qBound(0.1, m.value(QStringLiteral("sizeScale")).toDouble(1.0), 10.0);
+        run.sizeScale = qBound(0.1, m.value(QStringLiteral("sizeScale")).toDouble(), 10.0);
         run.boldEnabled = m.value(QStringLiteral("boldEnabled")).toBool();
-        run.bold = m.value(QStringLiteral("bold")).toBool(true);
+        run.bold = m.contains(QStringLiteral("bold")) ? m.value(QStringLiteral("bold")).toBool() : true;
         run.italicEnabled = m.value(QStringLiteral("italicEnabled")).toBool();
-        run.italic = m.value(QStringLiteral("italic")).toBool(true);
+        run.italic = m.contains(QStringLiteral("italic")) ? m.value(QStringLiteral("italic")).toBool() : true;
         parsed.append(run);
     }
     const drift::Project before = m_project;
     // Recortados al texto y sin solapes: la ventana puede mandar cualquier cosa.
-    clip->textStyle.runs = drift::normalizedTextRuns(parsed, clip->text.size());
+    clip->textStyle.runs = drift::normalizedTextRuns(parsed, clip->textContent.size());
     pushProjectEdit(before, tr("Style letters"));
     finishEdit(tr("Letter style updated"));
 }
