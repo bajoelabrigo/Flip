@@ -193,10 +193,18 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
 - [x] **La app abre el proyecto en ventana, una sola instancia** (`.drift` con «HOLA MUNDO» hecho por MCP y
       abierto con el ejecutable): texto en la vista previa y en la línea de tiempo, `stderr` sin errores de
       QML. Capturas en `pruebas/v024-capturas` (`01_texto_seleccionado.png`).
-- [ ] **Recorrido de los seis efectos con y sin letras sombreadas** (panel normal y Texto avanzado): los
-      clics simulados en la línea de tiempo no seleccionaron el clip (el clic cayó en la regla y movió el
-      cabezal a 2,12 s), así que sigue pendiente. Con el clip ya seleccionado a mano, o con `drag.ps1` para
-      sombrear letras, es el siguiente paso.
+- [x] **Los dos workflows en verde con todo lo de esta tanda**: `Tests` 40395917421 y `Build` 40395917729
+      (portable nuevo). Incluye: el campo del inspector conserva el sombreado (`persistentSelection`),
+      la capa nueva (trazo/fondo/resplandor/sombra) y el preset van al tramo con letras sombreadas
+      (`addTextLayer`/`applyTextQuickStyle` con `rangeStart/rangeEnd`), la sección Transformación manda
+      `offsetX/offsetY/transformScale/rotation` del tramo y enseña sus valores (`runUnderCursor`), la
+      guarda contra el bucle de `expandedLayerIds` y la pestaña de Texto avanzado que vuelve a seguir al
+      panel tras «Más estilos».
+- [ ] **Recorrido de los seis efectos con y sin letras sombreadas** en `pruebas/v024-capturas-2`: en
+      marcha con el portable del run 40395917729. Tiene que salir que `-b-` y `-c-` son distintos de `-a-`
+      y que «HOLA» queda igual que la toma limpia, con el md5 de todas las capturas.
+- [ ] ~~Valores del tramo bajo el cursor~~: hecho para la sección Transformación; falta que el resto de
+      controles muestren el valor del tramo (hoy muestran el del bloque).
 - [ ] Valores del tramo bajo el cursor en los controles (hoy muestran los del bloque).
 - [ ] Transformar (mover/girar/escalar) desde la sección Transformar del inspector cuando hay selección: hoy el
       modelo y el pintado lo admiten, pero esa sección no pasa por `applyStyle`.
