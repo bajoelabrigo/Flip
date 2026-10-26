@@ -1043,17 +1043,24 @@ QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength)
     }
     std::stable_sort(sorted.begin(), sorted.end(),
                      [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
-    // Donde dos tramos se pisan, el que va después recorta al de antes.
+    // Donde dos tramos se pisan gana el que va después en la lista (lo último que se eligió): el de
+    // antes se recorta a lo que le deja libre.
     QList<TextRun> out;
-    int covered = 0;
-    for (TextRun &run : sorted) {
-        if (run.start < covered) {
-            run.start = covered;
-            if (run.end <= run.start)
+    for (int i = sorted.size() - 1; i >= 0; --i) {
+        TextRun run = sorted.at(i);
+        const QList<TextRun> later = out;
+        for (const TextRun &next : later) {
+            if (run.end <= next.start || run.start >= next.end)
                 continue;
+            if (run.start < next.start)
+                run.end = qMin(run.end, next.start);
+            else
+                run.start = qMax(run.start, next.end);
+            if (run.end <= run.start)
+                break;
         }
-        out.append(run);
-        covered = qMax(covered, run.end);
+        if (run.end > run.start)
+            out.prepend(run);
     }
     return out;
 }
