@@ -41,6 +41,10 @@ struct StyledWord
 
     // A colour glyph run (emoji): no outline to fill, drawn as glyphs at paint time.
     bool colour = false;
+
+    // El color del tramo que cubre este trozo (0.23), si trae uno: el relleno lo usa tal cual.
+    bool runColorSet = false;
+    QColor runColor;
 };
 
 enum class WordSplit { Whole, Characters };

@@ -66,6 +66,8 @@ struct Piece
     int wordIndex = 0;
     bool accent = false;
     sk_sp<SkTextBlob> emoji; // colour-glyph cluster (no outline), drawn as glyphs in block coordinates
+    bool runColorSet = false; // the stretch of text this piece belongs to brings its own colour
+    QColor runColor;
 };
 
 struct BlockGeometry
@@ -95,6 +97,8 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
         piece.line = word.line;
         piece.wordIndex = word.index;
         piece.accent = word.accent;
+        piece.runColorSet = word.runColorSet;
+        piece.runColor = word.runColor;
         if (word.geometry) {
             const text::PieceGeometry &geometry = *word.geometry;
             if (word.colour) {
@@ -861,6 +865,8 @@ private:
         if (layer.kind == TextLayerKind::Fill) {
             if (p.fillColor)
                 override = *p.fillColor;
+            else if (piece.runColorSet && isPrimaryFill(layer))
+                override = piece.runColor;
             else if (piece.accent && m_style.accent.colorEnabled && isPrimaryFill(layer))
                 override = m_style.accent.color;
             alpha *= p.fillOpacity;
