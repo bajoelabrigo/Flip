@@ -68,6 +68,10 @@ struct Piece
     sk_sp<SkTextBlob> emoji; // colour-glyph cluster (no outline), drawn as glyphs in block coordinates
     bool runColorSet = false; // the stretch of text this piece belongs to brings its own colour
     QColor runColor;
+    // 0.24: the stretch's own shading stack, background and transform, when it brings them.
+    bool hasRun = false;
+    drift::TextRun run;
+    QPointF runCentre; // centre of the stretch's box, in block units
     bool runUnderline = false;
 };
 
@@ -100,6 +104,8 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
         piece.accent = word.accent;
         piece.runColorSet = word.runColorSet;
         piece.runColor = word.runColor;
+        piece.hasRun = word.hasRun;
+        piece.run = word.run;
         piece.runUnderline = word.runUnderline;
         if (word.geometry) {
             const text::PieceGeometry &geometry = *word.geometry;
@@ -710,6 +716,8 @@ public:
                 continue;
             (props(i).opacity >= 0.999 ? solid : fading).append(i);
         }
+        // The stretches asking for a background get it behind their letters (0.24).
+        drawRunBackgrounds(canvas, solid);
         drawLayers(canvas, solid);
         for (int i : fading) {
             SkPaint alpha;
@@ -775,6 +783,25 @@ private:
     void prepare()
     {
         m_pieces = m_geometry->pieces;
+        // Where each stretch's own box is, for its transform: the centre of every piece of it.
+        QHash<QPair<int, int>, QRectF> runBoxes;
+        for (const Piece &piece : m_pieces) {
+            if (!piece.hasRun || !piece.run.transformEnabled)
+                continue;
+            const QPair<int, int> key(piece.run.start, piece.run.end);
+            auto it = runBoxes.find(key);
+            if (it == runBoxes.end())
+                runBoxes.insert(key, piece.cellRect);
+            else
+                *it = it->united(piece.cellRect);
+        }
+        for (Piece &piece : m_pieces) {
+            if (!piece.hasRun || !piece.run.transformEnabled)
+                continue;
+            const auto it = runBoxes.constFind(QPair<int, int>(piece.run.start, piece.run.end));
+            if (it != runBoxes.constEnd())
+                piece.runCentre = it->center();
+        }
         m_matrices.reserve(m_pieces.size());
         for (int i = 0; i < m_pieces.size(); ++i) {
             const Piece &piece = m_pieces.at(i);
@@ -794,10 +821,17 @@ private:
         m_strokeWidthPx = widestStroke(m_style) * m_scale;
     }
 
-    // The front-most enabled fill: the one the legacy accent colour overrides.
+    // The front-most enabled fill of a stack: the one a colour override (the legacy accent, or a
+    // stretch's own colour) paints.
+    static bool isPrimaryFillIn(QList<TextShadingLayer> stack, const TextShadingLayer &layer)
+    {
+        const TextShadingLayer *primary = firstTextLayerOfKind(stack, TextLayerKind::Fill, true);
+        return primary && layer.id == primary->id;
+    }
+
     bool isPrimaryFill(const TextShadingLayer &layer) const
     {
-        return &layer == firstTextLayerOfKind(m_style.layers, TextLayerKind::Fill, true);
+        return isPrimaryFillIn(m_style.layers, layer);
     }
 
     bool inScope(const TextShadingLayer &layer, const Piece &piece) const
@@ -932,20 +966,82 @@ private:
         }
     }
 
-    void drawLayers(SkCanvas &canvas, const QList<int> &pieces) const
+    // The background a stretch asks for (0.24): one rounded box per piece, which gives one per line
+    // when the stretch wraps.
+    void drawRunBackgrounds(SkCanvas &canvas, const QList<int> &pieces) const
     {
-        drawAnimatedGlow(canvas, pieces);
+        for (int i : pieces) {
+            const Piece &piece = m_pieces.at(i);
+            if (!piece.hasRun || !piece.run.boxEnabled)
+                continue;
+            const drift::TextRun &run = piece.run;
+            const double pad = run.boxPadding * m_scale;
+            const QRectF box = piece.cellRect.adjusted(-pad, -pad * 0.5, pad, pad * 0.5);
+            canvas.save();
+            canvas.concat(m_matrices.at(i));
+            const QRectF scaled(box.left() * m_scale, box.top() * m_scale, box.width() * m_scale,
+                                box.height() * m_scale);
+            SkPaint paint;
+            paint.setAntiAlias(true);
+            paint.setColor(toSkColor(run.boxColor));
+            const float radius = float(run.boxRadius * m_scale);
+            canvas.drawRoundRect(toSkRect(scaled), radius, radius, paint);
+            if (run.boxBorderWidth > 0.0) {
+                SkPaint border;
+                border.setAntiAlias(true);
+                border.setStyle(SkPaint::kStroke_Style);
+                border.setStrokeWidth(float(run.boxBorderWidth * m_scale));
+                border.setColor(toSkColor(run.boxBorderColor));
+                canvas.drawRoundRect(toSkRect(scaled), radius, radius, border);
+            }
+            canvas.restore();
+        }
+    }
+
+    void drawStack(SkCanvas &canvas, const QList<TextShadingLayer> &stack, const QList<int> &pieces) const
+    {
         const auto inside = [](const TextShadingLayer &layer) {
             return layer.kind == TextLayerKind::Stroke && layer.strokeAlign == StrokeAlign::Inside;
         };
-        for (const TextShadingLayer &layer : m_style.layers) {
+        for (const TextShadingLayer &layer : stack) {
             if (!inside(layer))
                 drawLayer(canvas, layer, pieces, 1.0);
         }
-        for (const TextShadingLayer &layer : m_style.layers) {
+        for (const TextShadingLayer &layer : stack) {
             if (inside(layer))
                 drawLayer(canvas, layer, pieces, 1.0);
         }
+    }
+
+    void drawLayers(SkCanvas &canvas, const QList<int> &pieces) const
+    {
+        drawAnimatedGlow(canvas, pieces);
+        // The pieces with no stack of their own paint with the block's, as always.
+        QList<int> blockPieces;
+        // One group per stretch that brings its own stack, in reading order (a stretch's shadow can
+        // fall over the letter next to it, as in Filmora).
+        QList<QPair<QPair<int, int>, QList<int>>> runGroups;
+        for (int i : pieces) {
+            const Piece &piece = m_pieces.at(i);
+            if (!piece.hasRun || !piece.run.layersEnabled || piece.run.layers.isEmpty()) {
+                blockPieces.append(i);
+                continue;
+            }
+            const QPair<int, int> key(piece.run.start, piece.run.end);
+            bool found = false;
+            for (auto &group : runGroups) {
+                if (group.first == key) {
+                    group.second.append(i);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                runGroups.append({key, QList<int>{i}});
+        }
+        drawStack(canvas, m_style.layers, blockPieces);
+        for (const auto &group : runGroups)
+            drawStack(canvas, m_pieces.at(group.second.first()).run.layers, group.second);
     }
 
     void drawLayer(SkCanvas &canvas, const TextShadingLayer &layer, const QList<int> &pieces, double alpha) const
@@ -989,6 +1085,17 @@ private:
         const textanim::FragmentProps &p = props(i);
         canvas.save();
         canvas.concat(m_matrices.at(i));
+        // A stretch's own transform, about the centre of its box (0.24). It moves these letters and
+        // nothing else: the rest of the block keeps its layout.
+        if (piece.hasRun && piece.run.transformEnabled) {
+            const float cx = float(piece.runCentre.x());
+            const float cy = float(piece.runCentre.y());
+            canvas.translate(cx, cy);
+            canvas.rotate(float(piece.run.rotation));
+            canvas.scale(float(piece.run.transformScale), float(piece.run.transformScale));
+            canvas.translate(-cx, -cy);
+            canvas.translate(float(piece.run.offsetX * m_scale), float(piece.run.offsetY * m_scale));
+        }
         SkPaint paint;
         paint.setAntiAlias(true);
         switch (layer.kind) {

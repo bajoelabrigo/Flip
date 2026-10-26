@@ -1,5 +1,6 @@
 #include <QtTest>
 
+#include <cstring>
 #include <functional>
 
 #include <QFontDatabase>
@@ -327,6 +328,7 @@ private slots:
     void textLookRenders();
     void textPacksRender();
     void textRunsPaintWithTheirOwnColourAndSize();
+    void textRunEffectsStayInsideTheirLetters();
 };
 
 void SkiaTest::grContextAttaches()
@@ -2217,6 +2219,125 @@ void SkiaTest::textRunsPaintWithTheirOwnColourAndSize()
     for (const text::StyledWord &w : tall)
         tallH = qMax(tallH, w.inkRect.height());
     QVERIFY2(tallH > plainH * 1.5, qPrintable(QStringLiteral("%1 contra %2").arg(tallH).arg(plainH)));
+}
+
+// 0.24: un efecto aplicado a unas letras se queda en esas letras. Se pinta «HOLA MUNDO» con el
+// tramo en «MUNDO» y se mira, píxel a píxel, que la mitad de «HOLA» sale igual que sin el efecto.
+void SkiaTest::textRunEffectsStayInsideTheirLetters()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+
+    TextStyle style;
+    style.fontFamily = QStringLiteral("Inter");
+    style.pixelSize = 64;
+    style.wordWrap = false;
+    const QString text = QStringLiteral("HOLA MUNDO");
+    const QRectF layout(0, 0, 720, 200);
+
+    // La misma caja para las dos pintadas: el trazado no cambia al añadir efectos al tramo.
+    QRectF plainRect;
+    const QImage plain = skiaText(textClip(style, text), text, layout, 1.0, -1, &plainRect);
+    QVERIFY(!plain.isNull());
+
+    // La mitad de «HOLA» (sin el tramo) y la de «MUNDO» (con él).
+    const QRect left(plainRect.left(), plainRect.top(), plainRect.width() * 0.46, plainRect.height());
+    const QRect right(plainRect.left() + int(plainRect.width() * 0.54), plainRect.top(),
+                      plainRect.width() * 0.46, plainRect.height());
+    const auto pixelsIn = [](const QImage &image, const QRect &rect) {
+        return image.copy(rect.intersected(image.rect())).convertToFormat(QImage::Format_RGBA8888);
+    };
+    const auto samePixels = [](const QImage &a, const QImage &b) {
+        if (a.size() != b.size())
+            return false;
+        for (int y = 0; y < a.height(); ++y) {
+            if (std::memcmp(a.constScanLine(y), b.constScanLine(y), size_t(a.width()) * 4) != 0)
+                return false;
+        }
+        return true;
+    };
+    const auto inkIn = [](const QImage &image, const QRect &rect) {
+        return inkOf(image.copy(rect.intersected(image.rect())));
+    };
+
+    // 1) Sombra roja solo en «MUNDO».
+    TextStyle shadowed = style;
+    TextRun shadowRun;
+    shadowRun.start = 5;
+    shadowRun.end = 10;
+    TextShadingLayer shadow;
+    shadow.kind = TextLayerKind::Shadow;
+    shadow.enabled = true;
+    shadow.paint.color = QColor(255, 0, 0);
+    shadow.offsetX = 12.0;
+    shadow.offsetY = 12.0;
+    shadow.blur = 0.0;
+    shadowRun.layersEnabled = true;
+    shadowRun.layers = {shadow};
+    shadowed.runs = {shadowRun};
+    QRectF withShadowRect;
+    const QImage withShadow = skiaText(textClip(shadowed, text), text, layout, 1.0, -1, &withShadowRect);
+    QVERIFY(!withShadow.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withShadow, left)),
+             "la sombra del tramo cambió los píxeles de «HOLA»");
+    const Ink plainRight = inkIn(plain, right);
+    const Ink shadowRight = inkIn(withShadow, right);
+    QVERIFY2(shadowRight.count > plainRight.count + 100,
+             qPrintable(QStringLiteral("sin sombra %1, con sombra %2").arg(plainRight.count).arg(shadowRight.count)));
+    // Y la sombra es roja: el canal rojo manda en lo que se añadió a la derecha.
+    QVERIFY2(shadowRight.r > shadowRight.g + 20.0 && shadowRight.r > shadowRight.b + 20.0,
+             qPrintable(QStringLiteral("r %1 g %2 b %3").arg(shadowRight.r).arg(shadowRight.g).arg(shadowRight.b)));
+
+    // 2) Trazo solo en «MUNDO»: la izquierda, otra vez, intacta.
+    TextStyle stroked = style;
+    TextRun strokeRun;
+    strokeRun.start = 5;
+    strokeRun.end = 10;
+    TextShadingLayer stroke;
+    stroke.kind = TextLayerKind::Stroke;
+    stroke.enabled = true;
+    stroke.paint.color = QColor(0, 255, 0);
+    stroke.width = 6.0;
+    strokeRun.layersEnabled = true;
+    strokeRun.layers = {stroke};
+    stroked.runs = {strokeRun};
+    const QImage withStroke = skiaText(textClip(stroked, text), text, layout, 1.0, -1, nullptr);
+    QVERIFY(!withStroke.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withStroke, left)),
+             "el trazo del tramo cambió los píxeles de «HOLA»");
+    QVERIFY2(inkIn(withStroke, right).count > plainRight.count + 100, "el trazo no se vio en «MUNDO»");
+
+    // 3) Fondo solo en «MUNDO»: aparece tinta detrás de sus letras y nada a la izquierda.
+    TextStyle boxed = style;
+    TextRun boxRun;
+    boxRun.start = 5;
+    boxRun.end = 10;
+    boxRun.boxEnabled = true;
+    boxRun.boxColor = QColor(0, 0, 255, 255);
+    boxRun.boxPadding = 10.0;
+    boxed.runs = {boxRun};
+    const QImage withBox = skiaText(textClip(boxed, text), text, layout, 1.0, -1, nullptr);
+    QVERIFY(!withBox.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withBox, left)),
+             "el fondo del tramo cambió los píxeles de «HOLA»");
+    const Ink boxRight = inkIn(withBox, right);
+    QVERIFY2(boxRight.count > plainRight.count + 1000, "el fondo no se vio en «MUNDO»");
+    QVERIFY2(boxRight.b > 60.0, qPrintable(QStringLiteral("el fondo no es azul: b %1").arg(boxRight.b)));
+
+    // 4) Transformación solo en «MUNDO»: sus letras se mueven, las de «HOLA» no.
+    TextStyle moved = style;
+    TextRun moveRun;
+    moveRun.start = 5;
+    moveRun.end = 10;
+    moveRun.transformEnabled = true;
+    moveRun.offsetY = -40.0;
+    moved.runs = {moveRun};
+    const QImage withMove = skiaText(textClip(moved, text), text, layout, 1.0, -1, nullptr);
+    QVERIFY(!withMove.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withMove, left)),
+             "la transformación del tramo cambió los píxeles de «HOLA»");
+    QVERIFY2(!samePixels(pixelsIn(plain, right), pixelsIn(withMove, right)),
+             "la transformación no movió «MUNDO»");
 }
 
 #include "tst_skia.moc"

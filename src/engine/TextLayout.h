@@ -45,6 +45,9 @@ struct StyledWord
     // El color del tramo que cubre este trozo (0.23), si trae uno: el relleno lo usa tal cual.
     bool runColorSet = false;
     QColor runColor;
+    // El tramo entero, cuando trae efectos propios (pila, fondo o transformación; 0.24).
+    bool hasRun = false;
+    drift::TextRun run;
     // Underlined on its own (the text bar's U on some letters), in the piece's colour.
     bool runUnderline = false;
 };

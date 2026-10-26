@@ -728,6 +728,11 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                         word.runColor = run->color;
                     }
                     word.runUnderline = run->underlineEnabled && run->underline;
+                    // 0.24: efectos propios (pila, fondo, transformación) viajan con el trozo.
+                    if (run->layersEnabled || run->boxEnabled || run->transformEnabled) {
+                        word.hasRun = true;
+                        word.run = *run;
+                    }
                 }
                 words.append(word);
             };
