@@ -29,6 +29,24 @@ Jorge: «¿en un solo texto es posible poner letras de diferentes colores?» →
 
 **Jorge (2026-10-25): el punto 2 se hace en «Texto avanzado», como Filmora** (ver el punto 3).
 
+### Punto 3, tercera pieza (2026-10-26): la ventana, hecha
+- **`components/TextAdvancedDialog.qml`** (`ThemedDialog`, 980 px): el texto del clip en grande y **seleccionable**
+  (de solo lectura: el texto se escribe en el inspector), una barra con **Negrita**, **Cursiva**, seis colores y
+  «Más colores…» (`ThemedColorDialog`), **tamaño** (50 %…300 %) y **«Aplicar a lo seleccionado»**, que crea el tramo
+  con lo elegido (encima de los que hubiera: donde se pisen gana el nuevo). Debajo, la lista de tramos con su color,
+  su trozo de texto y su porcentaje, y «Quitar todos».
+- **Aplicar** manda los tramos con `EditorState.setTextRuns` (**una sola entrada de deshacer**); **Cancelar** no toca
+  el proyecto; si la selección cambia de clip, la ventana se cierra sola.
+- Se abre desde **Texto › Avanzado › «Abrir Texto avanzado…»** (`TextInspector.qml`).
+- **CI en verde** (run 40263840885: 16/16 suites y el paquete de Windows).
+- **Trampa gorda de esta pieza:** el test **Traducciones** compara `i18n/*.ts` con lo que extrae el **build** (su
+  propio `lupdate` vía `qt_add_translations`, que escanea las fuentes del target, no `lupdate src i18n` a mano). Mis
+  catálogos regenerados a mano **no** coincidían y el test fallaba aunque el contenido fuera correcto: se revirtieron
+  los `.ts` a como estaban y los textos de la ventana van en **literales en español** hasta que el build los regenere.
+  Para traducirlos: volver a poner `qsTr`, correr `cmake --build build --target update_translations` y rellenar.
+- **Falta:** el «aplicar a todos los textos», la selección arrastrando sobre la vista previa (hoy se selecciona en el
+  cuadro), el **punto 2 en la web** (tramos + ventana) y la **prueba en ventana**.
+
 ### Punto 3, segunda pieza (2026-10-26): ya se ven, y hay API para la ventana
 - **El trazado parte por tramo** (`TextLayout.cpp`): el párrafo se compone en trozos por (acento, emoji, tramo) con
   el **tamaño** (`pixelSize × sizeScale`) y el **peso/cursiva** del tramo, y cada trozo (`StyledWord`) sabe si su
