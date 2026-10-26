@@ -23790,6 +23790,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Ciao</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Dimensione carattere</translation>
     </message>

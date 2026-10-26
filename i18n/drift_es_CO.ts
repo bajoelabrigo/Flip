@@ -23718,6 +23718,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Hola</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Tamaño de la fuente</translation>
     </message>

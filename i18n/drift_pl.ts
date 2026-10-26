@@ -23871,6 +23871,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Cześć</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Rozmiar czcionki</translation>
     </message>

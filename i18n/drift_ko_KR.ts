@@ -23707,6 +23707,10 @@ If playback stutters, try another.</source>
         <translation>안녕하세요</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>글꼴 크기</translation>
     </message>

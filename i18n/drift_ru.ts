@@ -23871,6 +23871,10 @@ If playback stutters, try another.</source>
         <translation>Привет</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Размер шрифта</translation>
     </message>

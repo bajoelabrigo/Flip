@@ -23790,6 +23790,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Olá</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Tamanho da fonte</translation>
     </message>

@@ -24114,6 +24114,10 @@ If playback stutters, try another.</source>
         <translation>مرحبًا</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>حجم الخط</translation>
     </message>

@@ -23641,6 +23641,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Xin chào</translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Cỡ chữ</translation>
     </message>
