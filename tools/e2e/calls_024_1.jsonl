@@ -1,0 +1,4 @@
+{"tool": "click", "args": {"x": 800, "y": 165}, "sleep": 2500}
+{"tool": "screenshot", "save": "01_editor.png"}
+{"tool": "add_text", "args": {"text": "HOLA MUNDO"}, "sleep": 1500}
+{"tool": "screenshot", "save": "02_texto.png"}
