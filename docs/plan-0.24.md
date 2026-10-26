@@ -176,10 +176,10 @@ que falta, y subir a la rama a menudo.
       columna de la derecha de Texto avanzado deja el hueco de la barra de desplazamiento.
 - [x] Catálogos: el run que falló en Traducciones subió `i18n-regenerated`; copiado a `i18n/`, «Se aplica a las letras
       seleccionadas» en `drift_es.ts`, y el CI siguiente en verde.
-- [x] **Primera pasada en ventana** (portable del run 40370485636, pruebas\portable-0.24pp): la app abre
-      con mcp_e2e.py --window, crea proyecto y texto (dd_text → «HOLA MUNDO» en la línea de tiempo y en la
-      vista previa), y **stderr.log sale vacío: ni un error de QML** con el inspector nuevo (pplyStyle).
-      Registro copiado y restaurado, y el utosave.json de Jorge devuelto a su sitio.
+- [x] **Primera pasada en ventana** (portable del run 40370485636, en `pruebas/portable-0.24/app`): la app abre
+      con `mcp_e2e.py --window`, crea proyecto y texto (`add_text` → «HOLA MUNDO» en la línea de tiempo y en la
+      vista previa), y **`stderr.log` sale vacío: ni un error de QML** con el inspector nuevo (`applyStyle`).
+      Registro copiado y restaurado, y el `autosave.json` de Jorge devuelto a su sitio.
 - [ ] **Prueba de los seis efectos con y sin selección** (lo que falta para decir «hecho»): el arnés se quedó
       esperando al hacer clic sobre «Crear proyecto» (se lanzan dos instancias y el clic va a la que no es), así que
       conviene hacerlo con shot.ps1/click.ps1 -TargetPid sobre **una** instancia, y drag.ps1 para sombrear
