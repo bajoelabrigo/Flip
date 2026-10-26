@@ -626,7 +626,11 @@ ThemedDialog {
 
                         Column {
                             id: sideColumn
-                            width: sideScroll.width - Theme.spacingMd
+                            // The always-on scroll bar (12 px) sits over the right edge: leave the
+                            // same room the right panel's tabColumn does, or a switch anchored to
+                            // parent.right ends up under the bar.
+                            x: Theme.pagePadding
+                            width: sideScroll.width - Theme.pagePadding * 2 - (Theme.spacingLg + 4)
                             spacing: Theme.spacingMd
 
                             // --- Personalizar › Texto de entrada: se escribe y se eligen letras ----
