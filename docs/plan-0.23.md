@@ -1,5 +1,12 @@
 # Próxima versión (0.23)
 
+## PUBLICADA como 0.23.0 (2026-10-26): PR #39, tag `v0.23.0`. Lo de abajo es la historia.
+
+Después de la revisión, a pedido de Jorge («iguálalo 100 %» con Filmora): barra tipo Word que cambia solo las letras
+elegidas (`patchTextRuns`, también subrayado y fuente por tramo), un solo «Texto de entrada» en vivo (sin Aplicar),
+ventana movible y maximizable (`ThemedDialog.movable`), «Aplicar cambios a todos los textos». Falta: la ventana en la
+web, y los iconos de Filmora de añadir texto/cuadro/imagen a un título (un título es un solo texto aquí).
+
 ## ESTADO AL 2026-10-26 (Claude, tras revisar y corregir lo de DeepSeek) — leer primero
 
 **Escritorio, rama `flip/v0.22.1`: puntos 2, 3 y 4 hechos y PROBADOS EN VENTANA** (portable del run
