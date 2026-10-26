@@ -397,24 +397,24 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     }
 
     // Los tramos con estilo propio (0.23): qué tramo cubre cada posición.
-    const QList<drift::TextRun> runs = drift::normalizedTextRuns(style.runs, source.size());
+    const QList<drift::TextRun> textRuns = drift::normalizedTextRuns(style.runs, source.size());
     QList<int> runAt(source.size() + 1, -1);
-    for (int ri = 0; ri < runs.size(); ++ri) {
-        const drift::TextRun &run = runs.at(ri);
+    for (int ri = 0; ri < textRuns.size(); ++ri) {
+        const drift::TextRun &run = textRuns.at(ri);
         for (int p = run.start; p < run.end && p <= source.size(); ++p)
             runAt[p] = ri;
     }
     const auto runAtFor = [&](int pos) {
         const int ri = pos >= 0 && pos < runAt.size() ? runAt.at(pos) : -1;
-        return ri >= 0 && ri < runs.size() ? &runs.at(ri) : nullptr;
+        return ri >= 0 && ri < textRuns.size() ? &textRuns.at(ri) : nullptr;
     };
 
     const auto styleFor = [&](bool accent, bool emoji, int runIndex) {
         double px = accent ? accentPx : basePx;
         int weight = resolved.weight;
         bool italic = resolved.italic;
-        if (!accent && runIndex >= 0 && runIndex < runs.size()) {
-            const drift::TextRun &run = runs.at(runIndex);
+        if (!accent && runIndex >= 0 && runIndex < textRuns.size()) {
+            const drift::TextRun &run = textRuns.at(runIndex);
             if (run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0))
                 px = qMax(1.0, style.pixelSize * run.sizeScale * renderScale);
             if (run.boldEnabled)
