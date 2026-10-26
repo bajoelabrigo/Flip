@@ -22722,65 +22722,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
-    <name>TextAdvancedDialog</name>
-    <message>
-        <source>Advanced text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>More colors…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply to selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply to all texts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 stretch with its own style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 stretches with their own style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23933,10 +23874,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Mọi lớp của kiểu, gói kiểu, tô sáng từ, gạch chân và nhấn từ</translation>
-    </message>
-    <message>
-        <source>Open Advanced text…</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
