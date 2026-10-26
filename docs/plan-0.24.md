@@ -63,6 +63,41 @@ aplica **solo a esas letras**. Si no hay nada sombreado, se aplica a todo el tex
 5. **Web** (`flipstudio-app`): mismo modelo en el `.flip` (que los campos nuevos viajen en los dos sentidos). Si no
    da tiempo, que la web **conserve** los campos que no entiende al abrir y guardar (no borrarlos).
 
+## Arreglo aparte (hacer PRIMERO, es corto): Tendencias agrega el texto dos veces
+
+**Lo que ve Jorge:** en Títulos › Tendencias, un texto que no tiene se descarga y se agrega una vez (bien). Cuando
+ya está descargado, cada clic lo agrega **dos veces**.
+
+**Causa (encontrada por Claude, 2026-10-26):** en la tarjeta hay **dos `TapHandler` que responden al mismo clic**
+y los dos llaman a `useTrend`:
+- `StockThumb` tiene su `TapHandler` → `openRequested()` → `onOpenRequested: root.useTrend(...)`;
+- encima, el `AssetDragSource` (solo `enabled` cuando ya está instalado) tiene otro `TapHandler` →
+  `onTapped: root.useTrend(...)`.
+
+Sin descargar, el `AssetDragSource` está apagado y solo responde uno; ya descargado, responden los dos y como
+`installedTrendId` ya existe, cada uno hace `addTextClip`. **El mismo fallo está en Efectos › Tendencias.**
+
+- `src/qml/components/assets/TextAssetsTab.qml` ~línea 594 (`onOpenRequested`) y ~623 (`onTapped` del
+  `AssetDragSource`).
+- `src/qml/components/EffectBrowser.qml` ~línea 429 y ~458 (mismo par).
+
+**Arreglo:** que la miniatura solo responda cuando todavía **no** está instalado (después el que responde es
+`AssetDragSource`, que además permite arrastrar):
+```qml
+onOpenRequested: if (trendCard.installedId.length === 0) root.useTrend(trendCard.modelData)
+```
+(En `EffectBrowser.qml` usar la propiedad equivalente de su `trendCard`; mirar cómo decide `enabled` su
+`AssetDragSource` y usar la misma condición negada.) No quitar el `TapHandler` de `StockThumb`: lo usan muchas
+otras tarjetas.
+
+**Revisar también:** las demás tarjetas que ponen un `AssetDragSource` dentro de un `StockThumb` (buscar
+`StockThumb {` en archivos que tengan `AssetDragSource`). En `docs/plan-0.23.md` quedó anotado que un clic en
+«Título limpio» puso dos textos: puede ser lo mismo (dos manejadores en la tarjeta).
+
+**Probar en ventana:** clic en un texto de Tendencias sin descargar → 1 texto; clic otra vez → 1 más (total 2, no
+3); arrastrarlo a la línea de tiempo sigue funcionando. Lo mismo en Efectos › Tendencias (un efecto por clic).
+Contar los clips con `inspect` por MCP o en la línea de tiempo.
+
 ## Pruebas obligatorias
 
 - `CoreTest`: JSON de ida y vuelta de cada campo nuevo; `patchTextRuns` con trazo sobre un tramo que ya tenía color
