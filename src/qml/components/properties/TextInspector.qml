@@ -530,7 +530,10 @@ Item {
     }
     function applyQuick(id) {
         root.lastQuickId = id
-        EditorState.applyTextQuickStyle(EditorState.selectedTrack, EditorState.selectedClip, id)
+        // Con letras sombreadas, el estilo preestablecido va solo a ellas (0.24).
+        EditorState.applyTextQuickStyle(EditorState.selectedTrack, EditorState.selectedClip, id,
+                                        root.hasRunSelection ? root.runSelectionStart : -1,
+                                        root.hasRunSelection ? root.runSelectionEnd : -1)
     }
     function applyBubble(id) {
         root.lastBubbleId = id
@@ -587,7 +590,10 @@ Item {
     }
 
     function addLayer(kind) {
-        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind)
+        // Con letras sombreadas, la capa es para ellas (0.24).
+        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind, -1,
+                                            root.hasRunSelection ? root.runSelectionStart : -1,
+                                            root.hasRunSelection ? root.runSelectionEnd : -1)
         if (id && id.length > 0)
             root.setLayerExpanded(id, true)
     }
@@ -1002,6 +1008,9 @@ Item {
                     clip: true
                     placeholderText: qsTr("Type your text…")
                     onEditingFinished: root.applyText()
+                    // Sin esto, pulsar cualquier control de estilo quita el foco, se pierde el
+                    // sombreado y el efecto se va a todo el texto (probado en ventana, 0.24).
+                    persistentSelection: true
                     // Las letras sombreadas aquí son las que reciben los estilos (0.24).
                     onSelectionStartChanged: root.runSelectionStart = selectionStart
                     onSelectionEndChanged: root.runSelectionEnd = selectionEnd

@@ -26717,9 +26717,27 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("style.%1.*").arg(layerId)});
 }
 
-QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex)
+QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex,
+                                    int rangeStart, int rangeEnd)
 {
-    return textClipAt(trackIndex, clipIndex) ? addStyleLayer(trackIndex, clipIndex, kind, atIndex) : QString();
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return QString();
+    const bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
+    const QList<drift::TextShadingLayer> before = clip->textStyle.layers;
+    const QString id = addStyleLayer(trackIndex, clipIndex, kind, atIndex);
+    if (!ranged || id.isEmpty())
+        return id;
+    // Con letras sombreadas la capa es para ellas: el bloque se queda como estaba y la pila
+    // completa (lo que ya había + la capa nueva) pasa al tramo de esas letras.
+    const QList<drift::TextShadingLayer> withLayer = clip->textStyle.layers;
+    clip->textStyle.layers = before;
+    drift::TextRun patch;
+    patch.layersEnabled = true;
+    patch.layers = withLayer;
+    clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(),
+                                                rangeStart, rangeEnd, patch);
+    return id;
 }
 
 bool AppController::removeTextLayer(int trackIndex, int clipIndex, const QString &layerId)
@@ -27012,14 +27030,32 @@ QVariantList AppController::textQuickStyleCategories() const
     return categoriesToList(drift::textQuickStyleCategories());
 }
 
-void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId)
+void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId,
+                                        int rangeStart, int rangeEnd)
 {
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);
     if (!clip)
         return;
+    const bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
     const drift::Project before = m_project;
-    if (!drift::applyTextQuickStyle(clip->textStyle, styleId))
+    if (ranged) {
+        // El preset se aplica a una copia y solo su pila (y su fuente, si la trae) va a las letras
+        // elegidas; el bloque se queda como estaba.
+        drift::TextStyle styled = clip->textStyle;
+        if (!drift::applyTextQuickStyle(styled, styleId))
+            return;
+        drift::TextRun patch;
+        patch.layersEnabled = true;
+        patch.layers = styled.layers;
+        if (styled.fontFamily != clip->textStyle.fontFamily) {
+            patch.fontEnabled = true;
+            patch.fontFamily = styled.fontFamily;
+        }
+        clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(),
+                                                    rangeStart, rangeEnd, patch);
+    } else if (!drift::applyTextQuickStyle(clip->textStyle, styleId)) {
         return;
+    }
     pushProjectEdit(before, tr("Apply text style"));
     finishEdit(tr("Text style applied"));
 }

@@ -951,7 +951,9 @@ public:
     Q_INVOKABLE void setStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     Q_INVOKABLE void previewSetStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     // The text-only spellings, kept for the MCP tools and scripts that use them.
-    Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
+    // `rangeStart`/`rangeEnd` (0.24): con letras sombreadas, la capa va solo a esas letras.
+    Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1,
+                                     int rangeStart = -1, int rangeEnd = -1);
     Q_INVOKABLE bool removeTextLayer(int trackIndex, int clipIndex, const QString &layerId);
     Q_INVOKABLE QString duplicateTextLayer(int trackIndex, int clipIndex, const QString &layerId);
     Q_INVOKABLE bool moveTextLayer(int trackIndex, int clipIndex, const QString &layerId, int toIndex);
@@ -977,7 +979,8 @@ public:
     // {id, label, category} lists, their categories as {id, label}, and one-step apply.
     Q_INVOKABLE QVariantList textQuickStyles() const;
     Q_INVOKABLE QVariantList textQuickStyleCategories() const;
-    Q_INVOKABLE void applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId);
+    Q_INVOKABLE void applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId,
+                                      int rangeStart = -1, int rangeEnd = -1);
     Q_INVOKABLE QVariantList textBubbles() const;
     Q_INVOKABLE QVariantList textBubbleCategories() const;
     Q_INVOKABLE void applyTextBubble(int trackIndex, int clipIndex, const QString &bubbleId);
