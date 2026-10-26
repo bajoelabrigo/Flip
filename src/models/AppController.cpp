@@ -13095,6 +13095,42 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
     finishEdit(tr("Text style updated"));
 }
 
+void AppController::applyTextBrushToAllTexts(const QVariantMap &brush)
+{
+    drift::TextRun run;
+    run.colorEnabled = brush.value(QStringLiteral("colorEnabled")).toBool();
+    const QString colorName = brush.value(QStringLiteral("color")).toString();
+    run.color = colorName.isEmpty() ? QColor(255, 214, 64) : QColor(colorName);
+    run.sizeEnabled = brush.value(QStringLiteral("sizeEnabled")).toBool();
+    run.sizeScale = qBound(0.1, brush.value(QStringLiteral("sizeScale")).toDouble(), 10.0);
+    run.boldEnabled = brush.value(QStringLiteral("boldEnabled")).toBool();
+    run.bold = !brush.contains(QStringLiteral("bold")) || brush.value(QStringLiteral("bold")).toBool();
+    run.italicEnabled = brush.value(QStringLiteral("italicEnabled")).toBool();
+    run.italic = !brush.contains(QStringLiteral("italic")) || brush.value(QStringLiteral("italic")).toBool();
+    if (!run.colorEnabled && !run.sizeEnabled && !run.boldEnabled && !run.italicEnabled)
+        return;
+
+    drift::Project &project = m_project;
+    const drift::Project before = project;
+    int changed = 0;
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            const int length = clip.textContent.size();
+            if (length <= 0 || clip.type != drift::ClipType::Text)
+                continue;
+            drift::TextRun whole = run;
+            whole.start = 0;
+            whole.end = length;
+            clip.textStyle.runs = {whole};
+            ++changed;
+        }
+    }
+    if (changed == 0)
+        return;
+    pushProjectEdit(before, tr("Edit text style"));
+    finishEdit(tr("Text style updated"));
+}
+
 void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMap &m)
 {
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);

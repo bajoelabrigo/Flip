@@ -932,6 +932,10 @@ public:
     // reemplazarlos de una vez (una sola entrada de deshacer).
     Q_INVOKABLE QVariantList textRuns(int trackIndex, int clipIndex);
     Q_INVOKABLE void setTextRuns(int trackIndex, int clipIndex, const QVariantList &runs);
+
+    // El mismo pincel (color, tamaño, negrita, cursiva) aplicado al texto ENTERO de todos los clips
+    // de texto del proyecto, como «Aplicar a todos los textos» de la ventana de Texto avanzado.
+    Q_INVOKABLE void applyTextBrushToAllTexts(const QVariantMap &brush);
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);

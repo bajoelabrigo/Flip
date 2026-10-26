@@ -78,6 +78,20 @@ ThemedDialog {
         root.runs = next
     }
 
+    // Lo que la barra dice, en la forma que espera EditorState.applyTextBrushToAllTexts.
+    function brushPatch() {
+        return {
+            "colorEnabled": true,
+            "color": String(root.brushColor),
+            "sizeEnabled": !qFuzzyCompare(root.brushSize, 1.0),
+            "sizeScale": root.brushSize,
+            "boldEnabled": root.brushBold,
+            "bold": true,
+            "italicEnabled": root.brushItalic,
+            "italic": true
+        }
+    }
+
     function removeRunAt(index) {
         const next = root.runs.slice()
         next.splice(index, 1)
@@ -175,6 +189,14 @@ ThemedDialog {
                 variant: "primary"
                 enabled: root.canApply
                 onClicked: root.applyBrushToSelection()
+            }
+
+            // El pincel entero (color, tamaño, negrita, cursiva) a todos los textos del proyecto.
+            ThemedButton {
+                text: "Aplicar a todos los textos"
+                variant: "secondary"
+                tooltip: "Pone el color, el tamaño y la negrita o cursiva de la barra al texto entero de todos los textos del proyecto"
+                onClicked: EditorState.applyTextBrushToAllTexts(root.brushPatch())
             }
         }
 
