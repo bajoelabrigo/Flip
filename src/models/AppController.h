@@ -936,6 +936,12 @@ public:
     // El mismo pincel (color, tamaño, negrita, cursiva) aplicado al texto ENTERO de todos los clips
     // de texto del proyecto, como «Aplicar a todos los textos» de la ventana de Texto avanzado.
     Q_INVOKABLE void applyTextBrushToAllTexts(const QVariantMap &brush);
+
+    // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made
+    // in between lands in one undo step, and Cancel takes all of it back. Ending one that was
+    // never begun does nothing.
+    Q_INVOKABLE void beginEditSession(const QString &label);
+    Q_INVOKABLE void endEditSession(bool keep);
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
@@ -2391,6 +2397,7 @@ protected:
     // The audio error already on screen, so a device that fails repeatedly toasts once.
     QString m_lastAudioError;
     QUndoStack m_undoStack;
+    bool m_editSessionOpen = false;
     // tracks() serialises every clip in the project into nested QVariantMaps, and used to do it
     // once per binding that read it. Cached between edits; notifyTracksChanged() drops it.
     mutable QVariantList m_tracksCache;

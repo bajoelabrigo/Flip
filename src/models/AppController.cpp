@@ -13138,6 +13138,30 @@ void AppController::applyTextBrushToAllTexts(const QVariantMap &brush)
     finishEdit(tr("Text style updated"));
 }
 
+void AppController::beginEditSession(const QString &label)
+{
+    if (m_editSessionOpen)
+        return;
+    m_editSessionOpen = true;
+    m_undoStack.beginMacro(label);
+}
+
+void AppController::endEditSession(bool keep)
+{
+    if (!m_editSessionOpen)
+        return;
+    m_editSessionOpen = false;
+    m_undoStack.endMacro();
+    // The macro is the step just pushed. An empty one (nothing changed) must not stay as a
+    // no-op undo entry; a cancelled one is undone whole.
+    const QUndoCommand *macro = m_undoStack.index() > 0 ? m_undoStack.command(m_undoStack.index() - 1) : nullptr;
+    const bool empty = !macro || macro->childCount() == 0;
+    if (!keep || empty) {
+        m_undoStack.undo();
+        m_mcpController->bumpEditRevision();
+    }
+}
+
 void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMap &m)
 {
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);

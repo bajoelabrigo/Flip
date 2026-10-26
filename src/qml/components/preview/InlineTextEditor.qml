@@ -67,6 +67,10 @@ Item {
     readonly property real caretHeight: Math.hypot(caretBottomLeft.x - caretTopLeft.x,
                                                    caretBottomLeft.y - caretTopLeft.y)
 
+    // The letters picked on the canvas, as text offsets (Texto avanzado gives them their own style).
+    readonly property int selectionStart: proxy.selectionStart
+    readonly property int selectionEnd: proxy.selectionEnd
+
     readonly property bool hasSelection: proxy.selectionStart !== proxy.selectionEnd
                                          && selectionQuads.length > 0
     readonly property point selectionStartTip: hasSelection ? toItem(selectionQuads[0][3]) : Qt.point(0, 0)
