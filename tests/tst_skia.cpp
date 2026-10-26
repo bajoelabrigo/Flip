@@ -836,7 +836,9 @@ Ink inkOf(const QImage &image)
     Ink ink;
     int minX = image.width(), minY = image.height(), maxX = -1, maxY = -1;
     double mass = 0;
-    const QImage img = image.convertToFormat(QImage::Format_RGBA8888);
+    // ARGB32 is the order QRgb/qRed/qGreen/qBlue assume: reading an RGBA8888 image as QRgb swaps
+    // red and blue, and a pure red came out as (r 0 g 0 b 255).
+    const QImage img = image.convertToFormat(QImage::Format_ARGB32);
     for (int y = 0; y < img.height(); ++y) {
         const QRgb *row = reinterpret_cast<const QRgb *>(img.constScanLine(y));
         for (int x = 0; x < img.width(); ++x) {
@@ -2232,6 +2234,8 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     style.fontFamily = QStringLiteral("Inter");
     style.pixelSize = 64;
     style.wordWrap = false;
+    // White letters to begin with: every case below starts from something that paints.
+    style.layers = {solidFillLayer(Qt::white)};
     const QString text = QStringLiteral("HOLA MUNDO");
     const QRectF layout(0, 0, 720, 200);
 
@@ -2265,7 +2269,11 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     TextRun shadowRun;
     shadowRun.start = 5;
     shadowRun.end = 10;
+    // La pila del tramo sustituye a la del bloque, así que trae el relleno de las letras y encima su
+    // sombra: es lo que manda el inspector al aplicar un estilo a unas letras.
+    TextShadingLayer fill = solidFillLayer(QColor(255, 255, 255), QStringLiteral("fill"));
     TextShadingLayer shadow;
+    shadow.id = QStringLiteral("shadow");
     shadow.kind = TextLayerKind::Shadow;
     shadow.enabled = true;
     shadow.paint.color = QColor(255, 0, 0);
@@ -2273,7 +2281,7 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     shadow.offsetY = 12.0;
     shadow.blur = 0.0;
     shadowRun.layersEnabled = true;
-    shadowRun.layers = {shadow};
+    shadowRun.layers = {shadow, fill};
     shadowed.runs = {shadowRun};
     QRectF withShadowRect;
     const QImage withShadow = skiaText(textClip(shadowed, text), text, layout, 1.0, -1, &withShadowRect);
@@ -2294,12 +2302,13 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     strokeRun.start = 5;
     strokeRun.end = 10;
     TextShadingLayer stroke;
+    stroke.id = QStringLiteral("stroke");
     stroke.kind = TextLayerKind::Stroke;
     stroke.enabled = true;
     stroke.paint.color = QColor(0, 255, 0);
     stroke.width = 6.0;
     strokeRun.layersEnabled = true;
-    strokeRun.layers = {stroke};
+    strokeRun.layers = {fill, stroke};
     stroked.runs = {strokeRun};
     const QImage withStroke = skiaText(textClip(stroked, text), text, layout, 1.0, -1, nullptr);
     QVERIFY(!withStroke.isNull());

@@ -155,7 +155,14 @@ probar el portable en ventana, versión 0.24.0 en `CMakeLists.txt`, `release-not
 `docs/store-listing.md`, y la rutina de publicación de `CLAUDE.md`. Mantener **este archivo** al día con lo hecho y lo
 que falta, y subir a la rama a menudo.
 
-## Estado (2026-10-26, DeepSeek; CI del run 40370485636 EN VERDE)
+## Estado (2026-10-26, DeepSeek)
+
+**Ojo: el workflow «Build» estaba en verde pero «Tests» NO.** Los runs 40370485680, 40373586041 y
+40377649004 fallaban en `SkiaTest::textRunEffectsStayInsideTheirLetters` con «shadowRight r0 g0 b255».
+Era un fallo **de la prueba**, no del pintado: `inkOf` leía los canales como ARGB sobre una imagen
+RGBA8888, así que el rojo puro salía en el canal azul. Arreglado `inkOf` (convierte a ARGB32), el estilo
+base de la prueba lleva relleno blanco y los tramos llevan la **pila completa** (relleno + efecto), que es
+lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list -b flip/v0.24-tramos`).
 
 - [x] Modelo (`TextRun` ampliado: `layersEnabled`+`layers`, `boxEnabled`+color/relleno/radio/borde,
       `transformEnabled`+offsetX/offsetY/transformScale/rotation; JSON solo si se usaron; `patchTextRuns` los suma;
