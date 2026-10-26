@@ -22840,6 +22840,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation type="unfinished"></translation>
     </message>

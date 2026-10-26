@@ -22764,6 +22764,30 @@ If playback stutters, try another.</source>
         <translation>バーの色、サイズ、太字または斜体を、プロジェクト内のすべてのテキストクリップの全文に適用します</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>先頭に戻る</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>カスタムとして保存</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>スタイル</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>カスタマイズ</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>入力テキスト</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>ここまたはプレビュー（テキストをダブルクリック）で文字を選び、上のバーを使います。</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>独自のスタイルを持つ文字はまだありません。</translation>
     </message>

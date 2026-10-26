@@ -22844,6 +22844,30 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Applica il colore, la dimensione e il grassetto o corsivo della barra all&apos;intero testo di ogni testo del progetto</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Torna all&apos;inizio</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Salva come personalizzato</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Stile</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Personalizza</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Testo di input</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Seleziona le lettere qui o nell&apos;anteprima (doppio clic sul testo), poi usa la barra in alto.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Nessuna lettera ha ancora uno stile proprio.</translation>
     </message>

@@ -22764,6 +22764,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Áp dụng màu, cỡ chữ và kiểu đậm hoặc nghiêng của thanh cho toàn bộ chữ của mọi clip văn bản trong dự án</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Về đầu</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Lưu thành tùy chỉnh</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Kiểu</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Tùy chỉnh</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Văn bản nhập</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Chọn chữ ở đây hoặc trên bản xem trước (nhấp đúp vào văn bản), rồi dùng thanh phía trên.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Chưa có chữ nào có kiểu riêng.</translation>
     </message>

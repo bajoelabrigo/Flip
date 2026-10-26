@@ -22847,6 +22847,30 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Applique la couleur, la taille et le gras ou l&apos;italique de la barre à tout le texte de chaque texte du projet</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Revenir au début</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Enregistrer comme personnalisé</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Style</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Personnaliser</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Texte saisi</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Sélectionnez des lettres ici ou dans l&apos;aperçu (double-cliquez sur le texte), puis utilisez la barre du haut.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Aucune lettre n&apos;a encore son propre style.</translation>
     </message>

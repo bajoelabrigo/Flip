@@ -22844,6 +22844,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Pone el color, el tamaño y la negrita o cursiva de la barra en el texto entero de todos los textos del proyecto</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Volver al inicio</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Guardar como personalizado</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Personalizar</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Texto de entrada</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Elige letras aquí o en la vista previa (doble clic en el texto) y usa la barra de arriba.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Todavía no hay letras con estilo propio.</translation>
     </message>

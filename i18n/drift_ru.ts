@@ -22924,6 +22924,30 @@ If playback stutters, try another.</source>
         <translation>Применяет цвет, размер и жирный или курсив с панели ко всему тексту каждого текстового клипа проекта</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>В начало</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Сохранить как свой</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Стиль</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Настроить</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Вводимый текст</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Выделите буквы здесь или в предпросмотре (двойной щелчок по тексту), затем используйте панель сверху.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Пока нет букв с собственным стилем.</translation>
     </message>

@@ -22840,6 +22840,30 @@ If playback stutters, try another.</source>
         <translation>বারের রং, আকার এবং বোল্ড বা ইটালিক প্রকল্পের প্রতিটি টেক্সট ক্লিপের পুরো লেখায় প্রয়োগ করে</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>শুরুতে ফিরুন</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>কাস্টম হিসেবে সংরক্ষণ</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>স্টাইল</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>কাস্টমাইজ</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>ইনপুট টেক্সট</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>এখানে বা প্রিভিউতে (টেক্সটে ডাবল-ক্লিক করে) অক্ষর বাছুন, তারপর উপরের বারটি ব্যবহার করুন।</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>এখনও নিজস্ব স্টাইলের কোনো অক্ষর নেই।</translation>
     </message>

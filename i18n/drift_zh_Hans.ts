@@ -22763,6 +22763,30 @@ If playback stutters, try another.</source>
         <translation>将工具栏的颜色、大小以及粗体或斜体应用到项目中每个文本片段的全部文字</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>回到开头</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>另存为自定义</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>样式</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>输入文本</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>在此处或预览中（双击文本）选择字母，然后使用上方的工具栏。</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>还没有带独立样式的字母。</translation>
     </message>

@@ -22840,6 +22840,30 @@ If playback stutters, try another.</source>
         <translation>තීරුවේ වර්ණය, ප්‍රමාණය සහ තද හෝ ඇල අකුරු ව්‍යාපෘතියේ සෑම පෙළ ක්ලිපයකම සම්පූර්ණ පෙළට යොදයි</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>ආරම්භයට</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>අභිරුචි ලෙස සුරකින්න</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>විලාසය</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>අභිරුචිකරණය</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>ආදාන පෙළ</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>මෙහි හෝ පෙරදසුනේ (පෙළ මත දෙවරක් ක්ලික් කර) අකුරු තෝරා, ඉහළ තීරුව භාවිත කරන්න.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>තවම තමන්ගේම විලාසයක් ඇති අකුරු නැත.</translation>
     </message>

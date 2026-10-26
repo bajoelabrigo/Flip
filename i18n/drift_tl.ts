@@ -22832,6 +22832,30 @@ If playback stutters, try another.</source>
         <translation>Inilalapat ang kulay, laki at bold o italic ng bar sa buong teksto ng bawat text clip sa proyekto</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Bumalik sa simula</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>I-save bilang custom</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Istilo</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>I-customize</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Input na teksto</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Pumili ng mga letra dito o sa preview (i-double-click ang teksto), saka gamitin ang bar sa itaas.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Wala pang letrang may sariling istilo.</translation>
     </message>

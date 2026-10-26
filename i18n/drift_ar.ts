@@ -23164,6 +23164,30 @@ If playback stutters, try another.</source>
         <translation>يطبّق لون الشريط وحجمه والخط الغامق أو المائل على النص الكامل لكل مقطع نصي في المشروع</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>العودة إلى البداية</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>حفظ كنمط مخصص</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>النمط</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>تخصيص</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>النص المُدخل</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>حدد الحروف هنا أو في المعاينة (انقر نقرًا مزدوجًا على النص)، ثم استخدم الشريط في الأعلى.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>لا توجد حروف بنمط خاص بعد.</translation>
     </message>

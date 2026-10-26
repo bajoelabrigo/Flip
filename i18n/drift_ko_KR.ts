@@ -22762,6 +22762,30 @@ If playback stutters, try another.</source>
         <translation>막대의 색, 크기, 굵게 또는 기울임꼴을 프로젝트의 모든 텍스트 클립 전체에 적용합니다</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>처음으로</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>사용자 지정으로 저장</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>스타일</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>사용자 지정</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>입력 텍스트</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>여기 또는 미리보기(텍스트를 두 번 클릭)에서 글자를 선택한 다음 위의 막대를 사용하세요.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>아직 고유 스타일이 있는 글자가 없습니다.</translation>
     </message>

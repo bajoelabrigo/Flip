@@ -22924,6 +22924,30 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Nadaje kolor, rozmiar oraz pogrubienie lub kursywę z paska całemu tekstowi każdego klipu tekstowego w projekcie</translation>
     </message>
     <message>
+        <source>Back to the start</source>
+        <translation>Wróć na początek</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Zapisz jako własny</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Styl</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Dostosuj</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Tekst</translation>
+    </message>
+    <message>
+        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
+        <translation>Zaznacz litery tutaj lub na podglądzie (kliknij dwukrotnie tekst), a potem użyj paska u góry.</translation>
+    </message>
+    <message>
         <source>No letters with their own style yet.</source>
         <translation>Żadna litera nie ma jeszcze własnego stylu.</translation>
     </message>
