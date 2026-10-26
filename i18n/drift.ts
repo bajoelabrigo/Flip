@@ -5280,6 +5280,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation type="unfinished"></translation>
@@ -22812,23 +22819,19 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>More colors…</source>
+        <source>Underline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Size</source>
+        <source>Text color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Apply to selection</source>
+        <source>Line spacing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <source>Letter spacing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22837,6 +22840,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Save as custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22849,14 +22860,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Text input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25370,6 +25373,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximize</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

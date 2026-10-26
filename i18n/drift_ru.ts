@@ -5296,6 +5296,14 @@
         <source>Dynamic</source>
         <translation>Динамичные</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Применено к %n тексту</numerusform>
+            <numerusform>Применено к %n текстам</numerusform>
+            <numerusform>Применено к %n текстам</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Сначала выберите анимацию</translation>
@@ -22904,24 +22912,20 @@ If playback stutters, try another.</source>
         <translation>Курсив</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>Другие цвета…</translation>
+        <source>Underline</source>
+        <translation>Подчёркивание</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Размер</translation>
+        <source>Text color</source>
+        <translation>Цвет текста</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>Применить к выделенному</translation>
+        <source>Line spacing</source>
+        <translation>Межстрочный интервал</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>Применить ко всем текстам</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>Применяет цвет, размер и жирный или курсив с панели ко всему тексту каждого текстового клипа проекта</translation>
+        <source>Letter spacing</source>
+        <translation>Межбуквенный интервал</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22930,6 +22934,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>Сохранить как свой</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Применить изменения ко всем текстам</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Применяет стиль этого текста к остальным текстам проекта</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22942,14 +22954,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>Вводимый текст</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>Выделите буквы здесь или в предпросмотре (двойной щелчок по тексту), затем используйте панель сверху.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>Пока нет букв с собственным стилем.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25463,6 +25467,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Восстановить</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Развернуть</translation>
     </message>
 </context>
 <context>

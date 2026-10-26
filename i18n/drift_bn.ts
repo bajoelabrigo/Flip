@@ -5380,6 +5380,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>%n টি টেক্সটে প্রয়োগ হয়েছে</numerusform>
+            <numerusform>%n টি টেক্সটে প্রয়োগ হয়েছে</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>আগে একটি অ্যানিমেশন বেছে নিন</translation>
@@ -22820,24 +22827,20 @@ If playback stutters, try another.</source>
         <translation>ইটালিক</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>আরও রং…</translation>
+        <source>Underline</source>
+        <translation>আন্ডারলাইন</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>আকার</translation>
+        <source>Text color</source>
+        <translation>টেক্সটের রং</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>নির্বাচিত অংশে প্রয়োগ</translation>
+        <source>Line spacing</source>
+        <translation>লাইনের ব্যবধান</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>সব টেক্সটে প্রয়োগ</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>বারের রং, আকার এবং বোল্ড বা ইটালিক প্রকল্পের প্রতিটি টেক্সট ক্লিপের পুরো লেখায় প্রয়োগ করে</translation>
+        <source>Letter spacing</source>
+        <translation>অক্ষরের ব্যবধান</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22846,6 +22849,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>কাস্টম হিসেবে সংরক্ষণ</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>সব টেক্সটে পরিবর্তন প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>প্রকল্পের অন্য টেক্সটগুলোতে এই টেক্সটের স্টাইল দেয়</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22858,14 +22869,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>ইনপুট টেক্সট</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>এখানে বা প্রিভিউতে (টেক্সটে ডাবল-ক্লিক করে) অক্ষর বাছুন, তারপর উপরের বারটি ব্যবহার করুন।</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>এখনও নিজস্ব স্টাইলের কোনো অক্ষর নেই।</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25379,6 +25382,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>বাতিল করুন</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>পুনরুদ্ধার</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>বড় করুন</translation>
     </message>
 </context>
 <context>

@@ -7586,11 +7586,11 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     boldYo.start = 5;
     boldYo.end = 7;
     boldYo.boldEnabled = true;
-    drift::TextRun red;
-    red.colorEnabled = true;
-    red.color = QColor(255, 0, 0);
+    drift::TextRun redPatch;
+    redPatch.colorEnabled = true;
+    redPatch.color = QColor(255, 0, 0);
     // «A YO» (de 3 a 7): la A sin tramo gana uno rojo; «YO» sigue en negrita y además rojo.
-    const QList<drift::TextRun> patched = drift::patchTextRuns({boldYo}, 7, 3, 7, red);
+    const QList<drift::TextRun> patched = drift::patchTextRuns({boldYo}, 7, 3, 7, redPatch);
     QCOMPARE(patched.size(), 2);
     QCOMPARE(patched.at(0).start, 3);
     QCOMPARE(patched.at(0).end, 5);

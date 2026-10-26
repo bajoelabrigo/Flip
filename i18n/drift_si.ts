@@ -5280,6 +5280,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>පෙළ %n කට යෙදුවා</numerusform>
+            <numerusform>පෙළ %n කට යෙදුවා</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>මුලින් සජීවීකරණයක් තෝරන්න</translation>
@@ -22820,24 +22827,20 @@ If playback stutters, try another.</source>
         <translation>ඇල</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>තවත් වර්ණ…</translation>
+        <source>Underline</source>
+        <translation>යටි ඉර</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>ප්‍රමාණය</translation>
+        <source>Text color</source>
+        <translation>පෙළ වර්ණය</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>තේරීමට යොදන්න</translation>
+        <source>Line spacing</source>
+        <translation>පේළි පරතරය</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>සියලු පෙළට යොදන්න</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>තීරුවේ වර්ණය, ප්‍රමාණය සහ තද හෝ ඇල අකුරු ව්‍යාපෘතියේ සෑම පෙළ ක්ලිපයකම සම්පූර්ණ පෙළට යොදයි</translation>
+        <source>Letter spacing</source>
+        <translation>අකුරු පරතරය</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22846,6 +22849,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>අභිරුචි ලෙස සුරකින්න</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>සියලු පෙළට වෙනස්කම් යොදන්න</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>ව්‍යාපෘතියේ අනෙක් පෙළට මෙම පෙළේ විලාසය දෙයි</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22858,14 +22869,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>ආදාන පෙළ</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>මෙහි හෝ පෙරදසුනේ (පෙළ මත දෙවරක් ක්ලික් කර) අකුරු තෝරා, ඉහළ තීරුව භාවිත කරන්න.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>තවම තමන්ගේම විලාසයක් ඇති අකුරු නැත.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25379,6 +25382,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>ප්‍රතිසාධනය</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>විශාල කරන්න</translation>
     </message>
 </context>
 <context>

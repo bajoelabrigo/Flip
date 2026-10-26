@@ -5296,6 +5296,14 @@
         <source>Dynamic</source>
         <translation>Dynamiczne</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Zastosowano do %n tekstu</numerusform>
+            <numerusform>Zastosowano do %n tekstów</numerusform>
+            <numerusform>Zastosowano do %n tekstów</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Najpierw wybierz animację</translation>
@@ -22904,24 +22912,20 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Kursywa</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>Więcej kolorów…</translation>
+        <source>Underline</source>
+        <translation>Podkreślenie</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Rozmiar</translation>
+        <source>Text color</source>
+        <translation>Kolor tekstu</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>Zastosuj do zaznaczenia</translation>
+        <source>Line spacing</source>
+        <translation>Interlinia</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>Zastosuj do wszystkich tekstów</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>Nadaje kolor, rozmiar oraz pogrubienie lub kursywę z paska całemu tekstowi każdego klipu tekstowego w projekcie</translation>
+        <source>Letter spacing</source>
+        <translation>Odstęp między literami</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22930,6 +22934,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Save as custom</source>
         <translation>Zapisz jako własny</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Zastosuj zmiany do wszystkich tekstów</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Nadaje pozostałym tekstom w projekcie styl tego tekstu</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22942,14 +22954,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Text input</source>
         <translation>Tekst</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>Zaznacz litery tutaj lub na podglądzie (kliknij dwukrotnie tekst), a potem użyj paska u góry.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>Żadna litera nie ma jeszcze własnego stylu.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25463,6 +25467,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Przywróć</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Maksymalizuj</translation>
     </message>
 </context>
 <context>

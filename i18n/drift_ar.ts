@@ -5332,6 +5332,17 @@
         <source>Dynamic</source>
         <translation>ديناميكي</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>اختر حركة أولاً</translation>
@@ -23144,24 +23155,20 @@ If playback stutters, try another.</source>
         <translation>مائل</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>ألوان أخرى…</translation>
+        <source>Underline</source>
+        <translation>تسطير</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>الحجم</translation>
+        <source>Text color</source>
+        <translation>لون النص</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>تطبيق على التحديد</translation>
+        <source>Line spacing</source>
+        <translation>تباعد الأسطر</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>تطبيق على كل النصوص</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>يطبّق لون الشريط وحجمه والخط الغامق أو المائل على النص الكامل لكل مقطع نصي في المشروع</translation>
+        <source>Letter spacing</source>
+        <translation>تباعد الحروف</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -23170,6 +23177,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>حفظ كنمط مخصص</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>تطبيق التغييرات على كل النصوص</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>يمنح باقي نصوص المشروع نمط هذا النص</translation>
     </message>
     <message>
         <source>Style</source>
@@ -23182,14 +23197,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>النص المُدخل</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>حدد الحروف هنا أو في المعاينة (انقر نقرًا مزدوجًا على النص)، ثم استخدم الشريط في الأعلى.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>لا توجد حروف بنمط خاص بعد.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25703,6 +25710,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>استعادة</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>تكبير</translation>
     </message>
 </context>
 <context>

@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>ダイナミック</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>%n 件のテキストに適用しました</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>先にアニメーションを選択してください</translation>
@@ -22744,24 +22750,20 @@ If playback stutters, try another.</source>
         <translation>斜体</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>その他の色…</translation>
+        <source>Underline</source>
+        <translation>下線</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>サイズ</translation>
+        <source>Text color</source>
+        <translation>文字の色</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>選択範囲に適用</translation>
+        <source>Line spacing</source>
+        <translation>行間</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>すべてのテキストに適用</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>バーの色、サイズ、太字または斜体を、プロジェクト内のすべてのテキストクリップの全文に適用します</translation>
+        <source>Letter spacing</source>
+        <translation>文字間隔</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22770,6 +22772,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>カスタムとして保存</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>すべてのテキストに変更を適用</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>プロジェクト内の他のテキストにこのテキストのスタイルを適用します</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22782,14 +22792,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>入力テキスト</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>ここまたはプレビュー（テキストをダブルクリック）で文字を選び、上のバーを使います。</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>独自のスタイルを持つ文字はまだありません。</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25303,6 +25305,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>元に戻す</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>最大化</translation>
     </message>
 </context>
 <context>

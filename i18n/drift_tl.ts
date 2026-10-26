@@ -5284,6 +5284,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Nailapat sa %n teksto</numerusform>
+            <numerusform>Nailapat sa %n teksto</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Pumili muna ng animation</translation>
@@ -22812,24 +22819,20 @@ If playback stutters, try another.</source>
         <translation>Italic</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>Higit pang kulay…</translation>
+        <source>Underline</source>
+        <translation>Salungguhit</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Laki</translation>
+        <source>Text color</source>
+        <translation>Kulay ng teksto</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>Ilapat sa napili</translation>
+        <source>Line spacing</source>
+        <translation>Pagitan ng linya</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>Ilapat sa lahat ng teksto</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>Inilalapat ang kulay, laki at bold o italic ng bar sa buong teksto ng bawat text clip sa proyekto</translation>
+        <source>Letter spacing</source>
+        <translation>Pagitan ng letra</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22838,6 +22841,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>I-save bilang custom</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Ilapat ang mga pagbabago sa lahat ng teksto</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Ibinibigay ang istilo ng tekstong ito sa ibang teksto ng proyekto</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22850,14 +22861,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>Input na teksto</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>Pumili ng mga letra dito o sa preview (i-double-click ang teksto), saka gamitin ang bar sa itaas.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>Wala pang letrang may sariling istilo.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25371,6 +25374,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Ibalik</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>I-maximize</translation>
     </message>
 </context>
 <context>

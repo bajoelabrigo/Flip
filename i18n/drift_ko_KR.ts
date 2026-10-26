@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>다이내믹</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>텍스트 %n개에 적용했습니다</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>먼저 애니메이션을 선택하세요</translation>
@@ -22742,24 +22748,20 @@ If playback stutters, try another.</source>
         <translation>기울임꼴</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>더 많은 색…</translation>
+        <source>Underline</source>
+        <translation>밑줄</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>크기</translation>
+        <source>Text color</source>
+        <translation>텍스트 색</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>선택 영역에 적용</translation>
+        <source>Line spacing</source>
+        <translation>줄 간격</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>모든 텍스트에 적용</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>막대의 색, 크기, 굵게 또는 기울임꼴을 프로젝트의 모든 텍스트 클립 전체에 적용합니다</translation>
+        <source>Letter spacing</source>
+        <translation>자간</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22768,6 +22770,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>사용자 지정으로 저장</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>모든 텍스트에 변경 사항 적용</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>프로젝트의 다른 텍스트에 이 텍스트의 스타일을 적용합니다</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22780,14 +22790,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>입력 텍스트</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>여기 또는 미리보기(텍스트를 두 번 클릭)에서 글자를 선택한 다음 위의 막대를 사용하세요.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>아직 고유 스타일이 있는 글자가 없습니다.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25301,6 +25303,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>취소</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>복원</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>최대화</translation>
     </message>
 </context>
 <context>

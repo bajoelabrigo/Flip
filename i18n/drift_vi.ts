@@ -5272,6 +5272,12 @@
         <source>Dynamic</source>
         <translation>Năng động</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Đã áp dụng cho %n văn bản</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Hãy chọn một hiệu ứng chuyển động trước</translation>
@@ -22744,24 +22750,20 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nghiêng</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>Thêm màu…</translation>
+        <source>Underline</source>
+        <translation>Gạch chân</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>Cỡ chữ</translation>
+        <source>Text color</source>
+        <translation>Màu chữ</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>Áp dụng cho vùng chọn</translation>
+        <source>Line spacing</source>
+        <translation>Giãn dòng</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>Áp dụng cho mọi văn bản</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>Áp dụng màu, cỡ chữ và kiểu đậm hoặc nghiêng của thanh cho toàn bộ chữ của mọi clip văn bản trong dự án</translation>
+        <source>Letter spacing</source>
+        <translation>Giãn chữ</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22770,6 +22772,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Save as custom</source>
         <translation>Lưu thành tùy chỉnh</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Áp dụng thay đổi cho mọi văn bản</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Áp dụng kiểu của văn bản này cho các văn bản khác trong dự án</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22782,14 +22792,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Text input</source>
         <translation>Văn bản nhập</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>Chọn chữ ở đây hoặc trên bản xem trước (nhấp đúp vào văn bản), rồi dùng thanh phía trên.</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>Chưa có chữ nào có kiểu riêng.</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25303,6 +25305,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Cancel</source>
         <translation>Hủy bỏ</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Khôi phục</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Phóng to</translation>
     </message>
 </context>
 <context>

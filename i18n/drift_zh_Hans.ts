@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>动感</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>已应用到 %n 个文本</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>请先选择一个动画</translation>
@@ -22743,24 +22749,20 @@ If playback stutters, try another.</source>
         <translation>斜体</translation>
     </message>
     <message>
-        <source>More colors…</source>
-        <translation>更多颜色…</translation>
+        <source>Underline</source>
+        <translation>下划线</translation>
     </message>
     <message>
-        <source>Size</source>
-        <translation>大小</translation>
+        <source>Text color</source>
+        <translation>文字颜色</translation>
     </message>
     <message>
-        <source>Apply to selection</source>
-        <translation>应用到所选内容</translation>
+        <source>Line spacing</source>
+        <translation>行距</translation>
     </message>
     <message>
-        <source>Apply to all texts</source>
-        <translation>应用到所有文本</translation>
-    </message>
-    <message>
-        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
-        <translation>将工具栏的颜色、大小以及粗体或斜体应用到项目中每个文本片段的全部文字</translation>
+        <source>Letter spacing</source>
+        <translation>字间距</translation>
     </message>
     <message>
         <source>Back to the start</source>
@@ -22769,6 +22771,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Save as custom</source>
         <translation>另存为自定义</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>将更改应用到所有文本</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>把此文本的样式应用到项目中的其他文本</translation>
     </message>
     <message>
         <source>Style</source>
@@ -22781,14 +22791,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Text input</source>
         <translation>输入文本</translation>
-    </message>
-    <message>
-        <source>Select letters here or on the preview (double-click the text), then use the bar above.</source>
-        <translation>在此处或预览中（双击文本）选择字母，然后使用上方的工具栏。</translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation>还没有带独立样式的字母。</translation>
     </message>
     <message>
         <source>1 stretch with its own style</source>
@@ -25302,6 +25304,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>最大化</translation>
     </message>
 </context>
 <context>
