@@ -155,12 +155,35 @@ probar el portable en ventana, versión 0.24.0 en `CMakeLists.txt`, `release-not
 `docs/store-listing.md`, y la rutina de publicación de `CLAUDE.md`. Mantener **este archivo** al día con lo hecho y lo
 que falta, y subir a la rama a menudo.
 
-## Estado
+## Estado (2026-10-26, DeepSeek; CI del run 40370485636 EN VERDE)
 
-- [ ] Modelo (`TextRun` ampliado, JSON, `patchTextRuns`, hashes) + pruebas Core
-- [ ] Pintado (pila, fondo, transformación por tramo) + pruebas Skia
-- [ ] Inspector: `applyStyle` único, selección en el panel normal, valores del tramo bajo el cursor
-- [ ] Texto avanzado y vista previa
-- [ ] Web (o al menos conservar los campos)
-- [ ] Prueba en ventana de los seis efectos, con y sin selección
-- [ ] Publicar 0.24.0
+- [x] Modelo (`TextRun` ampliado: `layersEnabled`+`layers`, `boxEnabled`+color/relleno/radio/borde,
+      `transformEnabled`+offsetX/offsetY/transformScale/rotation; JSON solo si se usaron; `patchTextRuns` los suma;
+      el hash de `layoutKey` los cuenta) + `CoreTest::textRunsCarryEffectsBackgroundAndTransform`.
+- [x] Pintado: `SkiaTextPainter.cpp` usa la pila del tramo cuando la trae (`drawStack` por grupo), pinta su fondo
+      (`drawRunBackgrounds`, una caja por trozo) y aplica su transformación alrededor del centro de su caja
+      (`drawPiece`); los trozos sin tramo siguen con la pila del bloque. `SkiaTest::textRunEffectsStayInsideTheirLetters`
+      compara píxeles: sombra roja, trazo, fondo y transformación solo en «MUNDO», con «HOLA» intacta.
+- [x] Inspector: **una sola puerta** `applyStyle(patch)`
+      (`src/qml/components/properties/TextInspector.qml`): con letras sombreadas en «Texto de entrada» llama a
+      `patchTextRuns` con `runPatchFor(patch)`; sin selección, `setTextStyle`. Los cinco llamadores directos de
+      `setTextStyle` pasan por ella, y el acento por palabra se queda en el bloque (no es por tramo).
+      Aviso «Se aplica a las letras seleccionadas». La ventana de Texto avanzado le pasa su selección
+      (`runSelectionStart/End`).
+- [x] API de tramos con los campos nuevos en los dos sentidos (`textRuns`, `setTextRuns`, `patchTextRuns`), o la
+      ventana de Texto avanzado los borraría al guardar.
+- [x] Los dos arreglos cortos («Arreglo aparte» 1 y 2): Tendencias ya no agrega dos veces (Títulos y Efectos) y la
+      columna de la derecha de Texto avanzado deja el hueco de la barra de desplazamiento.
+- [x] Catálogos: el run que falló en Traducciones subió `i18n-regenerated`; copiado a `i18n/`, «Se aplica a las letras
+      seleccionadas» en `drift_es.ts`, y el CI siguiente en verde.
+- [ ] **Prueba en ventana** (pendiente, es lo único que falta para decir «hecho»): portable del run 40370485636
+      descargado y descomprimido en `pruebas\portable-0.24\app`, registro copiado y restaurado. El ejecutable sale
+      enseguida con `--mcp-stdio` («MCP is off») aunque `mcp/startOnLaunch` esté en el registro: hay que abrirlo con
+      el arnés (`py tools/e2e/mcp_e2e.py --window …`) y no con el flag suelto, y después `shot.ps1`/`click.ps1`
+      con `-TargetPid` y `drag.ps1` para sombrear letras. Probar los seis (preset, fondo, resplandor, sombra,
+      transformación, trazo) con y sin selección, en el panel normal **y** en Texto avanzado.
+- [ ] Valores del tramo bajo el cursor en los controles (hoy muestran los del bloque).
+- [ ] Transformar (mover/girar/escalar) desde la sección Transformar del inspector cuando hay selección: hoy el
+      modelo y el pintado lo admiten, pero esa sección no pasa por `applyStyle`.
+- [ ] Web (o al menos conservar los campos nuevos al abrir y guardar).
+- [ ] Publicar 0.24.0 (sin tags ni publicación sin el OK de Jorge).
