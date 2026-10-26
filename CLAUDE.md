@@ -50,7 +50,23 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-24, noche)
+## Estado (actualizado 2026-10-26)
+
+### 0.23.0 PUBLICADA (2026-10-26) — Texto avanzado como Filmora, panel izquierdo en árbol — **detalle en `docs/plan-0.23.md`**
+- PR #39 (`flip/v0.22.1` → `main`), tag `v0.23.0`, release (run 40295017830); copia en `versiones\FlipStudio-0.23.0`
+  (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40295076591 → `tienda\FlipStudio-Store\paquete-0.23.0`.
+  Notas de la Store: «Notas para la Store (0.23.0)» y, si la 0.22.0 nunca se subió, las «combinadas» (861/1500).
+- DeepSeek empezó (plan y árbol); Claude revisó, arregló y terminó. **Probado en ventana** (portables
+  `pruebas\FlipStudio-0.23-prueba*`): árbol en Efectos/Títulos/Stock (Jorge también), Texto avanzado con B+U+color
+  sobre letras elegidas, escribir en vivo, mover/maximizar, Aplicar y Cancelar.
+- **Falta (Jorge):** subir el MSIX (0.22.0 o directamente 0.23.0 con las notas combinadas) cuando aprueben la 0.21.0,
+  y TXT `version`. Mirar a ojo que los colores por letra se vean en la vista previa grande.
+- **Web (`flipstudio-app` `web/v0221-texto`, SIN desplegar):** árbol y tramos (con fuente/subrayado conservados);
+  falta la ventana de Texto avanzado de la web.
+- **Trampas nuevas:** todo QML nuevo va en `qt_add_qml_module` de `CMakeLists.txt` (si no, lupdate del CI no lo ve y la
+  app no lo carga); `qFuzzyCompare` no existe en QML; `layoutKey` tiene que contar todo lo que cambia el trazado
+  (los tramos no estaban y no se veían); los catálogos se regeneran con el artefacto `i18n-regenerated` del run de
+  Windows que falla en Traducciones; `tools/e2e/drag.ps1` y `type.ps1` para elegir letras y escribir en pruebas.
 
 ### 0.22.0 PUBLICADA (2026-10-24) — texto renovado, fotogramas clave como After Effects, Stock en cada panel — **detalle en `docs/plan-0.22.md` y `docs/auditoria-texto.md` (sección I)**
 - PR #38 (`flip/v0.22.0` → `main`), tag `v0.22.0`, release (run 40140992912); copia en `versiones\FlipStudio-0.22.0`
