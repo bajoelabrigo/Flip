@@ -1864,6 +1864,15 @@ Item {
                 onExpandedChanged: root.advancedOpen = expanded
                 visible: root.hasTextStyle
 
+                // La ventana de Texto avanzado (0.23): elegir letras y darles su propio estilo.
+                ThemedButton {
+                    width: parent.width
+                    text: qsTr("Open Advanced text…")
+                    glyph: Theme.icons.type
+                    onClicked: advancedTextDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip,
+                                                         (root.clipData && root.clipData.id) ? root.clipData.id : "")
+                }
+
                 CollapsibleSection {
                     width: parent.width
                     title: qsTr("Preset")
@@ -3104,5 +3113,9 @@ Item {
 
     VoiceoverDialog {
         id: voiceoverDialog
+    }
+
+    TextAdvancedDialog {
+        id: advancedTextDialog
     }
 }
