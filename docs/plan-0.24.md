@@ -98,6 +98,32 @@ otras tarjetas.
 3); arrastrarlo a la línea de tiempo sigue funcionando. Lo mismo en Efectos › Tendencias (un efecto por clic).
 Contar los clips con `inspect` por MCP o en la línea de tiempo.
 
+## Arreglo aparte 2 (corto): los interruptores del texto quedan cortados a la derecha
+
+**Lo que ve Jorge** (captura `Downloads\Captura de pantalla 2026-10-26 112538.png`): en Texto avanzado › Estilo, los
+interruptores de **Fondo, Resplandor y Sombra** (y los botones «Recto · Suave · Salto») salen pegados al borde
+derecho y la barra de desplazamiento tapa casi la mitad del interruptor. Falta margen a la derecha.
+
+**Causa:** en `src/qml/components/TextAdvancedDialog.qml` ~línea 627, la columna de la derecha (`sideColumn`,
+dentro de `Flickable sideScroll` con `AppScrollBar`) tiene `width: sideScroll.width - Theme.spacingMd` y ningún
+margen izquierdo. La barra de desplazamiento se dibuja **encima** del contenido, y `CollapsibleSection` ancla el
+interruptor a `parent.right`, así que queda debajo de la barra.
+
+**Arreglo:** dejar el mismo hueco que deja el panel de la derecha (`PropertiesPanel.qml` ~línea 591, `tabColumn`):
+```qml
+Column {
+    id: sideColumn
+    x: Theme.pagePadding
+    width: sideScroll.width - Theme.pagePadding * 2 - (Theme.spacingLg + 4)
+    ...
+```
+No tocar `CollapsibleSection.qml` (lo usan todos los paneles y en ellos se ve bien). Si en el panel de la derecha
+normal también se viera cortado, revisar ahí el `width` de `tabColumn` en `sheetMode`.
+
+**Probar en ventana:** abrir Texto avanzado, pestañas Estilo, Personalizar, Animación y Burbuja, con la barra de
+desplazamiento visible (que la lista sea más larga que la ventana): cada interruptor se ve entero con aire a la
+derecha, y la ventana maximizada también.
+
 ## Pruebas obligatorias
 
 - `CoreTest`: JSON de ida y vuelta de cada campo nuevo; `patchTextRuns` con trazo sobre un tramo que ya tenía color
