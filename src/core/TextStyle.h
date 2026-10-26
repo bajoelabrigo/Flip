@@ -95,6 +95,10 @@ struct TextRun
     bool bold = true;
     bool italicEnabled = false;
     bool italic = true;
+    bool underlineEnabled = false; // a line under these letters, in their colour
+    bool underline = true;
+    bool fontEnabled = false; // another font for these letters
+    QString fontFamily;
 
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }
@@ -105,6 +109,10 @@ QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
 // Los tramos después de cambiar el texto de `before` a `after`: lo que va detrás de lo escrito o
 // borrado se corre con ello, así cada color sigue en sus letras.
 QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after);
+// What the text bar does to the letters [start, end) (Texto avanzado, like a word processor): the
+// fields `patch` turns on (its *Enabled flags) go onto every letter there, and whatever else those
+// letters already had (another colour, bold…) stays. Letters outside keep their runs untouched.
+QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int start, int end, const TextRun &patch);
 // El tramo que cubre ese desplazamiento, o nullptr si ninguno.
 const TextRun *textRunAt(const QList<TextRun> &runs, int at);
 

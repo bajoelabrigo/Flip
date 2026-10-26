@@ -1010,6 +1010,10 @@ QJsonObject textRunToJson(const TextRun &r)
         {QStringLiteral("bold"), r.bold},
         {QStringLiteral("italicEnabled"), r.italicEnabled},
         {QStringLiteral("italic"), r.italic},
+        {QStringLiteral("underlineEnabled"), r.underlineEnabled},
+        {QStringLiteral("underline"), r.underline},
+        {QStringLiteral("fontEnabled"), r.fontEnabled},
+        {QStringLiteral("fontFamily"), r.fontFamily},
     };
 }
 
@@ -1026,6 +1030,10 @@ TextRun textRunFromJson(const QJsonObject &o)
     r.bold = o.value(QStringLiteral("bold")).toBool(r.bold);
     r.italicEnabled = o.value(QStringLiteral("italicEnabled")).toBool(r.italicEnabled);
     r.italic = o.value(QStringLiteral("italic")).toBool(r.italic);
+    r.underlineEnabled = o.value(QStringLiteral("underlineEnabled")).toBool(r.underlineEnabled);
+    r.underline = o.value(QStringLiteral("underline")).toBool(r.underline);
+    r.fontEnabled = o.value(QStringLiteral("fontEnabled")).toBool(r.fontEnabled);
+    r.fontFamily = o.value(QStringLiteral("fontFamily")).toString();
     return r;
 }
 
@@ -1100,6 +1108,79 @@ QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &b
         shifted.append(r);
     }
     return normalizedTextRuns(shifted, newLen);
+}
+
+QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int start, int end, const TextRun &patch)
+{
+    const QList<TextRun> base = normalizedTextRuns(runs, textLength);
+    start = qBound(0, start, textLength);
+    end = qBound(0, end, textLength);
+    if (end <= start)
+        return base;
+    const auto applied = [&](TextRun r) {
+        if (patch.colorEnabled) {
+            r.colorEnabled = true;
+            r.color = patch.color;
+        }
+        if (patch.sizeEnabled) {
+            r.sizeEnabled = true;
+            r.sizeScale = patch.sizeScale;
+        }
+        if (patch.boldEnabled) {
+            r.boldEnabled = true;
+            r.bold = patch.bold;
+        }
+        if (patch.italicEnabled) {
+            r.italicEnabled = true;
+            r.italic = patch.italic;
+        }
+        if (patch.underlineEnabled) {
+            r.underlineEnabled = true;
+            r.underline = patch.underline;
+        }
+        if (patch.fontEnabled) {
+            r.fontEnabled = true;
+            r.fontFamily = patch.fontFamily;
+        }
+        return r;
+    };
+    QList<TextRun> out;
+    int at = start; // the next letter of [start, end) no run has covered yet
+    for (const TextRun &run : base) {
+        if (run.end <= start || run.start >= end) {
+            out.append(run);
+            continue;
+        }
+        if (run.start < start) {
+            TextRun before = run;
+            before.end = start;
+            out.append(before);
+        }
+        const int from = qMax(run.start, start);
+        if (from > at) {
+            TextRun gap = applied(TextRun{});
+            gap.start = at;
+            gap.end = from;
+            out.append(gap);
+        }
+        TextRun inside = applied(run);
+        inside.start = from;
+        inside.end = qMin(run.end, end);
+        out.append(inside);
+        at = inside.end;
+        if (run.end > end) {
+            TextRun after = run;
+            after.start = end;
+            out.append(after);
+        }
+    }
+    if (at < end) {
+        TextRun gap = applied(TextRun{});
+        gap.start = at;
+        gap.end = end;
+        out.append(gap);
+    }
+    return normalizedTextRuns(out, textLength);
 }
 
 const TextRun *textRunAt(const QList<TextRun> &runs, int at)

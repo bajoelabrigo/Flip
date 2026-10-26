@@ -932,10 +932,10 @@ public:
     // reemplazarlos de una vez (una sola entrada de deshacer).
     Q_INVOKABLE QVariantList textRuns(int trackIndex, int clipIndex);
     Q_INVOKABLE void setTextRuns(int trackIndex, int clipIndex, const QVariantList &runs);
+    // The text bar on the letters [start, end): only the keys given (color, sizeScale, bold, italic,
+    // underline, fontFamily) change, and what those letters already had stays.
+    Q_INVOKABLE void patchTextRuns(int trackIndex, int clipIndex, int start, int end, const QVariantMap &patch);
 
-    // El mismo pincel (color, tamaño, negrita, cursiva) aplicado al texto ENTERO de todos los clips
-    // de texto del proyecto, como «Aplicar a todos los textos» de la ventana de Texto avanzado.
-    Q_INVOKABLE void applyTextBrushToAllTexts(const QVariantMap &brush);
 
     // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made
     // in between lands in one undo step, and Cancel takes all of it back. Ending one that was

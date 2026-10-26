@@ -68,6 +68,7 @@ struct Piece
     sk_sp<SkTextBlob> emoji; // colour-glyph cluster (no outline), drawn as glyphs in block coordinates
     bool runColorSet = false; // the stretch of text this piece belongs to brings its own colour
     QColor runColor;
+    bool runUnderline = false;
 };
 
 struct BlockGeometry
@@ -99,6 +100,7 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
         piece.accent = word.accent;
         piece.runColorSet = word.runColorSet;
         piece.runColor = word.runColor;
+        piece.runUnderline = word.runUnderline;
         if (word.geometry) {
             const text::PieceGeometry &geometry = *word.geometry;
             if (word.colour) {
@@ -1162,6 +1164,7 @@ private:
 
     void drawUnderline(SkCanvas &canvas) const
     {
+        drawRunUnderlines(canvas);
         if (m_bend.active || !m_style.underlineEnabled || m_style.underlineWidth <= 0.0)
             return;
         QHash<int, QRectF> perLine;
@@ -1184,6 +1187,28 @@ private:
         const float r = float(m_style.underlineWidth * m_scale * 0.5);
         for (const QRectF &rule : std::as_const(perLine))
             canvas.drawRoundRect(toSkRect(rule), r, r, fill);
+    }
+
+    // Letters underlined on their own (Texto avanzado's U): a thin rule under each piece, in the
+    // piece's colour, like a word processor. Neighbouring pieces touch, so a run reads as one line.
+    void drawRunUnderlines(SkCanvas &canvas) const
+    {
+        if (m_bend.active)
+            return;
+        const double width = qMax(1.0, m_style.pixelSize * 0.06) * m_scale;
+        const double offset = qMax(1.0, m_style.pixelSize * 0.08) * m_scale;
+        for (int i = 0; i < m_pieces.size(); ++i) {
+            const Piece &piece = m_pieces.at(i);
+            if (!piece.runUnderline || !visible(i))
+                continue;
+            const textanim::FragmentProps &p = props(i);
+            const QRectF rule(piece.cellRect.left() + p.dx, piece.baselineY + p.dy + offset,
+                              piece.cellRect.width(), width);
+            SkPaint fill;
+            fill.setAntiAlias(true);
+            fill.setColor(toSkColor(piece.runColorSet ? piece.runColor : m_style.primaryColor()));
+            canvas.drawRect(toSkRect(rule), fill);
+        }
     }
 
     void drawCaret(SkCanvas &canvas) const

@@ -71,11 +71,17 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
     const quint64 ink = qHashMulti(0, qRound(drift::textStrokeWidth(s, false) * 4.0),
                                    qRound(drift::textStrokeWidth(s, true) * 4.0), pad(s.wordHighlight),
                                    pad(a.highlight));
+    // The letters' own styles (0.23) change the shapes and colours of the pieces.
+    quint64 runs = 0;
+    for (const drift::TextRun &r : s.runs)
+        runs = qHashMulti(runs, r.start, r.end, r.colorEnabled, r.color.rgba(), r.sizeEnabled,
+                          qRound(r.sizeScale * 1000.0), r.boldEnabled, r.bold, r.italicEnabled, r.italic,
+                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily);
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split), ink, s.wordSpacing);
+                      static_cast<int>(split), ink, s.wordSpacing, runs);
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
@@ -409,21 +415,31 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         return ri >= 0 && ri < textRuns.size() ? &textRuns.at(ri) : nullptr;
     };
 
+    // A run with its own font, bold or italic goes through the font catalog like the block does, so
+    // a bundled family gets its real Bold or Italic face rather than a synthesized one.
+    QList<ResolvedFont> runFonts;
+    for (const drift::TextRun &run : textRuns) {
+        drift::TextStyle face = style;
+        if (run.fontEnabled && !run.fontFamily.isEmpty())
+            face.fontFamily = run.fontFamily;
+        if (run.boldEnabled)
+            face.fontWeight = run.bold ? 700 : 400;
+        if (run.italicEnabled)
+            face.italic = run.italic;
+        runFonts.append(resolveFont(face));
+    }
+
     const auto styleFor = [&](bool accent, bool emoji, int runIndex) {
         double px = accent ? accentPx : basePx;
-        int weight = resolved.weight;
-        bool italic = resolved.italic;
+        ResolvedFont font = resolved;
         if (!accent && runIndex >= 0 && runIndex < textRuns.size()) {
             const drift::TextRun &run = textRuns.at(runIndex);
             if (run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0))
                 px = qMax(1.0, style.pixelSize * run.sizeScale * renderScale);
-            if (run.boldEnabled)
-                weight = run.bold ? 700 : 400;
-            if (run.italicEnabled)
-                italic = run.italic;
+            font = runFonts.at(runIndex);
         }
         return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing, wordSpacing)
-                     : makeTextStyle(resolved.family, weight, italic, px, letterSpacing, wordSpacing);
+                     : makeTextStyle(font.family, font.weight, font.italic, px, letterSpacing, wordSpacing);
     };
 
     skt::ParagraphStyle paragraphStyle;
@@ -700,9 +716,12 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                 word.nonSpaceIndex = words.size();
                 word.textStart = from;
                 word.textLength = to - from;
-                if (const drift::TextRun *run = runAtFor(from); run && run->colorEnabled) {
-                    word.runColorSet = true;
-                    word.runColor = run->color;
+                if (const drift::TextRun *run = runAtFor(from)) {
+                    if (run->colorEnabled) {
+                        word.runColorSet = true;
+                        word.runColor = run->color;
+                    }
+                    word.runUnderline = run->underlineEnabled && run->underline;
                 }
                 words.append(word);
             };

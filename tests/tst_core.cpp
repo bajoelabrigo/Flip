@@ -7580,6 +7580,43 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     QCOMPARE(erased.at(0).start, 0);
     QCOMPARE(erased.at(0).end, 2);
     QVERIFY(drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"), QStringLiteral("HOLA")).isEmpty());
+
+    // La barra de Texto avanzado sobre unas letras: pone lo suyo y deja lo que ya tenían.
+    drift::TextRun boldYo;
+    boldYo.start = 5;
+    boldYo.end = 7;
+    boldYo.boldEnabled = true;
+    drift::TextRun red;
+    red.colorEnabled = true;
+    red.color = QColor(255, 0, 0);
+    // «A YO» (de 3 a 7): la A sin tramo gana uno rojo; «YO» sigue en negrita y además rojo.
+    const QList<drift::TextRun> patched = drift::patchTextRuns({boldYo}, 7, 3, 7, red);
+    QCOMPARE(patched.size(), 2);
+    QCOMPARE(patched.at(0).start, 3);
+    QCOMPARE(patched.at(0).end, 5);
+    QVERIFY(patched.at(0).colorEnabled);
+    QVERIFY(!patched.at(0).boldEnabled);
+    QCOMPARE(patched.at(1).start, 5);
+    QCOMPARE(patched.at(1).end, 7);
+    QVERIFY(patched.at(1).colorEnabled && patched.at(1).boldEnabled);
+    QCOMPARE(patched.at(1).color, QColor(255, 0, 0));
+    // Solo la Y: el tramo de «YO» se parte y la O conserva su negrita sin color.
+    drift::TextRun under;
+    under.underlineEnabled = true;
+    under.fontEnabled = true;
+    under.fontFamily = QStringLiteral("Bebas Neue");
+    const QList<drift::TextRun> onlyY = drift::patchTextRuns({boldYo}, 7, 5, 6, under);
+    QCOMPARE(onlyY.size(), 2);
+    QVERIFY(onlyY.at(0).underlineEnabled && onlyY.at(0).boldEnabled);
+    QCOMPARE(onlyY.at(0).fontFamily, QStringLiteral("Bebas Neue"));
+    QVERIFY(!onlyY.at(1).underlineEnabled && onlyY.at(1).boldEnabled);
+    QCOMPARE(onlyY.at(1).start, 6);
+    // Subrayado y fuente viajan en el proyecto.
+    drift::TextStyle withRuns;
+    withRuns.runs = onlyY;
+    const drift::TextRun back = drift::textStyleFromJson(drift::textStyleToJson(withRuns)).runs.at(0);
+    QVERIFY(back.underlineEnabled && back.underline && back.fontEnabled);
+    QCOMPARE(back.fontFamily, QStringLiteral("Bebas Neue"));
 }
 
 #include "tst_core.moc"

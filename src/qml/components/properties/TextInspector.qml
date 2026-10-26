@@ -930,7 +930,8 @@ Item {
                 title: qsTr("Text")
                 collapsible: false
                 showSeparator: false
-                visible: root.clipKind === "text"
+                // In Texto avanzado the words are typed in its own «Texto de entrada».
+                visible: root.clipKind === "text" && !root.inAdvanced
 
                 ThemedTextArea {
                     id: textContentField

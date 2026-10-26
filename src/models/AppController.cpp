@@ -13068,6 +13068,10 @@ QVariantList AppController::textRuns(int trackIndex, int clipIndex)
             {QStringLiteral("bold"), run.bold},
             {QStringLiteral("italicEnabled"), run.italicEnabled},
             {QStringLiteral("italic"), run.italic},
+            {QStringLiteral("underlineEnabled"), run.underlineEnabled},
+            {QStringLiteral("underline"), run.underline},
+            {QStringLiteral("fontEnabled"), run.fontEnabled},
+            {QStringLiteral("fontFamily"), run.fontFamily},
         });
     }
     return out;
@@ -13093,6 +13097,10 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         run.bold = m.contains(QStringLiteral("bold")) ? m.value(QStringLiteral("bold")).toBool() : true;
         run.italicEnabled = m.value(QStringLiteral("italicEnabled")).toBool();
         run.italic = m.contains(QStringLiteral("italic")) ? m.value(QStringLiteral("italic")).toBool() : true;
+        run.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
+        run.underline = !m.contains(QStringLiteral("underline")) || m.value(QStringLiteral("underline")).toBool();
+        run.fontEnabled = m.value(QStringLiteral("fontEnabled")).toBool();
+        run.fontFamily = m.value(QStringLiteral("fontFamily")).toString();
         parsed.append(run);
     }
     const drift::Project before = m_project;
@@ -13102,38 +13110,39 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
     finishEdit(tr("Text style updated"));
 }
 
-void AppController::applyTextBrushToAllTexts(const QVariantMap &brush)
+void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int end, const QVariantMap &patch)
 {
-    drift::TextRun run;
-    run.colorEnabled = brush.value(QStringLiteral("colorEnabled")).toBool();
-    const QString colorName = brush.value(QStringLiteral("color")).toString();
-    run.color = colorName.isEmpty() ? QColor(255, 214, 64) : QColor(colorName);
-    run.sizeEnabled = brush.value(QStringLiteral("sizeEnabled")).toBool();
-    run.sizeScale = qBound(0.1, brush.value(QStringLiteral("sizeScale")).toDouble(), 10.0);
-    run.boldEnabled = brush.value(QStringLiteral("boldEnabled")).toBool();
-    run.bold = !brush.contains(QStringLiteral("bold")) || brush.value(QStringLiteral("bold")).toBool();
-    run.italicEnabled = brush.value(QStringLiteral("italicEnabled")).toBool();
-    run.italic = !brush.contains(QStringLiteral("italic")) || brush.value(QStringLiteral("italic")).toBool();
-    if (!run.colorEnabled && !run.sizeEnabled && !run.boldEnabled && !run.italicEnabled)
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
         return;
-
-    drift::Project &project = m_project;
-    const drift::Project before = project;
-    int changed = 0;
-    for (drift::Track &track : project.tracks()) {
-        for (drift::Clip &clip : track.clips) {
-            const int length = clip.textContent.size();
-            if (length <= 0 || clip.type != drift::ClipType::Text)
-                continue;
-            drift::TextRun whole = run;
-            whole.start = 0;
-            whole.end = length;
-            clip.textStyle.runs = {whole};
-            ++changed;
-        }
+    // Only the keys present are set: {"color": "#ff0000"} colours the letters and leaves their bold.
+    drift::TextRun p;
+    if (patch.contains(QStringLiteral("color"))) {
+        p.colorEnabled = true;
+        p.color = QColor(patch.value(QStringLiteral("color")).toString());
     }
-    if (changed == 0)
-        return;
+    if (patch.contains(QStringLiteral("sizeScale"))) {
+        p.sizeEnabled = true;
+        p.sizeScale = qBound(0.1, patch.value(QStringLiteral("sizeScale")).toDouble(), 10.0);
+    }
+    if (patch.contains(QStringLiteral("bold"))) {
+        p.boldEnabled = true;
+        p.bold = patch.value(QStringLiteral("bold")).toBool();
+    }
+    if (patch.contains(QStringLiteral("italic"))) {
+        p.italicEnabled = true;
+        p.italic = patch.value(QStringLiteral("italic")).toBool();
+    }
+    if (patch.contains(QStringLiteral("underline"))) {
+        p.underlineEnabled = true;
+        p.underline = patch.value(QStringLiteral("underline")).toBool();
+    }
+    if (patch.contains(QStringLiteral("fontFamily"))) {
+        p.fontEnabled = true;
+        p.fontFamily = patch.value(QStringLiteral("fontFamily")).toString();
+    }
+    const drift::Project before = m_project;
+    clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(), start, end, p);
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
 }
@@ -27030,26 +27039,33 @@ int AppController::applyTextStyleToCaptions(int trackIndex, int clipIndex, const
         return 0;
     drift::TextStyle style = source->textStyle;
     style.keyframes.clear();
+    // "texts": the other titles of the project (Texto avanzado › Aplicar cambios), not captions.
+    const bool texts = scope == QLatin1String("texts");
+    const drift::ClipType wanted = texts ? drift::ClipType::Text : drift::ClipType::Subtitle;
     const drift::Project before = m_project;
     int changed = 0;
     for (int t = 0; t < m_project.tracks().size(); ++t) {
-        if (scope != QLatin1String("project") && t != trackIndex)
+        if (scope == QLatin1String("track") && t != trackIndex)
             continue;
         drift::Track &track = m_project.tracks()[t];
         for (int c = 0; c < track.clips.size(); ++c) {
             drift::Clip &clip = track.clips[c];
-            if (clip.type != drift::ClipType::Subtitle || (t == trackIndex && c == clipIndex))
+            if (clip.type != wanted || (t == trackIndex && c == clipIndex))
                 continue;
             const QMap<QString, drift::KeyframeTrack<double>> keep = clip.textStyle.keyframes;
+            // Another text's letters are its own: their colours stay where they were.
+            const QList<drift::TextRun> runs = clip.textStyle.runs;
             clip.textStyle = style;
             clip.textStyle.keyframes = keep;
+            if (texts)
+                clip.textStyle.runs = drift::normalizedTextRuns(runs, clip.textContent.size());
             ++changed;
         }
     }
     if (changed == 0)
         return 0;
-    pushProjectEdit(before, tr("Apply caption style"));
-    finishEdit(tr("Applied to %n caption clip(s)", "", changed));
+    pushProjectEdit(before, texts ? tr("Apply text style") : tr("Apply caption style"));
+    finishEdit(texts ? tr("Applied to %n text clip(s)", "", changed) : tr("Applied to %n caption clip(s)", "", changed));
     return changed;
 }
 
