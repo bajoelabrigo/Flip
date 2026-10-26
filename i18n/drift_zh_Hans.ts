@@ -24024,6 +24024,10 @@ If playback stutters, try another.</source>
         <translation>变换</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>混合</translation>
     </message>

@@ -24106,6 +24106,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Trasformazione</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>Fusione</translation>
     </message>

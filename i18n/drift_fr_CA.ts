@@ -24110,6 +24110,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Transformer</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>Fusion</translation>
     </message>

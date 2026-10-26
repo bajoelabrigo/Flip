@@ -24102,6 +24102,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">පරිවර්තනය</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation type="unfinished">මුසු කරන්න (Blend)</translation>
     </message>

@@ -24430,6 +24430,10 @@ If playback stutters, try another.</source>
         <translation>التحويل</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>المزج</translation>
     </message>

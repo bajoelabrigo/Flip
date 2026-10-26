@@ -24106,6 +24106,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Transformar</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>Mesclagem</translation>
     </message>

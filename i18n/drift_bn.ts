@@ -24138,6 +24138,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ট্রান্সফর্ম</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation type="unfinished">মিশ্রিত করুন</translation>
     </message>

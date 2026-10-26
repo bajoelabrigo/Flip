@@ -23957,6 +23957,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Biến đổi</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>Hòa trộn</translation>
     </message>

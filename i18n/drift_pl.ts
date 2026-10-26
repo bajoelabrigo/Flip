@@ -24187,6 +24187,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przekształcenie</translation>
     </message>
     <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Blend</source>
         <translation>Mieszanie</translation>
     </message>
