@@ -29,6 +29,9 @@ Jorge: «¿en un solo texto es posible poner letras de diferentes colores?» →
 
 **Jorge (2026-10-25): el punto 2 se hace en «Texto avanzado», como Filmora** (ver el punto 3).
 
+**0.26/10 (ronda 3):** el «Aplicar a todos los textos» ya está en la ventana (pplyTextBrushToAllTexts,
+una sola entrada de deshacer), y la **web** de los tramos se está haciendo en web/v0221-texto.
+
 ### Punto 3, tercera pieza (2026-10-26): la ventana, hecha
 - **`components/TextAdvancedDialog.qml`** (`ThemedDialog`, 980 px): el texto del clip en grande y **seleccionable**
   (de solo lectura: el texto se escribe en el inspector), una barra con **Negrita**, **Cursiva**, seis colores y
