@@ -734,6 +734,17 @@ ThemedDialog {
                                 textTab: root.page === "style" ? "effects"
                                          : root.page === "animation" ? "animate"
                                          : root.page === "bubble" ? "bubble" : "basic"
+                                // «Más estilos», «Burbujas» y compañía cambian la pestaña del inspector
+                                // desde dentro, y eso rompe el binding de arriba: la ventana sigue al
+                                // inspector para que la pestaña y el panel no se separen.
+                                onTextTabChanged: {
+                                    if (textTab === "effects" && root.page !== "style")
+                                        root.page = "style"
+                                    else if (textTab === "animate" && root.page !== "animation")
+                                        root.page = "animation"
+                                    else if (textTab === "bubble" && root.page !== "bubble")
+                                        root.page = "bubble"
+                                }
                             }
                         }
                     }

@@ -310,6 +310,37 @@ Item {
         return run
     }
 
+    // El tramo que cubre el cursor (o el comienzo de la selección): sus valores, para enseñarlos.
+    readonly property var runUnderCursor: {
+        void root.textStyle
+        void root.runSelectionStart
+        if (!root.canStyleRuns)
+            return ({})
+        const runs = EditorState.textRuns(EditorState.selectedTrack, EditorState.selectedClip)
+        const at = root.hasRunSelection ? root.runSelectionStart : 0
+        for (let i = 0; i < runs.length; ++i) {
+            if (runs[i].start <= at && at < runs[i].end)
+                return runs[i]
+        }
+        return ({})
+    }
+
+    // La transformación de esas letras (px al tamaño del bloque y grados).
+    function runTransformValue(key, fallback) {
+        const value = root.runUnderCursor[key]
+        return value === undefined || value === null ? fallback : Number(value)
+    }
+
+    function setRunTransform(key, value) {
+        const patch = {}
+        patch[key] = value
+        if (key === "offsetX" || key === "offsetY")
+            patch.transformScale = root.runTransformValue("transformScale", 1.0)
+        patch.rotation = root.runTransformValue("rotation", 0.0)
+        patch.transformEnabled = true
+        root.applyStyle(patch)
+    }
+
     // La única puerta de los controles de estilo: con letras sombreadas al tramo, sin ellas al bloque.
     function applyStyle(patch) {
         if (!root.hasSelection)
@@ -1949,8 +1980,50 @@ Item {
                 expanded: false
                 visible: root.hasTextStyle
 
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    visible: root.hasRunSelection
+
+                    Text {
+                        width: parent.width
+                        text: qsTr("These letters move, scale and turn on their own: the rest of the text stays put.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                        wrapMode: Text.WordWrap
+                    }
+
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "X"
+                        value: root.runTransformValue("offsetX", 0.0)
+                        onEdited: v => root.setRunTransform("offsetX", v)
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "Y"
+                        value: root.runTransformValue("offsetY", 0.0)
+                        onEdited: v => root.setRunTransform("offsetY", v)
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "Escala"
+                        value: root.runTransformValue("transformScale", 1.0)
+                        onEdited: v => root.applyStyle({ "transformScale": v })
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "Giro"
+                        value: root.runTransformValue("rotation", 0.0)
+                        onEdited: v => root.applyStyle({ "rotation": v })
+                    }
+                }
+
                 TransformInspector {
                     width: parent.width
+                    // Con letras sombreadas, lo de arriba manda en ellas; esto queda para el clip.
+                    visible: !root.hasRunSelection
                     sizeLinked: EditorState.sizeLinked
                     onSizeLinkedChanged: EditorState.sizeLinked = sizeLinked
                     positionLinked: EditorState.positionLinked

@@ -644,7 +644,12 @@ PanelFrame {
                             onTextTabChanged: inspectorUi.textTab = textTab
                             onAnimSlotChanged: inspectorUi.animSlot = animSlot
                             onAnimCategoryChanged: inspectorUi.animCategory = animCategory
-                            onExpandedLayerIdsChanged: inspectorUi.textExpandedLayerIds = expandedLayerIds
+                            // Sin la comparación, escribir aquí vuelve a evaluar el binding y
+                            // el aviso «Binding loop detected» sale en cada sesión.
+                            onExpandedLayerIdsChanged: {
+                                if (inspectorUi.textExpandedLayerIds !== expandedLayerIds)
+                                    inspectorUi.textExpandedLayerIds = expandedLayerIds
+                            }
                             onContentFieldHeightChanged: inspectorUi.contentFieldHeight = contentFieldHeight
                         }
                     }
