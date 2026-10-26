@@ -22882,57 +22882,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
 </context>
 <context>
-    <name>TextAdvancedDialog</name>
-    <message>
-        <source>Advanced text</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>More colors…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Apply to selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No letters with their own style yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 stretch with its own style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 stretches with their own style</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24153,10 +24102,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Wszystkie warstwy wyglądu, pakiety stylów, wyróżnianie słów, podkreślenie i akcenty słów</translation>
-    </message>
-    <message>
-        <source>Open Advanced text…</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
