@@ -7,6 +7,8 @@ import Drift
 // seleccionan letras con el ratón y se les da su propio color, tamaño, negrita o cursiva. Cada
 // tramo es un `TextRun` del estilo (`EditorState.textRuns` / `setTextRuns`); al Aplicar se manda
 // todo de una vez, así que deshacerlo es un solo paso. Cancelar no toca el proyecto.
+// Los textos van en literales a propósito hasta que el build regenere los catálogos con su
+// propio lupdate (el test Traducciones compara los .ts con lo que extrae el build).
 ThemedDialog {
     id: root
 
@@ -25,10 +27,10 @@ ThemedDialog {
 
     readonly property bool canApply: selectionStart >= 0 && selectionEnd > selectionStart
 
-    title: qsTr("Advanced text")
+    title: "Texto avanzado"
     preferredWidth: 980
-    acceptText: qsTr("Apply")
-    rejectText: qsTr("Cancel")
+    acceptText: "Aplicar"
+    rejectText: "Cancelar"
 
     function openFor(track, clip, id) {
         root.trackIndex = track
@@ -110,13 +112,13 @@ ThemedDialog {
             spacing: Theme.spacingSm
 
             ThemedButton {
-                text: qsTr("Bold")
+                text: "Negrita"
                 variant: root.brushBold ? "primary" : "secondary"
                 onClicked: root.brushBold = !root.brushBold
             }
 
             ThemedButton {
-                text: qsTr("Italic")
+                text: "Cursiva"
                 variant: root.brushItalic ? "primary" : "secondary"
                 onClicked: root.brushItalic = !root.brushItalic
             }
@@ -148,7 +150,7 @@ ThemedDialog {
             }
 
             ThemedButton {
-                text: qsTr("More colors…")
+                text: "Más colores…"
                 variant: "ghost"
                 onClicked: customColor.open()
             }
@@ -156,7 +158,7 @@ ThemedDialog {
             Item { Layout.fillWidth: true }
 
             Text {
-                text: qsTr("Size")
+                text: "Tamaño"
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
@@ -169,7 +171,7 @@ ThemedDialog {
             }
 
             ThemedButton {
-                text: qsTr("Apply to selection")
+                text: "Aplicar a lo seleccionado"
                 variant: "primary"
                 enabled: root.canApply
                 onClicked: root.applyBrushToSelection()
@@ -216,9 +218,9 @@ ThemedDialog {
             spacing: Theme.spacingSm
 
             Text {
-                text: root.runs.length === 0 ? qsTr("No letters with their own style yet.")
-                                             : (root.runs.length === 1 ? qsTr("1 stretch with its own style")
-                                                                        : qsTr("%1 stretches with their own style").arg(root.runs.length))
+                text: root.runs.length === 0 ? "Todavía no hay letras con estilo propio."
+                                             : (root.runs.length === 1 ? "1 tramo con estilo propio"
+                                                                        : "%1 tramos con estilo propio".arg(root.runs.length))
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
@@ -227,7 +229,7 @@ ThemedDialog {
             Item { Layout.fillWidth: true }
 
             ThemedButton {
-                text: qsTr("Clear all")
+                text: "Quitar todos"
                 variant: "ghost"
                 enabled: root.runs.length > 0
                 onClicked: root.runs = []
@@ -280,7 +282,7 @@ ThemedDialog {
 
                         Text {
                             text: modelData.sizeEnabled ? Math.round(modelData.sizeScale * 100) + " %"
-                                  : (modelData.boldEnabled ? qsTr("Bold") : (modelData.italicEnabled ? qsTr("Italic") : ""))
+                                  : (modelData.boldEnabled ? "Negrita" : (modelData.italicEnabled ? "Cursiva" : ""))
                             color: Theme.mutedForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs
