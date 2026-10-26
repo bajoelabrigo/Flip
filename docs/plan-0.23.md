@@ -1,5 +1,50 @@
 # Próxima versión (0.23)
 
+## ESTADO AL 2026-10-26 (Claude, tras revisar y corregir lo de DeepSeek) — leer primero
+
+**Escritorio, rama `flip/v0.22.1`: puntos 2, 3 y 4 hechos y PROBADOS EN VENTANA** (portable del run
+40276940982, capturas). Falta solo compilar el último arreglo («Inicio» de Stock marcado) y publicar.
+
+- **Texto avanzado como Filmora** (`src/qml/components/TextAdvancedDialog.qml`, botón «Abrir Texto avanzado…»
+  arriba del inspector de Texto): barra (negrita, cursiva, colores, tamaño, «Aplicar a lo seleccionado»,
+  «Aplicar a todos los textos»), vista previa grande (el mismo cuadro del compositor, `PreviewItem` espejo
+  como `MulticamWindow`) con las asas del texto (`PreviewToolHost` + `TransformOverlay`) y doble clic para
+  escribir (`InlineTextEditor`), reproducir/volver al inicio, línea de tiempo propia, «Guardar como
+  personalizado», y a la derecha Estilo/Personalizar/Animación/Burbuja = el `TextInspector` entero con
+  `inAdvanced: true` (sin su tira de páginas). Personalizar › «Texto de entrada»: elegir letras y ver sus tramos.
+- **Sesión de edición:** todo es en vivo; `EditorState.beginEditSession/endEditSession` (un `beginMacro` del
+  `QUndoStack`): Aplicar = un solo paso de deshacer, Cancelar lo deshace todo (probado: Amarillo → Cancelar →
+  vuelve a blanco). Una macro vacía no queda en la pila.
+- **El inspector abre la ventana por URL** (`Loader { source: "../TextAdvancedDialog.qml" }`), no por tipo: la
+  ventana contiene un `TextInspector` y nombrar el tipo haría que los dos archivos dependan entre sí.
+- **Tramos (`TextRun`):** se mueven con el texto al escribir o borrar (`shiftTextRunsForEdit`, también en la
+  edición sobre la vista previa; Cancelar del editor en línea devuelve los de antes), y uno que rodea a otro se
+  parte en dos en vez de perder la cola. Pruebas en `CoreTest::textRunsStyleStretchesOfTheText`.
+- **Panel izquierdo (árbol):** Favoritos y «Mis …» encabezan el árbol (antes desaparecían con los chips);
+  Títulos lleva sus categorías al árbol (bajo el buscador solo «Más…»); Stock › Inicio y cada tipo, con
+  Videos y Fotos arriba como estaban.
+
+**Errores de DeepSeek que se corrigieron (para no repetirlos):**
+1. `TextAdvancedDialog.qml` no estaba en `CMakeLists.txt` (`qt_add_qml_module`): por eso fallaba la prueba
+   Traducciones (el lupdate del CI no veía el archivo) y la app no podía crear la ventana. **Todo QML nuevo va
+   en `CMakeLists.txt`.** No se arregla dejando textos fijos en español.
+2. Para regenerar catálogos sin lupdate local: el run de Windows que falla en Traducciones sube el artefacto
+   `i18n-regenerated`; copiarlo a `i18n/`, rellenar las traducciones (15 idiomas) y subir.
+3. `qFuzzyCompare` no existe en QML/JS: el botón fallaba en silencio (ReferenceError en stderr). Mirar
+   `-RedirectStandardError` en cada prueba en ventana.
+4. `panelDriven` usado sin declararlo en `AudioEffectBrowser` y `SceneTemplateBrowser`.
+
+**Pruebas en ventana:** `tools/e2e/drag.ps1` (nuevo) arrastra por mensajes, para elegir letras. La vista previa
+sale negra en las capturas de `shot.ps1` (PrintWindow no toma la imagen de la GPU): no es un fallo.
+
+**Falta:**
+- Compilar y mirar que Stock abra con «Inicio» marcado (arreglo después del run 40276940982).
+- Web (`flipstudio-app` rama `web/v0221-texto`): árbol y tramos hechos (+ tramos que siguen a sus letras,
+  `a01d3`); falta la ventana de Texto avanzado como la del escritorio y desplegar.
+- Versión 0.23.0 en `CMakeLists.txt`, `release-notes/0.23.0.md`, notas de la Store, y publicar (rutina en CLAUDE.md).
+- Ojo (no es de esta rama, sin investigar): en la prueba, un clic en la tarjeta «Título limpio» puso DOS textos
+  seguidos (0–5 s y 5–10 s). Puede ser del clic simulado; comprobarlo con el ratón de verdad.
+
 ## 1. ~~Efectos y LUTs directamente sobre un texto~~ — HECHO en la 0.22.0 (escritorio y web)
 Jorge: «¿se pueden aplicar máscaras, efectos, luts a textos?» → «ok, para la próxima sería».
 

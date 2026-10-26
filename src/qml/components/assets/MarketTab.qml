@@ -51,10 +51,13 @@ Item {
     // The kinds arrive with the catalog, after the tab opened on Home.
     onOwnCategoriesChanged: root.syncActiveCategory()
     function syncActiveCategory() {
-        root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+        // The tab opens on "stock" while Stock is already showing All (Home): that is Home too.
+        const id = root.section === "stock" && Market.activeTypeId ? Market.activeTypeId : root.section
+        root.activeCategory = root.ownCategories.some(c => c.id === id) ? id : ""
     }
     onActiveCategoryChanged: {
-        if (root.activeCategory.length > 0 && root.activeCategory !== root.section)
+        if (root.activeCategory.length > 0 && root.activeCategory !== root.section
+                && !(root.section === "stock" && root.activeCategory === Market.activeTypeId))
             root.showSection(root.activeCategory)
     }
     Component.onCompleted: {
