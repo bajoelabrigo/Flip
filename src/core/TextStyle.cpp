@@ -1032,37 +1032,34 @@ TextRun textRunFromJson(const QJsonObject &o)
 // Los tramos, en orden, sin solapes y sin salirse del texto. Un tramo que queda vacío se va.
 QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength)
 {
-    QList<TextRun> sorted;
+    QList<TextRun> clamped;
     for (const TextRun &run : runs) {
         TextRun r = run;
         r.start = qBound(0, r.start, textLength);
         r.end = qBound(0, r.end, textLength);
-        if (r.end <= r.start)
-            continue;
-        sorted.append(r);
+        if (r.end > r.start)
+            clamped.append(r);
     }
-    std::stable_sort(sorted.begin(), sorted.end(),
-                     [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
-    // Donde dos tramos se pisan gana el que va después en la lista (lo último que se eligió): el de
-    // antes se recorta a lo que le deja libre.
-    QList<TextRun> out;
-    for (int i = sorted.size() - 1; i >= 0; --i) {
-        TextRun run = sorted.at(i);
-        const QList<TextRun> later = out;
-        for (const TextRun &next : later) {
-            if (run.end <= next.start || run.start >= next.end)
+    // De atrás hacia delante: lo último elegido gana, y lo de antes se recorta a lo que le dejen.
+    QList<TextRun> accepted;
+    for (int i = clamped.size() - 1; i >= 0; --i) {
+        TextRun run = clamped.at(i);
+        for (const TextRun &later : accepted) {
+            if (run.end <= later.start || run.start >= later.end)
                 continue;
-            if (run.start < next.start)
-                run.end = qMin(run.end, next.start);
+            if (run.start < later.start)
+                run.end = qMin(run.end, later.start);
             else
-                run.start = qMax(run.start, next.end);
+                run.start = qMax(run.start, later.end);
             if (run.end <= run.start)
                 break;
         }
         if (run.end > run.start)
-            out.prepend(run);
+            accepted.append(run);
     }
-    return out;
+    std::stable_sort(accepted.begin(), accepted.end(),
+                     [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
+    return accepted;
 }
 
 const TextRun *textRunAt(const QList<TextRun> &runs, int at)

@@ -7518,19 +7518,28 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     drift::TextStyle plain;
     QVERIFY(!drift::textStyleToJson(plain).contains(QStringLiteral("runs")));
 
-    // La normalización: recorta al texto, ordena y el que va después se queda con lo que pisa.
+    // La normalización: recorta al texto, ordena y sin solapes (gana lo último de la lista).
     drift::TextRun late;
     late.start = 4;
     late.end = 9;
     drift::TextRun early;
     early.start = 0;
     early.end = 6;
-    QList<drift::TextRun> normalized = drift::normalizedTextRuns({late, early, first}, 8);
+    QList<drift::TextRun> normalized = drift::normalizedTextRuns({late, early}, 8);
     QCOMPARE(normalized.size(), 2);
     QCOMPARE(normalized.at(0).start, 0);
-    QCOMPARE(normalized.at(0).end, 4); // lo que le deja el que empieza en 4
+    QCOMPARE(normalized.at(0).end, 4); // lo que le deja el que va después
     QCOMPARE(normalized.at(1).start, 4);
     QCOMPARE(normalized.at(1).end, 8); // recortado al texto (era 9)
+
+    // Un tramo que se sale del texto se queda con lo que hay, y los que caen fuera se van.
+    QCOMPARE(drift::normalizedTextRuns({first}, 8).size(), 1);
+    QCOMPARE(drift::normalizedTextRuns({first}, 8).at(0).end, 7);
+    QCOMPARE(drift::normalizedTextRuns({first}, 6).at(0).end, 6);
+    QVERIFY(drift::normalizedTextRuns({first}, 5).isEmpty());
+    // En cualquier orden de la lista, el resultado sale ordenado y sin solapes.
+    const QList<drift::TextRun> alReves = {normalized.at(1), normalized.at(0)};
+    QCOMPARE(drift::normalizedTextRuns(alReves, 8).size(), 2);
 
     // Fuera del texto no hay tramo.
     QVERIFY(!drift::textRunAt(normalized, 9));
