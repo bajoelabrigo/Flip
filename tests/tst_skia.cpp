@@ -2245,9 +2245,11 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     QVERIFY(!plain.isNull());
 
     // La mitad de «HOLA» (sin el tramo) y la de «MUNDO» (con él).
-    const QRect left(plainRect.left(), plainRect.top(), plainRect.width() * 0.46, plainRect.height());
-    const QRect right(plainRect.left() + int(plainRect.width() * 0.54), plainRect.top(),
-                      plainRect.width() * 0.46, plainRect.height());
+    // Keep a wide gap around the boundary at letter 5: a stretch's background bleeds a few pixels
+    // past its first letter, and that must not read as a change to «HOLA».
+    const QRect left(plainRect.left(), plainRect.top(), plainRect.width() * 0.30, plainRect.height());
+    const QRect right(plainRect.left() + int(plainRect.width() * 0.60), plainRect.top(),
+                      plainRect.width() * 0.38, plainRect.height());
     const auto pixelsIn = [](const QImage &image, const QRect &rect) {
         return image.copy(rect.intersected(image.rect())).convertToFormat(QImage::Format_RGBA8888);
     };
