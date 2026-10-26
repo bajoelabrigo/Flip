@@ -8,6 +8,8 @@ import "assets"
 // Drag a card onto a timeline clip, or click / tap + to apply to the selection.
 Column {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
     spacing: 0
 
     readonly property string favoritesId: "__favorites__"

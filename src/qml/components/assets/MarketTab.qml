@@ -43,6 +43,20 @@ Item {
     readonly property bool showsOwnChips: ownCategories.length > 0
                                           && ownCategories.some(c => c.id === root.section)
 
+    // On the desktop (0.23, like Filmora) All moves to the panel's tree as «Stock», with Home and
+    // our own kinds under it; Videos and Photos stay up here as they were.
+    readonly property var categories: root.panelDriven ? root.ownCategories : []
+    property string activeCategory: ""
+    onSectionChanged: root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+    onActiveCategoryChanged: {
+        if (root.activeCategory.length > 0 && root.activeCategory !== root.section)
+            root.showSection(root.activeCategory)
+    }
+    Component.onCompleted: {
+        root.ensureCatalog()
+        root.activeCategory = root.ownCategories.some(c => c.id === root.section) ? root.section : ""
+    }
+
     // Android Back, forwarded by its host.
     function handleBack() {
         if (root.section === "assets")
@@ -75,7 +89,6 @@ Item {
     // Market.types is not persisted, and StockBrowser can't ask for it: it only shows once the
     // types are there. Without this, consent from an earlier run leaves no stock tabs at all.
     onVisibleChanged: ensureCatalog()
-    Component.onCompleted: ensureCatalog()
     function ensureCatalog() {
         if (!visible || !Market.configured)
             return
@@ -166,7 +179,8 @@ Item {
 
                 Repeater {
                     model: (Sfx.available && Market.authenticated ? [{ id: "sfx", label: qsTr("SFX") }] : [])
-                           .concat(root.stockTabs)
+                           .concat(root.panelDriven && root.ownCategories.length > 0
+                                   ? root.stockTabs.filter(t => t.id !== "all") : root.stockTabs)
                     delegate: Item {
                         required property var modelData
                         readonly property bool active: root.section === modelData.id
@@ -214,7 +228,7 @@ Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
             spacing: Theme.spacingSm
-            visible: root.showsOwnChips
+            visible: root.showsOwnChips && !root.panelDriven
 
             Repeater {
                 model: root.showsOwnChips ? root.ownCategories : []

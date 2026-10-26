@@ -785,8 +785,24 @@ PanelFrame {
     // Las subcategorías de una pestaña, tal y como las tiene su navegador ({id, label}).
     function subcategoriesFor(tabId) {
         const browser = root.browserFor(tabId)
-        return browser && browser.categories ? browser.categories : []
+        const categories = browser && browser.categories ? browser.categories : []
+        if (categories.length === 0 || tabId === "market")
+            return categories
+        // The star and «Mine» lived on the chips row; with the chips gone they lead the tree.
+        // Same texts (and catalog entries) as the chips that offered them.
+        const lead = [{ id: "__favorites__", label: qsTranslate("AssetCategoryChips", "Favorites") }]
+        const mine = root.mineLabels[tabId]
+        if (mine)
+            lead.push({ id: "__mine__", label: mine })
+        return lead.concat(categories)
     }
+    readonly property var mineLabels: ({
+        effects: qsTranslate("EffectBrowser", "My Effects"),
+        colorfx: qsTranslate("EffectBrowser", "My Effects"),
+        transitions: qsTranslate("TransitionsTab", "My Transitions"),
+        sounds: qsTranslate("AudioEffectBrowser", "My Audio Effects"),
+        effectTemplates: qsTranslate("EffectTemplateBrowser", "My presets")
+    })
 
     readonly property string currentSubcategoryId: {
         const browser = root.browserFor(root.currentTabId)

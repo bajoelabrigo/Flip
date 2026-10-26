@@ -14,5 +14,6 @@ Item {
     AudioEffectBrowser {
         id: browser
         anchors.fill: parent
+        panelDriven: root.panelDriven
     }
 }
