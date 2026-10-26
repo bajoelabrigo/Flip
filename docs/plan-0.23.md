@@ -29,6 +29,29 @@ Jorge: «¿en un solo texto es posible poner letras de diferentes colores?» →
 
 **Jorge (2026-10-25): el punto 2 se hace en «Texto avanzado», como Filmora** (ver el punto 3).
 
+### Estado del punto 3 (2026-10-26): el modelo, hecho; falta pintarlo y la ventana
+- **`TextRun`** en `core/TextStyle.h`: tramos `{start, end}` con **color**, **tamaño** (relativo al `pixelSize`) y
+  **negrita/cursiva** propios, en `TextStyle::runs`. Se guardan en el proyecto (`"runs"`, solo si hay) y
+  `normalizedTextRuns()` los deja ordenados, recortados al texto y **sin solapes** (donde dos se pisan gana el último
+  de la lista); `textRunAt()` dice qué tramo cubre un desplazamiento.
+- Prueba `CoreTest::textRunsStyleStretchesOfTheText` (ida y vuelta por JSON, recorte, orden, solapes, fuera del
+  texto). **CI `build.yml` en verde** (run 40250429888): 191 + 124 pruebas y el paquete de Windows.
+- **Falta para que se vea:** `TextLayout.cpp` (partir el texto también por tramo, y `styleFor()` con el tamaño y el
+  peso del tramo) y `SkiaTextPainter.cpp` (color de relleno por pieza). Después, la **ventana** de Texto avanzado
+  con selección de letras (el `TextArea` de QML no da desplazamientos de selección: hay que llevar la selección a
+  mano, con los `caretStops` que ya existen), el «Aplicar a todos», y la web.
+- El punto 2 del plan (letras de colores) va dentro de esto: es el mismo `TextRun`.
+
+### Punto 4 en la web (2026-10-26): hecho, rama `web/v0221-texto` `ba09b` (sin desplegar)
+- `components/LibraryTree.tsx` + `components/subcategories.ts`: la barra lateral es un árbol (flechita, nombre que
+  abre la pestaña, subcategorías con sangría, la elegida con fondo, mayúsculas del título, `localStorage`). Los chips
+  se esconden (`panelDriven` en `CategoryChips`) y **en celular/tableta siguen**.
+- Comprobado: `npx tsc -b` limpio, `npm run build` OK, `npx vitest run --no-file-parallelism` **996/996**, oxlint
+  igual que antes, y Playwright en 6 pestañas (0 chips, filas de subcategoría 6/6, título 6/6, tarjetas filtradas
+  6/6). Los 4 fallos de vitest en paralelo ya estaban en HEAD (carga).
+- Pendiente ahí: Stock sin subcategorías en el árbol (su tanda), los paneles que nunca tuvieron chips (Medios,
+  Voz, Subtítulos, Máscaras) van sin flecha, y la fila del *paquete* en Pegatinas sigue.
+
 ## 3. Editor de «Texto avanzado» como Filmora (Jorge, 2026-10-25) — incluye el punto 2
 Captura de referencia: `docs/capturas/filmora-texto-avanzado.png` (Filmora › botón **AVANZADO** abajo a la derecha
 del inspector de Títulos → ventana «Texto avanzado Editar»).
