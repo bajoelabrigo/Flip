@@ -7525,11 +7525,12 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     drift::TextRun early;
     early.start = 0;
     early.end = 6;
+    // late va primero en la lista y early después: donde se pisan gana early, el último.
     QList<drift::TextRun> normalized = drift::normalizedTextRuns({late, early}, 8);
     QCOMPARE(normalized.size(), 2);
     QCOMPARE(normalized.at(0).start, 0);
-    QCOMPARE(normalized.at(0).end, 4); // lo que le deja el que va después
-    QCOMPARE(normalized.at(1).start, 4);
+    QCOMPARE(normalized.at(0).end, 6);
+    QCOMPARE(normalized.at(1).start, 6);
     QCOMPARE(normalized.at(1).end, 8); // recortado al texto (era 9)
 
     // Un tramo que se sale del texto se queda con lo que hay, y los que caen fuera se van.
