@@ -13091,8 +13091,8 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
     const drift::Project before = m_project;
     // Recortados al texto y sin solapes: la ventana puede mandar cualquier cosa.
     clip->textStyle.runs = drift::normalizedTextRuns(parsed, clip->textContent.size());
-    pushProjectEdit(before, tr("Style letters"));
-    finishEdit(tr("Letter style updated"));
+    pushProjectEdit(before, tr("Edit text style"));
+    finishEdit(tr("Text style updated"));
 }
 
 void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMap &m)
