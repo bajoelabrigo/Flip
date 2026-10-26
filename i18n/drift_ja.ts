@@ -22722,6 +22722,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>高度なテキスト</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>適用</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>太字</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>斜体</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>その他の色…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>サイズ</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>選択範囲に適用</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>すべてのテキストに適用</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>バーの色、サイズ、太字または斜体を、プロジェクト内のすべてのテキストクリップの全文に適用します</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>独自のスタイルを持つ文字はまだありません。</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>独自スタイルの範囲 1 件</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>独自スタイルの範囲 %1 件</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>すべて削除</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23942,6 +24001,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>ルックのすべてのレイヤー、スタイルパック、単語のハイライト、下線、単語のアクセント</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>

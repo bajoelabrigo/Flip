@@ -22720,6 +22720,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>고급 텍스트</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>굵게</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>기울임꼴</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>더 많은 색…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>크기</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>선택 영역에 적용</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>모든 텍스트에 적용</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>막대의 색, 크기, 굵게 또는 기울임꼴을 프로젝트의 모든 텍스트 클립 전체에 적용합니다</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>아직 고유 스타일이 있는 글자가 없습니다.</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>고유 스타일 구간 1개</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>고유 스타일 구간 %1개</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>모두 지우기</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23940,6 +23999,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>모양의 모든 레이어, 스타일 팩, 단어 강조, 밑줄, 단어 악센트</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>

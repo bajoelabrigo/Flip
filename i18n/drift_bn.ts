@@ -22798,6 +22798,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>উন্নত টেক্সট</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>বোল্ড</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>ইটালিক</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>আরও রং…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>আকার</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>নির্বাচিত অংশে প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>সব টেক্সটে প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>বারের রং, আকার এবং বোল্ড বা ইটালিক প্রকল্পের প্রতিটি টেক্সট ক্লিপের পুরো লেখায় প্রয়োগ করে</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>এখনও নিজস্ব স্টাইলের কোনো অক্ষর নেই।</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>নিজস্ব স্টাইলের ১টি অংশ</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>নিজস্ব স্টাইলের %1টি অংশ</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>সব মুছুন</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24053,6 +24112,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -102,6 +102,9 @@ struct TextRun
 
 // Los tramos ordenados, recortados al texto y sin solapes: donde dos se pisan gana el último.
 QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
+// Los tramos después de cambiar el texto de `before` a `after`: lo que va detrás de lo escrito o
+// borrado se corre con ello, así cada color sigue en sus letras.
+QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after);
 // El tramo que cubre ese desplazamiento, o nullptr si ninguno.
 const TextRun *textRunAt(const QList<TextRun> &runs, int at);
 

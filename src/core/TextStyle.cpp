@@ -1040,26 +1040,66 @@ QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength)
         if (r.end > r.start)
             clamped.append(r);
     }
-    // De atrás hacia delante: lo último elegido gana, y lo de antes se recorta a lo que le dejen.
+    // De atrás hacia delante: lo último elegido gana, y lo de antes se queda con lo que le dejen.
+    // Un tramo que rodea a otro más nuevo se parte en dos (antes y después), no pierde la cola.
     QList<TextRun> accepted;
     for (int i = clamped.size() - 1; i >= 0; --i) {
-        TextRun run = clamped.at(i);
+        QList<TextRun> pieces = {clamped.at(i)};
         for (const TextRun &later : accepted) {
-            if (run.end <= later.start || run.start >= later.end)
-                continue;
-            if (run.start < later.start)
-                run.end = qMin(run.end, later.start);
-            else
-                run.start = qMax(run.start, later.end);
-            if (run.end <= run.start)
-                break;
+            QList<TextRun> left;
+            for (const TextRun &piece : pieces) {
+                if (piece.end <= later.start || piece.start >= later.end) {
+                    left.append(piece);
+                    continue;
+                }
+                if (piece.start < later.start) {
+                    TextRun before = piece;
+                    before.end = later.start;
+                    left.append(before);
+                }
+                if (piece.end > later.end) {
+                    TextRun after = piece;
+                    after.start = later.end;
+                    left.append(after);
+                }
+            }
+            pieces = left;
         }
-        if (run.end > run.start)
-            accepted.append(run);
+        accepted.append(pieces);
     }
     std::stable_sort(accepted.begin(), accepted.end(),
                      [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
     return accepted;
+}
+
+QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after)
+{
+    if (runs.isEmpty() || before == after)
+        return runs;
+    // Lo que cambió es el tramo entre el principio común y el final común.
+    const int oldLen = int(before.size());
+    const int newLen = int(after.size());
+    int prefix = 0;
+    while (prefix < oldLen && prefix < newLen && before.at(prefix) == after.at(prefix))
+        ++prefix;
+    int suffix = 0;
+    while (suffix < oldLen - prefix && suffix < newLen - prefix
+           && before.at(oldLen - 1 - suffix) == after.at(newLen - 1 - suffix))
+        ++suffix;
+    const int oldEnd = oldLen - suffix;
+    const int newEnd = newLen - suffix;
+    const int delta = newEnd - oldEnd;
+    // Lo de antes del cambio no se mueve, lo de después corre con él; un borde dentro de lo
+    // reemplazado cae al final de lo nuevo (escribir dentro de un tramo lo alarga).
+    const auto map = [&](int x) { return x <= prefix ? x : (x >= oldEnd ? x + delta : newEnd); };
+    QList<TextRun> shifted;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        r.start = map(run.start);
+        r.end = map(run.end);
+        shifted.append(r);
+    }
+    return normalizedTextRuns(shifted, newLen);
 }
 
 const TextRun *textRunAt(const QList<TextRun> &runs, int at)

@@ -22790,6 +22790,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Advanced na teksto</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Ilapat</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Bold</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Italic</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>Higit pang kulay…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Laki</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>Ilapat sa napili</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>Ilapat sa lahat ng teksto</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>Inilalapat ang kulay, laki at bold o italic ng bar sa buong teksto ng bawat text clip sa proyekto</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>Wala pang letrang may sariling istilo.</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 bahaging may sariling istilo</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 bahaging may sariling istilo</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Alisin lahat</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24009,6 +24068,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

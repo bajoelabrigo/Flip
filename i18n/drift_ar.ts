@@ -23122,6 +23122,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>نص متقدم</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>تطبيق</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>غامق</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>ألوان أخرى…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>الحجم</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>تطبيق على التحديد</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>تطبيق على كل النصوص</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>يطبّق لون الشريط وحجمه والخط الغامق أو المائل على النص الكامل لكل مقطع نصي في المشروع</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>لا توجد حروف بنمط خاص بعد.</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>مقطع واحد بنمط خاص</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 مقاطع بنمط خاص</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>مسح الكل</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24342,6 +24401,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>كل طبقات المظهر، وحزم الأنماط، وإبراز الكلمات، والتسطير، وتمييز الكلمات</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>

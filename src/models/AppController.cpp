@@ -12411,6 +12411,7 @@ void AppController::setClipTextContent(int trackIndex, int clipIndex, const QStr
         return;
 
     const drift::Project before = m_project;
+    clip.textStyle.runs = drift::shiftTextRunsForEdit(clip.textStyle.runs, clip.textContent, text.trimmed());
     clip.textContent = text.trimmed();
     clip.name = clip.textContent.left(32);
     pushProjectEdit(before, tr("Text updated"));
@@ -12482,6 +12483,7 @@ void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString 
 
     const QString trimmed = text.trimmed();
     if (m_previewDragActive) {
+        clip.textStyle.runs = drift::shiftTextRunsForEdit(clip.textStyle.runs, clip.textContent, trimmed);
         clip.textContent = trimmed;
         clip.name = trimmed.left(32);
         // The live box was fitted to the words as typed; trimming may have taken some off.
@@ -12495,6 +12497,7 @@ void AppController::commitTextEdit(int trackIndex, int clipIndex, const QString 
         return;
 
     const drift::Project before = m_project;
+    clip.textStyle.runs = drift::shiftTextRunsForEdit(clip.textStyle.runs, clip.textContent, trimmed);
     clip.textContent = trimmed;
     clip.name = trimmed.left(32);
     pushProjectEdit(before, tr("Text updated"));
@@ -12576,6 +12579,7 @@ void AppController::beginInlineTextEdit(int trackIndex, int clipIndex)
     m_inlineEdit.clip = clipIndex;
     m_inlineEdit.clipId = clip->id;
     m_inlineEdit.original = clip->textContent;
+    m_inlineEdit.originalRuns = clip->textStyle.runs;
     m_inlineEdit.text = clip->textContent;
     m_inlineEdit.cursor = int(clip->textContent.size());
     if (!m_inlineTextEditing) {
@@ -12614,6 +12618,7 @@ void AppController::updateInlineTextEdit(int trackIndex, int clipIndex, const QS
     const QString rendered = text.left(cursor) + preeditText + text.mid(cursor);
     const bool textChanged = clip->textContent != rendered;
     if (textChanged) {
+        clip->textStyle.runs = drift::shiftTextRunsForEdit(clip->textStyle.runs, clip->textContent, rendered);
         clip->textContent = rendered;
         clip->name = rendered.left(32);
         // The box grows (and shrinks) with the words as they are typed.
@@ -12648,6 +12653,7 @@ void AppController::endInlineTextEdit(bool commit)
     const int clipIndex = m_inlineEdit.clip;
     const QString text = m_inlineEdit.text;
     const QString original = m_inlineEdit.original;
+    const QList<drift::TextRun> originalRuns = m_inlineEdit.originalRuns;
     m_inlineEdit = InlineTextEdit{};
 
     m_playback.setTextEditDecor({}, false);
@@ -12664,6 +12670,7 @@ void AppController::endInlineTextEdit(bool commit)
         cancelPreviewDrag();
     } else if (clip) {
         clip->textContent = original;
+        clip->textStyle.runs = originalRuns;
         clip->name = original.left(32);
         refitTextClipBox(*clip, m_project.width(), m_project.height());
         emitPreviewFrame();

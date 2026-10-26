@@ -22805,6 +22805,65 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Texte avancé</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Appliquer</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Gras</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Italique</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>Plus de couleurs…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Taille</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>Appliquer à la sélection</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>Appliquer à tous les textes</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>Applique la couleur, la taille et le gras ou l&apos;italique de la barre à tout le texte de chaque texte du projet</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>Aucune lettre n&apos;a encore son propre style.</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 segment avec son propre style</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 segments avec leur propre style</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Tout effacer</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24026,6 +24085,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Chaque couche du rendu, packs de styles, surlignage de mots, soulignement et accents de mots</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>

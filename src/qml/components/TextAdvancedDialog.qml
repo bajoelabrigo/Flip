@@ -25,10 +25,10 @@ ThemedDialog {
 
     readonly property bool canApply: selectionStart >= 0 && selectionEnd > selectionStart
 
-    title: "Texto avanzado"
+    title: qsTr("Advanced text")
     preferredWidth: 980
-    acceptText: "Aplicar"
-    rejectText: "Cancelar"
+    acceptText: qsTr("Apply")
+    rejectText: qsTr("Cancel")
 
     function openFor(track, clip, id) {
         root.trackIndex = track
@@ -90,6 +90,47 @@ ThemedDialog {
         }
     }
 
+    // El texto con cada tramo pintado como quedará (color, tamaño, negrita, cursiva), para ver lo
+    // elegido mientras se trabaja. Un carácter del texto es un carácter del documento (el salto
+    // de línea va como <br>), así que la selección sigue dando desplazamientos del texto.
+    function previewHtml() {
+        const text = root.text
+        const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                          .replace(/\n/g, "<br>")
+        // Por letra, el último tramo de la lista que la cubre (como en el proyecto).
+        const owner = new Array(text.length).fill(-1)
+        root.runs.forEach((run, i) => {
+            for (let at = Math.max(0, run.start); at < Math.min(text.length, run.end); ++at)
+                owner[at] = i
+        })
+        let html = ""
+        let at = 0
+        while (at < text.length) {
+            const who = owner[at]
+            let end = at + 1
+            while (end < text.length && owner[end] === who)
+                ++end
+            const piece = esc(text.substring(at, end))
+            if (who < 0) {
+                html += piece
+            } else {
+                const run = root.runs[who]
+                let css = ""
+                if (run.colorEnabled)
+                    css += "color:" + String(run.color).replace(/^#ff([0-9a-f]{6})$/i, "#$1") + ";"
+                if (run.sizeEnabled)
+                    css += "font-size:" + Math.round(28 * run.sizeScale) + "px;"
+                if (run.boldEnabled)
+                    css += "font-weight:" + (run.bold ? "bold" : "normal") + ";"
+                if (run.italicEnabled)
+                    css += "font-style:" + (run.italic ? "italic" : "normal") + ";"
+                html += "<span style=\"" + css + "\">" + piece + "</span>"
+            }
+            at = end
+        }
+        return html
+    }
+
     function removeRunAt(index) {
         const next = root.runs.slice()
         next.splice(index, 1)
@@ -124,13 +165,13 @@ ThemedDialog {
             spacing: Theme.spacingSm
 
             ThemedButton {
-                text: "Negrita"
+                text: qsTr("Bold")
                 variant: root.brushBold ? "primary" : "secondary"
                 onClicked: root.brushBold = !root.brushBold
             }
 
             ThemedButton {
-                text: "Cursiva"
+                text: qsTr("Italic")
                 variant: root.brushItalic ? "primary" : "secondary"
                 onClicked: root.brushItalic = !root.brushItalic
             }
@@ -162,7 +203,7 @@ ThemedDialog {
             }
 
             ThemedButton {
-                text: "Más colores…"
+                text: qsTr("More colors…")
                 variant: "ghost"
                 onClicked: customColor.open()
             }
@@ -170,7 +211,7 @@ ThemedDialog {
             Item { Layout.fillWidth: true }
 
             Text {
-                text: "Tamaño"
+                text: qsTr("Size")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
@@ -183,7 +224,7 @@ ThemedDialog {
             }
 
             ThemedButton {
-                text: "Aplicar a lo seleccionado"
+                text: qsTr("Apply to selection")
                 variant: "primary"
                 enabled: root.canApply
                 onClicked: root.applyBrushToSelection()
@@ -191,10 +232,16 @@ ThemedDialog {
 
             // El pincel entero (color, tamaño, negrita, cursiva) a todos los textos del proyecto.
             ThemedButton {
-                text: "Aplicar a todos los textos"
+                text: qsTr("Apply to all texts")
                 variant: "secondary"
-                tooltip: "Pone el color, el tamaño y la negrita o cursiva de la barra al texto entero de todos los textos del proyecto"
-                onClicked: EditorState.applyTextBrushToAllTexts(root.brushPatch())
+                tooltip: qsTr("Puts the bar's color, size and bold or italic on the whole text of every text clip in the project")
+                onClicked: {
+                    EditorState.applyTextBrushToAllTexts(root.brushPatch())
+                    // Ya está en el proyecto (y se deshace aparte): la ventana sigue desde ahí, y
+                    // Aplicar no lo pisa con los tramos de cuando se abrió.
+                    root.runs = EditorState.textRuns(root.trackIndex, root.clipIndex)
+                    root.openedRuns = JSON.parse(JSON.stringify(root.runs))
+                }
             }
         }
 
@@ -220,7 +267,8 @@ ThemedDialog {
                     // llevan su propio estilo.
                     readOnly: true
                     selectByMouse: true
-                    text: root.text
+                    textFormat: TextEdit.RichText
+                    text: root.previewHtml()
                     color: Theme.foreground
                     font.family: Theme.fontFamily
                     font.pixelSize: 28
@@ -238,9 +286,9 @@ ThemedDialog {
             spacing: Theme.spacingSm
 
             Text {
-                text: root.runs.length === 0 ? "Todavía no hay letras con estilo propio."
-                                             : (root.runs.length === 1 ? "1 tramo con estilo propio"
-                                                                        : "%1 tramos con estilo propio".arg(root.runs.length))
+                text: root.runs.length === 0 ? qsTr("No letters with their own style yet.")
+                                             : (root.runs.length === 1 ? qsTr("1 stretch with its own style")
+                                                                        : qsTr("%1 stretches with their own style").arg(root.runs.length))
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
@@ -249,7 +297,7 @@ ThemedDialog {
             Item { Layout.fillWidth: true }
 
             ThemedButton {
-                text: "Quitar todos"
+                text: qsTr("Clear all")
                 variant: "ghost"
                 enabled: root.runs.length > 0
                 onClicked: root.runs = []
@@ -302,7 +350,7 @@ ThemedDialog {
 
                         Text {
                             text: modelData.sizeEnabled ? Math.round(modelData.sizeScale * 100) + " %"
-                                  : (modelData.boldEnabled ? "Negrita" : (modelData.italicEnabled ? "Cursiva" : ""))
+                                  : (modelData.boldEnabled ? qsTr("Bold") : (modelData.italicEnabled ? qsTr("Italic") : ""))
                             color: Theme.mutedForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs

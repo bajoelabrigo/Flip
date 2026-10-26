@@ -22721,6 +22721,65 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>高级文本</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>粗体</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>斜体</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>更多颜色…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>大小</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>应用到所选内容</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>应用到所有文本</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation>将工具栏的颜色、大小以及粗体或斜体应用到项目中每个文本片段的全部文字</translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>还没有带独立样式的字母。</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 段独立样式</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 段独立样式</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>全部清除</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23941,6 +24000,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>外观的所有图层、样式包、逐词高亮、下划线和重点词</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>

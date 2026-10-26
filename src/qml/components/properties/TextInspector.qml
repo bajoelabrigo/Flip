@@ -1867,7 +1867,7 @@ Item {
                 // La ventana de Texto avanzado (0.23): elegir letras y darles su propio estilo.
                 ThemedButton {
                     width: parent.width
-                    text: "Abrir Texto avanzado…"
+                    text: qsTr("Open Advanced text…")
                     glyph: Theme.icons.type
                     onClicked: advancedTextDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip,
                                                          (root.clipData && root.clipData.id) ? root.clipData.id : "")

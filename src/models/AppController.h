@@ -2548,6 +2548,7 @@ protected:
         int clip = -1;
         QString clipId;
         QString original;
+        QList<drift::TextRun> originalRuns; // the letters' own styles, restored on cancel
         QString text;   // model text, no preedit
         int cursor = 0;
         int selStart = -1;

@@ -7545,6 +7545,41 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     // Fuera del texto no hay tramo.
     QVERIFY(!drift::textRunAt(normalized, 9));
     QVERIFY(drift::textRunAt(normalized, 6));
+
+    // Un tramo que rodea a otro más nuevo se parte en dos: no pierde lo de después.
+    drift::TextRun wide;
+    wide.start = 0;
+    wide.end = 10;
+    drift::TextRun inner;
+    inner.start = 3;
+    inner.end = 5;
+    const QList<drift::TextRun> split = drift::normalizedTextRuns({wide, inner}, 10);
+    QCOMPARE(split.size(), 3);
+    QCOMPARE(split.at(0).end, 3);
+    QCOMPARE(split.at(1).start, 3);
+    QCOMPARE(split.at(2).start, 5);
+    QCOMPARE(split.at(2).end, 10);
+
+    // Al escribir o borrar, cada tramo sigue en sus letras: «YO» de «HOLA YO».
+    drift::TextRun yo;
+    yo.start = 5;
+    yo.end = 7;
+    const QList<drift::TextRun> typedBefore = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                          QStringLiteral("HOLA, YO"));
+    QCOMPARE(typedBefore.at(0).start, 6);
+    QCOMPARE(typedBefore.at(0).end, 8);
+    const QList<drift::TextRun> typedAfter = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                         QStringLiteral("HOLA YO!"));
+    QCOMPARE(typedAfter.at(0).start, 5);
+    QCOMPARE(typedAfter.at(0).end, 7);
+    const QList<drift::TextRun> typedInside = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                          QStringLiteral("HOLA YXO"));
+    QCOMPARE(typedInside.at(0).end, 8);
+    const QList<drift::TextRun> erased = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                     QStringLiteral("YO"));
+    QCOMPARE(erased.at(0).start, 0);
+    QCOMPARE(erased.at(0).end, 2);
+    QVERIFY(drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"), QStringLiteral("HOLA")).isEmpty());
 }
 
 #include "tst_core.moc"
