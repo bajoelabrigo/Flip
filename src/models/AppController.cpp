@@ -13131,16 +13131,20 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         const QString boxColor = m.value(QStringLiteral("boxColor")).toString();
         if (!boxColor.isEmpty())
             run.boxColor = QColor(boxColor);
-        run.boxPadding = qBound(0.0, m.value(QStringLiteral("boxPadding")).toDouble(run.boxPadding), 200.0);
-        run.boxRadius = qBound(0.0, m.value(QStringLiteral("boxRadius")).toDouble(run.boxRadius), 200.0);
-        run.boxBorderWidth = qBound(0.0, m.value(QStringLiteral("boxBorderWidth")).toDouble(run.boxBorderWidth), 40.0);
+        if (m.contains(QStringLiteral("boxPadding")))
+            run.boxPadding = qBound(0.0, m.value(QStringLiteral("boxPadding")).toDouble(), 200.0);
+        if (m.contains(QStringLiteral("boxRadius")))
+            run.boxRadius = qBound(0.0, m.value(QStringLiteral("boxRadius")).toDouble(), 200.0);
+        if (m.contains(QStringLiteral("boxBorderWidth")))
+            run.boxBorderWidth = qBound(0.0, m.value(QStringLiteral("boxBorderWidth")).toDouble(), 40.0);
         const QString boxBorder = m.value(QStringLiteral("boxBorderColor")).toString();
         if (!boxBorder.isEmpty())
             run.boxBorderColor = QColor(boxBorder);
         run.transformEnabled = m.value(QStringLiteral("transformEnabled")).toBool();
         run.offsetX = m.value(QStringLiteral("offsetX")).toDouble();
         run.offsetY = m.value(QStringLiteral("offsetY")).toDouble();
-        run.transformScale = qBound(0.05, m.value(QStringLiteral("transformScale")).toDouble(1.0), 20.0);
+        if (m.contains(QStringLiteral("transformScale")))
+            run.transformScale = qBound(0.05, m.value(QStringLiteral("transformScale")).toDouble(), 20.0);
         run.rotation = m.value(QStringLiteral("rotation")).toDouble();
         parsed.append(run);
     }
