@@ -22802,6 +22802,65 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Texto avanzado</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Negrita</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Cursiva</translation>
+    </message>
+    <message>
+        <source>More colors…</source>
+        <translation>Más colores…</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Apply to selection</source>
+        <translation>Aplicar a lo seleccionado</translation>
+    </message>
+    <message>
+        <source>Apply to all texts</source>
+        <translation>Aplicar a todos los textos</translation>
+    </message>
+    <message>
+        <source>Puts the bar&apos;s color, size and bold or italic on the whole text of every text clip in the project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No letters with their own style yet.</source>
+        <translation>Todavía no hay letras con propio estilo.</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 tramo con estilo propio</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 tramos con estilo propio</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Quitar todos</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24022,6 +24081,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Todas las capas del estilo, paquetes de estilos, resaltado de palabras, subrayado y acentos de palabra</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation>Abrir Texto avanzado…</translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
