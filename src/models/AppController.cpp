@@ -13043,6 +13043,57 @@ void AppController::seekToSubtitleCue(int trackIndex, int clipIndex, int cueInde
     setPlayheadSeconds(drift::usToSeconds(clip.timelineStart + clip.subtitleCues.at(cueIndex).startUs));
 }
 
+QVariantList AppController::textRuns(int trackIndex, int clipIndex)
+{
+    QVariantList out;
+    const drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return out;
+    for (const drift::TextRun &run : clip->textStyle.runs) {
+        out.append(QVariantMap{
+            {QStringLiteral("start"), run.start},
+            {QStringLiteral("end"), run.end},
+            {QStringLiteral("colorEnabled"), run.colorEnabled},
+            {QStringLiteral("color"), run.color.name(QColor::HexArgb)},
+            {QStringLiteral("sizeEnabled"), run.sizeEnabled},
+            {QStringLiteral("sizeScale"), run.sizeScale},
+            {QStringLiteral("boldEnabled"), run.boldEnabled},
+            {QStringLiteral("bold"), run.bold},
+            {QStringLiteral("italicEnabled"), run.italicEnabled},
+            {QStringLiteral("italic"), run.italic},
+        });
+    }
+    return out;
+}
+
+void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantList &runs)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return;
+    QList<drift::TextRun> parsed;
+    for (const QVariant &v : runs) {
+        const QVariantMap m = v.toMap();
+        drift::TextRun run;
+        run.start = m.value(QStringLiteral("start")).toInt();
+        run.end = m.value(QStringLiteral("end")).toInt();
+        run.colorEnabled = m.value(QStringLiteral("colorEnabled")).toBool();
+        run.color = QColor(m.value(QStringLiteral("color")).toString(QStringLiteral("#FFFFFFFF")));
+        run.sizeEnabled = m.value(QStringLiteral("sizeEnabled")).toBool();
+        run.sizeScale = qBound(0.1, m.value(QStringLiteral("sizeScale")).toDouble(1.0), 10.0);
+        run.boldEnabled = m.value(QStringLiteral("boldEnabled")).toBool();
+        run.bold = m.value(QStringLiteral("bold")).toBool(true);
+        run.italicEnabled = m.value(QStringLiteral("italicEnabled")).toBool();
+        run.italic = m.value(QStringLiteral("italic")).toBool(true);
+        parsed.append(run);
+    }
+    const drift::Project before = m_project;
+    // Recortados al texto y sin solapes: la ventana puede mandar cualquier cosa.
+    clip->textStyle.runs = drift::normalizedTextRuns(parsed, clip->text.size());
+    pushProjectEdit(before, tr("Style letters"));
+    finishEdit(tr("Letter style updated"));
+}
+
 void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMap &m)
 {
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);

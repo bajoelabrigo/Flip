@@ -926,6 +926,12 @@ public:
     Q_INVOKABLE void upsertSubtitleCueAtPlayhead(int trackIndex, int clipIndex, const QString &text);
     Q_INVOKABLE void seekToSubtitleCue(int trackIndex, int clipIndex, int cueIndex);
     Q_INVOKABLE void setTextStyle(int trackIndex, int clipIndex, const QVariantMap &style);
+
+    // Los tramos del texto (0.23): {start, end, colorEnabled, color, sizeEnabled, sizeScale,
+    // boldEnabled, bold, italicEnabled, italic}. Leerlos para la ventana de Texto avanzado y
+    // reemplazarlos de una vez (una sola entrada de deshacer).
+    Q_INVOKABLE QVariantList textRuns(int trackIndex, int clipIndex);
+    Q_INVOKABLE void setTextRuns(int trackIndex, int clipIndex, const QVariantList &runs);
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
