@@ -110,6 +110,52 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.23.0)**. Lo nuevo desde la 0.22.0 (660 caracteres; en inglés, 579). **Ojo:** si la
+0.22.0 todavía no se subió (esperaba la aprobación de la 0.21.0), usar las combinadas de abajo.
+
+> Novedades de la 0.23.0
+>
+> - Texto avanzado como Filmora: una ventana grande que se mueve y se maximiza, con vista previa, su línea de tiempo y Estilo, Personalizar, Animación y Burbuja.
+> - Barra como la de un procesador de textos: fuente, tamaño, negrita, cursiva, subrayado, color, mayúsculas, alineación e interlineado.
+> - Letras de distintos colores en un mismo texto: elige unas letras y cambia solo esas (color, tamaño, fuente, negrita, cursiva o subrayado).
+> - «Texto de entrada» cambia el texto en vivo; Cancelar lo devuelve todo como estaba.
+> - Panel izquierdo como Filmora: las subcategorías en la barra lateral, en árbol, y las miniaturas con todo el alto.
+
+En inglés:
+
+> What's new in 0.23.0
+>
+> - Advanced text like Filmora: a large window you can move and maximize, with a preview, its own timeline and Style, Customize, Animation and Bubble.
+> - A word-processor bar: font, size, bold, italic, underline, colour, case, alignment and line spacing.
+> - Letters in different colours in one text: select some letters and change only those (colour, size, font, bold, italic or underline).
+> - «Text input» changes the text live; Cancel puts everything back.
+> - Left panel like Filmora: subcategories in the sidebar as a tree, and thumbnails with the full height.
+
+**Notas para la Store (0.23.0 + 0.22.0, combinadas)**: para subir la 0.23.0 si la 0.22.0 nunca llegó a la Store
+(861 caracteres; en inglés, 813).
+
+> Novedades de la 0.23.0 (con la 0.22.0)
+>
+> - Texto avanzado como Filmora: una ventana grande que se mueve y se maximiza, con vista previa, su línea de tiempo y Estilo, Personalizar, Animación y Burbuja.
+> - Barra como la de un procesador de textos y letras de distintos colores en un mismo texto: elige unas letras y cambia solo esas.
+> - Panel izquierdo como Filmora: las subcategorías en árbol y las miniaturas con todo el alto.
+> - Texto renovado: efectos, LUT y ajustes en los textos; tachado, justificar, texto en círculo y deformar por esquinas.
+> - Editor de animaciones propias, buscadores en Títulos y Animación, y subtítulos VTT y ASS.
+> - Fotogramas clave como After Effects: recto, suave, salto o 17 curvas, y varios a la vez con Ctrl y Mayús.
+> - Stock en cada panel, con Tendencias primero, y la llamita naranja en todo lo nuestro (se usa con la cuenta, gratis).
+
+En inglés:
+
+> What's new in 0.23.0 (with 0.22.0)
+>
+> - Advanced text like Filmora: a large window you can move and maximize, with a preview, its own timeline and Style, Customize, Animation and Bubble.
+> - A word-processor bar and letters in different colours in one text: select some letters and change only those.
+> - Left panel like Filmora: subcategories as a tree and thumbnails with the full height.
+> - Text overhaul: effects, LUTs and adjustments on texts; strikethrough, justify, text around a circle and corner pin.
+> - Your own animation editor, search in Titles and Animation, and VTT and ASS subtitles.
+> - Keyframes like After Effects: linear, smooth, hold or 17 curves, and several at once with Ctrl and Shift.
+> - Stock in every panel, with Trending first, and the orange flame on all our content (used with the free account).
+
 **Notas para la Store (0.22.0)**. Lo nuevo desde la 0.21.0.
 
 > Novedades de la 0.22.0

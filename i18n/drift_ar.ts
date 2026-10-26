@@ -5332,6 +5332,17 @@
         <source>Dynamic</source>
         <translation>ديناميكي</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+            <numerusform>طُبّق على %n نص</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>اختر حركة أولاً</translation>
@@ -23122,6 +23133,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>نص متقدم</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>تطبيق</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>غامق</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>تسطير</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>لون النص</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>تباعد الأسطر</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>تباعد الحروف</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>العودة إلى البداية</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>حفظ كنمط مخصص</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>تطبيق التغييرات على كل النصوص</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>يمنح باقي نصوص المشروع نمط هذا النص</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>النمط</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>تخصيص</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>النص المُدخل</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>مقطع واحد بنمط خاص</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 مقاطع بنمط خاص</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>مسح الكل</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24342,6 +24432,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>كل طبقات المظهر، وحزم الأنماط، وإبراز الكلمات، والتسطير، وتمييز الكلمات</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25616,6 +25710,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>استعادة</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>تكبير</translation>
     </message>
 </context>
 <context>

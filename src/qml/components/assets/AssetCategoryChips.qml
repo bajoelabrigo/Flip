@@ -23,6 +23,8 @@ Item {
     property bool expanded: true
     // Off where there is no favourites notion (the emoji groups).
     property bool showFavorites: true
+    // The panel's sidebar lists the categories (0.23): the chips step aside for it.
+    property bool panelDriven: false
     property real sidePadding: Theme.pagePadding
 
     signal categoryActivated(string categoryId)
@@ -33,7 +35,7 @@ Item {
 
     width: parent ? parent.width : 0
     height: visible ? (expanded || !wraps ? chips.implicitHeight : rowHeight) : 0
-    visible: !searching && (categories.length > 0 || showMine)
+    visible: !panelDriven && !searching && (categories.length > 0 || showMine)
     clip: true
 
     Behavior on height {

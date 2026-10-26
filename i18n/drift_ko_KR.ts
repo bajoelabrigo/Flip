@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>다이내믹</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>텍스트 %n개에 적용했습니다</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>먼저 애니메이션을 선택하세요</translation>
@@ -22720,6 +22726,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>고급 텍스트</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>굵게</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>기울임꼴</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>밑줄</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>텍스트 색</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>줄 간격</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>자간</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>처음으로</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>사용자 지정으로 저장</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>모든 텍스트에 변경 사항 적용</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>프로젝트의 다른 텍스트에 이 텍스트의 스타일을 적용합니다</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>스타일</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>사용자 지정</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>입력 텍스트</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>고유 스타일 구간 1개</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>고유 스타일 구간 %1개</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>모두 지우기</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23940,6 +24025,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>모양의 모든 레이어, 스타일 팩, 단어 강조, 밑줄, 단어 악센트</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25214,6 +25303,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>취소</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>복원</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>최대화</translation>
     </message>
 </context>
 <context>

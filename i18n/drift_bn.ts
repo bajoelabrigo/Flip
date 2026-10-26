@@ -5380,6 +5380,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>%n টি টেক্সটে প্রয়োগ হয়েছে</numerusform>
+            <numerusform>%n টি টেক্সটে প্রয়োগ হয়েছে</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>আগে একটি অ্যানিমেশন বেছে নিন</translation>
@@ -22798,6 +22805,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>উন্নত টেক্সট</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>বোল্ড</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>ইটালিক</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>আন্ডারলাইন</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>টেক্সটের রং</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>লাইনের ব্যবধান</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>অক্ষরের ব্যবধান</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>শুরুতে ফিরুন</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>কাস্টম হিসেবে সংরক্ষণ</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>সব টেক্সটে পরিবর্তন প্রয়োগ</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>প্রকল্পের অন্য টেক্সটগুলোতে এই টেক্সটের স্টাইল দেয়</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>স্টাইল</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>কাস্টমাইজ</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>ইনপুট টেক্সট</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>নিজস্ব স্টাইলের ১টি অংশ</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>নিজস্ব স্টাইলের %1টি অংশ</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>সব মুছুন</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24056,6 +24142,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Draw a rule under each line of text</source>
         <translation type="unfinished">টেক্সটের প্রতিটি লাইনের নিচে একটি নিয়ম আঁকুন</translation>
     </message>
@@ -25292,6 +25382,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>বাতিল করুন</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>পুনরুদ্ধার</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>বড় করুন</translation>
     </message>
 </context>
 <context>

@@ -19,6 +19,16 @@ Dialog {
     property real preferredWidth: Theme.dialogWidthMd
     // Set false for dialogs where Enter must not commit (destructive confirms).
     property bool acceptOnReturn: true
+    // A window of work (Texto avanzado): dragged by its title bar, with maximize and close buttons
+    // there, like a desktop window. Each opening starts centred.
+    property bool movable: false
+    property bool maximized: false
+    property real dragDx: 0
+    property real dragDy: 0
+    onAboutToShow: {
+        root.dragDx = 0
+        root.dragDy = 0
+    }
 
     // A Popup is not an Item, so SafeArea cannot attach to the dialog; the overlay fills
     // the window and does carry them. Without this a full-height dialog on a phone still
@@ -50,18 +60,23 @@ Dialog {
     // and nothing else — no offsets — so the position is computed instead: the insets are
     // rarely equal, and a window-centred dialog at full clamped height still ran under
     // whichever bar was the taller.
-    x: Math.round(root.safeLeft + (root.safeWidth - width) / 2)
-    y: Math.round(root.safeTop + (root.safeHeight - height) / 2)
+    // A moved window stays with its title bar on screen.
+    x: Math.round(Math.max(root.safeLeft - width + 120,
+                           Math.min(root.safeLeft + root.safeWidth - 120,
+                                    root.safeLeft + (root.safeWidth - width) / 2 + (root.maximized ? 0 : root.dragDx))))
+    y: Math.round(Math.max(root.safeTop,
+                           Math.min(root.safeTop + root.safeHeight - 44,
+                                    root.safeTop + (root.safeHeight - height) / 2 + (root.maximized ? 0 : root.dragDy))))
 
     Behavior on y {
-        enabled: root.opened
+        enabled: root.opened && !root.movable
         NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
     }
     standardButtons: Dialog.NoButton
     padding: Theme.spacing2xl
 
-    width: Theme.compact ? root.safeWidth - Theme.dialogMargin
-                         : Math.min(preferredWidth, root.safeWidth - Theme.dialogMargin)
+    width: Theme.compact || root.maximized ? root.safeWidth - Theme.dialogMargin
+                                           : Math.min(preferredWidth, root.safeWidth - Theme.dialogMargin)
 
     // Height was never clamped, only width. A tall dialog centered in the overlay
     // therefore overflowed both edges, and since the footer is the last thing laid
@@ -201,6 +216,55 @@ Dialog {
             font.pixelSize: Theme.fontSizeBase
             font.weight: Font.Medium
             elide: Text.ElideRight
+        }
+
+        // Dragging the title bar moves the window. Scene positions, not the handler's own
+        // translation: the bar moves with the window, so its local coordinates would chase it.
+        DragHandler {
+            target: null
+            enabled: root.movable && !root.maximized
+            cursorShape: Qt.SizeAllCursor
+            property real startDx: 0
+            property real startDy: 0
+            onActiveChanged: {
+                if (active) {
+                    startDx = root.dragDx
+                    startDy = root.dragDy
+                }
+            }
+            onCentroidChanged: {
+                if (!active)
+                    return
+                root.dragDx = startDx + centroid.scenePosition.x - centroid.scenePressPosition.x
+                root.dragDy = startDy + centroid.scenePosition.y - centroid.scenePressPosition.y
+            }
+        }
+
+        TapHandler {
+            enabled: root.movable
+            onDoubleTapped: root.maximized = !root.maximized
+        }
+
+        Row {
+            visible: root.movable
+            anchors.right: parent.right
+            anchors.rightMargin: Theme.spacingMd
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: Theme.spacingXs
+
+            IconButton {
+                glyph: Theme.icons.maximize
+                variant: "ghost"
+                active: root.maximized
+                tooltip: root.maximized ? qsTr("Restore") : qsTr("Maximize")
+                onClicked: root.maximized = !root.maximized
+            }
+            IconButton {
+                glyph: Theme.icons.x
+                variant: "ghost"
+                tooltip: root.rejectText
+                onClicked: root.reject()
+            }
         }
 
         Rectangle {

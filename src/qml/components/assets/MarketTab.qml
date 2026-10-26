@@ -8,6 +8,8 @@ import ".."
 // tabs only, which is where the quotas and third-party terms it explains actually apply.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     // Phone layout. Defaults to the window's own size class; the host can force it.
     property bool compact: Theme.compact
@@ -41,6 +43,28 @@ Item {
     readonly property bool showsOwnChips: ownCategories.length > 0
                                           && ownCategories.some(c => c.id === root.section)
 
+    // On the desktop (0.23, like Filmora) All moves to the panel's tree as «Stock», with Home and
+    // our own kinds under it; Videos and Photos stay up here as they were.
+    readonly property var categories: root.panelDriven ? root.ownCategories : []
+    property string activeCategory: ""
+    onSectionChanged: root.syncActiveCategory()
+    // The kinds arrive with the catalog, after the tab opened on Home.
+    onOwnCategoriesChanged: root.syncActiveCategory()
+    function syncActiveCategory() {
+        // The tab opens on "stock" while Stock is already showing All (Home): that is Home too.
+        const id = root.section === "stock" && Market.activeTypeId ? Market.activeTypeId : root.section
+        root.activeCategory = root.ownCategories.some(c => c.id === id) ? id : ""
+    }
+    onActiveCategoryChanged: {
+        if (root.activeCategory.length > 0 && root.activeCategory !== root.section
+                && !(root.section === "stock" && root.activeCategory === Market.activeTypeId))
+            root.showSection(root.activeCategory)
+    }
+    Component.onCompleted: {
+        root.ensureCatalog()
+        root.syncActiveCategory()
+    }
+
     // Android Back, forwarded by its host.
     function handleBack() {
         if (root.section === "assets")
@@ -73,7 +97,6 @@ Item {
     // Market.types is not persisted, and StockBrowser can't ask for it: it only shows once the
     // types are there. Without this, consent from an earlier run leaves no stock tabs at all.
     onVisibleChanged: ensureCatalog()
-    Component.onCompleted: ensureCatalog()
     function ensureCatalog() {
         if (!visible || !Market.configured)
             return
@@ -164,7 +187,8 @@ Item {
 
                 Repeater {
                     model: (Sfx.available && Market.authenticated ? [{ id: "sfx", label: qsTr("SFX") }] : [])
-                           .concat(root.stockTabs)
+                           .concat(root.panelDriven && root.ownCategories.length > 0
+                                   ? root.stockTabs.filter(t => t.id !== "all") : root.stockTabs)
                     delegate: Item {
                         required property var modelData
                         readonly property bool active: root.section === modelData.id
@@ -212,7 +236,7 @@ Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
             spacing: Theme.spacingSm
-            visible: root.showsOwnChips
+            visible: root.showsOwnChips && !root.panelDriven
 
             Repeater {
                 model: root.showsOwnChips ? root.ownCategories : []

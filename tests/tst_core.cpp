@@ -88,6 +88,7 @@ private slots:
     void disabledKeyframesFreezeAtFirstKey();
     void textAutoFitRoundTripsOnlyWhenSet();
     void legacyTrackInterpolationMigratesLosslessly();
+    void textRunsStyleStretchesOfTheText();
     void keyframeNearestQuery();
     void sourceFramingRoundTrip();
     void clipPose3dRoundTrip();
@@ -7483,4 +7484,139 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
 }
 
 QTEST_MAIN(CoreTest)
+// Punto 2 del plan 0.23: tramos con color, tamaño y negrita/cursiva propios. Se guardan en el
+// proyecto y la lista se ordena, se recorta al texto y se queda sin solapes.
+void CoreTest::textRunsStyleStretchesOfTheText()
+{
+    drift::TextStyle style;
+    const QColor red(220, 40, 40);
+    drift::TextRun first;
+    first.start = 5;
+    first.end = 7;
+    first.colorEnabled = true;
+    first.color = red;
+    first.sizeEnabled = true;
+    first.sizeScale = 1.4;
+    first.boldEnabled = true;
+    first.bold = true;
+    style.runs = {first};
+
+    // Un tramo vacío no se guarda, y without tramos el proyecto se escribe como siempre.
+    const QJsonObject json = drift::textStyleToJson(style);
+    QVERIFY(json.contains(QStringLiteral("runs")));
+    const drift::TextStyle loaded = drift::textStyleFromJson(json);
+    QCOMPARE(loaded.runs.size(), 1);
+    QCOMPARE(loaded.runs.at(0).start, 5);
+    QCOMPARE(loaded.runs.at(0).end, 7);
+    QVERIFY(loaded.runs.at(0).colorEnabled);
+    QCOMPARE(loaded.runs.at(0).color.name(QColor::HexArgb), red.name(QColor::HexArgb));
+    QVERIFY(loaded.runs.at(0).sizeEnabled);
+    QCOMPARE(loaded.runs.at(0).sizeScale, 1.4);
+    QVERIFY(loaded.runs.at(0).boldEnabled);
+    QVERIFY(loaded.runs.at(0).bold);
+
+    drift::TextStyle plain;
+    QVERIFY(!drift::textStyleToJson(plain).contains(QStringLiteral("runs")));
+
+    // La normalización: recorta al texto, ordena y sin solapes (gana lo último de la lista).
+    drift::TextRun late;
+    late.start = 4;
+    late.end = 9;
+    drift::TextRun early;
+    early.start = 0;
+    early.end = 6;
+    // late va primero en la lista y early después: donde se pisan gana early, el último.
+    QList<drift::TextRun> normalized = drift::normalizedTextRuns({late, early}, 8);
+    QCOMPARE(normalized.size(), 2);
+    QCOMPARE(normalized.at(0).start, 0);
+    QCOMPARE(normalized.at(0).end, 6);
+    QCOMPARE(normalized.at(1).start, 6);
+    QCOMPARE(normalized.at(1).end, 8); // recortado al texto (era 9)
+
+    // Un tramo que se sale del texto se queda con lo que hay, y los que caen fuera se van.
+    QCOMPARE(drift::normalizedTextRuns({first}, 8).size(), 1);
+    QCOMPARE(drift::normalizedTextRuns({first}, 8).at(0).end, 7);
+    QCOMPARE(drift::normalizedTextRuns({first}, 6).at(0).end, 6);
+    QVERIFY(drift::normalizedTextRuns({first}, 5).isEmpty());
+    // En cualquier orden de la lista, el resultado sale ordenado y sin solapes.
+    const QList<drift::TextRun> alReves = {normalized.at(1), normalized.at(0)};
+    QCOMPARE(drift::normalizedTextRuns(alReves, 8).size(), 2);
+
+    // Fuera del texto no hay tramo.
+    QVERIFY(!drift::textRunAt(normalized, 9));
+    QVERIFY(drift::textRunAt(normalized, 6));
+
+    // Un tramo que rodea a otro más nuevo se parte en dos: no pierde lo de después.
+    drift::TextRun wide;
+    wide.start = 0;
+    wide.end = 10;
+    drift::TextRun inner;
+    inner.start = 3;
+    inner.end = 5;
+    const QList<drift::TextRun> split = drift::normalizedTextRuns({wide, inner}, 10);
+    QCOMPARE(split.size(), 3);
+    QCOMPARE(split.at(0).end, 3);
+    QCOMPARE(split.at(1).start, 3);
+    QCOMPARE(split.at(2).start, 5);
+    QCOMPARE(split.at(2).end, 10);
+
+    // Al escribir o borrar, cada tramo sigue en sus letras: «YO» de «HOLA YO».
+    drift::TextRun yo;
+    yo.start = 5;
+    yo.end = 7;
+    const QList<drift::TextRun> typedBefore = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                          QStringLiteral("HOLA, YO"));
+    QCOMPARE(typedBefore.at(0).start, 6);
+    QCOMPARE(typedBefore.at(0).end, 8);
+    const QList<drift::TextRun> typedAfter = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                         QStringLiteral("HOLA YO!"));
+    QCOMPARE(typedAfter.at(0).start, 5);
+    QCOMPARE(typedAfter.at(0).end, 7);
+    const QList<drift::TextRun> typedInside = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                          QStringLiteral("HOLA YXO"));
+    QCOMPARE(typedInside.at(0).end, 8);
+    const QList<drift::TextRun> erased = drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"),
+                                                                     QStringLiteral("YO"));
+    QCOMPARE(erased.at(0).start, 0);
+    QCOMPARE(erased.at(0).end, 2);
+    QVERIFY(drift::shiftTextRunsForEdit({yo}, QStringLiteral("HOLA YO"), QStringLiteral("HOLA")).isEmpty());
+
+    // La barra de Texto avanzado sobre unas letras: pone lo suyo y deja lo que ya tenían.
+    drift::TextRun boldYo;
+    boldYo.start = 5;
+    boldYo.end = 7;
+    boldYo.boldEnabled = true;
+    drift::TextRun redPatch;
+    redPatch.colorEnabled = true;
+    redPatch.color = QColor(255, 0, 0);
+    // «A YO» (de 3 a 7): la A sin tramo gana uno rojo; «YO» sigue en negrita y además rojo.
+    const QList<drift::TextRun> patched = drift::patchTextRuns({boldYo}, 7, 3, 7, redPatch);
+    QCOMPARE(patched.size(), 2);
+    QCOMPARE(patched.at(0).start, 3);
+    QCOMPARE(patched.at(0).end, 5);
+    QVERIFY(patched.at(0).colorEnabled);
+    QVERIFY(!patched.at(0).boldEnabled);
+    QCOMPARE(patched.at(1).start, 5);
+    QCOMPARE(patched.at(1).end, 7);
+    QVERIFY(patched.at(1).colorEnabled && patched.at(1).boldEnabled);
+    QCOMPARE(patched.at(1).color, QColor(255, 0, 0));
+    // Solo la Y: el tramo de «YO» se parte y la O conserva su negrita sin color.
+    drift::TextRun under;
+    under.underlineEnabled = true;
+    under.fontEnabled = true;
+    under.fontFamily = QStringLiteral("Bebas Neue");
+    const QList<drift::TextRun> onlyY = drift::patchTextRuns({boldYo}, 7, 5, 6, under);
+    QCOMPARE(onlyY.size(), 2);
+    QVERIFY(onlyY.at(0).underlineEnabled && onlyY.at(0).boldEnabled);
+    QCOMPARE(onlyY.at(0).fontFamily, QStringLiteral("Bebas Neue"));
+    QVERIFY(!onlyY.at(1).underlineEnabled && onlyY.at(1).boldEnabled);
+    QCOMPARE(onlyY.at(1).start, 6);
+    // Subrayado y fuente viajan en el proyecto.
+    drift::TextStyle withRuns;
+    withRuns.runs = onlyY;
+    const drift::TextRun back = drift::textStyleFromJson(drift::textStyleToJson(withRuns)).runs.at(0);
+    QVERIFY(back.underlineEnabled && back.underline && back.fontEnabled);
+    QCOMPARE(back.fontFamily, QStringLiteral("Bebas Neue"));
+}
+
 #include "tst_core.moc"

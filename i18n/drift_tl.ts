@@ -5284,6 +5284,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Nailapat sa %n teksto</numerusform>
+            <numerusform>Nailapat sa %n teksto</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Pumili muna ng animation</translation>
@@ -22790,6 +22797,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Advanced na teksto</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Ilapat</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Bold</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Italic</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>Salungguhit</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>Kulay ng teksto</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Pagitan ng linya</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Pagitan ng letra</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>Bumalik sa simula</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>I-save bilang custom</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Ilapat ang mga pagbabago sa lahat ng teksto</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Ibinibigay ang istilo ng tekstong ito sa ibang teksto ng proyekto</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Istilo</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>I-customize</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Input na teksto</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 bahaging may sariling istilo</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 bahaging may sariling istilo</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Alisin lahat</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24009,6 +24095,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25284,6 +25374,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Ibalik</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>I-maximize</translation>
     </message>
 </context>
 <context>

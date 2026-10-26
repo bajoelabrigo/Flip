@@ -3,6 +3,21 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.23.0 — Texto avanzado como Filmora, panel izquierdo en árbol
+
+- Tramos de texto (`TextRun` en `core/TextStyle.h`): color, tamaño, negrita, cursiva, subrayado y fuente propios
+  de unas letras, guardados en el proyecto; `normalizedTextRuns` (parte el tramo que rodea a otro),
+  `shiftTextRunsForEdit` (siguen a sus letras al editar, también en la edición sobre la vista previa) y
+  `patchTextRuns` (la barra suma a lo que ya tenían). `TextLayout` los parte por tramo y resuelve su fuente por el
+  catálogo; `SkiaTextPainter` pinta su color y su subrayado; `layoutKey` cuenta los tramos.
+- `TextAdvancedDialog.qml`: ventana movible y maximizable (`ThemedDialog.movable`), vista previa espejo
+  (`PreviewItem` + `PreviewToolHost` + `InlineTextEditor`), `TextInspector` embebido (`inAdvanced`).
+  `AppController::beginEditSession/endEditSession` (una macro del `QUndoStack`): Aplicar = un paso de deshacer,
+  Cancelar = deshacer todo. `applyTextStyleToCaptions(…, "texts")`.
+- `AssetsPanel.qml`: la barra lateral es un árbol con las subcategorías de cada navegador (`panelDriven` esconde sus
+  chips), Favoritos y «Mis …» delante, Stock con sus tipos (Videos y Fotos quedan arriba).
+- `tools/e2e/drag.ps1` y `type.ps1`: arrastrar y escribir por mensajes de ventana.
+
 ## 0.22.0 — Texto renovado, fotogramas clave como After Effects, Stock en cada panel
 
 - Texto (auditoría en `docs/auditoria-texto.md`, D1–D14): `textStyleWithPresetLook`, `TextAnimationSlot::cutUs`,

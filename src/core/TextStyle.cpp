@@ -997,6 +997,201 @@ TextHighlight textHighlightFromJson(const QJsonObject &o, const TextHighlight &f
     return h;
 }
 
+QJsonObject textRunToJson(const TextRun &r)
+{
+    return QJsonObject{
+        {QStringLiteral("start"), r.start},
+        {QStringLiteral("end"), r.end},
+        {QStringLiteral("colorEnabled"), r.colorEnabled},
+        {QStringLiteral("color"), r.color.name(QColor::HexArgb)},
+        {QStringLiteral("sizeEnabled"), r.sizeEnabled},
+        {QStringLiteral("sizeScale"), r.sizeScale},
+        {QStringLiteral("boldEnabled"), r.boldEnabled},
+        {QStringLiteral("bold"), r.bold},
+        {QStringLiteral("italicEnabled"), r.italicEnabled},
+        {QStringLiteral("italic"), r.italic},
+        {QStringLiteral("underlineEnabled"), r.underlineEnabled},
+        {QStringLiteral("underline"), r.underline},
+        {QStringLiteral("fontEnabled"), r.fontEnabled},
+        {QStringLiteral("fontFamily"), r.fontFamily},
+    };
+}
+
+TextRun textRunFromJson(const QJsonObject &o)
+{
+    TextRun r;
+    r.start = o.value(QStringLiteral("start")).toInt(r.start);
+    r.end = o.value(QStringLiteral("end")).toInt(r.end);
+    r.colorEnabled = o.value(QStringLiteral("colorEnabled")).toBool(r.colorEnabled);
+    r.color = QColor(o.value(QStringLiteral("color")).toString(r.color.name(QColor::HexArgb)));
+    r.sizeEnabled = o.value(QStringLiteral("sizeEnabled")).toBool(r.sizeEnabled);
+    r.sizeScale = qBound(0.1, o.value(QStringLiteral("sizeScale")).toDouble(r.sizeScale), 10.0);
+    r.boldEnabled = o.value(QStringLiteral("boldEnabled")).toBool(r.boldEnabled);
+    r.bold = o.value(QStringLiteral("bold")).toBool(r.bold);
+    r.italicEnabled = o.value(QStringLiteral("italicEnabled")).toBool(r.italicEnabled);
+    r.italic = o.value(QStringLiteral("italic")).toBool(r.italic);
+    r.underlineEnabled = o.value(QStringLiteral("underlineEnabled")).toBool(r.underlineEnabled);
+    r.underline = o.value(QStringLiteral("underline")).toBool(r.underline);
+    r.fontEnabled = o.value(QStringLiteral("fontEnabled")).toBool(r.fontEnabled);
+    r.fontFamily = o.value(QStringLiteral("fontFamily")).toString();
+    return r;
+}
+
+// Los tramos, en orden, sin solapes y sin salirse del texto. Un tramo que queda vacío se va.
+QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength)
+{
+    QList<TextRun> clamped;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        r.start = qBound(0, r.start, textLength);
+        r.end = qBound(0, r.end, textLength);
+        if (r.end > r.start)
+            clamped.append(r);
+    }
+    // De atrás hacia delante: lo último elegido gana, y lo de antes se queda con lo que le dejen.
+    // Un tramo que rodea a otro más nuevo se parte en dos (antes y después), no pierde la cola.
+    QList<TextRun> accepted;
+    for (int i = clamped.size() - 1; i >= 0; --i) {
+        QList<TextRun> pieces = {clamped.at(i)};
+        for (const TextRun &later : accepted) {
+            QList<TextRun> left;
+            for (const TextRun &piece : pieces) {
+                if (piece.end <= later.start || piece.start >= later.end) {
+                    left.append(piece);
+                    continue;
+                }
+                if (piece.start < later.start) {
+                    TextRun before = piece;
+                    before.end = later.start;
+                    left.append(before);
+                }
+                if (piece.end > later.end) {
+                    TextRun after = piece;
+                    after.start = later.end;
+                    left.append(after);
+                }
+            }
+            pieces = left;
+        }
+        accepted.append(pieces);
+    }
+    std::stable_sort(accepted.begin(), accepted.end(),
+                     [](const TextRun &a, const TextRun &b) { return a.start < b.start; });
+    return accepted;
+}
+
+QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after)
+{
+    if (runs.isEmpty() || before == after)
+        return runs;
+    // Lo que cambió es el tramo entre el principio común y el final común.
+    const int oldLen = int(before.size());
+    const int newLen = int(after.size());
+    int prefix = 0;
+    while (prefix < oldLen && prefix < newLen && before.at(prefix) == after.at(prefix))
+        ++prefix;
+    int suffix = 0;
+    while (suffix < oldLen - prefix && suffix < newLen - prefix
+           && before.at(oldLen - 1 - suffix) == after.at(newLen - 1 - suffix))
+        ++suffix;
+    const int oldEnd = oldLen - suffix;
+    const int newEnd = newLen - suffix;
+    const int delta = newEnd - oldEnd;
+    // Lo de antes del cambio no se mueve, lo de después corre con él; un borde dentro de lo
+    // reemplazado cae al final de lo nuevo (escribir dentro de un tramo lo alarga).
+    const auto map = [&](int x) { return x <= prefix ? x : (x >= oldEnd ? x + delta : newEnd); };
+    QList<TextRun> shifted;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        r.start = map(run.start);
+        r.end = map(run.end);
+        shifted.append(r);
+    }
+    return normalizedTextRuns(shifted, newLen);
+}
+
+QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int start, int end, const TextRun &patch)
+{
+    const QList<TextRun> base = normalizedTextRuns(runs, textLength);
+    start = qBound(0, start, textLength);
+    end = qBound(0, end, textLength);
+    if (end <= start)
+        return base;
+    const auto applied = [&](TextRun r) {
+        if (patch.colorEnabled) {
+            r.colorEnabled = true;
+            r.color = patch.color;
+        }
+        if (patch.sizeEnabled) {
+            r.sizeEnabled = true;
+            r.sizeScale = patch.sizeScale;
+        }
+        if (patch.boldEnabled) {
+            r.boldEnabled = true;
+            r.bold = patch.bold;
+        }
+        if (patch.italicEnabled) {
+            r.italicEnabled = true;
+            r.italic = patch.italic;
+        }
+        if (patch.underlineEnabled) {
+            r.underlineEnabled = true;
+            r.underline = patch.underline;
+        }
+        if (patch.fontEnabled) {
+            r.fontEnabled = true;
+            r.fontFamily = patch.fontFamily;
+        }
+        return r;
+    };
+    QList<TextRun> out;
+    int at = start; // the next letter of [start, end) no run has covered yet
+    for (const TextRun &run : base) {
+        if (run.end <= start || run.start >= end) {
+            out.append(run);
+            continue;
+        }
+        if (run.start < start) {
+            TextRun before = run;
+            before.end = start;
+            out.append(before);
+        }
+        const int from = qMax(run.start, start);
+        if (from > at) {
+            TextRun gap = applied(TextRun{});
+            gap.start = at;
+            gap.end = from;
+            out.append(gap);
+        }
+        TextRun inside = applied(run);
+        inside.start = from;
+        inside.end = qMin(run.end, end);
+        out.append(inside);
+        at = inside.end;
+        if (run.end > end) {
+            TextRun after = run;
+            after.start = end;
+            out.append(after);
+        }
+    }
+    if (at < end) {
+        TextRun gap = applied(TextRun{});
+        gap.start = at;
+        gap.end = end;
+        out.append(gap);
+    }
+    return normalizedTextRuns(out, textLength);
+}
+
+const TextRun *textRunAt(const QList<TextRun> &runs, int at)
+{
+    for (const TextRun &run : runs) {
+        if (run.contains(at))
+            return &run;
+    }
+    return nullptr;
+}
+
 QJsonObject wordAccentToJson(const WordAccent &a)
 {
     return QJsonObject{
@@ -1266,6 +1461,12 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToJson(s.animation)},
     };
+    if (!s.runs.isEmpty()) {
+        QJsonArray runs;
+        for (const TextRun &run : s.runs)
+            runs.append(textRunToJson(run));
+        json.insert(QStringLiteral("runs"), runs);
+    }
     if (!s.lookId.isEmpty()) {
         json.insert(QStringLiteral("lookId"), s.lookId);
         json.insert(QStringLiteral("lookParams"), lookParams);
@@ -1410,6 +1611,9 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
     s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());
+    s.runs.clear();
+    for (const QJsonValue &v : o.value(QStringLiteral("runs")).toArray())
+        s.runs.append(textRunFromJson(v.toObject()));
 
     if (o.contains(QStringLiteral("layers"))) {
         s.layers.clear();

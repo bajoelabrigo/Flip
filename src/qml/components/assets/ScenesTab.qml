@@ -11,6 +11,8 @@ import ".."
 // scanned again. See engine/SceneDetect.h.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     readonly property int selectedTrack: EditorState.selectedTrack
     readonly property int selectedClip: EditorState.selectedClip

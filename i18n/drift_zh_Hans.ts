@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>动感</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>已应用到 %n 个文本</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>请先选择一个动画</translation>
@@ -22721,6 +22727,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>高级文本</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>粗体</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>斜体</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>下划线</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>文字颜色</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>行距</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>字间距</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>回到开头</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>另存为自定义</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>将更改应用到所有文本</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>把此文本的样式应用到项目中的其他文本</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>样式</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>输入文本</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 段独立样式</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 段独立样式</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>全部清除</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23941,6 +24026,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>外观的所有图层、样式包、逐词高亮、下划线和重点词</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25215,6 +25304,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>最大化</translation>
     </message>
 </context>
 <context>

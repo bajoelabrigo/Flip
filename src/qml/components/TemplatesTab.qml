@@ -6,6 +6,8 @@ import Drift
 // effect templates (music-synced effects for a clip you already have), one at a time.
 Column {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
     spacing: 0
 
     // "scenes" | "effects"; the panel remembers it with the tab.
@@ -16,6 +18,14 @@ Column {
     // The Scenes / Effects chips. Off on the desktop, where the sidebar lists the two as
     // Templates › My templates and Effect templates (AssetsPanel).
     property bool showModeChips: true
+    readonly property string favoritesId: "__favorites__"
+    // The open browser's categories, for the panel's tree (0.23).
+    readonly property var categories: modeLoader.item && modeLoader.item.categories ? modeLoader.item.categories : []
+    // The tree sets activeCategory here; it goes on to the open browser.
+    onActiveCategoryChanged: {
+        if (modeLoader.item && modeLoader.item.activeCategory !== root.activeCategory)
+            modeLoader.item.activeCategory = root.activeCategory
+    }
 
     Row {
         id: modeRow
@@ -41,6 +51,7 @@ Column {
     }
 
     Loader {
+        id: modeLoader
         width: parent.width
         height: parent.height - modeRow.height
         sourceComponent: root.mode === "scenes" ? scenes : effects
@@ -48,12 +59,16 @@ Column {
 
     Component {
         id: scenes
-        SceneTemplateBrowser { }
+        SceneTemplateBrowser {
+            panelDriven: root.panelDriven
+            onActiveCategoryChanged: root.activeCategory = activeCategory
+        }
     }
 
     Component {
         id: effects
         EffectTemplateBrowser {
+            panelDriven: root.panelDriven
             Component.onCompleted: {
                 if (root.searchText.length > 0)
                     searchText = root.searchText

@@ -326,6 +326,7 @@ private slots:
     void skslEffectsCompileAndRender();
     void textLookRenders();
     void textPacksRender();
+    void textRunsPaintWithTheirOwnColourAndSize();
 };
 
 void SkiaTest::grContextAttaches()
@@ -2163,4 +2164,59 @@ void SkiaTest::textPacksRender()
 }
 
 QTEST_MAIN(SkiaTest)
+// 0.23: los tramos del texto se pintan con su color y su tamaño. El trozo que cae dentro del tramo
+// lo lleva, y el trazado parte ahí aunque esté en medio de una palabra.
+void SkiaTest::textRunsPaintWithTheirOwnColourAndSize()
+{
+    TextStyle style;
+    style.pixelSize = 32;
+    style.fontFamily = QStringLiteral("Inter");
+    style.wordWrap = false;
+
+    const QString plain = QStringLiteral("HOLA");
+    const QList<text::StyledWord> one =
+        text::layoutStyledText(plain, style, 1.0, 400.0, 120.0, -1, text::WordSplit::Whole).words;
+    QVERIFY(!one.isEmpty());
+    for (const text::StyledWord &w : one)
+        QVERIFY(!w.runColorSet);
+
+    TextStyle run = style;
+    TextRun stretch;
+    stretch.start = 1;
+    stretch.end = 3;
+    stretch.colorEnabled = true;
+    stretch.color = QColor(255, 0, 0);
+    run.runs = {stretch};
+    const QList<text::StyledWord> pieces =
+        text::layoutStyledText(plain, run, 1.0, 400.0, 120.0, -1, text::WordSplit::Whole).words;
+    QVERIFY2(pieces.size() > one.size(), "el tramo tiene que partir la palabra");
+
+    // «O» (1..2) y «L» (2..3) van en rojo; la «H» y la «A» siguen con el color del bloque.
+    for (const text::StyledWord &w : pieces) {
+        const bool inRun = w.textStart >= 1 && w.textStart < 3;
+        QCOMPARE(w.runColorSet, inRun);
+        if (inRun)
+            QCOMPARE(w.runColor.name(QColor::HexArgb), QColor(255, 0, 0).name(QColor::HexArgb));
+    }
+
+    // Un tramo más grande sube el alto de su celda (el trazado se compone a ese tamaño).
+    TextStyle bigger = style;
+    TextRun large;
+    large.start = 0;
+    large.end = 4;
+    large.sizeEnabled = true;
+    large.sizeScale = 2.0;
+    bigger.runs = {large};
+    const QList<text::StyledWord> tall =
+        text::layoutStyledText(plain, bigger, 1.0, 400.0, 240.0, -1, text::WordSplit::Whole).words;
+    QVERIFY(!tall.isEmpty());
+    // La caja de la línea la fija el bloque; lo que crece es la tinta de las letras del tramo.
+    double plainH = 0, tallH = 0;
+    for (const text::StyledWord &w : one)
+        plainH = qMax(plainH, w.inkRect.height());
+    for (const text::StyledWord &w : tall)
+        tallH = qMax(tallH, w.inkRect.height());
+    QVERIFY2(tallH > plainH * 1.5, qPrintable(QStringLiteral("%1 contra %2").arg(tallH).arg(plainH)));
+}
+
 #include "tst_skia.moc"

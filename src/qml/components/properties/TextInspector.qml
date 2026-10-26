@@ -231,6 +231,9 @@ Item {
     // Sub-page of the inspector: "text", "style" or "animate". Survives selection changes so a
     // pass over several clips stays on the page being worked in.
     property string textTab: "basic"
+    // Inside the Texto avanzado window (0.23): the window has its own tabs for the pages, and
+    // opening the window again from here makes no sense.
+    property bool inAdvanced: false
 
     // The content field's user-dragged height and the id of the clip its text was loaded from,
     // so a commit can never land on a clip selected after the typing began.
@@ -814,10 +817,27 @@ Item {
         width: root.width
         spacing: Theme.spacingMd
 
+        // Filmora's AVANZADO: the big window with the preview, the letters' own styles and every
+        // page side by side.
+        ThemedButton {
+            width: parent.width
+            visible: !root.inAdvanced && root.hasTextStyle
+            text: qsTr("Open Advanced text…")
+            glyph: Theme.icons.type
+            variant: "primary"
+            onClicked: {
+                advancedTextLoader.active = true
+                if (advancedTextLoader.item)
+                    advancedTextLoader.item.openFor(EditorState.selectedTrack, EditorState.selectedClip,
+                                                    (root.clipData && root.clipData.id) ? root.clipData.id : "")
+            }
+        }
+
         // CapCut's text pages as a segmented strip: Básico, Burbuja, Efectos and Animación.
         Rectangle {
+            visible: !root.inAdvanced
             width: parent.width
-            height: pageStrip.height + 6
+            height: visible ? pageStrip.height + 6 : 0
             radius: Theme.radiusSm
             color: Theme.panelAccent
 
@@ -910,7 +930,8 @@ Item {
                 title: qsTr("Text")
                 collapsible: false
                 showSeparator: false
-                visible: root.clipKind === "text"
+                // In Texto avanzado the words are typed in its own «Texto de entrada».
+                visible: root.clipKind === "text" && !root.inAdvanced
 
                 ThemedTextArea {
                     id: textContentField
@@ -3104,5 +3125,19 @@ Item {
 
     VoiceoverDialog {
         id: voiceoverDialog
+    }
+
+    // «Guardar como personalizado» in the Texto avanzado window.
+    function saveAsMyStyle() {
+        saveStyleDialog.openWith(qsTr("Save text style"),
+                                 qsTr("My style %1").arg(EditorState.userTextPresets().length + 1))
+    }
+
+    // By URL, not by type: the window holds a TextInspector of its own (inAdvanced), and naming
+    // the type here would make the two files depend on each other.
+    Loader {
+        id: advancedTextLoader
+        active: false
+        source: root.inAdvanced ? "" : Qt.resolvedUrl("../TextAdvancedDialog.qml")
     }
 }

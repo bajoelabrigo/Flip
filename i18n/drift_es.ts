@@ -5280,6 +5280,13 @@
         <source>Dynamic</source>
         <translation>Dinámico</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Aplicado a %n texto</numerusform>
+            <numerusform>Aplicado a %n textos</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Elige primero una animación</translation>
@@ -22802,6 +22809,85 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Texto avanzado</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Negrita</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Cursiva</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>Subrayado</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Interlineado</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Espacio entre letras</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>Volver al inicio</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Guardar como personalizado</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Aplicar cambios a todos los textos</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Da a los demás textos del proyecto el estilo de este</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Personalizar</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Texto de entrada</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 tramo con estilo propio</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 tramos con estilo propio</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Quitar todos</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24022,6 +24108,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Todas las capas del estilo, paquetes de estilos, resaltado de palabras, subrayado y acentos de palabra</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation>Abrir Texto avanzado…</translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25296,6 +25386,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Restaurar</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Maximizar</translation>
     </message>
 </context>
 <context>

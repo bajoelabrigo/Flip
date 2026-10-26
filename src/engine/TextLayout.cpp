@@ -71,11 +71,17 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
     const quint64 ink = qHashMulti(0, qRound(drift::textStrokeWidth(s, false) * 4.0),
                                    qRound(drift::textStrokeWidth(s, true) * 4.0), pad(s.wordHighlight),
                                    pad(a.highlight));
+    // The letters' own styles (0.23) change the shapes and colours of the pieces.
+    quint64 runs = 0;
+    for (const drift::TextRun &r : s.runs)
+        runs = qHashMulti(runs, r.start, r.end, r.colorEnabled, r.color.rgba(), r.sizeEnabled,
+                          qRound(r.sizeScale * 1000.0), r.boldEnabled, r.bold, r.italicEnabled, r.italic,
+                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily);
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split), ink, s.wordSpacing);
+                      static_cast<int>(split), ink, s.wordSpacing, runs);
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
@@ -396,14 +402,48 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         }
     }
 
-    const auto styleFor = [&](bool accent, bool emoji) {
-        const double px = accent ? accentPx : basePx;
+    // Los tramos con estilo propio (0.23): qué tramo cubre cada posición.
+    const QList<drift::TextRun> textRuns = drift::normalizedTextRuns(style.runs, source.size());
+    QList<int> runAt(source.size() + 1, -1);
+    for (int ri = 0; ri < textRuns.size(); ++ri) {
+        const drift::TextRun &run = textRuns.at(ri);
+        for (int p = run.start; p < run.end && p <= source.size(); ++p)
+            runAt[p] = ri;
+    }
+    const auto runAtFor = [&](int pos) {
+        const int ri = pos >= 0 && pos < runAt.size() ? runAt.at(pos) : -1;
+        return ri >= 0 && ri < textRuns.size() ? &textRuns.at(ri) : nullptr;
+    };
+
+    // A run with its own font, bold or italic goes through the font catalog like the block does, so
+    // a bundled family gets its real Bold or Italic face rather than a synthesized one.
+    QList<ResolvedFont> runFonts;
+    for (const drift::TextRun &run : textRuns) {
+        drift::TextStyle face = style;
+        if (run.fontEnabled && !run.fontFamily.isEmpty())
+            face.fontFamily = run.fontFamily;
+        if (run.boldEnabled)
+            face.fontWeight = run.bold ? 700 : 400;
+        if (run.italicEnabled)
+            face.italic = run.italic;
+        runFonts.append(resolveFont(face));
+    }
+
+    const auto styleFor = [&](bool accent, bool emoji, int runIndex) {
+        double px = accent ? accentPx : basePx;
+        ResolvedFont font = resolved;
+        if (!accent && runIndex >= 0 && runIndex < textRuns.size()) {
+            const drift::TextRun &run = textRuns.at(runIndex);
+            if (run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0))
+                px = qMax(1.0, style.pixelSize * run.sizeScale * renderScale);
+            font = runFonts.at(runIndex);
+        }
         return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing, wordSpacing)
-                     : makeTextStyle(resolved.family, resolved.weight, resolved.italic, px, letterSpacing, wordSpacing);
+                     : makeTextStyle(font.family, font.weight, font.italic, px, letterSpacing, wordSpacing);
     };
 
     skt::ParagraphStyle paragraphStyle;
-    paragraphStyle.setTextStyle(styleFor(false, false));
+    paragraphStyle.setTextStyle(styleFor(false, false, -1));
     // Alignment is applied by hand below, so it stays correct with NoWrap, where the natural text
     // can be wider than the box.
     paragraphStyle.setTextAlign(skt::TextAlign::kLeft);
@@ -415,10 +455,12 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     for (int start = 0; start < source.size();) {
         const bool accent = accentAt.at(start);
         const bool emoji = emojiAt.at(start);
+        const int runIndex = runAt.at(start);
         int end = start + 1;
-        while (end < source.size() && accentAt.at(end) == accent && emojiAt.at(end) == emoji)
+        while (end < source.size() && accentAt.at(end) == accent && emojiAt.at(end) == emoji
+               && runAt.at(end) == runIndex)
             ++end;
-        builder->pushStyle(styleFor(accent, emoji));
+        builder->pushStyle(styleFor(accent, emoji, runIndex));
         builder->addText(utf8.text.data() + utf8.u8At.at(start), size_t(utf8.u8At.at(end) - utf8.u8At.at(start)));
         builder->pop();
         start = end;
@@ -674,6 +716,13 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                 word.nonSpaceIndex = words.size();
                 word.textStart = from;
                 word.textLength = to - from;
+                if (const drift::TextRun *run = runAtFor(from)) {
+                    if (run->colorEnabled) {
+                        word.runColorSet = true;
+                        word.runColor = run->color;
+                    }
+                    word.runUnderline = run->underlineEnabled && run->underline;
+                }
                 words.append(word);
             };
 
@@ -683,16 +732,25 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
             auto emitPiece = [&](int from, int to) {
                 const QList<int> stops = graphemeBoundaries(source, from, to);
                 int runStart = -1;
+                int runOf = -2;
                 for (int s = 0; s + 1 < stops.size(); ++s) {
                     const int cs = stops.at(s);
                     const int ce = stops.at(s + 1);
+                    const int ri = runAt.at(cs);
                     if (emojiAt.at(cs)) {
                         if (runStart >= 0)
                             appendRun(runStart, cs);
                         runStart = -1;
                         appendRun(cs, ce);
+                        runOf = -2;
                     } else if (runStart < 0) {
                         runStart = cs;
+                        runOf = ri;
+                    } else if (ri != runOf) {
+                        // Cambia el tramo: cada mitad se pinta con su color y su tamaño.
+                        appendRun(runStart, cs);
+                        runStart = cs;
+                        runOf = ri;
                     }
                 }
                 if (runStart >= 0)

@@ -763,6 +763,108 @@ PanelFrame {
         { id: "templates", label: qsTr("Templates"), icon: Theme.icons.layers, tabs: ["templates", "effectTemplates"] }
     ].filter(category => category.id !== "market" || Market.configured)
 
+    // La barra lateral es un árbol (0.23, como Filmora): cada pestaña con su flechita y, abierta,
+    // sus subcategorías una por línea. Los navegadores ya no enseñan sus chips: el panel les lleva
+    // la categoría (panelDriven) y la guardan como cualquier otra cosa de la pestaña.
+    readonly property var tabLoaders: ({
+        media: mediaLoader, text: textLoader, subtitles: subtitlesLoader, music: musicLoader,
+        sfx: sfxLoader, speech: speechLoader, sounds: soundsLoader, stickers: stickersLoader,
+        shapes: shapesLoader, scenes: scenesLoader, shortcuts: shortcutsLoader, masks: masksLoader,
+        effects: effectsLoader, filters: filtersLoader, colorfx: colorfxLoader,
+        templates: templatesLoader, effectTemplates: effectTemplatesLoader,
+        transitions: transitionsLoader, market: marketLoader
+    })
+    // Los grupos abiertos en el árbol, por pestaña.
+    property var expandedGroups: ({})
+
+    function browserFor(tabId) {
+        const loader = root.tabLoaders[tabId]
+        return loader && loader.item ? loader.item : null
+    }
+
+    // Las subcategorías de una pestaña, tal y como las tiene su navegador ({id, label}).
+    function subcategoriesFor(tabId) {
+        const browser = root.browserFor(tabId)
+        const categories = browser && browser.categories ? browser.categories : []
+        if (categories.length === 0 || tabId === "market")
+            return categories
+        // The star and «Mine» lived on the chips row; with the chips gone they lead the tree.
+        // Same texts (and catalog entries) as the chips that offered them.
+        const lead = browser.favoritesId !== undefined
+                     ? [{ id: "__favorites__", label: qsTranslate("AssetCategoryChips", "Favorites") }] : []
+        const mine = root.mineLabels[tabId]
+        if (mine)
+            lead.push({ id: "__mine__", label: mine })
+        return lead.concat(categories)
+    }
+    readonly property var mineLabels: ({
+        effects: qsTranslate("EffectBrowser", "My Effects"),
+        colorfx: qsTranslate("EffectBrowser", "My Effects"),
+        transitions: qsTranslate("TransitionsTab", "My Transitions"),
+        sounds: qsTranslate("AudioEffectBrowser", "My Audio Effects"),
+        effectTemplates: qsTranslate("EffectTemplateBrowser", "My presets")
+    })
+
+    readonly property string currentSubcategoryId: {
+        const browser = root.browserFor(root.currentTabId)
+        return browser && browser.activeCategory !== undefined ? browser.activeCategory : ""
+    }
+
+    // El nombre de la subcategoría abierta, en mayúsculas sobre el contenido, como Filmora.
+    readonly property string currentSubcategoryTitle: {
+        const browser = root.browserFor(root.currentTabId)
+        const categories = browser && browser.categories ? browser.categories : []
+        const found = categories.find(function(c) { return c.id === root.currentSubcategoryId })
+        return (found ? found.label : root.tabLabel(root.currentTabId)).toLocaleUpperCase()
+    }
+
+    // Las filas del árbol: una por pestaña y, si está abierta, una por subcategoría.
+    readonly property var treeRows: {
+        const rows = []
+        const tabs = root.sideTabs
+        for (let i = 0; i < tabs.length; ++i) {
+            const tabId = tabs[i]
+            rows.push({ kind: "tab", tabId: tabId, categoryId: "" })
+            if (root.expandedGroups[tabId] !== true)
+                continue
+            const categories = root.subcategoriesFor(tabId)
+            for (let j = 0; j < categories.length; ++j) {
+                const category = categories[j]
+                rows.push({ kind: "sub", tabId: tabId, categoryId: category.id, label: category.label })
+            }
+        }
+        return rows
+    }
+
+    // Abrir una pestaña despliega su grupo, como Filmora.
+    function expandGroup(tabId) {
+        if (root.expandedGroups[tabId] === true)
+            return
+        const next = {}
+        for (const key in root.expandedGroups)
+            next[key] = root.expandedGroups[key]
+        next[tabId] = true
+        root.expandedGroups = next
+    }
+
+    function toggleGroup(tabId) {
+        const next = {}
+        for (const key in root.expandedGroups)
+            next[key] = root.expandedGroups[key]
+        next[tabId] = !next[tabId]
+        root.expandedGroups = next
+    }
+
+    // Elegir una subcategoría: abre su pestaña y le pasa la categoría al navegador.
+    function chooseSubcategory(tabId, categoryId) {
+        root.showTab(tabId)
+        const browser = root.browserFor(tabId)
+        if (browser && categoryId.length > 0) {
+            browser.activeCategory = categoryId
+            root.rememberTab(tabId, "category", categoryId)
+        }
+    }
+
     // The category a tab belongs to; Shortcuts (Help menu, F1) belongs to none.
     function categoryOfTab(tabId) {
         for (const category of root.categories) {
@@ -774,10 +876,12 @@ PanelFrame {
 
     readonly property var currentCategory: categoryOfTab(currentTabId)
     readonly property var sideTabs: currentCategory ? currentCategory.tabs : [currentTabId]
-    readonly property bool showSideList: !root.sheetMode && root.sideTabs.length > 1
+    // El árbol se ve siempre que no sea el panel en hoja (celular/Android): hasta una categoría de
+    // una sola pestaña enseña sus subcategorías, como Filmora.
+    readonly property bool showSideList: !root.sheetMode
     // The whole category row, for the window's default panel width (Main.qml).
     readonly property real categoryRowWidth: categoryRow.width
-    readonly property real sideListWidth: showSideList ? 152 : 0
+    readonly property real sideListWidth: showSideList ? 168 : 0
 
     // Coming back to a category opens the tab last used in it (Audio → Sound effects).
     property var lastTabInCategory: ({})
@@ -791,6 +895,7 @@ PanelFrame {
     }
 
     onCurrentTabIdChanged: {
+        root.expandGroup(currentTabId)
         if (currentCategory)
             root.lastTabInCategory[currentCategory.id] = currentTabId
         // Opening Stock is seeing what is new there: the badge on its tab goes.
@@ -1067,59 +1172,107 @@ PanelFrame {
                 topPadding: Theme.spacingSm
                 spacing: 2
 
+                // Qué se está viendo, en mayúsculas: la subcategoría elegida (Filmora lo pone
+                // sobre el contenido; aquí encabeza el árbol, que es donde se elige).
+                Text {
+                    x: Theme.spacingMd
+                    width: tabRailColumn.width - Theme.spacingMd * 2
+                    topPadding: Theme.spacingXs
+                    bottomPadding: Theme.spacingSm
+                    text: root.currentSubcategoryTitle
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.letterSpacing: 0.6
+                    elide: Text.ElideRight
+                }
+
                 Repeater {
-                    model: root.sideTabs
+                    model: root.treeRows
                     delegate: AbstractButton {
-                        id: sideButton
-                        required property string modelData
-                        readonly property bool current: root.currentTabId === modelData
+                        id: treeRow
+                        required property var modelData
+                        readonly property bool isSub: modelData.kind === "sub"
+                        readonly property bool current: treeRow.isSub
+                            ? (root.currentTabId === modelData.tabId
+                               && root.currentSubcategoryId === modelData.categoryId)
+                            : root.currentTabId === modelData.tabId
+                        readonly property bool open: root.expandedGroups[modelData.tabId] === true
+                        // Una subcategoría de la pestaña que no está abierta se marca a medias.
                         x: Theme.spacingXs
                         width: tabRailColumn.width - Theme.spacingXs * 2
-                        height: 32
+                        height: treeRow.isSub ? 26 : 32
                         hoverEnabled: true
                         focusPolicy: Qt.StrongFocus
-                        onClicked: root.showTab(modelData)
+                        onClicked: treeRow.isSub
+                                   ? root.chooseSubcategory(treeRow.modelData.tabId, treeRow.modelData.categoryId)
+                                   : root.showTab(treeRow.modelData.tabId)
 
-                        Accessible.role: Accessible.PageTab
-                        Accessible.name: root.tabLabel(modelData)
-                        Accessible.checked: current
+                        Accessible.role: treeRow.isSub ? Accessible.ListItem : Accessible.PageTab
+                        Accessible.name: treeRow.isSub ? treeRow.modelData.label
+                                                       : root.tabLabel(treeRow.modelData.tabId)
+                        Accessible.checked: treeRow.current
 
                         background: Rectangle {
                             radius: Theme.radiusSm
-                            color: sideButton.current ? Theme.panelSecondaryBg
-                                                      : (sideButton.hovered ? Theme.panelAccent : "transparent")
-                            border.width: sideButton.visualFocus ? Theme.borderWidthFocus : 0
+                            color: treeRow.current ? Theme.panelSecondaryBg
+                                                   : (treeRow.hovered ? Theme.panelAccent : "transparent")
+                            border.width: treeRow.visualFocus ? Theme.borderWidthFocus : 0
                             border.color: Theme.focusRing
                         }
 
                         contentItem: Row {
-                            leftPadding: Theme.spacingMd
+                            leftPadding: treeRow.isSub ? Theme.spacing2xl : Theme.spacingMd
                             spacing: Theme.spacingMd
 
-                            IconGlyph {
+                            // La flechita del grupo: solo en las pestañas que tienen subcategorías.
+                            Item {
+                                visible: !treeRow.isSub && root.subcategoriesFor(treeRow.modelData.tabId).length > 0
+                                width: visible ? Theme.iconSizeSm : 0
+                                height: visible ? Theme.iconSizeSm : 0
                                 anchors.verticalCenter: parent.verticalCenter
-                                glyph: root.tabIcon(sideButton.modelData)
+
+                                IconGlyph {
+                                    anchors.centerIn: parent
+                                    glyph: treeRow.open ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                                    iconSize: Theme.iconSizeSm
+                                    iconColor: Theme.mutedForeground
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    // La flechita abre y cierra; el resto de la fila abre la pestaña.
+                                    anchors.margins: -Theme.spacingXs
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: root.toggleGroup(treeRow.modelData.tabId)
+                                }
+                            }
+
+                            IconGlyph {
+                                visible: !treeRow.isSub
+                                anchors.verticalCenter: parent.verticalCenter
+                                glyph: root.tabIcon(treeRow.modelData.tabId)
                                 iconSize: Theme.iconSizeSm
-                                iconColor: sideButton.current ? Theme.primary : Theme.mutedForeground
+                                iconColor: treeRow.current ? Theme.primary : Theme.mutedForeground
                             }
 
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
-                                width: sideButton.width - Theme.spacingMd * 3 - Theme.iconSizeSm
-                                       - (sideAi.visible ? sideAi.width + Theme.spacingSm : 0)
+                                width: parent.width - x - Theme.spacingSm
+                                       - (treeAi.visible ? treeAi.width + parent.spacing : 0)
                                 elide: Text.ElideRight
-                                text: root.tabLabel(sideButton.modelData)
-                                color: sideButton.current ? Theme.foreground : Theme.mutedForeground
+                                text: treeRow.isSub ? treeRow.modelData.label : root.tabLabel(treeRow.modelData.tabId)
+                                color: treeRow.current ? Theme.foreground : Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeSm
-                                font.weight: sideButton.current ? Font.Medium : Font.Normal
+                                font.weight: treeRow.current ? Font.Medium : Font.Normal
                             }
 
                             AiBadge {
-                                id: sideAi
+                                id: treeAi
                                 anchors.verticalCenter: parent.verticalCenter
-                                visible: !!root.aiInfo[sideButton.modelData]
-                                info: root.aiInfo[sideButton.modelData] || ""
+                                visible: !treeRow.isSub && !!root.aiInfo[treeRow.modelData.tabId]
+                                info: root.aiInfo[treeRow.modelData.tabId] || ""
                             }
                         }
 
@@ -1130,6 +1283,7 @@ PanelFrame {
                         }
                     }
                 }
+
             }
         }
 
@@ -1342,6 +1496,7 @@ PanelFrame {
             // Only the open tab is instantiated; what should outlive a switch is kept in
             // tabState below. Scroll position is not kept.
             Loader {
+                id: textLoader
                 active: root.currentTabId === "text"
                 visible: active
                 width: parent.width
@@ -1349,6 +1504,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TextAssetsTab {
+                        panelDriven: !root.sheetMode
                         id: textTab
                         Component.onCompleted: {
                             const saved = root.tabState["text"] || {}
@@ -1366,6 +1522,7 @@ PanelFrame {
             }
 
             Loader {
+                id: subtitlesLoader
                 active: root.currentTabId === "subtitles"
                 visible: active
                 width: parent.width
@@ -1373,12 +1530,14 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SubtitlesTab {
+                        panelDriven: !root.sheetMode
                         onAdded: root.addCompleted()
                     }
                 }
             }
 
             Loader {
+                id: musicLoader
                 active: root.currentTabId === "music"
                 visible: active
                 width: parent.width
@@ -1386,6 +1545,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SoundEffectsTab {
+                        panelDriven: !root.sheetMode
                         music: true
                         onAdded: root.addCompleted()
                     }
@@ -1393,6 +1553,7 @@ PanelFrame {
             }
 
             Loader {
+                id: sfxLoader
                 active: root.currentTabId === "sfx"
                 visible: active
                 width: parent.width
@@ -1400,23 +1561,28 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SoundEffectsTab {
+                        panelDriven: !root.sheetMode
                         onAdded: root.addCompleted()
                     }
                 }
             }
 
             Loader {
+                id: speechLoader
                 active: root.currentTabId === "speech"
                 visible: active
                 width: parent.width
                 height: parent.height - assetsHeader.height
                 opacity: root.tabOpacity
                 sourceComponent: Component {
-                    SpeechTab { }
+                    SpeechTab {
+                        panelDriven: !root.sheetMode
+                    }
                 }
             }
 
             Loader {
+                id: soundsLoader
                 active: root.currentTabId === "sounds"
                 visible: active
                 width: parent.width
@@ -1424,6 +1590,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     SoundsTab {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: root.restoreBrowserTab(this, "sounds")
                         onSearchTextChanged: root.rememberTab("sounds", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("sounds", "category", activeCategory)
@@ -1432,6 +1599,7 @@ PanelFrame {
             }
 
             Loader {
+                id: stickersLoader
                 active: root.currentTabId === "stickers"
                 visible: active
                 width: parent.width
@@ -1439,6 +1607,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     StickersTab {
+                        panelDriven: !root.sheetMode
                         emojiPickerOpen: emojiPicker.opened
                         onEmojiPickerRequested: emojiPicker.opened ? emojiPicker.close() : emojiPicker.open()
                         onAdded: root.addCompleted()
@@ -1450,6 +1619,7 @@ PanelFrame {
             }
 
             Loader {
+                id: shapesLoader
                 active: root.currentTabId === "shapes"
                 visible: active
                 width: parent.width
@@ -1457,6 +1627,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     ShapesTab {
+                        panelDriven: !root.sheetMode
                         onAdded: root.addCompleted()
                         Component.onCompleted: root.restoreBrowserTab(this, "shapes")
                         onSearchTextChanged: root.rememberTab("shapes", "search", searchText)
@@ -1466,6 +1637,7 @@ PanelFrame {
             }
 
             Loader {
+                id: scenesLoader
                 active: root.currentTabId === "scenes"
                 visible: active
                 width: parent.width
@@ -1473,6 +1645,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     ScenesTab {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: {
                             const saved = root.tabState["scenes"] || {}
                             if (saved.sortByScore !== undefined)
@@ -1487,6 +1660,7 @@ PanelFrame {
             }
 
             Loader {
+                id: shortcutsLoader
                 active: root.currentTabId === "shortcuts"
                 visible: active
                 width: parent.width
@@ -1494,6 +1668,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     ShortcutsTab {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: root.restoreBrowserTab(this, "shortcuts")
                         onSearchTextChanged: root.rememberTab("shortcuts", "search", searchText)
                     }
@@ -1501,6 +1676,7 @@ PanelFrame {
             }
 
             Loader {
+                id: masksLoader
                 active: root.currentTabId === "masks"
                 visible: active
                 width: parent.width
@@ -1508,12 +1684,14 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     MasksTab {
+                        panelDriven: !root.sheetMode
                         onAdded: root.addCompleted()
                     }
                 }
             }
 
             Loader {
+                id: effectsLoader
                 active: root.currentTabId === "effects"
                 visible: active
                 width: parent.width
@@ -1521,6 +1699,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     EffectBrowser {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: root.restoreBrowserTab(this, "effects")
                         onSearchTextChanged: root.rememberTab("effects", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("effects", "category", activeCategory)
@@ -1529,6 +1708,7 @@ PanelFrame {
             }
 
             Loader {
+                id: filtersLoader
                 active: root.currentTabId === "filters"
                 visible: active
                 width: parent.width
@@ -1536,6 +1716,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     FiltersTab {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: {
                             const saved = root.tabState["filters"] || {}
                             if (saved.search)
@@ -1551,6 +1732,7 @@ PanelFrame {
 
             // Filters › Color effects: the Effects browser opened on its Color category.
             Loader {
+                id: colorfxLoader
                 active: root.currentTabId === "colorfx"
                 visible: active
                 width: parent.width
@@ -1558,6 +1740,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     EffectBrowser {
+                        panelDriven: !root.sheetMode
                         // Stock's looks here: their Trending and their categories.
                         stockType: "look"
                         Component.onCompleted: {
@@ -1573,6 +1756,7 @@ PanelFrame {
             }
 
             Loader {
+                id: templatesLoader
                 active: root.currentTabId === "templates"
                 visible: active
                 width: parent.width
@@ -1580,6 +1764,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TemplatesTab {
+                        panelDriven: !root.sheetMode
                         // On the desktop this tab is only the scene templates; the effect ones
                         // are the next sidebar entry. The phone sheet keeps both behind chips.
                         showModeChips: root.sheetMode
@@ -1601,6 +1786,7 @@ PanelFrame {
 
             // Templates › Effect templates (music-synced effects for a clip already there).
             Loader {
+                id: effectTemplatesLoader
                 active: root.currentTabId === "effectTemplates"
                 visible: active
                 width: parent.width
@@ -1608,6 +1794,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TemplatesTab {
+                        panelDriven: !root.sheetMode
                         mode: "effects"
                         showModeChips: false
                         Component.onCompleted: {
@@ -1624,6 +1811,7 @@ PanelFrame {
             }
 
             Loader {
+                id: transitionsLoader
                 active: root.currentTabId === "transitions"
                 visible: active
                 width: parent.width
@@ -1631,6 +1819,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     TransitionsTab {
+                        panelDriven: !root.sheetMode
                         Component.onCompleted: root.restoreBrowserTab(this, "transitions")
                         onSearchTextChanged: root.rememberTab("transitions", "search", searchText)
                         onActiveCategoryChanged: root.rememberTab("transitions", "category", activeCategory)
@@ -1640,6 +1829,7 @@ PanelFrame {
 
             // Shared media browser used by the Media tab.
             Loader {
+                id: mediaLoader
                 active: root.kindsForTab(root.currentTabId).length > 0
                 visible: active
                 width: parent.width
@@ -1691,6 +1881,7 @@ PanelFrame {
             }
 
             Loader {
+                id: marketLoader
                 active: root.currentTabId === "market"
                 visible: active
                 width: parent.width
@@ -1698,6 +1889,7 @@ PanelFrame {
                 opacity: root.tabOpacity
                 sourceComponent: Component {
                     MarketTab {
+                        panelDriven: !root.sheetMode
                         // Filter values are not restored: the filter fields and dropdowns
                         // don't read them back, so restored filters would be invisible.
                         Component.onCompleted: {

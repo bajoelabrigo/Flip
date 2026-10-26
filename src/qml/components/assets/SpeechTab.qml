@@ -8,6 +8,8 @@ import ".."
 // Speech tab: local text-to-speech with optional voice cloning, placed at the playhead.
 Item {
     id: root
+    // The panel's sidebar drives the category (0.23): its chips are not shown.
+    property bool panelDriven: false
 
     readonly property bool ready: EditorState.tts.available
     property bool runtimeReady: Addons.runtimeAvailable()

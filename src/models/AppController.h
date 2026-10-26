@@ -926,6 +926,22 @@ public:
     Q_INVOKABLE void upsertSubtitleCueAtPlayhead(int trackIndex, int clipIndex, const QString &text);
     Q_INVOKABLE void seekToSubtitleCue(int trackIndex, int clipIndex, int cueIndex);
     Q_INVOKABLE void setTextStyle(int trackIndex, int clipIndex, const QVariantMap &style);
+
+    // Los tramos del texto (0.23): {start, end, colorEnabled, color, sizeEnabled, sizeScale,
+    // boldEnabled, bold, italicEnabled, italic}. Leerlos para la ventana de Texto avanzado y
+    // reemplazarlos de una vez (una sola entrada de deshacer).
+    Q_INVOKABLE QVariantList textRuns(int trackIndex, int clipIndex);
+    Q_INVOKABLE void setTextRuns(int trackIndex, int clipIndex, const QVariantList &runs);
+    // The text bar on the letters [start, end): only the keys given (color, sizeScale, bold, italic,
+    // underline, fontFamily) change, and what those letters already had stays.
+    Q_INVOKABLE void patchTextRuns(int trackIndex, int clipIndex, int start, int end, const QVariantMap &patch);
+
+
+    // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made
+    // in between lands in one undo step, and Cancel takes all of it back. Ending one that was
+    // never begun does nothing.
+    Q_INVOKABLE void beginEditSession(const QString &label);
+    Q_INVOKABLE void endEditSession(bool keep);
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
@@ -2381,6 +2397,7 @@ protected:
     // The audio error already on screen, so a device that fails repeatedly toasts once.
     QString m_lastAudioError;
     QUndoStack m_undoStack;
+    bool m_editSessionOpen = false;
     // tracks() serialises every clip in the project into nested QVariantMaps, and used to do it
     // once per binding that read it. Cached between edits; notifyTracksChanged() drops it.
     mutable QVariantList m_tracksCache;
@@ -2538,6 +2555,7 @@ protected:
         int clip = -1;
         QString clipId;
         QString original;
+        QList<drift::TextRun> originalRuns; // the letters' own styles, restored on cancel
         QString text;   // model text, no preedit
         int cursor = 0;
         int selStart = -1;

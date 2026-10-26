@@ -5296,6 +5296,14 @@
         <source>Dynamic</source>
         <translation>Динамичные</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Применено к %n тексту</numerusform>
+            <numerusform>Применено к %n текстам</numerusform>
+            <numerusform>Применено к %n текстам</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Сначала выберите анимацию</translation>
@@ -22882,6 +22890,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Расширенный текст</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Жирный</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Курсив</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>Подчёркивание</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>Цвет текста</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Межстрочный интервал</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Межбуквенный интервал</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>В начало</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Сохранить как свой</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Применить изменения ко всем текстам</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Применяет стиль этого текста к остальным текстам проекта</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Стиль</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Настроить</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Вводимый текст</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 фрагмент с собственным стилем</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>Фрагментов с собственным стилем: %1</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Удалить все</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24102,6 +24189,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Все слои стиля, наборы стилей, выделение слов, подчёркивание и акценты на словах</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25376,6 +25467,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Восстановить</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Развернуть</translation>
     </message>
 </context>
 <context>

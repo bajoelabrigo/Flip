@@ -5280,6 +5280,13 @@
         <source>Dynamic</source>
         <translation type="unfinished"></translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>පෙළ %n කට යෙදුවා</numerusform>
+            <numerusform>පෙළ %n කට යෙදුවා</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>මුලින් සජීවීකරණයක් තෝරන්න</translation>
@@ -22798,6 +22805,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>උසස් පෙළ</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>යොදන්න</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>තද</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>ඇල</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>යටි ඉර</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>පෙළ වර්ණය</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>පේළි පරතරය</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>අකුරු පරතරය</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>ආරම්භයට</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>අභිරුචි ලෙස සුරකින්න</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>සියලු පෙළට වෙනස්කම් යොදන්න</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>ව්‍යාපෘතියේ අනෙක් පෙළට මෙම පෙළේ විලාසය දෙයි</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>විලාසය</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>අභිරුචිකරණය</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>ආදාන පෙළ</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>තමන්ගේම විලාසය ඇති කොටස් 1</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>තමන්ගේම විලාසය ඇති කොටස් %1</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>සියල්ල ඉවත් කරන්න</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24017,6 +24103,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25292,6 +25382,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>ප්‍රතිසාධනය</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>විශාල කරන්න</translation>
     </message>
 </context>
 <context>

@@ -5280,6 +5280,13 @@
         <source>Dynamic</source>
         <translation>Dinamico</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Applicato a %n testo</numerusform>
+            <numerusform>Applicato a %n testi</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Scegli prima un’animazione</translation>
@@ -22802,6 +22809,85 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Testo avanzato</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Applica</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Grassetto</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Corsivo</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>Sottolineato</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>Colore del testo</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Interlinea</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Spaziatura tra le lettere</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>Torna all&apos;inizio</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Salva come personalizzato</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Applica le modifiche a tutti i testi</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Dà agli altri testi del progetto lo stile di questo</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Stile</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Personalizza</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Testo di input</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 tratto con stile proprio</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 tratti con stile proprio</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Rimuovi tutti</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -24022,6 +24108,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Tutti i livelli dello stile, pacchetti di stili, evidenziazione delle parole, sottolineatura e accenti sulle parole</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25296,6 +25386,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Cancel</source>
         <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Ripristina</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Ingrandisci</translation>
     </message>
 </context>
 <context>

@@ -5272,6 +5272,12 @@
         <source>Dynamic</source>
         <translation>Năng động</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>Đã áp dụng cho %n văn bản</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>Hãy chọn một hiệu ứng chuyển động trước</translation>
@@ -22722,6 +22728,85 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>Văn bản nâng cao</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Áp dụng</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>Đậm</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>Nghiêng</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>Gạch chân</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>Màu chữ</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Giãn dòng</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>Giãn chữ</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>Về đầu</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>Lưu thành tùy chỉnh</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>Áp dụng thay đổi cho mọi văn bản</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>Áp dụng kiểu của văn bản này cho các văn bản khác trong dự án</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Kiểu</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>Tùy chỉnh</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>Văn bản nhập</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>1 đoạn có kiểu riêng</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>%1 đoạn có kiểu riêng</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Xóa tất cả</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23874,6 +23959,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>Mọi lớp của kiểu, gói kiểu, tô sáng từ, gạch chân và nhấn từ</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25216,6 +25305,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Cancel</source>
         <translation>Hủy bỏ</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Khôi phục</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>Phóng to</translation>
     </message>
 </context>
 <context>

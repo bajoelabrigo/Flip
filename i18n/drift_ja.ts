@@ -5264,6 +5264,12 @@
         <source>Dynamic</source>
         <translation>ダイナミック</translation>
     </message>
+    <message numerus="yes">
+        <source>Applied to %n text clip(s)</source>
+        <translation>
+            <numerusform>%n 件のテキストに適用しました</numerusform>
+        </translation>
+    </message>
     <message>
         <source>Choose an animation first</source>
         <translation>先にアニメーションを選択してください</translation>
@@ -22722,6 +22728,85 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextAdvancedDialog</name>
+    <message>
+        <source>Advanced text</source>
+        <translation>高度なテキスト</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>適用</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation>太字</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation>斜体</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation>下線</translation>
+    </message>
+    <message>
+        <source>Text color</source>
+        <translation>文字の色</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>行間</translation>
+    </message>
+    <message>
+        <source>Letter spacing</source>
+        <translation>文字間隔</translation>
+    </message>
+    <message>
+        <source>Back to the start</source>
+        <translation>先頭に戻る</translation>
+    </message>
+    <message>
+        <source>Save as custom</source>
+        <translation>カスタムとして保存</translation>
+    </message>
+    <message>
+        <source>Apply changes to all texts</source>
+        <translation>すべてのテキストに変更を適用</translation>
+    </message>
+    <message>
+        <source>Give every other text in the project this text&apos;s style</source>
+        <translation>プロジェクト内の他のテキストにこのテキストのスタイルを適用します</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>スタイル</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>カスタマイズ</translation>
+    </message>
+    <message>
+        <source>Text input</source>
+        <translation>入力テキスト</translation>
+    </message>
+    <message>
+        <source>1 stretch with its own style</source>
+        <translation>独自スタイルの範囲 1 件</translation>
+    </message>
+    <message>
+        <source>%1 stretches with their own style</source>
+        <translation>独自スタイルの範囲 %1 件</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>すべて削除</translation>
+    </message>
+</context>
+<context>
     <name>TextAnimPresetTile</name>
     <message>
         <source>None</source>
@@ -23942,6 +24027,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Every layer of the look, style packs, word highlight, underline and word accents</source>
         <translation>ルックのすべてのレイヤー、スタイルパック、単語のハイライト、下線、単語のアクセント</translation>
+    </message>
+    <message>
+        <source>Open Advanced text…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rule under each line of text</source>
@@ -25216,6 +25305,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Cancel</source>
         <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>元に戻す</translation>
+    </message>
+    <message>
+        <source>Maximize</source>
+        <translation>最大化</translation>
     </message>
 </context>
 <context>
