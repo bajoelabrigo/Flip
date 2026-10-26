@@ -13050,6 +13050,15 @@ void AppController::seekToSubtitleCue(int trackIndex, int clipIndex, int cueInde
     setPlayheadSeconds(drift::usToSeconds(clip.timelineStart + clip.subtitleCues.at(cueIndex).startUs));
 }
 
+// Una pila de sombreado como lista de mapas, para que QML la lea y la devuelva igual.
+static QVariantList textLayersToVariantList(const QList<drift::TextShadingLayer> &layers)
+{
+    QVariantList out;
+    for (const drift::TextShadingLayer &layer : layers)
+        out.append(drift::textShadingLayerToJson(layer).toVariantMap());
+    return out;
+}
+
 QVariantList AppController::textRuns(int trackIndex, int clipIndex)
 {
     QVariantList out;
@@ -13072,6 +13081,19 @@ QVariantList AppController::textRuns(int trackIndex, int clipIndex)
             {QStringLiteral("underline"), run.underline},
             {QStringLiteral("fontEnabled"), run.fontEnabled},
             {QStringLiteral("fontFamily"), run.fontFamily},
+            {QStringLiteral("layersEnabled"), run.layersEnabled},
+            {QStringLiteral("layers"), textLayersToVariantList(run.layers)},
+            {QStringLiteral("boxEnabled"), run.boxEnabled},
+            {QStringLiteral("boxColor"), run.boxColor.name(QColor::HexArgb)},
+            {QStringLiteral("boxPadding"), run.boxPadding},
+            {QStringLiteral("boxRadius"), run.boxRadius},
+            {QStringLiteral("boxBorderWidth"), run.boxBorderWidth},
+            {QStringLiteral("boxBorderColor"), run.boxBorderColor.name(QColor::HexArgb)},
+            {QStringLiteral("transformEnabled"), run.transformEnabled},
+            {QStringLiteral("offsetX"), run.offsetX},
+            {QStringLiteral("offsetY"), run.offsetY},
+            {QStringLiteral("transformScale"), run.transformScale},
+            {QStringLiteral("rotation"), run.rotation},
         });
     }
     return out;
@@ -13101,6 +13123,25 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         run.underline = !m.contains(QStringLiteral("underline")) || m.value(QStringLiteral("underline")).toBool();
         run.fontEnabled = m.value(QStringLiteral("fontEnabled")).toBool();
         run.fontFamily = m.value(QStringLiteral("fontFamily")).toString();
+        // 0.24: lo que se aplicó a esas letras tiene que sobrevivir a la ventana de Texto avanzado.
+        run.layersEnabled = m.value(QStringLiteral("layersEnabled")).toBool();
+        for (const QVariant &v : m.value(QStringLiteral("layers")).toList())
+            run.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
+        run.boxEnabled = m.value(QStringLiteral("boxEnabled")).toBool();
+        const QString boxColor = m.value(QStringLiteral("boxColor")).toString();
+        if (!boxColor.isEmpty())
+            run.boxColor = QColor(boxColor);
+        run.boxPadding = qBound(0.0, m.value(QStringLiteral("boxPadding")).toDouble(run.boxPadding), 200.0);
+        run.boxRadius = qBound(0.0, m.value(QStringLiteral("boxRadius")).toDouble(run.boxRadius), 200.0);
+        run.boxBorderWidth = qBound(0.0, m.value(QStringLiteral("boxBorderWidth")).toDouble(run.boxBorderWidth), 40.0);
+        const QString boxBorder = m.value(QStringLiteral("boxBorderColor")).toString();
+        if (!boxBorder.isEmpty())
+            run.boxBorderColor = QColor(boxBorder);
+        run.transformEnabled = m.value(QStringLiteral("transformEnabled")).toBool();
+        run.offsetX = m.value(QStringLiteral("offsetX")).toDouble();
+        run.offsetY = m.value(QStringLiteral("offsetY")).toDouble();
+        run.transformScale = qBound(0.05, m.value(QStringLiteral("transformScale")).toDouble(1.0), 20.0);
+        run.rotation = m.value(QStringLiteral("rotation")).toDouble();
         parsed.append(run);
     }
     const drift::Project before = m_project;
@@ -13140,6 +13181,33 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
     if (patch.contains(QStringLiteral("fontFamily"))) {
         p.fontEnabled = true;
         p.fontFamily = patch.value(QStringLiteral("fontFamily")).toString();
+    }
+    // 0.24: la pila de sombreado, el fondo y la transformación de esas letras.
+    if (patch.contains(QStringLiteral("layers"))) {
+        p.layersEnabled = true;
+        for (const QVariant &v : patch.value(QStringLiteral("layers")).toList())
+            p.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
+    }
+    if (patch.contains(QStringLiteral("boxEnabled")) || patch.contains(QStringLiteral("boxColor"))) {
+        p.boxEnabled = true;
+        if (patch.contains(QStringLiteral("boxColor")))
+            p.boxColor = QColor(patch.value(QStringLiteral("boxColor")).toString());
+        if (patch.contains(QStringLiteral("boxPadding")))
+            p.boxPadding = qBound(0.0, patch.value(QStringLiteral("boxPadding")).toDouble(), 200.0);
+        if (patch.contains(QStringLiteral("boxRadius")))
+            p.boxRadius = qBound(0.0, patch.value(QStringLiteral("boxRadius")).toDouble(), 200.0);
+        if (patch.contains(QStringLiteral("boxBorderWidth")))
+            p.boxBorderWidth = qBound(0.0, patch.value(QStringLiteral("boxBorderWidth")).toDouble(), 40.0);
+        if (patch.contains(QStringLiteral("boxBorderColor")))
+            p.boxBorderColor = QColor(patch.value(QStringLiteral("boxBorderColor")).toString());
+    }
+    if (patch.contains(QStringLiteral("offsetX")) || patch.contains(QStringLiteral("offsetY"))
+            || patch.contains(QStringLiteral("transformScale")) || patch.contains(QStringLiteral("rotation"))) {
+        p.transformEnabled = true;
+        p.offsetX = patch.value(QStringLiteral("offsetX"), p.offsetX).toDouble();
+        p.offsetY = patch.value(QStringLiteral("offsetY"), p.offsetY).toDouble();
+        p.transformScale = qBound(0.05, patch.value(QStringLiteral("transformScale"), p.transformScale).toDouble(), 20.0);
+        p.rotation = patch.value(QStringLiteral("rotation"), p.rotation).toDouble();
     }
     const drift::Project before = m_project;
     clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(), start, end, p);

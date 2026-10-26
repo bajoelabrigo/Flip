@@ -260,10 +260,72 @@ Item {
         return String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
     }
 
+    // --- Letras elegidas (0.24, como Filmora) -------------------------------------------------
+    // El cuadro «Texto de entrada» dice qué letras están sombreadas; los controles de estilo se
+    // aplican solo a ellas. Sin sombrear, a todo el texto como siempre.
+    property int runSelectionStart: -1
+    property int runSelectionEnd: -1
+    readonly property bool hasRunSelection: runSelectionStart >= 0 && runSelectionEnd > runSelectionStart
+    readonly property bool canStyleRuns: hasSelection && clipKind === "text"
+
+    // Lo que el patch del bloque se convierte en patch del tramo: la pila entera (trazo, sombra,
+    // resplandor, estilos), el fondo, el color, la fuente y el tamaño.
+    function runPatchFor(patch) {
+        const run = {}
+        if (patch.layers !== undefined)
+            run.layers = patch.layers
+        if (patch.color !== undefined)
+            run.color = patch.color
+        if (patch.fontFamily !== undefined)
+            run.fontFamily = patch.fontFamily
+        if (patch.bold !== undefined)
+            run.bold = patch.bold
+        if (patch.italic !== undefined)
+            run.italic = patch.italic
+        if (patch.underline !== undefined)
+            run.underline = patch.underline
+        const base = root.textStyle.pixelSize
+        if (patch.pixelSize !== undefined && base > 0)
+            run.sizeScale = patch.pixelSize / base
+        const boxKeys = ["boxEnabled", "boxColor", "boxPadding", "boxRadius", "boxBorderWidth", "boxBorderColor"]
+        let box = false
+        for (const key of boxKeys) {
+            if (patch[key] !== undefined) {
+                run[key] = patch[key]
+                box = true
+            }
+        }
+        if (box)
+            run.boxEnabled = true
+        const transformKeys = ["offsetX", "offsetY", "transformScale", "rotation"]
+        let transform = false
+        for (const key of transformKeys) {
+            if (patch[key] !== undefined) {
+                run[key] = patch[key]
+                transform = true
+            }
+        }
+        if (transform)
+            run.transformEnabled = true
+        return run
+    }
+
+    // La única puerta de los controles de estilo: con letras sombreadas al tramo, sin ellas al bloque.
+    function applyStyle(patch) {
+        if (!root.hasSelection)
+            return
+        if (root.canStyleRuns && root.hasRunSelection) {
+            EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
+                                      root.runSelectionStart, root.runSelectionEnd, root.runPatchFor(patch))
+            return
+        }
+        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+    }
+
     function setTextStyleKey(key, value) {
         const patch = {}
         patch[key] = value
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle( patch)
     }
 
     // Nested style groups: the C++ side takes the same partial-patch shape one level down.
@@ -272,7 +334,7 @@ Item {
         inner[key] = value
         const patch = {}
         patch[group] = inner
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle( patch)
     }
 
     function setTextAccentHighlightKey(key, value) {
@@ -437,7 +499,7 @@ Item {
             patch.underlineWidth = Math.max(2, root.em * 0.06)
             patch.underlineOffset = Math.max(2, root.em * 0.1)
         }
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle( patch)
     }
     // Colours travel as #AARRGGBB; the background's opacity slider edits only the alpha byte.
     function hexAlpha(hex) {
@@ -940,6 +1002,26 @@ Item {
                     clip: true
                     placeholderText: qsTr("Type your text…")
                     onEditingFinished: root.applyText()
+                    // Las letras sombreadas aquí son las que reciben los estilos (0.24).
+                    onSelectionStartChanged: root.runSelectionStart = selectionStart
+                    onSelectionEndChanged: root.runSelectionEnd = selectionEnd
+                    onCursorPositionChanged: {
+                        if (selectionStart === selectionEnd) {
+                            root.runSelectionStart = -1
+                            root.runSelectionEnd = -1
+                        }
+                    }
+                }
+
+                // A qué se aplica lo que se toque debajo.
+                Text {
+                    width: parent.width
+                    visible: root.hasRunSelection
+                    text: qsTr("Applies to the selected letters")
+                    color: Theme.primary
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    wrapMode: Text.WordWrap
                 }
 
                 // Drag grip: the field grows and shrinks with it.

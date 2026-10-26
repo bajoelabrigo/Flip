@@ -727,6 +727,10 @@ ThemedDialog {
                                 id: inspector
                                 width: parent.width
                                 inAdvanced: true
+                                // Las letras sombreadas en «Texto de entrada» (de esta ventana) son
+                                // las que reciben los estilos de la derecha (0.24).
+                                runSelectionStart: root.selectionStart
+                                runSelectionEnd: root.selectionEnd
                                 textTab: root.page === "style" ? "effects"
                                          : root.page === "animation" ? "animate"
                                          : root.page === "bubble" ? "bubble" : "basic"
