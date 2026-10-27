@@ -1359,6 +1359,10 @@ WordAccent wordAccentFromJson(const QJsonObject &o)
 // ---------------------------------------------------------------------------------------------
 // Keyframe keys
 
+// The letters' own keys, "run.<animId>.<field>" (0.25): defined further down.
+static bool parseRunKey(const QString &key, QString *animId, QString *field);
+static const TextRun *findAnimRun(const TextStyle &s, const QString &animId);
+
 namespace {
 
 const QStringList &flatKeyframeKeys()
