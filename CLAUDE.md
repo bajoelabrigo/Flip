@@ -24,6 +24,11 @@ Todo vive en `C:\Users\bajoe\Downloads\FlipStudio` (ordenado el 2026-10-14):
 
 Los portables de prueba viejos se borraron; las versiones publicadas siguen en los releases de GitHub.
 
+**Desde el 2026-10-27 (C se llenaba):** `tienda\`, `versiones\` y `pruebas\` viven de verdad en `E:\FlipStudio\`
+(disco interno «Nuevo vol»); en `Downloads\FlipStudio` quedan **uniones** (junctions) con el mismo nombre, así que
+todas las rutas siguen valiendo. No borrar una unión con `Remove-Item -Recurse` (borraría lo de E): `cmd /c rmdir`.
+El disco D es una partición de 0,9 GB: no sirve para guardar nada.
+
 | Repo | Qué es | Dónde se publica |
 |---|---|---|
 | `Flip` | App de escritorio (Qt/C++, fork de Drift) | GitHub `bajoelabrigo/Flip` — releases + Store |
