@@ -22,6 +22,9 @@ Item {
 
     readonly property real minDb: -40
     readonly property real maxDb: 6
+    // How much a pixel of drag moves the level: fixed, so a low track is as fine to work as a tall
+    // one (the height alone made 25 px about 28 dB).
+    readonly property real dbPerPixel: 0.3
 
     // The keys, {seconds, value}, timeline seconds. Frozen while a drag lasts: each step rewrites
     // the project and rebuilding under the pointer would drop the drag.
@@ -132,7 +135,7 @@ Item {
             if (!pressed)
                 return
             const dy = mouse.y - pressY
-            const dDb = -dy / Math.max(1, root.height) * (root.maxDb - root.minDb)
+            const dDb = -dy * root.dbPerPixel
             if (moving.length === 0) {
                 // No keys: the clip's level.
                 const g = Math.min(2, root.gainOf(root.dbOf(baseGains[0]) + dDb))
@@ -254,7 +257,7 @@ Item {
                     const at = keepTime ? base.seconds
                         : Math.max(lo, Math.min(hi, EditorState.snapTime(base.seconds
                               + (p.x - pressX) / root.pxPerSecond - (base.seconds - fromSeconds))))
-                    const dDb = -(p.y - pressY) / Math.max(1, root.height) * (root.maxDb - root.minDb)
+                    const dDb = -(p.y - pressY) * root.dbPerPixel
                     const g = Math.min(2, root.gainOf(root.dbOf(baseGain) + dDb))
                     EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, "volume",
                                                         base.seconds, at, g)

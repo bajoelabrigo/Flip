@@ -2262,6 +2262,7 @@ Item {
                 visible: root.hasTextStyle
 
                 Column {
+                    id: runTransformColumn
                     width: parent.width
                     spacing: Theme.spacingSm
                     visible: root.hasRunSelection
@@ -2279,41 +2280,81 @@ Item {
                     // with the diamond, so their turn, move or size can be keyframed (0.25).
                     readonly property bool keyed: !!root.runUnderCursor.animId
                                                   && !!root.runUnderCursor.transformEnabled
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        visible: !parent.keyed
-                        unit: "X"
-                        value: root.runTransformValue("offsetX", 0.0)
-                        onEdited: v => root.setRunTransform("offsetX", v)
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "X"
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: "X"
+                            value: root.runTransformValue("offsetX", 0.0)
+                            onEdited: v => root.setRunTransform("offsetX", v)
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        visible: !parent.keyed
-                        unit: "Y"
-                        value: root.runTransformValue("offsetY", 0.0)
-                        onEdited: v => root.setRunTransform("offsetY", v)
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "Y"
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: "Y"
+                            value: root.runTransformValue("offsetY", 0.0)
+                            onEdited: v => root.setRunTransform("offsetY", v)
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        visible: !parent.keyed
-                        // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
-                        unit: qsTranslate("TransformInspector", "Scale")
-                        decimals: 2
-                        step: 0.05
-                        from: 0.05
-                        to: 20
-                        value: root.runTransformValue("transformScale", 1.0)
-                        onEdited: v => root.applyStyle({ "transformScale": v })
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTranslate("TransformInspector", "Scale")
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
+                            unit: qsTranslate("TransformInspector", "Scale")
+                            decimals: 2
+                            step: 0.05
+                            from: 0.05
+                            to: 20
+                            value: root.runTransformValue("transformScale", 1.0)
+                            onEdited: v => root.applyStyle({ "transformScale": v })
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        visible: !parent.keyed
-                        unit: qsTranslate("KeyframeGraph", "Rotation")
-                        decimals: 1
-                        from: -3600
-                        to: 3600
-                        value: root.runTransformValue("rotation", 0.0)
-                        onEdited: v => root.applyStyle({ "rotation": v })
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTranslate("KeyframeGraph", "Rotation")
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: qsTranslate("KeyframeGraph", "Rotation")
+                            decimals: 1
+                            from: -3600
+                            to: 3600
+                            value: root.runTransformValue("rotation", 0.0)
+                            onEdited: v => root.applyStyle({ "rotation": v })
+                        }
                     }
                     PropertyKeyframeRow {
                         width: parent.width
