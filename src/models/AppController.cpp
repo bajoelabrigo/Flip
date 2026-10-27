@@ -12181,7 +12181,7 @@ void AppController::previewSetClipRotation(int trackIndex, int clipIndex, double
 void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                            double atSeconds, double value)
 {
-    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, false);
+    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, false, m_autoKeyEnabled);
 }
 
 void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
@@ -12190,7 +12190,8 @@ void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const
     // After Effects' rule (0.25): with the stopwatch on (the property has keys) a new value is a
     // key at the playhead; without it, the property simply takes the value.
     const bool animated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
-    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated);
+    // Without the stopwatch it is a plain value even with Auto keyframes on, as After Effects.
+    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated, animated);
 }
 
 QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
@@ -12231,7 +12232,7 @@ void AppController::stopAnimating(int trackIndex, int clipIndex, const QStringLi
 }
 
 void AppController::previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop,
-                                          double atSeconds, double value, bool forceKey)
+                                          double atSeconds, double value, bool forceKey, bool autoKey)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
@@ -12250,7 +12251,7 @@ void AppController::previewWriteClipValue(int trackIndex, int clipIndex, const Q
     drift::Clip &clip = track.clips[clipIndex];
     beginImplicitPreviewDrag(tr("Edit keyframe"));
     const drift::TimeUs rel = qMax<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart);
-    if (!writeClipPropValue(clip, prop, rel, value, m_autoKeyEnabled, forceKey)) {
+    if (!writeClipPropValue(clip, prop, rel, value, autoKey, forceKey)) {
         emit transformBlocked(tr("Turn on Auto keyframes to edit this"));
         return;
     }
@@ -12268,9 +12269,9 @@ void AppController::previewWriteClipValue(int trackIndex, int clipIndex, const Q
         if (otherKt && !otherKt->isEmpty()) {
             const drift::TimeUs otherNearest = otherKt->nearestKeyframe(rel, kKeyframeToleranceUs);
             // Position keyed as one, as After Effects: X typed at a new time keys Y there too.
-            if (otherNearest < 0 && (m_autoKeyEnabled || forceKey)) {
+            if (otherNearest < 0 && (autoKey || forceKey)) {
                 const double otherVal = otherKt->evaluateAt(rel);
-                if (writeClipPropValue(clip, otherProp, rel, otherVal, m_autoKeyEnabled, forceKey))
+                if (writeClipPropValue(clip, otherProp, rel, otherVal, autoKey, forceKey))
                     affected.append(otherProp);
             }
         }

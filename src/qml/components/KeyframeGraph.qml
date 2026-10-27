@@ -808,7 +808,8 @@ Item {
                     }
                     Text {
                         x: 4
-                        y: -height - 1
+                        // The top number goes under its line so it is not cut off.
+                        y: parent.modelData.y < height + 2 ? 1 : -height - 1
                         text: parent.modelData.label
                         color: Theme.mutedForeground
                         font.family: Theme.monoFontFamily

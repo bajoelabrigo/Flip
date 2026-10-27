@@ -2080,7 +2080,7 @@ signals:
 
 protected:
     void previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
-                               double value, bool forceKey);
+                               double value, bool forceKey, bool autoKey);
     // The picked keys moved together: each from fromTime(start) to toTime(start), the handles'
     // reach in time scaled by handleScale (shift and stretch).
     void previewRetimeKeys(int trackIndex, const QVariantList &keys,

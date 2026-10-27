@@ -85,6 +85,7 @@ Item {
                     || x.x !== y.x || x.y !== y.y
                     || x.width !== y.width || x.height !== y.height
                     || x.rotation !== y.rotation
+                    || x.anchorFx !== y.anchorFx || x.anchorFy !== y.anchorFy
                     || x.layer3d !== y.layer3d
                     || x.cameraActive !== y.cameraActive
                     || x.rotationX !== y.rotationX || x.rotationY !== y.rotationY
