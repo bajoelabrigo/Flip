@@ -6463,6 +6463,13 @@ double AppController::snapTime(double seconds, const QString &excludeClipId) con
                                               m_snapThresholdUs));
 }
 
+double AppController::snapKeyTime(double seconds) const
+{
+    // A key lands on a whole frame, as in After Effects (0.25), after the usual magnet.
+    const int fps = qMax(1, m_project.fps());
+    return std::round(snapTime(seconds) * fps) / fps;
+}
+
 void AppController::appendKeyframeSnapTargets(QList<drift::TimeUs> *targets,
                                               const QString &excludeClipId) const
 {

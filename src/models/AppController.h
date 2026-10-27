@@ -1870,6 +1870,8 @@ public:
     // the model still has it at its old position, so those two targets sit right under the
     // pointer at the start of every move.
     Q_INVOKABLE double snapTime(double seconds, const QString &excludeClipId = {}) const;
+    // snapTime, then onto a whole frame: where a dragged key lands (0.25).
+    Q_INVOKABLE double snapKeyTime(double seconds) const;
     // Snapping pulls within a fixed on-screen distance, so the timeline reports its zoom here.
     Q_INVOKABLE void setSnapRadius(double pixels, double pxPerSecond);
     Q_INVOKABLE QVariantList waveformPeaks(const QString &path) const;

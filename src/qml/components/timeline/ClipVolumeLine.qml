@@ -162,7 +162,7 @@ Item {
             }
             if (mouse.modifiers & Qt.ControlModifier) {
                 // A key on the line where it was clicked, at the level it shows there.
-                const at = EditorState.snapTime(root.clipStart + mouse.x / root.pxPerSecond)
+                const at = EditorState.snapKeyTime(root.clipStart + mouse.x / root.pxPerSecond)
                 EditorState.addClipKeyframeAt(root.trackIndex, root.clipIndex, "volume", at)
                 mouse.accepted = false
                 return
@@ -255,7 +255,7 @@ Item {
                     const keepTime = (mouse.modifiers & Qt.ShiftModifier) !== 0
                     const base = ks[dot.index]
                     const at = keepTime ? base.seconds
-                        : Math.max(lo, Math.min(hi, EditorState.snapTime(base.seconds
+                        : Math.max(lo, Math.min(hi, EditorState.snapKeyTime(base.seconds
                               + (p.x - pressX) / root.pxPerSecond - (base.seconds - fromSeconds))))
                     const dDb = -(p.y - pressY) * root.dbPerPixel
                     const g = Math.min(2, root.gainOf(root.dbOf(baseGain) + dDb))

@@ -239,7 +239,7 @@ Item {
                         onDoubleClicked: (mouse) => {
                             const at = Math.max(span.modelData.start,
                                 Math.min(span.modelData.start + span.modelData.duration,
-                                         EditorState.snapTime(span.modelData.start
+                                         EditorState.snapKeyTime(span.modelData.start
                                                               + mouse.x / root.pxPerSecond)))
                             const props = (rowItem.modelData.groupProps && !rowItem.modelData.axis
                                            ? rowItem.modelData.groupProps : [span.modelData.prop]).slice()
@@ -399,13 +399,13 @@ Item {
                                     if (keyItem.stretchDrag) {
                                         const from = keyItem.modelData.seconds
                                         EditorState.playheadSeconds = root.tools.stretchTo(
-                                            EditorState.snapTime(from + dx / root.pxPerSecond))
+                                            EditorState.snapKeyTime(from + dx / root.pxPerSecond))
                                         return
                                     }
                                     if (keyItem.groupDrag) {
                                         const from = keyItem.modelData.seconds
                                         const moved = root.tools.shiftTo(
-                                            EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                            EditorState.snapKeyTime(from + dx / root.pxPerSecond) - from)
                                         EditorState.playheadSeconds = from + moved
                                         return
                                     }
@@ -420,7 +420,7 @@ Item {
                                              : span.modelData.start + span.modelData.duration
                                     const base = keyItem.modelData.seconds
                                     const at = Math.max(lo, Math.min(hi,
-                                        EditorState.snapTime(base + dx / root.pxPerSecond)))
+                                        EditorState.snapKeyTime(base + dx / root.pxPerSecond)))
                                     if (Math.abs(at - keyItem.editSeconds) < 1e-6)
                                         return
                                     EditorState.previewMoveClipKeyframe(

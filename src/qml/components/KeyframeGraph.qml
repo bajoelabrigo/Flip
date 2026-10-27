@@ -519,7 +519,7 @@ Item {
         const entry = series[focusedIndex]
         const seconds = Math.max(
             clipStart,
-            Math.min(clipStart + clipDuration, EditorState.snapTime(secondsForX(px))))
+            Math.min(clipStart + clipDuration, EditorState.snapKeyTime(secondsForX(px))))
         const value = EditorState.propertyValueAt(
                         root.trackIndex, root.clipIndex, entry.prop,
                         seconds, entry.baseValue)
@@ -1381,7 +1381,7 @@ Item {
                                 if (keyDot.groupDrag) {
                                     const from = keyDot.modelData.seconds
                                     const moved = root.tools.shiftTo(
-                                        EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                        EditorState.snapKeyTime(from + dx / root.pxPerSecond) - from)
                                     EditorState.playheadSeconds = from + moved
                                     // Their values ride the pointer's height too, unless Shift.
                                     const keepValues = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
@@ -1403,7 +1403,7 @@ Item {
                                 const newSec = Math.max(
                                     root.clipStart,
                                     Math.min(root.clipStart + root.clipDuration,
-                                             EditorState.snapTime(rawSec)))
+                                             EditorState.snapKeyTime(rawSec)))
                                 const isShift = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
                                 const newVal = isShift ? baseVal : Math.max(
                                     entry.valueMin,

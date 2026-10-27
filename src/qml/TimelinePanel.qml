@@ -78,7 +78,8 @@ PanelFrame {
     // use fitZoom() when you want the timeline fitted to the viewport.
     // Low enough for multi-hour projects without live recalibration.
     readonly property real minZoom: 0.0001
-    readonly property real maxZoom: 40.0
+    // Far enough in that a frame is ~130 px wide at 30 fps (0.25, After Effects' frame view).
+    readonly property real maxZoom: 80.0
     readonly property real pxPerSecond: Theme.pixelsPerSecondBase * zoom
     // Delete takes the picked keys first, as After Effects; false when there are none.
     function deletePickedKeys() {
@@ -145,9 +146,31 @@ PanelFrame {
         setZoomAround(newZoom, anchorSeconds, viewportX)
     }
 
+    // The project's frame rate, and how wide one frame is at this zoom (0.25: After Effects counts
+    // frames once they have room).
+    readonly property int projectFps: {
+        void EditorState.tracksRevision
+        return Math.max(1, EditorState.projectFile.projectFps())
+    }
+    readonly property real pxPerFrame: pxPerSecond / projectFps
+    // Zoomed in far enough that the ruler counts frames ("05f") instead of hundredths.
+    readonly property bool frameRuler: pxPerFrame >= 6
+    // The time on a whole frame: the playhead never stops between two (After Effects).
+    function snapToFrame(seconds) {
+        return Math.round(Math.max(0, seconds) * projectFps) / projectFps
+    }
+
     // Ruler tick interval (seconds): the smallest "nice" step whose labels still
     // have room to breathe at the current zoom, so timestamps never squash.
     readonly property real tickStepSeconds: {
+        if (frameRuler) {
+            // In frames: every frame with room for its label, else every 2, 5, 10… frames.
+            const frames = [1, 2, 5, 10, 15, 30, 60]
+            for (let i = 0; i < frames.length; i++) {
+                if (frames[i] * pxPerFrame >= 34 || frames[i] >= projectFps)
+                    return Math.min(frames[i], projectFps) / projectFps
+            }
+        }
         const minLabelPx = 66
         const needed = minLabelPx / pxPerSecond
         const steps = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 15, 30,
@@ -159,8 +182,19 @@ PanelFrame {
         return steps[steps.length - 1]
     }
 
-    // HH:MM:SS, plus .CC hundredths once zoomed into sub-second ticks.
+    // HH:MM:SS, plus .CC hundredths once zoomed into sub-second ticks; zoomed into frames, as After
+    // Effects: "05f" for a frame, "01:00f" on each second.
     function formatTick(seconds) {
+        if (frameRuler && tickStepSeconds < 1) {
+            const pad2 = (n) => (n < 10 ? "0" : "") + n
+            const f = Math.round(Math.max(0, seconds) * projectFps)
+            const sec = Math.floor(f / projectFps)
+            const frame = f % projectFps
+            if (frame !== 0)
+                return pad2(frame) + "f"
+            const mins = Math.floor(sec / 60)
+            return (mins > 0 ? pad2(mins) + ":" : "") + pad2(sec % 60) + ":00f"
+        }
         const cc = Math.round(Math.max(0, seconds) * 100)
         const pad = (n) => (n < 10 ? "0" : "") + n
         let out = pad(Math.floor(cc / 360000)) + ":"
@@ -1591,8 +1625,9 @@ PanelFrame {
                             z: 1
 
                             function scrubTo(x) {
-                                // A key within a few pixels catches the playhead, as After Effects.
-                                const t = Math.max(0, x) / root.pxPerSecond
+                                // On a whole frame, and a key within a few pixels catches it, as
+                                // After Effects.
+                                const t = root.snapToFrame(Math.max(0, x) / root.pxPerSecond)
                                 const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
                                 EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                             }
@@ -2867,6 +2902,31 @@ PanelFrame {
                         }
                     }
 
+                    // After Effects' frame columns (0.25): zoomed into frames, every other frame is
+                    // shaded down the tracks, so a key's frame reads at a glance.
+                    Item {
+                        id: frameColumns
+                        visible: root.pxPerFrame >= 8
+                        z: 2
+                        y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight
+                        width: flick.contentWidth
+                        height: root.totalTracksHeightCached
+                        readonly property int firstFrame: Math.max(0, Math.floor(flick.contentX / Math.max(1, root.pxPerFrame)) - 1)
+                        readonly property int count: visible ? Math.ceil(flick.width / Math.max(1, root.pxPerFrame)) + 3 : 0
+                        Repeater {
+                            model: frameColumns.count
+                            delegate: Rectangle {
+                                required property int index
+                                readonly property int frame: frameColumns.firstFrame + index
+                                visible: frame % 2 === 1
+                                x: frame * root.pxPerFrame
+                                width: root.pxPerFrame
+                                height: frameColumns.height
+                                color: Qt.rgba(0, 0, 0, 0.16)
+                            }
+                        }
+                    }
+
                     // playhead ---------------------------------------------------------------
                     Item {
                         id: playhead
@@ -2889,11 +2949,12 @@ PanelFrame {
                         onXChanged: {
                             if (playheadDragArea.drag.active || playheadLineDrag.drag.active)
                                 EditorState.playheadSeconds = EditorState.snapPlayheadToKeys(
-                                    playhead.x / root.pxPerSecond, root.playheadKeySnapPx / root.pxPerSecond)
+                                    root.snapToFrame(playhead.x / root.pxPerSecond),
+                                    root.playheadKeySnapPx / root.pxPerSecond)
                         }
 
                         function finishSeek() {
-                            const t = playhead.x / root.pxPerSecond
+                            const t = root.snapToFrame(playhead.x / root.pxPerSecond)
                             const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
                             EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                         }
