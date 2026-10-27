@@ -3164,9 +3164,6 @@ PanelFrame {
 
                 Loader {
                     id: curveGraph
-                    // Nothing drawn outside it: a curve never spills over the tracks around (0.25).
-                    clip: true
-                    height: item ? item.height : 0
                     // Over the tracks only: the track's own lines name the properties (0.25).
                     x: EditorState.preferences.trackLabelsWidth
                     width: parent.width - EditorState.preferences.trackLabelsWidth
