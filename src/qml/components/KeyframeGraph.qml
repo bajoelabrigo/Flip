@@ -225,6 +225,8 @@ Item {
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
+    // The Speed graph over the focused curve (0.25).
+    property bool speedGraph: false
     // A drag of several picked keys also moves their values (0.25, After Effects): the pointer's
     // height in pixels, which each curve reads in its own range. Shift keeps the values.
     property real groupDy: 0
@@ -586,6 +588,33 @@ Item {
                                  ? qsTr("Collapse curve editor to compact view (88px)")
                                  : qsTr("Expand curve editor to view and edit Bezier handles (180px)")
                         onClicked: root.toggleExpanded()
+                    }
+
+                    // After Effects' Speed graph (0.25): how fast the focused curve changes, drawn
+                    // over its values, so an ease that is too abrupt shows as a spike.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: Theme.icons.gauge
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 14
+                        active: root.speedGraph
+                        tooltip: root.speedGraph ? qsTr("Hide the speed graph")
+                                                 : qsTr("Show the speed graph of the focused curve")
+                        onClicked: root.speedGraph = !root.speedGraph
+                    }
+                    // Separate dimensions: X and Y of Position keyed apart, or together.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: EditorState.positionLinked ? Theme.icons.link : Theme.icons.unlink
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 14
+                        active: !EditorState.positionLinked
+                        tooltip: EditorState.positionLinked
+                                 ? qsTr("Separate dimensions: key X and Y of Position apart")
+                                 : qsTr("Join dimensions: key X and Y of Position together")
+                        onClicked: EditorState.positionLinked = !EditorState.positionLinked
                     }
 
                     // Beat grid / tempo.
@@ -981,6 +1010,46 @@ Item {
                                 ctx.stroke()
                             }
                             ctx.globalAlpha = 1.0
+                            // The focused curve's speed, sampled from what plays: |Δvalue/Δt|,
+                            // scaled to the lane (its fastest moment at the top).
+                            if (root.speedGraph && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
+                                    && root.series[root.focusedIndex].points.length > 1) {
+                                const entry = root.series[root.focusedIndex]
+                                const t0 = root.clipStart
+                                const t1 = root.clipStart + root.clipDuration
+                                const steps = Math.min(400, Math.max(40, Math.round((spanX1 - spanX0) / 3)))
+                                const dt = (t1 - t0) / steps
+                                const base = entry.baseValue !== undefined ? entry.baseValue : 0
+                                const speeds = []
+                                let peak = 0
+                                let prev = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop, t0, base)
+                                for (let i = 1; i <= steps; ++i) {
+                                    const v = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop,
+                                                                          t0 + dt * i, base)
+                                    const sp = Math.abs(v - prev) / Math.max(1e-6, dt)
+                                    speeds.push(sp)
+                                    peak = Math.max(peak, sp)
+                                    prev = v
+                                }
+                                if (peak > 1e-9) {
+                                    ctx.strokeStyle = "#ffffff"
+                                    ctx.globalAlpha = 0.8
+                                    ctx.lineWidth = 1.5
+                                    ctx.setLineDash([3, 3])
+                                    ctx.beginPath()
+                                    for (let i = 0; i < speeds.length; ++i) {
+                                        const x = root.xForSeconds(t0 + dt * (i + 0.5))
+                                        const y = graph.height - 4 - (speeds[i] / peak) * (graph.height - 8)
+                                        if (i === 0)
+                                            ctx.moveTo(x, y)
+                                        else
+                                            ctx.lineTo(x, y)
+                                    }
+                                    ctx.stroke()
+                                    ctx.setLineDash([])
+                                    ctx.globalAlpha = 1.0
+                                }
+                            }
                             ctx.restore()
                         }
                         Connections {
@@ -991,6 +1060,7 @@ Item {
                             function onDragSecondsChanged() { curveCanvas.requestPaint() }
                             function onDragValueChanged() { curveCanvas.requestPaint() }
                             function onShiftDeltaChanged() { curveCanvas.requestPaint() }
+                            function onSpeedGraphChanged() { curveCanvas.requestPaint() }
                             function onGroupDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDxChanged() { curveCanvas.requestPaint() }

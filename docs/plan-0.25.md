@@ -26,9 +26,10 @@ Rama: `flip/v0.24.1` (empezó con el arreglo del Ángulo; se publicará como 0.2
       cambian en Atajos); **U** abre las pistas con claves y deja solo las filas animadas (otra vez: las cierra).
       `AppController::stepToKeyframe`, `toggleRevealKeyframes`, `m_keyframeRowsAnimatedOnly`.
 - [x] 6. Recuadro también en el **editor de curvas**, y arrastrar el valor de varias claves a la vez.
-- [ ] 7. **Gráfico de velocidad** en el editor de curvas (además del de valores) y **separar X e Y** de Posición.
-- [ ] 8. **Trazo del movimiento** en la vista previa: la línea del recorrido de Posición con un punto por clave
-      que se arrastra.
+- [x] 7. **Gráfico de velocidad** (botón del velocímetro en el editor de curvas: |Δvalor/Δt| de la curva enfocada,
+      muestreado de lo que suena/se ve) y **separar X e Y** de Posición (botón de cadena = `positionLinked`).
+- [x] 8. **Trazo del movimiento** en la vista previa (`preview/MotionPathOverlay.qml`, dentro de
+      `TransformOverlay`): la línea del centro del clip y un rombo por clave de Posición que se arrastra.
 - [~] 9. **Igualar texto, video, imagen y forma:** mismas filas fijas (Posición, Rotación, Escala, Opacidad) y
       después las del texto (tamaño, capas, letras) con los mismos gestos. Ya iguales en las filas. **Hecho:**
       la Transformación de las letras elegidas (X, Y, Escala, Rotación) se anima con rombo: las letras llevan
