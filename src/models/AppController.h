@@ -935,6 +935,11 @@ public:
     // The text bar on the letters [start, end): only the keys given (color, sizeScale, bold, italic,
     // underline, fontFamily) change, and what those letters already had stays.
     Q_INVOKABLE void patchTextRuns(int trackIndex, int clipIndex, int start, int end, const QVariantMap &patch);
+    // The letters [start, end) of that text clip that the inspector has shaded (0.24, as in
+    // Filmora). While set, the layer calls (add/remove/duplicate/move/set/preview), the looks, the
+    // templates and the quick styles edit the stack those letters paint with, not the block's.
+    // -1, -1 clears it. The inspector sets it whenever its selection changes.
+    Q_INVOKABLE void setTextStyleRange(int trackIndex, int clipIndex, int start, int end);
 
 
     // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made
@@ -2584,6 +2589,19 @@ protected:
     QString m_previewDragText;
     // Something was written since beginPreviewDrag; a press with no movement commits nothing.
     bool m_previewDragDirty = false;
+    // The shaded letters the layer calls aim at (setTextStyleRange).
+    int m_textRangeTrack = -1;
+    int m_textRangeClip = -1;
+    int m_textRangeStart = -1;
+    int m_textRangeEnd = -1;
+    // The range [start, end) for that clip when one is shaded on it, clamped to its text.
+    bool textStyleRangeFor(int trackIndex, int clipIndex, int *start, int *end) const;
+    // The stack those letters paint with now: their stretch's own, or a copy of the block's.
+    QList<drift::TextShadingLayer> textRangeLayers(const drift::Clip &clip, int start) const;
+    // Gives the letters [start, end) the stack `layers` (and keeps everything else they had).
+    void writeTextRangeLayers(drift::Clip &clip, int start, int end, const QList<drift::TextShadingLayer> &layers);
+    // The same, plus the font of `styled` when it differs from the block's (a look, a quick style).
+    void writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled);
     // Begun by a setter rather than a press (keyboard nudges); commits once the nudges stop.
     bool m_previewDragAuto = false;
     QTimer *m_previewAutoCommit = nullptr;

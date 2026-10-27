@@ -200,13 +200,38 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
       `offsetX/offsetY/transformScale/rotation` del tramo y enseña sus valores (`runUnderCursor`), la
       guarda contra el bucle de `expandedLayerIds` y la pestaña de Texto avanzado que vuelve a seguir al
       panel tras «Más estilos».
-- [ ] **Recorrido de los seis efectos con y sin letras sombreadas** en `pruebas/v024-capturas-2`: en
-      marcha con el portable del run 40395917729. Tiene que salir que `-b-` y `-c-` son distintos de `-a-`
-      y que «HOLA» queda igual que la toma limpia, con el md5 de todas las capturas.
-- [ ] ~~Valores del tramo bajo el cursor~~: hecho para la sección Transformación; falta que el resto de
-      controles muestren el valor del tramo (hoy muestran el del bloque).
-- [ ] Valores del tramo bajo el cursor en los controles (hoy muestran los del bloque).
-- [ ] Transformar (mover/girar/escalar) desde la sección Transformar del inspector cuando hay selección: hoy el
-      modelo y el pintado lo admiten, pero esa sección no pasa por `applyStyle`.
-- [ ] Web (o al menos conservar los campos nuevos al abrir y guardar).
-- [ ] Publicar 0.24.0 (sin tags ni publicación sin el OK de Jorge).
+- [ ] **Recorrido en ventana** de los seis efectos con y sin letras sombreadas (panel normal y Texto avanzado),
+      con el portable del CI de esta tanda. Lo hace Claude antes de publicar.
+- [ ] Selección hecha sobre la vista previa (`InlineTextEditor`): todavía no manda las letras al inspector. Queda
+      fuera a propósito: al terminar de escribir el rango seguiría activo sin aviso.
+- [ ] Teclas de fotograma (rombos) en las capas de unas letras: no hay (`layerProp` sin clave con letras sombreadas).
+- [ ] Web: dibujar los efectos por letras (por ahora solo los conserva al abrir y guardar).
+
+## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
+
+1. **El fondo de las letras se escalaba dos veces** (`drawRunBackgrounds` multiplicaba por `m_scale` un `cellRect`
+   que ya está en píxeles de salida): en la vista previa (media escala) caía a un cuarto y fuera de las letras. La
+   prueba solo miraba escala 1. Arreglado y con caso a media escala en `SkiaTest`.
+2. **Transformación:** el desplazamiento salía girado y escalado (se aplicaba dentro del giro), el fondo no se movía
+   con las letras, y dos tramos vecinos (p. ej. «MU» con color y «NDO» sin él) giraban cada uno sobre su centro.
+   Ahora `applyRunTransform` (mismo para letras y fondo) y una caja por tramos vecinos con la misma transformación.
+3. **El color de las letras con pila propia** comparaba con el relleno del bloque (`isPrimaryFill`); ahora con el de
+   su pila (`stackOf`). Las letras a medio desvanecer perdían su fondo; la sombra/resplandor de las letras no
+   contaba su propio trazo.
+4. **El margen de pintado (`bleedFor`) no contaba lo de los tramos:** una sombra, un fondo o un giro de unas letras
+   se recortaba en el borde. La prueba de píxeles se cambió para comparar sobre un lienzo común.
+5. **Lo más grave: las capas no llegaban a las letras.** Con letras sombreadas, `addTextLayer` creaba la capa en el
+   tramo, pero todos los controles (color, grosor, desenfoque, quitar, duplicar, mover, las filas de capas, el
+   editor de pintura y de degradado) seguían leyendo y escribiendo la pila **del bloque** por id: después del
+   primer clic nada tocaba las letras. Además mutaba el proyecto **después** de `pushProjectEdit` (el deshacer
+   guardaba otra cosa). Ahora `AppController::setTextStyleRange` (lo manda el inspector al cambiar la selección) y
+   las llamadas de capas, looks, plantillas y estilos rápidos editan la pila de esas letras con un paso de deshacer
+   cada una; `root.layers` del inspector muestra esa pila. Prueba `EditorStateTest::shadedLettersTakeLayersLooksAndBoxAlone`.
+6. **`patchTextRuns` copiaba el fondo y la transformación enteros:** mover el relleno ponía el color en negro,
+   cambiar X ponía Y a 0, y apagar el fondo lo **encendía** (`boxEnabled` se forzaba a `true`). Ahora clave por clave.
+7. Con letras sombreadas, un control sin equivalente en las letras (alineación, interlineado…) no hacía nada y
+   dejaba un paso de deshacer vacío: ahora va al bloque. La B (`fontWeight`) y los dos rellenos del fondo se traducen.
+8. **Textos fijos en español** en la interfaz («Escala», «Giro»): ahora `qsTranslate` de contextos ya traducidos.
+   El campo de escala no admitía decimales (`decimals: 0`).
+9. **Web:** el `.flip` perdía el subrayado y la fuente de las letras (el tipo los tenía, el lector y el escritor no)
+   y perdería los efectos 0.24: ahora se conservan (`flipstudio-app` `web/v0221-texto`, prueba en `runs.test.ts`).

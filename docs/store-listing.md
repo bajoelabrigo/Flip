@@ -110,6 +110,23 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.24.0)**. Lo nuevo desde la 0.23.0. Si la 0.23.0 tampoco se subió, añadir debajo los
+puntos de las combinadas de la 0.23.0.
+
+> Novedades de la 0.24.0
+>
+> - Efectos solo en las letras elegidas, como Filmora: sombrea unas letras y aplica un estilo, un look, el trazo, la sombra, el resplandor, el fondo o una transformación; el resto del texto se queda igual.
+> - Fondo y transformación por letras: una caja detrás de esas letras, y moverlas, escalarlas o girarlas sin tocar las demás.
+> - Arreglos: un clic en Tendencias ya no agrega dos veces lo descargado, y los interruptores de Texto avanzado se ven enteros.
+
+En inglés:
+
+> What's new in 0.24.0
+>
+> - Effects on the selected letters only, like Filmora: select some letters and apply a style, a look, the stroke, shadow, glow, background or a transform; the rest of the text stays as it was.
+> - Background and transform per letter: a box behind those letters, and move, scale or rotate them without touching the others.
+> - Fixes: one click in Trends no longer adds a downloaded item twice, and the Advanced text switches show in full.
+
 **Notas para la Store (0.23.0)**. Lo nuevo desde la 0.22.0 (660 caracteres; en inglés, 579). **Ojo:** si la
 0.22.0 todavía no se subió (esperaba la aprobación de la 0.21.0), usar las combinadas de abajo.
 

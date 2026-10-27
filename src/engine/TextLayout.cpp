@@ -1152,7 +1152,27 @@ double bleedFor(const drift::TextStyle &style)
         bleed += style.pixelSize * (accent.sizeScale - 1.0);
     // A bent baseline lifts (or drops) the middle of the line by the arc's rise.
     bleed += textBendRise(style);
-    return bleed;
+    // The letters' own stack, background and transform (0.24) paint past the block's own margin.
+    double runReach = 0.0;
+    for (const drift::TextRun &run : style.runs) {
+        if (run.layersEnabled) {
+            drift::TextStyle own = style;
+            own.layers = run.layers;
+            own.runs.clear();
+            own.boxEnabled = false;
+            runReach = qMax(runReach, bleedFor(own) - textBendRise(own));
+        }
+        if (run.boxEnabled)
+            runReach = qMax(runReach, run.boxPadding + run.boxRadius + run.boxBorderWidth);
+        if (run.transformEnabled) {
+            // Half the stretch's width (about 0.6 em a letter) is what scaling and turning swing out.
+            const double half = style.pixelSize * 0.6 * run.length() * 0.5;
+            const double swing = half * (qMax(0.0, run.transformScale - 1.0)
+                                         + std::abs(std::sin(qDegreesToRadians(run.rotation))));
+            runReach = qMax(runReach, qMax(std::abs(run.offsetX), std::abs(run.offsetY)) + swing);
+        }
+    }
+    return qMax(bleed, runReach + textBendRise(style));
 }
 
 const drift::TextHighlight *highlightFor(const drift::TextStyle &style, bool accent)

@@ -4,6 +4,7 @@
 #include <functional>
 
 #include <QFontDatabase>
+#include <QPainter>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QOpenGLExtraFunctions>
@@ -2239,9 +2240,25 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     const QString text = QStringLiteral("HOLA MUNDO");
     const QRectF layout(0, 0, 720, 200);
 
-    // La misma caja para las dos pintadas: el trazado no cambia al añadir efectos al tramo.
+    // Each painting goes onto the same canvas at the place it asks for: a stretch's effects widen
+    // the block's margin (bleedFor), so the surfaces differ in size but the letters must not move.
+    const QPoint origin(150, 150);
+    const auto onCanvas = [&](const TextStyle &s, double scale, QRectF *letters) {
+        QRectF rect;
+        const QImage painted = skiaText(textClip(s, text), text, layout, scale, -1, &rect);
+        QImage canvas(1200, 600, QImage::Format_RGBA8888_Premultiplied);
+        canvas.fill(Qt::transparent);
+        if (painted.isNull())
+            return QImage();
+        QPainter p(&canvas);
+        p.drawImage(rect.topLeft() + origin, painted);
+        p.end();
+        if (letters)
+            *letters = rect.translated(origin);
+        return canvas;
+    };
     QRectF plainRect;
-    const QImage plain = skiaText(textClip(style, text), text, layout, 1.0, -1, &plainRect);
+    const QImage plain = onCanvas(style, 1.0, &plainRect);
     QVERIFY(!plain.isNull());
 
     // La mitad de «HOLA» (sin el tramo) y la de «MUNDO» (con él).
@@ -2285,8 +2302,7 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     shadowRun.layersEnabled = true;
     shadowRun.layers = {shadow, fill};
     shadowed.runs = {shadowRun};
-    QRectF withShadowRect;
-    const QImage withShadow = skiaText(textClip(shadowed, text), text, layout, 1.0, -1, &withShadowRect);
+    const QImage withShadow = onCanvas(shadowed, 1.0, nullptr);
     QVERIFY(!withShadow.isNull());
     QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withShadow, left)),
              "la sombra del tramo cambió los píxeles de «HOLA»");
@@ -2312,7 +2328,7 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     strokeRun.layersEnabled = true;
     strokeRun.layers = {fill, stroke};
     stroked.runs = {strokeRun};
-    const QImage withStroke = skiaText(textClip(stroked, text), text, layout, 1.0, -1, nullptr);
+    const QImage withStroke = onCanvas(stroked, 1.0, nullptr);
     QVERIFY(!withStroke.isNull());
     QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withStroke, left)),
              "el trazo del tramo cambió los píxeles de «HOLA»");
@@ -2327,7 +2343,7 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     boxRun.boxColor = QColor(0, 0, 255, 255);
     boxRun.boxPadding = 10.0;
     boxed.runs = {boxRun};
-    const QImage withBox = skiaText(textClip(boxed, text), text, layout, 1.0, -1, nullptr);
+    const QImage withBox = onCanvas(boxed, 1.0, nullptr);
     QVERIFY(!withBox.isNull());
     QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withBox, left)),
              "el fondo del tramo cambió los píxeles de «HOLA»");
@@ -2343,12 +2359,31 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     moveRun.transformEnabled = true;
     moveRun.offsetY = -40.0;
     moved.runs = {moveRun};
-    const QImage withMove = skiaText(textClip(moved, text), text, layout, 1.0, -1, nullptr);
+    const QImage withMove = onCanvas(moved, 1.0, nullptr);
     QVERIFY(!withMove.isNull());
     QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withMove, left)),
              "la transformación del tramo cambió los píxeles de «HOLA»");
     QVERIFY2(!samePixels(pixelsIn(plain, right), pixelsIn(withMove, right)),
              "la transformación no movió «MUNDO»");
+    // Moved up by 40 px: «MUNDO»'s ink rises by about that much.
+    const QRect rightTall(right.left(), right.top() - 60, right.width(), right.height() + 60);
+    const double risen = inkIn(plain, rightTall).bbox.center().y() - inkIn(withMove, rightTall).bbox.center().y();
+    QVERIFY2(risen > 30.0 && risen < 50.0, qPrintable(QStringLiteral("subió %1 px").arg(risen)));
+
+    // 5) The background at half scale (the preview): the box stays round «MUNDO», at half size. The
+    // cells are already in output pixels; scaling them again put the box at a quarter, off the letters.
+    QRectF halfRect;
+    const QImage halfPlain = onCanvas(style, 0.5, &halfRect);
+    const QImage halfBox = onCanvas(boxed, 0.5, nullptr);
+    QVERIFY(!halfPlain.isNull() && !halfBox.isNull());
+    const QRect halfRight(halfRect.left() + int(halfRect.width() * 0.60), halfRect.top(), halfRect.width() * 0.38,
+                          halfRect.height());
+    const QRect halfLeft(halfRect.left(), halfRect.top(), halfRect.width() * 0.30, halfRect.height());
+    QVERIFY2(samePixels(pixelsIn(halfPlain, halfLeft), pixelsIn(halfBox, halfLeft)),
+             "a media escala el fondo del tramo cayó sobre «HOLA»");
+    const Ink halfBoxRight = inkIn(halfBox, halfRight);
+    QVERIFY2(halfBoxRight.count > inkIn(halfPlain, halfRight).count + 250 && halfBoxRight.b > 60.0,
+             "a media escala el fondo no quedó detrás de «MUNDO»");
 }
 
 #include "tst_skia.moc"

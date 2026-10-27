@@ -81,7 +81,12 @@ Item {
                                              qsTr("Keywords (long words and numbers)")]
 
     // ----- Layers / looks --------------------------------------------------
-    readonly property var layers: (textStyle && textStyle.layers) || []
+    readonly property var layers: {
+        const own = root.hasRunSelection ? root.runUnderCursor : null
+        if (own && own.layersEnabled && own.layers && own.layers.length > 0)
+            return own.layers
+        return (textStyle && textStyle.layers) || []
+    }
     // The fill the Type section's colour swatch edits: the front-most enabled fill, or the
     // front-most fill at all when every fill is hidden.
     readonly property var frontFill: {
@@ -99,6 +104,8 @@ Item {
     }
     readonly property string frontFillPaintKind: frontFill && frontFill.paint ? (frontFill.paint.kind || "solid") : "solid"
     readonly property string frontFillColor: {
+        if (root.hasRunSelection && root.runUnderCursor.colorEnabled === true && root.runUnderCursor.color)
+            return root.runUnderCursor.color
         if (!root.frontFill || !root.frontFill.paint)
             return "#ffffffff"
         const p = root.frontFill.paint
@@ -267,6 +274,23 @@ Item {
     property int runSelectionEnd: -1
     readonly property bool hasRunSelection: runSelectionStart >= 0 && runSelectionEnd > runSelectionStart
     readonly property bool canStyleRuns: hasSelection && clipKind === "text"
+    function syncStyleRange() {
+        if (!root.hasSelection)
+            return
+        const on = root.canStyleRuns && root.hasRunSelection
+        EditorState.setTextStyleRange(EditorState.selectedTrack, EditorState.selectedClip,
+                                      on ? root.runSelectionStart : -1, on ? root.runSelectionEnd : -1)
+    }
+    onRunSelectionStartChanged: root.syncStyleRange()
+    onRunSelectionEndChanged: root.syncStyleRange()
+    // Hidden (the Texto avanzado window closed, another clip in the panel), its shaded letters stop
+    // steering the layer calls: nothing would say so any more.
+    onVisibleChanged: {
+        if (!visible && root.hasRunSelection && root.hasSelection)
+            EditorState.setTextStyleRange(EditorState.selectedTrack, EditorState.selectedClip, -1, -1)
+        else if (visible)
+            root.syncStyleRange()
+    }
 
     // Lo que el patch del bloque se convierte en patch del tramo: la pila entera (trazo, sombra,
     // resplandor, estilos), el fondo, el color, la fuente y el tamaño.
@@ -280,6 +304,8 @@ Item {
             run.fontFamily = patch.fontFamily
         if (patch.bold !== undefined)
             run.bold = patch.bold
+        if (patch.fontWeight !== undefined)
+            run.bold = Number(patch.fontWeight) >= 600
         if (patch.italic !== undefined)
             run.italic = patch.italic
         if (patch.underline !== undefined)
@@ -287,27 +313,44 @@ Item {
         const base = root.textStyle.pixelSize
         if (patch.pixelSize !== undefined && base > 0)
             run.sizeScale = patch.pixelSize / base
+        // The letters' box has one padding: either of the block's two sets it. The C++ side takes
+        // the keys one by one, so a slider keeps the colour and boxEnabled:false takes it away.
         const boxKeys = ["boxEnabled", "boxColor", "boxPadding", "boxRadius", "boxBorderWidth", "boxBorderColor"]
-        let box = false
         for (const key of boxKeys) {
-            if (patch[key] !== undefined) {
+            if (patch[key] !== undefined)
                 run[key] = patch[key]
-                box = true
-            }
         }
-        if (box)
-            run.boxEnabled = true
-        const transformKeys = ["offsetX", "offsetY", "transformScale", "rotation"]
-        let transform = false
+        if (patch.boxPaddingX !== undefined)
+            run.boxPadding = patch.boxPaddingX
+        if (patch.boxPaddingY !== undefined)
+            run.boxPadding = patch.boxPaddingY
+        const transformKeys = ["transformEnabled", "offsetX", "offsetY", "transformScale", "rotation"]
         for (const key of transformKeys) {
-            if (patch[key] !== undefined) {
+            if (patch[key] !== undefined)
                 run[key] = patch[key]
-                transform = true
-            }
         }
-        if (transform)
-            run.transformEnabled = true
         return run
+    }
+
+    // What the Background section shows: the letters' own box when some are shaded.
+    readonly property var boxSource: {
+        if (!root.hasRunSelection)
+            return root.textStyle
+        const r = root.runUnderCursor
+        const pad = r.boxPadding !== undefined ? Number(r.boxPadding) : 6
+        return {
+            "boxEnabled": r.boxEnabled === true,
+            "boxColor": r.boxColor || "#80000000",
+            "boxRadius": r.boxRadius !== undefined ? Number(r.boxRadius) : 4,
+            "boxPaddingX": pad,
+            "boxPaddingY": pad,
+            "boxOffsetX": root.textStyle.boxOffsetX,
+            "boxOffsetY": root.textStyle.boxOffsetY,
+            "boxStyle": root.textStyle.boxStyle,
+            "boxShape": root.textStyle.boxShape,
+            "boxBorderColor": r.boxBorderColor || "#ffffffff",
+            "boxBorderWidth": r.boxBorderWidth !== undefined ? Number(r.boxBorderWidth) : 0
+        }
     }
 
     // El tramo que cubre el cursor (o el comienzo de la selección): sus valores, para enseñarlos.
@@ -334,10 +377,6 @@ Item {
     function setRunTransform(key, value) {
         const patch = {}
         patch[key] = value
-        if (key === "offsetX" || key === "offsetY")
-            patch.transformScale = root.runTransformValue("transformScale", 1.0)
-        patch.rotation = root.runTransformValue("rotation", 0.0)
-        patch.transformEnabled = true
         root.applyStyle(patch)
     }
 
@@ -346,9 +385,12 @@ Item {
         if (!root.hasSelection)
             return
         if (root.canStyleRuns && root.hasRunSelection) {
-            EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
-                                      root.runSelectionStart, root.runSelectionEnd, root.runPatchFor(patch))
-            return
+            const run = root.runPatchFor(patch)
+            if (Object.keys(run).length > 0) {
+                EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
+                                          root.runSelectionStart, root.runSelectionEnd, run)
+                return
+            }
         }
         EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
     }
@@ -356,7 +398,7 @@ Item {
     function setTextStyleKey(key, value) {
         const patch = {}
         patch[key] = value
-        root.applyStyle( patch)
+        root.applyStyle(patch)
     }
 
     // Nested style groups: the C++ side takes the same partial-patch shape one level down.
@@ -365,7 +407,7 @@ Item {
         inner[key] = value
         const patch = {}
         patch[group] = inner
-        root.applyStyle( patch)
+        root.applyStyle(patch)
     }
 
     function setTextAccentHighlightKey(key, value) {
@@ -500,13 +542,13 @@ Item {
         return layer && layer.paint && layer.paint.color ? layer.paint.color : fallback
     }
     function layerProp(layer, field, label, decimals) {
-        if (!layer)
+        if (!layer || root.hasRunSelection)
             return { "key": "", "label": label, "def": 0, "decimals": decimals }
         return { "key": "text.layer." + layer.id + "." + field, "label": label,
                  "def": Number(layer[field]) || 0, "decimals": decimals }
     }
     function layerKeyframes(layer, field) {
-        return layer ? root.textKeyframes("layer." + layer.id + "." + field) : []
+        return layer && !root.hasRunSelection ? root.textKeyframes("layer." + layer.id + "." + field) : []
     }
     function shadowOffsets(distance, angle) {
         const a = angle * Math.PI / 180
@@ -532,7 +574,7 @@ Item {
             patch.underlineWidth = Math.max(2, root.em * 0.06)
             patch.underlineOffset = Math.max(2, root.em * 0.1)
         }
-        root.applyStyle( patch)
+        root.applyStyle(patch)
     }
     // Colours travel as #AARRGGBB; the background's opacity slider edits only the alpha byte.
     function hexAlpha(hex) {
@@ -1532,14 +1574,14 @@ Item {
                 tooltip: qsTr("A box behind the text: one for the block or one per line")
                 visible: root.hasTextStyle
                 showSwitch: true
-                switchChecked: root.textStyle.boxEnabled === true
+                switchChecked: root.boxSource.boxEnabled === true
                 switchTooltip: qsTr("Draw a box behind the text")
                 onSwitchToggled: on => root.setTextStyleKey("boxEnabled", on)
 
                 Column {
                     width: parent.width
                     spacing: Theme.spacingMd
-                    enabled: root.textStyle.boxEnabled === true
+                    enabled: root.boxSource.boxEnabled === true
                     opacity: enabled ? 1 : 0.5
 
                     Row {
@@ -1555,7 +1597,7 @@ Item {
                                 required property var modelData
                                 width: (parent.width - parent.spacing) / 2
                                 text: modelData.label
-                                checked: (root.textStyle.boxStyle || "block") === modelData.id
+                                checked: (root.boxSource.boxStyle || "block") === modelData.id
                                 onClicked: root.setTextStyleKey("boxStyle", modelData.id)
                             }
                         }
@@ -1594,7 +1636,7 @@ Item {
                                 { "id": "heart", "label": qsTr("Heart") }
                             ]
                             model: shapes.map(s => s.label)
-                            currentIndex: Math.max(0, shapes.findIndex(s => s.id === (root.textStyle.boxShape || "rect")))
+                            currentIndex: Math.max(0, shapes.findIndex(s => s.id === (root.boxSource.boxShape || "rect")))
                             onActivated: root.setTextStyleKey("boxShape", shapes[currentIndex].id)
                         }
                     }
@@ -1610,9 +1652,9 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
                         ColorSwatchField {
-                            hex: root.textStyle.boxColor
+                            hex: root.boxSource.boxColor
                             tooltip: qsTr("Choose background colour")
-                            onEdited: value => root.setTextStyleKey("boxColor", root.keepAlpha(value, root.textStyle.boxColor))
+                            onEdited: value => root.setTextStyleKey("boxColor", root.keepAlpha(value, root.boxSource.boxColor))
                         }
                     }
 
@@ -1623,8 +1665,8 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: root.hexAlpha(root.textStyle.boxColor)
-                        onCommitted: v => root.setTextStyleKey("boxColor", root.withAlpha(root.textStyle.boxColor, v))
+                        value: root.hexAlpha(root.boxSource.boxColor)
+                        onCommitted: v => root.setTextStyleKey("boxColor", root.withAlpha(root.boxSource.boxColor, v))
                     }
 
                     SliderRow {
@@ -1634,7 +1676,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxRadius) / root.em
+                        value: Number(root.boxSource.boxRadius) / root.em
                         onCommitted: v => root.setTextStyleKey("boxRadius", v * root.em)
                     }
 
@@ -1645,7 +1687,7 @@ Item {
                         to: 1.5
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxPaddingY) / root.em
+                        value: Number(root.boxSource.boxPaddingY) / root.em
                         onCommitted: v => root.setTextStyleKey("boxPaddingY", v * root.em)
                     }
 
@@ -1656,7 +1698,7 @@ Item {
                         to: 2
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxPaddingX) / root.em
+                        value: Number(root.boxSource.boxPaddingX) / root.em
                         onCommitted: v => root.setTextStyleKey("boxPaddingX", v * root.em)
                     }
 
@@ -1667,7 +1709,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxOffsetY) / root.em
+                        value: Number(root.boxSource.boxOffsetY) / root.em
                         onCommitted: v => root.setTextStyleKey("boxOffsetY", v * root.em)
                     }
 
@@ -1678,7 +1720,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxOffsetX) / root.em
+                        value: Number(root.boxSource.boxOffsetX) / root.em
                         onCommitted: v => root.setTextStyleKey("boxOffsetX", v * root.em)
                     }
 
@@ -1693,7 +1735,7 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
                         ColorSwatchField {
-                            hex: root.textStyle.boxBorderColor || "#ff000000"
+                            hex: root.boxSource.boxBorderColor || "#ff000000"
                             tooltip: qsTr("Choose border colour")
                             onEdited: value => root.setTextStyleKey("boxBorderColor", value)
                         }
@@ -1706,7 +1748,7 @@ Item {
                         to: 0.3
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxBorderWidth) / root.em
+                        value: Number(root.boxSource.boxBorderWidth) / root.em
                         onCommitted: v => root.setTextStyleKey("boxBorderWidth", v * root.em)
                     }
 
@@ -2007,13 +2049,21 @@ Item {
                     }
                     ThemedNumberField {
                         width: parent.width
-                        unit: "Escala"
+                        // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
+                        unit: qsTranslate("TransformInspector", "Scale")
+                        decimals: 2
+                        step: 0.05
+                        from: 0.05
+                        to: 20
                         value: root.runTransformValue("transformScale", 1.0)
                         onEdited: v => root.applyStyle({ "transformScale": v })
                     }
                     ThemedNumberField {
                         width: parent.width
-                        unit: "Giro"
+                        unit: qsTranslate("KeyframeGraph", "Rotation")
+                        decimals: 1
+                        from: -360
+                        to: 360
                         value: root.runTransformValue("rotation", 0.0)
                         onEdited: v => root.applyStyle({ "rotation": v })
                     }

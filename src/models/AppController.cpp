@@ -13192,31 +13192,124 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
         for (const QVariant &v : patch.value(QStringLiteral("layers")).toList())
             p.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
     }
-    if (patch.contains(QStringLiteral("boxEnabled")) || patch.contains(QStringLiteral("boxColor"))) {
-        p.boxEnabled = true;
-        if (patch.contains(QStringLiteral("boxColor")))
-            p.boxColor = QColor(patch.value(QStringLiteral("boxColor")).toString());
-        if (patch.contains(QStringLiteral("boxPadding")))
-            p.boxPadding = qBound(0.0, patch.value(QStringLiteral("boxPadding")).toDouble(), 200.0);
-        if (patch.contains(QStringLiteral("boxRadius")))
-            p.boxRadius = qBound(0.0, patch.value(QStringLiteral("boxRadius")).toDouble(), 200.0);
-        if (patch.contains(QStringLiteral("boxBorderWidth")))
-            p.boxBorderWidth = qBound(0.0, patch.value(QStringLiteral("boxBorderWidth")).toDouble(), 40.0);
-        if (patch.contains(QStringLiteral("boxBorderColor")))
-            p.boxBorderColor = QColor(patch.value(QStringLiteral("boxBorderColor")).toString());
-    }
-    if (patch.contains(QStringLiteral("offsetX")) || patch.contains(QStringLiteral("offsetY"))
-            || patch.contains(QStringLiteral("transformScale")) || patch.contains(QStringLiteral("rotation"))) {
-        p.transformEnabled = true;
-        p.offsetX = patch.value(QStringLiteral("offsetX"), p.offsetX).toDouble();
-        p.offsetY = patch.value(QStringLiteral("offsetY"), p.offsetY).toDouble();
-        p.transformScale = qBound(0.05, patch.value(QStringLiteral("transformScale"), p.transformScale).toDouble(), 20.0);
-        p.rotation = patch.value(QStringLiteral("rotation"), p.rotation).toDouble();
-    }
     const drift::Project before = m_project;
+    // The split at [start, end) and the keys patchTextRuns copies whole.
     clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(), start, end, p);
+    // The background and the transform go key by key, on what those letters already had: a padding
+    // slider keeps their box colour, moving X keeps their Y, and boxEnabled:false takes the box away.
+    const auto has = [&](const char *key) { return patch.contains(QLatin1String(key)); };
+    const auto num = [&](const char *key) { return patch.value(QLatin1String(key)).toDouble(); };
+    const bool boxKeys = has("boxEnabled") || has("boxColor") || has("boxPadding") || has("boxRadius")
+                         || has("boxBorderWidth") || has("boxBorderColor");
+    const bool transformKeys = has("transformEnabled") || has("offsetX") || has("offsetY") || has("transformScale")
+                               || has("rotation");
+    if (boxKeys || transformKeys) {
+        for (drift::TextRun &r : clip->textStyle.runs) {
+            if (r.start < start || r.end > end)
+                continue;
+            if (boxKeys) {
+                r.boxEnabled = has("boxEnabled") ? patch.value(QStringLiteral("boxEnabled")).toBool() : true;
+                if (has("boxColor"))
+                    r.boxColor = QColor(patch.value(QStringLiteral("boxColor")).toString());
+                if (has("boxPadding"))
+                    r.boxPadding = qBound(0.0, num("boxPadding"), 200.0);
+                if (has("boxRadius"))
+                    r.boxRadius = qBound(0.0, num("boxRadius"), 200.0);
+                if (has("boxBorderWidth"))
+                    r.boxBorderWidth = qBound(0.0, num("boxBorderWidth"), 40.0);
+                if (has("boxBorderColor"))
+                    r.boxBorderColor = QColor(patch.value(QStringLiteral("boxBorderColor")).toString());
+            }
+            if (transformKeys) {
+                r.transformEnabled =
+                    has("transformEnabled") ? patch.value(QStringLiteral("transformEnabled")).toBool() : true;
+                if (has("offsetX"))
+                    r.offsetX = num("offsetX");
+                if (has("offsetY"))
+                    r.offsetY = num("offsetY");
+                if (has("transformScale"))
+                    r.transformScale = qBound(0.05, num("transformScale"), 20.0);
+                if (has("rotation"))
+                    r.rotation = num("rotation");
+                if (!r.transformEnabled) {
+                    r.offsetX = r.offsetY = r.rotation = 0.0;
+                    r.transformScale = 1.0;
+                }
+            }
+        }
+    }
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
+}
+
+void AppController::setTextStyleRange(int trackIndex, int clipIndex, int start, int end)
+{
+    const bool valid = start >= 0 && end > start;
+    m_textRangeTrack = valid ? trackIndex : -1;
+    m_textRangeClip = valid ? clipIndex : -1;
+    m_textRangeStart = valid ? start : -1;
+    m_textRangeEnd = valid ? end : -1;
+}
+
+bool AppController::textStyleRangeFor(int trackIndex, int clipIndex, int *start, int *end) const
+{
+    if (m_textRangeStart < 0 || trackIndex != m_textRangeTrack || clipIndex != m_textRangeClip)
+        return false;
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return false;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return false;
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Text)
+        return false;
+    const int length = int(clip.textContent.size());
+    const int s = qBound(0, m_textRangeStart, length);
+    const int e = qBound(0, m_textRangeEnd, length);
+    if (e <= s)
+        return false;
+    *start = s;
+    *end = e;
+    return true;
+}
+
+QList<drift::TextShadingLayer> AppController::textRangeLayers(const drift::Clip &clip, int start) const
+{
+    const drift::TextRun *run = drift::textRunAt(clip.textStyle.runs, start);
+    return run && run->layersEnabled && !run->layers.isEmpty() ? run->layers : clip.textStyle.layers;
+}
+
+void AppController::writeTextRangeLayers(drift::Clip &clip, int start, int end,
+                                         const QList<drift::TextShadingLayer> &layers)
+{
+    // A new main fill (a swatch, a look, a quick style) has to show: the letters' own colour from
+    // the text bar would paint over it, so it goes when that fill changes.
+    const auto fillPaint = [](const QList<drift::TextShadingLayer> &stack) {
+        const drift::TextShadingLayer *fill = drift::firstTextLayerOfKind(stack, drift::TextLayerKind::Fill, true);
+        return fill ? drift::textShadingLayerToJson(*fill).value(QStringLiteral("paint")) : QJsonValue();
+    };
+    const QJsonValue oldFill = fillPaint(textRangeLayers(clip, start));
+    drift::TextRun patch;
+    patch.layersEnabled = true;
+    patch.layers = layers;
+    clip.textStyle.runs = drift::patchTextRuns(clip.textStyle.runs, int(clip.textContent.size()), start, end, patch);
+    if (fillPaint(layers) != oldFill) {
+        for (drift::TextRun &r : clip.textStyle.runs)
+            if (r.start >= start && r.end <= end)
+                r.colorEnabled = false;
+    }
+}
+
+void AppController::writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled)
+{
+    writeTextRangeLayers(clip, start, end, styled.layers);
+    if (styled.fontFamily != clip.textStyle.fontFamily) {
+        drift::TextRun font;
+        font.fontEnabled = true;
+        font.fontFamily = styled.fontFamily;
+        clip.textStyle.runs =
+            drift::patchTextRuns(clip.textStyle.runs, int(clip.textContent.size()), start, end, font);
+    }
 }
 
 void AppController::beginEditSession(const QString &label)
@@ -13458,6 +13551,14 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
         return;
 
     const drift::Project before = m_project;
+    int rangeStart = -1, rangeEnd = -1;
+    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // Shaded letters (0.24): the template's stack (and font) go to them only.
+        writeTextRangeStyle(clip, rangeStart, rangeEnd, drift::textStyleWithPresetLook(clip.textStyle, *preset));
+        pushProjectEdit(before, tr("Apply text preset"));
+        finishEdit(tr("Text preset applied"));
+        return;
+    }
     // The template brings the look; the text keeps its motion, keyframes and counter.
     QStringList dropped;
     clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
@@ -26600,8 +26701,13 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
         return {};
     const drift::Project before = m_project;
     const LayerStack stack = layerStackFor(*clip);
-    QList<drift::TextShadingLayer> &layers = *stack.layers;
     const bool shape = clip->type == drift::ClipType::Shape;
+    // With letters shaded, the layer joins their stack (0.24) and the block stays as it was.
+    int rangeStart = -1, rangeEnd = -1;
+    const bool ranged = !shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd);
+    QList<drift::TextShadingLayer> rangeStack =
+        ranged ? textRangeLayers(*clip, rangeStart) : QList<drift::TextShadingLayer>();
+    QList<drift::TextShadingLayer> &layers = ranged ? rangeStack : *stack.layers;
     const drift::TextLayerKind layerKind = drift::textLayerKindFromString(kind);
     drift::TextShadingLayer layer;
     switch (layerKind) {
@@ -26628,7 +26734,10 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     }
     const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
     layers.insert(index, layer);
-    detachFromLook(stack);
+    if (ranged)
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+    else
+        detachFromLook(stack);
     pushProjectEdit(before, tr("Add layer"));
     finishEdit(tr("Layer added"));
     return layer.id;
@@ -26640,6 +26749,19 @@ bool AppController::removeStyleLayer(int trackIndex, int clipIndex, const QStrin
     if (!clip)
         return false;
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = layerIndexOf(layers, layerId);
+        if (at < 0)
+            return false;
+        const drift::Project before = m_project;
+        layers.removeAt(at);
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        pushProjectEdit(before, tr("Remove layer"));
+        finishEdit(tr("Layer removed"));
+        return true;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     if (index < 0)
         return false;
@@ -26658,6 +26780,21 @@ QString AppController::duplicateStyleLayer(int trackIndex, int clipIndex, const 
     if (!clip)
         return {};
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = layerIndexOf(layers, layerId);
+        if (at < 0)
+            return {};
+        const drift::Project before = m_project;
+        drift::TextShadingLayer copy = layers.at(at);
+        copy.id = drift::mintTextLayerId(layers);
+        layers.insert(at + 1, copy);
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        pushProjectEdit(before, tr("Duplicate layer"));
+        finishEdit(tr("Layer duplicated"));
+        return copy.id;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     if (index < 0)
         return {};
@@ -26677,6 +26814,20 @@ bool AppController::moveStyleLayer(int trackIndex, int clipIndex, const QString 
     if (!clip)
         return false;
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = layerIndexOf(layers, layerId);
+        const int to = qBound(0, toIndex, int(layers.size()) - 1);
+        if (at < 0 || at == to)
+            return false;
+        const drift::Project before = m_project;
+        layers.move(at, to);
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        pushProjectEdit(before, tr("Reorder layers"));
+        finishEdit(tr("Layer moved"));
+        return true;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     toIndex = qBound(0, toIndex, stack.layers->size() - 1);
     if (index < 0 || index == toIndex)
@@ -26696,6 +26847,18 @@ void AppController::setStyleLayer(int trackIndex, int clipIndex, const QString &
         return;
     QVariantMap layer = patch;
     layer.insert(QStringLiteral("id"), layerId);
+    int rangeStart = -1, rangeEnd = -1;
+    if (clip->type != drift::ClipType::Shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // The shaded letters' stack (0.24): the same patch, on a copy, written to their stretch.
+        const drift::Project before = m_project;
+        drift::TextStyle own = clip->textStyle;
+        own.layers = textRangeLayers(*clip, rangeStart);
+        applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
+        pushProjectEdit(before, tr("Edit text style"));
+        finishEdit(tr("Text style updated"));
+        return;
+    }
     if (clip->type == drift::ClipType::Shape)
         setShapeStyle(trackIndex, clipIndex, QVariantMap{{QStringLiteral("layer"), layer}});
     else
@@ -26710,7 +26873,13 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
     beginImplicitPreviewDrag(tr("Edit layer"));
     QVariantMap layer = patch;
     layer.insert(QStringLiteral("id"), layerId);
-    if (clip->type == drift::ClipType::Shape)
+    int rangeStart = -1, rangeEnd = -1;
+    if (clip->type != drift::ClipType::Shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        drift::TextStyle own = clip->textStyle;
+        own.layers = textRangeLayers(*clip, rangeStart);
+        applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
+    } else if (clip->type == drift::ClipType::Shape)
         applyShapeStylePatch(clip->shapeStyle, QVariantMap{{QStringLiteral("layer"), layer}});
     else
         applyTextStylePatch(clip->textStyle, QVariantMap{{QStringLiteral("layer"), layer}});
@@ -26723,20 +26892,17 @@ QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);
     if (!clip)
         return QString();
-    const bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
-    const QList<drift::TextShadingLayer> before = clip->textStyle.layers;
+    // An explicit range aims this one call at those letters (addStyleLayer does the rest, inside
+    // its one undo step); without one, whatever the inspector has shaded.
+    if (rangeStart < 0 || rangeEnd <= rangeStart)
+        return addStyleLayer(trackIndex, clipIndex, kind, atIndex);
+    const int keep[4] = {m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd};
+    setTextStyleRange(trackIndex, clipIndex, rangeStart, rangeEnd);
     const QString id = addStyleLayer(trackIndex, clipIndex, kind, atIndex);
-    if (!ranged || id.isEmpty())
-        return id;
-    // Con letras sombreadas la capa es para ellas: el bloque se queda como estaba y la pila
-    // completa (lo que ya había + la capa nueva) pasa al tramo de esas letras.
-    const QList<drift::TextShadingLayer> withLayer = clip->textStyle.layers;
-    clip->textStyle.layers = before;
-    drift::TextRun patch;
-    patch.layersEnabled = true;
-    patch.layers = withLayer;
-    clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(),
-                                                rangeStart, rangeEnd, patch);
+    m_textRangeTrack = keep[0];
+    m_textRangeClip = keep[1];
+    m_textRangeStart = keep[2];
+    m_textRangeEnd = keep[3];
     return id;
 }
 
@@ -26993,6 +27159,17 @@ void AppController::applyTextLook(int trackIndex, int clipIndex, const QString &
     const drift::Project before = m_project;
     QMap<QString, drift::VectorSlotValue> typed;
     mergeParamsFromMap(&typed, params, look->params);
+    int rangeStart = -1, rangeEnd = -1;
+    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // Shaded letters (0.24): the look goes to them only.
+        drift::TextStyle styled = clip->textStyle;
+        styled.layers = textRangeLayers(*clip, rangeStart);
+        drift::applyTextLook(styled, lookId, typed);
+        writeTextRangeStyle(*clip, rangeStart, rangeEnd, styled);
+        pushProjectEdit(before, tr("Apply text look"));
+        finishEdit(tr("Look applied"));
+        return;
+    }
     drift::applyTextLook(clip->textStyle, lookId, typed);
     clip->textStyle.packId.clear();
     pushProjectEdit(before, tr("Apply text look"));
@@ -27036,7 +27213,9 @@ void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QSt
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);
     if (!clip)
         return;
-    const bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
+    bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
+    if (!ranged)
+        ranged = textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd);
     const drift::Project before = m_project;
     if (ranged) {
         // El preset se aplica a una copia y solo su pila (y su fuente, si la trae) va a las letras
@@ -27044,15 +27223,7 @@ void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QSt
         drift::TextStyle styled = clip->textStyle;
         if (!drift::applyTextQuickStyle(styled, styleId))
             return;
-        drift::TextRun patch;
-        patch.layersEnabled = true;
-        patch.layers = styled.layers;
-        if (styled.fontFamily != clip->textStyle.fontFamily) {
-            patch.fontEnabled = true;
-            patch.fontFamily = styled.fontFamily;
-        }
-        clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(),
-                                                    rangeStart, rangeEnd, patch);
+        writeTextRangeStyle(*clip, rangeStart, rangeEnd, styled);
     } else if (!drift::applyTextQuickStyle(clip->textStyle, styleId)) {
         return;
     }

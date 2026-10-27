@@ -129,6 +129,7 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void shadedLettersTakeLayersLooksAndBoxAlone();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -1047,6 +1048,82 @@ void EditorStateTest::addTextClip()
     state.addTextClip(QStringLiteral("Hello"), 0.0);
     QVERIFY(state.durationSeconds() > 0.0);
     QCOMPARE(state.selectedClip(), 0);
+}
+
+// 0.24: with letters shaded (setTextStyleRange), the layer calls the inspector makes edit the
+// stack of those letters only, in one undo step each, and the block keeps its own.
+void EditorStateTest::shadedLettersTakeLayersLooksAndBoxAlone()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("HOLA MUNDO"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const auto clip = [&]() -> const drift::Clip & { return state.project()->tracks().at(t).clips.at(c); };
+    const QList<drift::TextShadingLayer> blockLayers = clip().textStyle.layers;
+    const auto runAt = [&](int at) { return drift::textRunAt(clip().textStyle.runs, at); };
+
+    state.setTextStyleRange(t, c, 5, 10);
+    const QString shadow = state.addTextLayer(t, c, QStringLiteral("shadow"));
+    QVERIFY(!shadow.isEmpty());
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+    QVERIFY(runAt(5) && runAt(5)->layersEnabled);
+    QCOMPARE(runAt(5)->layers.size(), blockLayers.size() + 1);
+    QVERIFY(!runAt(2));
+
+    // The layer's own controls reach it by id, in the letters' stack.
+    state.setStyleLayer(t, c, shadow, QVariantMap{{QStringLiteral("offsetX"), 21.0}});
+    const auto shadowOf = [&]() -> const drift::TextShadingLayer * {
+        for (const drift::TextShadingLayer &l : runAt(5)->layers)
+            if (l.id == shadow)
+                return &l;
+        return nullptr;
+    };
+    QVERIFY(shadowOf());
+    QCOMPARE(shadowOf()->offsetX, 21.0);
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+
+    // One undo per call: back to the shadow as added, then to no stretch at all.
+    state.undo();
+    QVERIFY(shadowOf());
+    QVERIFY(shadowOf()->offsetX != 21.0);
+    state.undo();
+    QVERIFY(!runAt(5) || !runAt(5)->layersEnabled);
+    state.redo();
+    QVERIFY(shadowOf());
+
+    // Removing it there leaves the block alone too.
+    QVERIFY(state.removeStyleLayer(t, c, shadow));
+    QVERIFY(!shadowOf());
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+
+    // The box: a padding slider keeps the colour, and boxEnabled:false takes it away.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxEnabled"), true},
+                                                  {QStringLiteral("boxColor"), QStringLiteral("#ff0000ff")}});
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxPadding"), 12.0}});
+    QVERIFY(runAt(6)->boxEnabled);
+    QCOMPARE(runAt(6)->boxColor, QColor(0, 0, 255));
+    QCOMPARE(runAt(6)->boxPadding, 12.0);
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxEnabled"), false}});
+    QVERIFY(!runAt(6)->boxEnabled);
+
+    // The transform: X then Y, and the first one stays.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("offsetX"), 8.0}});
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("offsetY"), -4.0}});
+    QVERIFY(runAt(7)->transformEnabled);
+    QCOMPARE(runAt(7)->offsetX, 8.0);
+    QCOMPARE(runAt(7)->offsetY, -4.0);
+
+    // A look goes to the letters only; with nothing shaded it goes to the whole block again.
+    const QVariantList looks = state.textLooks();
+    QVERIFY(!looks.isEmpty());
+    const QString lookId = looks.first().toMap().value(QStringLiteral("id")).toString();
+    state.applyTextLook(t, c, lookId);
+    QVERIFY(clip().textStyle.lookId.isEmpty());
+    QVERIFY(runAt(5)->layersEnabled);
+    state.setTextStyleRange(t, c, -1, -1);
+    state.applyTextLook(t, c, lookId);
+    QCOMPARE(clip().textStyle.lookId, lookId);
 }
 
 // The inline editor: live text with the preedit rendered but never stored, geometry in canvas
