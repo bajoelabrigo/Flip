@@ -73,3 +73,27 @@ que viene de la misma casa:
 - **Panorama animable:** hoy `Clip::pan` es un número fijo; hace falta pista de claves en el motor y el mezclador.
 - Fundidos (ya hay asas en las esquinas) que se vean como claves y se puedan pasar a claves.
 - Claves pegadas al **ritmo** (ya hay análisis de golpes): imán a los golpes al arrastrar claves.
+
+## Segunda tanda (Jorge, 2026-10-27, tarde): «como After Effects»
+Capturas de Jorge: `Downloadsideos.png`, `after effects.png`, `curvas.png`, `fotogramas texto.png`.
+- [x] **Valores editables en las filas** (`timeline/ScrubValue.qml`, el «hot text» azul de AE): arrastrar de lado
+      (Mayús ×10, Ctrl ×0,1) o clic para escribir. Con la propiedad animada es una clave en el cabezal; sin
+      cronómetro es solo el valor, aunque «Fotogramas clave automáticos» esté encendido
+      (`AppController::previewSetPropertyValue`).
+- [x] **Editor de curvas en el lugar de las filas** (botón de curvas junto al «+», ya no en la barra): la pista del
+      clip elegido se abre y el gráfico ocupa sus filas (`KeyframeGraph.inline`, `labelsWidth: 0`); los botones
+      flotan arriba a la derecha; clic en el nombre de una fila = esa curva al frente (`KeyKeyTools.focusProp`).
+      Solo aparece si las filas de esa pista están abiertas (antes salía solo bajo un texto cerrado).
+- [x] **Punto de anclaje** (`Clip::anchorX/anchorY`, fracciones de la caja, 0,5 = centro): el giro pivota ahí
+      (`Clip::anchorShift`, sumado a x/y en `layoutRectForClip`; el marco de la vista previa lo suma al dibujarse y
+      muestra la cruz). Fila «Punto de anclaje» primera, en píxeles de la caja. La escala desde las filas deja el
+      anclaje quieto.
+- [x] **Cronómetro** (encender = clave en el cabezal; apagar = `stopAnimating`, quita las claves y deja el valor) y
+      **◀ ◆ ▶**.
+- [x] **Escala en dos valores con cadena** (% del tamaño de «Restablecer», `clipNaturalSize`).
+- [x] **Gráfico:** números en el eje y modo **Gráfico de velocidad** (la velocidad pasa a ser la curva).
+- [x] **Sólido** en el «+» con su ventana (`SolidDialog.qml`: nombre, ancho, alto, tamaño del proyecto, color;
+      `addSolidClip`).
+- Probado en ventana (`pruebas\FlipStudio-0.25-prueba-c` y `-d`): todo lo anterior salvo el menú del «+» y la
+  ventana del Sólido (los popups no abren con clics simulados). Diferencia que queda con AE: el gráfico ocupa solo
+  las filas del clip elegido, no toda la línea de tiempo.
