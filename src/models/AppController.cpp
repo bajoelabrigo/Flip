@@ -4671,6 +4671,11 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("speedUp"), QStringLiteral("L")},
         {QStringLiteral("speedDown"), QStringLiteral("J")},
         {QStringLiteral("toggleGuides"), QStringLiteral("G")},
+        // After Effects' J / K / U (0.25). J is taken by the shuttle (speedDown), so the steps
+        // between keys take Shift: rebindable all the same.
+        {QStringLiteral("previousKeyframe"), QStringLiteral("Shift+J")},
+        {QStringLiteral("nextKeyframe"), QStringLiteral("Shift+K")},
+        {QStringLiteral("revealKeyframes"), QStringLiteral("U")},
         // The 3D gizmo's tools. Blender's G/R/S and W/E/R are taken by guides, split and the
         // ripple deletes, so these sit on T(ranslate), R(otate) and E (next to R).
         {QStringLiteral("gizmoMove"), QStringLiteral("T")},
@@ -5533,6 +5538,9 @@ QVariantList AppController::actions() const
         action(QStringLiteral("speedUp"), tr("Increase playback speed")),
         action(QStringLiteral("speedDown"), tr("Decrease playback speed")),
         action(QStringLiteral("toggleGuides"), tr("Toggle guides")),
+        action(QStringLiteral("previousKeyframe"), tr("Go to previous keyframe")),
+        action(QStringLiteral("nextKeyframe"), tr("Go to next keyframe")),
+        action(QStringLiteral("revealKeyframes"), tr("Show animated properties")),
         action(QStringLiteral("gizmoMove"), tr("3D gizmo: move")),
         action(QStringLiteral("gizmoRotate"), tr("3D gizmo: rotate")),
         action(QStringLiteral("gizmoScale"), tr("3D gizmo: scale")),
@@ -18808,6 +18816,26 @@ void AppController::previewShiftKeyframes(int trackIndex, const QVariantList &ke
 {
     if (keys.isEmpty() || qAbs(toDelta - fromDelta) < 1e-9)
         return;
+    previewRetimeKeys(trackIndex, keys, [fromDelta](double s) { return s + fromDelta; },
+                      [toDelta](double s) { return s + toDelta; }, 1.0);
+}
+
+void AppController::previewStretchKeyframes(int trackIndex, const QVariantList &keys, double pivotSeconds,
+                                            double fromFactor, double toFactor)
+{
+    if (keys.isEmpty() || qAbs(toFactor - fromFactor) < 1e-9 || qAbs(fromFactor) < 1e-9)
+        return;
+    previewRetimeKeys(
+        trackIndex, keys,
+        [pivotSeconds, fromFactor](double s) { return pivotSeconds + (s - pivotSeconds) * fromFactor; },
+        [pivotSeconds, toFactor](double s) { return pivotSeconds + (s - pivotSeconds) * toFactor; },
+        toFactor / fromFactor);
+}
+
+void AppController::previewRetimeKeys(int trackIndex, const QVariantList &keys,
+                                      const std::function<double(double)> &fromTime,
+                                      const std::function<double(double)> &toTime, double handleScale)
+{
     // Per property track, the start times of its picked keys: all of them are lifted before any
     // lands, so a key never lands on another picked one that has not moved yet.
     struct Group {
@@ -18855,13 +18883,17 @@ void AppController::previewShiftKeyframes(int trackIndex, const QVariantList &ke
         QList<QPair<drift::TimeUs, drift::Keyframe<double>>> lifted;
         for (const double start : g.starts) {
             const drift::TimeUs fromRel =
-                qMax<drift::TimeUs>(0, drift::secondsToUs(start + fromDelta) - clip.timelineStart);
+                qMax<drift::TimeUs>(0, drift::secondsToUs(fromTime(start)) - clip.timelineStart);
             const drift::TimeUs nearest = kt->nearestKeyframe(fromRel, kKeyframeToleranceUs);
             if (nearest < 0)
                 continue;
             const drift::TimeUs toRel =
-                qMax<drift::TimeUs>(0, drift::secondsToUs(start + toDelta) - clip.timelineStart);
-            lifted.append({toRel, kt->keyframes().value(nearest)});
+                qMax<drift::TimeUs>(0, drift::secondsToUs(toTime(start)) - clip.timelineStart);
+            // A stretch scales the handles' reach in time with the gaps, so the curves keep their shape.
+            drift::Keyframe<double> key = kt->keyframes().value(nearest);
+            key.inDx *= handleScale;
+            key.outDx *= handleScale;
+            lifted.append({toRel, key});
             kt->removeKeyframe(nearest);
         }
         for (const auto &key : std::as_const(lifted))
@@ -23594,6 +23626,54 @@ void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)
     notifyTracksChanged();
 }
 
+void AppController::stepToKeyframe(bool forward)
+{
+    // The selected clip's keys, or every clip's under the playhead when none is selected.
+    QList<QPair<int, int>> clips;
+    if (m_selectedTrack >= 0 && m_selectedTrack < m_project.tracks().size() && m_selectedClip >= 0
+        && m_selectedClip < m_project.tracks().at(m_selectedTrack).clips.size()) {
+        clips.append({m_selectedTrack, m_selectedClip});
+    } else {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const int c = keyframeTargetClip(t);
+            if (c >= 0)
+                clips.append({t, c});
+        }
+    }
+    const double now = playheadSeconds();
+    const double frame = 1.0 / 120.0;
+    double best = qQNaN();
+    for (const auto &[t, c] : std::as_const(clips)) {
+        for (const QString &prop : clipAnimatedProperties(t, c)) {
+            for (const QVariant &v : clipKeyframes(t, c, prop)) {
+                const double s = v.toMap().value(QStringLiteral("seconds")).toDouble();
+                const bool ahead = forward ? s > now + frame : s < now - frame;
+                if (ahead && (qIsNaN(best) || (forward ? s < best : s > best)))
+                    best = s;
+            }
+        }
+    }
+    if (!qIsNaN(best))
+        setPlayheadSeconds(best);
+}
+
+void AppController::toggleRevealKeyframes()
+{
+    // As After Effects' U: open every track that has keys and show only the lines with keys; again,
+    // close them all and show the fixed lines once more.
+    bool anyOpen = false;
+    for (const drift::Track &track : m_project.tracks())
+        anyOpen = anyOpen || track.keyframesExpanded;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        drift::Track &track = m_project.tracks()[t];
+        track.keyframesExpanded = !anyOpen && trackHasKeyframes(t);
+    }
+    m_keyframeRowsAnimatedOnly = !anyOpen;
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    notifyTracksChanged();
+}
+
 bool AppController::trackHasKeyframes(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
@@ -23737,6 +23817,7 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             for (const QString &prop : group.props)
                 grouped.insert(prop);
             QVariantList clips;
+            bool groupHasKeys = false;
             for (int c = 0; c < clipCount; ++c) {
                 // A property's lone key at 0 is its resting value, not an animation: no diamond.
                 const QStringList animated = clipAnimatedProperties(trackIndex, c);
@@ -23760,6 +23841,7 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 QVariantList keys;
                 for (const QVariantMap &key : std::as_const(merged))
                     keys.append(key);
+                groupHasKeys = groupHasKeys || !keys.isEmpty();
                 const drift::Clip &clip = track.clips.at(c);
                 clips.append(QVariantMap{
                     {QStringLiteral("clip"), c},
@@ -23769,6 +23851,9 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                     {QStringLiteral("keys"), keys},
                 });
             }
+            // U (revealKeyframes) shows only the lines that animate something.
+            if (m_keyframeRowsAnimatedOnly && !groupHasKeys)
+                continue;
             const bool expanded = group.props.size() > 1
                 && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
             rows.append(QVariantMap{
@@ -25674,6 +25759,12 @@ void AppController::triggerAction(const QString &actionId)
         nudgeSelection(0.1);
     else if (actionId == QStringLiteral("toggleGuides"))
         m_preview->setGuidesEnabled(!m_preview->guidesEnabled());
+    else if (actionId == QStringLiteral("previousKeyframe"))
+        stepToKeyframe(false);
+    else if (actionId == QStringLiteral("nextKeyframe"))
+        stepToKeyframe(true);
+    else if (actionId == QStringLiteral("revealKeyframes"))
+        toggleRevealKeyframes();
     else if (actionId == QStringLiteral("gizmoMove"))
         m_preview->setGizmoTool(QStringLiteral("move"));
     else if (actionId == QStringLiteral("gizmoRotate"))

@@ -1373,6 +1373,11 @@ public:
     // together, keeping their shape. The caller keeps them between their unpicked neighbours.
     Q_INVOKABLE void previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
                                            double toDelta);
+    // Alt-drag of the first or last picked key (0.25, After Effects): the picked keys spread out or
+    // close in around `pivotSeconds`, each from pivot + (start − pivot) × fromFactor to the same
+    // with toFactor; their handles stretch with them.
+    Q_INVOKABLE void previewStretchKeyframes(int trackIndex, const QVariantList &keys, double pivotSeconds,
+                                             double fromFactor, double toFactor);
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
@@ -1688,6 +1693,9 @@ public:
     // The After-Effects-style twirl on a track header: unfolds one line per animated property
     // of the track's clips under it. View-only, saved with the project.
     Q_INVOKABLE void setTrackKeyframesExpanded(int trackIndex, bool expanded);
+    // After Effects' keys (0.25): the playhead to the selected clip's key before/after it, and U.
+    Q_INVOKABLE void stepToKeyframe(bool forward);
+    Q_INVOKABLE void toggleRevealKeyframes();
     Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
@@ -2053,6 +2061,11 @@ signals:
     void openFindReplaceRequested();
 
 protected:
+    // The picked keys moved together: each from fromTime(start) to toTime(start), the handles'
+    // reach in time scaled by handleScale (shift and stretch).
+    void previewRetimeKeys(int trackIndex, const QVariantList &keys,
+                           const std::function<double(double)> &fromTime,
+                           const std::function<double(double)> &toTime, double handleScale);
     // Every path that changes the timeline model goes through this instead of a bare
     // `emit tracksChanged()`. The cache has to be dropped *before* the signal goes out: whether
     // a slot connected in the constructor runs ahead of QML's binding re-evaluation is not a
@@ -2622,6 +2635,8 @@ protected:
     bool m_previewDragDirty = false;
     // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
     QSet<QString> m_keyframeGroupsExpanded;
+    // U (toggleRevealKeyframes): the tracks' fixed transform lines only when they have keys.
+    bool m_keyframeRowsAnimatedOnly = false;
     // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
     void resetTransformOf(drift::Clip &clip);
     // The shaded letters the layer calls aim at (setTextStyleRange).

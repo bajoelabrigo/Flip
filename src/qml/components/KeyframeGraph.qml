@@ -211,8 +211,16 @@ Item {
     // The time the picked keys have moved in a drag of several (KeyframeKeyTools.shifting): the
     // frozen series draws them there.
     readonly property real shiftDelta: tools && tools.shifting ? tools.dragDelta : 0
+    // How far a key that started at `seconds` has gone (a stretch moves each by its own).
+    function shiftOf(seconds) {
+        if (!root.tools)
+            return 0
+        void root.tools.dragDelta
+        void root.tools.stretchFactor
+        return root.tools.offsetFor(seconds)
+    }
     function shifted(prop, seconds) {
-        return !!tools && tools.shifting
+        return !!tools && (tools.shifting || tools.stretching)
                && tools.isShifted(root.trackIndex,
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
@@ -814,7 +822,7 @@ Item {
                                 const live = entry.points.map(function (p, i) {
                                     if (root.shifted(entry.prop, p.seconds)) {
                                         return {
-                                            seconds: p.seconds + root.shiftDelta, value: p.value,
+                                            seconds: p.seconds + root.shiftOf(p.seconds), value: p.value,
                                             inDx: p.inDx, inDy: p.inDy,
                                             outDx: p.outDx, outDy: p.outDy, hold: p.hold
                                         }
@@ -978,17 +986,18 @@ Item {
                                     return false
                                 void root.tools.keys
                                 void root.tools.dragDelta
+                                void root.tools.stretchFactor
                                 // While the tracks' rows drag several keys the series is live
                                 // here, so a moved key is matched by where it started.
                                 return root.tools.isPicked(root.trackIndex, ref)
                                        || root.tools.isShifted(root.trackIndex,
                                               { clip: ref.clip, prop: ref.prop,
-                                                seconds: ref.seconds - root.tools.dragDelta })
+                                                seconds: root.tools.startOf(ref.seconds) })
                             }
                             // Moved with the others in a drag of several picked keys.
                             readonly property real shiftDx: root.draggingKey
                                 && root.shifted(modelData.prop, modelData.seconds)
-                                ? root.shiftDelta * root.pxPerSecond : 0
+                                ? root.shiftOf(modelData.seconds) * root.pxPerSecond : 0
                             property bool groupDrag: false
                             width: 20
                             height: 20

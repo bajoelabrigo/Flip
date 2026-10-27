@@ -175,6 +175,8 @@ Item {
     // The track the curve editor opens under, and its height (0.24; TimelinePanel says).
     property int curveEditorTrack: -1
     property real curveEditorHeight: 0
+    // The timeline's picked keys (KeyframeKeyTools): a click on a line's name picks its keys.
+    property var keyframeTools: null
 
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
@@ -1283,6 +1285,44 @@ Item {
                             glyph: keyLine.iconName
                             iconSize: 14
                             iconColor: Theme.mutedForeground
+                        }
+                        // A click on the name picks every key of the line on its clip, as a click
+                        // on a property's name does in After Effects; Shift or Ctrl add them.
+                        function pickAllKeys(modifiers) {
+                            const tools = root.keyframeTools
+                            if (!tools || keyLine.clip < 0)
+                                return
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            const animated = EditorState.clipAnimatedProperties(track, clip)
+                            const add = !!(modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
+                            const out = add && tools.track === track ? tools.keys.slice() : []
+                            for (const prop of keyLine.props) {
+                                if (animated.indexOf(prop) < 0)
+                                    continue
+                                for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
+                                    const ref = { clip: clip, prop: prop, seconds: k.seconds }
+                                    if (!out.some((o) => tools.sameKey(o, ref)))
+                                        out.push(ref)
+                                }
+                            }
+                            if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                                EditorState.selectClip(track, clip)
+                            tools.pick(track, out)
+                        }
+                        MouseArea {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 36
+                            anchors.right: resetButton.visible ? resetButton.left : keyButton.left
+                            anchors.top: parent.top
+                            anchors.bottom: parent.bottom
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: (mouse) => keyLine.pickAllKeys(mouse.modifiers)
+                            ThemedToolTip {
+                                visible: parent.containsMouse
+                                text: qsTr("Click to pick all its keyframes")
+                            }
                         }
                         Column {
                             anchors.left: parent.left

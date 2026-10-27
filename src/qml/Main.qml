@@ -1848,6 +1848,8 @@ ApplicationWindow {
         }
         if (id === "paste" && timelinePanel.visible && timelinePanel.pasteCopiedKeys())
             return
+        if (id === "selectAll" && timelinePanel.visible && timelinePanel.pickAllKeys())
+            return
         // Tool modes are QML state, so they are dispatched here rather
         // than by triggerAction.
         if (id === "selectTool") {

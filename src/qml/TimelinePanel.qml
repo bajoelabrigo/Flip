@@ -84,6 +84,9 @@ PanelFrame {
     function deletePickedKeys() {
         return keyTools.removePicked()
     }
+    function pickAllKeys() {
+        return keyTools.pickAllOfClip()
+    }
     function copyPickedKeys() {
         return keyTools.copyPicked()
     }
@@ -1400,6 +1403,7 @@ PanelFrame {
 
                 TrackHeaderColumn {
                     id: trackLabelsArea
+                    keyframeTools: keyTools
                     width: parent.width
                     // Clamped: went negative at small panel heights, which spilled
                     // the absolutely-positioned label rows out of the column.
