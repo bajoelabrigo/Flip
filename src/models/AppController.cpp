@@ -13408,6 +13408,7 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         if (m.contains(QStringLiteral("opacity")))
             run.opacity = qBound(0.0, m.value(QStringLiteral("opacity")).toDouble(), 1.0);
         run.baseline = qBound(-1, m.value(QStringLiteral("baseline")).toInt(), 1);
+        run.animId = m.value(QStringLiteral("animId")).toString();
         parsed.append(run);
     }
     const drift::Project before = m_project;
@@ -13453,6 +13454,20 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
         p.layersEnabled = true;
         for (const QVariant &v : patch.value(QStringLiteral("layers")).toList())
             p.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
+    }
+    // Moving or fading these letters makes them animatable (0.25): drift::patchTextRuns gives the
+    // pick one name for its keyframes (TextRun::animId), the one they already had if any.
+    if (patch.contains(QStringLiteral("transformEnabled")) || patch.contains(QStringLiteral("offsetX"))
+        || patch.contains(QStringLiteral("offsetY")) || patch.contains(QStringLiteral("transformScale"))
+        || patch.contains(QStringLiteral("rotation")) || patch.contains(QStringLiteral("opacity"))) {
+        for (const drift::TextRun &run : std::as_const(clip->textStyle.runs)) {
+            if (run.end > start && run.start < end && !run.animId.isEmpty()) {
+                p.animId = run.animId;
+                break;
+            }
+        }
+        if (p.animId.isEmpty())
+            p.animId = QStringLiteral("r") + QUuid::createUuid().toString(QUuid::Id128).left(10);
     }
     const drift::Project before = m_project;
     // The split at [start, end) and the keys patchTextRuns copies whole.

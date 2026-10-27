@@ -80,7 +80,7 @@ Item {
             const ctx = getContext("2d")
             ctx.reset()
             ctx.strokeStyle = Theme.primary
-            ctx.lineWidth = lineMouse.containsMouse || root.dragging ? 2 : 1.25
+            ctx.lineWidth = lineHover.onLine || root.dragging ? 2 : 1.25
             ctx.beginPath()
             if (!root.animated) {
                 const y = root.yOf(root.gainAtX(0))
@@ -106,12 +106,21 @@ Item {
         }
     }
 
-    // The line itself: a band a few px either side of it takes the pointer, the rest of the clip
+    // Whether the pointer is on the line. Passive: the clip's renderer keeps its hover (this
+    // overlay only exists while the clip is hovered or selected, and taking the hover away would
+    // drop it).
+    HoverHandler {
+        id: lineHover
+        readonly property bool onLine: hovered
+            && Math.abs(point.position.y - root.yOf(root.gainAtX(point.position.x))) <= 5
+        onOnLineChanged: line.requestPaint()
+    }
+
+    // The line itself: a band a few px either side of it takes a press, the rest of the clip
     // keeps its own gestures (move, trim).
     MouseArea {
         id: lineMouse
         anchors.fill: parent
-        hoverEnabled: true
         acceptedButtons: Qt.LeftButton
         preventStealing: true
         property bool onLine: false
@@ -119,14 +128,9 @@ Item {
         // The keys the drag moves (indices into root.keys) and their levels at the press.
         property var moving: []
         property var baseGains: []
-        cursorShape: onLine ? (EditorState.keyboardModifiers() & Qt.ControlModifier ? Qt.CrossCursor
-                                                                                      : Qt.SizeVerCursor)
-                            : Qt.ArrowCursor
         onPositionChanged: (mouse) => {
-            if (!pressed) {
-                onLine = Math.abs(mouse.y - root.yOf(root.gainAtX(mouse.x))) <= 5
+            if (!pressed)
                 return
-            }
             const dy = mouse.y - pressY
             const dDb = -dy / Math.max(1, root.height) * (root.maxDb - root.minDb)
             if (moving.length === 0) {
@@ -281,8 +285,8 @@ Item {
     }
 
     ThemedToolTip {
-        visible: lineMouse.onLine && lineMouse.containsMouse && !root.dragging
-        text: root.dbOf(root.gainAtX(lineMouse.mouseX)).toFixed(1) + " dB · "
+        visible: lineHover.onLine && !root.dragging
+        text: root.dbOf(root.gainAtX(lineHover.point.position.x)).toFixed(1) + " dB · "
               + qsTr("drag to change the volume, Ctrl+click to add a keyframe")
     }
 }

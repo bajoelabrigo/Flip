@@ -418,9 +418,9 @@ Item {
             // The After Effects twirl: unfolds one line per animated property under the clips.
             readonly property bool keyframesExpanded: root.tracks[index].keyframesExpanded === true
             // A picture track always opens (0.24): its Position, Rotation, Scale and Opacity lines
-            // are where a clip gets its first key.
+            // are where a clip gets its first key. An audio track too, for Volume and Pan (0.25).
             readonly property bool hasKeyframes: !root.compact
-                                                 && (["video", "text", "shape"].indexOf(root.tracks[index].type) !== -1
+                                                 && (["video", "text", "shape", "audio"].indexOf(root.tracks[index].type) !== -1
                                                      || (root.tracks.length, EditorState.trackHasKeyframes(index)))
             readonly property var keyframeRows: keyframesExpanded && !root.compact
                                                 ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
