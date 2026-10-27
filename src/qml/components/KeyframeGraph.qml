@@ -225,6 +225,42 @@ Item {
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
+    // A drag of several picked keys also moves their values (0.25, After Effects): the pointer's
+    // height in pixels, which each curve reads in its own range. Shift keeps the values.
+    property real groupDy: 0
+    property var groupValueBase: []
+    function groupValue(value, entry) {
+        if (Math.abs(root.groupDy) < 1e-6)
+            return value
+        return Math.max(entry.valueMin, Math.min(entry.valueMax,
+                        root.valueForY(root.yForValue(value, entry) + root.groupDy, entry)))
+    }
+    // The box a drag on empty graph space draws: picks every key dot inside it.
+    property bool marqueeActive: false
+    property real marqueeX0: 0
+    property real marqueeY0: 0
+    property real marqueeX1: 0
+    property real marqueeY1: 0
+    property var marqueeBase: []
+    function marqueeApply() {
+        if (!root.tools)
+            return
+        const left = Math.min(root.marqueeX0, root.marqueeX1) - 6
+        const right = Math.max(root.marqueeX0, root.marqueeX1) + 6
+        const top = Math.min(root.marqueeY0, root.marqueeY1) - 6
+        const bottom = Math.max(root.marqueeY0, root.marqueeY1) + 6
+        const out = root.marqueeBase.slice()
+        for (const h of root.keyHandles) {
+            const x = root.xForSeconds(h.seconds)
+            const y = root.yForValue(h.value, root.series[h.seriesIndex])
+            if (x < left || x > right || y < top || y > bottom)
+                continue
+            const ref = { clip: root.clipIndex, prop: h.prop, seconds: h.seconds }
+            if (!out.some((k) => root.tools.sameKey(k, ref)))
+                out.push(ref)
+        }
+        root.tools.pick(root.trackIndex, out)
+    }
     property string dragProp: ""
     property int dragIndex: -1
     property real dragSeconds: 0
@@ -822,7 +858,8 @@ Item {
                                 const live = entry.points.map(function (p, i) {
                                     if (root.shifted(entry.prop, p.seconds)) {
                                         return {
-                                            seconds: p.seconds + root.shiftOf(p.seconds), value: p.value,
+                                            seconds: p.seconds + root.shiftOf(p.seconds),
+                                            value: root.groupValue(p.value, entry),
                                             inDx: p.inDx, inDy: p.inDy,
                                             outDx: p.outDx, outDy: p.outDy, hold: p.hold
                                         }
@@ -954,6 +991,7 @@ Item {
                             function onDragSecondsChanged() { curveCanvas.requestPaint() }
                             function onDragValueChanged() { curveCanvas.requestPaint() }
                             function onShiftDeltaChanged() { curveCanvas.requestPaint() }
+                            function onGroupDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDxChanged() { curveCanvas.requestPaint() }
                             function onDragTangentInDyChanged() { curveCanvas.requestPaint() }
@@ -965,11 +1003,51 @@ Item {
 
                     // Below the key dots (z 2) and tangent grips (z 4), so double-clicking an
                     // existing node grabs it instead of inserting another one on top of it.
+                    // A drag here draws the box that picks keys (Shift or Ctrl add to the picked).
                     MouseArea {
                         anchors.fill: parent
                         z: 1
                         acceptedButtons: Qt.LeftButton
+                        preventStealing: true
+                        property bool boxed: false
                         onDoubleClicked: function (mouse) { root.addKeyAt(mouse.x) }
+                        onPressed: (mouse) => {
+                            root.marqueeX0 = root.marqueeX1 = mouse.x
+                            root.marqueeY0 = root.marqueeY1 = mouse.y
+                            boxed = false
+                            root.marqueeBase = root.tools && root.tools.track === root.trackIndex
+                                && (mouse.modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
+                                ? root.tools.keys.slice() : []
+                        }
+                        onPositionChanged: (mouse) => {
+                            root.marqueeX1 = mouse.x
+                            root.marqueeY1 = mouse.y
+                            if (!root.marqueeActive && Math.abs(mouse.x - root.marqueeX0) < 4
+                                    && Math.abs(mouse.y - root.marqueeY0) < 4)
+                                return
+                            root.marqueeActive = true
+                            boxed = true
+                            root.marqueeApply()
+                        }
+                        onReleased: {
+                            if (root.marqueeActive)
+                                root.marqueeApply()
+                            else if (!boxed && root.tools && root.marqueeBase.length === 0)
+                                root.tools.clear()
+                            root.marqueeActive = false
+                        }
+                        onCanceled: root.marqueeActive = false
+                    }
+                    Rectangle {
+                        visible: root.marqueeActive
+                        z: 6
+                        x: Math.min(root.marqueeX0, root.marqueeX1)
+                        y: Math.min(root.marqueeY0, root.marqueeY1)
+                        width: Math.abs(root.marqueeX1 - root.marqueeX0)
+                        height: Math.abs(root.marqueeY1 - root.marqueeY0)
+                        color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.14)
+                        border.width: 1
+                        border.color: Theme.primary
                     }
 
                     Repeater {
@@ -1008,7 +1086,9 @@ Item {
                                 && root.dragIndex >= 0 && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                 && Math.abs((root.series[root.focusedIndex].points[root.dragIndex] ? root.series[root.focusedIndex].points[root.dragIndex].seconds : -999) - modelData.seconds) < (1 / 30)
                             x: root.xForSeconds(modelData.seconds) - width / 2 + shiftDx + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
-                            y: root.yForValue(modelData.value, entry) - height / 2 + dragDy
+                            y: root.yForValue(root.draggingKey && root.shifted(modelData.prop, modelData.seconds)
+                                                  ? root.groupValue(modelData.value, entry) : modelData.value, entry)
+                               - height / 2 + dragDy
                             z: isPicked ? 3 : 2
 
                             // The same shapes as the tracks' rows: how the value arrives and
@@ -1088,6 +1168,17 @@ Item {
                                 // Several picked: they all move in time together, values kept.
                                 keyDot.groupDrag = !!root.tools && root.tools.keys.length > 1
                                 if (keyDot.groupDrag) {
+                                    // Each picked key's value where the drag starts.
+                                    const base = []
+                                    for (const k of root.tools.keys) {
+                                        const entry = root.series.find((e) => e.prop === k.prop)
+                                        const pt = entry ? entry.points.find((p) => Math.abs(p.seconds - k.seconds) < 1e-4)
+                                                         : null
+                                        if (entry && pt && k.clip === root.clipIndex)
+                                            base.push({ key: k, value: pt.value, entry: entry })
+                                    }
+                                    root.groupValueBase = base
+                                    root.groupDy = 0
                                     root.frozenSeries = root.series
                                     root.draggingKey = true
                                     root.tools.beginShift()
@@ -1106,6 +1197,8 @@ Item {
                                 if (keyDot.groupDrag) {
                                     // Same order as below: unfreezing destroys this delegate.
                                     keyDot.groupDrag = false
+                                    root.groupDy = 0
+                                    root.groupValueBase = []
                                     root.tools.endShift()
                                     root.draggingKey = false
                                     return
@@ -1131,6 +1224,15 @@ Item {
                                     const moved = root.tools.shiftTo(
                                         EditorState.snapTime(from + dx / root.pxPerSecond) - from)
                                     EditorState.playheadSeconds = from + moved
+                                    // Their values ride the pointer's height too, unless Shift.
+                                    const keepValues = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
+                                    root.groupDy = keepValues ? 0 : dy
+                                    for (const b of root.groupValueBase) {
+                                        const at = b.key.seconds + moved
+                                        EditorState.previewMoveClipKeyframe(
+                                            root.trackIndex, b.key.clip, b.key.prop, at, at,
+                                            root.groupValue(b.value, b.entry))
+                                    }
                                     return
                                 }
                                 const entry = keyDot.entry
