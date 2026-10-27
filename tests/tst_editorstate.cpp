@@ -10348,7 +10348,16 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     const QVariantList joined = keysOf(rowOf(QStringLiteral("position")));
     QCOMPARE(joined.size(), 2);
     QCOMPARE(joined.first().toMap().value(QStringLiteral("refs")).toList().size(), 2);
-    QCOMPARE(joined.last().toMap().value(QStringLiteral("refs")).toList().size(), 1);
+    // Keying X keys the position pair: each joined diamond carries every axis key at its time.
+    for (const QVariant &k : joined) {
+        const QVariantMap key = k.toMap();
+        int axes = 0;
+        for (const QString &axis : {QStringLiteral("x"), QStringLiteral("y")})
+            for (const QVariant &a : state.clipKeyframes(0, 0, axis))
+                axes += std::abs(a.toMap().value(QStringLiteral("seconds")).toDouble()
+                                 - key.value(QStringLiteral("seconds")).toDouble()) < 1e-6;
+        QCOMPARE(key.value(QStringLiteral("refs")).toList().size(), axes);
+    }
     state.setKeyframeGroupExpanded(0, QStringLiteral("position"), true);
     QCOMPARE(state.trackKeyframeRows(0).size(), 6);
     state.setKeyframeGroupExpanded(0, QStringLiteral("position"), false);

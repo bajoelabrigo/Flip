@@ -91,7 +91,9 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split), ink, s.wordSpacing, runs);
+                      static_cast<int>(split), ink, s.wordSpacing, runs,
+                      // 0.24: the font's features change the shapes, and shrinking changes the size.
+                      qHashMulti(0, s.ligatures, s.smallCaps, s.shrinkToFit));
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
