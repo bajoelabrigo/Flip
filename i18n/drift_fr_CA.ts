@@ -3332,6 +3332,18 @@
         <translation>Réduire la vitesse de lecture</translation>
     </message>
     <message>
+        <source>Go to previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show animated properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Zoom avant</translation>
     </message>
@@ -4919,6 +4931,14 @@
         <translation>Piste affichée</translation>
     </message>
     <message>
+        <source>Fades to keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The fades are now volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>X position</source>
         <translation>Position X</translation>
     </message>
@@ -4961,6 +4981,10 @@
     <message>
         <source>Volume</source>
         <translation>Volume</translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -7034,10 +7058,6 @@
     <message>
         <source>R %1</source>
         <translation>D %1</translation>
-    </message>
-    <message>
-        <source>Pan changed</source>
-        <translation>Pan modifié</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -11701,6 +11721,25 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>ClipVolumeLine</name>
+    <message>
+        <source>Adjust volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double-click to remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to change the volume, Ctrl+click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CloudProviders</name>
     <message>
         <source>No key set</source>
@@ -15000,6 +15039,22 @@ PROCHAINE</translation>
         <translation>Agrandir l&apos;éditeur de courbes pour voir et modifier les poignées de Bézier (180 px)</translation>
     </message>
     <message>
+        <source>Hide the speed graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the speed graph of the focused curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions: key X and Y of Position apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join dimensions: key X and Y of Position together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Analyzing…</source>
         <translation>Analyse en cours…</translation>
     </message>
@@ -15065,6 +15120,10 @@ PROCHAINE</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Stretch keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Move keyframes</source>
         <translation>Déplacer les images clés</translation>
@@ -17104,6 +17163,17 @@ PROCHAINE</translation>
     <message>
         <source>Ambient light</source>
         <translation>Lumière ambiante</translation>
+    </message>
+</context>
+<context>
+    <name>MotionPathOverlay</name>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25500,6 +25570,26 @@ Si la lecture saccade, essayez une autre option.</translation>
         <source>The quiet issue</source>
         <translation>Le numéro tranquille</translation>
     </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters %1–%2 · %3</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -25792,6 +25882,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Move to its own track</source>
         <translation>Déplacer sur sa propre piste</translation>
+    </message>
+    <message>
+        <source>Fades to volume keyframes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
@@ -26585,6 +26679,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26762,6 +26860,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26784,6 +26890,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>clic droit : Droit, Doux, Maintien, Courbes</translation>
+    </message>
+    <message>
+        <source>Alt+drag the first or last: stretch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

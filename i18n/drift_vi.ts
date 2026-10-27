@@ -3321,6 +3321,18 @@
         <translation>Giảm tốc độ phát lại</translation>
     </message>
     <message>
+        <source>Go to previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show animated properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Phóng to</translation>
     </message>
@@ -4907,6 +4919,14 @@
         <translation>Hiện track</translation>
     </message>
     <message>
+        <source>Fades to keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The fades are now volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>X position</source>
         <translation>Vị trí X</translation>
     </message>
@@ -4949,6 +4969,10 @@
     <message>
         <source>Volume</source>
         <translation>Âm lượng</translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -6991,10 +7015,6 @@
     <message>
         <source>R %1</source>
         <translation>R %1</translation>
-    </message>
-    <message>
-        <source>Pan changed</source>
-        <translation>Đã thay đổi xoay</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -11658,6 +11678,25 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>ClipVolumeLine</name>
+    <message>
+        <source>Adjust volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double-click to remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to change the volume, Ctrl+click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CloudProviders</name>
     <message>
         <source>No key set</source>
@@ -14946,6 +14985,22 @@ LẦN SAU</translation>
         <translation>Mở rộng trình chỉnh sửa đường cong để xem và sửa tay nắm Bezier (180px)</translation>
     </message>
     <message>
+        <source>Hide the speed graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the speed graph of the focused curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions: key X and Y of Position apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join dimensions: key X and Y of Position together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Analyzing…</source>
         <translation>Đang phân tích…</translation>
     </message>
@@ -15010,6 +15065,10 @@ LẦN SAU</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Stretch keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Move keyframes</source>
         <translation>Di chuyển các keyframe</translation>
@@ -17035,6 +17094,17 @@ LẦN SAU</translation>
     <message>
         <source>Ambient light</source>
         <translation>Ánh sáng môi trường</translation>
+    </message>
+</context>
+<context>
+    <name>MotionPathOverlay</name>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25412,6 +25482,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <source>The quiet issue</source>
         <translation>Số báo tĩnh lặng</translation>
     </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters %1–%2 · %3</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -25700,6 +25790,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Move to its own track</source>
         <translation>Di chuyển đến track riêng của nó</translation>
+    </message>
+    <message>
+        <source>Fades to volume keyframes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
@@ -26494,6 +26588,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26669,6 +26767,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26691,6 +26797,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>nhấp chuột phải: Thẳng, Êm, Giữ, Đường cong</translation>
+    </message>
+    <message>
+        <source>Alt+drag the first or last: stretch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
