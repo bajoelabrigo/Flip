@@ -542,13 +542,13 @@ Item {
         return layer && layer.paint && layer.paint.color ? layer.paint.color : fallback
     }
     function layerProp(layer, field, label, decimals) {
-        if (!layer || root.hasRunSelection)
+        if (!layer)
             return { "key": "", "label": label, "def": 0, "decimals": decimals }
         return { "key": "text.layer." + layer.id + "." + field, "label": label,
                  "def": Number(layer[field]) || 0, "decimals": decimals }
     }
     function layerKeyframes(layer, field) {
-        return layer && !root.hasRunSelection ? root.textKeyframes("layer." + layer.id + "." + field) : []
+        return layer ? root.textKeyframes("layer." + layer.id + "." + field) : []
     }
     function shadowOffsets(distance, angle) {
         const a = angle * Math.PI / 180
@@ -785,6 +785,30 @@ Item {
         function onSelectionChanged() { root.clipDataRevision++; root.refreshFields() }
         function onSelectedClipDataChanged() { root.clipDataRevision++; root.refreshFields() }
         function onTracksChanged() { root.clipDataRevision++; root.refreshFields() }
+    }
+
+    // Letters picked elsewhere (0.24): one set of shaded letters at a time.
+    Connections {
+        target: EditorState
+        // A preview edit ended with letters picked: the panel's «Texto de entrada» shades them, so
+        // the hint shows and what is touched next goes to them.
+        function onTextLettersPicked(track, clip, start, end) {
+            if (root.inAdvanced || !root.visible || track !== EditorState.selectedTrack
+                    || clip !== EditorState.selectedClip)
+                return
+            Qt.callLater(function () {
+                if (end <= textContentField.length)
+                    textContentField.select(start, end)
+            })
+        }
+        // Another inspector (the Texto avanzado window, the panel) took the letters: this field's
+        // shading would say something no longer true.
+        function onTextStyleRangeChanged(track, clip, start, end) {
+            if (root.inAdvanced || !root.hasRunSelection || start < 0)
+                return
+            if (start !== root.runSelectionStart || end !== root.runSelectionEnd)
+                textContentField.deselect()
+        }
     }
 
     Component.onCompleted: refreshFields()

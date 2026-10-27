@@ -12654,6 +12654,8 @@ void AppController::endInlineTextEdit(bool commit)
     const QString text = m_inlineEdit.text;
     const QString original = m_inlineEdit.original;
     const QList<drift::TextRun> originalRuns = m_inlineEdit.originalRuns;
+    const int pickedStart = qMin(m_inlineEdit.selStart, m_inlineEdit.selEnd);
+    const int pickedEnd = qMax(m_inlineEdit.selStart, m_inlineEdit.selEnd);
     m_inlineEdit = InlineTextEdit{};
 
     m_playback.setTextEditDecor({}, false);
@@ -12676,6 +12678,10 @@ void AppController::endInlineTextEdit(bool commit)
         emitPreviewFrame();
     }
     emit inlineEditGeometryChanged();
+    // Letters still picked when the edit ends (a click on the panel ends it): the inspector takes
+    // them, so what is touched next goes to those letters (0.24).
+    if (clip && commit && pickedStart >= 0 && pickedEnd > pickedStart)
+        emit textLettersPicked(track, clipIndex, pickedStart, pickedEnd);
 }
 
 QVariantList AppController::inlineCaretQuad() const
@@ -13245,10 +13251,14 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
 void AppController::setTextStyleRange(int trackIndex, int clipIndex, int start, int end)
 {
     const bool valid = start >= 0 && end > start;
+    const int keep[4] = {m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd};
     m_textRangeTrack = valid ? trackIndex : -1;
     m_textRangeClip = valid ? clipIndex : -1;
     m_textRangeStart = valid ? start : -1;
     m_textRangeEnd = valid ? end : -1;
+    if (m_textRangeTrack != keep[0] || m_textRangeClip != keep[1] || m_textRangeStart != keep[2]
+        || m_textRangeEnd != keep[3])
+        emit textStyleRangeChanged(m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd);
 }
 
 bool AppController::textStyleRangeFor(int trackIndex, int clipIndex, int *start, int *end) const
@@ -13279,9 +13289,39 @@ QList<drift::TextShadingLayer> AppController::textRangeLayers(const drift::Clip 
     return run && run->layersEnabled && !run->layers.isEmpty() ? run->layers : clip.textStyle.layers;
 }
 
-void AppController::writeTextRangeLayers(drift::Clip &clip, int start, int end,
-                                         const QList<drift::TextShadingLayer> &layers)
+QHash<QString, QString> AppController::writeTextRangeLayers(drift::Clip &clip, int start, int end,
+                                                            const QList<drift::TextShadingLayer> &stack)
 {
+    // The letters' layers get ids of their own (a copy of the block's "shadow" becomes "shadow~1"):
+    // the text's keyframes address a layer by id, and one on these letters must not move the block
+    // or other letters. The pieces of this pick keep theirs, so the ids stay put edit after edit.
+    QSet<QString> taken;
+    for (const drift::TextShadingLayer &layer : clip.textStyle.layers)
+        taken.insert(layer.id);
+    for (const drift::TextRun &r : clip.textStyle.runs) {
+        if (r.layersEnabled && (r.end <= start || r.start >= end))
+            for (const drift::TextShadingLayer &layer : r.layers)
+                taken.insert(layer.id);
+    }
+    QList<drift::TextShadingLayer> layers = stack;
+    QHash<QString, QString> renamed;
+    QSet<QString> used;
+    for (const drift::TextShadingLayer &layer : layers)
+        used.insert(layer.id);
+    for (drift::TextShadingLayer &layer : layers) {
+        if (!taken.contains(layer.id))
+            continue;
+        const QString base = layer.id.section(QLatin1Char('~'), 0, 0);
+        QString id;
+        for (int n = 1;; ++n) {
+            id = QStringLiteral("%1~%2").arg(base).arg(n);
+            if (!taken.contains(id) && !used.contains(id))
+                break;
+        }
+        renamed.insert(layer.id, id);
+        used.insert(id);
+        layer.id = id;
+    }
     // A new main fill (a swatch, a look, a quick style) has to show: the letters' own colour from
     // the text bar would paint over it, so it goes when that fill changes.
     const auto fillPaint = [](const QList<drift::TextShadingLayer> &stack) {
@@ -13298,6 +13338,21 @@ void AppController::writeTextRangeLayers(drift::Clip &clip, int start, int end,
             if (r.start >= start && r.end <= end)
                 r.colorEnabled = false;
     }
+    return renamed;
+}
+
+int AppController::textRangeLayerIndex(const QList<drift::TextShadingLayer> &layers, const QString &layerId)
+{
+    for (int i = 0; i < layers.size(); ++i)
+        if (layers.at(i).id == layerId)
+            return i;
+    // The inspector may still hold the block's id of a layer these letters copied ("shadow" for
+    // "shadow~1"): during a drag it is not told about the new one until the drag ends.
+    const QString copy = layerId + QLatin1Char('~');
+    for (int i = 0; i < layers.size(); ++i)
+        if (layers.at(i).id.startsWith(copy))
+            return i;
+    return -1;
 }
 
 void AppController::writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled)
@@ -26734,13 +26789,14 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     }
     const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
     layers.insert(index, layer);
+    QString id = layer.id;
     if (ranged)
-        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        id = writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers).value(layer.id, layer.id);
     else
         detachFromLook(stack);
     pushProjectEdit(before, tr("Add layer"));
     finishEdit(tr("Layer added"));
-    return layer.id;
+    return id;
 }
 
 bool AppController::removeStyleLayer(int trackIndex, int clipIndex, const QString &layerId)
@@ -26752,10 +26808,11 @@ bool AppController::removeStyleLayer(int trackIndex, int clipIndex, const QStrin
     int rangeStart = -1, rangeEnd = -1;
     if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
-        const int at = layerIndexOf(layers, layerId);
+        const int at = textRangeLayerIndex(layers, layerId);
         if (at < 0)
             return false;
         const drift::Project before = m_project;
+        drift::eraseLayerKeyframes(*stack.keyframes, layers.at(at).id);
         layers.removeAt(at);
         writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
         pushProjectEdit(before, tr("Remove layer"));
@@ -26783,17 +26840,17 @@ QString AppController::duplicateStyleLayer(int trackIndex, int clipIndex, const 
     int rangeStart = -1, rangeEnd = -1;
     if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
-        const int at = layerIndexOf(layers, layerId);
+        const int at = textRangeLayerIndex(layers, layerId);
         if (at < 0)
             return {};
         const drift::Project before = m_project;
         drift::TextShadingLayer copy = layers.at(at);
         copy.id = drift::mintTextLayerId(layers);
         layers.insert(at + 1, copy);
-        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        const QString id = writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers).value(copy.id, copy.id);
         pushProjectEdit(before, tr("Duplicate layer"));
         finishEdit(tr("Layer duplicated"));
-        return copy.id;
+        return id;
     }
     const int index = layerIndexOf(*stack.layers, layerId);
     if (index < 0)
@@ -26817,7 +26874,7 @@ bool AppController::moveStyleLayer(int trackIndex, int clipIndex, const QString 
     int rangeStart = -1, rangeEnd = -1;
     if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
-        const int at = layerIndexOf(layers, layerId);
+        const int at = textRangeLayerIndex(layers, layerId);
         const int to = qBound(0, toIndex, int(layers.size()) - 1);
         if (at < 0 || at == to)
             return false;
@@ -26853,6 +26910,10 @@ void AppController::setStyleLayer(int trackIndex, int clipIndex, const QString &
         const drift::Project before = m_project;
         drift::TextStyle own = clip->textStyle;
         own.layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(own.layers, layerId);
+        if (at < 0)
+            return;
+        layer.insert(QStringLiteral("id"), own.layers.at(at).id);
         applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
         writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
         pushProjectEdit(before, tr("Edit text style"));
@@ -26877,6 +26938,10 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
     if (clip->type != drift::ClipType::Shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         drift::TextStyle own = clip->textStyle;
         own.layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(own.layers, layerId);
+        if (at < 0)
+            return;
+        layer.insert(QStringLiteral("id"), own.layers.at(at).id);
         applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
         writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
     } else if (clip->type == drift::ClipType::Shape)

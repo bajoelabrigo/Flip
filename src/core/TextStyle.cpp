@@ -3,6 +3,7 @@
 #include <QMutex>
 #include <QMutexLocker>
 #include <QRegularExpression>
+#include <QSet>
 
 #include "Effect.h"
 #include "TextAnimationPreset.h"
@@ -1321,12 +1322,47 @@ const QMap<QString, QString> &legacyKeyAliases()
 
 } // namespace
 
+// A layer of the block, or of some letters' own stack (0.24, whose ids never clash with the
+// block's), and the stack it sits in.
+static const TextShadingLayer *findStyleLayer(const TextStyle &s, const QString &id,
+                                              const QList<TextShadingLayer> **stack = nullptr)
+{
+    if (const TextShadingLayer *layer = findTextLayer(s.layers, id)) {
+        if (stack)
+            *stack = &s.layers;
+        return layer;
+    }
+    for (const TextRun &run : s.runs) {
+        if (!run.layersEnabled)
+            continue;
+        if (const TextShadingLayer *layer = findTextLayer(run.layers, id)) {
+            if (stack)
+                *stack = &run.layers;
+            return layer;
+        }
+    }
+    return nullptr;
+}
+
 QStringList textKeyframeProperties(const TextStyle &s)
 {
     QStringList out = flatKeyframeKeys();
     for (const TextShadingLayer &layer : s.layers) {
         for (const QString &field : shadingLayerKeyframeFields(layer))
             out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
+    }
+    // The letters' own layers (0.24), once each: the pieces of one pick share their ids.
+    QSet<QString> seen;
+    for (const TextRun &run : s.runs) {
+        if (!run.layersEnabled)
+            continue;
+        for (const TextShadingLayer &layer : run.layers) {
+            if (findTextLayer(s.layers, layer.id) || seen.contains(layer.id))
+                continue;
+            seen.insert(layer.id);
+            for (const QString &field : shadingLayerKeyframeFields(layer))
+                out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
+        }
     }
     return out;
 }
@@ -1342,7 +1378,7 @@ QString textKeyframeCanonicalKey(const QString &key, const TextStyle &s)
     LayerKeyPath path;
     if (!parseLayerKey(candidate, &path))
         return {};
-    const TextShadingLayer *layer = findTextLayer(s.layers, path.layerId);
+    const TextShadingLayer *layer = findStyleLayer(s, path.layerId);
     if (!layer)
         return {};
     double probe = 0.0;
@@ -1381,6 +1417,23 @@ void scaleTextStyle(TextStyle &s, double factor)
         layer.sketchLength *= factor;
         layer.sketchDeviation *= factor;
     }
+    // The letters' own stack, box and move (0.24) are px at the block's size too.
+    for (TextRun &run : s.runs) {
+        for (TextShadingLayer &layer : run.layers) {
+            layer.offsetX *= factor;
+            layer.offsetY *= factor;
+            layer.blur *= factor;
+            layer.width *= factor;
+            layer.spread *= factor;
+            layer.sketchLength *= factor;
+            layer.sketchDeviation *= factor;
+        }
+        run.boxPadding *= factor;
+        run.boxRadius *= factor;
+        run.boxBorderWidth *= factor;
+        run.offsetX *= factor;
+        run.offsetY *= factor;
+    }
     static const QStringList kFlat{QStringLiteral("pixelSize"), QStringLiteral("letterSpacing"),
                                    QStringLiteral("boxPadding")};
     static const QStringList kLayerFields{QStringLiteral("offsetX"), QStringLiteral("offsetY"), QStringLiteral("blur"),
@@ -1409,7 +1462,12 @@ QString textKeyframeLabel(const QString &key, const TextStyle &s)
         return QCoreApplication::translate("TextStyle", "Box padding");
     if (canonical == QLatin1String("pathBend"))
         return QCoreApplication::translate("TextStyle", "Bend");
-    return shadingLayerKeyframeLabel(s.layers, canonical.isEmpty() ? key : canonical);
+    const QString layerKey = canonical.isEmpty() ? key : canonical;
+    LayerKeyPath path;
+    const QList<TextShadingLayer> *stack = &s.layers;
+    if (parseLayerKey(layerKey, &path))
+        findStyleLayer(s, path.layerId, &stack);
+    return shadingLayerKeyframeLabel(*stack, layerKey);
 }
 
 bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
@@ -1430,7 +1488,7 @@ bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
     else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
-        return shadingLayerScalar(*findTextLayer(s.layers, path.layerId), path.field, out);
+        return shadingLayerScalar(*findStyleLayer(s, path.layerId), path.field, out);
     }
     return true;
 }
@@ -1453,7 +1511,18 @@ bool setTextStyleScalar(TextStyle &s, const QString &rawKey, double value)
     else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
-        return setShadingLayerScalar(*findTextLayer(s.layers, path.layerId), path.field, value);
+        // The block's layer, or every piece of the letters that carry it (one pick split by a
+        // colour is still one layer to animate).
+        bool set = false;
+        if (TextShadingLayer *layer = findTextLayer(s.layers, path.layerId))
+            set = setShadingLayerScalar(*layer, path.field, value);
+        for (TextRun &run : s.runs) {
+            if (!run.layersEnabled)
+                continue;
+            if (TextShadingLayer *layer = findTextLayer(run.layers, path.layerId))
+                set = setShadingLayerScalar(*layer, path.field, value) || set;
+        }
+        return set;
     }
     return true;
 }

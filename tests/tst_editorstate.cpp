@@ -1092,6 +1092,19 @@ void EditorStateTest::shadedLettersTakeLayersLooksAndBoxAlone()
     state.redo();
     QVERIFY(shadowOf());
 
+    // Its id is its own, never one of the block's: a keyframe on it animates only these letters.
+    QVERIFY(!drift::findTextLayer(clip().textStyle.layers, shadow));
+    const QString prop = QStringLiteral("text.layer.%1.offsetX").arg(shadow);
+    state.setClipKeyframe(t, c, prop, 0.0, 2.0);
+    state.setClipKeyframe(t, c, prop, 1.0, 30.0);
+    const drift::TextStyle halfway = clip().textStyle.resolvedAt(drift::secondsToUs(0.5));
+    const drift::TextRun *halfRun = drift::textRunAt(halfway.runs, 5);
+    QVERIFY(halfRun);
+    const drift::TextShadingLayer *moving = drift::findTextLayer(halfRun->layers, shadow);
+    QVERIFY(moving);
+    QVERIFY2(moving->offsetX > 2.5 && moving->offsetX < 29.5, qPrintable(QString::number(moving->offsetX)));
+    QCOMPARE(halfway.layers.size(), blockLayers.size());
+
     // Removing it there leaves the block alone too.
     QVERIFY(state.removeStyleLayer(t, c, shadow));
     QVERIFY(!shadowOf());

@@ -207,6 +207,27 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
 - [ ] Teclas de fotograma (rombos) en las capas de unas letras: no hay (`layerProp` sin clave con letras sombreadas).
 - [ ] Web: dibujar los efectos por letras (por ahora solo los conserva al abrir y guardar).
 
+## Ampliación pedida por Jorge (2026-10-26, noche): sale todo en la 0.24
+
+Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovechemos esto para hacer todo»):
+
+- [x] Selección sobre la vista previa: al terminar de escribir con letras elegidas, el «Texto de entrada» del panel
+      las sombrea (`AppController::textLettersPicked`); un inspector que pierde las letras las suelta
+      (`textStyleRangeChanged`).
+- [x] Rombos de fotograma clave en las capas de unas letras: las capas de un tramo llevan ids propios (`<id>~n`,
+      `writeTextRangeLayers`) y el mapa de claves del texto también las busca en los tramos (`findStyleLayer` en
+      `TextStyle.cpp`). `scaleTextStyle` escala también lo de los tramos (DeepSeek lo había olvidado).
+- [ ] Web: dibujar los efectos por letras (agente en `flipstudio-app`, `web/v0221-texto`).
+- [ ] Márgenes de Texto avanzado (Arreglo aparte 2): mirarlos en ventana, y el panel derecho también.
+- [ ] 1. Espacio entre letras e interlineado solo en las letras elegidas (`TextRun::letterSpacing*`, `lineHeight*`).
+- [ ] 2. Opacidad de las letras elegidas (`TextRun::opacity*`).
+- [ ] 3. Superíndice y subíndice (`TextRun::baseline`: normal/super/sub, tamaño 0,6 y desplazamiento).
+- [ ] 4. «Quitar estilo de las letras» también en el panel de la derecha.
+- [ ] 5. Copiar el estilo de unas letras y pegarlo en otras (pincel).
+- [ ] 6. Texto que se encoge para caber en su caja (`TextStyle::shrinkToFit`).
+- [ ] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto.
+- [ ] 8. Ligaduras y versalitas (rasgos OpenType `liga`, `smcp` en la fuente del bloque).
+
 ## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
 
 1. **El fondo de las letras se escalaba dos veces** (`drawRunBackgrounds` multiplicaba por `m_scale` un `cellRect`

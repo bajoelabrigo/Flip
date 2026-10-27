@@ -1916,6 +1916,10 @@ signals:
     void inlineTextEditingChanged();
     // The inline editor's text was laid out again: caret and selection geometry moved.
     void inlineEditGeometryChanged();
+    // An edit on the preview ended with these letters picked [start, end) (0.24).
+    void textLettersPicked(int trackIndex, int clipIndex, int start, int end);
+    // setTextStyleRange changed the letters the layer calls aim at; -1, -1 when none.
+    void textStyleRangeChanged(int trackIndex, int clipIndex, int start, int end);
     void externalProjectOpenRequested(const QUrl &url);
     void tracksChanged();
     // A drag wrote these properties in place without announcing tracksChanged; the full refresh
@@ -2599,7 +2603,11 @@ protected:
     // The stack those letters paint with now: their stretch's own, or a copy of the block's.
     QList<drift::TextShadingLayer> textRangeLayers(const drift::Clip &clip, int start) const;
     // Gives the letters [start, end) the stack `layers` (and keeps everything else they had).
-    void writeTextRangeLayers(drift::Clip &clip, int start, int end, const QList<drift::TextShadingLayer> &layers);
+    // Their layers get ids of their own; the answer says which ones were renamed (old -> new).
+    QHash<QString, QString> writeTextRangeLayers(drift::Clip &clip, int start, int end,
+                                                 const QList<drift::TextShadingLayer> &stack);
+    // A layer of the letters' stack by id, or the copy of a block layer with that id.
+    static int textRangeLayerIndex(const QList<drift::TextShadingLayer> &layers, const QString &layerId);
     // The same, plus the font of `styled` when it differs from the block's (a look, a quick style).
     void writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled);
     // Begun by a setter rather than a press (keyboard nudges); commits once the nudges stop.
