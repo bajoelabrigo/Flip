@@ -774,6 +774,9 @@ public:
     // After Effects' stopwatch switched off (0.25): every key of these properties goes and each keeps
     // the value it has at atSeconds. One undo step.
     Q_INVOKABLE void stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds);
+    // The playhead dragged near a key lands on it (0.25, After Effects): the nearest key time within
+    // toleranceSeconds, else `seconds` unchanged.
+    Q_INVOKABLE double snapPlayheadToKeys(double seconds, double toleranceSeconds) const;
     // The box a clip has at 100 % (what Reset gives it), {w, h} in project px: the base of After
     // Effects' two Scale values (0.25).
     Q_INVOKABLE QVariantMap clipNaturalSize(int trackIndex, int clipIndex);

@@ -623,6 +623,9 @@ PanelFrame {
         solidSettings.openFor(trackIndex, clipIndex)
     }
 
+    // How near (screen px) a key has to be for the dragged playhead to land on it (0.25).
+    readonly property real playheadKeySnapPx: 8
+
     // The curve editor on and off; on, it opens the lines of the clip being edited.
     function toggleGraphMode() {
         const on = !EditorState.preferences.curveEditorVisible
@@ -1588,8 +1591,10 @@ PanelFrame {
                             z: 1
 
                             function scrubTo(x) {
-                                EditorState.playheadSeconds =
-                                    EditorState.snapTime(Math.max(0, x) / root.pxPerSecond)
+                                // A key within a few pixels catches the playhead, as After Effects.
+                                const t = Math.max(0, x) / root.pxPerSecond
+                                const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
+                                EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                             }
 
                             // Seeking is not a selection change: scrubbing to look at a
@@ -2883,12 +2888,14 @@ PanelFrame {
                         // Follow either drag live so the preview scrubs with it.
                         onXChanged: {
                             if (playheadDragArea.drag.active || playheadLineDrag.drag.active)
-                                EditorState.playheadSeconds = playhead.x / root.pxPerSecond
+                                EditorState.playheadSeconds = EditorState.snapPlayheadToKeys(
+                                    playhead.x / root.pxPerSecond, root.playheadKeySnapPx / root.pxPerSecond)
                         }
 
                         function finishSeek() {
-                            EditorState.playheadSeconds =
-                                EditorState.snapTime(playhead.x / root.pxPerSecond)
+                            const t = playhead.x / root.pxPerSecond
+                            const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
+                            EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                         }
 
                         Rectangle {

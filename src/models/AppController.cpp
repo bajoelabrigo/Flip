@@ -12243,6 +12243,24 @@ void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const
     previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated, animated);
 }
 
+double AppController::snapPlayheadToKeys(double seconds, double toleranceSeconds) const
+{
+    QList<drift::TimeUs> keys;
+    appendKeyframeSnapTargets(&keys, QString());
+    const drift::TimeUs at = drift::secondsToUs(seconds);
+    const drift::TimeUs tolerance = drift::secondsToUs(qMax(0.0, toleranceSeconds));
+    drift::TimeUs best = -1;
+    drift::TimeUs bestDistance = tolerance + 1;
+    for (const drift::TimeUs key : std::as_const(keys)) {
+        const drift::TimeUs distance = qAbs(key - at);
+        if (distance <= tolerance && distance < bestDistance) {
+            best = key;
+            bestDistance = distance;
+        }
+    }
+    return best >= 0 ? drift::usToSeconds(best) : seconds;
+}
+
 QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
