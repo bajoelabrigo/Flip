@@ -50,7 +50,17 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-26)
+## Estado (actualizado 2026-10-27)
+
+### 0.24.0 PUBLICADA (2026-10-27) — efectos de texto solo en las letras elegidas, fotogramas clave por pista — **detalle en `docs/plan-0.24.md`**
+- DeepSeek empezó (tramos con su pila de capas); Claude revisó, arregló y terminó. **Probado en ventana** (portables
+  `pruebas\FlipStudio-0.24-final`, `-b`, `-c`): letras elegidas, Letras seleccionadas, Buscar y reemplazar, filas de
+  claves con el rombo, editor de curvas bajo su pista, interruptores enteros, Cancelar de Texto avanzado.
+- **Falta (Jorge):** subir el MSIX (con las notas que correspondan según lo aprobado) y TXT `version`.
+- **Trampas nuevas:** un `Switch` con `clip: true` y ancho fijo pierde su extremo derecho por el `leftPadding` del
+  estilo Basic (`padding: 0`); `beginEditSession` con una sesión abierta la cierra primero (si no, Cancelar deshacía
+  todo lo anterior); en QML, leer todo lo que hace falta **antes** de la primera edición (los delegados se rehacen y
+  las propiedades quedan `undefined`); `mcp_e2e.py` `sleep` va en **segundos**.
 
 ### 0.23.0 PUBLICADA (2026-10-26) — Texto avanzado como Filmora, panel izquierdo en árbol — **detalle en `docs/plan-0.23.md`**
 - PR #39 (`flip/v0.22.1` → `main`), tag `v0.23.0`, release (run 40295017830); copia en `versiones\FlipStudio-0.23.0`
