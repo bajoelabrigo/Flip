@@ -9877,11 +9877,15 @@ void EditorStateTest::volumeIsAnAnimatedPropertyOnAudioClips()
     state.project()->tracks()[0].clips.append(clip);
     state.selectClip(0, 0);
 
-    // Unkeyed, and a lone key at the origin, both read as "not animated" — that is the base
-    // value, not a curve, and it is the same rule every other property follows.
+    // Unkeyed, and a static value kept as a lone key at the origin, both read as "not animated" —
+    // that is the base value, not a curve, and it is the same rule every other property follows.
     QVERIFY(!state.clipAnimatedProperties(0, 0).contains(QStringLiteral("volume")));
+    state.project()->tracks()[0].clips[0].volume.setKeyframe(0, 0.8);
+    QVERIFY(!state.clipAnimatedProperties(0, 0).contains(QStringLiteral("volume")));
+    // A key put on purpose (the diamond, After Effects' stopwatch) is an animation even alone at
+    // the start (0.25, Jorge: «cuando se pone fotograma en el segundo 0 no aparece»).
     state.setClipKeyframe(0, 0, QStringLiteral("volume"), 0.0, 1.0);
-    QVERIFY(!state.clipAnimatedProperties(0, 0).contains(QStringLiteral("volume")));
+    QVERIFY(state.clipAnimatedProperties(0, 0).contains(QStringLiteral("volume")));
 
     // A second key is a real ramp, so the lane has something to draw.
     state.setClipKeyframe(0, 0, QStringLiteral("volume"), 2.0, 0.25);
