@@ -318,6 +318,7 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("srcOutUs"), static_cast<double>(clip.srcOut)},
         {QStringLiteral("volume"), keyframesToJson(clip.volume)},
         {QStringLiteral("pan"), clip.pan},
+        {QStringLiteral("panKeys"), keyframesToJson(clip.panKeys)},
         {QStringLiteral("opacity"), keyframesToJson(clip.opacity)},
         {QStringLiteral("x"), keyframesToJson(clip.transformX)},
         {QStringLiteral("y"), keyframesToJson(clip.transformY)},
@@ -521,6 +522,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
         clip.volume.setKeyframe(0, object.value(QStringLiteral("volume")).toDouble(1.0));
     }
     clip.pan = object.value(QStringLiteral("pan")).toDouble(0.0);
+    clip.panKeys = keyframesFromJson(object.value(QStringLiteral("panKeys")).toObject());
     clip.opacity = keyframesFromJson(object.value(QStringLiteral("opacity")).toObject());
     clip.rotation = keyframesFromJson(object.value(QStringLiteral("rotation")).toObject());
     clip.rotationX = keyframesFromJson(object.value(QStringLiteral("rotationX")).toObject());
@@ -825,6 +827,7 @@ void detachClip(Clip &clip)
     clip.positionZ.detachSharedData();
     clip.perspective.detachSharedData();
     clip.volume.detachSharedData();
+    clip.panKeys.detachSharedData();
     clip.speedCurve.detachSharedData();
     clip.mask.points.detach();
     clip.mask.pathKeys.detach();

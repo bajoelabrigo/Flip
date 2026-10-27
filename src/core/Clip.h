@@ -269,6 +269,9 @@ struct Clip
     // tag dropped). 0 = show the file as its own tag says.
     int rotationCorrection = 0;
     KeyframeTrack<double> volume;
+    // The balance animated (0.25, as Premiere's Pan): when it has keys it wins over `pan`, which
+    // keeps the last static value. Key times relative to the clip's start, like `volume`.
+    KeyframeTrack<double> panKeys;
     QList<Effect> effects;
     QList<Effect> audioEffects; // libavfilter chains applied to this clip's audio in the mixer
 

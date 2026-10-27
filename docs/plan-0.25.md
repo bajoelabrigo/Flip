@@ -34,7 +34,17 @@ Rama: `flip/v0.24.1` (empezó con el arreglo del Ángulo; se publicará como 0.2
       la Transformación de las letras elegidas (X, Y, Escala, Rotación) se anima con rombo: las letras llevan
       `TextRun::animId` y las claves son `text.run.<animId>.<campo>` (`TextStyle.cpp`: `parseRunKey`,
       `runKeyframeFields`). Falta: opacidad de las letras con rombo en «Letras seleccionadas».
-- [ ] 10. **Audio** (ver abajo).
+- [x] 10. **Audio** (Jorge lo aprobó el 2026-10-27, «hazlo tal y como me lo indicas»):
+      - filas fijas **Volumen** (en dB) y **Panorama** en las pistas de audio (`audioKeyframeGroups`,
+        `fixedKeyframeGroups` en `AppController.cpp`);
+      - **panorama animable**: `Clip::panKeys` (JSON `panKeys`), el mezclador lo evalúa en cada punto de control
+        (`AudioMixer.cpp`: `panForClip`, ganancias izquierda/derecha interpoladas); prop `pan` en
+        `keyframeTrackForProp`, `writeClipPropValue` y `propertyBaseValue`; Audio › Panorama con rombo;
+      - **línea de volumen** sobre la onda (`timeline/ClipVolumeLine.qml`): arrastrar el tramo entre dos claves
+        (o todo el nivel), Ctrl+clic pone una clave, los puntos se arrastran (Mayús: solo el nivel), doble clic
+        los quita. Escala en dB de −40 a +6;
+      - **fundidos a claves**: clic derecho › «Fades to volume keyframes» (`convertFadesToVolumeKeys`);
+      - **imán al ritmo**: ya lo daba `snapTime` (golpes cuando la cuadrícula de ritmo está visible).
 
 ## Cómo se probó / qué falta probar
 - CI: build de Windows y Tests de la rama `flip/v0.24.1` (ver `gh run list --branch flip/v0.24.1`).

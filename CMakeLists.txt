@@ -1402,6 +1402,7 @@ qt_add_qml_module(drift
         src/qml/TimelinePanel.qml
         src/qml/components/timeline/TimelineToolbar.qml
         src/qml/components/timeline/TrackKeyframeRows.qml
+        src/qml/components/timeline/ClipVolumeLine.qml
         src/qml/components/timeline/KeyframeGlyph.qml
         src/qml/components/timeline/KeyframeCurvesPopup.qml
         src/qml/components/timeline/KeyframeKeyTools.qml

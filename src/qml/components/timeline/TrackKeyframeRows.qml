@@ -152,6 +152,8 @@ Item {
         case "rotation": return qsTranslate("TrackKeyframeRows", "Rotation")
         case "scale": return qsTranslate("TrackKeyframeRows", "Scale")
         case "opacity": return qsTranslate("TrackKeyframeRows", "Opacity")
+        case "volume": return qsTranslate("TrackKeyframeRows", "Volume")
+        case "pan": return qsTranslate("TrackKeyframeRows", "Pan")
         }
         switch (row.axis ? row.prop : "") {
         case "x": return "X"

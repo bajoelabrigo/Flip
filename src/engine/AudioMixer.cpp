@@ -47,6 +47,22 @@ double volumeForClip(const drift::Clip &clip, drift::TimeUs timelineUs)
 // Balance law: attenuate one side, leave the other alone. Unity at centre, unlike a
 // constant-power sin/cos pan, which would drop every existing clip's level by 3 dB the moment
 // this shipped.
+// The clip's balance at timelineUs: its keys when it has any (0.25), else the plain value.
+double panForClip(const drift::Clip &clip, drift::TimeUs timelineUs)
+{
+    if (clip.panKeys.isEmpty())
+        return clip.pan;
+    const drift::TimeUs relative = qMax<drift::TimeUs>(0, timelineUs - clip.timelineStart);
+    return clip.panKeys.evaluateAt(relative);
+}
+
+void panGainsFor(double value, float *leftOut, float *rightOut)
+{
+    const double pan = qBound(-1.0, value, 1.0);
+    *leftOut = static_cast<float>(qMin(1.0, 1.0 - pan));
+    *rightOut = static_cast<float>(qMin(1.0, 1.0 + pan));
+}
+
 void panGainsForClip(const drift::Clip &clip, float *leftOut, float *rightOut)
 {
     const double pan = qBound(-1.0, clip.pan, 1.0);
@@ -406,28 +422,48 @@ void accumulateClipAudio(const drift::Project &project, const drift::Clip &clip,
                                   * clip.fadeMultiplier(t, edge.ownsIn, edge.ownsOut)
                                   * clip.audioEdgeMultiplier(t, edge.ownsIn, edge.ownsOut));
     };
-    const float scaleL = panL * trackVol * trackPanL;
-    const float scaleR = panR * trackVol * trackPanR;
+    const float scaleL = trackVol * trackPanL;
+    const float scaleR = trackVol * trackPanR;
+    // An animated balance rides the same control points as the gain; a plain one is constant.
+    const bool panAnimated = !clip.panKeys.isEmpty();
+    const auto sideGainsAt = [&](int frame, float *left, float *right) {
+        const float gain = gainAt(frame);
+        float l = panL;
+        float r = panR;
+        if (panAnimated) {
+            const drift::TimeUs t = timelineStartUs
+                + static_cast<drift::TimeUs>((static_cast<int64_t>(frame) * drift::kUsPerSecond) / sampleRate);
+            panGainsFor(panForClip(clip, t), &l, &r);
+        }
+        *left = gain * l;
+        *right = gain * r;
+    };
 
     float peakL = 0.0f;
     float peakR = 0.0f;
-    float gainA = frames > 0 ? gainAt(0) : 0.0f;
+    float gainLA = 0.0f;
+    float gainRA = 0.0f;
+    if (frames > 0)
+        sideGainsAt(0, &gainLA, &gainRA);
     for (int start = 0; start < frames; start += kGainStep) {
         const int end = qMin(frames, start + kGainStep);
         // The span's far end: the next control point, or the block's last frame.
-        const float gainB = end < frames ? gainAt(end) : gainAt(frames - 1);
+        float gainLB = 0.0f;
+        float gainRB = 0.0f;
+        sideGainsAt(end < frames ? end : frames - 1, &gainLB, &gainRB);
         const int span = end < frames ? kGainStep : qMax(1, frames - 1 - start);
-        const float slope = (gainB - gainA) / float(span);
+        const float slopeL = (gainLB - gainLA) / float(span);
+        const float slopeR = (gainRB - gainRA) / float(span);
         for (int i = start; i < end; ++i) {
-            const float gain = gainA + slope * float(i - start);
-            const float sampleL = chunk[i * 2] * gain * scaleL;
-            const float sampleR = chunk[i * 2 + 1] * gain * scaleR;
+            const float sampleL = chunk[i * 2] * (gainLA + slopeL * float(i - start)) * scaleL;
+            const float sampleR = chunk[i * 2 + 1] * (gainRA + slopeR * float(i - start)) * scaleR;
             mixBuffer[i * 2] += sampleL;
             mixBuffer[i * 2 + 1] += sampleR;
             peakL = qMax(peakL, qAbs(sampleL));
             peakR = qMax(peakR, qAbs(sampleR));
         }
-        gainA = gainB;
+        gainLA = gainLB;
+        gainRA = gainRB;
     }
     if (outPeakL)
         *outPeakL = qMax(*outPeakL, peakL);

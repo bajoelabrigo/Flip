@@ -643,6 +643,17 @@ Item {
                 onTriggered: EditorState.moveAdjustmentToOwnTrack(clipItem.trackIndex,
                                                                   clipItem.clipIndex)
             }
+            ThemedMenuItem {
+                // Premiere-style: the fades become points on the volume line (0.25).
+                text: qsTr("Fades to volume keyframes")
+                visible: {
+                    void EditorState.tracksRevision
+                    return (clipItem.trackType === "audio" || clipItem.clipData.kind === "video")
+                           && EditorState.clipHasSoundFades(clipItem.trackIndex, clipItem.clipIndex)
+                }
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.convertFadesToVolumeKeys(clipItem.trackIndex, clipItem.clipIndex)
+            }
             ThemedMenuSeparator { }
             ThemedMenuItem {
                 text: qsTr("Delete")
@@ -652,6 +663,25 @@ Item {
         }
     }
 
+
+    // The volume line over an audio clip's waveform, as Premiere's (0.25).
+    ClipVolumeLine {
+        anchors.fill: parent
+        anchors.topMargin: 3
+        anchors.bottomMargin: 3
+        z: 30
+        visible: clipItem.trackType === "audio" && !clipItem.touchMode && clipItem.width > 12
+                 && clipItem.height >= 24
+        trackIndex: clipItem.trackIndex
+        clipIndex: clipItem.clipIndex
+        clipStart: clipItem.effectiveStart
+        pxPerSecond: clipItem.panel.pxPerSecond
+        staticGain: {
+            void EditorState.tracksRevision
+            return EditorState.propertyValueAt(clipItem.trackIndex, clipItem.clipIndex, "volume",
+                                               clipItem.effectiveStart, 1.0)
+        }
+    }
 
     // Fade dots sit above trim handles so they stay
     // grabable at the corners (zero fade). Trim the

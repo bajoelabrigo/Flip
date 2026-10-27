@@ -2904,6 +2904,8 @@ drift::KeyframeTrack<double> *transformTrackForProp(drift::Clip &clip, const QSt
         return &clip.perspective;
     if (prop == QStringLiteral("volume"))
         return &clip.volume;
+    if (prop == QStringLiteral("pan"))
+        return &clip.panKeys;
     return nullptr;
 }
 
@@ -3117,6 +3119,19 @@ bool writeMaskScalar(drift::Mask &mask, const QString &key, double value)
 bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs relative, double value,
                         bool autoKey, bool force)
 {
+    // The balance (0.25): `pan` is its static home, `panKeys` its animation.
+    if (prop == QLatin1String("pan")) {
+        value = qBound(-1.0, value, 1.0);
+        if (clip.panKeys.isEmpty() && !force && !autoKey) {
+            clip.pan = value;
+            return true;
+        }
+        if (!writeKeyframeValue(clip.panKeys, relative, value, autoKey, force))
+            return false;
+        clip.pan = value;
+        return true;
+    }
+
     // A mask scalar mirrors an effect param: the static member holds the last value so clearing
     // the track leaves the mask where the user put it, rather than snapping to the struct default.
     QString maskKey;
@@ -3436,6 +3451,7 @@ QVariantMap keyframesToMap(const drift::Clip &clip)
         {QStringLiteral("z"), keyframeTrackToMap(clip.positionZ, clip.timelineStart)},
         {QStringLiteral("perspective"), keyframeTrackToMap(clip.perspective, clip.timelineStart)},
         {QStringLiteral("volume"), keyframeTrackToMap(clip.volume, clip.timelineStart)},
+        {QStringLiteral("pan"), keyframeTrackToMap(clip.panKeys, clip.timelineStart)},
     };
 }
 
@@ -18318,6 +18334,8 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
         const drift::Track &track = m_project.tracks().at(trackIndex);
         if (clipIndex >= 0 && clipIndex < track.clips.size()) {
             const drift::Clip &clip = track.clips.at(clipIndex);
+            if (prop == QLatin1String("pan"))
+                return clip.pan;
             int effectIndex = -1;
             QString paramKey;
             if (parseEffectProp(prop, &effectIndex, &paramKey)
@@ -18476,7 +18494,7 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
         QStringLiteral("x"),       QStringLiteral("y"),       QStringLiteral("width"),
         QStringLiteral("height"),  QStringLiteral("rotation"), QStringLiteral("rotationX"),
         QStringLiteral("rotationY"), QStringLiteral("z"),     QStringLiteral("perspective"),
-        QStringLiteral("opacity"), QStringLiteral("volume"),
+        QStringLiteral("opacity"), QStringLiteral("volume"), QStringLiteral("pan"),
     };
     for (const QString &prop : transformProps) {
         const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
@@ -23627,6 +23645,48 @@ void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)
     notifyTracksChanged();
 }
 
+bool AppController::clipHasSoundFades(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const bool audio = clip.type == drift::ClipType::Audio;
+    return (audio ? clip.fadeInUs : clip.audioFadeInUs) > 0 || (audio ? clip.fadeOutUs : clip.audioFadeOutUs) > 0;
+}
+
+bool AppController::convertFadesToVolumeKeys(int trackIndex, int clipIndex)
+{
+    if (!clipHasSoundFades(trackIndex, clipIndex))
+        return false;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const bool audio = clip.type == drift::ClipType::Audio;
+    drift::TimeUs &fadeIn = audio ? clip.fadeInUs : clip.audioFadeInUs;
+    drift::TimeUs &fadeOut = audio ? clip.fadeOutUs : clip.audioFadeOutUs;
+    const drift::TimeUs duration = clip.timelineDuration;
+    const drift::TimeUs inEnd = qBound<drift::TimeUs>(0, fadeIn, duration);
+    const drift::TimeUs outStart = qBound<drift::TimeUs>(inEnd, duration - fadeOut, duration);
+    drift::KeyframeTrack<double> &volume = clip.volume;
+    // The level the fades reach, read before any key is written.
+    const auto levelAt = [&](drift::TimeUs rel) { return volume.isEmpty() ? 1.0 : volume.evaluateAt(rel); };
+    const double inLevel = levelAt(inEnd);
+    const double outLevel = levelAt(outStart);
+    if (fadeIn > 0) {
+        volume.setKeyframe(0, 0.0);
+        volume.setKeyframe(inEnd, inLevel);
+    }
+    if (fadeOut > 0) {
+        volume.setKeyframe(outStart, outLevel);
+        volume.setKeyframe(duration, 0.0);
+    }
+    fadeIn = 0;
+    fadeOut = 0;
+    pushProjectEdit(before, tr("Fades to keyframes"));
+    finishEdit(tr("Fades to keyframes"));
+    setLastMessage(tr("The fades are now volume keyframes"), QStringLiteral("success"));
+    return true;
+}
+
 void AppController::stepToKeyframe(bool forward)
 {
     // The selected clip's keys, or every clip's under the playhead when none is selected.
@@ -23701,6 +23761,7 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
         {QStringLiteral("perspective"), QT_TR_NOOP("Perspective")},
         {QStringLiteral("opacity"), QT_TR_NOOP("Opacity")},
         {QStringLiteral("volume"), QT_TR_NOOP("Volume")},
+        {QStringLiteral("pan"), QT_TR_NOOP("Pan")},
         {QStringLiteral("mask.x"), QT_TR_NOOP("Mask X")},
         {QStringLiteral("mask.y"), QT_TR_NOOP("Mask Y")},
         {QStringLiteral("mask.w"), QT_TR_NOOP("Mask width")},
@@ -23765,6 +23826,27 @@ bool tracksTransform(const drift::Track &track)
            || track.type == drift::TrackType::Shape;
 }
 
+// An audio track's fixed lines (0.25, as Premiere's): Volume and Pan.
+const QList<KeyframeGroup> &audioKeyframeGroups()
+{
+    static const QList<KeyframeGroup> groups = {
+        {"volume", {QStringLiteral("volume")}},
+        {"pan", {QStringLiteral("pan")}},
+    };
+    return groups;
+}
+
+// The fixed lines a track unfolds into, whatever their kind; none for the rest.
+const QList<KeyframeGroup> &fixedKeyframeGroups(const drift::Track &track)
+{
+    static const QList<KeyframeGroup> none;
+    if (tracksTransform(track))
+        return keyframeGroups();
+    if (track.type == drift::TrackType::Audio)
+        return audioKeyframeGroups();
+    return none;
+}
+
 } // namespace
 
 void AppController::setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded)
@@ -23812,8 +23894,8 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
     // added to a clip that has none yet. A joined line holds one key per time any of its axes has
     // one, carrying the axes' own keys (refs) so a drag moves them together.
     QSet<QString> grouped;
-    if (tracksTransform(track)) {
-        for (const KeyframeGroup &group : keyframeGroups()) {
+    {
+        for (const KeyframeGroup &group : fixedKeyframeGroups(track)) {
             const QString groupId = QString::fromLatin1(group.id);
             for (const QString &prop : group.props)
                 grouped.insert(prop);

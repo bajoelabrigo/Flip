@@ -1611,6 +1611,7 @@ void forEachKeyframeTrack(Clip &clip, Fn &&fn)
     fn(clip.positionZ);
     fn(clip.perspective);
     fn(clip.volume);
+    fn(clip.panKeys);
     const auto visitMap = [&fn](QMap<QString, KeyframeTrack<double>> &tracks) {
         for (auto it = tracks.begin(); it != tracks.end(); ++it)
             fn(it.value());

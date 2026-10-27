@@ -1693,6 +1693,10 @@ public:
     // The After-Effects-style twirl on a track header: unfolds one line per animated property
     // of the track's clips under it. View-only, saved with the project.
     Q_INVOKABLE void setTrackKeyframesExpanded(int trackIndex, bool expanded);
+    // The sound's fade in and out turned into volume keys (0.25): from silence to the level and
+    // back, so their shape can be edited on the volume line. The fades are cleared.
+    Q_INVOKABLE bool convertFadesToVolumeKeys(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool clipHasSoundFades(int trackIndex, int clipIndex) const;
     // After Effects' keys (0.25): the playhead to the selected clip's key before/after it, and U.
     Q_INVOKABLE void stepToKeyframe(bool forward);
     Q_INVOKABLE void toggleRevealKeyframes();

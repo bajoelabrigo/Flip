@@ -1127,6 +1127,7 @@ Item {
                         // Position, Rotation, Scale and Opacity (and their axes) can go back to the
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
+                                                           && modelData.group !== "volume" && modelData.group !== "pan"
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
@@ -1176,6 +1177,21 @@ Item {
                             }
                             if (group === "opacity")
                                 return Math.round(valueOf("opacity") * 100) + " %"
+                            if (group === "volume") {
+                                // In dB, as the audio inspector reads it.
+                                const g = valueOf("volume")
+                                return isNaN(g) ? "—" : (g <= 0.0001 ? "-∞ dB"
+                                                                      : (20 * Math.log10(g)).toFixed(1) + " dB")
+                            }
+                            if (group === "pan") {
+                                const p = valueOf("pan")
+                                if (isNaN(p))
+                                    return "—"
+                                if (Math.abs(p) < 0.005)
+                                    return qsTranslate("AudioInspector", "C")
+                                return (p < 0 ? qsTranslate("AudioInspector", "L %1")
+                                              : qsTranslate("AudioInspector", "R %1")).arg(Math.round(Math.abs(p) * 100))
+                            }
                             const v = valueOf(keyLine.modelData.prop)
                             return isNaN(v) ? "—" : (Math.abs(v) >= 10 ? String(Math.round(v)) : v.toFixed(2))
                         }
@@ -1185,6 +1201,8 @@ Item {
                             case "rotation": return "rotate-cw"
                             case "scale": return "scaling"
                             case "opacity": return Theme.icons.blend
+                            case "volume": return "volume-2"
+                            case "pan": return "arrow-right-left"
                             }
                             return ""
                         }
