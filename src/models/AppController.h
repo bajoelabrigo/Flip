@@ -666,6 +666,11 @@ public:
     // name empty = «Solid»; a size of 0 = the frame's; centred on the frame.
     Q_INVOKABLE void addSolidClip(const QString &colorName = QString(), const QString &name = QString(),
                                   double width = 0, double height = 0);
+    // After Effects' Solid Settings on a solid already placed: {name, color, width, height}, empty
+    // for any other clip; and the change, as one undo step.
+    Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setSolidSettings(int trackIndex, int clipIndex, const QString &colorName,
+                                      const QString &name, double width, double height);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);

@@ -3431,6 +3431,10 @@
         <translation>Sólido agregado</translation>
     </message>
     <message>
+        <source>Solid settings</source>
+        <translation>Ajustes del sólido</translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Capa de ajuste</translation>
     </message>
@@ -17186,6 +17190,10 @@ LA PRÓXIMA</translation>
 <context>
     <name>MotionPathOverlay</name>
     <message>
+        <source>Shape motion path</source>
+        <translation>Curvar el trazo del movimiento</translation>
+    </message>
+    <message>
         <source>Move keyframe</source>
         <translation>Mover fotograma clave</translation>
     </message>
@@ -21320,6 +21328,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add</source>
         <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25944,6 +25956,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Move to its own track</source>
         <translation>Mover a su propia pista</translation>
+    </message>
+    <message>
+        <source>Solid settings…</source>
+        <translation>Ajustes del sólido…</translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>

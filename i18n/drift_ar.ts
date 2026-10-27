@@ -4212,6 +4212,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Change what the layer applies to</source>
         <translation>تغيير ما تُطبّق عليه الطبقة</translation>
     </message>
@@ -17454,6 +17458,10 @@ NEXT TIME</source>
 <context>
     <name>MotionPathOverlay</name>
     <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21635,6 +21643,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26280,6 +26292,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Move to its own track</source>
         <translation>نقل إلى مساره الخاص</translation>
+    </message>
+    <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>

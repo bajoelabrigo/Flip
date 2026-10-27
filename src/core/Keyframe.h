@@ -75,6 +75,12 @@ public:
     bool enabled() const { return m_enabled; }
     void setEnabled(bool enabled) { m_enabled = enabled; }
 
+    // After Effects' stopwatch (0.25): the keys were put there on purpose (a diamond, the
+    // stopwatch, a value typed while animated), so even a lone key at the clip's start is an
+    // animation and shows. Without it, such a key is just where a static value is kept.
+    bool stopwatch() const { return m_stopwatch; }
+    void setStopwatch(bool on) { m_stopwatch = on; }
+
     void setKeyframe(TimeUs time, const T &value)
     {
         auto it = m_values.find(time);
@@ -264,6 +270,7 @@ private:
 
     QMap<TimeUs, Keyframe<T>> m_values;
     bool m_enabled = true;
+    bool m_stopwatch = false;
 };
 
 } // namespace drift

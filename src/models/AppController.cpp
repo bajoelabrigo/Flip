@@ -3067,6 +3067,8 @@ bool writeKeyframeValue(drift::KeyframeTrack<double> &track, drift::TimeUs relat
         // writes to it is up to 500 us off — enough to leave two keys where the caller meant one.
         const drift::TimeUs existing = track.nearestKeyframe(relative, kKeyframeWriteSnapUs);
         track.setKeyframe(existing >= 0 ? existing : relative, value);
+        // A key put on purpose: the property is animated even with this one key at 0 (0.25).
+        track.setStopwatch(true);
         return true;
     }
     if (track.isEmpty()) {
@@ -10547,6 +10549,7 @@ void AppController::addSolidClip(const QString &colorName, const QString &name, 
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
     clip.type = drift::ClipType::Shape;
     clip.name = name.trimmed().isEmpty() ? tr("Solid") : name.trimmed();
+    clip.isSolid = true;
     clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
     clip.shapeStyle.layers = {drift::solidFillLayer(color)};
     clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
@@ -10562,6 +10565,52 @@ void AppController::addSolidClip(const QString &colorName, const QString &name, 
     pushProjectEdit(before, tr("Solid added"));
     finishEdit(tr("Solid added"));
     selectClip(target, newClipIndex);
+}
+
+QVariantMap AppController::solidSettings(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (!clip.isSolid)
+        return {};
+    const drift::TimeUs rel = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart);
+    const auto at = [&](const drift::KeyframeTrack<double> &t, double def) {
+        return t.isEmpty() ? def : t.evaluateAt(rel);
+    };
+    return {
+        {QStringLiteral("name"), clip.name},
+        {QStringLiteral("color"), clip.shapeStyle.primaryColor().name(QColor::HexArgb)},
+        {QStringLiteral("width"), at(clip.transformW, m_project.width())},
+        {QStringLiteral("height"), at(clip.transformH, m_project.height())},
+    };
+}
+
+void AppController::setSolidSettings(int trackIndex, int clipIndex, const QString &colorName,
+                                     const QString &name, double width, double height)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (!clip.isSolid)
+        return;
+    if (!name.trimmed().isEmpty())
+        clip.name = name.trimmed();
+    if (QColor::isValidColorName(colorName))
+        clip.shapeStyle.setPrimaryColor(QColor(colorName));
+    // A new size about the same centre, where it is not animated (an animated size keeps its keys).
+    if (width > 0 && height > 0 && clip.transformW.keyframes().size() <= 1
+        && clip.transformH.keyframes().size() <= 1 && clip.transformX.keyframes().size() <= 1
+        && clip.transformY.keyframes().size() <= 1) {
+        const double w0 = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+        const double h0 = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+        const double x0 = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
+        const double y0 = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+        setClipLayoutPixels(clip, x0 + (w0 - width) / 2.0, y0 + (h0 - height) / 2.0, width, height);
+    }
+    pushProjectEdit(before, tr("Solid settings"));
+    finishEdit(tr("Solid settings"));
 }
 
 int AppController::ensureAdjustmentLaneFor(int parentTrackIndex, drift::AdjustmentKind kind,
@@ -18611,7 +18660,8 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
         const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
         if (!kt || kt->isEmpty())
             continue;
-        if (kt->keyframes().size() == 1 && kt->keyframes().firstKey() == 0)
+        // A lone key at 0 keeps a static value, unless it was keyed on purpose (the stopwatch).
+        if (kt->keyframes().size() == 1 && kt->keyframes().firstKey() == 0 && !kt->stopwatch())
             continue;
         out.append(prop);
     }
@@ -19248,6 +19298,11 @@ void AppController::resetClipProperties(int trackIndex, int clipIndex, const QSt
             clip.rotation = reset.rotation;
         else if (prop == QLatin1String("opacity"))
             clip.opacity = reset.opacity;
+        // The anchor point back to the centre of the box, keys and all (0.25).
+        else if (prop == QLatin1String("anchorX"))
+            clip.anchorX = {};
+        else if (prop == QLatin1String("anchorY"))
+            clip.anchorY = {};
     }
     pushProjectEdit(before, tr("Reset transform"));
     finishEdit(tr("Transform reset"));
@@ -19262,6 +19317,8 @@ void AppController::resetTransformOf(drift::Clip &clip)
     clip.transformW = {};
     clip.transformH = {};
     clip.rotation = {};
+    clip.anchorX = {};
+    clip.anchorY = {};
     clearClipPose3d(clip);
     clip.flipH = false;
     clip.flipV = false;

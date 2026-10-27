@@ -3431,6 +3431,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Capa de ajuste</translation>
     </message>
@@ -17182,6 +17186,10 @@ NEXT TIME</source>
 <context>
     <name>MotionPathOverlay</name>
     <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21315,6 +21323,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25940,6 +25952,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Move to its own track</source>
         <translation>Mover a su propia pista</translation>
+    </message>
+    <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>

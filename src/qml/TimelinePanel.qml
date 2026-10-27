@@ -618,6 +618,11 @@ PanelFrame {
                                              && curveGraph.item.trackIndex >= 0
                                              && !!root.tracks[curveGraph.item.trackIndex]
                                              && root.tracks[curveGraph.item.trackIndex].keyframesExpanded === true
+    // After Effects' Solid Settings for a solid already placed (0.25).
+    function openSolidSettings(trackIndex, clipIndex) {
+        solidSettings.openFor(trackIndex, clipIndex)
+    }
+
     // The curve editor on and off; on, it opens the lines of the clip being edited.
     function toggleGraphMode() {
         const on = !EditorState.preferences.curveEditorVisible

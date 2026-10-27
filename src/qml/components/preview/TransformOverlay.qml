@@ -691,10 +691,14 @@ Item {
                         }
 
                         const shift = (modifiers & Qt.ShiftModifier) !== 0
-                        const locked = grip.isCorner && (grip.lockByDefault !== shift)
+                        // After Effects (0.25): Alt grows the box about its centre, Alt+Shift about
+                        // its centre and in proportion.
+                        const fromCentre = (modifiers & Qt.AltModifier) !== 0 && !handle.is3d
+                        const locked = grip.isCorner && (fromCentre && shift ? true : grip.lockByDefault !== shift)
+                        const reach = fromCentre ? 2 : 1
 
-                        let w = Math.max(1, handle.dragStartW + lx * dxSign)
-                        let h = Math.max(1, handle.dragStartH + ly * dySign)
+                        let w = Math.max(1, handle.dragStartW + reach * lx * dxSign)
+                        let h = Math.max(1, handle.dragStartH + reach * ly * dySign)
                         if (locked) {
                             // Take the scale from whichever axis the pointer moved
                             // further along, measured as the bigger departure from
@@ -710,7 +714,8 @@ Item {
                         // Only the moving edge sticks; the anchor is already fixed.
                         let guideX = -1
                         let guideY = -1
-                        if (handle.canSnap && !(modifiers & Qt.ControlModifier)) {
+                        // Snapping reads one edge held still; from the centre both move, so it is off.
+                        if (handle.canSnap && !(modifiers & Qt.ControlModifier) && !fromCentre) {
                             // Each moving edge is snapped as it projects, through the pose,
                             // parents and camera.
                             const snapped = EditorState.preview.snapResize(grip.startBox, w, h, dxSign, dySign,
@@ -748,8 +753,8 @@ Item {
 
                         // Keeping the anchor still means the centre moves by half
                         // the size change, toward the grip, in box axes.
-                        const shiftX = handle.is3d ? 0 : (w - handle.dragStartW) / 2 * dxSign
-                        const shiftY = handle.is3d ? 0 : (h - handle.dragStartH) / 2 * dySign
+                        const shiftX = handle.is3d || fromCentre ? 0 : (w - handle.dragStartW) / 2 * dxSign
+                        const shiftY = handle.is3d || fromCentre ? 0 : (h - handle.dragStartH) / 2 * dySign
                         const cx = handle.dragStartX + handle.dragStartW / 2
                                    + shiftX * Math.cos(a) - shiftY * Math.sin(a)
                         const cy = handle.dragStartY + handle.dragStartH / 2

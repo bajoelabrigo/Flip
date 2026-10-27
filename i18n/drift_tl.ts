@@ -3431,6 +3431,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17182,6 +17186,10 @@ NEXT TIME</source>
 <context>
     <name>MotionPathOverlay</name>
     <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21308,6 +21316,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25932,6 +25944,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Move to its own track</source>
         <translation>Ilipat sa sarili nitong track</translation>
+    </message>
+    <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>

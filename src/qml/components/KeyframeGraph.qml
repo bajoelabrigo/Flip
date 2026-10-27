@@ -184,8 +184,9 @@ Item {
             return { min: 0, max: 1 }
         if (id === "volume")
             return { min: 0, max: 2 }
-        if (id === "rotation" || id === "mask.rotation")
-            return { min: -180, max: 180 }
+        // Rotation fits its keys like the rest (0.25): a turn to 320° or 720° stays in the graph;
+        // a small swing still gets a readable span.
+        const turn = id === "rotation" || id === "mask.rotation"
         // Mask geometry is normalized to the clip frame, so a fixed 0..1 axis is meaningful and
         // keeps the four curves comparable. Feather is in px and auto-fits like anything else.
         if (id === "mask.x" || id === "mask.y" || id === "mask.w" || id === "mask.h")
@@ -199,6 +200,11 @@ Item {
             const v = Number(pts[i].value)
             lo = Math.min(lo, v)
             hi = Math.max(hi, v)
+            // The handles too: a curve bends out to them, and must not leave the graph.
+            for (const d of [Number(pts[i].inDy) || 0, Number(pts[i].outDy) || 0]) {
+                lo = Math.min(lo, v + d)
+                hi = Math.max(hi, v + d)
+            }
         }
         // With no keys there is nothing to fit, so centre the axis on the value the property
         // actually holds — otherwise a 1920px width would be drawn far off the top of a 0..100 lane.
@@ -206,10 +212,13 @@ Item {
             lo = base
         if (!isFinite(hi))
             hi = base
-        return {
-            min: lo - Math.max(1, Math.abs(lo) * 0.1),
-            max: hi + Math.max(1, Math.abs(hi) * 0.1)
+        if (turn && hi - lo < 90) {
+            const mid = (hi + lo) / 2
+            lo = mid - 45
+            hi = mid + 45
         }
+        const pad = Math.max(1, (hi - lo) * 0.08)
+        return { min: lo - pad, max: hi + pad }
     }
 
     // A preview move emits tracksChanged, which would re-evaluate `series` and
@@ -481,6 +490,8 @@ Item {
     // than `visible`, which reads false while the item's parent is hidden: the panel decides
     // whether to show the strip from this.
     readonly property bool hasContent: keyframesTab && hasClip && !!clip && allSeries.length > 0
+    // Nothing drawn outside it: a curve never spills over the tracks around (0.25).
+    clip: true
     height: hasContent ? laneHeight : 0
     visible: hasContent
 
@@ -496,7 +507,9 @@ Item {
         return series.length > 0 ? 0 : -1
     }
     // Tangent handles need room; below this the lane is an overview and shows keys only.
-    readonly property bool curveEditing: laneHeight >= 140
+    // Inside a track's lines it is as tall as they are (0.25): handles show at that size already,
+    // with no need to grow the lane first.
+    readonly property bool curveEditing: (inline ? height : laneHeight) >= 110
     function isFocused(index) { return index === focusedIndex }
 
     // Double-click on empty graph inserts a key on the focused curve. The value comes from the

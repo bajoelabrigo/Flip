@@ -12,8 +12,32 @@ ThemedDialog {
     preferredWidth: Theme.dialogWidthSm
 
     property string colorHex: "#ff28282e"
+    // The solid being edited (After Effects' Solid Settings), or -1 for a new one.
+    property int editTrack: -1
+    property int editClip: -1
+
+    // Solid Settings for a solid already on the timeline.
+    function openFor(track, clip) {
+        const s = EditorState.solidSettings(track, clip)
+        if (!s || !s.name)
+            return
+        root.editTrack = track
+        root.editClip = clip
+        root.acceptText = qsTr("Apply")
+        nameField.text = s.name
+        root.colorHex = s.color
+        widthField.value = Math.round(s.width)
+        heightField.value = Math.round(s.height)
+        widthField.text = widthField.format(widthField.value)
+        heightField.text = heightField.format(heightField.value)
+        open()
+        nameField.forceActiveFocus()
+    }
 
     function openFresh() {
+        root.editTrack = -1
+        root.editClip = -1
+        root.acceptText = qsTr("Add")
         nameField.text = qsTr("Solid")
         widthField.value = EditorState.projectFile.projectWidth()
         heightField.value = EditorState.projectFile.projectHeight()
@@ -24,8 +48,13 @@ ThemedDialog {
         nameField.selectAll()
     }
 
-    onAccepted: EditorState.addSolidClip(root.colorHex, nameField.text.trim(),
+    onAccepted: {
+        if (root.editTrack >= 0)
+            EditorState.setSolidSettings(root.editTrack, root.editClip, root.colorHex, nameField.text.trim(),
                                          widthField.value, heightField.value)
+        else
+            EditorState.addSolidClip(root.colorHex, nameField.text.trim(), widthField.value, heightField.value)
+    }
 
     contentItem: Column {
         spacing: Theme.spacingLg

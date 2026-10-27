@@ -119,6 +119,8 @@ struct Clip
 
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
+    // An After Effects Solid (0.25): a shape made by «Solid…», which keeps its Solid settings.
+    bool isSolid = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a

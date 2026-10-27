@@ -644,6 +644,17 @@ Item {
                                                                   clipItem.clipIndex)
             }
             ThemedMenuItem {
+                // After Effects' Solid Settings (Ctrl+Shift+Y there), on a solid (0.25).
+                text: qsTr("Solid settings…")
+                visible: {
+                    void EditorState.tracksRevision
+                    return clipItem.clipData.kind === "shape"
+                           && !!EditorState.solidSettings(clipItem.trackIndex, clipItem.clipIndex).name
+                }
+                height: visible ? implicitHeight : 0
+                onTriggered: clipItem.panel.openSolidSettings(clipItem.trackIndex, clipItem.clipIndex)
+            }
+            ThemedMenuItem {
                 // Premiere-style: the fades become points on the volume line (0.25).
                 text: qsTr("Fades to volume keyframes")
                 visible: {

@@ -3425,6 +3425,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Lớp điều chỉnh</translation>
     </message>
@@ -17119,6 +17123,10 @@ LẦN SAU</translation>
 <context>
     <name>MotionPathOverlay</name>
     <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21240,6 +21248,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25860,6 +25872,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Move to its own track</source>
         <translation>Di chuyển đến track riêng của nó</translation>
+    </message>
+    <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>

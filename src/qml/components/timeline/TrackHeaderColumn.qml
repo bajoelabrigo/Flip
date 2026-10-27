@@ -1131,7 +1131,6 @@ Item {
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
                                                            && modelData.group !== "volume" && modelData.group !== "pan"
-                                                           && modelData.group !== "anchor"
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight

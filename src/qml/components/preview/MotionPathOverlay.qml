@@ -19,6 +19,12 @@ Item {
                                  && !(box.rotationX || box.rotationY || box.z)
 
     property bool dragging: false
+    // A handle being dragged: the line redraws, the dots stay (rebuilding them would drop the drag).
+    property bool shaping: false
+    // [{seconds, px, py, side: "in"|"out", ox, oy, xKey, yKey, prevSeconds, nextSeconds}] in canvas
+    // px: After Effects' motion path handles. X and Y are keyed apart, so a key's spatial handle is
+    // the pair of its X and Y value handles (outDy of each), which is exactly how the path bends.
+    property var handles: []
     // [{seconds, x, y, hasX, hasY}] in canvas px of the centre, and the sampled line.
     property var keys: []
     property var samples: []
@@ -34,12 +40,70 @@ Item {
             y: root.valueAt("y", seconds, 0) + root.valueAt("height", seconds, ch) / 2
         }
     }
+    function keyAt(list, seconds) {
+        for (const k of list) {
+            if (Math.abs(k.seconds - seconds) < 1e-4)
+                return k
+        }
+        return null
+    }
+    function samplesNow() {
+        const pts = []
+        const ks = root.keys
+        if (ks.length > 1) {
+            const a = ks[0].seconds
+            const b = ks[ks.length - 1].seconds
+            const steps = Math.min(240, Math.max(16, Math.round((b - a) * 30)))
+            for (let i = 0; i <= steps; ++i)
+                pts.push(root.centreAt(a + (b - a) * i / steps))
+        }
+        return pts
+    }
+    function buildHandles() {
+        const xs = EditorState.clipKeyframes(root.trackIndex, root.clipIndex, "x") || []
+        const ys = EditorState.clipKeyframes(root.trackIndex, root.clipIndex, "y") || []
+        const out = []
+        for (let i = 0; i < root.keys.length; ++i) {
+            const k = root.keys[i]
+            const xk = root.keyAt(xs, k.seconds)
+            const yk = root.keyAt(ys, k.seconds)
+            if (!xk || !yk || xk.hold)
+                continue
+            const prev = i > 0 ? root.keys[i - 1] : null
+            const next = i < root.keys.length - 1 ? root.keys[i + 1] : null
+            // A straight (zero) handle is drawn a third of the way along its segment, so it can
+            // be taken and pulled out, as After Effects lets you.
+            const side = (name, other, dx, dy) => {
+                let ox = dx
+                let oy = dy
+                if (Math.abs(ox) < 1e-6 && Math.abs(oy) < 1e-6) {
+                    ox = (other.x - k.x) / 3
+                    oy = (other.y - k.y) / 3
+                }
+                out.push({ "seconds": k.seconds, "side": name, "px": k.x, "py": k.y, "ox": ox, "oy": oy,
+                           "xKey": xk, "yKey": yk,
+                           "prevSeconds": prev ? prev.seconds : NaN, "nextSeconds": next ? next.seconds : NaN })
+            }
+            if (next)
+                side("out", next, xk.outDy, yk.outDy)
+            if (prev)
+                side("in", prev, xk.inDy, yk.inDy)
+        }
+        root.handles = out
+    }
+
     function rebuild() {
+        if (root.shaping) {
+            root.samples = root.samplesNow()
+            path.requestPaint()
+            return
+        }
         if (root.dragging)
             return
         if (!root.flat || root.trackIndex < 0) {
             root.keys = []
             root.samples = []
+            root.handles = []
             return
         }
         const animated = EditorState.clipAnimatedProperties(root.trackIndex, root.clipIndex) || []
@@ -48,6 +112,7 @@ Item {
         if (!hasX && !hasY) {
             root.keys = []
             root.samples = []
+            root.handles = []
             return
         }
         const times = {}
@@ -70,15 +135,8 @@ Item {
         }
         root.keys = out
         // The line between the first and last key, sampled finely enough to show the curves.
-        const pts = []
-        if (out.length > 1) {
-            const a = out[0].seconds
-            const b = out[out.length - 1].seconds
-            const steps = Math.min(240, Math.max(16, Math.round((b - a) * 30)))
-            for (let i = 0; i <= steps; ++i)
-                pts.push(root.centreAt(a + (b - a) * i / steps))
-        }
-        root.samples = pts
+        root.samples = root.samplesNow()
+        root.buildHandles()
         path.requestPaint()
     }
 
@@ -109,6 +167,110 @@ Item {
             for (let i = 1; i < pts.length; ++i)
                 ctx.lineTo(pts[i].x * root.sx, pts[i].y * root.sy)
             ctx.stroke()
+        }
+    }
+
+    // The handles: a line from the key and a round grip at its end.
+    Repeater {
+        model: root.handles
+        delegate: Item {
+            id: hd
+            required property var modelData
+            property real liveOx: modelData.ox
+            property real liveOy: modelData.oy
+            readonly property real kx: modelData.px * root.sx
+            readonly property real ky: modelData.py * root.sy
+            Rectangle {
+                x: hd.kx
+                y: hd.ky
+                width: Math.hypot(hd.liveOx * root.sx, hd.liveOy * root.sy)
+                height: 1
+                color: Theme.primary
+                opacity: 0.7
+                transformOrigin: Item.TopLeft
+                rotation: Math.atan2(hd.liveOy * root.sy, hd.liveOx * root.sx) * 180 / Math.PI
+            }
+            Rectangle {
+                id: grip
+                width: 8
+                height: 8
+                radius: 4
+                x: hd.kx + hd.liveOx * root.sx - width / 2
+                y: hd.ky + hd.liveOy * root.sy - height / 2
+                color: gripMouse.pressed ? Theme.primary : Theme.panelBackground
+                border.width: 1.5
+                border.color: Theme.primary
+                MouseArea {
+                    id: gripMouse
+                    anchors.fill: parent
+                    anchors.margins: -5
+                    preventStealing: true
+                    cursorShape: Qt.CrossCursor
+                    property bool wasLinked: true
+                    onPressed: {
+                        wasLinked = EditorState.positionLinked
+                        // The X and Y handles are set apart here; linked, one would rescale the other.
+                        EditorState.positionLinked = false
+                        root.shaping = true
+                        EditorState.beginPreviewDrag(qsTr("Shape motion path"))
+                    }
+                    onPositionChanged: (mouse) => {
+                        if (!pressed)
+                            return
+                        const p = mapToItem(root, mouse.x, mouse.y)
+                        hd.liveOx = p.x / root.sx - hd.modelData.px
+                        hd.liveOy = p.y / root.sy - hd.modelData.py
+                        hd.apply(mouse.modifiers)
+                    }
+                    onReleased: finish()
+                    onCanceled: finish()
+                    function finish() {
+                        EditorState.commitPreviewDrag()
+                        EditorState.positionLinked = wasLinked
+                        root.shaping = false
+                        root.rebuild()
+                    }
+                }
+            }
+            // Writes this side's handle into the X and Y keys; the other side follows, mirrored,
+            // unless Ctrl breaks them apart (After Effects' Convert Vertex).
+            function apply(mods) {
+                const m = hd.modelData
+                const xk = m.xKey
+                const yk = m.yKey
+                const out = m.side === "out"
+                const seg = out ? m.nextSeconds - m.seconds : m.seconds - m.prevSeconds
+                const reach = Math.max(1 / 120, (isNaN(seg) ? 1 : seg) / 3)
+                const corner = (mods & Qt.ControlModifier) !== 0 || !!xk.corner
+                let xOut = xk.outDx > 0 ? xk.outDx : reach
+                let xIn = xk.inDx < 0 ? xk.inDx : -reach
+                const xInDyOld = xk.inDy
+                const yInDyOld = yk.inDy
+                const xOutDyOld = xk.outDy
+                const yOutDyOld = yk.outDy
+                let xo = xOutDyOld, yo = yOutDyOld, xi = xInDyOld, yi = yInDyOld
+                if (out) {
+                    xo = hd.liveOx
+                    yo = hd.liveOy
+                    if (!corner) {
+                        const r = Math.abs(xIn) / Math.max(1e-6, xOut)
+                        xi = -xo * r
+                        yi = -yo * r
+                    }
+                } else {
+                    xi = hd.liveOx
+                    yi = hd.liveOy
+                    if (!corner) {
+                        const r = xOut / Math.max(1e-6, Math.abs(xIn))
+                        xo = -xi * r
+                        yo = -yi * r
+                    }
+                }
+                EditorState.previewSetKeyframeTangents(root.trackIndex, root.clipIndex, "x", m.seconds,
+                                                       xIn, xi, xOut, xo, corner)
+                EditorState.previewSetKeyframeTangents(root.trackIndex, root.clipIndex, "y", m.seconds,
+                                                       xIn, yi, xOut, yo, corner)
+            }
         }
     }
 
