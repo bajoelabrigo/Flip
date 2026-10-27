@@ -200,13 +200,13 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
       `offsetX/offsetY/transformScale/rotation` del tramo y enseña sus valores (`runUnderCursor`), la
       guarda contra el bucle de `expandedLayerIds` y la pestaña de Texto avanzado que vuelve a seguir al
       panel tras «Más estilos».
-- [ ] **Recorrido en ventana** de los seis efectos con y sin letras sombreadas (panel normal y Texto avanzado),
+- [x] **Recorrido en ventana** de los seis efectos con y sin letras sombreadas (panel normal y Texto avanzado),
       con el portable del CI de esta tanda. Lo hace Claude antes de publicar.
-- [ ] Selección hecha sobre la vista previa (`InlineTextEditor`): todavía no manda las letras al inspector. Queda
+- [x] Selección hecha sobre la vista previa (`InlineTextEditor`): todavía no manda las letras al inspector. Queda
       fuera a propósito: al terminar de escribir el rango seguiría activo sin aviso. **Hecho después** (ver la
       ampliación de abajo).
-- [ ] Teclas de fotograma (rombos) en las capas de unas letras: no hay (`layerProp` sin clave con letras sombreadas).
-- [ ] Web: dibujar los efectos por letras (por ahora solo los conserva al abrir y guardar).
+- [x] Teclas de fotograma (rombos) en las capas de unas letras: no había (hecho en la ampliación) (`layerProp` sin clave con letras sombreadas).
+- [x] Web: dibujar los efectos por letras (hecho en la ampliación).
 
 ## Ampliación pedida por Jorge (2026-10-26, noche): sale todo en la 0.24
 
@@ -218,8 +218,11 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
 - [x] Rombos de fotograma clave en las capas de unas letras: las capas de un tramo llevan ids propios (`<id>~n`,
       `writeTextRangeLayers`) y el mapa de claves del texto también las busca en los tramos (`findStyleLayer` en
       `TextStyle.cpp`). `scaleTextStyle` escala también lo de los tramos (DeepSeek lo había olvidado).
-- [ ] Web: dibujar los efectos por letras (agente en `flipstudio-app`, `web/v0221-texto`).
-- [ ] Márgenes de Texto avanzado (Arreglo aparte 2): mirarlos en ventana, y el panel derecho también.
+- [x] Web: dibujar los efectos por letras (agente en `flipstudio-app`, `web/v0221-texto`).
+- [x] Márgenes de Texto avanzado (Arreglo aparte 2): la columna deja sitio a la barra. **La causa de verdad era
+      otra** (captura de Jorge `Downloads\margenes.png`, 2026-10-27): el interruptor de `CollapsibleSection` mide
+      36 px con `clip: true` y su dibujo empieza en `leftPadding` (6 px del estilo Basic): se le cortaba el extremo
+      derecho en todos los paneles. `padding: 0`.
 - [x] 1. Espacio entre letras e interlineado solo en las letras elegidas (`TextRun::letterSpacing*`, `lineHeight*`;
       la línea toma el mayor interlineado de las letras que lleva).
 - [x] 2. Opacidad de las letras elegidas (`TextRun::opacity*`, `opacityOf()` en el pintor).
@@ -229,7 +232,7 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
 - [x] 5. Copiar el estilo de unas letras y pegarlo en otras (`copyRunStyle`/`pasteRunStyle` del inspector).
 - [x] 6. Texto que se encoge para caber en su caja (`TextStyle::shrinkToFit`, búsqueda en `fragmentsFor`; al
       encenderlo la caja deja de seguir al texto, `textAutoFit` = false).
-- [ ] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto (agente en la rama `flip/v0.24-buscar`).
+- [x] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto (agente en la rama `flip/v0.24-buscar`).
 - [x] 8. Ligaduras y versalitas (`TextStyle::ligatures`/`smallCaps` → `liga`/`clig`/`smcp` en `styleFor`).
 
 - [x] Editor de curvas (pedido de Jorge, 2026-10-27), escritorio y web:
@@ -255,8 +258,24 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
         derecho: poner/quitar, anterior/siguiente, **quitar todas** (con confirmación);
       - el clip sobre el que actúan (`keyframeTargetClip`: el elegido de esa pista o el que está bajo el cabezal) se
         resalta en turquesa; claves en gris claro, elegidas en turquesa, anillo turquesa en la del cabezal;
-      - **Falta**: «Restablecer» por propiedad (no hay operación por propiedad, solo `resetClipTransform` entero);
-        la web (este panel es del escritorio).
+      - «Restablecer» por propiedad (`resetClipProperties`) y el panel en la web: hechos después.
+
+## Prueba final en ventana (2026-10-27, madrugada) — portables `pruebas\FlipStudio-0.24-final*`
+
+Visto con los ojos: las 4 filas, rombo (X e Y juntas), claves alineadas con la regla, editor de curvas debajo de su
+pista y abierto al soltar la selección y mover el cabezal; «Letras seleccionadas» (tamaño, opacidad, x², copiar,
+quitar y pegar estilo); «Rojo» solo en MUNDO; Buscar y reemplazar conserva el rojo; Ligaduras/Versalitas; exportación
+de un clip animado por MCP (`exportado.mp4`, 720p, se mueve y gira). La web: efecto solo en las letras elegidas,
+panel de claves con 4 filas y rombo, sin errores en la consola. Tres fallos encontrados y arreglados en la prueba:
+
+1. **Cancelar en Texto avanzado deshacía todo el trabajo anterior** (claves, reemplazo, colores). El rombo de las
+   filas leía `keyLines.trackIndex` después de la primera clave, que reconstruye la fila: `TypeError` y la sesión
+   de edición quedaba abierta; la siguiente sesión se le unía y Cancelar la deshacía entera. Arreglo: leer todo antes
+   y cerrar con `finally` (también el doble clic de `TrackKeyframeRows`), y `beginEditSession` cierra una sesión
+   colgada en vez de unirse (`cancelledSessionKeepsWorkOfALeftOpenOne`).
+2. **Unas letras agrandadas salían cortadas por arriba**: la altura de la línea usaba la fuente del bloque
+   (`mixedSizes` no contaba los tramos con tamaño). Prueba en `newTextBoxHugsItsWordsAndGrowsWithThem`.
+3. «Carácter» y «Línea» lado a lado en Texto avanzado salían como «C…» y «Li…»: una columna si el panel es angosto.
 
 ## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
 
