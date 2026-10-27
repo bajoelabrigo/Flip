@@ -7146,6 +7146,15 @@ void AppController::selectClip(int trackIndex, int clipIndex)
     emit selectedTransitionDataChanged();
 }
 
+QVariantMap AppController::clipLocation(const QString &clipId) const
+{
+    int trackIndex = -1;
+    int clipIndex = -1;
+    if (clipId.isEmpty() || !findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        trackIndex = clipIndex = -1;
+    return QVariantMap{{QStringLiteral("track"), trackIndex}, {QStringLiteral("clip"), clipIndex}};
+}
+
 bool AppController::selectClipById(const QString &clipId)
 {
     int trackIndex = -1;
@@ -23525,7 +23534,12 @@ int AppController::trackRowHeight(int trackIndex, const QVariantMap &metrics) co
     const double keyframeRows = track.keyframesExpanded
         ? trackKeyframeRows(trackIndex).size() * metric("keyframeRow", 18.0)
         : 0.0;
-    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows);
+    // The curve editor opens under the track of its clip (0.24): the timeline passes which track
+    // and how tall, so a view that does not draw it (the phone's) gets no gap.
+    const double curveEditor = metrics.value(QStringLiteral("curveTrack"), -1).toInt() == trackIndex
+        ? metric("curveEditor", 0.0)
+        : 0.0;
+    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows + curveEditor);
 }
 
 void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)

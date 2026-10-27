@@ -232,6 +232,15 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
 - [ ] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto (agente en la rama `flip/v0.24-buscar`).
 - [x] 8. Ligaduras y versalitas (`TextStyle::ligatures`/`smallCaps` → `liga`/`clig`/`smcp` en `styleFor`).
 
+- [x] Editor de curvas (pedido de Jorge, 2026-10-27), escritorio y web:
+      - **se queda abierto** al mover el cabezal o soltar la selección, hasta cerrarlo con su **×** (sigue a la
+        selección solo hacia un clip con animación; `KeyframeGraph.pinnedClipId` + `AppController::clipLocation`;
+        web `curvePin` en `App.tsx`);
+      - **se abre debajo de la pista de su clip**, no sobre la línea de tiempo: `trackRowHeight` suma su alto con
+        `metrics.curveTrack/curveEditor` y `curveOverlay` (TimelinePanel) lo dibuja en ese hueco; web
+        `.curve-under-track` en `Timeline.tsx`;
+      - en la web medía más que el del escritorio: ahora 88/180 px y solo las propiedades animadas.
+
 ## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
 
 1. **El fondo de las letras se escalaba dos veces** (`drawRunBackgrounds` multiplicaba por `m_scale` un `cellRect`

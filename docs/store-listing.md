@@ -117,6 +117,8 @@ puntos de las combinadas de la 0.23.0.
 >
 > - Efectos solo en las letras elegidas, como Filmora: sombrea unas letras y aplica un estilo, un look, el trazo, la sombra, el resplandor, el fondo o una transformación; el resto del texto se queda igual.
 > - Fondo y transformación por letras: una caja detrás de esas letras, y moverlas, escalarlas o girarlas sin tocar las demás.
+> - Letras seleccionadas: tamaño, espacio, interlineado, opacidad, superíndice y subíndice; copiar, pegar o quitar su estilo.
+> - Buscar y reemplazar en todos los textos y subtítulos (Ctrl+H), texto que se encoge para caber en su caja, ligaduras y versalitas.
 > - Arreglos: un clic en Tendencias ya no agrega dos veces lo descargado, y los interruptores de Texto avanzado se ven enteros.
 
 En inglés:
@@ -125,6 +127,8 @@ En inglés:
 >
 > - Effects on the selected letters only, like Filmora: select some letters and apply a style, a look, the stroke, shadow, glow, background or a transform; the rest of the text stays as it was.
 > - Background and transform per letter: a box behind those letters, and move, scale or rotate them without touching the others.
+> - Selected letters: size, spacing, line height, opacity, superscript and subscript; copy, paste or remove their style.
+> - Find and replace in every text and subtitle (Ctrl+H), text that shrinks to fit its box, ligatures and small caps.
 > - Fixes: one click in Trends no longer adds a downloaded item twice, and the Advanced text switches show in full.
 
 **Notas para la Store (0.23.0)**. Lo nuevo desde la 0.22.0 (660 caracteres; en inglés, 579). **Ojo:** si la

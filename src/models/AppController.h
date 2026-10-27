@@ -781,6 +781,9 @@ public:
     // Selects a clip by id. Pinning a mask or adding an effect inserts a lane and normalization
     // reorders, so an index captured before the edit is stale by the time there is something to select.
     Q_INVOKABLE bool selectClipById(const QString &clipId);
+    // Where a clip is now ({track, clip}, -1 when it is gone): for views that stay on a clip
+    // while the selection moves (the curve editor, 0.24).
+    Q_INVOKABLE QVariantMap clipLocation(const QString &clipId) const;
     Q_INVOKABLE void addToSelection(int trackIndex, int clipIndex);
     Q_INVOKABLE void setSelection(const QVariantList &pairs);
     Q_INVOKABLE void selectAllClips();

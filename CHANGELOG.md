@@ -14,6 +14,13 @@ registro heredado de Drift.
   un paso de deshacer cada una. `patchTextRuns` aplica el fondo y la transformación clave por clave.
 - `TextInspector.qml`: una sola puerta `applyStyle`, `root.layers` y la sección Fondo leen las letras elegidas, la
   sección Transformación de las letras.
+- Segunda tanda: `TextRun::letterSpacing/lineHeight/opacity/baseline` (la línea toma el mayor interlineado de sus
+  letras; superíndice ×0,62), `TextStyle::ligatures/smallCaps` (`liga`/`clig`/`smcp`) y `shrinkToFit` (búsqueda del
+  tamaño en `fragmentsFor`, apaga `textAutoFit`). Capas de un tramo con ids propios (`<id>~n`) para sus fotogramas
+  clave (`findStyleLayer`). `clearTextRunsIn`, `textLettersPicked` (la selección de la vista previa pasa al panel),
+  `textStyleRangeChanged`. Sección «Letras seleccionadas» del inspector.
+- Buscar y reemplazar (`findInTexts`/`replaceInTexts`, `FindReplaceDialog.qml`, Ctrl+H): un paso de deshacer, los
+  tramos siguen a sus letras (`shiftTextRunsForReplace`).
 - Tendencias (Títulos y Efectos) ya no agrega dos veces; margen derecho en Texto avanzado.
 
 ## 0.23.0 — Texto avanzado como Filmora, panel izquierdo en árbol

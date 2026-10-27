@@ -165,10 +165,16 @@ Item {
     // The one definition of a row's height, shared with TimelinePanel and AndroidTimeline. It
     // used to be duplicated in all three, which had to agree or the headers slid out of line
     // with their rows; the nested-lane rule made keeping three copies in step untenable.
+    // The track the curve editor opens under, and its height (0.24; TimelinePanel says).
+    property int curveEditorTrack: -1
+    property real curveEditorHeight: 0
+
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
         // EditorState.trackRowHeight is a plain call and carries none of its own.
         const dep = tracks.length
+        const curveTrack = root.curveEditorTrack
+        const curveHeight = root.curveEditorHeight
         return EditorState.trackRowHeight(index, {
             "video": Theme.trackHeightVideo,
             "audio": Theme.trackHeightAudio,
@@ -177,7 +183,9 @@ Item {
             "shape": Theme.trackHeightShape,
             "adjustment": Theme.trackHeightAdjustment,
             "lane": Theme.adjustmentLaneHeight,
-            "keyframeRow": root.compact ? 0 : Theme.keyframeRowHeight
+            "keyframeRow": root.compact ? 0 : Theme.keyframeRowHeight,
+            "curveTrack": curveTrack,
+            "curveEditor": curveHeight
         })
     }
 
@@ -404,7 +412,9 @@ Item {
                                                  && (root.tracks.length, EditorState.trackHasKeyframes(index))
             readonly property var keyframeRows: keyframesExpanded && !root.compact
                                                 ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
+            // The unfolded rows, and the curve editor under them when it is this track's (0.24).
             readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
+                                                       + (index === root.curveEditorTrack ? root.curveEditorHeight : 0)
             // The row without its property lines: what the name band and the icons lay out in.
             readonly property real baseHeight: root.trackHeight(index) - keyframeRowsHeight
             // The name moves right to make room for the twirl.

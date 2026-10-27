@@ -602,9 +602,17 @@ PanelFrame {
             "shape": Theme.trackHeightShape,
             "adjustment": Theme.trackHeightAdjustment,
             "lane": Theme.adjustmentLaneHeight,
-            "keyframeRow": Theme.keyframeRowHeight
+            "keyframeRow": Theme.keyframeRowHeight,
+            "curveTrack": root.curveEditorTrack,
+            "curveEditor": root.curveEditorHeight
         })
     }
+
+    // The curve editor opens under the track of its clip, not over the timeline (0.24, Jorge:
+    // «confunde»). The rows make room for it; curveOverlay draws it in that room.
+    readonly property bool curveEditorShown: curveGraph.item !== null && curveGraph.item.hasContent
+    readonly property int curveEditorTrack: curveEditorShown ? curveGraph.item.trackIndex : -1
+    readonly property real curveEditorHeight: curveEditorShown ? curveGraph.item.height : 0
 
 
     // Top of a row inside the track column, which stacks the visible rows with a gap.
@@ -1323,33 +1331,6 @@ PanelFrame {
             width: parent.width
             height: parent.height - toolbar.height - overviewStrip.height
 
-            // Loaded only on the tabs it can show on; the graph still hides itself when the
-            // clip has no curves. Its height is left to the item, so the lane can resize.
-            Loader {
-                id: keyframesBar
-                width: parent.width - (audioMixer.visible ? audioMixer.width : 0)
-                // Opt-in: the keys live in each track's unfolded rows; this strip is the curve
-                // editor, opened from the toolbar or a key's "Edit curve…".
-                active: EditorState.preferences.curveEditorVisible
-                        && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
-                // The Column skips an invisible child. Without this, closing the editor left its
-                // last height reserved over the tracks: a Loader keeps the size its item gave it.
-                visible: active && item !== null && item.hasContent
-                sourceComponent: Component {
-                    KeyframeGraph {
-                        pxPerSecond: root.pxPerSecond
-                        labelsWidth: EditorState.preferences.trackLabelsWidth
-                        keyframesTab: true
-                        tools: keyTools
-                        // Keep keys/playhead lined up with the track scroll view below.
-                        contentX: flick.contentX
-                        contentWidth: flick.contentWidth
-                        // Outlives the graph being unloaded between selections.
-                        laneHeight: root.keyframeLaneHeight
-                        onLaneHeightChanged: root.keyframeLaneHeight = laneHeight
-                    }
-                }
-            }
 
             Loader {
                 id: subtitleLane
@@ -1366,10 +1347,13 @@ PanelFrame {
                 }
             }
 
-            Row {
+            Item {
                 width: parent.width
-                height: parent.height - (keyframesBar.item ? keyframesBar.item.height : 0)
-                        - (subtitleLane.item ? subtitleLane.item.height : 0)
+                height: parent.height - (subtitleLane.item ? subtitleLane.item.height : 0)
+
+            Row {
+                id: tracksRow
+                anchors.fill: parent
 
             // --- fixed left label column --------------------------------------------
             Column {
@@ -1425,6 +1409,8 @@ PanelFrame {
                     resizable: true
                     tracks: root.tracks
                     contentY: flick.contentY
+                    curveEditorTrack: root.curveEditorTrack
+                    curveEditorHeight: root.curveEditorHeight
                     onScrollRequested: (dy) => {
                         flick.contentY = Math.max(0, Math.min(flick.contentHeight - flick.height,
                                                               flick.contentY + dy))
@@ -1960,7 +1946,11 @@ PanelFrame {
                                 readonly property var keyframeRows:
                                     root.tracks[trackIndex] && root.tracks[trackIndex].keyframesExpanded === true
                                     ? (root.tracks.length, EditorState.trackKeyframeRows(trackIndex)) : []
+                                // The unfolded rows, and the curve editor under them when it is
+                                // this track's (0.24): clips and rows keep their place above it.
                                 readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
+                                                                           + (trackIndex === root.curveEditorTrack
+                                                                              ? root.curveEditorHeight : 0)
                                 // Faint row tint on hover, and an empty track now
                                 // reads as a track rather than as blank space.
                                 color: trackHover.hovered
@@ -3108,6 +3098,45 @@ PanelFrame {
                 height: parent.height
             }
         }
+
+            // The curve editor, in the room its track made under the clip (0.24). It spans the
+            // label column (its chips and buttons) and the tracks, and scrolls with them.
+            Item {
+                id: curveOverlay
+                y: flick.headerHeight
+                width: tracksRow.width - (audioMixer.visible ? audioMixer.width : 0)
+                height: Math.max(0, flick.height - flick.headerHeight)
+                clip: true
+                visible: root.curveEditorShown
+                z: 20
+
+                Loader {
+                    id: curveGraph
+                    width: parent.width
+                    // Opt-in from the toolbar (or a key's «Edit curve…»), open until closed.
+                    active: EditorState.preferences.curveEditorVisible
+                    // Under the clips and the unfolded rows of its track.
+                    y: root.curveEditorTrack >= 0
+                       ? root.trackRowTop(root.curveEditorTrack) + root.trackHeight(root.curveEditorTrack)
+                         - root.curveEditorHeight - flick.contentY
+                       : 0
+                    sourceComponent: Component {
+                        KeyframeGraph {
+                            pxPerSecond: root.pxPerSecond
+                            labelsWidth: EditorState.preferences.trackLabelsWidth
+                            keyframesTab: true
+                            tools: keyTools
+                            // Keys and playhead line up with the tracks it sits among.
+                            contentX: flick.contentX
+                            contentWidth: flick.contentWidth
+                            // Outlives the graph being unloaded when it is closed.
+                            laneHeight: root.keyframeLaneHeight
+                            onLaneHeightChanged: root.keyframeLaneHeight = laneHeight
+                        }
+                    }
+                }
+            }
+            }
         } // Column (keyframes + tracks)
     }
 

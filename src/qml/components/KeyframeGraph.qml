@@ -29,10 +29,38 @@ Item {
     // the timeline has no rows (the phone's).
     property var tools: null
 
-    readonly property bool hasClip: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
+    // The clip whose curves are open (0.24). It follows the selection to a clip with animation, and
+    // stays when the selection goes (a click on the timeline to move the playhead) or moves to a
+    // clip without any: the editor is open until it is closed, as Jorge asked.
+    property string pinnedClipId: ""
+    function followSelection() {
+        if (EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
+            return
+        const data = EditorState.clipAt(EditorState.selectedTrack, EditorState.selectedClip)
+        if (!data || !data.id)
+            return
+        const animated = EditorState.clipAnimatedProperties(EditorState.selectedTrack, EditorState.selectedClip)
+        if (animated.length > 0 || root.trackIndex < 0)
+            root.pinnedClipId = data.id
+    }
+    Connections {
+        target: EditorState
+        function onSelectionChanged() { root.followSelection() }
+        function onSelectedClipDataChanged() { root.followSelection() }
+    }
+    Component.onCompleted: root.followSelection()
+
+    readonly property var pinnedAt: {
+        void EditorState.tracksRevision
+        return root.pinnedClipId.length > 0 ? EditorState.clipLocation(root.pinnedClipId) : ({ "track": -1, "clip": -1 })
+    }
+    readonly property int trackIndex: pinnedAt.track
+    readonly property int clipIndex: pinnedAt.clip
+    readonly property bool hasClip: trackIndex >= 0 && clipIndex >= 0
     readonly property var clip: {
         void EditorState.selectedClipData
-        return EditorState.selectedClipData
+        void EditorState.tracksRevision
+        return hasClip ? EditorState.clipAt(trackIndex, clipIndex) : ({})
     }
 
     // Effect parameters are addressed as "fx.<effectIndex>.<paramKey>", and audio effect ones as
@@ -89,7 +117,7 @@ Item {
         // is per clip, so no static table could spell them.
         if (id.substring(0, 5) === "text." || id.substring(0, 6) === "shape.") {
             const label = EditorState.keyframePropertyLabel(
-                            EditorState.selectedTrack, EditorState.selectedClip, id)
+                            root.trackIndex, root.clipIndex, id)
             if (label.length > 0)
                 return label
         }
@@ -185,8 +213,8 @@ Item {
     readonly property real shiftDelta: tools && tools.shifting ? tools.dragDelta : 0
     function shifted(prop, seconds) {
         return !!tools && tools.shifting
-               && tools.isShifted(EditorState.selectedTrack,
-                                  { clip: EditorState.selectedClip, prop: prop, seconds: seconds })
+               && tools.isShifted(root.trackIndex,
+                                  { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
     property string dragProp: ""
@@ -205,25 +233,25 @@ Item {
     // One entry per animated property of the clip — the chip row's model, hidden curves included.
     // [{ prop, label, color, points, enabled, shown, valueMin, valueMax }, ...]
     readonly property var allSeries: {
-        void EditorState.selectedClipData
+        void root.clip
         void EditorState.tracksRevision
         void EditorState.keyframeGraphHiddenProperties
         if (!hasClip)
             return []
         const out = []
         const animated = EditorState.clipAnimatedProperties(
-                           EditorState.selectedTrack, EditorState.selectedClip)
+                           root.trackIndex, root.clipIndex)
         const hidden = EditorState.keyframeGraphHiddenProperties
         for (let i = 0; i < animated.length; ++i) {
             const id = animated[i]
             if (!supportsProperty(id))
                 continue
             const pts = EditorState.clipKeyframes(
-                          EditorState.selectedTrack, EditorState.selectedClip, id) || []
+                          root.trackIndex, root.clipIndex, id) || []
             // What the curve reads as when the property has no keys at all — the level of the
             // flat line drawn across the clip in that case.
             const base = EditorState.propertyBaseValue(
-                           EditorState.selectedTrack, EditorState.selectedClip, id, 0)
+                           root.trackIndex, root.clipIndex, id, 0)
             const range = root.valueRangeFor(id, pts, base)
             out.push({
                 prop: id,
@@ -232,7 +260,7 @@ Item {
                 points: pts,
                 baseValue: base,
                 enabled: EditorState.clipPropertyKeyframesEnabled(
-                             EditorState.selectedTrack, EditorState.selectedClip, id),
+                             root.trackIndex, root.clipIndex, id),
                 shown: hidden.indexOf(id) < 0,
                 valueMin: range.min,
                 valueMax: range.max
@@ -397,10 +425,10 @@ Item {
             clipStart,
             Math.min(clipStart + clipDuration, EditorState.snapTime(secondsForX(px))))
         const value = EditorState.propertyValueAt(
-                        EditorState.selectedTrack, EditorState.selectedClip, entry.prop,
+                        root.trackIndex, root.clipIndex, entry.prop,
                         seconds, entry.baseValue)
         EditorState.showKeyframeGraphProperty(entry.prop)
-        EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip,
+        EditorState.setClipKeyframe(root.trackIndex, root.clipIndex,
                                     entry.prop, seconds, value)
         focusedProp = entry.prop
     }
@@ -484,6 +512,16 @@ Item {
                 Row {
                     width: parent.width
                     spacing: 4
+
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: Theme.icons.x
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 12
+                        tooltip: qsTranslate("FindReplaceDialog", "Close")
+                        onClicked: EditorState.preferences.curveEditorVisible = false
+                    }
 
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
@@ -932,7 +970,7 @@ Item {
                             id: keyDot
                             required property var modelData
                             readonly property var entry: root.series[modelData.seriesIndex]
-                            readonly property var ref: ({ clip: EditorState.selectedClip,
+                            readonly property var ref: ({ clip: root.clipIndex,
                                                           prop: modelData.prop,
                                                           seconds: modelData.seconds })
                             readonly property bool isPicked: {
@@ -942,8 +980,8 @@ Item {
                                 void root.tools.dragDelta
                                 // While the tracks' rows drag several keys the series is live
                                 // here, so a moved key is matched by where it started.
-                                return root.tools.isPicked(EditorState.selectedTrack, ref)
-                                       || root.tools.isShifted(EditorState.selectedTrack,
+                                return root.tools.isPicked(root.trackIndex, ref)
+                                       || root.tools.isShifted(root.trackIndex,
                                               { clip: ref.clip, prop: ref.prop,
                                                 seconds: ref.seconds - root.tools.dragDelta })
                             }
@@ -990,8 +1028,8 @@ Item {
                             // that curve's tangent handles.
                             function remove() {
                                 EditorState.removeClipKeyframe(
-                                    EditorState.selectedTrack,
-                                    EditorState.selectedClip,
+                                    root.trackIndex,
+                                    root.clipIndex,
                                     keyDot.modelData.prop,
                                     keyDot.modelData.seconds
                                 )
@@ -1002,7 +1040,7 @@ Item {
                             function pickHere() {
                                 if (!root.tools)
                                     return
-                                root.tools.press(EditorState.selectedTrack, keyDot.ref,
+                                root.tools.press(root.trackIndex, keyDot.ref,
                                                  EditorState.keyboardModifiers(), keyDot.entry.points)
                             }
 
@@ -1027,7 +1065,7 @@ Item {
                                     if (!root.tools)
                                         return
                                     root.focusedProp = keyDot.modelData.prop
-                                    root.tools.openMenu(EditorState.selectedTrack, keyDot.ref,
+                                    root.tools.openMenu(root.trackIndex, keyDot.ref,
                                                         keyDot.modelData.halves, keyDot.modelData.hold,
                                                         true, keyDot,
                                                         Qt.point(keyDot.width / 2, keyDot.height))
@@ -1037,7 +1075,7 @@ Item {
                             function beginMove() {
                                 root.focusedProp = keyDot.modelData.prop
                                 if (root.tools && !keyDot.isPicked)
-                                    root.tools.pick(EditorState.selectedTrack, [keyDot.ref])
+                                    root.tools.pick(root.trackIndex, [keyDot.ref])
                                 // Several picked: they all move in time together, values kept.
                                 keyDot.groupDrag = !!root.tools && root.tools.keys.length > 1
                                 if (keyDot.groupDrag) {
@@ -1067,8 +1105,8 @@ Item {
                                 // delegate mid-handler, so every reset has to land first.
                                 // The moved key stays picked at its new time.
                                 if (root.tools)
-                                    root.tools.pick(EditorState.selectedTrack,
-                                                    [{ clip: EditorState.selectedClip,
+                                    root.tools.pick(root.trackIndex,
+                                                    [{ clip: root.clipIndex,
                                                        prop: keyDot.modelData.prop,
                                                        seconds: keyDot.editSeconds }])
                                 root.dragProp = ""
@@ -1104,7 +1142,7 @@ Item {
                                                  root.yForValue(baseVal, entry) + dy,
                                                  entry)))
                                 EditorState.previewMoveClipKeyframe(
-                                    EditorState.selectedTrack, EditorState.selectedClip,
+                                    root.trackIndex, root.clipIndex,
                                     keyDot.modelData.prop, keyDot.editSeconds, newSec, newVal)
                                 keyDot.editSeconds = newSec
                                 keyDot.dragDx = root.xForSeconds(newSec) - root.xForSeconds(baseSec)
@@ -1285,7 +1323,7 @@ Item {
                                         }
 
                                         EditorState.previewSetKeyframeTangents(
-                                            EditorState.selectedTrack, EditorState.selectedClip,
+                                            root.trackIndex, root.clipIndex,
                                             root.series[root.focusedIndex].prop,
                                             p.seconds, inDx, inDy, outDx, outDy, p.corner)
 
