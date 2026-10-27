@@ -916,8 +916,15 @@ void layoutRectForClip(const drift::Clip &clip, drift::TimeUs timelineUs, int pr
     *yOut = transformValue(clip.transformY, relative, 0.0) * renderScale;
     *wOut = transformValue(clip.transformW, relative, static_cast<double>(projectWidth)) * scale;
     *hOut = transformValue(clip.transformH, relative, static_cast<double>(projectHeight)) * scale;
+    const double rotation = transformValue(clip.rotation, relative, 0.0);
     if (rotationOut)
-        *rotationOut = transformValue(clip.rotation, relative, 0.0);
+        *rotationOut = rotation;
+    // The anchor point (0.25): the box moves so the turn pivots there rather than on its centre.
+    if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty()) {
+        const QPointF shift = clip.anchorShift(relative, *wOut / renderScale, *hOut / renderScale, rotation);
+        *xOut += shift.x() * renderScale;
+        *yOut += shift.y() * renderScale;
+    }
 }
 
 // The bottommost active video/image frame at this time, used to derive a blur fill.

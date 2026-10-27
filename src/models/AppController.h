@@ -662,6 +662,15 @@ public:
     // "circle" and "ellipse" are the same kind with different default aspects.
     Q_INVOKABLE void addShapeClip(const QString &shapeKind, double atSeconds);
     Q_INVOKABLE void addShapeClipAt(const QString &shapeId, int trackIndex, double atSeconds);
+    // After Effects' Solid: a whole-frame rectangle of one colour on its own track (0.25).
+    // name empty = «Solid»; a size of 0 = the frame's; centred on the frame.
+    Q_INVOKABLE void addSolidClip(const QString &colorName = QString(), const QString &name = QString(),
+                                  double width = 0, double height = 0);
+    // After Effects' Solid Settings on a solid already placed: {name, color, width, height}, empty
+    // for any other clip; and the change, as one undo step.
+    Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setSolidSettings(int trackIndex, int clipIndex, const QString &colorName,
+                                      const QString &name, double width, double height);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);
@@ -758,6 +767,23 @@ public:
     Q_INVOKABLE void previewSetClipRotation(int trackIndex, int clipIndex, double degrees);
     Q_INVOKABLE void previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                             double atSeconds, double value);
+    // A value typed or dragged on a keyframe line (0.25, After Effects): a key at the playhead when
+    // the property is animated, the plain value when it is not. Inside a preview drag.
+    Q_INVOKABLE void previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
+                                             double atSeconds, double value);
+    // After Effects' stopwatch switched off (0.25): every key of these properties goes and each keeps
+    // the value it has at atSeconds. One undo step.
+    Q_INVOKABLE void stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds);
+    // The playhead dragged near a key lands on it (0.25, After Effects): the nearest key time within
+    // toleranceSeconds, else `seconds` unchanged.
+    Q_INVOKABLE double snapPlayheadToKeys(double seconds, double toleranceSeconds) const;
+    // Motion Tools' anchor grid (0.25): the anchor point to a corner, an edge's middle or the centre
+    // (fx, fy in 0, 0.5, 1 of the box) without the clip moving on screen — Position takes the
+    // difference, every key of it when it is animated. One undo step.
+    Q_INVOKABLE void setAnchorKeepingPlace(int trackIndex, int clipIndex, double fx, double fy);
+    // The box a clip has at 100 % (what Reset gives it), {w, h} in project px: the base of After
+    // Effects' two Scale values (0.25).
+    Q_INVOKABLE QVariantMap clipNaturalSize(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetEffectParam(int trackIndex, int clipIndex, int effectIndex,
                                            const QString &key, double value);
     Q_INVOKABLE void previewSetEffectVec2Param(int trackIndex, int clipIndex, int effectIndex,
@@ -1373,6 +1399,11 @@ public:
     // together, keeping their shape. The caller keeps them between their unpicked neighbours.
     Q_INVOKABLE void previewShiftKeyframes(int trackIndex, const QVariantList &keys, double fromDelta,
                                            double toDelta);
+    // Alt-drag of the first or last picked key (0.25, After Effects): the picked keys spread out or
+    // close in around `pivotSeconds`, each from pivot + (start − pivot) × fromFactor to the same
+    // with toFactor; their handles stretch with them.
+    Q_INVOKABLE void previewStretchKeyframes(int trackIndex, const QVariantList &keys, double pivotSeconds,
+                                             double fromFactor, double toFactor);
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
@@ -1688,6 +1719,13 @@ public:
     // The After-Effects-style twirl on a track header: unfolds one line per animated property
     // of the track's clips under it. View-only, saved with the project.
     Q_INVOKABLE void setTrackKeyframesExpanded(int trackIndex, bool expanded);
+    // The sound's fade in and out turned into volume keys (0.25): from silence to the level and
+    // back, so their shape can be edited on the volume line. The fades are cleared.
+    Q_INVOKABLE bool convertFadesToVolumeKeys(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool clipHasSoundFades(int trackIndex, int clipIndex) const;
+    // After Effects' keys (0.25): the playhead to the selected clip's key before/after it, and U.
+    Q_INVOKABLE void stepToKeyframe(bool forward);
+    Q_INVOKABLE void toggleRevealKeyframes();
     Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
@@ -1836,6 +1874,8 @@ public:
     // the model still has it at its old position, so those two targets sit right under the
     // pointer at the start of every move.
     Q_INVOKABLE double snapTime(double seconds, const QString &excludeClipId = {}) const;
+    // snapTime, then onto a whole frame: where a dragged key lands (0.25).
+    Q_INVOKABLE double snapKeyTime(double seconds) const;
     // Snapping pulls within a fixed on-screen distance, so the timeline reports its zoom here.
     Q_INVOKABLE void setSnapRadius(double pixels, double pxPerSecond);
     Q_INVOKABLE QVariantList waveformPeaks(const QString &path) const;
@@ -2053,6 +2093,13 @@ signals:
     void openFindReplaceRequested();
 
 protected:
+    void previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                               double value, bool forceKey, bool autoKey);
+    // The picked keys moved together: each from fromTime(start) to toTime(start), the handles'
+    // reach in time scaled by handleScale (shift and stretch).
+    void previewRetimeKeys(int trackIndex, const QVariantList &keys,
+                           const std::function<double(double)> &fromTime,
+                           const std::function<double(double)> &toTime, double handleScale);
     // Every path that changes the timeline model goes through this instead of a bare
     // `emit tracksChanged()`. The cache has to be dropped *before* the signal goes out: whether
     // a slot connected in the constructor runs ahead of QML's binding re-evaluation is not a
@@ -2622,6 +2669,8 @@ protected:
     bool m_previewDragDirty = false;
     // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
     QSet<QString> m_keyframeGroupsExpanded;
+    // U (toggleRevealKeyframes): the tracks' fixed transform lines only when they have keys.
+    bool m_keyframeRowsAnimatedOnly = false;
     // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
     void resetTransformOf(drift::Clip &clip);
     // The shaded letters the layer calls aim at (setTextStyleRange).

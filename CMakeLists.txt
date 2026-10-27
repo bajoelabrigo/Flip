@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.24.0 LANGUAGES CXX C)
+project(Drift VERSION 0.25.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1306,6 +1306,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/modes/Preview3DMode.qml
         src/qml/components/preview/TransformGizmo.qml
         src/qml/components/preview/TransformOverlay.qml
+        src/qml/components/preview/MotionPathOverlay.qml
         src/qml/components/preview/PreviewDropOverlay.qml
         src/qml/components/preview/CropOverlay.qml
         src/qml/components/preview/GuideLayer.qml
@@ -1402,6 +1403,8 @@ qt_add_qml_module(drift
         src/qml/TimelinePanel.qml
         src/qml/components/timeline/TimelineToolbar.qml
         src/qml/components/timeline/TrackKeyframeRows.qml
+        src/qml/components/timeline/ClipVolumeLine.qml
+        src/qml/components/timeline/ScrubValue.qml
         src/qml/components/timeline/KeyframeGlyph.qml
         src/qml/components/timeline/KeyframeCurvesPopup.qml
         src/qml/components/timeline/KeyframeKeyTools.qml
@@ -1454,6 +1457,7 @@ qt_add_qml_module(drift
         src/qml/components/LottieHoverSprite.qml
         src/qml/components/TextStylePackPicker.qml
         src/qml/components/NameDialog.qml
+        src/qml/components/SolidDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml
         src/qml/components/ThemedChip.qml

@@ -3327,6 +3327,18 @@
         <translation>Reducir velocidad de reproducción</translation>
     </message>
     <message>
+        <source>Go to previous keyframe</source>
+        <translation>Ir al fotograma clave anterior</translation>
+    </message>
+    <message>
+        <source>Go to next keyframe</source>
+        <translation>Ir al fotograma clave siguiente</translation>
+    </message>
+    <message>
+        <source>Show animated properties</source>
+        <translation>Mostrar las propiedades animadas</translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Acercar zoom</translation>
     </message>
@@ -3409,6 +3421,18 @@
     <message>
         <source>Shape added</source>
         <translation>Forma añadida</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation>Sólido agregado</translation>
+    </message>
+    <message>
+        <source>Solid settings</source>
+        <translation>Ajustes del sólido</translation>
     </message>
     <message>
         <source>Adjustment Layer</source>
@@ -3807,6 +3831,14 @@
     <message>
         <source>Composite created</source>
         <translation>Composición creada</translation>
+    </message>
+    <message>
+        <source>Move anchor point</source>
+        <translation>Mover punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Remove animation</source>
+        <translation>Quitar animación</translation>
     </message>
     <message>
         <source>Composite</source>
@@ -4914,6 +4946,14 @@
         <translation>Pista visible</translation>
     </message>
     <message>
+        <source>Fades to keyframes</source>
+        <translation>Fundidos a fotogramas clave</translation>
+    </message>
+    <message>
+        <source>The fades are now volume keyframes</source>
+        <translation>Los fundidos ahora son fotogramas clave de volumen</translation>
+    </message>
+    <message>
         <source>X position</source>
         <translation>Posición X</translation>
     </message>
@@ -4956,6 +4996,18 @@
     <message>
         <source>Volume</source>
         <translation>Volumen</translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>Anchor point X</source>
+        <translation>Punto de anclaje X</translation>
+    </message>
+    <message>
+        <source>Anchor point Y</source>
+        <translation>Punto de anclaje Y</translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -7033,10 +7085,6 @@
     <message>
         <source>R %1</source>
         <translation>R %1</translation>
-    </message>
-    <message>
-        <source>Pan changed</source>
-        <translation>Panorámica cambiada</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -11700,6 +11748,25 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>ClipVolumeLine</name>
+    <message>
+        <source>Adjust volume</source>
+        <translation>Ajustar el volumen</translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation>Mover fotograma clave</translation>
+    </message>
+    <message>
+        <source>double-click to remove</source>
+        <translation>doble clic para quitarlo</translation>
+    </message>
+    <message>
+        <source>drag to change the volume, Ctrl+click to add a keyframe</source>
+        <translation>arrastra para cambiar el volumen, Ctrl+clic para poner un fotograma clave</translation>
+    </message>
+</context>
+<context>
     <name>CloudProviders</name>
     <message>
         <source>No key set</source>
@@ -14998,6 +15065,22 @@ LA PRÓXIMA</translation>
         <translation>Expandir el editor de curvas para ver y editar los tiradores Bézier (180 px)</translation>
     </message>
     <message>
+        <source>Value graph</source>
+        <translation>Gráfico de valores</translation>
+    </message>
+    <message>
+        <source>Speed graph</source>
+        <translation>Gráfico de velocidad</translation>
+    </message>
+    <message>
+        <source>Separate dimensions: key X and Y of Position apart</source>
+        <translation>Separar dimensiones: claves de X e Y de Posición por separado</translation>
+    </message>
+    <message>
+        <source>Join dimensions: key X and Y of Position together</source>
+        <translation>Unir dimensiones: claves de X e Y de Posición juntas</translation>
+    </message>
+    <message>
         <source>Analyzing…</source>
         <translation>Analizando…</translation>
     </message>
@@ -15063,6 +15146,10 @@ LA PRÓXIMA</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Stretch keyframes</source>
+        <translation>Estirar fotogramas clave</translation>
+    </message>
     <message>
         <source>Move keyframes</source>
         <translation>Mover fotogramas clave</translation>
@@ -17105,6 +17192,21 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionPathOverlay</name>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Curvar el trazo del movimiento</translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation>Mover fotograma clave</translation>
+    </message>
+    <message>
+        <source>drag to move the clip at this keyframe</source>
+        <translation>arrastra para mover el clip en este fotograma clave</translation>
+    </message>
+</context>
+<context>
     <name>MotionTrackController</name>
     <message>
         <source>This clip cannot follow anything</source>
@@ -17386,6 +17488,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Graphic</source>
         <translation>Gráfico</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -19909,6 +20015,17 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation>Cambiar valor</translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation>Arrastra para cambiarlo, clic para escribirlo</translation>
+    </message>
+</context>
+<context>
     <name>SegmentationController</name>
     <message>
         <source>Select a video or image clip to cut out</source>
@@ -21204,6 +21321,45 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Not now</source>
         <translation>Ahora no</translation>
+    </message>
+</context>
+<context>
+    <name>SolidDialog</name>
+    <message>
+        <source>Solid settings</source>
+        <translation>Ajustes del sólido</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Project size</source>
+        <translation>Tamaño del proyecto</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
     </message>
 </context>
 <context>
@@ -25496,6 +25652,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>The quiet issue</source>
         <translation>El número tranquilo</translation>
     </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Letters %1–%2 · %3</source>
+        <translation>Letras %1–%2 · %3</translation>
+    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -25786,6 +25962,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mover a su propia pista</translation>
     </message>
     <message>
+        <source>Solid settings…</source>
+        <translation>Ajustes del sólido…</translation>
+    </message>
+    <message>
+        <source>Fades to volume keyframes</source>
+        <translation>Fundidos a fotogramas clave de volumen</translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Eliminar</translation>
     </message>
@@ -25851,6 +26035,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add new track</source>
         <translation>Añadir nueva pista</translation>
+    </message>
+    <message>
+        <source>Back to the keyframe lines</source>
+        <translation>Volver a las filas de fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation>Editor de curvas: las filas de fotogramas clave se vuelven curvas</translation>
     </message>
     <message>
         <source>Click or drag to seek</source>
@@ -26102,10 +26294,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Fundido automático: desactivado</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Editor de curvas: da forma a mano a las curvas de los fotogramas clave del clip seleccionado</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
@@ -26581,6 +26769,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Quitar fotogramas clave</translation>
     </message>
     <message>
+        <source>Stop animating (removes its keyframes)</source>
+        <translation>Dejar de animar (quita sus fotogramas clave)</translation>
+    </message>
+    <message>
+        <source>Animate: a keyframe at the playhead</source>
+        <translation>Animar: un fotograma clave en el cabezal</translation>
+    </message>
+    <message>
+        <source>Click to pick all its keyframes</source>
+        <translation>Clic para elegir todos sus fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Constrain proportions: on</source>
+        <translation>Mantener proporciones: activado</translation>
+    </message>
+    <message>
+        <source>Constrain proportions: off</source>
+        <translation>Mantener proporciones: desactivado</translation>
+    </message>
+    <message>
         <source>Reset</source>
         <translation>Restablecer</translation>
     </message>
@@ -26593,6 +26801,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir un fotograma clave en el cabezal</translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation>Punto de anclaje: esquinas y centro</translation>
+    </message>
+    <message>
         <source>More</source>
         <translation>Más</translation>
     </message>
@@ -26603,6 +26815,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Next keyframe</source>
         <translation>Fotograma clave siguiente</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation>Más…</translation>
     </message>
     <message>
         <source>Remove all keyframes…</source>
@@ -26758,6 +26974,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>Volume</source>
+        <translation>Volumen</translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>Anchor point</source>
+        <translation>Punto de anclaje</translation>
+    </message>
+    <message>
         <source>Width</source>
         <translation>Ancho</translation>
     </message>
@@ -26780,6 +27008,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>clic derecho: Recto, Suave, Salto, Curvas</translation>
+    </message>
+    <message>
+        <source>Alt+drag the first or last: stretch</source>
+        <translation>Alt+arrastrar la primera o la última: estirar</translation>
     </message>
 </context>
 <context>

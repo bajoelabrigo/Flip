@@ -3327,6 +3327,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Go to previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show animated properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3408,6 +3420,18 @@
     </message>
     <message>
         <source>Shape added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3806,6 +3830,14 @@
     </message>
     <message>
         <source>Composite created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove animation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4918,6 +4950,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fades to keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The fades are now volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>X position</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4959,6 +4999,18 @@
     </message>
     <message>
         <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7032,10 +7084,6 @@
     </message>
     <message>
         <source>R %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pan changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11696,6 +11744,25 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ClipVolumeLine</name>
+    <message>
+        <source>Adjust volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double-click to remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to change the volume, Ctrl+click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CloudProviders</name>
     <message>
         <source>No key set</source>
@@ -14994,6 +15061,22 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Value graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions: key X and Y of Position apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join dimensions: key X and Y of Position together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Analyzing…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -15059,6 +15142,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Stretch keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Move keyframes</source>
         <translation type="unfinished"></translation>
@@ -17101,6 +17188,21 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>MotionPathOverlay</name>
+    <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MotionTrackController</name>
     <message>
         <source>This clip cannot follow anything</source>
@@ -17381,6 +17483,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Graphic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19898,6 +20004,17 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SegmentationController</name>
     <message>
         <source>Select a video or image clip to cut out</source>
@@ -21192,6 +21309,45 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Not now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SolidDialog</name>
+    <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -25484,6 +25640,26 @@ If playback stutters, try another.</source>
         <source>The quiet issue</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters %1–%2 · %3</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -25774,6 +25950,14 @@ If playback stutters, try another.</source>
         <translation>Ilipat sa sarili nitong track</translation>
     </message>
     <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fades to volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Burahin</translation>
     </message>
@@ -25838,6 +26022,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add new track</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26089,10 +26281,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Automatic dissolve: off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26585,6 +26773,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Stop animating (removes its keyframes)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate: a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26594,6 +26802,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point: corners and centre</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26695,6 +26907,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Rename…</source>
         <translation>Palitan ang pangalan…</translation>
     </message>
@@ -26746,6 +26962,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26768,6 +26996,10 @@ If playback stutters, try another.</source>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>right-click: Tuwid, Banayad, Hinto, Mga kurba</translation>
+    </message>
+    <message>
+        <source>Alt+drag the first or last: stretch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

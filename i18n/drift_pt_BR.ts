@@ -3327,6 +3327,18 @@
         <translation>Diminuir velocidade de reprodução</translation>
     </message>
     <message>
+        <source>Go to previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show animated properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Ampliar</translation>
     </message>
@@ -3409,6 +3421,18 @@
     <message>
         <source>Shape added</source>
         <translation>Forma adicionada</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adjustment Layer</source>
@@ -3807,6 +3831,14 @@
     <message>
         <source>Composite created</source>
         <translation>Composição criada</translation>
+    </message>
+    <message>
+        <source>Move anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove animation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Composite</source>
@@ -4914,6 +4946,14 @@
         <translation>Faixa visível</translation>
     </message>
     <message>
+        <source>Fades to keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The fades are now volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>X position</source>
         <translation>Posição X</translation>
     </message>
@@ -4956,6 +4996,18 @@
     <message>
         <source>Volume</source>
         <translation>Volume</translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point Y</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -7033,10 +7085,6 @@
     <message>
         <source>R %1</source>
         <translation>D %1</translation>
-    </message>
-    <message>
-        <source>Pan changed</source>
-        <translation>Panorâmica alterada</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -11700,6 +11748,25 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>ClipVolumeLine</name>
+    <message>
+        <source>Adjust volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>double-click to remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to change the volume, Ctrl+click to add a keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CloudProviders</name>
     <message>
         <source>No key set</source>
@@ -14998,6 +15065,22 @@ PRÓXIMA</translation>
         <translation>Expandir o editor de curvas para ver e editar as alças Bézier (180px)</translation>
     </message>
     <message>
+        <source>Value graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions: key X and Y of Position apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join dimensions: key X and Y of Position together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Analyzing…</source>
         <translation>Analisando…</translation>
     </message>
@@ -15063,6 +15146,10 @@ PRÓXIMA</translation>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
+    <message>
+        <source>Stretch keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Move keyframes</source>
         <translation>Mover quadros-chave</translation>
@@ -17105,6 +17192,21 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionPathOverlay</name>
+    <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MotionTrackController</name>
     <message>
         <source>This clip cannot follow anything</source>
@@ -17386,6 +17488,10 @@ PRÓXIMA</translation>
     <message>
         <source>Graphic</source>
         <translation>Gráfico</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -19909,6 +20015,17 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
 </context>
 <context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SegmentationController</name>
     <message>
         <source>Select a video or image clip to cut out</source>
@@ -21204,6 +21321,45 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Not now</source>
         <translation>Agora não</translation>
+    </message>
+</context>
+<context>
+    <name>SolidDialog</name>
+    <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25496,6 +25652,26 @@ Se a reprodução travar, tente outra opção.</translation>
         <source>The quiet issue</source>
         <translation>A edição tranquila</translation>
     </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters %1–%2 · %3</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TextStylePackPicker</name>
@@ -25786,6 +25962,14 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Mover para sua própria faixa</translation>
     </message>
     <message>
+        <source>Solid settings…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fades to volume keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete</source>
         <translation>Excluir</translation>
     </message>
@@ -25851,6 +26035,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Add new track</source>
         <translation>Adicionar nova faixa</translation>
+    </message>
+    <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Click or drag to seek</source>
@@ -26102,10 +26294,6 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Dissolução automática: desativada</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Editor de curvas: modele à mão as curvas dos quadros-chave do clipe selecionado</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>
@@ -26581,6 +26769,26 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Stop animating (removes its keyframes)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate: a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26593,6 +26801,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26602,6 +26814,10 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26758,6 +26974,18 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26780,6 +27008,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>right-click: Straight, Smooth, Hold, Curves</source>
         <translation>clique direito: Reto, Suave, Salto, Curvas</translation>
+    </message>
+    <message>
+        <source>Alt+drag the first or last: stretch</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

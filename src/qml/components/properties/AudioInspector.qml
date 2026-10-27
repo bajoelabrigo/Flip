@@ -259,65 +259,38 @@ Item {
 
             readonly property real panValue: {
                 void root.clipDataRevision
-                return (root.clipData && root.clipData.pan !== undefined)
-                       ? root.clipData.pan : 0.0
+                void EditorState.playheadSeconds
+                if (!root.clipData || root.clipData.pan === undefined)
+                    return 0.0
+                return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip, "pan",
+                                                   EditorState.playheadSeconds, root.clipData.pan)
             }
 
-            Row {
+            // Keyframed like the volume (0.25): the diamond keys the balance at the playhead, so
+            // the sound can travel from one side to the other.
+            PropertyKeyframeRow {
                 width: parent.width
-
-                Text {
-                    width: parent.width / 2
-                    text: qsTr("Pan")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
-                Text {
-                    width: parent.width / 2
-                    horizontalAlignment: Text.AlignRight
-                    // "L 50" / "C" / "R 50" reads faster than a signed fraction, and the
-                    // sign convention for pan is not something a user should have to recall.
-                    text: {
-                        const v = panSection.panValue
-                        if (Math.abs(v) < 0.005)
-                            return qsTr("C")
-                        return (v < 0 ? qsTr("L %1") : qsTr("R %1"))
-                                   .arg(Math.round(Math.abs(v) * 100))
-                    }
-                    color: Theme.panelForeground
-                    font.family: Theme.monoFontFamily
-                    font.pixelSize: Theme.fontSizeSm
-                }
-            }
-
-            ThemedSlider {
-                id: panSlider
-                lockWhilePlaying: true
-                label: qsTr("Pan")
-                width: parent.width
-                from: -1
-                to: 1
-                Binding on value {
-                    when: !panSlider.pressed
-                    value: panSection.panValue
-                }
-                onMoved: EditorState.previewSetClipPan(
-                             EditorState.selectedTrack, EditorState.selectedClip, value)
-                onPressedChanged: {
-                    if (pressed)
-                        EditorState.beginPreviewDrag(qsTr("Pan changed"))
-                    else
-                        EditorState.commitPreviewDrag()
-                }
+                propDef: ({ "key": "pan", "label": qsTr("Pan"), "def": 0.0, "decimals": 2 })
+                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.pan
+                               && root.clipData.keyframes.pan.points) || []
+                useSlider: true
+                sliderFrom: -1
+                sliderTo: 1
+                percent: true
             }
 
             ThemedButton {
                 text: qsTr("Centre")
                 enabled: Math.abs(panSection.panValue) >= 0.005
-                onClicked: EditorState.setClipPan(
-                               EditorState.selectedTrack, EditorState.selectedClip, 0)
+                onClicked: {
+                    const keys = root.clipData.keyframes && root.clipData.keyframes.pan
+                                 && root.clipData.keyframes.pan.points
+                    if (keys && keys.length > 0)
+                        EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip,
+                                                    "pan", EditorState.playheadSeconds, 0)
+                    else
+                        EditorState.setClipPan(EditorState.selectedTrack, EditorState.selectedClip, 0)
+                }
             }
         }
 

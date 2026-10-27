@@ -1,5 +1,8 @@
 #pragma once
 
+#include <cmath>
+#include <QPointF>
+
 #include "BlendMode.h"
 #include "ClipAnimation.h"
 #include "Effect.h"
@@ -116,6 +119,8 @@ struct Clip
 
     // When true, AudioMixer skips this video clip's embedded audio (companion audio track plays it).
     bool suppressEmbeddedAudio = false;
+    // An After Effects Solid (0.25): a shape made by «Solid…», which keeps its Solid settings.
+    bool isSolid = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a
@@ -269,6 +274,31 @@ struct Clip
     // tag dropped). 0 = show the file as its own tag says.
     int rotationCorrection = 0;
     KeyframeTrack<double> volume;
+    // The balance animated (0.25, as Premiere's Pan): when it has keys it wins over `pan`, which
+    // keeps the last static value. Key times relative to the clip's start, like `volume`.
+    KeyframeTrack<double> panKeys;
+    // After Effects' Anchor Point (0.25): the point of the box the clip turns around, as a
+    // fraction of its width and height (0.5, 0.5 is the centre, and what an empty track means).
+    // Rendering shifts the box by anchorShift() so the turn pivots there.
+    KeyframeTrack<double> anchorX;
+    KeyframeTrack<double> anchorY;
+
+    // How far the box moves so that turning `rotationDeg` pivots on the anchor instead of the
+    // centre, for a box w × h (project px) at clip time `relative`: a − R·a, with a the anchor
+    // relative to the centre. Zero for a centred anchor or no turn.
+    QPointF anchorShift(TimeUs relative, double w, double h, double rotationDeg) const
+    {
+        const double fx = anchorX.isEmpty() ? 0.5 : anchorX.evaluateAt(relative);
+        const double fy = anchorY.isEmpty() ? 0.5 : anchorY.evaluateAt(relative);
+        const double ax = (fx - 0.5) * w;
+        const double ay = (fy - 0.5) * h;
+        if ((ax == 0.0 && ay == 0.0) || rotationDeg == 0.0)
+            return {};
+        const double r = rotationDeg * 3.14159265358979323846 / 180.0;
+        const double c = std::cos(r);
+        const double s = std::sin(r);
+        return {ax - (c * ax - s * ay), ay - (s * ax + c * ay)};
+    }
     QList<Effect> effects;
     QList<Effect> audioEffects; // libavfilter chains applied to this clip's audio in the mixer
 

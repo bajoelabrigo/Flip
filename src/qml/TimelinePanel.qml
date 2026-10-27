@@ -78,11 +78,15 @@ PanelFrame {
     // use fitZoom() when you want the timeline fitted to the viewport.
     // Low enough for multi-hour projects without live recalibration.
     readonly property real minZoom: 0.0001
-    readonly property real maxZoom: 40.0
+    // Far enough in that a frame is ~130 px wide at 30 fps (0.25, After Effects' frame view).
+    readonly property real maxZoom: 80.0
     readonly property real pxPerSecond: Theme.pixelsPerSecondBase * zoom
     // Delete takes the picked keys first, as After Effects; false when there are none.
     function deletePickedKeys() {
         return keyTools.removePicked()
+    }
+    function pickAllKeys() {
+        return keyTools.pickAllOfClip()
     }
     function copyPickedKeys() {
         return keyTools.copyPicked()
@@ -142,9 +146,31 @@ PanelFrame {
         setZoomAround(newZoom, anchorSeconds, viewportX)
     }
 
+    // The project's frame rate, and how wide one frame is at this zoom (0.25: After Effects counts
+    // frames once they have room).
+    readonly property int projectFps: {
+        void EditorState.tracksRevision
+        return Math.max(1, EditorState.projectFile.projectFps())
+    }
+    readonly property real pxPerFrame: pxPerSecond / projectFps
+    // Zoomed in far enough that the ruler counts frames ("05f") instead of hundredths.
+    readonly property bool frameRuler: pxPerFrame >= 6
+    // The time on a whole frame: the playhead never stops between two (After Effects).
+    function snapToFrame(seconds) {
+        return Math.round(Math.max(0, seconds) * projectFps) / projectFps
+    }
+
     // Ruler tick interval (seconds): the smallest "nice" step whose labels still
     // have room to breathe at the current zoom, so timestamps never squash.
     readonly property real tickStepSeconds: {
+        if (frameRuler) {
+            // In frames: every frame with room for its label, else every 2, 5, 10… frames.
+            const frames = [1, 2, 5, 10, 15, 30, 60]
+            for (let i = 0; i < frames.length; i++) {
+                if (frames[i] * pxPerFrame >= 34 || frames[i] >= projectFps)
+                    return Math.min(frames[i], projectFps) / projectFps
+            }
+        }
         const minLabelPx = 66
         const needed = minLabelPx / pxPerSecond
         const steps = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 15, 30,
@@ -156,8 +182,19 @@ PanelFrame {
         return steps[steps.length - 1]
     }
 
-    // HH:MM:SS, plus .CC hundredths once zoomed into sub-second ticks.
+    // HH:MM:SS, plus .CC hundredths once zoomed into sub-second ticks; zoomed into frames, as After
+    // Effects: "05f" for a frame, "01:00f" on each second.
     function formatTick(seconds) {
+        if (frameRuler && tickStepSeconds < 1) {
+            const pad2 = (n) => (n < 10 ? "0" : "") + n
+            const f = Math.round(Math.max(0, seconds) * projectFps)
+            const sec = Math.floor(f / projectFps)
+            const frame = f % projectFps
+            if (frame !== 0)
+                return pad2(frame) + "f"
+            const mins = Math.floor(sec / 60)
+            return (mins > 0 ? pad2(mins) + ":" : "") + pad2(sec % 60) + ":00f"
+        }
         const cc = Math.round(Math.max(0, seconds) * 100)
         const pad = (n) => (n < 10 ? "0" : "") + n
         let out = pad(Math.floor(cc / 360000)) + ":"
@@ -610,10 +647,37 @@ PanelFrame {
 
     // The curve editor opens under the track of its clip, not over the timeline (0.24, Jorge:
     // «confunde»). The rows make room for it; curveOverlay draws it in that room.
+    // Only over a track whose lines are open (0.25): the graph is those lines, as curves.
     readonly property bool curveEditorShown: curveGraph.item !== null && curveGraph.item.hasContent
+                                             && curveGraph.item.trackIndex >= 0
+                                             && !!root.tracks[curveGraph.item.trackIndex]
+                                             && root.tracks[curveGraph.item.trackIndex].keyframesExpanded === true
+    // After Effects' Solid Settings for a solid already placed (0.25).
+    function openSolidSettings(trackIndex, clipIndex) {
+        solidSettings.openFor(trackIndex, clipIndex)
+    }
+
+    // How near (screen px) a key has to be for the dragged playhead to land on it (0.25).
+    readonly property real playheadKeySnapPx: 8
+
+    // The curve editor on and off; on, it opens the lines of the clip being edited.
+    function toggleGraphMode() {
+        const on = !EditorState.preferences.curveEditorVisible
+        EditorState.preferences.curveEditorVisible = on
+        if (on && EditorState.selectedTrack >= 0)
+            EditorState.setTrackKeyframesExpanded(EditorState.selectedTrack, true)
+    }
     readonly property int curveEditorTrack: curveEditorShown ? curveGraph.item.trackIndex : -1
     readonly property real curveEditorHeight: curveEditorShown ? curveGraph.item.height : 0
 
+
+    // How tall a track's open keyframe lines are (the room the curve editor fills, 0.25).
+    function keyframeLinesHeight(index) {
+        void EditorState.tracksRevision
+        if (index < 0 || !root.tracks[index] || root.tracks[index].keyframesExpanded !== true)
+            return 0
+        return EditorState.trackKeyframeRows(index).length * Theme.keyframeRowHeight
+    }
 
     // Top of a row inside the track column, which stacks the visible rows with a gap.
     function trackRowTop(index) {
@@ -1369,7 +1433,9 @@ PanelFrame {
 
                     IconButton {
                         id: addTrackButton
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.horizontalCenterOffset: -(width + 4) / 2
                         glyph: Theme.icons.plus
                         variant: "text"
                         tooltip: qsTr("Add new track")
@@ -1379,7 +1445,26 @@ PanelFrame {
                             id: addTrackMenu
                             x: Math.max(0, (addTrackButton.width - width) / 2)
                             y: addTrackButton.height + 4
+                            solidDialog: solidSettings
                         }
+                        SolidDialog {
+                            id: solidSettings
+                        }
+                    }
+
+                    // After Effects' Graph Editor switch (0.25, Jorge: next to «+»): the keyframe
+                    // lines of the clip being edited turn into its curves, in the same place.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: addTrackButton.right
+                        anchors.leftMargin: 4
+                        glyph: Theme.icons.penCurve
+                        variant: "text"
+                        active: EditorState.preferences.curveEditorVisible
+                        tooltip: EditorState.preferences.curveEditorVisible
+                                 ? qsTr("Back to the keyframe lines")
+                                 : qsTr("Curve editor: the keyframe lines turn into their curves")
+                        onClicked: root.toggleGraphMode()
                     }
 
                     Rectangle {
@@ -1400,6 +1485,7 @@ PanelFrame {
 
                 TrackHeaderColumn {
                     id: trackLabelsArea
+                    keyframeTools: keyTools
                     width: parent.width
                     // Clamped: went negative at small panel heights, which spilled
                     // the absolutely-positioned label rows out of the column.
@@ -1539,8 +1625,11 @@ PanelFrame {
                             z: 1
 
                             function scrubTo(x) {
-                                EditorState.playheadSeconds =
-                                    EditorState.snapTime(Math.max(0, x) / root.pxPerSecond)
+                                // On a whole frame, and a key within a few pixels catches it, as
+                                // After Effects.
+                                const t = root.snapToFrame(Math.max(0, x) / root.pxPerSecond)
+                                const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
+                                EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                             }
 
                             // Seeking is not a selection change: scrubbing to look at a
@@ -1948,9 +2037,10 @@ PanelFrame {
                                     ? (root.tracks.length, EditorState.trackKeyframeRows(trackIndex)) : []
                                 // The unfolded rows, and the curve editor under them when it is
                                 // this track's (0.24): clips and rows keep their place above it.
-                                readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
-                                                                           + (trackIndex === root.curveEditorTrack
-                                                                              ? root.curveEditorHeight : 0)
+                                // The curve editor takes the lines' place on its track (0.25).
+                                readonly property real keyframeRowsHeight: Math.max(
+                                    keyframeRows.length * Theme.keyframeRowHeight,
+                                    trackIndex === root.curveEditorTrack ? root.curveEditorHeight : 0)
                                 // Faint row tint on hover, and an empty track now
                                 // reads as a track rather than as blank space.
                                 color: trackHover.hovered
@@ -2420,7 +2510,9 @@ PanelFrame {
 
                                 // The unfolded property lines, under the clips.
                                 TrackKeyframeRows {
+                                    // The curve editor draws over this track's lines instead.
                                     visible: trackRow.keyframeRows.length > 0
+                                             && trackRow.trackIndex !== root.curveEditorTrack
                                     y: trackRow.height - trackRow.keyframeRowsHeight
                                     width: trackRow.width
                                     z: 5
@@ -2810,6 +2902,31 @@ PanelFrame {
                         }
                     }
 
+                    // After Effects' frame columns (0.25): zoomed into frames, every other frame is
+                    // shaded down the tracks, so a key's frame reads at a glance.
+                    Item {
+                        id: frameColumns
+                        visible: root.pxPerFrame >= 8
+                        z: 2
+                        y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight
+                        width: flick.contentWidth
+                        height: root.totalTracksHeightCached
+                        readonly property int firstFrame: Math.max(0, Math.floor(flick.contentX / Math.max(1, root.pxPerFrame)) - 1)
+                        readonly property int count: visible ? Math.ceil(flick.width / Math.max(1, root.pxPerFrame)) + 3 : 0
+                        Repeater {
+                            model: frameColumns.count
+                            delegate: Rectangle {
+                                required property int index
+                                readonly property int frame: frameColumns.firstFrame + index
+                                visible: frame % 2 === 1
+                                x: frame * root.pxPerFrame
+                                width: root.pxPerFrame
+                                height: frameColumns.height
+                                color: Qt.rgba(0, 0, 0, 0.16)
+                            }
+                        }
+                    }
+
                     // playhead ---------------------------------------------------------------
                     Item {
                         id: playhead
@@ -2831,12 +2948,15 @@ PanelFrame {
                         // Follow either drag live so the preview scrubs with it.
                         onXChanged: {
                             if (playheadDragArea.drag.active || playheadLineDrag.drag.active)
-                                EditorState.playheadSeconds = playhead.x / root.pxPerSecond
+                                EditorState.playheadSeconds = EditorState.snapPlayheadToKeys(
+                                    root.snapToFrame(playhead.x / root.pxPerSecond),
+                                    root.playheadKeySnapPx / root.pxPerSecond)
                         }
 
                         function finishSeek() {
-                            EditorState.playheadSeconds =
-                                EditorState.snapTime(playhead.x / root.pxPerSecond)
+                            const t = root.snapToFrame(playhead.x / root.pxPerSecond)
+                            const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
+                            EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
                         }
 
                         Rectangle {
@@ -3112,7 +3232,9 @@ PanelFrame {
 
                 Loader {
                     id: curveGraph
-                    width: parent.width
+                    // Over the tracks only: the track's own lines name the properties (0.25).
+                    x: EditorState.preferences.trackLabelsWidth
+                    width: parent.width - EditorState.preferences.trackLabelsWidth
                     // Opt-in from the toolbar (or a key's «Edit curve…»), open until closed.
                     active: EditorState.preferences.curveEditorVisible
                     // Under the clips and the unfolded rows of its track.
@@ -3122,8 +3244,10 @@ PanelFrame {
                        : 0
                     sourceComponent: Component {
                         KeyframeGraph {
+                            // Fills the room of the track's lines, or more when dragged taller.
+                            height: hasContent ? Math.max(laneHeight, root.keyframeLinesHeight(trackIndex)) : 0
                             pxPerSecond: root.pxPerSecond
-                            labelsWidth: EditorState.preferences.trackLabelsWidth
+                            labelsWidth: 0
                             keyframesTab: true
                             tools: keyTools
                             // Keys and playhead line up with the tracks it sits among.

@@ -11,7 +11,8 @@ import ".."
 // arrives, its right half how it leaves.
 //
 // Keys are picked like After Effects': a click picks one (and brings the playhead to it), Ctrl
-// adds or takes one away, Shift picks the run on that line. The menu and After Effects' keys
+// adds or takes one away, Shift picks the run on that line, and a drag on empty space draws a box
+// that picks every key it touches (with Shift or Ctrl, added to the ones already picked). The menu and After Effects' keys
 // (F9 Suave, Shift+F9 Suave al llegar, Ctrl+Shift+F9 Suave al salir, Ctrl+Alt+H Salto,
 // Ctrl+Alt+K Recto) act on every picked key at once.
 Item {
@@ -46,17 +47,120 @@ Item {
     onDraggingChanged: if (!dragging) rows = liveRows
     Component.onCompleted: rows = liveRows
 
+    // The box a drag on empty space draws (0.25), in this item's coordinates.
+    property bool marqueeActive: false
+    property bool marqueeAdditive: false
+    property real marqueeX0: 0
+    property real marqueeY0: 0
+    property real marqueeX1: 0
+    property real marqueeY1: 0
+    // Set when a press turned into a box, so its release is not read as a click on the line.
+    property bool marqueeSwallowClick: false
+    property var marqueeBase: []
+
+    function marqueePress(item, mouse) {
+        const p = item.mapToItem(root, mouse.x, mouse.y)
+        root.marqueeX0 = root.marqueeX1 = p.x
+        root.marqueeY0 = root.marqueeY1 = p.y
+        root.marqueeAdditive = !!(mouse.modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
+        root.marqueeSwallowClick = false
+    }
+    function marqueeMove(item, mouse) {
+        if (!(mouse.buttons & Qt.LeftButton))
+            return
+        const p = item.mapToItem(root, mouse.x, mouse.y)
+        root.marqueeX1 = p.x
+        root.marqueeY1 = p.y
+        if (!root.marqueeActive) {
+            if (Math.abs(p.x - root.marqueeX0) < 4 && Math.abs(p.y - root.marqueeY0) < 4)
+                return
+            root.marqueeActive = true
+            root.marqueeSwallowClick = true
+            root.marqueeBase = root.marqueeAdditive && root.tools.track === root.trackIndex
+                               ? root.tools.keys.slice() : []
+        }
+        root.marqueeApply()
+    }
+    function marqueeRelease() {
+        if (!root.marqueeActive)
+            return
+        root.marqueeApply()
+        root.marqueeActive = false
+        // The clip of the keys picked becomes the selected one, so the inspector and Delete act
+        // on it (KeyframeKeyTools drops a pick that is not on the selected clip).
+        const keys = root.tools.keys
+        if (keys.length > 0 && !keys.some((k) => k.clip === EditorState.selectedClip
+                                                && EditorState.selectedTrack === root.trackIndex)) {
+            const picked = keys.slice()
+            EditorState.selectClip(root.trackIndex, picked[0].clip)
+            root.tools.pick(root.trackIndex, picked)
+        }
+    }
+    // Every key whose glyph the box touches, with the axis keys of a joined line.
+    function marqueeApply() {
+        const half = 7
+        const left = Math.min(root.marqueeX0, root.marqueeX1) - half
+        const right = Math.max(root.marqueeX0, root.marqueeX1) + half
+        const top = Math.min(root.marqueeY0, root.marqueeY1)
+        const bottom = Math.max(root.marqueeY0, root.marqueeY1)
+        const out = root.marqueeBase.slice()
+        const add = (ref) => {
+            if (!out.some((k) => root.tools.sameKey(k, ref)))
+                out.push(ref)
+        }
+        for (let r = 0; r < root.rows.length; ++r) {
+            const cy = r * root.rowHeight + root.rowHeight / 2
+            if (cy < top - root.rowHeight / 2 + 2 || cy > bottom + root.rowHeight / 2 - 2)
+                continue
+            const spans = root.rows[r].clips || []
+            for (const span of spans) {
+                for (const key of (span.keys || [])) {
+                    const x = key.seconds * root.pxPerSecond
+                    if (x < left || x > right)
+                        continue
+                    const refs = key.refs && key.refs.length > 0 ? key.refs
+                                                                 : [{ prop: span.prop, seconds: key.seconds }]
+                    for (const ref of refs)
+                        add({ clip: span.clip, prop: ref.prop, seconds: ref.seconds })
+                }
+            }
+        }
+        root.tools.pick(root.trackIndex, out)
+    }
+
+    // Presses outside every clip's stretch: only the box.
+    MouseArea {
+        id: emptyMouse
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton
+        preventStealing: true
+        onPressed: (mouse) => root.marqueePress(emptyMouse, mouse)
+        onPositionChanged: (mouse) => root.marqueeMove(emptyMouse, mouse)
+        onReleased: {
+            const wasBox = root.marqueeActive
+            root.marqueeRelease()
+            if (!wasBox)
+                root.tools.clear()
+        }
+        onCanceled: root.marqueeRelease()
+    }
+
     // A line's name: the joined transform lines by their group, the rest as the app names them.
     function rowLabel(row) {
         switch (row.group && !row.axis ? row.group : "") {
+        case "anchor": return qsTranslate("TrackKeyframeRows", "Anchor point")
         case "position": return qsTranslate("TrackKeyframeRows", "Position")
         case "rotation": return qsTranslate("TrackKeyframeRows", "Rotation")
         case "scale": return qsTranslate("TrackKeyframeRows", "Scale")
         case "opacity": return qsTranslate("TrackKeyframeRows", "Opacity")
+        case "volume": return qsTranslate("TrackKeyframeRows", "Volume")
+        case "pan": return qsTranslate("TrackKeyframeRows", "Pan")
         }
         switch (row.axis ? row.prop : "") {
         case "x": return "X"
         case "y": return "Y"
+        case "anchorX": return "X"
+        case "anchorY": return "Y"
         case "width": return qsTranslate("TrackKeyframeRows", "Width")
         case "height": return qsTranslate("TrackKeyframeRows", "Height")
         }
@@ -126,10 +230,16 @@ Item {
                         anchors.fill: parent
                         acceptedButtons: Qt.LeftButton
                         hoverEnabled: true
+                        id: spanMouse
+                        preventStealing: true
+                        onPressed: (mouse) => root.marqueePress(spanMouse, mouse)
+                        onPositionChanged: (mouse) => root.marqueeMove(spanMouse, mouse)
+                        onReleased: root.marqueeRelease()
+                        onCanceled: root.marqueeRelease()
                         onDoubleClicked: (mouse) => {
                             const at = Math.max(span.modelData.start,
                                 Math.min(span.modelData.start + span.modelData.duration,
-                                         EditorState.snapTime(span.modelData.start
+                                         EditorState.snapKeyTime(span.modelData.start
                                                               + mouse.x / root.pxPerSecond)))
                             const props = (rowItem.modelData.groupProps && !rowItem.modelData.axis
                                            ? rowItem.modelData.groupProps : [span.modelData.prop]).slice()
@@ -147,12 +257,16 @@ Item {
                             }
                         }
                         onClicked: {
+                            if (root.marqueeSwallowClick) {
+                                root.marqueeSwallowClick = false
+                                return
+                            }
                             root.tools.clear()
                             EditorState.selectClip(root.trackIndex, span.modelData.clip)
                         }
 
                         ThemedToolTip {
-                            visible: parent.containsMouse
+                            visible: parent.containsMouse && !root.marqueeActive
                             text: qsTr("Double-click to add a keyframe")
                         }
                     }
@@ -192,11 +306,15 @@ Item {
                             // shared offset: the rows are frozen while it lasts.
                             readonly property real shiftDx: {
                                 void root.tools.dragDelta
+                                void root.tools.stretchFactor
                                 return root.tools.isShifted(root.trackIndex, ref)
-                                       ? root.tools.dragDelta * root.pxPerSecond : 0
+                                       ? root.tools.offsetFor(ref.seconds) * root.pxPerSecond : 0
                             }
                             // Dragging several picked keys rather than this one alone.
                             property bool groupDrag: false
+                            // Alt held on the first or last of several picked: they stretch.
+                            property bool altPress: false
+                            property bool stretchDrag: false
                             x: (modelData.seconds - span.modelData.start) * root.pxPerSecond
                                - width / 2 + dragDx + shiftDx
                             z: keyMouse.pressed || isPicked ? 2 : 1
@@ -242,14 +360,18 @@ Item {
                                         return
                                     const ctrl = mouse.modifiers & Qt.ControlModifier
                                     const shift = mouse.modifiers & Qt.ShiftModifier
-                                    // A joined key picks its axes' keys together, so they move as one.
-                                    if (keyItem.refList.length > 1 && !ctrl && !shift)
-                                        root.tools.pick(root.trackIndex, keyItem.refList)
+                                    // A joined key picks its axes' keys together, so they move as one
+                                    // (and keeps the others picked when it already is one of them).
+                                    if (keyItem.refList.length > 1 && !ctrl && !shift) {
+                                        if (!keyItem.isPicked)
+                                            root.tools.pick(root.trackIndex, keyItem.refList)
+                                    }
                                     else
                                         root.tools.press(root.trackIndex, keyItem.ref, mouse.modifiers,
                                                          span.modelData.keys)
                                     // Only a plain press drags (as the clip strip's keys).
                                     keyItem.dragArmed = !ctrl && !shift
+                                    keyItem.altPress = !!(mouse.modifiers & Qt.AltModifier)
                                     keyItem.pressX = mapToItem(root, mouse.x, mouse.y).x
                                     keyItem.editSeconds = keyItem.modelData.seconds
                                     keyItem.moved = false
@@ -263,16 +385,27 @@ Item {
                                             return
                                         keyItem.moved = true
                                         root.dragging = true
-                                        keyItem.groupDrag = keyItem.isPicked && root.tools.keys.length > 1
-                                        if (keyItem.groupDrag)
+                                        keyItem.stretchDrag = keyItem.altPress
+                                            && root.tools.canStretch(root.trackIndex, keyItem.ref)
+                                        keyItem.groupDrag = !keyItem.stretchDrag
+                                            && keyItem.isPicked && root.tools.keys.length > 1
+                                        if (keyItem.stretchDrag)
+                                            root.tools.beginStretch(keyItem.ref)
+                                        else if (keyItem.groupDrag)
                                             root.tools.beginShift()
                                         else
                                             EditorState.beginPreviewDrag(qsTr("Move keyframe"))
                                     }
+                                    if (keyItem.stretchDrag) {
+                                        const from = keyItem.modelData.seconds
+                                        EditorState.playheadSeconds = root.tools.stretchTo(
+                                            EditorState.snapKeyTime(from + dx / root.pxPerSecond))
+                                        return
+                                    }
                                     if (keyItem.groupDrag) {
                                         const from = keyItem.modelData.seconds
                                         const moved = root.tools.shiftTo(
-                                            EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                            EditorState.snapKeyTime(from + dx / root.pxPerSecond) - from)
                                         EditorState.playheadSeconds = from + moved
                                         return
                                     }
@@ -287,7 +420,7 @@ Item {
                                              : span.modelData.start + span.modelData.duration
                                     const base = keyItem.modelData.seconds
                                     const at = Math.max(lo, Math.min(hi,
-                                        EditorState.snapTime(base + dx / root.pxPerSecond)))
+                                        EditorState.snapKeyTime(base + dx / root.pxPerSecond)))
                                     if (Math.abs(at - keyItem.editSeconds) < 1e-6)
                                         return
                                     EditorState.previewMoveClipKeyframe(
@@ -300,7 +433,11 @@ Item {
                                 onReleased: (mouse) => {
                                     if (mouse.button !== Qt.LeftButton)
                                         return
-                                    if (keyItem.moved && keyItem.groupDrag) {
+                                    if (keyItem.moved && keyItem.stretchDrag) {
+                                        root.tools.endStretch()
+                                        keyItem.stretchDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved && keyItem.groupDrag) {
                                         // The picked keys stay picked at their new times.
                                         root.tools.endShift()
                                         keyItem.groupDrag = false
@@ -322,7 +459,11 @@ Item {
                                     }
                                 }
                                 onCanceled: {
-                                    if (keyItem.moved && keyItem.groupDrag) {
+                                    if (keyItem.moved && keyItem.stretchDrag) {
+                                        root.tools.endStretch()
+                                        keyItem.stretchDrag = false
+                                        root.dragging = false
+                                    } else if (keyItem.moved && keyItem.groupDrag) {
                                         root.tools.endShift()
                                         keyItem.groupDrag = false
                                         root.dragging = false
@@ -347,11 +488,26 @@ Item {
                                 text: root.rowLabel(rowItem.modelData) + " · "
                                       + keyItem.modelData.seconds.toFixed(2) + " s"
                                       + " · " + qsTr("right-click: Straight, Smooth, Hold, Curves")
+                                      + (root.tools.keys.length > 1 && keyItem.isPicked
+                                         ? " · " + qsTr("Alt+drag the first or last: stretch") : "")
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    // The box itself, over the lines.
+    Rectangle {
+        visible: root.marqueeActive
+        z: 10
+        x: Math.min(root.marqueeX0, root.marqueeX1)
+        y: Math.min(root.marqueeY0, root.marqueeY1)
+        width: Math.abs(root.marqueeX1 - root.marqueeX0)
+        height: Math.abs(root.marqueeY1 - root.marqueeY0)
+        color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.14)
+        border.width: 1
+        border.color: Theme.primary
     }
 }

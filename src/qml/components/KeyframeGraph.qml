@@ -22,6 +22,9 @@ Item {
     readonly property real paintOriginX: Math.floor(contentX / paintChunk) * paintChunk - paintChunk
     property real contentWidth: 800
     property real labelsWidth: Theme.trackLabelsWidth
+    // Inside a track's keyframe lines (0.25, After Effects' Graph Editor): no gutter of its own,
+    // the track's lines on the left name the properties; its buttons float over the graph.
+    readonly property bool inline: labelsWidth <= 0
     // Whether the open properties tab edits keyframeable properties (PropertiesPanel `keyframes`).
     property bool keyframesTab: false
     // The picked keys, the key menu and the Curves popup, shared with the tracks' keyframe rows
@@ -106,6 +109,7 @@ Item {
         case "perspective": return qsTr("Perspective")
         case "opacity": return qsTr("Opacity")
         case "volume": return qsTr("Volume")
+        case "pan": return qsTranslate("TrackKeyframeRows", "Pan")
         case "mask.x": return qsTr("Mask X")
         case "mask.y": return qsTr("Mask Y")
         case "mask.w": return qsTr("Mask width")
@@ -139,6 +143,7 @@ Item {
         case "perspective": return "Per"
         case "opacity": return "Op"
         case "volume": return "Vol"
+        case "pan": return "Pan"
         case "mask.x": return "MX"
         case "mask.y": return "MY"
         case "mask.w": return "MW"
@@ -149,6 +154,10 @@ Item {
         const fx = effectParam(id)
         if (fx)
             return fx.param.label.substring(0, 3)
+        // A text or shape key (a layer's, or some letters' own, 0.25) by the name the engine gives
+        // it, never the raw key ("text.run.r42….rotation").
+        if (id.substring(0, 5) === "text." || id.substring(0, 6) === "shape.")
+            return root.propertyLabel(id)
         return id
     }
     // Volume and audio effects only exist on clips that carry audio; the rest are visual.
@@ -175,8 +184,9 @@ Item {
             return { min: 0, max: 1 }
         if (id === "volume")
             return { min: 0, max: 2 }
-        if (id === "rotation" || id === "mask.rotation")
-            return { min: -180, max: 180 }
+        // Rotation fits its keys like the rest (0.25): a turn to 320° or 720° stays in the graph;
+        // a small swing still gets a readable span.
+        const turn = id === "rotation" || id === "mask.rotation"
         // Mask geometry is normalized to the clip frame, so a fixed 0..1 axis is meaningful and
         // keeps the four curves comparable. Feather is in px and auto-fits like anything else.
         if (id === "mask.x" || id === "mask.y" || id === "mask.w" || id === "mask.h")
@@ -190,6 +200,11 @@ Item {
             const v = Number(pts[i].value)
             lo = Math.min(lo, v)
             hi = Math.max(hi, v)
+            // The handles too: a curve bends out to them, and must not leave the graph.
+            for (const d of [Number(pts[i].inDy) || 0, Number(pts[i].outDy) || 0]) {
+                lo = Math.min(lo, v + d)
+                hi = Math.max(hi, v + d)
+            }
         }
         // With no keys there is nothing to fit, so centre the axis on the value the property
         // actually holds — otherwise a 1920px width would be drawn far off the top of a 0..100 lane.
@@ -197,10 +212,13 @@ Item {
             lo = base
         if (!isFinite(hi))
             hi = base
-        return {
-            min: lo - Math.max(1, Math.abs(lo) * 0.1),
-            max: hi + Math.max(1, Math.abs(hi) * 0.1)
+        if (turn && hi - lo < 90) {
+            const mid = (hi + lo) / 2
+            lo = mid - 45
+            hi = mid + 45
         }
+        const pad = Math.max(1, (hi - lo) * 0.08)
+        return { min: lo - pad, max: hi + pad }
     }
 
     // A preview move emits tracksChanged, which would re-evaluate `series` and
@@ -211,12 +229,88 @@ Item {
     // The time the picked keys have moved in a drag of several (KeyframeKeyTools.shifting): the
     // frozen series draws them there.
     readonly property real shiftDelta: tools && tools.shifting ? tools.dragDelta : 0
+    // How far a key that started at `seconds` has gone (a stretch moves each by its own).
+    function shiftOf(seconds) {
+        if (!root.tools)
+            return 0
+        void root.tools.dragDelta
+        void root.tools.stretchFactor
+        return root.tools.offsetFor(seconds)
+    }
     function shifted(prop, seconds) {
-        return !!tools && tools.shifting
+        return !!tools && (tools.shifting || tools.stretching)
                && tools.isShifted(root.trackIndex,
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
+    // After Effects' Speed Graph (0.25): the focused curve's speed instead of its values.
+    property bool speedGraph: false
+    // Its fastest moment, in the property's units per second (the axis top while on).
+    property real speedPeak: 0
+
+    // The axis numbers down the graph's left edge (0.25, After Effects): the focused curve's
+    // values, or its speed in Speed Graph. [{y, label}]
+    readonly property var axisTicks: {
+        void root.laneHeight
+        void root.speedPeak
+        const h = graph.height
+        if (h <= 0 || root.focusedIndex < 0 || root.focusedIndex >= root.series.length)
+            return []
+        const fmt = (v) => Math.abs(v) >= 100 ? String(Math.round(v))
+                          : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2)
+        if (root.speedGraph) {
+            const top = root.speedPeak
+            if (!(top > 0))
+                return []
+            return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(top * f) + "/s" }))
+        }
+        const entry = root.series[root.focusedIndex]
+        const lo = entry.valueMin
+        const hi = entry.valueMax
+        const out = []
+        const n = h >= 140 ? 4 : 2
+        for (let i = 0; i <= n; ++i) {
+            const v = lo + (hi - lo) * i / n
+            out.push({ "y": root.yForValue(v, entry), "label": fmt(v) })
+        }
+        return out
+    }
+    // A drag of several picked keys also moves their values (0.25, After Effects): the pointer's
+    // height in pixels, which each curve reads in its own range. Shift keeps the values.
+    property real groupDy: 0
+    property var groupValueBase: []
+    function groupValue(value, entry) {
+        if (Math.abs(root.groupDy) < 1e-6)
+            return value
+        return Math.max(entry.valueMin, Math.min(entry.valueMax,
+                        root.valueForY(root.yForValue(value, entry) + root.groupDy, entry)))
+    }
+    // The box a drag on empty graph space draws: picks every key dot inside it.
+    property bool marqueeActive: false
+    property real marqueeX0: 0
+    property real marqueeY0: 0
+    property real marqueeX1: 0
+    property real marqueeY1: 0
+    property var marqueeBase: []
+    function marqueeApply() {
+        if (!root.tools)
+            return
+        const left = Math.min(root.marqueeX0, root.marqueeX1) - 6
+        const right = Math.max(root.marqueeX0, root.marqueeX1) + 6
+        const top = Math.min(root.marqueeY0, root.marqueeY1) - 6
+        const bottom = Math.max(root.marqueeY0, root.marqueeY1) + 6
+        const out = root.marqueeBase.slice()
+        for (const h of root.keyHandles) {
+            const x = root.xForSeconds(h.seconds)
+            const y = root.yForValue(h.value, root.series[h.seriesIndex])
+            if (x < left || x > right || y < top || y > bottom)
+                continue
+            const ref = { clip: root.clipIndex, prop: h.prop, seconds: h.seconds }
+            if (!out.some((k) => root.tools.sameKey(k, ref)))
+                out.push(ref)
+        }
+        root.tools.pick(root.trackIndex, out)
+    }
     property string dragProp: ""
     property int dragIndex: -1
     property real dragSeconds: 0
@@ -411,7 +505,9 @@ Item {
         return series.length > 0 ? 0 : -1
     }
     // Tangent handles need room; below this the lane is an overview and shows keys only.
-    readonly property bool curveEditing: laneHeight >= 140
+    // Inside a track's lines it is as tall as they are (0.25): handles show at that size already,
+    // with no need to grow the lane first.
+    readonly property bool curveEditing: (inline ? height : laneHeight) >= 110
     function isFocused(index) { return index === focusedIndex }
 
     // Double-click on empty graph inserts a key on the focused curve. The value comes from the
@@ -423,7 +519,7 @@ Item {
         const entry = series[focusedIndex]
         const seconds = Math.max(
             clipStart,
-            Math.min(clipStart + clipDuration, EditorState.snapTime(secondsForX(px))))
+            Math.min(clipStart + clipDuration, EditorState.snapKeyTime(secondsForX(px))))
         const value = EditorState.propertyValueAt(
                         root.trackIndex, root.clipIndex, entry.prop,
                         seconds, entry.baseValue)
@@ -465,6 +561,7 @@ Item {
             id: leftGutter
             width: root.labelsWidth
             height: parent.height
+            visible: !root.inline
 
             // DAW-style lane zoom: wheel over this header grows/shrinks the keyframe lane
             MouseArea {
@@ -505,15 +602,22 @@ Item {
             }
 
             Column {
+                id: gutterColumn
                 anchors.fill: parent
                 anchors.margins: 6
                 spacing: 4
 
                 Row {
-                    width: parent.width
+                    id: graphButtons
+                    // Inline, the buttons float over the graph's top right.
+                    parent: root.inline ? floatButtons : gutterColumn
+                    width: root.inline ? implicitWidth : parent.width
+                    x: root.inline ? 4 : 0
+                    y: root.inline ? 3 : 0
                     spacing: 4
 
                     IconButton {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: Theme.icons.x
                         variant: "text"
@@ -524,6 +628,7 @@ Item {
                     }
 
                     Text {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Keyframes")
                         color: Theme.mutedForeground
@@ -533,6 +638,7 @@ Item {
                     }
 
                     IconButton {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: root.curveEditing ? Theme.icons.minimize : Theme.icons.maximize
                         variant: "text"
@@ -542,6 +648,33 @@ Item {
                                  ? qsTr("Collapse curve editor to compact view (88px)")
                                  : qsTr("Expand curve editor to view and edit Bezier handles (180px)")
                         onClicked: root.toggleExpanded()
+                    }
+
+                    // After Effects' Speed graph (0.25): how fast the focused curve changes, drawn
+                    // over its values, so an ease that is too abrupt shows as a spike.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: Theme.icons.gauge
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 14
+                        active: root.speedGraph
+                        tooltip: root.speedGraph ? qsTr("Value graph")
+                                                 : qsTr("Speed graph")
+                        onClicked: root.speedGraph = !root.speedGraph
+                    }
+                    // Separate dimensions: X and Y of Position keyed apart, or together.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: EditorState.positionLinked ? Theme.icons.link : Theme.icons.unlink
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 14
+                        active: !EditorState.positionLinked
+                        tooltip: EditorState.positionLinked
+                                 ? qsTr("Separate dimensions: key X and Y of Position apart")
+                                 : qsTr("Join dimensions: key X and Y of Position together")
+                        onClicked: EditorState.positionLinked = !EditorState.positionLinked
                     }
 
                     // Beat grid / tempo.
@@ -668,6 +801,33 @@ Item {
             width: parent.width - root.labelsWidth
             height: parent.height
             clip: true
+
+            // The axis numbers, fixed at the left edge while the graph scrolls under them.
+            Repeater {
+                model: root.axisTicks
+                delegate: Item {
+                    required property var modelData
+                    z: 30
+                    x: 0
+                    y: 6 + modelData.y
+                    width: viewport.width
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.panelBorder
+                        opacity: 0.35
+                    }
+                    Text {
+                        x: 4
+                        // The top number goes under its line so it is not cut off.
+                        y: parent.modelData.y < height + 2 ? 1 : -height - 1
+                        text: parent.modelData.label
+                        color: Theme.mutedForeground
+                        font.family: Theme.monoFontFamily
+                        font.pixelSize: Theme.fontSizeTiny
+                    }
+                }
+            }
 
             Item {
                 id: content
@@ -814,7 +974,8 @@ Item {
                                 const live = entry.points.map(function (p, i) {
                                     if (root.shifted(entry.prop, p.seconds)) {
                                         return {
-                                            seconds: p.seconds + root.shiftDelta, value: p.value,
+                                            seconds: p.seconds + root.shiftOf(p.seconds),
+                                            value: root.groupValue(p.value, entry),
                                             inDx: p.inDx, inDy: p.inDy,
                                             outDx: p.outDx, outDy: p.outDy, hold: p.hold
                                         }
@@ -887,7 +1048,8 @@ Item {
                                 // rows, which reads as a glow wherever the curve runs shallow —
                                 // exactly the flat tops and troughs between keys.
                                 ctx.lineWidth = focused ? 2 : 1
-                                ctx.globalAlpha = (root.curveEditing && !focused) ? 0.35 : 1.0
+                                ctx.globalAlpha = root.speedGraph ? 0.18
+                                                  : (root.curveEditing && !focused) ? 0.35 : 1.0
                                 if (entry.enabled === false)
                                     ctx.globalAlpha *= 0.45
                                 ctx.strokeStyle = String(entry.color)
@@ -936,6 +1098,47 @@ Item {
                                 ctx.stroke()
                             }
                             ctx.globalAlpha = 1.0
+                            // The focused curve's speed, sampled from what plays: |Δvalue/Δt|,
+                            // scaled to the lane (its fastest moment at the top).
+                            if (root.speedGraph && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
+                                    && root.series[root.focusedIndex].points.length > 1) {
+                                const entry = root.series[root.focusedIndex]
+                                const t0 = root.clipStart
+                                const t1 = root.clipStart + root.clipDuration
+                                const steps = Math.min(400, Math.max(40, Math.round((spanX1 - spanX0) / 3)))
+                                const dt = (t1 - t0) / steps
+                                const base = entry.baseValue !== undefined ? entry.baseValue : 0
+                                const speeds = []
+                                let peak = 0
+                                let prev = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop, t0, base)
+                                for (let i = 1; i <= steps; ++i) {
+                                    const v = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop,
+                                                                          t0 + dt * i, base)
+                                    const sp = Math.abs(v - prev) / Math.max(1e-6, dt)
+                                    speeds.push(sp)
+                                    peak = Math.max(peak, sp)
+                                    prev = v
+                                }
+                                root.speedPeak = peak
+                                if (peak > 1e-9) {
+                                    // After Effects' Speed Graph: the speed is the curve now.
+                                    ctx.strokeStyle = String(entry.color)
+                                    ctx.globalAlpha = 1.0
+                                    ctx.lineWidth = 2
+                                    ctx.beginPath()
+                                    for (let i = 0; i < speeds.length; ++i) {
+                                        const x = root.xForSeconds(t0 + dt * (i + 0.5))
+                                        const y = graph.height - 4 - (speeds[i] / peak) * (graph.height - 8)
+                                        if (i === 0)
+                                            ctx.moveTo(x, y)
+                                        else
+                                            ctx.lineTo(x, y)
+                                    }
+                                    ctx.stroke()
+                                    ctx.setLineDash([])
+                                    ctx.globalAlpha = 1.0
+                                }
+                            }
                             ctx.restore()
                         }
                         Connections {
@@ -946,6 +1149,8 @@ Item {
                             function onDragSecondsChanged() { curveCanvas.requestPaint() }
                             function onDragValueChanged() { curveCanvas.requestPaint() }
                             function onShiftDeltaChanged() { curveCanvas.requestPaint() }
+                            function onSpeedGraphChanged() { curveCanvas.requestPaint() }
+                            function onGroupDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentOutDxChanged() { curveCanvas.requestPaint() }
                             function onDragTangentInDyChanged() { curveCanvas.requestPaint() }
@@ -957,11 +1162,51 @@ Item {
 
                     // Below the key dots (z 2) and tangent grips (z 4), so double-clicking an
                     // existing node grabs it instead of inserting another one on top of it.
+                    // A drag here draws the box that picks keys (Shift or Ctrl add to the picked).
                     MouseArea {
                         anchors.fill: parent
                         z: 1
                         acceptedButtons: Qt.LeftButton
+                        preventStealing: true
+                        property bool boxed: false
                         onDoubleClicked: function (mouse) { root.addKeyAt(mouse.x) }
+                        onPressed: (mouse) => {
+                            root.marqueeX0 = root.marqueeX1 = mouse.x
+                            root.marqueeY0 = root.marqueeY1 = mouse.y
+                            boxed = false
+                            root.marqueeBase = root.tools && root.tools.track === root.trackIndex
+                                && (mouse.modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
+                                ? root.tools.keys.slice() : []
+                        }
+                        onPositionChanged: (mouse) => {
+                            root.marqueeX1 = mouse.x
+                            root.marqueeY1 = mouse.y
+                            if (!root.marqueeActive && Math.abs(mouse.x - root.marqueeX0) < 4
+                                    && Math.abs(mouse.y - root.marqueeY0) < 4)
+                                return
+                            root.marqueeActive = true
+                            boxed = true
+                            root.marqueeApply()
+                        }
+                        onReleased: {
+                            if (root.marqueeActive)
+                                root.marqueeApply()
+                            else if (!boxed && root.tools && root.marqueeBase.length === 0)
+                                root.tools.clear()
+                            root.marqueeActive = false
+                        }
+                        onCanceled: root.marqueeActive = false
+                    }
+                    Rectangle {
+                        visible: root.marqueeActive
+                        z: 6
+                        x: Math.min(root.marqueeX0, root.marqueeX1)
+                        y: Math.min(root.marqueeY0, root.marqueeY1)
+                        width: Math.abs(root.marqueeX1 - root.marqueeX0)
+                        height: Math.abs(root.marqueeY1 - root.marqueeY0)
+                        color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.14)
+                        border.width: 1
+                        border.color: Theme.primary
                     }
 
                     Repeater {
@@ -978,17 +1223,18 @@ Item {
                                     return false
                                 void root.tools.keys
                                 void root.tools.dragDelta
+                                void root.tools.stretchFactor
                                 // While the tracks' rows drag several keys the series is live
                                 // here, so a moved key is matched by where it started.
                                 return root.tools.isPicked(root.trackIndex, ref)
                                        || root.tools.isShifted(root.trackIndex,
                                               { clip: ref.clip, prop: ref.prop,
-                                                seconds: ref.seconds - root.tools.dragDelta })
+                                                seconds: root.tools.startOf(ref.seconds) })
                             }
                             // Moved with the others in a drag of several picked keys.
                             readonly property real shiftDx: root.draggingKey
                                 && root.shifted(modelData.prop, modelData.seconds)
-                                ? root.shiftDelta * root.pxPerSecond : 0
+                                ? root.shiftOf(modelData.seconds) * root.pxPerSecond : 0
                             property bool groupDrag: false
                             width: 20
                             height: 20
@@ -999,7 +1245,9 @@ Item {
                                 && root.dragIndex >= 0 && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                 && Math.abs((root.series[root.focusedIndex].points[root.dragIndex] ? root.series[root.focusedIndex].points[root.dragIndex].seconds : -999) - modelData.seconds) < (1 / 30)
                             x: root.xForSeconds(modelData.seconds) - width / 2 + shiftDx + (isLinkedPartnerKey ? (root.xForSeconds(root.dragSeconds) - root.xForSeconds(modelData.seconds)) : dragDx)
-                            y: root.yForValue(modelData.value, entry) - height / 2 + dragDy
+                            y: root.yForValue(root.draggingKey && root.shifted(modelData.prop, modelData.seconds)
+                                                  ? root.groupValue(modelData.value, entry) : modelData.value, entry)
+                               - height / 2 + dragDy
                             z: isPicked ? 3 : 2
 
                             // The same shapes as the tracks' rows: how the value arrives and
@@ -1079,6 +1327,17 @@ Item {
                                 // Several picked: they all move in time together, values kept.
                                 keyDot.groupDrag = !!root.tools && root.tools.keys.length > 1
                                 if (keyDot.groupDrag) {
+                                    // Each picked key's value where the drag starts.
+                                    const base = []
+                                    for (const k of root.tools.keys) {
+                                        const entry = root.series.find((e) => e.prop === k.prop)
+                                        const pt = entry ? entry.points.find((p) => Math.abs(p.seconds - k.seconds) < 1e-4)
+                                                         : null
+                                        if (entry && pt && k.clip === root.clipIndex)
+                                            base.push({ key: k, value: pt.value, entry: entry })
+                                    }
+                                    root.groupValueBase = base
+                                    root.groupDy = 0
                                     root.frozenSeries = root.series
                                     root.draggingKey = true
                                     root.tools.beginShift()
@@ -1097,6 +1356,8 @@ Item {
                                 if (keyDot.groupDrag) {
                                     // Same order as below: unfreezing destroys this delegate.
                                     keyDot.groupDrag = false
+                                    root.groupDy = 0
+                                    root.groupValueBase = []
                                     root.tools.endShift()
                                     root.draggingKey = false
                                     return
@@ -1120,8 +1381,17 @@ Item {
                                 if (keyDot.groupDrag) {
                                     const from = keyDot.modelData.seconds
                                     const moved = root.tools.shiftTo(
-                                        EditorState.snapTime(from + dx / root.pxPerSecond) - from)
+                                        EditorState.snapKeyTime(from + dx / root.pxPerSecond) - from)
                                     EditorState.playheadSeconds = from + moved
+                                    // Their values ride the pointer's height too, unless Shift.
+                                    const keepValues = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
+                                    root.groupDy = keepValues ? 0 : dy
+                                    for (const b of root.groupValueBase) {
+                                        const at = b.key.seconds + moved
+                                        EditorState.previewMoveClipKeyframe(
+                                            root.trackIndex, b.key.clip, b.key.prop, at, at,
+                                            root.groupValue(b.value, b.entry))
+                                    }
                                     return
                                 }
                                 const entry = keyDot.entry
@@ -1133,7 +1403,7 @@ Item {
                                 const newSec = Math.max(
                                     root.clipStart,
                                     Math.min(root.clipStart + root.clipDuration,
-                                             EditorState.snapTime(rawSec)))
+                                             EditorState.snapKeyTime(rawSec)))
                                 const isShift = (EditorState.keyboardModifiers() & Qt.ShiftModifier) !== 0
                                 const newVal = isShift ? baseVal : Math.max(
                                     entry.valueMin,
@@ -1380,6 +1650,31 @@ Item {
                                            Math.min(root.maxLaneHeight,
                                                     startHeight + translation.y))
             }
+        }
+    }
+
+    // The buttons over the graph when it sits inside the track's lines.
+    Rectangle {
+        id: floatButtons
+        visible: root.inline && root.hasContent
+        z: 40
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 4
+        anchors.rightMargin: 6
+        width: graphButtons.implicitWidth + 8
+        height: 26
+        radius: 4
+        color: Qt.rgba(0, 0, 0, 0.45)
+    }
+
+    // A click on a line's name in the track (0.25) makes its curve the one being shaped.
+    Connections {
+        target: root.tools
+        ignoreUnknownSignals: true
+        function onFocusPropChanged() {
+            if (root.tools.focusProp.length > 0)
+                root.focusedProp = root.tools.focusProp
         }
     }
 }

@@ -378,6 +378,19 @@ Item {
         return value === undefined || value === null ? fallback : Number(value)
     }
 
+    // The shaded letters' move as a keyframed property (0.25): "text.run.<animId>.<field>". Before
+    // the letters have been moved there is no animId yet, and the row writes a plain value.
+    function runProp(field, label, decimals) {
+        const id = root.runUnderCursor.animId || ""
+        return { "key": id.length > 0 && root.runUnderCursor.transformEnabled ? "text.run." + id + "." + field : "",
+                 "label": label, "def": root.runTransformValue(field, field === "transformScale" ? 1.0 : 0.0),
+                 "decimals": decimals }
+    }
+    function runKeyframes(field) {
+        const id = root.runUnderCursor.animId || ""
+        return id.length > 0 ? root.textKeyframes("run." + id + "." + field) : []
+    }
+
     function setRunTransform(key, value) {
         const patch = {}
         patch[key] = value
@@ -2249,6 +2262,7 @@ Item {
                 visible: root.hasTextStyle
 
                 Column {
+                    id: runTransformColumn
                     width: parent.width
                     spacing: Theme.spacingSm
                     visible: root.hasRunSelection
@@ -2262,37 +2276,130 @@ Item {
                         wrapMode: Text.WordWrap
                     }
 
-                    ThemedNumberField {
+                    // Plain fields until the letters have a move of their own; then the rows
+                    // with the diamond, so their turn, move or size can be keyframed (0.25).
+                    readonly property bool keyed: !!root.runUnderCursor.animId
+                                                  && !!root.runUnderCursor.transformEnabled
+                    Row {
                         width: parent.width
-                        unit: "X"
-                        value: root.runTransformValue("offsetX", 0.0)
-                        onEdited: v => root.setRunTransform("offsetX", v)
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "X"
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: "X"
+                            value: root.runTransformValue("offsetX", 0.0)
+                            onEdited: v => root.setRunTransform("offsetX", v)
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        unit: "Y"
-                        value: root.runTransformValue("offsetY", 0.0)
-                        onEdited: v => root.setRunTransform("offsetY", v)
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: "Y"
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: "Y"
+                            value: root.runTransformValue("offsetY", 0.0)
+                            onEdited: v => root.setRunTransform("offsetY", v)
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
-                        unit: qsTranslate("TransformInspector", "Scale")
-                        decimals: 2
-                        step: 0.05
-                        from: 0.05
-                        to: 20
-                        value: root.runTransformValue("transformScale", 1.0)
-                        onEdited: v => root.applyStyle({ "transformScale": v })
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTranslate("TransformInspector", "Scale")
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
+                            unit: qsTranslate("TransformInspector", "Scale")
+                            decimals: 2
+                            step: 0.05
+                            from: 0.05
+                            to: 20
+                            value: root.runTransformValue("transformScale", 1.0)
+                            onEdited: v => root.applyStyle({ "transformScale": v })
+                        }
                     }
-                    ThemedNumberField {
+                    Row {
                         width: parent.width
-                        unit: qsTranslate("KeyframeGraph", "Rotation")
-                        decimals: 1
-                        from: -360
-                        to: 360
-                        value: root.runTransformValue("rotation", 0.0)
-                        onEdited: v => root.applyStyle({ "rotation": v })
+                        visible: !runTransformColumn.keyed
+                        spacing: Theme.spacingSm
+                        ThemedLabel {
+                            width: 72
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTranslate("KeyframeGraph", "Rotation")
+                            elide: Text.ElideRight
+                        }
+                        ThemedNumberField {
+                            width: parent.width - 72 - parent.spacing
+                            unit: qsTranslate("KeyframeGraph", "Rotation")
+                            decimals: 1
+                            from: -3600
+                            to: 3600
+                            value: root.runTransformValue("rotation", 0.0)
+                            onEdited: v => root.applyStyle({ "rotation": v })
+                        }
+                    }
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: parent.keyed
+                        propDef: root.runProp("offsetX", "X", 1)
+                        keyframeList: root.runKeyframes("offsetX")
+                        useSlider: true
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -10000
+                        inputTo: 10000
+                    }
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: parent.keyed
+                        propDef: root.runProp("offsetY", "Y", 1)
+                        keyframeList: root.runKeyframes("offsetY")
+                        useSlider: true
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -10000
+                        inputTo: 10000
+                    }
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: parent.keyed
+                        propDef: root.runProp("transformScale", qsTranslate("TransformInspector", "Scale"), 2)
+                        keyframeList: root.runKeyframes("transformScale")
+                        useSlider: true
+                        sliderFrom: 0.05
+                        sliderTo: 5
+                        inputFrom: 0.05
+                        inputTo: 20
+                    }
+                    PropertyKeyframeRow {
+                        width: parent.width
+                        visible: parent.keyed
+                        propDef: root.runProp("rotation", qsTranslate("KeyframeGraph", "Rotation"), 1)
+                        keyframeList: root.runKeyframes("rotation")
+                        useSlider: true
+                        sliderFrom: -180
+                        sliderTo: 180
+                        inputFrom: -3600
+                        inputTo: 3600
+                        unit: "°"
                     }
                 }
 

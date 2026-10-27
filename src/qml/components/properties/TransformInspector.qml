@@ -347,6 +347,8 @@ Item {
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
+                inputFrom: -3600
+                inputTo: 3600
                 unit: "°"
             }
 

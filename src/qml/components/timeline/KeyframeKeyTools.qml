@@ -20,6 +20,8 @@ Item {
     // A run with Shift starts here: {clip, prop, seconds}.
     property var runFrom: null
     readonly property bool hasPick: track >= 0 && keys.length > 0
+    // The property whose curve the graph shapes, set from a line's name in a track (0.25).
+    property string focusProp: ""
 
     // The key the menu was opened on: how it arrives and leaves, and whether it holds.
     property var menuHalves: ({ "in": "linear", "out": "linear" })
@@ -102,19 +104,132 @@ Item {
     // is how far they have gone, which the frozen rows and the graph add to the picked keys.
     property bool shifting: false
     property real dragDelta: 0
+    // An Alt-drag of the first or last picked key stretches them instead (0.25): each picked key
+    // sits at stretchPivot + (start − stretchPivot) × stretchFactor.
+    property bool stretching: false
+    property real stretchPivot: 0
+    property real stretchFactor: 1
+    property real stretchGrab: 0
+    property real stretchLo: 0
+    property real stretchHi: 1
     property var dragBase: []
     property real dragLo: 0
     property real dragHi: 0
 
     // Whether `key`, as it sat when the drag began, is one of those being dragged.
     function isShifted(trackIndex, key) {
-        if (!root.shifting || trackIndex !== root.track)
+        if (!(root.shifting || root.stretching) || trackIndex !== root.track)
             return false
         for (let i = 0; i < root.dragBase.length; ++i) {
             if (sameKey(root.dragBase[i], key))
                 return true
         }
         return false
+    }
+
+    // How far a picked key that started at `seconds` has gone in the drag that is on.
+    function offsetFor(seconds) {
+        if (root.stretching)
+            return (root.stretchPivot + (seconds - root.stretchPivot) * root.stretchFactor) - seconds
+        return root.shifting ? root.dragDelta : 0
+    }
+    // Where a key now at `seconds` started (the live series during a drag of the rows).
+    function startOf(seconds) {
+        if (root.stretching)
+            return root.stretchPivot + (seconds - root.stretchPivot) / Math.max(1e-6, root.stretchFactor)
+        return root.shifting ? seconds - root.dragDelta : seconds
+    }
+    // Whether an Alt-press on `ref` can stretch: several picked, and it is the first or the last.
+    function canStretch(trackIndex, ref) {
+        if (trackIndex !== root.track || root.keys.length < 2 || !isPicked(trackIndex, ref))
+            return false
+        const times = root.keys.map((k) => k.seconds)
+        const lo = Math.min.apply(null, times)
+        const hi = Math.max.apply(null, times)
+        return hi - lo > 1e-4 && (Math.abs(ref.seconds - lo) < 1e-4 || Math.abs(ref.seconds - hi) < 1e-4)
+    }
+
+    // The picked keys between their unpicked neighbours and inside their clip, as the bounds a
+    // drag of them keeps to: [{key, before, after}].
+    function pickedBounds() {
+        const frame = 1 / 60
+        const out = []
+        for (let i = 0; i < root.keys.length; ++i) {
+            const k = root.keys[i]
+            const clip = EditorState.clipAt(root.track, k.clip)
+            const start = clip.start || 0
+            const end = start + (clip.duration || 0)
+            const all = (EditorState.clipKeyframes(root.track, k.clip, k.prop) || [])
+                        .map((p) => p.seconds).sort((a, b) => a - b)
+            let before = start
+            let after = end
+            for (let j = 0; j < all.length; ++j) {
+                const s = all[j]
+                if (isPicked(root.track, { clip: k.clip, prop: k.prop, seconds: s }))
+                    continue
+                if (s < k.seconds - 1e-4)
+                    before = Math.max(before, s + frame)
+                else if (s > k.seconds + 1e-4)
+                    after = Math.min(after, s - frame)
+            }
+            out.push({ key: k, before: before, after: after })
+        }
+        return out
+    }
+
+    // `grabbed` is the first or last picked key; the other end stays put.
+    function beginStretch(grabbed) {
+        const times = root.keys.map((k) => k.seconds)
+        const lo = Math.min.apply(null, times)
+        const hi = Math.max.apply(null, times)
+        root.stretchGrab = grabbed.seconds
+        root.stretchPivot = Math.abs(grabbed.seconds - lo) < 1e-4 ? hi : lo
+        // The factor keeps every key in its room, and the keys a frame apart at the least.
+        const span = Math.abs(root.stretchGrab - root.stretchPivot)
+        let fLo = (1 / 60) * (root.keys.length - 1) / Math.max(1e-6, span)
+        let fHi = Infinity
+        for (const b of pickedBounds()) {
+            const d = b.key.seconds - root.stretchPivot
+            if (Math.abs(d) < 1e-6)
+                continue
+            const a = (b.before - root.stretchPivot) / d
+            const c = (b.after - root.stretchPivot) / d
+            fHi = Math.min(fHi, Math.max(a, c))
+            fLo = Math.max(fLo, Math.min(a, c))
+        }
+        root.stretchLo = Math.min(1, fLo)
+        root.stretchHi = Math.max(1, fHi)
+        root.stretchFactor = 1
+        root.dragBase = root.keys.slice()
+        root.stretching = true
+        EditorState.beginPreviewDrag(qsTr("Stretch keyframes"))
+    }
+
+    // The grabbed key wants to go to `seconds`; returns where it lands.
+    function stretchTo(seconds) {
+        const span = root.stretchGrab - root.stretchPivot
+        let f = (seconds - root.stretchPivot) / span
+        f = Math.max(root.stretchLo, Math.min(root.stretchHi, f))
+        if (Math.abs(f - root.stretchFactor) > 1e-6) {
+            EditorState.previewStretchKeyframes(root.track, root.dragBase, root.stretchPivot,
+                                                root.stretchFactor, f)
+            root.stretchFactor = f
+        }
+        return root.stretchPivot + span * root.stretchFactor
+    }
+
+    function endStretch() {
+        if (!root.stretching)
+            return
+        EditorState.commitPreviewDrag()
+        const f = root.stretchFactor
+        const p = root.stretchPivot
+        root.keys = root.dragBase.map((k) => ({ clip: k.clip, prop: k.prop,
+                                                seconds: p + (k.seconds - p) * f }))
+        root.runFrom = null
+        root.stretching = false
+        root.stretchFactor = 1
+        root.dragBase = []
     }
 
     function beginShift() {
@@ -191,6 +306,24 @@ Item {
                 || EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
             return false
         return EditorState.pasteKeyframes(EditorState.selectedTrack, EditorState.selectedClip)
+    }
+
+    // Ctrl+A while keys are picked: every key of the clip they are on (the selected one), on all
+    // its lines, as After Effects picks all the keys of a layer.
+    function pickAllOfClip() {
+        if (!root.hasPick)
+            return false
+        const track = root.track
+        const clip = EditorState.selectedTrack === track && EditorState.selectedClip >= 0
+                     ? EditorState.selectedClip : root.keys[0].clip
+        const out = []
+        for (const prop of (EditorState.clipAnimatedProperties(track, clip) || [])) {
+            for (const k of (EditorState.clipKeyframes(track, clip, prop) || []))
+                out.push({ clip: clip, prop: prop, seconds: k.seconds })
+        }
+        if (out.length > 0)
+            pick(track, out)
+        return true
     }
 
     function removePicked() {

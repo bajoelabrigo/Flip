@@ -989,6 +989,10 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("pixelSize"), clip.textStyle.pixelSize},
                 {QStringLiteral("x"), x},
                 {QStringLiteral("y"), y},
+                // The anchor point (0.25), as fractions of the box: the overlay draws the box
+                // where the turn about it puts the clip, and its crosshair.
+                {QStringLiteral("anchorFx"), clip.anchorX.isEmpty() ? 0.5 : clip.anchorX.evaluateAt(relative)},
+                {QStringLiteral("anchorFy"), clip.anchorY.isEmpty() ? 0.5 : clip.anchorY.evaluateAt(relative)},
                 {QStringLiteral("width"), w},
                 {QStringLiteral("height"), h},
                 {QStringLiteral("rotation"), rotation},

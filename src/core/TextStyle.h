@@ -129,6 +129,10 @@ struct TextRun
     bool opacityEnabled = false;
     double opacity = 1.0;
     int baseline = 0; // 0 normal, 1 superíndice, -1 subíndice
+    // El nombre fijo de estas letras para sus fotogramas clave (0.25): su transformación y su
+    // opacidad se animan con las claves «run.<animId>.<campo>» del estilo. Lo comparten los trozos
+    // de una misma elección; se pone al darles transformación u opacidad.
+    QString animId;
 
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }

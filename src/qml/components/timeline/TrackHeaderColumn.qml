@@ -175,6 +175,10 @@ Item {
     // The track the curve editor opens under, and its height (0.24; TimelinePanel says).
     property int curveEditorTrack: -1
     property real curveEditorHeight: 0
+    // The timeline's picked keys (KeyframeKeyTools): a click on a line's name picks its keys.
+    property var keyframeTools: null
+    // Scale's chain (0.25): its two values move together while on, as After Effects' default.
+    property bool scaleLinked: true
 
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
@@ -416,15 +420,16 @@ Item {
             // The After Effects twirl: unfolds one line per animated property under the clips.
             readonly property bool keyframesExpanded: root.tracks[index].keyframesExpanded === true
             // A picture track always opens (0.24): its Position, Rotation, Scale and Opacity lines
-            // are where a clip gets its first key.
+            // are where a clip gets its first key. An audio track too, for Volume and Pan (0.25).
             readonly property bool hasKeyframes: !root.compact
-                                                 && (["video", "text", "shape"].indexOf(root.tracks[index].type) !== -1
+                                                 && (["video", "text", "shape", "audio"].indexOf(root.tracks[index].type) !== -1
                                                      || (root.tracks.length, EditorState.trackHasKeyframes(index)))
             readonly property var keyframeRows: keyframesExpanded && !root.compact
                                                 ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
             // The unfolded rows, and the curve editor under them when it is this track's (0.24).
-            readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
-                                                       + (index === root.curveEditorTrack ? root.curveEditorHeight : 0)
+            // The curve editor takes the lines' place on its track (0.25).
+            readonly property real keyframeRowsHeight: Math.max(keyframeRows.length * Theme.keyframeRowHeight,
+                                                                index === root.curveEditorTrack ? root.curveEditorHeight : 0)
             // The row without its property lines: what the name band and the icons lay out in.
             readonly property real baseHeight: root.trackHeight(index) - keyframeRowsHeight
             // The name moves right to make room for the twirl.
@@ -1125,6 +1130,7 @@ Item {
                         // Position, Rotation, Scale and Opacity (and their axes) can go back to the
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
+                                                           && modelData.group !== "volume" && modelData.group !== "pan"
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
@@ -1157,6 +1163,144 @@ Item {
                             }
                             return out
                         }
+                        // 100 % fills the canvas on its tighter axis, as the inspector reads it.
+                        readonly property real scaleNow: {
+                            const cw = Math.max(1, EditorState.projectFile.projectWidth())
+                            const ch = Math.max(1, EditorState.projectFile.projectHeight())
+                            return Math.max(valueOf("width") / cw, valueOf("height") / ch)
+                        }
+                        property var scaleStart: null
+                        // 100 % on each axis: the box Reset gives the clip (After Effects' two values).
+                        readonly property var naturalSize: {
+                            void EditorState.tracksRevision
+                            return keyLine.clip >= 0 ? EditorState.clipNaturalSize(keyLines.trackIndex, keyLine.clip) : ({})
+                        }
+                        function beginScale() {
+                            const track = keyLines.trackIndex
+                            const c = EditorState.clipAt(track, keyLine.clip) || {}
+                            keyLine.scaleStart = {
+                                "x": valueOf("x"), "y": valueOf("y"),
+                                "w": valueOf("width"), "h": valueOf("height"), "s": keyLine.scaleNow,
+                                "fx": valueOf("anchorX"), "fy": valueOf("anchorY"),
+                                "text": c.kind === "text",
+                                "px": (c.textStyle && c.textStyle.pixelSize) || 64,
+                                "moving": EditorState.clipAnimatedProperties(track, keyLine.clip).some(
+                                              (p) => p === "x" || p === "y"),
+                                "sized": EditorState.clipAnimatedProperties(track, keyLine.clip).some(
+                                             (p) => p === "width" || p === "height")
+                            }
+                        }
+                        // Scale grows the box around its centre, as the inspector's slider; with
+                        // Position animated only the size changes (no stray Position keys).
+                        function writeScale(stored) {
+                            const st = keyLine.scaleStart
+                            if (!st || st.s <= 0)
+                                return
+                            const k = Math.max(0.01, stored) / st.s
+                            keyLine.writeSize(st.w * k, st.h * k)
+                        }
+                        // One axis's % (of the natural box); with the chain on, the other follows.
+                        function writeScaleAxis(horizontal, fraction) {
+                            const st = keyLine.scaleStart
+                            const nat = keyLine.naturalSize
+                            if (!st || !nat.w || !nat.h)
+                                return
+                            const f = Math.max(0.0001, fraction)
+                            if (horizontal) {
+                                const w = f * nat.w
+                                keyLine.writeSize(w, root.scaleLinked ? st.h * (w / Math.max(1, st.w)) : st.h)
+                            } else {
+                                const h = f * nat.h
+                                keyLine.writeSize(root.scaleLinked ? st.w * (h / Math.max(1, st.h)) : st.w, h)
+                            }
+                        }
+                        function writeSize(newW, newH) {
+                            const st = keyLine.scaleStart
+                            if (!st)
+                                return
+                            const w = Math.max(1, newW)
+                            const h = Math.max(1, newH)
+                            const k = h / Math.max(1, st.h)
+                            // The anchor point stays put (the centre when it is not moved).
+                            const x = st.x + (st.w - w) * (isNaN(st.fx) ? 0.5 : st.fx)
+                            const y = st.y + (st.h - h) * (isNaN(st.fy) ? 0.5 : st.fy)
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            if (!st.sized && !st.moving) {
+                                if (st.text)
+                                    EditorState.previewSetTextRect(track, clip, x, y, w, h, Math.round(st.px * k))
+                                else
+                                    EditorState.previewSetClipRect(track, clip, x, y, w, h)
+                                return
+                            }
+                            const at = EditorState.playheadSeconds
+                            EditorState.previewSetPropertyValue(track, clip, "width", at, w)
+                            EditorState.previewSetPropertyValue(track, clip, "height", at, h)
+                            if (!st.moving) {
+                                EditorState.previewSetPropertyValue(track, clip, "x", at, x)
+                                EditorState.previewSetPropertyValue(track, clip, "y", at, y)
+                            }
+                        }
+                        // The values the line shows and edits: [{prop, tag, toDisplay, fromDisplay,
+                        // min, max, step, decimals, suffix}].
+                        readonly property var hotValues: {
+                            const id = (v) => v
+                            const pct = (v) => v * 100
+                            const unPct = (d) => d / 100
+                            const plain = (prop, tag, step, decimals, suffix) => ({
+                                "prop": prop, "tag": tag, "toDisplay": id, "fromDisplay": id,
+                                "min": -1e9, "max": 1e9, "step": step, "decimals": decimals, "suffix": suffix })
+                            const group = keyLine.joined ? keyLine.modelData.group : ""
+                            if (group === "position")
+                                return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
+                            if (group === "anchor") {
+                                // In the box's own pixels, as After Effects; stored as fractions.
+                                const w = Math.max(1, valueOf("width"))
+                                const h = Math.max(1, valueOf("height"))
+                                return [{ "prop": "anchorX", "tag": "X", "toDisplay": (f) => f * w, "fromDisplay": (d) => d / w,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" },
+                                        { "prop": "anchorY", "tag": "Y", "toDisplay": (f) => f * h, "fromDisplay": (d) => d / h,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
+                            }
+                            if (group === "rotation")
+                                return [plain("rotation", "", 0.5, 1, "°")]
+                            if (group === "scale") {
+                                // After Effects' two values (width, height %) and the chain between.
+                                const nat = keyLine.naturalSize
+                                const nw = Math.max(1, nat.w || 1)
+                                const nh = Math.max(1, nat.h || 1)
+                                return [{ "link": true },
+                                        { "prop": "width", "value": valueOf("width") / nw, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                          "suffix": "", "begin": keyLine.beginScale,
+                                          "write": (f) => keyLine.writeScaleAxis(true, f) },
+                                        { "prop": "height", "value": valueOf("height") / nh, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                          "suffix": " %", "begin": keyLine.beginScale,
+                                          "write": (f) => keyLine.writeScaleAxis(false, f) }]
+                            }
+                            if (group === "opacity")
+                                return [{ "prop": "opacity", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": 0, "max": 100, "step": 0.5, "decimals": 0, "suffix": " %" }]
+                            if (group === "volume")
+                                return [{ "prop": "volume", "tag": "",
+                                          "toDisplay": (g) => g <= 0.001 ? -60 : 20 * Math.log10(g),
+                                          "fromDisplay": (d) => d <= -59.9 ? 0 : Math.min(2, Math.pow(10, d / 20)),
+                                          "min": -60, "max": 6, "step": 0.25, "decimals": 1, "suffix": " dB" }]
+                            if (group === "pan")
+                                return [{ "prop": "pan", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": -100, "max": 100, "step": 0.5, "decimals": 0, "suffix": "" }]
+                            const prop = keyLine.modelData.prop
+                            if (prop === "width" || prop === "height" || prop === "x" || prop === "y")
+                                return [plain(prop, "", 1, 0, "")]
+                            if (prop === "anchorX" || prop === "anchorY") {
+                                const side = Math.max(1, valueOf(prop === "anchorX" ? "width" : "height"))
+                                return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
+                            }
+                            const v = valueOf(prop)
+                            return [plain(prop, "", Math.abs(v) >= 10 ? 1 : 0.01, Math.abs(v) >= 10 ? 0 : 2, "")]
+                        }
                         readonly property string summary: {
                             if (keyLine.clip < 0)
                                 return "—"
@@ -1174,15 +1318,33 @@ Item {
                             }
                             if (group === "opacity")
                                 return Math.round(valueOf("opacity") * 100) + " %"
+                            if (group === "volume") {
+                                // In dB, as the audio inspector reads it.
+                                const g = valueOf("volume")
+                                return isNaN(g) ? "—" : (g <= 0.0001 ? "-∞ dB"
+                                                                      : (20 * Math.log10(g)).toFixed(1) + " dB")
+                            }
+                            if (group === "pan") {
+                                const p = valueOf("pan")
+                                if (isNaN(p))
+                                    return "—"
+                                if (Math.abs(p) < 0.005)
+                                    return qsTranslate("AudioInspector", "C")
+                                return (p < 0 ? qsTranslate("AudioInspector", "L %1")
+                                              : qsTranslate("AudioInspector", "R %1")).arg(Math.round(Math.abs(p) * 100))
+                            }
                             const v = valueOf(keyLine.modelData.prop)
                             return isNaN(v) ? "—" : (Math.abs(v) >= 10 ? String(Math.round(v)) : v.toFixed(2))
                         }
                         readonly property string iconName: {
                             switch (keyLine.joined ? keyLine.modelData.group : "") {
+                            case "anchor": return "locate-fixed"
                             case "position": return "move"
                             case "rotation": return "rotate-cw"
                             case "scale": return "scaling"
                             case "opacity": return Theme.icons.blend
+                            case "volume": return "volume-2"
+                            case "pan": return "arrow-right-left"
                             }
                             return ""
                         }
@@ -1275,19 +1437,81 @@ Item {
                                                                                 !keyLine.modelData.expanded)
                             }
                         }
-                        IconGlyph {
+                        // After Effects' stopwatch (0.25): lit while the property is animated. A
+                        // click starts the animation with a key at the playhead, or, lit, takes
+                        // every key away and leaves the value it has now.
+                        readonly property bool animated: {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const animatedProps = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip)
+                            return keyLine.props.some((p) => animatedProps.indexOf(p) >= 0)
+                        }
+                        IconButton {
                             id: lineIcon
-                            visible: keyLine.iconName.length > 0
-                            x: 20
+                            x: 16
                             anchors.verticalCenter: parent.verticalCenter
-                            glyph: keyLine.iconName
-                            iconSize: 14
-                            iconColor: Theme.mutedForeground
+                            enabled: keyLine.clip >= 0
+                            glyph: "clock"
+                            variant: "text"
+                            buttonSize: 20
+                            iconSize: 13
+                            active: keyLine.animated
+                            tooltip: keyLine.animated ? qsTr("Stop animating (removes its keyframes)")
+                                                      : qsTr("Animate: a keyframe at the playhead")
+                            onClicked: {
+                                if (keyLine.animated)
+                                    EditorState.stopAnimating(keyLines.trackIndex, keyLine.clip, keyLine.props.slice(),
+                                                              EditorState.playheadSeconds)
+                                else if (keyLine.keysHere.length === 0)
+                                    keyLine.toggleKeyHere()
+                            }
+                        }
+                        // A click on the name picks every key of the line on its clip, as a click
+                        // on a property's name does in After Effects; Shift or Ctrl add them.
+                        function pickAllKeys(modifiers) {
+                            const tools = root.keyframeTools
+                            if (!tools || keyLine.clip < 0)
+                                return
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            const animated = EditorState.clipAnimatedProperties(track, clip)
+                            const add = !!(modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
+                            const out = add && tools.track === track ? tools.keys.slice() : []
+                            for (const prop of keyLine.props) {
+                                if (animated.indexOf(prop) < 0)
+                                    continue
+                                for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
+                                    const ref = { clip: clip, prop: prop, seconds: k.seconds }
+                                    if (!out.some((o) => tools.sameKey(o, ref)))
+                                        out.push(ref)
+                                }
+                            }
+                            if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                                EditorState.selectClip(track, clip)
+                            tools.pick(track, out)
+                            // In the curve editor, its curve is the one shaped.
+                            tools.focusProp = ""
+                            tools.focusProp = keyLine.props[0]
+                        }
+                        MouseArea {
+                            anchors.left: parent.left
+                            anchors.leftMargin: 36
+                            anchors.right: resetButton.visible ? resetButton.left : prevKeyButton.left
+                            anchors.top: parent.top
+                            anchors.bottom: parent.bottom
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: (mouse) => keyLine.pickAllKeys(mouse.modifiers)
+                            ThemedToolTip {
+                                visible: parent.containsMouse
+                                text: qsTr("Click to pick all its keyframes")
+                            }
                         }
                         Column {
                             anchors.left: parent.left
                             anchors.leftMargin: keyLine.modelData.axis ? 40 : 40
-                            anchors.right: keyButton.left
+                            anchors.right: prevKeyButton.left
                             anchors.rightMargin: 2
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 0
@@ -1299,18 +1523,69 @@ Item {
                                 font.pixelSize: Theme.fontSizeXs
                                 elide: Text.ElideRight
                             }
+                            // The values, as After Effects' blue numbers (0.25): dragged sideways or
+                            // clicked to type; animated, the change is a key at the playhead.
+                            Row {
+                                spacing: 6
+                                visible: keyLine.clip >= 0
+                                Repeater {
+                                    model: keyLine.hotValues
+                                    delegate: Row {
+                                        required property var modelData
+                                        spacing: 2
+                                        // Scale's chain: both values together, or each on its own.
+                                        IconButton {
+                                            visible: !!modelData.link
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            glyph: root.scaleLinked ? Theme.icons.link : Theme.icons.unlink
+                                            variant: "text"
+                                            buttonSize: 16
+                                            iconSize: 11
+                                            active: root.scaleLinked
+                                            tooltip: root.scaleLinked ? qsTr("Constrain proportions: on")
+                                                                      : qsTr("Constrain proportions: off")
+                                            onClicked: root.scaleLinked = !root.scaleLinked
+                                        }
+                                        Text {
+                                            visible: !!modelData.tag
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: modelData.tag || ""
+                                            color: Theme.mutedForeground
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.fontSizeTiny
+                                        }
+                                        ScrubValue {
+                                            visible: !modelData.link
+                                            trackIndex: keyLines.trackIndex
+                                            clipIndex: keyLine.clip
+                                            prop: modelData.prop || ""
+                                            value: modelData.value !== undefined ? modelData.value
+                                                                                 : keyLine.valueOf(modelData.prop)
+                                            toDisplay: modelData.toDisplay
+                                            fromDisplay: modelData.fromDisplay
+                                            displayMin: modelData.min
+                                            displayMax: modelData.max
+                                            step: modelData.step
+                                            decimals: modelData.decimals
+                                            suffix: modelData.suffix
+                                            write: modelData.write || null
+                                            onBegun: if (modelData.begin) modelData.begin()
+                                        }
+                                    }
+                                }
+                            }
                             Text {
+                                visible: keyLine.clip < 0
                                 width: parent.width
-                                text: keyLine.summary
+                                text: "—"
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeTiny
-                                elide: Text.ElideRight
                             }
                         }
                         IconButton {
                             id: resetButton
-                            anchors.right: keyButton.left
+                            anchors.right: prevKeyButton.left
                             anchors.verticalCenter: parent.verticalCenter
                             visible: keyLine.resettable && keyLine.clip >= 0 && lineHover.hovered
                             glyph: Theme.icons.reset
@@ -1320,9 +1595,36 @@ Item {
                             tooltip: qsTr("Reset")
                             onClicked: EditorState.resetClipProperties(keyLines.trackIndex, keyLine.clip, keyLine.props)
                         }
+                        // After Effects' keyframe navigator: ◀ previous, ◆ add/remove here, ▶ next.
+                        IconButton {
+                            id: prevKeyButton
+                            anchors.right: keyButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: keyLine.animated
+                            width: visible ? implicitWidth : 0
+                            glyph: Theme.icons.chevronLeft
+                            variant: "text"
+                            buttonSize: 16
+                            iconSize: 11
+                            tooltip: qsTr("Previous keyframe")
+                            onClicked: keyLine.stepKey(false)
+                        }
+                        IconButton {
+                            id: nextKeyButton
+                            anchors.right: moreButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: keyLine.animated
+                            width: visible ? implicitWidth : 0
+                            glyph: Theme.icons.chevronRight
+                            variant: "text"
+                            buttonSize: 16
+                            iconSize: 11
+                            tooltip: qsTr("Next keyframe")
+                            onClicked: keyLine.stepKey(true)
+                        }
                         IconButton {
                             id: keyButton
-                            anchors.right: moreButton.left
+                            anchors.right: nextKeyButton.left
                             anchors.verticalCenter: parent.verticalCenter
                             enabled: keyLine.clip >= 0
                             glyph: keyLine.keysHere.length > 0 ? Theme.icons.diamondMinus : Theme.icons.diamondPlus
@@ -1344,8 +1646,92 @@ Item {
                             variant: "text"
                             buttonSize: 18
                             iconSize: 13
-                            tooltip: qsTr("More")
-                            onClicked: lineMenu.popup()
+                            tooltip: keyLine.modelData.group === "anchor" ? qsTr("Anchor point: corners and centre")
+                                                                           : qsTr("More")
+                            onClicked: {
+                                if (keyLine.modelData.group === "anchor")
+                                    anchorGrid.open()
+                                else
+                                    lineMenu.popup()
+                            }
+                        }
+
+                        // Motion Tools' anchor grid (0.25): a click puts the anchor point on that
+                        // corner, edge or the centre, and the clip stays where it is on screen.
+                        Popup {
+                            id: anchorGrid
+                            x: moreButton.x + moreButton.width - width
+                            y: moreButton.y + moreButton.height + 2
+                            padding: 8
+                            modal: false
+                            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                            background: Rectangle {
+                                color: Theme.panelBackground
+                                border.width: 1
+                                border.color: Theme.panelBorder
+                                radius: Theme.radiusMd
+                            }
+                            contentItem: Column {
+                                spacing: 8
+                                Grid {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    columns: 3
+                                    spacing: 4
+                                    Repeater {
+                                        model: 9
+                                        delegate: Rectangle {
+                                            required property int index
+                                            readonly property real fx: (index % 3) / 2
+                                            readonly property real fy: Math.floor(index / 3) / 2
+                                            readonly property bool current: {
+                                                void EditorState.tracksRevision
+                                                void EditorState.playheadSeconds
+                                                return Math.abs(keyLine.valueOf("anchorX") - fx) < 0.01
+                                                       && Math.abs(keyLine.valueOf("anchorY") - fy) < 0.01
+                                            }
+                                            width: 22
+                                            height: 22
+                                            radius: 3
+                                            color: cellMouse.containsMouse || current ? Theme.primary
+                                                                                      : Qt.rgba(Theme.primary.r, Theme.primary.g,
+                                                                                                Theme.primary.b, 0.35)
+                                            border.width: current ? 2 : 0
+                                            border.color: Theme.panelForeground
+                                            Rectangle {
+                                                visible: index === 4
+                                                anchors.centerIn: parent
+                                                width: 8
+                                                height: 8
+                                                color: "transparent"
+                                                border.width: 1.5
+                                                border.color: Theme.panelForeground
+                                            }
+                                            MouseArea {
+                                                id: cellMouse
+                                                anchors.fill: parent
+                                                hoverEnabled: true
+                                                cursorShape: Qt.PointingHandCursor
+                                                onClicked: {
+                                                    const track = keyLines.trackIndex
+                                                    const clip = keyLine.clip
+                                                    const fx = parent.fx
+                                                    const fy = parent.fy
+                                                    anchorGrid.close()
+                                                    EditorState.setAnchorKeepingPlace(track, clip, fx, fy)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                ThemedButton {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: qsTr("More…")
+                                    onClicked: {
+                                        anchorGrid.close()
+                                        lineMenu.popup()
+                                    }
+                                }
+                            }
                         }
 
                         ThemedContextMenu {

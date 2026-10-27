@@ -85,6 +85,7 @@ Item {
                     || x.x !== y.x || x.y !== y.y
                     || x.width !== y.width || x.height !== y.height
                     || x.rotation !== y.rotation
+                    || x.anchorFx !== y.anchorFx || x.anchorFy !== y.anchorFy
                     || x.layer3d !== y.layer3d
                     || x.cameraActive !== y.cameraActive
                     || x.rotationX !== y.rotationX || x.rotationY !== y.rotationY
@@ -206,6 +207,14 @@ Item {
         function onViewChanged() { root.refreshOverlay() }
     }
 
+    // The selected clip's motion path (0.25), over the boxes so its dots stay grabbable.
+    MotionPathOverlay {
+        anchors.fill: parent
+        z: 950
+        visible: !root.mode3d && !EditorState.playing
+        box: root.selectedBox
+    }
+
     Repeater {
         id: clipRepeater
 
@@ -284,11 +293,25 @@ Item {
             readonly property real layoutY: gizmoPose ? gizmoPose.y : liveY > -1e11 ? liveY : box.y
             readonly property real layoutW: gizmoPose ? gizmoPose.width : liveW >= 0 ? liveW : box.width
             readonly property real layoutH: gizmoPose ? gizmoPose.height : liveH >= 0 ? liveH : box.height
-            readonly property real centerX: (layoutX + layoutW * 0.5) * sx
-            readonly property real centerY: (layoutY + layoutH * 0.5) * sy
+            // The anchor point (0.25): the box sits where turning about it puts the clip (the
+            // renderer does the same), and the crosshair marks it. Flat boxes only.
+            readonly property real anchorFx: handle.box.anchorFx === undefined ? 0.5 : handle.box.anchorFx
+            readonly property real anchorFy: handle.box.anchorFy === undefined ? 0.5 : handle.box.anchorFy
+            readonly property point anchorShift: {
+                if (handle.is3d || handle.hasParent || handle.viaCamera)
+                    return Qt.point(0, 0)
+                const ax = (handle.anchorFx - 0.5) * handle.layoutW
+                const ay = (handle.anchorFy - 0.5) * handle.layoutH
+                const r = handle.layoutRotation * Math.PI / 180
+                const c = Math.cos(r)
+                const sn = Math.sin(r)
+                return Qt.point(ax - (c * ax - sn * ay), ay - (sn * ax + c * ay))
+            }
+            readonly property real centerX: (layoutX + anchorShift.x + layoutW * 0.5) * sx
+            readonly property real centerY: (layoutY + anchorShift.y + layoutH * 0.5) * sy
 
-            x: layoutX * sx
-            y: layoutY * sy
+            x: (layoutX + anchorShift.x) * sx
+            y: (layoutY + anchorShift.y) * sy
             width: Math.max(24, layoutW * sx)
             height: Math.max(24, layoutH * sy)
             // Front-most track (lowest index) sits on top so it
@@ -317,6 +340,20 @@ Item {
                                                             handle.layoutW, handle.layoutH,
                                                             handle.layoutRotation, handle.sx, handle.sy)
                         : Qt.matrix4x4()
+            }
+
+            // After Effects' anchor crosshair, on the selected box.
+            Item {
+                visible: handle.selected && !handle.isTransform && !handle.is3d
+                x: handle.anchorFx * handle.width
+                y: handle.anchorFy * handle.height
+                z: 5
+                Rectangle { x: -7; y: -0.5; width: 14; height: 1; color: Theme.primary }
+                Rectangle { x: -0.5; y: -7; width: 1; height: 14; color: Theme.primary }
+                Rectangle {
+                    x: -4; y: -4; width: 8; height: 8; radius: 4
+                    color: "transparent"; border.width: 1; border.color: Theme.primary
+                }
             }
 
             // Overlay point -> this box's own (untilted) layout px, through the pose as it stands
@@ -654,10 +691,14 @@ Item {
                         }
 
                         const shift = (modifiers & Qt.ShiftModifier) !== 0
-                        const locked = grip.isCorner && (grip.lockByDefault !== shift)
+                        // After Effects (0.25): Alt grows the box about its centre, Alt+Shift about
+                        // its centre and in proportion.
+                        const fromCentre = (modifiers & Qt.AltModifier) !== 0 && !handle.is3d
+                        const locked = grip.isCorner && (fromCentre && shift ? true : grip.lockByDefault !== shift)
+                        const reach = fromCentre ? 2 : 1
 
-                        let w = Math.max(1, handle.dragStartW + lx * dxSign)
-                        let h = Math.max(1, handle.dragStartH + ly * dySign)
+                        let w = Math.max(1, handle.dragStartW + reach * lx * dxSign)
+                        let h = Math.max(1, handle.dragStartH + reach * ly * dySign)
                         if (locked) {
                             // Take the scale from whichever axis the pointer moved
                             // further along, measured as the bigger departure from
@@ -673,7 +714,8 @@ Item {
                         // Only the moving edge sticks; the anchor is already fixed.
                         let guideX = -1
                         let guideY = -1
-                        if (handle.canSnap && !(modifiers & Qt.ControlModifier)) {
+                        // Snapping reads one edge held still; from the centre both move, so it is off.
+                        if (handle.canSnap && !(modifiers & Qt.ControlModifier) && !fromCentre) {
                             // Each moving edge is snapped as it projects, through the pose,
                             // parents and camera.
                             const snapped = EditorState.preview.snapResize(grip.startBox, w, h, dxSign, dySign,
@@ -711,8 +753,8 @@ Item {
 
                         // Keeping the anchor still means the centre moves by half
                         // the size change, toward the grip, in box axes.
-                        const shiftX = handle.is3d ? 0 : (w - handle.dragStartW) / 2 * dxSign
-                        const shiftY = handle.is3d ? 0 : (h - handle.dragStartH) / 2 * dySign
+                        const shiftX = handle.is3d || fromCentre ? 0 : (w - handle.dragStartW) / 2 * dxSign
+                        const shiftY = handle.is3d || fromCentre ? 0 : (h - handle.dragStartH) / 2 * dySign
                         const cx = handle.dragStartX + handle.dragStartW / 2
                                    + shiftX * Math.cos(a) - shiftY * Math.sin(a)
                         const cy = handle.dragStartY + handle.dragStartH / 2

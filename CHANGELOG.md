@@ -3,6 +3,24 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.25.0 — Fotogramas clave como After Effects, también en el audio
+
+- Filas fijas por pista (`fixedKeyframeGroups`): Punto de anclaje, Posición, Rotación, Escala y Opacidad; Volumen y
+  Panorama en audio. Valores arrastrables o escritos (`ScrubValue.qml`, `previewSetPropertyValue`: clave en el
+  cabezal solo con la propiedad animada), cronómetro (`stopAnimating`, `KeyframeTrack::stopwatch`), ◀ ◆ ▶, Escala
+  en dos valores con cadena (`clipNaturalSize`).
+- Recuadro de selección en filas y curvas, clic en el nombre, Ctrl+A, Alt+arrastrar para estirar
+  (`previewStretchKeyframes`), Mayús+J/K (`stepToKeyframe`), U (`toggleRevealKeyframes`).
+- Punto de anclaje (`Clip::anchorX/anchorY`, `anchorShift` en `layoutRectForClip`), cruz en la vista previa,
+  restablecer, cuadrícula 3×3 (`setAnchorKeepingPlace`); Alt/Alt+Mayús escalan desde el centro.
+- Editor de curvas en el lugar de las filas (botón junto al «+», `KeyframeGraph.inline`), eje con números,
+  Gráfico de velocidad, rango ajustado a claves y tiradores; separar dimensiones.
+- Trazo del movimiento con tiradores (`MotionPathOverlay.qml`); línea de tiempo en fotogramas (regla «05f»,
+  columnas alternas, cabezal y claves en fotogramas enteros: `snapKeyTime`, `snapPlayheadToKeys`).
+- Transformación de las letras con claves (`TextRun::animId`, `text.run.<id>.<campo>`).
+- Audio: `Clip::panKeys` en el mezclador, `ClipVolumeLine.qml`, `convertFadesToVolumeKeys`.
+- Sólidos (`addSolidClip`, `Clip::isSolid`, `SolidDialog.qml`, `setSolidSettings`).
+
 ## 0.24.0 — Efectos de texto solo en las letras elegidas
 
 - `TextRun` lleva su pila de sombreado (`layersEnabled`/`layers`), su fondo (`box*`) y su transformación
