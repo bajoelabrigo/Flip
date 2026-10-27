@@ -48,10 +48,20 @@ Rama: `flip/v0.24.1` (empezó con el arreglo del Ángulo; se publicará como 0.2
       - **imán al ritmo**: ya lo daba `snapTime` (golpes cuando la cuadrícula de ritmo está visible).
 
 ## Cómo se probó / qué falta probar
-- CI: build de Windows y Tests de la rama `flip/v0.24.1` (ver `gh run list --branch flip/v0.24.1`).
-- **En ventana, todo por probar:** recuadro en filas y curvas, clic en el nombre, Ctrl+A, Alt+arrastrar,
-  Mayús+J/K, U, Ángulo a 360°, giro completo de una letra con dos claves (0° y 360°).
-- Textos nuevos sin traducir: correr lupdate (o el artefacto `i18n-regenerated`) y traducir en `drift_es.ts`.
+- CI: Tests y Build de Windows en verde (rama `flip/v0.24.1`).
+- **Probado en ventana (2026-10-27, portables `pruebas\FlipStudio-0.25-prueba` y `-b`, capturas en
+  `pruebas0241-giro`):** recuadro en las filas (elige Posición y Opacidad que toca, también en curvas), clic en el
+  nombre de la fila, U (cierra; otra vez abre solo las filas animadas), gráfico de velocidad, trazo del movimiento
+  (arrastrar un rombo mueve la clave), filas Volumen/Panorama del audio (Panorama 0 → 4 s a la derecha marca «R 51»
+  a los 2 s), línea de volumen (25 px = −7,5 dB), nombres de los campos de Transformación de letras, y **el giro
+  completo de una sola letra**: rombos en Transformación de la «H», claves 0 s y 3 s = 360°, la H gira y «OLA» no.
+- Arreglado tras la prueba: `AppController::patchTextRuns` no daba `animId` (no salían los rombos), las pistas de
+  audio sin flecha, la línea de volumen se quedaba con el hover del clip, chips del editor de curvas con la clave
+  cruda (`text.run.r42….rotation`).
+- **Sin probar (los clics simulados no llevan Alt/Ctrl/Mayús ni abren popups):** Alt+arrastrar (estirar), Ctrl+A,
+  Mayús+J/K, Ctrl+clic en la línea de volumen, el cuadro para escribir el valor (popup) con 360° o más, oír el
+  panorama. Que lo pruebe Jorge.
+- Textos nuevos: catálogos regenerados y traducidos al español.
 
 ## Audio (propuesta, a confirmar con Jorge)
 After Effects casi no tiene audio (solo «Niveles de audio» en dB, con claves). La referencia buena es Premiere,

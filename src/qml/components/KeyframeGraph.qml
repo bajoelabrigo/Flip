@@ -106,6 +106,7 @@ Item {
         case "perspective": return qsTr("Perspective")
         case "opacity": return qsTr("Opacity")
         case "volume": return qsTr("Volume")
+        case "pan": return qsTranslate("TrackKeyframeRows", "Pan")
         case "mask.x": return qsTr("Mask X")
         case "mask.y": return qsTr("Mask Y")
         case "mask.w": return qsTr("Mask width")
@@ -139,6 +140,7 @@ Item {
         case "perspective": return "Per"
         case "opacity": return "Op"
         case "volume": return "Vol"
+        case "pan": return "Pan"
         case "mask.x": return "MX"
         case "mask.y": return "MY"
         case "mask.w": return "MW"
@@ -149,6 +151,10 @@ Item {
         const fx = effectParam(id)
         if (fx)
             return fx.param.label.substring(0, 3)
+        // A text or shape key (a layer's, or some letters' own, 0.25) by the name the engine gives
+        // it, never the raw key ("text.run.r42….rotation").
+        if (id.substring(0, 5) === "text." || id.substring(0, 6) === "shape.")
+            return root.propertyLabel(id)
         return id
     }
     // Volume and audio effects only exist on clips that carry audio; the rest are visual.
