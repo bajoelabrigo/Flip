@@ -22,6 +22,10 @@ Column {
     property bool useSlider: false
     property real sliderFrom: 0
     property real sliderTo: 1
+    // What a typed value may reach; wider than the slider where it makes sense (rotation takes
+    // several full turns, like CapCut, while the slider stays a single −180…180 sweep).
+    property real inputFrom: sliderFrom
+    property real inputTo: sliderTo
     // Snaps the slider to multiples of this (whole-number effect params); 0 is continuous.
     property real sliderStep: 0
     property bool percent: false
@@ -584,8 +588,8 @@ Column {
                     function apply() {
                         const v = root.parseInput(editField.text)
                         if (!isNaN(v))
-                            root.commitValue(Math.max(root.sliderFrom,
-                                                      Math.min(root.sliderTo, v)))
+                            root.commitValue(Math.max(root.inputFrom,
+                                                      Math.min(root.inputTo, v)))
                         close()
                     }
 
@@ -654,8 +658,8 @@ Column {
                             Text {
                                 width: parent.width / 2
                                 horizontalAlignment: Text.AlignRight
-                                text: root.displayReadout(root.sliderFrom) + "–"
-                                      + root.displayReadout(root.sliderTo)
+                                text: root.displayReadout(root.inputFrom) + "–"
+                                      + root.displayReadout(root.inputTo)
                                 color: Theme.mutedForeground
                                 font.family: Theme.monoFontFamily
                                 font.pixelSize: Theme.fontSizeTiny
