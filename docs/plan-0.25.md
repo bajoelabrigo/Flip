@@ -16,20 +16,31 @@ Rama: `flip/v0.24.1` (empezó con el arreglo del Ángulo; se publicará como 0.2
 ## Lista (en el orden en que se hace)
 - [x] 0. **Ángulo de más de 180°** (Jorge): `PropertyKeyframeRow` recortaba lo escrito al rango del deslizador.
       Ahora `inputFrom`/`inputTo`; el Ángulo acepta ±3600° (10 vueltas). Falta verlo en ventana.
-- [ ] 1. **Recuadro para elegir claves** en las filas: arrastrar en vacío dibuja un rectángulo y elige todas las
+- [x] 1. **Recuadro para elegir claves** en las filas: arrastrar en vacío dibuja un rectángulo y elige todas las
       claves que toca (varias propiedades y clips de la pista). Mayús o Ctrl suman a las ya elegidas.
-- [ ] 2. **Clic en el nombre de una fila** elige todas sus claves (en la cabecera de la pista).
-- [ ] 3. **Ctrl+A** con claves elegidas: todas las claves de esa pista.
-- [ ] 4. **Estirar en el tiempo:** Alt + arrastrar la primera o la última de varias elegidas las acerca o aleja
+- [x] 2. **Clic en el nombre de una fila** elige todas sus claves (en la cabecera de la pista).
+- [x] 3. **Ctrl+A** con claves elegidas: todas las claves de esa pista.
+- [x] 4. **Estirar en el tiempo:** Alt + arrastrar la primera o la última de varias elegidas las acerca o aleja
       en proporción.
-- [ ] 5. **J / K** clave anterior / siguiente del clip; **U** muestra solo las filas con claves.
-- [ ] 6. Recuadro también en el **editor de curvas**, y arrastrar el valor de varias claves a la vez.
+- [x] 5. **Mayús+J / Mayús+K** clave anterior / siguiente (J ya es «frenar» del avance tipo Premiere; se
+      cambian en Atajos); **U** abre las pistas con claves y deja solo las filas animadas (otra vez: las cierra).
+      `AppController::stepToKeyframe`, `toggleRevealKeyframes`, `m_keyframeRowsAnimatedOnly`.
+- [x] 6. Recuadro también en el **editor de curvas**, y arrastrar el valor de varias claves a la vez.
 - [ ] 7. **Gráfico de velocidad** en el editor de curvas (además del de valores) y **separar X e Y** de Posición.
 - [ ] 8. **Trazo del movimiento** en la vista previa: la línea del recorrido de Posición con un punto por clave
       que se arrastra.
-- [ ] 9. **Igualar texto, video, imagen y forma:** mismas filas fijas (Posición, Rotación, Escala, Opacidad) y
-      después las del texto (tamaño, capas, letras) con los mismos gestos.
+- [~] 9. **Igualar texto, video, imagen y forma:** mismas filas fijas (Posición, Rotación, Escala, Opacidad) y
+      después las del texto (tamaño, capas, letras) con los mismos gestos. Ya iguales en las filas. **Hecho:**
+      la Transformación de las letras elegidas (X, Y, Escala, Rotación) se anima con rombo: las letras llevan
+      `TextRun::animId` y las claves son `text.run.<animId>.<campo>` (`TextStyle.cpp`: `parseRunKey`,
+      `runKeyframeFields`). Falta: opacidad de las letras con rombo en «Letras seleccionadas».
 - [ ] 10. **Audio** (ver abajo).
+
+## Cómo se probó / qué falta probar
+- CI: build de Windows y Tests de la rama `flip/v0.24.1` (ver `gh run list --branch flip/v0.24.1`).
+- **En ventana, todo por probar:** recuadro en filas y curvas, clic en el nombre, Ctrl+A, Alt+arrastrar,
+  Mayús+J/K, U, Ángulo a 360°, giro completo de una letra con dos claves (0° y 360°).
+- Textos nuevos sin traducir: correr lupdate (o el artefacto `i18n-regenerated`) y traducir en `drift_es.ts`.
 
 ## Audio (propuesta, a confirmar con Jorge)
 After Effects casi no tiene audio (solo «Niveles de audio» en dB, con claves). La referencia buena es Premiere,
