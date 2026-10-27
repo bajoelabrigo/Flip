@@ -113,6 +113,9 @@ Item {
                 tooltip: root.switchTooltip
                 // Title already names the feature; keep only the track visible.
                 text: ""
+                // The track is drawn at leftPadding: with the Basic style's padding it started 6 px
+                // in and the clip cut its right end off (the switches looked chopped at the edge).
+                padding: 0
                 width: 36
                 clip: true
                 onToggled: root.switchToggled(checked)
