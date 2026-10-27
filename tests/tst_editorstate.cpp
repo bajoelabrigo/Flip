@@ -1137,6 +1137,32 @@ void EditorStateTest::shadedLettersTakeLayersLooksAndBoxAlone()
     state.setTextStyleRange(t, c, -1, -1);
     state.applyTextLook(t, c, lookId);
     QCOMPARE(clip().textStyle.lookId, lookId);
+
+    // Spacing, opacity and superscript of the letters; a null value gives back the block's.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("letterSpacing"), 12.0},
+                                                  {QStringLiteral("opacity"), 0.5},
+                                                  {QStringLiteral("baseline"), QStringLiteral("super")}});
+    QVERIFY(runAt(6)->letterSpacingEnabled);
+    QCOMPARE(runAt(6)->letterSpacing, 12.0);
+    QCOMPARE(runAt(6)->opacity, 0.5);
+    QCOMPARE(runAt(6)->baseline, 1);
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("letterSpacing"), QVariant()},
+                                                  {QStringLiteral("baseline"), QStringLiteral("none")}});
+    QVERIFY(!runAt(6)->letterSpacingEnabled);
+    QCOMPARE(runAt(6)->baseline, 0);
+    QVERIFY(runAt(6)->opacityEnabled);
+
+    // «Remove style» on «UN» of «MUNDO»: those letters lose theirs, the rest keep it.
+    state.clearTextRunsIn(t, c, 6, 8);
+    QVERIFY(!runAt(6) && !runAt(7));
+    QVERIFY(runAt(5) && runAt(8));
+
+    // Shrink to fit keeps the box; turned off, the box follows the text again.
+    state.setTextStyle(t, c, QVariantMap{{QStringLiteral("shrinkToFit"), true}});
+    QVERIFY(clip().textStyle.shrinkToFit);
+    QVERIFY(!clip().textAutoFit);
+    state.setTextStyle(t, c, QVariantMap{{QStringLiteral("shrinkToFit"), false}});
+    QVERIFY(clip().textAutoFit);
 }
 
 // The inline editor: live text with the preedit rendered but never stored, geometry in canvas

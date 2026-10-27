@@ -324,6 +324,10 @@ Item {
             run.boxPadding = patch.boxPaddingX
         if (patch.boxPaddingY !== undefined)
             run.boxPadding = patch.boxPaddingY
+        if (patch.letterSpacing !== undefined)
+            run.letterSpacing = patch.letterSpacing
+        if (patch.lineHeight !== undefined)
+            run.lineHeight = patch.lineHeight
         const transformKeys = ["transformEnabled", "offsetX", "offsetY", "transformScale", "rotation"]
         for (const key of transformKeys) {
             if (patch[key] !== undefined)
@@ -378,6 +382,50 @@ Item {
         const patch = {}
         patch[key] = value
         root.applyStyle(patch)
+    }
+
+    // Straight to the shaded letters (the «Selected letters» section).
+    function patchRuns(patch) {
+        if (root.canStyleRuns && root.hasRunSelection)
+            EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
+                                      root.runSelectionStart, root.runSelectionEnd, patch)
+    }
+
+    // The style copied from some letters, as a patch for others (null: nothing copied yet).
+    property var copiedRunStyle: null
+    function copyRunStyle() {
+        const r = root.runUnderCursor
+        const patch = {}
+        if (r.colorEnabled) patch.color = r.color
+        if (r.sizeEnabled) patch.sizeScale = r.sizeScale
+        if (r.boldEnabled) patch.bold = r.bold
+        if (r.italicEnabled) patch.italic = r.italic
+        if (r.underlineEnabled) patch.underline = r.underline
+        if (r.fontEnabled) patch.fontFamily = r.fontFamily
+        if (r.layersEnabled) patch.layers = r.layers
+        if (r.boxEnabled) {
+            patch.boxEnabled = true
+            patch.boxColor = r.boxColor
+            patch.boxPadding = r.boxPadding
+            patch.boxRadius = r.boxRadius
+            patch.boxBorderWidth = r.boxBorderWidth
+            patch.boxBorderColor = r.boxBorderColor
+        }
+        if (r.transformEnabled) {
+            patch.offsetX = r.offsetX
+            patch.offsetY = r.offsetY
+            patch.transformScale = r.transformScale
+            patch.rotation = r.rotation
+        }
+        if (r.letterSpacingEnabled) patch.letterSpacing = r.letterSpacing
+        if (r.lineHeightEnabled) patch.lineHeight = r.lineHeight
+        if (r.opacityEnabled) patch.opacity = r.opacity
+        if (r.baseline) patch.baseline = r.baseline > 0 ? "super" : "sub"
+        root.copiedRunStyle = patch
+    }
+    function pasteRunStyle() {
+        if (root.copiedRunStyle && Object.keys(root.copiedRunStyle).length > 0)
+            root.patchRuns(root.copiedRunStyle)
     }
 
     // La única puerta de los controles de estilo: con letras sombreadas al tramo, sin ellas al bloque.
@@ -1177,6 +1225,116 @@ Item {
                 }
             }
 
+            // --- Las letras elegidas (0.24, como Filmora) ------------------------------------------
+            // Lo que solo tiene sentido con unas letras sombreadas: su tamaño, su espacio, su
+            // interlineado, su opacidad, superíndice/subíndice, y copiar, pegar o quitar su estilo.
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Selected letters")
+                tooltip: qsTr("Only the letters shaded in «Text input» change")
+                visible: root.canStyleRuns && root.hasRunSelection
+
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTranslate("TextInspector", "Font size")
+                        from: 0.2
+                        to: 4
+                        stepSize: 0.05
+                        decimals: 0
+                        displayScale: 100
+                        suffix: " %"
+                        value: root.runUnderCursor.sizeEnabled === true ? Number(root.runUnderCursor.sizeScale) : 1
+                        onCommitted: v => root.patchRuns({ "sizeScale": v })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Character")
+                        from: -100
+                        to: 200
+                        suffix: " px"
+                        value: root.runUnderCursor.letterSpacingEnabled === true
+                               ? Number(root.runUnderCursor.letterSpacing) : Number(root.textStyle.letterSpacing) || 0
+                        onCommitted: v => root.patchRuns({ "letterSpacing": Math.round(v) })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Line")
+                        from: 0.5
+                        to: 4
+                        stepSize: 0.05
+                        decimals: 2
+                        value: root.runUnderCursor.lineHeightEnabled === true
+                               ? Number(root.runUnderCursor.lineHeight) : Number(root.textStyle.lineHeight) || 1.2
+                        onCommitted: v => root.patchRuns({ "lineHeight": v })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Opacity")
+                        from: 0
+                        to: 1
+                        stepSize: 0.01
+                        displayScale: 100
+                        suffix: " %"
+                        value: root.runUnderCursor.opacityEnabled === true ? Number(root.runUnderCursor.opacity) : 1
+                        onCommitted: v => root.patchRuns({ "opacity": v })
+                    }
+
+                    // Superíndice y subíndice: m², H₂O, 1.º
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        Repeater {
+                            model: [
+                                { "id": "none", "text": qsTr("Normal"), "tip": qsTr("On the line") },
+                                { "id": "super", "text": "x²", "tip": qsTr("Superscript") },
+                                { "id": "sub", "text": "x₂", "tip": qsTr("Subscript") }
+                            ]
+                            delegate: ThemedToggleButton {
+                                required property var modelData
+                                width: (parent.width - Theme.spacingSm * 2) / 3
+                                text: modelData.text
+                                tooltip: modelData.tip
+                                checked: (Number(root.runUnderCursor.baseline) || 0)
+                                         === (modelData.id === "super" ? 1 : modelData.id === "sub" ? -1 : 0)
+                                onClicked: root.patchRuns({ "baseline": modelData.id })
+                            }
+                        }
+                    }
+
+                    // Copiar el estilo de unas letras y pegarlo en otras (el pincel de Word).
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Copy style")
+                            tooltip: qsTr("Copy the style of these letters")
+                            onClicked: root.copyRunStyle()
+                        }
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Paste style")
+                            tooltip: qsTr("Give these letters the copied style")
+                            enabled: root.copiedRunStyle !== null
+                            onClicked: root.pasteRunStyle()
+                        }
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Remove style")
+                            tooltip: qsTr("These letters go back to the style of the whole text")
+                            onClicked: EditorState.clearTextRunsIn(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.runSelectionStart, root.runSelectionEnd)
+                        }
+                    }
+                }
+            }
+
             // Subtitles carry two extra jobs CapCut also puts on the caption's text page.
             Row {
                 width: parent.width
@@ -1236,6 +1394,7 @@ Item {
 
                 PropertyKeyframeRow {
                     width: parent.width
+                    visible: !root.hasRunSelection
                     propDef: root.textProp("pixelSize", qsTr("Font size"), 0)
                     keyframeList: root.textKeyframes("pixelSize")
                     useSlider: true
@@ -1403,6 +1562,7 @@ Item {
                 Row {
                     width: parent.width
                     spacing: 8
+                    visible: !root.hasRunSelection
 
                     PropertyKeyframeRow {
                         width: (parent.width - parent.spacing) / 2
@@ -1432,6 +1592,43 @@ Item {
                     suffix: " px"
                     value: Number(root.textStyle.wordSpacing) || 0
                     onCommitted: v => root.setTextStyleKey("wordSpacing", Math.round(v))
+                }
+
+                // The font's own features and shrinking to the box (0.24), for the whole text.
+                Repeater {
+                    model: [
+                        { "key": "ligatures", "label": qsTr("Ligatures"), "on": root.textStyle.ligatures !== false,
+                          "tip": qsTr("Letters the font joins into one shape (fi, fl…), when it has them") },
+                        { "key": "smallCaps", "label": qsTr("Small caps"), "on": root.textStyle.smallCaps === true,
+                          "tip": qsTr("Lower-case letters as small capitals, when the font has them") },
+                        { "key": "shrinkToFit", "label": qsTr("Shrink to fit"), "on": root.textStyle.shrinkToFit === true,
+                          "tip": qsTr("The box keeps its size and the text gets smaller until it fits") }
+                    ]
+                    delegate: Row {
+                        id: featureRow
+                        required property var modelData
+                        width: parent.width
+                        spacing: Theme.spacingSm
+                        visible: root.clipKind === "text" || featureRow.modelData.key !== "shrinkToFit"
+
+                        Text {
+                            width: parent.width - featureSwitch.width - parent.spacing
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: featureRow.modelData.label
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            elide: Text.ElideRight
+                        }
+                        ThemedSwitch {
+                            id: featureSwitch
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: featureRow.modelData.on
+                            tooltip: featureRow.modelData.tip
+                            onToggled: EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                ({ [featureRow.modelData.key]: checked }))
+                        }
+                    }
                 }
 
                 Text {

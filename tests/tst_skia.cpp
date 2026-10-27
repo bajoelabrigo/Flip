@@ -330,6 +330,7 @@ private slots:
     void textPacksRender();
     void textRunsPaintWithTheirOwnColourAndSize();
     void textRunEffectsStayInsideTheirLetters();
+    void textRunOpacityScriptAndShrinkToFit();
 };
 
 void SkiaTest::grContextAttaches()
@@ -2384,6 +2385,103 @@ void SkiaTest::textRunEffectsStayInsideTheirLetters()
     const Ink halfBoxRight = inkIn(halfBox, halfRight);
     QVERIFY2(halfBoxRight.count > inkIn(halfPlain, halfRight).count + 250 && halfBoxRight.b > 60.0,
              "a media escala el fondo no quedó detrás de «MUNDO»");
+}
+
+// 0.24 (segunda tanda): la opacidad y el superíndice de unas letras, y el texto que se encoge
+// para caber en su caja.
+void SkiaTest::textRunOpacityScriptAndShrinkToFit()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+
+    TextStyle style;
+    style.fontFamily = QStringLiteral("Inter");
+    style.pixelSize = 64;
+    style.wordWrap = false;
+    style.layers = {solidFillLayer(Qt::white)};
+    const QString text = QStringLiteral("HOLA MUNDO");
+    const QRectF layout(0, 0, 720, 200);
+    // Ink of an image in canvas coordinates (its painted rect placed where it goes).
+    const auto inkAt = [](const QImage &image, const QRectF &rect, double fromX, double toX) {
+        Ink ink = inkOf(image.copy(QRect(int(fromX - rect.left()), 0, int(toX - fromX), image.height())));
+        ink.bbox.translate(int(fromX), int(rect.top()));
+        return ink;
+    };
+
+    QRectF plainRect;
+    const QImage plain = skiaText(textClip(style, text), text, layout, 1.0, -1, &plainRect);
+    QVERIFY(!plain.isNull());
+    const double split = plainRect.left() + plainRect.width() * 0.60;
+    const double leftEnd = plainRect.left() + plainRect.width() * 0.30;
+
+    // 1) «MUNDO» al 40 %: menos tinta opaca a la derecha, «HOLA» igual.
+    TextStyle faded = style;
+    TextRun fadeRun;
+    fadeRun.start = 5;
+    fadeRun.end = 10;
+    fadeRun.opacityEnabled = true;
+    fadeRun.opacity = 0.4;
+    faded.runs = {fadeRun};
+    QRectF fadedRect;
+    const QImage withFade = skiaText(textClip(faded, text), text, layout, 1.0, -1, &fadedRect);
+    QVERIFY(!withFade.isNull());
+    const auto meanAlpha = [](const QImage &image, const QRectF &rect, double fromX, double toX) {
+        const QImage img = image.convertToFormat(QImage::Format_ARGB32);
+        double sum = 0;
+        int n = 0;
+        for (int y = 0; y < img.height(); ++y)
+            for (int x = int(fromX - rect.left()); x < int(toX - rect.left()); ++x)
+                if (x >= 0 && x < img.width()) {
+                    sum += qAlpha(img.pixel(x, y));
+                    ++n;
+                }
+        return n ? sum / n : 0.0;
+    };
+    const double plainRight = meanAlpha(plain, plainRect, split, plainRect.right());
+    const double fadedRight = meanAlpha(withFade, fadedRect, split, plainRect.right());
+    QVERIFY2(fadedRight < plainRight * 0.6 && fadedRight > plainRight * 0.2,
+             qPrintable(QStringLiteral("sin %1, con %2").arg(plainRight).arg(fadedRight)));
+    QVERIFY2(qAbs(meanAlpha(plain, plainRect, plainRect.left(), leftEnd)
+                  - meanAlpha(withFade, fadedRect, plainRect.left(), leftEnd)) < 0.5,
+             "la opacidad del tramo cambió «HOLA»");
+
+    // 2) «MUNDO» en superíndice: sus letras suben y se achican, «HOLA» queda en su sitio.
+    TextStyle raised = style;
+    TextRun superRun;
+    superRun.start = 5;
+    superRun.end = 10;
+    superRun.baseline = 1;
+    raised.runs = {superRun};
+    QRectF raisedRect;
+    const QImage withSuper = skiaText(textClip(raised, text), text, layout, 1.0, -1, &raisedRect);
+    QVERIFY(!withSuper.isNull());
+    const Ink plainHola = inkAt(plain, plainRect, plainRect.left(), leftEnd);
+    const Ink superHola = inkAt(withSuper, raisedRect, raisedRect.left(), raisedRect.left() + (leftEnd - plainRect.left()));
+    QVERIFY2(qAbs(plainHola.bbox.bottom() - superHola.bbox.bottom()) <= 1,
+             qPrintable(QStringLiteral("HOLA %1 contra %2").arg(plainHola.bbox.bottom()).arg(superHola.bbox.bottom())));
+    const Ink superMundo = inkAt(withSuper, raisedRect, raisedRect.left() + raisedRect.width() * 0.55, raisedRect.right());
+    QVERIFY2(superMundo.bbox.bottom() < plainHola.bbox.bottom() - 10,
+             qPrintable(QStringLiteral("MUNDO acaba en %1, HOLA en %2").arg(superMundo.bbox.bottom()).arg(plainHola.bbox.bottom())));
+    QVERIFY2(superMundo.bbox.height() < plainHola.bbox.height() * 0.8, "el superíndice no se achicó");
+
+    // 3) Encoger para caber: un texto largo en una caja baja cabe en ella; sin la opción, no.
+    TextStyle wrapped = style;
+    wrapped.wordWrap = true;
+    const QString longText = QStringLiteral("UN TEXTO MUY LARGO QUE NO CABE EN UNA CAJA TAN BAJA");
+    const QRectF lowBox(0, 0, 400, 120);
+    QRectF grownRect;
+    const QImage grown = skiaText(textClip(wrapped, longText), longText, lowBox, 1.0, -1, &grownRect);
+    TextStyle shrinking = wrapped;
+    shrinking.shrinkToFit = true;
+    QRectF shrunkRect;
+    const QImage shrunk = skiaText(textClip(shrinking, longText), longText, lowBox, 1.0, -1, &shrunkRect);
+    QVERIFY(!grown.isNull() && !shrunk.isNull());
+    const Ink grownInk = inkOf(grown);
+    const Ink shrunkInk = inkOf(shrunk);
+    QVERIFY2(grownInk.bbox.height() > lowBox.height(),
+             qPrintable(QStringLiteral("sin encoger mide %1").arg(grownInk.bbox.height())));
+    QVERIFY2(shrunkInk.bbox.height() <= lowBox.height() + 2,
+             qPrintable(QStringLiteral("encogido mide %1").arg(shrunkInk.bbox.height())));
 }
 
 #include "tst_skia.moc"

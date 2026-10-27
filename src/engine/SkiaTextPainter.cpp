@@ -71,7 +71,8 @@ struct Piece
     // 0.24: the stretch's own shading stack, background and transform, when it brings them.
     bool hasRun = false;
     drift::TextRun run;
-    QPointF runCentre; // centre of the stretch's box, in block units
+    QPointF runCentre; // centre of the stretch's box, in output pixels
+    double runOpacity = 1.0; // the letters' own opacity (0.24)
     bool runUnderline = false;
 };
 
@@ -106,6 +107,7 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
         piece.runColor = word.runColor;
         piece.hasRun = word.hasRun;
         piece.run = word.run;
+        piece.runOpacity = word.runOpacity;
         piece.runUnderline = word.runUnderline;
         if (word.geometry) {
             const text::PieceGeometry &geometry = *word.geometry;
@@ -714,14 +716,14 @@ public:
         for (int i = 0; i < m_pieces.size(); ++i) {
             if (!visible(i))
                 continue;
-            (props(i).opacity >= 0.999 ? solid : fading).append(i);
+            (opacityOf(i) >= 0.999 ? solid : fading).append(i);
         }
         // The stretches asking for a background get it behind their letters (0.24).
         drawRunBackgrounds(canvas, solid);
         drawLayers(canvas, solid);
         for (int i : fading) {
             SkPaint alpha;
-            alpha.setAlphaf(float(props(i).opacity));
+            alpha.setAlphaf(float(opacityOf(i)));
             canvas.saveLayer(nullptr, &alpha);
             drawRunBackgrounds(canvas, {i});
             drawLayers(canvas, {i});
@@ -747,6 +749,13 @@ private:
     {
         static const textanim::FragmentProps kIdentity;
         return i < m_frame.props.size() ? m_frame.props.at(i) : kIdentity;
+    }
+
+    // What a piece fades by: the animator's, times the letters' own opacity (0.24).
+    double opacityOf(int i) const
+    {
+        const double own = i < m_pieces.size() ? m_pieces.at(i).runOpacity : 1.0;
+        return props(i).opacity * own;
     }
 
     bool visible(int i) const

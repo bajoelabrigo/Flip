@@ -1962,6 +1962,9 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("underlineWidth"), s.underlineWidth},
         {QStringLiteral("underlineOffset"), s.underlineOffset},
         {QStringLiteral("strikeEnabled"), s.strikeEnabled},
+        {QStringLiteral("ligatures"), s.ligatures},
+        {QStringLiteral("smallCaps"), s.smallCaps},
+        {QStringLiteral("shrinkToFit"), s.shrinkToFit},
         {QStringLiteral("accent"), wordAccentToMap(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToMap(s.animation)},
     };
@@ -13100,6 +13103,13 @@ QVariantList AppController::textRuns(int trackIndex, int clipIndex)
             {QStringLiteral("offsetY"), run.offsetY},
             {QStringLiteral("transformScale"), run.transformScale},
             {QStringLiteral("rotation"), run.rotation},
+            {QStringLiteral("letterSpacingEnabled"), run.letterSpacingEnabled},
+            {QStringLiteral("letterSpacing"), run.letterSpacing},
+            {QStringLiteral("lineHeightEnabled"), run.lineHeightEnabled},
+            {QStringLiteral("lineHeight"), run.lineHeight},
+            {QStringLiteral("opacityEnabled"), run.opacityEnabled},
+            {QStringLiteral("opacity"), run.opacity},
+            {QStringLiteral("baseline"), run.baseline},
         });
     }
     return out;
@@ -13152,6 +13162,15 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         if (m.contains(QStringLiteral("transformScale")))
             run.transformScale = qBound(0.05, m.value(QStringLiteral("transformScale")).toDouble(), 20.0);
         run.rotation = m.value(QStringLiteral("rotation")).toDouble();
+        run.letterSpacingEnabled = m.value(QStringLiteral("letterSpacingEnabled")).toBool();
+        run.letterSpacing = m.value(QStringLiteral("letterSpacing")).toDouble();
+        run.lineHeightEnabled = m.value(QStringLiteral("lineHeightEnabled")).toBool();
+        if (m.contains(QStringLiteral("lineHeight")))
+            run.lineHeight = qBound(0.1, m.value(QStringLiteral("lineHeight")).toDouble(), 10.0);
+        run.opacityEnabled = m.value(QStringLiteral("opacityEnabled")).toBool();
+        if (m.contains(QStringLiteral("opacity")))
+            run.opacity = qBound(0.0, m.value(QStringLiteral("opacity")).toDouble(), 1.0);
+        run.baseline = qBound(-1, m.value(QStringLiteral("baseline")).toInt(), 1);
         parsed.append(run);
     }
     const drift::Project before = m_project;
@@ -13209,10 +13228,35 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
                          || has("boxBorderWidth") || has("boxBorderColor");
     const bool transformKeys = has("transformEnabled") || has("offsetX") || has("offsetY") || has("transformScale")
                                || has("rotation");
-    if (boxKeys || transformKeys) {
+    // Spacing, line height, opacity and super/subscript of these letters (0.24); a null value
+    // gives them back the block's.
+    const bool ownKeys = has("letterSpacing") || has("lineHeight") || has("opacity") || has("baseline");
+    if (boxKeys || transformKeys || ownKeys) {
         for (drift::TextRun &r : clip->textStyle.runs) {
             if (r.start < start || r.end > end)
                 continue;
+            const auto cleared = [&](const char *key) {
+                const QVariant v = patch.value(QLatin1String(key));
+                return !v.isValid() || v.isNull();
+            };
+            if (has("letterSpacing")) {
+                r.letterSpacingEnabled = !cleared("letterSpacing");
+                r.letterSpacing = r.letterSpacingEnabled ? qBound(-200.0, num("letterSpacing"), 400.0) : 0.0;
+            }
+            if (has("lineHeight")) {
+                r.lineHeightEnabled = !cleared("lineHeight");
+                r.lineHeight = r.lineHeightEnabled ? qBound(0.1, num("lineHeight"), 10.0) : 1.2;
+            }
+            if (has("opacity")) {
+                r.opacityEnabled = !cleared("opacity");
+                r.opacity = r.opacityEnabled ? qBound(0.0, num("opacity"), 1.0) : 1.0;
+            }
+            if (has("baseline")) {
+                const QString b = patch.value(QStringLiteral("baseline")).toString();
+                r.baseline = b == QLatin1String("super") || b == QLatin1String("1") ? 1
+                             : b == QLatin1String("sub") || b == QLatin1String("-1") ? -1
+                                                                                       : 0;
+            }
             if (boxKeys) {
                 r.boxEnabled = has("boxEnabled") ? patch.value(QStringLiteral("boxEnabled")).toBool() : true;
                 if (has("boxColor"))
@@ -13244,6 +13288,23 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
             }
         }
     }
+    pushProjectEdit(before, tr("Edit text style"));
+    finishEdit(tr("Text style updated"));
+}
+
+void AppController::clearTextRunsIn(int trackIndex, int clipIndex, int start, int end)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip || end <= start || clip->textStyle.runs.isEmpty())
+        return;
+    const drift::Project before = m_project;
+    // Split at the edges (an empty patch changes nothing), then drop what is inside.
+    QList<drift::TextRun> runs =
+        drift::patchTextRuns(clip->textStyle.runs, int(clip->textContent.size()), start, end, drift::TextRun{});
+    runs.erase(std::remove_if(runs.begin(), runs.end(),
+                              [&](const drift::TextRun &r) { return r.start >= start && r.end <= end; }),
+               runs.end());
+    clip->textStyle.runs = runs;
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
 }
@@ -13399,7 +13460,15 @@ void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMa
 
     const drift::Project before = m_project;
     drift::TextStyle &s = clip->textStyle;
+    const bool wasShrinking = s.shrinkToFit;
     applyTextStylePatch(s, m);
+    // Shrink to fit (0.24) keeps the box the size it is; turned off, the box follows the text again.
+    if (s.shrinkToFit && !wasShrinking) {
+        clip->textAutoFit = false;
+    } else if (!s.shrinkToFit && wasShrinking) {
+        clip->textAutoFit = true;
+        refitTextClipBox(*clip, m_project.width(), m_project.height());
+    }
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
 }
@@ -13480,6 +13549,12 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.underlineOffset = m.value(QStringLiteral("underlineOffset")).toDouble();
     if (m.contains(QStringLiteral("strikeEnabled")))
         s.strikeEnabled = m.value(QStringLiteral("strikeEnabled")).toBool();
+    if (m.contains(QStringLiteral("ligatures")))
+        s.ligatures = m.value(QStringLiteral("ligatures")).toBool();
+    if (m.contains(QStringLiteral("smallCaps")))
+        s.smallCaps = m.value(QStringLiteral("smallCaps")).toBool();
+    if (m.contains(QStringLiteral("shrinkToFit")))
+        s.shrinkToFit = m.value(QStringLiteral("shrinkToFit")).toBool();
     applyTextHighlightPatch(&s.wordHighlight, m.value(QStringLiteral("wordHighlight")).toMap());
     applyWordAccentPatch(&s.accent, m.value(QStringLiteral("accent")).toMap());
 

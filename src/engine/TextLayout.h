@@ -48,6 +48,8 @@ struct StyledWord
     // El tramo entero, cuando trae efectos propios (pila, fondo o transformación; 0.24).
     bool hasRun = false;
     drift::TextRun run;
+    // The letters' own opacity (0.24), on top of whatever the animator does.
+    double runOpacity = 1.0;
     // Underlined on its own (the text bar's U on some letters), in the piece's colour.
     bool runUnderline = false;
 };

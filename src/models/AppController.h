@@ -940,6 +940,8 @@ public:
     // templates and the quick styles edit the stack those letters paint with, not the block's.
     // -1, -1 clears it. The inspector sets it whenever its selection changes.
     Q_INVOKABLE void setTextStyleRange(int trackIndex, int clipIndex, int start, int end);
+    // The letters [start, end) go back to the block's style: their stretches are cut out (0.24).
+    Q_INVOKABLE void clearTextRunsIn(int trackIndex, int clipIndex, int start, int end);
 
 
     // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made

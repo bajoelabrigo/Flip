@@ -203,7 +203,8 @@ lo que manda el inspector. **Comprobar siempre los dos workflows** (`gh run list
 - [ ] **Recorrido en ventana** de los seis efectos con y sin letras sombreadas (panel normal y Texto avanzado),
       con el portable del CI de esta tanda. Lo hace Claude antes de publicar.
 - [ ] Selección hecha sobre la vista previa (`InlineTextEditor`): todavía no manda las letras al inspector. Queda
-      fuera a propósito: al terminar de escribir el rango seguiría activo sin aviso.
+      fuera a propósito: al terminar de escribir el rango seguiría activo sin aviso. **Hecho después** (ver la
+      ampliación de abajo).
 - [ ] Teclas de fotograma (rombos) en las capas de unas letras: no hay (`layerProp` sin clave con letras sombreadas).
 - [ ] Web: dibujar los efectos por letras (por ahora solo los conserva al abrir y guardar).
 
@@ -219,14 +220,17 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
       `TextStyle.cpp`). `scaleTextStyle` escala también lo de los tramos (DeepSeek lo había olvidado).
 - [ ] Web: dibujar los efectos por letras (agente en `flipstudio-app`, `web/v0221-texto`).
 - [ ] Márgenes de Texto avanzado (Arreglo aparte 2): mirarlos en ventana, y el panel derecho también.
-- [ ] 1. Espacio entre letras e interlineado solo en las letras elegidas (`TextRun::letterSpacing*`, `lineHeight*`).
-- [ ] 2. Opacidad de las letras elegidas (`TextRun::opacity*`).
-- [ ] 3. Superíndice y subíndice (`TextRun::baseline`: normal/super/sub, tamaño 0,6 y desplazamiento).
-- [ ] 4. «Quitar estilo de las letras» también en el panel de la derecha.
-- [ ] 5. Copiar el estilo de unas letras y pegarlo en otras (pincel).
-- [ ] 6. Texto que se encoge para caber en su caja (`TextStyle::shrinkToFit`).
-- [ ] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto.
-- [ ] 8. Ligaduras y versalitas (rasgos OpenType `liga`, `smcp` en la fuente del bloque).
+- [x] 1. Espacio entre letras e interlineado solo en las letras elegidas (`TextRun::letterSpacing*`, `lineHeight*`;
+      la línea toma el mayor interlineado de las letras que lleva).
+- [x] 2. Opacidad de las letras elegidas (`TextRun::opacity*`, `opacityOf()` en el pintor).
+- [x] 3. Superíndice y subíndice (`TextRun::baseline`: 1/−1, tamaño ×0,62, sube 0,36 em o baja 0,16 em).
+- [x] 4. «Quitar estilo» de las letras elegidas en el panel (`AppController::clearTextRunsIn`), en la sección nueva
+      «Letras seleccionadas» del inspector (tamaño, espacio, interlineado, opacidad, x²/x₂, copiar/pegar/quitar).
+- [x] 5. Copiar el estilo de unas letras y pegarlo en otras (`copyRunStyle`/`pasteRunStyle` del inspector).
+- [x] 6. Texto que se encoge para caber en su caja (`TextStyle::shrinkToFit`, búsqueda en `fragmentsFor`; al
+      encenderlo la caja deja de seguir al texto, `textAutoFit` = false).
+- [ ] 7. Buscar y reemplazar en todos los textos y subtítulos del proyecto (agente en la rama `flip/v0.24-buscar`).
+- [x] 8. Ligaduras y versalitas (`TextStyle::ligatures`/`smallCaps` → `liga`/`clig`/`smcp` en `styleFor`).
 
 ## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
 

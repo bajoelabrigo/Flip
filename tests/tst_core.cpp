@@ -90,6 +90,7 @@ private slots:
     void legacyTrackInterpolationMigratesLosslessly();
     void textRunsStyleStretchesOfTheText();
     void textRunsCarryEffectsBackgroundAndTransform();
+    void textRunsCarrySpacingOpacityScriptAndFeatures();
     void keyframeNearestQuery();
     void sourceFramingRoundTrip();
     void clipPose3dRoundTrip();
@@ -7623,6 +7624,74 @@ void CoreTest::textRunsStyleStretchesOfTheText()
 // 0.24: un tramo puede llevar su propia pila de sombreado (trazo, sombra, resplandor, estilos),
 // su fondo y su transformación. Todo se guarda, y lo que no se usó no se escribe (un proyecto de
 // la 0.23 se guarda byte a byte igual).
+// 0.24 (segunda tanda): espacio, interlineado, opacidad y superíndice de unas letras, y las
+// opciones del bloque (ligaduras, versalitas, encoger para caber), de ida y vuelta en el JSON.
+void CoreTest::textRunsCarrySpacingOpacityScriptAndFeatures()
+{
+    drift::TextRun run;
+    run.start = 1;
+    run.end = 3;
+    run.letterSpacingEnabled = true;
+    run.letterSpacing = 14.0;
+    run.lineHeightEnabled = true;
+    run.lineHeight = 2.5;
+    run.opacityEnabled = true;
+    run.opacity = 0.4;
+    run.baseline = 1;
+    drift::TextStyle style;
+    style.runs = {run};
+    style.ligatures = false;
+    style.smallCaps = true;
+    style.shrinkToFit = true;
+    const drift::TextStyle loaded = drift::textStyleFromJson(drift::textStyleToJson(style));
+    QCOMPARE(loaded.runs.size(), 1);
+    const drift::TextRun &got = loaded.runs.at(0);
+    QVERIFY(got.letterSpacingEnabled);
+    QCOMPARE(got.letterSpacing, 14.0);
+    QVERIFY(got.lineHeightEnabled);
+    QCOMPARE(got.lineHeight, 2.5);
+    QVERIFY(got.opacityEnabled);
+    QCOMPARE(got.opacity, 0.4);
+    QCOMPARE(got.baseline, 1);
+    QVERIFY(!loaded.ligatures);
+    QVERIFY(loaded.smallCaps);
+    QVERIFY(loaded.shrinkToFit);
+
+    // Una 0.23 no los trae: todo como antes.
+    const drift::TextStyle plain = drift::textStyleFromJson(drift::textStyleToJson(drift::TextStyle{}));
+    QVERIFY(plain.ligatures);
+    QVERIFY(!plain.smallCaps);
+    QVERIFY(!plain.shrinkToFit);
+    drift::TextRun bare;
+    bare.start = 0;
+    bare.end = 2;
+    bare.colorEnabled = true;
+    drift::TextStyle bareStyle;
+    bareStyle.runs = {bare};
+    const QJsonObject bareJson =
+        drift::textStyleToJson(bareStyle).value(QStringLiteral("runs")).toArray().at(0).toObject();
+    QVERIFY(!bareJson.contains(QStringLiteral("opacity")));
+    QVERIFY(!bareJson.contains(QStringLiteral("baseline")));
+    const drift::TextRun bareBack = drift::textStyleFromJson(drift::textStyleToJson(bareStyle)).runs.at(0);
+    QVERIFY(!bareBack.opacityEnabled && !bareBack.letterSpacingEnabled && bareBack.baseline == 0);
+
+    // patchTextRuns suma lo nuevo y conserva el color de antes.
+    drift::TextRun coloured;
+    coloured.start = 0;
+    coloured.end = 4;
+    coloured.colorEnabled = true;
+    coloured.color = QColor(255, 0, 0);
+    drift::TextRun patch;
+    patch.opacityEnabled = true;
+    patch.opacity = 0.5;
+    patch.baseline = -1;
+    const QList<drift::TextRun> patched = drift::patchTextRuns({coloured}, 4, 0, 4, patch);
+    QCOMPARE(patched.size(), 1);
+    QVERIFY(patched.at(0).colorEnabled);
+    QCOMPARE(patched.at(0).opacity, 0.5);
+    QCOMPARE(patched.at(0).baseline, -1);
+}
+
 void CoreTest::textRunsCarryEffectsBackgroundAndTransform()
 {
     drift::TextRun run;

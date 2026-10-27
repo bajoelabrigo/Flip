@@ -119,6 +119,17 @@ struct TextRun
     double transformScale = 1.0;
     double rotation = 0.0; // grados
 
+    // Más cosas propias de estas letras (0.24): espacio entre ellas (px al pixelSize del bloque),
+    // el interlineado de su línea (la línea toma el mayor de los que lleva), su opacidad y
+    // superíndice/subíndice (más pequeñas y arriba o abajo de la línea base).
+    bool letterSpacingEnabled = false;
+    double letterSpacing = 0.0;
+    bool lineHeightEnabled = false;
+    double lineHeight = 1.2;
+    bool opacityEnabled = false;
+    double opacity = 1.0;
+    int baseline = 0; // 0 normal, 1 superíndice, -1 subíndice
+
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }
 };
@@ -205,6 +216,12 @@ struct TextStyle
     double underlineWidth = 6.0;
     double underlineOffset = 4.0; // below the baseline
     bool strikeEnabled = false;   // a line through the middle of the letters, in the text's colour (0.22.1)
+    // The font's OpenType features (0.24): standard ligatures (fi, fl…) on by default, small caps off.
+    bool ligatures = true;
+    bool smallCaps = false;
+    // The text shrinks until it fits its box instead of growing the box (0.24). Turning it on keeps
+    // the box the size it is (Clip::textAutoFit off).
+    bool shrinkToFit = false;
 
     WordAccent accent;
 

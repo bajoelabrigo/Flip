@@ -300,6 +300,13 @@ QJsonObject mcpDetailRow(const QVariantMap &clipMap, const QVariantMap &transfor
         // 0.22.1 fields, only when used.
         if (!style.value(QStringLiteral("strikeEnabled")).toBool())
             style.remove(QStringLiteral("strikeEnabled"));
+        // 0.24 fields, only when they differ from the default.
+        if (style.value(QStringLiteral("ligatures")).toBool())
+            style.remove(QStringLiteral("ligatures"));
+        for (const char *key : {"smallCaps", "shrinkToFit"}) {
+            if (!style.value(QLatin1String(key)).toBool())
+                style.remove(QLatin1String(key));
+        }
         for (const char *key : {"wordSpacing", "pathCircle"}) {
             if (style.value(QLatin1String(key)).toDouble() == 0.0)
                 style.remove(QLatin1String(key));
