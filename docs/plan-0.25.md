@@ -97,3 +97,24 @@ Capturas de Jorge: `Downloadsideos.png`, `after effects.png`, `curvas.png`, `fo
 - Probado en ventana (`pruebas\FlipStudio-0.25-prueba-c` y `-d`): todo lo anterior salvo el menú del «+» y la
   ventana del Sólido (los popups no abren con clics simulados). Diferencia que queda con AE: el gráfico ocupa solo
   las filas del clip elegido, no toda la línea de tiempo.
+
+## Tercera tanda (Jorge, 2026-10-27, noche)
+- [x] Sólidos editables después: clic derecho › «Ajustes del sólido…» (`Clip::isSolid`, `solidSettings`,
+      `setSolidSettings`). Probado en ventana: rojo y 960 px, centrado.
+- [x] Curvas que se salían del gráfico: cada curva se ajusta a sus claves y tiradores (antes la rotación tenía
+      −180…180 fijo). Probado: 0→320° cabe entero.
+- [x] Clave sola en el segundo 0 visible: `KeyframeTrack::stopwatch` (JSON `stopwatch`), se marca al poner claves a
+      propósito. Prueba de `volumeIsAnAnimatedPropertyOnAudioClips` actualizada.
+- [x] Tiradores del gráfico visibles sin agrandarlo (`curveEditing` con la altura real ≥ 110).
+- [x] Restablecer el punto de anclaje; Alt / Alt+Mayús escalan desde el centro (Jorge lo probó).
+- [x] Tiradores en el trazo del movimiento (vista previa): son los outDy/inDy de X e Y en esa clave; espejo salvo
+      con Ctrl. Jorge lo probó.
+- [x] Cabezal con imán a las claves (`snapPlayheadToKeys`, 8 px) y siempre en fotogramas enteros.
+- [x] Línea de tiempo en fotogramas como AE: regla «05f / 01:00f» desde 6 px por fotograma, columnas alternas desde
+      8 px, zoom hasta ×80, claves arrastradas en fotogramas enteros (`snapKeyTime`). Probado en ventana.
+- [x] Cuadrícula 3×3 del punto de anclaje (Motion Tools) en el «…» de su fila (`setAnchorKeepingPlace`: el clip no
+      se mueve). Probado en ventana.
+- Trampa: `KeyframeGraph.clip` es el dato del clip; no usar `clip: true` ahí. Y un `Loader` con `height` fijo le
+  impone esa altura al gráfico (salía con alto 0).
+- Trampa de CI: `EditorStateTest::driftAssetStoreInstallsVerified` a veces se cae en la máquina de Windows (OpenGL
+  3.0 desde un hilo); relanzar con `gh run rerun --failed`.
