@@ -206,6 +206,14 @@ Item {
         function onViewChanged() { root.refreshOverlay() }
     }
 
+    // The selected clip's motion path (0.25), over the boxes so its dots stay grabbable.
+    MotionPathOverlay {
+        anchors.fill: parent
+        z: 950
+        visible: !root.mode3d && !EditorState.playing
+        box: root.selectedBox
+    }
+
     Repeater {
         id: clipRepeater
 
