@@ -1382,6 +1382,9 @@ public:
     // one under the playhead; -1 for none.
     Q_INVOKABLE int keyframeTargetClip(int trackIndex) const;
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
+    // Only these properties (x, y, width, height, rotation, opacity) back to the clip's reset,
+    // their keys too: a keyframe line's «Reset» (0.24).
+    Q_INVOKABLE void resetClipProperties(int trackIndex, int clipIndex, const QStringList &props);
     Q_INVOKABLE QVariantList effectCatalog() const;
 
     // LUTs (the color.lut effect). The factory looks that ship with the app and the ones the
@@ -2619,6 +2622,8 @@ protected:
     bool m_previewDragDirty = false;
     // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
     QSet<QString> m_keyframeGroupsExpanded;
+    // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
+    void resetTransformOf(drift::Clip &clip);
     // The shaded letters the layer calls aim at (setTextStyleRange).
     int m_textRangeTrack = -1;
     int m_textRangeClip = -1;

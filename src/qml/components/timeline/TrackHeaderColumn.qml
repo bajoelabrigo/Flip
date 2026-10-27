@@ -1122,6 +1122,10 @@ Item {
                         readonly property bool joined: !!modelData.group && !modelData.axis
                         readonly property var props: joined ? modelData.groupProps : [modelData.prop]
                         readonly property int clip: keyLines.targetClip
+                        // Position, Rotation, Scale and Opacity (and their axes) can go back to the
+                        // clip's reset; other animated properties have no reset of their own.
+                        readonly property bool resettable: !!modelData.group
+                        HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
                         color: Qt.rgba(0, 0, 0, index % 2 === 0 ? 0.16 : 0.08)
@@ -1287,6 +1291,18 @@ Item {
                             }
                         }
                         IconButton {
+                            id: resetButton
+                            anchors.right: keyButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: keyLine.resettable && keyLine.clip >= 0 && lineHover.hovered
+                            glyph: Theme.icons.reset
+                            variant: "text"
+                            buttonSize: 18
+                            iconSize: 12
+                            tooltip: qsTr("Reset")
+                            onClicked: EditorState.resetClipProperties(keyLines.trackIndex, keyLine.clip, keyLine.props)
+                        }
+                        IconButton {
                             id: keyButton
                             anchors.right: moreButton.left
                             anchors.verticalCenter: parent.verticalCenter
@@ -1330,6 +1346,13 @@ Item {
                                 onTriggered: keyLine.stepKey(true)
                             }
                             ThemedMenuSeparator {}
+                            ThemedMenuItem {
+                                visible: keyLine.resettable
+                                height: visible ? implicitHeight : 0
+                                text: qsTr("Reset")
+                                onTriggered: EditorState.resetClipProperties(keyLines.trackIndex, keyLine.clip,
+                                                                             keyLine.props)
+                            }
                             ThemedMenuItem {
                                 text: qsTr("Remove all keyframes…")
                                 onTriggered: removeAllDialog.open()

@@ -10361,6 +10361,13 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     state.setPlayheadSeconds(9.0);
     QCOMPARE(state.keyframeTargetClip(0), -1);
 
+    // «Reset» on Position: X and Y lose their keys and go back; Opacity keeps its animation.
+    state.resetClipProperties(0, 0, {QStringLiteral("x"), QStringLiteral("y")});
+    QVERIFY(keysOf(rowOf(QStringLiteral("position"))).isEmpty());
+    QCOMPARE(keysOf(rowOf(opacity)).size(), 3);
+    state.undo();
+    QCOMPARE(keysOf(rowOf(QStringLiteral("position"))).size(), 2);
+
     // Folded the row keeps its height; unfolded it grows by its four lines, saved with the project.
     const int folded = state.trackRowHeight(0, metrics);
     state.setTrackKeyframesExpanded(0, true);

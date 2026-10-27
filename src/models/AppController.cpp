@@ -19051,6 +19051,46 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
         return;
 
     const drift::Project before = m_project;
+    resetTransformOf(clip);
+    pushProjectEdit(before, tr("Reset transform"));
+    finishEdit(tr("Transform reset"));
+}
+
+void AppController::resetClipProperties(int trackIndex, int clipIndex, const QStringList &props)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    drift::Track &track = m_project.tracks()[trackIndex];
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return;
+    drift::Clip &clip = track.clips[clipIndex];
+    if (clip.type == drift::ClipType::Audio || props.isEmpty())
+        return;
+    // The whole reset on a copy; only the asked properties (keys and all) come back from it.
+    drift::Clip reset = clip;
+    resetTransformOf(reset);
+    const drift::Project before = m_project;
+    for (const QString &prop : props) {
+        if (prop == QLatin1String("x"))
+            clip.transformX = reset.transformX;
+        else if (prop == QLatin1String("y"))
+            clip.transformY = reset.transformY;
+        else if (prop == QLatin1String("width"))
+            clip.transformW = reset.transformW;
+        else if (prop == QLatin1String("height"))
+            clip.transformH = reset.transformH;
+        else if (prop == QLatin1String("rotation"))
+            clip.rotation = reset.rotation;
+        else if (prop == QLatin1String("opacity"))
+            clip.opacity = reset.opacity;
+    }
+    pushProjectEdit(before, tr("Reset transform"));
+    finishEdit(tr("Transform reset"));
+}
+
+// Back to how the clip first landed: media fitted and centred, everything else the full canvas.
+void AppController::resetTransformOf(drift::Clip &clip)
+{
     clip.opacity = {};
     clip.transformX = {};
     clip.transformY = {};
@@ -19089,8 +19129,6 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
     // A text that hugs its words resets to its fitted box, centred, as it was added.
     if (clip.type == drift::ClipType::Text && clip.textAutoFit)
         placeFittedTextBox(clip, m_project.width(), m_project.height());
-    pushProjectEdit(before, tr("Reset transform"));
-    finishEdit(tr("Transform reset"));
 }
 
 QString AppController::lutLibraryDir()
