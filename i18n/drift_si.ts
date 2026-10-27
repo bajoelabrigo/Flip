@@ -3423,6 +3423,14 @@
         <translation>හැඩතලය එක් කරන ලදී</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>ගැලපුම් ස්තරය (Adjustment Layer)</translation>
     </message>
@@ -17454,6 +17462,10 @@ NEXT TIME</source>
         <translation>ග්‍රැෆික්</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation type="unfinished">ගැළපුම් ස්තරය</translation>
     </message>
@@ -19972,6 +19984,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25943,6 +25966,14 @@ If playback stutters, try another.</source>
         <translation>නව ට්‍රැකයක් එක් කරන්න</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>සොයාබැලීමට ක්ලික් කරන්න හෝ අදින්න</translation>
     </message>
@@ -26191,10 +26222,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Automatic dissolve: off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

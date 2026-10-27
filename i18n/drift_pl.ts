@@ -3429,6 +3429,14 @@
         <translation>Dodano kształt</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Warstwa korekcyjna</translation>
     </message>
@@ -17525,6 +17533,10 @@ ZOBACZENIA</translation>
         <translation>Grafika</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>Warstwa dopasowania</translation>
     </message>
@@ -20055,6 +20067,17 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -26031,6 +26054,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Dodaj nową ścieżkę</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>Kliknij lub przeciągnij, aby przewinąć</translation>
     </message>
@@ -26280,10 +26311,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Automatyczne przenikanie: wyłączone</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Edytor krzywych: ręcznie kształtuj krzywe klatek kluczowych zaznaczonego klipu</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

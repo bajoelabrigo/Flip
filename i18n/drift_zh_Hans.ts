@@ -3417,6 +3417,14 @@
         <translation>已添加形状</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>调整图层</translation>
     </message>
@@ -17391,6 +17399,10 @@ NEXT TIME</source>
         <translation>图形</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>调整图层</translation>
     </message>
@@ -19897,6 +19909,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25862,6 +25885,14 @@ If playback stutters, try another.</source>
         <translation>添加新轨道</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>单击或拖动以定位</translation>
     </message>
@@ -26111,10 +26142,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>自动叠化：关闭</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>曲线编辑器：手动调整所选片段的关键帧曲线</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

@@ -662,6 +662,8 @@ public:
     // "circle" and "ellipse" are the same kind with different default aspects.
     Q_INVOKABLE void addShapeClip(const QString &shapeKind, double atSeconds);
     Q_INVOKABLE void addShapeClipAt(const QString &shapeId, int trackIndex, double atSeconds);
+    // After Effects' Solid: a whole-frame rectangle of one colour on its own track (0.25).
+    Q_INVOKABLE void addSolidClip(const QString &colorName = QString());
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);
@@ -758,6 +760,10 @@ public:
     Q_INVOKABLE void previewSetClipRotation(int trackIndex, int clipIndex, double degrees);
     Q_INVOKABLE void previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                             double atSeconds, double value);
+    // A value typed or dragged on a keyframe line (0.25, After Effects): a key at the playhead when
+    // the property is animated, the plain value when it is not. Inside a preview drag.
+    Q_INVOKABLE void previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
+                                             double atSeconds, double value);
     Q_INVOKABLE void previewSetEffectParam(int trackIndex, int clipIndex, int effectIndex,
                                            const QString &key, double value);
     Q_INVOKABLE void previewSetEffectVec2Param(int trackIndex, int clipIndex, int effectIndex,
@@ -2065,6 +2071,8 @@ signals:
     void openFindReplaceRequested();
 
 protected:
+    void previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                               double value, bool forceKey);
     // The picked keys moved together: each from fromTime(start) to toTime(start), the handles'
     // reach in time scaled by handleScale (shift and stretch).
     void previewRetimeKeys(int trackIndex, const QVariantList &keys,

@@ -10525,6 +10525,37 @@ void AppController::addShapeClipAt(const QString &shapeId, int trackIndex, doubl
     selectClip(target, newClipIndex);
 }
 
+void AppController::addSolidClip(const QString &colorName)
+{
+    // After Effects' Solid (0.25, Jorge): one colour over the whole frame, on a track of its own
+    // at the playhead. A shape, so its colour, size, opacity and keys edit like any other.
+    const QColor color = QColor::isValidColorName(colorName) ? QColor(colorName) : QColor(40, 40, 46);
+    const drift::Project before = m_project;
+    const drift::TimeUs start = m_playheadUs;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::kImageClipDurationUs, true);
+    if (target < 0)
+        return;
+    drift::Track &track = m_project.tracks()[target];
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Solid");
+    clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
+    clip.shapeStyle.layers = {drift::solidFillLayer(color)};
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
+                                                 m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = drift::kImageClipDurationUs;
+    clip.srcIn = 0;
+    clip.srcOut = drift::kImageClipDurationUs;
+    setClipLayoutPixels(clip, 0, 0, m_project.width(), m_project.height());
+    track.clips.append(clip);
+    const int newClipIndex = track.clips.size() - 1;
+    pushProjectEdit(before, tr("Solid added"));
+    finishEdit(tr("Solid added"));
+    selectClip(target, newClipIndex);
+}
+
 int AppController::ensureAdjustmentLaneFor(int parentTrackIndex, drift::AdjustmentKind kind,
                                            drift::TimeUs startUs, drift::TimeUs durationUs)
 {
@@ -12142,6 +12173,21 @@ void AppController::previewSetClipRotation(int trackIndex, int clipIndex, double
 void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                            double atSeconds, double value)
 {
+    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, false);
+}
+
+void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
+                                            double atSeconds, double value)
+{
+    // After Effects' rule (0.25): with the stopwatch on (the property has keys) a new value is a
+    // key at the playhead; without it, the property simply takes the value.
+    const bool animated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
+    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated);
+}
+
+void AppController::previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop,
+                                          double atSeconds, double value, bool forceKey)
+{
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
     // Announced under the caller's indices: listeners address the clip they are showing, not
@@ -12159,7 +12205,7 @@ void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const 
     drift::Clip &clip = track.clips[clipIndex];
     beginImplicitPreviewDrag(tr("Edit keyframe"));
     const drift::TimeUs rel = qMax<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart);
-    if (!writeClipPropValue(clip, prop, rel, value, m_autoKeyEnabled, /*force=*/false)) {
+    if (!writeClipPropValue(clip, prop, rel, value, m_autoKeyEnabled, forceKey)) {
         emit transformBlocked(tr("Turn on Auto keyframes to edit this"));
         return;
     }
@@ -12176,9 +12222,10 @@ void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const 
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt && !otherKt->isEmpty()) {
             const drift::TimeUs otherNearest = otherKt->nearestKeyframe(rel, kKeyframeToleranceUs);
-            if (otherNearest < 0 && m_autoKeyEnabled) {
+            // Position keyed as one, as After Effects: X typed at a new time keys Y there too.
+            if (otherNearest < 0 && (m_autoKeyEnabled || forceKey)) {
                 const double otherVal = otherKt->evaluateAt(rel);
-                if (writeClipPropValue(clip, otherProp, rel, otherVal, m_autoKeyEnabled, /*force=*/false))
+                if (writeClipPropValue(clip, otherProp, rel, otherVal, m_autoKeyEnabled, forceKey))
                     affected.append(otherProp);
             }
         }
@@ -23641,12 +23688,13 @@ int AppController::trackRowHeight(int trackIndex, const QVariantMap &metrics) co
     const double keyframeRows = track.keyframesExpanded
         ? trackKeyframeRows(trackIndex).size() * metric("keyframeRow", 18.0)
         : 0.0;
-    // The curve editor opens under the track of its clip (0.24): the timeline passes which track
-    // and how tall, so a view that does not draw it (the phone's) gets no gap.
+    // The curve editor takes the place of the track's lines (0.25, After Effects' Graph Editor): the
+    // timeline passes which track and how tall, and the room is the taller of the two. A view that
+    // does not draw it (the phone's) gets no gap.
     const double curveEditor = metrics.value(QStringLiteral("curveTrack"), -1).toInt() == trackIndex
         ? metric("curveEditor", 0.0)
         : 0.0;
-    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows + curveEditor);
+    return qRound(qMax(20.0, base * scale + lanes) + qMax(keyframeRows, curveEditor));
 }
 
 void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)

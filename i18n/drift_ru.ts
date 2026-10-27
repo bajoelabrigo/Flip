@@ -3429,6 +3429,14 @@
         <translation>Фигура добавлена</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Корректирующий слой</translation>
     </message>
@@ -17525,6 +17533,10 @@ NEXT TIME</source>
         <translation>Графика</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>Корректирующий слой</translation>
     </message>
@@ -20055,6 +20067,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3 с</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -26031,6 +26054,14 @@ If playback stutters, try another.</source>
         <translation>Добавить дорожку</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>Нажмите или перетащите для перехода ко времени</translation>
     </message>
@@ -26280,10 +26311,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Автоматический переход: выключен</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Редактор кривых: настройте вручную кривые ключевых кадров выбранного клипа</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

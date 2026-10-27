@@ -425,8 +425,9 @@ Item {
             readonly property var keyframeRows: keyframesExpanded && !root.compact
                                                 ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
             // The unfolded rows, and the curve editor under them when it is this track's (0.24).
-            readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
-                                                       + (index === root.curveEditorTrack ? root.curveEditorHeight : 0)
+            // The curve editor takes the lines' place on its track (0.25).
+            readonly property real keyframeRowsHeight: Math.max(keyframeRows.length * Theme.keyframeRowHeight,
+                                                                index === root.curveEditorTrack ? root.curveEditorHeight : 0)
             // The row without its property lines: what the name band and the icons lay out in.
             readonly property real baseHeight: root.trackHeight(index) - keyframeRowsHeight
             // The name moves right to make room for the twirl.
@@ -1160,6 +1161,89 @@ Item {
                             }
                             return out
                         }
+                        // 100 % fills the canvas on its tighter axis, as the inspector reads it.
+                        readonly property real scaleNow: {
+                            const cw = Math.max(1, EditorState.projectFile.projectWidth())
+                            const ch = Math.max(1, EditorState.projectFile.projectHeight())
+                            return Math.max(valueOf("width") / cw, valueOf("height") / ch)
+                        }
+                        property var scaleStart: null
+                        function beginScale() {
+                            const track = keyLines.trackIndex
+                            const c = EditorState.clipAt(track, keyLine.clip) || {}
+                            keyLine.scaleStart = {
+                                "x": valueOf("x"), "y": valueOf("y"),
+                                "w": valueOf("width"), "h": valueOf("height"), "s": keyLine.scaleNow,
+                                "text": c.kind === "text",
+                                "px": (c.textStyle && c.textStyle.pixelSize) || 64,
+                                "moving": EditorState.clipAnimatedProperties(track, keyLine.clip).some(
+                                              (p) => p === "x" || p === "y"),
+                                "sized": EditorState.clipAnimatedProperties(track, keyLine.clip).some(
+                                             (p) => p === "width" || p === "height")
+                            }
+                        }
+                        // Scale grows the box around its centre, as the inspector's slider; with
+                        // Position animated only the size changes (no stray Position keys).
+                        function writeScale(stored) {
+                            const st = keyLine.scaleStart
+                            if (!st || st.s <= 0)
+                                return
+                            const k = Math.max(0.01, stored) / st.s
+                            const w = Math.max(1, st.w * k)
+                            const h = Math.max(1, st.h * k)
+                            const x = st.x + (st.w - w) / 2
+                            const y = st.y + (st.h - h) / 2
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            if (!st.sized && !st.moving) {
+                                if (st.text)
+                                    EditorState.previewSetTextRect(track, clip, x, y, w, h, Math.round(st.px * k))
+                                else
+                                    EditorState.previewSetClipRect(track, clip, x, y, w, h)
+                                return
+                            }
+                            const at = EditorState.playheadSeconds
+                            EditorState.previewSetPropertyValue(track, clip, "width", at, w)
+                            EditorState.previewSetPropertyValue(track, clip, "height", at, h)
+                            if (!st.moving) {
+                                EditorState.previewSetPropertyValue(track, clip, "x", at, x)
+                                EditorState.previewSetPropertyValue(track, clip, "y", at, y)
+                            }
+                        }
+                        // The values the line shows and edits: [{prop, tag, toDisplay, fromDisplay,
+                        // min, max, step, decimals, suffix}].
+                        readonly property var hotValues: {
+                            const id = (v) => v
+                            const pct = (v) => v * 100
+                            const unPct = (d) => d / 100
+                            const plain = (prop, tag, step, decimals, suffix) => ({
+                                "prop": prop, "tag": tag, "toDisplay": id, "fromDisplay": id,
+                                "min": -1e9, "max": 1e9, "step": step, "decimals": decimals, "suffix": suffix })
+                            const group = keyLine.joined ? keyLine.modelData.group : ""
+                            if (group === "position")
+                                return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
+                            if (group === "rotation")
+                                return [plain("rotation", "", 0.5, 1, "°")]
+                            if (group === "scale")
+                                return [{ "prop": "scale", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": 1, "max": 2000, "step": 0.5, "decimals": 0, "suffix": " %" }]
+                            if (group === "opacity")
+                                return [{ "prop": "opacity", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": 0, "max": 100, "step": 0.5, "decimals": 0, "suffix": " %" }]
+                            if (group === "volume")
+                                return [{ "prop": "volume", "tag": "",
+                                          "toDisplay": (g) => g <= 0.001 ? -60 : 20 * Math.log10(g),
+                                          "fromDisplay": (d) => d <= -59.9 ? 0 : Math.min(2, Math.pow(10, d / 20)),
+                                          "min": -60, "max": 6, "step": 0.25, "decimals": 1, "suffix": " dB" }]
+                            if (group === "pan")
+                                return [{ "prop": "pan", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": -100, "max": 100, "step": 0.5, "decimals": 0, "suffix": "" }]
+                            const prop = keyLine.modelData.prop
+                            if (prop === "width" || prop === "height" || prop === "x" || prop === "y")
+                                return [plain(prop, "", 1, 0, "")]
+                            const v = valueOf(prop)
+                            return [plain(prop, "", Math.abs(v) >= 10 ? 1 : 0.01, Math.abs(v) >= 10 ? 0 : 2, "")]
+                        }
                         readonly property string summary: {
                             if (keyLine.clip < 0)
                                 return "—"
@@ -1327,6 +1411,9 @@ Item {
                             if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
                                 EditorState.selectClip(track, clip)
                             tools.pick(track, out)
+                            // In the curve editor, its curve is the one shaped.
+                            tools.focusProp = ""
+                            tools.focusProp = keyLine.props[0]
                         }
                         MouseArea {
                             anchors.left: parent.left
@@ -1357,13 +1444,50 @@ Item {
                                 font.pixelSize: Theme.fontSizeXs
                                 elide: Text.ElideRight
                             }
+                            // The values, as After Effects' blue numbers (0.25): dragged sideways or
+                            // clicked to type; animated, the change is a key at the playhead.
+                            Row {
+                                spacing: 6
+                                visible: keyLine.clip >= 0
+                                Repeater {
+                                    model: keyLine.hotValues
+                                    delegate: Row {
+                                        required property var modelData
+                                        spacing: 2
+                                        Text {
+                                            visible: !!modelData.tag
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            text: modelData.tag || ""
+                                            color: Theme.mutedForeground
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: Theme.fontSizeTiny
+                                        }
+                                        ScrubValue {
+                                            trackIndex: keyLines.trackIndex
+                                            clipIndex: keyLine.clip
+                                            prop: modelData.prop
+                                            value: modelData.prop === "scale" ? keyLine.scaleNow
+                                                                              : keyLine.valueOf(modelData.prop)
+                                            toDisplay: modelData.toDisplay
+                                            fromDisplay: modelData.fromDisplay
+                                            displayMin: modelData.min
+                                            displayMax: modelData.max
+                                            step: modelData.step
+                                            decimals: modelData.decimals
+                                            suffix: modelData.suffix
+                                            write: modelData.prop === "scale" ? keyLine.writeScale : null
+                                            onBegun: if (modelData.prop === "scale") keyLine.beginScale()
+                                        }
+                                    }
+                                }
+                            }
                             Text {
+                                visible: keyLine.clip < 0
                                 width: parent.width
-                                text: keyLine.summary
+                                text: "—"
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeTiny
-                                elide: Text.ElideRight
                             }
                         }
                         IconButton {

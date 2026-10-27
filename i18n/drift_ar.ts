@@ -4204,6 +4204,14 @@
         <translation>متوقف · %1</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Change what the layer applies to</source>
         <translation>تغيير ما تُطبّق عليه الطبقة</translation>
     </message>
@@ -17726,6 +17734,10 @@ NEXT TIME</source>
         <translation>رسومات</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>طبقة ضبط</translation>
     </message>
@@ -20292,6 +20304,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -26283,6 +26306,14 @@ If playback stutters, try another.</source>
         <translation>إضافة مسار جديد</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>انقر أو اسحب للانتقال</translation>
     </message>
@@ -26536,10 +26567,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>الذوبان التلقائي: متوقف</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>محرر المنحنيات: شكّل منحنيات الإطارات المفتاحية للمقطع المحدّد يدويًا</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

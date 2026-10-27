@@ -3417,6 +3417,14 @@
         <translation>シェイプを追加しました</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>調整レイヤー</translation>
     </message>
@@ -17391,6 +17399,10 @@ NEXT TIME</source>
         <translation>グラフィック</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>調整レイヤー</translation>
     </message>
@@ -19897,6 +19909,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3秒</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25863,6 +25886,14 @@ If playback stutters, try another.</source>
         <translation>新しいトラックを追加</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>クリックまたはドラッグしてシーク</translation>
     </message>
@@ -26112,10 +26143,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>自動ディゾルブ: オフ</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>カーブエディター: 選択したクリップのキーフレームカーブを手動で調整します</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

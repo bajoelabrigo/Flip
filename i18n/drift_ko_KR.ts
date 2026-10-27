@@ -3417,6 +3417,14 @@
         <translation>도형이 추가됨</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>보정 레이어</translation>
     </message>
@@ -17391,6 +17399,10 @@ NEXT TIME</source>
         <translation>그래픽</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>조정 레이어</translation>
     </message>
@@ -19896,6 +19908,17 @@ If playback stutters, try another.</source>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2 · %3초</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25861,6 +25884,14 @@ If playback stutters, try another.</source>
         <translation>새 트랙 추가</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>클릭하거나 드래그하여 탐색</translation>
     </message>
@@ -26110,10 +26141,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>자동 디졸브: 꺼짐</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>커브 편집기: 선택한 클립의 키프레임 커브를 직접 조정합니다</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

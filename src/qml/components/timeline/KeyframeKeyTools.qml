@@ -20,6 +20,8 @@ Item {
     // A run with Shift starts here: {clip, prop, seconds}.
     property var runFrom: null
     readonly property bool hasPick: track >= 0 && keys.length > 0
+    // The property whose curve the graph shapes, set from a line's name in a track (0.25).
+    property string focusProp: ""
 
     // The key the menu was opened on: how it arrives and leaves, and whether it holds.
     property var menuHalves: ({ "in": "linear", "out": "linear" })

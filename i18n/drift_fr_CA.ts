@@ -3428,6 +3428,14 @@
         <translation>Forme ajoutée</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Calque de réglage</translation>
     </message>
@@ -17460,6 +17468,10 @@ PROCHAINE</translation>
         <translation>Graphique</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>Calque de réglage</translation>
     </message>
@@ -19978,6 +19990,17 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 - %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25951,6 +25974,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Ajouter une piste</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>Cliquez ou faites glisser pour avancer</translation>
     </message>
@@ -26200,10 +26231,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Fondu automatique : désactivé</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Éditeur de courbes : façonnez à la main les courbes des images clés du clip sélectionné</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

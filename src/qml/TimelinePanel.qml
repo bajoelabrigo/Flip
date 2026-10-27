@@ -613,10 +613,29 @@ PanelFrame {
 
     // The curve editor opens under the track of its clip, not over the timeline (0.24, Jorge:
     // «confunde»). The rows make room for it; curveOverlay draws it in that room.
+    // Only over a track whose lines are open (0.25): the graph is those lines, as curves.
     readonly property bool curveEditorShown: curveGraph.item !== null && curveGraph.item.hasContent
+                                             && curveGraph.item.trackIndex >= 0
+                                             && !!root.tracks[curveGraph.item.trackIndex]
+                                             && root.tracks[curveGraph.item.trackIndex].keyframesExpanded === true
+    // The curve editor on and off; on, it opens the lines of the clip being edited.
+    function toggleGraphMode() {
+        const on = !EditorState.preferences.curveEditorVisible
+        EditorState.preferences.curveEditorVisible = on
+        if (on && EditorState.selectedTrack >= 0)
+            EditorState.setTrackKeyframesExpanded(EditorState.selectedTrack, true)
+    }
     readonly property int curveEditorTrack: curveEditorShown ? curveGraph.item.trackIndex : -1
     readonly property real curveEditorHeight: curveEditorShown ? curveGraph.item.height : 0
 
+
+    // How tall a track's open keyframe lines are (the room the curve editor fills, 0.25).
+    function keyframeLinesHeight(index) {
+        void EditorState.tracksRevision
+        if (index < 0 || !root.tracks[index] || root.tracks[index].keyframesExpanded !== true)
+            return 0
+        return EditorState.trackKeyframeRows(index).length * Theme.keyframeRowHeight
+    }
 
     // Top of a row inside the track column, which stacks the visible rows with a gap.
     function trackRowTop(index) {
@@ -1372,7 +1391,9 @@ PanelFrame {
 
                     IconButton {
                         id: addTrackButton
-                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.horizontalCenterOffset: -(width + 4) / 2
                         glyph: Theme.icons.plus
                         variant: "text"
                         tooltip: qsTr("Add new track")
@@ -1383,6 +1404,21 @@ PanelFrame {
                             x: Math.max(0, (addTrackButton.width - width) / 2)
                             y: addTrackButton.height + 4
                         }
+                    }
+
+                    // After Effects' Graph Editor switch (0.25, Jorge: next to «+»): the keyframe
+                    // lines of the clip being edited turn into its curves, in the same place.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: addTrackButton.right
+                        anchors.leftMargin: 4
+                        glyph: Theme.icons.penCurve
+                        variant: "text"
+                        active: EditorState.preferences.curveEditorVisible
+                        tooltip: EditorState.preferences.curveEditorVisible
+                                 ? qsTr("Back to the keyframe lines")
+                                 : qsTr("Curve editor: the keyframe lines turn into their curves")
+                        onClicked: root.toggleGraphMode()
                     }
 
                     Rectangle {
@@ -1952,9 +1988,10 @@ PanelFrame {
                                     ? (root.tracks.length, EditorState.trackKeyframeRows(trackIndex)) : []
                                 // The unfolded rows, and the curve editor under them when it is
                                 // this track's (0.24): clips and rows keep their place above it.
-                                readonly property real keyframeRowsHeight: keyframeRows.length * Theme.keyframeRowHeight
-                                                                           + (trackIndex === root.curveEditorTrack
-                                                                              ? root.curveEditorHeight : 0)
+                                // The curve editor takes the lines' place on its track (0.25).
+                                readonly property real keyframeRowsHeight: Math.max(
+                                    keyframeRows.length * Theme.keyframeRowHeight,
+                                    trackIndex === root.curveEditorTrack ? root.curveEditorHeight : 0)
                                 // Faint row tint on hover, and an empty track now
                                 // reads as a track rather than as blank space.
                                 color: trackHover.hovered
@@ -2424,7 +2461,9 @@ PanelFrame {
 
                                 // The unfolded property lines, under the clips.
                                 TrackKeyframeRows {
+                                    // The curve editor draws over this track's lines instead.
                                     visible: trackRow.keyframeRows.length > 0
+                                             && trackRow.trackIndex !== root.curveEditorTrack
                                     y: trackRow.height - trackRow.keyframeRowsHeight
                                     width: trackRow.width
                                     z: 5
@@ -3116,7 +3155,9 @@ PanelFrame {
 
                 Loader {
                     id: curveGraph
-                    width: parent.width
+                    // Over the tracks only: the track's own lines name the properties (0.25).
+                    x: EditorState.preferences.trackLabelsWidth
+                    width: parent.width - EditorState.preferences.trackLabelsWidth
                     // Opt-in from the toolbar (or a key's «Edit curve…»), open until closed.
                     active: EditorState.preferences.curveEditorVisible
                     // Under the clips and the unfolded rows of its track.
@@ -3126,8 +3167,10 @@ PanelFrame {
                        : 0
                     sourceComponent: Component {
                         KeyframeGraph {
+                            // Fills the room of the track's lines, or more when dragged taller.
+                            height: hasContent ? Math.max(laneHeight, root.keyframeLinesHeight(trackIndex)) : 0
                             pxPerSecond: root.pxPerSecond
-                            labelsWidth: EditorState.preferences.trackLabelsWidth
+                            labelsWidth: 0
                             keyframesTab: true
                             tools: keyTools
                             // Keys and playhead line up with the tracks it sits among.

@@ -3423,6 +3423,14 @@
         <translation>Forma aggiunta</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Livello di regolazione</translation>
     </message>
@@ -17458,6 +17466,10 @@ LA PROSSIMA</translation>
         <translation>Grafica</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>Livello di regolazione</translation>
     </message>
@@ -19976,6 +19988,17 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25947,6 +25970,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Aggiungi nuova traccia</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>Fai clic o trascina per scorrere</translation>
     </message>
@@ -26196,10 +26227,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Dissolvenza automatica: disattiva</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Editor delle curve: modella a mano le curve dei fotogrammi chiave della clip selezionata</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

@@ -3417,6 +3417,14 @@
         <translation>Đã thêm hình dạng</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Lớp điều chỉnh</translation>
     </message>
@@ -17391,6 +17399,10 @@ LẦN SAU</translation>
         <translation>Đồ họa</translation>
     </message>
     <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment layer</source>
         <translation>Lớp điều chỉnh</translation>
     </message>
@@ -19897,6 +19909,17 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>%1 – %2  ·  %3s</source>
         <translation>%1 – %2  ·  %3s</translation>
+    </message>
+</context>
+<context>
+    <name>ScrubValue</name>
+    <message>
+        <source>Edit value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag to change, click to type</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25863,6 +25886,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Thêm track mới</translation>
     </message>
     <message>
+        <source>Back to the keyframe lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click or drag to seek</source>
         <translation>Nhấp hoặc kéo để tua</translation>
     </message>
@@ -26112,10 +26143,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Automatic dissolve: off</source>
         <translation>Tự động hòa tan: tắt</translation>
-    </message>
-    <message>
-        <source>Curve editor: shape the selected clip&apos;s keyframe curves by hand</source>
-        <translation>Trình chỉnh sửa đường cong: tạo hình thủ công các đường cong khung hình chính của clip đã chọn</translation>
     </message>
     <message>
         <source>Toggle audio mixer strip</source>

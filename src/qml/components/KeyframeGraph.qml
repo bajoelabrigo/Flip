@@ -22,6 +22,9 @@ Item {
     readonly property real paintOriginX: Math.floor(contentX / paintChunk) * paintChunk - paintChunk
     property real contentWidth: 800
     property real labelsWidth: Theme.trackLabelsWidth
+    // Inside a track's keyframe lines (0.25, After Effects' Graph Editor): no gutter of its own,
+    // the track's lines on the left name the properties; its buttons float over the graph.
+    readonly property bool inline: labelsWidth <= 0
     // Whether the open properties tab edits keyframeable properties (PropertiesPanel `keyframes`).
     property bool keyframesTab: false
     // The picked keys, the key menu and the Curves popup, shared with the tracks' keyframe rows
@@ -517,6 +520,7 @@ Item {
             id: leftGutter
             width: root.labelsWidth
             height: parent.height
+            visible: !root.inline
 
             // DAW-style lane zoom: wheel over this header grows/shrinks the keyframe lane
             MouseArea {
@@ -557,15 +561,22 @@ Item {
             }
 
             Column {
+                id: gutterColumn
                 anchors.fill: parent
                 anchors.margins: 6
                 spacing: 4
 
                 Row {
-                    width: parent.width
+                    id: graphButtons
+                    // Inline, the buttons float over the graph's top right.
+                    parent: root.inline ? floatButtons : gutterColumn
+                    width: root.inline ? implicitWidth : parent.width
+                    x: root.inline ? 4 : 0
+                    y: root.inline ? 3 : 0
                     spacing: 4
 
                     IconButton {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: Theme.icons.x
                         variant: "text"
@@ -576,6 +587,7 @@ Item {
                     }
 
                     Text {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Keyframes")
                         color: Theme.mutedForeground
@@ -585,6 +597,7 @@ Item {
                     }
 
                     IconButton {
+                        visible: !root.inline
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: root.curveEditing ? Theme.icons.minimize : Theme.icons.maximize
                         variant: "text"
@@ -1567,6 +1580,31 @@ Item {
                                            Math.min(root.maxLaneHeight,
                                                     startHeight + translation.y))
             }
+        }
+    }
+
+    // The buttons over the graph when it sits inside the track's lines.
+    Rectangle {
+        id: floatButtons
+        visible: root.inline && root.hasContent
+        z: 40
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: 4
+        anchors.rightMargin: 6
+        width: graphButtons.implicitWidth + 8
+        height: 26
+        radius: 4
+        color: Qt.rgba(0, 0, 0, 0.45)
+    }
+
+    // A click on a line's name in the track (0.25) makes its curve the one being shaped.
+    Connections {
+        target: root.tools
+        ignoreUnknownSignals: true
+        function onFocusPropChanged() {
+            if (root.tools.focusProp.length > 0)
+                root.focusedProp = root.tools.focusProp
         }
     }
 }
