@@ -15,6 +15,8 @@ Popup {
     // Arrow keys move the highlight, Enter adds the highlighted track type. The
     // menu used to be mouse-only despite already handling Escape.
     property int highlightIndex: 0
+    // The Solid settings dialog the host owns (it outlives this menu closing).
+    property var solidDialog: null
 
     onOpened: {
         highlightIndex = 0
@@ -31,8 +33,14 @@ Popup {
         // nothing — so it goes through its own call rather than addTrack's bare-lane path.
         if (type === "camera")
             EditorState.addCameraTrack()
-        else if (type === "solid")
-            EditorState.addSolidClip("")
+        else if (type === "solid") {
+            // After Effects asks for the solid's settings first; a host without the dialog adds
+            // a frame-sized one straight away.
+            if (root.solidDialog)
+                root.solidDialog.openFresh()
+            else
+                EditorState.addSolidClip("")
+        }
         else if (type === "adjustmentLayer")
             EditorState.addAdjustmentClip(-1, -1)
         else if (type.indexOf("adjustment:") === 0)

@@ -292,11 +292,25 @@ Item {
             readonly property real layoutY: gizmoPose ? gizmoPose.y : liveY > -1e11 ? liveY : box.y
             readonly property real layoutW: gizmoPose ? gizmoPose.width : liveW >= 0 ? liveW : box.width
             readonly property real layoutH: gizmoPose ? gizmoPose.height : liveH >= 0 ? liveH : box.height
-            readonly property real centerX: (layoutX + layoutW * 0.5) * sx
-            readonly property real centerY: (layoutY + layoutH * 0.5) * sy
+            // The anchor point (0.25): the box sits where turning about it puts the clip (the
+            // renderer does the same), and the crosshair marks it. Flat boxes only.
+            readonly property real anchorFx: handle.box.anchorFx === undefined ? 0.5 : handle.box.anchorFx
+            readonly property real anchorFy: handle.box.anchorFy === undefined ? 0.5 : handle.box.anchorFy
+            readonly property point anchorShift: {
+                if (handle.is3d || handle.hasParent || handle.viaCamera)
+                    return Qt.point(0, 0)
+                const ax = (handle.anchorFx - 0.5) * handle.layoutW
+                const ay = (handle.anchorFy - 0.5) * handle.layoutH
+                const r = handle.layoutRotation * Math.PI / 180
+                const c = Math.cos(r)
+                const sn = Math.sin(r)
+                return Qt.point(ax - (c * ax - sn * ay), ay - (sn * ax + c * ay))
+            }
+            readonly property real centerX: (layoutX + anchorShift.x + layoutW * 0.5) * sx
+            readonly property real centerY: (layoutY + anchorShift.y + layoutH * 0.5) * sy
 
-            x: layoutX * sx
-            y: layoutY * sy
+            x: (layoutX + anchorShift.x) * sx
+            y: (layoutY + anchorShift.y) * sy
             width: Math.max(24, layoutW * sx)
             height: Math.max(24, layoutH * sy)
             // Front-most track (lowest index) sits on top so it
@@ -325,6 +339,20 @@ Item {
                                                             handle.layoutW, handle.layoutH,
                                                             handle.layoutRotation, handle.sx, handle.sy)
                         : Qt.matrix4x4()
+            }
+
+            // After Effects' anchor crosshair, on the selected box.
+            Item {
+                visible: handle.selected && !handle.isTransform && !handle.is3d
+                x: handle.anchorFx * handle.width
+                y: handle.anchorFy * handle.height
+                z: 5
+                Rectangle { x: -7; y: -0.5; width: 14; height: 1; color: Theme.primary }
+                Rectangle { x: -0.5; y: -7; width: 1; height: 14; color: Theme.primary }
+                Rectangle {
+                    x: -4; y: -4; width: 8; height: 8; radius: 4
+                    color: "transparent"; border.width: 1; border.color: Theme.primary
+                }
             }
 
             // Overlay point -> this box's own (untilted) layout px, through the pose as it stands

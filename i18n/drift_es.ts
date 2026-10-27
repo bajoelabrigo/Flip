@@ -3829,6 +3829,10 @@
         <translation>Composición creada</translation>
     </message>
     <message>
+        <source>Remove animation</source>
+        <translation>Quitar animación</translation>
+    </message>
+    <message>
         <source>Composite</source>
         <translation>Composición</translation>
     </message>
@@ -4988,6 +4992,14 @@
     <message>
         <source>Pan</source>
         <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>Anchor point X</source>
+        <translation>Punto de anclaje X</translation>
+    </message>
+    <message>
+        <source>Anchor point Y</source>
+        <translation>Punto de anclaje Y</translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -15045,12 +15057,12 @@ LA PRÓXIMA</translation>
         <translation>Expandir el editor de curvas para ver y editar los tiradores Bézier (180 px)</translation>
     </message>
     <message>
-        <source>Hide the speed graph</source>
-        <translation>Ocultar el gráfico de velocidad</translation>
+        <source>Value graph</source>
+        <translation>Gráfico de valores</translation>
     </message>
     <message>
-        <source>Show the speed graph of the focused curve</source>
-        <translation>Mostrar el gráfico de velocidad de la curva elegida</translation>
+        <source>Speed graph</source>
+        <translation>Gráfico de velocidad</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -21300,6 +21312,41 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SolidDialog</name>
+    <message>
+        <source>Solid settings</source>
+        <translation>Ajustes del sólido</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Project size</source>
+        <translation>Tamaño del proyecto</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+</context>
+<context>
     <name>SoundEffectsTab</name>
     <message>
         <source>Trending</source>
@@ -26702,8 +26749,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Quitar fotogramas clave</translation>
     </message>
     <message>
+        <source>Stop animating (removes its keyframes)</source>
+        <translation>Dejar de animar (quita sus fotogramas clave)</translation>
+    </message>
+    <message>
+        <source>Animate: a keyframe at the playhead</source>
+        <translation>Animar: un fotograma clave en el cabezal</translation>
+    </message>
+    <message>
         <source>Click to pick all its keyframes</source>
         <translation>Clic para elegir todos sus fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Constrain proportions: on</source>
+        <translation>Mantener proporciones: activado</translation>
+    </message>
+    <message>
+        <source>Constrain proportions: off</source>
+        <translation>Mantener proporciones: desactivado</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -26889,6 +26952,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Pan</source>
         <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>Anchor point</source>
+        <translation>Punto de anclaje</translation>
     </message>
     <message>
         <source>Width</source>

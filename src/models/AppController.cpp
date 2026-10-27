@@ -2906,6 +2906,10 @@ drift::KeyframeTrack<double> *transformTrackForProp(drift::Clip &clip, const QSt
         return &clip.volume;
     if (prop == QStringLiteral("pan"))
         return &clip.panKeys;
+    if (prop == QStringLiteral("anchorX"))
+        return &clip.anchorX;
+    if (prop == QStringLiteral("anchorY"))
+        return &clip.anchorY;
     return nullptr;
 }
 
@@ -3452,6 +3456,8 @@ QVariantMap keyframesToMap(const drift::Clip &clip)
         {QStringLiteral("perspective"), keyframeTrackToMap(clip.perspective, clip.timelineStart)},
         {QStringLiteral("volume"), keyframeTrackToMap(clip.volume, clip.timelineStart)},
         {QStringLiteral("pan"), keyframeTrackToMap(clip.panKeys, clip.timelineStart)},
+        {QStringLiteral("anchorX"), keyframeTrackToMap(clip.anchorX, clip.timelineStart)},
+        {QStringLiteral("anchorY"), keyframeTrackToMap(clip.anchorY, clip.timelineStart)},
     };
 }
 
@@ -10525,7 +10531,7 @@ void AppController::addShapeClipAt(const QString &shapeId, int trackIndex, doubl
     selectClip(target, newClipIndex);
 }
 
-void AppController::addSolidClip(const QString &colorName)
+void AppController::addSolidClip(const QString &colorName, const QString &name, double width, double height)
 {
     // After Effects' Solid (0.25, Jorge): one colour over the whole frame, on a track of its own
     // at the playhead. A shape, so its colour, size, opacity and keys edit like any other.
@@ -10540,7 +10546,7 @@ void AppController::addSolidClip(const QString &colorName)
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
     clip.type = drift::ClipType::Shape;
-    clip.name = tr("Solid");
+    clip.name = name.trimmed().isEmpty() ? tr("Solid") : name.trimmed();
     clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
     clip.shapeStyle.layers = {drift::solidFillLayer(color)};
     clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
@@ -10548,7 +10554,9 @@ void AppController::addSolidClip(const QString &colorName)
     clip.timelineDuration = drift::kImageClipDurationUs;
     clip.srcIn = 0;
     clip.srcOut = drift::kImageClipDurationUs;
-    setClipLayoutPixels(clip, 0, 0, m_project.width(), m_project.height());
+    const double w = width > 0 ? width : m_project.width();
+    const double h = height > 0 ? height : m_project.height();
+    setClipLayoutPixels(clip, (m_project.width() - w) / 2.0, (m_project.height() - h) / 2.0, w, h);
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
     pushProjectEdit(before, tr("Solid added"));
@@ -12183,6 +12191,43 @@ void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const
     // key at the playhead; without it, the property simply takes the value.
     const bool animated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
     previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated);
+}
+
+QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    drift::Clip copy = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    resetTransformOf(copy);
+    const double w = copy.transformW.isEmpty() ? m_project.width() : copy.transformW.evaluateAt(0);
+    const double h = copy.transformH.isEmpty() ? m_project.height() : copy.transformH.evaluateAt(0);
+    return {{QStringLiteral("w"), qMax(1.0, w)}, {QStringLiteral("h"), qMax(1.0, h)}};
+}
+
+void AppController::stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds)
+{
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QString &prop : props) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, prop);
+        if (!isValidClipIndex(t, c))
+            continue;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, /*createIfMissing=*/false);
+        if (!kt || kt->isEmpty())
+            continue;
+        const double value = kt->evaluateAt(qMax<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart));
+        *kt = drift::KeyframeTrack<double>{};
+        // An empty track takes a resting key at 0: the value stays, the animation goes.
+        writeClipPropValue(clip, prop, 0, value, false, false);
+        changed = true;
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Remove animation"));
+    finishEdit(tr("Remove animation"));
 }
 
 void AppController::previewWriteClipValue(int trackIndex, int clipIndex, const QString &prop,
@@ -18381,6 +18426,8 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
         return m_project.height();
     if (prop == QLatin1String("opacity") || prop == QLatin1String("volume"))
         return 1.0;
+    if (prop == QLatin1String("anchorX") || prop == QLatin1String("anchorY"))
+        return 0.5;
     if (prop == QLatin1String("x") || prop == QLatin1String("y")
         || prop == QLatin1String("rotation") || prop == QLatin1String("rotationX")
         || prop == QLatin1String("rotationY") || prop == QLatin1String("z")) {
@@ -18557,6 +18604,7 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
         QStringLiteral("height"),  QStringLiteral("rotation"), QStringLiteral("rotationX"),
         QStringLiteral("rotationY"), QStringLiteral("z"),     QStringLiteral("perspective"),
         QStringLiteral("opacity"), QStringLiteral("volume"), QStringLiteral("pan"),
+        QStringLiteral("anchorX"), QStringLiteral("anchorY"),
     };
     for (const QString &prop : transformProps) {
         const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
@@ -23825,6 +23873,8 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
         {QStringLiteral("opacity"), QT_TR_NOOP("Opacity")},
         {QStringLiteral("volume"), QT_TR_NOOP("Volume")},
         {QStringLiteral("pan"), QT_TR_NOOP("Pan")},
+        {QStringLiteral("anchorX"), QT_TR_NOOP("Anchor point X")},
+        {QStringLiteral("anchorY"), QT_TR_NOOP("Anchor point Y")},
         {QStringLiteral("mask.x"), QT_TR_NOOP("Mask X")},
         {QStringLiteral("mask.y"), QT_TR_NOOP("Mask Y")},
         {QStringLiteral("mask.w"), QT_TR_NOOP("Mask width")},
@@ -23875,6 +23925,8 @@ struct KeyframeGroup
 const QList<KeyframeGroup> &keyframeGroups()
 {
     static const QList<KeyframeGroup> groups = {
+        // After Effects' order (0.25): Anchor Point first.
+        {"anchor", {QStringLiteral("anchorX"), QStringLiteral("anchorY")}},
         {"position", {QStringLiteral("x"), QStringLiteral("y")}},
         {"rotation", {QStringLiteral("rotation")}},
         {"scale", {QStringLiteral("width"), QStringLiteral("height")}},

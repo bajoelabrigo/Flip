@@ -177,6 +177,8 @@ Item {
     property real curveEditorHeight: 0
     // The timeline's picked keys (KeyframeKeyTools): a click on a line's name picks its keys.
     property var keyframeTools: null
+    // Scale's chain (0.25): its two values move together while on, as After Effects' default.
+    property bool scaleLinked: true
 
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
@@ -1129,6 +1131,7 @@ Item {
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
                                                            && modelData.group !== "volume" && modelData.group !== "pan"
+                                                           && modelData.group !== "anchor"
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
@@ -1168,12 +1171,18 @@ Item {
                             return Math.max(valueOf("width") / cw, valueOf("height") / ch)
                         }
                         property var scaleStart: null
+                        // 100 % on each axis: the box Reset gives the clip (After Effects' two values).
+                        readonly property var naturalSize: {
+                            void EditorState.tracksRevision
+                            return keyLine.clip >= 0 ? EditorState.clipNaturalSize(keyLines.trackIndex, keyLine.clip) : ({})
+                        }
                         function beginScale() {
                             const track = keyLines.trackIndex
                             const c = EditorState.clipAt(track, keyLine.clip) || {}
                             keyLine.scaleStart = {
                                 "x": valueOf("x"), "y": valueOf("y"),
                                 "w": valueOf("width"), "h": valueOf("height"), "s": keyLine.scaleNow,
+                                "fx": valueOf("anchorX"), "fy": valueOf("anchorY"),
                                 "text": c.kind === "text",
                                 "px": (c.textStyle && c.textStyle.pixelSize) || 64,
                                 "moving": EditorState.clipAnimatedProperties(track, keyLine.clip).some(
@@ -1189,10 +1198,33 @@ Item {
                             if (!st || st.s <= 0)
                                 return
                             const k = Math.max(0.01, stored) / st.s
-                            const w = Math.max(1, st.w * k)
-                            const h = Math.max(1, st.h * k)
-                            const x = st.x + (st.w - w) / 2
-                            const y = st.y + (st.h - h) / 2
+                            keyLine.writeSize(st.w * k, st.h * k)
+                        }
+                        // One axis's % (of the natural box); with the chain on, the other follows.
+                        function writeScaleAxis(horizontal, fraction) {
+                            const st = keyLine.scaleStart
+                            const nat = keyLine.naturalSize
+                            if (!st || !nat.w || !nat.h)
+                                return
+                            const f = Math.max(0.0001, fraction)
+                            if (horizontal) {
+                                const w = f * nat.w
+                                keyLine.writeSize(w, root.scaleLinked ? st.h * (w / Math.max(1, st.w)) : st.h)
+                            } else {
+                                const h = f * nat.h
+                                keyLine.writeSize(root.scaleLinked ? st.w * (h / Math.max(1, st.h)) : st.w, h)
+                            }
+                        }
+                        function writeSize(newW, newH) {
+                            const st = keyLine.scaleStart
+                            if (!st)
+                                return
+                            const w = Math.max(1, newW)
+                            const h = Math.max(1, newH)
+                            const k = h / Math.max(1, st.h)
+                            // The anchor point stays put (the centre when it is not moved).
+                            const x = st.x + (st.w - w) * (isNaN(st.fx) ? 0.5 : st.fx)
+                            const y = st.y + (st.h - h) * (isNaN(st.fy) ? 0.5 : st.fy)
                             const track = keyLines.trackIndex
                             const clip = keyLine.clip
                             if (!st.sized && !st.moving) {
@@ -1222,11 +1254,32 @@ Item {
                             const group = keyLine.joined ? keyLine.modelData.group : ""
                             if (group === "position")
                                 return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
+                            if (group === "anchor") {
+                                // In the box's own pixels, as After Effects; stored as fractions.
+                                const w = Math.max(1, valueOf("width"))
+                                const h = Math.max(1, valueOf("height"))
+                                return [{ "prop": "anchorX", "tag": "X", "toDisplay": (f) => f * w, "fromDisplay": (d) => d / w,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" },
+                                        { "prop": "anchorY", "tag": "Y", "toDisplay": (f) => f * h, "fromDisplay": (d) => d / h,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
+                            }
                             if (group === "rotation")
                                 return [plain("rotation", "", 0.5, 1, "°")]
-                            if (group === "scale")
-                                return [{ "prop": "scale", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
-                                          "min": 1, "max": 2000, "step": 0.5, "decimals": 0, "suffix": " %" }]
+                            if (group === "scale") {
+                                // After Effects' two values (width, height %) and the chain between.
+                                const nat = keyLine.naturalSize
+                                const nw = Math.max(1, nat.w || 1)
+                                const nh = Math.max(1, nat.h || 1)
+                                return [{ "link": true },
+                                        { "prop": "width", "value": valueOf("width") / nw, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                          "suffix": "", "begin": keyLine.beginScale,
+                                          "write": (f) => keyLine.writeScaleAxis(true, f) },
+                                        { "prop": "height", "value": valueOf("height") / nh, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                          "suffix": " %", "begin": keyLine.beginScale,
+                                          "write": (f) => keyLine.writeScaleAxis(false, f) }]
+                            }
                             if (group === "opacity")
                                 return [{ "prop": "opacity", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
                                           "min": 0, "max": 100, "step": 0.5, "decimals": 0, "suffix": " %" }]
@@ -1241,6 +1294,11 @@ Item {
                             const prop = keyLine.modelData.prop
                             if (prop === "width" || prop === "height" || prop === "x" || prop === "y")
                                 return [plain(prop, "", 1, 0, "")]
+                            if (prop === "anchorX" || prop === "anchorY") {
+                                const side = Math.max(1, valueOf(prop === "anchorX" ? "width" : "height"))
+                                return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
+                                          "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
+                            }
                             const v = valueOf(prop)
                             return [plain(prop, "", Math.abs(v) >= 10 ? 1 : 0.01, Math.abs(v) >= 10 ? 0 : 2, "")]
                         }
@@ -1281,6 +1339,7 @@ Item {
                         }
                         readonly property string iconName: {
                             switch (keyLine.joined ? keyLine.modelData.group : "") {
+                            case "anchor": return "locate-fixed"
                             case "position": return "move"
                             case "rotation": return "rotate-cw"
                             case "scale": return "scaling"
@@ -1379,14 +1438,35 @@ Item {
                                                                                 !keyLine.modelData.expanded)
                             }
                         }
-                        IconGlyph {
+                        // After Effects' stopwatch (0.25): lit while the property is animated. A
+                        // click starts the animation with a key at the playhead, or, lit, takes
+                        // every key away and leaves the value it has now.
+                        readonly property bool animated: {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const animatedProps = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip)
+                            return keyLine.props.some((p) => animatedProps.indexOf(p) >= 0)
+                        }
+                        IconButton {
                             id: lineIcon
-                            visible: keyLine.iconName.length > 0
-                            x: 20
+                            x: 16
                             anchors.verticalCenter: parent.verticalCenter
-                            glyph: keyLine.iconName
-                            iconSize: 14
-                            iconColor: Theme.mutedForeground
+                            enabled: keyLine.clip >= 0
+                            glyph: "clock"
+                            variant: "text"
+                            buttonSize: 20
+                            iconSize: 13
+                            active: keyLine.animated
+                            tooltip: keyLine.animated ? qsTr("Stop animating (removes its keyframes)")
+                                                      : qsTr("Animate: a keyframe at the playhead")
+                            onClicked: {
+                                if (keyLine.animated)
+                                    EditorState.stopAnimating(keyLines.trackIndex, keyLine.clip, keyLine.props.slice(),
+                                                              EditorState.playheadSeconds)
+                                else if (keyLine.keysHere.length === 0)
+                                    keyLine.toggleKeyHere()
+                            }
                         }
                         // A click on the name picks every key of the line on its clip, as a click
                         // on a property's name does in After Effects; Shift or Ctrl add them.
@@ -1418,7 +1498,7 @@ Item {
                         MouseArea {
                             anchors.left: parent.left
                             anchors.leftMargin: 36
-                            anchors.right: resetButton.visible ? resetButton.left : keyButton.left
+                            anchors.right: resetButton.visible ? resetButton.left : prevKeyButton.left
                             anchors.top: parent.top
                             anchors.bottom: parent.bottom
                             hoverEnabled: true
@@ -1432,7 +1512,7 @@ Item {
                         Column {
                             anchors.left: parent.left
                             anchors.leftMargin: keyLine.modelData.axis ? 40 : 40
-                            anchors.right: keyButton.left
+                            anchors.right: prevKeyButton.left
                             anchors.rightMargin: 2
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 0
@@ -1454,6 +1534,19 @@ Item {
                                     delegate: Row {
                                         required property var modelData
                                         spacing: 2
+                                        // Scale's chain: both values together, or each on its own.
+                                        IconButton {
+                                            visible: !!modelData.link
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            glyph: root.scaleLinked ? Theme.icons.link : Theme.icons.unlink
+                                            variant: "text"
+                                            buttonSize: 16
+                                            iconSize: 11
+                                            active: root.scaleLinked
+                                            tooltip: root.scaleLinked ? qsTr("Constrain proportions: on")
+                                                                      : qsTr("Constrain proportions: off")
+                                            onClicked: root.scaleLinked = !root.scaleLinked
+                                        }
                                         Text {
                                             visible: !!modelData.tag
                                             anchors.verticalCenter: parent.verticalCenter
@@ -1463,11 +1556,12 @@ Item {
                                             font.pixelSize: Theme.fontSizeTiny
                                         }
                                         ScrubValue {
+                                            visible: !modelData.link
                                             trackIndex: keyLines.trackIndex
                                             clipIndex: keyLine.clip
-                                            prop: modelData.prop
-                                            value: modelData.prop === "scale" ? keyLine.scaleNow
-                                                                              : keyLine.valueOf(modelData.prop)
+                                            prop: modelData.prop || ""
+                                            value: modelData.value !== undefined ? modelData.value
+                                                                                 : keyLine.valueOf(modelData.prop)
                                             toDisplay: modelData.toDisplay
                                             fromDisplay: modelData.fromDisplay
                                             displayMin: modelData.min
@@ -1475,8 +1569,8 @@ Item {
                                             step: modelData.step
                                             decimals: modelData.decimals
                                             suffix: modelData.suffix
-                                            write: modelData.prop === "scale" ? keyLine.writeScale : null
-                                            onBegun: if (modelData.prop === "scale") keyLine.beginScale()
+                                            write: modelData.write || null
+                                            onBegun: if (modelData.begin) modelData.begin()
                                         }
                                     }
                                 }
@@ -1492,7 +1586,7 @@ Item {
                         }
                         IconButton {
                             id: resetButton
-                            anchors.right: keyButton.left
+                            anchors.right: prevKeyButton.left
                             anchors.verticalCenter: parent.verticalCenter
                             visible: keyLine.resettable && keyLine.clip >= 0 && lineHover.hovered
                             glyph: Theme.icons.reset
@@ -1502,9 +1596,36 @@ Item {
                             tooltip: qsTr("Reset")
                             onClicked: EditorState.resetClipProperties(keyLines.trackIndex, keyLine.clip, keyLine.props)
                         }
+                        // After Effects' keyframe navigator: ◀ previous, ◆ add/remove here, ▶ next.
+                        IconButton {
+                            id: prevKeyButton
+                            anchors.right: keyButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: keyLine.animated
+                            width: visible ? implicitWidth : 0
+                            glyph: Theme.icons.chevronLeft
+                            variant: "text"
+                            buttonSize: 16
+                            iconSize: 11
+                            tooltip: qsTr("Previous keyframe")
+                            onClicked: keyLine.stepKey(false)
+                        }
+                        IconButton {
+                            id: nextKeyButton
+                            anchors.right: moreButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            visible: keyLine.animated
+                            width: visible ? implicitWidth : 0
+                            glyph: Theme.icons.chevronRight
+                            variant: "text"
+                            buttonSize: 16
+                            iconSize: 11
+                            tooltip: qsTr("Next keyframe")
+                            onClicked: keyLine.stepKey(true)
+                        }
                         IconButton {
                             id: keyButton
-                            anchors.right: moreButton.left
+                            anchors.right: nextKeyButton.left
                             anchors.verticalCenter: parent.verticalCenter
                             enabled: keyLine.clip >= 0
                             glyph: keyLine.keysHere.length > 0 ? Theme.icons.diamondMinus : Theme.icons.diamondPlus

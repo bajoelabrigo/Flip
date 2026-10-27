@@ -3821,6 +3821,10 @@
         <translation>컴포지트가 생성됨</translation>
     </message>
     <message>
+        <source>Remove animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Composite</source>
         <translation>컴포지트</translation>
     </message>
@@ -4972,6 +4976,14 @@
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point Y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14993,11 +15005,11 @@ NEXT TIME</source>
         <translation>곡선 편집기를 펼쳐 베지어 핸들 보기 및 편집(180px)</translation>
     </message>
     <message>
-        <source>Hide the speed graph</source>
+        <source>Value graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show the speed graph of the focused curve</source>
+        <source>Speed graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21220,6 +21232,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SolidDialog</name>
+    <message>
+        <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SoundEffectsTab</name>
     <message>
         <source>Trending</source>
@@ -26613,7 +26660,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Stop animating (removes its keyframes)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate: a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constrain proportions: off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26797,6 +26860,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

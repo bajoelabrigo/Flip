@@ -1403,6 +1403,10 @@ PanelFrame {
                             id: addTrackMenu
                             x: Math.max(0, (addTrackButton.width - width) / 2)
                             y: addTrackButton.height + 4
+                            solidDialog: solidSettings
+                        }
+                        SolidDialog {
+                            id: solidSettings
                         }
                     }
 

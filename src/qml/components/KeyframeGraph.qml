@@ -234,8 +234,38 @@ Item {
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
-    // The Speed graph over the focused curve (0.25).
+    // After Effects' Speed Graph (0.25): the focused curve's speed instead of its values.
     property bool speedGraph: false
+    // Its fastest moment, in the property's units per second (the axis top while on).
+    property real speedPeak: 0
+
+    // The axis numbers down the graph's left edge (0.25, After Effects): the focused curve's
+    // values, or its speed in Speed Graph. [{y, label}]
+    readonly property var axisTicks: {
+        void root.laneHeight
+        void root.speedPeak
+        const h = graph.height
+        if (h <= 0 || root.focusedIndex < 0 || root.focusedIndex >= root.series.length)
+            return []
+        const fmt = (v) => Math.abs(v) >= 100 ? String(Math.round(v))
+                          : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2)
+        if (root.speedGraph) {
+            const top = root.speedPeak
+            if (!(top > 0))
+                return []
+            return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(top * f) + "/s" }))
+        }
+        const entry = root.series[root.focusedIndex]
+        const lo = entry.valueMin
+        const hi = entry.valueMax
+        const out = []
+        const n = h >= 140 ? 4 : 2
+        for (let i = 0; i <= n; ++i) {
+            const v = lo + (hi - lo) * i / n
+            out.push({ "y": root.yForValue(v, entry), "label": fmt(v) })
+        }
+        return out
+    }
     // A drag of several picked keys also moves their values (0.25, After Effects): the pointer's
     // height in pixels, which each curve reads in its own range. Shift keeps the values.
     property real groupDy: 0
@@ -618,8 +648,8 @@ Item {
                         buttonSize: 20
                         iconSize: 14
                         active: root.speedGraph
-                        tooltip: root.speedGraph ? qsTr("Hide the speed graph")
-                                                 : qsTr("Show the speed graph of the focused curve")
+                        tooltip: root.speedGraph ? qsTr("Value graph")
+                                                 : qsTr("Speed graph")
                         onClicked: root.speedGraph = !root.speedGraph
                     }
                     // Separate dimensions: X and Y of Position keyed apart, or together.
@@ -760,6 +790,32 @@ Item {
             width: parent.width - root.labelsWidth
             height: parent.height
             clip: true
+
+            // The axis numbers, fixed at the left edge while the graph scrolls under them.
+            Repeater {
+                model: root.axisTicks
+                delegate: Item {
+                    required property var modelData
+                    z: 30
+                    x: 0
+                    y: 6 + modelData.y
+                    width: viewport.width
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.panelBorder
+                        opacity: 0.35
+                    }
+                    Text {
+                        x: 4
+                        y: -height - 1
+                        text: parent.modelData.label
+                        color: Theme.mutedForeground
+                        font.family: Theme.monoFontFamily
+                        font.pixelSize: Theme.fontSizeTiny
+                    }
+                }
+            }
 
             Item {
                 id: content
@@ -980,7 +1036,8 @@ Item {
                                 // rows, which reads as a glow wherever the curve runs shallow —
                                 // exactly the flat tops and troughs between keys.
                                 ctx.lineWidth = focused ? 2 : 1
-                                ctx.globalAlpha = (root.curveEditing && !focused) ? 0.35 : 1.0
+                                ctx.globalAlpha = root.speedGraph ? 0.18
+                                                  : (root.curveEditing && !focused) ? 0.35 : 1.0
                                 if (entry.enabled === false)
                                     ctx.globalAlpha *= 0.45
                                 ctx.strokeStyle = String(entry.color)
@@ -1050,11 +1107,12 @@ Item {
                                     peak = Math.max(peak, sp)
                                     prev = v
                                 }
+                                root.speedPeak = peak
                                 if (peak > 1e-9) {
-                                    ctx.strokeStyle = "#ffffff"
-                                    ctx.globalAlpha = 0.8
-                                    ctx.lineWidth = 1.5
-                                    ctx.setLineDash([3, 3])
+                                    // After Effects' Speed Graph: the speed is the curve now.
+                                    ctx.strokeStyle = String(entry.color)
+                                    ctx.globalAlpha = 1.0
+                                    ctx.lineWidth = 2
                                     ctx.beginPath()
                                     for (let i = 0; i < speeds.length; ++i) {
                                         const x = root.xForSeconds(t0 + dt * (i + 0.5))

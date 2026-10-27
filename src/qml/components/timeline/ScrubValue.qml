@@ -26,7 +26,8 @@ Item {
     property int decimals: 0
     property string suffix: ""
     property string undoLabel: qsTr("Edit value")
-    property color tint: Theme.primary
+    // After Effects' blue for values you can drag or type.
+    property color tint: "#4aa3ff"
     // Called with the stored value inside the drag session; null writes `prop`.
     property var write: null
     // Before the first write of a drag (Scale reads where it starts).

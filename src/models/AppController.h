@@ -663,7 +663,9 @@ public:
     Q_INVOKABLE void addShapeClip(const QString &shapeKind, double atSeconds);
     Q_INVOKABLE void addShapeClipAt(const QString &shapeId, int trackIndex, double atSeconds);
     // After Effects' Solid: a whole-frame rectangle of one colour on its own track (0.25).
-    Q_INVOKABLE void addSolidClip(const QString &colorName = QString());
+    // name empty = «Solid»; a size of 0 = the frame's; centred on the frame.
+    Q_INVOKABLE void addSolidClip(const QString &colorName = QString(), const QString &name = QString(),
+                                  double width = 0, double height = 0);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);
@@ -764,6 +766,12 @@ public:
     // the property is animated, the plain value when it is not. Inside a preview drag.
     Q_INVOKABLE void previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
                                              double atSeconds, double value);
+    // After Effects' stopwatch switched off (0.25): every key of these properties goes and each keeps
+    // the value it has at atSeconds. One undo step.
+    Q_INVOKABLE void stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds);
+    // The box a clip has at 100 % (what Reset gives it), {w, h} in project px: the base of After
+    // Effects' two Scale values (0.25).
+    Q_INVOKABLE QVariantMap clipNaturalSize(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetEffectParam(int trackIndex, int clipIndex, int effectIndex,
                                            const QString &key, double value);
     Q_INVOKABLE void previewSetEffectVec2Param(int trackIndex, int clipIndex, int effectIndex,

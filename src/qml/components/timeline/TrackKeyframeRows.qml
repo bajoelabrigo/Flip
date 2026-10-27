@@ -148,6 +148,7 @@ Item {
     // A line's name: the joined transform lines by their group, the rest as the app names them.
     function rowLabel(row) {
         switch (row.group && !row.axis ? row.group : "") {
+        case "anchor": return qsTranslate("TrackKeyframeRows", "Anchor point")
         case "position": return qsTranslate("TrackKeyframeRows", "Position")
         case "rotation": return qsTranslate("TrackKeyframeRows", "Rotation")
         case "scale": return qsTranslate("TrackKeyframeRows", "Scale")
@@ -158,6 +159,8 @@ Item {
         switch (row.axis ? row.prop : "") {
         case "x": return "X"
         case "y": return "Y"
+        case "anchorX": return "X"
+        case "anchorY": return "Y"
         case "width": return qsTranslate("TrackKeyframeRows", "Width")
         case "height": return qsTranslate("TrackKeyframeRows", "Height")
         }
