@@ -4,6 +4,7 @@
 #include <QMutexLocker>
 #include <QRegularExpression>
 #include <QSet>
+#include <QUuid>
 
 #include "Effect.h"
 #include "TextAnimationPreset.h"
@@ -1046,6 +1047,8 @@ QJsonObject textRunToJson(const TextRun &r)
         json.insert(QStringLiteral("opacity"), r.opacity);
     if (r.baseline != 0)
         json.insert(QStringLiteral("baseline"), r.baseline > 0 ? QStringLiteral("super") : QStringLiteral("sub"));
+    if (!r.animId.isEmpty())
+        json.insert(QStringLiteral("animId"), r.animId);
     return json;
 }
 
@@ -1092,6 +1095,7 @@ TextRun textRunFromJson(const QJsonObject &o)
     r.opacity = qBound(0.0, o.value(QStringLiteral("opacity")).toDouble(1.0), 1.0);
     const QString baseline = o.value(QStringLiteral("baseline")).toString();
     r.baseline = baseline == QLatin1String("super") ? 1 : baseline == QLatin1String("sub") ? -1 : 0;
+    r.animId = o.value(QStringLiteral("animId")).toString();
     return r;
 }
 
@@ -1195,7 +1199,22 @@ QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int sta
     end = qBound(0, end, textLength);
     if (end <= start)
         return base;
+    // Moving or fading these letters makes them animatable: every piece of the pick takes one
+    // name for its keyframes, the one the letters already had if any.
+    QString animId = patch.animId;
+    if (animId.isEmpty() && (patch.transformEnabled || patch.opacityEnabled)) {
+        for (const TextRun &run : base) {
+            if (run.end > start && run.start < end && !run.animId.isEmpty()) {
+                animId = run.animId;
+                break;
+            }
+        }
+        if (animId.isEmpty())
+            animId = QStringLiteral("r") + QUuid::createUuid().toString(QUuid::Id128).left(10);
+    }
     const auto applied = [&](TextRun r) {
+        if (!animId.isEmpty())
+            r.animId = animId;
         if (patch.colorEnabled) {
             r.colorEnabled = true;
             r.color = patch.color;
@@ -1414,6 +1433,19 @@ QStringList textKeyframeProperties(const TextStyle &s)
                 out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
         }
     }
+    // Their move and their opacity (0.25), once per pick.
+    QSet<QString> runsSeen;
+    for (const TextRun &run : s.runs) {
+        if (run.animId.isEmpty() || runsSeen.contains(run.animId))
+            continue;
+        runsSeen.insert(run.animId);
+        if (run.transformEnabled) {
+            for (const char *field : {"offsetX", "offsetY", "transformScale", "rotation"})
+                out.append(QStringLiteral("run.%1.%2").arg(run.animId, QLatin1String(field)));
+        }
+        if (run.opacityEnabled)
+            out.append(QStringLiteral("run.%1.opacity").arg(run.animId));
+    }
     return out;
 }
 
@@ -1421,6 +1453,10 @@ QString textKeyframeCanonicalKey(const QString &key, const TextStyle &s)
 {
     if (flatKeyframeKeys().contains(key))
         return key;
+    QString animId;
+    QString field;
+    if (parseRunKey(key, &animId, &field))
+        return findAnimRun(s, animId) ? key : QString();
     QString candidate = key;
     const auto alias = legacyKeyAliases().constFind(key);
     if (alias != legacyKeyAliases().constEnd())
@@ -1493,11 +1529,71 @@ void scaleTextStyle(TextStyle &s, double factor)
         const QString &key = it.key();
         const bool lengthKey = kFlat.contains(key)
                                || (key.startsWith(QLatin1String("layer."))
-                                   && kLayerFields.contains(key.section(QLatin1Char('.'), -1)));
+                                   && kLayerFields.contains(key.section(QLatin1Char('.'), -1)))
+                               || (key.startsWith(QLatin1String("run."))
+                                   && (key.endsWith(QLatin1String(".offsetX"))
+                                       || key.endsWith(QLatin1String(".offsetY"))));
         if (!lengthKey || it->isEmpty())
             continue;
         scaleTrackValues(*it, factor);
     }
+}
+
+// The letters' own animatable fields (0.25): "run.<animId>.<field>".
+static const QStringList &runKeyframeFields()
+{
+    static const QStringList fields{QStringLiteral("offsetX"), QStringLiteral("offsetY"),
+                                    QStringLiteral("transformScale"), QStringLiteral("rotation"),
+                                    QStringLiteral("opacity")};
+    return fields;
+}
+
+static bool parseRunKey(const QString &key, QString *animId, QString *field)
+{
+    if (!key.startsWith(QLatin1String("run.")))
+        return false;
+    const int dot = key.lastIndexOf(QLatin1Char('.'));
+    if (dot <= 4)
+        return false;
+    *animId = key.mid(4, dot - 4);
+    *field = key.mid(dot + 1);
+    return !animId->isEmpty() && runKeyframeFields().contains(*field);
+}
+
+static const TextRun *findAnimRun(const TextStyle &s, const QString &animId)
+{
+    for (const TextRun &run : s.runs) {
+        if (run.animId == animId)
+            return &run;
+    }
+    return nullptr;
+}
+
+static double runField(const TextRun &run, const QString &field)
+{
+    if (field == QLatin1String("offsetX"))
+        return run.offsetX;
+    if (field == QLatin1String("offsetY"))
+        return run.offsetY;
+    if (field == QLatin1String("transformScale"))
+        return run.transformScale;
+    if (field == QLatin1String("rotation"))
+        return run.rotation;
+    return run.opacity;
+}
+
+static void setRunField(TextRun &run, const QString &field, double value)
+{
+    if (field == QLatin1String("offsetX"))
+        run.offsetX = value;
+    else if (field == QLatin1String("offsetY"))
+        run.offsetY = value;
+    else if (field == QLatin1String("transformScale"))
+        run.transformScale = qBound(0.05, value, 20.0);
+    else if (field == QLatin1String("rotation"))
+        run.rotation = value;
+    else
+        run.opacity = qBound(0.0, value, 1.0);
 }
 
 QString textKeyframeLabel(const QString &key, const TextStyle &s)
@@ -1513,6 +1609,21 @@ QString textKeyframeLabel(const QString &key, const TextStyle &s)
         return QCoreApplication::translate("TextStyle", "Box padding");
     if (canonical == QLatin1String("pathBend"))
         return QCoreApplication::translate("TextStyle", "Bend");
+    QString animId;
+    QString field;
+    if (parseRunKey(canonical, &animId, &field)) {
+        const TextRun *run = findAnimRun(s, animId);
+        const QString what = field == QLatin1String("offsetX")
+            ? QCoreApplication::translate("TextStyle", "Position X")
+            : field == QLatin1String("offsetY") ? QCoreApplication::translate("TextStyle", "Position Y")
+            : field == QLatin1String("transformScale") ? QCoreApplication::translate("TextStyle", "Scale")
+            : field == QLatin1String("rotation") ? QCoreApplication::translate("TextStyle", "Rotation")
+            : QCoreApplication::translate("TextStyle", "Opacity");
+        return QCoreApplication::translate("TextStyle", "Letters %1–%2 · %3")
+            .arg(run ? run->start + 1 : 0)
+            .arg(run ? run->end : 0)
+            .arg(what);
+    }
     const QString layerKey = canonical.isEmpty() ? key : canonical;
     LayerKeyPath path;
     const QList<TextShadingLayer> *stack = &s.layers;
@@ -1536,7 +1647,12 @@ bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
         *out = s.boxPadding;
     else if (key == QStringLiteral("pathBend"))
         *out = s.pathBend;
-    else {
+    else if (key.startsWith(QLatin1String("run."))) {
+        QString animId;
+        QString field;
+        parseRunKey(key, &animId, &field);
+        *out = runField(*findAnimRun(s, animId), field);
+    } else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
         return shadingLayerScalar(*findStyleLayer(s, path.layerId), path.field, out);
@@ -1559,7 +1675,16 @@ bool setTextStyleScalar(TextStyle &s, const QString &rawKey, double value)
         s.boxPadding = qMax(0.0, value);
     else if (key == QStringLiteral("pathBend"))
         s.pathBend = qBound(-100.0, value, 100.0);
-    else {
+    else if (key.startsWith(QLatin1String("run."))) {
+        // Every piece of the pick.
+        QString animId;
+        QString field;
+        parseRunKey(key, &animId, &field);
+        for (TextRun &run : s.runs) {
+            if (run.animId == animId)
+                setRunField(run, field, value);
+        }
+    } else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
         // The block's layer, or every piece of the letters that carry it (one pick split by a

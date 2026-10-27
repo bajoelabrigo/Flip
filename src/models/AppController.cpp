@@ -2772,7 +2772,7 @@ bool looksLikeTextProp(const QString &prop)
     if (!prop.startsWith(QLatin1String("text.")))
         return false;
     const QString suffix = prop.mid(5);
-    if (suffix.startsWith(QLatin1String("layer.")))
+    if (suffix.startsWith(QLatin1String("layer.")) || suffix.startsWith(QLatin1String("run.")))
         return true;
     drift::TextStyle probe;
     probe.layers = {drift::shadowLayer(Qt::black, 0, 4, 8, 0.6), drift::glowLayer(Qt::white, 18, 0.8),
@@ -13330,6 +13330,7 @@ QVariantList AppController::textRuns(int trackIndex, int clipIndex)
             {QStringLiteral("opacityEnabled"), run.opacityEnabled},
             {QStringLiteral("opacity"), run.opacity},
             {QStringLiteral("baseline"), run.baseline},
+            {QStringLiteral("animId"), run.animId},
         });
     }
     return out;
