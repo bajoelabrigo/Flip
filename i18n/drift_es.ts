@@ -26568,6 +26568,58 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Show keyframes</source>
         <translation>Mostrar fotogramas clave</translation>
     </message>
+    <message>
+        <source>Remove keyframe</source>
+        <translation>Quitar fotograma clave</translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation>Añadir fotograma clave</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Quitar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Remove the keyframe at the playhead</source>
+        <translation>Quitar el fotograma clave del cabezal</translation>
+    </message>
+    <message>
+        <source>Add a keyframe at the playhead</source>
+        <translation>Añadir un fotograma clave en el cabezal</translation>
+    </message>
+    <message>
+        <source>More</source>
+        <translation>Más</translation>
+    </message>
+    <message>
+        <source>Previous keyframe</source>
+        <translation>Fotograma clave anterior</translation>
+    </message>
+    <message>
+        <source>Next keyframe</source>
+        <translation>Fotograma clave siguiente</translation>
+    </message>
+    <message>
+        <source>Remove all keyframes…</source>
+        <translation>Quitar todos los fotogramas clave…</translation>
+    </message>
+    <message>
+        <source>Remove every keyframe of %1?</source>
+        <translation>¿Quitar todos los fotogramas clave de %1?</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Quitar</translation>
+    </message>
+    <message>
+        <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
+        <translation>El clip se queda con el valor que tiene en el cabezal. Después puedes deshacerlo.</translation>
+    </message>
     <message numerus="yes">
         <source>Group %n tracks</source>
         <translation>
@@ -26689,6 +26741,34 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>TrackKeyframeRows</name>
+    <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation>Añadir fotograma clave</translation>
+    </message>
     <message>
         <source>Double-click to add a keyframe</source>
         <translation>Doble clic para agregar un fotograma clave</translation>

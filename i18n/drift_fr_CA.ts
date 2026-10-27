@@ -26572,6 +26572,58 @@ Si la lecture saccade, essayez une autre option.</translation>
         <source>Show keyframes</source>
         <translation>Afficher les images clés</translation>
     </message>
+    <message>
+        <source>Remove keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove the keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove every keyframe of %1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Group %n tracks</source>
         <translation>
@@ -26693,6 +26745,34 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>TrackKeyframeRows</name>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Double-click to add a keyframe</source>
         <translation>Double-cliquez pour ajouter une image clé</translation>
