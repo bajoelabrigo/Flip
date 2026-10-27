@@ -53,6 +53,9 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 ## Estado (actualizado 2026-10-27)
 
 ### 0.24.0 PUBLICADA (2026-10-27) — efectos de texto solo en las letras elegidas, fotogramas clave por pista — **detalle en `docs/plan-0.24.md`**
+- PR #41 (`flip/v0.24-tramos` → `main`), tag `v0.24.0`, release (run 40486664910); copia en `versiones\FlipStudio-0.24.0`
+  (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40486705115 → `tienda\FlipStudio-Store\paquete-0.24.0`.
+  Notas de la Store: «Notas para la Store (0.24.0)» (+ las de la 0.23.0 si no se subió). Editor web (`web/v0221-texto`) desplegado.
 - DeepSeek empezó (tramos con su pila de capas); Claude revisó, arregló y terminó. **Probado en ventana** (portables
   `pruebas\FlipStudio-0.24-final`, `-b`, `-c`): letras elegidas, Letras seleccionadas, Buscar y reemplazar, filas de
   claves con el rombo, editor de curvas bajo su pista, interruptores enteros, Cancelar de Texto avanzado.
