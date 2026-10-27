@@ -3838,6 +3838,10 @@
         <translation>Composite créé</translation>
     </message>
     <message>
+        <source>Move anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove animation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26801,6 +26805,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26810,6 +26818,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

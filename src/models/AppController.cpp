@@ -12250,6 +12250,48 @@ void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const
     previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, animated, animated);
 }
 
+void AppController::setAnchorKeepingPlace(int trackIndex, int clipIndex, double fx, double fy)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const auto at = [&](const drift::KeyframeTrack<double> &t, double def) {
+        return t.isEmpty() ? def : t.evaluateAt(rel);
+    };
+    const double w = at(clip.transformW, m_project.width());
+    const double h = at(clip.transformH, m_project.height());
+    const double rotation = at(clip.rotation, 0.0);
+    const QPointF oldShift = clip.anchorShift(rel, w, h, rotation);
+    // The anchor: a key at the playhead while it is animated, else its value.
+    const bool anchorAnimated = clip.anchorX.keyframes().size() > 1 || clip.anchorX.stopwatch()
+                                || clip.anchorY.keyframes().size() > 1 || clip.anchorY.stopwatch();
+    writeClipPropValue(clip, QStringLiteral("anchorX"), rel, qBound(0.0, fx, 1.0), false, anchorAnimated);
+    writeClipPropValue(clip, QStringLiteral("anchorY"), rel, qBound(0.0, fy, 1.0), false, anchorAnimated);
+    const QPointF newShift = clip.anchorShift(rel, w, h, rotation);
+    // The box takes back what the turn about the new point would move it, so nothing jumps.
+    const QPointF back = oldShift - newShift;
+    if (!qFuzzyIsNull(back.x()) || !qFuzzyIsNull(back.y())) {
+        const auto offset = [](drift::KeyframeTrack<double> &t, double d, double base) {
+            if (t.isEmpty()) {
+                t.setKeyframe(0, base + d);
+                return;
+            }
+            const QList<drift::TimeUs> times = t.keyframes().keys();
+            for (const drift::TimeUs k : times) {
+                drift::Keyframe<double> key = t.keyframes().value(k);
+                key.value += d;
+                t.setKeyframe(k, key);
+            }
+        };
+        offset(clip.transformX, back.x(), 0.0);
+        offset(clip.transformY, back.y(), 0.0);
+    }
+    pushProjectEdit(before, tr("Move anchor point"));
+    finishEdit(tr("Move anchor point"));
+}
+
 double AppController::snapPlayheadToKeys(double seconds, double toleranceSeconds) const
 {
     QList<drift::TimeUs> keys;

@@ -3833,6 +3833,10 @@
         <translation>Đã tạo tổ hợp</translation>
     </message>
     <message>
+        <source>Move anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove animation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26710,6 +26714,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26719,6 +26727,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

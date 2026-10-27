@@ -4236,6 +4236,10 @@
         <translation>هذا المسار مقفل. ألغِ قفله بالقفل الموجود في رأسه.</translation>
     </message>
     <message>
+        <source>Move anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove animation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27133,6 +27137,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27265,6 +27273,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Hide track</source>
         <translation>إخفاء المسار</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Drag the line under the track to fine-tune</source>

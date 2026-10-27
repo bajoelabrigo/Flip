@@ -3833,6 +3833,10 @@
         <translation>Composición creada</translation>
     </message>
     <message>
+        <source>Move anchor point</source>
+        <translation>Mover punto de anclaje</translation>
+    </message>
+    <message>
         <source>Remove animation</source>
         <translation>Quitar animación</translation>
     </message>
@@ -26797,6 +26801,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir un fotograma clave en el cabezal</translation>
     </message>
     <message>
+        <source>Anchor point: corners and centre</source>
+        <translation>Punto de anclaje: esquinas y centro</translation>
+    </message>
+    <message>
         <source>More</source>
         <translation>Más</translation>
     </message>
@@ -26807,6 +26815,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Next keyframe</source>
         <translation>Fotograma clave siguiente</translation>
+    </message>
+    <message>
+        <source>More…</source>
+        <translation>Más…</translation>
     </message>
     <message>
         <source>Remove all keyframes…</source>

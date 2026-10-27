@@ -777,6 +777,10 @@ public:
     // The playhead dragged near a key lands on it (0.25, After Effects): the nearest key time within
     // toleranceSeconds, else `seconds` unchanged.
     Q_INVOKABLE double snapPlayheadToKeys(double seconds, double toleranceSeconds) const;
+    // Motion Tools' anchor grid (0.25): the anchor point to a corner, an edge's middle or the centre
+    // (fx, fy in 0, 0.5, 1 of the box) without the clip moving on screen — Position takes the
+    // difference, every key of it when it is animated. One undo step.
+    Q_INVOKABLE void setAnchorKeepingPlace(int trackIndex, int clipIndex, double fx, double fy);
     // The box a clip has at 100 % (what Reset gives it), {w, h} in project px: the base of After
     // Effects' two Scale values (0.25).
     Q_INVOKABLE QVariantMap clipNaturalSize(int trackIndex, int clipIndex);

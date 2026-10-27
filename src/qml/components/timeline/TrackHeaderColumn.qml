@@ -1646,8 +1646,92 @@ Item {
                             variant: "text"
                             buttonSize: 18
                             iconSize: 13
-                            tooltip: qsTr("More")
-                            onClicked: lineMenu.popup()
+                            tooltip: keyLine.modelData.group === "anchor" ? qsTr("Anchor point: corners and centre")
+                                                                           : qsTr("More")
+                            onClicked: {
+                                if (keyLine.modelData.group === "anchor")
+                                    anchorGrid.open()
+                                else
+                                    lineMenu.popup()
+                            }
+                        }
+
+                        // Motion Tools' anchor grid (0.25): a click puts the anchor point on that
+                        // corner, edge or the centre, and the clip stays where it is on screen.
+                        Popup {
+                            id: anchorGrid
+                            x: moreButton.x + moreButton.width - width
+                            y: moreButton.y + moreButton.height + 2
+                            padding: 8
+                            modal: false
+                            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                            background: Rectangle {
+                                color: Theme.panelBackground
+                                border.width: 1
+                                border.color: Theme.panelBorder
+                                radius: Theme.radiusMd
+                            }
+                            contentItem: Column {
+                                spacing: 8
+                                Grid {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    columns: 3
+                                    spacing: 4
+                                    Repeater {
+                                        model: 9
+                                        delegate: Rectangle {
+                                            required property int index
+                                            readonly property real fx: (index % 3) / 2
+                                            readonly property real fy: Math.floor(index / 3) / 2
+                                            readonly property bool current: {
+                                                void EditorState.tracksRevision
+                                                void EditorState.playheadSeconds
+                                                return Math.abs(keyLine.valueOf("anchorX") - fx) < 0.01
+                                                       && Math.abs(keyLine.valueOf("anchorY") - fy) < 0.01
+                                            }
+                                            width: 22
+                                            height: 22
+                                            radius: 3
+                                            color: cellMouse.containsMouse || current ? Theme.primary
+                                                                                      : Qt.rgba(Theme.primary.r, Theme.primary.g,
+                                                                                                Theme.primary.b, 0.35)
+                                            border.width: current ? 2 : 0
+                                            border.color: Theme.panelForeground
+                                            Rectangle {
+                                                visible: index === 4
+                                                anchors.centerIn: parent
+                                                width: 8
+                                                height: 8
+                                                color: "transparent"
+                                                border.width: 1.5
+                                                border.color: Theme.panelForeground
+                                            }
+                                            MouseArea {
+                                                id: cellMouse
+                                                anchors.fill: parent
+                                                hoverEnabled: true
+                                                cursorShape: Qt.PointingHandCursor
+                                                onClicked: {
+                                                    const track = keyLines.trackIndex
+                                                    const clip = keyLine.clip
+                                                    const fx = parent.fx
+                                                    const fy = parent.fy
+                                                    anchorGrid.close()
+                                                    EditorState.setAnchorKeepingPlace(track, clip, fx, fy)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                ThemedButton {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: qsTr("More…")
+                                    onClicked: {
+                                        anchorGrid.close()
+                                        lineMenu.popup()
+                                    }
+                                }
+                            }
                         }
 
                         ThemedContextMenu {
