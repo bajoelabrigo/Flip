@@ -233,6 +233,11 @@ ApplicationWindow {
                     enabled: !window.showStartScreen
                     onTriggered: window.openPasteAttributes()
                 }
+                Platform.MenuItem {
+                    text: qsTr("Find and Replace…")
+                    enabled: !window.showStartScreen
+                    onTriggered: window.openFindReplace()
+                }
                 Platform.MenuSeparator {}
                 Platform.MenuItem {
                     text: qsTr("About Flip Studio")
@@ -712,7 +717,7 @@ ApplicationWindow {
             }
         }
         const modals = [shellSwitchDialogLoader.item, debugInfoDialogLoader.item, settingsDialogLoader.item,
-                        pasteAttributesDialogLoader.item, updateDialogLoader.item, aboutDialogLoader.item,
+                        pasteAttributesDialogLoader.item, findReplaceDialogLoader.item, updateDialogLoader.item, aboutDialogLoader.item,
                         addonManagerDialogLoader.item, missingAddonsDialogLoader.item,
                         missingMediaDialogLoader.item, addonStartupDialog,
                         projectSetupDialogLoader.item, layoutChooserDialogLoader.item,
@@ -1046,6 +1051,13 @@ ApplicationWindow {
     }
 
     LazyLoader {
+        id: findReplaceDialogLoader
+        sourceComponent: Component {
+            FindReplaceDialog { }
+        }
+    }
+
+    LazyLoader {
         id: segmentationWindowLoader
         sourceComponent: Component {
             SegmentationWindow { }
@@ -1063,6 +1075,9 @@ ApplicationWindow {
         target: EditorState
         function onOpenPasteAttributesRequested() {
             window.openPasteAttributes()
+        }
+        function onOpenFindReplaceRequested() {
+            window.openFindReplace()
         }
         // These two dialogs open themselves from the same signals, but only once they exist.
         function onSubtitleGeneratingChanged() {
@@ -1432,6 +1447,12 @@ ApplicationWindow {
 
     function openPasteAttributes() {
         pasteAttributesDialogLoader.ensure().openDialog()
+    }
+
+    function openFindReplace() {
+        if (window.showStartScreen)
+            return
+        findReplaceDialogLoader.ensure().openDialog()
     }
 
     function promptRecoveryIfNeeded() {

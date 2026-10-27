@@ -120,6 +120,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPixmap>
+#include <QRegularExpression>
 #include <QAudioDevice>
 #include <QThreadPool>
 #include <QSaveFile>
@@ -4634,6 +4635,8 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("copyEffects"), QStringLiteral("Ctrl+Alt+C")},
         {QStringLiteral("pasteEffects"), QStringLiteral("Ctrl+Shift+V")},
         {QStringLiteral("pasteAttributes"), QStringLiteral("Ctrl+Alt+V")},
+        // Word's and Premiere's Find and replace.
+        {QStringLiteral("findReplace"), QStringLiteral("Ctrl+H")},
         {QStringLiteral("split"), QStringLiteral("S")},
         {QStringLiteral("merge"), QStringLiteral("Ctrl+M")},
         {QStringLiteral("unlink"), QStringLiteral("Ctrl+Shift+U")},
@@ -5504,6 +5507,7 @@ QVariantList AppController::actions() const
         action(QStringLiteral("copyEffects"), tr("Copy effects from clip")),
         action(QStringLiteral("pasteEffects"), tr("Paste effects onto clip")),
         action(QStringLiteral("pasteAttributes"), tr("Paste attributes…")),
+        action(QStringLiteral("findReplace"), tr("Find and replace…")),
         action(QStringLiteral("split"), tr("Split at current time")),
         action(QStringLiteral("merge"), tr("Merge adjacent clips")),
         action(QStringLiteral("transformTogether"), tr("Transform selection together")),
@@ -12861,6 +12865,205 @@ void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
     clip.name = drift::subtitleClipName(clip.subtitleCues);
     pushProjectEdit(before, tr("Clean up subtitles"));
     finishEdit(tr("Subtitles cleaned up"));
+}
+
+namespace {
+
+// Edit › Find and replace: what to look for and where.
+struct TextFind
+{
+    bool texts = true;
+    bool subtitles = true;
+    QRegularExpression re;
+    bool valid = false;
+};
+
+TextFind textFindFor(const QString &needle, const QVariantMap &options)
+{
+    TextFind find;
+    const QString scope = options.value(QStringLiteral("scope"), QStringLiteral("all")).toString();
+    find.texts = scope != QStringLiteral("subtitles");
+    find.subtitles = scope != QStringLiteral("texts");
+    if (needle.isEmpty())
+        return find;
+    QString pattern = QRegularExpression::escape(needle);
+    // Lookarounds rather than \b: a needle that starts or ends with a mark ("¡hola", "3.") still
+    // matches as a whole word, and with Unicode properties an accented letter counts as a letter.
+    if (options.value(QStringLiteral("wholeWord")).toBool())
+        pattern = QStringLiteral("(?<!\\w)") + pattern + QStringLiteral("(?!\\w)");
+    QRegularExpression::PatternOptions flags = QRegularExpression::UseUnicodePropertiesOption;
+    if (!options.value(QStringLiteral("matchCase")).toBool())
+        flags |= QRegularExpression::CaseInsensitiveOption;
+    find.re = QRegularExpression(pattern, flags);
+    find.valid = find.re.isValid();
+    return find;
+}
+
+// {start, length} of every match, in UTF-16 offsets, first to last.
+QList<QPair<int, int>> textFindMatches(const QString &text, const QRegularExpression &re)
+{
+    QList<QPair<int, int>> out;
+    QRegularExpressionMatchIterator it = re.globalMatch(text);
+    while (it.hasNext()) {
+        const QRegularExpressionMatch m = it.next();
+        if (m.capturedLength() > 0)
+            out.append(qMakePair(int(m.capturedStart()), int(m.capturedLength())));
+    }
+    return out;
+}
+
+QString textFindKey(int track, int clip, int cue, int start)
+{
+    return QStringLiteral("%1:%2:%3:%4").arg(track).arg(clip).arg(cue).arg(start);
+}
+
+int subtitleWordCount(const QString &text)
+{
+    static const QRegularExpression space(QStringLiteral("\\s+"));
+    return int(text.split(space, Qt::SkipEmptyParts).size());
+}
+
+} // namespace
+
+QVariantList AppController::findInTexts(const QString &needle, const QVariantMap &options) const
+{
+    QVariantList out;
+    const TextFind find = textFindFor(needle, options);
+    if (!find.valid)
+        return out;
+    constexpr int kContext = 24;
+    const auto oneLine = [](QString s) {
+        s.replace(QLatin1Char('\n'), QLatin1Char(' '));
+        s.replace(QChar(0x2029), QLatin1Char(' '));
+        return s;
+    };
+    const auto &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        const bool locked = isTrackLocked(t);
+        const QList<drift::Clip> &clips = tracks.at(t).clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            const drift::Clip &clip = clips.at(c);
+            const auto add = [&](int cue, const QString &text, drift::TimeUs atUs) {
+                for (const QPair<int, int> &m : textFindMatches(text, find.re)) {
+                    const int from = qMax(0, m.first - kContext);
+                    const int to = qMin(int(text.size()), m.first + m.second + kContext);
+                    const QString before = (from > 0 ? QStringLiteral("…") : QString())
+                                           + oneLine(text.mid(from, m.first - from));
+                    const QString match = oneLine(text.mid(m.first, m.second));
+                    const QString after = oneLine(text.mid(m.first + m.second, to - m.first - m.second))
+                                          + (to < text.size() ? QStringLiteral("…") : QString());
+                    out.append(QVariantMap{
+                        {QStringLiteral("track"), t},
+                        {QStringLiteral("clip"), c},
+                        {QStringLiteral("cue"), cue},
+                        {QStringLiteral("start"), m.first},
+                        {QStringLiteral("length"), m.second},
+                        {QStringLiteral("kind"), cue < 0 ? QStringLiteral("text") : QStringLiteral("subtitle")},
+                        {QStringLiteral("clipName"), clip.name},
+                        {QStringLiteral("clipId"), clip.id},
+                        {QStringLiteral("seconds"), drift::usToSeconds(atUs)},
+                        {QStringLiteral("snippet"), QString(before + match + after)},
+                        {QStringLiteral("before"), before},
+                        {QStringLiteral("match"), match},
+                        {QStringLiteral("after"), after},
+                        {QStringLiteral("locked"), locked},
+                    });
+                }
+            };
+            if (clip.type == drift::ClipType::Text && find.texts) {
+                add(-1, clip.textContent, clip.timelineStart);
+            } else if (clip.type == drift::ClipType::Subtitle && find.subtitles) {
+                for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+                    const drift::SubtitleCue &cue = clip.subtitleCues.at(i);
+                    add(i, cue.text, clip.timelineStart + cue.startUs);
+                }
+            }
+        }
+    }
+    return out;
+}
+
+int AppController::replaceInTexts(const QString &needle, const QString &replacement, const QVariantMap &options,
+                                  const QVariantList &only)
+{
+    const TextFind find = textFindFor(needle, options);
+    if (!find.valid)
+        return 0;
+    QSet<QString> picked;
+    for (const QVariant &value : only) {
+        const QVariantMap m = value.toMap();
+        picked.insert(textFindKey(m.value(QStringLiteral("track")).toInt(), m.value(QStringLiteral("clip")).toInt(),
+                                  m.value(QStringLiteral("cue"), -1).toInt(),
+                                  m.value(QStringLiteral("start")).toInt()));
+    }
+    // An "only" list whose matches are all gone (the text changed meanwhile) replaces nothing,
+    // never everything.
+    const bool all = only.isEmpty();
+
+    // Clip nests Qt-implicitly-shared payloads; detach so the undo snapshot owns its own.
+    const drift::Project before = m_project.detachedCopy();
+    int replaced = 0;
+    // From the last match back to the first, so the offsets of the ones before stay right.
+    const auto replaceIn = [&](int t, int c, int cue, QString &text, QList<drift::TextRun> *runs) {
+        const QList<QPair<int, int>> matches = textFindMatches(text, find.re);
+        int count = 0;
+        for (int i = int(matches.size()) - 1; i >= 0; --i) {
+            const int start = matches.at(i).first;
+            const int length = matches.at(i).second;
+            if (!all && !picked.contains(textFindKey(t, c, cue, start)))
+                continue;
+            text = text.left(start) + replacement + text.mid(start + length);
+            if (runs)
+                *runs = drift::shiftTextRunsForReplace(*runs, int(text.size()), start, length,
+                                                       int(replacement.size()));
+            ++count;
+        }
+        replaced += count;
+        return count;
+    };
+
+    auto &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        if (isTrackLocked(t))
+            continue;
+        QList<drift::Clip> &clips = tracks[t].clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            drift::Clip &clip = clips[c];
+            if (clip.type == drift::ClipType::Text && find.texts) {
+                QString text = clip.textContent;
+                QList<drift::TextRun> runs = clip.textStyle.runs;
+                if (replaceIn(t, c, -1, text, &runs) == 0)
+                    continue;
+                // As the inline editor's commit (commitTextEdit): the clip is named after its
+                // words; pushProjectEdit refits a hugging box (syncTextAutoFit).
+                clip.textContent = text;
+                clip.textStyle.runs = runs;
+                clip.name = text.trimmed().left(32);
+            } else if (clip.type == drift::ClipType::Subtitle && find.subtitles) {
+                for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+                    drift::SubtitleCue &cue = clip.subtitleCues[i];
+                    QString text = cue.text;
+                    const int wordsBefore = subtitleWordCount(text);
+                    if (replaceIn(t, c, i, text, nullptr) == 0)
+                        continue;
+                    cue.text = text;
+                    // Word timings that no longer match the words would light the wrong one;
+                    // with the same number of words they still fit (a word fixed in place).
+                    if (subtitleWordCount(text) != wordsBefore)
+                        cue.wordEndsUs.clear();
+                }
+            }
+        }
+    }
+
+    if (replaced == 0) {
+        setLastMessage(tr("“%1” was not found").arg(needle), QStringLiteral("info"));
+        return 0;
+    }
+    pushProjectEdit(before, tr("Find and replace"));
+    finishEdit(tr("Find and replace"));
+    setLastMessage(tr("Replaced %n time(s)", nullptr, replaced), QStringLiteral("info"));
+    return replaced;
 }
 
 QVariantList AppController::subtitleDictionary() const
@@ -25246,6 +25449,8 @@ void AppController::triggerAction(const QString &actionId)
         pasteEffectsFromClipboard(m_selectedTrack, m_selectedClip);
     else if (actionId == QStringLiteral("pasteAttributes"))
         requestPasteAttributes();
+    else if (actionId == QStringLiteral("findReplace"))
+        emit openFindReplaceRequested();
     else if (actionId == QStringLiteral("split"))
         splitAtPlayhead();
     else if (actionId == QStringLiteral("merge"))

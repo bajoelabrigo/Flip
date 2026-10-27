@@ -130,6 +130,8 @@ private slots:
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
     void shadedLettersTakeLayersLooksAndBoxAlone();
+    void findAndReplaceInTexts();
+    void findAndReplaceInSubtitleCues();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -12581,6 +12583,129 @@ void EditorStateTest::videoTransitionMirrorsToLinkedAudio()
     state.addTransition(vt, 0, QStringLiteral("crossfade"), 0.5, false);
     QCOMPARE(state.project()->tracks().at(vt).transitions.size(), 1);
     QCOMPARE(state.project()->tracks().at(at).transitions.size(), 0);
+}
+
+// Edit › Find and replace: the options narrow the matches, Replace all is one undo step, the
+// per-letter styles stay on their letters and a single match can be replaced alone.
+void EditorStateTest::findAndReplaceInTexts()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hola mundo, hola holanda"), 0.0);
+    const QString idA = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.patchTextRuns(state.selectedTrack(), state.selectedClip(), 5, 10,
+                        QVariantMap{{QStringLiteral("color"), QStringLiteral("#ff0000")}});
+    state.addTextClip(QStringLiteral("HOLA hola"), 10.0);
+    const QString idB = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto clipById = [&](const QString &id) -> const drift::Clip * {
+        for (const drift::Track &track : state.project()->tracks())
+            for (const drift::Clip &clip : track.clips)
+                if (clip.id == id)
+                    return &clip;
+        return nullptr;
+    };
+    QVERIFY(clipById(idA) && clipById(idB));
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    QVERIFY(drift::textRunAt(clipById(idA)->textStyle.runs, 5));
+
+    const auto opts = [](bool matchCase, bool wholeWord) {
+        return QVariantMap{{QStringLiteral("matchCase"), matchCase}, {QStringLiteral("wholeWord"), wholeWord}};
+    };
+    const QString needle = QStringLiteral("hola");
+    QCOMPARE(state.findInTexts(needle, opts(false, false)).size(), 5);
+    QCOMPARE(state.findInTexts(needle, opts(true, false)).size(), 3);
+    QCOMPARE(state.findInTexts(needle, opts(false, true)).size(), 4);
+    QCOMPARE(state.findInTexts(needle, opts(true, true)).size(), 2);
+    QVERIFY(state.findInTexts(QString(), opts(false, false)).isEmpty());
+    QVERIFY(state.findInTexts(needle, QVariantMap{{QStringLiteral("scope"), QStringLiteral("subtitles")}}).isEmpty());
+
+    const QVariantMap first = state.findInTexts(needle, opts(false, true)).first().toMap();
+    QCOMPARE(first.value(QStringLiteral("cue")).toInt(), -1);
+    QCOMPARE(first.value(QStringLiteral("start")).toInt(), 0);
+    QCOMPARE(first.value(QStringLiteral("length")).toInt(), 4);
+    QCOMPARE(first.value(QStringLiteral("match")).toString(), QStringLiteral("Hola"));
+    QCOMPARE(first.value(QStringLiteral("kind")).toString(), QStringLiteral("text"));
+
+    // Replace all, longer than what it replaces: "mundo" keeps its colour, one letter further on.
+    QCOMPARE(state.replaceInTexts(needle, QStringLiteral("adiós"), opts(false, true), QVariantList{}), 4);
+    QVERIFY(state.undoAvailable());
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("adiós mundo, adiós holanda"));
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("adiós adiós"));
+    const drift::TextRun *mundo = drift::textRunAt(clipById(idA)->textStyle.runs, 6);
+    QVERIFY(mundo && mundo->colorEnabled);
+    QCOMPARE(mundo->start, 6);
+    QCOMPARE(mundo->end, 11);
+    QVERIFY(!drift::textRunAt(clipById(idA)->textStyle.runs, 5));
+    QVERIFY(state.findInTexts(needle, opts(false, true)).isEmpty());
+
+    // One undo puts every text back, the colour on its old letters.
+    state.undo();
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA hola"));
+    const drift::TextRun *back = drift::textRunAt(clipById(idA)->textStyle.runs, 5);
+    QVERIFY(back && back->start == 5 && back->end == 10);
+
+    // Replace: only the match handed over.
+    QVariantMap pick;
+    for (const QVariant &value : state.findInTexts(needle, opts(true, true))) {
+        const QVariantMap m = value.toMap();
+        if (clipById(idB) == &state.project()->tracks().at(m.value(QStringLiteral("track")).toInt())
+                                  .clips.at(m.value(QStringLiteral("clip")).toInt()))
+            pick = m;
+    }
+    QVERIFY(!pick.isEmpty());
+    QCOMPARE(state.replaceInTexts(needle, QStringLiteral("chau"), opts(true, true), QVariantList{QVariant(pick)}), 1);
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA chau"));
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    // Nothing found: no undo step, so the next undo still takes the "chau" back.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("zzz"), QStringLiteral("y"), QVariantMap{}, QVariantList{}), 0);
+    state.undo();
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA hola"));
+}
+
+void EditorStateTest::findAndReplaceInSubtitleCues()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendSubtitleLane(*state.project());
+    // The first two captions were aligned word by word.
+    state.project()->tracks()[0].clips[0].subtitleCues[0].wordEndsUs = {drift::secondsToUs(0.4),
+                                                                         drift::secondsToUs(0.9)};
+    state.project()->tracks()[0].clips[1].subtitleCues[0].wordEndsUs = {drift::secondsToUs(0.4),
+                                                                             drift::secondsToUs(0.9)};
+
+    const QVariantMap subtitles{{QStringLiteral("scope"), QStringLiteral("subtitles")}};
+    const QVariantList found = state.findInTexts(QStringLiteral("CUE"), subtitles);
+    QCOMPARE(found.size(), 3);
+    const QVariantMap second = found.at(1).toMap();
+    QCOMPARE(second.value(QStringLiteral("cue")).toInt(), 0);
+    QCOMPARE(second.value(QStringLiteral("kind")).toString(), QStringLiteral("subtitle"));
+    QCOMPARE(second.value(QStringLiteral("seconds")).toDouble(), 5.0);
+    QVERIFY(state.findInTexts(QStringLiteral("cue"), QVariantMap{{QStringLiteral("scope"), QStringLiteral("texts")}})
+                .isEmpty());
+
+    // Same number of words: the timings still fit and stay.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("cue"), QStringLiteral("line"), subtitles, QVariantList{}), 3);
+    const auto cue = [&](int clip) -> const drift::SubtitleCue & {
+        return state.project()->tracks().at(0).clips.at(clip).subtitleCues.at(0);
+    };
+    QCOMPARE(cue(0).text, QStringLiteral("line 0"));
+    QCOMPARE(cue(2).text, QStringLiteral("line 2"));
+    QCOMPARE(cue(0).wordEndsUs.size(), 2);
+
+    // A different number of words: the old timings would light the wrong one, so they go.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("line 1"), QStringLiteral("one more line"), subtitles, QVariantList{}), 1);
+    QCOMPARE(cue(1).text, QStringLiteral("one more line"));
+    QVERIFY(cue(1).wordEndsUs.isEmpty());
+
+    state.undo();
+    QCOMPARE(cue(1).text, QStringLiteral("line 1"));
+    // Replace all was one step: one more undo brings every caption back.
+    state.undo();
+    QCOMPARE(cue(0).text, QStringLiteral("cue 0"));
+    QCOMPARE(cue(2).text, QStringLiteral("cue 2"));
+    QCOMPARE(cue(1).text, QStringLiteral("cue 1"));
+    QCOMPARE(cue(1).wordEndsUs.size(), 2);
 }
 
 QTEST_MAIN(EditorStateTest)

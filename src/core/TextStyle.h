@@ -139,6 +139,11 @@ QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
 // Los tramos después de cambiar el texto de `before` a `after`: lo que va detrás de lo escrito o
 // borrado se corre con ello, así cada color sigue en sus letras.
 QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after);
+// Los tramos después de cambiar las `oldLength` letras desde `start` por otras `newLength` (Buscar y
+// reemplazar): exacto aunque lo nuevo se parezca a lo de al lado. Lo de antes no se mueve, lo de
+// después corre con el cambio y un tramo que tocaba lo reemplazado cubre lo nuevo.
+QList<TextRun> shiftTextRunsForReplace(const QList<TextRun> &runs, int newTextLength, int start, int oldLength,
+                                       int newLength);
 // What the text bar does to the letters [start, end) (Texto avanzado, like a word processor): the
 // fields `patch` turns on (its *Enabled flags) go onto every letter there, and whatever else those
 // letters already had (another colour, bold…) stays. Letters outside keep their runs untouched.
