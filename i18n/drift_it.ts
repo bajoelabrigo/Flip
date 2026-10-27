@@ -3271,6 +3271,10 @@
         <translation>Incolla attributi…</translation>
     </message>
     <message>
+        <source>Find and replace…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Go to previous cut point</source>
         <translation>Vai al punto di taglio precedente</translation>
     </message>
@@ -3605,6 +3609,21 @@
     <message>
         <source>Subtitles updated</source>
         <translation>Sottotitoli aggiornati</translation>
+    </message>
+    <message>
+        <source>“%1” was not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find and replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced %n time(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Adjust subtitle timing</source>
@@ -6140,6 +6159,10 @@
     <message>
         <source>Paste Attributes…</source>
         <translation>Incolla attributi…</translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select All</source>
@@ -14169,6 +14192,99 @@ LA PROSSIMA</translation>
     </message>
 </context>
 <context>
+    <name>FindReplaceDialog</name>
+    <message>
+        <source>Find and replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word or phrase in your texts and subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whole word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts and subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type what to look for.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No matches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 in %n clip(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n match(es)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitle · caption %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>locked track, it is not replaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -15364,6 +15480,10 @@ LA PROSSIMA</translation>
     <message>
         <source>Paste Attributes…</source>
         <translation>Incolla attributi…</translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Playback</source>
@@ -23794,8 +23914,56 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the letters shaded in «Text input» change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Dimensione carattere</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Superscript</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subscript</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy the style of these letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Give these letters the copied style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These letters go back to the style of the whole text</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bold</source>
@@ -23852,6 +24020,30 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Word spacing</source>
         <translation>Spaziatura parole</translation>
+    </message>
+    <message>
+        <source>Ligatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters the font joins into one shape (fi, fl…), when it has them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small caps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower-case letters as small capitals, when the font has them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrink to fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The box keeps its size and the text gets smaller until it fits</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alignment</source>

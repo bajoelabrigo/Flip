@@ -3271,6 +3271,10 @@
         <translation>Pegar atributos…</translation>
     </message>
     <message>
+        <source>Find and replace…</source>
+        <translation>Buscar y reemplazar…</translation>
+    </message>
+    <message>
         <source>Go to previous cut point</source>
         <translation>Ir al punto de corte anterior</translation>
     </message>
@@ -3605,6 +3609,21 @@
     <message>
         <source>Subtitles updated</source>
         <translation>Subtítulos actualizados</translation>
+    </message>
+    <message>
+        <source>“%1” was not found</source>
+        <translation>No se encontró «%1»</translation>
+    </message>
+    <message>
+        <source>Find and replace</source>
+        <translation>Buscar y reemplazar</translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced %n time(s)</source>
+        <translation>
+            <numerusform>Se reemplazó %n vez</numerusform>
+            <numerusform>Se reemplazó %n veces</numerusform>
+        </translation>
     </message>
     <message>
         <source>Adjust subtitle timing</source>
@@ -6140,6 +6159,10 @@
     <message>
         <source>Paste Attributes…</source>
         <translation>Pegar atributos…</translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
+        <translation>Buscar y reemplazar…</translation>
     </message>
     <message>
         <source>Select All</source>
@@ -14169,6 +14192,99 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>FindReplaceDialog</name>
+    <message>
+        <source>Find and replace</source>
+        <translation>Buscar y reemplazar</translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation>Buscar</translation>
+    </message>
+    <message>
+        <source>Word or phrase in your texts and subtitles</source>
+        <translation>Palabra o frase en tus textos y subtítulos</translation>
+    </message>
+    <message>
+        <source>Replace with</source>
+        <translation>Reemplazar con</translation>
+    </message>
+    <message>
+        <source>Match case</source>
+        <translation>Mayúsculas y minúsculas</translation>
+    </message>
+    <message>
+        <source>Whole word</source>
+        <translation>Palabra completa</translation>
+    </message>
+    <message>
+        <source>Look in</source>
+        <translation>Buscar en</translation>
+    </message>
+    <message>
+        <source>Texts and subtitles</source>
+        <translation>Textos y subtítulos</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation>Textos</translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation>Subtítulos</translation>
+    </message>
+    <message>
+        <source>Type what to look for.</source>
+        <translation>Escribe lo que quieres buscar.</translation>
+    </message>
+    <message>
+        <source>No matches</source>
+        <translation>Sin coincidencias</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 in %n clip(s)</source>
+        <translation>
+            <numerusform>%1 en %n clip</numerusform>
+            <numerusform>%1 en %n clips</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n match(es)</source>
+        <translation>
+            <numerusform>%n coincidencia</numerusform>
+            <numerusform>%n coincidencias</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitle · caption %1</source>
+        <translation>Subtítulo · línea %1</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation>Clip</translation>
+    </message>
+    <message>
+        <source>locked track, it is not replaced</source>
+        <translation>pista bloqueada, no se reemplaza</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation>Reemplazar</translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation>Reemplazar todo</translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -15364,6 +15480,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Paste Attributes…</source>
         <translation>Pegar atributos…</translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
+        <translation>Buscar y reemplazar…</translation>
     </message>
     <message>
         <source>&amp;Playback</source>
@@ -23794,8 +23914,56 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Se aplica a las letras seleccionadas</translation>
     </message>
     <message>
+        <source>Selected letters</source>
+        <translation>Letras seleccionadas</translation>
+    </message>
+    <message>
+        <source>Only the letters shaded in «Text input» change</source>
+        <translation>Solo cambian las letras sombreadas en «Texto de entrada»</translation>
+    </message>
+    <message>
         <source>Font size</source>
         <translation>Tamaño de la fuente</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>On the line</source>
+        <translation>Sobre la línea</translation>
+    </message>
+    <message>
+        <source>Superscript</source>
+        <translation>Superíndice</translation>
+    </message>
+    <message>
+        <source>Subscript</source>
+        <translation>Subíndice</translation>
+    </message>
+    <message>
+        <source>Copy style</source>
+        <translation>Copiar estilo</translation>
+    </message>
+    <message>
+        <source>Copy the style of these letters</source>
+        <translation>Copiar el estilo de estas letras</translation>
+    </message>
+    <message>
+        <source>Paste style</source>
+        <translation>Pegar estilo</translation>
+    </message>
+    <message>
+        <source>Give these letters the copied style</source>
+        <translation>Dar a estas letras el estilo copiado</translation>
+    </message>
+    <message>
+        <source>Remove style</source>
+        <translation>Quitar estilo</translation>
+    </message>
+    <message>
+        <source>These letters go back to the style of the whole text</source>
+        <translation>Estas letras vuelven al estilo de todo el texto</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -23852,6 +24020,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Word spacing</source>
         <translation>Espacio entre palabras</translation>
+    </message>
+    <message>
+        <source>Ligatures</source>
+        <translation>Ligaduras</translation>
+    </message>
+    <message>
+        <source>Letters the font joins into one shape (fi, fl…), when it has them</source>
+        <translation>Letras que la fuente une en una sola forma (fi, fl…), si las tiene</translation>
+    </message>
+    <message>
+        <source>Small caps</source>
+        <translation>Versalitas</translation>
+    </message>
+    <message>
+        <source>Lower-case letters as small capitals, when the font has them</source>
+        <translation>Las minúsculas como mayúsculas pequeñas, si la fuente las tiene</translation>
+    </message>
+    <message>
+        <source>Shrink to fit</source>
+        <translation>Encoger para caber</translation>
+    </message>
+    <message>
+        <source>The box keeps its size and the text gets smaller until it fits</source>
+        <translation>La caja mantiene su tamaño y el texto se achica hasta caber</translation>
     </message>
     <message>
         <source>Alignment</source>
