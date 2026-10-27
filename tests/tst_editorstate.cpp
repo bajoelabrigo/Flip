@@ -10331,8 +10331,8 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     const QVariantMap metrics{{QStringLiteral("video"), 60.0}, {QStringLiteral("lane"), 20.0},
                               {QStringLiteral("keyframeRow"), 18.0}};
     QVERIFY(!state.trackHasKeyframes(0));
-    // A picture track always has its four lines (0.24), Position, Rotation, Scale and Opacity, so a
-    // clip can get its first key there; with no animation they carry no key at all (no diamond for
+    // A picture track always has its five lines (0.25: Anchor point, Position, Rotation, Scale and
+    // Opacity, as After Effects), so a clip can get its first key there; with no animation they carry no key at all (no diamond for
     // a property's resting value).
     const auto rowOf = [&](const QString &group) {
         for (const QVariant &v : state.trackKeyframeRows(0)) {
@@ -10345,8 +10345,8 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     const auto keysOf = [](const QVariantMap &r) {
         return r.value(QStringLiteral("clips")).toList().first().toMap().value(QStringLiteral("keys")).toList();
     };
-    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
-    for (const char *group : {"position", "rotation", "scale", "opacity"})
+    QCOMPARE(state.trackKeyframeRows(0).size(), 5);
+    for (const char *group : {"anchor", "position", "rotation", "scale", "opacity"})
         QVERIFY2(keysOf(rowOf(QLatin1String(group))).isEmpty(), group);
 
     const QString opacity = QStringLiteral("opacity");
@@ -10354,7 +10354,7 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     state.setClipKeyframe(0, 0, opacity, 3.0, 0.0);
     state.setClipKeyframe(0, 0, opacity, 5.0, 1.0);
     QVERIFY(state.trackHasKeyframes(0));
-    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 5);
     const QVariantMap row = rowOf(opacity);
     QCOMPARE(row.value(QStringLiteral("prop")).toString(), opacity);
     QVERIFY(!row.value(QStringLiteral("label")).toString().isEmpty());
@@ -10383,9 +10383,9 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
         QCOMPARE(key.value(QStringLiteral("refs")).toList().size(), axes);
     }
     state.setKeyframeGroupExpanded(0, QStringLiteral("position"), true);
-    QCOMPARE(state.trackKeyframeRows(0).size(), 6);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 7);
     state.setKeyframeGroupExpanded(0, QStringLiteral("position"), false);
-    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 5);
 
     // The lines act on the selected clip, else the one under the playhead.
     state.clearSelection();
@@ -10401,10 +10401,10 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     state.undo();
     QCOMPARE(keysOf(rowOf(QStringLiteral("position"))).size(), 2);
 
-    // Folded the row keeps its height; unfolded it grows by its four lines, saved with the project.
+    // Folded the row keeps its height; unfolded it grows by its five lines, saved with the project.
     const int folded = state.trackRowHeight(0, metrics);
     state.setTrackKeyframesExpanded(0, true);
-    QCOMPARE(state.trackRowHeight(0, metrics), folded + 4 * 18);
+    QCOMPARE(state.trackRowHeight(0, metrics), folded + 5 * 18);
     {
         QString error;
         const drift::Project reloaded = drift::Project::fromJson(state.project()->toJson(), &error);
