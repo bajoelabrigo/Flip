@@ -131,14 +131,20 @@ Item {
                                 Math.min(span.modelData.start + span.modelData.duration,
                                          EditorState.snapTime(span.modelData.start
                                                               + mouse.x / root.pxPerSecond)))
-                            const props = rowItem.modelData.groupProps && !rowItem.modelData.axis
-                                          ? rowItem.modelData.groupProps : [span.modelData.prop]
+                            const props = (rowItem.modelData.groupProps && !rowItem.modelData.axis
+                                           ? rowItem.modelData.groupProps : [span.modelData.prop]).slice()
+                            // Read before the first key: it rebuilds this delegate.
+                            const track = root.trackIndex
+                            const clip = span.modelData.clip
                             if (props.length > 1)
                                 EditorState.beginEditSession(qsTr("Add keyframe"))
-                            for (const prop of props)
-                                EditorState.addClipKeyframeAt(root.trackIndex, span.modelData.clip, prop, at)
-                            if (props.length > 1)
-                                EditorState.endEditSession(true)
+                            try {
+                                for (const prop of props)
+                                    EditorState.addClipKeyframeAt(track, clip, prop, at)
+                            } finally {
+                                if (props.length > 1)
+                                    EditorState.endEditSession(true)
+                            }
                         }
                         onClicked: {
                             root.tools.clear()

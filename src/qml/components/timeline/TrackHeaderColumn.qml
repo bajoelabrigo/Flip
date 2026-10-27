@@ -1188,37 +1188,55 @@ Item {
                         }
 
                         // A key here and now on these properties, or take it away (one undo step).
+                        // Everything is read before the first edit: that edit rebuilds the rows and
+                        // this delegate with them, and a session left open would make the next
+                        // Cancel (Texto avanzado) undo all the work since.
                         function toggleKeyHere() {
                             if (keyLine.clip < 0)
                                 return
-                            const several = keyLine.keysHere.length > 1
-                                            || (keyLine.keysHere.length === 0 && keyLine.props.length > 1)
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            const keys = keyLine.keysHere.slice()
+                            const props = keyLine.props.slice()
+                            const at = EditorState.playheadSeconds
+                            const several = keys.length > 1 || (keys.length === 0 && props.length > 1)
                             if (several)
-                                EditorState.beginEditSession(keyLine.keysHere.length > 0
-                                                             ? qsTr("Remove keyframe") : qsTr("Add keyframe"))
-                            if (keyLine.keysHere.length > 0) {
-                                for (const k of keyLine.keysHere)
-                                    EditorState.removeClipKeyframe(keyLines.trackIndex, keyLine.clip, k.prop, k.seconds)
-                            } else {
-                                for (const prop of keyLine.props)
-                                    EditorState.addClipKeyframeAt(keyLines.trackIndex, keyLine.clip, prop,
-                                                                  EditorState.playheadSeconds)
+                                EditorState.beginEditSession(keys.length > 0 ? qsTr("Remove keyframe")
+                                                                             : qsTr("Add keyframe"))
+                            try {
+                                if (keys.length > 0) {
+                                    for (const k of keys)
+                                        EditorState.removeClipKeyframe(track, clip, k.prop, k.seconds)
+                                } else {
+                                    for (const prop of props)
+                                        EditorState.addClipKeyframeAt(track, clip, prop, at)
+                                }
+                            } finally {
+                                if (several)
+                                    EditorState.endEditSession(true)
                             }
-                            if (several)
-                                EditorState.endEditSession(true)
                         }
                         function removeAllKeys() {
                             if (keyLine.clip < 0)
                                 return
-                            EditorState.beginEditSession(qsTr("Remove keyframes"))
-                            for (const prop of keyLine.props) {
-                                if (EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(prop) < 0)
+                            const track = keyLines.trackIndex
+                            const clip = keyLine.clip
+                            const props = keyLine.props.slice()
+                            const animated = EditorState.clipAnimatedProperties(track, clip)
+                            const doomed = []
+                            for (const prop of props) {
+                                if (animated.indexOf(prop) < 0)
                                     continue
-                                const keys = (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, prop) || []).slice()
-                                for (const k of keys)
-                                    EditorState.removeClipKeyframe(keyLines.trackIndex, keyLine.clip, prop, k.seconds)
+                                for (const k of (EditorState.clipKeyframes(track, clip, prop) || []))
+                                    doomed.push({ prop: prop, seconds: k.seconds })
                             }
-                            EditorState.endEditSession(true)
+                            EditorState.beginEditSession(qsTr("Remove keyframes"))
+                            try {
+                                for (const k of doomed)
+                                    EditorState.removeClipKeyframe(track, clip, k.prop, k.seconds)
+                            } finally {
+                                EditorState.endEditSession(true)
+                            }
                         }
                         // Playhead to the key before or after it on this line.
                         function stepKey(forward) {

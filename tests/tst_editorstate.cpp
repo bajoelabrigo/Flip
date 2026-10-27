@@ -183,6 +183,7 @@ private slots:
     void workAreaMarkClearAndUndo();
     void bookmarkSnapTarget();
     void renameClipAndAsset();
+    void cancelledSessionKeepsWorkOfALeftOpenOne();
     void createRenameAndDeleteBinFolder();
     void undoingBinFolderRenameEmitsDataChanged();
     void importIntoDeletedFolderFallsBackToRoot();
@@ -1353,6 +1354,14 @@ void EditorStateTest::newTextBoxHugsItsWordsAndGrowsWithThem()
     QVERIFY(bigger.w <= 1280.0);
     QVERIFY(qAbs(bigger.cx() - first.cx()) < 0.5);
     QVERIFY(clipNow().textAutoFit);
+
+    // Some letters twice as big make their line taller, so the box grows in height too (0.24: it
+    // kept the block's line height and cut the big letters' tops off).
+    state.setClipTextContent(track, clip, QStringLiteral("Hi there"));
+    const TextBox plain = textBoxOf(clipNow());
+    state.patchTextRuns(track, clip, 3, 8, {{QStringLiteral("sizeScale"), 2.0}});
+    const TextBox tall = textBoxOf(clipNow());
+    QVERIFY2(tall.h > plain.h * 1.5, qPrintable(QStringLiteral("%1 -> %2").arg(plain.h).arg(tall.h)));
 #endif
 }
 
@@ -3612,6 +3621,21 @@ void EditorStateTest::bookmarkSnapTarget()
     state.addBookmark(2.0, QStringLiteral("Snap me"));
     // Within the 150ms snap window of the bookmark.
     QCOMPARE(state.snapTime(2.05), 2.0);
+}
+
+void EditorStateTest::cancelledSessionKeepsWorkOfALeftOpenOne()
+{
+    // A caller that opened a session and failed before closing it (0.24: the keyframe diamond)
+    // must not let the next Cancel undo everything done since.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    state.beginEditSession(QStringLiteral("left open"));
+    state.setClipName(0, 0, QStringLiteral("Kept"));
+    state.beginEditSession(QStringLiteral("Advanced text"));
+    state.setClipName(0, 0, QStringLiteral("Cancelled"));
+    state.endEditSession(false);
+    QCOMPARE(state.clipAt(0, 0).value(QStringLiteral("name")).toString(), QStringLiteral("Kept"));
 }
 
 void EditorStateTest::renameClipAndAsset()

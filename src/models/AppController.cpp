@@ -13642,8 +13642,11 @@ void AppController::writeTextRangeStyle(drift::Clip &clip, int start, int end, c
 
 void AppController::beginEditSession(const QString &label)
 {
+    // A session left open (its caller failed half way) is kept and closed first: joined to this
+    // one, cancelling this would undo everything since (0.24: Texto avanzado's Cancel undid the
+    // keys, the replace and the letters' colours).
     if (m_editSessionOpen)
-        return;
+        endEditSession(true);
     m_editSessionOpen = true;
     m_undoStack.beginMacro(label);
 }

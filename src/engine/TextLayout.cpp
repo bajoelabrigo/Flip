@@ -376,7 +376,6 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     if (style.accent.rule != drift::WordAccentRule::None && accentScale > 0.0 && !qFuzzyCompare(accentScale, 1.0))
         accentPx = qMax(1.0, style.pixelSize * accentScale * renderScale);
     const bool anyAccent = std::find(accentFlags.cbegin(), accentFlags.cend(), true) != accentFlags.cend();
-    const bool mixedSizes = !qFuzzyCompare(accentPx, basePx) && anyAccent;
 
     std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
 
@@ -425,6 +424,12 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         for (int p = run.start; p < run.end && p <= source.size(); ++p)
             runAt[p] = ri;
     }
+    // Letters with their own size make their line taller (or shorter) than the block's font: the
+    // paragraph's own line box decides then, as with a scaled accent.
+    const bool runSizes = std::any_of(textRuns.cbegin(), textRuns.cend(), [](const drift::TextRun &run) {
+        return run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0);
+    });
+    const bool mixedSizes = (!qFuzzyCompare(accentPx, basePx) && anyAccent) || runSizes;
     const auto runAtFor = [&](int pos) {
         const int ri = pos >= 0 && pos < runAt.size() ? runAt.at(pos) : -1;
         return ri >= 0 && ri < textRuns.size() ? &textRuns.at(ri) : nullptr;

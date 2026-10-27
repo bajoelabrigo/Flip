@@ -1559,13 +1559,19 @@ Item {
                     }
                 }
 
-                Row {
+                // Side by side where there is room; one under the other in a narrow panel (Texto
+                // avanzado), where the halves cut their names down to "C…" and "Li…".
+                Grid {
+                    id: spacingGrid
                     width: parent.width
-                    spacing: 8
+                    columns: width >= 560 ? 2 : 1
+                    columnSpacing: 8
+                    rowSpacing: 8
                     visible: !root.hasRunSelection
+                    readonly property real cellWidth: columns === 2 ? (width - columnSpacing) / 2 : width
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: spacingGrid.cellWidth
                         propDef: root.textProp("letterSpacing", qsTr("Character"), 1)
                         keyframeList: root.textKeyframes("letterSpacing")
                         useSlider: true
@@ -1574,7 +1580,7 @@ Item {
                         unit: "px"
                     }
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: spacingGrid.cellWidth
                         propDef: root.textProp("lineHeight", qsTr("Line"), 2)
                         keyframeList: root.textKeyframes("lineHeight")
                         useSlider: true
