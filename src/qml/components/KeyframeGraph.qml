@@ -490,8 +490,6 @@ Item {
     // than `visible`, which reads false while the item's parent is hidden: the panel decides
     // whether to show the strip from this.
     readonly property bool hasContent: keyframesTab && hasClip && !!clip && allSeries.length > 0
-    // Nothing drawn outside it: a curve never spills over the tracks around (0.25).
-    clip: true
     height: hasContent ? laneHeight : 0
     visible: hasContent
 
