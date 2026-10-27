@@ -165,6 +165,13 @@ Item {
     // The one definition of a row's height, shared with TimelinePanel and AndroidTimeline. It
     // used to be duplicated in all three, which had to agree or the headers slid out of line
     // with their rows; the nested-lane rule made keeping three copies in step untenable.
+    // Names the unfolded lines the same way the timeline's rows do.
+    TrackKeyframeRows {
+        id: keyRowsNames
+        visible: false
+        width: 0
+    }
+
     // The track the curve editor opens under, and its height (0.24; TimelinePanel says).
     property int curveEditorTrack: -1
     property real curveEditorHeight: 0
@@ -408,8 +415,11 @@ Item {
             readonly property bool insideBracket: (root.tracks[index].transformCoveredBy || []).length > 0
             // The After Effects twirl: unfolds one line per animated property under the clips.
             readonly property bool keyframesExpanded: root.tracks[index].keyframesExpanded === true
+            // A picture track always opens (0.24): its Position, Rotation, Scale and Opacity lines
+            // are where a clip gets its first key.
             readonly property bool hasKeyframes: !root.compact
-                                                 && (root.tracks.length, EditorState.trackHasKeyframes(index))
+                                                 && (["video", "text", "shape"].indexOf(root.tracks[index].type) !== -1
+                                                     || (root.tracks.length, EditorState.trackHasKeyframes(index)))
             readonly property var keyframeRows: keyframesExpanded && !root.compact
                                                 ? (root.tracks.length, EditorState.trackKeyframeRows(index)) : []
             // The unfolded rows, and the curve editor under them when it is this track's (0.24).
@@ -1086,40 +1096,268 @@ Item {
                 }
             }
 
-            // The names of the unfolded property lines, level with their keys in the timeline.
+            // The unfolded property lines, level with their keys in the timeline (0.24): icon, name,
+            // the value at the playhead, a diamond that adds or removes the key there, and a menu.
             Column {
+                id: keyLines
                 visible: trackLabelRow.keyframeRows.length > 0
                 y: trackLabelRow.baseHeight
                 z: 2
                 width: parent.width - 1
+                readonly property int trackIndex: index
+                // The clip the lines act on: the selected one on this track, else the one under
+                // the playhead.
+                readonly property int targetClip: {
+                    void EditorState.playheadSeconds
+                    void EditorState.selectedClip
+                    void EditorState.tracksRevision
+                    return EditorState.keyframeTargetClip(keyLines.trackIndex)
+                }
                 Repeater {
                     model: trackLabelRow.keyframeRows
                     delegate: Rectangle {
+                        id: keyLine
                         required property var modelData
                         required property int index
+                        readonly property bool joined: !!modelData.group && !modelData.axis
+                        readonly property var props: joined ? modelData.groupProps : [modelData.prop]
+                        readonly property int clip: keyLines.targetClip
                         width: parent.width
                         height: Theme.keyframeRowHeight
                         color: Qt.rgba(0, 0, 0, index % 2 === 0 ? 0.16 : 0.08)
 
-                        Rectangle {
-                            x: Theme.spacing3xl + Theme.spacingSm + 2
-                            anchors.verticalCenter: parent.verticalCenter
-                            width: 7
-                            height: 7
-                            rotation: 45
-                            color: Theme.keyframeCurveColor(modelData.prop)
+                        function valueOf(prop) {
+                            void EditorState.playheadSeconds
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return NaN
+                            const base = EditorState.propertyBaseValue(keyLines.trackIndex, keyLine.clip, prop, 0)
+                            return EditorState.propertyValueAt(keyLines.trackIndex, keyLine.clip, prop,
+                                                               EditorState.playheadSeconds, base)
                         }
-                        Text {
-                            anchors.left: parent.left
-                            anchors.leftMargin: Theme.spacing3xl + Theme.spacingSm + 16
-                            anchors.right: parent.right
-                            anchors.rightMargin: Theme.spacingSm
+                        // The key of each of this line's properties under the playhead, if any.
+                        readonly property var keysHere: {
+                            void EditorState.playheadSeconds
+                            void EditorState.tracksRevision
+                            const out = []
+                            if (keyLine.clip < 0)
+                                return out
+                            for (const prop of keyLine.props) {
+                                if (EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(prop) < 0)
+                                    continue
+                                const keys = EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, prop) || []
+                                for (const k of keys) {
+                                    if (Math.abs(k.seconds - EditorState.playheadSeconds) < 1 / 120)
+                                        out.push({ prop: prop, seconds: k.seconds })
+                                }
+                            }
+                            return out
+                        }
+                        readonly property string summary: {
+                            if (keyLine.clip < 0)
+                                return "—"
+                            const n = v => isNaN(v) ? "—" : String(Math.round(v))
+                            const group = keyLine.joined ? keyLine.modelData.group : ""
+                            if (group === "position")
+                                return "X: " + n(valueOf("x")) + " · Y: " + n(valueOf("y"))
+                            if (group === "rotation")
+                                return Number(valueOf("rotation")).toFixed(1) + "°"
+                            if (group === "scale") {
+                                // As the inspector: 100 % fills the canvas on its tighter axis.
+                                const cw = Math.max(1, EditorState.projectFile.projectWidth())
+                                const ch = Math.max(1, EditorState.projectFile.projectHeight())
+                                return Math.round(Math.max(valueOf("width") / cw, valueOf("height") / ch) * 100) + " %"
+                            }
+                            if (group === "opacity")
+                                return Math.round(valueOf("opacity") * 100) + " %"
+                            const v = valueOf(keyLine.modelData.prop)
+                            return isNaN(v) ? "—" : (Math.abs(v) >= 10 ? String(Math.round(v)) : v.toFixed(2))
+                        }
+                        readonly property string iconName: {
+                            switch (keyLine.joined ? keyLine.modelData.group : "") {
+                            case "position": return "move"
+                            case "rotation": return "rotate-cw"
+                            case "scale": return "scaling"
+                            case "opacity": return Theme.icons.blend
+                            }
+                            return ""
+                        }
+
+                        // A key here and now on these properties, or take it away (one undo step).
+                        function toggleKeyHere() {
+                            if (keyLine.clip < 0)
+                                return
+                            const several = keyLine.keysHere.length > 1
+                                            || (keyLine.keysHere.length === 0 && keyLine.props.length > 1)
+                            if (several)
+                                EditorState.beginEditSession(keyLine.keysHere.length > 0
+                                                             ? qsTr("Remove keyframe") : qsTr("Add keyframe"))
+                            if (keyLine.keysHere.length > 0) {
+                                for (const k of keyLine.keysHere)
+                                    EditorState.removeClipKeyframe(keyLines.trackIndex, keyLine.clip, k.prop, k.seconds)
+                            } else {
+                                for (const prop of keyLine.props)
+                                    EditorState.addClipKeyframeAt(keyLines.trackIndex, keyLine.clip, prop,
+                                                                  EditorState.playheadSeconds)
+                            }
+                            if (several)
+                                EditorState.endEditSession(true)
+                        }
+                        function removeAllKeys() {
+                            if (keyLine.clip < 0)
+                                return
+                            EditorState.beginEditSession(qsTr("Remove keyframes"))
+                            for (const prop of keyLine.props) {
+                                if (EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(prop) < 0)
+                                    continue
+                                const keys = (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, prop) || []).slice()
+                                for (const k of keys)
+                                    EditorState.removeClipKeyframe(keyLines.trackIndex, keyLine.clip, prop, k.seconds)
+                            }
+                            EditorState.endEditSession(true)
+                        }
+                        // Playhead to the key before or after it on this line.
+                        function stepKey(forward) {
+                            if (keyLine.clip < 0)
+                                return
+                            const now = EditorState.playheadSeconds
+                            let best = NaN
+                            for (const prop of keyLine.props) {
+                                const keys = EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, prop) || []
+                                for (const k of keys) {
+                                    const ahead = forward ? k.seconds > now + 1 / 120 : k.seconds < now - 1 / 120
+                                    if (ahead && (isNaN(best) || (forward ? k.seconds < best : k.seconds > best)))
+                                        best = k.seconds
+                                }
+                            }
+                            if (!isNaN(best))
+                                EditorState.playheadSeconds = best
+                        }
+
+                        // Open a joined line into its axes.
+                        IconGlyph {
+                            id: axisTwirl
+                            visible: keyLine.modelData.expandable === true
+                            x: 6
                             anchors.verticalCenter: parent.verticalCenter
-                            text: modelData.label
-                            color: Theme.mutedForeground
-                            font.family: Theme.fontFamily
-                            font.pixelSize: Theme.fontSizeTiny
-                            elide: Text.ElideRight
+                            glyph: keyLine.modelData.expanded ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                            iconSize: 11
+                            iconColor: axisMouse.containsMouse ? Theme.panelForeground : Theme.mutedForeground
+                            MouseArea {
+                                id: axisMouse
+                                anchors.fill: parent
+                                anchors.margins: -5
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: EditorState.setKeyframeGroupExpanded(keyLines.trackIndex, keyLine.modelData.group,
+                                                                                !keyLine.modelData.expanded)
+                            }
+                        }
+                        IconGlyph {
+                            id: lineIcon
+                            visible: keyLine.iconName.length > 0
+                            x: 20
+                            anchors.verticalCenter: parent.verticalCenter
+                            glyph: keyLine.iconName
+                            iconSize: 14
+                            iconColor: Theme.mutedForeground
+                        }
+                        Column {
+                            anchors.left: parent.left
+                            anchors.leftMargin: keyLine.modelData.axis ? 40 : 40
+                            anchors.right: keyButton.left
+                            anchors.rightMargin: 2
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 0
+                            Text {
+                                width: parent.width
+                                text: (keyLine.modelData.axis ? "· " : "") + keyRowsNames.rowLabel(keyLine.modelData)
+                                color: Theme.panelForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeXs
+                                elide: Text.ElideRight
+                            }
+                            Text {
+                                width: parent.width
+                                text: keyLine.summary
+                                color: Theme.mutedForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeTiny
+                                elide: Text.ElideRight
+                            }
+                        }
+                        IconButton {
+                            id: keyButton
+                            anchors.right: moreButton.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            enabled: keyLine.clip >= 0
+                            glyph: keyLine.keysHere.length > 0 ? Theme.icons.diamondMinus : Theme.icons.diamondPlus
+                            variant: "text"
+                            buttonSize: 20
+                            iconSize: 13
+                            active: keyLine.keysHere.length > 0
+                            tooltip: keyLine.keysHere.length > 0 ? qsTr("Remove the keyframe at the playhead")
+                                                                 : qsTr("Add a keyframe at the playhead")
+                            onClicked: keyLine.toggleKeyHere()
+                        }
+                        IconButton {
+                            id: moreButton
+                            anchors.right: parent.right
+                            anchors.rightMargin: 2
+                            anchors.verticalCenter: parent.verticalCenter
+                            enabled: keyLine.clip >= 0
+                            glyph: Theme.icons.ellipsis
+                            variant: "text"
+                            buttonSize: 18
+                            iconSize: 13
+                            tooltip: qsTr("More")
+                            onClicked: lineMenu.popup()
+                        }
+
+                        ThemedContextMenu {
+                            id: lineMenu
+                            ThemedMenuItem {
+                                text: keyLine.keysHere.length > 0 ? qsTr("Remove the keyframe at the playhead")
+                                                                  : qsTr("Add a keyframe at the playhead")
+                                onTriggered: keyLine.toggleKeyHere()
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Previous keyframe")
+                                onTriggered: keyLine.stepKey(false)
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Next keyframe")
+                                onTriggered: keyLine.stepKey(true)
+                            }
+                            ThemedMenuSeparator {}
+                            ThemedMenuItem {
+                                text: qsTr("Remove all keyframes…")
+                                onTriggered: removeAllDialog.open()
+                            }
+                        }
+
+                        ThemedDialog {
+                            id: removeAllDialog
+                            title: qsTr("Remove every keyframe of %1?").arg(keyRowsNames.rowLabel(keyLine.modelData))
+                            acceptText: qsTr("Remove")
+                            acceptVariant: "destructive"
+                            preferredWidth: Theme.dialogWidthSm
+                            acceptOnReturn: false
+                            contentItem: ThemedLabel {
+                                width: parent ? parent.width : Theme.dialogWidthSm
+                                wrapMode: Text.WordWrap
+                                size: "sm"
+                                text: qsTr("The clip keeps the value it has at the playhead. You can undo afterwards.")
+                            }
+                            onAccepted: keyLine.removeAllKeys()
+                        }
+
+                        // Right-click on the line: the same menu.
+                        MouseArea {
+                            anchors.fill: parent
+                            z: -1
+                            acceptedButtons: Qt.RightButton
+                            onClicked: if (keyLine.clip >= 0) lineMenu.popup()
                         }
                     }
                 }

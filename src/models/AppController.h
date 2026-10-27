@@ -1376,6 +1376,11 @@ public:
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
+    // A joined line of a track's keyframes (Position, Scale) opened into its axes (0.24).
+    Q_INVOKABLE void setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded);
+    // The clip a track's keyframe lines act on: the selected one if it is on that track, else the
+    // one under the playhead; -1 for none.
+    Q_INVOKABLE int keyframeTargetClip(int trackIndex) const;
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
     Q_INVOKABLE QVariantList effectCatalog() const;
 
@@ -2612,6 +2617,8 @@ protected:
     QString m_previewDragText;
     // Something was written since beginPreviewDrag; a press with no movement commits nothing.
     bool m_previewDragDirty = false;
+    // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
+    QSet<QString> m_keyframeGroupsExpanded;
     // The shaded letters the layer calls aim at (setTextStyleRange).
     int m_textRangeTrack = -1;
     int m_textRangeClip = -1;

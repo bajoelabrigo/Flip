@@ -23616,18 +23616,165 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
     return label.isEmpty() ? prop : label;
 }
 
+namespace {
+
+// The four transform lines every picture track unfolds into (0.24, as in the editors Jorge
+// compared): Position and Scale join their two axes on one line and open into them.
+struct KeyframeGroup
+{
+    const char *id;
+    QStringList props;
+};
+
+const QList<KeyframeGroup> &keyframeGroups()
+{
+    static const QList<KeyframeGroup> groups = {
+        {"position", {QStringLiteral("x"), QStringLiteral("y")}},
+        {"rotation", {QStringLiteral("rotation")}},
+        {"scale", {QStringLiteral("width"), QStringLiteral("height")}},
+        {"opacity", {QStringLiteral("opacity")}},
+    };
+    return groups;
+}
+
+bool tracksTransform(const drift::Track &track)
+{
+    return track.type == drift::TrackType::Video || track.type == drift::TrackType::Text
+           || track.type == drift::TrackType::Shape;
+}
+
+} // namespace
+
+void AppController::setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    const QString key = m_project.tracks().at(trackIndex).id + QLatin1Char('|') + group;
+    if (m_keyframeGroupsExpanded.contains(key) == expanded)
+        return;
+    if (expanded)
+        m_keyframeGroupsExpanded.insert(key);
+    else
+        m_keyframeGroupsExpanded.remove(key);
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    emit tracksChanged();
+}
+
+int AppController::keyframeTargetClip(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return -1;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (m_selectedTrack == trackIndex && m_selectedClip >= 0 && m_selectedClip < track.clips.size())
+        return m_selectedClip;
+    const drift::TimeUs now = drift::secondsToUs(playheadSeconds());
+    for (int c = 0; c < track.clips.size(); ++c) {
+        const drift::Clip &clip = track.clips.at(c);
+        if (now >= clip.timelineStart && now < clip.timelineStart + clip.timelineDuration)
+            return c;
+    }
+    return -1;
+}
+
 QVariantList AppController::trackKeyframeRows(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
         || m_project.tracks().at(trackIndex).isAdjustmentLane())
         return {};
-    // One row per property name across the track's clips (two clips each animating "Opacity"
-    // share a row, as one layer's property does in After Effects), in first-seen order.
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    const int clipCount = track.clips.size();
+    QVariantList rows;
+
+    // Position, Rotation, Scale and Opacity first, always there on a picture track so a key can be
+    // added to a clip that has none yet. A joined line holds one key per time any of its axes has
+    // one, carrying the axes' own keys (refs) so a drag moves them together.
+    QSet<QString> grouped;
+    if (tracksTransform(track)) {
+        for (const KeyframeGroup &group : keyframeGroups()) {
+            const QString groupId = QString::fromLatin1(group.id);
+            for (const QString &prop : group.props)
+                grouped.insert(prop);
+            QVariantList clips;
+            for (int c = 0; c < clipCount; ++c) {
+                // A property's lone key at 0 is its resting value, not an animation: no diamond.
+                const QStringList animated = clipAnimatedProperties(trackIndex, c);
+                QMap<qint64, QVariantMap> merged;
+                for (const QString &prop : group.props) {
+                    if (!animated.contains(prop))
+                        continue;
+                    for (const QVariant &v : clipKeyframes(trackIndex, c, prop)) {
+                        QVariantMap key = v.toMap();
+                        const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                        const qint64 slot = qRound64(seconds * 1000.0);
+                        QVariantMap &at = merged[slot];
+                        if (at.isEmpty())
+                            at = key;
+                        QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                        refs.append(QVariantMap{{QStringLiteral("prop"), prop},
+                                                {QStringLiteral("seconds"), seconds}});
+                        at.insert(QStringLiteral("refs"), refs);
+                    }
+                }
+                QVariantList keys;
+                for (const QVariantMap &key : std::as_const(merged))
+                    keys.append(key);
+                const drift::Clip &clip = track.clips.at(c);
+                clips.append(QVariantMap{
+                    {QStringLiteral("clip"), c},
+                    {QStringLiteral("prop"), group.props.first()},
+                    {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                    {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                    {QStringLiteral("keys"), keys},
+                });
+            }
+            const bool expanded = group.props.size() > 1
+                && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
+            rows.append(QVariantMap{
+                {QStringLiteral("group"), groupId},
+                {QStringLiteral("groupProps"), group.props},
+                {QStringLiteral("prop"), group.props.first()},
+                {QStringLiteral("label"), groupId},
+                {QStringLiteral("expandable"), group.props.size() > 1},
+                {QStringLiteral("expanded"), expanded},
+                {QStringLiteral("clips"), clips},
+            });
+            if (!expanded)
+                continue;
+            // Opened: one line per axis, under the joined one.
+            for (const QString &prop : group.props) {
+                QVariantList axisClips;
+                for (int c = 0; c < clipCount; ++c) {
+                    const drift::Clip &clip = track.clips.at(c);
+                    axisClips.append(QVariantMap{
+                        {QStringLiteral("clip"), c},
+                        {QStringLiteral("prop"), prop},
+                        {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                        {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                        {QStringLiteral("keys"), clipAnimatedProperties(trackIndex, c).contains(prop)
+                                                     ? clipKeyframes(trackIndex, c, prop) : QVariantList()},
+                    });
+                }
+                rows.append(QVariantMap{
+                    {QStringLiteral("group"), groupId},
+                    {QStringLiteral("axis"), true},
+                    {QStringLiteral("prop"), prop},
+                    {QStringLiteral("label"), prop},
+                    {QStringLiteral("clips"), axisClips},
+                });
+            }
+        }
+    }
+
+    // Then one row per other animated property across the track's clips (two clips each
+    // animating the same one share a row, as one layer's property does in After Effects), in
+    // first-seen order.
     QStringList order;
     QHash<QString, QVariantList> clipsByLabel;
-    const int clipCount = m_project.tracks().at(trackIndex).clips.size();
     for (int c = 0; c < clipCount; ++c) {
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
+            if (grouped.contains(prop))
+                continue;
             const QVariantList keys = clipKeyframes(trackIndex, c, prop);
             if (keys.isEmpty())
                 continue;
@@ -23645,7 +23792,6 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             });
         }
     }
-    QVariantList rows;
     for (const QString &label : std::as_const(order)) {
         const QVariantList clips = clipsByLabel.value(label);
         rows.append(QVariantMap{

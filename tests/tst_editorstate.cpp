@@ -10307,27 +10307,64 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     const QVariantMap metrics{{QStringLiteral("video"), 60.0}, {QStringLiteral("lane"), 20.0},
                               {QStringLiteral("keyframeRow"), 18.0}};
     QVERIFY(!state.trackHasKeyframes(0));
-    QVERIFY(state.trackKeyframeRows(0).isEmpty());
+    // A picture track always has its four lines (0.24), Position, Rotation, Scale and Opacity, so a
+    // clip can get its first key there; with no animation they carry no key at all (no diamond for
+    // a property's resting value).
+    const auto rowOf = [&](const QString &group) {
+        for (const QVariant &v : state.trackKeyframeRows(0)) {
+            const QVariantMap r = v.toMap();
+            if (r.value(QStringLiteral("group")).toString() == group && !r.value(QStringLiteral("axis")).toBool())
+                return r;
+        }
+        return QVariantMap{};
+    };
+    const auto keysOf = [](const QVariantMap &r) {
+        return r.value(QStringLiteral("clips")).toList().first().toMap().value(QStringLiteral("keys")).toList();
+    };
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    for (const char *group : {"position", "rotation", "scale", "opacity"})
+        QVERIFY2(keysOf(rowOf(QLatin1String(group))).isEmpty(), group);
 
     const QString opacity = QStringLiteral("opacity");
     state.setClipKeyframe(0, 0, opacity, 1.0, 1.0);
     state.setClipKeyframe(0, 0, opacity, 3.0, 0.0);
     state.setClipKeyframe(0, 0, opacity, 5.0, 1.0);
     QVERIFY(state.trackHasKeyframes(0));
-    const QVariantList rows = state.trackKeyframeRows(0);
-    QCOMPARE(rows.size(), 1);
-    const QVariantMap row = rows.first().toMap();
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    const QVariantMap row = rowOf(opacity);
     QCOMPARE(row.value(QStringLiteral("prop")).toString(), opacity);
     QVERIFY(!row.value(QStringLiteral("label")).toString().isEmpty());
     const QVariantMap entry = row.value(QStringLiteral("clips")).toList().first().toMap();
     QCOMPARE(entry.value(QStringLiteral("start")).toDouble(), 1.0);
     QCOMPARE(entry.value(QStringLiteral("duration")).toDouble(), 4.0);
     QCOMPARE(entry.value(QStringLiteral("keys")).toList().size(), 3);
+    QVERIFY(keysOf(rowOf(QStringLiteral("position"))).isEmpty());
 
-    // Folded the row keeps its height; unfolded it grows by one line, saved with the project.
+    // Position joins X and Y: keys at the same time are one diamond carrying both, and the line
+    // opens into its two axes.
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 2.0, 10.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("y"), 2.0, 20.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 4.0, 30.0);
+    const QVariantList joined = keysOf(rowOf(QStringLiteral("position")));
+    QCOMPARE(joined.size(), 2);
+    QCOMPARE(joined.first().toMap().value(QStringLiteral("refs")).toList().size(), 2);
+    QCOMPARE(joined.last().toMap().value(QStringLiteral("refs")).toList().size(), 1);
+    state.setKeyframeGroupExpanded(0, QStringLiteral("position"), true);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 6);
+    state.setKeyframeGroupExpanded(0, QStringLiteral("position"), false);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+
+    // The lines act on the selected clip, else the one under the playhead.
+    state.clearSelection();
+    state.setPlayheadSeconds(2.0);
+    QCOMPARE(state.keyframeTargetClip(0), 0);
+    state.setPlayheadSeconds(9.0);
+    QCOMPARE(state.keyframeTargetClip(0), -1);
+
+    // Folded the row keeps its height; unfolded it grows by its four lines, saved with the project.
     const int folded = state.trackRowHeight(0, metrics);
     state.setTrackKeyframesExpanded(0, true);
-    QCOMPARE(state.trackRowHeight(0, metrics), folded + 18);
+    QCOMPARE(state.trackRowHeight(0, metrics), folded + 4 * 18);
     {
         QString error;
         const drift::Project reloaded = drift::Project::fromJson(state.project()->toJson(), &error);

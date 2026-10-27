@@ -241,6 +241,23 @@ Pendientes que quedaban, más las mejoras de texto que propuso Claude («aprovec
         `.curve-under-track` en `Timeline.tsx`;
       - en la web medía más que el del escritorio: ahora 88/180 px y solo las propiedades animadas.
 
+- [x] **Panel de fotogramas clave por pista** (documento de Jorge, 2026-10-27, con imagen de referencia en
+      `Downloads\Línea de tiempo con fotogramas clave.png`). Diagnóstico: ya existían la flecha de la pista
+      (`Track::keyframesExpanded`, guardada), las líneas bajo los clips (`TrackKeyframeRows.qml`, misma escala que la
+      regla), elegir/mover/menú/Curvas (`KeyframeKeyTools`) y deshacer. Añadido:
+      - las 4 líneas fijas en toda pista de imagen (vídeo, texto, forma): **Posición** (X+Y juntas, se abre en X e Y),
+        **Rotación**, **Escala** (ancho+alto, se abre) y **Opacidad**; después, las demás propiedades animadas como
+        antes (`trackKeyframeRows`, `keyframeGroups()`, `setKeyframeGroupExpanded`). Sin rombos falsos (la clave
+        sola en 0 no se dibuja);
+      - una clave de una línea junta lleva las de sus ejes (`refs`) y se mueven juntas (arrastre de grupo existente);
+      - filas de 36 px con icono, nombre y **valor en el cabezal** (X/Y, grados, % de escala como el inspector, %);
+        botón **rombo** para poner o quitar la clave en el cabezal (un paso de deshacer), menú **«…»** y clic
+        derecho: poner/quitar, anterior/siguiente, **quitar todas** (con confirmación);
+      - el clip sobre el que actúan (`keyframeTargetClip`: el elegido de esa pista o el que está bajo el cabezal) se
+        resalta en turquesa; claves en gris claro, elegidas en turquesa, anillo turquesa en la del cabezal;
+      - **Falta**: «Restablecer» por propiedad (no hay operación por propiedad, solo `resetClipTransform` entero);
+        la web (este panel es del escritorio).
+
 ## Revisión de Claude (2026-10-26, noche): errores de DeepSeek y arreglos
 
 1. **El fondo de las letras se escalaba dos veces** (`drawRunBackgrounds` multiplicaba por `m_scale` un `cellRect`

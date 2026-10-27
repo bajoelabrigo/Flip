@@ -598,7 +598,7 @@ QtObject {
     // taken off — under half the touch floor for the toggles that live in them.
     readonly property real adjustmentLaneHeight: touchUi ? 24 : 20
     // One animated property's line under an unfolded track (the twirl in its header).
-    readonly property real keyframeRowHeight: touchUi ? 24 : 18
+    readonly property real keyframeRowHeight: touchUi ? 40 : 36 // icon, name and value per line (0.24)
     readonly property real trackGap: 6
     // Invisible hit area above tracks (no visible UI) for new-track drops when timeline has clips.
     readonly property real newTrackHitSlop: 24
