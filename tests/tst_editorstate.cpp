@@ -129,6 +129,9 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void shadedLettersTakeLayersLooksAndBoxAlone();
+    void findAndReplaceInTexts();
+    void findAndReplaceInSubtitleCues();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -180,6 +183,7 @@ private slots:
     void workAreaMarkClearAndUndo();
     void bookmarkSnapTarget();
     void renameClipAndAsset();
+    void cancelledSessionKeepsWorkOfALeftOpenOne();
     void createRenameAndDeleteBinFolder();
     void undoingBinFolderRenameEmitsDataChanged();
     void importIntoDeletedFolderFallsBackToRoot();
@@ -1049,6 +1053,121 @@ void EditorStateTest::addTextClip()
     QCOMPARE(state.selectedClip(), 0);
 }
 
+// 0.24: with letters shaded (setTextStyleRange), the layer calls the inspector makes edit the
+// stack of those letters only, in one undo step each, and the block keeps its own.
+void EditorStateTest::shadedLettersTakeLayersLooksAndBoxAlone()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("HOLA MUNDO"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const auto clip = [&]() -> const drift::Clip & { return state.project()->tracks().at(t).clips.at(c); };
+    const QList<drift::TextShadingLayer> blockLayers = clip().textStyle.layers;
+    const auto runAt = [&](int at) { return drift::textRunAt(clip().textStyle.runs, at); };
+
+    state.setTextStyleRange(t, c, 5, 10);
+    const QString shadow = state.addTextLayer(t, c, QStringLiteral("shadow"));
+    QVERIFY(!shadow.isEmpty());
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+    QVERIFY(runAt(5) && runAt(5)->layersEnabled);
+    QCOMPARE(runAt(5)->layers.size(), blockLayers.size() + 1);
+    QVERIFY(!runAt(2));
+
+    // The layer's own controls reach it by id, in the letters' stack.
+    state.setStyleLayer(t, c, shadow, QVariantMap{{QStringLiteral("offsetX"), 21.0}});
+    const auto shadowOf = [&]() -> const drift::TextShadingLayer * {
+        for (const drift::TextShadingLayer &l : runAt(5)->layers)
+            if (l.id == shadow)
+                return &l;
+        return nullptr;
+    };
+    QVERIFY(shadowOf());
+    QCOMPARE(shadowOf()->offsetX, 21.0);
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+
+    // One undo per call: back to the shadow as added, then to no stretch at all.
+    state.undo();
+    QVERIFY(shadowOf());
+    QVERIFY(shadowOf()->offsetX != 21.0);
+    state.undo();
+    QVERIFY(!runAt(5) || !runAt(5)->layersEnabled);
+    state.redo();
+    QVERIFY(shadowOf());
+
+    // Its id is its own, never one of the block's: a keyframe on it animates only these letters.
+    QVERIFY(!drift::findTextLayer(clip().textStyle.layers, shadow));
+    const QString prop = QStringLiteral("text.layer.%1.offsetX").arg(shadow);
+    state.setClipKeyframe(t, c, prop, 0.0, 2.0);
+    state.setClipKeyframe(t, c, prop, 1.0, 30.0);
+    const drift::TextStyle halfway = clip().textStyle.resolvedAt(drift::secondsToUs(0.5));
+    const drift::TextRun *halfRun = drift::textRunAt(halfway.runs, 5);
+    QVERIFY(halfRun);
+    const drift::TextShadingLayer *moving = drift::findTextLayer(halfRun->layers, shadow);
+    QVERIFY(moving);
+    QVERIFY2(moving->offsetX > 2.5 && moving->offsetX < 29.5, qPrintable(QString::number(moving->offsetX)));
+    QCOMPARE(halfway.layers.size(), blockLayers.size());
+
+    // Removing it there leaves the block alone too.
+    QVERIFY(state.removeStyleLayer(t, c, shadow));
+    QVERIFY(!shadowOf());
+    QCOMPARE(clip().textStyle.layers.size(), blockLayers.size());
+
+    // The box: a padding slider keeps the colour, and boxEnabled:false takes it away.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxEnabled"), true},
+                                                  {QStringLiteral("boxColor"), QStringLiteral("#ff0000ff")}});
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxPadding"), 12.0}});
+    QVERIFY(runAt(6)->boxEnabled);
+    QCOMPARE(runAt(6)->boxColor, QColor(0, 0, 255));
+    QCOMPARE(runAt(6)->boxPadding, 12.0);
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("boxEnabled"), false}});
+    QVERIFY(!runAt(6)->boxEnabled);
+
+    // The transform: X then Y, and the first one stays.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("offsetX"), 8.0}});
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("offsetY"), -4.0}});
+    QVERIFY(runAt(7)->transformEnabled);
+    QCOMPARE(runAt(7)->offsetX, 8.0);
+    QCOMPARE(runAt(7)->offsetY, -4.0);
+
+    // A look goes to the letters only; with nothing shaded it goes to the whole block again.
+    const QVariantList looks = state.textLooks();
+    QVERIFY(!looks.isEmpty());
+    const QString lookId = looks.first().toMap().value(QStringLiteral("id")).toString();
+    state.applyTextLook(t, c, lookId);
+    QVERIFY(clip().textStyle.lookId.isEmpty());
+    QVERIFY(runAt(5)->layersEnabled);
+    state.setTextStyleRange(t, c, -1, -1);
+    state.applyTextLook(t, c, lookId);
+    QCOMPARE(clip().textStyle.lookId, lookId);
+
+    // Spacing, opacity and superscript of the letters; a null value gives back the block's.
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("letterSpacing"), 12.0},
+                                                  {QStringLiteral("opacity"), 0.5},
+                                                  {QStringLiteral("baseline"), QStringLiteral("super")}});
+    QVERIFY(runAt(6)->letterSpacingEnabled);
+    QCOMPARE(runAt(6)->letterSpacing, 12.0);
+    QCOMPARE(runAt(6)->opacity, 0.5);
+    QCOMPARE(runAt(6)->baseline, 1);
+    state.patchTextRuns(t, c, 5, 10, QVariantMap{{QStringLiteral("letterSpacing"), QVariant()},
+                                                  {QStringLiteral("baseline"), QStringLiteral("none")}});
+    QVERIFY(!runAt(6)->letterSpacingEnabled);
+    QCOMPARE(runAt(6)->baseline, 0);
+    QVERIFY(runAt(6)->opacityEnabled);
+
+    // «Remove style» on «UN» of «MUNDO»: those letters lose theirs, the rest keep it.
+    state.clearTextRunsIn(t, c, 6, 8);
+    QVERIFY(!runAt(6) && !runAt(7));
+    QVERIFY(runAt(5) && runAt(8));
+
+    // Shrink to fit keeps the box; turned off, the box follows the text again.
+    state.setTextStyle(t, c, QVariantMap{{QStringLiteral("shrinkToFit"), true}});
+    QVERIFY(clip().textStyle.shrinkToFit);
+    QVERIFY(!clip().textAutoFit);
+    state.setTextStyle(t, c, QVariantMap{{QStringLiteral("shrinkToFit"), false}});
+    QVERIFY(clip().textAutoFit);
+}
+
 // The inline editor: live text with the preedit rendered but never stored, geometry in canvas
 // px, one undo step on commit and none on cancel.
 void EditorStateTest::inlineTextEditCommitsOneUndoStepAndCancelRestores()
@@ -1235,6 +1354,14 @@ void EditorStateTest::newTextBoxHugsItsWordsAndGrowsWithThem()
     QVERIFY(bigger.w <= 1280.0);
     QVERIFY(qAbs(bigger.cx() - first.cx()) < 0.5);
     QVERIFY(clipNow().textAutoFit);
+
+    // Some letters twice as big make their line taller, so the box grows in height too (0.24: it
+    // kept the block's line height and cut the big letters' tops off).
+    state.setClipTextContent(track, clip, QStringLiteral("Hi there"));
+    const TextBox plain = textBoxOf(clipNow());
+    state.patchTextRuns(track, clip, 3, 8, {{QStringLiteral("sizeScale"), 2.0}});
+    const TextBox tall = textBoxOf(clipNow());
+    QVERIFY2(tall.h > plain.h * 1.5, qPrintable(QStringLiteral("%1 -> %2").arg(plain.h).arg(tall.h)));
 #endif
 }
 
@@ -3494,6 +3621,21 @@ void EditorStateTest::bookmarkSnapTarget()
     state.addBookmark(2.0, QStringLiteral("Snap me"));
     // Within the 150ms snap window of the bookmark.
     QCOMPARE(state.snapTime(2.05), 2.0);
+}
+
+void EditorStateTest::cancelledSessionKeepsWorkOfALeftOpenOne()
+{
+    // A caller that opened a session and failed before closing it (0.24: the keyframe diamond)
+    // must not let the next Cancel undo everything done since.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hello"), 0.0);
+    state.beginEditSession(QStringLiteral("left open"));
+    state.setClipName(0, 0, QStringLiteral("Kept"));
+    state.beginEditSession(QStringLiteral("Advanced text"));
+    state.setClipName(0, 0, QStringLiteral("Cancelled"));
+    state.endEditSession(false);
+    QCOMPARE(state.clipAt(0, 0).value(QStringLiteral("name")).toString(), QStringLiteral("Kept"));
 }
 
 void EditorStateTest::renameClipAndAsset()
@@ -10189,27 +10331,80 @@ void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
     const QVariantMap metrics{{QStringLiteral("video"), 60.0}, {QStringLiteral("lane"), 20.0},
                               {QStringLiteral("keyframeRow"), 18.0}};
     QVERIFY(!state.trackHasKeyframes(0));
-    QVERIFY(state.trackKeyframeRows(0).isEmpty());
+    // A picture track always has its four lines (0.24), Position, Rotation, Scale and Opacity, so a
+    // clip can get its first key there; with no animation they carry no key at all (no diamond for
+    // a property's resting value).
+    const auto rowOf = [&](const QString &group) {
+        for (const QVariant &v : state.trackKeyframeRows(0)) {
+            const QVariantMap r = v.toMap();
+            if (r.value(QStringLiteral("group")).toString() == group && !r.value(QStringLiteral("axis")).toBool())
+                return r;
+        }
+        return QVariantMap{};
+    };
+    const auto keysOf = [](const QVariantMap &r) {
+        return r.value(QStringLiteral("clips")).toList().first().toMap().value(QStringLiteral("keys")).toList();
+    };
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    for (const char *group : {"position", "rotation", "scale", "opacity"})
+        QVERIFY2(keysOf(rowOf(QLatin1String(group))).isEmpty(), group);
 
     const QString opacity = QStringLiteral("opacity");
     state.setClipKeyframe(0, 0, opacity, 1.0, 1.0);
     state.setClipKeyframe(0, 0, opacity, 3.0, 0.0);
     state.setClipKeyframe(0, 0, opacity, 5.0, 1.0);
     QVERIFY(state.trackHasKeyframes(0));
-    const QVariantList rows = state.trackKeyframeRows(0);
-    QCOMPARE(rows.size(), 1);
-    const QVariantMap row = rows.first().toMap();
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+    const QVariantMap row = rowOf(opacity);
     QCOMPARE(row.value(QStringLiteral("prop")).toString(), opacity);
     QVERIFY(!row.value(QStringLiteral("label")).toString().isEmpty());
     const QVariantMap entry = row.value(QStringLiteral("clips")).toList().first().toMap();
     QCOMPARE(entry.value(QStringLiteral("start")).toDouble(), 1.0);
     QCOMPARE(entry.value(QStringLiteral("duration")).toDouble(), 4.0);
     QCOMPARE(entry.value(QStringLiteral("keys")).toList().size(), 3);
+    QVERIFY(keysOf(rowOf(QStringLiteral("position"))).isEmpty());
 
-    // Folded the row keeps its height; unfolded it grows by one line, saved with the project.
+    // Position joins X and Y: keys at the same time are one diamond carrying both, and the line
+    // opens into its two axes.
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 2.0, 10.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("y"), 2.0, 20.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 4.0, 30.0);
+    const QVariantList joined = keysOf(rowOf(QStringLiteral("position")));
+    QCOMPARE(joined.size(), 2);
+    QCOMPARE(joined.first().toMap().value(QStringLiteral("refs")).toList().size(), 2);
+    // Keying X keys the position pair: each joined diamond carries every axis key at its time.
+    for (const QVariant &k : joined) {
+        const QVariantMap key = k.toMap();
+        int axes = 0;
+        for (const QString &axis : {QStringLiteral("x"), QStringLiteral("y")})
+            for (const QVariant &a : state.clipKeyframes(0, 0, axis))
+                axes += std::abs(a.toMap().value(QStringLiteral("seconds")).toDouble()
+                                 - key.value(QStringLiteral("seconds")).toDouble()) < 1e-6;
+        QCOMPARE(key.value(QStringLiteral("refs")).toList().size(), axes);
+    }
+    state.setKeyframeGroupExpanded(0, QStringLiteral("position"), true);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 6);
+    state.setKeyframeGroupExpanded(0, QStringLiteral("position"), false);
+    QCOMPARE(state.trackKeyframeRows(0).size(), 4);
+
+    // The lines act on the selected clip, else the one under the playhead.
+    state.clearSelection();
+    state.setPlayheadSeconds(2.0);
+    QCOMPARE(state.keyframeTargetClip(0), 0);
+    state.setPlayheadSeconds(9.0);
+    QCOMPARE(state.keyframeTargetClip(0), -1);
+
+    // «Reset» on Position: X and Y lose their keys and go back; Opacity keeps its animation.
+    state.resetClipProperties(0, 0, {QStringLiteral("x"), QStringLiteral("y")});
+    QVERIFY(keysOf(rowOf(QStringLiteral("position"))).isEmpty());
+    QCOMPARE(keysOf(rowOf(opacity)).size(), 3);
+    state.undo();
+    QCOMPARE(keysOf(rowOf(QStringLiteral("position"))).size(), 2);
+
+    // Folded the row keeps its height; unfolded it grows by its four lines, saved with the project.
     const int folded = state.trackRowHeight(0, metrics);
     state.setTrackKeyframesExpanded(0, true);
-    QCOMPARE(state.trackRowHeight(0, metrics), folded + 18);
+    QCOMPARE(state.trackRowHeight(0, metrics), folded + 4 * 18);
     {
         QString error;
         const drift::Project reloaded = drift::Project::fromJson(state.project()->toJson(), &error);
@@ -12465,6 +12660,129 @@ void EditorStateTest::videoTransitionMirrorsToLinkedAudio()
     state.addTransition(vt, 0, QStringLiteral("crossfade"), 0.5, false);
     QCOMPARE(state.project()->tracks().at(vt).transitions.size(), 1);
     QCOMPARE(state.project()->tracks().at(at).transitions.size(), 0);
+}
+
+// Edit › Find and replace: the options narrow the matches, Replace all is one undo step, the
+// per-letter styles stay on their letters and a single match can be replaced alone.
+void EditorStateTest::findAndReplaceInTexts()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Hola mundo, hola holanda"), 0.0);
+    const QString idA = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.patchTextRuns(state.selectedTrack(), state.selectedClip(), 5, 10,
+                        QVariantMap{{QStringLiteral("color"), QStringLiteral("#ff0000")}});
+    state.addTextClip(QStringLiteral("HOLA hola"), 10.0);
+    const QString idB = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto clipById = [&](const QString &id) -> const drift::Clip * {
+        for (const drift::Track &track : state.project()->tracks())
+            for (const drift::Clip &clip : track.clips)
+                if (clip.id == id)
+                    return &clip;
+        return nullptr;
+    };
+    QVERIFY(clipById(idA) && clipById(idB));
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    QVERIFY(drift::textRunAt(clipById(idA)->textStyle.runs, 5));
+
+    const auto opts = [](bool matchCase, bool wholeWord) {
+        return QVariantMap{{QStringLiteral("matchCase"), matchCase}, {QStringLiteral("wholeWord"), wholeWord}};
+    };
+    const QString needle = QStringLiteral("hola");
+    QCOMPARE(state.findInTexts(needle, opts(false, false)).size(), 5);
+    QCOMPARE(state.findInTexts(needle, opts(true, false)).size(), 3);
+    QCOMPARE(state.findInTexts(needle, opts(false, true)).size(), 4);
+    QCOMPARE(state.findInTexts(needle, opts(true, true)).size(), 2);
+    QVERIFY(state.findInTexts(QString(), opts(false, false)).isEmpty());
+    QVERIFY(state.findInTexts(needle, QVariantMap{{QStringLiteral("scope"), QStringLiteral("subtitles")}}).isEmpty());
+
+    const QVariantMap first = state.findInTexts(needle, opts(false, true)).first().toMap();
+    QCOMPARE(first.value(QStringLiteral("cue")).toInt(), -1);
+    QCOMPARE(first.value(QStringLiteral("start")).toInt(), 0);
+    QCOMPARE(first.value(QStringLiteral("length")).toInt(), 4);
+    QCOMPARE(first.value(QStringLiteral("match")).toString(), QStringLiteral("Hola"));
+    QCOMPARE(first.value(QStringLiteral("kind")).toString(), QStringLiteral("text"));
+
+    // Replace all, longer than what it replaces: "mundo" keeps its colour, one letter further on.
+    QCOMPARE(state.replaceInTexts(needle, QStringLiteral("adiós"), opts(false, true), QVariantList{}), 4);
+    QVERIFY(state.undoAvailable());
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("adiós mundo, adiós holanda"));
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("adiós adiós"));
+    const drift::TextRun *mundo = drift::textRunAt(clipById(idA)->textStyle.runs, 6);
+    QVERIFY(mundo && mundo->colorEnabled);
+    QCOMPARE(mundo->start, 6);
+    QCOMPARE(mundo->end, 11);
+    QVERIFY(!drift::textRunAt(clipById(idA)->textStyle.runs, 5));
+    QVERIFY(state.findInTexts(needle, opts(false, true)).isEmpty());
+
+    // One undo puts every text back, the colour on its old letters.
+    state.undo();
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA hola"));
+    const drift::TextRun *back = drift::textRunAt(clipById(idA)->textStyle.runs, 5);
+    QVERIFY(back && back->start == 5 && back->end == 10);
+
+    // Replace: only the match handed over.
+    QVariantMap pick;
+    for (const QVariant &value : state.findInTexts(needle, opts(true, true))) {
+        const QVariantMap m = value.toMap();
+        if (clipById(idB) == &state.project()->tracks().at(m.value(QStringLiteral("track")).toInt())
+                                  .clips.at(m.value(QStringLiteral("clip")).toInt()))
+            pick = m;
+    }
+    QVERIFY(!pick.isEmpty());
+    QCOMPARE(state.replaceInTexts(needle, QStringLiteral("chau"), opts(true, true), QVariantList{QVariant(pick)}), 1);
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA chau"));
+    QCOMPARE(clipById(idA)->textContent, QStringLiteral("Hola mundo, hola holanda"));
+    // Nothing found: no undo step, so the next undo still takes the "chau" back.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("zzz"), QStringLiteral("y"), QVariantMap{}, QVariantList{}), 0);
+    state.undo();
+    QCOMPARE(clipById(idB)->textContent, QStringLiteral("HOLA hola"));
+}
+
+void EditorStateTest::findAndReplaceInSubtitleCues()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    appendSubtitleLane(*state.project());
+    // The first two captions were aligned word by word.
+    state.project()->tracks()[0].clips[0].subtitleCues[0].wordEndsUs = {drift::secondsToUs(0.4),
+                                                                         drift::secondsToUs(0.9)};
+    state.project()->tracks()[0].clips[1].subtitleCues[0].wordEndsUs = {drift::secondsToUs(0.4),
+                                                                             drift::secondsToUs(0.9)};
+
+    const QVariantMap subtitles{{QStringLiteral("scope"), QStringLiteral("subtitles")}};
+    const QVariantList found = state.findInTexts(QStringLiteral("CUE"), subtitles);
+    QCOMPARE(found.size(), 3);
+    const QVariantMap second = found.at(1).toMap();
+    QCOMPARE(second.value(QStringLiteral("cue")).toInt(), 0);
+    QCOMPARE(second.value(QStringLiteral("kind")).toString(), QStringLiteral("subtitle"));
+    QCOMPARE(second.value(QStringLiteral("seconds")).toDouble(), 5.0);
+    QVERIFY(state.findInTexts(QStringLiteral("cue"), QVariantMap{{QStringLiteral("scope"), QStringLiteral("texts")}})
+                .isEmpty());
+
+    // Same number of words: the timings still fit and stay.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("cue"), QStringLiteral("line"), subtitles, QVariantList{}), 3);
+    const auto cue = [&](int clip) -> const drift::SubtitleCue & {
+        return state.project()->tracks().at(0).clips.at(clip).subtitleCues.at(0);
+    };
+    QCOMPARE(cue(0).text, QStringLiteral("line 0"));
+    QCOMPARE(cue(2).text, QStringLiteral("line 2"));
+    QCOMPARE(cue(0).wordEndsUs.size(), 2);
+
+    // A different number of words: the old timings would light the wrong one, so they go.
+    QCOMPARE(state.replaceInTexts(QStringLiteral("line 1"), QStringLiteral("one more line"), subtitles, QVariantList{}), 1);
+    QCOMPARE(cue(1).text, QStringLiteral("one more line"));
+    QVERIFY(cue(1).wordEndsUs.isEmpty());
+
+    state.undo();
+    QCOMPARE(cue(1).text, QStringLiteral("line 1"));
+    // Replace all was one step: one more undo brings every caption back.
+    state.undo();
+    QCOMPARE(cue(0).text, QStringLiteral("cue 0"));
+    QCOMPARE(cue(2).text, QStringLiteral("cue 2"));
+    QCOMPARE(cue(1).text, QStringLiteral("cue 1"));
+    QCOMPARE(cue(1).wordEndsUs.size(), 2);
 }
 
 QTEST_MAIN(EditorStateTest)

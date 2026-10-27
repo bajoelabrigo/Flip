@@ -591,7 +591,9 @@ Item {
                 height: width
                 item: trendCard.modelData
                 showDuration: false
-                onOpenRequested: root.useTrend(trendCard.modelData)
+                // Descargado, el que responde es el AssetDragSource de encima: si responden los
+                // dos, el clic agrega el texto dos veces.
+                onOpenRequested: if (trendCard.installedId.length === 0) root.useTrend(trendCard.modelData)
 
                 // CapCut's mark: not downloaded yet.
                 Rectangle {

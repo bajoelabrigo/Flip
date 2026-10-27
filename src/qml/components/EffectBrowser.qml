@@ -426,7 +426,9 @@ Column {
                         height: Math.round(width * 9 / 16)
                         item: trendCard.modelData
                         showDuration: false
-                        onOpenRequested: root.useTrend(trendCard.modelData)
+                        // Ya aplicado, el que responde es el AssetDragSource de encima: si
+                        // responden los dos, el clic pone el efecto dos veces.
+                        onOpenRequested: if (!trendCard.installed) root.useTrend(trendCard.modelData)
 
                         // Not downloaded yet (Filmora's mark).
                         Rectangle {

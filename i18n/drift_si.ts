@@ -3271,6 +3271,10 @@
         <translation>ගුණාංග අලවන්න…</translation>
     </message>
     <message>
+        <source>Find and replace…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Go to previous cut point</source>
         <translation>පෙර කැපුම් ලක්ෂ්‍යය වෙත යන්න</translation>
     </message>
@@ -3605,6 +3609,21 @@
     <message>
         <source>Subtitles updated</source>
         <translation>උපසිරැසි යාවත්කාලීන විය</translation>
+    </message>
+    <message>
+        <source>“%1” was not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find and replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Replaced %n time(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Adjust subtitle timing</source>
@@ -6139,6 +6158,10 @@
     </message>
     <message>
         <source>Paste Attributes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14165,6 +14188,99 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FindReplaceDialog</name>
+    <message>
+        <source>Find and replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Word or phrase in your texts and subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace with</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Whole word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Look in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts and subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type what to look for.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No matches</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 in %n clip(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n match(es)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Subtitle · caption %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>locked track, it is not replaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace all</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FontCatalog</name>
     <message>
         <source>Choose a .ttf, .otf or .ttc font file</source>
@@ -15359,6 +15475,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Paste Attributes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find and Replace…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23786,7 +23906,59 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Applies to the selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Selected letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only the letters shaded in «Text input» change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On the line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Superscript</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subscript</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy the style of these letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Give these letters the copied style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23844,6 +24016,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Word spacing</source>
         <translation>වචන පරතරය</translation>
+    </message>
+    <message>
+        <source>Ligatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Letters the font joins into one shape (fi, fl…), when it has them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small caps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower-case letters as small capitals, when the font has them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrink to fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The box keeps its size and the text gets smaller until it fits</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Alignment</source>
@@ -24096,6 +24292,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Transform</source>
         <translation type="unfinished">පරිවර්තනය</translation>
+    </message>
+    <message>
+        <source>These letters move, scale and turn on their own: the rest of the text stays put.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Blend</source>
@@ -26364,6 +26564,58 @@ If playback stutters, try another.</source>
         <source>Show keyframes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove the keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove all keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove every keyframe of %1?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>Group %n tracks</source>
         <translation type="unfinished">
@@ -26485,6 +26737,34 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TrackKeyframeRows</name>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Double-click to add a keyframe</source>
         <translation type="unfinished"></translation>

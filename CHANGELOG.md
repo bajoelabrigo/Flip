@@ -3,6 +3,26 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.24.0 — Efectos de texto solo en las letras elegidas
+
+- `TextRun` lleva su pila de sombreado (`layersEnabled`/`layers`), su fondo (`box*`) y su transformación
+  (`offsetX/offsetY/transformScale/rotation`); el JSON solo escribe lo usado. `SkiaTextPainter` pinta cada tramo con
+  su pila, su fondo (en píxeles de salida, también a otra escala) y su giro alrededor de la caja de los tramos
+  vecinos con la misma transformación; `bleedFor` cuenta lo que pintan los tramos.
+- `AppController::setTextStyleRange`: con letras sombreadas, las llamadas de capas (añadir, quitar, duplicar,
+  mover, editar y su vista previa), los looks, las plantillas y los estilos rápidos editan la pila de esas letras,
+  un paso de deshacer cada una. `patchTextRuns` aplica el fondo y la transformación clave por clave.
+- `TextInspector.qml`: una sola puerta `applyStyle`, `root.layers` y la sección Fondo leen las letras elegidas, la
+  sección Transformación de las letras.
+- Segunda tanda: `TextRun::letterSpacing/lineHeight/opacity/baseline` (la línea toma el mayor interlineado de sus
+  letras; superíndice ×0,62), `TextStyle::ligatures/smallCaps` (`liga`/`clig`/`smcp`) y `shrinkToFit` (búsqueda del
+  tamaño en `fragmentsFor`, apaga `textAutoFit`). Capas de un tramo con ids propios (`<id>~n`) para sus fotogramas
+  clave (`findStyleLayer`). `clearTextRunsIn`, `textLettersPicked` (la selección de la vista previa pasa al panel),
+  `textStyleRangeChanged`. Sección «Letras seleccionadas» del inspector.
+- Buscar y reemplazar (`findInTexts`/`replaceInTexts`, `FindReplaceDialog.qml`, Ctrl+H): un paso de deshacer, los
+  tramos siguen a sus letras (`shiftTextRunsForReplace`).
+- Tendencias (Títulos y Efectos) ya no agrega dos veces; margen derecho en Texto avanzado.
+
 ## 0.23.0 — Texto avanzado como Filmora, panel izquierdo en árbol
 
 - Tramos de texto (`TextRun` en `core/TextStyle.h`): color, tamaño, negrita, cursiva, subrayado y fuente propios

@@ -89,6 +89,8 @@ private slots:
     void textAutoFitRoundTripsOnlyWhenSet();
     void legacyTrackInterpolationMigratesLosslessly();
     void textRunsStyleStretchesOfTheText();
+    void textRunsCarryEffectsBackgroundAndTransform();
+    void textRunsCarrySpacingOpacityScriptAndFeatures();
     void keyframeNearestQuery();
     void sourceFramingRoundTrip();
     void clipPose3dRoundTrip();
@@ -7617,6 +7619,186 @@ void CoreTest::textRunsStyleStretchesOfTheText()
     const drift::TextRun back = drift::textStyleFromJson(drift::textStyleToJson(withRuns)).runs.at(0);
     QVERIFY(back.underlineEnabled && back.underline && back.fontEnabled);
     QCOMPARE(back.fontFamily, QStringLiteral("Bebas Neue"));
+}
+
+// 0.24: un tramo puede llevar su propia pila de sombreado (trazo, sombra, resplandor, estilos),
+// su fondo y su transformación. Todo se guarda, y lo que no se usó no se escribe (un proyecto de
+// la 0.23 se guarda byte a byte igual).
+// 0.24 (segunda tanda): espacio, interlineado, opacidad y superíndice de unas letras, y las
+// opciones del bloque (ligaduras, versalitas, encoger para caber), de ida y vuelta en el JSON.
+void CoreTest::textRunsCarrySpacingOpacityScriptAndFeatures()
+{
+    drift::TextRun run;
+    run.start = 1;
+    run.end = 3;
+    run.letterSpacingEnabled = true;
+    run.letterSpacing = 14.0;
+    run.lineHeightEnabled = true;
+    run.lineHeight = 2.5;
+    run.opacityEnabled = true;
+    run.opacity = 0.4;
+    run.baseline = 1;
+    drift::TextStyle style;
+    style.runs = {run};
+    style.ligatures = false;
+    style.smallCaps = true;
+    style.shrinkToFit = true;
+    const drift::TextStyle loaded = drift::textStyleFromJson(drift::textStyleToJson(style));
+    QCOMPARE(loaded.runs.size(), 1);
+    const drift::TextRun &got = loaded.runs.at(0);
+    QVERIFY(got.letterSpacingEnabled);
+    QCOMPARE(got.letterSpacing, 14.0);
+    QVERIFY(got.lineHeightEnabled);
+    QCOMPARE(got.lineHeight, 2.5);
+    QVERIFY(got.opacityEnabled);
+    QCOMPARE(got.opacity, 0.4);
+    QCOMPARE(got.baseline, 1);
+    QVERIFY(!loaded.ligatures);
+    QVERIFY(loaded.smallCaps);
+    QVERIFY(loaded.shrinkToFit);
+
+    // Una 0.23 no los trae: todo como antes.
+    const drift::TextStyle plain = drift::textStyleFromJson(drift::textStyleToJson(drift::TextStyle{}));
+    QVERIFY(plain.ligatures);
+    QVERIFY(!plain.smallCaps);
+    QVERIFY(!plain.shrinkToFit);
+    drift::TextRun bare;
+    bare.start = 0;
+    bare.end = 2;
+    bare.colorEnabled = true;
+    drift::TextStyle bareStyle;
+    bareStyle.runs = {bare};
+    const QJsonObject bareJson =
+        drift::textStyleToJson(bareStyle).value(QStringLiteral("runs")).toArray().at(0).toObject();
+    QVERIFY(!bareJson.contains(QStringLiteral("opacity")));
+    QVERIFY(!bareJson.contains(QStringLiteral("baseline")));
+    const drift::TextRun bareBack = drift::textStyleFromJson(drift::textStyleToJson(bareStyle)).runs.at(0);
+    QVERIFY(!bareBack.opacityEnabled && !bareBack.letterSpacingEnabled && bareBack.baseline == 0);
+
+    // patchTextRuns suma lo nuevo y conserva el color de antes.
+    drift::TextRun coloured;
+    coloured.start = 0;
+    coloured.end = 4;
+    coloured.colorEnabled = true;
+    coloured.color = QColor(255, 0, 0);
+    drift::TextRun patch;
+    patch.opacityEnabled = true;
+    patch.opacity = 0.5;
+    patch.baseline = -1;
+    const QList<drift::TextRun> patched = drift::patchTextRuns({coloured}, 4, 0, 4, patch);
+    QCOMPARE(patched.size(), 1);
+    QVERIFY(patched.at(0).colorEnabled);
+    QCOMPARE(patched.at(0).opacity, 0.5);
+    QCOMPARE(patched.at(0).baseline, -1);
+}
+
+void CoreTest::textRunsCarryEffectsBackgroundAndTransform()
+{
+    drift::TextRun run;
+    run.start = 2;
+    run.end = 6;
+    run.colorEnabled = true;
+    run.color = QColor(10, 20, 30);
+
+    // Un estilo preestablecido con trazo: la pila entera, con su relleno y su contorno.
+    drift::TextShadingLayer stroke;
+    stroke.kind = drift::TextLayerKind::Stroke;
+    stroke.enabled = true;
+    stroke.paint.color = QColor(255, 0, 0);
+    stroke.width = 4.0;
+    run.layersEnabled = true;
+    run.layers = {stroke};
+
+    run.boxEnabled = true;
+    run.boxColor = QColor(0, 0, 0, 160);
+    run.boxPadding = 8.0;
+    run.boxRadius = 6.0;
+    run.boxBorderWidth = 2.0;
+    run.boxBorderColor = QColor(255, 255, 0);
+
+    run.transformEnabled = true;
+    run.offsetX = 12.0;
+    run.offsetY = -8.0;
+    run.transformScale = 1.25;
+    run.rotation = 30.0;
+
+    drift::TextStyle style;
+    style.runs = {run};
+    const drift::TextStyle loaded = drift::textStyleFromJson(drift::textStyleToJson(style));
+    QCOMPARE(loaded.runs.size(), 1);
+    const drift::TextRun &got = loaded.runs.at(0);
+    QVERIFY(got.layersEnabled);
+    QCOMPARE(got.layers.size(), 1);
+    QCOMPARE(int(got.layers.at(0).kind), int(drift::TextLayerKind::Stroke));
+    QCOMPARE(got.layers.at(0).width, 4.0);
+    QVERIFY(got.boxEnabled);
+    QCOMPARE(got.boxColor.name(QColor::HexArgb), QColor(0, 0, 0, 160).name(QColor::HexArgb));
+    QCOMPARE(got.boxPadding, 8.0);
+    QCOMPARE(got.boxRadius, 6.0);
+    QCOMPARE(got.boxBorderWidth, 2.0);
+    QVERIFY(got.transformEnabled);
+    QCOMPARE(got.offsetX, 12.0);
+    QCOMPARE(got.offsetY, -8.0);
+    QCOMPARE(got.transformScale, 1.25);
+    QCOMPARE(got.rotation, 30.0);
+    // El color de las letras sigue ahí: añadir trazo no lo borra.
+    QVERIFY(got.colorEnabled);
+    QCOMPARE(got.color.name(QColor::HexArgb), QColor(10, 20, 30).name(QColor::HexArgb));
+
+    // Sin nada nuevo, el JSON no lleva las claves (la 0.23 se guarda igual).
+    drift::TextStyle plain;
+    drift::TextRun plainRun;
+    plainRun.start = 0;
+    plainRun.end = 3;
+    plainRun.colorEnabled = true;
+    plainRun.color = Qt::red;
+    plain.runs = {plainRun};
+    const QJsonObject plainJson = drift::textStyleToJson(plain);
+    const QJsonObject firstRun = plainJson.value(QStringLiteral("runs")).toArray().at(0).toObject();
+    QVERIFY(!firstRun.contains(QStringLiteral("layers")));
+    QVERIFY(!firstRun.contains(QStringLiteral("boxColor")));
+    QVERIFY(!firstRun.contains(QStringLiteral("offsetX")));
+
+    // patchTextRuns: el trazo va solo a «LAS» (4..7) y conserva el color que ya tenían.
+    drift::TextRun existing;
+    existing.start = 4;
+    existing.end = 7;
+    existing.colorEnabled = true;
+    existing.color = QColor(0, 200, 0);
+    drift::TextRun patch;
+    patch.layersEnabled = true;
+    patch.layers = {stroke};
+    patch.boxEnabled = true;
+    patch.boxColor = QColor(1, 2, 3, 255);
+    const QList<drift::TextRun> patched =
+        drift::patchTextRuns({existing}, 12, 4, 7, patch);
+    QCOMPARE(patched.size(), 1);
+    QVERIFY(patched.at(0).layersEnabled);
+    QVERIFY(patched.at(0).boxEnabled);
+    QCOMPARE(patched.at(0).boxColor.name(QColor::HexArgb), QColor(1, 2, 3, 255).name(QColor::HexArgb));
+    QVERIFY(patched.at(0).colorEnabled);
+    QCOMPARE(patched.at(0).color.name(QColor::HexArgb), QColor(0, 200, 0).name(QColor::HexArgb));
+
+    // Lo de fuera de la selección no se toca: un tramo en 8..12 sin efectos sigue sin ellos.
+    drift::TextRun outside;
+    outside.start = 8;
+    outside.end = 12;
+    outside.colorEnabled = true;
+    outside.color = Qt::blue;
+    const QList<drift::TextRun> mixed =
+        drift::patchTextRuns({existing, outside}, 14, 4, 7, patch);
+    QCOMPARE(mixed.size(), 2);
+    QVERIFY(mixed.at(0).layersEnabled);
+    QVERIFY(!mixed.at(1).layersEnabled);
+    QVERIFY(!mixed.at(1).boxEnabled);
+
+    // Al escribir, los tramos se corren y se llevan sus efectos.
+    const QList<drift::TextRun> shifted =
+        drift::shiftTextRunsForEdit({got}, QStringLiteral("HOLA MUNDO"), QStringLiteral("HOLA MUNDO!"));
+    QCOMPARE(shifted.size(), 1);
+    QVERIFY(shifted.at(0).layersEnabled);
+    QVERIFY(shifted.at(0).transformEnabled);
+    QCOMPARE(shifted.at(0).rotation, 30.0);
 }
 
 #include "tst_core.moc"

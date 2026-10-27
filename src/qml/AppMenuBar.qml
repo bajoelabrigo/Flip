@@ -251,6 +251,13 @@ Row {
             }
             ThemedMenuSeparator {}
             ThemedMenuItem {
+                text: qsTr("Find and Replace…")
+                shortcutText: root.keys("findReplace")
+                enabled: root.editing
+                onTriggered: root.win.openFindReplace()
+            }
+            ThemedMenuSeparator {}
+            ThemedMenuItem {
                 text: qsTr("Select All")
                 shortcutText: root.keys("selectAll")
                 enabled: root.editing

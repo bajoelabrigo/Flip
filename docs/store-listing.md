@@ -110,6 +110,29 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.24.0)**. Lo nuevo desde la 0.23.0. Si la 0.23.0 tampoco se subió, añadir debajo los
+puntos de las combinadas de la 0.23.0.
+
+> Novedades de la 0.24.0
+>
+> - Efectos solo en las letras elegidas, como Filmora: sombrea unas letras y aplica un estilo, un look, el trazo, la sombra, el resplandor, el fondo o una transformación; el resto del texto se queda igual.
+> - Fondo y transformación por letras: una caja detrás de esas letras, y moverlas, escalarlas o girarlas sin tocar las demás.
+> - Letras seleccionadas: tamaño, espacio, interlineado, opacidad, superíndice y subíndice; copiar, pegar o quitar su estilo.
+> - Buscar y reemplazar en todos los textos y subtítulos (Ctrl+H), texto que se encoge para caber en su caja, ligaduras y versalitas.
+> - Fotogramas clave en la línea de tiempo: Posición, Rotación, Escala y Opacidad debajo de cada pista, con un rombo para poner o quitar la clave; el editor de curvas se abre debajo de su pista.
+> - Arreglos: un clic en Tendencias ya no agrega dos veces lo descargado, y los interruptores de texto se ven enteros, y Cancelar en Texto avanzado ya no deshace el trabajo anterior.
+
+En inglés:
+
+> What's new in 0.24.0
+>
+> - Effects on the selected letters only, like Filmora: select some letters and apply a style, a look, the stroke, shadow, glow, background or a transform; the rest of the text stays as it was.
+> - Background and transform per letter: a box behind those letters, and move, scale or rotate them without touching the others.
+> - Selected letters: size, spacing, line height, opacity, superscript and subscript; copy, paste or remove their style.
+> - Find and replace in every text and subtitle (Ctrl+H), text that shrinks to fit its box, ligatures and small caps.
+> - Keyframes in the timeline: Position, Rotation, Scale and Opacity under each track, with a diamond to add or remove the key; the curve editor opens under its track.
+> - Fixes: one click in Trends no longer adds a downloaded item twice, and the text switches show in full, and Cancel in Advanced text no longer undoes earlier work.
+
 **Notas para la Store (0.23.0)**. Lo nuevo desde la 0.22.0 (660 caracteres; en inglés, 579). **Ojo:** si la
 0.22.0 todavía no se subió (esperaba la aprobación de la 0.21.0), usar las combinadas de abajo.
 

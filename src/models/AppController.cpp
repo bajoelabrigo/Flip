@@ -120,6 +120,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPixmap>
+#include <QRegularExpression>
 #include <QAudioDevice>
 #include <QThreadPool>
 #include <QSaveFile>
@@ -1962,6 +1963,9 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("underlineWidth"), s.underlineWidth},
         {QStringLiteral("underlineOffset"), s.underlineOffset},
         {QStringLiteral("strikeEnabled"), s.strikeEnabled},
+        {QStringLiteral("ligatures"), s.ligatures},
+        {QStringLiteral("smallCaps"), s.smallCaps},
+        {QStringLiteral("shrinkToFit"), s.shrinkToFit},
         {QStringLiteral("accent"), wordAccentToMap(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToMap(s.animation)},
     };
@@ -4631,6 +4635,8 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("copyEffects"), QStringLiteral("Ctrl+Alt+C")},
         {QStringLiteral("pasteEffects"), QStringLiteral("Ctrl+Shift+V")},
         {QStringLiteral("pasteAttributes"), QStringLiteral("Ctrl+Alt+V")},
+        // Word's and Premiere's Find and replace.
+        {QStringLiteral("findReplace"), QStringLiteral("Ctrl+H")},
         {QStringLiteral("split"), QStringLiteral("S")},
         {QStringLiteral("merge"), QStringLiteral("Ctrl+M")},
         {QStringLiteral("unlink"), QStringLiteral("Ctrl+Shift+U")},
@@ -5501,6 +5507,7 @@ QVariantList AppController::actions() const
         action(QStringLiteral("copyEffects"), tr("Copy effects from clip")),
         action(QStringLiteral("pasteEffects"), tr("Paste effects onto clip")),
         action(QStringLiteral("pasteAttributes"), tr("Paste attributes…")),
+        action(QStringLiteral("findReplace"), tr("Find and replace…")),
         action(QStringLiteral("split"), tr("Split at current time")),
         action(QStringLiteral("merge"), tr("Merge adjacent clips")),
         action(QStringLiteral("transformTogether"), tr("Transform selection together")),
@@ -7137,6 +7144,15 @@ void AppController::selectClip(int trackIndex, int clipIndex)
     m_selectedTransitionLeftClip = -1;
     notifySelectionChanged();
     emit selectedTransitionDataChanged();
+}
+
+QVariantMap AppController::clipLocation(const QString &clipId) const
+{
+    int trackIndex = -1;
+    int clipIndex = -1;
+    if (clipId.isEmpty() || !findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        trackIndex = clipIndex = -1;
+    return QVariantMap{{QStringLiteral("track"), trackIndex}, {QStringLiteral("clip"), clipIndex}};
 }
 
 bool AppController::selectClipById(const QString &clipId)
@@ -12654,6 +12670,8 @@ void AppController::endInlineTextEdit(bool commit)
     const QString text = m_inlineEdit.text;
     const QString original = m_inlineEdit.original;
     const QList<drift::TextRun> originalRuns = m_inlineEdit.originalRuns;
+    const int pickedStart = qMin(m_inlineEdit.selStart, m_inlineEdit.selEnd);
+    const int pickedEnd = qMax(m_inlineEdit.selStart, m_inlineEdit.selEnd);
     m_inlineEdit = InlineTextEdit{};
 
     m_playback.setTextEditDecor({}, false);
@@ -12676,6 +12694,10 @@ void AppController::endInlineTextEdit(bool commit)
         emitPreviewFrame();
     }
     emit inlineEditGeometryChanged();
+    // Letters still picked when the edit ends (a click on the panel ends it): the inspector takes
+    // them, so what is touched next goes to those letters (0.24).
+    if (clip && commit && pickedStart >= 0 && pickedEnd > pickedStart)
+        emit textLettersPicked(track, clipIndex, pickedStart, pickedEnd);
 }
 
 QVariantList AppController::inlineCaretQuad() const
@@ -12852,6 +12874,205 @@ void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
     clip.name = drift::subtitleClipName(clip.subtitleCues);
     pushProjectEdit(before, tr("Clean up subtitles"));
     finishEdit(tr("Subtitles cleaned up"));
+}
+
+namespace {
+
+// Edit › Find and replace: what to look for and where.
+struct TextFind
+{
+    bool texts = true;
+    bool subtitles = true;
+    QRegularExpression re;
+    bool valid = false;
+};
+
+TextFind textFindFor(const QString &needle, const QVariantMap &options)
+{
+    TextFind find;
+    const QString scope = options.value(QStringLiteral("scope"), QStringLiteral("all")).toString();
+    find.texts = scope != QStringLiteral("subtitles");
+    find.subtitles = scope != QStringLiteral("texts");
+    if (needle.isEmpty())
+        return find;
+    QString pattern = QRegularExpression::escape(needle);
+    // Lookarounds rather than \b: a needle that starts or ends with a mark ("¡hola", "3.") still
+    // matches as a whole word, and with Unicode properties an accented letter counts as a letter.
+    if (options.value(QStringLiteral("wholeWord")).toBool())
+        pattern = QStringLiteral("(?<!\\w)") + pattern + QStringLiteral("(?!\\w)");
+    QRegularExpression::PatternOptions flags = QRegularExpression::UseUnicodePropertiesOption;
+    if (!options.value(QStringLiteral("matchCase")).toBool())
+        flags |= QRegularExpression::CaseInsensitiveOption;
+    find.re = QRegularExpression(pattern, flags);
+    find.valid = find.re.isValid();
+    return find;
+}
+
+// {start, length} of every match, in UTF-16 offsets, first to last.
+QList<QPair<int, int>> textFindMatches(const QString &text, const QRegularExpression &re)
+{
+    QList<QPair<int, int>> out;
+    QRegularExpressionMatchIterator it = re.globalMatch(text);
+    while (it.hasNext()) {
+        const QRegularExpressionMatch m = it.next();
+        if (m.capturedLength() > 0)
+            out.append(qMakePair(int(m.capturedStart()), int(m.capturedLength())));
+    }
+    return out;
+}
+
+QString textFindKey(int track, int clip, int cue, int start)
+{
+    return QStringLiteral("%1:%2:%3:%4").arg(track).arg(clip).arg(cue).arg(start);
+}
+
+int subtitleWordCount(const QString &text)
+{
+    static const QRegularExpression space(QStringLiteral("\\s+"));
+    return int(text.split(space, Qt::SkipEmptyParts).size());
+}
+
+} // namespace
+
+QVariantList AppController::findInTexts(const QString &needle, const QVariantMap &options) const
+{
+    QVariantList out;
+    const TextFind find = textFindFor(needle, options);
+    if (!find.valid)
+        return out;
+    constexpr int kContext = 24;
+    const auto oneLine = [](QString s) {
+        s.replace(QLatin1Char('\n'), QLatin1Char(' '));
+        s.replace(QChar(0x2029), QLatin1Char(' '));
+        return s;
+    };
+    const auto &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        const bool locked = isTrackLocked(t);
+        const QList<drift::Clip> &clips = tracks.at(t).clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            const drift::Clip &clip = clips.at(c);
+            const auto add = [&](int cue, const QString &text, drift::TimeUs atUs) {
+                for (const QPair<int, int> &m : textFindMatches(text, find.re)) {
+                    const int from = qMax(0, m.first - kContext);
+                    const int to = qMin(int(text.size()), m.first + m.second + kContext);
+                    const QString before = (from > 0 ? QStringLiteral("…") : QString())
+                                           + oneLine(text.mid(from, m.first - from));
+                    const QString match = oneLine(text.mid(m.first, m.second));
+                    const QString after = oneLine(text.mid(m.first + m.second, to - m.first - m.second))
+                                          + (to < text.size() ? QStringLiteral("…") : QString());
+                    out.append(QVariantMap{
+                        {QStringLiteral("track"), t},
+                        {QStringLiteral("clip"), c},
+                        {QStringLiteral("cue"), cue},
+                        {QStringLiteral("start"), m.first},
+                        {QStringLiteral("length"), m.second},
+                        {QStringLiteral("kind"), cue < 0 ? QStringLiteral("text") : QStringLiteral("subtitle")},
+                        {QStringLiteral("clipName"), clip.name},
+                        {QStringLiteral("clipId"), clip.id},
+                        {QStringLiteral("seconds"), drift::usToSeconds(atUs)},
+                        {QStringLiteral("snippet"), QString(before + match + after)},
+                        {QStringLiteral("before"), before},
+                        {QStringLiteral("match"), match},
+                        {QStringLiteral("after"), after},
+                        {QStringLiteral("locked"), locked},
+                    });
+                }
+            };
+            if (clip.type == drift::ClipType::Text && find.texts) {
+                add(-1, clip.textContent, clip.timelineStart);
+            } else if (clip.type == drift::ClipType::Subtitle && find.subtitles) {
+                for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+                    const drift::SubtitleCue &cue = clip.subtitleCues.at(i);
+                    add(i, cue.text, clip.timelineStart + cue.startUs);
+                }
+            }
+        }
+    }
+    return out;
+}
+
+int AppController::replaceInTexts(const QString &needle, const QString &replacement, const QVariantMap &options,
+                                  const QVariantList &only)
+{
+    const TextFind find = textFindFor(needle, options);
+    if (!find.valid)
+        return 0;
+    QSet<QString> picked;
+    for (const QVariant &value : only) {
+        const QVariantMap m = value.toMap();
+        picked.insert(textFindKey(m.value(QStringLiteral("track")).toInt(), m.value(QStringLiteral("clip")).toInt(),
+                                  m.value(QStringLiteral("cue"), -1).toInt(),
+                                  m.value(QStringLiteral("start")).toInt()));
+    }
+    // An "only" list whose matches are all gone (the text changed meanwhile) replaces nothing,
+    // never everything.
+    const bool all = only.isEmpty();
+
+    // Clip nests Qt-implicitly-shared payloads; detach so the undo snapshot owns its own.
+    const drift::Project before = m_project.detachedCopy();
+    int replaced = 0;
+    // From the last match back to the first, so the offsets of the ones before stay right.
+    const auto replaceIn = [&](int t, int c, int cue, QString &text, QList<drift::TextRun> *runs) {
+        const QList<QPair<int, int>> matches = textFindMatches(text, find.re);
+        int count = 0;
+        for (int i = int(matches.size()) - 1; i >= 0; --i) {
+            const int start = matches.at(i).first;
+            const int length = matches.at(i).second;
+            if (!all && !picked.contains(textFindKey(t, c, cue, start)))
+                continue;
+            text = text.left(start) + replacement + text.mid(start + length);
+            if (runs)
+                *runs = drift::shiftTextRunsForReplace(*runs, int(text.size()), start, length,
+                                                       int(replacement.size()));
+            ++count;
+        }
+        replaced += count;
+        return count;
+    };
+
+    auto &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        if (isTrackLocked(t))
+            continue;
+        QList<drift::Clip> &clips = tracks[t].clips;
+        for (int c = 0; c < clips.size(); ++c) {
+            drift::Clip &clip = clips[c];
+            if (clip.type == drift::ClipType::Text && find.texts) {
+                QString text = clip.textContent;
+                QList<drift::TextRun> runs = clip.textStyle.runs;
+                if (replaceIn(t, c, -1, text, &runs) == 0)
+                    continue;
+                // As the inline editor's commit (commitTextEdit): the clip is named after its
+                // words; pushProjectEdit refits a hugging box (syncTextAutoFit).
+                clip.textContent = text;
+                clip.textStyle.runs = runs;
+                clip.name = text.trimmed().left(32);
+            } else if (clip.type == drift::ClipType::Subtitle && find.subtitles) {
+                for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+                    drift::SubtitleCue &cue = clip.subtitleCues[i];
+                    QString text = cue.text;
+                    const int wordsBefore = subtitleWordCount(text);
+                    if (replaceIn(t, c, i, text, nullptr) == 0)
+                        continue;
+                    cue.text = text;
+                    // Word timings that no longer match the words would light the wrong one;
+                    // with the same number of words they still fit (a word fixed in place).
+                    if (subtitleWordCount(text) != wordsBefore)
+                        cue.wordEndsUs.clear();
+                }
+            }
+        }
+    }
+
+    if (replaced == 0) {
+        setLastMessage(tr("“%1” was not found").arg(needle), QStringLiteral("info"));
+        return 0;
+    }
+    pushProjectEdit(before, tr("Find and replace"));
+    finishEdit(tr("Find and replace"));
+    setLastMessage(tr("Replaced %n time(s)", nullptr, replaced), QStringLiteral("info"));
+    return replaced;
 }
 
 QVariantList AppController::subtitleDictionary() const
@@ -13050,6 +13271,15 @@ void AppController::seekToSubtitleCue(int trackIndex, int clipIndex, int cueInde
     setPlayheadSeconds(drift::usToSeconds(clip.timelineStart + clip.subtitleCues.at(cueIndex).startUs));
 }
 
+// Una pila de sombreado como lista de mapas, para que QML la lea y la devuelva igual.
+static QVariantList textLayersToVariantList(const QList<drift::TextShadingLayer> &layers)
+{
+    QVariantList out;
+    for (const drift::TextShadingLayer &layer : layers)
+        out.append(drift::textShadingLayerToJson(layer).toVariantMap());
+    return out;
+}
+
 QVariantList AppController::textRuns(int trackIndex, int clipIndex)
 {
     QVariantList out;
@@ -13072,6 +13302,26 @@ QVariantList AppController::textRuns(int trackIndex, int clipIndex)
             {QStringLiteral("underline"), run.underline},
             {QStringLiteral("fontEnabled"), run.fontEnabled},
             {QStringLiteral("fontFamily"), run.fontFamily},
+            {QStringLiteral("layersEnabled"), run.layersEnabled},
+            {QStringLiteral("layers"), textLayersToVariantList(run.layers)},
+            {QStringLiteral("boxEnabled"), run.boxEnabled},
+            {QStringLiteral("boxColor"), run.boxColor.name(QColor::HexArgb)},
+            {QStringLiteral("boxPadding"), run.boxPadding},
+            {QStringLiteral("boxRadius"), run.boxRadius},
+            {QStringLiteral("boxBorderWidth"), run.boxBorderWidth},
+            {QStringLiteral("boxBorderColor"), run.boxBorderColor.name(QColor::HexArgb)},
+            {QStringLiteral("transformEnabled"), run.transformEnabled},
+            {QStringLiteral("offsetX"), run.offsetX},
+            {QStringLiteral("offsetY"), run.offsetY},
+            {QStringLiteral("transformScale"), run.transformScale},
+            {QStringLiteral("rotation"), run.rotation},
+            {QStringLiteral("letterSpacingEnabled"), run.letterSpacingEnabled},
+            {QStringLiteral("letterSpacing"), run.letterSpacing},
+            {QStringLiteral("lineHeightEnabled"), run.lineHeightEnabled},
+            {QStringLiteral("lineHeight"), run.lineHeight},
+            {QStringLiteral("opacityEnabled"), run.opacityEnabled},
+            {QStringLiteral("opacity"), run.opacity},
+            {QStringLiteral("baseline"), run.baseline},
         });
     }
     return out;
@@ -13101,6 +13351,38 @@ void AppController::setTextRuns(int trackIndex, int clipIndex, const QVariantLis
         run.underline = !m.contains(QStringLiteral("underline")) || m.value(QStringLiteral("underline")).toBool();
         run.fontEnabled = m.value(QStringLiteral("fontEnabled")).toBool();
         run.fontFamily = m.value(QStringLiteral("fontFamily")).toString();
+        // 0.24: lo que se aplicó a esas letras tiene que sobrevivir a la ventana de Texto avanzado.
+        run.layersEnabled = m.value(QStringLiteral("layersEnabled")).toBool();
+        for (const QVariant &v : m.value(QStringLiteral("layers")).toList())
+            run.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
+        run.boxEnabled = m.value(QStringLiteral("boxEnabled")).toBool();
+        const QString boxColor = m.value(QStringLiteral("boxColor")).toString();
+        if (!boxColor.isEmpty())
+            run.boxColor = QColor(boxColor);
+        if (m.contains(QStringLiteral("boxPadding")))
+            run.boxPadding = qBound(0.0, m.value(QStringLiteral("boxPadding")).toDouble(), 200.0);
+        if (m.contains(QStringLiteral("boxRadius")))
+            run.boxRadius = qBound(0.0, m.value(QStringLiteral("boxRadius")).toDouble(), 200.0);
+        if (m.contains(QStringLiteral("boxBorderWidth")))
+            run.boxBorderWidth = qBound(0.0, m.value(QStringLiteral("boxBorderWidth")).toDouble(), 40.0);
+        const QString boxBorder = m.value(QStringLiteral("boxBorderColor")).toString();
+        if (!boxBorder.isEmpty())
+            run.boxBorderColor = QColor(boxBorder);
+        run.transformEnabled = m.value(QStringLiteral("transformEnabled")).toBool();
+        run.offsetX = m.value(QStringLiteral("offsetX")).toDouble();
+        run.offsetY = m.value(QStringLiteral("offsetY")).toDouble();
+        if (m.contains(QStringLiteral("transformScale")))
+            run.transformScale = qBound(0.05, m.value(QStringLiteral("transformScale")).toDouble(), 20.0);
+        run.rotation = m.value(QStringLiteral("rotation")).toDouble();
+        run.letterSpacingEnabled = m.value(QStringLiteral("letterSpacingEnabled")).toBool();
+        run.letterSpacing = m.value(QStringLiteral("letterSpacing")).toDouble();
+        run.lineHeightEnabled = m.value(QStringLiteral("lineHeightEnabled")).toBool();
+        if (m.contains(QStringLiteral("lineHeight")))
+            run.lineHeight = qBound(0.1, m.value(QStringLiteral("lineHeight")).toDouble(), 10.0);
+        run.opacityEnabled = m.value(QStringLiteral("opacityEnabled")).toBool();
+        if (m.contains(QStringLiteral("opacity")))
+            run.opacity = qBound(0.0, m.value(QStringLiteral("opacity")).toDouble(), 1.0);
+        run.baseline = qBound(-1, m.value(QStringLiteral("baseline")).toInt(), 1);
         parsed.append(run);
     }
     const drift::Project before = m_project;
@@ -13141,16 +13423,230 @@ void AppController::patchTextRuns(int trackIndex, int clipIndex, int start, int 
         p.fontEnabled = true;
         p.fontFamily = patch.value(QStringLiteral("fontFamily")).toString();
     }
+    // 0.24: la pila de sombreado, el fondo y la transformación de esas letras.
+    if (patch.contains(QStringLiteral("layers"))) {
+        p.layersEnabled = true;
+        for (const QVariant &v : patch.value(QStringLiteral("layers")).toList())
+            p.layers.append(drift::textShadingLayerFromJson(QJsonObject::fromVariantMap(v.toMap())));
+    }
     const drift::Project before = m_project;
+    // The split at [start, end) and the keys patchTextRuns copies whole.
     clip->textStyle.runs = drift::patchTextRuns(clip->textStyle.runs, clip->textContent.size(), start, end, p);
+    // The background and the transform go key by key, on what those letters already had: a padding
+    // slider keeps their box colour, moving X keeps their Y, and boxEnabled:false takes the box away.
+    const auto has = [&](const char *key) { return patch.contains(QLatin1String(key)); };
+    const auto num = [&](const char *key) { return patch.value(QLatin1String(key)).toDouble(); };
+    const bool boxKeys = has("boxEnabled") || has("boxColor") || has("boxPadding") || has("boxRadius")
+                         || has("boxBorderWidth") || has("boxBorderColor");
+    const bool transformKeys = has("transformEnabled") || has("offsetX") || has("offsetY") || has("transformScale")
+                               || has("rotation");
+    // Spacing, line height, opacity and super/subscript of these letters (0.24); a null value
+    // gives them back the block's.
+    const bool ownKeys = has("letterSpacing") || has("lineHeight") || has("opacity") || has("baseline");
+    if (boxKeys || transformKeys || ownKeys) {
+        for (drift::TextRun &r : clip->textStyle.runs) {
+            if (r.start < start || r.end > end)
+                continue;
+            const auto cleared = [&](const char *key) {
+                const QVariant v = patch.value(QLatin1String(key));
+                return !v.isValid() || v.isNull();
+            };
+            if (has("letterSpacing")) {
+                r.letterSpacingEnabled = !cleared("letterSpacing");
+                r.letterSpacing = r.letterSpacingEnabled ? qBound(-200.0, num("letterSpacing"), 400.0) : 0.0;
+            }
+            if (has("lineHeight")) {
+                r.lineHeightEnabled = !cleared("lineHeight");
+                r.lineHeight = r.lineHeightEnabled ? qBound(0.1, num("lineHeight"), 10.0) : 1.2;
+            }
+            if (has("opacity")) {
+                r.opacityEnabled = !cleared("opacity");
+                r.opacity = r.opacityEnabled ? qBound(0.0, num("opacity"), 1.0) : 1.0;
+            }
+            if (has("baseline")) {
+                const QString b = patch.value(QStringLiteral("baseline")).toString();
+                r.baseline = b == QLatin1String("super") || b == QLatin1String("1") ? 1
+                             : b == QLatin1String("sub") || b == QLatin1String("-1") ? -1
+                                                                                       : 0;
+            }
+            if (boxKeys) {
+                r.boxEnabled = has("boxEnabled") ? patch.value(QStringLiteral("boxEnabled")).toBool() : true;
+                if (has("boxColor"))
+                    r.boxColor = QColor(patch.value(QStringLiteral("boxColor")).toString());
+                if (has("boxPadding"))
+                    r.boxPadding = qBound(0.0, num("boxPadding"), 200.0);
+                if (has("boxRadius"))
+                    r.boxRadius = qBound(0.0, num("boxRadius"), 200.0);
+                if (has("boxBorderWidth"))
+                    r.boxBorderWidth = qBound(0.0, num("boxBorderWidth"), 40.0);
+                if (has("boxBorderColor"))
+                    r.boxBorderColor = QColor(patch.value(QStringLiteral("boxBorderColor")).toString());
+            }
+            if (transformKeys) {
+                r.transformEnabled =
+                    has("transformEnabled") ? patch.value(QStringLiteral("transformEnabled")).toBool() : true;
+                if (has("offsetX"))
+                    r.offsetX = num("offsetX");
+                if (has("offsetY"))
+                    r.offsetY = num("offsetY");
+                if (has("transformScale"))
+                    r.transformScale = qBound(0.05, num("transformScale"), 20.0);
+                if (has("rotation"))
+                    r.rotation = num("rotation");
+                if (!r.transformEnabled) {
+                    r.offsetX = r.offsetY = r.rotation = 0.0;
+                    r.transformScale = 1.0;
+                }
+            }
+        }
+    }
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
 }
 
+void AppController::clearTextRunsIn(int trackIndex, int clipIndex, int start, int end)
+{
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip || end <= start || clip->textStyle.runs.isEmpty())
+        return;
+    const drift::Project before = m_project;
+    // Split at the edges (an empty patch changes nothing), then drop what is inside.
+    QList<drift::TextRun> runs =
+        drift::patchTextRuns(clip->textStyle.runs, int(clip->textContent.size()), start, end, drift::TextRun{});
+    runs.erase(std::remove_if(runs.begin(), runs.end(),
+                              [&](const drift::TextRun &r) { return r.start >= start && r.end <= end; }),
+               runs.end());
+    clip->textStyle.runs = runs;
+    pushProjectEdit(before, tr("Edit text style"));
+    finishEdit(tr("Text style updated"));
+}
+
+void AppController::setTextStyleRange(int trackIndex, int clipIndex, int start, int end)
+{
+    const bool valid = start >= 0 && end > start;
+    const int keep[4] = {m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd};
+    m_textRangeTrack = valid ? trackIndex : -1;
+    m_textRangeClip = valid ? clipIndex : -1;
+    m_textRangeStart = valid ? start : -1;
+    m_textRangeEnd = valid ? end : -1;
+    if (m_textRangeTrack != keep[0] || m_textRangeClip != keep[1] || m_textRangeStart != keep[2]
+        || m_textRangeEnd != keep[3])
+        emit textStyleRangeChanged(m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd);
+}
+
+bool AppController::textStyleRangeFor(int trackIndex, int clipIndex, int *start, int *end) const
+{
+    if (m_textRangeStart < 0 || trackIndex != m_textRangeTrack || clipIndex != m_textRangeClip)
+        return false;
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return false;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return false;
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Text)
+        return false;
+    const int length = int(clip.textContent.size());
+    const int s = qBound(0, m_textRangeStart, length);
+    const int e = qBound(0, m_textRangeEnd, length);
+    if (e <= s)
+        return false;
+    *start = s;
+    *end = e;
+    return true;
+}
+
+QList<drift::TextShadingLayer> AppController::textRangeLayers(const drift::Clip &clip, int start) const
+{
+    const drift::TextRun *run = drift::textRunAt(clip.textStyle.runs, start);
+    return run && run->layersEnabled && !run->layers.isEmpty() ? run->layers : clip.textStyle.layers;
+}
+
+QHash<QString, QString> AppController::writeTextRangeLayers(drift::Clip &clip, int start, int end,
+                                                            const QList<drift::TextShadingLayer> &stack)
+{
+    // The letters' layers get ids of their own (a copy of the block's "shadow" becomes "shadow~1"):
+    // the text's keyframes address a layer by id, and one on these letters must not move the block
+    // or other letters. The pieces of this pick keep theirs, so the ids stay put edit after edit.
+    QSet<QString> taken;
+    for (const drift::TextShadingLayer &layer : clip.textStyle.layers)
+        taken.insert(layer.id);
+    for (const drift::TextRun &r : clip.textStyle.runs) {
+        if (r.layersEnabled && (r.end <= start || r.start >= end))
+            for (const drift::TextShadingLayer &layer : r.layers)
+                taken.insert(layer.id);
+    }
+    QList<drift::TextShadingLayer> layers = stack;
+    QHash<QString, QString> renamed;
+    QSet<QString> used;
+    for (const drift::TextShadingLayer &layer : layers)
+        used.insert(layer.id);
+    for (drift::TextShadingLayer &layer : layers) {
+        if (!taken.contains(layer.id))
+            continue;
+        const QString base = layer.id.section(QLatin1Char('~'), 0, 0);
+        QString id;
+        for (int n = 1;; ++n) {
+            id = QStringLiteral("%1~%2").arg(base).arg(n);
+            if (!taken.contains(id) && !used.contains(id))
+                break;
+        }
+        renamed.insert(layer.id, id);
+        used.insert(id);
+        layer.id = id;
+    }
+    // A new main fill (a swatch, a look, a quick style) has to show: the letters' own colour from
+    // the text bar would paint over it, so it goes when that fill changes.
+    const auto fillPaint = [](const QList<drift::TextShadingLayer> &stack) {
+        const drift::TextShadingLayer *fill = drift::firstTextLayerOfKind(stack, drift::TextLayerKind::Fill, true);
+        return fill ? drift::textShadingLayerToJson(*fill).value(QStringLiteral("paint")) : QJsonValue();
+    };
+    const QJsonValue oldFill = fillPaint(textRangeLayers(clip, start));
+    drift::TextRun patch;
+    patch.layersEnabled = true;
+    patch.layers = layers;
+    clip.textStyle.runs = drift::patchTextRuns(clip.textStyle.runs, int(clip.textContent.size()), start, end, patch);
+    if (fillPaint(layers) != oldFill) {
+        for (drift::TextRun &r : clip.textStyle.runs)
+            if (r.start >= start && r.end <= end)
+                r.colorEnabled = false;
+    }
+    return renamed;
+}
+
+int AppController::textRangeLayerIndex(const QList<drift::TextShadingLayer> &layers, const QString &layerId)
+{
+    for (int i = 0; i < layers.size(); ++i)
+        if (layers.at(i).id == layerId)
+            return i;
+    // The inspector may still hold the block's id of a layer these letters copied ("shadow" for
+    // "shadow~1"): during a drag it is not told about the new one until the drag ends.
+    const QString copy = layerId + QLatin1Char('~');
+    for (int i = 0; i < layers.size(); ++i)
+        if (layers.at(i).id.startsWith(copy))
+            return i;
+    return -1;
+}
+
+void AppController::writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled)
+{
+    writeTextRangeLayers(clip, start, end, styled.layers);
+    if (styled.fontFamily != clip.textStyle.fontFamily) {
+        drift::TextRun font;
+        font.fontEnabled = true;
+        font.fontFamily = styled.fontFamily;
+        clip.textStyle.runs =
+            drift::patchTextRuns(clip.textStyle.runs, int(clip.textContent.size()), start, end, font);
+    }
+}
+
 void AppController::beginEditSession(const QString &label)
 {
+    // A session left open (its caller failed half way) is kept and closed first: joined to this
+    // one, cancelling this would undo everything since (0.24: Texto avanzado's Cancel undid the
+    // keys, the replace and the letters' colours).
     if (m_editSessionOpen)
-        return;
+        endEditSession(true);
     m_editSessionOpen = true;
     m_undoStack.beginMacro(label);
 }
@@ -13179,7 +13675,15 @@ void AppController::setTextStyle(int trackIndex, int clipIndex, const QVariantMa
 
     const drift::Project before = m_project;
     drift::TextStyle &s = clip->textStyle;
+    const bool wasShrinking = s.shrinkToFit;
     applyTextStylePatch(s, m);
+    // Shrink to fit (0.24) keeps the box the size it is; turned off, the box follows the text again.
+    if (s.shrinkToFit && !wasShrinking) {
+        clip->textAutoFit = false;
+    } else if (!s.shrinkToFit && wasShrinking) {
+        clip->textAutoFit = true;
+        refitTextClipBox(*clip, m_project.width(), m_project.height());
+    }
     pushProjectEdit(before, tr("Edit text style"));
     finishEdit(tr("Text style updated"));
 }
@@ -13260,6 +13764,12 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.underlineOffset = m.value(QStringLiteral("underlineOffset")).toDouble();
     if (m.contains(QStringLiteral("strikeEnabled")))
         s.strikeEnabled = m.value(QStringLiteral("strikeEnabled")).toBool();
+    if (m.contains(QStringLiteral("ligatures")))
+        s.ligatures = m.value(QStringLiteral("ligatures")).toBool();
+    if (m.contains(QStringLiteral("smallCaps")))
+        s.smallCaps = m.value(QStringLiteral("smallCaps")).toBool();
+    if (m.contains(QStringLiteral("shrinkToFit")))
+        s.shrinkToFit = m.value(QStringLiteral("shrinkToFit")).toBool();
     applyTextHighlightPatch(&s.wordHighlight, m.value(QStringLiteral("wordHighlight")).toMap());
     applyWordAccentPatch(&s.accent, m.value(QStringLiteral("accent")).toMap());
 
@@ -13386,6 +13896,14 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
         return;
 
     const drift::Project before = m_project;
+    int rangeStart = -1, rangeEnd = -1;
+    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // Shaded letters (0.24): the template's stack (and font) go to them only.
+        writeTextRangeStyle(clip, rangeStart, rangeEnd, drift::textStyleWithPresetLook(clip.textStyle, *preset));
+        pushProjectEdit(before, tr("Apply text preset"));
+        finishEdit(tr("Text preset applied"));
+        return;
+    }
     // The template brings the look; the text keeps its motion, keyframes and counter.
     QStringList dropped;
     clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
@@ -18536,6 +19054,46 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
         return;
 
     const drift::Project before = m_project;
+    resetTransformOf(clip);
+    pushProjectEdit(before, tr("Reset transform"));
+    finishEdit(tr("Transform reset"));
+}
+
+void AppController::resetClipProperties(int trackIndex, int clipIndex, const QStringList &props)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    drift::Track &track = m_project.tracks()[trackIndex];
+    if (clipIndex < 0 || clipIndex >= track.clips.size())
+        return;
+    drift::Clip &clip = track.clips[clipIndex];
+    if (clip.type == drift::ClipType::Audio || props.isEmpty())
+        return;
+    // The whole reset on a copy; only the asked properties (keys and all) come back from it.
+    drift::Clip reset = clip;
+    resetTransformOf(reset);
+    const drift::Project before = m_project;
+    for (const QString &prop : props) {
+        if (prop == QLatin1String("x"))
+            clip.transformX = reset.transformX;
+        else if (prop == QLatin1String("y"))
+            clip.transformY = reset.transformY;
+        else if (prop == QLatin1String("width"))
+            clip.transformW = reset.transformW;
+        else if (prop == QLatin1String("height"))
+            clip.transformH = reset.transformH;
+        else if (prop == QLatin1String("rotation"))
+            clip.rotation = reset.rotation;
+        else if (prop == QLatin1String("opacity"))
+            clip.opacity = reset.opacity;
+    }
+    pushProjectEdit(before, tr("Reset transform"));
+    finishEdit(tr("Transform reset"));
+}
+
+// Back to how the clip first landed: media fitted and centred, everything else the full canvas.
+void AppController::resetTransformOf(drift::Clip &clip)
+{
     clip.opacity = {};
     clip.transformX = {};
     clip.transformY = {};
@@ -18574,8 +19132,6 @@ void AppController::resetClipTransform(int trackIndex, int clipIndex)
     // A text that hugs its words resets to its fitted box, centred, as it was added.
     if (clip.type == drift::ClipType::Text && clip.textAutoFit)
         placeFittedTextBox(clip, m_project.width(), m_project.height());
-    pushProjectEdit(before, tr("Reset transform"));
-    finishEdit(tr("Transform reset"));
 }
 
 QString AppController::lutLibraryDir()
@@ -23019,7 +23575,12 @@ int AppController::trackRowHeight(int trackIndex, const QVariantMap &metrics) co
     const double keyframeRows = track.keyframesExpanded
         ? trackKeyframeRows(trackIndex).size() * metric("keyframeRow", 18.0)
         : 0.0;
-    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows);
+    // The curve editor opens under the track of its clip (0.24): the timeline passes which track
+    // and how tall, so a view that does not draw it (the phone's) gets no gap.
+    const double curveEditor = metrics.value(QStringLiteral("curveTrack"), -1).toInt() == trackIndex
+        ? metric("curveEditor", 0.0)
+        : 0.0;
+    return qRound(qMax(20.0, base * scale + lanes) + keyframeRows + curveEditor);
 }
 
 void AppController::setTrackKeyframesExpanded(int trackIndex, bool expanded)
@@ -23096,18 +23657,165 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
     return label.isEmpty() ? prop : label;
 }
 
+namespace {
+
+// The four transform lines every picture track unfolds into (0.24, as in the editors Jorge
+// compared): Position and Scale join their two axes on one line and open into them.
+struct KeyframeGroup
+{
+    const char *id;
+    QStringList props;
+};
+
+const QList<KeyframeGroup> &keyframeGroups()
+{
+    static const QList<KeyframeGroup> groups = {
+        {"position", {QStringLiteral("x"), QStringLiteral("y")}},
+        {"rotation", {QStringLiteral("rotation")}},
+        {"scale", {QStringLiteral("width"), QStringLiteral("height")}},
+        {"opacity", {QStringLiteral("opacity")}},
+    };
+    return groups;
+}
+
+bool tracksTransform(const drift::Track &track)
+{
+    return track.type == drift::TrackType::Video || track.type == drift::TrackType::Text
+           || track.type == drift::TrackType::Shape;
+}
+
+} // namespace
+
+void AppController::setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded)
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return;
+    const QString key = m_project.tracks().at(trackIndex).id + QLatin1Char('|') + group;
+    if (m_keyframeGroupsExpanded.contains(key) == expanded)
+        return;
+    if (expanded)
+        m_keyframeGroupsExpanded.insert(key);
+    else
+        m_keyframeGroupsExpanded.remove(key);
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    emit tracksChanged();
+}
+
+int AppController::keyframeTargetClip(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return -1;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    if (m_selectedTrack == trackIndex && m_selectedClip >= 0 && m_selectedClip < track.clips.size())
+        return m_selectedClip;
+    const drift::TimeUs now = drift::secondsToUs(playheadSeconds());
+    for (int c = 0; c < track.clips.size(); ++c) {
+        const drift::Clip &clip = track.clips.at(c);
+        if (now >= clip.timelineStart && now < clip.timelineStart + clip.timelineDuration)
+            return c;
+    }
+    return -1;
+}
+
 QVariantList AppController::trackKeyframeRows(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
         || m_project.tracks().at(trackIndex).isAdjustmentLane())
         return {};
-    // One row per property name across the track's clips (two clips each animating "Opacity"
-    // share a row, as one layer's property does in After Effects), in first-seen order.
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    const int clipCount = track.clips.size();
+    QVariantList rows;
+
+    // Position, Rotation, Scale and Opacity first, always there on a picture track so a key can be
+    // added to a clip that has none yet. A joined line holds one key per time any of its axes has
+    // one, carrying the axes' own keys (refs) so a drag moves them together.
+    QSet<QString> grouped;
+    if (tracksTransform(track)) {
+        for (const KeyframeGroup &group : keyframeGroups()) {
+            const QString groupId = QString::fromLatin1(group.id);
+            for (const QString &prop : group.props)
+                grouped.insert(prop);
+            QVariantList clips;
+            for (int c = 0; c < clipCount; ++c) {
+                // A property's lone key at 0 is its resting value, not an animation: no diamond.
+                const QStringList animated = clipAnimatedProperties(trackIndex, c);
+                QMap<qint64, QVariantMap> merged;
+                for (const QString &prop : group.props) {
+                    if (!animated.contains(prop))
+                        continue;
+                    for (const QVariant &v : clipKeyframes(trackIndex, c, prop)) {
+                        QVariantMap key = v.toMap();
+                        const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                        const qint64 slot = qRound64(seconds * 1000.0);
+                        QVariantMap &at = merged[slot];
+                        if (at.isEmpty())
+                            at = key;
+                        QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                        refs.append(QVariantMap{{QStringLiteral("prop"), prop},
+                                                {QStringLiteral("seconds"), seconds}});
+                        at.insert(QStringLiteral("refs"), refs);
+                    }
+                }
+                QVariantList keys;
+                for (const QVariantMap &key : std::as_const(merged))
+                    keys.append(key);
+                const drift::Clip &clip = track.clips.at(c);
+                clips.append(QVariantMap{
+                    {QStringLiteral("clip"), c},
+                    {QStringLiteral("prop"), group.props.first()},
+                    {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                    {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                    {QStringLiteral("keys"), keys},
+                });
+            }
+            const bool expanded = group.props.size() > 1
+                && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
+            rows.append(QVariantMap{
+                {QStringLiteral("group"), groupId},
+                {QStringLiteral("groupProps"), group.props},
+                {QStringLiteral("prop"), group.props.first()},
+                {QStringLiteral("label"), groupId},
+                {QStringLiteral("expandable"), group.props.size() > 1},
+                {QStringLiteral("expanded"), expanded},
+                {QStringLiteral("clips"), clips},
+            });
+            if (!expanded)
+                continue;
+            // Opened: one line per axis, under the joined one.
+            for (const QString &prop : group.props) {
+                QVariantList axisClips;
+                for (int c = 0; c < clipCount; ++c) {
+                    const drift::Clip &clip = track.clips.at(c);
+                    axisClips.append(QVariantMap{
+                        {QStringLiteral("clip"), c},
+                        {QStringLiteral("prop"), prop},
+                        {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                        {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                        {QStringLiteral("keys"), clipAnimatedProperties(trackIndex, c).contains(prop)
+                                                     ? clipKeyframes(trackIndex, c, prop) : QVariantList()},
+                    });
+                }
+                rows.append(QVariantMap{
+                    {QStringLiteral("group"), groupId},
+                    {QStringLiteral("axis"), true},
+                    {QStringLiteral("prop"), prop},
+                    {QStringLiteral("label"), prop},
+                    {QStringLiteral("clips"), axisClips},
+                });
+            }
+        }
+    }
+
+    // Then one row per other animated property across the track's clips (two clips each
+    // animating the same one share a row, as one layer's property does in After Effects), in
+    // first-seen order.
     QStringList order;
     QHash<QString, QVariantList> clipsByLabel;
-    const int clipCount = m_project.tracks().at(trackIndex).clips.size();
     for (int c = 0; c < clipCount; ++c) {
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
+            if (grouped.contains(prop))
+                continue;
             const QVariantList keys = clipKeyframes(trackIndex, c, prop);
             if (keys.isEmpty())
                 continue;
@@ -23125,7 +23833,6 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             });
         }
     }
-    QVariantList rows;
     for (const QString &label : std::as_const(order)) {
         const QVariantList clips = clipsByLabel.value(label);
         rows.append(QVariantMap{
@@ -24943,6 +25650,8 @@ void AppController::triggerAction(const QString &actionId)
         pasteEffectsFromClipboard(m_selectedTrack, m_selectedClip);
     else if (actionId == QStringLiteral("pasteAttributes"))
         requestPasteAttributes();
+    else if (actionId == QStringLiteral("findReplace"))
+        emit openFindReplaceRequested();
     else if (actionId == QStringLiteral("split"))
         splitAtPlayhead();
     else if (actionId == QStringLiteral("merge"))
@@ -26528,8 +27237,13 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
         return {};
     const drift::Project before = m_project;
     const LayerStack stack = layerStackFor(*clip);
-    QList<drift::TextShadingLayer> &layers = *stack.layers;
     const bool shape = clip->type == drift::ClipType::Shape;
+    // With letters shaded, the layer joins their stack (0.24) and the block stays as it was.
+    int rangeStart = -1, rangeEnd = -1;
+    const bool ranged = !shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd);
+    QList<drift::TextShadingLayer> rangeStack =
+        ranged ? textRangeLayers(*clip, rangeStart) : QList<drift::TextShadingLayer>();
+    QList<drift::TextShadingLayer> &layers = ranged ? rangeStack : *stack.layers;
     const drift::TextLayerKind layerKind = drift::textLayerKindFromString(kind);
     drift::TextShadingLayer layer;
     switch (layerKind) {
@@ -26556,10 +27270,14 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     }
     const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
     layers.insert(index, layer);
-    detachFromLook(stack);
+    QString id = layer.id;
+    if (ranged)
+        id = writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers).value(layer.id, layer.id);
+    else
+        detachFromLook(stack);
     pushProjectEdit(before, tr("Add layer"));
     finishEdit(tr("Layer added"));
-    return layer.id;
+    return id;
 }
 
 bool AppController::removeStyleLayer(int trackIndex, int clipIndex, const QString &layerId)
@@ -26568,6 +27286,20 @@ bool AppController::removeStyleLayer(int trackIndex, int clipIndex, const QStrin
     if (!clip)
         return false;
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(layers, layerId);
+        if (at < 0)
+            return false;
+        const drift::Project before = m_project;
+        drift::eraseLayerKeyframes(*stack.keyframes, layers.at(at).id);
+        layers.removeAt(at);
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        pushProjectEdit(before, tr("Remove layer"));
+        finishEdit(tr("Layer removed"));
+        return true;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     if (index < 0)
         return false;
@@ -26586,6 +27318,21 @@ QString AppController::duplicateStyleLayer(int trackIndex, int clipIndex, const 
     if (!clip)
         return {};
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(layers, layerId);
+        if (at < 0)
+            return {};
+        const drift::Project before = m_project;
+        drift::TextShadingLayer copy = layers.at(at);
+        copy.id = drift::mintTextLayerId(layers);
+        layers.insert(at + 1, copy);
+        const QString id = writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers).value(copy.id, copy.id);
+        pushProjectEdit(before, tr("Duplicate layer"));
+        finishEdit(tr("Layer duplicated"));
+        return id;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     if (index < 0)
         return {};
@@ -26605,6 +27352,20 @@ bool AppController::moveStyleLayer(int trackIndex, int clipIndex, const QString 
     if (!clip)
         return false;
     const LayerStack stack = layerStackFor(*clip);
+    int rangeStart = -1, rangeEnd = -1;
+    if (stack.text && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        QList<drift::TextShadingLayer> layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(layers, layerId);
+        const int to = qBound(0, toIndex, int(layers.size()) - 1);
+        if (at < 0 || at == to)
+            return false;
+        const drift::Project before = m_project;
+        layers.move(at, to);
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, layers);
+        pushProjectEdit(before, tr("Reorder layers"));
+        finishEdit(tr("Layer moved"));
+        return true;
+    }
     const int index = layerIndexOf(*stack.layers, layerId);
     toIndex = qBound(0, toIndex, stack.layers->size() - 1);
     if (index < 0 || index == toIndex)
@@ -26624,6 +27385,22 @@ void AppController::setStyleLayer(int trackIndex, int clipIndex, const QString &
         return;
     QVariantMap layer = patch;
     layer.insert(QStringLiteral("id"), layerId);
+    int rangeStart = -1, rangeEnd = -1;
+    if (clip->type != drift::ClipType::Shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // The shaded letters' stack (0.24): the same patch, on a copy, written to their stretch.
+        const drift::Project before = m_project;
+        drift::TextStyle own = clip->textStyle;
+        own.layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(own.layers, layerId);
+        if (at < 0)
+            return;
+        layer.insert(QStringLiteral("id"), own.layers.at(at).id);
+        applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
+        pushProjectEdit(before, tr("Edit text style"));
+        finishEdit(tr("Text style updated"));
+        return;
+    }
     if (clip->type == drift::ClipType::Shape)
         setShapeStyle(trackIndex, clipIndex, QVariantMap{{QStringLiteral("layer"), layer}});
     else
@@ -26638,16 +27415,41 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
     beginImplicitPreviewDrag(tr("Edit layer"));
     QVariantMap layer = patch;
     layer.insert(QStringLiteral("id"), layerId);
-    if (clip->type == drift::ClipType::Shape)
+    int rangeStart = -1, rangeEnd = -1;
+    if (clip->type != drift::ClipType::Shape && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        drift::TextStyle own = clip->textStyle;
+        own.layers = textRangeLayers(*clip, rangeStart);
+        const int at = textRangeLayerIndex(own.layers, layerId);
+        if (at < 0)
+            return;
+        layer.insert(QStringLiteral("id"), own.layers.at(at).id);
+        applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
+        writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
+    } else if (clip->type == drift::ClipType::Shape)
         applyShapeStylePatch(clip->shapeStyle, QVariantMap{{QStringLiteral("layer"), layer}});
     else
         applyTextStylePatch(clip->textStyle, QVariantMap{{QStringLiteral("layer"), layer}});
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("style.%1.*").arg(layerId)});
 }
 
-QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex)
+QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex,
+                                    int rangeStart, int rangeEnd)
 {
-    return textClipAt(trackIndex, clipIndex) ? addStyleLayer(trackIndex, clipIndex, kind, atIndex) : QString();
+    drift::Clip *clip = textClipAt(trackIndex, clipIndex);
+    if (!clip)
+        return QString();
+    // An explicit range aims this one call at those letters (addStyleLayer does the rest, inside
+    // its one undo step); without one, whatever the inspector has shaded.
+    if (rangeStart < 0 || rangeEnd <= rangeStart)
+        return addStyleLayer(trackIndex, clipIndex, kind, atIndex);
+    const int keep[4] = {m_textRangeTrack, m_textRangeClip, m_textRangeStart, m_textRangeEnd};
+    setTextStyleRange(trackIndex, clipIndex, rangeStart, rangeEnd);
+    const QString id = addStyleLayer(trackIndex, clipIndex, kind, atIndex);
+    m_textRangeTrack = keep[0];
+    m_textRangeClip = keep[1];
+    m_textRangeStart = keep[2];
+    m_textRangeEnd = keep[3];
+    return id;
 }
 
 bool AppController::removeTextLayer(int trackIndex, int clipIndex, const QString &layerId)
@@ -26903,6 +27705,17 @@ void AppController::applyTextLook(int trackIndex, int clipIndex, const QString &
     const drift::Project before = m_project;
     QMap<QString, drift::VectorSlotValue> typed;
     mergeParamsFromMap(&typed, params, look->params);
+    int rangeStart = -1, rangeEnd = -1;
+    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+        // Shaded letters (0.24): the look goes to them only.
+        drift::TextStyle styled = clip->textStyle;
+        styled.layers = textRangeLayers(*clip, rangeStart);
+        drift::applyTextLook(styled, lookId, typed);
+        writeTextRangeStyle(*clip, rangeStart, rangeEnd, styled);
+        pushProjectEdit(before, tr("Apply text look"));
+        finishEdit(tr("Look applied"));
+        return;
+    }
     drift::applyTextLook(clip->textStyle, lookId, typed);
     clip->textStyle.packId.clear();
     pushProjectEdit(before, tr("Apply text look"));
@@ -26940,14 +27753,26 @@ QVariantList AppController::textQuickStyleCategories() const
     return categoriesToList(drift::textQuickStyleCategories());
 }
 
-void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId)
+void AppController::applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId,
+                                        int rangeStart, int rangeEnd)
 {
     drift::Clip *clip = textClipAt(trackIndex, clipIndex);
     if (!clip)
         return;
+    bool ranged = rangeStart >= 0 && rangeEnd > rangeStart;
+    if (!ranged)
+        ranged = textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd);
     const drift::Project before = m_project;
-    if (!drift::applyTextQuickStyle(clip->textStyle, styleId))
+    if (ranged) {
+        // El preset se aplica a una copia y solo su pila (y su fuente, si la trae) va a las letras
+        // elegidas; el bloque se queda como estaba.
+        drift::TextStyle styled = clip->textStyle;
+        if (!drift::applyTextQuickStyle(styled, styleId))
+            return;
+        writeTextRangeStyle(*clip, rangeStart, rangeEnd, styled);
+    } else if (!drift::applyTextQuickStyle(clip->textStyle, styleId)) {
         return;
+    }
     pushProjectEdit(before, tr("Apply text style"));
     finishEdit(tr("Text style applied"));
 }

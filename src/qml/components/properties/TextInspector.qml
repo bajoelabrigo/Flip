@@ -81,7 +81,12 @@ Item {
                                              qsTr("Keywords (long words and numbers)")]
 
     // ----- Layers / looks --------------------------------------------------
-    readonly property var layers: (textStyle && textStyle.layers) || []
+    readonly property var layers: {
+        const own = root.hasRunSelection ? root.runUnderCursor : null
+        if (own && own.layersEnabled && own.layers && own.layers.length > 0)
+            return own.layers
+        return (textStyle && textStyle.layers) || []
+    }
     // The fill the Type section's colour swatch edits: the front-most enabled fill, or the
     // front-most fill at all when every fill is hidden.
     readonly property var frontFill: {
@@ -99,6 +104,8 @@ Item {
     }
     readonly property string frontFillPaintKind: frontFill && frontFill.paint ? (frontFill.paint.kind || "solid") : "solid"
     readonly property string frontFillColor: {
+        if (root.hasRunSelection && root.runUnderCursor.colorEnabled === true && root.runUnderCursor.color)
+            return root.runUnderCursor.color
         if (!root.frontFill || !root.frontFill.paint)
             return "#ffffffff"
         const p = root.frontFill.paint
@@ -260,10 +267,186 @@ Item {
         return String(text).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
     }
 
+    // --- Letras elegidas (0.24, como Filmora) -------------------------------------------------
+    // El cuadro «Texto de entrada» dice qué letras están sombreadas; los controles de estilo se
+    // aplican solo a ellas. Sin sombrear, a todo el texto como siempre.
+    property int runSelectionStart: -1
+    property int runSelectionEnd: -1
+    readonly property bool hasRunSelection: runSelectionStart >= 0 && runSelectionEnd > runSelectionStart
+    readonly property bool canStyleRuns: hasSelection && clipKind === "text"
+    function syncStyleRange() {
+        if (!root.hasSelection)
+            return
+        const on = root.canStyleRuns && root.hasRunSelection
+        EditorState.setTextStyleRange(EditorState.selectedTrack, EditorState.selectedClip,
+                                      on ? root.runSelectionStart : -1, on ? root.runSelectionEnd : -1)
+    }
+    onRunSelectionStartChanged: root.syncStyleRange()
+    onRunSelectionEndChanged: root.syncStyleRange()
+    // Hidden (the Texto avanzado window closed, another clip in the panel), its shaded letters stop
+    // steering the layer calls: nothing would say so any more.
+    onVisibleChanged: {
+        if (!visible && root.hasRunSelection && root.hasSelection)
+            EditorState.setTextStyleRange(EditorState.selectedTrack, EditorState.selectedClip, -1, -1)
+        else if (visible)
+            root.syncStyleRange()
+    }
+
+    // Lo que el patch del bloque se convierte en patch del tramo: la pila entera (trazo, sombra,
+    // resplandor, estilos), el fondo, el color, la fuente y el tamaño.
+    function runPatchFor(patch) {
+        const run = {}
+        if (patch.layers !== undefined)
+            run.layers = patch.layers
+        if (patch.color !== undefined)
+            run.color = patch.color
+        if (patch.fontFamily !== undefined)
+            run.fontFamily = patch.fontFamily
+        if (patch.bold !== undefined)
+            run.bold = patch.bold
+        if (patch.fontWeight !== undefined)
+            run.bold = Number(patch.fontWeight) >= 600
+        if (patch.italic !== undefined)
+            run.italic = patch.italic
+        if (patch.underline !== undefined)
+            run.underline = patch.underline
+        const base = root.textStyle.pixelSize
+        if (patch.pixelSize !== undefined && base > 0)
+            run.sizeScale = patch.pixelSize / base
+        // The letters' box has one padding: either of the block's two sets it. The C++ side takes
+        // the keys one by one, so a slider keeps the colour and boxEnabled:false takes it away.
+        const boxKeys = ["boxEnabled", "boxColor", "boxPadding", "boxRadius", "boxBorderWidth", "boxBorderColor"]
+        for (const key of boxKeys) {
+            if (patch[key] !== undefined)
+                run[key] = patch[key]
+        }
+        if (patch.boxPaddingX !== undefined)
+            run.boxPadding = patch.boxPaddingX
+        if (patch.boxPaddingY !== undefined)
+            run.boxPadding = patch.boxPaddingY
+        if (patch.letterSpacing !== undefined)
+            run.letterSpacing = patch.letterSpacing
+        if (patch.lineHeight !== undefined)
+            run.lineHeight = patch.lineHeight
+        const transformKeys = ["transformEnabled", "offsetX", "offsetY", "transformScale", "rotation"]
+        for (const key of transformKeys) {
+            if (patch[key] !== undefined)
+                run[key] = patch[key]
+        }
+        return run
+    }
+
+    // What the Background section shows: the letters' own box when some are shaded.
+    readonly property var boxSource: {
+        if (!root.hasRunSelection)
+            return root.textStyle
+        const r = root.runUnderCursor
+        const pad = r.boxPadding !== undefined ? Number(r.boxPadding) : 6
+        return {
+            "boxEnabled": r.boxEnabled === true,
+            "boxColor": r.boxColor || "#80000000",
+            "boxRadius": r.boxRadius !== undefined ? Number(r.boxRadius) : 4,
+            "boxPaddingX": pad,
+            "boxPaddingY": pad,
+            "boxOffsetX": root.textStyle.boxOffsetX,
+            "boxOffsetY": root.textStyle.boxOffsetY,
+            "boxStyle": root.textStyle.boxStyle,
+            "boxShape": root.textStyle.boxShape,
+            "boxBorderColor": r.boxBorderColor || "#ffffffff",
+            "boxBorderWidth": r.boxBorderWidth !== undefined ? Number(r.boxBorderWidth) : 0
+        }
+    }
+
+    // El tramo que cubre el cursor (o el comienzo de la selección): sus valores, para enseñarlos.
+    readonly property var runUnderCursor: {
+        void root.textStyle
+        void root.runSelectionStart
+        if (!root.canStyleRuns)
+            return ({})
+        const runs = EditorState.textRuns(EditorState.selectedTrack, EditorState.selectedClip)
+        const at = root.hasRunSelection ? root.runSelectionStart : 0
+        for (let i = 0; i < runs.length; ++i) {
+            if (runs[i].start <= at && at < runs[i].end)
+                return runs[i]
+        }
+        return ({})
+    }
+
+    // La transformación de esas letras (px al tamaño del bloque y grados).
+    function runTransformValue(key, fallback) {
+        const value = root.runUnderCursor[key]
+        return value === undefined || value === null ? fallback : Number(value)
+    }
+
+    function setRunTransform(key, value) {
+        const patch = {}
+        patch[key] = value
+        root.applyStyle(patch)
+    }
+
+    // Straight to the shaded letters (the «Selected letters» section).
+    function patchRuns(patch) {
+        if (root.canStyleRuns && root.hasRunSelection)
+            EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
+                                      root.runSelectionStart, root.runSelectionEnd, patch)
+    }
+
+    // The style copied from some letters, as a patch for others (null: nothing copied yet).
+    property var copiedRunStyle: null
+    function copyRunStyle() {
+        const r = root.runUnderCursor
+        const patch = {}
+        if (r.colorEnabled) patch.color = r.color
+        if (r.sizeEnabled) patch.sizeScale = r.sizeScale
+        if (r.boldEnabled) patch.bold = r.bold
+        if (r.italicEnabled) patch.italic = r.italic
+        if (r.underlineEnabled) patch.underline = r.underline
+        if (r.fontEnabled) patch.fontFamily = r.fontFamily
+        if (r.layersEnabled) patch.layers = r.layers
+        if (r.boxEnabled) {
+            patch.boxEnabled = true
+            patch.boxColor = r.boxColor
+            patch.boxPadding = r.boxPadding
+            patch.boxRadius = r.boxRadius
+            patch.boxBorderWidth = r.boxBorderWidth
+            patch.boxBorderColor = r.boxBorderColor
+        }
+        if (r.transformEnabled) {
+            patch.offsetX = r.offsetX
+            patch.offsetY = r.offsetY
+            patch.transformScale = r.transformScale
+            patch.rotation = r.rotation
+        }
+        if (r.letterSpacingEnabled) patch.letterSpacing = r.letterSpacing
+        if (r.lineHeightEnabled) patch.lineHeight = r.lineHeight
+        if (r.opacityEnabled) patch.opacity = r.opacity
+        if (r.baseline) patch.baseline = r.baseline > 0 ? "super" : "sub"
+        root.copiedRunStyle = patch
+    }
+    function pasteRunStyle() {
+        if (root.copiedRunStyle && Object.keys(root.copiedRunStyle).length > 0)
+            root.patchRuns(root.copiedRunStyle)
+    }
+
+    // La única puerta de los controles de estilo: con letras sombreadas al tramo, sin ellas al bloque.
+    function applyStyle(patch) {
+        if (!root.hasSelection)
+            return
+        if (root.canStyleRuns && root.hasRunSelection) {
+            const run = root.runPatchFor(patch)
+            if (Object.keys(run).length > 0) {
+                EditorState.patchTextRuns(EditorState.selectedTrack, EditorState.selectedClip,
+                                          root.runSelectionStart, root.runSelectionEnd, run)
+                return
+            }
+        }
+        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+    }
+
     function setTextStyleKey(key, value) {
         const patch = {}
         patch[key] = value
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle(patch)
     }
 
     // Nested style groups: the C++ side takes the same partial-patch shape one level down.
@@ -272,7 +455,7 @@ Item {
         inner[key] = value
         const patch = {}
         patch[group] = inner
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle(patch)
     }
 
     function setTextAccentHighlightKey(key, value) {
@@ -397,7 +580,9 @@ Item {
             root.setLayerKey(existing, { "enabled": true })
             return
         }
-        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind)
+        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind, -1,
+                                            root.hasRunSelection ? root.runSelectionStart : -1,
+                                            root.hasRunSelection ? root.runSelectionEnd : -1)
         if (id && id.length > 0)
             EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, id, defaults)
     }
@@ -437,7 +622,7 @@ Item {
             patch.underlineWidth = Math.max(2, root.em * 0.06)
             patch.underlineOffset = Math.max(2, root.em * 0.1)
         }
-        EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
+        root.applyStyle(patch)
     }
     // Colours travel as #AARRGGBB; the background's opacity slider edits only the alpha byte.
     function hexAlpha(hex) {
@@ -468,7 +653,10 @@ Item {
     }
     function applyQuick(id) {
         root.lastQuickId = id
-        EditorState.applyTextQuickStyle(EditorState.selectedTrack, EditorState.selectedClip, id)
+        // Con letras sombreadas, el estilo preestablecido va solo a ellas (0.24).
+        EditorState.applyTextQuickStyle(EditorState.selectedTrack, EditorState.selectedClip, id,
+                                        root.hasRunSelection ? root.runSelectionStart : -1,
+                                        root.hasRunSelection ? root.runSelectionEnd : -1)
     }
     function applyBubble(id) {
         root.lastBubbleId = id
@@ -525,7 +713,10 @@ Item {
     }
 
     function addLayer(kind) {
-        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind)
+        // Con letras sombreadas, la capa es para ellas (0.24).
+        const id = EditorState.addTextLayer(EditorState.selectedTrack, EditorState.selectedClip, kind, -1,
+                                            root.hasRunSelection ? root.runSelectionStart : -1,
+                                            root.hasRunSelection ? root.runSelectionEnd : -1)
         if (id && id.length > 0)
             root.setLayerExpanded(id, true)
     }
@@ -642,6 +833,30 @@ Item {
         function onSelectionChanged() { root.clipDataRevision++; root.refreshFields() }
         function onSelectedClipDataChanged() { root.clipDataRevision++; root.refreshFields() }
         function onTracksChanged() { root.clipDataRevision++; root.refreshFields() }
+    }
+
+    // Letters picked elsewhere (0.24): one set of shaded letters at a time.
+    Connections {
+        target: EditorState
+        // A preview edit ended with letters picked: the panel's «Texto de entrada» shades them, so
+        // the hint shows and what is touched next goes to them.
+        function onTextLettersPicked(track, clip, start, end) {
+            if (root.inAdvanced || !root.visible || track !== EditorState.selectedTrack
+                    || clip !== EditorState.selectedClip)
+                return
+            Qt.callLater(function () {
+                if (end <= textContentField.length)
+                    textContentField.select(start, end)
+            })
+        }
+        // Another inspector (the Texto avanzado window, the panel) took the letters: this field's
+        // shading would say something no longer true.
+        function onTextStyleRangeChanged(track, clip, start, end) {
+            if (root.inAdvanced || !root.hasRunSelection || start < 0)
+                return
+            if (start !== root.runSelectionStart || end !== root.runSelectionEnd)
+                textContentField.deselect()
+        }
     }
 
     Component.onCompleted: refreshFields()
@@ -940,6 +1155,26 @@ Item {
                     clip: true
                     placeholderText: qsTr("Type your text…")
                     onEditingFinished: root.applyText()
+                    // Sin esto, pulsar cualquier control de estilo quita el foco, se pierde el
+                    // sombreado y el efecto se va a todo el texto (probado en ventana, 0.24).
+                    persistentSelection: true
+                    // Las letras sombreadas aquí son las que reciben los estilos (0.24).
+                    onSelectionStartChanged: root.runSelectionStart = selectionStart
+                    onSelectionEndChanged: root.runSelectionEnd = selectionEnd
+                    // No se limpia en onCursorPositionChanged: al empezar el arrastre la selección
+                    // está colapsada y borraba el comienzo, así que el sombreado nunca llegaba
+                    // (con la selección vacía hasRunSelection ya es falso por sí solo).
+                }
+
+                // A qué se aplica lo que se toque debajo.
+                Text {
+                    width: parent.width
+                    visible: root.hasRunSelection
+                    text: qsTr("Applies to the selected letters")
+                    color: Theme.primary
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    wrapMode: Text.WordWrap
                 }
 
                 // Drag grip: the field grows and shrinks with it.
@@ -987,6 +1222,116 @@ Item {
                     enabled: root.contentDirty
                     tooltip: qsTr("Apply the text to this clip")
                     onClicked: root.applyText()
+                }
+            }
+
+            // --- Las letras elegidas (0.24, como Filmora) ------------------------------------------
+            // Lo que solo tiene sentido con unas letras sombreadas: su tamaño, su espacio, su
+            // interlineado, su opacidad, superíndice/subíndice, y copiar, pegar o quitar su estilo.
+            CollapsibleSection {
+                width: parent.width
+                title: qsTr("Selected letters")
+                tooltip: qsTr("Only the letters shaded in «Text input» change")
+                visible: root.canStyleRuns && root.hasRunSelection
+
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+
+                    SliderRow {
+                        width: parent.width
+                        label: qsTranslate("TextInspector", "Font size")
+                        from: 0.2
+                        to: 4
+                        stepSize: 0.05
+                        decimals: 0
+                        displayScale: 100
+                        suffix: " %"
+                        value: root.runUnderCursor.sizeEnabled === true ? Number(root.runUnderCursor.sizeScale) : 1
+                        onCommitted: v => root.patchRuns({ "sizeScale": v })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Character")
+                        from: -100
+                        to: 200
+                        suffix: " px"
+                        value: root.runUnderCursor.letterSpacingEnabled === true
+                               ? Number(root.runUnderCursor.letterSpacing) : Number(root.textStyle.letterSpacing) || 0
+                        onCommitted: v => root.patchRuns({ "letterSpacing": Math.round(v) })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Line")
+                        from: 0.5
+                        to: 4
+                        stepSize: 0.05
+                        decimals: 2
+                        value: root.runUnderCursor.lineHeightEnabled === true
+                               ? Number(root.runUnderCursor.lineHeight) : Number(root.textStyle.lineHeight) || 1.2
+                        onCommitted: v => root.patchRuns({ "lineHeight": v })
+                    }
+                    SliderRow {
+                        width: parent.width
+                        label: qsTr("Opacity")
+                        from: 0
+                        to: 1
+                        stepSize: 0.01
+                        displayScale: 100
+                        suffix: " %"
+                        value: root.runUnderCursor.opacityEnabled === true ? Number(root.runUnderCursor.opacity) : 1
+                        onCommitted: v => root.patchRuns({ "opacity": v })
+                    }
+
+                    // Superíndice y subíndice: m², H₂O, 1.º
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        Repeater {
+                            model: [
+                                { "id": "none", "text": qsTr("Normal"), "tip": qsTr("On the line") },
+                                { "id": "super", "text": "x²", "tip": qsTr("Superscript") },
+                                { "id": "sub", "text": "x₂", "tip": qsTr("Subscript") }
+                            ]
+                            delegate: ThemedToggleButton {
+                                required property var modelData
+                                width: (parent.width - Theme.spacingSm * 2) / 3
+                                text: modelData.text
+                                tooltip: modelData.tip
+                                checked: (Number(root.runUnderCursor.baseline) || 0)
+                                         === (modelData.id === "super" ? 1 : modelData.id === "sub" ? -1 : 0)
+                                onClicked: root.patchRuns({ "baseline": modelData.id })
+                            }
+                        }
+                    }
+
+                    // Copiar el estilo de unas letras y pegarlo en otras (el pincel de Word).
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingSm
+
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Copy style")
+                            tooltip: qsTr("Copy the style of these letters")
+                            onClicked: root.copyRunStyle()
+                        }
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Paste style")
+                            tooltip: qsTr("Give these letters the copied style")
+                            enabled: root.copiedRunStyle !== null
+                            onClicked: root.pasteRunStyle()
+                        }
+                        ThemedButton {
+                            width: (parent.width - Theme.spacingSm * 2) / 3
+                            text: qsTr("Remove style")
+                            tooltip: qsTr("These letters go back to the style of the whole text")
+                            onClicked: EditorState.clearTextRunsIn(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.runSelectionStart, root.runSelectionEnd)
+                        }
+                    }
                 }
             }
 
@@ -1049,6 +1394,7 @@ Item {
 
                 PropertyKeyframeRow {
                     width: parent.width
+                    visible: !root.hasRunSelection
                     propDef: root.textProp("pixelSize", qsTr("Font size"), 0)
                     keyframeList: root.textKeyframes("pixelSize")
                     useSlider: true
@@ -1213,12 +1559,19 @@ Item {
                     }
                 }
 
-                Row {
+                // Side by side where there is room; one under the other in a narrow panel (Texto
+                // avanzado), where the halves cut their names down to "C…" and "Li…".
+                Grid {
+                    id: spacingGrid
                     width: parent.width
-                    spacing: 8
+                    columns: width >= 560 ? 2 : 1
+                    columnSpacing: 8
+                    rowSpacing: 8
+                    visible: !root.hasRunSelection
+                    readonly property real cellWidth: columns === 2 ? (width - columnSpacing) / 2 : width
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: spacingGrid.cellWidth
                         propDef: root.textProp("letterSpacing", qsTr("Character"), 1)
                         keyframeList: root.textKeyframes("letterSpacing")
                         useSlider: true
@@ -1227,7 +1580,7 @@ Item {
                         unit: "px"
                     }
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: spacingGrid.cellWidth
                         propDef: root.textProp("lineHeight", qsTr("Line"), 2)
                         keyframeList: root.textKeyframes("lineHeight")
                         useSlider: true
@@ -1245,6 +1598,43 @@ Item {
                     suffix: " px"
                     value: Number(root.textStyle.wordSpacing) || 0
                     onCommitted: v => root.setTextStyleKey("wordSpacing", Math.round(v))
+                }
+
+                // The font's own features and shrinking to the box (0.24), for the whole text.
+                Repeater {
+                    model: [
+                        { "key": "ligatures", "label": qsTr("Ligatures"), "on": root.textStyle.ligatures !== false,
+                          "tip": qsTr("Letters the font joins into one shape (fi, fl…), when it has them") },
+                        { "key": "smallCaps", "label": qsTr("Small caps"), "on": root.textStyle.smallCaps === true,
+                          "tip": qsTr("Lower-case letters as small capitals, when the font has them") },
+                        { "key": "shrinkToFit", "label": qsTr("Shrink to fit"), "on": root.textStyle.shrinkToFit === true,
+                          "tip": qsTr("The box keeps its size and the text gets smaller until it fits") }
+                    ]
+                    delegate: Row {
+                        id: featureRow
+                        required property var modelData
+                        width: parent.width
+                        spacing: Theme.spacingSm
+                        visible: root.clipKind === "text" || featureRow.modelData.key !== "shrinkToFit"
+
+                        Text {
+                            width: parent.width - featureSwitch.width - parent.spacing
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: featureRow.modelData.label
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            elide: Text.ElideRight
+                        }
+                        ThemedSwitch {
+                            id: featureSwitch
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: featureRow.modelData.on
+                            tooltip: featureRow.modelData.tip
+                            onToggled: EditorState.setTextStyle(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                ({ [featureRow.modelData.key]: checked }))
+                        }
+                    }
                 }
 
                 Text {
@@ -1411,14 +1801,14 @@ Item {
                 tooltip: qsTr("A box behind the text: one for the block or one per line")
                 visible: root.hasTextStyle
                 showSwitch: true
-                switchChecked: root.textStyle.boxEnabled === true
+                switchChecked: root.boxSource.boxEnabled === true
                 switchTooltip: qsTr("Draw a box behind the text")
                 onSwitchToggled: on => root.setTextStyleKey("boxEnabled", on)
 
                 Column {
                     width: parent.width
                     spacing: Theme.spacingMd
-                    enabled: root.textStyle.boxEnabled === true
+                    enabled: root.boxSource.boxEnabled === true
                     opacity: enabled ? 1 : 0.5
 
                     Row {
@@ -1434,7 +1824,7 @@ Item {
                                 required property var modelData
                                 width: (parent.width - parent.spacing) / 2
                                 text: modelData.label
-                                checked: (root.textStyle.boxStyle || "block") === modelData.id
+                                checked: (root.boxSource.boxStyle || "block") === modelData.id
                                 onClicked: root.setTextStyleKey("boxStyle", modelData.id)
                             }
                         }
@@ -1473,7 +1863,7 @@ Item {
                                 { "id": "heart", "label": qsTr("Heart") }
                             ]
                             model: shapes.map(s => s.label)
-                            currentIndex: Math.max(0, shapes.findIndex(s => s.id === (root.textStyle.boxShape || "rect")))
+                            currentIndex: Math.max(0, shapes.findIndex(s => s.id === (root.boxSource.boxShape || "rect")))
                             onActivated: root.setTextStyleKey("boxShape", shapes[currentIndex].id)
                         }
                     }
@@ -1489,9 +1879,9 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
                         ColorSwatchField {
-                            hex: root.textStyle.boxColor
+                            hex: root.boxSource.boxColor
                             tooltip: qsTr("Choose background colour")
-                            onEdited: value => root.setTextStyleKey("boxColor", root.keepAlpha(value, root.textStyle.boxColor))
+                            onEdited: value => root.setTextStyleKey("boxColor", root.keepAlpha(value, root.boxSource.boxColor))
                         }
                     }
 
@@ -1502,8 +1892,8 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: root.hexAlpha(root.textStyle.boxColor)
-                        onCommitted: v => root.setTextStyleKey("boxColor", root.withAlpha(root.textStyle.boxColor, v))
+                        value: root.hexAlpha(root.boxSource.boxColor)
+                        onCommitted: v => root.setTextStyleKey("boxColor", root.withAlpha(root.boxSource.boxColor, v))
                     }
 
                     SliderRow {
@@ -1513,7 +1903,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxRadius) / root.em
+                        value: Number(root.boxSource.boxRadius) / root.em
                         onCommitted: v => root.setTextStyleKey("boxRadius", v * root.em)
                     }
 
@@ -1524,7 +1914,7 @@ Item {
                         to: 1.5
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxPaddingY) / root.em
+                        value: Number(root.boxSource.boxPaddingY) / root.em
                         onCommitted: v => root.setTextStyleKey("boxPaddingY", v * root.em)
                     }
 
@@ -1535,7 +1925,7 @@ Item {
                         to: 2
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxPaddingX) / root.em
+                        value: Number(root.boxSource.boxPaddingX) / root.em
                         onCommitted: v => root.setTextStyleKey("boxPaddingX", v * root.em)
                     }
 
@@ -1546,7 +1936,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxOffsetY) / root.em
+                        value: Number(root.boxSource.boxOffsetY) / root.em
                         onCommitted: v => root.setTextStyleKey("boxOffsetY", v * root.em)
                     }
 
@@ -1557,7 +1947,7 @@ Item {
                         to: 1
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxOffsetX) / root.em
+                        value: Number(root.boxSource.boxOffsetX) / root.em
                         onCommitted: v => root.setTextStyleKey("boxOffsetX", v * root.em)
                     }
 
@@ -1572,7 +1962,7 @@ Item {
                             font.pixelSize: Theme.fontSizeXs
                         }
                         ColorSwatchField {
-                            hex: root.textStyle.boxBorderColor || "#ff000000"
+                            hex: root.boxSource.boxBorderColor || "#ff000000"
                             tooltip: qsTr("Choose border colour")
                             onEdited: value => root.setTextStyleKey("boxBorderColor", value)
                         }
@@ -1585,7 +1975,7 @@ Item {
                         to: 0.3
                         displayScale: 100
                         suffix: "%"
-                        value: Number(root.textStyle.boxBorderWidth) / root.em
+                        value: Number(root.boxSource.boxBorderWidth) / root.em
                         onCommitted: v => root.setTextStyleKey("boxBorderWidth", v * root.em)
                     }
 
@@ -1858,8 +2248,58 @@ Item {
                 expanded: false
                 visible: root.hasTextStyle
 
+                Column {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    visible: root.hasRunSelection
+
+                    Text {
+                        width: parent.width
+                        text: qsTr("These letters move, scale and turn on their own: the rest of the text stays put.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                        wrapMode: Text.WordWrap
+                    }
+
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "X"
+                        value: root.runTransformValue("offsetX", 0.0)
+                        onEdited: v => root.setRunTransform("offsetX", v)
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: "Y"
+                        value: root.runTransformValue("offsetY", 0.0)
+                        onEdited: v => root.setRunTransform("offsetY", v)
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        // Ya traducido en esos contextos: no hace falta otro texto en el catálogo.
+                        unit: qsTranslate("TransformInspector", "Scale")
+                        decimals: 2
+                        step: 0.05
+                        from: 0.05
+                        to: 20
+                        value: root.runTransformValue("transformScale", 1.0)
+                        onEdited: v => root.applyStyle({ "transformScale": v })
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        unit: qsTranslate("KeyframeGraph", "Rotation")
+                        decimals: 1
+                        from: -360
+                        to: 360
+                        value: root.runTransformValue("rotation", 0.0)
+                        onEdited: v => root.applyStyle({ "rotation": v })
+                    }
+                }
+
                 TransformInspector {
                     width: parent.width
+                    // Con letras sombreadas, lo de arriba manda en ellas; esto queda para el clip.
+                    visible: !root.hasRunSelection
                     sizeLinked: EditorState.sizeLinked
                     onSizeLinkedChanged: EditorState.sizeLinked = sizeLinked
                     positionLinked: EditorState.positionLinked

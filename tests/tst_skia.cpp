@@ -1,8 +1,10 @@
 #include <QtTest>
 
+#include <cstring>
 #include <functional>
 
 #include <QFontDatabase>
+#include <QPainter>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QOpenGLExtraFunctions>
@@ -327,6 +329,8 @@ private slots:
     void textLookRenders();
     void textPacksRender();
     void textRunsPaintWithTheirOwnColourAndSize();
+    void textRunEffectsStayInsideTheirLetters();
+    void textRunOpacityScriptAndShrinkToFit();
 };
 
 void SkiaTest::grContextAttaches()
@@ -834,7 +838,9 @@ Ink inkOf(const QImage &image)
     Ink ink;
     int minX = image.width(), minY = image.height(), maxX = -1, maxY = -1;
     double mass = 0;
-    const QImage img = image.convertToFormat(QImage::Format_RGBA8888);
+    // ARGB32 is the order QRgb/qRed/qGreen/qBlue assume: reading an RGBA8888 image as QRgb swaps
+    // red and blue, and a pure red came out as (r 0 g 0 b 255).
+    const QImage img = image.convertToFormat(QImage::Format_ARGB32);
     for (int y = 0; y < img.height(); ++y) {
         const QRgb *row = reinterpret_cast<const QRgb *>(img.constScanLine(y));
         for (int x = 0; x < img.width(); ++x) {
@@ -2217,6 +2223,267 @@ void SkiaTest::textRunsPaintWithTheirOwnColourAndSize()
     for (const text::StyledWord &w : tall)
         tallH = qMax(tallH, w.inkRect.height());
     QVERIFY2(tallH > plainH * 1.5, qPrintable(QStringLiteral("%1 contra %2").arg(tallH).arg(plainH)));
+}
+
+// 0.24: un efecto aplicado a unas letras se queda en esas letras. Se pinta «HOLA MUNDO» con el
+// tramo en «MUNDO» y se mira, píxel a píxel, que la mitad de «HOLA» sale igual que sin el efecto.
+void SkiaTest::textRunEffectsStayInsideTheirLetters()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+
+    TextStyle style;
+    style.fontFamily = QStringLiteral("Inter");
+    style.pixelSize = 64;
+    style.wordWrap = false;
+    // White letters to begin with: every case below starts from something that paints.
+    style.layers = {solidFillLayer(Qt::white)};
+    const QString text = QStringLiteral("HOLA MUNDO");
+    const QRectF layout(0, 0, 720, 200);
+
+    // Each painting goes onto the same canvas at the place it asks for: a stretch's effects widen
+    // the block's margin (bleedFor), so the surfaces differ in size but the letters must not move.
+    const QPoint origin(150, 150);
+    const auto onCanvas = [&](const TextStyle &s, double scale, QRectF *letters) {
+        QRectF rect;
+        const QImage painted = skiaText(textClip(s, text), text, layout, scale, -1, &rect);
+        QImage canvas(1200, 600, QImage::Format_RGBA8888_Premultiplied);
+        canvas.fill(Qt::transparent);
+        if (painted.isNull())
+            return QImage();
+        QPainter p(&canvas);
+        p.drawImage(rect.topLeft() + origin, painted);
+        p.end();
+        if (letters)
+            *letters = rect.translated(origin);
+        return canvas;
+    };
+    QRectF plainRect;
+    const QImage plain = onCanvas(style, 1.0, &plainRect);
+    QVERIFY(!plain.isNull());
+
+    // La mitad de «HOLA» (sin el tramo) y la de «MUNDO» (con él).
+    // Keep a wide gap around the boundary at letter 5: a stretch's background bleeds a few pixels
+    // past its first letter, and that must not read as a change to «HOLA».
+    const QRect left(plainRect.left(), plainRect.top(), plainRect.width() * 0.30, plainRect.height());
+    const QRect right(plainRect.left() + int(plainRect.width() * 0.60), plainRect.top(),
+                      plainRect.width() * 0.38, plainRect.height());
+    const auto pixelsIn = [](const QImage &image, const QRect &rect) {
+        return image.copy(rect.intersected(image.rect())).convertToFormat(QImage::Format_RGBA8888);
+    };
+    const auto samePixels = [](const QImage &a, const QImage &b) {
+        if (a.size() != b.size())
+            return false;
+        for (int y = 0; y < a.height(); ++y) {
+            if (std::memcmp(a.constScanLine(y), b.constScanLine(y), size_t(a.width()) * 4) != 0)
+                return false;
+        }
+        return true;
+    };
+    const auto inkIn = [](const QImage &image, const QRect &rect) {
+        return inkOf(image.copy(rect.intersected(image.rect())));
+    };
+
+    // 1) Sombra roja solo en «MUNDO».
+    TextStyle shadowed = style;
+    TextRun shadowRun;
+    shadowRun.start = 5;
+    shadowRun.end = 10;
+    // La pila del tramo sustituye a la del bloque, así que trae el relleno de las letras y encima su
+    // sombra: es lo que manda el inspector al aplicar un estilo a unas letras.
+    TextShadingLayer fill = solidFillLayer(QColor(255, 255, 255), QStringLiteral("fill"));
+    TextShadingLayer shadow;
+    shadow.id = QStringLiteral("shadow");
+    shadow.kind = TextLayerKind::Shadow;
+    shadow.enabled = true;
+    shadow.paint.color = QColor(255, 0, 0);
+    shadow.offsetX = 12.0;
+    shadow.offsetY = 12.0;
+    shadow.blur = 0.0;
+    shadowRun.layersEnabled = true;
+    shadowRun.layers = {shadow, fill};
+    shadowed.runs = {shadowRun};
+    const QImage withShadow = onCanvas(shadowed, 1.0, nullptr);
+    QVERIFY(!withShadow.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withShadow, left)),
+             "la sombra del tramo cambió los píxeles de «HOLA»");
+    const Ink plainRight = inkIn(plain, right);
+    const Ink shadowRight = inkIn(withShadow, right);
+    QVERIFY2(shadowRight.count > plainRight.count + 100,
+             qPrintable(QStringLiteral("sin sombra %1, con sombra %2").arg(plainRight.count).arg(shadowRight.count)));
+    // Y la sombra es roja: el canal rojo manda en lo que se añadió a la derecha.
+    QVERIFY2(shadowRight.r > shadowRight.g + 20.0 && shadowRight.r > shadowRight.b + 20.0,
+             qPrintable(QStringLiteral("r %1 g %2 b %3").arg(shadowRight.r).arg(shadowRight.g).arg(shadowRight.b)));
+
+    // 2) Trazo solo en «MUNDO»: la izquierda, otra vez, intacta.
+    TextStyle stroked = style;
+    TextRun strokeRun;
+    strokeRun.start = 5;
+    strokeRun.end = 10;
+    TextShadingLayer stroke;
+    stroke.id = QStringLiteral("stroke");
+    stroke.kind = TextLayerKind::Stroke;
+    stroke.enabled = true;
+    stroke.paint.color = QColor(0, 255, 0);
+    stroke.width = 6.0;
+    strokeRun.layersEnabled = true;
+    strokeRun.layers = {fill, stroke};
+    stroked.runs = {strokeRun};
+    const QImage withStroke = onCanvas(stroked, 1.0, nullptr);
+    QVERIFY(!withStroke.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withStroke, left)),
+             "el trazo del tramo cambió los píxeles de «HOLA»");
+    QVERIFY2(inkIn(withStroke, right).count > plainRight.count + 100, "el trazo no se vio en «MUNDO»");
+
+    // 3) Fondo solo en «MUNDO»: aparece tinta detrás de sus letras y nada a la izquierda.
+    TextStyle boxed = style;
+    TextRun boxRun;
+    boxRun.start = 5;
+    boxRun.end = 10;
+    boxRun.boxEnabled = true;
+    boxRun.boxColor = QColor(0, 0, 255, 255);
+    boxRun.boxPadding = 10.0;
+    boxed.runs = {boxRun};
+    const QImage withBox = onCanvas(boxed, 1.0, nullptr);
+    QVERIFY(!withBox.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withBox, left)),
+             "el fondo del tramo cambió los píxeles de «HOLA»");
+    const Ink boxRight = inkIn(withBox, right);
+    QVERIFY2(boxRight.count > plainRight.count + 1000, "el fondo no se vio en «MUNDO»");
+    QVERIFY2(boxRight.b > 60.0, qPrintable(QStringLiteral("el fondo no es azul: b %1").arg(boxRight.b)));
+
+    // 4) Transformación solo en «MUNDO»: sus letras se mueven, las de «HOLA» no.
+    TextStyle moved = style;
+    TextRun moveRun;
+    moveRun.start = 5;
+    moveRun.end = 10;
+    moveRun.transformEnabled = true;
+    moveRun.offsetY = -40.0;
+    moved.runs = {moveRun};
+    const QImage withMove = onCanvas(moved, 1.0, nullptr);
+    QVERIFY(!withMove.isNull());
+    QVERIFY2(samePixels(pixelsIn(plain, left), pixelsIn(withMove, left)),
+             "la transformación del tramo cambió los píxeles de «HOLA»");
+    QVERIFY2(!samePixels(pixelsIn(plain, right), pixelsIn(withMove, right)),
+             "la transformación no movió «MUNDO»");
+    // Moved up by 40 px: «MUNDO»'s ink rises by about that much.
+    const QRect rightTall(right.left(), right.top() - 60, right.width(), right.height() + 60);
+    const double risen = inkIn(plain, rightTall).bbox.center().y() - inkIn(withMove, rightTall).bbox.center().y();
+    QVERIFY2(risen > 30.0 && risen < 50.0, qPrintable(QStringLiteral("subió %1 px").arg(risen)));
+
+    // 5) The background at half scale (the preview): the box stays round «MUNDO», at half size. The
+    // cells are already in output pixels; scaling them again put the box at a quarter, off the letters.
+    QRectF halfRect;
+    const QImage halfPlain = onCanvas(style, 0.5, &halfRect);
+    const QImage halfBox = onCanvas(boxed, 0.5, nullptr);
+    QVERIFY(!halfPlain.isNull() && !halfBox.isNull());
+    const QRect halfRight(halfRect.left() + int(halfRect.width() * 0.60), halfRect.top(), halfRect.width() * 0.38,
+                          halfRect.height());
+    const QRect halfLeft(halfRect.left(), halfRect.top(), halfRect.width() * 0.30, halfRect.height());
+    QVERIFY2(samePixels(pixelsIn(halfPlain, halfLeft), pixelsIn(halfBox, halfLeft)),
+             "a media escala el fondo del tramo cayó sobre «HOLA»");
+    const Ink halfBoxRight = inkIn(halfBox, halfRight);
+    QVERIFY2(halfBoxRight.count > inkIn(halfPlain, halfRight).count + 250 && halfBoxRight.b > 60.0,
+             "a media escala el fondo no quedó detrás de «MUNDO»");
+}
+
+// 0.24 (segunda tanda): la opacidad y el superíndice de unas letras, y el texto que se encoge
+// para caber en su caja.
+void SkiaTest::textRunOpacityScriptAndShrinkToFit()
+{
+    reloadFontCatalog({QString::fromUtf8(DRIFT_TEST_FONTS_DIR)});
+    SKIP_WITHOUT_FONTS();
+
+    TextStyle style;
+    style.fontFamily = QStringLiteral("Inter");
+    style.pixelSize = 64;
+    style.wordWrap = false;
+    style.layers = {solidFillLayer(Qt::white)};
+    const QString text = QStringLiteral("HOLA MUNDO");
+    const QRectF layout(0, 0, 720, 200);
+    // Ink of an image in canvas coordinates (its painted rect placed where it goes).
+    const auto inkAt = [](const QImage &image, const QRectF &rect, double fromX, double toX) {
+        Ink ink = inkOf(image.copy(QRect(int(fromX - rect.left()), 0, int(toX - fromX), image.height())));
+        ink.bbox.translate(int(fromX), int(rect.top()));
+        return ink;
+    };
+
+    QRectF plainRect;
+    const QImage plain = skiaText(textClip(style, text), text, layout, 1.0, -1, &plainRect);
+    QVERIFY(!plain.isNull());
+    const double split = plainRect.left() + plainRect.width() * 0.60;
+    const double leftEnd = plainRect.left() + plainRect.width() * 0.30;
+
+    // 1) «MUNDO» al 40 %: menos tinta opaca a la derecha, «HOLA» igual.
+    TextStyle faded = style;
+    TextRun fadeRun;
+    fadeRun.start = 5;
+    fadeRun.end = 10;
+    fadeRun.opacityEnabled = true;
+    fadeRun.opacity = 0.4;
+    faded.runs = {fadeRun};
+    QRectF fadedRect;
+    const QImage withFade = skiaText(textClip(faded, text), text, layout, 1.0, -1, &fadedRect);
+    QVERIFY(!withFade.isNull());
+    const auto meanAlpha = [](const QImage &image, const QRectF &rect, double fromX, double toX) {
+        const QImage img = image.convertToFormat(QImage::Format_ARGB32);
+        double sum = 0;
+        int n = 0;
+        for (int y = 0; y < img.height(); ++y)
+            for (int x = int(fromX - rect.left()); x < int(toX - rect.left()); ++x)
+                if (x >= 0 && x < img.width()) {
+                    sum += qAlpha(img.pixel(x, y));
+                    ++n;
+                }
+        return n ? sum / n : 0.0;
+    };
+    const double plainRight = meanAlpha(plain, plainRect, split, plainRect.right());
+    const double fadedRight = meanAlpha(withFade, fadedRect, split, plainRect.right());
+    QVERIFY2(fadedRight < plainRight * 0.6 && fadedRight > plainRight * 0.2,
+             qPrintable(QStringLiteral("sin %1, con %2").arg(plainRight).arg(fadedRight)));
+    QVERIFY2(qAbs(meanAlpha(plain, plainRect, plainRect.left(), leftEnd)
+                  - meanAlpha(withFade, fadedRect, plainRect.left(), leftEnd)) < 0.5,
+             "la opacidad del tramo cambió «HOLA»");
+
+    // 2) «MUNDO» en superíndice: sus letras suben y se achican, «HOLA» queda en su sitio.
+    TextStyle raised = style;
+    TextRun superRun;
+    superRun.start = 5;
+    superRun.end = 10;
+    superRun.baseline = 1;
+    raised.runs = {superRun};
+    QRectF raisedRect;
+    const QImage withSuper = skiaText(textClip(raised, text), text, layout, 1.0, -1, &raisedRect);
+    QVERIFY(!withSuper.isNull());
+    const Ink plainHola = inkAt(plain, plainRect, plainRect.left(), leftEnd);
+    const Ink superHola = inkAt(withSuper, raisedRect, raisedRect.left(), raisedRect.left() + (leftEnd - plainRect.left()));
+    QVERIFY2(qAbs(plainHola.bbox.bottom() - superHola.bbox.bottom()) <= 1,
+             qPrintable(QStringLiteral("HOLA %1 contra %2").arg(plainHola.bbox.bottom()).arg(superHola.bbox.bottom())));
+    const Ink superMundo = inkAt(withSuper, raisedRect, raisedRect.left() + raisedRect.width() * 0.55, raisedRect.right());
+    QVERIFY2(superMundo.bbox.bottom() < plainHola.bbox.bottom() - 10,
+             qPrintable(QStringLiteral("MUNDO acaba en %1, HOLA en %2").arg(superMundo.bbox.bottom()).arg(plainHola.bbox.bottom())));
+    QVERIFY2(superMundo.bbox.height() < plainHola.bbox.height() * 0.8, "el superíndice no se achicó");
+
+    // 3) Encoger para caber: un texto largo en una caja baja cabe en ella; sin la opción, no.
+    TextStyle wrapped = style;
+    wrapped.wordWrap = true;
+    const QString longText = QStringLiteral("UN TEXTO MUY LARGO QUE NO CABE EN UNA CAJA TAN BAJA");
+    const QRectF lowBox(0, 0, 400, 120);
+    QRectF grownRect;
+    const QImage grown = skiaText(textClip(wrapped, longText), longText, lowBox, 1.0, -1, &grownRect);
+    TextStyle shrinking = wrapped;
+    shrinking.shrinkToFit = true;
+    QRectF shrunkRect;
+    const QImage shrunk = skiaText(textClip(shrinking, longText), longText, lowBox, 1.0, -1, &shrunkRect);
+    QVERIFY(!grown.isNull() && !shrunk.isNull());
+    const Ink grownInk = inkOf(grown);
+    const Ink shrunkInk = inkOf(shrunk);
+    // The box clips what does not fit, so the overflowing text measures the box too; the letters
+    // tell them apart: shrunk, they are smaller and paint much less ink.
+    QVERIFY2(shrunkInk.bbox.height() <= lowBox.height() * 1.1,
+             qPrintable(QStringLiteral("encogido mide %1").arg(shrunkInk.bbox.height())));
+    QVERIFY2(shrunkInk.count < grownInk.count * 0.85,
+             qPrintable(QStringLiteral("tinta encogida %1, sin encoger %2").arg(shrunkInk.count).arg(grownInk.count)));
 }
 
 #include "tst_skia.moc"

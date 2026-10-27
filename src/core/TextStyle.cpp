@@ -3,6 +3,7 @@
 #include <QMutex>
 #include <QMutexLocker>
 #include <QRegularExpression>
+#include <QSet>
 
 #include "Effect.h"
 #include "TextAnimationPreset.h"
@@ -999,7 +1000,7 @@ TextHighlight textHighlightFromJson(const QJsonObject &o, const TextHighlight &f
 
 QJsonObject textRunToJson(const TextRun &r)
 {
-    return QJsonObject{
+    QJsonObject json{
         {QStringLiteral("start"), r.start},
         {QStringLiteral("end"), r.end},
         {QStringLiteral("colorEnabled"), r.colorEnabled},
@@ -1015,6 +1016,37 @@ QJsonObject textRunToJson(const TextRun &r)
         {QStringLiteral("fontEnabled"), r.fontEnabled},
         {QStringLiteral("fontFamily"), r.fontFamily},
     };
+    // Lo nuevo de la 0.24 se escribe solo cuando se usó: un proyecto de la 0.23 se guarda igual.
+    if (r.layersEnabled) {
+        QJsonArray layers;
+        for (const TextShadingLayer &layer : r.layers)
+            layers.append(textShadingLayerToJson(layer));
+        json.insert(QStringLiteral("layers"), layers);
+    }
+    if (r.boxEnabled) {
+        json.insert(QStringLiteral("boxColor"), r.boxColor.name(QColor::HexArgb));
+        json.insert(QStringLiteral("boxPadding"), r.boxPadding);
+        json.insert(QStringLiteral("boxRadius"), r.boxRadius);
+        if (r.boxBorderWidth > 0.0) {
+            json.insert(QStringLiteral("boxBorderWidth"), r.boxBorderWidth);
+            json.insert(QStringLiteral("boxBorderColor"), r.boxBorderColor.name(QColor::HexArgb));
+        }
+    }
+    if (r.transformEnabled) {
+        json.insert(QStringLiteral("offsetX"), r.offsetX);
+        json.insert(QStringLiteral("offsetY"), r.offsetY);
+        json.insert(QStringLiteral("transformScale"), r.transformScale);
+        json.insert(QStringLiteral("rotation"), r.rotation);
+    }
+    if (r.letterSpacingEnabled)
+        json.insert(QStringLiteral("letterSpacing"), r.letterSpacing);
+    if (r.lineHeightEnabled)
+        json.insert(QStringLiteral("lineHeight"), r.lineHeight);
+    if (r.opacityEnabled)
+        json.insert(QStringLiteral("opacity"), r.opacity);
+    if (r.baseline != 0)
+        json.insert(QStringLiteral("baseline"), r.baseline > 0 ? QStringLiteral("super") : QStringLiteral("sub"));
+    return json;
 }
 
 TextRun textRunFromJson(const QJsonObject &o)
@@ -1034,6 +1066,32 @@ TextRun textRunFromJson(const QJsonObject &o)
     r.underline = o.value(QStringLiteral("underline")).toBool(r.underline);
     r.fontEnabled = o.value(QStringLiteral("fontEnabled")).toBool(r.fontEnabled);
     r.fontFamily = o.value(QStringLiteral("fontFamily")).toString();
+    if (o.contains(QStringLiteral("layers"))) {
+        r.layersEnabled = true;
+        for (const QJsonValue &v : o.value(QStringLiteral("layers")).toArray())
+            r.layers.append(textShadingLayerFromJson(v.toObject()));
+    }
+    r.boxColor = QColor(o.value(QStringLiteral("boxColor")).toString(r.boxColor.name(QColor::HexArgb)));
+    const double padding = o.value(QStringLiteral("boxPadding")).toDouble(r.boxPadding);
+    r.boxPadding = qBound(0.0, padding, 200.0);
+    r.boxRadius = qBound(0.0, o.value(QStringLiteral("boxRadius")).toDouble(r.boxRadius), 200.0);
+    r.boxBorderWidth = qBound(0.0, o.value(QStringLiteral("boxBorderWidth")).toDouble(r.boxBorderWidth), 40.0);
+    r.boxBorderColor = QColor(o.value(QStringLiteral("boxBorderColor")).toString(r.boxBorderColor.name(QColor::HexArgb)));
+    r.boxEnabled = o.contains(QStringLiteral("boxColor"));
+    r.offsetX = o.value(QStringLiteral("offsetX")).toDouble(r.offsetX);
+    r.offsetY = o.value(QStringLiteral("offsetY")).toDouble(r.offsetY);
+    r.transformScale = qBound(0.05, o.value(QStringLiteral("transformScale")).toDouble(r.transformScale), 20.0);
+    r.rotation = o.value(QStringLiteral("rotation")).toDouble(r.rotation);
+    r.transformEnabled = o.contains(QStringLiteral("offsetX")) || o.contains(QStringLiteral("offsetY"))
+                         || o.contains(QStringLiteral("transformScale")) || o.contains(QStringLiteral("rotation"));
+    r.letterSpacingEnabled = o.contains(QStringLiteral("letterSpacing"));
+    r.letterSpacing = qBound(-200.0, o.value(QStringLiteral("letterSpacing")).toDouble(0.0), 400.0);
+    r.lineHeightEnabled = o.contains(QStringLiteral("lineHeight"));
+    r.lineHeight = qBound(0.1, o.value(QStringLiteral("lineHeight")).toDouble(1.2), 10.0);
+    r.opacityEnabled = o.contains(QStringLiteral("opacity"));
+    r.opacity = qBound(0.0, o.value(QStringLiteral("opacity")).toDouble(1.0), 1.0);
+    const QString baseline = o.value(QStringLiteral("baseline")).toString();
+    r.baseline = baseline == QLatin1String("super") ? 1 : baseline == QLatin1String("sub") ? -1 : 0;
     return r;
 }
 
@@ -1110,6 +1168,26 @@ QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &b
     return normalizedTextRuns(shifted, newLen);
 }
 
+QList<TextRun> shiftTextRunsForReplace(const QList<TextRun> &runs, int newTextLength, int start, int oldLength,
+                                       int newLength)
+{
+    if (runs.isEmpty())
+        return runs;
+    const int oldEnd = start + qMax(0, oldLength);
+    const int newEnd = start + qMax(0, newLength);
+    const int delta = newEnd - oldEnd;
+    QList<TextRun> shifted;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        // El principio de un tramo dentro de lo reemplazado va al principio de lo nuevo y su final
+        // al final de lo nuevo: así unas letras pintadas que se reemplazan siguen pintadas.
+        r.start = run.start <= start ? run.start : (run.start >= oldEnd ? run.start + delta : start);
+        r.end = run.end <= start ? run.end : (run.end >= oldEnd ? run.end + delta : newEnd);
+        shifted.append(r);
+    }
+    return normalizedTextRuns(shifted, newTextLength);
+}
+
 QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int start, int end, const TextRun &patch)
 {
     const QList<TextRun> base = normalizedTextRuns(runs, textLength);
@@ -1142,6 +1220,39 @@ QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int sta
             r.fontEnabled = true;
             r.fontFamily = patch.fontFamily;
         }
+        if (patch.layersEnabled) {
+            r.layersEnabled = true;
+            r.layers = patch.layers;
+        }
+        if (patch.boxEnabled) {
+            r.boxEnabled = true;
+            r.boxColor = patch.boxColor;
+            r.boxPadding = patch.boxPadding;
+            r.boxRadius = patch.boxRadius;
+            r.boxBorderWidth = patch.boxBorderWidth;
+            r.boxBorderColor = patch.boxBorderColor;
+        }
+        if (patch.transformEnabled) {
+            r.transformEnabled = true;
+            r.offsetX = patch.offsetX;
+            r.offsetY = patch.offsetY;
+            r.transformScale = patch.transformScale;
+            r.rotation = patch.rotation;
+        }
+        if (patch.letterSpacingEnabled) {
+            r.letterSpacingEnabled = true;
+            r.letterSpacing = patch.letterSpacing;
+        }
+        if (patch.lineHeightEnabled) {
+            r.lineHeightEnabled = true;
+            r.lineHeight = patch.lineHeight;
+        }
+        if (patch.opacityEnabled) {
+            r.opacityEnabled = true;
+            r.opacity = patch.opacity;
+        }
+        if (patch.baseline != 0)
+            r.baseline = patch.baseline;
         return r;
     };
     QList<TextRun> out;
@@ -1261,12 +1372,47 @@ const QMap<QString, QString> &legacyKeyAliases()
 
 } // namespace
 
+// A layer of the block, or of some letters' own stack (0.24, whose ids never clash with the
+// block's), and the stack it sits in.
+static const TextShadingLayer *findStyleLayer(const TextStyle &s, const QString &id,
+                                              const QList<TextShadingLayer> **stack = nullptr)
+{
+    if (const TextShadingLayer *layer = findTextLayer(s.layers, id)) {
+        if (stack)
+            *stack = &s.layers;
+        return layer;
+    }
+    for (const TextRun &run : s.runs) {
+        if (!run.layersEnabled)
+            continue;
+        if (const TextShadingLayer *layer = findTextLayer(run.layers, id)) {
+            if (stack)
+                *stack = &run.layers;
+            return layer;
+        }
+    }
+    return nullptr;
+}
+
 QStringList textKeyframeProperties(const TextStyle &s)
 {
     QStringList out = flatKeyframeKeys();
     for (const TextShadingLayer &layer : s.layers) {
         for (const QString &field : shadingLayerKeyframeFields(layer))
             out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
+    }
+    // The letters' own layers (0.24), once each: the pieces of one pick share their ids.
+    QSet<QString> seen;
+    for (const TextRun &run : s.runs) {
+        if (!run.layersEnabled)
+            continue;
+        for (const TextShadingLayer &layer : run.layers) {
+            if (findTextLayer(s.layers, layer.id) || seen.contains(layer.id))
+                continue;
+            seen.insert(layer.id);
+            for (const QString &field : shadingLayerKeyframeFields(layer))
+                out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
+        }
     }
     return out;
 }
@@ -1282,7 +1428,7 @@ QString textKeyframeCanonicalKey(const QString &key, const TextStyle &s)
     LayerKeyPath path;
     if (!parseLayerKey(candidate, &path))
         return {};
-    const TextShadingLayer *layer = findTextLayer(s.layers, path.layerId);
+    const TextShadingLayer *layer = findStyleLayer(s, path.layerId);
     if (!layer)
         return {};
     double probe = 0.0;
@@ -1321,6 +1467,24 @@ void scaleTextStyle(TextStyle &s, double factor)
         layer.sketchLength *= factor;
         layer.sketchDeviation *= factor;
     }
+    // The letters' own stack, box and move (0.24) are px at the block's size too.
+    for (TextRun &run : s.runs) {
+        for (TextShadingLayer &layer : run.layers) {
+            layer.offsetX *= factor;
+            layer.offsetY *= factor;
+            layer.blur *= factor;
+            layer.width *= factor;
+            layer.spread *= factor;
+            layer.sketchLength *= factor;
+            layer.sketchDeviation *= factor;
+        }
+        run.boxPadding *= factor;
+        run.boxRadius *= factor;
+        run.boxBorderWidth *= factor;
+        run.offsetX *= factor;
+        run.offsetY *= factor;
+        run.letterSpacing *= factor;
+    }
     static const QStringList kFlat{QStringLiteral("pixelSize"), QStringLiteral("letterSpacing"),
                                    QStringLiteral("boxPadding")};
     static const QStringList kLayerFields{QStringLiteral("offsetX"), QStringLiteral("offsetY"), QStringLiteral("blur"),
@@ -1349,7 +1513,12 @@ QString textKeyframeLabel(const QString &key, const TextStyle &s)
         return QCoreApplication::translate("TextStyle", "Box padding");
     if (canonical == QLatin1String("pathBend"))
         return QCoreApplication::translate("TextStyle", "Bend");
-    return shadingLayerKeyframeLabel(s.layers, canonical.isEmpty() ? key : canonical);
+    const QString layerKey = canonical.isEmpty() ? key : canonical;
+    LayerKeyPath path;
+    const QList<TextShadingLayer> *stack = &s.layers;
+    if (parseLayerKey(layerKey, &path))
+        findStyleLayer(s, path.layerId, &stack);
+    return shadingLayerKeyframeLabel(*stack, layerKey);
 }
 
 bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
@@ -1370,7 +1539,7 @@ bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
     else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
-        return shadingLayerScalar(*findTextLayer(s.layers, path.layerId), path.field, out);
+        return shadingLayerScalar(*findStyleLayer(s, path.layerId), path.field, out);
     }
     return true;
 }
@@ -1393,7 +1562,18 @@ bool setTextStyleScalar(TextStyle &s, const QString &rawKey, double value)
     else {
         LayerKeyPath path;
         parseLayerKey(key, &path);
-        return setShadingLayerScalar(*findTextLayer(s.layers, path.layerId), path.field, value);
+        // The block's layer, or every piece of the letters that carry it (one pick split by a
+        // colour is still one layer to animate).
+        bool set = false;
+        if (TextShadingLayer *layer = findTextLayer(s.layers, path.layerId))
+            set = setShadingLayerScalar(*layer, path.field, value);
+        for (TextRun &run : s.runs) {
+            if (!run.layersEnabled)
+                continue;
+            if (TextShadingLayer *layer = findTextLayer(run.layers, path.layerId))
+                set = setShadingLayerScalar(*layer, path.field, value) || set;
+        }
+        return set;
     }
     return true;
 }
@@ -1456,6 +1636,9 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("underlineWidth"), s.underlineWidth},
         {QStringLiteral("underlineOffset"), s.underlineOffset},
         {QStringLiteral("strikeEnabled"), s.strikeEnabled},
+        {QStringLiteral("ligatures"), s.ligatures},
+        {QStringLiteral("smallCaps"), s.smallCaps},
+        {QStringLiteral("shrinkToFit"), s.shrinkToFit},
         {QStringLiteral("pathCircle"), s.pathCircle},
         {QStringLiteral("wordSpacing"), s.wordSpacing},
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
@@ -1608,6 +1791,9 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.underlineWidth = o.value(QStringLiteral("underlineWidth")).toDouble(s.underlineWidth);
     s.underlineOffset = o.value(QStringLiteral("underlineOffset")).toDouble(s.underlineOffset);
     s.strikeEnabled = o.value(QStringLiteral("strikeEnabled")).toBool(s.strikeEnabled);
+    s.ligatures = o.value(QStringLiteral("ligatures")).toBool(s.ligatures);
+    s.smallCaps = o.value(QStringLiteral("smallCaps")).toBool(s.smallCaps);
+    s.shrinkToFit = o.value(QStringLiteral("shrinkToFit")).toBool(s.shrinkToFit);
     s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
     s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());

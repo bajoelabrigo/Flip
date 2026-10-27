@@ -626,7 +626,11 @@ ThemedDialog {
 
                         Column {
                             id: sideColumn
-                            width: sideScroll.width - Theme.spacingMd
+                            // The always-on scroll bar (12 px) sits over the right edge: leave the
+                            // same room the right panel's tabColumn does, or a switch anchored to
+                            // parent.right ends up under the bar.
+                            x: Theme.pagePadding
+                            width: sideScroll.width - Theme.pagePadding * 2 - (Theme.spacingLg + 4)
                             spacing: Theme.spacingMd
 
                             // --- Personalizar › Texto de entrada: se escribe y se eligen letras ----
@@ -723,9 +727,24 @@ ThemedDialog {
                                 id: inspector
                                 width: parent.width
                                 inAdvanced: true
+                                // Las letras sombreadas en «Texto de entrada» (de esta ventana) son
+                                // las que reciben los estilos de la derecha (0.24).
+                                runSelectionStart: root.selectionStart
+                                runSelectionEnd: root.selectionEnd
                                 textTab: root.page === "style" ? "effects"
                                          : root.page === "animation" ? "animate"
                                          : root.page === "bubble" ? "bubble" : "basic"
+                                // «Más estilos», «Burbujas» y compañía cambian la pestaña del inspector
+                                // desde dentro, y eso rompe el binding de arriba: la ventana sigue al
+                                // inspector para que la pestaña y el panel no se separen.
+                                onTextTabChanged: {
+                                    if (textTab === "effects" && root.page !== "style")
+                                        root.page = "style"
+                                    else if (textTab === "animate" && root.page !== "animation")
+                                        root.page = "animation"
+                                    else if (textTab === "bubble" && root.page !== "bubble")
+                                        root.page = "bubble"
+                                }
                             }
                         }
                     }

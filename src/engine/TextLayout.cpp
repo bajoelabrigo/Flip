@@ -54,7 +54,8 @@ quint64 styleHash(const drift::TextStyle &s)
                                  s.boxOffsetX, s.boxOffsetY, s.boxBorderColor.rgba(), s.boxBorderWidth),
                       highlightHash(s.wordHighlight), s.underlineEnabled,
                       s.underlineColor.rgba(), s.underlineWidth, s.underlineOffset,
-                      qHashMulti(0, s.strikeEnabled, s.wordSpacing, s.pathCircle),
+                      qHashMulti(0, s.strikeEnabled, s.wordSpacing, s.pathCircle, s.ligatures, s.smallCaps,
+                                 s.shrinkToFit),
                       qHashMulti(0, static_cast<int>(a.rule), a.n, a.phase, a.colorEnabled,
                                  a.color.rgba(), a.sizeScale, a.outlineEnabled, a.outlineWidth,
                                  a.outlineColor.rgba(), highlightHash(a.highlight)));
@@ -76,12 +77,23 @@ quint64 layoutKey(const QString &text, const drift::TextStyle &s, double wrapWid
     for (const drift::TextRun &r : s.runs)
         runs = qHashMulti(runs, r.start, r.end, r.colorEnabled, r.color.rgba(), r.sizeEnabled,
                           qRound(r.sizeScale * 1000.0), r.boldEnabled, r.bold, r.italicEnabled, r.italic,
-                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily);
+                          r.underlineEnabled, r.underline, r.fontEnabled, r.fontFamily,
+                          // 0.24: la pila, el fondo y la transformación cambian lo que se pinta.
+                          r.layersEnabled, drift::textLayersHash(r.layers), r.boxEnabled, r.boxColor.rgba(),
+                          qRound(r.boxPadding * 4.0), qRound(r.boxRadius * 4.0),
+                          qRound(r.boxBorderWidth * 4.0), r.boxBorderColor.rgba(),
+                          r.transformEnabled, qRound(r.offsetX * 4.0), qRound(r.offsetY * 4.0),
+                          qRound(r.transformScale * 1000.0), qRound(r.rotation * 100.0),
+                          qHashMulti(0, r.letterSpacingEnabled, qRound(r.letterSpacing * 4.0), r.lineHeightEnabled,
+                                     qRound(r.lineHeight * 1000.0), r.opacityEnabled, qRound(r.opacity * 1000.0),
+                                     r.baseline));
     return qHashMulti(0, text, s.textCase, s.fontFamily, s.pixelSize, s.fontWeight, s.italic, static_cast<int>(s.align),
                       static_cast<int>(s.valign), s.wordWrap, s.lineHeight, s.letterSpacing,
                       static_cast<int>(a.rule), a.n, a.phase, a.sizeScale, qRound(wrapWidth * 4.0),
                       qRound(blockHeight * 4.0), qRound(renderScale * 1000.0), activeWordIndex,
-                      static_cast<int>(split), ink, s.wordSpacing, runs);
+                      static_cast<int>(split), ink, s.wordSpacing, runs,
+                      // 0.24: the font's features change the shapes, and shrinking changes the size.
+                      qHashMulti(0, s.ligatures, s.smallCaps, s.shrinkToFit));
 }
 
 // The grapheme cluster boundaries inside [from, to), ends included. Qt's are extended clusters,
@@ -253,6 +265,9 @@ struct RunData
     std::vector<uint32_t> starts; // count + 1
 };
 
+// Superscript and subscript letters, against the size they would have.
+constexpr double kScriptScale = 0.62;
+
 skt::TextStyle makeTextStyle(const QString &family, int weight, bool italic, double px, double letterSpacing,
                              double wordSpacing = 0.0)
 {
@@ -361,7 +376,6 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     if (style.accent.rule != drift::WordAccentRule::None && accentScale > 0.0 && !qFuzzyCompare(accentScale, 1.0))
         accentPx = qMax(1.0, style.pixelSize * accentScale * renderScale);
     const bool anyAccent = std::find(accentFlags.cbegin(), accentFlags.cend(), true) != accentFlags.cend();
-    const bool mixedSizes = !qFuzzyCompare(accentPx, basePx) && anyAccent;
 
     std::lock_guard<std::recursive_mutex> lock(drift::skia::textLayoutMutex());
 
@@ -410,6 +424,12 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         for (int p = run.start; p < run.end && p <= source.size(); ++p)
             runAt[p] = ri;
     }
+    // Letters with their own size make their line taller (or shorter) than the block's font: the
+    // paragraph's own line box decides then, as with a scaled accent.
+    const bool runSizes = std::any_of(textRuns.cbegin(), textRuns.cend(), [](const drift::TextRun &run) {
+        return run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0);
+    });
+    const bool mixedSizes = (!qFuzzyCompare(accentPx, basePx) && anyAccent) || runSizes;
     const auto runAtFor = [&](int pos) {
         const int ri = pos >= 0 && pos < runAt.size() ? runAt.at(pos) : -1;
         return ri >= 0 && ri < textRuns.size() ? &textRuns.at(ri) : nullptr;
@@ -431,15 +451,31 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
 
     const auto styleFor = [&](bool accent, bool emoji, int runIndex) {
         double px = accent ? accentPx : basePx;
+        double spacing = letterSpacing;
         ResolvedFont font = resolved;
         if (!accent && runIndex >= 0 && runIndex < textRuns.size()) {
             const drift::TextRun &run = textRuns.at(runIndex);
             if (run.sizeEnabled && run.sizeScale > 0.0 && !qFuzzyCompare(run.sizeScale, 1.0))
                 px = qMax(1.0, style.pixelSize * run.sizeScale * renderScale);
+            // Superscript and subscript letters are smaller; they move off the baseline below.
+            if (run.baseline != 0)
+                px = qMax(1.0, px * kScriptScale);
+            if (run.letterSpacingEnabled)
+                spacing = run.letterSpacing * renderScale;
             font = runFonts.at(runIndex);
         }
-        return emoji ? makeTextStyle(emojiFamily, 400, false, px, letterSpacing, wordSpacing)
-                     : makeTextStyle(font.family, font.weight, font.italic, px, letterSpacing, wordSpacing);
+        skt::TextStyle out = emoji ? makeTextStyle(emojiFamily, 400, false, px, spacing, wordSpacing)
+                                   : makeTextStyle(font.family, font.weight, font.italic, px, spacing, wordSpacing);
+        if (!emoji) {
+            // The font's own features (0.24): ligatures off, or its small capitals.
+            if (!style.ligatures) {
+                out.addFontFeature(SkString("liga"), 0);
+                out.addFontFeature(SkString("clig"), 0);
+            }
+            if (style.smallCaps)
+                out.addFontFeature(SkString("smcp"), 1);
+        }
+        return out;
     };
 
     skt::ParagraphStyle paragraphStyle;
@@ -554,7 +590,17 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
     for (int i = 0; i < lineCount; ++i) {
         const double natural = mixedSizes ? lines[i].fAscent + lines[i].fDescent
                                           : baseMetrics.ascent + baseMetrics.descent + baseMetrics.leading;
-        const double step = natural * qMax(0.1, style.lineHeight);
+        // Letters with their own line height (0.24): their line takes the largest one it carries.
+        double lineHeight = style.lineHeight;
+        bool ownHeight = false;
+        for (const drift::TextRun &run : textRuns) {
+            if (!run.lineHeightEnabled || run.end <= int(lines[i].fStartIndex)
+                || run.start >= int(lines[i].fEndIncludingNewline))
+                continue;
+            lineHeight = ownHeight ? qMax(lineHeight, run.lineHeight) : run.lineHeight;
+            ownHeight = true;
+        }
+        const double step = natural * qMax(0.1, lineHeight);
         steps.append(step);
         totalH += step;
     }
@@ -635,6 +681,10 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                 // so a ligature spanning several pieces stays with the first.
                 const uint32_t from8 = uint32_t(utf8.u8At.at(from));
                 const uint32_t to8 = uint32_t(utf8.u8At.at(to));
+                // Superscript sits up by a third of the block's size, subscript down by a sixth.
+                const drift::TextRun *pieceRun = runAtFor(from);
+                const double rise = !pieceRun || pieceRun->baseline == 0 ? 0.0
+                                    : pieceRun->baseline > 0 ? -basePx * 0.36 : basePx * 0.16;
                 SkPathBuilder builder;
                 bool anyGlyph = false;
                 bool anyOutline = false;
@@ -650,7 +700,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                             continue;
                         anyGlyph = true;
                         const float gx = float(lineX + justifyShift) + run.originX + run.positions[g].fX;
-                        const float gy = float(baseline) + run.positions[g].fY;
+                        const float gy = float(baseline + rise) + run.positions[g].fY;
                         gx0 = std::min(gx0, gx);
                         gx1 = std::max(gx1, gx + (g + 1 < run.glyphs.size() ? run.positions[g + 1].fX - run.positions[g].fX
                                                                            : run.advanceX - run.positions[g].fX));
@@ -692,7 +742,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                 }
 
                 StyledWord word;
-                word.cellRect = QRectF(x0, baseline - wordMetrics.ascent, x1 - x0,
+                word.cellRect = QRectF(x0, baseline + rise - wordMetrics.ascent, x1 - x0,
                                        wordMetrics.ascent + wordMetrics.descent);
                 if (!anyOutline && anyBounds) {
                     geometry->colour = true;
@@ -708,7 +758,7 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                     word.inkRect = ink;
                 }
                 word.geometry = std::move(geometry);
-                word.baselineY = baseline;
+                word.baselineY = baseline + rise;
                 word.index = wi;
                 word.line = i;
                 word.accent = accentFlags.at(wi);
@@ -722,6 +772,13 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                         word.runColor = run->color;
                     }
                     word.runUnderline = run->underlineEnabled && run->underline;
+                    if (run->opacityEnabled)
+                        word.runOpacity = qBound(0.0, run->opacity, 1.0);
+                    // 0.24: efectos propios (pila, fondo, transformación) viajan con el trozo.
+                    if (run->layersEnabled || run->boxEnabled || run->transformEnabled) {
+                        word.hasRun = true;
+                        word.run = *run;
+                    }
                 }
                 words.append(word);
             };
@@ -1141,7 +1198,27 @@ double bleedFor(const drift::TextStyle &style)
         bleed += style.pixelSize * (accent.sizeScale - 1.0);
     // A bent baseline lifts (or drops) the middle of the line by the arc's rise.
     bleed += textBendRise(style);
-    return bleed;
+    // The letters' own stack, background and transform (0.24) paint past the block's own margin.
+    double runReach = 0.0;
+    for (const drift::TextRun &run : style.runs) {
+        if (run.layersEnabled) {
+            drift::TextStyle own = style;
+            own.layers = run.layers;
+            own.runs.clear();
+            own.boxEnabled = false;
+            runReach = qMax(runReach, bleedFor(own) - textBendRise(own));
+        }
+        if (run.boxEnabled)
+            runReach = qMax(runReach, run.boxPadding + run.boxRadius + run.boxBorderWidth);
+        if (run.transformEnabled) {
+            // Half the stretch's width (about 0.6 em a letter) is what scaling and turning swing out.
+            const double half = style.pixelSize * 0.6 * run.length() * 0.5;
+            const double swing = half * (qMax(0.0, run.transformScale - 1.0)
+                                         + std::abs(std::sin(qDegreesToRadians(run.rotation))));
+            runReach = qMax(runReach, qMax(std::abs(run.offsetX), std::abs(run.offsetY)) + swing);
+        }
+    }
+    return qMax(bleed, runReach + textBendRise(style));
 }
 
 const drift::TextHighlight *highlightFor(const drift::TextStyle &style, bool accent)
@@ -1197,6 +1274,39 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const drift
     set->key = key;
     set->split = split;
     TextLayoutResult laid = layoutStyledText(text, style, renderScale, wrapWidth, blockHeight, activeWordIndex, split);
+    // Shrink to fit (0.24): too tall (or, unwrapped, too wide) for the box, the letters get smaller
+    // until it fits. A few halvings of the size are plenty; the largest that fits wins.
+    drift::TextStyle fitted = style;
+    if (style.shrinkToFit && blockHeight > 0.0 && wrapWidth > 0.0) {
+        const auto overflows = [&](const TextLayoutResult &r) {
+            if (!r.paragraph)
+                return false;
+            return r.paragraph->contentHeight > blockHeight + 0.5
+                   || (!style.wordWrap && r.paragraph->contentWidth > wrapWidth + 0.5);
+        };
+        if (overflows(laid)) {
+            double lo = 0.05, hi = 1.0;
+            TextLayoutResult best;
+            for (int pass = 0; pass < 8; ++pass) {
+                const double mid = (lo + hi) * 0.5;
+                drift::TextStyle trial = style;
+                trial.pixelSize = qMax(1.0, style.pixelSize * mid);
+                trial.letterSpacing = style.letterSpacing * mid;
+                trial.wordSpacing = style.wordSpacing * mid;
+                TextLayoutResult r = layoutStyledText(text, trial, renderScale, wrapWidth, blockHeight, activeWordIndex,
+                                                      split);
+                if (overflows(r)) {
+                    hi = mid;
+                } else {
+                    lo = mid;
+                    best = std::move(r);
+                    fitted = trial;
+                }
+            }
+            if (best.paragraph)
+                laid = std::move(best);
+        }
+    }
     set->frags = std::move(laid.words);
     set->paragraph = std::move(laid.paragraph);
     set->infos.reserve(set->frags.size());
@@ -1222,7 +1332,7 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const drift
     set->domains.nonSpaceChars = set->frags.size();
     set->domains.words = words;
     set->domains.lines = lines;
-    set->ink = paintedBounds(set->frags, style, renderScale);
+    set->ink = paintedBounds(set->frags, fitted, renderScale);
     QMutexLocker lock(&g_layoutMutex);
     g_layoutCache.insert(key, new std::shared_ptr<const FragmentSet>(set));
     return set;

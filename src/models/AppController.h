@@ -781,6 +781,9 @@ public:
     // Selects a clip by id. Pinning a mask or adding an effect inserts a lane and normalization
     // reorders, so an index captured before the edit is stale by the time there is something to select.
     Q_INVOKABLE bool selectClipById(const QString &clipId);
+    // Where a clip is now ({track, clip}, -1 when it is gone): for views that stay on a clip
+    // while the selection moves (the curve editor, 0.24).
+    Q_INVOKABLE QVariantMap clipLocation(const QString &clipId) const;
     Q_INVOKABLE void addToSelection(int trackIndex, int clipIndex);
     Q_INVOKABLE void setSelection(const QVariantList &pairs);
     Q_INVOKABLE void selectAllClips();
@@ -904,6 +907,18 @@ public:
     // captions changed. `remember` also adds the pair to the subtitle dictionary.
     Q_INVOKABLE int replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
                                        const QString &replace, bool remember);
+    // Find and replace across every text clip and subtitle caption of the open sequence (Edit ›
+    // Find and replace…, Ctrl+H). options: matchCase, wholeWord (bool), scope ("all", "texts" or
+    // "subtitles"). Each match is {track, clip, cue (-1 for a text clip), start, length (UTF-16),
+    // kind ("text"/"subtitle"), clipName, seconds (where it shows on the timeline), snippet,
+    // before, match, after (the snippet in three parts, for highlighting), locked}.
+    Q_INVOKABLE QVariantList findInTexts(const QString &needle, const QVariantMap &options) const;
+    // Replaces the matches findInTexts reports — only those listed in `only` ({track, clip, cue,
+    // start} maps), or all of them when it is empty — in ONE undo step. Per-letter styles
+    // (TextStyle::runs) follow their letters and hugging boxes refit. Locked tracks are skipped.
+    // Returns how many were replaced.
+    Q_INVOKABLE int replaceInTexts(const QString &needle, const QString &replacement, const QVariantMap &options,
+                                   const QVariantList &only = {});
     // Hesitations out, first letters up, dictionary applied — what new captions get.
     Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
     // The user's corrections ([{find, replace}]), applied to every generated caption.
@@ -935,6 +950,13 @@ public:
     // The text bar on the letters [start, end): only the keys given (color, sizeScale, bold, italic,
     // underline, fontFamily) change, and what those letters already had stays.
     Q_INVOKABLE void patchTextRuns(int trackIndex, int clipIndex, int start, int end, const QVariantMap &patch);
+    // The letters [start, end) of that text clip that the inspector has shaded (0.24, as in
+    // Filmora). While set, the layer calls (add/remove/duplicate/move/set/preview), the looks, the
+    // templates and the quick styles edit the stack those letters paint with, not the block's.
+    // -1, -1 clears it. The inspector sets it whenever its selection changes.
+    Q_INVOKABLE void setTextStyleRange(int trackIndex, int clipIndex, int start, int end);
+    // The letters [start, end) go back to the block's style: their stretches are cut out (0.24).
+    Q_INVOKABLE void clearTextRunsIn(int trackIndex, int clipIndex, int start, int end);
 
 
     // A window that edits live and ends in Apply or Cancel (Texto avanzado, 0.23): every edit made
@@ -951,7 +973,9 @@ public:
     Q_INVOKABLE void setStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     Q_INVOKABLE void previewSetStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     // The text-only spellings, kept for the MCP tools and scripts that use them.
-    Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
+    // `rangeStart`/`rangeEnd` (0.24): con letras sombreadas, la capa va solo a esas letras.
+    Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1,
+                                     int rangeStart = -1, int rangeEnd = -1);
     Q_INVOKABLE bool removeTextLayer(int trackIndex, int clipIndex, const QString &layerId);
     Q_INVOKABLE QString duplicateTextLayer(int trackIndex, int clipIndex, const QString &layerId);
     Q_INVOKABLE bool moveTextLayer(int trackIndex, int clipIndex, const QString &layerId, int toIndex);
@@ -977,7 +1001,8 @@ public:
     // {id, label, category} lists, their categories as {id, label}, and one-step apply.
     Q_INVOKABLE QVariantList textQuickStyles() const;
     Q_INVOKABLE QVariantList textQuickStyleCategories() const;
-    Q_INVOKABLE void applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId);
+    Q_INVOKABLE void applyTextQuickStyle(int trackIndex, int clipIndex, const QString &styleId,
+                                      int rangeStart = -1, int rangeEnd = -1);
     Q_INVOKABLE QVariantList textBubbles() const;
     Q_INVOKABLE QVariantList textBubbleCategories() const;
     Q_INVOKABLE void applyTextBubble(int trackIndex, int clipIndex, const QString &bubbleId);
@@ -1351,7 +1376,15 @@ public:
     // A key at atSeconds with the value the property already has there.
     Q_INVOKABLE void addClipKeyframeAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds);
+    // A joined line of a track's keyframes (Position, Scale) opened into its axes (0.24).
+    Q_INVOKABLE void setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded);
+    // The clip a track's keyframe lines act on: the selected one if it is on that track, else the
+    // one under the playhead; -1 for none.
+    Q_INVOKABLE int keyframeTargetClip(int trackIndex) const;
     Q_INVOKABLE void resetClipTransform(int trackIndex, int clipIndex);
+    // Only these properties (x, y, width, height, rotation, opacity) back to the clip's reset,
+    // their keys too: a keyframe line's «Reset» (0.24).
+    Q_INVOKABLE void resetClipProperties(int trackIndex, int clipIndex, const QStringList &props);
     Q_INVOKABLE QVariantList effectCatalog() const;
 
     // LUTs (the color.lut effect). The factory looks that ship with the app and the ones the
@@ -1908,6 +1941,10 @@ signals:
     void inlineTextEditingChanged();
     // The inline editor's text was laid out again: caret and selection geometry moved.
     void inlineEditGeometryChanged();
+    // An edit on the preview ended with these letters picked [start, end) (0.24).
+    void textLettersPicked(int trackIndex, int clipIndex, int start, int end);
+    // setTextStyleRange changed the letters the layer calls aim at; -1, -1 when none.
+    void textStyleRangeChanged(int trackIndex, int clipIndex, int start, int end);
     void externalProjectOpenRequested(const QUrl &url);
     void tracksChanged();
     // A drag wrote these properties in place without announcing tracksChanged; the full refresh
@@ -2012,6 +2049,8 @@ signals:
     void projectReset();
     void transformBlocked(const QString &reason);
     void openPasteAttributesRequested();
+    // Edit › Find and replace… (the "findReplace" shortcut); QML owns the window.
+    void openFindReplaceRequested();
 
 protected:
     // Every path that changes the timeline model goes through this instead of a bare
@@ -2581,6 +2620,27 @@ protected:
     QString m_previewDragText;
     // Something was written since beginPreviewDrag; a press with no movement commits nothing.
     bool m_previewDragDirty = false;
+    // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
+    QSet<QString> m_keyframeGroupsExpanded;
+    // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
+    void resetTransformOf(drift::Clip &clip);
+    // The shaded letters the layer calls aim at (setTextStyleRange).
+    int m_textRangeTrack = -1;
+    int m_textRangeClip = -1;
+    int m_textRangeStart = -1;
+    int m_textRangeEnd = -1;
+    // The range [start, end) for that clip when one is shaded on it, clamped to its text.
+    bool textStyleRangeFor(int trackIndex, int clipIndex, int *start, int *end) const;
+    // The stack those letters paint with now: their stretch's own, or a copy of the block's.
+    QList<drift::TextShadingLayer> textRangeLayers(const drift::Clip &clip, int start) const;
+    // Gives the letters [start, end) the stack `layers` (and keeps everything else they had).
+    // Their layers get ids of their own; the answer says which ones were renamed (old -> new).
+    QHash<QString, QString> writeTextRangeLayers(drift::Clip &clip, int start, int end,
+                                                 const QList<drift::TextShadingLayer> &stack);
+    // A layer of the letters' stack by id, or the copy of a block layer with that id.
+    static int textRangeLayerIndex(const QList<drift::TextShadingLayer> &layers, const QString &layerId);
+    // The same, plus the font of `styled` when it differs from the block's (a look, a quick style).
+    void writeTextRangeStyle(drift::Clip &clip, int start, int end, const drift::TextStyle &styled);
     // Begun by a setter rather than a press (keyboard nudges); commits once the nudges stop.
     bool m_previewDragAuto = false;
     QTimer *m_previewAutoCommit = nullptr;

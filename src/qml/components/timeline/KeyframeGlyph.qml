@@ -13,6 +13,8 @@ Item {
     property string outHalf: "linear"
     property color color: Theme.primary
     property bool picked: false
+    // The face of a picked key: After Effects' red by default; the track rows use the accent (0.24).
+    property color pickedColor: "#ff3b45"
     property bool lit: false // hovered or under the playhead
     property real size: 11
 
@@ -32,7 +34,7 @@ Item {
         "bezier": "M6 0 A6 6 0 0 1 6 12 Z"
     })
     // Picked keys turn red and grow (Jorge: easier to see than After Effects' yellow).
-    readonly property color face: picked ? "#ff3b45" : (lit ? Qt.lighter(color, 1.35) : color)
+    readonly property color face: picked ? pickedColor : (lit ? Qt.lighter(color, 1.35) : color)
 
     Shape {
         anchors.centerIn: parent

@@ -100,6 +100,36 @@ struct TextRun
     bool fontEnabled = false; // another font for these letters
     QString fontFamily;
 
+    // La pila de sombreado entera de estas letras (relleno, trazo, sombra, resplandor, extrusión):
+    // así un estilo preestablecido o un look se aplica solo a lo sombreado (0.24).
+    bool layersEnabled = false;
+    QList<TextShadingLayer> layers;
+    // Un fondo detrás de estas letras (uno por línea si el tramo se parte en dos).
+    bool boxEnabled = false;
+    QColor boxColor = QColor(0, 0, 0, 128);
+    double boxPadding = 6.0;   // px al pixelSize del bloque
+    double boxRadius = 4.0;
+    double boxBorderWidth = 0.0;
+    QColor boxBorderColor = QColor(255, 255, 255);
+    // Mueve, escala y gira estas letras alrededor del centro de su propia caja. No cambia el
+    // trazado del resto (como Filmora): los desplazamientos van en px al pixelSize del bloque.
+    bool transformEnabled = false;
+    double offsetX = 0.0;
+    double offsetY = 0.0;
+    double transformScale = 1.0;
+    double rotation = 0.0; // grados
+
+    // Más cosas propias de estas letras (0.24): espacio entre ellas (px al pixelSize del bloque),
+    // el interlineado de su línea (la línea toma el mayor de los que lleva), su opacidad y
+    // superíndice/subíndice (más pequeñas y arriba o abajo de la línea base).
+    bool letterSpacingEnabled = false;
+    double letterSpacing = 0.0;
+    bool lineHeightEnabled = false;
+    double lineHeight = 1.2;
+    bool opacityEnabled = false;
+    double opacity = 1.0;
+    int baseline = 0; // 0 normal, 1 superíndice, -1 subíndice
+
     int length() const { return qMax(0, end - start); }
     bool contains(int at) const { return at >= start && at < end; }
 };
@@ -109,6 +139,11 @@ QList<TextRun> normalizedTextRuns(const QList<TextRun> &runs, int textLength);
 // Los tramos después de cambiar el texto de `before` a `after`: lo que va detrás de lo escrito o
 // borrado se corre con ello, así cada color sigue en sus letras.
 QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &before, const QString &after);
+// Los tramos después de cambiar las `oldLength` letras desde `start` por otras `newLength` (Buscar y
+// reemplazar): exacto aunque lo nuevo se parezca a lo de al lado. Lo de antes no se mueve, lo de
+// después corre con el cambio y un tramo que tocaba lo reemplazado cubre lo nuevo.
+QList<TextRun> shiftTextRunsForReplace(const QList<TextRun> &runs, int newTextLength, int start, int oldLength,
+                                       int newLength);
 // What the text bar does to the letters [start, end) (Texto avanzado, like a word processor): the
 // fields `patch` turns on (its *Enabled flags) go onto every letter there, and whatever else those
 // letters already had (another colour, bold…) stays. Letters outside keep their runs untouched.
@@ -186,6 +221,12 @@ struct TextStyle
     double underlineWidth = 6.0;
     double underlineOffset = 4.0; // below the baseline
     bool strikeEnabled = false;   // a line through the middle of the letters, in the text's colour (0.22.1)
+    // The font's OpenType features (0.24): standard ligatures (fi, fl…) on by default, small caps off.
+    bool ligatures = true;
+    bool smallCaps = false;
+    // The text shrinks until it fits its box instead of growing the box (0.24). Turning it on keeps
+    // the box the size it is (Clip::textAutoFit off).
+    bool shrinkToFit = false;
 
     WordAccent accent;
 
