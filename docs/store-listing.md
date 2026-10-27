@@ -110,6 +110,30 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.25.0)**. Lo nuevo desde la 0.24.0.
+
+> Novedades de la 0.25.0
+>
+> - Fotogramas clave como After Effects: punto de anclaje, posición, rotación, escala y opacidad en cada pista, con cronómetro, flechas entre claves y valores que se arrastran o se escriben.
+> - Editor de curvas en el lugar de las filas, con números en el eje y gráfico de velocidad; trazo del movimiento con tiradores en la vista previa.
+> - Punto de anclaje con cuadrícula para ponerlo en una esquina o en el centro; Alt escala desde el centro.
+> - Elige varias claves con un recuadro, estíralas con Alt y salta entre ellas con Mayús+J/K.
+> - Línea de tiempo en fotogramas al acercarla: el cabezal se pega a cada fotograma y a las claves.
+> - Audio: volumen y panorama animados, y la línea de volumen sobre la onda.
+> - Sólidos de color con sus ajustes, y una sola letra puede girar con fotogramas clave.
+
+En inglés:
+
+> What's new in 0.25.0
+>
+> - Keyframes like After Effects: anchor point, position, rotation, scale and opacity on every track, with the stopwatch, arrows between keys and values you drag or type.
+> - The curve editor in place of the lines, with axis numbers and a speed graph; the motion path with handles in the preview.
+> - Anchor point with a grid to put it on a corner or the centre; Alt scales from the centre.
+> - Pick several keys with a box, stretch them with Alt and jump between them with Shift+J/K.
+> - A frame-based timeline when zoomed in: the playhead snaps to each frame and to keys.
+> - Audio: animated volume and pan, and the volume line over the waveform.
+> - Colour solids with their settings, and a single letter can spin with keyframes.
+
 **Notas para la Store (0.24.0)**. Lo nuevo desde la 0.23.0. Si la 0.23.0 tampoco se subió, añadir debajo los
 puntos de las combinadas de la 0.23.0.
 
