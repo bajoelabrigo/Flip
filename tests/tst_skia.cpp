@@ -2478,13 +2478,12 @@ void SkiaTest::textRunOpacityScriptAndShrinkToFit()
     QVERIFY(!grown.isNull() && !shrunk.isNull());
     const Ink grownInk = inkOf(grown);
     const Ink shrunkInk = inkOf(shrunk);
-    QVERIFY2(grownInk.bbox.height() > lowBox.height(),
-             qPrintable(QStringLiteral("sin encoger mide %1").arg(grownInk.bbox.height())));
-    // The lines fit the box; the ink may poke out by a glyph's overshoot (accents, descenders).
-    QVERIFY2(shrunkInk.bbox.height() <= lowBox.height() * 1.1
-                 && shrunkInk.bbox.height() < grownInk.bbox.height() * 0.8,
-             qPrintable(QStringLiteral("encogido mide %1, sin encoger %2")
-                            .arg(shrunkInk.bbox.height()).arg(grownInk.bbox.height())));
+    // The box clips what does not fit, so the overflowing text measures the box too; the letters
+    // tell them apart: shrunk, they are smaller and paint much less ink.
+    QVERIFY2(shrunkInk.bbox.height() <= lowBox.height() * 1.1,
+             qPrintable(QStringLiteral("encogido mide %1").arg(shrunkInk.bbox.height())));
+    QVERIFY2(shrunkInk.count < grownInk.count * 0.85,
+             qPrintable(QStringLiteral("tinta encogida %1, sin encoger %2").arg(shrunkInk.count).arg(grownInk.count)));
 }
 
 #include "tst_skia.moc"
