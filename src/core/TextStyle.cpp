@@ -1152,6 +1152,26 @@ QList<TextRun> shiftTextRunsForEdit(const QList<TextRun> &runs, const QString &b
     return normalizedTextRuns(shifted, newLen);
 }
 
+QList<TextRun> shiftTextRunsForReplace(const QList<TextRun> &runs, int newTextLength, int start, int oldLength,
+                                       int newLength)
+{
+    if (runs.isEmpty())
+        return runs;
+    const int oldEnd = start + qMax(0, oldLength);
+    const int newEnd = start + qMax(0, newLength);
+    const int delta = newEnd - oldEnd;
+    QList<TextRun> shifted;
+    for (const TextRun &run : runs) {
+        TextRun r = run;
+        // El principio de un tramo dentro de lo reemplazado va al principio de lo nuevo y su final
+        // al final de lo nuevo: así unas letras pintadas que se reemplazan siguen pintadas.
+        r.start = run.start <= start ? run.start : (run.start >= oldEnd ? run.start + delta : start);
+        r.end = run.end <= start ? run.end : (run.end >= oldEnd ? run.end + delta : newEnd);
+        shifted.append(r);
+    }
+    return normalizedTextRuns(shifted, newTextLength);
+}
+
 QList<TextRun> patchTextRuns(const QList<TextRun> &runs, int textLength, int start, int end, const TextRun &patch)
 {
     const QList<TextRun> base = normalizedTextRuns(runs, textLength);

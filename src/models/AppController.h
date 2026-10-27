@@ -904,6 +904,18 @@ public:
     // captions changed. `remember` also adds the pair to the subtitle dictionary.
     Q_INVOKABLE int replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
                                        const QString &replace, bool remember);
+    // Find and replace across every text clip and subtitle caption of the open sequence (Edit ›
+    // Find and replace…, Ctrl+H). options: matchCase, wholeWord (bool), scope ("all", "texts" or
+    // "subtitles"). Each match is {track, clip, cue (-1 for a text clip), start, length (UTF-16),
+    // kind ("text"/"subtitle"), clipName, seconds (where it shows on the timeline), snippet,
+    // before, match, after (the snippet in three parts, for highlighting), locked}.
+    Q_INVOKABLE QVariantList findInTexts(const QString &needle, const QVariantMap &options) const;
+    // Replaces the matches findInTexts reports — only those listed in `only` ({track, clip, cue,
+    // start} maps), or all of them when it is empty — in ONE undo step. Per-letter styles
+    // (TextStyle::runs) follow their letters and hugging boxes refit. Locked tracks are skipped.
+    // Returns how many were replaced.
+    Q_INVOKABLE int replaceInTexts(const QString &needle, const QString &replacement, const QVariantMap &options,
+                                   const QVariantList &only = {});
     // Hesitations out, first letters up, dictionary applied — what new captions get.
     Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
     // The user's corrections ([{find, replace}]), applied to every generated caption.
@@ -2024,6 +2036,8 @@ signals:
     void projectReset();
     void transformBlocked(const QString &reason);
     void openPasteAttributesRequested();
+    // Edit › Find and replace… (the "findReplace" shortcut); QML owns the window.
+    void openFindReplaceRequested();
 
 protected:
     // Every path that changes the timeline model goes through this instead of a bare
