@@ -5162,6 +5162,58 @@
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>RAM preview (render to memory and play)</source>
+        <translation>Vista previa en RAM (calcular en memoria y reproducir)</translation>
+    </message>
+    <message>
+        <source>Rendering the preview to memory… press it again to stop</source>
+        <translation>Calculando la vista previa en memoria… vuelve a pulsarlo para detenerla</translation>
+    </message>
+    <message>
+        <source>Motion sketch</source>
+        <translation>Bosquejo de movimiento</translation>
+    </message>
+    <message>
+        <source>Shape added to the layer</source>
+        <translation>Forma añadida a la capa</translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>Tamaño del texto</translation>
+    </message>
+    <message>
+        <source>Added to Essential Graphics</source>
+        <translation>Añadido a Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Removed from Essential Graphics</source>
+        <translation>Quitado de Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>«%1» is now a control of this composition: select the composition outside to change it</source>
+        <translation>«%1» ahora es un control de esta composición: elige la composición desde fuera para cambiarlo</translation>
+    </message>
+    <message>
+        <source>Essential Graphics</source>
+        <translation>Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Text on the shape&apos;s outline</source>
+        <translation>Texto sobre el contorno de la forma</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volumen</translation>
     </message>
@@ -6479,6 +6531,14 @@
     <message>
         <source>Loop Playback</source>
         <translation>Reproducción en bucle</translation>
+    </message>
+    <message>
+        <source>Stop RAM Preview</source>
+        <translation>Detener la vista previa en RAM</translation>
+    </message>
+    <message>
+        <source>RAM Preview</source>
+        <translation>Vista previa en RAM</translation>
     </message>
     <message>
         <source>Bookmarks</source>
@@ -9987,6 +10047,226 @@
         <translation>Fundido</translation>
     </message>
     <message>
+        <source>Fractal Noise</source>
+        <translation>Ruido fractal</translation>
+    </message>
+    <message>
+        <source>Complexity</source>
+        <translation>Complejidad</translation>
+    </message>
+    <message>
+        <source>Evolution speed</source>
+        <translation>Velocidad de evolución</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Blend with original</source>
+        <translation>Mezclar con el original</translation>
+    </message>
+    <message>
+        <source>Gradient Ramp</source>
+        <translation>Rampa de degradado</translation>
+    </message>
+    <message>
+        <source>Start X (%)</source>
+        <translation>Inicio X (%)</translation>
+    </message>
+    <message>
+        <source>Start Y (%)</source>
+        <translation>Inicio Y (%)</translation>
+    </message>
+    <message>
+        <source>Start color</source>
+        <translation>Color inicial</translation>
+    </message>
+    <message>
+        <source>End X (%)</source>
+        <translation>Final X (%)</translation>
+    </message>
+    <message>
+        <source>End Y (%)</source>
+        <translation>Final Y (%)</translation>
+    </message>
+    <message>
+        <source>End color</source>
+        <translation>Color final</translation>
+    </message>
+    <message>
+        <source>Radial</source>
+        <translation>Radial</translation>
+    </message>
+    <message>
+        <source>Particle World</source>
+        <translation>Mundo de partículas</translation>
+    </message>
+    <message>
+        <source>Birth rate (per s)</source>
+        <translation>Nacimientos (por s)</translation>
+    </message>
+    <message>
+        <source>Longevity (s)</source>
+        <translation>Duración (s)</translation>
+    </message>
+    <message>
+        <source>Emitter X (%)</source>
+        <translation>Emisor X (%)</translation>
+    </message>
+    <message>
+        <source>Emitter Y (%)</source>
+        <translation>Emisor Y (%)</translation>
+    </message>
+    <message>
+        <source>Velocity (px/s)</source>
+        <translation>Velocidad (px/s)</translation>
+    </message>
+    <message>
+        <source>Gravity (px/s²)</source>
+        <translation>Gravedad (px/s²)</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Spread (deg)</source>
+        <translation>Apertura (grados)</translation>
+    </message>
+    <message>
+        <source>Direction (deg)</source>
+        <translation>Dirección (grados)</translation>
+    </message>
+    <message>
+        <source>Puppet Pins</source>
+        <translation>Pines de marioneta</translation>
+    </message>
+    <message>
+        <source>Pins</source>
+        <translation>Pines</translation>
+    </message>
+    <message>
+        <source>Stiffness</source>
+        <translation>Rigidez</translation>
+    </message>
+    <message>
+        <source>Place (%)</source>
+        <translation>Lugar (%)</translation>
+    </message>
+    <message>
+        <source>Pin 1</source>
+        <translation>Pin 1</translation>
+    </message>
+    <message>
+        <source>Move (%)</source>
+        <translation>Movimiento (%)</translation>
+    </message>
+    <message>
+        <source>Pin 2</source>
+        <translation>Pin 2</translation>
+    </message>
+    <message>
+        <source>Pin 3</source>
+        <translation>Pin 3</translation>
+    </message>
+    <message>
+        <source>Pin 4</source>
+        <translation>Pin 4</translation>
+    </message>
+    <message>
+        <source>Pin 5</source>
+        <translation>Pin 5</translation>
+    </message>
+    <message>
+        <source>Pin 6</source>
+        <translation>Pin 6</translation>
+    </message>
+    <message>
+        <source>Pin 7</source>
+        <translation>Pin 7</translation>
+    </message>
+    <message>
+        <source>Pin 8</source>
+        <translation>Pin 8</translation>
+    </message>
+    <message>
+        <source>Radio Waves</source>
+        <translation>Ondas de radio</translation>
+    </message>
+    <message>
+        <source>Centre X (%)</source>
+        <translation>Centro X (%)</translation>
+    </message>
+    <message>
+        <source>Centre Y (%)</source>
+        <translation>Centro Y (%)</translation>
+    </message>
+    <message>
+        <source>Waves per second</source>
+        <translation>Ondas por segundo</translation>
+    </message>
+    <message>
+        <source>Expansion (px/s)</source>
+        <translation>Expansión (px/s)</translation>
+    </message>
+    <message>
+        <source>Fade out (px)</source>
+        <translation>Desvanecer (px)</translation>
+    </message>
+    <message>
+        <source>Explosion</source>
+        <translation>Explosión</translation>
+    </message>
+    <message>
+        <source>Pieces across</source>
+        <translation>Piezas a lo ancho</translation>
+    </message>
+    <message>
+        <source>Force</source>
+        <translation>Fuerza</translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation>Gravedad</translation>
+    </message>
+    <message>
+        <source>Origin X (%)</source>
+        <translation>Origen X (%)</translation>
+    </message>
+    <message>
+        <source>Origin Y (%)</source>
+        <translation>Origen Y (%)</translation>
+    </message>
+    <message>
+        <source>Turbulent Displace</source>
+        <translation>Desplazamiento turbulento</translation>
+    </message>
+    <message>
+        <source>Bevel and Emboss</source>
+        <translation>Bisel y relieve</translation>
+    </message>
+    <message>
+        <source>Color Overlay</source>
+        <translation>Superposición de color</translation>
+    </message>
+    <message>
+        <source>Drop Shadow</source>
+        <translation>Sombra paralela</translation>
+    </message>
+    <message>
+        <source>Outer Glow</source>
+        <translation>Resplandor exterior</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
+    </message>
+    <message>
+        <source>Position (out, centre, in)</source>
+        <translation>Posición (fuera, centro, dentro)</translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Aparecer</translation>
     </message>
@@ -13281,6 +13561,14 @@ LA PRÓXIMA</translation>
         <translation>Quitar fondo</translation>
     </message>
     <message>
+        <source>Layer Styles</source>
+        <translation>Estilos de capa</translation>
+    </message>
+    <message>
+        <source>Generate &amp; Simulate</source>
+        <translation>Generar y simular</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otro</translation>
     </message>
@@ -15225,6 +15513,10 @@ LA PRÓXIMA</translation>
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Layer</source>
+        <translation>Capa</translation>
+    </message>
+    <message>
         <source>Keyframes</source>
         <translation>Fotogramas clave</translation>
     </message>
@@ -15235,6 +15527,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Expand curve editor to view and edit Bezier handles (180px)</source>
         <translation>Expandir el editor de curvas para ver y editar los tiradores Bézier (180 px)</translation>
+    </message>
+    <message>
+        <source>Hide the other selected layers&apos; curves</source>
+        <translation>Ocultar las curvas de las otras capas elegidas</translation>
+    </message>
+    <message>
+        <source>Show the other selected layers&apos; curves</source>
+        <translation>Mostrar las curvas de las otras capas elegidas</translation>
     </message>
     <message>
         <source>Value graph</source>
@@ -15314,6 +15614,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Edit keyframe curve</source>
         <translation>Editar curva de fotograma clave</translation>
+    </message>
+    <message>
+        <source>The layer whose curves you are editing</source>
+        <translation>La capa cuyas curvas estás editando</translation>
+    </message>
+    <message>
+        <source>Edit this layer&apos;s curves (dashed)</source>
+        <translation>Editar las curvas de esta capa (punteadas)</translation>
     </message>
 </context>
 <context>
@@ -17421,6 +17729,78 @@ LA PRÓXIMA</translation>
 <context>
     <name>MotionLinkSection</name>
     <message>
+        <source>Essential Graphics</source>
+        <translation>Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Add to Essential Graphics</source>
+        <translation>Añadir a Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>Tamaño del texto</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Offered as a control of the composition: click to take it out</source>
+        <translation>Es un control de la composición: haz clic para quitarlo</translation>
+    </message>
+    <message>
+        <source>Offer it as a control of the composition, editable from outside</source>
+        <translation>Ofrecerlo como control de la composición, editable desde fuera</translation>
+    </message>
+    <message>
+        <source>Layer styles</source>
+        <translation>Estilos de capa</translation>
+    </message>
+    <message>
+        <source>Added as effects, so each one is adjusted, animated or removed in the Effects tab.</source>
+        <translation>Se añaden como efectos: cada uno se ajusta, se anima o se quita en la pestaña Efectos.</translation>
+    </message>
+    <message>
+        <source>Drop shadow</source>
+        <translation>Sombra paralela</translation>
+    </message>
+    <message>
+        <source>Outer glow</source>
+        <translation>Resplandor exterior</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
+    </message>
+    <message>
+        <source>Bevel and emboss</source>
+        <translation>Bisel y relieve</translation>
+    </message>
+    <message>
+        <source>Color overlay</source>
+        <translation>Superposición de color</translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation>Primario</translation>
     </message>
@@ -18504,6 +18884,14 @@ Hardware es mejor para 4K de alta calidad y fuerza un descodificador de GPU.
 Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
+        <source>Transparency grid</source>
+        <translation>Fondo a cuadros</translation>
+    </message>
+    <message>
+        <source>Shows a checkerboard instead of the project background, to see what is transparent (only on the preview)</source>
+        <translation>Muestra un fondo a cuadros en vez del fondo del proyecto, para ver lo que es transparente (solo en la vista previa)</translation>
+    </message>
+    <message>
         <source>Safe zones</source>
         <translation>Zonas seguras</translation>
     </message>
@@ -18664,6 +19052,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Zoom: clic para acercar, Alt+clic para alejar</translation>
     </message>
     <message>
+        <source>Region of interest: drag the part of the frame to preview; the rest is not drawn, so it plays faster</source>
+        <translation>Región de interés: arrastra la parte del cuadro que quieres ver; el resto no se dibuja y se reproduce más rápido</translation>
+    </message>
+    <message>
+        <source>Reset the region of interest</source>
+        <translation>Quitar la región de interés</translation>
+    </message>
+    <message>
         <source>Anchor point: drag it without moving the layer</source>
         <translation>Punto de anclaje: arrástralo sin mover la capa</translation>
     </message>
@@ -18678,6 +19074,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Text: click on the preview and type</source>
         <translation>Texto: haz clic en la vista previa y escribe</translation>
+    </message>
+    <message>
+        <source>Puppet pins: click on the selected layer to pin it, drag a pin to bend it (each move is a keyframe)</source>
+        <translation>Pines de marioneta: haz clic en la capa elegida para clavar un pin y arrástralo para doblarla (cada movimiento es un fotograma clave)</translation>
+    </message>
+    <message>
+        <source>Motion sketch: drag the selected layer and the path becomes its Position keys, in real time</source>
+        <translation>Bosquejo de movimiento: arrastra la capa elegida y el recorrido se vuelve sus claves de Posición, en tiempo real</translation>
     </message>
     <message>
         <source>Roto: cut the person or object out of the selected video</source>
@@ -19436,6 +19840,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.</source>
         <translation>Por ejemplo, 90 en Rotación gira la capa un cuarto de vuelta cada segundo, mientras dure el clip.</translation>
+    </message>
+    <message>
+        <source>Expression (JavaScript)</source>
+        <translation>Expresión (JavaScript)</translation>
+    </message>
+    <message>
+        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, wiggle(frecuencia, cantidad), Math y thisComp.layer(&quot;Nombre&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
     </message>
 </context>
 <context>
@@ -21845,6 +22257,78 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Random seed</source>
         <translation>Semilla aleatoria</translation>
     </message>
+    <message>
+        <source>Shapes in this layer</source>
+        <translation>Formas en esta capa</translation>
+    </message>
+    <message>
+        <source>Add more shapes to the same layer, then choose how they combine (Merge paths).</source>
+        <translation>Añade más formas a la misma capa y elige cómo se combinan (Unir trazados).</translation>
+    </message>
+    <message>
+        <source>+ Rectangle</source>
+        <translation>+ Rectángulo</translation>
+    </message>
+    <message>
+        <source>+ Ellipse</source>
+        <translation>+ Elipse</translation>
+    </message>
+    <message>
+        <source>+ Star</source>
+        <translation>+ Estrella</translation>
+    </message>
+    <message>
+        <source>+ Polygon</source>
+        <translation>+ Polígono</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Unir trazados</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>No</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Sumar</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation>Restar</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation>Intersecar</translation>
+    </message>
+    <message>
+        <source>Exclude intersections</source>
+        <translation>Excluir intersecciones</translation>
+    </message>
+    <message>
+        <source>Offset, zig zag and twist</source>
+        <translation>Desplazar, zigzag y retorcer</translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation>Desplazar trazados</translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation>Tamaño del zigzag</translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation>Picos</translation>
+    </message>
+    <message>
+        <source>Smooth zig zag</source>
+        <translation>Zigzag suave</translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation>Retorcer</translation>
+    </message>
 </context>
 <context>
     <name>ShapeStyle</name>
@@ -22063,6 +22547,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Random seed</source>
         <translation>Semilla aleatoria</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Unir trazados</translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation>Desplazar trazados</translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation>Tamaño del zigzag</translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation>Picos</translation>
+    </message>
+    <message>
+        <source>Smooth points</source>
+        <translation>Puntos suaves</translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation>Retorcer</translation>
     </message>
     <message>
         <source>Points</source>
@@ -25383,6 +25891,58 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Letras por dentro del círculo</translation>
     </message>
     <message>
+        <source>Text on a path</source>
+        <translation>Texto sobre un trazado</translation>
+    </message>
+    <message>
+        <source>A single line of text follows an outline: a ready-made one or a shape layer&apos;s</source>
+        <translation>Una línea de texto sigue un contorno: uno listo o el de una capa de forma</translation>
+    </message>
+    <message>
+        <source>Put the text on a path</source>
+        <translation>Poner el texto sobre un trazado</translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation>Onda</translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Valley</source>
+        <translation>Valle</translation>
+    </message>
+    <message>
+        <source>S curve</source>
+        <translation>Curva en S</translation>
+    </message>
+    <message>
+        <source>Rising</source>
+        <translation>Subida</translation>
+    </message>
+    <message>
+        <source>No shape layers</source>
+        <translation>No hay capas de forma</translation>
+    </message>
+    <message>
+        <source>Follow shape</source>
+        <translation>Seguir la forma</translation>
+    </message>
+    <message>
+        <source>Put the text on this shape layer&apos;s outline</source>
+        <translation>Poner el texto sobre el contorno de esta capa de forma</translation>
+    </message>
+    <message>
+        <source>Path offset</source>
+        <translation>Desplazamiento en el trazado</translation>
+    </message>
+    <message>
+        <source>Animate the offset to make the letters run along the path. Only one line of text follows it.</source>
+        <translation>Anima el desplazamiento para que las letras corran por el trazado. Solo una línea de texto lo sigue.</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Guardar como mi estilo…</translation>
     </message>
@@ -26594,6 +27154,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>El número tranquilo</translation>
     </message>
     <message>
+        <source>Path offset</source>
+        <translation>Desplazamiento en el trazado</translation>
+    </message>
+    <message>
         <source>Position X</source>
         <translation>Posición X</translation>
     </message>
@@ -26957,6 +27521,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Drag to trim the end</source>
         <translation>Arrastra para recortar el final</translation>
+    </message>
+    <message>
+        <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
+        <translation>Arrástralo a otra capa para que sea su primario (el látigo de After Effects)</translation>
     </message>
     <message>
         <source>Split item at current time</source>
