@@ -3429,6 +3429,86 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Null %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null object added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape drawn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path animation removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the layer to use as the matte on a track above first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-orient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>보정 레이어</translation>
     </message>
@@ -4992,6 +5072,10 @@
     </message>
     <message>
         <source>Anchor point Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15130,12 +15214,51 @@ NEXT TIME</source>
         <translation>커브 편집…</translation>
     </message>
     <message>
+        <source>Keyframe velocity…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete keyframe</source>
         <translation>키프레임 삭제</translation>
     </message>
     <message>
         <source>Delete keyframes</source>
         <translation>키프레임 삭제</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeVelocityDialog</name>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Incoming velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Influence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outgoing velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous (the same speed on both sides)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -17125,6 +17248,77 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>MotionLinkSection</name>
+    <message>
+        <source>Parent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer follows the parent&apos;s position, rotation and scale from the moment you link it, as in After Effects. A null object is a handle that is never drawn.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer this one follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No track matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha inverted matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Luma matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Luma inverted matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows this layer only where another one covers it (alpha) or is bright (luma). The matte layer is hidden, as in After Effects.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer used as the matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurs the layer along its movement, as a camera shutter would</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutter angle and samples, for the whole project: 180° blurs over half a frame; more samples are smoother and slower.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Samples</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
@@ -17424,6 +17618,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape with the pen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17756,6 +17958,13 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>PenToolOverlay</name>
+    <message>
+        <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
     <message>
         <source>Auto</source>
@@ -17979,6 +18188,14 @@ If playback stutters, try another.</source>
 소프트웨어는 대부분의 클립에서 더 부드럽지만 CPU를 더 많이 사용합니다.
 하드웨어는 고품질 4K에 더 좋으며, GPU 디코더 하나를 강제로 사용합니다.
 재생이 끊기면 다른 방식을 시도해 보세요.</translation>
+    </message>
+    <message>
+        <source>Safe zones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects&apos; title and action safe margins, and the centre (only on the preview)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep mask handles up</source>
@@ -18770,6 +18987,73 @@ If playback stutters, try another.</source>
     <message>
         <source>My look</source>
         <translation>내 룩</translation>
+    </message>
+</context>
+<context>
+    <name>PropertyBehaviorDialog</name>
+    <message>
+        <source>No loop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cycle (repeat the keys)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ping-pong (back and forth)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset (repeat, adding up)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continue (keep the last speed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loop after the last keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smooth random shake around the value, like wiggle(frequency, amount)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constant speed (per second)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -20888,6 +21172,122 @@ If playback stutters, try another.</source>
         <source>Tail size</source>
         <translation>꼬리 크기</translation>
     </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done editing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw with the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate the path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects&apos; Path stopwatch: a key with this outline at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editing the key at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving a point here adds a key at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows only part of the outline: animate Start or End to draw the shape on, and Offset to run it round.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies of the shape, each one moved, turned and scaled from the one before.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makes the outline wobble: Size is how far it moves, Detail how often along the edge, and Wiggles per second how fast.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Detail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShapeStyle</name>
@@ -21048,8 +21448,72 @@ If playback stutters, try another.</source>
         <translation>꼬리 크기</translation>
     </message>
     <message>
+        <source>Trim start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle detail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation>점</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -25880,6 +26344,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Parent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-orient along path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fades to volume keyframes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26733,6 +27217,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove all keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

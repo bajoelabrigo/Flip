@@ -3435,6 +3435,86 @@
         <translation>Ajustes del sólido</translation>
     </message>
     <message>
+        <source>Null %1</source>
+        <translation>Nulo %1</translation>
+    </message>
+    <message>
+        <source>Null object added</source>
+        <translation>Objeto nulo agregado</translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation>Capa de forma</translation>
+    </message>
+    <message>
+        <source>Shape drawn</source>
+        <translation>Forma dibujada</translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation>Trazado editado</translation>
+    </message>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation>Velocidad del fotograma clave</translation>
+    </message>
+    <message>
+        <source>Behavior set</source>
+        <translation>Comportamiento aplicado</translation>
+    </message>
+    <message>
+        <source>Behavior removed</source>
+        <translation>Comportamiento quitado</translation>
+    </message>
+    <message>
+        <source>Path animated</source>
+        <translation>Trazado animado</translation>
+    </message>
+    <message>
+        <source>Path animation removed</source>
+        <translation>Animación del trazado quitada</translation>
+    </message>
+    <message>
+        <source>Put the layer to use as the matte on a track above first</source>
+        <translation>Primero pon en una pista de arriba la capa que hará de mate</translation>
+    </message>
+    <message>
+        <source>Track matte removed</source>
+        <translation>Mate de seguimiento quitado</translation>
+    </message>
+    <message>
+        <source>Track matte set</source>
+        <translation>Mate de seguimiento aplicado</translation>
+    </message>
+    <message>
+        <source>Parent removed</source>
+        <translation>Primario quitado</translation>
+    </message>
+    <message>
+        <source>Parent set</source>
+        <translation>Primario asignado</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Time remapping on</source>
+        <translation>Reasignación de tiempo activada</translation>
+    </message>
+    <message>
+        <source>Time remapping off</source>
+        <translation>Reasignación de tiempo desactivada</translation>
+    </message>
+    <message>
+        <source>Auto-orient</source>
+        <translation>Orientación automática</translation>
+    </message>
+    <message>
+        <source>Motion blur settings</source>
+        <translation>Ajustes del desenfoque de movimiento</translation>
+    </message>
+    <message>
         <source>Adjustment Layer</source>
         <translation>Capa de ajuste</translation>
     </message>
@@ -5008,6 +5088,10 @@
     <message>
         <source>Anchor point Y</source>
         <translation>Punto de anclaje Y</translation>
+    </message>
+    <message>
+        <source>Time remap</source>
+        <translation>Reasignación de tiempo</translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -15183,12 +15267,51 @@ LA PRÓXIMA</translation>
         <translation>Editar curva…</translation>
     </message>
     <message>
+        <source>Keyframe velocity…</source>
+        <translation>Velocidad del fotograma clave…</translation>
+    </message>
+    <message>
         <source>Delete keyframe</source>
         <translation>Borrar fotograma clave</translation>
     </message>
     <message>
         <source>Delete keyframes</source>
         <translation>Eliminar fotogramas clave</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeVelocityDialog</name>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation>Velocidad del fotograma clave</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
+        <translation>Velocidad en unidades por segundo. La influencia es hasta dónde llega el tirador hacia la clave vecina: más es una suavización más suave.</translation>
+    </message>
+    <message>
+        <source>Incoming velocity</source>
+        <translation>Velocidad de entrada</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Influence</source>
+        <translation>Influencia</translation>
+    </message>
+    <message>
+        <source>Outgoing velocity</source>
+        <translation>Velocidad de salida</translation>
+    </message>
+    <message>
+        <source>Continuous (the same speed on both sides)</source>
+        <translation>Continua (la misma velocidad a los dos lados)</translation>
     </message>
 </context>
 <context>
@@ -17192,6 +17315,77 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionLinkSection</name>
+    <message>
+        <source>Parent</source>
+        <translation>Primario</translation>
+    </message>
+    <message>
+        <source>The layer follows the parent&apos;s position, rotation and scale from the moment you link it, as in After Effects. A null object is a handle that is never drawn.</source>
+        <translation>La capa sigue la posición, la rotación y la escala del primario desde que la enlazas, como en After Effects. Un objeto nulo es un control que nunca se dibuja.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>The layer this one follows</source>
+        <translation>La capa a la que sigue esta</translation>
+    </message>
+    <message>
+        <source>No track matte</source>
+        <translation>Sin mate de seguimiento</translation>
+    </message>
+    <message>
+        <source>Alpha matte</source>
+        <translation>Mate alfa</translation>
+    </message>
+    <message>
+        <source>Alpha inverted matte</source>
+        <translation>Mate alfa invertido</translation>
+    </message>
+    <message>
+        <source>Luma matte</source>
+        <translation>Mate de luminancia</translation>
+    </message>
+    <message>
+        <source>Luma inverted matte</source>
+        <translation>Mate de luminancia invertido</translation>
+    </message>
+    <message>
+        <source>Track matte</source>
+        <translation>Mate de seguimiento</translation>
+    </message>
+    <message>
+        <source>Shows this layer only where another one covers it (alpha) or is bright (luma). The matte layer is hidden, as in After Effects.</source>
+        <translation>Muestra esta capa solo donde otra la cubre (alfa) o es clara (luminancia). La capa mate se oculta, como en After Effects.</translation>
+    </message>
+    <message>
+        <source>The layer used as the matte</source>
+        <translation>La capa que hace de mate</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Blurs the layer along its movement, as a camera shutter would</source>
+        <translation>Desenfoca la capa a lo largo de su movimiento, como lo haría el obturador de una cámara</translation>
+    </message>
+    <message>
+        <source>Shutter angle and samples, for the whole project: 180° blurs over half a frame; more samples are smoother and slower.</source>
+        <translation>Ángulo de obturación y muestras, para todo el proyecto: 180° desenfoca durante medio fotograma; más muestras se ven más suaves y van más lentas.</translation>
+    </message>
+    <message>
+        <source>Shutter</source>
+        <translation>Obturación</translation>
+    </message>
+    <message>
+        <source>Samples</source>
+        <translation>Muestras</translation>
+    </message>
+</context>
+<context>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
@@ -17492,6 +17686,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Solid</source>
         <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>Objeto nulo</translation>
+    </message>
+    <message>
+        <source>Shape with the pen</source>
+        <translation>Forma con la pluma</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -17828,6 +18030,13 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>PenToolOverlay</name>
+    <message>
+        <source>Path edited</source>
+        <translation>Trazado editado</translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
     <message>
         <source>Auto</source>
@@ -18051,6 +18260,14 @@ Automático elige por clip: hardware para 4K de alta calidad, software en caso c
 Software es más fluido para la mayoría de clips. Usa más CPU.
 Hardware es mejor para 4K de alta calidad y fuerza un descodificador de GPU.
 Si la reproducción se corta, prueba con otra opción.</translation>
+    </message>
+    <message>
+        <source>Safe zones</source>
+        <translation>Zonas seguras</translation>
+    </message>
+    <message>
+        <source>After Effects&apos; title and action safe margins, and the centre (only on the preview)</source>
+        <translation>Los márgenes seguros de título y de acción de After Effects, y el centro (solo en la vista previa)</translation>
     </message>
     <message>
         <source>Keep mask handles up</source>
@@ -18843,6 +19060,73 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>My look</source>
         <translation>Mi aspecto</translation>
+    </message>
+</context>
+<context>
+    <name>PropertyBehaviorDialog</name>
+    <message>
+        <source>No loop</source>
+        <translation>Sin bucle</translation>
+    </message>
+    <message>
+        <source>Cycle (repeat the keys)</source>
+        <translation>Ciclo (repetir las claves)</translation>
+    </message>
+    <message>
+        <source>Ping-pong (back and forth)</source>
+        <translation>Ida y vuelta</translation>
+    </message>
+    <message>
+        <source>Offset (repeat, adding up)</source>
+        <translation>Desfase (repetir sumando)</translation>
+    </message>
+    <message>
+        <source>Continue (keep the last speed)</source>
+        <translation>Continuar (con la última velocidad)</translation>
+    </message>
+    <message>
+        <source>Behavior · %1</source>
+        <translation>Comportamiento · %1</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
+        <translation>Lo que After Effects hace con expresiones, sin escribir código. Se suman: primero el bucle, después la velocidad constante y después el temblor.</translation>
+    </message>
+    <message>
+        <source>Loop after the last keyframe</source>
+        <translation>Bucle después de la última clave</translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation>Temblor</translation>
+    </message>
+    <message>
+        <source>A smooth random shake around the value, like wiggle(frequency, amount)</source>
+        <translation>Una sacudida al azar y suave alrededor del valor, como wiggle(frecuencia, cantidad)</translation>
+    </message>
+    <message>
+        <source>Per second</source>
+        <translation>Por segundo</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Cantidad</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Constant speed (per second)</source>
+        <translation>Velocidad constante (por segundo)</translation>
+    </message>
+    <message>
+        <source>For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.</source>
+        <translation>Por ejemplo, 90 en Rotación gira la capa un cuarto de vuelta cada segundo, mientras dure el clip.</translation>
     </message>
 </context>
 <context>
@@ -20968,6 +21252,122 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Tail size</source>
         <translation>Tamaño de la cola</translation>
     </message>
+    <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
+    </message>
+    <message>
+        <source>Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <translation>Arrastra los puntos en la vista previa. Alt+clic en un punto lo vuelve esquina o lo suaviza otra vez; Ctrl+clic lo quita. Con el cronómetro encendido, cada cambio es una clave en el cabezal y la forma se transforma de una a otra.</translation>
+    </message>
+    <message>
+        <source>Done editing</source>
+        <translation>Terminar</translation>
+    </message>
+    <message>
+        <source>Edit points</source>
+        <translation>Editar puntos</translation>
+    </message>
+    <message>
+        <source>Draw with the pen</source>
+        <translation>Dibujar con la pluma</translation>
+    </message>
+    <message>
+        <source>Animate the path</source>
+        <translation>Animar el trazado</translation>
+    </message>
+    <message>
+        <source>After Effects&apos; Path stopwatch: a key with this outline at the playhead</source>
+        <translation>El cronómetro de Trazado de After Effects: una clave con este contorno en el cabezal</translation>
+    </message>
+    <message>
+        <source>Editing the key at the playhead.</source>
+        <translation>Editas la clave del cabezal.</translation>
+    </message>
+    <message>
+        <source>Moving a point here adds a key at the playhead.</source>
+        <translation>Mover un punto aquí agrega una clave en el cabezal.</translation>
+    </message>
+    <message>
+        <source>Trim paths</source>
+        <translation>Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Shows only part of the outline: animate Start or End to draw the shape on, and Offset to run it round.</source>
+        <translation>Muestra solo una parte del contorno: anima Inicio o Fin para que la forma se dibuje sola, y Desplazamiento para que dé la vuelta.</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Fin</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Repeater</source>
+        <translation>Repetidor</translation>
+    </message>
+    <message>
+        <source>Copies of the shape, each one moved, turned and scaled from the one before.</source>
+        <translation>Copias de la forma, cada una movida, girada y escalada desde la anterior.</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation>Opacidad inicial</translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation>Opacidad final</translation>
+    </message>
+    <message>
+        <source>Wiggle paths</source>
+        <translation>Sacudir trazados</translation>
+    </message>
+    <message>
+        <source>Makes the outline wobble: Size is how far it moves, Detail how often along the edge, and Wiggles per second how fast.</source>
+        <translation>Hace temblar el contorno: Tamaño es cuánto se mueve, Detalle cada cuánto a lo largo del borde, y Sacudidas por segundo qué tan rápido.</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Detail</source>
+        <translation>Detalle</translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation>Sacudidas por segundo</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla aleatoria</translation>
+    </message>
 </context>
 <context>
     <name>ShapeStyle</name>
@@ -21128,8 +21528,72 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tamaño de la cola</translation>
     </message>
     <message>
+        <source>Trim start</source>
+        <translation>Inicio del recorte</translation>
+    </message>
+    <message>
+        <source>Trim end</source>
+        <translation>Fin del recorte</translation>
+    </message>
+    <message>
+        <source>Trim offset</source>
+        <translation>Desplazamiento del recorte</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Repeater offset</source>
+        <translation>Desfase del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater position X</source>
+        <translation>Posición X del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater position Y</source>
+        <translation>Posición Y del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater scale</source>
+        <translation>Escala del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater rotation</source>
+        <translation>Rotación del repetidor</translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation>Opacidad inicial</translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation>Opacidad final</translation>
+    </message>
+    <message>
+        <source>Wiggle size</source>
+        <translation>Tamaño de la sacudida</translation>
+    </message>
+    <message>
+        <source>Wiggle detail</source>
+        <translation>Detalle de la sacudida</translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation>Sacudidas por segundo</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla aleatoria</translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation>Puntas</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
     </message>
 </context>
 <context>
@@ -25966,6 +26430,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ajustes del sólido…</translation>
     </message>
     <message>
+        <source>Parent</source>
+        <translation>Primario</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Auto-orient along path</source>
+        <translation>Orientar según el trazado</translation>
+    </message>
+    <message>
+        <source>Time remapping</source>
+        <translation>Reasignación de tiempo</translation>
+    </message>
+    <message>
         <source>Fades to volume keyframes</source>
         <translation>Fundidos a fotogramas clave de volumen</translation>
     </message>
@@ -26823,6 +27307,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Remove all keyframes…</source>
         <translation>Quitar todos los fotogramas clave…</translation>
+    </message>
+    <message>
+        <source>Behavior…</source>
+        <translation>Comportamiento…</translation>
     </message>
     <message>
         <source>Remove every keyframe of %1?</source>
