@@ -709,6 +709,15 @@ public:
     // adding the effect when needed, and returns its index (-1 when full); movePuppetPin keys a
     // pin's move at the playhead, as After Effects does for every pin dragged.
     Q_INVOKABLE QVariantMap puppetPins(int trackIndex, int clipIndex) const;
+    // After Effects' Essential Graphics (0.26). Inside a composition, a clip's property is marked
+    // for the composition's controls ("content", "textColor", "x", "y", "rotation", "opacity",
+    // "text.pixelSize"); on the composition clip outside, essentialControls lists them
+    // [{clipId, prop, label, kind: "text"|"color"|"number", value, min, max}] and setEssentialValue
+    // edits the clip inside.
+    Q_INVOKABLE bool isEssentialProperty(int trackIndex, int clipIndex, const QString &prop) const;
+    Q_INVOKABLE void toggleEssentialProperty(int trackIndex, int clipIndex, const QString &prop);
+    Q_INVOKABLE QVariantList essentialControls(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE bool setEssentialValue(const QString &clipId, const QString &prop, const QVariant &value);
     Q_INVOKABLE int addPuppetPin(int trackIndex, int clipIndex, double u, double v);
     Q_INVOKABLE void movePuppetPin(int trackIndex, int clipIndex, int pin, double u, double v);
     Q_INVOKABLE bool useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip);

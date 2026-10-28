@@ -111,6 +111,10 @@ struct Clip
     // On a text clip it marks the text the panel offers to edit. Saved only when set.
     QString placeholderId;
     QString placeholderLabel;
+    // After Effects' Essential Graphics (0.26): this clip's properties offered as controls on the
+    // composition that holds it ("content", "textColor", "x", "y", "rotation", "opacity",
+    // "text.pixelSize"). Saved only when set.
+    QStringList essentialProps;
     // The slot still shows the template's stand-in picture rather than the user's media.
     bool placeholderEmpty = false;
     // A scene template's brand mark (My brand kit): "logo" on a media slot takes the logo;

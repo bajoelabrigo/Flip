@@ -39,6 +39,102 @@ Column {
         function onTracksChanged() { root.revision++ }
     }
 
+    // ----- After Effects' Essential Graphics (0.26) --------------------------------------------
+    // On a composition: the controls its clips offer, edited from outside.
+    readonly property var essentials: {
+        void root.revision
+        return EditorState.essentialControls(root.trackIndex, root.clipIndex)
+    }
+    readonly property bool insideComposition: EditorState.activeSequenceId.length > 0
+    readonly property bool textClip: {
+        void root.revision
+        const data = EditorState.selectedClipData
+        return !!data && (data.kind === "text" || data.kind === "subtitle")
+    }
+    Text {
+        visible: root.essentials.length > 0
+        text: qsTr("Essential Graphics")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+    Repeater {
+        model: root.essentials
+        Column {
+            id: control
+            required property var modelData
+            width: root.width
+            spacing: 2
+            Text {
+                text: control.modelData.label
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                elide: Text.ElideRight
+                width: parent.width
+            }
+            ThemedTextField {
+                visible: control.modelData.kind === "text"
+                width: parent.width
+                text: control.modelData.kind === "text" ? control.modelData.value : ""
+                onEditingFinished: if (text !== control.modelData.value)
+                    EditorState.setEssentialValue(control.modelData.clipId, control.modelData.prop, text)
+            }
+            ColorSwatchField {
+                visible: control.modelData.kind === "color"
+                hex: control.modelData.kind === "color" ? control.modelData.value : "#ffffffff"
+                onEdited: value => EditorState.setEssentialValue(control.modelData.clipId, control.modelData.prop, value)
+            }
+            ThemedSlider {
+                visible: control.modelData.kind === "number"
+                width: parent.width
+                from: control.modelData.min !== undefined ? control.modelData.min : 0
+                to: control.modelData.max !== undefined ? control.modelData.max : 100
+                value: control.modelData.kind === "number" ? control.modelData.value : 0
+                onPressedChanged: if (!pressed)
+                    EditorState.setEssentialValue(control.modelData.clipId, control.modelData.prop, Math.round(value * 10) / 10)
+            }
+        }
+    }
+
+    // Inside a composition: offer this clip's properties to the composition's controls.
+    Text {
+        visible: root.insideComposition
+        text: qsTr("Add to Essential Graphics")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+    Flow {
+        visible: root.insideComposition
+        width: parent.width
+        spacing: Theme.spacingSm
+        Repeater {
+            model: (root.textClip ? [
+                        { id: "content", label: qsTr("Text") },
+                        { id: "textColor", label: qsTr("Text colour") },
+                        { id: "text.pixelSize", label: qsTr("Text size") }
+                    ] : []).concat([
+                        { id: "x", label: qsTr("Position X") },
+                        { id: "y", label: qsTr("Position Y") },
+                        { id: "rotation", label: qsTr("Rotation") },
+                        { id: "opacity", label: qsTr("Opacity") }
+                    ])
+            ThemedButton {
+                required property var modelData
+                readonly property bool on: {
+                    void root.revision
+                    return EditorState.isEssentialProperty(root.trackIndex, root.clipIndex, modelData.id)
+                }
+                text: modelData.label
+                variant: on ? "primary" : "secondary"
+                tooltip: on ? qsTr("Offered as a control of the composition: click to take it out")
+                            : qsTr("Offer it as a control of the composition, editable from outside")
+                onClicked: EditorState.toggleEssentialProperty(root.trackIndex, root.clipIndex, modelData.id)
+            }
+        }
+    }
+
     // ----- After Effects' Layer Styles (0.26), on any layer ------------------------------------
     Text {
         text: qsTr("Layer styles")

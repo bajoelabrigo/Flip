@@ -11667,6 +11667,153 @@ void AppController::addShapeToLayer(int trackIndex, int clipIndex, const QString
 }
 
 namespace {
+QString essentialLabel(const QString &prop)
+{
+    if (prop == QLatin1String("content"))
+        return AppController::tr("Text");
+    if (prop == QLatin1String("textColor"))
+        return AppController::tr("Text colour");
+    if (prop == QLatin1String("x"))
+        return AppController::tr("Position X");
+    if (prop == QLatin1String("y"))
+        return AppController::tr("Position Y");
+    if (prop == QLatin1String("rotation"))
+        return AppController::tr("Rotation");
+    if (prop == QLatin1String("opacity"))
+        return AppController::tr("Opacity");
+    if (prop == QLatin1String("text.pixelSize"))
+        return AppController::tr("Text size");
+    return prop;
+}
+
+double essentialNumber(const drift::Clip &clip, const QString &prop)
+{
+    if (prop == QLatin1String("text.pixelSize"))
+        return clip.textStyle.pixelSize;
+    const drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop);
+    const double fallback = prop == QLatin1String("opacity") ? 1.0 : 0.0;
+    const double value = track && !track->isEmpty() ? track->evaluateAt(0) : fallback;
+    return prop == QLatin1String("opacity") ? value * 100.0 : value;
+}
+} // namespace
+
+bool AppController::isEssentialProperty(int trackIndex, int clipIndex, const QString &prop) const
+{
+    return isValidClipIndex(trackIndex, clipIndex)
+           && m_project.tracks().at(trackIndex).clips.at(clipIndex).essentialProps.contains(prop);
+}
+
+void AppController::toggleEssentialProperty(int trackIndex, int clipIndex, const QString &prop)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    QStringList &props = m_project.tracks()[trackIndex].clips[clipIndex].essentialProps;
+    const bool adding = !props.contains(prop);
+    if (adding)
+        props.append(prop);
+    else
+        props.removeAll(prop);
+    const QString what = adding ? tr("Added to Essential Graphics") : tr("Removed from Essential Graphics");
+    pushProjectEdit(before, what);
+    finishEdit(what);
+    if (adding)
+        setLastMessage(tr("«%1» is now a control of this composition: select the composition outside to change it")
+                           .arg(essentialLabel(prop)),
+                       QStringLiteral("info"));
+}
+
+QVariantList AppController::essentialControls(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &composite = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::MediaAsset *asset = m_project.asset(composite.assetId);
+    if (composite.type != drift::ClipType::Composite || !asset || asset->sequenceId.isEmpty())
+        return out;
+    for (const drift::Track &track : m_project.sequenceTracks(asset->sequenceId)) {
+        for (const drift::Clip &clip : track.clips) {
+            for (const QString &prop : clip.essentialProps) {
+                QVariantMap row{{QStringLiteral("clipId"), clip.id},
+                                {QStringLiteral("prop"), prop},
+                                {QStringLiteral("label"), (clip.name.isEmpty() ? QString() : clip.name + QStringLiteral(" · "))
+                                                              + essentialLabel(prop)}};
+                if (prop == QLatin1String("content")) {
+                    row.insert(QStringLiteral("kind"), QStringLiteral("text"));
+                    row.insert(QStringLiteral("value"), clip.textContent);
+                } else if (prop == QLatin1String("textColor")) {
+                    row.insert(QStringLiteral("kind"), QStringLiteral("color"));
+                    row.insert(QStringLiteral("value"), drift::textFillColor(clip.textStyle, false).name(QColor::HexArgb));
+                } else {
+                    row.insert(QStringLiteral("kind"), QStringLiteral("number"));
+                    row.insert(QStringLiteral("value"), essentialNumber(clip, prop));
+                    const bool opacity = prop == QLatin1String("opacity");
+                    const bool turn = prop == QLatin1String("rotation");
+                    const bool size = prop == QLatin1String("text.pixelSize");
+                    const double span = qMax(m_project.width(), m_project.height());
+                    row.insert(QStringLiteral("min"), opacity ? 0.0 : turn ? -360.0 : size ? 4.0 : -span);
+                    row.insert(QStringLiteral("max"), opacity ? 100.0 : turn ? 360.0 : size ? 600.0 : 2.0 * span);
+                }
+                out.append(row);
+            }
+        }
+    }
+    return out;
+}
+
+bool AppController::setEssentialValue(const QString &clipId, const QString &prop, const QVariant &value)
+{
+    drift::Clip *target = nullptr;
+    m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        for (drift::Track &track : tracks)
+            for (drift::Clip &clip : track.clips)
+                if (!target && clip.id == clipId)
+                    target = &clip;
+    });
+    if (!target || !target->essentialProps.contains(prop))
+        return false;
+    const drift::Project before = m_project.detachedCopy();
+    m_project.forEachTrackList([&](QList<drift::Track> &tracks) {
+        for (drift::Track &track : tracks)
+            for (drift::Clip &clip : track.clips)
+                if (clip.id == clipId)
+                    target = &clip;
+    });
+    if (prop == QLatin1String("content")) {
+        target->textContent = value.toString();
+    } else if (prop == QLatin1String("textColor")) {
+        const QColor color(value.toString());
+        if (!color.isValid())
+            return false;
+        drift::setSolidFill(target->textStyle, color);
+    } else if (prop == QLatin1String("text.pixelSize")) {
+        target->textStyle.pixelSize = qMax(1.0, value.toDouble());
+    } else {
+        const double v = prop == QLatin1String("opacity") ? value.toDouble() / 100.0 : value.toDouble();
+        // An unkeyed property takes the value; a keyed one moves all its keys by the change, so
+        // the animation keeps its shape and is shifted, as an Essential Graphics control would.
+        drift::KeyframeTrack<double> *track = keyframeTrackForProp(*target, prop, /*createIfMissing=*/true);
+        if (!track)
+            return false;
+        const QList<drift::TimeUs> times = track->keyframes().keys();
+        if (times.size() <= 1) {
+            for (const drift::TimeUs at : times)
+                track->removeKeyframe(at);
+            track->setKeyframe(0, v);
+        } else {
+            const double delta = v - track->evaluateAt(0);
+            for (const drift::TimeUs at : times)
+                if (drift::Keyframe<double> *key = track->keyframeRef(at))
+                    key->value += delta;
+        }
+    }
+    pushProjectEdit(before, tr("Essential Graphics"));
+    finishEdit(QString());
+    return true;
+}
+
+namespace {
 int puppetIndexIn(const drift::Clip &host)
 {
     for (int i = 0; i < host.effects.size(); ++i) {
