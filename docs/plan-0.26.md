@@ -103,6 +103,28 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
       la selección, que pasa a seguirlo); Convertir en forma (letras de un texto o una forma en trazado editable);
       Centrar (en vez de «Remove artboard», que es de Illustrator).
 
+## Etapa G — Lo que faltaba frente a AE (Jorge, 2026-10-28, noche: «todo esto debe salir en esta versión»)
+Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión práctica se hace.
+- [ ] G1. Fondo a cuadros a pedido (opciones de la vista previa): la vista previa sin el fondo del proyecto.
+- [ ] G2. Látigo: en el clip elegido de la línea de tiempo, un espiral que se arrastra a otro clip = Primario; el clip
+      muestra «↳ nombre del primario».
+- [ ] G3. Estilos de capa en cualquier capa (categoría de efectos «Estilos de capa»): Sombra paralela, Resplandor
+      exterior, Trazo, Bisel y relieve, Superposición de color. Margen para que no se corten (padding en el efecto).
+- [ ] G4. Formas: unir trazados (sumar, restar, intersecar, excluir entre contornos), desplazar trazado, zigzag,
+      retorcer, trazo con degradado, y «Agregar forma a la capa» (varias formas en una capa).
+- [ ] G5. Efectos con nombre de AE: Fractal Noise, Particle World, Shatter, Turbulent Displace, Gradient Ramp,
+      Radio Waves (paquetes GPU nuevos, categoría «Generar y simular»).
+- [ ] G6. Expresiones en JavaScript por propiedad (QJSEngine por hilo): value, time, wiggle(), loopOut(), Math, y
+      layer("Nombre").prop para enlazar con otra capa.
+- [ ] G7. Bosquejo de movimiento: herramienta que graba el arrastre del ratón como claves de Posición en tiempo real.
+- [ ] G8. Texto sobre un trazado (el texto sigue el contorno de una forma) y animadores 3D por letra (giro X/Y).
+- [ ] G9. Editor de curvas con las curvas de varias capas a la vez (las claves elegidas).
+      Separar dimensiones de la escala: ya existe (Escala con cadena, W y H son pistas aparte).
+- [ ] G10. Vista previa en RAM (calcular el área de trabajo a memoria y reproducirla, barra verde en la regla) y
+      Región de interés.
+- [ ] G11. Pines de marioneta (efecto con alfileres arrastrables en la vista previa, deformación suave).
+- [ ] G12. Gráficos esenciales: exponer propiedades de una composición como controles editables.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista
