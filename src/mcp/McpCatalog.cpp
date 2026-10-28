@@ -336,6 +336,12 @@ QJsonObject shapeStyleSchema()
         {QStringLiteral("wiggleDetail"), numberProp(QStringLiteral("Wiggle Paths segment, px"), 2, 500)},
         {QStringLiteral("wiggleSpeed"), numberProp(QStringLiteral("Wiggle Paths wiggles per second (0 = still)"), 0, 30)},
         {QStringLiteral("wiggleSeed"), numberProp(QStringLiteral("Wiggle Paths random seed"), 0, 1000)},
+        {QStringLiteral("mergeMode"), numberProp(QStringLiteral("Merge Paths of the layer's contours: 0 off, 1 add, 2 subtract, 3 intersect, 4 exclude"), 0, 4)},
+        {QStringLiteral("offsetPath"), numberProp(QStringLiteral("Offset Paths, px (negative shrinks)"), -500, 500)},
+        {QStringLiteral("zigzagSize"), numberProp(QStringLiteral("Zig Zag size, px (0 = off)"), 0, 500)},
+        {QStringLiteral("zigzagRidges"), numberProp(QStringLiteral("Zig Zag ridges per contour"), 0, 100)},
+        {QStringLiteral("zigzagSmooth"), numberProp(QStringLiteral("Zig Zag smooth points, 0 or 1"), 0, 1)},
+        {QStringLiteral("twistAngle"), numberProp(QStringLiteral("Twist, degrees at the edge"), -3600, 3600)},
     });
     s.insert(QStringLiteral("description"),
              QStringLiteral("Partial style patch; only supplied keys change. Each geometry knob is read by a subset of shape kinds"));

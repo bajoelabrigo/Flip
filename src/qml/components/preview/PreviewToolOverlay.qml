@@ -22,7 +22,27 @@ Item {
                                         && box.kind !== "transform"
 
     readonly property bool sketchReady: tool === "sketch" && !!box && box.kind !== "transform"
-    visible: tool === "shape" || tool === "text" || tool === "roi" || anchorReady || sketchReady
+    readonly property bool puppetReady: tool === "puppet" && !!box && !!box.quad && box.quad.length === 4
+                                        && box.kind !== "transform"
+    // The pins where they are at the playhead, in fractions of the layer.
+    readonly property var puppet: {
+        void EditorState.tracksRevision
+        void EditorState.playheadSeconds
+        return puppetReady ? EditorState.puppetPins(box.track, box.clip) : null
+    }
+    property int puppetDrag: -1
+    property point puppetLive: Qt.point(0, 0)
+    function puppetPinAt(px, py) {
+        if (!puppet)
+            return -1
+        for (let i = 0; i < puppet.pins.length; ++i) {
+            const p = boxToOverlay(puppet.pins[i].x, puppet.pins[i].y)
+            if (Math.abs(p.x - px) <= 9 && Math.abs(p.y - py) <= 9)
+                return i
+        }
+        return -1
+    }
+    visible: tool === "shape" || tool === "text" || tool === "roi" || anchorReady || sketchReady || puppetReady
     enabled: visible && !EditorState.playing
 
     // Fractions of the box (0..1) ↔ overlay px, through the box's on-screen corners.
@@ -127,14 +147,47 @@ Item {
         }
     }
 
+    // Puppet pins: yellow dots, the one being dragged follows the pointer.
+    Repeater {
+        model: root.puppet ? root.puppet.pins : []
+        delegate: Rectangle {
+            required property var modelData
+            required property int index
+            readonly property point at: root.puppetDrag === index ? root.puppetLive
+                                                                    : root.boxToOverlay(modelData.x, modelData.y)
+            x: at.x - 6
+            y: at.y - 6
+            width: 12
+            height: 12
+            radius: 6
+            color: "#ffffd23c"
+            border.width: 1.5
+            border.color: "#ff202020"
+        }
+    }
+
     MouseArea {
         anchors.fill: parent
         // The preview drags the selected clip from further up; these drags are ours.
         preventStealing: true
         hoverEnabled: true
-        cursorShape: root.tool === "text" ? Qt.IBeamCursor : root.tool === "anchor" || root.tool === "sketch" ? Qt.SizeAllCursor : Qt.CrossCursor
+        cursorShape: root.tool === "text" ? Qt.IBeamCursor
+                     : root.tool === "anchor" || root.tool === "sketch" || root.tool === "puppet" ? Qt.SizeAllCursor
+                     : Qt.CrossCursor
 
         onPressed: mouse => {
+            if (root.puppetReady) {
+                const hit = root.puppetPinAt(mouse.x, mouse.y)
+                if (hit >= 0) {
+                    root.puppetDrag = hit
+                    root.puppetLive = Qt.point(mouse.x, mouse.y)
+                } else {
+                    const f = root.overlayToBox(mouse.x, mouse.y)
+                    if (f.x >= 0 && f.y >= 0 && f.x <= 1 && f.y <= 1)
+                        EditorState.addPuppetPin(root.box.track, root.box.clip, f.x, f.y)
+                }
+                return
+            }
             if (root.tool === "shape" || root.tool === "roi") {
                 root.dragFrom = Qt.point(mouse.x, mouse.y)
                 root.dragRect = Qt.rect(mouse.x, mouse.y, 0, 0)
@@ -152,6 +205,10 @@ Item {
         onPositionChanged: mouse => {
             if (!pressed)
                 return
+            if (root.puppetDrag >= 0) {
+                root.puppetLive = Qt.point(mouse.x, mouse.y)
+                return
+            }
             if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
                 root.dragRect = root.shapeRect(root.dragFrom, Qt.point(mouse.x, mouse.y),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
@@ -161,6 +218,13 @@ Item {
                 root.sketchPointer = Qt.point(mouse.x, mouse.y)
         }
         onReleased: mouse => {
+            if (root.puppetDrag >= 0) {
+                const f = root.overlayToBox(mouse.x, mouse.y)
+                const pin = root.puppetDrag
+                root.puppetDrag = -1
+                EditorState.movePuppetPin(root.box.track, root.box.clip, pin, f.x, f.y)
+                return
+            }
             if (root.tool === "roi" && root.dragging) {
                 root.dragging = false
                 const q = root.dragRect

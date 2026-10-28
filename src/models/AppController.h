@@ -703,6 +703,14 @@ public:
     // After Effects' text on a path (0.26): the shape layers a text can follow [{name, track, clip}],
     // and putting a text on one's outline (as it is at the playhead, mapped into the text's box).
     Q_INVOKABLE QVariantList textPathShapes() const;
+    // After Effects' Puppet pins (0.26), on the "ae_puppet" effect of the clip (or of the adjustment
+    // that carries its effects). puppetPins: {effect, pins: [{x, y}]} with each pin where it is at the
+    // playhead, in fractions of the layer. addPuppetPin puts the next of up to 8 pins at (u, v),
+    // adding the effect when needed, and returns its index (-1 when full); movePuppetPin keys a
+    // pin's move at the playhead, as After Effects does for every pin dragged.
+    Q_INVOKABLE QVariantMap puppetPins(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE int addPuppetPin(int trackIndex, int clipIndex, double u, double v);
+    Q_INVOKABLE void movePuppetPin(int trackIndex, int clipIndex, int pin, double u, double v);
     Q_INVOKABLE bool useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip);
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,

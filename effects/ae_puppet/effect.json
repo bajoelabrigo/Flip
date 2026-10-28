@@ -1,0 +1,330 @@
+{
+  "id": "ae_puppet",
+  "displayName": "Puppet Pins",
+  "category": "glitch",
+  "backend": "gpu",
+  "order": 930,
+  "description": "After Effects' Puppet tool: put pins on the layer with the Puppet tool in the preview and drag them; the picture bends around them and every move is a keyframe.",
+  "parameters": [
+    {
+      "identifier": "pins",
+      "displayName": "Pins",
+      "type": "int",
+      "minValue": 0,
+      "maxValue": 8,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "stiffness",
+      "displayName": "Stiffness",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 3,
+      "defaultValue": 1
+    },
+    {
+      "identifier": "pin1",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 1",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move1",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 1",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin2",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 2",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move2",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 2",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin3",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 3",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move3",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 3",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin4",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 4",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move4",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 4",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin5",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 5",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move5",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 5",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin6",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 6",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move6",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 6",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin7",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 7",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move7",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 7",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "pin8",
+      "displayName": "Place (%)",
+      "type": "point",
+      "minValue": [
+        -50,
+        -50
+      ],
+      "maxValue": [
+        150,
+        150
+      ],
+      "defaultValue": [
+        50,
+        50
+      ],
+      "group": "Pin 8",
+      "groupCollapsed": true
+    },
+    {
+      "identifier": "move8",
+      "displayName": "Move (%)",
+      "type": "point",
+      "minValue": [
+        -100,
+        -100
+      ],
+      "maxValue": [
+        100,
+        100
+      ],
+      "defaultValue": [
+        0,
+        0
+      ],
+      "group": "Pin 8",
+      "groupCollapsed": true
+    }
+  ]
+}

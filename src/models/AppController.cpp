@@ -11666,6 +11666,92 @@ void AppController::addShapeToLayer(int trackIndex, int clipIndex, const QString
     finishEdit(tr("Shape added to the layer"));
 }
 
+namespace {
+int puppetIndexIn(const drift::Clip &host)
+{
+    for (int i = 0; i < host.effects.size(); ++i) {
+        if (host.effects.at(i).catalogId == QLatin1String("ae_puppet"))
+            return i;
+    }
+    return -1;
+}
+} // namespace
+
+QVariantMap AppController::puppetPins(int trackIndex, int clipIndex) const
+{
+    QVariantMap out{{QStringLiteral("effect"), -1}, {QStringLiteral("pins"), QVariantList()}};
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    int ht = trackIndex;
+    int hc = clipIndex;
+    redirectToKeyframeHost(&ht, &hc, QStringLiteral("fx.0.pins"));
+    if (!isValidClipIndex(ht, hc))
+        return out;
+    const drift::Clip &host = m_project.tracks().at(ht).clips.at(hc);
+    const int index = puppetIndexIn(host);
+    if (index < 0)
+        return out;
+    const drift::Effect &effect = host.effects.at(index);
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - host.timelineStart, host.timelineDuration);
+    const auto at = [&](const QString &key, double fallback) {
+        const QVariant v = effect.valueAt(key, rel);
+        return v.isValid() ? v.toDouble() : fallback;
+    };
+    QVariantList pins;
+    const int count = qBound(0, qRound(at(QStringLiteral("pins"), 0.0)), 8);
+    for (int i = 1; i <= count; ++i) {
+        const QString n = QString::number(i);
+        const double x = at(QStringLiteral("pin") + n + QStringLiteral(".x"), 50.0)
+                         + at(QStringLiteral("move") + n + QStringLiteral(".x"), 0.0);
+        const double y = at(QStringLiteral("pin") + n + QStringLiteral(".y"), 50.0)
+                         + at(QStringLiteral("move") + n + QStringLiteral(".y"), 0.0);
+        pins.append(QVariantMap{{QStringLiteral("x"), x / 100.0}, {QStringLiteral("y"), y / 100.0}});
+    }
+    out.insert(QStringLiteral("effect"), index);
+    out.insert(QStringLiteral("pins"), pins);
+    return out;
+}
+
+int AppController::addPuppetPin(int trackIndex, int clipIndex, double u, double v)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return -1;
+    QVariantMap state = puppetPins(trackIndex, clipIndex);
+    if (state.value(QStringLiteral("effect")).toInt() < 0) {
+        addEffect(trackIndex, clipIndex, QStringLiteral("ae_puppet"));
+        state = puppetPins(trackIndex, clipIndex);
+    }
+    const int effect = state.value(QStringLiteral("effect")).toInt();
+    const int count = state.value(QStringLiteral("pins")).toList().size();
+    if (effect < 0 || count >= 8)
+        return -1;
+    setEffectVec2Param(trackIndex, clipIndex, effect, QStringLiteral("pin%1").arg(count + 1), u * 100.0, v * 100.0);
+    setEffectParam(trackIndex, clipIndex, effect, QStringLiteral("pins"), count + 1);
+    return count;
+}
+
+void AppController::movePuppetPin(int trackIndex, int clipIndex, int pin, double u, double v)
+{
+    const QVariantMap state = puppetPins(trackIndex, clipIndex);
+    const int effect = state.value(QStringLiteral("effect")).toInt();
+    if (effect < 0 || pin < 0 || pin >= state.value(QStringLiteral("pins")).toList().size())
+        return;
+    int ht = trackIndex;
+    int hc = clipIndex;
+    redirectToKeyframeHost(&ht, &hc, QStringLiteral("fx.0.pins"));
+    if (!isValidClipIndex(ht, hc))
+        return;
+    const drift::Clip &host = m_project.tracks().at(ht).clips.at(hc);
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - host.timelineStart, host.timelineDuration);
+    const drift::Effect &fx = host.effects.at(effect);
+    const QString n = QString::number(pin + 1);
+    const double restX = fx.valueAt(QStringLiteral("pin") + n + QStringLiteral(".x"), rel).toDouble();
+    const double restY = fx.valueAt(QStringLiteral("pin") + n + QStringLiteral(".y"), rel).toDouble();
+    setClipVec2Keyframe(trackIndex, clipIndex, QStringLiteral("fx.%1.move%2").arg(effect).arg(pin + 1),
+                        playheadSeconds(), qBound(-100.0, u * 100.0 - restX, 100.0),
+                        qBound(-100.0, v * 100.0 - restY, 100.0));
+}
+
 QVariantList AppController::textPathShapes() const
 {
     QVariantList out;
