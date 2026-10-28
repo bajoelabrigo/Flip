@@ -134,6 +134,12 @@ struct Clip
     // After Effects' Motion Blur switch (0.26): the frame is averaged over the shutter the project
     // sets (Project::motionBlurShutterDeg / motionBlurSamples) while the clip moves.
     bool motionBlur = false;
+    // After Effects' Track Matte (0.26): this clip shows only where `matteClipId` (any clip on
+    // the same timeline) covers it, by its alpha or its luma, straight or inverted. The matte
+    // clip itself is not drawn while it is one. Empty id = no matte.
+    enum class TrackMatte { None, Alpha, AlphaInverted, Luma, LumaInverted };
+    TrackMatte matteMode = TrackMatte::None;
+    QString matteClipId;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a

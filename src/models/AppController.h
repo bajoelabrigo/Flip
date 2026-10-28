@@ -707,6 +707,12 @@ public:
     // Motion blur (0.26): the switch on a clip (and the other selected clips), and the project's
     // shutter {shutterDeg, samples}.
     Q_INVOKABLE void setClipMotionBlur(int trackIndex, int clipIndex, bool on);
+    // After Effects' Track Matte (0.26). mode "none" | "alpha" | "alphaInverted" | "luma" |
+    // "lumaInverted"; the matte clip by index, or matteTrack < 0 for the nearest clip above that
+    // overlaps it. The options: every visual clip but itself and those that use it as theirs.
+    Q_INVOKABLE void setClipTrackMatte(int trackIndex, int clipIndex, const QString &mode, int matteTrack,
+                                       int matteClip);
+    Q_INVOKABLE QVariantList clipMatteOptions(int trackIndex, int clipIndex) const;
     Q_INVOKABLE QVariantMap motionBlurSettings() const;
     Q_INVOKABLE void setMotionBlurSettings(double shutterDeg, int samples);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);

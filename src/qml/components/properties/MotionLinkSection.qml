@@ -77,6 +77,68 @@ Column {
         }
     }
 
+    // ----- Track matte -----------------------------------------------------------------------
+    readonly property var matteOptions: {
+        void root.revision
+        return EditorState.clipMatteOptions(root.trackIndex, root.clipIndex)
+    }
+    readonly property var matteModes: [
+        { id: "none", label: qsTr("No track matte") },
+        { id: "alpha", label: qsTr("Alpha matte") },
+        { id: "alphaInverted", label: qsTr("Alpha inverted matte") },
+        { id: "luma", label: qsTr("Luma matte") },
+        { id: "lumaInverted", label: qsTr("Luma inverted matte") }
+    ]
+
+    Text {
+        text: qsTr("Track matte")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+    Text {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("Shows this layer only where another one covers it (alpha) or is bright (luma). The matte layer is hidden, as in After Effects.")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+        opacity: 0.8
+    }
+    ThemedComboBox {
+        width: parent.width
+        model: root.matteModes.map(m => m.label)
+        currentIndex: {
+            const want = root.info ? (root.info.matteMode || "none") : "none"
+            for (let i = 0; i < root.matteModes.length; ++i) {
+                if (root.matteModes[i].id === want)
+                    return i
+            }
+            return 0
+        }
+        onActivated: index => EditorState.setClipTrackMatte(root.trackIndex, root.clipIndex,
+                                                            root.matteModes[index].id, -1, -1)
+    }
+    ThemedComboBox {
+        width: parent.width
+        visible: !!root.info && (root.info.matteMode || "none") !== "none"
+        model: (root.matteOptions || []).map(o => o.name)
+        currentIndex: {
+            const want = root.info ? (root.info.matteId || "") : ""
+            const list = root.matteOptions || []
+            for (let i = 0; i < list.length; ++i) {
+                if (list[i].id === want)
+                    return i
+            }
+            return -1
+        }
+        tooltip: qsTr("The layer used as the matte")
+        onActivated: index => {
+            const o = root.matteOptions[index]
+            EditorState.setClipTrackMatte(root.trackIndex, root.clipIndex, root.info.matteMode, o.track, o.clip)
+        }
+    }
+
     ThemedSwitch {
         width: parent.width
         text: qsTr("Motion blur")

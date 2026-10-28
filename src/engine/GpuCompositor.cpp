@@ -435,6 +435,23 @@ void main() {
 }
 )";
 
+// Track matte (0.26): a straight-alpha canvas of the layer times the matte's coverage. The matte
+// is a premultiplied canvas, so its luma already counts its alpha (transparent reads as black).
+constexpr const char *kTrackMatteFragShader = R"(#version 330 core
+in vec2 v_texCoord;
+out vec4 fragColor;
+uniform sampler2D u_currentTexture;
+uniform sampler2D u_matte;
+uniform float u_mode;
+void main() {
+    vec4 c = texture(u_currentTexture, v_texCoord);
+    vec4 m = texture(u_matte, v_texCoord);
+    float luma = dot(m.rgb, vec3(0.2126, 0.7152, 0.0722));
+    float f = u_mode < 1.5 ? m.a : u_mode < 2.5 ? 1.0 - m.a : u_mode < 3.5 ? luma : 1.0 - luma;
+    fragColor = vec4(c.rgb, c.a * clamp(f, 0.0, 1.0));
+}
+)";
+
 // A cutout's decontaminated foreground in place of the layer's colour, keeping the layer's alpha.
 // Both are straight alpha and share the layer's uv.
 constexpr const char *kForegroundSwapFragShader = R"(#version 330 core
@@ -464,6 +481,34 @@ GlTarget unpremultipliedCopy(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GlT
         program->setUniformValue("u_currentTexture", 0);
         gl->glActiveTexture(GL_TEXTURE0);
         gl->glBindTexture(GL_TEXTURE_2D, canvas.texture());
+        bindQuad(rt, gl);
+        program->release();
+        out.fbo->release();
+    }
+    return out;
+}
+
+// `straight` (a straight-alpha canvas) cut by the matte canvas `matte`, as a new target.
+GlTarget applyTrackMatte(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GlTarget &straight, const GlTarget &matte,
+                         int mode)
+{
+    QOpenGLShaderProgram *program = rt.builtinProgram(QStringLiteral("__track_matte__"), kQuadVertexShader,
+                                                      kTrackMatteFragShader);
+    if (!program)
+        return {};
+    GlTarget out = rt.acquireTarget(straight.width, straight.height);
+    if (out.isValid()) {
+        out.fbo->bind();
+        gl->glViewport(0, 0, out.width, out.height);
+        gl->glDisable(GL_BLEND);
+        program->bind();
+        program->setUniformValue("u_currentTexture", 0);
+        program->setUniformValue("u_matte", 1);
+        program->setUniformValue("u_mode", float(mode));
+        gl->glActiveTexture(GL_TEXTURE1);
+        gl->glBindTexture(GL_TEXTURE_2D, matte.texture());
+        gl->glActiveTexture(GL_TEXTURE0);
+        gl->glBindTexture(GL_TEXTURE_2D, straight.texture());
         bindQuad(rt, gl);
         program->release();
         out.fbo->release();
@@ -1667,9 +1712,10 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
                     *lostVideo = true;
                 continue;
             }
-            if (!item.layer.motionSamples.isEmpty()) {
-                // Motion blur: the layer's pixels at every sub-frame position, averaged on a canvas
-                // of their own (additive at 1/N), then placed like a transition's mixed result.
+            if (!item.layer.motionSamples.isEmpty() || item.matteMode > 0) {
+                // Motion blur and the track matte both need the layer on a canvas of its own: the
+                // blur averages it there over the shutter (additive at 1/N), the matte cuts it.
+                // The result is placed like a transition's mixed one.
                 GlTarget accum = rt.acquireTarget(canvasSize.width(), canvasSize.height());
                 if (accum.isValid()) {
                     accum.fbo->bind();
@@ -1677,20 +1723,48 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
                     gl->glClearColor(0.f, 0.f, 0.f, 0.f);
                     gl->glClear(GL_COLOR_BUFFER_BIT);
                     accum.fbo->release();
-                    const double weight = 1.0 / double(item.layer.motionSamples.size());
                     GpuLayer sub = item.layer;
                     sub.depthOcclude = false;
-                    sub.opacity = weight;
-                    for (const GpuLayer::MotionSample &sample : item.layer.motionSamples) {
-                        sub.rect = sample.rect;
-                        sub.rotation = sample.rotation;
-                        sub.parent = sample.parent;
-                        sub.hasParent = sample.hasParent;
-                        drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal, canvasSize,
-                                          nullptr, CanvasWrite::Add);
+                    if (item.layer.motionSamples.isEmpty()) {
+                        sub.opacity = 1.0;
+                        drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal, canvasSize);
+                    } else {
+                        sub.opacity = 1.0 / double(item.layer.motionSamples.size());
+                        for (const GpuLayer::MotionSample &sample : item.layer.motionSamples) {
+                            sub.rect = sample.rect;
+                            sub.rotation = sample.rotation;
+                            sub.parent = sample.parent;
+                            sub.hasParent = sample.hasParent;
+                            drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal,
+                                              canvasSize, nullptr, CanvasWrite::Add);
+                        }
                     }
                     GlTarget straight = unpremultipliedCopy(rt, gl, accum);
                     rt.releaseTarget(std::move(accum));
+                    if (straight.isValid() && item.matteMode > 0) {
+                        // The matte as it would draw, alone on a canvas; nothing on screen = empty.
+                        GlTarget matte;
+                        if (item.matte && item.matte->valid)
+                            matte = renderIsolatedLayer(rt, gl, *item.matte, canvasSize);
+                        if (!matte.isValid()) {
+                            matte = rt.acquireTarget(canvasSize.width(), canvasSize.height());
+                            if (matte.isValid()) {
+                                matte.fbo->bind();
+                                gl->glViewport(0, 0, matte.width, matte.height);
+                                gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+                                gl->glClear(GL_COLOR_BUFFER_BIT);
+                                matte.fbo->release();
+                            }
+                        }
+                        if (matte.isValid()) {
+                            GlTarget cut = applyTrackMatte(rt, gl, straight, matte, item.matteMode);
+                            rt.releaseTarget(std::move(matte));
+                            if (cut.isValid()) {
+                                rt.releaseTarget(std::move(straight));
+                                straight = std::move(cut);
+                            }
+                        }
+                    }
                     if (straight.isValid()) {
                         GpuLayer full;
                         full.valid = true;

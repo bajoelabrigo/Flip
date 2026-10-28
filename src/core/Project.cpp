@@ -337,6 +337,11 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("nullObject"), true);
     if (clip.motionBlur)
         json.insert(QStringLiteral("motionBlur"), true);
+    if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
+        static const char *const modes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
+        json.insert(QStringLiteral("matte"), QJsonObject{{QStringLiteral("clip"), clip.matteClipId},
+                                                         {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}});
+    }
     if (!clip.parentId.isEmpty()) {
         const QTransform &r = clip.parentRest;
         json.insert(QStringLiteral("parentId"), clip.parentId);
@@ -447,6 +452,18 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
     clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
+    if (object.contains(QStringLiteral("matte"))) {
+        const QJsonObject matte = object.value(QStringLiteral("matte")).toObject();
+        const QString mode = matte.value(QStringLiteral("mode")).toString();
+        clip.matteClipId = matte.value(QStringLiteral("clip")).toString();
+        clip.matteMode = mode == QLatin1String("alpha")           ? Clip::TrackMatte::Alpha
+                         : mode == QLatin1String("alphaInverted") ? Clip::TrackMatte::AlphaInverted
+                         : mode == QLatin1String("luma")          ? Clip::TrackMatte::Luma
+                         : mode == QLatin1String("lumaInverted")  ? Clip::TrackMatte::LumaInverted
+                                                                  : Clip::TrackMatte::None;
+        if (clip.matteClipId.isEmpty())
+            clip.matteMode = Clip::TrackMatte::None;
+    }
     clip.parentId = object.value(QStringLiteral("parentId")).toString();
     if (!clip.parentId.isEmpty()) {
         const QJsonArray r = object.value(QStringLiteral("parentRest")).toArray();

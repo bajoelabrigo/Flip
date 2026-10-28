@@ -1857,6 +1857,47 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 
     // Track 0 is topmost and composites in front, so emit back-to-front.
     const QList<drift::Track> &tracks = project.tracks();
+
+    // Track mattes (0.26): the clips another visible clip uses as its matte right now are drawn
+    // only into that matte, as After Effects switches a matte layer's video off.
+    QSet<QString> matteSources;
+    for (const drift::Track &track : tracks) {
+        if (track.hidden)
+            continue;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
+                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled)
+                matteSources.insert(clip.matteClipId);
+        }
+    }
+    // The matte clip as it would draw on the canvas; null when it is not on screen now.
+    const auto matteLayerFor = [&](const drift::Clip &host) -> std::shared_ptr<const GpuLayer> {
+        for (int mt = 0; mt < tracks.size(); ++mt) {
+            const drift::Track &track = tracks.at(mt);
+            if (track.hidden || track.type == drift::TrackType::Audio)
+                continue;
+            for (const drift::Clip &candidate : track.clips) {
+                if (candidate.id != host.matteClipId)
+                    continue;
+                if (!candidate.containsTime(timelineUs) || candidate.disabled
+                    || candidate.type == drift::ClipType::Adjustment)
+                    return nullptr;
+                auto layer = std::make_shared<GpuLayer>(buildGpuLayer(
+                    project, candidate, timelineUs, projectWidth, projectHeight, renderScale, width, height, fps,
+                    options.maxTimeEchoHistoryFrames, laneAdjustmentChain(project, mt, timelineUs, candidate.id),
+                    drift::laneMasksAt(project, mt, timelineUs, candidate.id)));
+                if (!layer->valid)
+                    return nullptr;
+                applyParent(*layer, mt);
+                applyClipParent(*layer, candidate);
+                applyCornerPin(*layer, candidate, renderScale);
+                applyCamera(*layer);
+                return layer;
+            }
+        }
+        return nullptr;
+    };
+
     for (int ti = tracks.size() - 1; ti >= 0; --ti) {
         const drift::Track &track = tracks.at(ti);
         if (track.hidden || track.type == drift::TrackType::Audio)
@@ -1928,6 +1969,8 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
             // A null object is only a handle for its children: it never paints.
             if (clip.nullObject)
                 continue;
+            if (matteSources.contains(clip.id))
+                continue;
 
             if (clip.type == drift::ClipType::Adjustment) {
                 // An audio adjustment shares the timeline with the visual ones but belongs to the
@@ -1988,6 +2031,11 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                                      !parents.isEmpty() && parents.at(ti).hasParent);
             applyCornerPin(item.layer, clip, renderScale);
             applyCamera(item.layer);
+            if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
+                && clip.matteClipId != clip.id) {
+                item.matteMode = int(clip.matteMode);
+                item.matte = matteLayerFor(clip);
+            }
             noteSelection(clip, item.layer);
             applyDepthOcclusion(project, scene, item.layer, nearestOccluder, occluders);
             scene.items.append(item);

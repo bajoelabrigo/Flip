@@ -10908,8 +10908,11 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
     if (!isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    static const char *const matteModes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
     QVariantMap out{{QStringLiteral("nullObject"), clip.nullObject},
                     {QStringLiteral("motionBlur"), clip.motionBlur},
+                    {QStringLiteral("matteMode"), QLatin1String(matteModes[int(clip.matteMode)])},
+                    {QStringLiteral("matteId"), clip.matteClipId},
                     {QStringLiteral("parentId"), clip.parentId},
                     {QStringLiteral("parentName"), QString()},
                     {QStringLiteral("parentTrack"), -1},
@@ -10925,6 +10928,78 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
         }
     }
     return out;
+}
+
+QVariantList AppController::clipMatteOptions(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &self = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::Track> &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            const drift::Clip &candidate = tracks.at(t).clips.at(c);
+            if (candidate.id == self.id || candidate.matteClipId == self.id
+                || !drift::appdetail::clipAcceptsPreviewTransform(candidate)
+                || candidate.type == drift::ClipType::Adjustment || candidate.nullObject)
+                continue;
+            out.append(QVariantMap{{QStringLiteral("track"), t},
+                                   {QStringLiteral("clip"), c},
+                                   {QStringLiteral("id"), candidate.id},
+                                   {QStringLiteral("name"), candidate.name}});
+        }
+    }
+    return out;
+}
+
+void AppController::setClipTrackMatte(int trackIndex, int clipIndex, const QString &mode, int matteTrack,
+                                      int matteClip)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    using Matte = drift::Clip::TrackMatte;
+    const Matte m = mode == QLatin1String("alpha")           ? Matte::Alpha
+                    : mode == QLatin1String("alphaInverted") ? Matte::AlphaInverted
+                    : mode == QLatin1String("luma")          ? Matte::Luma
+                    : mode == QLatin1String("lumaInverted")  ? Matte::LumaInverted
+                                                             : Matte::None;
+    const drift::Clip &self = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    QString matteId;
+    if (m != Matte::None) {
+        if (matteTrack >= 0 && isValidClipIndex(matteTrack, matteClip)) {
+            matteId = m_project.tracks().at(matteTrack).clips.at(matteClip).id;
+        } else if (!self.matteClipId.isEmpty()) {
+            matteId = self.matteClipId;
+        } else {
+            // As After Effects' default: the layer just above. Here, the nearest track above with a
+            // drawn clip that overlaps this one.
+            for (int t = trackIndex - 1; t >= 0 && matteId.isEmpty(); --t) {
+                for (const drift::Clip &c : m_project.tracks().at(t).clips) {
+                    if (c.timelineStart < self.timelineStart + self.timelineDuration
+                        && self.timelineStart < c.timelineStart + c.timelineDuration
+                        && drift::appdetail::clipAcceptsPreviewTransform(c) && c.type != drift::ClipType::Adjustment
+                        && !c.nullObject) {
+                        matteId = c.id;
+                        break;
+                    }
+                }
+            }
+        }
+        if (matteId.isEmpty() || matteId == self.id) {
+            setLastMessage(tr("Put the layer to use as the matte on a track above first"), QStringLiteral("warning"));
+            return;
+        }
+    }
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.matteMode == m && clip.matteClipId == matteId)
+        return;
+    clip.matteMode = m;
+    clip.matteClipId = matteId;
+    const QString message = m == Matte::None ? tr("Track matte removed") : tr("Track matte set");
+    pushProjectEdit(before, message);
+    finishEdit(message);
 }
 
 QVariantList AppController::clipParentOptions(int trackIndex, int clipIndex) const

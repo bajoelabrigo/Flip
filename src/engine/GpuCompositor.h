@@ -170,6 +170,11 @@ struct GpuItem
     drift::BlendMode blend = drift::BlendMode::Normal;
 
     GpuLayer layer; // when !isTransition
+    // After Effects' Track Matte (0.26): `matte` is the matte layer as it would draw on the
+    // canvas (null when it is not on screen at this time, which is an empty matte), and
+    // matteMode 1 alpha, 2 inverted alpha, 3 luma, 4 inverted luma; 0 for none.
+    std::shared_ptr<const GpuLayer> matte;
+    int matteMode = 0;
 
     GpuLayer from; // when isTransition
     GpuLayer to;

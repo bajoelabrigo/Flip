@@ -388,6 +388,7 @@ private slots:
     void nullObjectDrawsNothing();
     void motionBlurSmearsAMovingClip();
     void clipParentAndMotionBlurRoundTrip();
+    void trackMatteCutsTheLayer();
     void exporterProducesPlayableFileWithBackground();
     void exporterProducesAudioOnlyMp3();
     void exporterTagsSdrBt709ColorMetadata();
@@ -11793,6 +11794,38 @@ void EngineTest::clipParentAndMotionBlurRoundTrip()
     const QString text = QString::fromUtf8(
         QJsonDocument(clipsProject({solidShape(QStringLiteral("x"), QRectF(0, 0, 4, 4), Qt::red)}).toJson()).toJson());
     QVERIFY(!text.contains(QStringLiteral("parentId")) && !text.contains(QStringLiteral("motionBlur")));
+}
+
+void EngineTest::trackMatteCutsTheLayer()
+{
+    // A full red layer cut by a white square matte on the track above: red only inside the square,
+    // and the square itself is not drawn.
+    drift::Clip matte = solidShape(QStringLiteral("m"), QRectF(16, 16, 32, 32), Qt::white);
+    drift::Clip red = solidShape(QStringLiteral("r"), QRectF(0, 0, 64, 64), Qt::red);
+    red.matteMode = drift::Clip::TrackMatte::Alpha;
+    red.matteClipId = QStringLiteral("m");
+    drift::Project project = clipsProject({matte, red});
+
+    // Saved and read back (no GPU needed).
+    drift::Project back = drift::Project::fromJson(project.toJson());
+    QCOMPARE(clipIn(back, QStringLiteral("r"))->matteMode, drift::Clip::TrackMatte::Alpha);
+    QCOMPARE(clipIn(back, QStringLiteral("r"))->matteClipId, QStringLiteral("m"));
+
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    QImage out = renderAt(project, 1.0);
+    QVERIFY(qRed(out.pixel(32, 32)) > 200 && qGreen(out.pixel(32, 32)) < 50); // inside: red, not white
+    QVERIFY(qRed(out.pixel(4, 4)) < 30);                                       // outside: nothing
+    // Inverted: the other way round.
+    clipIn(project, QStringLiteral("r"))->matteMode = drift::Clip::TrackMatte::AlphaInverted;
+    out = renderAt(project, 1.0);
+    QVERIFY(qRed(out.pixel(4, 4)) > 200);
+    QVERIFY(qRed(out.pixel(32, 32)) < 30);
+    // Luma of a black matte is nothing.
+    clipIn(project, QStringLiteral("m"))->shapeStyle.setSolidFill(Qt::black);
+    clipIn(project, QStringLiteral("r"))->matteMode = drift::Clip::TrackMatte::Luma;
+    out = renderAt(project, 1.0);
+    QVERIFY(qRed(out.pixel(32, 32)) < 30);
 }
 
 void EngineTest::transformLayerMatrixMapsTheBox()

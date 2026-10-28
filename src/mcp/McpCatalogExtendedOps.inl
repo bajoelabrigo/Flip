@@ -227,6 +227,18 @@
                                    {QStringLiteral("shutterDeg"), numberProp(QStringLiteral("Project shutter angle, degrees"))},
                                    {QStringLiteral("samples"), integerProp(QStringLiteral("Project sub-frame samples"))}},
                                   clipRefProps())) },
+        { "set_track_matte", "canvas", "After Effects Track Matte: show a clip only through another",
+          "Cut the clip by another clip's coverage: mode alpha | alphaInverted | luma | lumaInverted, or "
+          "none to remove it. matteTrack/matteClip pick the matte (as in inspect); without them the "
+          "nearest overlapping clip on a track above is used. The matte clip stops drawing on its own.",
+          objectSchema(mergeProps({{QStringLiteral("mode"), enumProp(QStringLiteral("Matte mode"),
+                                                                     {QStringLiteral("none"), QStringLiteral("alpha"),
+                                                                      QStringLiteral("alphaInverted"), QStringLiteral("luma"),
+                                                                      QStringLiteral("lumaInverted")})},
+                                   {QStringLiteral("matteTrack"), integerProp(QStringLiteral("Matte clip's track"))},
+                                   {QStringLiteral("matteClip"), integerProp(QStringLiteral("Matte clip's index"))}},
+                                  clipRefProps()),
+                       {QStringLiteral("mode")}) },
         { "set_blend_mode", "canvas", "Multiply/screen/overlay a clip onto the layers below",
           "Set how the clip composites over the layers below it. Unrecognised values silently fall back "
           "to normal.",

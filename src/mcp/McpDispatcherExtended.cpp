@@ -1043,6 +1043,18 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
                                      {QStringLiteral("parentName"), info.value(QStringLiteral("parentName")).toString()}}));
     }
 
+    if (tool == QLatin1String("set_track_matte")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        m_controller->setClipTrackMatte(ref.track, ref.clip, args.value(QStringLiteral("mode")).toString(),
+                                        args.value(QStringLiteral("matteTrack")).toInt(-1),
+                                        args.value(QStringLiteral("matteClip")).toInt(-1));
+        const QVariantMap info = m_controller->clipMotionInfo(ref.track, ref.clip);
+        return ok(clipFeedback(ref, {{QStringLiteral("mode"), info.value(QStringLiteral("matteMode")).toString()},
+                                     {QStringLiteral("matteId"), info.value(QStringLiteral("matteId")).toString()}}));
+    }
+
     if (tool == QLatin1String("set_motion_blur")) {
         const ClipRef ref = resolveClip(args);
         if (!ref.valid())
