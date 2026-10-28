@@ -5170,6 +5170,38 @@
         <translation>Calculando la vista previa en memoria… vuelve a pulsarlo para detenerla</translation>
     </message>
     <message>
+        <source>Point light %1</source>
+        <translation>Luz puntual %1</translation>
+    </message>
+    <message>
+        <source>Spot light %1</source>
+        <translation>Foco %1</translation>
+    </message>
+    <message>
+        <source>Parallel light %1</source>
+        <translation>Luz paralela %1</translation>
+    </message>
+    <message>
+        <source>Ambient light %1</source>
+        <translation>Luz ambiente %1</translation>
+    </message>
+    <message>
+        <source>Light added</source>
+        <translation>Luz añadida</translation>
+    </message>
+    <message>
+        <source>Lights only change 3D layers: turn on «3D layer» on the layers to light</source>
+        <translation>Las luces solo cambian las capas 3D: activa «Capa 3D» en las capas que quieras iluminar</translation>
+    </message>
+    <message>
+        <source>Light changed</source>
+        <translation>Luz cambiada</translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation>Acepta luces</translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
         <translation>Bosquejo de movimiento</translation>
     </message>
@@ -17729,6 +17761,62 @@ LA PRÓXIMA</translation>
 <context>
     <name>MotionLinkSection</name>
     <message>
+        <source>Light</source>
+        <translation>Luz</translation>
+    </message>
+    <message>
+        <source>It lights the 3D layers that accept lights. Move it, take it nearer (depth) or tilt it like any layer; its opacity is its strength over time.</source>
+        <translation>Ilumina las capas 3D que aceptan luces. Muévela, acércala (profundidad) o inclínala como cualquier capa; su opacidad es su fuerza a lo largo del tiempo.</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Puntual</translation>
+    </message>
+    <message>
+        <source>Spot</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>Parallel</source>
+        <translation>Paralela</translation>
+    </message>
+    <message>
+        <source>Ambient</source>
+        <translation>Ambiente</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Cone angle</source>
+        <translation>Ángulo del cono</translation>
+    </message>
+    <message>
+        <source>Cone feather</source>
+        <translation>Suavizado del cono</translation>
+    </message>
+    <message>
+        <source>Falloff radius</source>
+        <translation>Radio de atenuación</translation>
+    </message>
+    <message>
+        <source>Falloff distance (0 = none)</source>
+        <translation>Distancia de atenuación (0 = ninguna)</translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation>Acepta luces</translation>
+    </message>
+    <message>
+        <source>Lights change this 3D layer (when there is at least one light)</source>
+        <translation>Las luces cambian esta capa 3D (cuando hay al menos una luz)</translation>
+    </message>
+    <message>
         <source>Essential Graphics</source>
         <translation>Gráficos esenciales</translation>
     </message>
@@ -18021,6 +18109,38 @@ LA PRÓXIMA</translation>
         <source>Puts the selected layers in the middle of the frame</source>
         <translation>Pone las capas elegidas en el centro del cuadro</translation>
     </message>
+    <message>
+        <source>Point light</source>
+        <translation>Luz puntual</translation>
+    </message>
+    <message>
+        <source>Shines all round from one point, like a bulb</source>
+        <translation>Ilumina en todas direcciones desde un punto, como una bombilla</translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>A cone of light, like a stage spot</source>
+        <translation>Un cono de luz, como un foco de escenario</translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation>Luz paralela</translation>
+    </message>
+    <message>
+        <source>Even light from one direction, like the sun</source>
+        <translation>Luz pareja desde una dirección, como el sol</translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation>Luz ambiente</translation>
+    </message>
+    <message>
+        <source>Lights every side evenly, without direction</source>
+        <translation>Ilumina todo por igual, sin dirección</translation>
+    </message>
 </context>
 <context>
     <name>MotionTrackController</name>
@@ -18312,6 +18432,22 @@ LA PRÓXIMA</translation>
     <message>
         <source>Null object</source>
         <translation>Objeto nulo</translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation>Luz puntual</translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation>Luz paralela</translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation>Luz ambiente</translation>
     </message>
     <message>
         <source>Shape with the pen</source>

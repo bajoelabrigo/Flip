@@ -5174,6 +5174,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Point light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights only change 3D layers: turn on «3D layer» on the layers to light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17725,6 +17757,62 @@ NEXT TIME</source>
 <context>
     <name>MotionLinkSection</name>
     <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It lights the 3D layers that accept lights. Move it, take it nearer (depth) or tilt it like any layer; its opacity is its strength over time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cone angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cone feather</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falloff radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falloff distance (0 = none)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights change this 3D layer (when there is at least one light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Essential Graphics</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18017,6 +18105,38 @@ NEXT TIME</source>
         <source>Puts the selected layers in the middle of the frame</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Point light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shines all round from one point, like a bulb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A cone of light, like a stage spot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Even light from one direction, like the sun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights every side evenly, without direction</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MotionTrackController</name>
@@ -18307,6 +18427,22 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
