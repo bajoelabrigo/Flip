@@ -106,6 +106,15 @@ struct ShapeStyle
     double wiggleDetail = 20.0;
     double wiggleSpeed = 0.0;
     double wiggleSeed = 0.0;
+    // More of After Effects' operators (0.26, stage G): Merge Paths between the outline's
+    // contours (0 off, 1 add, 2 subtract, 3 intersect, 4 exclude), Offset Paths (px, negative
+    // shrinks), Zig Zag (size px, ridges per contour, smooth 0/1) and Twist (degrees at the rim).
+    double mergeMode = 0.0;
+    double offsetPath = 0.0;
+    double zigzagSize = 0.0;
+    double zigzagRidges = 12.0;
+    double zigzagSmooth = 0.0;
+    double twistAngle = 0.0;
 
     // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
     // each key, the index of that key's outline in pathShapes. Between two keys the outlines

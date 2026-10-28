@@ -16,6 +16,7 @@
 #include "include/effects/SkCornerPathEffect.h"
 #include "include/core/SkPathMeasure.h"
 #include "include/effects/SkTrimPathEffect.h"
+#include "include/pathops/SkPathOps.h"
 
 namespace drift::skia {
 
@@ -117,6 +118,156 @@ SkPath wiggledPath(const SkPath &path, double size, double detail, double phase,
     return result;
 }
 
+// The path's contours as separate paths.
+std::vector<SkPath> splitContours(const SkPath &path)
+{
+    std::vector<SkPath> out;
+    SkPathBuilder current;
+    bool open = false;
+    SkPath::Iter iter(path, false);
+    SkPoint pts[4];
+    for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+        switch (verb) {
+        case SkPath::kMove_Verb:
+            if (open)
+                out.push_back(current.detach());
+            current.moveTo(pts[0]);
+            open = true;
+            break;
+        case SkPath::kLine_Verb:
+            current.lineTo(pts[1]);
+            break;
+        case SkPath::kQuad_Verb:
+            current.quadTo(pts[1], pts[2]);
+            break;
+        case SkPath::kConic_Verb:
+            current.conicTo(pts[1], pts[2], iter.conicWeight());
+            break;
+        case SkPath::kCubic_Verb:
+            current.cubicTo(pts[1], pts[2], pts[3]);
+            break;
+        case SkPath::kClose_Verb:
+            current.close();
+            break;
+        default:
+            break;
+        }
+    }
+    if (open)
+        out.push_back(current.detach());
+    return out;
+}
+
+// Merge Paths (0.26): each contour combined with the result so far, as After Effects' modes.
+SkPath mergedPath(const SkPath &path, int mode)
+{
+    const std::vector<SkPath> parts = splitContours(path);
+    if (parts.size() < 2 || mode <= 0)
+        return path;
+    const SkPathOp op = mode == 2 ? kDifference_SkPathOp : mode == 3 ? kIntersect_SkPathOp
+                      : mode == 4 ? kXOR_SkPathOp : kUnion_SkPathOp;
+    SkPath result = parts.front();
+    for (size_t i = 1; i < parts.size(); ++i) {
+        SkPath next;
+        if (Op(result, parts[i], op, &next))
+            result = next;
+    }
+    return result;
+}
+
+// Offset Paths (0.26): the outline grown (or shrunk) by `amount` px, with round joins.
+SkPath offsetOutline(const SkPath &path, double amount)
+{
+    if (qAbs(amount) < 0.01)
+        return path;
+    SkStrokeRec rec(SkStrokeRec::kFill_InitStyle);
+    rec.setStrokeStyle(float(qAbs(amount) * 2.0));
+    rec.setStrokeParams(SkPaint::kRound_Cap, SkPaint::kRound_Join, 4.0f);
+    SkPathBuilder ring;
+    if (!rec.applyToPath(&ring, path))
+        return path;
+    SkPath result;
+    if (!Op(path, ring.detach(), amount > 0 ? kUnion_SkPathOp : kDifference_SkPathOp, &result))
+        return path;
+    return result;
+}
+
+// Zig Zag and Twist (0.26): every contour resampled, each point pushed alternately either side of
+// the outline (zig zag), then turned about `centre` by twist × its distance from the centre over
+// the farthest one.
+SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, double twistDeg, SkPoint centre)
+{
+    const bool zig = size > 0.0;
+    const bool twist = qAbs(twistDeg) > 1e-6;
+    if (!zig && !twist)
+        return path;
+    double farthest = 1.0;
+    {
+        const SkRect b = path.getBounds();
+        for (const SkPoint corner : {SkPoint{b.left(), b.top()}, SkPoint{b.right(), b.top()},
+                                     SkPoint{b.right(), b.bottom()}, SkPoint{b.left(), b.bottom()}})
+            farthest = qMax(farthest, double(SkPoint::Distance(corner, centre)));
+    }
+    SkPathBuilder out;
+    SkPathMeasure measure(path, false);
+    do {
+        const double length = measure.getLength();
+        if (length <= 0.0)
+            continue;
+        const bool closed = measure.isClosed();
+        // Two points per ridge for the zig zag; dense enough to bend smoothly for a twist.
+        const int count = zig ? qMax(2, ridges * 2) : qMax(16, int(std::ceil(length / 6.0)));
+        std::vector<SkPoint> pts;
+        const int last = closed ? count - 1 : count;
+        for (int i = 0; i <= last; ++i) {
+            SkPoint pos;
+            SkVector tan;
+            if (!measure.getPosTan(float(length * i / count), &pos, &tan))
+                continue;
+            if (zig) {
+                const double side = (i % 2 == 0 ? 1.0 : -1.0) * size;
+                pos = {float(pos.x() - tan.y() * side), float(pos.y() + tan.x() * side)};
+            }
+            if (twist) {
+                const double dx = pos.x() - centre.x();
+                const double dy = pos.y() - centre.y();
+                const double a = qDegreesToRadians(twistDeg) * std::hypot(dx, dy) / farthest;
+                pos = {float(centre.x() + dx * std::cos(a) - dy * std::sin(a)),
+                       float(centre.y() + dx * std::sin(a) + dy * std::cos(a))};
+            }
+            pts.push_back(pos);
+        }
+        if (pts.size() < 2)
+            continue;
+        if (smooth || (!zig && twist)) {
+            const auto mid = [](const SkPoint &a, const SkPoint &b) {
+                return SkPoint{(a.x() + b.x()) * 0.5f, (a.y() + b.y()) * 0.5f};
+            };
+            const size_t n = pts.size();
+            if (closed) {
+                out.moveTo(mid(pts[n - 1], pts[0]));
+                for (size_t i = 0; i < n; ++i)
+                    out.quadTo(pts[i], mid(pts[i], pts[(i + 1) % n]));
+                out.close();
+            } else {
+                out.moveTo(pts.front());
+                for (size_t i = 1; i + 1 < n; ++i)
+                    out.quadTo(pts[i], mid(pts[i], pts[i + 1]));
+                out.lineTo(pts.back());
+            }
+        } else {
+            out.moveTo(pts.front());
+            for (size_t i = 1; i < pts.size(); ++i)
+                out.lineTo(pts[i]);
+            if (closed)
+                out.close();
+        }
+    } while (measure.nextContour());
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
 // Trim Paths (0.26): start and end in percent, the offset in degrees (once round = 360°), wrapping
 // past the outline's end the way After Effects does.
 SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg)
@@ -204,6 +355,15 @@ public:
         m_silhouetteStrokePx = widestOutwardStroke(style) * m_scale * 2.0;
         m_boxW = width;
         m_boxH = height;
+        // After Effects' order down the stack: merge, offset, zig zag / twist, wiggle, trim.
+        if (m_style.mergeMode >= 0.5)
+            m_path = mergedPath(m_path, qRound(m_style.mergeMode));
+        if (qAbs(m_style.offsetPath) >= 0.01)
+            m_path = offsetOutline(m_path, m_style.offsetPath * m_scale);
+        if (m_style.zigzagSize > 0.0 || qAbs(m_style.twistAngle) > 1e-6)
+            m_path = zigzagTwisted(m_path, m_style.zigzagSize * m_scale, qRound(m_style.zigzagRidges),
+                                   m_style.zigzagSmooth >= 0.5, m_style.twistAngle,
+                                   SkPoint{float(width / 2.0), float(height / 2.0)});
         if (m_style.hasWiggle())
             m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale,
                                  m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
@@ -371,7 +531,8 @@ ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
     const int h = qMax(1, qRound(request.layoutRect.height()));
     // A wiggle pushes the outline out by its size; the repeater's copies can land well outside the
     // box, capped so a runaway repeater cannot ask for a texture the GPU will not hold.
-    double operators = request.style.wiggleSize * request.renderScale
+    double operators = (request.style.wiggleSize + qMax(0.0, request.style.offsetPath) + request.style.zigzagSize)
+                           * request.renderScale
                        + qMin(4096.0, repeaterReach(request.style, w, h, request.renderScale));
     // A custom outline edited past its box (a vertex or handle dragged out, a morph between keys)
     // is still drawn whole.

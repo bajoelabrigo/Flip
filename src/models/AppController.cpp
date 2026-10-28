@@ -2092,7 +2092,8 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
     // The shape operators (0.26): Trim Paths, Repeater, Wiggle Paths.
     for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
-                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed"}) {
+                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle"}) {
         double value = 0.0;
         if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
             map.insert(QLatin1String(key), value);
@@ -11494,6 +11495,32 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     finishEdit(message);
 }
 
+void AppController::addShapeToLayer(int trackIndex, int clipIndex, const QString &kind)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).type != drift::ClipType::Shape)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    drift::ShapeStyle &style = clip.shapeStyle;
+    if (style.kind != drift::ShapeKind::Custom) {
+        drift::ShapeStyle unit = style;
+        unit.cornerRadius = 0.0;
+        style.customPath = drift::painterPathToSvg(drift::shapePath(unit, QRectF(0, 0, 100, 100)));
+        style.kind = drift::ShapeKind::Custom;
+    }
+    drift::ShapeStyle added = shapeStyleForKind(kind);
+    if (kind == QLatin1String("polygon"))
+        added.kind = drift::ShapeKind::Hexagon;
+    const QString extra = drift::painterPathToSvg(drift::shapePath(added, QRectF(25, 25, 50, 50)));
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    drift::setShapePathAt(style, rel, drift::shapePathAt(style, rel) + QLatin1Char(' ') + extra,
+                          drift::frameDurationUs(m_project.fps()) / 2);
+    pushProjectEdit(before, tr("Shape added to the layer"));
+    finishEdit(tr("Shape added to the layer"));
+}
+
 void AppController::setShapePathAnimated(int trackIndex, int clipIndex, bool on)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
@@ -18115,7 +18142,8 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
         s.tailSize = qBound(0.05, m.value(QStringLiteral("tailSize")).toDouble(), 0.5);
     for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
-                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed"}) {
+                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle"}) {
         if (m.contains(QLatin1String(key)))
             drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
     }

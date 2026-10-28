@@ -585,5 +585,111 @@ Item {
                 }
             }
         }
+        // ----- Several shapes in one layer, Merge / Offset / Zig zag / Twist (0.26, stage G) --------
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Shapes in this layer")
+            expanded: Number(root.shapeStyle.mergeMode || 0) > 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Add more shapes to the same layer, then choose how they combine (Merge paths).")
+                }
+                Flow {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    Repeater {
+                        model: [
+                            { id: "rectangle", label: qsTr("+ Rectangle") },
+                            { id: "ellipse", label: qsTr("+ Ellipse") },
+                            { id: "star", label: qsTr("+ Star") },
+                            { id: "polygon", label: qsTr("+ Polygon") }
+                        ]
+                        ThemedButton {
+                            required property var modelData
+                            text: modelData.label
+                            variant: "secondary"
+                            onClicked: EditorState.addShapeToLayer(EditorState.selectedTrack, EditorState.selectedClip, modelData.id)
+                        }
+                    }
+                }
+                ThemedLabel { text: qsTr("Merge paths") }
+                ThemedComboBox {
+                    width: parent.width
+                    model: [qsTr("Off"), qsTr("Add"), qsTr("Subtract"), qsTr("Intersect"), qsTr("Exclude intersections")]
+                    currentIndex: Math.round(Number(root.shapeStyle.mergeMode || 0))
+                    onActivated: index => root.setShapeKey("mergeMode", index)
+                }
+            }
+        }
+
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Offset, zig zag and twist")
+            expanded: Number(root.shapeStyle.offsetPath || 0) !== 0 || Number(root.shapeStyle.zigzagSize || 0) > 0
+                      || Number(root.shapeStyle.twistAngle || 0) !== 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("offsetPath", qsTr("Offset paths"), 0)
+                    keyframeList: root.knobKeyframes("offsetPath")
+                    useSlider: true
+                    sliderFrom: -100
+                    sliderTo: 100
+                    inputFrom: -500
+                    inputTo: 500
+                    unit: "px"
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("zigzagSize", qsTr("Zig zag size"), 0)
+                        keyframeList: root.knobKeyframes("zigzagSize")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        inputTo: 500
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("zigzagRidges", qsTr("Ridges"), 0)
+                        keyframeList: root.knobKeyframes("zigzagRidges")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 60
+                        inputTo: 200
+                    }
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Smooth zig zag")
+                    checked: Number(root.shapeStyle.zigzagSmooth || 0) >= 0.5
+                    onToggled: root.setShapeKey("zigzagSmooth", checked ? 1 : 0)
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("twistAngle", qsTr("Twist"), 0)
+                    keyframeList: root.knobKeyframes("twistAngle")
+                    useSlider: true
+                    sliderFrom: -360
+                    sliderTo: 360
+                    inputFrom: -3600
+                    inputTo: 3600
+                    unit: "°"
+                }
+            }
+        }
     }
 }

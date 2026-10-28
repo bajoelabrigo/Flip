@@ -696,6 +696,10 @@ public:
     // The Path stopwatch: on puts a key with the current outline at the playhead, off keeps the
     // outline seen there and removes the keys.
     Q_INVOKABLE void setShapePathAnimated(int trackIndex, int clipIndex, bool on);
+    // After Effects' several shapes in one shape layer (0.26): another built-in shape ("rectangle",
+    // "ellipse", "star", "polygon") added to the layer's outline as a new contour, centred at half
+    // the box's size. A built-in shape becomes an editable path first. Merge Paths combines them.
+    Q_INVOKABLE void addShapeToLayer(int trackIndex, int clipIndex, const QString &kind);
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys

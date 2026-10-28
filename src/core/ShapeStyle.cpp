@@ -539,6 +539,12 @@ constexpr KnobField kKnobs[] = {
     {"wiggleDetail", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle detail"), &ShapeStyle::wiggleDetail, 2.0, 500.0},
     {"wiggleSpeed", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggles per second"), &ShapeStyle::wiggleSpeed, 0.0, 30.0},
     {"wiggleSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Random seed"), &ShapeStyle::wiggleSeed, 0.0, 1000.0},
+    {"mergeMode", QT_TRANSLATE_NOOP("ShapeStyle", "Merge paths"), &ShapeStyle::mergeMode, 0.0, 4.0},
+    {"offsetPath", QT_TRANSLATE_NOOP("ShapeStyle", "Offset paths"), &ShapeStyle::offsetPath, -500.0, 500.0},
+    {"zigzagSize", QT_TRANSLATE_NOOP("ShapeStyle", "Zig zag size"), &ShapeStyle::zigzagSize, 0.0, 500.0},
+    {"zigzagRidges", QT_TRANSLATE_NOOP("ShapeStyle", "Ridges"), &ShapeStyle::zigzagRidges, 1.0, 200.0},
+    {"zigzagSmooth", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth points"), &ShapeStyle::zigzagSmooth, 0.0, 1.0},
+    {"twistAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Twist"), &ShapeStyle::twistAngle, -3600.0, 3600.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -720,6 +726,8 @@ quint64 shapeStyleHash(const ShapeStyle &style)
                         style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
                         style.repeatStartOpacity, style.repeatEndOpacity)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
+           ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
+                        style.zigzagSmooth, style.twistAngle)
            ^ qHash(style.pathShapes);
 }
 
