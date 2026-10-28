@@ -1369,7 +1369,7 @@ const QStringList &flatKeyframeKeys()
 {
     static const QStringList keys{QStringLiteral("pixelSize"), QStringLiteral("letterSpacing"),
                                   QStringLiteral("lineHeight"), QStringLiteral("boxPadding"),
-                                  QStringLiteral("pathBend")};
+                                  QStringLiteral("pathBend"), QStringLiteral("pathOffset")};
     return keys;
 }
 
@@ -1613,6 +1613,8 @@ QString textKeyframeLabel(const QString &key, const TextStyle &s)
         return QCoreApplication::translate("TextStyle", "Box padding");
     if (canonical == QLatin1String("pathBend"))
         return QCoreApplication::translate("TextStyle", "Bend");
+    if (canonical == QLatin1String("pathOffset"))
+        return QCoreApplication::translate("TextStyle", "Path offset");
     QString animId;
     QString field;
     if (parseRunKey(canonical, &animId, &field)) {
@@ -1651,6 +1653,8 @@ bool textStyleScalar(const TextStyle &s, const QString &rawKey, double *out)
         *out = s.boxPadding;
     else if (key == QStringLiteral("pathBend"))
         *out = s.pathBend;
+    else if (key == QStringLiteral("pathOffset"))
+        *out = s.pathOffset;
     else if (key.startsWith(QLatin1String("run."))) {
         QString animId;
         QString field;
@@ -1679,6 +1683,8 @@ bool setTextStyleScalar(TextStyle &s, const QString &rawKey, double value)
         s.boxPadding = qMax(0.0, value);
     else if (key == QStringLiteral("pathBend"))
         s.pathBend = qBound(-100.0, value, 100.0);
+    else if (key == QStringLiteral("pathOffset"))
+        s.pathOffset = qBound(-1000.0, value, 1000.0);
     else if (key.startsWith(QLatin1String("run."))) {
         // Every piece of the pick.
         QString animId;
@@ -1770,6 +1776,8 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("shrinkToFit"), s.shrinkToFit},
         {QStringLiteral("pathCircle"), s.pathCircle},
         {QStringLiteral("wordSpacing"), s.wordSpacing},
+        {QStringLiteral("pathSvg"), s.pathSvg},
+        {QStringLiteral("pathOffset"), s.pathOffset},
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToJson(s.animation)},
     };
@@ -1924,6 +1932,8 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.smallCaps = o.value(QStringLiteral("smallCaps")).toBool(s.smallCaps);
     s.shrinkToFit = o.value(QStringLiteral("shrinkToFit")).toBool(s.shrinkToFit);
     s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
+    s.pathSvg = o.value(QStringLiteral("pathSvg")).toString(s.pathSvg);
+    s.pathOffset = o.value(QStringLiteral("pathOffset")).toDouble(s.pathOffset);
     s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());
     s.runs.clear();

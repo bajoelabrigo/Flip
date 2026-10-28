@@ -1956,6 +1956,8 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("lookParams"), paramsToMap(s.lookParams)},
         {QStringLiteral("pathBend"), s.pathBend},
         {QStringLiteral("pathCircle"), s.pathCircle},
+        {QStringLiteral("pathSvg"), s.pathSvg},
+        {QStringLiteral("pathOffset"), s.pathOffset},
         {QStringLiteral("align"), drift::textAlignToString(s.align)},
         {QStringLiteral("valign"), drift::textVAlignToString(s.valign)},
         {QStringLiteral("wordWrap"), s.wordWrap},
@@ -11637,6 +11639,68 @@ void AppController::addShapeToLayer(int trackIndex, int clipIndex, const QString
     finishEdit(tr("Shape added to the layer"));
 }
 
+QVariantList AppController::textPathShapes() const
+{
+    QVariantList out;
+    const QList<drift::Track> &tracks = m_project.tracks();
+    for (int ti = 0; ti < tracks.size(); ++ti) {
+        for (int ci = 0; ci < tracks.at(ti).clips.size(); ++ci) {
+            const drift::Clip &clip = tracks.at(ti).clips.at(ci);
+            if (clip.type == drift::ClipType::Shape)
+                out.append(QVariantMap{{QStringLiteral("name"), clip.name}, {QStringLiteral("track"), ti},
+                                       {QStringLiteral("clip"), ci}});
+        }
+    }
+    return out;
+}
+
+bool AppController::useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip)
+{
+    if (!isValidClipIndex(textTrack, textClip) || !isValidClipIndex(shapeTrack, shapeClip))
+        return false;
+    const drift::Clip &text = m_project.tracks().at(textTrack).clips.at(textClip);
+    const drift::Clip &shape = m_project.tracks().at(shapeTrack).clips.at(shapeClip);
+    if (shape.type != drift::ClipType::Shape
+        || (text.type != drift::ClipType::Text && text.type != drift::ClipType::Subtitle))
+        return false;
+    // The shape's outline on 0..100 of its own box, at the playhead.
+    QPainterPath outline;
+    const drift::TimeUs shapeRel = qBound<drift::TimeUs>(0, m_playheadUs - shape.timelineStart, shape.timelineDuration);
+    if (shape.shapeStyle.kind == drift::ShapeKind::Custom) {
+        if (!drift::parseSvgPathData(drift::shapePathAt(shape.shapeStyle, shapeRel), &outline))
+            return false;
+    } else {
+        drift::ShapeStyle unit = shape.shapeStyle;
+        unit.cornerRadius = 0.0;
+        outline = drift::shapePath(unit, QRectF(0, 0, 100, 100));
+    }
+    if (outline.isEmpty())
+        return false;
+    // Both boxes on the canvas, then the outline from the shape's box into the text's.
+    const auto boxOf = [this](const drift::Clip &clip) {
+        const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+        const auto value = [rel](const drift::KeyframeTrack<double> &t, double fallback) {
+            return t.isEmpty() ? fallback : t.evaluateAt(rel);
+        };
+        return QRectF(value(clip.transformX, 0.0), value(clip.transformY, 0.0),
+                      value(clip.transformW, m_project.width()), value(clip.transformH, m_project.height()));
+    };
+    const QRectF from = boxOf(shape);
+    const QRectF to = boxOf(text);
+    if (to.width() < 1.0 || to.height() < 1.0)
+        return false;
+    QTransform map;
+    map.scale(100.0 / to.width(), 100.0 / to.height());
+    map.translate(from.x() - to.x(), from.y() - to.y());
+    map.scale(from.width() / 100.0, from.height() / 100.0);
+    const drift::Project before = m_project;
+    drift::TextStyle &style = m_project.tracks()[textTrack].clips[textClip].textStyle;
+    style.pathSvg = drift::painterPathToSvg(map.map(outline));
+    pushProjectEdit(before, tr("Text on the shape's outline"));
+    finishEdit(tr("Text on the shape's outline"));
+    return true;
+}
+
 void AppController::setShapePathAnimated(int trackIndex, int clipIndex, bool on)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
@@ -15229,6 +15293,10 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.pathBend = qBound(-100.0, m.value(QStringLiteral("pathBend")).toDouble(), 100.0);
     if (m.contains(QStringLiteral("pathCircle")))
         s.pathCircle = qBound(0.0, m.value(QStringLiteral("pathCircle")).toDouble(), 100.0);
+    if (m.contains(QStringLiteral("pathSvg")))
+        s.pathSvg = m.value(QStringLiteral("pathSvg")).toString();
+    if (m.contains(QStringLiteral("pathOffset")))
+        s.pathOffset = m.value(QStringLiteral("pathOffset")).toDouble();
     if (m.contains(QStringLiteral("align")))
         s.align = drift::textAlignFromString(m.value(QStringLiteral("align")).toString());
     if (m.contains(QStringLiteral("valign")))

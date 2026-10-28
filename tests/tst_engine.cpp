@@ -345,6 +345,7 @@ private slots:
     void fontCatalogLoadsFamilies();
     void fontForStyleResolvesRequestedFace();
     void textRasterIsCached();
+    void textFollowsAPath();
     void textDecorationsAreNotCropped();
     void wordAccentRecoloursChosenWords();
     void karaokeAccentFollowsThePlayhead();
@@ -10099,6 +10100,66 @@ void EngineTest::textRasterIsCached()
     drift::setSolidFill(clip.textStyle, Qt::red);
     QVERIFY(drift::skia::makeTextPainter(clip, clip.textContent, rect, 1.0, -1, drift::secondsToUs(3.0)).painter->cacheKey()
             != held.painter->cacheKey());
+#endif
+}
+
+void EngineTest::textFollowsAPath()
+{
+    SKIP_WITHOUT_FONTS();
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("text needs Skia");
+#else
+    // A rising diagonal: the line's first letters sit low, its last ones high.
+    const QRectF rect(0, 0, 600, 300);
+    drift::Clip clip = makeTextClip(QStringLiteral("MMMMMMMM"), rect);
+    clip.textStyle.fontFamily = QStringLiteral("Inter");
+    clip.textStyle.pixelSize = 48;
+    clip.textStyle.pathSvg = QStringLiteral("M 0 90 L 100 10");
+    const TextRasterResult raster = rasterizeText(clip, rect, 1.0);
+    QVERIFY(!raster.image.isNull());
+    const auto inkY = [&](int x0, int x1) {
+        double sum = 0.0;
+        int count = 0;
+        for (int y = 0; y < raster.image.height(); ++y)
+            for (int x = x0; x < x1; ++x)
+                if (qAlpha(raster.image.pixel(x, y)) > 128) {
+                    sum += y;
+                    ++count;
+                }
+        return count ? sum / count : -1.0;
+    };
+    // The ink's horizontal reach, then its thirds.
+    int left = raster.image.width();
+    int right = 0;
+    for (int y = 0; y < raster.image.height(); ++y)
+        for (int x = 0; x < raster.image.width(); ++x)
+            if (qAlpha(raster.image.pixel(x, y)) > 128) {
+                left = qMin(left, x);
+                right = qMax(right, x);
+            }
+    QVERIFY(right > left);
+    const int third = (right - left) / 3;
+    const double low = inkY(left, left + third);
+    const double high = inkY(right - third, right + 1);
+    QVERIFY(low > 0.0 && high > 0.0);
+    QVERIFY2(low - high > 40.0, qPrintable(QStringLiteral("%1 vs %2").arg(low).arg(high)));
+
+    // The offset slides the letters along: half the path further on, the line moves right.
+    clip.textStyle.pathOffset = 30.0;
+    const TextRasterResult slid = rasterizeText(clip, rect, 1.0);
+    int slidLeft = slid.image.width();
+    for (int y = 0; y < slid.image.height(); ++y)
+        for (int x = 0; x < slid.image.width(); ++x)
+            if (qAlpha(slid.image.pixel(x, y)) > 128)
+                slidLeft = qMin(slidLeft, x);
+    QVERIFY(slidLeft + slid.rect.x() > left + raster.rect.x() + 100);
+
+    // Saved with the style, and the offset is a keyframable property.
+    const drift::TextStyle back = drift::textStyleFromJson(drift::textStyleToJson(clip.textStyle));
+    QCOMPARE(back.pathSvg, clip.textStyle.pathSvg);
+    QCOMPARE(back.pathOffset, 30.0);
+    QVERIFY(drift::setTextStyleScalar(clip.textStyle, QStringLiteral("pathOffset"), 12.0));
+    QCOMPARE(clip.textStyle.pathOffset, 12.0);
 #endif
 }
 

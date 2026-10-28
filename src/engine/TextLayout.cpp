@@ -55,7 +55,7 @@ quint64 styleHash(const drift::TextStyle &s)
                       highlightHash(s.wordHighlight), s.underlineEnabled,
                       s.underlineColor.rgba(), s.underlineWidth, s.underlineOffset,
                       qHashMulti(0, s.strikeEnabled, s.wordSpacing, s.pathCircle, s.ligatures, s.smallCaps,
-                                 s.shrinkToFit),
+                                 s.shrinkToFit, s.pathSvg, s.pathOffset),
                       qHashMulti(0, static_cast<int>(a.rule), a.n, a.phase, a.colorEnabled,
                                  a.color.rgba(), a.sizeScale, a.outlineEnabled, a.outlineWidth,
                                  a.outlineColor.rgba(), highlightHash(a.highlight)));
@@ -1356,7 +1356,7 @@ QSizeF naturalTextSize(const QString &text, const drift::TextStyle &style, doubl
 
 WordSplit splitFor(const drift::textanim::ResolvedSlots &resolved, const drift::TextStyle &style)
 {
-    if (textBendRise(style) > 0.0 || style.pathCircle > 0.5) // each letter follows the curve
+    if (textBendRise(style) > 0.0 || style.pathCircle > 0.5 || !style.pathSvg.isEmpty()) // each letter follows the curve
         return WordSplit::Characters;
     const auto perCharacter = [](const QList<drift::TextAnimator> &animators) {
         for (const drift::TextAnimator &a : animators) {

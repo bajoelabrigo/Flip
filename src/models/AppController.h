@@ -700,6 +700,10 @@ public:
     // "ellipse", "star", "polygon") added to the layer's outline as a new contour, centred at half
     // the box's size. A built-in shape becomes an editable path first. Merge Paths combines them.
     Q_INVOKABLE void addShapeToLayer(int trackIndex, int clipIndex, const QString &kind);
+    // After Effects' text on a path (0.26): the shape layers a text can follow [{name, track, clip}],
+    // and putting a text on one's outline (as it is at the playhead, mapped into the text's box).
+    Q_INVOKABLE QVariantList textPathShapes() const;
+    Q_INVOKABLE bool useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip);
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
