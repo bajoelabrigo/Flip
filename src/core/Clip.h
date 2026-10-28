@@ -301,6 +301,36 @@ struct Clip
     // Rendering shifts the box by anchorShift() so the turn pivots there.
     KeyframeTrack<double> anchorX;
     KeyframeTrack<double> anchorY;
+    // After Effects' Time Remap (0.26): with keys, which second of the clip's material (counted
+    // from srcIn) shows at each moment, replacing speed, curves and reverse while it has keys.
+    // Key times relative to the clip's start, like every other track.
+    KeyframeTrack<double> timeRemap;
+    // After Effects' Auto-Orient along path (0.26): the clip turns to face the way Position moves,
+    // added to its own Rotation.
+    bool autoOrient = false;
+
+    // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
+    double autoOrientDegrees(TimeUs relative) const
+    {
+        if (!autoOrient || (transformX.keyframes().size() < 2 && transformY.keyframes().size() < 2))
+            return 0.0;
+        constexpr TimeUs step = 5000;
+        const auto at = [this](TimeUs t) {
+            const double w = transformW.isEmpty() ? 0.0 : transformW.evaluateAt(t);
+            const double h = transformH.isEmpty() ? 0.0 : transformH.evaluateAt(t);
+            return QPointF((transformX.isEmpty() ? 0.0 : transformX.evaluateAt(t)) + w / 2.0,
+                           (transformY.isEmpty() ? 0.0 : transformY.evaluateAt(t)) + h / 2.0);
+        };
+        QPointF d = at(relative + step) - at(qMax<TimeUs>(0, relative - step));
+        // Standing still at an end: face the way it last moved (or will move).
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            d = at(relative) - at(qMax<TimeUs>(0, relative - 4 * step));
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            d = at(relative + 4 * step) - at(relative);
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            return 0.0;
+        return std::atan2(d.y(), d.x()) * 180.0 / 3.14159265358979323846;
+    }
 
     // How far the box moves so that turning `rotationDeg` pivots on the anchor instead of the
     // centre, for a box w × h (project px) at clip time `relative`: a − R·a, with a the anchor
@@ -340,6 +370,11 @@ struct Clip
     TimeUs timelineToSourceUs(TimeUs timelineUs) const
     {
         const TimeUs rel = qBound(TimeUs{0}, timelineUs - timelineStart, timelineDuration);
+        if (!timeRemap.isEmpty() && timeRemap.enabled()) {
+            const TimeUs range = qMax<TimeUs>(0, srcOut - srcIn);
+            const TimeUs at = static_cast<TimeUs>(llround(timeRemap.evaluateAt(rel) * 1e6));
+            return srcIn + (range > 0 ? qBound(TimeUs{0}, at, range) : qMax<TimeUs>(0, at));
+        }
         const TimeUs offset =
             hasSpeedCurve() ? speedCurve.sourceOffsetForTimelineOffset(rel, srcOut - srcIn)
                             : sourceDeltaForTimelineDelta(rel);

@@ -201,7 +201,7 @@ QTransform ownPose(const Clip &clip, TimeUs timelineUs, const QSize &projectSize
     const double h = valueAt(clip.transformH, relative, projectSize.height());
     double x = valueAt(clip.transformX, relative, 0.0);
     double y = valueAt(clip.transformY, relative, 0.0);
-    const double rotation = valueAt(clip.rotation, relative, 0.0);
+    const double rotation = valueAt(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
     if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty()) {
         const QPointF shift = clip.anchorShift(relative, w, h, rotation);
         x += shift.x();

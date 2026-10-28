@@ -698,6 +698,31 @@ Item {
                 onTriggered: EditorState.setClipMotionBlur(clipItem.trackIndex, clipItem.clipIndex, !on)
             }
             ThemedMenuItem {
+                // After Effects' Auto-Orient: turn to face the way the clip moves (0.26).
+                text: qsTr("Auto-orient along path")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).autoOrient
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipAutoOrient(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
+            ThemedMenuItem {
+                // After Effects' Time Remapping (Ctrl+Alt+T there): a Time remap row whose keys say
+                // which moment of the video shows when (0.26).
+                text: qsTr("Time remapping")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).timeRemap
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.clipData.kind === "video" || clipItem.clipData.kind === "composite"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipTimeRemap(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
+            ThemedMenuItem {
                 // Premiere-style: the fades become points on the volume line (0.25).
                 text: qsTr("Fades to volume keyframes")
                 visible: {

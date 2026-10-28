@@ -707,6 +707,11 @@ public:
     // Motion blur (0.26): the switch on a clip (and the other selected clips), and the project's
     // shutter {shutterDeg, samples}.
     Q_INVOKABLE void setClipMotionBlur(int trackIndex, int clipIndex, bool on);
+    // After Effects' Time Remap (0.26): on puts a key at each end holding the material the clip
+    // shows there now (so nothing changes until a key moves); off removes them. And Auto-Orient
+    // along the motion path. clipMotionInfo reports both (timeRemap, autoOrient).
+    Q_INVOKABLE void setClipTimeRemap(int trackIndex, int clipIndex, bool on);
+    Q_INVOKABLE void setClipAutoOrient(int trackIndex, int clipIndex, bool on);
     // After Effects' Track Matte (0.26). mode "none" | "alpha" | "alphaInverted" | "luma" |
     // "lumaInverted"; the matte clip by index, or matteTrack < 0 for the nearest clip above that
     // overlaps it. The options: every visual clip but itself and those that use it as theirs.

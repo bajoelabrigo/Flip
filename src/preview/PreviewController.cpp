@@ -969,7 +969,7 @@ QVariantList PreviewController::clipsAtPlayhead() const
             const double y = clipTransformValue(clip.transformY, relative, 0.0);
             const double w = clipTransformValue(clip.transformW, relative, static_cast<double>(canvasWidth));
             const double h = clipTransformValue(clip.transformH, relative, static_cast<double>(canvasHeight));
-            const double rotation = clipTransformValue(clip.rotation, relative, 0.0);
+            const double rotation = clipTransformValue(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
 
             const bool isTransform = track.isTransformLayer();
             int childCount = 0;

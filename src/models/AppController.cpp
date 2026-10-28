@@ -2919,6 +2919,8 @@ drift::KeyframeTrack<double> *transformTrackForProp(drift::Clip &clip, const QSt
         return &clip.anchorX;
     if (prop == QStringLiteral("anchorY"))
         return &clip.anchorY;
+    if (prop == QStringLiteral("timeRemap"))
+        return &clip.timeRemap;
     return nullptr;
 }
 
@@ -10913,6 +10915,8 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
                     {QStringLiteral("motionBlur"), clip.motionBlur},
                     {QStringLiteral("matteMode"), QLatin1String(matteModes[int(clip.matteMode)])},
                     {QStringLiteral("matteId"), clip.matteClipId},
+                    {QStringLiteral("timeRemap"), !clip.timeRemap.isEmpty()},
+                    {QStringLiteral("autoOrient"), clip.autoOrient},
                     {QStringLiteral("parentId"), clip.parentId},
                     {QStringLiteral("parentName"), QString()},
                     {QStringLiteral("parentTrack"), -1},
@@ -11087,6 +11091,45 @@ void AppController::setClipMotionBlur(int trackIndex, int clipIndex, bool on)
         return;
     pushProjectEdit(before, tr("Motion blur"));
     finishEdit(tr("Motion blur"));
+}
+
+void AppController::setClipTimeRemap(int trackIndex, int clipIndex, bool on)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (on == !clip.timeRemap.isEmpty())
+        return;
+    if (on) {
+        // What the clip shows at each end now, so switching it on changes nothing on screen.
+        const double first = double(clip.timelineToSourceUs(clip.timelineStart) - clip.srcIn) / 1e6;
+        const double last =
+            double(clip.timelineToSourceUs(clip.timelineStart + clip.timelineDuration) - clip.srcIn) / 1e6;
+        drift::KeyframeTrack<double> remap;
+        remap.setKeyframe(0, first);
+        remap.setKeyframe(clip.timelineDuration, last);
+        remap.setStopwatch(true);
+        clip.timeRemap = remap;
+    } else {
+        clip.timeRemap = {};
+    }
+    const QString message = on ? tr("Time remapping on") : tr("Time remapping off");
+    pushProjectEdit(before, message);
+    finishEdit(message);
+}
+
+void AppController::setClipAutoOrient(int trackIndex, int clipIndex, bool on)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.autoOrient == on)
+        return;
+    clip.autoOrient = on;
+    pushProjectEdit(before, tr("Auto-orient"));
+    finishEdit(tr("Auto-orient"));
 }
 
 QVariantMap AppController::motionBlurSettings() const
@@ -19214,7 +19257,7 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
         QStringLiteral("height"),  QStringLiteral("rotation"), QStringLiteral("rotationX"),
         QStringLiteral("rotationY"), QStringLiteral("z"),     QStringLiteral("perspective"),
         QStringLiteral("opacity"), QStringLiteral("volume"), QStringLiteral("pan"),
-        QStringLiteral("anchorX"), QStringLiteral("anchorY"),
+        QStringLiteral("anchorX"), QStringLiteral("anchorY"), QStringLiteral("timeRemap"),
     };
     for (const QString &prop : transformProps) {
         const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
@@ -24493,6 +24536,7 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
         {QStringLiteral("pan"), QT_TR_NOOP("Pan")},
         {QStringLiteral("anchorX"), QT_TR_NOOP("Anchor point X")},
         {QStringLiteral("anchorY"), QT_TR_NOOP("Anchor point Y")},
+        {QStringLiteral("timeRemap"), QT_TR_NOOP("Time remap")},
         {QStringLiteral("mask.x"), QT_TR_NOOP("Mask X")},
         {QStringLiteral("mask.y"), QT_TR_NOOP("Mask Y")},
         {QStringLiteral("mask.w"), QT_TR_NOOP("Mask width")},

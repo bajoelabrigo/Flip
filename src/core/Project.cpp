@@ -333,6 +333,10 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
     // Saved only when set, so a project without them reads back byte for byte.
+    if (!clip.timeRemap.isEmpty())
+        json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
+    if (clip.autoOrient)
+        json.insert(QStringLiteral("autoOrient"), true);
     if (clip.nullObject)
         json.insert(QStringLiteral("nullObject"), true);
     if (clip.motionBlur)
@@ -450,6 +454,9 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    if (object.contains(QStringLiteral("timeRemap")))
+        clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
+    clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
     clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
     if (object.contains(QStringLiteral("matte"))) {
@@ -875,6 +882,7 @@ void detachClip(Clip &clip)
     clip.panKeys.detachSharedData();
     clip.anchorX.detachSharedData();
     clip.anchorY.detachSharedData();
+    clip.timeRemap.detachSharedData();
     clip.speedCurve.detachSharedData();
     clip.mask.points.detach();
     clip.mask.pathKeys.detach();

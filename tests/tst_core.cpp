@@ -152,6 +152,7 @@ private slots:
     void shapePathContoursRoundTrip();
     void shapePathMorphsBetweenKeys();
     void trackBehaviorsLoopWiggleAndSpeed();
+    void timeRemapAndAutoOrient();
     void legacyShapeStyleLoadsWithDefaults();
     void shapeCatalogPathsFitBounds();
     void vectorSourceSerialization();
@@ -1981,6 +1982,56 @@ void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
     // Switched off, the property holds its first key as always.
     track.setEnabled(false);
     QCOMPARE(track.evaluateAt(drift::secondsToUs(2.2)), 0.0);
+}
+
+// After Effects' Time Remap and Auto-Orient (0.26).
+void CoreTest::timeRemapAndAutoOrient()
+{
+    drift::Clip clip;
+    clip.id = QStringLiteral("v");
+    clip.type = drift::ClipType::Video;
+    clip.timelineStart = drift::secondsToUs(2.0);
+    clip.timelineDuration = drift::secondsToUs(10.0);
+    clip.srcIn = drift::secondsToUs(1.0);
+    clip.srcOut = drift::secondsToUs(11.0);
+    clip.speed = 1.0;
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(7.0)), drift::secondsToUs(6.0));
+    // Keys say which second of the material shows: here it plays at half speed, then freezes.
+    clip.timeRemap.setKeyframe(0, 0.0);
+    clip.timeRemap.setKeyframe(drift::secondsToUs(4.0), 2.0);
+    clip.timeRemap.setKeyframe(drift::secondsToUs(10.0), 2.0);
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(4.0)), drift::secondsToUs(2.0)); // 2 s in: 1 s of material
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(9.0)), drift::secondsToUs(3.0)); // frozen at 2 s
+    // Never past the material.
+    clip.timeRemap.setKeyframe(drift::secondsToUs(10.0), 50.0);
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(12.0)), clip.srcOut);
+
+    // Auto-orient: moving right faces 0°, moving down-right 45°, and it adds to Rotation.
+    drift::Clip moving;
+    moving.transformX.setKeyframe(0, 0.0);
+    moving.transformX.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    moving.transformY.setKeyframe(0, 0.0);
+    QCOMPARE(moving.autoOrientDegrees(drift::secondsToUs(0.5)), 0.0);
+    moving.autoOrient = true;
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(0.5))) < 1e-6);
+    moving.transformY.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(0.5)) - 45.0) < 1e-6);
+    // At the end it keeps facing the way it came.
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(1.0)) - 45.0) < 1e-6);
+
+    // Saved and read back.
+    drift::Project project;
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Video};
+    track.id = QStringLiteral("t");
+    clip.autoOrient = true;
+    track.clips.append(clip);
+    project.tracks().append(track);
+    const drift::Project back = drift::Project::fromJson(project.toJson());
+    const drift::Clip &c = back.tracks().constFirst().clips.constFirst();
+    QCOMPARE(c.timeRemap.keyframes().size(), 3);
+    QVERIFY(c.autoOrient);
+    QCOMPARE(c.timelineToSourceUs(drift::secondsToUs(4.0)), drift::secondsToUs(2.0));
 }
 
 void CoreTest::shapeStyleSerialization()
