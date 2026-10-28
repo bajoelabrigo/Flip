@@ -138,8 +138,6 @@ struct Bend
     bool up = true;
     QPointF centre;
 
-    SkMatrix matrixFor(double x0, double baselineY) const
-    {
     // Text on a path (0.26): the outline the baseline follows, and where the line starts on it.
     sk_sp<SkContourMeasure> contour;
     double pathStart = 0.0;
@@ -206,7 +204,7 @@ Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, doubl
         if (!drift::parseSvgPathData(style.pathSvg, &outline) || outline.isEmpty())
             return bend;
         outline = QTransform::fromScale(box.width() / 100.0, box.height() / 100.0).map(outline);
-        SkContourMeasureIter iter(drift::toSkPath(outline), false);
+        SkContourMeasureIter iter(toSkPath(outline), false);
         sk_sp<SkContourMeasure> contour = iter.next();
         if (!contour || contour->length() < 1.0f)
             return bend;
