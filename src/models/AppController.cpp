@@ -10972,6 +10972,8 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     drift::setShapePathAt(clip.shapeStyle, rel, drift::svgFromPathContours(parsed),
                           drift::frameDurationUs(m_project.fps()) / 2);
     if (m_previewDragActive) {
+        // The drag's commit pushes one undo step for all of it, but only once something changed.
+        m_previewDragDirty = true;
         emitPreviewFrame();
         return;
     }

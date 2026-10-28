@@ -237,6 +237,8 @@ Item {
     // The pen's pointer.
     MouseArea {
         anchors.fill: parent
+        // The preview drags the selected clip from further up; these drags are ours.
+        preventStealing: true
         enabled: root.penActive
         visible: enabled
         hoverEnabled: true
@@ -292,6 +294,8 @@ Item {
     MouseArea {
         id: editArea
         anchors.fill: parent
+        // The preview drags the selected clip from further up; these drags are ours.
+        preventStealing: true
         enabled: root.editing
         visible: enabled
         hoverEnabled: true

@@ -93,6 +93,8 @@ Item {
 
     MouseArea {
         anchors.fill: parent
+        // The preview drags the selected clip from further up; these drags are ours.
+        preventStealing: true
         hoverEnabled: true
         cursorShape: root.tool === "text" ? Qt.IBeamCursor : root.tool === "anchor" ? Qt.SizeAllCursor : Qt.CrossCursor
 

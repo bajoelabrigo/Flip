@@ -110,6 +110,7 @@ PanelFrame {
             z: 3
             visible: EditorState.preview.tool === "hand" || EditorState.preview.tool === "zoom"
             acceptedButtons: Qt.LeftButton
+            preventStealing: true
             cursorShape: EditorState.preview.tool === "hand" ? (pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor)
                                                              : Qt.CrossCursor
             property point last
