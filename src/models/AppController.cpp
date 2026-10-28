@@ -10620,6 +10620,171 @@ void AppController::setSolidSettings(int trackIndex, int clipIndex, const QStrin
     finishEdit(tr("Solid settings"));
 }
 
+void AppController::addNullObject()
+{
+    // After Effects' Null Object (0.26): only a handle for the layers parented to it. A shape so it
+    // keys, rows and snaps like any other; the compositor skips it and the preview shows its frame.
+    const drift::Project before = m_project;
+    const drift::TimeUs start = m_playheadUs;
+    const drift::TimeUs duration = qMax(drift::kImageClipDurationUs, m_project.durationUs() - start);
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
+    if (target < 0)
+        return;
+    drift::Track &track = m_project.tracks()[target];
+    int count = 0;
+    for (const drift::Track &t : m_project.tracks()) {
+        for (const drift::Clip &c : t.clips)
+            count += c.nullObject ? 1 : 0;
+    }
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Null %1").arg(count + 1);
+    clip.nullObject = true;
+    clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, duration, m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = duration;
+    clip.srcIn = 0;
+    clip.srcOut = duration;
+    constexpr double kNullSize = 100.0;
+    setClipLayoutPixels(clip, (m_project.width() - kNullSize) / 2.0, (m_project.height() - kNullSize) / 2.0,
+                        kNullSize, kNullSize);
+    track.clips.append(clip);
+    const int newClipIndex = track.clips.size() - 1;
+    pushProjectEdit(before, tr("Null object added"));
+    finishEdit(tr("Null object added"));
+    selectClip(target, newClipIndex);
+}
+
+QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    QVariantMap out{{QStringLiteral("nullObject"), clip.nullObject},
+                    {QStringLiteral("motionBlur"), clip.motionBlur},
+                    {QStringLiteral("parentId"), clip.parentId},
+                    {QStringLiteral("parentName"), QString()},
+                    {QStringLiteral("parentTrack"), -1},
+                    {QStringLiteral("parentClip"), -1}};
+    const QList<drift::Track> &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size() && !clip.parentId.isEmpty(); ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            if (tracks.at(t).clips.at(c).id == clip.parentId) {
+                out.insert(QStringLiteral("parentName"), tracks.at(t).clips.at(c).name);
+                out.insert(QStringLiteral("parentTrack"), t);
+                out.insert(QStringLiteral("parentClip"), c);
+            }
+        }
+    }
+    return out;
+}
+
+QVariantList AppController::clipParentOptions(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &self = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::Track> &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            const drift::Clip &candidate = tracks.at(t).clips.at(c);
+            if (candidate.id == self.id || !drift::appdetail::clipAcceptsPreviewTransform(candidate)
+                || candidate.type == drift::ClipType::Adjustment
+                || drift::parentLinkMakesCycle(m_project, self.id, candidate.id))
+                continue;
+            out.append(QVariantMap{{QStringLiteral("track"), t},
+                                   {QStringLiteral("clip"), c},
+                                   {QStringLiteral("id"), candidate.id},
+                                   {QStringLiteral("name"), candidate.name},
+                                   {QStringLiteral("nullObject"), candidate.nullObject}});
+        }
+    }
+    return out;
+}
+
+void AppController::setClipParent(int trackIndex, int clipIndex, int parentTrack, int parentClip)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    QString parentId;
+    if (parentTrack >= 0) {
+        if (!isValidClipIndex(parentTrack, parentClip))
+            return;
+        parentId = m_project.tracks().at(parentTrack).clips.at(parentClip).id;
+    }
+    // The clip asked for, and with it the rest of the selection when it is part of it.
+    QList<QPair<int, int>> targets{{trackIndex, clipIndex}};
+    if (m_selection.contains(qMakePair(trackIndex, clipIndex))) {
+        for (const QPair<int, int> &pair : m_selection) {
+            if (!targets.contains(pair) && isValidClipIndex(pair.first, pair.second))
+                targets.append(pair);
+        }
+    }
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QPair<int, int> &pair : targets) {
+        drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
+        if (clip.parentId == parentId || clip.id == parentId)
+            continue;
+        const drift::Clip *parent = drift::findClipInProject(m_project, parentId);
+        if (parent && drift::parentLinkMakesCycle(m_project, clip.id, parentId))
+            continue;
+        drift::setClipParentKeepingPlace(m_project, clip, parent, m_playheadUs);
+        changed = true;
+    }
+    if (!changed)
+        return;
+    const QString message = parentId.isEmpty() ? tr("Parent removed") : tr("Parent set");
+    pushProjectEdit(before, message);
+    finishEdit(message);
+}
+
+void AppController::setClipMotionBlur(int trackIndex, int clipIndex, bool on)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    QList<QPair<int, int>> targets{{trackIndex, clipIndex}};
+    if (m_selection.contains(qMakePair(trackIndex, clipIndex))) {
+        for (const QPair<int, int> &pair : m_selection) {
+            if (!targets.contains(pair) && isValidClipIndex(pair.first, pair.second))
+                targets.append(pair);
+        }
+    }
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QPair<int, int> &pair : targets) {
+        drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
+        if (clip.motionBlur != on) {
+            clip.motionBlur = on;
+            changed = true;
+        }
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Motion blur"));
+    finishEdit(tr("Motion blur"));
+}
+
+QVariantMap AppController::motionBlurSettings() const
+{
+    return {{QStringLiteral("shutterDeg"), m_project.motionBlurShutterDeg()},
+            {QStringLiteral("samples"), m_project.motionBlurSamples()}};
+}
+
+void AppController::setMotionBlurSettings(double shutterDeg, int samples)
+{
+    if (qFuzzyCompare(shutterDeg + 1.0, m_project.motionBlurShutterDeg() + 1.0)
+        && samples == m_project.motionBlurSamples())
+        return;
+    const drift::Project before = m_project;
+    m_project.setMotionBlurShutterDeg(shutterDeg);
+    m_project.setMotionBlurSamples(samples);
+    pushProjectEdit(before, tr("Motion blur settings"));
+    finishEdit(tr("Motion blur settings"));
+}
+
 int AppController::ensureAdjustmentLaneFor(int parentTrackIndex, drift::AdjustmentKind kind,
                                            drift::TimeUs startUs, drift::TimeUs durationUs)
 {

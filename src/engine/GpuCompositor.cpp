@@ -1667,6 +1667,42 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
                     *lostVideo = true;
                 continue;
             }
+            if (!item.layer.motionSamples.isEmpty()) {
+                // Motion blur: the layer's pixels at every sub-frame position, averaged on a canvas
+                // of their own (additive at 1/N), then placed like a transition's mixed result.
+                GlTarget accum = rt.acquireTarget(canvasSize.width(), canvasSize.height());
+                if (accum.isValid()) {
+                    accum.fbo->bind();
+                    gl->glViewport(0, 0, accum.width, accum.height);
+                    gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+                    gl->glClear(GL_COLOR_BUFFER_BIT);
+                    accum.fbo->release();
+                    const double weight = 1.0 / double(item.layer.motionSamples.size());
+                    GpuLayer sub = item.layer;
+                    sub.depthOcclude = false;
+                    sub.opacity = weight;
+                    for (const GpuLayer::MotionSample &sample : item.layer.motionSamples) {
+                        sub.rect = sample.rect;
+                        sub.rotation = sample.rotation;
+                        sub.parent = sample.parent;
+                        sub.hasParent = sample.hasParent;
+                        drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal, canvasSize,
+                                          nullptr, CanvasWrite::Add);
+                    }
+                    GlTarget straight = unpremultipliedCopy(rt, gl, accum);
+                    rt.releaseTarget(std::move(accum));
+                    if (straight.isValid()) {
+                        GpuLayer full;
+                        full.valid = true;
+                        full.rect = QRectF(0, 0, canvasSize.width(), canvasSize.height());
+                        full.opacity = item.layer.opacity;
+                        drawLayerOnCanvas(rt, gl, canvas, straight, full, item.blend, canvasSize);
+                        rt.releaseTarget(std::move(straight));
+                    }
+                    rt.releaseTarget(std::move(layerTarget));
+                    continue;
+                }
+            }
             OcclusionDraw occlusion;
             if (const auto it = depthCanvases.find(item.layer.occluderItem);
                 it != depthCanvases.end() && it->second.isValid()) {

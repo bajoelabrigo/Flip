@@ -671,6 +671,22 @@ public:
     Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setSolidSettings(int trackIndex, int clipIndex, const QString &colorName,
                                       const QString &name, double width, double height);
+    // After Effects' Null Object (0.26): a shape that never paints, on its own track at the
+    // playhead, as long as the project (at least the default image length), 100 × 100 centred.
+    Q_INVOKABLE void addNullObject();
+    // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
+    // nullObject, motionBlur} for one clip; and the clips it can follow (every visual clip on the
+    // timeline but itself and those that already follow it), [{track, clip, id, name, nullObject}].
+    Q_INVOKABLE QVariantMap clipMotionInfo(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE QVariantList clipParentOptions(int trackIndex, int clipIndex) const;
+    // Links the clip (and the other selected clips with it) to that parent, keeping their place; a
+    // parentTrack < 0 unlinks. One undo step.
+    Q_INVOKABLE void setClipParent(int trackIndex, int clipIndex, int parentTrack, int parentClip);
+    // Motion blur (0.26): the switch on a clip (and the other selected clips), and the project's
+    // shutter {shutterDeg, samples}.
+    Q_INVOKABLE void setClipMotionBlur(int trackIndex, int clipIndex, bool on);
+    Q_INVOKABLE QVariantMap motionBlurSettings() const;
+    Q_INVOKABLE void setMotionBlurSettings(double shutterDeg, int samples);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);

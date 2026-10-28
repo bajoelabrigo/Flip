@@ -381,6 +381,13 @@ private slots:
     void transformLayerBehindTheEyeShowsBackground();
     void nestedTransformLayersCompose();
     void transformParentReachesEveryCoveredLayer();
+    void clipParentFollowsFromTheLink();
+    void clipParentChainsAndRefusesCycles();
+    void unparentingKeepsThePlace();
+    void parentedClipRendersWhereItsParentTakesIt();
+    void nullObjectDrawsNothing();
+    void motionBlurSmearsAMovingClip();
+    void clipParentAndMotionBlurRoundTrip();
     void exporterProducesPlayableFileWithBackground();
     void exporterProducesAudioOnlyMp3();
     void exporterTagsSdrBt709ColorMetadata();
@@ -11573,6 +11580,220 @@ bool imagesClose(const QImage &a, const QImage &b, int tolerance, QString *where
 }
 
 } // namespace
+
+namespace {
+
+// A 64x64 project with one shape track per clip, in order (the first on top).
+drift::Project clipsProject(const QList<drift::Clip> &clips)
+{
+    drift::Project project;
+    project.setResolution(64, 64);
+    project.tracks().clear();
+    for (int i = 0; i < clips.size(); ++i) {
+        drift::Track track{.type = drift::TrackType::Shape};
+        track.id = QStringLiteral("t%1").arg(i);
+        track.clips.append(clips.at(i));
+        project.tracks().append(track);
+    }
+    return project;
+}
+
+drift::Clip *clipIn(drift::Project &project, const QString &id)
+{
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (clip.id == id)
+                return &clip;
+        }
+    }
+    return nullptr;
+}
+
+} // namespace
+
+void EngineTest::clipParentFollowsFromTheLink()
+{
+    // The parent moves 10 px right over 2 s and turns 90°.
+    drift::Clip parent = solidShape(QStringLiteral("p"), QRectF(20, 20, 20, 20), Qt::blue);
+    parent.transformX.setKeyframe(drift::secondsToUs(2.0), 30.0);
+    parent.rotation.setKeyframe(0, 0.0);
+    parent.rotation.setKeyframe(drift::secondsToUs(2.0), 90.0);
+    drift::Clip child = solidShape(QStringLiteral("c"), QRectF(50, 26, 8, 8), Qt::red);
+    drift::Project project = clipsProject({child, parent});
+
+    // Linked at 0 s: nothing moves there, and the child's own numbers are untouched.
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("p")), 0);
+    const drift::Clip &linked = *clipIn(project, QStringLiteral("c"));
+    QCOMPARE(linked.parentId, QStringLiteral("p"));
+    bool active = true;
+    drift::clipParentMatrix(project, linked, 0, 1.0, &active);
+    QVERIFY(!active);
+    QCOMPARE(linked.transformX.evaluateAt(0), 50.0);
+
+    // At 2 s the parent's centre is at (40, 30) and it has turned 90°: the child's centre (54, 30),
+    // 24 px right of the parent's old centre (30, 30), swings to 24 px below the new one.
+    const QTransform at2 = drift::clipParentMatrix(project, linked, drift::secondsToUs(2.0), 1.0, &active);
+    QVERIFY(active);
+    const QPointF centre = at2.map(QPointF(54, 30));
+    QVERIFY2(qAbs(centre.x() - 40.0) < 1e-6 && qAbs(centre.y() - 54.0) < 1e-6,
+             qPrintable(QStringLiteral("%1,%2").arg(centre.x()).arg(centre.y())));
+    // Render scale only changes the units.
+    const QPointF half =
+        drift::clipParentMatrix(project, linked, drift::secondsToUs(2.0), 0.5).map(QPointF(27, 15));
+    QVERIFY2(qAbs(half.x() - 20.0) < 1e-6 && qAbs(half.y() - 27.0) < 1e-6,
+             qPrintable(QStringLiteral("%1,%2").arg(half.x()).arg(half.y())));
+}
+
+void EngineTest::clipParentChainsAndRefusesCycles()
+{
+    drift::Clip a = solidShape(QStringLiteral("a"), QRectF(0, 0, 10, 10), Qt::red);
+    drift::Clip b = solidShape(QStringLiteral("b"), QRectF(20, 0, 10, 10), Qt::green);
+    drift::Clip c = solidShape(QStringLiteral("c"), QRectF(40, 0, 10, 10), Qt::blue);
+    drift::Project project = clipsProject({a, b, c});
+    // a follows b, b follows c; then c moves 5 px down over 1 s.
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("a")),
+                                     clipIn(project, QStringLiteral("b")), 0);
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("b")),
+                                     clipIn(project, QStringLiteral("c")), 0);
+    clipIn(project, QStringLiteral("c"))->transformY.setKeyframe(drift::secondsToUs(1.0), 5.0);
+    const QTransform m =
+        drift::clipParentMatrix(project, *clipIn(project, QStringLiteral("a")), drift::secondsToUs(1.0), 1.0);
+    const QPointF moved = m.map(QPointF(5, 5));
+    QVERIFY2(qAbs(moved.x() - 5.0) < 1e-6 && qAbs(moved.y() - 10.0) < 1e-6,
+             qPrintable(QStringLiteral("%1,%2").arg(moved.x()).arg(moved.y())));
+
+    // c following a would close the loop: refused, and c stays free.
+    QVERIFY(drift::parentLinkMakesCycle(project, QStringLiteral("c"), QStringLiteral("a")));
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("a")), 0);
+    QVERIFY(clipIn(project, QStringLiteral("c"))->parentId.isEmpty());
+    // A loop that slipped into a file is ignored rather than recursing forever.
+    clipIn(project, QStringLiteral("c"))->parentId = QStringLiteral("a");
+    bool active = true;
+    drift::clipParentMatrix(project, *clipIn(project, QStringLiteral("a")), 0, 1.0, &active);
+    QVERIFY(!active);
+}
+
+void EngineTest::unparentingKeepsThePlace()
+{
+    drift::Clip parent = solidShape(QStringLiteral("p"), QRectF(20, 20, 20, 20), Qt::blue);
+    parent.transformW.setKeyframe(drift::secondsToUs(1.0), 40.0); // twice as large by 1 s
+    parent.transformH.setKeyframe(drift::secondsToUs(1.0), 40.0);
+    parent.rotation.setKeyframe(0, 0.0);
+    parent.rotation.setKeyframe(drift::secondsToUs(1.0), 30.0);
+    drift::Clip child = solidShape(QStringLiteral("c"), QRectF(44, 26, 8, 8), Qt::red);
+    child.transformX.setKeyframe(drift::secondsToUs(2.0), 48.0); // and keys of its own
+    drift::Project project = clipsProject({child, parent});
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("p")), 0);
+
+    // Where the parented child sits at 1 s, then unlinked there: it must not move.
+    const drift::TimeUs t = drift::secondsToUs(1.0);
+    const QTransform before = drift::clipWorldPose(project, *clipIn(project, QStringLiteral("c")), t);
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")), nullptr, t);
+    const drift::Clip &free = *clipIn(project, QStringLiteral("c"));
+    QVERIFY(free.parentId.isEmpty());
+    const QTransform after = drift::clipWorldPose(project, free, t);
+    for (const QPointF corner : {QPointF(-0.5, -0.5), QPointF(0.5, -0.5), QPointF(0.5, 0.5), QPointF(-0.5, 0.5)}) {
+        const QPointF p = before.map(corner);
+        const QPointF q = after.map(corner);
+        QVERIFY2(QLineF(p, q).length() < 1e-6,
+                 qPrintable(QStringLiteral("%1,%2 vs %3,%4").arg(p.x()).arg(p.y()).arg(q.x()).arg(q.y())));
+    }
+}
+
+void EngineTest::parentedClipRendersWhereItsParentTakesIt()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    drift::Clip parent = solidShape(QStringLiteral("p"), QRectF(0, 0, 4, 4), Qt::blue);
+    parent.transformX.setKeyframe(drift::secondsToUs(2.0), 20.0);
+    parent.nullObject = true; // the parent itself stays out of the picture
+    drift::Clip child = solidShape(QStringLiteral("c"), QRectF(8, 8, 20, 12), Qt::red);
+    drift::Project project = clipsProject({child, parent});
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("p")), 0);
+    const QImage moved = renderAt(project, 1.0);
+    const QImage expected =
+        renderAt(clipsProject({solidShape(QStringLiteral("c"), QRectF(18, 8, 20, 12), Qt::red)}), 1.0);
+    QString where;
+    QVERIFY2(imagesClose(moved, expected, 2, &where), qPrintable(where));
+}
+
+void EngineTest::nullObjectDrawsNothing()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    drift::Clip null = solidShape(QStringLiteral("n"), QRectF(0, 0, 64, 64), Qt::red);
+    null.nullObject = true;
+    const QImage out = renderAt(clipsProject({null}), 1.0);
+    QVERIFY(!out.isNull());
+    QCOMPARE(qRed(out.pixel(32, 32)), 0);
+}
+
+void EngineTest::motionBlurSmearsAMovingClip()
+{
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    // A 4 px bar crossing 60 px in 1 s at 30 fps moves 2 px a frame: blurred, its edges go soft.
+    drift::Clip bar = solidShape(QStringLiteral("b"), QRectF(0, 0, 4, 64), Qt::white);
+    bar.transformX.setKeyframe(drift::secondsToUs(1.0), 60.0);
+    drift::Project sharp = clipsProject({bar});
+    sharp.setFps(30);
+    bar.motionBlur = true;
+    drift::Project blurred = clipsProject({bar});
+    blurred.setFps(30);
+    blurred.setMotionBlurShutterDeg(360.0);
+    const QImage a = renderAt(sharp, 0.5);
+    const QImage b = renderAt(blurred, 0.5);
+    int partial = 0;
+    int partialSharp = 0;
+    for (int x = 0; x < 64; ++x) {
+        const int vb = qRed(b.pixel(x, 32));
+        const int va = qRed(a.pixel(x, 32));
+        partial += vb > 20 && vb < 235 ? 1 : 0;
+        partialSharp += va > 20 && va < 235 ? 1 : 0;
+    }
+    QVERIFY2(partial >= partialSharp + 2, qPrintable(QStringLiteral("%1 vs %2").arg(partial).arg(partialSharp)));
+    // A still clip with the switch on renders exactly as without it.
+    drift::Clip still = solidShape(QStringLiteral("s"), QRectF(10, 10, 20, 20), Qt::white);
+    still.motionBlur = true;
+    QString where;
+    QVERIFY2(imagesClose(renderAt(clipsProject({still}), 0.5),
+                         renderAt(clipsProject({solidShape(QStringLiteral("s"), QRectF(10, 10, 20, 20), Qt::white)}), 0.5),
+                         1, &where),
+             qPrintable(where));
+}
+
+void EngineTest::clipParentAndMotionBlurRoundTrip()
+{
+    drift::Clip parent = solidShape(QStringLiteral("p"), QRectF(20, 20, 20, 20), Qt::blue);
+    parent.nullObject = true;
+    drift::Clip child = solidShape(QStringLiteral("c"), QRectF(44, 26, 8, 8), Qt::red);
+    child.motionBlur = true;
+    drift::Project project = clipsProject({child, parent});
+    project.setMotionBlurShutterDeg(270.0);
+    project.setMotionBlurSamples(24);
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("p")), 0);
+    const QTransform rest = clipIn(project, QStringLiteral("c"))->parentRest;
+
+    drift::Project back = drift::Project::fromJson(project.toJson());
+    const drift::Clip *c = clipIn(back, QStringLiteral("c"));
+    const drift::Clip *p = clipIn(back, QStringLiteral("p"));
+    QVERIFY(c && p);
+    QCOMPARE(c->parentId, QStringLiteral("p"));
+    QCOMPARE(c->parentRest, rest);
+    QVERIFY(c->motionBlur);
+    QVERIFY(p->nullObject);
+    QCOMPARE(back.motionBlurShutterDeg(), 270.0);
+    QCOMPARE(back.motionBlurSamples(), 24);
+    // A project without any of it writes none of the keys.
+    const QString text = QString::fromUtf8(
+        QJsonDocument(clipsProject({solidShape(QStringLiteral("x"), QRectF(0, 0, 4, 4), Qt::red)}).toJson()).toJson());
+    QVERIFY(!text.contains(QStringLiteral("parentId")) && !text.contains(QStringLiteral("motionBlur")));
+}
 
 void EngineTest::transformLayerMatrixMapsTheBox()
 {

@@ -100,6 +100,17 @@ struct GpuLayer
     // Transform layers over this clip's track, in canvas pixels; see drift::transformParentsAt.
     QTransform parent;
     bool hasParent = false;
+    // Motion blur (0.26): where the layer is at each sub-frame of the shutter. When set, the layer
+    // is drawn once per sample at 1/N into a canvas of its own and that average is composited in
+    // its place, which is After Effects' 2D motion blur. Empty for a still or unblurred layer.
+    struct MotionSample
+    {
+        QRectF rect;
+        double rotation = 0.0;
+        QTransform parent;
+        bool hasParent = false;
+    };
+    QList<MotionSample> motionSamples;
     // The shared viewpoint at this frame, world -> homogeneous canvas px: the scene camera's
     // (drift::cameraViewProjection), or the preview's free 3D view. Carried per layer rather than
     // read off the scene so modelMatrixFor stays a pure function of the layer, the same way

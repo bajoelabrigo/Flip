@@ -654,6 +654,49 @@ Item {
                 height: visible ? implicitHeight : 0
                 onTriggered: clipItem.panel.openSolidSettings(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // After Effects' Parent column and Motion Blur switch (0.26), for anything drawn.
+            ThemedMenuSeparator {
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+            }
+            ThemedContextMenu {
+                id: parentMenu
+                title: qsTr("Parent")
+                property var options: []
+                property var info: ({})
+                onAboutToShow: {
+                    info = EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex)
+                    options = EditorState.clipParentOptions(clipItem.trackIndex, clipItem.clipIndex)
+                }
+                ThemedMenuItem {
+                    text: qsTr("None")
+                    icon.name: !parentMenu.info.parentId ? Theme.icons.check : ""
+                    onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
+                }
+                Instantiator {
+                    model: parentMenu.options
+                    delegate: ThemedMenuItem {
+                        required property var modelData
+                        text: modelData.name
+                        icon.name: parentMenu.info.parentId === modelData.id ? Theme.icons.check
+                                   : modelData.nullObject ? Theme.icons.locateFixed : ""
+                        onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex,
+                                                               modelData.track, modelData.clip)
+                    }
+                    onObjectAdded: (index, object) => parentMenu.insertItem(index + 1, object)
+                    onObjectRemoved: (index, object) => parentMenu.removeItem(object)
+                }
+            }
+            ThemedMenuItem {
+                text: qsTr("Motion blur")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).motionBlur
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipMotionBlur(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
             ThemedMenuItem {
                 // Premiere-style: the fades become points on the volume line (0.25).
                 text: qsTr("Fades to volume keyframes")

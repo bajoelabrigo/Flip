@@ -23,6 +23,7 @@
 #include <QList>
 #include <QPointF>
 #include <QString>
+#include <QTransform>
 
 namespace drift {
 
@@ -121,6 +122,18 @@ struct Clip
     bool suppressEmbeddedAudio = false;
     // An After Effects Solid (0.25): a shape made by «Solid…», which keeps its Solid settings.
     bool isSolid = false;
+    // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
+    // there to be a parent the other layers follow.
+    bool nullObject = false;
+    // After Effects' Parent (0.26): the clip whose motion this one follows, anywhere on the same
+    // timeline; empty for none. `parentRest` is the parent's world pose (unit box centred on the
+    // origin → project px, see engine/TransformLayer.h) when the link was made, so linking never
+    // moves the clip: it follows only what the parent does from there.
+    QString parentId;
+    QTransform parentRest;
+    // After Effects' Motion Blur switch (0.26): the frame is averaged over the shutter the project
+    // sets (Project::motionBlurShutterDeg / motionBlurSamples) while the clip moves.
+    bool motionBlur = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a

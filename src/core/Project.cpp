@@ -332,6 +332,17 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("effects"), effectsToJson(clip.effects)},
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
+    // Saved only when set, so a project without them reads back byte for byte.
+    if (clip.nullObject)
+        json.insert(QStringLiteral("nullObject"), true);
+    if (clip.motionBlur)
+        json.insert(QStringLiteral("motionBlur"), true);
+    if (!clip.parentId.isEmpty()) {
+        const QTransform &r = clip.parentRest;
+        json.insert(QStringLiteral("parentId"), clip.parentId);
+        json.insert(QStringLiteral("parentRest"),
+                    QJsonArray{r.m11(), r.m12(), r.m13(), r.m21(), r.m22(), r.m23(), r.m31(), r.m32(), r.m33()});
+    }
     if (clip.audioFadeInUs > 0)
         json.insert(QStringLiteral("audioFadeInUs"), static_cast<double>(clip.audioFadeInUs));
     if (clip.audioFadeOutUs > 0)
@@ -434,6 +445,17 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
+    clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
+    clip.parentId = object.value(QStringLiteral("parentId")).toString();
+    if (!clip.parentId.isEmpty()) {
+        const QJsonArray r = object.value(QStringLiteral("parentRest")).toArray();
+        if (r.size() == 9) {
+            clip.parentRest = QTransform(r.at(0).toDouble(), r.at(1).toDouble(), r.at(2).toDouble(),
+                                         r.at(3).toDouble(), r.at(4).toDouble(), r.at(5).toDouble(),
+                                         r.at(6).toDouble(), r.at(7).toDouble(), r.at(8).toDouble());
+        }
+    }
     clip.audioStreamIndex = object.value(QStringLiteral("audioStreamIndex")).toInt(0);
     clip.type = clipTypeFromString(object.value(QStringLiteral("type")).toString());
     clip.adjustmentKind =
@@ -1302,6 +1324,8 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
         project.m_bookmarks.append(bookmark);
     }
 
+    project.setMotionBlurShutterDeg(object.value(QStringLiteral("motionBlurShutterDeg")).toDouble(180.0));
+    project.setMotionBlurSamples(object.value(QStringLiteral("motionBlurSamples")).toInt(16));
     project.clearWorkArea();
     if (object.contains(QStringLiteral("workAreaInUs"))) {
         project.setWorkAreaInUs(static_cast<TimeUs>(object.value(QStringLiteral("workAreaInUs")).toDouble(-1)));
@@ -1464,6 +1488,10 @@ QJsonObject Project::toJson(bool includeTranscripts) const
     }
     if (!m_openSequenceTabs.isEmpty())
         root.insert(QStringLiteral("openSequenceTabs"), QJsonArray::fromStringList(m_openSequenceTabs));
+    if (m_motionBlurShutterDeg != 180.0 || m_motionBlurSamples != 16) {
+        root.insert(QStringLiteral("motionBlurShutterDeg"), m_motionBlurShutterDeg);
+        root.insert(QStringLiteral("motionBlurSamples"), m_motionBlurSamples);
+    }
     if (hasWorkArea()) {
         root.insert(QStringLiteral("workAreaInUs"), static_cast<double>(m_workAreaInUs));
         root.insert(QStringLiteral("workAreaOutUs"), static_cast<double>(m_workAreaOutUs));

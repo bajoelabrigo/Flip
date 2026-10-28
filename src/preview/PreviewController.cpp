@@ -929,7 +929,7 @@ QVariantList PreviewController::clipsAtPlayhead() const
             && track.type != drift::TrackType::Text && track.type != drift::TrackType::Subtitle
             && !track.isTransformLayer())
             continue;
-        const drift::TransformParent parent =
+        const drift::TransformParent trackParent =
             parents.isEmpty() ? drift::TransformParent{} : parents.at(trackIndex);
         QVariantList parentChain;
         for (const int layer : drift::transformLayersCovering(tracks, trackIndex)) {
@@ -942,18 +942,27 @@ QVariantList PreviewController::clipsAtPlayhead() const
                                                 {QStringLiteral("name"), candidate.name}});
             }
         }
-        const QVariantList parentMatrix = transformToList(parent.matrix);
-        QString parentSig;
-        if (parent.hasParent) {
-            for (const QVariant &v : parentMatrix)
-                parentSig += QString::number(v.toDouble(), 'g', 6) + QLatin1Char(',');
-        }
-        parentSig += QString::number(parent.opacity, 'g', 4);
-
         for (int clipIndex = 0; clipIndex < track.clips.size(); ++clipIndex) {
             const drift::Clip &clip = track.clips.at(clipIndex);
             if (!clip.containsTime(m_app.m_playheadUs) || !clipAcceptsPreviewTransform(clip))
                 continue;
+
+            // The clip's own parent (0.26) moves it before the transform layers over its track.
+            drift::TransformParent parent = trackParent;
+            bool clipParented = false;
+            const QTransform clipParent =
+                drift::clipParentMatrix(m_app.m_project, clip, m_app.m_playheadUs, 1.0, &clipParented);
+            if (clipParented) {
+                parent.matrix = parent.hasParent ? clipParent * parent.matrix : clipParent;
+                parent.hasParent = true;
+            }
+            const QVariantList parentMatrix = transformToList(parent.matrix);
+            QString parentSig;
+            if (parent.hasParent) {
+                for (const QVariant &v : parentMatrix)
+                    parentSig += QString::number(v.toDouble(), 'g', 6) + QLatin1Char(',');
+            }
+            parentSig += QString::number(parent.opacity, 'g', 4);
 
             const drift::TimeUs relative = m_app.m_playheadUs - clip.timelineStart;
             const double x = clipTransformValue(clip.transformX, relative, 0.0);
@@ -986,6 +995,8 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("parentSig"), parentSig},
                 {QStringLiteral("parents"), parentChain},
                 {QStringLiteral("name"), clip.name},
+                {QStringLiteral("nullObject"), clip.nullObject},
+                {QStringLiteral("clipParented"), clipParented},
                 {QStringLiteral("pixelSize"), clip.textStyle.pixelSize},
                 {QStringLiteral("x"), x},
                 {QStringLiteral("y"), y},
