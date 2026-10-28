@@ -57,6 +57,19 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-10-27)
 
+### 0.25.0 PUBLICADA (2026-10-27) — fotogramas clave como After Effects, también en el audio — **detalle en `docs/plan-0.25.md`**
+- PR #43 (`flip/v0.24.1` → `main`), tag `v0.25.0`, release (run 40597325078); copia en `versiones\FlipStudio-0.25.0`
+  (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40597370911 → `tienda\FlipStudio-Store\paquete-0.25.0`.
+  Notas de la Store: «Notas para la Store (0.25.0)» en `docs/store-listing.md`.
+- Filas Anclaje/Posición/Rotación/Escala/Opacidad con cronómetro, valores en azul y ◀◆▶; escala en dos valores con
+  cadena; curvas en el lugar de las filas; trazo del movimiento con tiradores; línea de tiempo en fotogramas con el
+  cabezal pegado a fotogramas y claves; cuadrícula 3×3 del anclaje; Sólidos; Volumen y Panorama en el audio.
+  **Probado en ventana** (Jorge confirmó centro con Alt, restablecer anclaje, tiradores y el resto: «probado»).
+- **Falta (Jorge):** subir el MSIX con las notas que correspondan y TXT `version`.
+- **Trampas nuevas:** en `KeyframeGraph.qml` la propiedad `clip` son los datos del clip: nunca `clip: true`
+  (qmlcachegen: «Property value set multiple times»); un `Loader` con alto fijo deja el gráfico en cero; el redondeo
+  a fotogramas va solo en `snapKeyTime` (en `snapTime` rompía el imán de los clips).
+
 ### 0.24.0 PUBLICADA (2026-10-27) — efectos de texto solo en las letras elegidas, fotogramas clave por pista — **detalle en `docs/plan-0.24.md`**
 - PR #41 (`flip/v0.24-tramos` → `main`), tag `v0.24.0`, release (run 40486664910); copia en `versiones\FlipStudio-0.24.0`
   (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 40486705115 → `tienda\FlipStudio-Store\paquete-0.24.0`.
