@@ -142,8 +142,11 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 - **Arreglado tras esa prueba (build siguiente):** la Marioneta no cargaba (`effect.json` sin `pipeline`) y la imagen
   doblada se cortaba en el recuadro (margen + `u_padX/u_padY`); la vista previa en RAM ahora se repite en su tramo
   hasta pausar; el nombre de otra capa en el editor de curvas la elige y abre sus filas (antes el gráfico se perdía).
-- **Falta:** volver a mirar en ventana esos tres arreglos, el látigo, expresiones, fondo a cuadros y operadores de
-  forma; luego publicar.
+- **Probado en ventana (build 381cad8, `pruebas\FlipStudio-0.26-prueba-d`):** los tres arreglos (Marioneta dobla fuera
+  del recuadro, RAM en bucle, cambio de capa en el editor de curvas), expresión `time * 90` en Rotación (120,1° a
+  1,33 s, la fila muestra «≈»), látigo (↳ Círculo sin salto), zigzag, Ondas de radio y fondo a cuadros.
+- **Falta antes de publicar:** lo de etapas anteriores sin ventana (editar puntos, herramientas Anclaje y Mano,
+  velocidad de claves, reasignación de tiempo, Mayús+A/P/R/T/S, invertir/estirar claves); D4 luces 3D fuera.
 - **Trampa:** `/tmp/chk.sh` no tenía g++ en el PATH y no comprobaba nada (salida vacía = «bien»): ahora exporta
   `.qtmingw/Tools/mingw1310_64/bin` y define `QT_NO_FOREACH`. Un efecto GPU sin `"pipeline"` se salta al cargar
   («pipeline has no passes»), sin aviso en la interfaz.
