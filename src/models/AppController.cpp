@@ -11825,7 +11825,7 @@ namespace {
 int puppetIndexIn(const drift::Clip &host)
 {
     for (int i = 0; i < host.effects.size(); ++i) {
-        if (host.effects.at(i).catalogId == QLatin1String("ae_puppet"))
+        if (host.effects.at(i).catalogId == QLatin1String("ae.puppet"))
             return i;
     }
     return -1;
@@ -11873,7 +11873,7 @@ int AppController::addPuppetPin(int trackIndex, int clipIndex, double u, double 
         return -1;
     QVariantMap state = puppetPins(trackIndex, clipIndex);
     if (state.value(QStringLiteral("effect")).toInt() < 0) {
-        addEffect(trackIndex, clipIndex, QStringLiteral("ae_puppet"));
+        addEffect(trackIndex, clipIndex, QStringLiteral("ae.puppet"));
         state = puppetPins(trackIndex, clipIndex);
     }
     const int effect = state.value(QStringLiteral("effect")).toInt();

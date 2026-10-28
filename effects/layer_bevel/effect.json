@@ -1,5 +1,5 @@
 {
-  "id": "layer_bevel",
+  "id": "layer.bevel",
   "displayName": "Bevel and Emboss",
   "category": "layerstyles",
   "backend": "gpu",

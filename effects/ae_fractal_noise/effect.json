@@ -1,5 +1,5 @@
 {
-  "id": "ae_fractal_noise",
+  "id": "ae.fractal_noise",
   "displayName": "Fractal Noise",
   "category": "generate",
   "backend": "gpu",

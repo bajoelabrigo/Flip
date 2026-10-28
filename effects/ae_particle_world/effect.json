@@ -1,5 +1,5 @@
 {
-  "id": "ae_particle_world",
+  "id": "ae.particle_world",
   "displayName": "Particle World",
   "category": "generate",
   "backend": "gpu",

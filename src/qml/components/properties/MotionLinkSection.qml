@@ -156,11 +156,11 @@ Column {
         spacing: Theme.spacingSm
         Repeater {
             model: [
-                { id: "layer_drop_shadow", label: qsTr("Drop shadow") },
-                { id: "layer_outer_glow", label: qsTr("Outer glow") },
-                { id: "layer_stroke", label: qsTr("Stroke") },
-                { id: "layer_bevel", label: qsTr("Bevel and emboss") },
-                { id: "layer_color_overlay", label: qsTr("Color overlay") }
+                { id: "layer.drop_shadow", label: qsTr("Drop shadow") },
+                { id: "layer.outer_glow", label: qsTr("Outer glow") },
+                { id: "layer.stroke", label: qsTr("Stroke") },
+                { id: "layer.bevel", label: qsTr("Bevel and emboss") },
+                { id: "layer.color_overlay", label: qsTr("Color overlay") }
             ]
             ThemedButton {
                 required property var modelData

@@ -1,5 +1,5 @@
 {
-  "id": "ae_shatter",
+  "id": "ae.shatter",
   "displayName": "Shatter",
   "category": "generate",
   "backend": "gpu",

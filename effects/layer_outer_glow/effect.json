@@ -1,5 +1,5 @@
 {
-  "id": "layer_outer_glow",
+  "id": "layer.outer_glow",
   "displayName": "Outer Glow",
   "category": "layerstyles",
   "backend": "gpu",

@@ -1,5 +1,5 @@
 {
-  "id": "layer_stroke",
+  "id": "layer.stroke",
   "displayName": "Stroke",
   "category": "layerstyles",
   "backend": "gpu",

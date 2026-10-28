@@ -130,7 +130,7 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
       memoria, hasta 3 GB, y se reproduce sola; barra verde en la regla; cualquier edición la vacía
       (`PlaybackEngine::buildRamPreview`). Región de interés: herramienta de la barra; las capas simples que quedan
       fuera no se decodifican (`RenderOptions::regionOfInterest`) y fuera del recuadro se tapa.
-- [x] G11. Pines de marioneta: efecto `ae_puppet` (hasta 8 pines, rigidez) y herramienta de la barra: clic pone un pin,
+- [x] G11. Pines de marioneta: efecto `ae.puppet` (hasta 8 pines, rigidez) y herramienta de la barra: clic pone un pin,
       arrastrarlo lo mueve con clave en el cabezal (`addPuppetPin`, `movePuppetPin`).
 - [x] G12. Gráficos esenciales: dentro de una composición, Fusión › «Add to Essential Graphics» (texto, color,
       tamaño, posición, giro, opacidad); fuera, la composición muestra esos controles (`Clip::essentialProps`,

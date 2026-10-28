@@ -1,5 +1,5 @@
 {
-  "id": "ae_turbulent_displace",
+  "id": "ae.turbulent_displace",
   "displayName": "Turbulent Displace",
   "category": "generate",
   "backend": "gpu",

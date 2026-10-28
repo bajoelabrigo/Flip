@@ -1,5 +1,5 @@
 {
-  "id": "ae_gradient_ramp",
+  "id": "ae.gradient_ramp",
   "displayName": "Gradient Ramp",
   "category": "generate",
   "backend": "gpu",

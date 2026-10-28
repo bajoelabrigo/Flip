@@ -1,5 +1,5 @@
 {
-  "id": "layer_color_overlay",
+  "id": "layer.color_overlay",
   "displayName": "Color Overlay",
   "category": "layerstyles",
   "backend": "gpu",

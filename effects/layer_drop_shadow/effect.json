@@ -1,5 +1,5 @@
 {
-  "id": "layer_drop_shadow",
+  "id": "layer.drop_shadow",
   "displayName": "Drop Shadow",
   "category": "layerstyles",
   "backend": "gpu",

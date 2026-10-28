@@ -1,5 +1,5 @@
 {
-  "id": "ae_radio_waves",
+  "id": "ae.radio_waves",
   "displayName": "Radio Waves",
   "category": "generate",
   "backend": "gpu",
