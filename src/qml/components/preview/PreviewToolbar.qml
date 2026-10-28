@@ -163,7 +163,7 @@ Rectangle {
                     cursorShape: Qt.PointingHandCursor
                     onClicked: mouse => {
                         if (mouse.button === Qt.RightButton)
-                            EditorState.preview.toolFill = EditorState.preview.toolFill === "none" ? "#ff00b4ff" : "none"
+                            EditorState.preview.toolFill = EditorState.preview.toolFill === "none" ? "#ffff4d6d" : "none"
                         else
                             colorDialog.openFor("fill")
                     }

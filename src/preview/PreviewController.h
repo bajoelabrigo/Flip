@@ -314,7 +314,7 @@ private:
     QString m_tool = QStringLiteral("select");
     QString m_shapeToolKind = QStringLiteral("rectangle");
     // "none" leaves that paint off.
-    QString m_toolFill = QStringLiteral("#ff00b4ff");
+    QString m_toolFill = QStringLiteral("#ffff4d6d");
     QString m_toolStroke = QStringLiteral("#ffffffff");
     double m_toolStrokeWidth = 0.0;
     bool m_maskEditMode = false;

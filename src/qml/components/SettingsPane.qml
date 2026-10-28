@@ -35,6 +35,8 @@ Item {
 
         Column {
             id: settingsColumn
+            // Read by every SettingsSection (0.26 Preferences pages).
+            property string shownPage: root.page
             x: Theme.pagePadding
             width: parent.width - Theme.pagePadding * 2
             spacing: Theme.spacingXl
@@ -46,9 +48,11 @@ Item {
                 property string title: ""
                 // The Preferences page this section belongs to.
                 property string page: ""
-                readonly property bool onPage: root.page === "" || root.page === section.page
+                // An inline component cannot see the file's ids: the page comes from the column.
+                readonly property string shownPage: parent && parent.shownPage !== undefined ? parent.shownPage : ""
+                readonly property bool pageMatches: shownPage === "" || shownPage === section.page
                 default property alias content: body.data
-                visible: onPage
+                visible: pageMatches
 
                 width: parent ? parent.width : 0
                 implicitHeight: cardCol.implicitHeight
@@ -641,7 +645,7 @@ Item {
                 id: accountSection
                 title: qsTr("Account")
                 page: "account"
-                visible: onPage && (Account.available || UsageStats.available)
+                visible: pageMatches && (Account.available || UsageStats.available)
 
                 property bool confirmingDelete: false
 

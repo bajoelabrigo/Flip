@@ -320,6 +320,22 @@ QJsonObject shapeStyleSchema()
         {QStringLiteral("thickness"), numberProp(QStringLiteral("Shaft thickness: arrow, double-arrow, chevron, curved-arrow, cross"), 0.05, 1)},
         {QStringLiteral("tailX"), numberProp(QStringLiteral("Tail x: speech-bubble, speech-bubble-rect, thought-bubble, callout"), 0.08, 0.92)},
         {QStringLiteral("tailSize"), numberProp(QStringLiteral("Tail size: the same four bubbles"), 0.05, 0.5)},
+        // After Effects' shape operators (0.26), any kind.
+        {QStringLiteral("trimStart"), numberProp(QStringLiteral("Trim Paths start, % of the outline"), 0, 100)},
+        {QStringLiteral("trimEnd"), numberProp(QStringLiteral("Trim Paths end, %"), 0, 100)},
+        {QStringLiteral("trimOffset"), numberProp(QStringLiteral("Trim Paths offset, degrees (360 = once round)"))},
+        {QStringLiteral("repeatCopies"), numberProp(QStringLiteral("Repeater copies"), 1, 200)},
+        {QStringLiteral("repeatOffset"), numberProp(QStringLiteral("Repeater offset, copies"))},
+        {QStringLiteral("repeatX"), numberProp(QStringLiteral("Repeater move per copy, px"))},
+        {QStringLiteral("repeatY"), numberProp(QStringLiteral("Repeater move per copy, px"))},
+        {QStringLiteral("repeatScale"), numberProp(QStringLiteral("Repeater scale per copy, %"), 0, 1000)},
+        {QStringLiteral("repeatRotation"), numberProp(QStringLiteral("Repeater turn per copy, degrees"))},
+        {QStringLiteral("repeatStartOpacity"), numberProp(QStringLiteral("Repeater first copy opacity, %"), 0, 100)},
+        {QStringLiteral("repeatEndOpacity"), numberProp(QStringLiteral("Repeater last copy opacity, %"), 0, 100)},
+        {QStringLiteral("wiggleSize"), numberProp(QStringLiteral("Wiggle Paths size, px (0 = off)"), 0, 1000)},
+        {QStringLiteral("wiggleDetail"), numberProp(QStringLiteral("Wiggle Paths segment, px"), 2, 500)},
+        {QStringLiteral("wiggleSpeed"), numberProp(QStringLiteral("Wiggle Paths wiggles per second (0 = still)"), 0, 30)},
+        {QStringLiteral("wiggleSeed"), numberProp(QStringLiteral("Wiggle Paths random seed"), 0, 1000)},
     });
     s.insert(QStringLiteral("description"),
              QStringLiteral("Partial style patch; only supplied keys change. Each geometry knob is read by a subset of shape kinds"));

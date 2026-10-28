@@ -317,7 +317,7 @@ QVariantMap PreferencesController::editorDefaultValues()
         {QStringLiteral("keyInterpolation"), QStringLiteral("linear")},
         {QStringLiteral("safeZones"), false},
         {QStringLiteral("previewToolbar"), true},
-        {QStringLiteral("toolFill"), QStringLiteral("#ff00b4ff")},
+        {QStringLiteral("toolFill"), QStringLiteral("#ffff4d6d")},
         {QStringLiteral("toolStroke"), QStringLiteral("#ffffffff")},
         {QStringLiteral("toolStrokeWidth"), 0.0},
     };
