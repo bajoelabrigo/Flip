@@ -338,6 +338,7 @@ private:
     quint64 m_ramGeneration = 0;
     bool m_ramBuilding = false;
     bool m_ramPlayWhenDone = false;
+    bool m_ramLoop = false; // playing the finished RAM preview: it repeats until paused
     double m_ramProgress = 0.0;
     drift::TimeUs m_ramIn = 0;
     drift::TimeUs m_ramOut = 0;

@@ -827,6 +827,7 @@ void PlaybackEngine::pause()
 {
     if (!m_playing)
         return;
+    m_ramLoop = false;
 
     m_playing = false;
     m_compositor.setPlaybackActive(false);
@@ -918,6 +919,7 @@ void PlaybackEngine::onRamDone(quint64 generation)
     m_ramBuilding = false;
     m_ramProgress = 1.0;
     emit ramPreviewChanged();
+    m_ramLoop = m_ramPlayWhenDone;
     emit ramPreviewFinished(m_ramPlayWhenDone);
 }
 
@@ -930,6 +932,7 @@ void PlaybackEngine::clearRamPreview()
     const bool had = m_ramBuilding || !m_ramFrames.isEmpty();
     m_ramFrames.clear();
     m_ramBytes = 0;
+    m_ramLoop = false;
     m_ramBuilding = false;
     m_ramProgress = 0.0;
     if (had)
@@ -1016,6 +1019,17 @@ void PlaybackEngine::checkEndOfTimeline(drift::TimeUs timeUs)
 
 bool PlaybackEngine::shouldLoopWorkArea(drift::TimeUs *loopInOut, drift::TimeUs *loopOutOut) const
 {
+    // A RAM preview that started playing repeats its own range, as After Effects does, until paused.
+    if (m_ramLoop && !m_ramFrames.isEmpty()) {
+        drift::TimeUs last = m_ramIn;
+        for (auto it = m_ramFrames.constBegin(); it != m_ramFrames.constEnd(); ++it)
+            last = qMax(last, it.key());
+        if (loopInOut)
+            *loopInOut = m_ramIn;
+        if (loopOutOut)
+            *loopOutOut = last + qMax<drift::TimeUs>(1, frameStepUs());
+        return true;
+    }
     if (!m_loopWorkArea || !m_project || !m_project->hasWorkArea())
         return false;
 

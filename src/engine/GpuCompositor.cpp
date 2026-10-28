@@ -777,6 +777,10 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         // Texture px per project px: sizes given in project px look the same at any preview scale.
         if (layer.rect.width() > 0.5)
             params.insert(QStringLiteral("u_unitPx"), double(target.width) / layer.rect.width() * layer.renderScale);
+        // The room a padded layer was given (0.26), as a fraction of the grown texture on each side,
+        // so an effect can find the layer's own box inside it (the puppet's pins are on that box).
+        params.insert(QStringLiteral("u_padX"), layer.padFractionX / (1.0 + 2.0 * layer.padFractionX));
+        params.insert(QStringLiteral("u_padY"), layer.padFractionY / (1.0 + 2.0 * layer.padFractionY));
         if (def->needsFace)
             drift::applyFaceUniforms(&params, layer.faceSlots);
         if (def->needsPose)

@@ -8270,6 +8270,9 @@ void EngineTest::effectPresetStableIds()
 {
     const QStringList ids = effectPresetIds();
     QVERIFY(ids.size() >= 16);
+    // The 0.26 packages load (ae_puppet once shipped without its pipeline and was skipped).
+    for (const char *id : {"ae.puppet", "ae.fractal_noise", "layer.drop_shadow"})
+        QVERIFY2(ids.contains(QLatin1String(id)), id);
 
     // Ids are persisted in project files, so they are API. New effects are namespaced
     // ("category.name"); the bare ids below predate that and can never be renamed. Adding to this

@@ -1,7 +1,7 @@
 #version 330 core
 in vec2 v_texCoord; out vec4 fragColor;
 uniform sampler2D u_currentTexture; uniform vec2 u_resolution;
-uniform float pins; uniform float stiffness;
+uniform float pins; uniform float stiffness; uniform float u_padX; uniform float u_padY;
 uniform vec2 pin1; uniform vec2 move1;
 uniform vec2 pin2; uniform vec2 move2;
 uniform vec2 pin3; uniform vec2 move3;
@@ -30,8 +30,12 @@ void main() {
     P[5] = pin6; M[5] = move6;
     P[6] = pin7; M[6] = move7;
     P[7] = pin8; M[7] = move8;
-    vec2 aspect = vec2(u_resolution.x / max(u_resolution.y, 1.0), 1.0);
-    vec2 uv = v_texCoord;
+    // The layer's own box inside the texture, which is grown so the picture can bend past it.
+    vec2 pad = vec2(u_padX, u_padY);
+    vec2 inner = max(vec2(1.0) - 2.0 * pad, vec2(1e-4));
+    vec2 boxPx = u_resolution * inner;
+    vec2 aspect = vec2(boxPx.x / max(boxPx.y, 1.0), 1.0);
+    vec2 uv = (v_texCoord - pad) / inner;
     vec2 sum = vec2(0.0);
     float weights = 0.0;
     float power = 1.0 + clamp(stiffness, 0.0, 3.0);
@@ -44,7 +48,7 @@ void main() {
         sum += w * M[i] / 100.0;
         weights += w;
     }
-    vec2 src = uv - sum / max(weights, 1e-9);
+    vec2 src = (uv - sum / max(weights, 1e-9)) * inner + pad;
     if (src.x < 0.0 || src.y < 0.0 || src.x > 1.0 || src.y > 1.0) {
         fragColor = vec4(0.0);
         return;
