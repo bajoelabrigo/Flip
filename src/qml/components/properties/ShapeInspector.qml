@@ -302,5 +302,233 @@ Item {
                 }
             }
         }
+
+        // ----- After Effects' shape operators (0.26) ----------------------
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Trim paths")
+            expanded: Number(root.shapeStyle.trimStart || 0) > 0 || Number(root.shapeStyle.trimEnd === undefined ? 100 : root.shapeStyle.trimEnd) < 100
+                      || Number(root.shapeStyle.trimOffset || 0) !== 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Shows only part of the outline: animate Start or End to draw the shape on, and Offset to run it round.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("trimStart", qsTr("Start"), 1)
+                        keyframeList: root.knobKeyframes("trimStart")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("trimEnd", qsTr("End"), 1)
+                        keyframeList: root.knobKeyframes("trimEnd")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("trimOffset", qsTr("Offset"), 0)
+                    keyframeList: root.knobKeyframes("trimOffset")
+                    useSlider: true
+                    sliderFrom: -360
+                    sliderTo: 360
+                    inputFrom: -36000
+                    inputTo: 36000
+                    unit: "°"
+                }
+            }
+        }
+
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Repeater")
+            expanded: Number(root.shapeStyle.repeatCopies || 1) > 1
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Copies of the shape, each one moved, turned and scaled from the one before.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatCopies", qsTr("Copies"), 0)
+                        keyframeList: root.knobKeyframes("repeatCopies")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 50
+                        inputTo: 200
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatOffset", qsTr("Offset"), 2)
+                        keyframeList: root.knobKeyframes("repeatOffset")
+                        useSlider: true
+                        sliderFrom: -10
+                        sliderTo: 10
+                        inputFrom: -200
+                        inputTo: 200
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatX", qsTr("Position X"), 0)
+                        keyframeList: root.knobKeyframes("repeatX")
+                        useSlider: true
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -10000
+                        inputTo: 10000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatY", qsTr("Position Y"), 0)
+                        keyframeList: root.knobKeyframes("repeatY")
+                        useSlider: true
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -10000
+                        inputTo: 10000
+                        unit: "px"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatScale", qsTr("Scale"), 0)
+                        keyframeList: root.knobKeyframes("repeatScale")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 200
+                        inputTo: 1000
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatRotation", qsTr("Rotation"), 0)
+                        keyframeList: root.knobKeyframes("repeatRotation")
+                        useSlider: true
+                        sliderFrom: -180
+                        sliderTo: 180
+                        inputFrom: -36000
+                        inputTo: 36000
+                        unit: "°"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatStartOpacity", qsTr("Start opacity"), 0)
+                        keyframeList: root.knobKeyframes("repeatStartOpacity")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("repeatEndOpacity", qsTr("End opacity"), 0)
+                        keyframeList: root.knobKeyframes("repeatEndOpacity")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                }
+            }
+        }
+
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Wiggle paths")
+            expanded: Number(root.shapeStyle.wiggleSize || 0) > 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Makes the outline wobble: Size is how far it moves, Detail how often along the edge, and Wiggles per second how fast.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("wiggleSize", qsTr("Size"), 1)
+                        keyframeList: root.knobKeyframes("wiggleSize")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        inputTo: 1000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("wiggleDetail", qsTr("Detail"), 0)
+                        keyframeList: root.knobKeyframes("wiggleDetail")
+                        useSlider: true
+                        sliderFrom: 2
+                        sliderTo: 200
+                        inputTo: 500
+                        unit: "px"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("wiggleSpeed", qsTr("Wiggles per second"), 1)
+                        keyframeList: root.knobKeyframes("wiggleSpeed")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 10
+                        inputTo: 30
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("wiggleSeed", qsTr("Random seed"), 0)
+                        keyframeList: root.knobKeyframes("wiggleSeed")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        inputTo: 1000
+                    }
+                }
+            }
+        }
     }
 }

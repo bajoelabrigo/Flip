@@ -81,6 +81,36 @@ struct ShapeStyle
     QString customPath;
     bool customEvenOdd = false;
 
+    // After Effects' shape operators (0.26), over the whole outline, fill and strokes alike.
+    // Trim Paths: the part of the outline from trimStart to trimEnd (percent of its length),
+    // shifted by trimOffset degrees (360° = once round), wrapping as AE does.
+    double trimStart = 0.0;
+    double trimEnd = 100.0;
+    double trimOffset = 0.0;
+    // Repeater: repeatCopies copies (rounded), the first at repeatOffset copies along, each one
+    // moved by (repeatX, repeatY) project px, turned repeatRotation degrees and scaled
+    // repeatScale percent from the one before, about the box centre; opacity runs from
+    // repeatStartOpacity on the first to repeatEndOpacity on the last (percent).
+    double repeatCopies = 1.0;
+    double repeatOffset = 0.0;
+    double repeatX = 0.0;
+    double repeatY = 0.0;
+    double repeatScale = 100.0;
+    double repeatRotation = 0.0;
+    double repeatStartOpacity = 100.0;
+    double repeatEndOpacity = 100.0;
+    // Wiggle Paths: the outline resampled every wiggleDetail px and each point pushed up to
+    // wiggleSize px along its normal by a smooth noise that moves wiggleSpeed times a second
+    // (0 = still), from wiggleSeed.
+    double wiggleSize = 0.0;
+    double wiggleDetail = 20.0;
+    double wiggleSpeed = 0.0;
+    double wiggleSeed = 0.0;
+
+    bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0; }
+    bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
+    bool hasWiggle() const { return wiggleSize > 0.0; }
+
     // Keyed by shapeKeyframeProperties() names ("cornerRadius", "layer.<id>.<field>", …); times
     // are relative to the clip start.
     QMap<QString, KeyframeTrack<double>> keyframes;

@@ -523,6 +523,21 @@ constexpr KnobField kKnobs[] = {
     {"thickness", QT_TRANSLATE_NOOP("ShapeStyle", "Thickness"), &ShapeStyle::thickness, 0.05, 1.0},
     {"tailX", QT_TRANSLATE_NOOP("ShapeStyle", "Tail position"), &ShapeStyle::tailX, 0.08, 0.92},
     {"tailSize", QT_TRANSLATE_NOOP("ShapeStyle", "Tail size"), &ShapeStyle::tailSize, 0.05, 0.5},
+    {"trimStart", QT_TRANSLATE_NOOP("ShapeStyle", "Trim start"), &ShapeStyle::trimStart, 0.0, 100.0},
+    {"trimEnd", QT_TRANSLATE_NOOP("ShapeStyle", "Trim end"), &ShapeStyle::trimEnd, 0.0, 100.0},
+    {"trimOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Trim offset"), &ShapeStyle::trimOffset, -36000.0, 36000.0},
+    {"repeatCopies", QT_TRANSLATE_NOOP("ShapeStyle", "Copies"), &ShapeStyle::repeatCopies, 1.0, 200.0},
+    {"repeatOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater offset"), &ShapeStyle::repeatOffset, -200.0, 200.0},
+    {"repeatX", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater position X"), &ShapeStyle::repeatX, -10000.0, 10000.0},
+    {"repeatY", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater position Y"), &ShapeStyle::repeatY, -10000.0, 10000.0},
+    {"repeatScale", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater scale"), &ShapeStyle::repeatScale, 0.0, 1000.0},
+    {"repeatRotation", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater rotation"), &ShapeStyle::repeatRotation, -36000.0, 36000.0},
+    {"repeatStartOpacity", QT_TRANSLATE_NOOP("ShapeStyle", "Start opacity"), &ShapeStyle::repeatStartOpacity, 0.0, 100.0},
+    {"repeatEndOpacity", QT_TRANSLATE_NOOP("ShapeStyle", "End opacity"), &ShapeStyle::repeatEndOpacity, 0.0, 100.0},
+    {"wiggleSize", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle size"), &ShapeStyle::wiggleSize, 0.0, 1000.0},
+    {"wiggleDetail", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle detail"), &ShapeStyle::wiggleDetail, 2.0, 500.0},
+    {"wiggleSpeed", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggles per second"), &ShapeStyle::wiggleSpeed, 0.0, 30.0},
+    {"wiggleSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Random seed"), &ShapeStyle::wiggleSeed, 0.0, 1000.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -628,11 +643,18 @@ quint64 shapeStyleHash(const ShapeStyle &style)
 {
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
                       style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
-                      style.customPath, style.customEvenOdd);
+                      style.customPath, style.customEvenOdd)
+           ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.repeatCopies, style.repeatOffset,
+                        style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
+                        style.repeatStartOpacity, style.repeatEndOpacity)
+           ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed);
 }
 
 bool shapeTimeDrivenPaint(const ShapeStyle &style)
 {
+    // A wiggle that moves redraws every frame.
+    if (style.hasWiggle() && style.wiggleSpeed > 0.0)
+        return true;
     for (const TextShadingLayer &layer : style.layers) {
         if (!layer.enabled)
             continue;
@@ -666,6 +688,16 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
         {QStringLiteral("tailX"), s.tailX},
         {QStringLiteral("tailSize"), s.tailSize},
     };
+    // The shape operators (0.26) are written only away from their defaults, so a shape without
+    // them saves as it always did.
+    {
+        const ShapeStyle defaults;
+        for (const KnobField &knob : kKnobs) {
+            const double value = s.*(knob.field);
+            if (value != defaults.*(knob.field) && !o.contains(QLatin1String(knob.key)))
+                o.insert(QLatin1String(knob.key), value);
+        }
+    }
     if (s.kind == ShapeKind::Custom) {
         o.insert(QStringLiteral("customPath"), s.customPath);
         if (s.customEvenOdd)
@@ -744,6 +776,10 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     s.thickness = o.value(QStringLiteral("thickness")).toDouble(s.thickness);
     s.tailX = o.value(QStringLiteral("tailX")).toDouble(s.tailX);
     s.tailSize = o.value(QStringLiteral("tailSize")).toDouble(s.tailSize);
+    for (const KnobField &knob : kKnobs) {
+        if (o.contains(QLatin1String(knob.key)))
+            s.*(knob.field) = qBound(knob.min, o.value(QLatin1String(knob.key)).toDouble(), knob.max);
+    }
     s.customPath = o.value(QStringLiteral("customPath")).toString();
     s.customEvenOdd = o.value(QStringLiteral("customEvenOdd")).toBool(false);
     // A custom kind without an outline would draw nothing; a rectangle is the honest fallback.

@@ -2072,6 +2072,14 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("tailX"), s.tailX},
         {QStringLiteral("tailSize"), s.tailSize},
     };
+    // The shape operators (0.26): Trim Paths, Repeater, Wiggle Paths.
+    for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
+                            "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
+                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed"}) {
+        double value = 0.0;
+        if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
+            map.insert(QLatin1String(key), value);
+    }
     QVariantMap keyframes;
     for (auto it = s.keyframes.constBegin(); it != s.keyframes.constEnd(); ++it) {
         if (!it->isEmpty())
@@ -17145,6 +17153,12 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
         s.tailX = qBound(0.08, m.value(QStringLiteral("tailX")).toDouble(), 0.92);
     if (m.contains(QStringLiteral("tailSize")))
         s.tailSize = qBound(0.05, m.value(QStringLiteral("tailSize")).toDouble(), 0.5);
+    for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
+                            "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
+                            "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed"}) {
+        if (m.contains(QLatin1String(key)))
+            drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
+    }
 }
 
 void AppController::setShapeStyle(int trackIndex, int clipIndex, const QVariantMap &m)

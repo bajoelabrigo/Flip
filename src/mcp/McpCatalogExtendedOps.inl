@@ -208,6 +208,25 @@
           objectSchema(mergeProps({{QStringLiteral("flipH"), boolProp(QStringLiteral("Flip horizontally"))},
                                    {QStringLiteral("flipV"), boolProp(QStringLiteral("Flip vertically"))}},
                                   clipRefProps())) },
+        { "add_null_object", "canvas", "After Effects Null Object: an invisible parent handle",
+          "Add a null object at the playhead on a track of its own: a 100x100 shape centred on the frame "
+          "that is never drawn. Parent other clips to it with set_parent. It becomes the selection.",
+          objectSchema({}) },
+        { "set_parent", "canvas", "After Effects Parent: make a clip follow another",
+          "Link the clip to a parent (parentTrack/parentClip, as in inspect) so it follows the parent's "
+          "position, rotation and scale from now on, keeping its place; parentTrack -1 unlinks, also "
+          "keeping its place. A link that would close a loop is refused.",
+          objectSchema(mergeProps({{QStringLiteral("parentTrack"), integerProp(QStringLiteral("Parent's track; -1 = none"))},
+                                   {QStringLiteral("parentClip"), integerProp(QStringLiteral("Parent's clip index"))}},
+                                  clipRefProps()),
+                       {QStringLiteral("parentTrack")}) },
+        { "set_motion_blur", "canvas", "After Effects Motion Blur switch and shutter",
+          "Turn the clip's motion blur on or off. shutterDeg (0-720, default 180) and samples (2-64, "
+          "default 16) are the project's, shared by every blurred clip; omitted ones keep their value.",
+          objectSchema(mergeProps({{QStringLiteral("on"), boolProp(QStringLiteral("Motion blur on the clip"))},
+                                   {QStringLiteral("shutterDeg"), numberProp(QStringLiteral("Project shutter angle, degrees"))},
+                                   {QStringLiteral("samples"), integerProp(QStringLiteral("Project sub-frame samples"))}},
+                                  clipRefProps())) },
         { "set_blend_mode", "canvas", "Multiply/screen/overlay a clip onto the layers below",
           "Set how the clip composites over the layers below it. Unrecognised values silently fall back "
           "to normal.",
