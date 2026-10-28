@@ -135,7 +135,18 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 - [x] G12. Gráficos esenciales: dentro de una composición, Fusión › «Add to Essential Graphics» (texto, color,
       tamaño, posición, giro, opacidad); fuera, la composición muestra esos controles (`Clip::essentialProps`,
       `essentialControls`, `setEssentialValue`; una propiedad con claves se desplaza entera).
-- **Falta de la etapa G:** probar todo en ventana con la build de CI.
+- **Probado en ventana (build d2c0493, 2026-10-28, `pruebas\FlipStudio-0.26-prueba-c`):** RAM preview (0 numérico,
+  barra verde, arranca sola), región de interés, texto sobre trazado (Onda, Seguir la forma con el Círculo,
+  desplazamiento con clave), curvas de otra capa punteadas, estilos de capa (sombra, resplandor y trazo salen del
+  recuadro), bosquejo de movimiento, Gráficos esenciales (texto cambiado desde fuera de la composición).
+- **Arreglado tras esa prueba (build siguiente):** la Marioneta no cargaba (`effect.json` sin `pipeline`) y la imagen
+  doblada se cortaba en el recuadro (margen + `u_padX/u_padY`); la vista previa en RAM ahora se repite en su tramo
+  hasta pausar; el nombre de otra capa en el editor de curvas la elige y abre sus filas (antes el gráfico se perdía).
+- **Falta:** volver a mirar en ventana esos tres arreglos, el látigo, expresiones, fondo a cuadros y operadores de
+  forma; luego publicar.
+- **Trampa:** `/tmp/chk.sh` no tenía g++ en el PATH y no comprobaba nada (salida vacía = «bien»): ahora exporta
+  `.qtmingw/Tools/mingw1310_64/bin` y define `QT_NO_FOREACH`. Un efecto GPU sin `"pipeline"` se salta al cargar
+  («pipeline has no passes»), sin aviso en la interfaz.
 
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
