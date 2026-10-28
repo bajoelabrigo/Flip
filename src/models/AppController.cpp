@@ -10842,6 +10842,53 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     finishEdit(tr("Path edited"));
 }
 
+QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
+{
+    QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop);
+    if (!track)
+        return out;
+    const drift::TrackBehavior &b = track->behavior();
+    out.insert(QStringLiteral("active"), b.isActive());
+    out.insert(QStringLiteral("loop"), drift::loopModeToString(b.loop));
+    out.insert(QStringLiteral("speed"), b.speed);
+    out.insert(QStringLiteral("wiggleFrequency"), b.wiggleFrequency);
+    out.insert(QStringLiteral("wiggleAmount"), b.wiggleAmount);
+    out.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
+    return out;
+}
+
+void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
+                                        const QVariantMap &behavior)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::TrackBehavior b;
+    b.loop = drift::loopModeFromString(behavior.value(QStringLiteral("loop")).toString());
+    b.speed = behavior.value(QStringLiteral("speed")).toDouble();
+    b.wiggleFrequency = qMax(0.0, behavior.value(QStringLiteral("wiggleFrequency")).toDouble());
+    b.wiggleAmount = behavior.value(QStringLiteral("wiggleAmount")).toDouble();
+    b.wiggleSeed = behavior.value(QStringLiteral("wiggleSeed")).toInt();
+    // The value it holds now, read before the edit in case the track has to be made.
+    const double base = propertyBaseValue(trackIndex, clipIndex, prop);
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop, b.isActive());
+    if (!track)
+        return;
+    if (track->behavior() == b)
+        return;
+    if (track->isEmpty())
+        track->setKeyframe(0, base);
+    track->setBehavior(b);
+    const QString message = b.isActive() ? tr("Behavior set") : tr("Behavior removed");
+    pushProjectEdit(before, message);
+    finishEdit(message);
+}
+
 void AppController::setShapePathAnimated(int trackIndex, int clipIndex, bool on)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))

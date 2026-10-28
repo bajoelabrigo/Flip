@@ -7,6 +7,9 @@
 #include <QString>
 #include <QtMath>
 
+#include <cmath>
+#include <type_traits>
+
 namespace drift {
 
 // Named tangent shapes. These are *presets* that write handles onto a single key, not a
@@ -63,6 +66,63 @@ struct Keyframe
     }
 };
 
+// After Effects' expressions most used in motion graphics (0.26), as a behaviour of the track
+// itself rather than code: every animatable property gets them, and the timeline, preview and
+// export read them through evaluateAt like any key. They combine as `loopOut() + time * speed +
+// wiggle()` would, in that order. Only double tracks use them.
+enum class LoopMode { None, Cycle, PingPong, Offset, Continue };
+
+struct TrackBehavior
+{
+    // loopOut(): after the last key the keys from the first to the last repeat (Cycle), go back
+    // and forth (PingPong), repeat adding the change each time (Offset), or carry on at the speed
+    // the last key leaves with (Continue).
+    LoopMode loop = LoopMode::None;
+    // time * speed: units of the property per second, added from the clip's start.
+    double speed = 0.0;
+    // wiggle(frequency, amount): a smooth random offset up to `wiggleAmount` either way,
+    // changing `wiggleFrequency` times a second; `wiggleSeed` picks another sequence.
+    double wiggleFrequency = 0.0;
+    double wiggleAmount = 0.0;
+    int wiggleSeed = 0;
+
+    bool hasWiggle() const { return wiggleFrequency > 0.0 && wiggleAmount != 0.0; }
+    bool isActive() const { return loop != LoopMode::None || speed != 0.0 || hasWiggle(); }
+    bool operator==(const TrackBehavior &o) const
+    {
+        return loop == o.loop && speed == o.speed && wiggleFrequency == o.wiggleFrequency
+               && wiggleAmount == o.wiggleAmount && wiggleSeed == o.wiggleSeed;
+    }
+};
+
+// Smooth noise in about -1..1, the same for the same (x, seed): what wiggle() rides on.
+inline double behaviorNoise(double x, int seed)
+{
+    const auto hash = [seed](qint64 i) {
+        quint64 h = quint64(i) * 0x9E3779B97F4A7C15ull ^ (quint64(quint32(seed)) * 0xC2B2AE3D27D4EB4Full);
+        h ^= h >> 31;
+        h *= 0xBF58476D1CE4E5B9ull;
+        h ^= h >> 27;
+        return double(h & 0xFFFFFF) / double(0xFFFFFF) * 2.0 - 1.0;
+    };
+    const double f = std::floor(x);
+    const double t = x - f;
+    const double s = t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
+    const qint64 i = qint64(f);
+    // Two octaves, the second at half the amplitude, as AE's wiggle defaults to.
+    const double a = hash(i) + (hash(i + 1) - hash(i)) * s;
+    const double x2 = x * 2.0 + 17.0;
+    const double f2 = std::floor(x2);
+    const double t2 = x2 - f2;
+    const double s2 = t2 * t2 * t2 * (t2 * (t2 * 6.0 - 15.0) + 10.0);
+    const qint64 j = qint64(f2) + 7919;
+    const double b = hash(j) + (hash(j + 1) - hash(j)) * s2;
+    return (a + 0.5 * b) / 1.5;
+}
+
+QString loopModeToString(LoopMode mode);
+LoopMode loopModeFromString(const QString &mode);
+
 template<typename T>
 class KeyframeTrack
 {
@@ -80,6 +140,9 @@ public:
     // animation and shows. Without it, such a key is just where a static value is kept.
     bool stopwatch() const { return m_stopwatch; }
     void setStopwatch(bool on) { m_stopwatch = on; }
+
+    const TrackBehavior &behavior() const { return m_behavior; }
+    void setBehavior(const TrackBehavior &behavior) { m_behavior = behavior; }
 
     void setKeyframe(TimeUs time, const T &value)
     {
@@ -104,7 +167,7 @@ public:
     {
         if (m_values.isEmpty() || m_values.contains(time))
             return;
-        setKeyframe(time, evaluateAt(time));
+        setKeyframe(time, evaluateKeys(time));
     }
 
     // Move every key along the clip's own timeline. Key times are clip-relative, so a clip that
@@ -217,6 +280,16 @@ public:
 
     T evaluateAt(TimeUs time) const
     {
+        if constexpr (std::is_same_v<T, double>) {
+            if (m_enabled && m_behavior.isActive() && !m_values.isEmpty())
+                return evaluateWithBehavior(time);
+        }
+        return evaluateKeys(time);
+    }
+
+    // The keys alone, without the track's behaviour.
+    T evaluateKeys(TimeUs time) const
+    {
         if (m_values.isEmpty())
             return T{};
         if (!m_enabled)
@@ -261,6 +334,46 @@ public:
     void detachSharedData() { m_values.detach(); }
 
 private:
+    double evaluateWithBehavior(TimeUs time) const
+    {
+        const TimeUs first = m_values.firstKey();
+        const TimeUs last = m_values.lastKey();
+        const TimeUs span = last - first;
+        double value = 0.0;
+        if (m_behavior.loop != LoopMode::None && span > 0 && time > last) {
+            const TimeUs from = time - first;
+            const qint64 lap = from / span;
+            const TimeUs into = from % span;
+            switch (m_behavior.loop) {
+            case LoopMode::Cycle:
+                value = double(evaluateKeys(first + into));
+                break;
+            case LoopMode::PingPong:
+                value = double(evaluateKeys(lap % 2 == 0 ? first + into : last - into));
+                break;
+            case LoopMode::Offset:
+                value = double(evaluateKeys(first + into))
+                        + double(lap) * (double(m_values.last().value) - double(m_values.first().value));
+                break;
+            case LoopMode::Continue: {
+                const TimeUs step = qMin<TimeUs>(span, 10000);
+                const double slope = (double(evaluateKeys(last)) - double(evaluateKeys(last - step))) / double(step);
+                value = double(m_values.last().value) + slope * double(time - last);
+                break;
+            }
+            case LoopMode::None:
+                break;
+            }
+        } else {
+            value = double(evaluateKeys(time));
+        }
+        const double seconds = double(time) / 1e6;
+        value += m_behavior.speed * seconds;
+        if (m_behavior.hasWiggle())
+            value += m_behavior.wiggleAmount * behaviorNoise(seconds * m_behavior.wiggleFrequency, m_behavior.wiggleSeed);
+        return value;
+    }
+
     static double lerp(double a, double b, double t) { return a + (b - a) * t; }
 
     static float lerp(float a, float b, double t)
@@ -271,6 +384,7 @@ private:
     QMap<TimeUs, Keyframe<T>> m_values;
     bool m_enabled = true;
     bool m_stopwatch = false;
+    TrackBehavior m_behavior;
 };
 
 } // namespace drift

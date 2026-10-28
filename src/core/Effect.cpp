@@ -8,6 +8,36 @@
 
 namespace drift {
 
+QString loopModeToString(LoopMode mode)
+{
+    switch (mode) {
+    case LoopMode::Cycle:
+        return QStringLiteral("cycle");
+    case LoopMode::PingPong:
+        return QStringLiteral("pingpong");
+    case LoopMode::Offset:
+        return QStringLiteral("offset");
+    case LoopMode::Continue:
+        return QStringLiteral("continue");
+    case LoopMode::None:
+        break;
+    }
+    return QStringLiteral("none");
+}
+
+LoopMode loopModeFromString(const QString &mode)
+{
+    if (mode == QLatin1String("cycle"))
+        return LoopMode::Cycle;
+    if (mode == QLatin1String("pingpong"))
+        return LoopMode::PingPong;
+    if (mode == QLatin1String("offset"))
+        return LoopMode::Offset;
+    if (mode == QLatin1String("continue"))
+        return LoopMode::Continue;
+    return LoopMode::None;
+}
+
 QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
 {
     QJsonArray keyframes;
@@ -38,6 +68,21 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
         out.insert(QStringLiteral("enabled"), false);
     if (track.stopwatch())
         out.insert(QStringLiteral("stopwatch"), true);
+    // The behaviour (0.26), only when there is one.
+    if (const TrackBehavior &b = track.behavior(); b.isActive()) {
+        QJsonObject behavior;
+        if (b.loop != LoopMode::None)
+            behavior.insert(QStringLiteral("loop"), loopModeToString(b.loop));
+        if (b.speed != 0.0)
+            behavior.insert(QStringLiteral("speed"), b.speed);
+        if (b.hasWiggle()) {
+            behavior.insert(QStringLiteral("wiggleFrequency"), b.wiggleFrequency);
+            behavior.insert(QStringLiteral("wiggleAmount"), b.wiggleAmount);
+            if (b.wiggleSeed != 0)
+                behavior.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
+        }
+        out.insert(QStringLiteral("behavior"), behavior);
+    }
     return out;
 }
 
@@ -46,6 +91,16 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
     KeyframeTrack<double> track;
     track.setEnabled(object.value(QStringLiteral("enabled")).toBool(true));
     track.setStopwatch(object.value(QStringLiteral("stopwatch")).toBool(false));
+    if (object.contains(QStringLiteral("behavior"))) {
+        const QJsonObject b = object.value(QStringLiteral("behavior")).toObject();
+        TrackBehavior behavior;
+        behavior.loop = loopModeFromString(b.value(QStringLiteral("loop")).toString());
+        behavior.speed = b.value(QStringLiteral("speed")).toDouble(0.0);
+        behavior.wiggleFrequency = b.value(QStringLiteral("wiggleFrequency")).toDouble(0.0);
+        behavior.wiggleAmount = b.value(QStringLiteral("wiggleAmount")).toDouble(0.0);
+        behavior.wiggleSeed = b.value(QStringLiteral("wiggleSeed")).toInt(0);
+        track.setBehavior(behavior);
+    }
 
     // Projects written before keyframes had tangents carry one interpolation mode for the
     // whole track. Both legacy shapes are reproduced exactly by handles — Linear by

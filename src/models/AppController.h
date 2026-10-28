@@ -689,6 +689,13 @@ public:
     // The Path stopwatch: on puts a key with the current outline at the playhead, off keeps the
     // outline seen there and removes the keys.
     Q_INVOKABLE void setShapePathAnimated(int trackIndex, int clipIndex, bool on);
+    // After Effects' expressions without code (0.26): the behaviour of one animatable property
+    // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
+    // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
+    // gets one at the clip's start holding its value, so the behaviour has something to ride on.
+    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    Q_INVOKABLE void setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
+                                         const QVariantMap &behavior);
     // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
     // nullObject, motionBlur} for one clip; and the clips it can follow (every visual clip on the
     // timeline but itself and those that already follow it), [{track, clip, id, name, nullObject}].

@@ -151,6 +151,7 @@ private slots:
     void shapeStyleSerialization();
     void shapePathContoursRoundTrip();
     void shapePathMorphsBetweenKeys();
+    void trackBehaviorsLoopWiggleAndSpeed();
     void legacyShapeStyleLoadsWithDefaults();
     void shapeCatalogPathsFitBounds();
     void vectorSourceSerialization();
@@ -1915,6 +1916,71 @@ void CoreTest::shapePathMorphsBetweenKeys()
     QVERIFY(style.pathShapes.isEmpty());
     QCOMPARE(style.customPath, triangle);
     QVERIFY(!style.isAnimated());
+}
+
+// After Effects' expressions as track behaviours (0.26): loopOut's four modes, time × speed and
+// wiggle, alone and added up, saved and read back.
+void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
+{
+    drift::KeyframeTrack<double> track;
+    track.setKeyframe(0, 0.0);
+    track.setKeyframe(drift::secondsToUs(1.0), 10.0);
+    drift::TrackBehavior b;
+    b.loop = drift::LoopMode::Cycle;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.5)), 5.0);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 5.0); // inside the keys nothing changes
+    b.loop = drift::LoopMode::PingPong;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.25)), 7.5);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.25)), 2.5);
+    b.loop = drift::LoopMode::Offset;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.5)), 25.0);
+    b.loop = drift::LoopMode::Continue;
+    track.setBehavior(b);
+    QVERIFY(qAbs(track.evaluateAt(drift::secondsToUs(3.0)) - 30.0) < 1e-6);
+
+    b = drift::TrackBehavior();
+    b.speed = 90.0;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 5.0 + 45.0);
+    // The keys alone are still there to edit.
+    QCOMPARE(track.evaluateKeys(drift::secondsToUs(0.5)), 5.0);
+
+    b = drift::TrackBehavior();
+    b.wiggleFrequency = 2.0;
+    b.wiggleAmount = 20.0;
+    track.setBehavior(b);
+    double low = 1e9, high = -1e9, prev = track.evaluateAt(0) , step = 0.0;
+    for (int i = 0; i < 3000; ++i) {
+        const double v = track.evaluateAt(drift::secondsToUs(1.0) + i * 1000) - 10.0;
+        low = qMin(low, v);
+        high = qMax(high, v);
+        if (i > 0)
+            step = qMax(step, qAbs(v - prev));
+        prev = v;
+    }
+    QVERIFY2(low >= -20.0 && high <= 20.0 && high - low > 10.0, qPrintable(QStringLiteral("%1..%2").arg(low).arg(high)));
+    QVERIFY(step < 1.0); // smooth from one millisecond to the next
+    b.wiggleSeed = 3;
+    drift::KeyframeTrack<double> other = track;
+    other.setBehavior(b);
+    QVERIFY(other.evaluateAt(drift::secondsToUs(1.3)) != track.evaluateAt(drift::secondsToUs(1.3)));
+
+    // Saved only when set, and read back as it was.
+    b.loop = drift::LoopMode::PingPong;
+    b.speed = -4.0;
+    track.setBehavior(b);
+    const drift::KeyframeTrack<double> back = drift::keyframesFromJson(drift::keyframesToJson(track));
+    QVERIFY(back.behavior() == b);
+    QCOMPARE(back.evaluateAt(drift::secondsToUs(2.2)), track.evaluateAt(drift::secondsToUs(2.2)));
+    drift::KeyframeTrack<double> plain;
+    plain.setKeyframe(0, 1.0);
+    QVERIFY(!drift::keyframesToJson(plain).contains(QStringLiteral("behavior")));
+    // Switched off, the property holds its first key as always.
+    track.setEnabled(false);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.2)), 0.0);
 }
 
 void CoreTest::shapeStyleSerialization()

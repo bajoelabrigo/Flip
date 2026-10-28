@@ -1131,6 +1131,14 @@ Item {
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
                                                            && modelData.group !== "volume" && modelData.group !== "pan"
+                        // A behaviour (0.26) on the row's property: marked with ≈ after its name.
+                        readonly property bool hasBehavior: {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0])
+                            return !!b && b.active === true
+                        }
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
@@ -1518,6 +1526,7 @@ Item {
                             Text {
                                 width: parent.width
                                 text: (keyLine.modelData.axis ? "· " : "") + keyRowsNames.rowLabel(keyLine.modelData)
+                                      + (keyLine.hasBehavior ? "  ≈" : "")
                                 color: Theme.panelForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeXs
@@ -1761,6 +1770,18 @@ Item {
                                 text: qsTr("Remove all keyframes…")
                                 onTriggered: removeAllDialog.open()
                             }
+                            ThemedMenuSeparator {}
+                            ThemedMenuItem {
+                                // After Effects' expressions without code (0.26): loop, wiggle, speed.
+                                text: qsTr("Behavior…")
+                                icon.name: keyLine.hasBehavior ? Theme.icons.check : ""
+                                onTriggered: behaviorDialog.openFor(keyLines.trackIndex, keyLine.clip, keyLine.props,
+                                                                    keyRowsNames.rowLabel(keyLine.modelData))
+                            }
+                        }
+
+                        PropertyBehaviorDialog {
+                            id: behaviorDialog
                         }
 
                         ThemedDialog {

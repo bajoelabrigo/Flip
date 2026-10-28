@@ -1310,6 +1310,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
         src/qml/components/preview/PenToolOverlay.qml
+        src/qml/components/timeline/PropertyBehaviorDialog.qml
         src/qml/components/preview/PreviewDropOverlay.qml
         src/qml/components/preview/CropOverlay.qml
         src/qml/components/preview/GuideLayer.qml
