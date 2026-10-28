@@ -21,7 +21,8 @@ Item {
     readonly property bool anchorReady: tool === "anchor" && !!box && !!box.quad && box.quad.length === 4
                                         && box.kind !== "transform"
 
-    visible: tool === "shape" || tool === "text" || anchorReady
+    readonly property bool sketchReady: tool === "sketch" && !!box && box.kind !== "transform"
+    visible: tool === "shape" || tool === "text" || anchorReady || sketchReady
     enabled: visible && !EditorState.playing
 
     // Fractions of the box (0..1) ↔ overlay px, through the box's on-screen corners.
@@ -70,6 +71,41 @@ Item {
         border.color: Theme.primary
     }
 
+    // ----- Motion sketch: the pointer's path while the playhead runs in real time ---------------
+    property var sketch: []
+    property real sketchStart: 0
+    property real sketchClock: 0
+    property point sketchPointer: Qt.point(0, 0)
+    Timer {
+        id: sketchTimer
+        interval: 16
+        repeat: true
+        onTriggered: {
+            const t = root.sketchStart + (Date.now() - root.sketchClock) / 1000
+            EditorState.playheadSeconds = t
+            root.sketch = root.sketch.concat([{ t: t, x: root.sketchPointer.x / root.sx, y: root.sketchPointer.y / root.sy }])
+        }
+    }
+    Canvas {
+        id: sketchTrail
+        anchors.fill: parent
+        visible: root.sketchReady && root.sketch.length > 1
+        property var pts: root.sketch
+        onPtsChanged: requestPaint()
+        onPaint: {
+            const c = getContext("2d")
+            c.reset()
+            if (pts.length < 2) return
+            c.strokeStyle = Theme.primary
+            c.lineWidth = 2
+            c.beginPath()
+            c.moveTo(pts[0].x * root.sx, pts[0].y * root.sy)
+            for (let i = 1; i < pts.length; ++i)
+                c.lineTo(pts[i].x * root.sx, pts[i].y * root.sy)
+            c.stroke()
+        }
+    }
+
     // ----- Anchor point -----------------------------------------------------------------------
     property point anchorLive: Qt.point(-1, -1)
     readonly property point anchorAt: {
@@ -96,7 +132,7 @@ Item {
         // The preview drags the selected clip from further up; these drags are ours.
         preventStealing: true
         hoverEnabled: true
-        cursorShape: root.tool === "text" ? Qt.IBeamCursor : root.tool === "anchor" ? Qt.SizeAllCursor : Qt.CrossCursor
+        cursorShape: root.tool === "text" ? Qt.IBeamCursor : root.tool === "anchor" || root.tool === "sketch" ? Qt.SizeAllCursor : Qt.CrossCursor
 
         onPressed: mouse => {
             if (root.tool === "shape") {
@@ -105,6 +141,12 @@ Item {
                 root.dragging = true
             } else if (root.tool === "anchor") {
                 root.anchorLive = Qt.point(mouse.x, mouse.y)
+            } else if (root.sketchReady) {
+                root.sketchPointer = Qt.point(mouse.x, mouse.y)
+                root.sketchStart = EditorState.playheadSeconds
+                root.sketchClock = Date.now()
+                root.sketch = [{ t: root.sketchStart, x: mouse.x / root.sx, y: mouse.y / root.sy }]
+                sketchTimer.start()
             }
         }
         onPositionChanged: mouse => {
@@ -115,6 +157,8 @@ Item {
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
             else if (root.tool === "anchor")
                 root.anchorLive = Qt.point(mouse.x, mouse.y)
+            else if (root.tool === "sketch")
+                root.sketchPointer = Qt.point(mouse.x, mouse.y)
         }
         onReleased: mouse => {
             if (root.tool === "shape" && root.dragging) {
@@ -125,6 +169,11 @@ Item {
                 EditorState.addDrawnShape(EditorState.preview.shapeToolKind, r.x / root.sx, r.y / root.sy,
                                           r.width / root.sx, r.height / root.sy, EditorState.preview.toolFill,
                                           EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth)
+            } else if (root.tool === "sketch" && sketchTimer.running) {
+                sketchTimer.stop()
+                if (root.sketch.length > 1)
+                    EditorState.applyMotionSketch(root.box.track, root.box.clip, root.sketch, 2.0)
+                root.sketch = []
             } else if (root.tool === "anchor" && root.anchorReady) {
                 const f = root.overlayToBox(mouse.x, mouse.y)
                 root.anchorLive = Qt.point(-1, -1)

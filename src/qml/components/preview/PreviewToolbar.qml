@@ -114,6 +114,8 @@ Rectangle {
         }
         ToolButton { toolId: "pen"; shortcutId: "previewPenTool"; label: qsTr("Pen: click for corners, drag for curves"); glyph: Theme.icons.pencil }
         ToolButton { toolId: "text"; shortcutId: "previewTextTool"; label: qsTr("Text: click on the preview and type"); glyph: Theme.icons.type }
+        // After Effects' Motion Sketch (0.26).
+        ToolButton { toolId: "sketch"; label: qsTr("Motion sketch: drag the selected layer and the path becomes its Position keys, in real time"); glyph: "spline" }
 
         Rectangle { Layout.preferredWidth: 1; Layout.preferredHeight: 18; color: Theme.border }
 

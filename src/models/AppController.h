@@ -735,7 +735,11 @@ public:
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
     Q_INVOKABLE void addNullForSelection();
     Q_INVOKABLE void convertSelectionToShape();
-    Q_INVOKABLE void centerSelectionInFrame();    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    Q_INVOKABLE void centerSelectionInFrame();
+    // After Effects' Motion Sketch (0.26): the pointer's path recorded on the preview
+    // ([{t: timeline seconds, x, y: canvas px of the clip's centre}]) becomes its Position keys
+    // over that time, simplified to the keys that matter (tolerance in px). One undo step.
+    Q_INVOKABLE void applyMotionSketch(int trackIndex, int clipIndex, const QVariantList &samples, double tolerance);    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
     // What is wrong with a property expression (0.26), empty when it runs.
     Q_INVOKABLE QString checkExpression(const QString &expression) const;
     // After Effects' Keyframe Velocity (0.26) for the key of `prop` at `seconds` (timeline):

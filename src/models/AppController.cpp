@@ -11347,6 +11347,103 @@ void AppController::convertSelectionToShape()
     finishEdit(tr("Converted to shape"));
 }
 
+namespace {
+
+// Ramer–Douglas–Peucker over (t, x, y) samples, keeping the first and last.
+void simplifySketch(const QList<QPointF> &pts, int a, int b, double tol, QList<bool> &keep)
+{
+    if (b <= a + 1)
+        return;
+    double worst = -1.0;
+    int at = -1;
+    const QPointF A = pts.at(a), B = pts.at(b);
+    for (int i = a + 1; i < b; ++i) {
+        // Distance from the straight move between a and b at the same moment.
+        const double f = double(i - a) / double(b - a);
+        const QPointF expected = A + (B - A) * f;
+        const double d = QLineF(expected, pts.at(i)).length();
+        if (d > worst) {
+            worst = d;
+            at = i;
+        }
+    }
+    if (worst > tol && at > 0) {
+        keep[at] = true;
+        simplifySketch(pts, a, at, tol, keep);
+        simplifySketch(pts, at, b, tol, keep);
+    }
+}
+
+} // namespace
+
+void AppController::applyMotionSketch(int trackIndex, int clipIndex, const QVariantList &samples, double tolerance)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || samples.size() < 2)
+        return;
+    QList<double> times;
+    QList<QPointF> pts;
+    for (const QVariant &v : samples) {
+        const QVariantMap m = v.toMap();
+        times.append(m.value(QStringLiteral("t")).toDouble());
+        pts.append(QPointF(m.value(QStringLiteral("x")).toDouble(), m.value(QStringLiteral("y")).toDouble()));
+    }
+    QList<bool> keep(pts.size(), false);
+    keep.first() = true;
+    keep.last() = true;
+    simplifySketch(pts, 0, pts.size() - 1, qMax(0.5, tolerance), keep);
+
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+    const drift::TimeUs from = drift::secondsToUs(times.first()) - clip.timelineStart;
+    const drift::TimeUs to = drift::secondsToUs(times.last()) - clip.timelineStart;
+    // The recorded stretch replaces whatever Position did there.
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        const QList<drift::TimeUs> keys = track->keyframes().keys();
+        for (const drift::TimeUs k : keys) {
+            if (k >= from && k <= to)
+                track->removeKeyframe(k);
+        }
+    }
+    for (int i = 0; i < pts.size(); ++i) {
+        if (!keep.at(i))
+            continue;
+        const drift::TimeUs at = qBound<drift::TimeUs>(0, drift::secondsToUs(times.at(i)) - clip.timelineStart,
+                                                      clip.timelineDuration);
+        clip.transformX.setKeyframe(at, pts.at(i).x() - w / 2.0);
+        clip.transformY.setKeyframe(at, pts.at(i).y() - h / 2.0);
+    }
+    // Continuous Bézier keys through the kept points (Catmull-Rom), as AE's sketch gives: the
+    // clip keeps moving through each key instead of stopping on it.
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        const QMap<drift::TimeUs, drift::Keyframe<double>> keys = track->keyframes();
+        for (auto it = keys.constBegin(); it != keys.constEnd(); ++it) {
+            if (it.key() < from || it.key() > to)
+                continue;
+            const auto prev = it == keys.constBegin() ? it : std::prev(it);
+            const auto next = std::next(it) == keys.constEnd() ? it : std::next(it);
+            if (prev == next)
+                continue;
+            const double slope = (next->value - prev->value) / double(qMax<drift::TimeUs>(1, next.key() - prev.key()));
+            drift::Keyframe<double> key = it.value();
+            if (prev != it) {
+                key.inDx = -double(it.key() - prev.key()) / 3.0;
+                key.inDy = slope * key.inDx;
+            }
+            if (next != it) {
+                key.outDx = double(next.key() - it.key()) / 3.0;
+                key.outDy = slope * key.outDx;
+            }
+            track->setKeyframe(it.key(), key);
+        }
+    }
+    clip.transformX.setStopwatch(true);
+    clip.transformY.setStopwatch(true);
+    pushProjectEdit(before, tr("Motion sketch"));
+    finishEdit(tr("Motion sketch"));
+}
+
 void AppController::centerSelectionInFrame()
 {
     QList<QPair<int, int>> targets = m_selection;
