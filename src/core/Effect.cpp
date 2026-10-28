@@ -81,6 +81,13 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
             if (b.wiggleSeed != 0)
                 behavior.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
         }
+        if (b.settle != TrackBehavior::Settle::None) {
+            behavior.insert(QStringLiteral("settle"), b.settle == TrackBehavior::Settle::Elastic ? QStringLiteral("elastic")
+                                                                                                : QStringLiteral("bounce"));
+            behavior.insert(QStringLiteral("settleAmplitude"), b.settleAmplitude);
+            behavior.insert(QStringLiteral("settleFrequency"), b.settleFrequency);
+            behavior.insert(QStringLiteral("settleDecay"), b.settleDecay);
+        }
         out.insert(QStringLiteral("behavior"), behavior);
     }
     return out;
@@ -99,6 +106,13 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
         behavior.wiggleFrequency = b.value(QStringLiteral("wiggleFrequency")).toDouble(0.0);
         behavior.wiggleAmount = b.value(QStringLiteral("wiggleAmount")).toDouble(0.0);
         behavior.wiggleSeed = b.value(QStringLiteral("wiggleSeed")).toInt(0);
+        const QString settle = b.value(QStringLiteral("settle")).toString();
+        behavior.settle = settle == QLatin1String("elastic")  ? TrackBehavior::Settle::Elastic
+                          : settle == QLatin1String("bounce") ? TrackBehavior::Settle::Bounce
+                                                              : TrackBehavior::Settle::None;
+        behavior.settleAmplitude = b.value(QStringLiteral("settleAmplitude")).toDouble(0.05);
+        behavior.settleFrequency = b.value(QStringLiteral("settleFrequency")).toDouble(3.0);
+        behavior.settleDecay = b.value(QStringLiteral("settleDecay")).toDouble(5.0);
         track.setBehavior(behavior);
     }
 

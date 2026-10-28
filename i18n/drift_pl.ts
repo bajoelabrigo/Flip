@@ -2925,6 +2925,26 @@
         <translation>Przełącz przewodniki</translation>
     </message>
     <message>
+        <source>Show only Anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add/remove bookmark at current time</source>
         <translation>Dodaj/usuń zakładkę w bieżącym czasie</translation>
     </message>
@@ -3486,6 +3506,46 @@
     </message>
     <message>
         <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes reversed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes stretched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick some keyframes first (or select an animated layer)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select two or more layers to sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layers sequenced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text or a shape to convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Converted to shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centred in the frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15320,6 +15380,14 @@ ZOBACZENIA</translation>
         <translation>Przenieś klatki kluczowe</translation>
     </message>
     <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Straight</source>
         <translation>Prosto</translation>
     </message>
@@ -15346,6 +15414,14 @@ ZOBACZENIA</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Edytuj krzywą…</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch keyframes…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keyframe velocity…</source>
@@ -17496,6 +17572,145 @@ ZOBACZENIA</translation>
     </message>
 </context>
 <context>
+    <name>MotionToolsPanel</name>
+    <message numerus="yes">
+        <source>%n keyframe(s) picked on the timeline.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick keyframes on the timeline (drag a box over them) to ease, clone or settle them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in: how far the curve slows down arriving at the key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out: how far it starts slowly leaving the key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease with these influences on the picked keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight, constant speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump to the next key instead of moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoots and settles where the movement stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounces back off the last position, like a ball</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies the picked keys to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staggers the selected layers in time, top to bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence from the bottom up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset in frames between layers; Step = how many layers start together.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extract</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes the layers out of the selected composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in one composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add null</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A null in the middle of the selected layers, which follow it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text&apos;s letters or a shape become an editable path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in the middle of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MotionTrackController</name>
     <message>
         <source>This clip cannot follow anything</source>
@@ -19184,6 +19399,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Blending</source>
         <translation>Mieszanie</translation>
+    </message>
+    <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Masks</source>
@@ -27631,10 +27850,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Anchor point: corners and centre</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27644,10 +27859,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Next keyframe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>More…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

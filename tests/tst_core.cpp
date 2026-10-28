@@ -1982,6 +1982,22 @@ void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
     // Switched off, the property holds its first key as always.
     track.setEnabled(false);
     QCOMPARE(track.evaluateAt(drift::secondsToUs(2.2)), 0.0);
+
+    // Motion Tools' Elastic overshoots past the last key and settles; Bounce comes back off it.
+    drift::KeyframeTrack<double> move;
+    move.setKeyframe(0, 0.0);
+    move.setKeyframe(drift::secondsToUs(0.5), 500.0);
+    drift::TrackBehavior settle;
+    settle.settle = drift::TrackBehavior::Settle::Elastic;
+    move.setBehavior(settle);
+    QVERIFY(move.evaluateAt(drift::secondsToUs(0.55)) > 510.0);
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(1.5)) - 500.0) < 1.0);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(0.25)), 250.0); // the keys themselves untouched
+    settle.settle = drift::TrackBehavior::Settle::Bounce;
+    move.setBehavior(settle);
+    for (int ms = 510; ms < 2000; ms += 10)
+        QVERIFY(move.evaluateAt(ms * 1000) <= 500.0 + 1e-9);
+    QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
 }
 
 // After Effects' Time Remap and Auto-Orient (0.26).

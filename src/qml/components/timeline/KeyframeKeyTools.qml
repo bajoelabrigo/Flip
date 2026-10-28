@@ -25,6 +25,13 @@ Item {
     // The prop of the key the menu was opened on (0.26: Keyframe velocity).
     property string menuProp: ""
 
+    // The pick, for the Motion Tools panel (0.26), which works on these keys.
+    function publishPick() {
+        EditorState.pickedKeyframes = ({ track: root.track, keys: root.keys })
+    }
+    onKeysChanged: publishPick()
+    onTrackChanged: publishPick()
+
     // The key the menu was opened on: how it arrives and leaves, and whether it holds.
     property var menuHalves: ({ "in": "linear", "out": "linear" })
     property bool menuHold: false
@@ -396,6 +403,37 @@ Item {
         id: velocityDialog
     }
 
+    // Time Stretch of the picked keys by percent, from the first one (0.26).
+    ThemedDialog {
+        id: stretchDialog
+        title: qsTr("Stretch keyframes")
+        acceptText: qsTr("Apply")
+        preferredWidth: Theme.dialogWidthSm
+        onAccepted: {
+            stretchField.parseAndCommit()
+            EditorState.stretchKeyframes(root.track, root.keys, stretchField.value)
+        }
+        contentItem: Column {
+            width: stretchDialog.preferredWidth
+            spacing: Theme.spacingMd
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                size: "sm"
+                opacity: 0.85
+                text: qsTr("50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.")
+            }
+            ThemedNumberField {
+                id: stretchField
+                width: parent.width
+                from: 1
+                to: 1000
+                value: 100
+                unit: "%"
+            }
+        }
+    }
+
     KeyframeCurvesPopup {
         id: curvesPopup
         onCurvePicked: (x1, y1, x2, y2, hold) => {
@@ -462,6 +500,20 @@ Item {
                 EditorState.playheadSeconds = root.menuSeconds
                 EditorState.preferences.curveEditorVisible = true
             }
+        }
+        ThemedMenuItem {
+            // After Effects' Time-Reverse Keyframes (0.26).
+            text: qsTr("Reverse keyframes")
+            visible: root.keys.length > 1
+            height: visible ? implicitHeight : 0
+            onTriggered: EditorState.reverseKeyframes(root.track, root.keys)
+        }
+        ThemedMenuItem {
+            // Also Alt + dragging the first or last picked key, as in After Effects.
+            text: qsTr("Stretch keyframes…")
+            visible: root.keys.length > 1
+            height: visible ? implicitHeight : 0
+            onTriggered: stretchDialog.open()
         }
         ThemedMenuItem {
             // After Effects' Keyframe Velocity (Ctrl+Shift+K there), for the key the menu is on.

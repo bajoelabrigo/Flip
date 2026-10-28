@@ -2922,6 +2922,26 @@
         <translation>Alternar guías</translation>
     </message>
     <message>
+        <source>Show only Anchor point</source>
+        <translation>Mostrar solo Punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Show only Position</source>
+        <translation>Mostrar solo Posición</translation>
+    </message>
+    <message>
+        <source>Show only Rotation</source>
+        <translation>Mostrar solo Rotación</translation>
+    </message>
+    <message>
+        <source>Show only Opacity</source>
+        <translation>Mostrar solo Opacidad</translation>
+    </message>
+    <message>
+        <source>Show only Scale</source>
+        <translation>Mostrar solo Escala</translation>
+    </message>
+    <message>
         <source>Add/remove bookmark at current time</source>
         <translation>Añadir/eliminar marcador en la posición actual</translation>
     </message>
@@ -3481,6 +3501,46 @@
     <message>
         <source>Path edited</source>
         <translation>Trazado editado</translation>
+    </message>
+    <message>
+        <source>Keyframes reversed</source>
+        <translation>Fotogramas clave invertidos</translation>
+    </message>
+    <message>
+        <source>Keyframes stretched</source>
+        <translation>Fotogramas clave estirados</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Pick some keyframes first (or select an animated layer)</source>
+        <translation>Primero elige algunos fotogramas clave (o una capa animada)</translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation>Elástico</translation>
+    </message>
+    <message>
+        <source>Select two or more layers to sequence</source>
+        <translation>Elige dos capas o más para ponerlas en secuencia</translation>
+    </message>
+    <message>
+        <source>Layers sequenced</source>
+        <translation>Capas en secuencia</translation>
+    </message>
+    <message>
+        <source>Select a text or a shape to convert</source>
+        <translation>Elige un texto o una forma para convertir</translation>
+    </message>
+    <message>
+        <source>Converted to shape</source>
+        <translation>Convertido en forma</translation>
+    </message>
+    <message>
+        <source>Centred in the frame</source>
+        <translation>Centrado en el cuadro</translation>
     </message>
     <message>
         <source>Keyframe velocity</source>
@@ -15267,6 +15327,14 @@ LA PRÓXIMA</translation>
         <translation>Mover fotogramas clave</translation>
     </message>
     <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
+        <translation>50 % junta las claves elegidas en la mitad del tiempo, 200 % las reparte en el doble. La primera se queda donde está. Alt + arrastrar la primera o la última hace lo mismo a mano.</translation>
+    </message>
+    <message>
         <source>Straight</source>
         <translation>Recto</translation>
     </message>
@@ -15293,6 +15361,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Invertir fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Stretch keyframes…</source>
+        <translation>Estirar fotogramas clave…</translation>
     </message>
     <message>
         <source>Keyframe velocity…</source>
@@ -17429,6 +17505,144 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionToolsPanel</name>
+    <message numerus="yes">
+        <source>%n keyframe(s) picked on the timeline.</source>
+        <translation>
+            <numerusform>%n fotograma clave elegido en la línea de tiempo.</numerusform>
+            <numerusform>%n fotogramas clave elegidos en la línea de tiempo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick keyframes on the timeline (drag a box over them) to ease, clone or settle them.</source>
+        <translation>Elige fotogramas clave en la línea de tiempo (arrastra un recuadro sobre ellos) para suavizarlos, clonarlos o darles rebote.</translation>
+    </message>
+    <message>
+        <source>Ease in: how far the curve slows down arriving at the key</source>
+        <translation>Suavizar entrada: cuánto frena la curva al llegar a la clave</translation>
+    </message>
+    <message>
+        <source>Ease out: how far it starts slowly leaving the key</source>
+        <translation>Suavizar salida: cuánto arranca despacio al dejar la clave</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Suavizar</translation>
+    </message>
+    <message>
+        <source>Easy ease with these influences on the picked keys</source>
+        <translation>Suavizado con estas influencias en las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Straight, constant speed</source>
+        <translation>Recta, a velocidad constante</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Jump to the next key instead of moving</source>
+        <translation>Salta a la clave siguiente en vez de moverse</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Punto de anclaje aquí (la capa no se mueve)</translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation>Elástico</translation>
+    </message>
+    <message>
+        <source>Overshoots and settles where the movement stops</source>
+        <translation>Se pasa y se asienta donde termina el movimiento</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebote</translation>
+    </message>
+    <message>
+        <source>Bounces back off the last position, like a ball</source>
+        <translation>Rebota desde la última posición, como una pelota</translation>
+    </message>
+    <message>
+        <source>Clone</source>
+        <translation>Clonar</translation>
+    </message>
+    <message>
+        <source>Copies the picked keys to the playhead</source>
+        <translation>Copia las claves elegidas en el cabezal</translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation>Secuencia</translation>
+    </message>
+    <message>
+        <source>Staggers the selected layers in time, top to bottom</source>
+        <translation>Escalona en el tiempo las capas elegidas, de arriba abajo</translation>
+    </message>
+    <message>
+        <source>Sequence from the bottom up</source>
+        <translation>Secuencia de abajo arriba</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desfase</translation>
+    </message>
+    <message>
+        <source>Step</source>
+        <translation>Paso</translation>
+    </message>
+    <message>
+        <source>Offset in frames between layers; Step = how many layers start together.</source>
+        <translation>Desfase en fotogramas entre capas; Paso = cuántas capas empiezan juntas.</translation>
+    </message>
+    <message>
+        <source>Extract</source>
+        <translation>Extraer</translation>
+    </message>
+    <message>
+        <source>Takes the layers out of the selected composition</source>
+        <translation>Saca las capas de la composición elegida</translation>
+    </message>
+    <message>
+        <source>Merge</source>
+        <translation>Unir</translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in one composition</source>
+        <translation>Pone las capas elegidas en una composición</translation>
+    </message>
+    <message>
+        <source>Add null</source>
+        <translation>Añadir nulo</translation>
+    </message>
+    <message>
+        <source>A null in the middle of the selected layers, which follow it</source>
+        <translation>Un nulo en el centro de las capas elegidas, que pasan a seguirlo</translation>
+    </message>
+    <message>
+        <source>Convert to shape</source>
+        <translation>Convertir en forma</translation>
+    </message>
+    <message>
+        <source>A text&apos;s letters or a shape become an editable path</source>
+        <translation>Las letras de un texto o una forma pasan a ser un trazado editable</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centrar</translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in the middle of the frame</source>
+        <translation>Pone las capas elegidas en el centro del cuadro</translation>
+    </message>
+</context>
+<context>
     <name>MotionTrackController</name>
     <message>
         <source>This clip cannot follow anything</source>
@@ -19111,6 +19325,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Blending</source>
         <translation>Fusión</translation>
+    </message>
+    <message>
+        <source>Motion Tools</source>
+        <translation>Motion Tools</translation>
     </message>
     <message>
         <source>Masks</source>
@@ -27544,10 +27762,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir un fotograma clave en el cabezal</translation>
     </message>
     <message>
-        <source>Anchor point: corners and centre</source>
-        <translation>Punto de anclaje: esquinas y centro</translation>
-    </message>
-    <message>
         <source>More</source>
         <translation>Más</translation>
     </message>
@@ -27558,10 +27772,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Next keyframe</source>
         <translation>Fotograma clave siguiente</translation>
-    </message>
-    <message>
-        <source>More…</source>
-        <translation>Más…</translation>
     </message>
     <message>
         <source>Remove all keyframes…</source>

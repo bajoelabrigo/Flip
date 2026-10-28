@@ -88,6 +88,21 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
       zonas seguras al iniciar y los colores de la barra (se recuerdan). Color y modo del tema también aquí; los atajos
       se editan dentro de la página (`ShortcutsTab`). «Restablecer los valores de edición».
 
+## Etapa F — Motion Tools y atajos de AE (Jorge, 2026-10-28, tarde)
+- [x] F1. **Invertir fotogramas clave** (Time-Reverse de AE) y **Estirar…** por porcentaje, en el menú de la clave
+      (`reverseKeyframes`, `stretchKeyframes`). Estirar a mano ya existía desde la 0.25: Alt + arrastrar la primera o
+      la última clave elegida, como en AE.
+- [x] F2. **Mayús+A / P / R / T / S**: abren solo Punto de anclaje / Posición / Rotación / Opacidad / Escala en las
+      pistas elegidas (otra vez: cierran). `showOnlyKeyframeGroup`, filtro `m_keyframeRowsOnlyGroup` en
+      `trackKeyframeRows`. Seleccionar a la izquierda pasó a Alt+A y la orientación del gizmo a Alt+T.
+- [x] F3. **Panel Motion Tools** (pestaña de la barra derecha del inspector, `properties/MotionToolsPanel.qml`):
+      suavizar entrada/salida con influencia, Lineal, Mantener (sobre las claves elegidas, que la línea de tiempo
+      publica en `EditorState.pickedKeyframes`); cuadrícula 3×3 del anclaje (la del «…» de la fila se quitó, Jorge);
+      Elástico y Rebote (`TrackBehavior::settle`, en `Keyframe.h`); Clonar (las claves al cabezal); Secuencia con
+      desfase y paso, de arriba abajo o al revés; Extraer (desagrupar), Unir (agrupar), Añadir nulo (en el centro de
+      la selección, que pasa a seguirlo); Convertir en forma (letras de un texto o una forma en trazado editable);
+      Centrar (en vez de «Remove artboard», que es de Illustrator).
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

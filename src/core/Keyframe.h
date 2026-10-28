@@ -85,13 +85,24 @@ struct TrackBehavior
     double wiggleFrequency = 0.0;
     double wiggleAmount = 0.0;
     int wiggleSeed = 0;
+    // Motion Tools' Elastic and Bounce (0.26): where the keys come to rest (after the last one, or
+    // between two equal ones) the value overshoots and settles (Elastic) or bounces back off the
+    // key (Bounce), from the speed it arrived with. Amplitude in seconds of that speed, frequency
+    // in swings a second, decay per second.
+    enum class Settle { None, Elastic, Bounce };
+    Settle settle = Settle::None;
+    double settleAmplitude = 0.05;
+    double settleFrequency = 3.0;
+    double settleDecay = 5.0;
 
     bool hasWiggle() const { return wiggleFrequency > 0.0 && wiggleAmount != 0.0; }
-    bool isActive() const { return loop != LoopMode::None || speed != 0.0 || hasWiggle(); }
+    bool isActive() const { return loop != LoopMode::None || speed != 0.0 || hasWiggle() || settle != Settle::None; }
     bool operator==(const TrackBehavior &o) const
     {
         return loop == o.loop && speed == o.speed && wiggleFrequency == o.wiggleFrequency
-               && wiggleAmount == o.wiggleAmount && wiggleSeed == o.wiggleSeed;
+               && wiggleAmount == o.wiggleAmount && wiggleSeed == o.wiggleSeed && settle == o.settle
+               && settleAmplitude == o.settleAmplitude && settleFrequency == o.settleFrequency
+               && settleDecay == o.settleDecay;
     }
 };
 
@@ -334,6 +345,30 @@ public:
     void detachSharedData() { m_values.detach(); }
 
 private:
+    // Elastic / Bounce: the swing after the key the curve last came to rest on.
+    double settleOffset(TimeUs time) const
+    {
+        auto next = m_values.upperBound(time);
+        if (next == m_values.begin())
+            return 0.0;
+        auto rest = std::prev(next);
+        if (rest == m_values.begin())
+            return 0.0;
+        // Only where the value then holds still: after the last key, or before an equal one.
+        if (next != m_values.end() && !qFuzzyCompare(double(next->value) + 1.0, double(rest->value) + 1.0))
+            return 0.0;
+        const TimeUs at = rest.key();
+        const TimeUs step = qMin<TimeUs>(10000, qMax<TimeUs>(1, at - std::prev(rest).key()));
+        const double velocity = (double(evaluateKeys(at)) - double(evaluateKeys(at - step))) / (double(step) / 1e6);
+        if (qAbs(velocity) < 1e-9)
+            return 0.0;
+        const double t = double(time - at) / 1e6;
+        const double wave = std::sin(m_behavior.settleFrequency * t * 6.2831853) / std::exp(m_behavior.settleDecay * t);
+        const double swing = velocity * m_behavior.settleAmplitude * wave;
+        // Bounce comes back off the key instead of passing through it.
+        return m_behavior.settle == TrackBehavior::Settle::Bounce ? -qAbs(swing) * (velocity > 0 ? 1.0 : -1.0) : swing;
+    }
+
     double evaluateWithBehavior(TimeUs time) const
     {
         const TimeUs first = m_values.firstKey();
@@ -367,6 +402,8 @@ private:
         } else {
             value = double(evaluateKeys(time));
         }
+        if (m_behavior.settle != TrackBehavior::Settle::None && m_values.size() >= 2)
+            value += settleOffset(time);
         const double seconds = double(time) / 1e6;
         value += m_behavior.speed * seconds;
         if (m_behavior.hasWiggle())

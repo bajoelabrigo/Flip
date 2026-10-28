@@ -700,7 +700,38 @@ public:
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
     // gets one at the clip's start holding its value, so the behaviour has something to ride on.
-    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    // Keys picked on the timeline ({track, keys: [{clip, prop, seconds}]}), published by the timeline
+    // so the Motion Tools panel (0.26) works on them.
+    Q_PROPERTY(QVariantMap pickedKeyframes READ pickedKeyframes WRITE setPickedKeyframes NOTIFY pickedKeyframesChanged)
+    QVariantMap pickedKeyframes() const { return m_pickedKeyframes; }
+    void setPickedKeyframes(const QVariantMap &picked)
+    {
+        if (picked == m_pickedKeyframes)
+            return;
+        m_pickedKeyframes = picked;
+        emit pickedKeyframesChanged();
+    }
+    // After Effects' Time-Reverse Keyframes (0.26): the picked keys play backwards over the same
+    // span. And Time Stretch by percent (100 = as is), from the first picked key. One undo step.
+    Q_INVOKABLE void reverseKeyframes(int trackIndex, const QVariantList &keys);
+    Q_INVOKABLE void stretchKeyframes(int trackIndex, const QVariantList &keys, double percent);
+    // After Effects' A / P / R / T / S (0.26, Shift+A/P/R/T/S here): on the selected clips' tracks
+    // (or every track with keys when nothing is selected) only that property's line opens; the
+    // same again closes them. group = "anchor" | "position" | "rotation" | "opacity" | "scale".
+    Q_INVOKABLE void showOnlyKeyframeGroup(const QString &group);
+    // Motion Tools (0.26). Easy Ease with these influences on the picked keys (speed 0 both sides,
+    // or "linear" / "hold"); Elastic / Bounce on the picked keys' properties (or the selected
+    // clip's animated transform); Clone pastes the picked keys at the playhead; Sequence staggers
+    // the selected clips by offset frames every `step` clips (reverse = from the last); a null
+    // that the selected clips follow; and Convert to shape (a text's outlines or a built-in
+    // shape as an editable path).
+    Q_INVOKABLE void easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence);
+    Q_INVOKABLE void applySettleToPicked(const QString &kind);
+    Q_INVOKABLE bool clonePickedKeyframes();
+    Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
+    Q_INVOKABLE void addNullForSelection();
+    Q_INVOKABLE void convertSelectionToShape();
+    Q_INVOKABLE void centerSelectionInFrame();    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
     // After Effects' Keyframe Velocity (0.26) for the key of `prop` at `seconds` (timeline):
     // {valid, hasIn, hasOut, inSpeed, inInfluence, outSpeed, outInfluence} with speeds in the
     // property's units per second and influence in percent of the gap to the neighbouring key; and
@@ -2036,6 +2067,7 @@ public:
                                          int rotationCorrection = 0) const;
 
 signals:
+    void pickedKeyframesChanged();
     void userTextAnimationPresetsChanged();
 
     // A text clip was added with no text; the preview should open its inline
@@ -2653,7 +2685,8 @@ protected:
                                                         const QSet<QString> &movedIds);
     void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
-    QList<QPair<int, int>> m_selection;
+    QList<QPair<int, int>> m_selection;    QVariantMap m_pickedKeyframes;
+    QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;
     int m_timelineTrimCursorHeight = 0;

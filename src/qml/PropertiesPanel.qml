@@ -147,6 +147,8 @@ PanelFrame {
         { id: "audio", label: qsTr("Audio"), icon: Theme.icons.volumeHigh, group: 1, needs: ["audible"], keyframes: true },
         { id: "speed", label: qsTr("Speed"), icon: Theme.icons.gauge, group: 1, needs: ["retimable"] },
         { id: "blending", label: qsTr("Blending"), icon: Theme.icons.blend, group: 2, needs: ["blendable"] },
+        // Motion Tools (0.26, Jorge): eases, anchor grid, Elastic / Bounce / Clone, Sequence…
+        { id: "motionTools", label: qsTr("Motion Tools"), icon: "activity", group: 2, needs: [] },
         // Masks and effect stacks live on the adjustments pinned to a clip, and those adjustments
         // are what you select to edit them. A clip can carry several mask adjustments, and
         // reporting one clip-shaped stack for it could only ever show the first.
@@ -753,6 +755,12 @@ PanelFrame {
                     active: root.currentTabId === "transition"
                     visible: active
                     sourceComponent: Component { TransitionInspector { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "motionTools"
+                    visible: active
+                    sourceComponent: Component { MotionToolsPanel { width: tabColumn.width } }
                 }
 
                 Loader {
