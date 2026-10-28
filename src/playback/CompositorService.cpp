@@ -251,6 +251,7 @@ bool CompositorService::isRedundantRequest(drift::TimeUs time,
            && options.readAheadUs == last.readAheadUs
            && options.textEdit == last.textEdit
            && options.allowProxies == last.allowProxies
+           && options.transparentBackground == last.transparentBackground
            && options.editor.active == last.editor.active
            && options.editor.serial == last.editor.serial
            && options.editor.target == last.editor.target

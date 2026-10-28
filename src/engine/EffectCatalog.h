@@ -23,6 +23,11 @@ struct EffectPresetEntry
     bool needsDepth = false;               // "requires": "depth" — engine binds the depth map
     bool needsMask = false;                // "requires": "mask" — engine binds the clip's masks
     bool needsPose = false;                // "requires": "pose" — engine injects u_body* uniforms
+    // Layer styles (0.26): room the effect draws outside the layer's box, in layer px — the sum of
+    // these parameters' values plus `paddingExtra` ("padding": {"params": [...], "extra": n}).
+    // The layer's texture is grown by it before the chain runs, so a shadow or a glow is not cut.
+    QStringList paddingParams;
+    double paddingExtra = 0.0;
     drift::GpuEffectDefinition gpu;        // valid when isGpu && gpu.valid; packageDir also set for model3d
     int catalogOrder = 0;                  // lower sorts first in the browser catalog
     QString thumbnailPath;                 // absolute path to package thumbnail (optional)

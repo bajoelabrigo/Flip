@@ -1,0 +1,74 @@
+{
+  "id": "ae_shatter",
+  "displayName": "Shatter",
+  "category": "generate",
+  "backend": "gpu",
+  "order": 925,
+  "parameters": [
+    {
+      "identifier": "progress",
+      "displayName": "Explosion",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "pieces",
+      "displayName": "Pieces across",
+      "type": "float",
+      "minValue": 3,
+      "maxValue": 24,
+      "defaultValue": 10
+    },
+    {
+      "identifier": "force",
+      "displayName": "Force",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 3,
+      "defaultValue": 1
+    },
+    {
+      "identifier": "gravity",
+      "displayName": "Gravity",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 3,
+      "defaultValue": 1
+    },
+    {
+      "identifier": "originX",
+      "displayName": "Origin X (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "originY",
+      "displayName": "Origin Y (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

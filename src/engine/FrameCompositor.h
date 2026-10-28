@@ -40,6 +40,8 @@ public:
         // the keyframe at or before the time) instead of decoding forward to the exact one. The
         // caller asks again without it once the gesture settles.
         bool approximateSeek = false;
+        // The preview's transparency grid (0.26): the project background left out.
+        bool transparentBackground = false;
         // The preview's 3D mode: the scene seen from the editor's free viewpoint, with the camera
         // and the stage drawn as guides. Only the preview sets it; export never does.
         struct EditorView

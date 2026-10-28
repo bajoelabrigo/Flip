@@ -79,6 +79,12 @@ EffectPresetEntry EffectPackageLoader::loadPackage(const QString &packageDir, QS
     entry.meta.category =
         GpuPackageParse::slugifyCategory(categoryRaw.isEmpty() ? QStringLiteral("dreamy") : categoryRaw);
     entry.catalogOrder = root.value(QStringLiteral("order")).toInt(0);
+    if (root.contains(QStringLiteral("padding"))) {
+        const QJsonObject padding = root.value(QStringLiteral("padding")).toObject();
+        for (const QJsonValue &v : padding.value(QStringLiteral("params")).toArray())
+            entry.paddingParams.append(v.toString());
+        entry.paddingExtra = padding.value(QStringLiteral("extra")).toDouble(0.0);
+    }
 
     // A single name, or a list when a package needs more than one kind of per-frame data.
     const QJsonValue requiresValue = root.value(QStringLiteral("requires"));

@@ -39,6 +39,42 @@ Column {
         function onTracksChanged() { root.revision++ }
     }
 
+    // ----- After Effects' Layer Styles (0.26), on any layer ------------------------------------
+    Text {
+        text: qsTr("Layer styles")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+    Text {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("Added as effects, so each one is adjusted, animated or removed in the Effects tab.")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+        opacity: 0.8
+    }
+    Flow {
+        width: parent.width
+        spacing: Theme.spacingSm
+        Repeater {
+            model: [
+                { id: "layer_drop_shadow", label: qsTr("Drop shadow") },
+                { id: "layer_outer_glow", label: qsTr("Outer glow") },
+                { id: "layer_stroke", label: qsTr("Stroke") },
+                { id: "layer_bevel", label: qsTr("Bevel and emboss") },
+                { id: "layer_color_overlay", label: qsTr("Color overlay") }
+            ]
+            ThemedButton {
+                required property var modelData
+                text: modelData.label
+                variant: "secondary"
+                onClicked: EditorState.addEffect(root.trackIndex, root.clipIndex, modelData.id)
+            }
+        }
+    }
+
     Text {
         text: qsTr("Parent")
         color: Theme.mutedForeground

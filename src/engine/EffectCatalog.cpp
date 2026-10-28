@@ -66,6 +66,11 @@ QString translatedCategoryLabel(const QString &slug)
         return QCoreApplication::translate("EffectCatalog", "Depth & Lighting");
     if (slug == QLatin1String("keying"))
         return QCoreApplication::translate("EffectCatalog", "Background Removal");
+    // 0.26: After Effects' Layer Styles, and its generators and simulations by their AE names.
+    if (slug == QLatin1String("layerstyles"))
+        return QCoreApplication::translate("EffectCatalog", "Layer Styles");
+    if (slug == QLatin1String("generate"))
+        return QCoreApplication::translate("EffectCatalog", "Generate & Simulate");
     if (slug.isEmpty())
         return QCoreApplication::translate("EffectCatalog", "Other");
     return slug.at(0).toUpper() + slug.mid(1);

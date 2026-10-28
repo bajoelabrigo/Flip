@@ -989,6 +989,7 @@ FrameCompositor::RenderOptions PlaybackEngine::playbackRenderOptions() const
 
     options.allowProxies = true;
     options.editor = m_editorView;
+    options.transparentBackground = m_transparencyGrid;
     // The 3D view fills the panel, and is antialiased by rendering it at twice the panel's
     // resolution, which the scene graph's linear filter averages back down. Orbiting re-renders
     // the whole scene per step, so it drops to one sample per pixel until the release.

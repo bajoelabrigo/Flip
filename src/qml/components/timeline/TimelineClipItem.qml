@@ -1220,4 +1220,119 @@ Item {
             }
         }
     }
+
+    // ----- After Effects' pick whip and Parent (0.26) -------------------------------------------
+    // Which clip this one follows, shown on the clip as "↳ name".
+    readonly property string parentName: {
+        void EditorState.tracksRevision
+        if (clipItem.trackType === "audio" || clipItem.clipData.kind === "adjustment")
+            return ""
+        return EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).parentName || ""
+    }
+    Text {
+        visible: clipItem.parentName.length > 0 && clipItem.width > 60 && clipItem.height >= 24
+        anchors.left: parent.left
+        anchors.leftMargin: 6
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 3
+        width: parent.width - 30
+        z: 35
+        elide: Text.ElideRight
+        text: "↳ " + clipItem.parentName
+        color: Qt.rgba(1, 1, 1, 0.9)
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+
+    // The spiral: drag it onto another clip and this one follows it; dropped on nothing, it
+    // unlinks. Only on the selected clip, as AE draws it on the layer you are working on.
+    Item {
+        id: pickWhip
+        visible: clipItem.selected && !clipItem.touchMode && clipItem.trackType !== "audio"
+                 && clipItem.clipData.kind !== "adjustment" && clipItem.width > 40 && clipItem.height >= 20
+        width: 16
+        height: 16
+        anchors.right: parent.right
+        anchors.rightMargin: 14
+        anchors.verticalCenter: parent.verticalCenter
+        z: 60
+        property var line: null
+
+        // The clip item under a point of the window, if any.
+        function clipItemAt(item, gx, gy) {
+            if (!item || !item.visible)
+                return null
+            const kids = item.children
+            for (let i = kids.length - 1; i >= 0; --i) {
+                const k = kids[i]
+                if (!k || !k.visible || k.width <= 0 || k.height <= 0)
+                    continue
+                const p = k.mapFromItem(null, gx, gy)
+                if (p.x < 0 || p.y < 0 || p.x > k.width || p.y > k.height)
+                    continue
+                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined && k !== clipItem)
+                    return k
+                const inner = clipItemAt(k, gx, gy)
+                if (inner)
+                    return inner
+            }
+            return null
+        }
+
+        IconGlyph {
+            anchors.centerIn: parent
+            glyph: "pick-whip"
+            iconSize: 14
+            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary : Qt.rgba(1, 1, 1, 0.85)
+        }
+        MouseArea {
+            id: whipArea
+            anchors.fill: parent
+            anchors.margins: -3
+            hoverEnabled: true
+            preventStealing: true
+            cursorShape: Qt.PointingHandCursor
+            onPressed: mouse => {
+                const root = clipItem.Window.window ? clipItem.Window.window.contentItem : null
+                if (!root)
+                    return
+                const start = pickWhip.mapToItem(root, pickWhip.width / 2, pickWhip.height / 2)
+                pickWhip.line = Qt.createQmlObject('import QtQuick; Canvas { z: 100000; property point a; property point b; '
+                    + 'onPaint: { const c = getContext("2d"); c.reset(); c.strokeStyle = "' + Theme.primary + '"; c.lineWidth = 2; '
+                    + 'c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.stroke(); c.beginPath(); c.arc(b.x, b.y, 4, 0, 6.3); c.fill() } }',
+                    root)
+                pickWhip.line.anchors.fill = root
+                pickWhip.line.a = start
+                pickWhip.line.b = start
+                pickWhip.line.requestPaint()
+            }
+            onPositionChanged: mouse => {
+                if (!pressed || !pickWhip.line)
+                    return
+                const root = clipItem.Window.window.contentItem
+                pickWhip.line.b = whipArea.mapToItem(root, mouse.x, mouse.y)
+                pickWhip.line.requestPaint()
+            }
+            onReleased: mouse => {
+                const root = clipItem.Window.window ? clipItem.Window.window.contentItem : null
+                if (pickWhip.line) {
+                    pickWhip.line.destroy()
+                    pickWhip.line = null
+                }
+                if (!root)
+                    return
+                const g = whipArea.mapToItem(root, mouse.x, mouse.y)
+                const target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
+                if (target)
+                    EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, target.trackIndex, target.clipIndex)
+                else if (clipItem.parentName.length > 0)
+                    EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
+            }
+        }
+        ThemedToolTip {
+            visible: whipArea.containsMouse && !whipArea.pressed
+            text: qsTr("Drag onto another layer to make it the parent (After Effects' pick whip)")
+        }
+    }
+
 }

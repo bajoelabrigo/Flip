@@ -111,6 +111,12 @@ struct GpuLayer
         bool hasParent = false;
     };
     QList<MotionSample> motionSamples;
+    // Effects that draw outside the box (layer styles, 0.26): how much the texture grows on each
+    // side, as a fraction of the content's width / height. `rect` already includes it.
+    double padFractionX = 0.0;
+    double padFractionY = 0.0;
+    // Render px per project px, for effects whose sizes are in project px (u_unitPx).
+    double renderScale = 1.0;
     // The shared viewpoint at this frame, world -> homogeneous canvas px: the scene camera's
     // (drift::cameraViewProjection), or the preview's free 3D view. Carried per layer rather than
     // read off the scene so modelMatrixFor stays a pure function of the layer, the same way

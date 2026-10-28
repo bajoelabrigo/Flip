@@ -1097,6 +1097,36 @@ void applyClipBodyAnimation(GpuLayer &layer, const drift::Clip &clip, drift::Tim
     }
 }
 
+// Layer styles (0.26): grows the layer's rect by the room its effects draw past the box, and
+// records it as a fraction for the GPU side. Layers with masks keep their box (their masks are
+// laid out on it).
+void applyEffectPadding(GpuLayer &layer, double renderScale)
+{
+    layer.renderScale = renderScale;
+    if (layer.effects.isEmpty() || !drift::masksAreInert(layer.masks) || layer.rect.width() < 1.0
+        || layer.rect.height() < 1.0)
+        return;
+    double pad = 0.0;
+    for (const drift::Effect &effect : layer.effects) {
+        if (!effect.enabled)
+            continue;
+        const EffectPresetEntry *def = effectDefForId(effect.catalogId);
+        if (!def || (def->paddingParams.isEmpty() && def->paddingExtra <= 0.0))
+            continue;
+        const QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+        double room = def->paddingExtra;
+        for (const QString &key : def->paddingParams)
+            room += qAbs(params.value(key).toDouble());
+        pad = qMax(pad, room);
+    }
+    if (pad <= 0.0)
+        return;
+    const double px = qMin(pad * renderScale, 2048.0);
+    layer.padFractionX = px / layer.rect.width();
+    layer.padFractionY = px / layer.rect.height();
+    layer.rect.adjust(-px, -px, px, px);
+}
+
 // The box and turn a clip is laid out at `timelineUs`, its body animation included, before any
 // parent: the geometry motion blur samples across the shutter.
 void clipGeometryAt(const drift::Clip &clip, drift::TimeUs timelineUs, int projectWidth, int projectHeight,
@@ -1730,7 +1760,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     const int fps = project.fps();
 
     const drift::Background &bg = project.background();
-    if (nested) {
+    if (nested || options.transparentBackground) {
         scene.backgroundColor = QColor(0, 0, 0, 0);
     } else if (options.editor.active) {
         // The 3D view looks at the world, not the camera's frame: the project background is what
@@ -2024,6 +2054,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                                        drift::laneMasksAt(project, ti, timelineUs, clip.id), editingText);
             if (!item.layer.valid)
                 continue;
+            applyEffectPadding(item.layer, renderScale);
             applyParent(item.layer, ti);
             applyClipParent(item.layer, clip);
             if (clip.motionBlur && !editingText)

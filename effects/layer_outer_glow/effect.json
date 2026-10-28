@@ -1,0 +1,102 @@
+{
+  "id": "layer_outer_glow",
+  "displayName": "Outer Glow",
+  "category": "layerstyles",
+  "backend": "gpu",
+  "order": 901,
+  "padding": {
+    "params": [
+      "size"
+    ],
+    "extra": 4
+  },
+  "parameters": [
+    {
+      "identifier": "color",
+      "displayName": "Color",
+      "type": "color",
+      "defaultValue": "#ffe066"
+    },
+    {
+      "identifier": "opacity",
+      "displayName": "Opacity",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.8
+    },
+    {
+      "identifier": "size",
+      "displayName": "Size",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 150,
+      "defaultValue": 18
+    },
+    {
+      "identifier": "spread",
+      "displayName": "Spread",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.3
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [
+      {
+        "id": "h",
+        "scale": 1.0
+      },
+      {
+        "id": "v",
+        "scale": 1.0
+      }
+    ],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "alpha_h.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "buffer",
+          "id": "h"
+        }
+      },
+      {
+        "passIndex": 1,
+        "fragmentShader": "alpha_v.frag",
+        "inputs": [
+          {
+            "type": "buffer",
+            "id": "h"
+          }
+        ],
+        "output": {
+          "type": "buffer",
+          "id": "v"
+        }
+      },
+      {
+        "passIndex": 2,
+        "fragmentShader": "composite.frag",
+        "inputs": [
+          {
+            "type": "buffer",
+            "id": "v"
+          },
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

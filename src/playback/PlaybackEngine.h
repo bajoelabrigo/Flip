@@ -38,6 +38,9 @@ class PlaybackEngine : public QObject
     Q_PROPERTY(QString gpuCompositorDetail READ gpuCompositorDetail NOTIFY gpuCompositorStatusChanged)
     Q_PROPERTY(bool playing READ isPlaying NOTIFY playingChanged)
     Q_PROPERTY(QString previewQuality READ previewQuality WRITE setPreviewQuality NOTIFY previewQualityChanged)
+    // After Effects' Toggle Transparency Grid (0.26): the preview without the project background,
+    // so what is see-through shows the checkerboard. Preview only, never export.
+    Q_PROPERTY(bool transparencyGrid READ transparencyGrid WRITE setTransparencyGrid NOTIFY transparencyGridChanged)
     Q_PROPERTY(double playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
     Q_PROPERTY(QString decodeMode READ decodeMode WRITE setDecodeMode NOTIFY decodeModeChanged)
     Q_PROPERTY(QVariantList decodeModes READ decodeModes NOTIFY decodeModesChanged)
@@ -87,6 +90,15 @@ public:
     QString gpuCompositorDetail() const { return m_gpuStatusDetail; }
     bool isPlaying() const { return m_playing; }
     QString previewQuality() const;
+    bool transparencyGrid() const { return m_transparencyGrid; }
+    void setTransparencyGrid(bool on)
+    {
+        if (m_transparencyGrid == on)
+            return;
+        m_transparencyGrid = on;
+        emit transparencyGridChanged();
+        refreshFrame();
+    }
     void setPreviewQuality(const QString &quality);
     // Timeline seconds covered per real second. Audio keeps its pitch at every rate; see fillAudio.
     // Only the values the preview offers are accepted, so a typo in QML cannot put the transport
@@ -177,6 +189,7 @@ signals:
     void currentFrameChanged();
     void playingChanged();
     void previewQualityChanged();
+    void transparencyGridChanged();
     void playbackRateChanged();
     void decodeModeChanged();
     void decodeModesChanged();
@@ -243,6 +256,7 @@ private:
     // found the setting, so a machine that could not keep up simply stuttered instead of
     // degrading. A saved preference still wins; only fresh installs move.
     QString m_previewQuality = QStringLiteral("auto");
+    bool m_transparencyGrid = false;
     QString m_decodeMode = QStringLiteral("auto");
     // Baseline for ClipReader's process-wide fallback counter, so the notice fires on
     // a new fallback rather than on every frame after the first one.

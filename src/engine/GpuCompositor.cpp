@@ -703,6 +703,26 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
     if (!target.isValid())
         return {};
 
+
+    // Room for effects that draw past the box (0.26): the picture in the middle of a larger,
+    // transparent texture, which the scene's rect already covers.
+    if (layer.padFractionX > 0.0 || layer.padFractionY > 0.0) {
+        const int padX = qMax(1, int(std::lround(target.width * layer.padFractionX)));
+        const int padY = qMax(1, int(std::lround(target.height * layer.padFractionY)));
+        GlTarget grown = rt.acquireTarget(target.width + 2 * padX, target.height + 2 * padY);
+        if (grown.isValid()) {
+            grown.fbo->bind();
+            gl->glViewport(0, 0, grown.width, grown.height);
+            gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+            gl->glClear(GL_COLOR_BUFFER_BIT);
+            grown.fbo->release();
+            QOpenGLFramebufferObject::blitFramebuffer(grown.fbo.get(), QRect(padX, padY, target.width, target.height),
+                                                      target.fbo.get(), QRect(0, 0, target.width, target.height),
+                                                      GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            rt.releaseTarget(std::move(target));
+            target = std::move(grown);
+        }
+    }
     // A lone cutout's foreground only means anything while the cutout still cuts the layer.
     if (!layer.fgr.isNull() && !chainConsumesMasks(layer) && soleMediaIndex(layer) >= 0)
         target = swapInForeground(rt, gl, std::move(target), layer.fgr);
@@ -754,6 +774,9 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
             return;
 
         QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+        // Texture px per project px: sizes given in project px look the same at any preview scale.
+        if (layer.rect.width() > 0.5)
+            params.insert(QStringLiteral("u_unitPx"), double(target.width) / layer.rect.width() * layer.renderScale);
         if (def->needsFace)
             drift::applyFaceUniforms(&params, layer.faceSlots);
         if (def->needsPose)
