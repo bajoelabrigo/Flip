@@ -10844,6 +10844,84 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     finishEdit(tr("Path edited"));
 }
 
+QVariantMap AppController::keyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds) const
+{
+    QVariantMap out{{QStringLiteral("valid"), false}};
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    if (!kt)
+        return out;
+    const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
+    if (at < 0)
+        return out;
+    const QMap<drift::TimeUs, drift::Keyframe<double>> &keys = kt->keyframes();
+    auto it = keys.constFind(at);
+    const drift::Keyframe<double> &k = it.value();
+    out.insert(QStringLiteral("valid"), true);
+    if (it != keys.constBegin()) {
+        const auto prev = std::prev(it);
+        const double gap = double(at - prev.key());
+        const bool flat = qFuzzyIsNull(k.inDx);
+        // A straight segment reads as After Effects shows a linear key: its slope at a sixth.
+        const double speed = flat ? (k.value - prev->value) / gap * 1e6 : k.inDy / k.inDx * 1e6;
+        out.insert(QStringLiteral("hasIn"), true);
+        out.insert(QStringLiteral("inSpeed"), speed);
+        out.insert(QStringLiteral("inInfluence"), flat ? 16.667 : qAbs(k.inDx) / gap * 100.0);
+    }
+    if (std::next(it) != keys.constEnd()) {
+        const auto next = std::next(it);
+        const double gap = double(next.key() - at);
+        const bool flat = qFuzzyIsNull(k.outDx);
+        const double speed = flat ? (next->value - k.value) / gap * 1e6 : k.outDy / k.outDx * 1e6;
+        out.insert(QStringLiteral("hasOut"), true);
+        out.insert(QStringLiteral("outSpeed"), speed);
+        out.insert(QStringLiteral("outInfluence"), flat ? 16.667 : qAbs(k.outDx) / gap * 100.0);
+    }
+    return out;
+}
+
+void AppController::setKeyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds,
+                                   const QVariantMap &velocity)
+{
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false);
+    if (!kt)
+        return;
+    const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
+    if (at < 0)
+        return;
+    const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt->keyframes();
+    auto it = keys.constFind(at);
+    drift::Keyframe<double> k = it.value();
+    k.hold = false;
+    if (it != keys.constBegin() && velocity.contains(QStringLiteral("inSpeed"))) {
+        const double gap = double(at - std::prev(it).key());
+        const double influence = qBound(0.1, velocity.value(QStringLiteral("inInfluence"), 33.333).toDouble(), 100.0);
+        k.inDx = -gap * influence / 100.0;
+        k.inDy = velocity.value(QStringLiteral("inSpeed")).toDouble() / 1e6 * k.inDx;
+    }
+    if (std::next(it) != keys.constEnd() && velocity.contains(QStringLiteral("outSpeed"))) {
+        const double gap = double(std::next(it).key() - at);
+        const double influence = qBound(0.1, velocity.value(QStringLiteral("outInfluence"), 33.333).toDouble(), 100.0);
+        k.outDx = gap * influence / 100.0;
+        k.outDy = velocity.value(QStringLiteral("outSpeed")).toDouble() / 1e6 * k.outDx;
+    }
+    // Different speeds either side break the tangent, as After Effects does.
+    const double inSpeed = qFuzzyIsNull(k.inDx) ? 0.0 : k.inDy / k.inDx;
+    const double outSpeed = qFuzzyIsNull(k.outDx) ? 0.0 : k.outDy / k.outDx;
+    k.corner = !qFuzzyIsNull(k.inDx) && !qFuzzyIsNull(k.outDx) && qAbs(inSpeed - outSpeed) > 1e-12;
+    kt->setKeyframe(at, k);
+    pushProjectEdit(before, tr("Keyframe velocity"));
+    finishEdit(tr("Keyframe velocity"));
+}
+
 QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
 {
     QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};

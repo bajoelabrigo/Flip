@@ -694,6 +694,13 @@ public:
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
     // gets one at the clip's start holding its value, so the behaviour has something to ride on.
     Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    // After Effects' Keyframe Velocity (0.26) for the key of `prop` at `seconds` (timeline):
+    // {valid, hasIn, hasOut, inSpeed, inInfluence, outSpeed, outInfluence} with speeds in the
+    // property's units per second and influence in percent of the gap to the neighbouring key; and
+    // writing them back as the key's handles (one undo step).
+    Q_INVOKABLE QVariantMap keyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds) const;
+    Q_INVOKABLE void setKeyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds,
+                                    const QVariantMap &velocity);
     Q_INVOKABLE void setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
                                          const QVariantMap &behavior);
     // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,

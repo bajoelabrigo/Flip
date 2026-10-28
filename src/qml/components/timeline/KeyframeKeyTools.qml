@@ -22,6 +22,8 @@ Item {
     readonly property bool hasPick: track >= 0 && keys.length > 0
     // The property whose curve the graph shapes, set from a line's name in a track (0.25).
     property string focusProp: ""
+    // The prop of the key the menu was opened on (0.26: Keyframe velocity).
+    property string menuProp: ""
 
     // The key the menu was opened on: how it arrives and leaves, and whether it holds.
     property var menuHalves: ({ "in": "linear", "out": "linear" })
@@ -343,6 +345,7 @@ Item {
         root.menuHold = hold
         root.menuFromGraph = fromGraph
         root.menuClip = ref.clip
+        root.menuProp = ref.prop
         root.menuSeconds = ref.seconds
         const p = item.mapToItem(curvesPopup.parent, at.x, at.y)
         curvesPopup.x = p.x
@@ -387,6 +390,10 @@ Item {
         sequence: "Ctrl+Alt+K"
         enabled: root.hasPick
         onActivated: root.applyEasing("linear")
+    }
+
+    KeyframeVelocityDialog {
+        id: velocityDialog
     }
 
     KeyframeCurvesPopup {
@@ -455,6 +462,11 @@ Item {
                 EditorState.playheadSeconds = root.menuSeconds
                 EditorState.preferences.curveEditorVisible = true
             }
+        }
+        ThemedMenuItem {
+            // After Effects' Keyframe Velocity (Ctrl+Shift+K there), for the key the menu is on.
+            text: qsTr("Keyframe velocity…")
+            onTriggered: velocityDialog.openFor(root.track, root.menuClip, root.menuProp, root.menuSeconds)
         }
         ThemedMenuItem {
             text: keyMenu.one ? qsTr("Delete keyframe") : qsTr("Delete keyframes")
