@@ -46,6 +46,8 @@ class PreviewController : public QObject
     // selected custom shape's vertices shown to drag.
     Q_PROPERTY(bool penMode READ penMode WRITE setPenMode NOTIFY penModeChanged)
     Q_PROPERTY(bool pathEditMode READ pathEditMode WRITE setPathEditMode NOTIFY pathEditModeChanged)
+    // After Effects' Title/Action Safe guides (0.26), drawn over the preview only.
+    Q_PROPERTY(bool safeZones READ safeZones WRITE setSafeZones NOTIFY safeZonesChanged)
     Q_PROPERTY(bool maskEditMode READ maskEditMode WRITE setMaskEditMode NOTIFY maskEditModeChanged)
     // Whether the preview should be showing mask handles right now. Selecting a mask clip is
     // itself a request to edit it, so the toggle is only needed to keep the handles up while some
@@ -85,6 +87,14 @@ public:
         emit penModeChanged();
     }
     bool pathEditMode() const { return m_pathEditMode; }
+    bool safeZones() const { return m_safeZones; }
+    void setSafeZones(bool on)
+    {
+        if (m_safeZones == on)
+            return;
+        m_safeZones = on;
+        emit safeZonesChanged();
+    }
     void setPathEditMode(bool on)
     {
         if (m_pathEditMode == on)
@@ -201,6 +211,7 @@ signals:
     void canvasCropModeChanged();
     void penModeChanged();
     void pathEditModeChanged();
+    void safeZonesChanged();
     void maskEditModeChanged();
     void maskEditActiveChanged();
     void activeToolChanged();
@@ -235,6 +246,7 @@ private:
     bool m_canvasCropMode = false;
     bool m_penMode = false;
     bool m_pathEditMode = false;
+    bool m_safeZones = false;
     bool m_maskEditMode = false;
     QString m_activeTool = QStringLiteral("transform");
     bool m_handlesVisible = false;

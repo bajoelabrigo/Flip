@@ -122,6 +122,27 @@ Item {
             onPixelRatioChanged: updateRenderSize()
         }
 
+        // Title safe (80 %) and action safe (90 %) with a centre cross, as After Effects' guides (0.26).
+        Item {
+            anchors.fill: parent
+            z: 1
+            visible: EditorState.preview.safeZones && !viewport.mode3d
+            Repeater {
+                model: [0.9, 0.8]
+                Rectangle {
+                    required property real modelData
+                    anchors.centerIn: parent
+                    width: parent.width * modelData
+                    height: parent.height * modelData
+                    color: "transparent"
+                    border.width: 1
+                    border.color: Qt.rgba(1, 1, 1, 0.55)
+                }
+            }
+            Rectangle { anchors.centerIn: parent; width: 18; height: 1; color: Qt.rgba(1, 1, 1, 0.55) }
+            Rectangle { anchors.centerIn: parent; width: 1; height: 18; color: Qt.rgba(1, 1, 1, 0.55) }
+        }
+
         // Above anything a mode view adds to the canvas, such as the guides.
         PreviewStatusLayer {
             anchors.fill: parent
