@@ -797,7 +797,7 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 ## Trampas que ya nos costaron tiempo
 
-**En QML, una propiedad no puede llamarse `on` + Mayúscula** (`onPage`, `onLine`…): QML la toma como manejador de señal y su enlace no se recalcula, sin dar ningún error (0.26: las Preferencias salían en blanco por `onPage`). Usar otro nombre (`pageMatches`). Para probar QML suelto: `.qtmingw.10.3\mingw_64in\qml.exe` con `QT_QPA_PLATFORM=offscreen` y `console.log` (los tipos de Drift no cargan: simularlos).
+**En QML, una propiedad no puede llamarse `on` + Mayúscula** (`onPage`, `onLine`…): QML la toma como manejador de señal y su enlace no se recalcula, sin dar ningún error (0.26: las Preferencias salían en blanco por `onPage`). Usar otro nombre (`pageMatches`). Para probar QML suelto: `.qtmingw\6.10.3\mingw_64\bin\qml.exe` con `QT_QPA_PLATFORM=offscreen` y `console.log` (los tipos de Drift no cargan: simularlos).
 
 **Python en Windows escribe CRLF.** `open(p, "w")` traduce `\n` a `\r\n`: un script que reescribe un `.qml` o `.py`
 lo deja entero como cambiado. Usar `newline=""` (o `sed -i`), y pedirlo a los agentes. (Este `CLAUDE.md`, en cambio,
