@@ -21,6 +21,8 @@ namespace drift::appdetail {
 
 double clipTransformValue(const drift::KeyframeTrack<double> &track, drift::TimeUs relative,
                           double defaultValue);
+// The interpolation new keys get (Preferences, 0.26): "linear", "ease" or "hold".
+QString &newKeyInterpolationRef();
 bool writeKeyframeValue(drift::KeyframeTrack<double> &track, drift::TimeUs relative, double value,
                         bool autoKey, bool force);
 bool clipAcceptsPreviewTransform(const drift::Clip &clip);

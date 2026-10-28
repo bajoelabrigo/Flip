@@ -2002,3 +2002,9 @@ void ProjectFileController::discardUnsavedChanges()
     setDirty(false);
     deleteRecoveryFile();
 }
+
+void ProjectFileController::setAutosaveIntervalSeconds(int seconds)
+{
+    if (m_autosaveTimer && seconds > 0)
+        m_autosaveTimer->setInterval(seconds * 1000);
+}

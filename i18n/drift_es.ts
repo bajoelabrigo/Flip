@@ -3339,6 +3339,34 @@
         <translation>Mostrar las propiedades animadas</translation>
     </message>
     <message>
+        <source>Hand tool (preview)</source>
+        <translation>Herramienta Mano (vista previa)</translation>
+    </message>
+    <message>
+        <source>Zoom tool (preview)</source>
+        <translation>Herramienta Zoom (vista previa)</translation>
+    </message>
+    <message>
+        <source>Anchor point tool</source>
+        <translation>Herramienta Punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Shape tool</source>
+        <translation>Herramienta Forma</translation>
+    </message>
+    <message>
+        <source>Pen tool</source>
+        <translation>Herramienta Pluma</translation>
+    </message>
+    <message>
+        <source>Text tool</source>
+        <translation>Herramienta Texto</translation>
+    </message>
+    <message>
+        <source>3D camera tool</source>
+        <translation>Herramienta Cámara 3D</translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Acercar zoom</translation>
     </message>
@@ -18392,6 +18420,69 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>PreviewToolbar</name>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Elipse</translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation>Selección</translation>
+    </message>
+    <message>
+        <source>Hand: drag to move the view</source>
+        <translation>Mano: arrastra para mover la vista</translation>
+    </message>
+    <message>
+        <source>Zoom: click to zoom in, Alt+click to zoom out</source>
+        <translation>Zoom: clic para acercar, Alt+clic para alejar</translation>
+    </message>
+    <message>
+        <source>Anchor point: drag it without moving the layer</source>
+        <translation>Punto de anclaje: arrástralo sin mover la capa</translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <translation>Forma: arrastra en la vista previa (Mayús para un cuadrado o un círculo)</translation>
+    </message>
+    <message>
+        <source>Pen: click for corners, drag for curves</source>
+        <translation>Pluma: clic para esquinas, arrastrar para curvas</translation>
+    </message>
+    <message>
+        <source>Text: click on the preview and type</source>
+        <translation>Texto: haz clic en la vista previa y escribe</translation>
+    </message>
+    <message>
+        <source>Roto: cut the person or object out of the selected video</source>
+        <translation>Roto: recorta a la persona o el objeto del video elegido</translation>
+    </message>
+    <message>
+        <source>3D camera: orbit, move and zoom the view</source>
+        <translation>Cámara 3D: orbita, mueve y acerca la vista</translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation>Relleno</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
+    </message>
+</context>
+<context>
     <name>PreviewTransportBar</name>
     <message>
         <source>%1 (%2)</source>
@@ -20478,8 +20569,56 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <source>Appearance and language</source>
+        <translation>Apariencia e idioma</translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation>Capas nuevas</translation>
+    </message>
+    <message>
+        <source>Timeline and keyframes</source>
+        <translation>Línea de tiempo y fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation>Herramientas de la vista previa</translation>
+    </message>
+    <message>
+        <source>Preview and performance</source>
+        <translation>Vista previa y rendimiento</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation>Guardado y deshacer</translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation>Atajos de teclado</translation>
+    </message>
+    <message>
+        <source>Account and privacy</source>
+        <translation>Cuenta y privacidad</translation>
+    </message>
+    <message>
+        <source>AI in the cloud</source>
+        <translation>IA en la nube</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>Ajustes</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <source>Done</source>
@@ -20831,6 +20970,126 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Downloading…</source>
         <translation>Descargando…</translation>
+    </message>
+    <message>
+        <source>Colour and theme</source>
+        <translation>Color y tema</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Modo</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation>Color de acento</translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation>Capas nuevas</translation>
+    </message>
+    <message>
+        <source>How long a layer lasts when you put it on the timeline, as After Effects&apos; Still footage duration.</source>
+        <translation>Cuánto dura una capa al ponerla en la línea de tiempo, como la duración de imágenes fijas de After Effects.</translation>
+    </message>
+    <message>
+        <source>Photos, shapes and solids</source>
+        <translation>Fotos, formas y sólidos</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation>Textos</translation>
+    </message>
+    <message>
+        <source>Keyframes</source>
+        <translation>Fotogramas clave</translation>
+    </message>
+    <message>
+        <source>New keyframes are</source>
+        <translation>Las claves nuevas son</translation>
+    </message>
+    <message>
+        <source>Straight (linear)</source>
+        <translation>Rectas (lineales)</translation>
+    </message>
+    <message>
+        <source>Smooth (Easy Ease)</source>
+        <translation>Suaves (Easy Ease)</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>You can always change a key afterwards from its menu (Straight, Smooth, Hold, Keyframe velocity…).</source>
+        <translation>Siempre puedes cambiar una clave después desde su menú (Recta, Suave, Mantener, Velocidad del fotograma clave…).</translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation>Herramientas de la vista previa</translation>
+    </message>
+    <message>
+        <source>Show the tools bar above the preview</source>
+        <translation>Mostrar la barra de herramientas sobre la vista previa</translation>
+    </message>
+    <message>
+        <source>Safe zones on from the start</source>
+        <translation>Zonas seguras encendidas desde el inicio</translation>
+    </message>
+    <message>
+        <source>Shapes and the pen use the fill, stroke and width last chosen on the tools bar; they are remembered between sessions.</source>
+        <translation>Las formas y la pluma usan el relleno, el trazo y el grosor elegidos por última vez en la barra de herramientas; se recuerdan entre sesiones.</translation>
+    </message>
+    <message>
+        <source>Stroke width for new shapes</source>
+        <translation>Grosor del trazo de las formas nuevas</translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation>Guardado y deshacer</translation>
+    </message>
+    <message>
+        <source>Save a recovery copy every</source>
+        <translation>Guardar una copia de recuperación cada</translation>
+    </message>
+    <message>
+        <source>If Flip Studio closes unexpectedly, it offers this copy the next time it opens.</source>
+        <translation>Si Flip Studio se cierra de golpe, ofrece esta copia la próxima vez que se abre.</translation>
+    </message>
+    <message>
+        <source>Levels of undo</source>
+        <translation>Niveles de deshacer</translation>
+    </message>
+    <message>
+        <source>More levels use more memory. The new number applies from the next project you open.</source>
+        <translation>Más niveles usan más memoria. El número nuevo vale desde el próximo proyecto que abras.</translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation>Atajos de teclado</translation>
+    </message>
+    <message>
+        <source>Every action can take another key: the tools bar (V, H, Z, Y, P…), the keyframes (Shift+J / Shift+K, U), the timeline and the menus.</source>
+        <translation>Cada acción puede llevar otra tecla: la barra de herramientas (V, H, Z, Y, P…), los fotogramas clave (Mayús+J / Mayús+K, U), la línea de tiempo y los menús.</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Restore the editing defaults</source>
+        <translation>Restablecer los valores de edición</translation>
+    </message>
+    <message>
+        <source>Durations, keyframes, saving, undo and the preview tools go back to how they came. Your account, language and devices are not touched.</source>
+        <translation>Las duraciones, las claves, el guardado, el deshacer y las herramientas de la vista previa vuelven a como venían. No se tocan tu cuenta, tu idioma ni tus dispositivos.</translation>
     </message>
     <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>

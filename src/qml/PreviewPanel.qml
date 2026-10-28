@@ -58,6 +58,7 @@ PanelFrame {
         anchors.rightMargin: 1
         height: visible ? implicitHeight : 0
         visible: !root.previewFullscreen && !root.mobile
+                 && EditorState.preferences.editorDefaults.previewToolbar !== false
         z: 2
     }
 

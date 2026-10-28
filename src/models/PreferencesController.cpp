@@ -128,6 +128,14 @@ PreferencesController::PreferencesController(QObject *parent)
 {
     QSettings settings;
     m_reopenLastProject = settings.value(QStringLiteral("editor/reopenLastProject"), false).toBool();
+    {
+        const QVariantMap defaults = editorDefaultValues();
+        for (auto it = defaults.constBegin(); it != defaults.constEnd(); ++it) {
+            const QString key = QStringLiteral("defaults/") + it.key();
+            if (settings.contains(key))
+                m_editorDefaults.insert(it.key(), settings.value(key));
+        }
+    }
     m_timelineOverviewVisible =
         settings.value(QStringLiteral("ui/timelineOverviewVisible"), false).toBool();
     m_curveEditorVisible = settings.value(QStringLiteral("ui/curveEditorVisible"), false).toBool();
@@ -296,6 +304,66 @@ void PreferencesController::setTimelineToolbarLayout(const QStringList &toolbarI
         settings.setValue(QStringLiteral("ui/timelineMenuItems"), menuItems);
     }
     emit timelineToolbarLayoutChanged();
+}
+
+QVariantMap PreferencesController::editorDefaultValues()
+{
+    return {
+        {QStringLiteral("undoLevels"), 50},
+        {QStringLiteral("autosaveSeconds"), 15},
+        {QStringLiteral("stillSeconds"), 5.0},
+        {QStringLiteral("textSeconds"), 5.0},
+        // "linear" | "ease" | "hold": the interpolation a new key gets.
+        {QStringLiteral("keyInterpolation"), QStringLiteral("linear")},
+        {QStringLiteral("safeZones"), false},
+        {QStringLiteral("previewToolbar"), true},
+        {QStringLiteral("toolFill"), QStringLiteral("#ff00b4ff")},
+        {QStringLiteral("toolStroke"), QStringLiteral("#ffffffff")},
+        {QStringLiteral("toolStrokeWidth"), 0.0},
+    };
+}
+
+QVariantMap PreferencesController::editorDefaults() const
+{
+    QVariantMap out = editorDefaultValues();
+    for (auto it = m_editorDefaults.constBegin(); it != m_editorDefaults.constEnd(); ++it)
+        out.insert(it.key(), it.value());
+    return out;
+}
+
+void PreferencesController::setEditorDefault(const QString &key, const QVariant &value)
+{
+    const QVariantMap defaults = editorDefaultValues();
+    if (!defaults.contains(key))
+        return;
+    QVariant v = value;
+    if (key == QLatin1String("undoLevels"))
+        v = qBound(10, value.toInt(), 500);
+    else if (key == QLatin1String("autosaveSeconds"))
+        v = qBound(5, value.toInt(), 3600);
+    else if (key == QLatin1String("stillSeconds") || key == QLatin1String("textSeconds"))
+        v = qBound(0.1, value.toDouble(), 600.0);
+    else if (key == QLatin1String("toolStrokeWidth"))
+        v = qBound(0.0, value.toDouble(), 200.0);
+    else if (key == QLatin1String("keyInterpolation") && value.toString() != QLatin1String("ease")
+             && value.toString() != QLatin1String("hold"))
+        v = QStringLiteral("linear");
+    if (editorDefaults().value(key) == v)
+        return;
+    m_editorDefaults.insert(key, v);
+    QSettings settings;
+    settings.setValue(QStringLiteral("defaults/") + key, v);
+    emit editorDefaultsChanged();
+}
+
+void PreferencesController::resetEditorDefaults()
+{
+    if (m_editorDefaults.isEmpty())
+        return;
+    m_editorDefaults.clear();
+    QSettings settings;
+    settings.remove(QStringLiteral("defaults"));
+    emit editorDefaultsChanged();
 }
 
 void PreferencesController::setReopenLastProject(bool enabled)

@@ -35,6 +35,24 @@ Rectangle {
     }
 
     implicitHeight: 34
+
+    // The toolbar's paints and the safe zones are remembered between sessions (Preferences, 0.26).
+    Component.onCompleted: {
+        const d = EditorState.preferences.editorDefaults
+        EditorState.preview.toolFill = d.toolFill
+        EditorState.preview.toolStroke = d.toolStroke
+        EditorState.preview.toolStrokeWidth = Number(d.toolStrokeWidth)
+        if (d.safeZones === true)
+            EditorState.preview.safeZones = true
+    }
+    Connections {
+        target: EditorState.preview
+        function onToolChanged() {
+            EditorState.preferences.setEditorDefault("toolFill", EditorState.preview.toolFill)
+            EditorState.preferences.setEditorDefault("toolStroke", EditorState.preview.toolStroke)
+            EditorState.preferences.setEditorDefault("toolStrokeWidth", EditorState.preview.toolStrokeWidth)
+        }
+    }
     color: Theme.panelBackground
 
     component ToolButton: IconButton {

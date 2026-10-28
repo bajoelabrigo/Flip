@@ -69,6 +69,25 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
 - [ ] D4. Luces 3D: **no entra en la 0.26** (necesita un tipo de capa nuevo y sombreado por capa; se deja para
       después).
 
+## Etapa E — Barra de herramientas y Preferencias (Jorge, 2026-10-28)
+- [x] E1. **Barra de herramientas sobre la vista previa** (como el panel Herramientas de AE,
+      `preview/PreviewToolbar.qml`): Selección (V), Mano (H), Zoom (Z; Alt+clic aleja), Punto de anclaje (Y: se arrastra y
+      la capa no se mueve, `setAnchorKeepingPlace`), Formas (Mayús+Q: rectángulo, elipse, estrella, polígono; Mayús =
+      cuadrado, Alt = desde el centro; `addDrawnShape`), Pluma (P), Texto (Ctrl+T: clic y escribir, `addTextAtPoint`),
+      Roto (abre Video › Eliminar fondo, `openInspectorPage`) y Cámara 3D (Mayús+C). A la derecha, Relleno / Trazo /
+      grosor para formas y pluma (clic derecho = ninguno). Estado en `EditorState.preview.tool` (`PreviewController`);
+      la capa de dibujo es `preview/PreviewToolOverlay.qml`; Mano y Zoom en `PreviewPanel.qml`. Esc vuelve a Selección.
+      G, Q y C ya eran guías, borrar y cuchilla: por eso P, Mayús+Q y Mayús+C (todo se puede cambiar en Atajos).
+- [x] E2. **Preferencias como AE** (Edición › Preferencias…, `SettingsDialog.qml`): lista de páginas a la izquierda
+      (General, Apariencia e idioma, Capas nuevas, Línea de tiempo y claves, Herramientas de la vista previa, Vista
+      previa y rendimiento, Audio, Guardado y deshacer, Atajos de teclado, Cuenta y privacidad, IA en la nube). En el
+      celular sigue la lista larga de siempre. Nuevas preferencias reales (`PreferencesController::editorDefaults`,
+      claves `defaults/*` en el registro): niveles de deshacer, copia de recuperación cada N s, duración de fotos /
+      formas / sólidos y de textos al ponerlos (`drift::defaultStillDurationUs`, `defaultTextDurationUs`),
+      interpolación de las claves nuevas (`newKeyInterpolationRef`, en `writeKeyframeValue`), mostrar la barra,
+      zonas seguras al iniciar y los colores de la barra (se recuerdan). Color y modo del tema también aquí; los atajos
+      se editan dentro de la página (`ShortcutsTab`). «Restablecer los valores de edición».
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

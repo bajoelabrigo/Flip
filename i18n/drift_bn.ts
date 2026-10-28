@@ -3343,6 +3343,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hand tool (preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom tool (preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D camera tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>জুম বাড়ান</translation>
     </message>
@@ -18388,6 +18416,69 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>PreviewToolbar</name>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hand: drag to move the view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom: click to zoom in, Alt+click to zoom out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point: drag it without moving the layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen: click for corners, drag for curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text: click on the preview and type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roto: cut the person or object out of the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D camera: orbit, move and zoom the view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PreviewTransportBar</name>
     <message>
         <source>Fit</source>
@@ -20474,8 +20565,56 @@ If playback stutters, try another.</source>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Appearance and language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline and keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview and performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account and privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI in the cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>সেটিংস</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
@@ -20619,6 +20758,126 @@ If playback stutters, try another.</source>
     <message>
         <source>Open graphics settings</source>
         <translation type="unfinished">গ্রাফিক্স সেটিংস খুলুন</translation>
+    </message>
+    <message>
+        <source>Colour and theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How long a layer lasts when you put it on the timeline, as After Effects&apos; Still footage duration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photos, shapes and solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New keyframes are</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight (linear)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth (Easy Ease)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can always change a key afterwards from its menu (Straight, Smooth, Hold, Keyframe velocity…).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the tools bar above the preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Safe zones on from the start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes and the pen use the fill, stroke and width last chosen on the tools bar; they are remembered between sessions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke width for new shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save a recovery copy every</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If Flip Studio closes unexpectedly, it offers this copy the next time it opens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Levels of undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More levels use more memory. The new number applies from the next project you open.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every action can take another key: the tools bar (V, H, Z, Y, P…), the keyframes (Shift+J / Shift+K, U), the timeline and the menus.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore the editing defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Durations, keyframes, saving, undo and the preview tools go back to how they came. Your account, language and devices are not touched.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Playback</source>
