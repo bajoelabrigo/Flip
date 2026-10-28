@@ -508,6 +508,8 @@ add_library(driftcore STATIC
     src/core/ShapeStyle.cpp
     src/core/ShapePath.h
     src/core/ShapePath.cpp
+    src/core/ShapePathEdit.h
+    src/core/ShapePathEdit.cpp
     src/core/VectorSource.h
     src/core/VectorSource.cpp
     src/core/Model3dSource.h
@@ -1307,6 +1309,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformGizmo.qml
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
+        src/qml/components/preview/PenToolOverlay.qml
         src/qml/components/preview/PreviewDropOverlay.qml
         src/qml/components/preview/CropOverlay.qml
         src/qml/components/preview/GuideLayer.qml

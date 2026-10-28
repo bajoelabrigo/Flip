@@ -1,4 +1,5 @@
 #include "ShapeStyle.h"
+#include "ShapePathEdit.h"
 
 #include "Effect.h"
 
@@ -556,6 +557,8 @@ QStringList shapeKeyframeProperties(const ShapeStyle &style)
     for (const KnobField &knob : kKnobs)
         out.append(QLatin1String(knob.key));
     out.append(QStringLiteral("points"));
+    if (style.kind == ShapeKind::Custom)
+        out.append(QLatin1String(kShapePathKey));
     for (const TextShadingLayer &layer : style.layers) {
         for (const QString &field : shadingLayerKeyframeFields(layer))
             out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
@@ -565,7 +568,7 @@ QStringList shapeKeyframeProperties(const ShapeStyle &style)
 
 QString shapeKeyframeCanonicalKey(const QString &key, const ShapeStyle &style)
 {
-    if (knobFor(key) || key == QLatin1String("points"))
+    if (knobFor(key) || key == QLatin1String("points") || key == QLatin1String(kShapePathKey))
         return key;
     LayerKeyPath path;
     if (!parseLayerKey(key, &path))
@@ -583,6 +586,8 @@ QString shapeKeyframeLabel(const QString &key, const ShapeStyle &style)
         return QCoreApplication::translate("ShapeStyle", knob->label);
     if (key == QLatin1String("points"))
         return QCoreApplication::translate("ShapeStyle", "Points");
+    if (key == QLatin1String(kShapePathKey))
+        return QCoreApplication::translate("ShapeStyle", "Path");
     return shadingLayerKeyframeLabel(style.layers, key);
 }
 
@@ -633,10 +638,77 @@ ShapeStyle ShapeStyle::resolvedAt(TimeUs clipTimeUs) const
 {
     ShapeStyle out = *this;
     for (auto it = keyframes.constBegin(); it != keyframes.constEnd(); ++it) {
+        if (it.key() == QLatin1String(kShapePathKey))
+            continue;
         if (!it->isEmpty())
             setShapeStyleScalar(out, it.key(), it->evaluateAt(clipTimeUs));
     }
+    if (kind == ShapeKind::Custom)
+        out.customPath = shapePathAt(*this, clipTimeUs);
     return out;
+}
+
+QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs)
+{
+    const auto it = style.keyframes.constFind(QLatin1String(kShapePathKey));
+    if (it == style.keyframes.constEnd() || it->isEmpty() || style.pathShapes.isEmpty())
+        return style.customPath;
+    const QMap<TimeUs, Keyframe<double>> &keys = it->keyframes();
+    const auto outline = [&style](double index) {
+        const int i = qRound(index);
+        return i >= 0 && i < style.pathShapes.size() ? style.pathShapes.at(i) : style.customPath;
+    };
+    // Switched off: the first key's outline throughout, as every other property does.
+    if (!it->enabled() || clipTimeUs <= keys.firstKey())
+        return outline(keys.first().value);
+    if (clipTimeUs >= keys.lastKey())
+        return outline(keys.last().value);
+    auto next = keys.upperBound(clipTimeUs);
+    auto prev = std::prev(next);
+    const double v0 = prev->value;
+    const double v1 = next->value;
+    if (prev->hold || qFuzzyCompare(v0 + 1.0, v1 + 1.0))
+        return outline(v0);
+    const double t = qBound(0.0, (it->evaluateAt(clipTimeUs) - v0) / (v1 - v0), 1.0);
+    return morphSvgPaths(outline(v0), outline(v1), t);
+}
+
+void setShapePathAt(ShapeStyle &style, TimeUs clipTimeUs, const QString &svg, TimeUs toleranceUs)
+{
+    auto it = style.keyframes.find(QLatin1String(kShapePathKey));
+    if (it == style.keyframes.end() || it->isEmpty()) {
+        style.customPath = svg;
+        return;
+    }
+    const TimeUs near = it->nearestKeyframe(clipTimeUs, toleranceUs);
+    if (near >= 0) {
+        const int index = qRound(it->keyframes().value(near).value);
+        if (index >= 0 && index < style.pathShapes.size()) {
+            style.pathShapes[index] = svg;
+            return;
+        }
+    }
+    style.pathShapes.append(svg);
+    it->setKeyframe(clipTimeUs, double(style.pathShapes.size() - 1));
+    it->setStopwatch(true);
+}
+
+void setShapePathAnimated(ShapeStyle &style, bool on, TimeUs clipTimeUs)
+{
+    if (on) {
+        if (style.keyframes.contains(QLatin1String(kShapePathKey))
+            && !style.keyframes.value(QLatin1String(kShapePathKey)).isEmpty())
+            return;
+        style.pathShapes = {style.customPath};
+        KeyframeTrack<double> track;
+        track.setKeyframe(qMax<TimeUs>(0, clipTimeUs), 0.0);
+        track.setStopwatch(true);
+        style.keyframes.insert(QLatin1String(kShapePathKey), track);
+        return;
+    }
+    style.customPath = shapePathAt(style, clipTimeUs);
+    style.keyframes.remove(QLatin1String(kShapePathKey));
+    style.pathShapes.clear();
 }
 
 quint64 shapeStyleHash(const ShapeStyle &style)
@@ -647,7 +719,8 @@ quint64 shapeStyleHash(const ShapeStyle &style)
            ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.repeatCopies, style.repeatOffset,
                         style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
                         style.repeatStartOpacity, style.repeatEndOpacity)
-           ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed);
+           ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
+           ^ qHash(style.pathShapes);
 }
 
 bool shapeTimeDrivenPaint(const ShapeStyle &style)
@@ -703,6 +776,8 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
         if (s.customEvenOdd)
             o.insert(QStringLiteral("customEvenOdd"), true);
     }
+    if (!s.pathShapes.isEmpty())
+        o.insert(QStringLiteral("pathShapes"), QJsonArray::fromStringList(s.pathShapes));
     QJsonObject keyframesJson;
     for (auto it = s.keyframes.constBegin(); it != s.keyframes.constEnd(); ++it) {
         if (!it->isEmpty())
@@ -785,6 +860,8 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     // A custom kind without an outline would draw nothing; a rectangle is the honest fallback.
     if (s.kind == ShapeKind::Custom && s.customPath.isEmpty())
         s.kind = ShapeKind::Rectangle;
+    for (const QJsonValue &v : o.value(QStringLiteral("pathShapes")).toArray())
+        s.pathShapes.append(v.toString());
     const QJsonObject keyframesJson = o.value(QStringLiteral("keyframes")).toObject();
     for (auto it = keyframesJson.constBegin(); it != keyframesJson.constEnd(); ++it) {
         const QString canonical = shapeKeyframeCanonicalKey(it.key(), s);

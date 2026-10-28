@@ -215,6 +215,13 @@ Item {
         box: root.selectedBox
     }
 
+    // After Effects' Pen and path editing (0.26), over everything else while either is on.
+    PenToolOverlay {
+        anchors.fill: parent
+        z: 960
+        box: root.mode3d ? null : root.selectedBox
+    }
+
     Repeater {
         id: clipRepeater
 

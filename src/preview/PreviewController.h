@@ -42,6 +42,10 @@ class PreviewController : public QObject
     // Library set whose guides are being dragged on the preview; empty when not editing.
     Q_PROPERTY(QString guideEditSetId READ guideEditSetId WRITE setGuideEditSetId NOTIFY guideEditSetIdChanged)
     Q_PROPERTY(bool canvasCropMode READ canvasCropMode WRITE setCanvasCropMode NOTIFY canvasCropModeChanged)
+    // After Effects' Pen tool (0.26): clicks on the preview draw a new shape's outline; and the
+    // selected custom shape's vertices shown to drag.
+    Q_PROPERTY(bool penMode READ penMode WRITE setPenMode NOTIFY penModeChanged)
+    Q_PROPERTY(bool pathEditMode READ pathEditMode WRITE setPathEditMode NOTIFY pathEditModeChanged)
     Q_PROPERTY(bool maskEditMode READ maskEditMode WRITE setMaskEditMode NOTIFY maskEditModeChanged)
     // Whether the preview should be showing mask handles right now. Selecting a mask clip is
     // itself a request to edit it, so the toggle is only needed to keep the handles up while some
@@ -72,6 +76,22 @@ public:
     QString guideEditSetId() const { return m_guideEditSetId; }
     void setGuideEditSetId(const QString &id);
     bool canvasCropMode() const { return m_canvasCropMode; }
+    bool penMode() const { return m_penMode; }
+    void setPenMode(bool on)
+    {
+        if (m_penMode == on)
+            return;
+        m_penMode = on;
+        emit penModeChanged();
+    }
+    bool pathEditMode() const { return m_pathEditMode; }
+    void setPathEditMode(bool on)
+    {
+        if (m_pathEditMode == on)
+            return;
+        m_pathEditMode = on;
+        emit pathEditModeChanged();
+    }
     void setCanvasCropMode(bool active);
     bool maskEditMode() const { return m_maskEditMode; }
     void setMaskEditMode(bool active);
@@ -179,6 +199,8 @@ signals:
     void guidesEnabledChanged();
     void guideEditSetIdChanged();
     void canvasCropModeChanged();
+    void penModeChanged();
+    void pathEditModeChanged();
     void maskEditModeChanged();
     void maskEditActiveChanged();
     void activeToolChanged();
@@ -211,6 +233,8 @@ private:
     bool m_guidesEnabled = false;
     QString m_guideEditSetId;
     bool m_canvasCropMode = false;
+    bool m_penMode = false;
+    bool m_pathEditMode = false;
     bool m_maskEditMode = false;
     QString m_activeTool = QStringLiteral("transform");
     bool m_handlesVisible = false;

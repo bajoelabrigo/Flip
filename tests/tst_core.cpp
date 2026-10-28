@@ -19,6 +19,7 @@
 #include "core/SceneTemplateTools.h"
 #include "core/Stabilize.h"
 #include "core/ShapePath.h"
+#include "core/ShapePathEdit.h"
 #include "core/SrtIO.h"
 #include "core/SubtitleCue.h"
 #include "core/Transcript.h"
@@ -148,6 +149,8 @@ private slots:
     void lottieTextImport();
     void karaokeWordIndexTracksTheCue();
     void shapeStyleSerialization();
+    void shapePathContoursRoundTrip();
+    void shapePathMorphsBetweenKeys();
     void legacyShapeStyleLoadsWithDefaults();
     void shapeCatalogPathsFitBounds();
     void vectorSourceSerialization();
@@ -1844,6 +1847,74 @@ void CoreTest::karaokeWordIndexTracksTheCue()
     QCOMPARE(drift::activeWordIndexAt(text, start, end, end - 1), 3);
     // Past the end (rounding at a cue boundary) keeps the last word lit rather than blanking it.
     QCOMPARE(drift::activeWordIndexAt(text, start, end, end), 3);
+}
+
+// After Effects' path editing (0.26): an outline goes to vertices and back unchanged, quadratics
+// and lines included, and a closed contour stays closed.
+void CoreTest::shapePathContoursRoundTrip()
+{
+    const QString d = QStringLiteral("M 0 0 L 100 0 C 100 50 50 100 0 100 Z M 20 20 Q 40 0 60 20");
+    const QList<drift::PathContour> contours = drift::pathContoursFromSvg(d);
+    QCOMPARE(contours.size(), 2);
+    QVERIFY(contours.at(0).closed);
+    QCOMPARE(contours.at(0).vertices.size(), 3);
+    QVERIFY(!contours.at(1).closed);
+    QCOMPARE(contours.at(1).vertices.size(), 2);
+    // The quadratic's single control point becomes two cubic handles 2/3 of the way there.
+    QCOMPARE(contours.at(1).vertices.at(0).out, QPointF(20 + (40 - 20) * 2.0 / 3.0, 20 + (0 - 20) * 2.0 / 3.0));
+    const QString back = drift::svgFromPathContours(contours);
+    const QList<drift::PathContour> again = drift::pathContoursFromSvg(back);
+    QCOMPARE(again.size(), 2);
+    for (int c = 0; c < 2; ++c) {
+        QCOMPARE(again.at(c).closed, contours.at(c).closed);
+        QCOMPARE(again.at(c).vertices.size(), contours.at(c).vertices.size());
+        for (int i = 0; i < again.at(c).vertices.size(); ++i) {
+            QVERIFY(QLineF(again.at(c).vertices.at(i).point, contours.at(c).vertices.at(i).point).length() < 1e-3);
+            QVERIFY(QLineF(again.at(c).vertices.at(i).out, contours.at(c).vertices.at(i).out).length() < 1e-3);
+        }
+    }
+    const QRectF box = drift::pathContoursBounds(contours);
+    QCOMPARE(box, QRectF(0, 0, 100, 100));
+}
+
+// Two outlines with the same vertices blend; a pair that does not match holds the first.
+void CoreTest::shapePathMorphsBetweenKeys()
+{
+    const QString square = QStringLiteral("M 0 0 L 100 0 L 100 100 L 0 100 Z");
+    const QString diamond = QStringLiteral("M 50 0 L 100 50 L 50 100 L 0 50 Z");
+    const QList<drift::PathContour> half = drift::pathContoursFromSvg(drift::morphSvgPaths(square, diamond, 0.5));
+    QCOMPARE(half.size(), 1);
+    QCOMPARE(half.at(0).vertices.at(0).point, QPointF(25, 0));
+    QCOMPARE(half.at(0).vertices.at(1).point, QPointF(100, 25));
+    const QString triangle = QStringLiteral("M 50 0 L 100 100 L 0 100 Z");
+    QCOMPARE(drift::morphSvgPaths(square, triangle, 0.5), square);
+    QCOMPARE(drift::morphSvgPaths(square, triangle, 1.0), triangle);
+
+    // The Path stopwatch: keys at 0 s and 2 s, morphing on the track's own (linear) curve.
+    drift::ShapeStyle style;
+    style.kind = drift::ShapeKind::Custom;
+    style.customPath = square;
+    drift::setShapePathAnimated(style, true, 0);
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), diamond, 1000);
+    QCOMPARE(style.pathShapes.size(), 2);
+    QCOMPARE(drift::shapePathAt(style, 0), square);
+    QCOMPARE(drift::shapePathAt(style, drift::secondsToUs(3.0)), diamond);
+    const QList<drift::PathContour> mid = drift::pathContoursFromSvg(drift::shapePathAt(style, drift::secondsToUs(1.0)));
+    QCOMPARE(mid.at(0).vertices.at(0).point, QPointF(25, 0));
+    QCOMPARE(style.resolvedAt(drift::secondsToUs(1.0)).customPath, drift::shapePathAt(style, drift::secondsToUs(1.0)));
+    // Editing at a key replaces it; the rows list the Path property.
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), triangle, 1000);
+    QCOMPARE(style.pathShapes.size(), 2);
+    QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("path")));
+    // Saved and read back.
+    const drift::ShapeStyle back = drift::shapeStyleFromJson(drift::shapeStyleToJson(style));
+    QCOMPARE(back.pathShapes, style.pathShapes);
+    QCOMPARE(drift::shapePathAt(back, drift::secondsToUs(3.0)), triangle);
+    // Stopping keeps the outline seen at that time.
+    drift::setShapePathAnimated(style, false, drift::secondsToUs(3.0));
+    QVERIFY(style.pathShapes.isEmpty());
+    QCOMPARE(style.customPath, triangle);
+    QVERIFY(!style.isAnimated());
 }
 
 void CoreTest::shapeStyleSerialization()

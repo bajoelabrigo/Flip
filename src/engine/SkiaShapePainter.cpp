@@ -3,6 +3,7 @@
 #include "SkiaPath.h"
 #include "SkiaShading.h"
 #include "core/ShapePath.h"
+#include "core/ShapePathEdit.h"
 
 #include <QtMath>
 
@@ -370,8 +371,18 @@ ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
     const int h = qMax(1, qRound(request.layoutRect.height()));
     // A wiggle pushes the outline out by its size; the repeater's copies can land well outside the
     // box, capped so a runaway repeater cannot ask for a texture the GPU will not hold.
-    const double operators = request.style.wiggleSize * request.renderScale
-                             + qMin(4096.0, repeaterReach(request.style, w, h, request.renderScale));
+    double operators = request.style.wiggleSize * request.renderScale
+                       + qMin(4096.0, repeaterReach(request.style, w, h, request.renderScale));
+    // A custom outline edited past its box (a vertex or handle dragged out, a morph between keys)
+    // is still drawn whole.
+    if (request.style.kind == ShapeKind::Custom) {
+        const QRectF b = pathContoursBounds(pathContoursFromSvg(request.style.customPath));
+        if (!b.isNull()) {
+            const double over = qMax(qMax(-b.left() * w, (b.right() - 100.0) * w),
+                                     qMax(-b.top() * h, (b.bottom() - 100.0) * h)) / 100.0;
+            operators += qMin(4096.0, qMax(0.0, over));
+        }
+    }
     const double bleed = std::ceil(shapeBleedFor(request.style) * request.renderScale + operators);
     auto painter = std::make_shared<ShapePainter>(request.style, w, h, request.renderScale, request.timeSec, bleed);
     result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, painter->size().width(),

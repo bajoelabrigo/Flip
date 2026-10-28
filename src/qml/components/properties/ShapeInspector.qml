@@ -303,6 +303,61 @@ Item {
             }
         }
 
+        // ----- After Effects' Path (0.26): edit and animate a drawn outline -
+        CollapsibleSection {
+            width: parent.width
+            title: qsTr("Path")
+            visible: root.shapeStyle.kind === "custom"
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                readonly property var pathState: {
+                    void root.clipDataRevision
+                    void EditorState.playheadSeconds
+                    return EditorState.shapePathState(EditorState.selectedTrack, EditorState.selectedClip)
+                }
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: EditorState.preview.pathEditMode ? qsTr("Done editing") : qsTr("Edit points")
+                        glyph: Theme.icons.pencil
+                        variant: EditorState.preview.pathEditMode ? "primary" : "secondary"
+                        onClicked: EditorState.preview.pathEditMode = !EditorState.preview.pathEditMode
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Draw with the pen")
+                        variant: "secondary"
+                        onClicked: EditorState.preview.penMode = true
+                    }
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Animate the path")
+                    tooltip: qsTr("After Effects' Path stopwatch: a key with this outline at the playhead")
+                    checked: parent.pathState.animated === true
+                    onToggled: EditorState.setShapePathAnimated(EditorState.selectedTrack, EditorState.selectedClip, checked)
+                }
+                ThemedLabel {
+                    width: parent.width
+                    visible: parent.pathState.animated === true
+                    opacity: 0.8
+                    text: parent.pathState.keyHere ? qsTr("Editing the key at the playhead.")
+                                                    : qsTr("Moving a point here adds a key at the playhead.")
+                }
+            }
+        }
+
         // ----- After Effects' shape operators (0.26) ----------------------
         CollapsibleSection {
             width: parent.width

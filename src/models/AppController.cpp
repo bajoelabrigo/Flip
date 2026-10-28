@@ -40,6 +40,7 @@
 #include "engine/ClipTransform3d.h"
 #include "engine/PreviewSnap.h"
 #include "engine/TransformLayer.h"
+#include "core/ShapePathEdit.h"
 #include "engine/DebugReport.h"
 #include "engine/ProjectDependencies.h"
 #include "engine/AudioEffectCatalog.h"
@@ -10662,6 +10663,197 @@ void AppController::addNullObject()
     pushProjectEdit(before, tr("Null object added"));
     finishEdit(tr("Null object added"));
     selectClip(target, newClipIndex);
+}
+
+namespace {
+
+QPointF variantPoint(const QVariantMap &m, const char *x, const char *y, const QPointF &fallback)
+{
+    if (!m.contains(QLatin1String(x)) || !m.contains(QLatin1String(y)))
+        return fallback;
+    return {m.value(QLatin1String(x)).toDouble(), m.value(QLatin1String(y)).toDouble()};
+}
+
+drift::PathVertex vertexFromVariant(const QVariantMap &m, double scale)
+{
+    const QPointF p = variantPoint(m, "x", "y", {}) * scale;
+    return {p, variantPoint(m, "ix", "iy", p / scale) * scale, variantPoint(m, "ox", "oy", p / scale) * scale};
+}
+
+QVariantMap vertexToVariant(const drift::PathVertex &v, double scale)
+{
+    return {{QStringLiteral("x"), v.point.x() * scale},  {QStringLiteral("y"), v.point.y() * scale},
+            {QStringLiteral("ix"), v.in.x() * scale},    {QStringLiteral("iy"), v.in.y() * scale},
+            {QStringLiteral("ox"), v.out.x() * scale},   {QStringLiteral("oy"), v.out.y() * scale}};
+}
+
+// The contours mapped from `from` onto the 0..100 box of `to`.
+QList<drift::PathContour> refitContours(const QList<drift::PathContour> &contours, const QRectF &from)
+{
+    QList<drift::PathContour> out = contours;
+    const double sx = from.width() > 0 ? 100.0 / from.width() : 1.0;
+    const double sy = from.height() > 0 ? 100.0 / from.height() : 1.0;
+    const auto map = [&](const QPointF &p) { return QPointF((p.x() - from.left()) * sx, (p.y() - from.top()) * sy); };
+    for (drift::PathContour &contour : out) {
+        for (drift::PathVertex &v : contour.vertices) {
+            v.point = map(v.point);
+            v.in = map(v.in);
+            v.out = map(v.out);
+        }
+    }
+    return out;
+}
+
+// A box at least 1 px each way, so a straight line still has a height to scale by.
+QRectF atLeastOnePixel(QRectF box)
+{
+    if (box.width() < 1.0) {
+        const double cx = box.center().x();
+        box.setLeft(cx - 0.5);
+        box.setRight(cx + 0.5);
+    }
+    if (box.height() < 1.0) {
+        const double cy = box.center().y();
+        box.setTop(cy - 0.5);
+        box.setBottom(cy + 0.5);
+    }
+    return box;
+}
+
+} // namespace
+
+void AppController::addPenShape(const QVariantList &points, bool closed)
+{
+    drift::PathContour contour;
+    for (const QVariant &v : points)
+        contour.vertices.append(vertexFromVariant(v.toMap(), 1.0));
+    contour.closed = closed && contour.vertices.size() >= 3;
+    if (contour.vertices.size() < 2)
+        return;
+    const QRectF box = atLeastOnePixel(drift::pathContoursBounds({contour}));
+
+    const drift::Project before = m_project;
+    const drift::TimeUs start = m_playheadUs;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::kImageClipDurationUs, true);
+    if (target < 0)
+        return;
+    drift::Track &track = m_project.tracks()[target];
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Shape layer");
+    clip.shapeStyle.kind = drift::ShapeKind::Custom;
+    clip.shapeStyle.customPath = drift::svgFromPathContours(refitContours({contour}, box));
+    // A closed outline is filled, an open one is a line: stroked on its centre, as AE's pen draws.
+    clip.shapeStyle.layers = drift::defaultShapeLayers(QColor(0, 180, 255), QColor(122, 0, 255), Qt::white,
+                                                       contour.closed ? 0.0 : 6.0);
+    for (drift::TextShadingLayer &layer : clip.shapeStyle.layers) {
+        if (layer.kind == drift::TextLayerKind::Fill)
+            layer.enabled = contour.closed;
+        if (layer.kind == drift::TextLayerKind::Stroke)
+            layer.strokeAlign = drift::StrokeAlign::Center;
+    }
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
+                                                 m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = drift::kImageClipDurationUs;
+    clip.srcIn = 0;
+    clip.srcOut = drift::kImageClipDurationUs;
+    setClipLayoutPixels(clip, box.x(), box.y(), box.width(), box.height());
+    track.clips.append(clip);
+    const int newClipIndex = track.clips.size() - 1;
+    pushProjectEdit(before, tr("Shape drawn"));
+    finishEdit(tr("Shape drawn"));
+    selectClip(target, newClipIndex);
+}
+
+QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
+{
+    QVariantMap out{{QStringLiteral("editable"), false}};
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Shape || clip.shapeStyle.kind != drift::ShapeKind::Custom)
+        return out;
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    QVariantList contours;
+    for (const drift::PathContour &contour : drift::pathContoursFromSvg(drift::shapePathAt(clip.shapeStyle, rel))) {
+        QVariantList pts;
+        for (const drift::PathVertex &v : contour.vertices)
+            pts.append(vertexToVariant(v, 0.01));
+        contours.append(QVariantMap{{QStringLiteral("closed"), contour.closed}, {QStringLiteral("points"), pts}});
+    }
+    const auto it = clip.shapeStyle.keyframes.constFind(QLatin1String(drift::kShapePathKey));
+    const bool animated = it != clip.shapeStyle.keyframes.constEnd() && !it->isEmpty();
+    const drift::TimeUs tolerance = drift::frameDurationUs(m_project.fps()) / 2;
+    out.insert(QStringLiteral("editable"), true);
+    out.insert(QStringLiteral("animated"), animated);
+    out.insert(QStringLiteral("keyHere"), animated && it->nearestKeyframe(rel, tolerance) >= 0);
+    out.insert(QStringLiteral("contours"), contours);
+    return out;
+}
+
+void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVariantList &contours)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).shapeStyle.kind != drift::ShapeKind::Custom)
+        return;
+    QList<drift::PathContour> parsed;
+    for (const QVariant &c : contours) {
+        const QVariantMap m = c.toMap();
+        drift::PathContour contour;
+        contour.closed = m.value(QStringLiteral("closed")).toBool();
+        for (const QVariant &p : m.value(QStringLiteral("points")).toList())
+            contour.vertices.append(vertexFromVariant(p.toMap(), 100.0));
+        if (!contour.vertices.isEmpty())
+            parsed.append(contour);
+    }
+    if (parsed.isEmpty())
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const auto it = clip.shapeStyle.keyframes.constFind(QLatin1String(drift::kShapePathKey));
+    const bool animated = it != clip.shapeStyle.keyframes.constEnd() && !it->isEmpty();
+    const auto single = [](const drift::KeyframeTrack<double> &t) { return t.keyframes().size() <= 1; };
+    const QRectF bounds = drift::pathContoursBounds(parsed);
+    // A still outline that left its box takes the box with it, so the frame and grips fit it again.
+    // An animated one (or a moving box) keeps the box; the painter's margin covers the overflow.
+    if (!animated && !m_previewDragActive && single(clip.transformX) && single(clip.transformY)
+        && single(clip.transformW) && single(clip.transformH)
+        && (bounds.left() < -0.01 || bounds.top() < -0.01 || bounds.right() > 100.01 || bounds.bottom() > 100.01)) {
+        const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
+        const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+        const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+        const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+        const QRectF fit = atLeastOnePixel(bounds);
+        setClipLayoutPixels(clip, x + fit.left() / 100.0 * w, y + fit.top() / 100.0 * h, fit.width() / 100.0 * w,
+                            fit.height() / 100.0 * h);
+        parsed = refitContours(parsed, fit);
+    }
+    drift::setShapePathAt(clip.shapeStyle, rel, drift::svgFromPathContours(parsed),
+                          drift::frameDurationUs(m_project.fps()) / 2);
+    if (m_previewDragActive) {
+        emitPreviewFrame();
+        return;
+    }
+    pushProjectEdit(before, tr("Path edited"));
+    finishEdit(tr("Path edited"));
+}
+
+void AppController::setShapePathAnimated(int trackIndex, int clipIndex, bool on)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).shapeStyle.kind != drift::ShapeKind::Custom)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    drift::setShapePathAnimated(clip.shapeStyle, on, rel);
+    pushProjectEdit(before, on ? tr("Path animated") : tr("Path animation removed"));
+    finishEdit(on ? tr("Path animated") : tr("Path animation removed"));
 }
 
 QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const

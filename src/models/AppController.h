@@ -674,6 +674,21 @@ public:
     // After Effects' Null Object (0.26): a shape that never paints, on its own track at the
     // playhead, as long as the project (at least the default image length), 100 × 100 centred.
     Q_INVOKABLE void addNullObject();
+    // After Effects' Pen (0.26). A new custom shape from the outline drawn on the preview:
+    // [{x, y, ix, iy, ox, oy}] in canvas px (the vertex and its two handles), closed or open. A
+    // closed outline is filled, an open one stroked. It becomes the selection.
+    Q_INVOKABLE void addPenShape(const QVariantList &points, bool closed);
+    // The selected custom shape's outline at the playhead, for the preview to edit:
+    // {editable, animated, keyHere, contours: [{closed, points: [{x, y, ix, iy, ox, oy}]}]} with
+    // coordinates as fractions of the shape's box (0..1). editable is false for any other clip.
+    Q_INVOKABLE QVariantMap shapePathState(int trackIndex, int clipIndex) const;
+    // Writes the outline back in that form: a key at the playhead when the path is animated
+    // (replacing the one there), the static outline otherwise. One undo step, or part of a
+    // beginPreviewDrag session.
+    Q_INVOKABLE void setShapePathPoints(int trackIndex, int clipIndex, const QVariantList &contours);
+    // The Path stopwatch: on puts a key with the current outline at the playhead, off keeps the
+    // outline seen there and removes the keys.
+    Q_INVOKABLE void setShapePathAnimated(int trackIndex, int clipIndex, bool on);
     // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
     // nullObject, motionBlur} for one clip; and the clips it can follow (every visual clip on the
     // timeline but itself and those that already follow it), [{track, clip, id, name, nullObject}].

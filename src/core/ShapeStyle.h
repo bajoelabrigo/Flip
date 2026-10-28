@@ -107,6 +107,13 @@ struct ShapeStyle
     double wiggleSpeed = 0.0;
     double wiggleSeed = 0.0;
 
+    // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
+    // each key, the index of that key's outline in pathShapes. Between two keys the outlines
+    // morph by how far the track has gone from one key's value to the next, so the track's own
+    // easing and handles shape the morph. Indices are unique per key; editing the path at a key
+    // replaces its entry.
+    QStringList pathShapes;
+
     bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0; }
     bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
     bool hasWiggle() const { return wiggleSize > 0.0; }
@@ -133,6 +140,16 @@ QString shapeKeyframeCanonicalKey(const QString &key, const ShapeStyle &style);
 QString shapeKeyframeLabel(const QString &key, const ShapeStyle &style);
 bool shapeStyleScalar(const ShapeStyle &style, const QString &key, double *out);
 bool setShapeStyleScalar(ShapeStyle &style, const QString &key, double value);
+// The key of the animated path (0.26) and the outline it gives at clip time `clipTimeUs`, or the
+// static customPath when the path is not animated.
+inline constexpr char kShapePathKey[] = "path";
+QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs);
+// Puts `svg` on the path at clip time `clipTimeUs`: replaces the key there (within `toleranceUs`),
+// adds one, or, when the path is not animated, sets customPath.
+void setShapePathAt(ShapeStyle &style, TimeUs clipTimeUs, const QString &svg, TimeUs toleranceUs);
+// Starts animating the path with a key at `clipTimeUs` (stopwatch on), or stops: the outline at
+// that time stays as the static path.
+void setShapePathAnimated(ShapeStyle &style, bool on, TimeUs clipTimeUs);
 // Everything that changes pixels (render cache keys). Keyframes are not part of it.
 quint64 shapeStyleHash(const ShapeStyle &style);
 // A paint that moves on its own (gradient offsetSpeed, a time-driven shader effect).
