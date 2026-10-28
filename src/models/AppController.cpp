@@ -712,6 +712,13 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
             &AppController::audioOutputDevicesChanged);
     // Silent playback used to be entirely invisible: the sink failed to open and nothing said so,
     // in the UI or the log.
+    // A finished RAM preview plays from its start (0.26), looping the work area it covers.
+    connect(&m_playback, &PlaybackEngine::ramPreviewFinished, this, [this](bool playWhenDone) {
+        if (!playWhenDone || m_playback.ramPreviewRanges().isEmpty())
+            return;
+        setPlayheadSeconds(m_playback.ramPreviewStartSeconds());
+        setPlaying(true);
+    });
     connect(&m_playback, &PlaybackEngine::audioError, this, [this](const QString &message) {
         if (message == m_lastAudioError)
             return;
@@ -4773,6 +4780,7 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("goToOut"), QStringLiteral("Shift+O")},
         {QStringLiteral("clearInOut"), QStringLiteral("Alt+X")},
         {QStringLiteral("toggleLoop"), QStringLiteral("Ctrl+L")},
+        {QStringLiteral("ramPreview"), QStringLiteral("Num+0")},
         // The timeline tool modes live in QML, so Main.qml intercepts these rather
         // than triggerAction dispatching them. They are registered all the same, so
         // they show up in the shortcut list and can be rebound — hardcoded in
@@ -5650,6 +5658,7 @@ QVariantList AppController::actions() const
         action(QStringLiteral("goToOut"), tr("Go to work area out")),
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
+        action(QStringLiteral("ramPreview"), tr("RAM preview (render to memory and play)")),
         action(QStringLiteral("selectTool"), tr("Select tool")),
         action(QStringLiteral("previewHandTool"), tr("Hand tool (preview)")),
         action(QStringLiteral("previewZoomTool"), tr("Zoom tool (preview)")),
@@ -5743,6 +5752,24 @@ void AppController::endScrub()
     emit scrubbingChanged();
     // The throttle may have swallowed the last position of the gesture.
     emit inspectorPlayheadChanged();
+}
+
+void AppController::ramPreview()
+{
+    // A second press while it renders stops it, as in After Effects.
+    if (m_playback.ramPreviewBuilding()) {
+        m_playback.clearRamPreview();
+        return;
+    }
+    double in = 0.0;
+    double out = durationSeconds();
+    if (workAreaActive()) {
+        in = qMax(0.0, workAreaInSeconds());
+        out = workAreaOutSeconds() > in ? workAreaOutSeconds() : out;
+    }
+    setPlaying(false);
+    m_playback.buildRamPreview(in, out, true);
+    setLastMessage(tr("Rendering the preview to memory… press it again to stop"), QStringLiteral("info"));
 }
 
 void AppController::togglePlayback()
@@ -27484,6 +27511,8 @@ void AppController::triggerAction(const QString &actionId)
         clearWorkArea();
     else if (actionId == QStringLiteral("toggleLoop"))
         toggleLoopWorkArea();
+    else if (actionId == QStringLiteral("ramPreview"))
+        ramPreview();
     else if (actionId == QStringLiteral("previousEdit"))
         goToPreviousEdit();
     else if (actionId == QStringLiteral("nextEdit"))

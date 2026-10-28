@@ -1861,6 +1861,20 @@ PanelFrame {
                             }
                         }
 
+                        // After Effects' green bar (0.26): the frames the RAM preview holds, and
+                        // while it renders, how far it has got.
+                        Repeater {
+                            model: EditorState.playback.ramPreviewRanges
+                            delegate: Rectangle {
+                                required property var modelData
+                                y: Theme.timelineRulerHeight
+                                height: 3
+                                x: modelData.start * root.pxPerSecond
+                                width: Math.max(1, (modelData.end - modelData.start) * root.pxPerSecond)
+                                color: "#ff2fbf4a"
+                                z: 2
+                            }
+                        }
                         // Work area highlight in the bookmark lane (between In/Out markers).
                         Rectangle {
                             visible: EditorState.workAreaActive

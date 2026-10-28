@@ -10,9 +10,12 @@
 #include "engine/audio/ClipAudioRetimer.h"
 
 #include <memory>
+#include <QHash>
 #include <QImage>
+#include <QVariantList>
 #include <QMutex>
 #include <QObject>
+#include <QRectF>
 #include <QTimer>
 
 #include <atomic>
@@ -41,6 +44,8 @@ class PlaybackEngine : public QObject
     // After Effects' Toggle Transparency Grid (0.26): the preview without the project background,
     // so what is see-through shows the checkerboard. Preview only, never export.
     Q_PROPERTY(bool transparencyGrid READ transparencyGrid WRITE setTransparencyGrid NOTIFY transparencyGridChanged)
+    // After Effects' region of interest (0.26), in fractions of the canvas; an empty rect is off.
+    Q_PROPERTY(QRectF regionOfInterest READ regionOfInterest WRITE setRegionOfInterest NOTIFY regionOfInterestChanged)
     Q_PROPERTY(double playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
     Q_PROPERTY(QString decodeMode READ decodeMode WRITE setDecodeMode NOTIFY decodeModeChanged)
     Q_PROPERTY(QVariantList decodeModes READ decodeModes NOTIFY decodeModesChanged)
@@ -49,6 +54,13 @@ class PlaybackEngine : public QObject
     // Live playback counters for the diagnostics report and the preview overlay. Constant
     // because the block itself is owned here for the engine's lifetime; its contents change.
     Q_PROPERTY(PlaybackStats *stats READ stats CONSTANT)
+    // After Effects' RAM preview (0.26): a range composited into memory ahead of time and then
+    // played from there in real time, however heavy the project. The cached frames are drawn as a
+    // green bar over the ruler; any edit, a new preview size or quality empties the cache.
+    Q_PROPERTY(bool ramPreviewBuilding READ ramPreviewBuilding NOTIFY ramPreviewChanged)
+    Q_PROPERTY(double ramPreviewProgress READ ramPreviewProgress NOTIFY ramPreviewChanged)
+    // [{start, end}] in timeline seconds, one per run of cached frames.
+    Q_PROPERTY(QVariantList ramPreviewRanges READ ramPreviewRanges NOTIFY ramPreviewChanged)
 
 public:
     explicit PlaybackEngine(QObject *parent = nullptr);
@@ -95,8 +107,21 @@ public:
     {
         if (m_transparencyGrid == on)
             return;
+        clearRamPreview();
         m_transparencyGrid = on;
         emit transparencyGridChanged();
+        refreshFrame();
+    }
+    QRectF regionOfInterest() const { return m_regionOfInterest; }
+    void setRegionOfInterest(const QRectF &fractions)
+    {
+        const QRectF next = fractions.normalized().intersected(QRectF(0, 0, 1, 1));
+        const QRectF value = next.width() < 0.01 || next.height() < 0.01 ? QRectF() : next;
+        if (m_regionOfInterest == value)
+            return;
+        m_regionOfInterest = value;
+        clearRamPreview();
+        emit regionOfInterestChanged();
         refreshFrame();
     }
     void setPreviewQuality(const QString &quality);
@@ -133,6 +158,14 @@ public:
     double displayRefreshRate() const { return m_refreshRate; }
 
     Q_INVOKABLE void play();
+    // Composites [inSeconds, outSeconds) into memory (up to a few GB), on a worker thread.
+    // ramPreviewFinished fires when it is done, so the caller can start playback from the start.
+    Q_INVOKABLE void buildRamPreview(double inSeconds, double outSeconds, bool playWhenDone);
+    Q_INVOKABLE void clearRamPreview();
+    bool ramPreviewBuilding() const { return m_ramBuilding; }
+    double ramPreviewProgress() const { return m_ramProgress; }
+    QVariantList ramPreviewRanges() const;
+    double ramPreviewStartSeconds() const;
     Q_INVOKABLE void pause();
     Q_INVOKABLE void refreshFrame();
     Q_INVOKABLE void setPreviewRenderSize(int width, int height);
@@ -190,12 +223,15 @@ signals:
     void playingChanged();
     void previewQualityChanged();
     void transparencyGridChanged();
+    void regionOfInterestChanged();
     void playbackRateChanged();
     void decodeModeChanged();
     void decodeModesChanged();
     void useProxiesChanged();
     void proxySizeChanged();
     void playheadUsChanged(quint64 us);
+    void ramPreviewChanged();
+    void ramPreviewFinished(bool playWhenDone);
 
 private:
     int fillAudio(float *buffer, int sampleCount);
@@ -214,6 +250,10 @@ public:
     std::shared_ptr<const drift::Project> projectSnapshot(const drift::Project *project);
 
 private:
+    // Shows the cached frame for `frameUs` (on the project's frame grid) if the RAM preview has it.
+    bool presentRamFrame(drift::TimeUs frameUs);
+    void onRamFrame(quint64 generation, drift::TimeUs frameUs, const QImage &frame);
+    void onRamDone(quint64 generation);
     void onCompositeTick();
     // Pick the frame that should be on screen at the next swap and ask for it, unless it is
     // the one already requested.
@@ -257,6 +297,7 @@ private:
     // degrading. A saved preference still wins; only fresh installs move.
     QString m_previewQuality = QStringLiteral("auto");
     bool m_transparencyGrid = false;
+    QRectF m_regionOfInterest;
     QString m_decodeMode = QStringLiteral("auto");
     // Baseline for ClipReader's process-wide fallback counter, so the notice fires on
     // a new fallback rather than on every frame after the first one.
@@ -291,6 +332,15 @@ private:
     // The rate the sink negotiated, which is what the mixer renders at and what the clock counts
     // samples in — not necessarily the project's rate, since the device has the final say.
     int m_sampleRate = 48000;
+    QHash<drift::TimeUs, QImage> m_ramFrames;
+    qint64 m_ramBytes = 0;
+    std::shared_ptr<std::atomic<bool>> m_ramCancel;
+    quint64 m_ramGeneration = 0;
+    bool m_ramBuilding = false;
+    bool m_ramPlayWhenDone = false;
+    double m_ramProgress = 0.0;
+    drift::TimeUs m_ramIn = 0;
+    drift::TimeUs m_ramOut = 0;
     bool m_loopWorkArea = false;
     bool m_voiceoverRecording = false;
     // processedUSecs() is cumulative from QAudioSink::start(), not from the last clock reset.

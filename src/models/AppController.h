@@ -1962,6 +1962,9 @@ public:
     Q_INVOKABLE QStringList assetFavoriteIds(const QString &tabId) const;
     Q_INVOKABLE void toggleAssetFavorite(const QString &tabId, const QString &itemId);
     Q_INVOKABLE void togglePlayback();
+    // After Effects' RAM preview (0.26): the work area (or the whole timeline) rendered into memory,
+    // then played in real time from its start. Again while it renders stops it.
+    Q_INVOKABLE void ramPreview();
     // Bracket a scrub gesture (a dragged playhead, or the phone timeline being scrolled under
     // its fixed playhead). In between, the preview shows approximate frames and inspectors
     // follow the playhead at a reduced rate; the exact frame is drawn at the end.

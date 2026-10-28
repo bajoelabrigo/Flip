@@ -2046,6 +2046,26 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 continue;
             }
 
+            // Region of interest (0.26): a plain layer whose box lies wholly outside it is skipped
+            // before anything is decoded. Layers that can draw past their box (effects, text, motion
+            // blur) or that something else places (parents, 3D) are always drawn.
+            if (!nested && !options.regionOfInterest.isEmpty() && clip.effects.isEmpty() && !clip.motionBlur
+                && !clip.layer3d && clip.parentId.isEmpty() && (parents.isEmpty() || !parents.at(ti).hasParent)
+                && clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle) {
+                double bx = 0.0, by = 0.0, bw = 0.0, bh = 0.0, turn = 0.0;
+                layoutRectForClip(clip, timelineUs, projectWidth, projectHeight, renderScale, 1.0, &bx, &by, &bw, &bh,
+                                  &turn);
+                const QPointF centre(bx + bw / 2.0, by + bh / 2.0);
+                QTransform spin;
+                spin.translate(centre.x(), centre.y());
+                spin.rotate(turn);
+                spin.translate(-centre.x(), -centre.y());
+                const QRectF bounds = spin.mapRect(QRectF(bx, by, bw, bh));
+                const QRectF &f = options.regionOfInterest;
+                const QRectF roi(f.x() * width, f.y() * height, f.width() * width, f.height() * height);
+                if (!bounds.intersects(roi))
+                    continue;
+            }
             const bool editingText = !nested && clip.type == drift::ClipType::Text && options.textEdit.active()
                                      && options.textEdit.clipId == clip.id;
             GpuItem item;

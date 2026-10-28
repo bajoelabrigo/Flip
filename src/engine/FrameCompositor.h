@@ -42,6 +42,9 @@ public:
         bool approximateSeek = false;
         // The preview's transparency grid (0.26): the project background left out.
         bool transparentBackground = false;
+        // After Effects' region of interest (0.26): the part of the canvas the preview needs, as
+        // fractions (empty = all of it). Plain layers wholly outside it are not decoded or drawn.
+        QRectF regionOfInterest;
         // The preview's 3D mode: the scene seen from the editor's free viewpoint, with the camera
         // and the stage drawn as guides. Only the preview sets it; export never does.
         struct EditorView

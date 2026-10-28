@@ -10,6 +10,9 @@
 #include "engine/HwAccel.h"
 #include "engine/ReverseProxyCache.h"
 
+#include <QCoreApplication>
+#include <QPointer>
+#include <QtConcurrent/QtConcurrentRun>
 #include <QSettings>
 #include <QVariantMap>
 
@@ -338,6 +341,7 @@ void PlaybackEngine::pushAudioSnapshot()
 
 void PlaybackEngine::notifyProjectEdited()
 {
+    clearRamPreview();
     m_compositor.invalidateSnapshot();
     if (!m_editRefreshTimer.isActive())
         m_editRefreshTimer.start();
@@ -357,6 +361,8 @@ void PlaybackEngine::setPlayheadUs(drift::TimeUs us)
     m_lastEmittedFrameUs = -1;
     // No invalidateSnapshot: every edit already does that through notifyProjectEdited(), so the
     // shared snapshot is current and only the time changed.
+    if (!m_ramFrames.isEmpty() && presentRamFrame((m_playheadUs / qMax<drift::TimeUs>(1, frameStepUs())) * frameStepUs()))
+        return;
     if (m_scrubbing) {
         ++m_scrubSeeks;
         m_scrubSettleTimer.start();
@@ -437,6 +443,7 @@ void PlaybackEngine::setPreviewQuality(const QString &quality)
     if (m_previewQuality == normalized)
         return;
 
+    clearRamPreview();
     m_previewQuality = normalized;
     QSettings().setValue(QStringLiteral("preview/quality"), m_previewQuality);
     m_compositor.setAdaptiveQuality(isAutoQuality());
@@ -666,6 +673,7 @@ void PlaybackEngine::setPreviewRenderSize(int width, int height)
 
     m_previewRenderWidth = width;
     m_previewRenderHeight = height;
+    clearRamPreview();
     // Every quality mode sizes the canvas from the panel, so a resize has to
     // rebuild the frame. Decode size is quantized, which keeps the reader cache
     // from dropping on every pixel of a drag.
@@ -810,6 +818,8 @@ void PlaybackEngine::requestFrameForPresentation()
         return;
     m_lastRequestedFrameUs = frameUs;
 
+    if (presentRamFrame(frameUs))
+        return;
     m_compositor.requestComposite(frameUs, playbackRenderOptions());
 }
 
@@ -832,6 +842,141 @@ void PlaybackEngine::pause()
     refreshFrame();
     if (qEnvironmentVariableIsSet("DRIFT_PLAYBACK_STATS"))
         std::fprintf(stderr, "%s\n", qPrintable(m_stats.summaryLine()));
+}
+
+namespace {
+// What the RAM preview may hold: about 50 s of a 960×540 preview at 30 fps.
+constexpr qint64 kRamPreviewBudgetBytes = qint64(3) * 1024 * 1024 * 1024;
+}
+
+void PlaybackEngine::buildRamPreview(double inSeconds, double outSeconds, bool playWhenDone)
+{
+    clearRamPreview();
+    if (!m_project)
+        return;
+    const drift::TimeUs step = qMax<drift::TimeUs>(1, frameStepUs());
+    const drift::TimeUs in = (drift::secondsToUs(qMax(0.0, inSeconds)) / step) * step;
+    const drift::TimeUs out = drift::secondsToUs(outSeconds);
+    if (out <= in)
+        return;
+    if (m_playing)
+        pause();
+    const std::shared_ptr<const drift::Project> snapshot = m_compositor.snapshot();
+    if (!snapshot)
+        return;
+    FrameCompositor::RenderOptions options = playbackRenderOptions();
+    auto cancel = std::make_shared<std::atomic<bool>>(false);
+    m_ramCancel = cancel;
+    const quint64 generation = ++m_ramGeneration;
+    m_ramBuilding = true;
+    m_ramPlayWhenDone = playWhenDone;
+    m_ramProgress = 0.0;
+    m_ramIn = in;
+    m_ramOut = out;
+    emit ramPreviewChanged();
+    QPointer<PlaybackEngine> self(this);
+    (void)QtConcurrent::run([self, snapshot, options, in, out, step, cancel, generation]() {
+        FrameCompositor compositor;
+        compositor.setProject(snapshot.get());
+        qint64 bytes = 0;
+        for (drift::TimeUs t = in; t < out && !cancel->load(); t += step) {
+            QImage frame = compositor.compositeAt(t, options);
+            if (frame.isNull())
+                continue;
+            if (frame.format() != QImage::Format_ARGB32_Premultiplied)
+                frame = frame.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+            bytes += frame.sizeInBytes();
+            QMetaObject::invokeMethod(qApp, [self, generation, t, frame] {
+                if (self)
+                    self->onRamFrame(generation, t, frame);
+            }, Qt::QueuedConnection);
+            if (bytes > kRamPreviewBudgetBytes)
+                break; // memory is full: what is cached plays, the rest renders live
+        }
+        QMetaObject::invokeMethod(qApp, [self, generation] {
+            if (self)
+                self->onRamDone(generation);
+        }, Qt::QueuedConnection);
+    });
+}
+
+void PlaybackEngine::onRamFrame(quint64 generation, drift::TimeUs frameUs, const QImage &frame)
+{
+    if (generation != m_ramGeneration)
+        return;
+    m_ramFrames.insert(frameUs, frame);
+    m_ramBytes += frame.sizeInBytes();
+    const drift::TimeUs step = qMax<drift::TimeUs>(1, frameStepUs());
+    m_ramProgress = qBound(0.0, double(frameUs + step - m_ramIn) / double(qMax<drift::TimeUs>(1, m_ramOut - m_ramIn)), 1.0);
+    emit ramPreviewChanged();
+}
+
+void PlaybackEngine::onRamDone(quint64 generation)
+{
+    if (generation != m_ramGeneration || !m_ramBuilding)
+        return;
+    m_ramBuilding = false;
+    m_ramProgress = 1.0;
+    emit ramPreviewChanged();
+    emit ramPreviewFinished(m_ramPlayWhenDone);
+}
+
+void PlaybackEngine::clearRamPreview()
+{
+    if (m_ramCancel)
+        m_ramCancel->store(true);
+    m_ramCancel.reset();
+    ++m_ramGeneration;
+    const bool had = m_ramBuilding || !m_ramFrames.isEmpty();
+    m_ramFrames.clear();
+    m_ramBytes = 0;
+    m_ramBuilding = false;
+    m_ramProgress = 0.0;
+    if (had)
+        emit ramPreviewChanged();
+}
+
+double PlaybackEngine::ramPreviewStartSeconds() const
+{
+    return drift::usToSeconds(m_ramIn);
+}
+
+QVariantList PlaybackEngine::ramPreviewRanges() const
+{
+    QVariantList out;
+    if (m_ramFrames.isEmpty())
+        return out;
+    const drift::TimeUs step = qMax<drift::TimeUs>(1, frameStepUs());
+    QList<drift::TimeUs> keys = m_ramFrames.keys();
+    std::sort(keys.begin(), keys.end());
+    drift::TimeUs start = keys.first();
+    drift::TimeUs last = keys.first();
+    const auto close = [&] {
+        out.append(QVariantMap{{QStringLiteral("start"), drift::usToSeconds(start)},
+                               {QStringLiteral("end"), drift::usToSeconds(last + step)}});
+    };
+    for (int i = 1; i < keys.size(); ++i) {
+        if (keys.at(i) - last > step + step / 2) {
+            close();
+            start = keys.at(i);
+        }
+        last = keys.at(i);
+    }
+    close();
+    return out;
+}
+
+bool PlaybackEngine::presentRamFrame(drift::TimeUs frameUs)
+{
+    const auto it = m_ramFrames.constFind(frameUs);
+    if (it == m_ramFrames.constEnd())
+        return false;
+    {
+        QMutexLocker lock(&m_frameMutex);
+        m_currentFrame = GpuFrameTexture{0, it->size(), *it};
+    }
+    emit currentFrameChanged();
+    return true;
 }
 
 void PlaybackEngine::refreshFrame()
@@ -990,6 +1135,7 @@ FrameCompositor::RenderOptions PlaybackEngine::playbackRenderOptions() const
     options.allowProxies = true;
     options.editor = m_editorView;
     options.transparentBackground = m_transparencyGrid;
+    options.regionOfInterest = m_regionOfInterest;
     // The 3D view fills the panel, and is antialiased by rendering it at twice the panel's
     // resolution, which the scene graph's linear filter averages back down. Orbiting re-renders
     // the whole scene per step, so it drops to one sample per pixel until the release.

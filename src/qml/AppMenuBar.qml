@@ -411,6 +411,12 @@ Row {
                 enabled: root.editing
                 onTriggered: root.dispatch("toggleLoop")
             }
+            ThemedMenuItem {
+                text: EditorState.playback.ramPreviewBuilding ? qsTr("Stop RAM Preview") : qsTr("RAM Preview")
+                shortcutText: root.keys("ramPreview")
+                enabled: root.editing
+                onTriggered: root.dispatch("ramPreview")
+            }
             ThemedContextMenu {
                 title: qsTr("Bookmarks")
 

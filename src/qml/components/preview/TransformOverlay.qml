@@ -221,6 +221,33 @@ Item {
         z: 960
         box: root.mode3d ? null : root.selectedBox
     }
+    // The region of interest (0.26): outside it the frame is not drawn, so it is covered over.
+    Item {
+        id: roiMask
+        anchors.fill: parent
+        z: 954
+        readonly property rect roi: EditorState.playback.regionOfInterest
+        visible: roi.width > 0 && roi.height > 0
+        readonly property real rx: roi.x * width
+        readonly property real ry: roi.y * height
+        readonly property real rw: roi.width * width
+        readonly property real rh: roi.height * height
+        readonly property color shade: Qt.rgba(0.08, 0.08, 0.08, 0.92)
+        Rectangle { x: 0; y: 0; width: parent.width; height: roiMask.ry; color: roiMask.shade }
+        Rectangle { x: 0; y: roiMask.ry + roiMask.rh; width: parent.width; height: parent.height - y; color: roiMask.shade }
+        Rectangle { x: 0; y: roiMask.ry; width: roiMask.rx; height: roiMask.rh; color: roiMask.shade }
+        Rectangle { x: roiMask.rx + roiMask.rw; y: roiMask.ry; width: parent.width - x; height: roiMask.rh; color: roiMask.shade }
+        Rectangle {
+            x: roiMask.rx
+            y: roiMask.ry
+            width: roiMask.rw
+            height: roiMask.rh
+            color: "transparent"
+            border.width: 1
+            border.color: Theme.primary
+        }
+    }
+
     // The toolbar's anchor, shape and text tools (0.26).
     PreviewToolOverlay {
         anchors.fill: parent

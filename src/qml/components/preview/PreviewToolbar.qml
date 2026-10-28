@@ -74,6 +74,15 @@ Rectangle {
         ToolButton { toolId: "select"; shortcutId: "selectTool"; label: qsTr("Selection"); glyph: Theme.icons.mousePointer }
         ToolButton { toolId: "hand"; shortcutId: "previewHandTool"; label: qsTr("Hand: drag to move the view"); glyph: "hand" }
         ToolButton { toolId: "zoom"; shortcutId: "previewZoomTool"; label: qsTr("Zoom: click to zoom in, Alt+click to zoom out"); glyph: Theme.icons.search }
+        // After Effects' Region of Interest (0.26): only that part of the frame is drawn.
+        ToolButton { toolId: "roi"; label: qsTr("Region of interest: drag the part of the frame to preview; the rest is not drawn, so it plays faster"); glyph: Theme.icons.crop }
+        IconButton {
+            Layout.alignment: Qt.AlignVCenter
+            visible: EditorState.playback.regionOfInterest.width > 0
+            glyph: Theme.icons.x
+            tooltip: qsTr("Reset the region of interest")
+            onClicked: EditorState.playback.regionOfInterest = Qt.rect(0, 0, 0, 0)
+        }
 
         Rectangle { Layout.preferredWidth: 1; Layout.preferredHeight: 18; color: Theme.border }
 

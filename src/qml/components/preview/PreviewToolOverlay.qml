@@ -22,7 +22,7 @@ Item {
                                         && box.kind !== "transform"
 
     readonly property bool sketchReady: tool === "sketch" && !!box && box.kind !== "transform"
-    visible: tool === "shape" || tool === "text" || anchorReady || sketchReady
+    visible: tool === "shape" || tool === "text" || tool === "roi" || anchorReady || sketchReady
     enabled: visible && !EditorState.playing
 
     // Fractions of the box (0..1) ↔ overlay px, through the box's on-screen corners.
@@ -60,7 +60,7 @@ Item {
     }
 
     Rectangle {
-        visible: root.dragging && root.tool === "shape"
+        visible: root.dragging && (root.tool === "shape" || root.tool === "roi")
         x: root.dragRect.x
         y: root.dragRect.y
         width: root.dragRect.width
@@ -135,7 +135,7 @@ Item {
         cursorShape: root.tool === "text" ? Qt.IBeamCursor : root.tool === "anchor" || root.tool === "sketch" ? Qt.SizeAllCursor : Qt.CrossCursor
 
         onPressed: mouse => {
-            if (root.tool === "shape") {
+            if (root.tool === "shape" || root.tool === "roi") {
                 root.dragFrom = Qt.point(mouse.x, mouse.y)
                 root.dragRect = Qt.rect(mouse.x, mouse.y, 0, 0)
                 root.dragging = true
@@ -152,7 +152,7 @@ Item {
         onPositionChanged: mouse => {
             if (!pressed)
                 return
-            if (root.tool === "shape" && root.dragging)
+            if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
                 root.dragRect = root.shapeRect(root.dragFrom, Qt.point(mouse.x, mouse.y),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
             else if (root.tool === "anchor")
@@ -161,6 +161,15 @@ Item {
                 root.sketchPointer = Qt.point(mouse.x, mouse.y)
         }
         onReleased: mouse => {
+            if (root.tool === "roi" && root.dragging) {
+                root.dragging = false
+                const q = root.dragRect
+                if (q.width >= 6 && q.height >= 6)
+                    EditorState.playback.regionOfInterest = Qt.rect(q.x / root.width, q.y / root.height,
+                                                                    q.width / root.width, q.height / root.height)
+                EditorState.preview.tool = "select"
+                return
+            }
             if (root.tool === "shape" && root.dragging) {
                 root.dragging = false
                 const r = root.dragRect
