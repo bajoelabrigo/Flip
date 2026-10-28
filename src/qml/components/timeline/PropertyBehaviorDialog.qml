@@ -44,6 +44,7 @@ ThemedDialog {
         amountField.value = b.wiggleAmount ? b.wiggleAmount : 20
         seedField.value = b.wiggleSeed || 0
         speedField.value = b.speed || 0
+        expressionField.text = b.expression || ""
         open()
     }
 
@@ -53,7 +54,8 @@ ThemedDialog {
             speed: speedField.value,
             wiggleFrequency: wiggleSwitch.checked ? frequencyField.value : 0,
             wiggleAmount: wiggleSwitch.checked ? amountField.value : 0,
-            wiggleSeed: Math.round(seedField.value)
+            wiggleSeed: Math.round(seedField.value),
+            expression: expressionField.text
         }
     }
 
@@ -129,6 +131,25 @@ ThemedDialog {
             size: "sm"
             opacity: 0.7
             text: qsTr("For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.")
+        }
+
+        // After Effects' expression, in JavaScript (0.26): run last, on the value with all the above.
+        ThemedLabel { text: qsTr("Expression (JavaScript)") }
+        ThemedTextArea {
+            id: expressionField
+            width: parent.width
+            height: 72
+            placeholderText: "value + wiggle(2, 10) - value  /  time * 90  /  thisComp.layer(\"Nulo 1\").transform.rotation"
+            font.family: "Consolas"
+        }
+        ThemedLabel {
+            readonly property string error: EditorState.checkExpression(expressionField.text)
+            width: parent.width
+            wrapMode: Text.WordWrap
+            size: "sm"
+            color: error.length > 0 ? "#e5484d" : Theme.mutedForeground
+            text: error.length > 0 ? error
+                                   : qsTr("value, time, wiggle(freq, amount), Math, and thisComp.layer(\"Name\").transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.")
         }
     }
 }

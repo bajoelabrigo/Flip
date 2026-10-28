@@ -6,6 +6,7 @@
 #include "CompositorFrameHistory.h"
 #include "EffectCatalog.h"
 #include "EffectProcessor.h"
+#include "ExpressionEngine.h"
 #include "FaceTrack.h"
 #include "PoseTrack.h"
 #include "GpuCompositor.h"
@@ -1753,7 +1754,8 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 {
     GpuScene scene;
     scene.canvasSize = QSize(width, height);
-    scene.cacheVideoSources = options.cacheVideoSources;
+    scene.cacheVideoSources = options.cacheVideoSources;    // Expressions (0.26) that read another layer read it from this timeline, at this frame.
+    const drift::ExpressionScope expressionScope(&project, timelineUs);
 
     const int projectWidth = project.width();
     const int projectHeight = project.height();

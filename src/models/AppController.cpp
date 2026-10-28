@@ -40,6 +40,7 @@
 #include "engine/ClipTransform3d.h"
 #include "engine/PreviewSnap.h"
 #include "engine/TransformLayer.h"
+#include "engine/ExpressionEngine.h"
 #include "core/ShapePathEdit.h"
 #include "engine/DebugReport.h"
 #include "engine/ProjectDependencies.h"
@@ -656,6 +657,9 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     }
 
     m_undoStack.setUndoLimit(kMaxUndoSteps);
+    // Expressions (0.26): the evaluator, and this timeline for the ones the editor evaluates here.
+    drift::installExpressionEngine();
+    drift::expressionContext().project = &m_project;
     // The Preferences' editing defaults (0.26): undo levels, durations of placed stills and texts,
     // new keys' interpolation and the autosave interval, now and whenever they change.
     const auto applyEditorDefaults = [this] {
@@ -11448,6 +11452,11 @@ void AppController::setKeyVelocity(int trackIndex, int clipIndex, const QString 
     finishEdit(tr("Keyframe velocity"));
 }
 
+QString AppController::checkExpression(const QString &expression) const
+{
+    return drift::expressionError(expression);
+}
+
 QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
 {
     QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};
@@ -11464,6 +11473,7 @@ QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const
     out.insert(QStringLiteral("wiggleFrequency"), b.wiggleFrequency);
     out.insert(QStringLiteral("wiggleAmount"), b.wiggleAmount);
     out.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
+    out.insert(QStringLiteral("expression"), b.expression);
     return out;
 }
 
@@ -11478,6 +11488,15 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     b.wiggleFrequency = qMax(0.0, behavior.value(QStringLiteral("wiggleFrequency")).toDouble());
     b.wiggleAmount = behavior.value(QStringLiteral("wiggleAmount")).toDouble();
     b.wiggleSeed = behavior.value(QStringLiteral("wiggleSeed")).toInt();
+    b.expression = behavior.value(QStringLiteral("expression")).toString().trimmed();
+    // Motion Tools' Elastic / Bounce are not in the dialog: they stay as they were.
+    if (const drift::KeyframeTrack<double> *current =
+            keyframeTrackForProp(m_project.tracks().at(trackIndex).clips.at(clipIndex), prop)) {
+        b.settle = current->behavior().settle;
+        b.settleAmplitude = current->behavior().settleAmplitude;
+        b.settleFrequency = current->behavior().settleFrequency;
+        b.settleDecay = current->behavior().settleDecay;
+    }
     // The value it holds now, read before the edit in case the track has to be made.
     const double base = propertyBaseValue(trackIndex, clipIndex, prop);
     const drift::Project before = m_project;

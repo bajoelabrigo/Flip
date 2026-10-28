@@ -94,17 +94,41 @@ struct TrackBehavior
     double settleAmplitude = 0.05;
     double settleFrequency = 3.0;
     double settleDecay = 5.0;
+    // A JavaScript expression run last, on the value with everything above (empty = none).
+    QString expression;
 
     bool hasWiggle() const { return wiggleFrequency > 0.0 && wiggleAmount != 0.0; }
-    bool isActive() const { return loop != LoopMode::None || speed != 0.0 || hasWiggle() || settle != Settle::None; }
+    bool isActive() const
+    {
+        return loop != LoopMode::None || speed != 0.0 || hasWiggle() || settle != Settle::None || !expression.isEmpty();
+    }
     bool operator==(const TrackBehavior &o) const
     {
         return loop == o.loop && speed == o.speed && wiggleFrequency == o.wiggleFrequency
                && wiggleAmount == o.wiggleAmount && wiggleSeed == o.wiggleSeed && settle == o.settle
                && settleAmplitude == o.settleAmplitude && settleFrequency == o.settleFrequency
-               && settleDecay == o.settleDecay;
+               && settleDecay == o.settleDecay && expression == o.expression;
     }
 };
+
+// After Effects' expressions (0.26): the evaluator the engine installs (engine/ExpressionEngine),
+// and what it reads other layers from on this thread. Core cannot see the engine, hence a hook.
+using ExpressionEvaluator = double (*)(const QString &expression, double value, double seconds);
+inline ExpressionEvaluator &expressionEvaluatorRef()
+{
+    static ExpressionEvaluator evaluator = nullptr;
+    return evaluator;
+}
+struct ExpressionContext
+{
+    const void *project = nullptr; // a drift::Project
+    qint64 timelineUs = -1;        // the frame's timeline time; -1 = the evaluating clip's own
+};
+inline ExpressionContext &expressionContext()
+{
+    thread_local ExpressionContext context;
+    return context;
+}
 
 // Smooth noise in about -1..1, the same for the same (x, seed): what wiggle() rides on.
 inline double behaviorNoise(double x, int seed)
@@ -408,6 +432,9 @@ private:
         value += m_behavior.speed * seconds;
         if (m_behavior.hasWiggle())
             value += m_behavior.wiggleAmount * behaviorNoise(seconds * m_behavior.wiggleFrequency, m_behavior.wiggleSeed);
+        if (!m_behavior.expression.isEmpty())
+            if (ExpressionEvaluator evaluator = expressionEvaluatorRef())
+                value = evaluator(m_behavior.expression, value, seconds);
         return value;
     }
 

@@ -56,6 +56,7 @@
 #include "engine/EditorView3d.h"
 #include "engine/EditorOverlay.h"
 #include "engine/TransformLayer.h"
+#include "engine/ExpressionEngine.h"
 #include "engine/GpuCompositor.h"
 #include "engine/MediaWaveform.h"
 #include "playback/PlaybackDiagnostics.h"
@@ -389,6 +390,7 @@ private slots:
     void motionBlurSmearsAMovingClip();
     void clipParentAndMotionBlurRoundTrip();
     void trackMatteCutsTheLayer();
+    void expressionsRunOnProperties();
     void exporterProducesPlayableFileWithBackground();
     void exporterProducesAudioOnlyMp3();
     void exporterTagsSdrBt709ColorMetadata();
@@ -11826,6 +11828,41 @@ void EngineTest::trackMatteCutsTheLayer()
     clipIn(project, QStringLiteral("r"))->matteMode = drift::Clip::TrackMatte::Luma;
     out = renderAt(project, 1.0);
     QVERIFY(qRed(out.pixel(32, 32)) < 30);
+}
+
+void EngineTest::expressionsRunOnProperties()
+{
+    drift::installExpressionEngine();
+    drift::KeyframeTrack<double> track;
+    track.setKeyframe(0, 10.0);
+    track.setKeyframe(drift::secondsToUs(1.0), 20.0);
+    drift::TrackBehavior b;
+    b.expression = QStringLiteral("value * 2");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 30.0);
+    b.expression = QStringLiteral("time * 90");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.0)), 180.0);
+    // Another layer's property, at the frame's time.
+    drift::Clip nullClip = solidShape(QStringLiteral("n"), QRectF(0, 0, 10, 10), Qt::red);
+    nullClip.name = QStringLiteral("Nulo 1");
+    nullClip.rotation.setKeyframe(0, 0.0);
+    nullClip.rotation.setKeyframe(drift::secondsToUs(2.0), 90.0);
+    drift::Project project = clipsProject({nullClip});
+    const drift::ExpressionScope scope(&project, drift::secondsToUs(1.0));
+    b.expression = QStringLiteral("thisComp.layer(\"Nulo 1\").transform.rotation * 2");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(0), 90.0);
+    // Broken code keeps the value and says why.
+    b.expression = QStringLiteral("this is not js");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(0), 10.0);
+    QVERIFY(!drift::expressionError(b.expression).isEmpty());
+    QVERIFY(drift::expressionError(QStringLiteral("value + 1")).isEmpty());
+    // Saved and read back.
+    b.expression = QStringLiteral("value + 1");
+    track.setBehavior(b);
+    QCOMPARE(drift::keyframesFromJson(drift::keyframesToJson(track)).behavior().expression, b.expression);
 }
 
 void EngineTest::transformLayerMatrixMapsTheBox()

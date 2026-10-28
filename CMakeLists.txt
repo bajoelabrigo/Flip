@@ -790,6 +790,8 @@ add_library(driftengine STATIC
     src/engine/PreviewSnap.cpp
     src/engine/TransformLayer.h
     src/engine/TransformLayer.cpp
+    src/engine/ExpressionEngine.h
+    src/engine/ExpressionEngine.cpp
     src/engine/ClipGizmo.h
     src/engine/ClipGizmo.cpp
     src/engine/ModelClipTransform.h
@@ -856,7 +858,7 @@ target_include_directories(driftengine PUBLIC src)
 target_include_directories(driftengine SYSTEM PRIVATE ${CMAKE_SOURCE_DIR}/third_party/cgltf)
 target_link_libraries(driftengine PUBLIC Qt6::Core Qt6::Gui Qt6::OpenGL Qt6::Multimedia FFmpeg::FFmpeg driftcore
     driftaudiodsp onnxruntime::headers)
-target_link_libraries(driftengine PRIVATE ${DRIFT_ZSTD_TARGET} OpenSSL::Crypto ${CMAKE_DL_LIBS})
+target_link_libraries(driftengine PRIVATE ${DRIFT_ZSTD_TARGET} OpenSSL::Crypto ${CMAKE_DL_LIBS} Qt6::Qml)
 if(WIN32)
     # Hybrid-graphics laptops: D3D11VA -> OpenGL preview interop, and DXGI adapter enumeration for
     # the GPU preference and for opening D3D11VA on the GPU that renders.

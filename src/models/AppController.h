@@ -736,6 +736,8 @@ public:
     Q_INVOKABLE void addNullForSelection();
     Q_INVOKABLE void convertSelectionToShape();
     Q_INVOKABLE void centerSelectionInFrame();    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    // What is wrong with a property expression (0.26), empty when it runs.
+    Q_INVOKABLE QString checkExpression(const QString &expression) const;
     // After Effects' Keyframe Velocity (0.26) for the key of `prop` at `seconds` (timeline):
     // {valid, hasIn, hasOut, inSpeed, inInfluence, outSpeed, outInfluence} with speeds in the
     // property's units per second and influence in percent of the gap to the neighbouring key; and
