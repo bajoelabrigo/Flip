@@ -11615,6 +11615,14 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     b.wiggleAmount = behavior.value(QStringLiteral("wiggleAmount")).toDouble();
     b.wiggleSeed = behavior.value(QStringLiteral("wiggleSeed")).toInt();
     b.expression = behavior.value(QStringLiteral("expression")).toString().trimmed();
+    // After Effects' loopOut("cycle") / loopIn(...) alone is the behaviour's own loop, not code.
+    static const QRegularExpression loopCall(
+        QStringLiteral(R"(^loop(?:Out|In)\(\s*(?:["']?(cycle|pingpong|offset|continue)["']?)?\s*\)\s*;?$)"));
+    const QRegularExpressionMatch looped = loopCall.match(b.expression);
+    if (looped.hasMatch()) {
+        b.loop = drift::loopModeFromString(looped.captured(1).isEmpty() ? QStringLiteral("cycle") : looped.captured(1));
+        b.expression.clear();
+    }
     // Motion Tools' Elastic / Bounce are not in the dialog: they stay as they were.
     if (const drift::KeyframeTrack<double> *current =
             keyframeTrackForProp(m_project.tracks().at(trackIndex).clips.at(clipIndex), prop)) {

@@ -66,6 +66,9 @@ const char *const kPrelude = R"JS(
 (function (__e) {
     return function (value, time) {
         function wiggle(freq, amount, seed) { return value + amount * __fx.noise(time * freq, seed || 0); }
+        // Inside a longer expression the loop is the behaviour's (set alone, it becomes one).
+        function loopOut() { return value; }
+        function loopIn() { return value; }
         function __layer(name) {
             function g(p) { return __fx.prop(name, p, time); }
             var t = {};

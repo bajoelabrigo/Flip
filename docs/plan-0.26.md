@@ -105,25 +105,37 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
 
 ## Etapa G — Lo que faltaba frente a AE (Jorge, 2026-10-28, noche: «todo esto debe salir en esta versión»)
 Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión práctica se hace.
-- [ ] G1. Fondo a cuadros a pedido (opciones de la vista previa): la vista previa sin el fondo del proyecto.
-- [ ] G2. Látigo: en el clip elegido de la línea de tiempo, un espiral que se arrastra a otro clip = Primario; el clip
-      muestra «↳ nombre del primario».
-- [ ] G3. Estilos de capa en cualquier capa (categoría de efectos «Estilos de capa»): Sombra paralela, Resplandor
-      exterior, Trazo, Bisel y relieve, Superposición de color. Margen para que no se corten (padding en el efecto).
-- [ ] G4. Formas: unir trazados (sumar, restar, intersecar, excluir entre contornos), desplazar trazado, zigzag,
-      retorcer, trazo con degradado, y «Agregar forma a la capa» (varias formas en una capa).
-- [ ] G5. Efectos con nombre de AE: Fractal Noise, Particle World, Shatter, Turbulent Displace, Gradient Ramp,
-      Radio Waves (paquetes GPU nuevos, categoría «Generar y simular»).
-- [ ] G6. Expresiones en JavaScript por propiedad (QJSEngine por hilo): value, time, wiggle(), loopOut(), Math, y
-      layer("Nombre").prop para enlazar con otra capa.
-- [ ] G7. Bosquejo de movimiento: herramienta que graba el arrastre del ratón como claves de Posición en tiempo real.
-- [ ] G8. Texto sobre un trazado (el texto sigue el contorno de una forma) y animadores 3D por letra (giro X/Y).
-- [ ] G9. Editor de curvas con las curvas de varias capas a la vez (las claves elegidas).
-      Separar dimensiones de la escala: ya existe (Escala con cadena, W y H son pistas aparte).
-- [ ] G10. Vista previa en RAM (calcular el área de trabajo a memoria y reproducirla, barra verde en la regla) y
-      Región de interés.
-- [ ] G11. Pines de marioneta (efecto con alfileres arrastrables en la vista previa, deformación suave).
-- [ ] G12. Gráficos esenciales: exponer propiedades de una composición como controles editables.
+- [x] G1. Fondo a cuadros a pedido (opciones de la vista previa › «Transparency grid»): la vista previa sin el fondo
+      del proyecto (`PlaybackEngine::transparencyGrid` → `RenderOptions::transparentBackground`).
+- [x] G2. Látigo: en el clip elegido de la línea de tiempo, un espiral que se arrastra a otro clip = Primario; el clip
+      muestra «↳ nombre del primario» (`TimelineClipItem.qml`, icono `pick-whip.svg`).
+- [x] G3. Estilos de capa en cualquier capa (categoría «Layer Styles»; botones en Fusión): Sombra paralela,
+      Resplandor exterior, Trazo, Bisel y relieve, Superposición de color (`effects/layer_*`). Margen para que no se
+      corten: `"padding"` en el `effect.json` (`applyEffectPadding` en `FrameCompositor.cpp`, la textura crece en
+      `GpuCompositor.cpp`).
+- [x] G4. Formas: unir trazados, desplazar trazado, zigzag, retorcer (`ShapeStyle` + `SkiaShapePainter`), trazo con
+      degradado (ya existía) y «Formas en esta capa» (`AppController::addShapeToLayer`). Claves en el esquema de MCP.
+- [x] G5. Efectos con nombre de AE: Fractal Noise, Particle World, Shatter, Turbulent Displace, Gradient Ramp,
+      Radio Waves (`effects/ae_*`, categoría «Generate & Simulate»).
+- [x] G6. Expresiones en JavaScript (`src/engine/ExpressionEngine.*`, un QJSEngine por hilo): value, time, wiggle(),
+      Math, layer("Nombre") / thisComp.layer("Nombre").transform…; `loopOut("cycle")` solo se convierte en el bucle
+      del comportamiento. Editor con error en vivo en el diálogo de Comportamiento.
+- [x] G7. Bosquejo de movimiento: herramienta de la barra de la vista previa (`applyMotionSketch`).
+- [x] G8. Texto sobre un trazado: Texto › «Text on a path» con 6 trazados listos o el contorno de una capa de forma
+      (`useShapeAsTextPath`), y «Path offset» animable (`TextStyle::pathSvg/pathOffset`, `Bend::contour` en
+      `SkiaTextPainter.cpp`). Una sola línea, como la curva. Los animadores 3D por letra ya existían («3D turn X/Y»).
+- [x] G9. Editor de curvas: con varios clips elegidos, las curvas de los otros salen punteadas y un clic en su nombre
+      los pasa a editar (`KeyframeGraph.qml` › `otherLayers`). Separar dimensiones de la escala: ya existía.
+- [x] G10. Vista previa en RAM (Vista › «RAM Preview», tecla 0 del teclado numérico): el área de trabajo (o todo) a
+      memoria, hasta 3 GB, y se reproduce sola; barra verde en la regla; cualquier edición la vacía
+      (`PlaybackEngine::buildRamPreview`). Región de interés: herramienta de la barra; las capas simples que quedan
+      fuera no se decodifican (`RenderOptions::regionOfInterest`) y fuera del recuadro se tapa.
+- [x] G11. Pines de marioneta: efecto `ae_puppet` (hasta 8 pines, rigidez) y herramienta de la barra: clic pone un pin,
+      arrastrarlo lo mueve con clave en el cabezal (`addPuppetPin`, `movePuppetPin`).
+- [x] G12. Gráficos esenciales: dentro de una composición, Fusión › «Add to Essential Graphics» (texto, color,
+      tamaño, posición, giro, opacidad); fuera, la composición muestra esos controles (`Clip::essentialProps`,
+      `essentialControls`, `setEssentialValue`; una propiedad con claves se desplaza entera).
+- **Falta de la etapa G:** probar todo en ventana con la build de CI.
 
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
