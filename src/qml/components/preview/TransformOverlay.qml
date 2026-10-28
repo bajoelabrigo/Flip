@@ -221,6 +221,13 @@ Item {
         z: 960
         box: root.mode3d ? null : root.selectedBox
     }
+    // The toolbar's anchor, shape and text tools (0.26).
+    PreviewToolOverlay {
+        anchors.fill: parent
+        z: 955
+        box: root.mode3d ? null : root.selectedBox
+        onTextEditRequested: (track, clip) => root.textEditRequested(track, clip)
+    }
 
     Repeater {
         id: clipRepeater

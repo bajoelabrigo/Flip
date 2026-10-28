@@ -1828,6 +1828,11 @@ ApplicationWindow {
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
     function dispatchAction(id) {
+        // Escape leaves a preview tool first, back to selection as in After Effects.
+        if (id === "clearSelection" && EditorState.preview.tool !== "select") {
+            EditorState.preview.tool = "select"
+            return
+        }
         if (id === "clearSelection" && EditorState.preview.guideEditSetId !== "") {
             EditorState.preview.guideEditSetId = ""
             return
@@ -1854,6 +1859,18 @@ ApplicationWindow {
         // than by triggerAction.
         if (id === "selectTool") {
             timelinePanel.timelineTool = ""
+            EditorState.preview.tool = "select"
+            return
+        }
+        // The preview toolbar's tools (0.26).
+        const previewTools = { previewHandTool: "hand", previewZoomTool: "zoom", previewAnchorTool: "anchor",
+                               previewShapeTool: "shape", previewPenTool: "pen", previewTextTool: "text" }
+        if (previewTools[id] !== undefined) {
+            EditorState.preview.tool = EditorState.preview.tool === previewTools[id] ? "select" : previewTools[id]
+            return
+        }
+        if (id === "previewCameraTool") {
+            EditorState.preview.mode = EditorState.preview.mode === "3d" ? "2d" : "3d"
             return
         }
         if (id === "bladeTool") {

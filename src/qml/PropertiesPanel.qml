@@ -188,6 +188,19 @@ PanelFrame {
     }
     readonly property int textTabIndex: tabIndexOf("text")
 
+    // The preview toolbar's Roto (0.26) and anything else that asks for a page of a tab.
+    Connections {
+        target: EditorState.preview
+        function onInspectorPageRequested(tab, page) {
+            const index = root.tabIndexOf(tab)
+            if (index < 0 || !root.tabVisible(tab))
+                return
+            if (tab === "video" && page.length > 0)
+                inspectorUi.videoPage = page
+            root.activeTab = index
+        }
+    }
+
     // Selecting a subtitle clip opens its cue editor, with the phrases laid out on the timeline:
     // closed, a generated clip looked like one opaque block with no text to edit.
     function openSubtitlesTabOnSelect() {

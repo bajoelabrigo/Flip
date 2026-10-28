@@ -4731,6 +4731,15 @@ QHash<QString, QString> defaultShortcuts()
         // they show up in the shortcut list and can be rebound — hardcoded in
         // TimelinePanel they were neither.
         {QStringLiteral("selectTool"), QStringLiteral("V")},
+        // After Effects' Tools panel over the preview (0.26). Its own letters where they are free
+        // (H, Z, Y); G, Q and C are taken by guides, ripple delete and the blade.
+        {QStringLiteral("previewHandTool"), QStringLiteral("H")},
+        {QStringLiteral("previewZoomTool"), QStringLiteral("Z")},
+        {QStringLiteral("previewAnchorTool"), QStringLiteral("Y")},
+        {QStringLiteral("previewShapeTool"), QStringLiteral("Shift+Q")},
+        {QStringLiteral("previewPenTool"), QStringLiteral("P")},
+        {QStringLiteral("previewTextTool"), QStringLiteral("Ctrl+T")},
+        {QStringLiteral("previewCameraTool"), QStringLiteral("Shift+C")},
         // C as on CapCut, whose arrow menu lists Select V, Split C.
         {QStringLiteral("bladeTool"), QStringLiteral("C")},
         // CapCut's "select to the left / right": click a clip and it is selected together with
@@ -5590,6 +5599,13 @@ QVariantList AppController::actions() const
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("selectTool"), tr("Select tool")),
+        action(QStringLiteral("previewHandTool"), tr("Hand tool (preview)")),
+        action(QStringLiteral("previewZoomTool"), tr("Zoom tool (preview)")),
+        action(QStringLiteral("previewAnchorTool"), tr("Anchor point tool")),
+        action(QStringLiteral("previewShapeTool"), tr("Shape tool")),
+        action(QStringLiteral("previewPenTool"), tr("Pen tool")),
+        action(QStringLiteral("previewTextTool"), tr("Text tool")),
+        action(QStringLiteral("previewCameraTool"), tr("3D camera tool")),
         action(QStringLiteral("bladeTool"), tr("Cut tool")),
         action(QStringLiteral("selectLeftTool"), tr("Select to the left")),
         action(QStringLiteral("selectRightTool"), tr("Select to the right")),
@@ -10724,6 +10740,92 @@ QRectF atLeastOnePixel(QRectF box)
 
 } // namespace
 
+namespace {
+
+// The toolbar's paints on a fresh shape: the fill and stroke layers turned on or off and coloured.
+void paintDrawnShape(drift::ShapeStyle &style, const QString &fill, const QString &stroke, double strokeWidth)
+{
+    const QColor fillColor = QColor::isValidColorName(fill) ? QColor(fill) : QColor();
+    const QColor strokeColor = QColor::isValidColorName(stroke) ? QColor(stroke) : QColor(Qt::white);
+    style.layers = drift::defaultShapeLayers(fillColor.isValid() ? fillColor : QColor(0, 180, 255),
+                                             QColor(122, 0, 255), strokeColor,
+                                             QColor::isValidColorName(stroke) ? strokeWidth : 0.0);
+    for (drift::TextShadingLayer &layer : style.layers) {
+        if (layer.kind == drift::TextLayerKind::Fill) {
+            layer.enabled = fillColor.isValid();
+            layer.paint.kind = drift::TextPaintKind::Solid;
+        }
+        if (layer.kind == drift::TextLayerKind::Stroke) {
+            layer.enabled = QColor::isValidColorName(stroke) && strokeWidth > 0.0;
+            layer.strokeAlign = drift::StrokeAlign::Center;
+        }
+    }
+}
+
+} // namespace
+
+void AppController::addDrawnShape(const QString &kind, double x, double y, double w, double h, const QString &fill,
+                                  const QString &stroke, double strokeWidth)
+{
+    if (w < 1.0 || h < 1.0)
+        return;
+    drift::ShapeStyle style = shapeStyleForKind(kind);
+    if (kind == QLatin1String("polygon")) {
+        style.kind = drift::ShapeKind::Hexagon;
+    }
+    paintDrawnShape(style, fill, stroke, strokeWidth);
+    const drift::Project before = m_project;
+    const drift::TimeUs start = m_playheadUs;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::kImageClipDurationUs, true);
+    if (target < 0)
+        return;
+    drift::Track &track = m_project.tracks()[target];
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Shape layer");
+    clip.shapeStyle = style;
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
+                                                 m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = drift::kImageClipDurationUs;
+    clip.srcIn = 0;
+    clip.srcOut = drift::kImageClipDurationUs;
+    setClipLayoutPixels(clip, x, y, w, h);
+    track.clips.append(clip);
+    const int newClipIndex = track.clips.size() - 1;
+    pushProjectEdit(before, tr("Shape drawn"));
+    finishEdit(tr("Shape drawn"));
+    selectClip(target, newClipIndex);
+}
+
+QVariantMap AppController::addTextAtPoint(double x, double y)
+{
+    const int clipsBefore = [this] {
+        int n = 0;
+        for (const drift::Track &t : m_project.tracks())
+            n += t.clips.size();
+        return n;
+    }();
+    addTextClip(tr("Text"), -1.0);
+    int total = 0;
+    for (const drift::Track &t : m_project.tracks())
+        total += t.clips.size();
+    if (total == clipsBefore || !isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return {};
+    // Moved onto the click as part of the same edit: the undo step addTextClip pushed is the one
+    // that takes it away again.
+    drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+    clip.transformX = {};
+    clip.transformY = {};
+    clip.transformX.setKeyframe(0, x - w / 2.0);
+    clip.transformY.setKeyframe(0, y - h / 2.0);
+    finishEdit(tr("Text clip added"));
+    return {{QStringLiteral("track"), m_selectedTrack}, {QStringLiteral("clip"), m_selectedClip}};
+}
+
 void AppController::addPenShape(const QVariantList &points, bool closed)
 {
     drift::PathContour contour;
@@ -10748,14 +10850,15 @@ void AppController::addPenShape(const QVariantList &points, bool closed)
     clip.shapeStyle.kind = drift::ShapeKind::Custom;
     clip.shapeStyle.customPath = drift::svgFromPathContours(refitContours({contour}, box));
     // A closed outline is filled, an open one is a line: stroked on its centre, as AE's pen draws.
-    clip.shapeStyle.layers = drift::defaultShapeLayers(QColor(0, 180, 255), QColor(122, 0, 255), Qt::white,
-                                                       contour.closed ? 0.0 : 6.0);
-    for (drift::TextShadingLayer &layer : clip.shapeStyle.layers) {
-        if (layer.kind == drift::TextLayerKind::Fill)
-            layer.enabled = contour.closed;
-        if (layer.kind == drift::TextLayerKind::Stroke)
-            layer.strokeAlign = drift::StrokeAlign::Center;
+    // The toolbar's paints (0.26); an open line with no stroke would draw nothing, so it gets one.
+    const QString fill = m_preview ? m_preview->toolFill() : QString();
+    QString stroke = m_preview ? m_preview->toolStroke() : QStringLiteral("#ffffff");
+    double strokeWidth = m_preview ? m_preview->toolStrokeWidth() : 0.0;
+    if (!contour.closed && (strokeWidth <= 0.0 || !QColor::isValidColorName(stroke))) {
+        stroke = QColor::isValidColorName(stroke) ? stroke : QStringLiteral("#ffffff");
+        strokeWidth = 6.0;
     }
+    paintDrawnShape(clip.shapeStyle, contour.closed ? fill : QStringLiteral("none"), stroke, strokeWidth);
     clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::kImageClipDurationUs,
                                                  m_snapEnabled, m_playheadUs);
     clip.timelineDuration = drift::kImageClipDurationUs;

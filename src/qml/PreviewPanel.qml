@@ -47,11 +47,25 @@ PanelFrame {
     border.width: previewFullscreen ? 0 : 1
     radius: previewFullscreen ? 0 : Theme.radiusSm
 
+    // After Effects' Tools panel (0.26), above the picture; fullscreen is for watching.
+    PreviewToolbar {
+        id: toolbar
+        anchors.top: parent.top
+        anchors.topMargin: 1
+        anchors.left: parent.left
+        anchors.leftMargin: 1
+        anchors.right: parent.right
+        anchors.rightMargin: 1
+        height: visible ? implicitHeight : 0
+        visible: !root.previewFullscreen && !root.mobile
+        z: 2
+    }
+
     Item {
         id: viewportOuter
-        anchors.top: parent.top
+        anchors.top: toolbar.bottom
         width: parent.width
-        height: root.previewFullscreen ? parent.height : parent.height - bottomBar.height
+        height: root.previewFullscreen ? parent.height : parent.height - bottomBar.height - toolbar.height
         clip: true
 
         PreviewViewport {
@@ -87,6 +101,32 @@ PanelFrame {
                 z: -1
                 sourceComponent: root.mode3d ? mode3dView : mode2dView
             }
+        }
+
+        // Hand and Zoom (0.26): over the whole viewport while either tool is on.
+        MouseArea {
+            anchors.fill: parent
+            z: 3
+            visible: EditorState.preview.tool === "hand" || EditorState.preview.tool === "zoom"
+            acceptedButtons: Qt.LeftButton
+            cursorShape: EditorState.preview.tool === "hand" ? (pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor)
+                                                             : Qt.CrossCursor
+            property point last
+            onPressed: mouse => last = Qt.point(mouse.x, mouse.y)
+            onPositionChanged: mouse => {
+                if (!pressed || EditorState.preview.tool !== "hand")
+                    return
+                panelViewport.panX += mouse.x - last.x
+                panelViewport.panY += mouse.y - last.y
+                last = Qt.point(mouse.x, mouse.y)
+            }
+            onClicked: mouse => {
+                if (EditorState.preview.tool !== "zoom")
+                    return
+                const p = mapToItem(panelViewport, mouse.x, mouse.y)
+                panelViewport.zoomAt(p.x, p.y, (mouse.modifiers & Qt.AltModifier) ? 1 / 1.5 : 1.5)
+            }
+            onDoubleClicked: panelViewport.resetView ? panelViewport.resetView() : undefined
         }
 
         PreviewOsd {

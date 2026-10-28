@@ -1310,6 +1310,8 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
         src/qml/components/preview/PenToolOverlay.qml
+        src/qml/components/preview/PreviewToolOverlay.qml
+        src/qml/components/preview/PreviewToolbar.qml
         src/qml/components/timeline/PropertyBehaviorDialog.qml
         src/qml/components/timeline/KeyframeVelocityDialog.qml
         src/qml/components/preview/PreviewDropOverlay.qml

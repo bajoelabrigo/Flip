@@ -48,6 +48,15 @@ class PreviewController : public QObject
     Q_PROPERTY(bool pathEditMode READ pathEditMode WRITE setPathEditMode NOTIFY pathEditModeChanged)
     // After Effects' Title/Action Safe guides (0.26), drawn over the preview only.
     Q_PROPERTY(bool safeZones READ safeZones WRITE setSafeZones NOTIFY safeZonesChanged)
+    // After Effects' Tools panel (0.26): "select" | "hand" | "zoom" | "anchor" | "shape" | "pen" |
+    // "text". "pen" is penMode; leaving it (Enter, Escape, a finished outline) goes back to select.
+    // The shape tool's kind ("rectangle" | "ellipse" | "star" | "polygon") and the fill and stroke
+    // a drawn shape or outline gets (the options on the toolbar's right).
+    Q_PROPERTY(QString tool READ tool WRITE setTool NOTIFY toolChanged)
+    Q_PROPERTY(QString shapeToolKind READ shapeToolKind WRITE setShapeToolKind NOTIFY toolChanged)
+    Q_PROPERTY(QString toolFill READ toolFill WRITE setToolFill NOTIFY toolChanged)
+    Q_PROPERTY(QString toolStroke READ toolStroke WRITE setToolStroke NOTIFY toolChanged)
+    Q_PROPERTY(double toolStrokeWidth READ toolStrokeWidth WRITE setToolStrokeWidth NOTIFY toolChanged)
     Q_PROPERTY(bool maskEditMode READ maskEditMode WRITE setMaskEditMode NOTIFY maskEditModeChanged)
     // Whether the preview should be showing mask handles right now. Selecting a mask clip is
     // itself a request to edit it, so the toggle is only needed to keep the handles up while some
@@ -85,6 +94,57 @@ public:
             return;
         m_penMode = on;
         emit penModeChanged();
+        const QString want = on ? QStringLiteral("pen") : (m_tool == QLatin1String("pen") ? QStringLiteral("select") : m_tool);
+        if (want != m_tool) {
+            m_tool = want;
+            emit toolChanged();
+        }
+    }
+    Q_INVOKABLE void openInspectorPage(const QString &tab, const QString &page)
+    {
+        emit inspectorPageRequested(tab, page);
+    }
+    QString tool() const { return m_tool; }
+    void setTool(const QString &tool)
+    {
+        const QString next = tool.isEmpty() ? QStringLiteral("select") : tool;
+        if (next == m_tool)
+            return;
+        m_tool = next;
+        emit toolChanged();
+        setPenMode(next == QLatin1String("pen"));
+    }
+    QString shapeToolKind() const { return m_shapeToolKind; }
+    void setShapeToolKind(const QString &kind)
+    {
+        if (kind == m_shapeToolKind)
+            return;
+        m_shapeToolKind = kind;
+        emit toolChanged();
+    }
+    QString toolFill() const { return m_toolFill; }
+    void setToolFill(const QString &c)
+    {
+        if (c == m_toolFill)
+            return;
+        m_toolFill = c;
+        emit toolChanged();
+    }
+    QString toolStroke() const { return m_toolStroke; }
+    void setToolStroke(const QString &c)
+    {
+        if (c == m_toolStroke)
+            return;
+        m_toolStroke = c;
+        emit toolChanged();
+    }
+    double toolStrokeWidth() const { return m_toolStrokeWidth; }
+    void setToolStrokeWidth(double w)
+    {
+        if (qFuzzyCompare(w + 1.0, m_toolStrokeWidth + 1.0))
+            return;
+        m_toolStrokeWidth = qBound(0.0, w, 200.0);
+        emit toolChanged();
     }
     bool pathEditMode() const { return m_pathEditMode; }
     bool safeZones() const { return m_safeZones; }
@@ -212,6 +272,10 @@ signals:
     void penModeChanged();
     void pathEditModeChanged();
     void safeZonesChanged();
+    void toolChanged();
+    // Asks the inspector to show a tab and a page of it (the toolbar's Roto opens Video › Remove
+    // background), 0.26.
+    void inspectorPageRequested(const QString &tab, const QString &page);
     void maskEditModeChanged();
     void maskEditActiveChanged();
     void activeToolChanged();
@@ -247,6 +311,12 @@ private:
     bool m_penMode = false;
     bool m_pathEditMode = false;
     bool m_safeZones = false;
+    QString m_tool = QStringLiteral("select");
+    QString m_shapeToolKind = QStringLiteral("rectangle");
+    // "none" leaves that paint off.
+    QString m_toolFill = QStringLiteral("#ff00b4ff");
+    QString m_toolStroke = QStringLiteral("#ffffffff");
+    double m_toolStrokeWidth = 0.0;
     bool m_maskEditMode = false;
     QString m_activeTool = QStringLiteral("transform");
     bool m_handlesVisible = false;

@@ -678,6 +678,13 @@ public:
     // [{x, y, ix, iy, ox, oy}] in canvas px (the vertex and its two handles), closed or open. A
     // closed outline is filled, an open one stroked. It becomes the selection.
     Q_INVOKABLE void addPenShape(const QVariantList &points, bool closed);
+    // The Shape tool (0.26): a shape of `kind` dragged out on the preview, the box in canvas px,
+    // painted with the toolbar's fill and stroke ("none" for either leaves it off).
+    Q_INVOKABLE void addDrawnShape(const QString &kind, double x, double y, double w, double h,
+                                   const QString &fill, const QString &stroke, double strokeWidth);
+    // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
+    // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
+    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y);
     // The selected custom shape's outline at the playhead, for the preview to edit:
     // {editable, animated, keyHere, contours: [{closed, points: [{x, y, ix, iy, ox, oy}]}]} with
     // coordinates as fractions of the shape's box (0..1). editable is false for any other clip.
