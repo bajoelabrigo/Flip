@@ -43,15 +43,31 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
   Sacudir trazado. Controlador: `addPenShape`, `shapePathState`, `setShapePathPoints`, `setShapePathAnimated`.
 
 ## Etapa C — Comportamientos (expresiones) y mates de seguimiento
-- [ ] C1. Comportamientos por propiedad: Temblor (`wiggle`), Repetir (`loopOut` ciclo / ida y vuelta / continuar),
-      Velocidad constante (`time * n`), Enlazar a otra propiedad (con multiplicador y desfase).
-- [ ] C2. Mate de seguimiento: la capa de arriba como mate alfa / alfa invertido / luminancia / luminancia invertida.
+- [x] C1. Comportamientos por propiedad: Repetir (`loopOut` ciclo / ida y vuelta / sumando / continuar), Velocidad
+      constante (`time * n`) y Temblor (`wiggle`), que se suman en ese orden. Viven en la pista de claves misma
+      (`TrackBehavior` en `core/Keyframe.h`, `KeyframeTrack::evaluateAt`; `evaluateKeys` = solo las claves), así sirven
+      para **todas** las propiedades animables (transformación, opacidad, formas, efectos, texto, audio). JSON
+      `behavior` en `keyframesToJson`. Interfaz: menú «…» de la fila › Comportamiento… (`PropertyBehaviorDialog.qml`),
+      la fila muestra «≈». Controlador: `propertyBehavior` / `setPropertyBehavior` (sin claves pone una en el 0).
+      **Falta:** enlazar una propiedad a otra (el látigo de expresiones de AE).
+- [x] C2. Mate de seguimiento: alfa / alfa invertido / luminancia / luminancia invertida, de cualquier clip
+      (`Clip::matteMode/matteClipId`, JSON `matte`). La capa mate no se dibuja sola (como AE). Compositor: el clip se
+      dibuja aparte, se recorta con el mate (`kTrackMatteFragShader`, `applyTrackMatte`) y se pone en su lugar; comparte
+      ese camino con el desenfoque de movimiento. Interfaz: inspector › Fusión › Mate de seguimiento (modo y capa;
+      sin capa elegida toma la más cercana de arriba). MCP `set_track_matte`.
 
 ## Etapa D — Curvas, tiempo, vista previa y 3D
-- [ ] D1. Editor de curvas: velocidad de las claves escrita a mano (influencia %), auto-orientar al trazado.
-- [ ] D2. Reasignación de tiempo con claves.
-- [ ] D3. Vista previa: resolución ½/¼, fondo a cuadros, zonas seguras (lo que falte).
-- [ ] D4. 3D: luces (si cabe).
+- [x] D1. Velocidad del fotograma clave (AE): velocidad e influencia % de entrada y salida, «Continua»
+      (`KeyframeVelocityDialog.qml` desde el menú de la clave; `keyVelocity` / `setKeyVelocity`). Auto-orientar al
+      trazado (`Clip::autoOrient`, `autoOrientDegrees`, sumado al giro en compositor, padres y vista previa; clic
+      derecho › Orientar según el trazado).
+- [x] D2. Reasignación de tiempo (`Clip::timeRemap`, segundos del material desde srcIn; manda sobre velocidad, curvas y
+      reversa en `timelineToSourceUs`; el audio la sigue en `AudioMixer`). Clic derecho › Reasignación de tiempo pone
+      una clave en cada punta con lo que ya se ve; la fila «Reasignación de tiempo» sale con las demás.
+- [x] D3. Vista previa: ½ y ¼ y el fondo a cuadros ya existían; nuevas las **zonas seguras** (opciones de la vista
+      previa; `EditorState.preview.safeZones`).
+- [ ] D4. Luces 3D: **no entra en la 0.26** (necesita un tipo de capa nuevo y sombreado por capa; se deja para
+      después).
 
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
@@ -59,4 +75,11 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
   previa dibuja los controles a través de ella (`PreviewController::clipsAtPlayhead`).
 
 ## Cómo se probó / qué falta probar
-- (se va llenando)
+- Cada archivo de C++ tocado pasa `g++ -fsyntax-only` en local con las cabeceras reales (Qt 6.10.3 de `.qtmingw`,
+  FFmpeg n7.1, ONNX Runtime 1.27.0 y Skia 148 de vcpkg, bajadas al scratchpad); las QML pasan `qmlformat`.
+  `ShapePathEdit` y `TrackBehavior` se probaron de verdad con programas pequeños enlazados al Qt local.
+- Pruebas nuevas: `tst_engine` (emparentar, ciclos, desenlazar sin salto, nulo, desenfoque, mate, guardado),
+  `tst_skia` (recortar, repetidor, sacudir), `tst_core` (trazado ↔ SVG, transformar, claves de trazado,
+  comportamientos, reasignación de tiempo y auto-orientar). Las de GPU se saltan en CI: se miran en ventana.
+- Traducciones: catálogos regenerados (119 textos nuevos) y español completo (7135/7135), `lupdate` estable.
+- **Falta:** CI en verde, y **probar todo en ventana** (portable en `pruebas\FlipStudio-0.26-prueba`).
