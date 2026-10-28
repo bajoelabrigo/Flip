@@ -1815,7 +1815,16 @@ Item {
                 horizontalPadding: 4
                 selected: false
                 tooltip: qsTr("Edit this layer's curves (dashed)")
-                onClicked: root.pinnedClipId = modelData.id
+                // As in After Effects, that layer becomes the selected one (the last of the
+                // selection), so its track's lines and this graph follow it; the rest stay picked.
+                onClicked: {
+                    const at = EditorState.clipLocation(modelData.id)
+                    const picked = (EditorState.selection || []).filter(p => p.track !== at.track || p.clip !== at.clip)
+                    picked.push({ "track": at.track, "clip": at.clip })
+                    root.pinnedClipId = modelData.id
+                    EditorState.setSelection(picked)
+                    EditorState.setTrackKeyframesExpanded(at.track, true)
+                }
             }
         }
     }
