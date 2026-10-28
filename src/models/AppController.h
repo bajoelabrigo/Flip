@@ -674,6 +674,16 @@ public:
     // After Effects' Null Object (0.26): a shape that never paints, on its own track at the
     // playhead, as long as the project (at least the default image length), 100 × 100 centred.
     Q_INVOKABLE void addNullObject();
+    // After Effects' Light layers (0.26): kind 1 point, 2 spot, 3 parallel, 4 ambient. A light is a
+    // clip that never paints, on its own track at the playhead, up and in front of the frame (an
+    // ambient light has no place). It lights the 3D layers that accept lights.
+    Q_INVOKABLE void addLight(int kind);
+    // {kind, color, intensity, coneAngle, coneFeather, falloffRadius, falloffDistance}; an empty
+    // map for a clip that is not a light. The setter takes any of those keys, as one undo step.
+    Q_INVOKABLE QVariantMap lightSettings(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setLightSettings(int trackIndex, int clipIndex, const QVariantMap &settings);
+    // A 3D layer's «Accepts lights» material option.
+    Q_INVOKABLE void setAcceptsLights(int trackIndex, int clipIndex, bool accepts);
     // After Effects' Pen (0.26). A new custom shape from the outline drawn on the preview:
     // [{x, y, ix, iy, ox, oy}] in canvas px (the vertex and its two handles), closed or open. A
     // closed outline is filled, an open one stroked. It becomes the selection.

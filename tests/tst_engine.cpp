@@ -388,6 +388,7 @@ private slots:
     void unparentingKeepsThePlace();
     void parentedClipRendersWhereItsParentTakesIt();
     void nullObjectDrawsNothing();
+    void lightsShadeThreeDLayers();
     void motionBlurSmearsAMovingClip();
     void clipParentAndMotionBlurRoundTrip();
     void trackMatteCutsTheLayer();
@@ -11797,6 +11798,49 @@ void EngineTest::nullObjectDrawsNothing()
     const QImage out = renderAt(clipsProject({null}), 1.0);
     QVERIFY(!out.isNull());
     QCOMPARE(qRed(out.pixel(32, 32)), 0);
+}
+
+void EngineTest::lightsShadeThreeDLayers()
+{
+    // A spot light in front of a white 3D wall, aimed at its middle.
+    drift::Clip lamp = solidShape(QStringLiteral("l"), QRectF(28, 28, 8, 8), Qt::white);
+    lamp.nullObject = true;
+    lamp.layer3d = true;
+    lamp.light.kind = 2;
+    lamp.light.color = QColor(255, 255, 255);
+    lamp.light.coneAngle = 30.0;
+    lamp.light.coneFeather = 20.0;
+    lamp.positionZ.setKeyframe(0, 60.0);
+    drift::Clip wall = solidShape(QStringLiteral("w"), QRectF(0, 0, 64, 64), Qt::white);
+    wall.layer3d = true;
+    const drift::Project project = clipsProject({lamp, wall});
+
+    // Saved with the project.
+    const drift::Project back = drift::Project::fromJson(project.toJson());
+    bool found = false;
+    for (const drift::Track &track : back.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.id != QStringLiteral("l"))
+                continue;
+            found = true;
+            QCOMPARE(clip.light.kind, 2);
+            QCOMPARE(clip.light.coneAngle, 30.0);
+            QCOMPARE(clip.light.coneFeather, 20.0);
+        }
+    }
+    QVERIFY(found);
+
+    if (!GpuCompositor::isAvailable())
+        QSKIP("No GPU compositor available");
+    // Lit in the cone, dark outside it; without a light the wall is plain white.
+    const QImage lit = renderAt(project, 0.5);
+    QVERIFY(qRed(lit.pixel(32, 32)) > 150);
+    QVERIFY(qRed(lit.pixel(2, 2)) < 60);
+    const QImage unlit = renderAt(clipsProject({wall}), 0.5);
+    QCOMPARE(qRed(unlit.pixel(2, 2)), 255);
+    // A layer that does not accept lights ignores them.
+    wall.acceptsLights = false;
+    QCOMPARE(qRed(renderAt(clipsProject({lamp, wall}), 0.5).pixel(2, 2)), 255);
 }
 
 void EngineTest::motionBlurSmearsAMovingClip()

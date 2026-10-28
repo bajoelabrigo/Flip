@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <QPointF>
+#include <QColor>
 
 #include "BlendMode.h"
 #include "ClipAnimation.h"
@@ -129,6 +130,24 @@ struct Clip
     // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
     // there to be a parent the other layers follow.
     bool nullObject = false;
+    // After Effects' Light layers (0.26): on a null-like clip (it never paints), it lights the 3D
+    // layers that accept lights. Kind 0 = not a light; 1 point, 2 spot, 3 parallel, 4 ambient. The
+    // light sits at the clip's centre and depth; a spot or a parallel light aims at the frame's
+    // centre, turned by the clip's X/Y tilts. The clip's opacity scales the intensity, so a light
+    // fades and keys like any layer. Lengths are project px.
+    struct Light
+    {
+        int kind = 0;
+        QColor color = QColor(255, 246, 232);
+        double intensity = 100.0;    // percent
+        double coneAngle = 90.0;     // spot: the whole cone, degrees
+        double coneFeather = 50.0;   // spot: percent of the cone that fades out
+        double falloffRadius = 0.0;  // full strength up to here (0 with no distance = no falloff)
+        double falloffDistance = 0.0; // then fades to nothing over this
+    };
+    Light light;
+    // A 3D layer's material option, as in After Effects: lights change it. On by default.
+    bool acceptsLights = true;
     // After Effects' Parent (0.26): the clip whose motion this one follows, anywhere on the same
     // timeline; empty for none. `parentRest` is the parent's world pose (unit box centred on the
     // origin → project px, see engine/TransformLayer.h) when the link was made, so linking never

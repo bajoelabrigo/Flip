@@ -339,6 +339,18 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("autoOrient"), true);
     if (clip.nullObject)
         json.insert(QStringLiteral("nullObject"), true);
+    if (clip.light.kind != 0) {
+        json.insert(QStringLiteral("light"),
+                    QJsonObject{{QStringLiteral("kind"), clip.light.kind},
+                                {QStringLiteral("color"), clip.light.color.name(QColor::HexRgb)},
+                                {QStringLiteral("intensity"), clip.light.intensity},
+                                {QStringLiteral("coneAngle"), clip.light.coneAngle},
+                                {QStringLiteral("coneFeather"), clip.light.coneFeather},
+                                {QStringLiteral("falloffRadius"), clip.light.falloffRadius},
+                                {QStringLiteral("falloffDistance"), clip.light.falloffDistance}});
+    }
+    if (!clip.acceptsLights)
+        json.insert(QStringLiteral("acceptsLights"), false);
     if (clip.motionBlur)
         json.insert(QStringLiteral("motionBlur"), true);
     if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
@@ -460,6 +472,19 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
         clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
     clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
+    if (object.contains(QStringLiteral("light"))) {
+        const QJsonObject l = object.value(QStringLiteral("light")).toObject();
+        clip.light.kind = qBound(0, l.value(QStringLiteral("kind")).toInt(0), 4);
+        const QColor color(l.value(QStringLiteral("color")).toString());
+        if (color.isValid())
+            clip.light.color = color;
+        clip.light.intensity = l.value(QStringLiteral("intensity")).toDouble(clip.light.intensity);
+        clip.light.coneAngle = l.value(QStringLiteral("coneAngle")).toDouble(clip.light.coneAngle);
+        clip.light.coneFeather = l.value(QStringLiteral("coneFeather")).toDouble(clip.light.coneFeather);
+        clip.light.falloffRadius = l.value(QStringLiteral("falloffRadius")).toDouble(0.0);
+        clip.light.falloffDistance = l.value(QStringLiteral("falloffDistance")).toDouble(0.0);
+    }
+    clip.acceptsLights = object.value(QStringLiteral("acceptsLights")).toBool(true);
     clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
     if (object.contains(QStringLiteral("matte"))) {
         const QJsonObject matte = object.value(QStringLiteral("matte")).toObject();

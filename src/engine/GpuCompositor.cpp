@@ -24,6 +24,7 @@
 #include <QOpenGLShaderProgram>
 #include <QScopeGuard>
 #include <QVector2D>
+#include <QVector4D>
 
 #include <cmath>
 #include <map>
@@ -667,6 +668,114 @@ GlTarget mixByCoverage(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget untouc
 }
 
 // `modelDepth`: for a model layer that takes part in depth occlusion, its packed depth.
+// After Effects' lights (0.26), in the layer's own texture: each texel is a point of the layer's
+// plane in the world, so it is lit where it really stands, whatever the camera does after. The
+// face toward the eye is the one lit (a light behind the layer does not reach it), as in AE.
+constexpr const char *kLightingFragShader = R"(#version 330 core
+in vec2 v_texCoord;
+out vec4 fragColor;
+uniform sampler2D u_currentTexture;
+uniform mat4 u_worldQuad;
+uniform vec3 u_eye;
+uniform int u_lightCount;
+uniform vec4 u_lightPos[8];   // xyz, kind
+uniform vec4 u_lightDir[8];   // xyz, falloff distance
+uniform vec4 u_lightColor[8]; // rgb times intensity, falloff radius
+uniform vec2 u_lightCone[8];  // cos of the cone edge, cos where the feather starts
+void main() {
+    vec4 c = texture(u_currentTexture, v_texCoord);
+    if (c.a <= 0.0001) {
+        fragColor = c;
+        return;
+    }
+    vec3 p = (u_worldQuad * vec4(v_texCoord * 2.0 - 1.0, 0.0, 1.0)).xyz;
+    vec3 n = normalize(cross(u_worldQuad[0].xyz, u_worldQuad[1].xyz));
+    vec3 v = normalize(u_eye - p);
+    if (dot(n, v) < 0.0)
+        n = -n;
+    vec3 ambient = vec3(0.0);
+    vec3 diffuse = vec3(0.0);
+    vec3 specular = vec3(0.0);
+    for (int i = 0; i < 8; ++i) {
+        if (i >= u_lightCount)
+            break;
+        int kind = int(u_lightPos[i].w + 0.5);
+        vec3 color = u_lightColor[i].rgb;
+        if (kind == 4) {
+            ambient += color;
+            continue;
+        }
+        vec3 l;
+        float strength = 1.0;
+        if (kind == 3) {
+            l = normalize(-u_lightDir[i].xyz);
+        } else {
+            vec3 d = u_lightPos[i].xyz - p;
+            float dist = max(length(d), 0.0001);
+            l = d / dist;
+            float radius = u_lightColor[i].w;
+            float fade = u_lightDir[i].w;
+            if (fade > 0.0)
+                strength *= 1.0 - smoothstep(radius, radius + fade, dist);
+            else if (radius > 0.0)
+                strength *= step(dist, radius);
+        }
+        if (kind == 2) {
+            float along = dot(-l, normalize(u_lightDir[i].xyz));
+            strength *= smoothstep(u_lightCone[i].x, max(u_lightCone[i].y, u_lightCone[i].x + 0.0001), along);
+        }
+        float ndl = max(dot(n, l), 0.0);
+        diffuse += color * ndl * strength;
+        vec3 h = normalize(l + v);
+        specular += color * pow(max(dot(n, h), 0.0), 24.0) * strength * step(0.0001, ndl);
+    }
+    vec3 lit = c.rgb * (ambient + diffuse) + specular * 0.3 * c.a;
+    fragColor = vec4(lit, c.a);
+}
+)";
+
+GlTarget applyLighting(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget source, const GpuLayer &layer)
+{
+    QOpenGLShaderProgram *program =
+        rt.builtinProgram(QStringLiteral("__layer_lights__"), kQuadVertexShader, kLightingFragShader);
+    if (!program || !source.isValid())
+        return source;
+    GlTarget out = rt.acquireTarget(source.width, source.height);
+    if (!out.isValid())
+        return source;
+    QVector4D pos[8];
+    QVector4D dir[8];
+    QVector4D color[8];
+    QVector2D cone[8];
+    const int count = int(qMin<qsizetype>(8, layer.lights.size()));
+    for (int i = 0; i < count; ++i) {
+        const GpuLight &light = layer.lights.at(i);
+        pos[i] = QVector4D(light.position, float(light.kind));
+        dir[i] = QVector4D(light.direction, light.falloff);
+        color[i] = QVector4D(light.color, light.radius);
+        cone[i] = QVector2D(light.cosOuter, light.cosInner);
+    }
+    out.fbo->bind();
+    gl->glViewport(0, 0, out.width, out.height);
+    gl->glDisable(GL_BLEND);
+    program->bind();
+    program->setUniformValue("u_currentTexture", 0);
+    program->setUniformValue("u_worldQuad", layer.worldQuad);
+    program->setUniformValue("u_eye", layer.eye);
+    program->setUniformValue("u_lightCount", count);
+    program->setUniformValueArray("u_lightPos", pos, 8);
+    program->setUniformValueArray("u_lightDir", dir, 8);
+    program->setUniformValueArray("u_lightColor", color, 8);
+    program->setUniformValueArray("u_lightCone", cone, 8);
+    gl->glActiveTexture(GL_TEXTURE0);
+    gl->glBindTexture(GL_TEXTURE_2D, source.texture());
+    bindQuad(rt, gl);
+    program->release();
+    out.fbo->release();
+    rt.releaseTarget(std::move(source));
+    return out;
+}
+
 GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLayer &layer,
                           const QSize &canvasSize, GlTarget *modelDepth = nullptr)
 {
@@ -839,6 +948,8 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         GlTarget coverage = composeMaskTarget(rt, gl, layer, target.size());
         target = mixByCoverage(rt, gl, std::move(untouched), std::move(target), std::move(coverage));
     }
+    if (layer.lit && !layer.lights.isEmpty())
+        target = applyLighting(rt, gl, std::move(target), layer);
     return target;
 }
 

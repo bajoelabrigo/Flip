@@ -1818,6 +1818,42 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
         sceneCamera = drift::sceneCameraFromClip(*cameraClip, timelineUs, renderScale);
         sceneCameraActive = true;
     }
+    // After Effects' lights (0.26): every light clip at this time, in world space. With none, 3D
+    // layers stay fully lit, as in After Effects.
+    QList<GpuLight> sceneLights;
+    for (const drift::Track &track : project.tracks()) {
+        if (track.hidden)
+            continue;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.light.kind == 0 || clip.disabled || !clip.containsTime(timelineUs) || sceneLights.size() >= 8)
+                continue;
+            const drift::TimeUs rel = timelineUs - clip.timelineStart;
+            double lx = 0.0, ly = 0.0, lw = 0.0, lh = 0.0;
+            layoutRectForClip(clip, timelineUs, project.width(), project.height(), renderScale, 1.0, &lx, &ly, &lw,
+                              &lh);
+            GpuLight light;
+            light.kind = clip.light.kind;
+            light.position = QVector3D(float(lx + lw / 2.0 - width / 2.0), float(ly + lh / 2.0 - height / 2.0),
+                                       float(transformValue(clip.positionZ, rel, 0.0) * renderScale));
+            const QVector3D aim =
+                light.position.lengthSquared() > 1e-6f ? (-light.position).normalized() : QVector3D(0.f, 0.f, -1.f);
+            QMatrix4x4 turn;
+            turn.rotate(float(transformValue(clip.rotationX, rel, 0.0)), 1.f, 0.f, 0.f);
+            turn.rotate(float(transformValue(clip.rotationY, rel, 0.0)), 0.f, 1.f, 0.f);
+            light.direction = turn.mapVector(aim).normalized();
+            const double strength =
+                qMax(0.0, clip.light.intensity) / 100.0 * qBound(0.0, transformValue(clip.opacity, rel, 1.0), 1.0);
+            light.color = QVector3D(float(clip.light.color.redF()), float(clip.light.color.greenF()),
+                                    float(clip.light.color.blueF()))
+                          * float(strength);
+            const double half = qDegreesToRadians(qBound(1.0, clip.light.coneAngle, 179.0) / 2.0);
+            light.cosOuter = float(std::cos(half));
+            light.cosInner = float(std::cos(half * (1.0 - qBound(0.0, clip.light.coneFeather, 100.0) / 100.0)));
+            light.radius = float(qMax(0.0, clip.light.falloffRadius) * renderScale);
+            light.falloff = float(qMax(0.0, clip.light.falloffDistance) * renderScale);
+            sceneLights.append(light);
+        }
+    }
     QMatrix4x4 sceneView = drift::cameraViewProjection(sceneCamera, QSizeF(width, height));
     bool sceneViewActive = sceneCameraActive;
     const bool editorView = options.editor.active && !nested;
@@ -2084,6 +2120,20 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                                      !parents.isEmpty() && parents.at(ti).hasParent);
             applyCornerPin(item.layer, clip, renderScale);
             applyCamera(item.layer);
+            // Lights (0.26): a 3D layer that accepts them is lit where it stands in the world.
+            if (!sceneLights.isEmpty() && clip.layer3d && clip.acceptsLights && !item.layer.screenSpace
+                && !item.layer.model3d && (!item.layer.hasParent || item.layer.parent.isAffine())) {
+                const QSizeF canvas(width, height);
+                const QMatrix4x4 parentWorld =
+                    item.layer.hasParent ? drift::worldParentFromAffine(item.layer.parent, canvas) : QMatrix4x4();
+                item.layer.worldQuad = parentWorld
+                                       * drift::clipQuadToWorld(item.layer.rect, item.layer.rotation, item.layer.flipH,
+                                                                item.layer.flipV, item.layer.pose3d, canvas);
+                item.layer.eye = sceneCameraActive ? drift::sceneCameraEye(sceneCamera)
+                                                   : QVector3D(0.f, 0.f, float(item.layer.pose3d.perspective));
+                item.layer.lights = sceneLights;
+                item.layer.lit = true;
+            }
             if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
                 && clip.matteClipId != clip.id) {
                 item.matteMode = int(clip.matteMode);

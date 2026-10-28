@@ -14,6 +14,8 @@
 #include "engine/PreviewVideoFrame.h"
 
 #include <QColor>
+#include <QMatrix4x4>
+#include <QVector3D>
 #include <QImage>
 #include <QList>
 #include <QMap>
@@ -48,6 +50,20 @@ struct MaskMediaFrame
     {
         return video.isValid() ? QSize(video.displayWidth(), video.displayHeight()) : image.size();
     }
+};
+
+// One light of the scene (0.26), in world space (canvas px about the canvas centre, y down, +z
+// toward the viewer). Kind: 1 point, 2 spot, 3 parallel, 4 ambient.
+struct GpuLight
+{
+    int kind = 1;
+    QVector3D position;
+    QVector3D direction{0.f, 0.f, -1.f};
+    QVector3D color{1.f, 1.f, 1.f}; // already times the intensity
+    float cosOuter = -1.f;          // spot cone edge, and where its feather starts
+    float cosInner = -1.f;
+    float radius = 0.f;             // falloff: full up to radius, gone at radius + falloff
+    float falloff = 0.f;
 };
 
 // A single textured layer: the clip's source pixels plus everything needed to
@@ -111,6 +127,12 @@ struct GpuLayer
         bool hasParent = false;
     };
     QList<MotionSample> motionSamples;
+    // After Effects' lights on a 3D layer (0.26): the layer's unit quad in world space, the eye,
+    // and the scene's lights; the layer's texture is lit by them before it is placed.
+    bool lit = false;
+    QMatrix4x4 worldQuad;
+    QVector3D eye;
+    QList<GpuLight> lights;
     // Effects that draw outside the box (layer styles, 0.26): how much the texture grows on each
     // side, as a fraction of the content's width / height. `rect` already includes it.
     double padFractionX = 0.0;

@@ -39,6 +39,137 @@ Column {
         function onTracksChanged() { root.revision++ }
     }
 
+    // ----- After Effects' lights (0.26) ----------------------------------------------------------
+    readonly property var light: {
+        void root.revision
+        return EditorState.lightSettings(root.trackIndex, root.clipIndex)
+    }
+    readonly property bool isLight: !!light && light.kind !== undefined
+    function setLight(key, value) {
+        const m = {}
+        m[key] = value
+        EditorState.setLightSettings(root.trackIndex, root.clipIndex, m)
+    }
+    // Inline components do not see this file's ids: the settings come in, the change goes out.
+    component LightSlider: Column {
+        id: ls
+        property string label: ""
+        property string key: ""
+        property real from: 0
+        property real to: 100
+        property string suffix: ""
+        property var settings: ({})
+        signal committed(string key, real value)
+        width: parent ? parent.width : 0
+        spacing: 2
+        Text {
+            text: ls.label + "  " + Math.round(Number(ls.settings[ls.key]) || 0) + ls.suffix
+            color: Theme.panelForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+        }
+        ThemedSlider {
+            width: parent.width
+            from: ls.from
+            to: ls.to
+            value: Number(ls.settings[ls.key]) || 0
+            onPressedChanged: if (!pressed) ls.committed(ls.key, Math.round(value))
+        }
+    }
+    Text {
+        visible: root.isLight
+        text: qsTr("Light")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+    Text {
+        visible: root.isLight
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: qsTr("It lights the 3D layers that accept lights. Move it, take it nearer (depth) or tilt it like any layer; its opacity is its strength over time.")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+        opacity: 0.8
+    }
+    ThemedComboBox {
+        visible: root.isLight
+        width: parent.width
+        model: [qsTr("Point"), qsTr("Spot"), qsTr("Parallel"), qsTr("Ambient")]
+        currentIndex: root.isLight ? root.light.kind - 1 : 0
+        onActivated: index => root.setLight("kind", index + 1)
+    }
+    Row {
+        visible: root.isLight
+        spacing: Theme.spacingSm
+        Text {
+            anchors.verticalCenter: parent.verticalCenter
+            text: qsTr("Colour")
+            color: Theme.panelForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+        }
+        ColorSwatchField {
+            hex: root.isLight ? root.light.color : "#ffffffff"
+            onEdited: value => root.setLight("color", value)
+        }
+    }
+    LightSlider {
+        settings: root.light
+        onCommitted: (key, value) => root.setLight(key, value)
+        visible: root.isLight
+        label: qsTr("Intensity")
+        key: "intensity"
+        to: 300
+        suffix: " %"
+    }
+    LightSlider {
+        settings: root.light
+        onCommitted: (key, value) => root.setLight(key, value)
+        visible: root.isLight && root.light.kind === 2
+        label: qsTr("Cone angle")
+        key: "coneAngle"
+        from: 1
+        to: 179
+        suffix: "°"
+    }
+    LightSlider {
+        settings: root.light
+        onCommitted: (key, value) => root.setLight(key, value)
+        visible: root.isLight && root.light.kind === 2
+        label: qsTr("Cone feather")
+        key: "coneFeather"
+        suffix: " %"
+    }
+    LightSlider {
+        settings: root.light
+        onCommitted: (key, value) => root.setLight(key, value)
+        visible: root.isLight && (root.light.kind === 1 || root.light.kind === 2)
+        label: qsTr("Falloff radius")
+        key: "falloffRadius"
+        to: 3000
+        suffix: " px"
+    }
+    LightSlider {
+        settings: root.light
+        onCommitted: (key, value) => root.setLight(key, value)
+        visible: root.isLight && (root.light.kind === 1 || root.light.kind === 2)
+        label: qsTr("Falloff distance (0 = none)")
+        key: "falloffDistance"
+        to: 3000
+        suffix: " px"
+    }
+    // A 3D layer's material option.
+    ThemedSwitch {
+        visible: !root.isLight && !!root.info && root.info.layer3d === true
+        width: parent.width
+        text: qsTr("Accepts lights")
+        tooltip: qsTr("Lights change this 3D layer (when there is at least one light)")
+        checked: !!root.info && root.info.acceptsLights !== false
+        onToggled: EditorState.setAcceptsLights(root.trackIndex, root.clipIndex, checked)
+    }
+
     // ----- After Effects' Essential Graphics (0.26) --------------------------------------------
     // On a composition: the controls its clips offer, edited from outside.
     readonly property var essentials: {

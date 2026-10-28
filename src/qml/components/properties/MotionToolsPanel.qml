@@ -330,5 +330,25 @@ Item {
                 onActivated: EditorState.centerSelectionInFrame()
             }
         }
+        // After Effects' lights (0.26): they light the 3D layers that accept lights.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            Repeater {
+                model: [
+                    { kind: 1, label: qsTr("Point light"), tip: qsTr("Shines all round from one point, like a bulb") },
+                    { kind: 2, label: qsTr("Spot light"), tip: qsTr("A cone of light, like a stage spot") },
+                    { kind: 3, label: qsTr("Parallel light"), tip: qsTr("Even light from one direction, like the sun") },
+                    { kind: 4, label: qsTr("Ambient light"), tip: qsTr("Lights every side evenly, without direction") }
+                ]
+                ToolButton {
+                    required property var modelData
+                    width: (parent.width - 3 * parent.spacing) / 4
+                    label: modelData.label
+                    tip: modelData.tip
+                    onActivated: EditorState.addLight(modelData.kind)
+                }
+            }
+        }
     }
 }

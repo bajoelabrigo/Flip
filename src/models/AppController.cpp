@@ -11278,6 +11278,115 @@ void AppController::sequenceSelectedClips(int offsetFrames, int step, bool rever
     finishEdit(tr("Layers sequenced"));
 }
 
+void AppController::addLight(int kind)
+{
+    kind = qBound(1, kind, 4);
+    const drift::Project before = m_project;
+    const drift::TimeUs start = m_playheadUs;
+    const drift::TimeUs duration = qMax(drift::defaultStillDurationUs(), m_project.durationUs() - start);
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
+    if (target < 0)
+        return;
+    drift::Track &track = m_project.tracks()[target];
+    int count = 0;
+    for (const drift::Track &t : m_project.tracks()) {
+        for (const drift::Clip &c : t.clips)
+            count += c.light.kind != 0 ? 1 : 0;
+    }
+    const QString names[] = {tr("Point light %1"), tr("Spot light %1"), tr("Parallel light %1"),
+                             tr("Ambient light %1")};
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = names[kind - 1].arg(count + 1);
+    clip.nullObject = true;
+    clip.light.kind = kind;
+    clip.shapeStyle.kind = drift::ShapeKind::Ellipse;
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, duration, m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = duration;
+    clip.srcIn = 0;
+    clip.srcOut = duration;
+    // As After Effects puts a new light: up and to the left of the frame, in front of it, aiming at
+    // its centre.
+    constexpr double kLightSize = 80.0;
+    const double cx = kind == 4 ? m_project.width() / 2.0 : m_project.width() * 0.3;
+    const double cy = kind == 4 ? m_project.height() / 2.0 : m_project.height() * 0.25;
+    setClipLayoutPixels(clip, cx - kLightSize / 2.0, cy - kLightSize / 2.0, kLightSize, kLightSize);
+    if (kind != 4) {
+        clip.layer3d = true;
+        clip.positionZ.setKeyframe(0, qMax(m_project.width(), m_project.height()) * 0.45);
+    }
+    track.clips.append(clip);
+    const int newClipIndex = track.clips.size() - 1;
+    pushProjectEdit(before, tr("Light added"));
+    finishEdit(tr("Light added"));
+    selectClip(target, newClipIndex);
+    bool any3d = false;
+    for (const drift::Track &t : m_project.tracks()) {
+        for (const drift::Clip &c : t.clips)
+            any3d = any3d || (c.layer3d && c.light.kind == 0 && !c.nullObject);
+    }
+    if (!any3d)
+        setLastMessage(tr("Lights only change 3D layers: turn on «3D layer» on the layers to light"),
+                       QStringLiteral("info"));
+}
+
+QVariantMap AppController::lightSettings(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.light.kind == 0)
+        return {};
+    return {{QStringLiteral("kind"), clip.light.kind},
+            {QStringLiteral("color"), clip.light.color.name(QColor::HexArgb)},
+            {QStringLiteral("intensity"), clip.light.intensity},
+            {QStringLiteral("coneAngle"), clip.light.coneAngle},
+            {QStringLiteral("coneFeather"), clip.light.coneFeather},
+            {QStringLiteral("falloffRadius"), clip.light.falloffRadius},
+            {QStringLiteral("falloffDistance"), clip.light.falloffDistance}};
+}
+
+void AppController::setLightSettings(int trackIndex, int clipIndex, const QVariantMap &settings)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).light.kind == 0)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip::Light &light = m_project.tracks()[trackIndex].clips[clipIndex].light;
+    if (settings.contains(QStringLiteral("kind")))
+        light.kind = qBound(1, settings.value(QStringLiteral("kind")).toInt(), 4);
+    if (settings.contains(QStringLiteral("color"))) {
+        const QColor color(settings.value(QStringLiteral("color")).toString());
+        if (color.isValid())
+            light.color = QColor(color.red(), color.green(), color.blue());
+    }
+    const auto number = [&](const char *key, double *field, double lo, double hi) {
+        if (settings.contains(QLatin1String(key)))
+            *field = qBound(lo, settings.value(QLatin1String(key)).toDouble(), hi);
+    };
+    number("intensity", &light.intensity, 0.0, 1000.0);
+    number("coneAngle", &light.coneAngle, 1.0, 179.0);
+    number("coneFeather", &light.coneFeather, 0.0, 100.0);
+    number("falloffRadius", &light.falloffRadius, 0.0, 100000.0);
+    number("falloffDistance", &light.falloffDistance, 0.0, 100000.0);
+    pushProjectEdit(before, tr("Light changed"));
+    finishEdit(tr("Light changed"));
+}
+
+void AppController::setAcceptsLights(int trackIndex, int clipIndex, bool accepts)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (m_project.tracks().at(trackIndex).clips.at(clipIndex).acceptsLights == accepts)
+        return;
+    const drift::Project before = m_project;
+    m_project.tracks()[trackIndex].clips[clipIndex].acceptsLights = accepts;
+    pushProjectEdit(before, tr("Accepts lights"));
+    finishEdit(tr("Accepts lights"));
+}
+
 void AppController::addNullForSelection()
 {
     QList<QString> ids;
@@ -11990,6 +12099,9 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     static const char *const matteModes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
     QVariantMap out{{QStringLiteral("nullObject"), clip.nullObject},
+                    {QStringLiteral("lightKind"), clip.light.kind},
+                    {QStringLiteral("layer3d"), clip.layer3d},
+                    {QStringLiteral("acceptsLights"), clip.acceptsLights},
                     {QStringLiteral("motionBlur"), clip.motionBlur},
                     {QStringLiteral("matteMode"), QLatin1String(matteModes[int(clip.matteMode)])},
                     {QStringLiteral("matteId"), clip.matteClipId},
