@@ -115,6 +115,14 @@ Item {
     Item {
         id: keyCatcher
         focus: root.penActive
+        // The editor's shortcuts (Delete removes the selected clip, Space plays) must not fire
+        // while the pen is drawing: these keys belong to the pen then.
+        Keys.onShortcutOverride: event => {
+            if (root.penActive && (event.key === Qt.Key_Escape || event.key === Qt.Key_Return
+                                   || event.key === Qt.Key_Enter || event.key === Qt.Key_Backspace
+                                   || event.key === Qt.Key_Delete))
+                event.accepted = true
+        }
         Keys.onPressed: event => {
             if (!root.penActive)
                 return

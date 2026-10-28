@@ -208,11 +208,11 @@
           objectSchema(mergeProps({{QStringLiteral("flipH"), boolProp(QStringLiteral("Flip horizontally"))},
                                    {QStringLiteral("flipV"), boolProp(QStringLiteral("Flip vertically"))}},
                                   clipRefProps())) },
-        { "add_null_object", "canvas", "After Effects Null Object: an invisible parent handle",
+        { "add_null_object", "canvas", "Invisible parent handle (AE null)",
           "Add a null object at the playhead on a track of its own: a 100x100 shape centred on the frame "
           "that is never drawn. Parent other clips to it with set_parent. It becomes the selection.",
           objectSchema({}) },
-        { "set_parent", "canvas", "After Effects Parent: make a clip follow another",
+        { "set_parent", "canvas", "Make a clip follow another (AE parent)",
           "Link the clip to a parent (parentTrack/parentClip, as in inspect) so it follows the parent's "
           "position, rotation and scale from now on, keeping its place; parentTrack -1 unlinks, also "
           "keeping its place. A link that would close a loop is refused.",
@@ -220,14 +220,14 @@
                                    {QStringLiteral("parentClip"), integerProp(QStringLiteral("Parent's clip index"))}},
                                   clipRefProps()),
                        {QStringLiteral("parentTrack")}) },
-        { "set_motion_blur", "canvas", "After Effects Motion Blur switch and shutter",
+        { "set_motion_blur", "canvas", "Motion blur on a clip",
           "Turn the clip's motion blur on or off. shutterDeg (0-720, default 180) and samples (2-64, "
           "default 16) are the project's, shared by every blurred clip; omitted ones keep their value.",
           objectSchema(mergeProps({{QStringLiteral("on"), boolProp(QStringLiteral("Motion blur on the clip"))},
                                    {QStringLiteral("shutterDeg"), numberProp(QStringLiteral("Project shutter angle, degrees"))},
                                    {QStringLiteral("samples"), integerProp(QStringLiteral("Project sub-frame samples"))}},
                                   clipRefProps())) },
-        { "set_track_matte", "canvas", "After Effects Track Matte: show a clip only through another",
+        { "set_track_matte", "canvas", "Show a clip only through another",
           "Cut the clip by another clip's coverage: mode alpha | alphaInverted | luma | lumaInverted, or "
           "none to remove it. matteTrack/matteClip pick the matte (as in inspect); without them the "
           "nearest overlapping clip on a track above is used. The matte clip stops drawing on its own.",
