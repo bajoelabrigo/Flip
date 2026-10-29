@@ -111,13 +111,24 @@ class Cel:
                 continue
             paths = []
             for slot in range(self.slots):
-                ks = []
+                shapes = []
                 for frame, outs in keyed:
                     if slot < len(outs):
                         o = outs[slot]
-                        shape = _bez(o, 0.0 if isinstance(o, Sharp) else 1.0)
+                        shapes.append(_bez(o, 0.0 if isinstance(o, Sharp) else 1.0))
                     else:
-                        shape = _EMPTY
+                        shapes.append(None)
+                # Every key of one path needs the same number of vertices, or Skottie drops the
+                # path: shorter outlines repeat their last vertex, empty ones are a far-off dot.
+                n = max((len(sh["v"]) for sh in shapes if sh), default=NPTS)
+                ks = []
+                for (frame, _), shape in zip(keyed, shapes):
+                    if shape is None:
+                        shape = {"c": True, "v": [[-9999, -9999]] * n, "i": [[0, 0]] * n, "o": [[0, 0]] * n}
+                    elif len(shape["v"]) < n:
+                        extra = n - len(shape["v"])
+                        shape = {"c": True, "v": shape["v"] + [shape["v"][-1]] * extra,
+                                 "i": shape["i"] + [[0, 0]] * extra, "o": shape["o"] + [[0, 0]] * extra}
                     ks.append({"t": frame, "s": [shape], "h": 1})
                 paths.append({"ty": "sh", "ks": {"a": 1, "k": ks} if len(ks) > 1 else static(ks[0]["s"][0])})
             self.s.layer(group(*paths, fill(colour, sid), tr=transform()), ks=layer_transform((0, 0)),
@@ -443,6 +454,7 @@ def bolt_shape(pts, w):
 
 def rayo() -> Sticker:
     s = sticker("ex-rayo", "Rayo", "Lightning strike", "electricidad", 24, 3401, ["rayo", "electricidad", "tormenta"])
+    s.thumb = 0.12  # the bolt flickers: the card is taken while it is on
     cel = Cel(s, [("borde", "#3B2BFF"), ("rayo", "#8FE8FF"), ("centro", "#FFFFFF")], 4)
     for f in frames_of(24):
         u = f / 23
@@ -725,7 +737,7 @@ def brillo_anime() -> Sticker:
 def transicion(id, es, en, order, tones, kind):
     """Full frame: covers the picture by the middle and clears it by the end (cut there)."""
     s = sticker(id, es, en, "transiciones", 36, order, ["transición", kind], size=1920, height=1080)
-    s.thumb = 0.45
+    s.thumb = 0.22  # half way in: the fire, smoke or liquid still has its edge
     cel = Cel(s, tones, 40)
     W, H = 1920, 1080
     for f in frames_of(36):

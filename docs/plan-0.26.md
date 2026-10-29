@@ -359,7 +359,19 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   con bordes rasgados por la línea); Morph (la línea vuela girando y corta a la foto). **Arreglado tras la prueba:** una
   línea recta de la pluma (o «Añadir línea») tenía una caja de 1 px y la vista previa no la dibujaba: caja mínima de
   64 px (`addPenShape` y al editar puntos).
-- [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
+- [x] H4. **RTFX → Stock › «Animaciones Extremas» (primera tanda, DESPLEGADA 2026-10-29):** 35 efectos propios en
+      Lottie (`tools/animations/extremas.py`, `build.py --designs extremas`): fuego, explosiones, humo, energía,
+      electricidad, chispas, líquidos, líneas, destellos y transiciones a pantalla completa; cuadro a cuadro «a dos», tonos
+      planos recoloreables (slots). Estudiado en los dos videos de RTFX (sin usar su contenido). Tarjetas y vistas previas
+      renderizadas con la app (portable `prueba-m`), publicadas (`publish.py`, categorías «Extremas · …») y subidas solo
+      `animaciones/` (254 en vivo, comprobado por la API). Siguientes tandas: tercios inferiores, títulos, fondos,
+      sonidos (como RTFX), más elementos.
+      **Trampa:** en un trazado animado de Lottie, todas las claves tienen que tener el mismo número de vértices o
+      Skottie lo descarta sin avisar (el rayo salía vacío y las explosiones perdían su centro): `Cel.build` rellena.
+      **Trampa:** `apply_delta.sh` con `--unlink-first` falla al llegar a directorios que ya existen y se corta en el paso
+      2 (la carpeta viva no se toca); se terminó a mano con `cp -r --remove-destination` sobre el clon y el cambio de
+      carpeta.
+- [ ] (viejo) H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.
       Pendiente de empezar.
