@@ -13028,7 +13028,7 @@ void EditorStateTest::morphAndLiquidTools()
     state.setClipKeyframe(where(a).first, where(a).second, QStringLiteral("x"), 1.0, 1500);
     const int tracksBefore = state.project()->tracks().size();
     state.selectClip(where(a).first, where(a).second);
-    state.generateLiquidTrail(4, 2, 200, false, 0.6, 0.5, 20, QString());
+    state.generateLiquidTrail({{QStringLiteral("perFrame"), 4}, {QStringLiteral("threshold"), 100}});
     // Its own track behind the circle (and the lane of its Liquid effect under that).
     QVERIFY(state.project()->tracks().size() >= tracksBefore + 1);
     const int under = where(a).first + 1;
@@ -13036,6 +13036,19 @@ void EditorStateTest::morphAndLiquidTools()
     QCOMPARE(trail.type, drift::ClipType::Shape);
     QVERIFY(trail.shapeStyle.pathShapes.size() > 10);
     QVERIFY(trail.shapeStyle.pathShapes.at(10).count(QLatin1Char('M')) >= 2);
+
+    // Slicer: the circle in three bands, each shown through a band stuck to it.
+    state.selectClip(where(a).first, where(a).second);
+    state.addToSelection(where(b).first, where(b).second);
+    const int beforeSlices = state.project()->tracks().size();
+    state.morphLayers(0.5, 0, 0.25, 90, 3);
+    int mattes = 0;
+    for (const drift::Track &track : state.project()->tracks())
+        for (const drift::Clip &clip : track.clips)
+            mattes += clip.matteMode == drift::Clip::TrackMatte::Alpha ? 1 : 0;
+    QCOMPARE(mattes, 3);
+    QVERIFY(state.project()->tracks().size() >= beforeSlices + 5);
+    state.undo();
 
     // Liquid line: a stream along the square's outline.
     state.selectClip(where(b).first, where(b).second);

@@ -17,13 +17,21 @@ Column {
     property int morphTrails: 0
     property real morphArc: 0.25
     property real morphSpin: 90
+    property int morphSlices: 1
     property int liquidPerFrame: 4
     property int liquidSkip: 2
-    property real liquidThreshold: 250
-    property bool liquidHorizontal: false
-    property real liquidInherit: 0.6
-    property real liquidRandom: 0.5
-    property real liquidSize: 18
+    property real liquidThreshold: 150
+    property bool liquidGravity: false
+    property bool liquidExtra: true
+    property real liquidVelocity: 300
+    property real liquidRandom: 1.0
+    property real liquidSpread: 0.35
+    property real liquidLife: 0.9
+    property real liquidSize: 1.0
+    property real liquidSizeRandom: 0.5
+    property real liquidWobble: 0.25
+    property real liquidWobbleFreq: 6
+    property int liquidSeed: 0
     property real lineSeconds: 1.2
     property real lineWidth: 40
     property real lineLength: 0.35
@@ -92,11 +100,13 @@ Column {
         Knob { label: qsTr("Arc"); from: 0; to: 0.8; step: 0.05; value: root.morphArc; onMoved: v => root.morphArc = v }
         Knob { label: qsTr("Spin"); from: -360; to: 360; step: 5; decimals: 0; value: root.morphSpin; unit: "°"; onMoved: v => root.morphSpin = v }
         Knob { label: qsTr("Trails"); from: 0; to: 8; step: 1; decimals: 0; value: root.morphTrails; onMoved: v => root.morphTrails = Math.round(v) }
+        Knob { label: qsTr("Slicer"); from: 1; to: 8; step: 1; decimals: 0; value: root.morphSlices; onMoved: v => root.morphSlices = Math.round(v) }
         ThemedButton {
             width: parent.width
             variant: "primary"
             text: qsTr("Morph it")
-            onClicked: EditorState.morphLayers(root.morphSeconds, root.morphTrails, root.morphArc, root.morphSpin)
+            onClicked: EditorState.morphLayers(root.morphSeconds, root.morphTrails, root.morphArc, root.morphSpin,
+                                               root.morphSlices)
         }
     }
 
@@ -110,19 +120,31 @@ Column {
             wrapMode: Text.WordWrap
             size: "sm"
             opacity: 0.8
-            text: qsTr("Select a layer that moves. Wherever it goes fast it throws liquid behind it, frame by frame, as Super Liquids does.")
+            text: qsTr("Select the layer that moves last, and before it (Ctrl+click) the shapes to throw: drops, rings, lines… With none, round drops. Wherever it goes fast it throws copies of them, frame by frame, as Super Liquids does.")
         }
-        Knob { label: qsTr("Drops a frame"); from: 1; to: 12; step: 1; decimals: 0; value: root.liquidPerFrame; onMoved: v => root.liquidPerFrame = Math.round(v) }
+        Knob { label: qsTr("Liquids per frame"); from: 1; to: 12; step: 1; decimals: 0; value: root.liquidPerFrame; onMoved: v => root.liquidPerFrame = Math.round(v) }
         Knob { label: qsTr("Frame skipping"); from: 1; to: 4; step: 1; decimals: 0; value: root.liquidSkip; onMoved: v => root.liquidSkip = Math.round(v) }
         Knob { label: qsTr("Speed threshold"); from: 0; to: 2000; step: 10; decimals: 0; value: root.liquidThreshold; onMoved: v => root.liquidThreshold = v }
-        Knob { label: qsTr("Size"); from: 4; to: 80; step: 1; decimals: 0; value: root.liquidSize; unit: " px"; onMoved: v => root.liquidSize = v }
-        Knob { label: qsTr("Velocity"); from: 0; to: 1.5; step: 0.05; value: root.liquidInherit; onMoved: v => root.liquidInherit = v }
-        Knob { label: qsTr("Velocity random"); from: 0; to: 1.5; step: 0.05; value: root.liquidRandom; onMoved: v => root.liquidRandom = v }
+        Knob { label: qsTr("Velocity"); from: 0; to: 1500; step: 10; decimals: 0; value: root.liquidVelocity; onMoved: v => root.liquidVelocity = v }
+        Knob { label: qsTr("Velocity random"); from: 0; to: 2; step: 0.05; value: root.liquidRandom; onMoved: v => root.liquidRandom = v }
+        Knob { label: qsTr("Spread"); from: 0; to: 1; step: 0.05; value: root.liquidSpread; onMoved: v => root.liquidSpread = v }
+        Knob { label: qsTr("Life"); from: 0.1; to: 4; step: 0.1; value: root.liquidLife; unit: " s"; onMoved: v => root.liquidLife = v }
+        Knob { label: qsTr("Size"); from: 0.1; to: 3; step: 0.05; value: root.liquidSize; onMoved: v => root.liquidSize = v }
+        Knob { label: qsTr("Size random"); from: 0; to: 1; step: 0.05; value: root.liquidSizeRandom; onMoved: v => root.liquidSizeRandom = v }
+        Knob { label: qsTr("Wobble"); from: 0; to: 1; step: 0.05; value: root.liquidWobble; onMoved: v => root.liquidWobble = v }
+        Knob { label: qsTr("Wobble speed"); from: 0; to: 20; step: 0.5; decimals: 1; value: root.liquidWobbleFreq; unit: " Hz"; onMoved: v => root.liquidWobbleFreq = v }
+        Knob { label: qsTr("Random seed"); from: 0; to: 99; step: 1; decimals: 0; value: root.liquidSeed; onMoved: v => root.liquidSeed = Math.round(v) }
         ThemedSwitch {
             width: parent.width
-            text: qsTr("Horizontal (no gravity)")
-            checked: root.liquidHorizontal
-            onToggled: root.liquidHorizontal = checked
+            text: qsTr("Apply extra effects (melt like liquid)")
+            checked: root.liquidExtra
+            onToggled: root.liquidExtra = checked
+        }
+        ThemedSwitch {
+            width: parent.width
+            text: qsTr("Gravity (they fall)")
+            checked: root.liquidGravity
+            onToggled: root.liquidGravity = checked
         }
     }
 
@@ -182,9 +204,13 @@ Column {
         text: root.tool === "trail" ? qsTr("Generate liquid trail") : qsTr("Generate liquid line")
         onClicked: {
             if (root.tool === "trail")
-                EditorState.generateLiquidTrail(root.liquidPerFrame, root.liquidSkip, root.liquidThreshold,
-                                                root.liquidHorizontal, root.liquidInherit, root.liquidRandom,
-                                                root.liquidSize, root.liquidColor)
+                EditorState.generateLiquidTrail({
+                    perFrame: root.liquidPerFrame, frameSkip: root.liquidSkip, threshold: root.liquidThreshold,
+                    velocity: root.liquidVelocity, velocityRandom: root.liquidRandom, spread: root.liquidSpread,
+                    life: root.liquidLife, size: root.liquidSize, sizeRandom: root.liquidSizeRandom,
+                    wobble: root.liquidWobble, wobbleFrequency: root.liquidWobbleFreq, gravity: root.liquidGravity,
+                    extraEffects: root.liquidExtra, seed: root.liquidSeed, color: root.liquidColor
+                })
             else
                 EditorState.generateLiquidLine(root.lineSeconds, root.lineWidth, root.lineLength, root.lineRough,
                                                root.liquidColor)

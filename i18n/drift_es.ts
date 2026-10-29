@@ -5624,6 +5624,22 @@
         <translation>Tendencias</translation>
     </message>
     <message>
+        <source>%1 slice %2</source>
+        <translation>%1 trozo %2</translation>
+    </message>
+    <message>
+        <source>%1 band %2</source>
+        <translation>%1 franja %2</translation>
+    </message>
+    <message>
+        <source>drops</source>
+        <translation>gotas</translation>
+    </message>
+    <message>
+        <source>%1 liquid (%2)</source>
+        <translation>%1 líquido (%2)</translation>
+    </message>
+    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation>Elige una forma o un texto con trazo</translation>
     </message>
@@ -5817,10 +5833,6 @@
     <message>
         <source>Liquid trail</source>
         <translation>Estela líquida</translation>
-    </message>
-    <message>
-        <source>%1 liquid</source>
-        <translation>%1 líquido</translation>
     </message>
     <message>
         <source>Select a shape or a line drawn with the pen: the liquid runs along it</source>
@@ -22876,16 +22888,36 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Estelas</translation>
     </message>
     <message>
+        <source>Slicer</source>
+        <translation>Slicer</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation>Transformar</translation>
     </message>
     <message>
-        <source>Select a layer that moves. Wherever it goes fast it throws liquid behind it, frame by frame, as Super Liquids does.</source>
-        <translation>Elige una capa que se mueva. Por donde pasa rápido suelta líquido detrás, cuadro a cuadro, como Super Liquids.</translation>
+        <source>Size random</source>
+        <translation>Tamaño aleatorio</translation>
     </message>
     <message>
-        <source>Drops a frame</source>
-        <translation>Gotas por cuadro</translation>
+        <source>Wobble</source>
+        <translation>Temblor</translation>
+    </message>
+    <message>
+        <source>Wobble speed</source>
+        <translation>Velocidad del temblor</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Apply extra effects (melt like liquid)</source>
+        <translation>Efectos extra (fundir como líquido)</translation>
+    </message>
+    <message>
+        <source>Gravity (they fall)</source>
+        <translation>Gravedad (caen)</translation>
     </message>
     <message>
         <source>Frame skipping</source>
@@ -22896,6 +22928,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Umbral de velocidad</translation>
     </message>
     <message>
+        <source>Spread</source>
+        <translation>Dispersión</translation>
+    </message>
+    <message>
+        <source>Life</source>
+        <translation>Vida</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Tamaño</translation>
     </message>
@@ -22904,12 +22944,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Velocidad</translation>
     </message>
     <message>
-        <source>Velocity random</source>
-        <translation>Velocidad aleatoria</translation>
+        <source>Select the layer that moves last, and before it (Ctrl+click) the shapes to throw: drops, rings, lines… With none, round drops. Wherever it goes fast it throws copies of them, frame by frame, as Super Liquids does.</source>
+        <translation>Elige al final la capa que se mueve y, antes (Ctrl+clic), las formas que suelta: gotas, anillos, rayas… Sin ninguna, gotas redondas. Por donde pasa rápido suelta copias de ellas, cuadro a cuadro, como Super Liquids.</translation>
     </message>
     <message>
-        <source>Horizontal (no gravity)</source>
-        <translation>Horizontal (sin gravedad)</translation>
+        <source>Liquids per frame</source>
+        <translation>Líquidos por cuadro</translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
+        <translation>Velocidad aleatoria</translation>
     </message>
     <message>
         <source>Select a shape or a line drawn with the pen. A stream of liquid runs along it from the playhead.</source>

@@ -330,6 +330,14 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
       al destino, que sigue el movimiento y se asienta con un rebote; «Trails» = copias que siguen con retraso.
       → **Morph** (`morphLayers`).
     - La galería de Elementos (34 animaciones propias) se quitó: era el enfoque equivocado.
+    - Afinado con los tutoriales completos (Super Liquids 6 min, Super Morphings 9 min): en Super Liquids las
+      partículas son **los elementos que dibuja el usuario** (gotas, anillos, triángulos, rayas de colores), copiados al
+      azar; controles Velocity (+random), Transform random, Particle (vida, tamaño, opacidad, cada uno con random),
+      Physics (amplitud, frecuencia, decaimiento = temblor que se apaga), Noise, Seed; «Frame Skipping» = dibujo
+      sostenido N cuadros. → `generateLiquidTrail(options)`: las otras capas de forma elegidas son los elementos (una
+      capa de salida por elemento, con su pintura); sin ninguna, gotas redondas. En Super Morphings: Trails (copias que
+      siguen) y **Slicer** (la forma en N trozos que vuelan aparte). → `morphLayers(..., slices)`: N copias, cada una con
+      una franja (rectángulo como mate alfa, emparentado a la copia) y su punto medio del vuelo separado y girado.
   - [ ] (viejo) **Líquidos y morphings**: no son galerías, son herramientas. Super Liquids genera **estelas de líquido** sobre
     un objeto (quieto o en movimiento, horizontal o vertical, con capas de forma); Super Morphings **transforma una
     forma en otra** con un clic (varios a la vez, estelas, «slicer», suavizado). Pedidos a Jorge los videos de cómo

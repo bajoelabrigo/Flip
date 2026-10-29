@@ -5624,6 +5624,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 slice %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 band %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 liquid (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5816,10 +5832,6 @@
     </message>
     <message>
         <source>Liquid trail</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 liquid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22865,15 +22877,35 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Slicer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a layer that moves. Wherever it goes fast it throws liquid behind it, frame by frame, as Super Liquids does.</source>
+        <source>Size random</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drops a frame</source>
+        <source>Wobble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wobble speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply extra effects (melt like liquid)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity (they fall)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22885,6 +22917,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Life</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -22893,11 +22933,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Velocity random</source>
+        <source>Select the layer that moves last, and before it (Ctrl+click) the shapes to throw: drops, rings, lines… With none, round drops. Wherever it goes fast it throws copies of them, frame by frame, as Super Liquids does.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Horizontal (no gravity)</source>
+        <source>Liquids per frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

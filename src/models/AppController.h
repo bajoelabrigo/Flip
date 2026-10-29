@@ -1207,14 +1207,21 @@ public:
     // each other one draws back, flies on an arc to the target growing and turning, and at the end
     // the picture cuts to the target, which carries on the motion and settles with a bounce (a
     // matching cut, which is what Super Morphings does). `trails` copies follow each one a little
-    // later, fainter; `arc` bends the flight (0 = straight), `spin` turns it (degrees).
-    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin);
-    // Liquid trail: drops thrown by the selected (moving) layer wherever it goes faster than
-    // `threshold` px/s, frame by frame: `perFrame` a frame, carrying its speed (`inherit`, 0..1) and
-    // some of their own (`randomness`), falling (or, `horizontal`, drifting sideways) and shrinking
-    // away. A shape layer behind it, keyed every `frameSkip` frames, melted with the Liquid effect.
-    Q_INVOKABLE void generateLiquidTrail(int perFrame, int frameSkip, double threshold, bool horizontal,
-                                         double inherit, double randomness, double size, const QString &color);
+    // later, fainter; `slices` > 1 cuts each flying layer into that many bands (Super Morphings'
+    // Slicer) that fly apart a little and turn on their own; `arc` bends the flight (0 = straight),
+    // `spin` turns it (degrees).
+    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1);
+    // Liquid trail (Super Liquids): the primary selected layer moves; any other selected shape
+    // layers are the elements it throws (copies of them, picked at random; with none, round
+    // drops). Wherever it moves faster than `threshold` px/s, `perFrame` elements a frame come off it
+    // at a spread round its centre, flying off at `velocity` px/s (± `velocityRandom`), slowing,
+    // wobbling (`wobble` amplitude at `wobbleFrequency` Hz, dying away) and shrinking over `life` s
+    // (± 50%), `size` × the element (± `sizeRandom`). `gravity` makes them fall; `frameSkip` holds each
+    // drawing that many frames, as drawn animation; `extraEffects` melts them with the Liquid effect.
+    // One shape layer per element, behind the moving layer. Keys of `options`: perFrame, frameSkip,
+    // threshold, velocity, velocityRandom, spread, rotationRandom, life, size, sizeRandom, wobble,
+    // wobbleFrequency, gravity, extraEffects, seed, color.
+    Q_INVOKABLE void generateLiquidTrail(const QVariantMap &options);
     // Liquid line: the selected shape's outline becomes a stream of liquid running along it from the
     // playhead over `seconds`: `length` of the path long (0..1), `width` px at its thickest, its edges
     // torn by `roughness` (0..1) and changing every frame.
