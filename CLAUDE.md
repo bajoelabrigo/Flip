@@ -799,6 +799,12 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 **En QML, una propiedad no puede llamarse `on` + Mayúscula** (`onPage`, `onLine`…): QML la toma como manejador de señal y su enlace no se recalcula, sin dar ningún error (0.26: las Preferencias salían en blanco por `onPage`). Usar otro nombre (`pageMatches`). Para probar QML suelto: `.qtmingw\6.10.3\mingw_64\bin\qml.exe` con `QT_QPA_PLATFORM=offscreen` y `console.log` (los tipos de Drift no cargan: simularlos).
 
+**Un manejador de señal en un objeto que no tiene esa señal tumba la app al arrancar, y nada lo avisa antes.** En la
+0.26 `472fe` puso `onEntered` en las tarjetas de Medios (que son el origen del arrastre, no un `DropArea`): el CI
+compiló y pasó las pruebas, `qmllint` no dijo nada, y el portable se cerraba al abrir («Cannot assign to non-existent
+property "onEntered"», visible solo con `-RedirectStandardError`). Por eso cada build se abre en ventana antes de
+seguir probando, aunque el cambio parezca de una línea.
+
 **Python en Windows escribe CRLF.** `open(p, "w")` traduce `\n` a `\r\n`: un script que reescribe un `.qml` o `.py`
 lo deja entero como cambiado. Usar `newline=""` (o `sed -i`), y pedirlo a los agentes. (Este `CLAUDE.md`, en cambio,
 está en CRLF en la copia de trabajo: respetar el fin de línea del archivo.)

@@ -179,6 +179,8 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 - **Trampa:** `/tmp/chk.sh` no tenía g++ en el PATH y no comprobaba nada (salida vacía = «bien»): ahora exporta
   `.qtmingw/Tools/mingw1310_64/bin` y define `QT_NO_FOREACH`. Un efecto GPU sin `"pipeline"` se salta al cargar
   («pipeline has no passes»), sin aviso en la interfaz.
+- **Trampa (2026-10-29):** el build `a3d01` no arrancaba: `472fe` dejó `onEntered` en las tarjetas de Medios (no son
+  `DropArea`). Ni el CI ni `qmllint` lo ven; quitado en `927ab`. Abrir cada build en ventana primero.
 
 - **Forma como máscara de cualquier clip (Jorge, 2026-10-29: «que tenga las 2 opciones, que quede pegada o que la
   siga… quiero animar textos que aparecen de la nada»), commit `3b7a7`, sin probar en ventana:** clic derecho en una
