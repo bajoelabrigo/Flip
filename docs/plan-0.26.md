@@ -295,6 +295,8 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   al 160 % (llenaban la tarjeta). **Falta en ventana:** Recorte y Extremos (probados por la prueba de CI), y el diálogo
   de expresiones («Aplicar a», «Mis expresiones»): el menú «…» de la fila no se abre con clics simulados, lo prueba
   Jorge.
+- **Probado en ventana (build final de la tanda, `pruebas\FlipStudio-0.26-prueba-l`):** tras aplicar «Entrar rebotando» la
+  foto sigue elegida y el panel en Squash & Stretch; las tarjetas de Elementos muestran cada forma entera.
 - [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.
