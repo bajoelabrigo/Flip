@@ -229,6 +229,54 @@ def make_wings():
     return render(s, wings(512, 512, 13, size=1.05))
 
 
+def ring(W, H, seed, size=1.0, dur=1.3):
+    """A swirling ring of fire (RTFX's «Hit Radial»): a hot ball bursts into a ring that spins as it
+    widens, its puffs drawn round the circle and hollowed from the inside, the centre going dark,
+    then the ring frays into sparks round the rim."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    n = 11
+    jit = [(rnd.uniform(-0.15, 0.15), rnd.uniform(0.8, 1.2)) for _ in range(n)]
+
+    def field(t):
+        e = 1 - (1 - min(1, t / 0.35)) ** 3
+        R = (6 + 52 * e) * k
+        spin = 1.6 * e + 0.4 * t
+        lobes = []
+        # The hot ball, gone by the time the ring has opened.
+        core = max(0.0, 1 - t / 0.3)
+        if core > 0:
+            lobes.append((cx, cy, (14 + 20 * e) * k * core ** 0.5, 1.0, 1.0, 0.0, 0.9 * core))
+        # Two spiral arms inside, winding in as the ring spins, gone soon after it opens.
+        arms = max(0.0, 1 - max(0.0, t - 0.2) / 0.35)
+        if arms > 0 and t > 0.05:
+            for arm in (0, math.pi):
+                for j in range(6):
+                    u = (j + 1) / 7
+                    a = arm + spin * 1.3 + u * 3.2
+                    x, y = cx + math.cos(a) * R * u * 0.85, cy + math.sin(a) * R * u * 0.85
+                    lobes.append((x, y, (3 + 5 * u) * k * arms, 1.8, 0.55, a + math.pi / 2, 0.75 * arms))
+        for i, (ja, js) in enumerate(jit):
+            a = 2 * math.pi * i / n + ja + spin
+            x, y = cx + math.cos(a) * R, cy + math.sin(a) * R
+            r = (7 + 14 * e) * js * k * (1 - 0.35 * max(0, t - 0.5))
+            heart = 0.8 * max(0.0, 1 - max(0.0, t - 0.25) * 1.6)
+            hole = min(1.0, max(0.0, (t - 0.12) / 0.4)) * 0.8
+            lobes.append((x, y, r, 1.6, 0.8, a + math.pi / 2, heart, hole, a + math.pi))
+        return m.field(lobes, t, "radial", (cx, cy), 75 * k, 0.45, 0.75, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_ring():
+    s = new("ex-fuego-anillo-radial", "Fuego · Anillo de fuego", "Fire · Ring of fire", "fuego", 30, 6004,
+            ["fuego", "fire", "anillo", "ring", "golpe", "hit"], size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, ring(512, 512, 17, size=1.0))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -243,4 +291,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring]
