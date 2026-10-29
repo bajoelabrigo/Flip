@@ -158,7 +158,22 @@ Item {
         target: EditorState
         function onTracksChanged() { root.rebuild() }
         function onSelectionChanged() { root.rebuild() }
+        // Dragging the clip in the preview writes its keys live but only says so at the release:
+        // the path stood still (and its new key was missing) until then (Jorge, 0.26). Once a frame.
+        function onClipPropertiesPreviewed(trackIndex, clipIndex, keys) {
+            if (trackIndex !== root.trackIndex || clipIndex !== root.clipIndex || root.rebuildQueued)
+                return
+            if (keys.indexOf("x") < 0 && keys.indexOf("y") < 0 && keys.indexOf("width") < 0
+                    && keys.indexOf("height") < 0)
+                return
+            root.rebuildQueued = true
+            Qt.callLater(() => {
+                root.rebuildQueued = false
+                root.rebuild()
+            })
+        }
     }
+    property bool rebuildQueued: false
     onWidthChanged: path.requestPaint()
     onHeightChanged: path.requestPaint()
 

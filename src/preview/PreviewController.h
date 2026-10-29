@@ -13,6 +13,7 @@ class AppController;
 
 namespace drift::snap {
 struct PlacedClip;
+struct Targets;
 }
 namespace drift::gizmo {
 struct View;
@@ -225,8 +226,8 @@ public:
 
     // A body drag of a clipsAtPlayhead box from press to now (canvas px), through its pose,
     // parents and the camera, so the grabbed point stays under the pointer. With `snap`, the
-    // projected edges and centre pull to the canvas edges, centre lines and visible guides within
-    // `tolerance` canvas px. Returns {valid, x, y, guideX, guideY} with the box's new rect origin;
+    // projected edges and centre pull to the canvas edges, centre lines, visible guides and the
+    // other layers' edges and centres within `tolerance` canvas px. Returns {valid, x, y, guideX, guideY} with the box's new rect origin;
     // guides are canvas px, -1 when not engaged.
     Q_INVOKABLE QVariantMap snapMove(const QVariantMap &box, double pressX, double pressY,
                                      double nowX, double nowY, double tolerance, bool snap) const;
@@ -294,6 +295,9 @@ private:
     drift::SceneCamera3d sceneCamera(bool *active = nullptr) const;
     // A clipsAtPlayhead box as the snapping maths needs it, in canvas px.
     drift::snap::PlacedClip placedClip(const QVariantMap &box) const;
+    // The edges and centre lines of the other layers seen at the playhead (Jorge, 0.26: images, texts
+    // and videos line up with each other, not only with the canvas).
+    void appendLayerSnapTargets(const QVariantMap &self, drift::snap::Targets *targets) const;
     // The viewpoint the gizmo is drawn and solved from: the scene camera when one covers the
     // playhead, otherwise none (each clip's own eye).
     drift::gizmo::View gizmoView() const;

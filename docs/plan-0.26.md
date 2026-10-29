@@ -215,10 +215,18 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
         cambia el clip; la pestaña Entrada/Salida/Combinada se recuerda (`inspectorUi.clipAnimTab`). La Salida en
         la segunda mitad de una foto cortada **sí** se aplica (probado por MCP y con clics); el salto de panel es lo
         que parecía «no funciona».
-  - [ ] Claves automáticas al arrastrar una foto en el fotograma 20: con «Fotogramas clave automáticos» encendido
-        se crean (probado: claves en 0 y 20). Falta saber qué hizo Jorge distinto.
-  - [ ] «Las claves salen pegadas, no se puede cortar una animación y seguir con otra más adelante» (como AE):
-        falta aclarar con Jorge.
+  - [~] Claves que no se crean al arrastrar la foto, y «claves pegadas» (Jorge quiere: animar 0→1 s, quieta, y
+        otra animación de 3 a 4 s). Reproducido en `prueba-h`: con una clave «quieta» puesta con ◆ en 2,0 s, arrastrar
+        la foto en 2,4 s **movía la clave de 2,0 s** (X 289 en 2,0 y ninguna en 2,4). El punto de esa clave cae bajo la
+        capa; al apretar, el punto se llevaba el clic y además llevaba el cabezal a su clave
+        (`MotionPathOverlay` › `dotMouse.onPressed`). Es lo que `a3d01` ya arregla (un punto de otra clave bajo la
+        capa deja pasar el clic). **Probar en ventana con el build nuevo:** ◆ en 2,0 s, arrastrar en 2,4 s → clave
+        nueva en 2,4 y quieta entre 1,5 y 2,0.
+  - [x] El trazado del movimiento quedaba congelado mientras se arrastraba la capa (sin la clave nueva) y se rehacía
+        al soltar: ahora se rehace en vivo con `clipPropertiesPreviewed` (una vez por fotograma).
+  - [x] Imán en la vista previa entre capas (Jorge): además del lienzo y las guías, los bordes y centros de las otras
+        capas que se ven en el cabezal (`PreviewController::appendLayerSnapTargets`, en mover y en cambiar de tamaño;
+        sin las giradas, los nulos, los grupos ni con cámara). Ctrl lo apaga, como antes.
 
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;

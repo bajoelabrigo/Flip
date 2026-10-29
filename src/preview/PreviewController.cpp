@@ -14,7 +14,9 @@
 #include <QSettings>
 #include <QVector4D>
 
+#include <algorithm>
 #include <cmath>
+#include <limits>
 
 using namespace drift::appdetail;
 
@@ -711,6 +713,46 @@ drift::snap::PlacedClip PreviewController::placedClip(const QVariantMap &box) co
     return placed;
 }
 
+void PreviewController::appendLayerSnapTargets(const QVariantMap &self,
+                                               drift::snap::Targets *targets) const
+{
+    const int selfTrack = self.value(QStringLiteral("track"), -1).toInt();
+    const int selfClip = self.value(QStringLiteral("clip"), -1).toInt();
+    for (const QVariant &item : clipsAtPlayhead()) {
+        const QVariantMap box = item.toMap();
+        if (box.value(QStringLiteral("track")).toInt() == selfTrack
+            && box.value(QStringLiteral("clip")).toInt() == selfClip)
+            continue;
+        // A group's frame, a null or a light draws nothing to line up with; a spun or tilted
+        // layer has no edges along the screen axes, and under a camera nothing is flat.
+        if (box.value(QStringLiteral("kind")).toString() == QLatin1String("transform")
+            || box.value(QStringLiteral("nullObject")).toBool()
+            || box.value(QStringLiteral("cameraActive")).toBool()
+            || qAbs(box.value(QStringLiteral("rotation")).toDouble()) >= 0.01
+            || qAbs(box.value(QStringLiteral("rotationX")).toDouble()) >= 0.01
+            || qAbs(box.value(QStringLiteral("rotationY")).toDouble()) >= 0.01)
+            continue;
+        const QVariantList quad = box.value(QStringLiteral("quad")).toList();
+        if (quad.size() != 4)
+            continue;
+        double left = std::numeric_limits<double>::max();
+        double top = left;
+        double right = std::numeric_limits<double>::lowest();
+        double bottom = right;
+        for (const QVariant &corner : quad) {
+            const QPointF p = corner.toPointF();
+            left = std::min(left, p.x());
+            right = std::max(right, p.x());
+            top = std::min(top, p.y());
+            bottom = std::max(bottom, p.y());
+        }
+        if (right - left < 1.0 || bottom - top < 1.0)
+            continue;
+        targets->x << left << (left + right) / 2.0 << right;
+        targets->y << top << (top + bottom) / 2.0 << bottom;
+    }
+}
+
 QVariantMap PreviewController::snapMove(const QVariantMap &box, double pressX, double pressY,
                                            double nowX, double nowY, double tolerance,
                                            bool snap) const
@@ -726,7 +768,9 @@ QVariantMap PreviewController::snapMove(const QVariantMap &box, double pressX, d
         const double w = box.value(QStringLiteral("canvasWidth")).toDouble();
         const double h = box.value(QStringLiteral("canvasHeight")).toDouble();
         const QVariantMap guides = m_guidesEnabled ? m_app.guideSnapTargets(w, h) : QVariantMap{};
-        moved = drift::snap::snapMove(placed, *delta, canvasSnapTargets(w, h, guides), tolerance);
+        drift::snap::Targets targets = canvasSnapTargets(w, h, guides);
+        appendLayerSnapTargets(box, &targets);
+        moved = drift::snap::snapMove(placed, *delta, targets, tolerance);
     }
     return {
         {QStringLiteral("valid"), true},
@@ -755,7 +799,8 @@ QVariantMap PreviewController::snapResize(const QVariantMap &box, double width, 
     const double cw = box.value(QStringLiteral("canvasWidth")).toDouble();
     const double ch = box.value(QStringLiteral("canvasHeight")).toDouble();
     const QVariantMap guides = m_guidesEnabled ? m_app.guideSnapTargets(cw, ch) : QVariantMap{};
-    const drift::snap::Targets targets = canvasSnapTargets(cw, ch, guides);
+    drift::snap::Targets targets = canvasSnapTargets(cw, ch, guides);
+    appendLayerSnapTargets(box, &targets);
     // Where the moving edge sits in the grabbed rect's own px, as anchor + scale * size: about
     // the centre it moves half as far, about the opposite edge the whole way.
     const auto axis = [&](int sign, double start, double size, bool horizontal,
