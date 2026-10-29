@@ -7914,7 +7914,21 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
 
     // 6. Unlinking decoupling
     state.setPositionLinked(false);
+    // Separate Dimensions is kept in the settings: put it back so later tests start linked.
+    const auto relink = qScopeGuard([&state] { state.setPositionLinked(true); });
     QVERIFY(!state.positionLinked());
+    // The timeline shows X Position and Y Position instead of the joined Position line.
+    bool joinedPosition = false;
+    int separatedLines = 0;
+    for (const QVariant &v : state.trackKeyframeRows(track)) {
+        const QVariantMap r = v.toMap();
+        if (r.value(QStringLiteral("group")).toString() != QLatin1String("position"))
+            continue;
+        joinedPosition = joinedPosition || !r.value(QStringLiteral("axis")).toBool();
+        separatedLines += r.value(QStringLiteral("separated")).toBool() ? 1 : 0;
+    }
+    QVERIFY(!joinedPosition);
+    QCOMPARE(separatedLines, 2);
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 0.5, 150.0);
     const QVariantList unlinkedYKeys = state.clipKeyframes(track, clip, QStringLiteral("y"));
     bool foundYAt0_5 = false;
