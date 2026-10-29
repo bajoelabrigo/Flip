@@ -180,6 +180,16 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   `.qtmingw/Tools/mingw1310_64/bin` y define `QT_NO_FOREACH`. Un efecto GPU sin `"pipeline"` se salta al cargar
   («pipeline has no passes»), sin aviso en la interfaz.
 
+- **Forma como máscara de cualquier clip (Jorge, 2026-10-29: «que tenga las 2 opciones, que quede pegada o que la
+  siga… quiero animar textos que aparecen de la nada»), commit `3b7a7`, sin probar en ventana:** clic derecho en una
+  forma, texto o foto › «Usar como máscara fija de ▸» / «Usar como máscara pegada a ▸» (lista de clips, primero los
+  que se solapan). Por dentro es el mate alfa (`AppController::useAsMatteFor`, `matteTargetOptions`): **fija** = la
+  forma queda en la pantalla y el clip pasa a través; **pegada** = la forma se emparenta al clip
+  (`setClipParentKeepingPlace`). Si la forma termina antes, se alarga (si su pista tiene lugar); si empieza después,
+  avisa. En Fusión › Mate de seguimiento, el interruptor «La máscara se mueve con esta capa» cambia entre las dos.
+  Prueba `EditorStateTest::shapeAsFixedOrStuckMask`. **Probar en ventana:** texto que entra deslizándose por debajo
+  de un rectángulo fijo (aparece de la nada) y el mismo con la máscara pegada.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista
