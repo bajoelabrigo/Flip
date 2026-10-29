@@ -247,7 +247,92 @@ Item {
             }
         }
 
-        // ----- Sequence -------------------------------------------------------------------------
+        // ----- Bounce / Elastic controls (0.26), as After Effects lists them under the layer -------
+        Repeater {
+            model: {
+                void EditorState.tracksRevision
+                return root.hasClip ? EditorState.settleBehaviors(EditorState.selectedTrack, EditorState.selectedClip) : []
+            }
+            Card {
+                id: settleCard
+                required property var modelData
+                readonly property bool bounce: modelData.kind === "bounce"
+                function set(key, value) {
+                    const p = {}
+                    p[key] = value
+                    EditorState.setSettleParams(EditorState.selectedTrack, EditorState.selectedClip, modelData.props, p)
+                }
+                RowLayout {
+                    width: parent.width
+                    Text {
+                        Layout.fillWidth: true
+                        text: (settleCard.bounce ? qsTr("Bounce: %1") : qsTr("Elastic: %1")).arg(settleCard.modelData.label)
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        font.weight: Font.DemiBold
+                        elide: Text.ElideRight
+                    }
+                    ThemedButton {
+                        text: qsTr("Reset")
+                        variant: "ghost"
+                        tooltip: qsTr("Take the behaviour off this property")
+                        onClicked: EditorState.setSettleParams(EditorState.selectedTrack, EditorState.selectedClip,
+                                                               settleCard.modelData.props, ({}))
+                    }
+                }
+                Repeater {
+                    model: settleCard.bounce
+                           ? [ { key: "amplitude", label: qsTr("Amplitude"), from: 0, to: 80, decimals: 1 },
+                               { key: "gravity", label: qsTr("Gravity"), from: 1, to: 100, decimals: 1 },
+                               { key: "maxJumps", label: qsTr("Max jumps"), from: 0, to: 20, decimals: 0 } ]
+                           : [ { key: "amplitude", label: qsTr("Amplitude"), from: 0, to: 100, decimals: 1 },
+                               { key: "frequency", label: qsTr("Frequency"), from: 1, to: 120, decimals: 1 },
+                               { key: "decay", label: qsTr("Decay"), from: 1, to: 200, decimals: 1 } ]
+                    RowLayout {
+                        required property var modelData
+                        width: parent.width
+                        spacing: Theme.spacingSm
+                        Text {
+                            Layout.preferredWidth: 92
+                            text: modelData.label
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            elide: Text.ElideRight
+                        }
+                        ThemedSlider {
+                            id: settleSlider
+                            Layout.fillWidth: true
+                            label: modelData.label
+                            from: modelData.from
+                            to: modelData.to
+                            stepSize: modelData.decimals === 0 ? 1 : 0
+                            value: settleCard.modelData[modelData.key]
+                            onMoved: settleCard.set(modelData.key, modelData.decimals === 0 ? Math.round(value) : value)
+                        }
+                        Text {
+                            Layout.preferredWidth: 38
+                            horizontalAlignment: Text.AlignRight
+                            text: Number(settleSlider.value).toFixed(modelData.decimals)
+                            color: Theme.primary
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+                }
+                ThemedSwitch {
+                    visible: settleCard.bounce
+                    width: parent.width
+                    text: qsTr("Jump In/Out")
+                    tooltip: qsTr("Hops on the far side of the key, as if it went through, instead of back off it")
+                    checked: settleCard.modelData.jumpOut === true
+                    onToggled: settleCard.set("jumpOut", checked)
+                }
+            }
+        }
+
+        // ----- Sequence -------------------------------------------------------------------------        // ----- Sequence -------------------------------------------------------------------------
         Card {
             RowLayout {
                 width: parent.width

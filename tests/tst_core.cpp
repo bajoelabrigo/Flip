@@ -2001,6 +2001,15 @@ void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
     // that fall (90 px, at its top 0.3 s later) and the hops die out within ~1.5 s.
     QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(0.8)) - 410.0) < 1.0);
     QCOMPARE(move.evaluateAt(drift::secondsToUs(2.2)), 500.0);
+    // Its controls (After Effects' Max Jumps, Jump In/Out): one hop only, then still; through the key.
+    settle.bounceMaxJumps = 1;
+    move.setBehavior(settle);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(1.2)), 500.0);
+    settle.bounceMaxJumps = 5;
+    settle.bounceJumpOut = true;
+    move.setBehavior(settle);
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(0.8)) - 590.0) < 1.0);
+    QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
     QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
 }
 

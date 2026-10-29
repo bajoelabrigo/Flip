@@ -89,6 +89,13 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
             behavior.insert(QStringLiteral("settleAmplitude"), b.settleAmplitude);
             behavior.insert(QStringLiteral("settleFrequency"), b.settleFrequency);
             behavior.insert(QStringLiteral("settleDecay"), b.settleDecay);
+            if (b.settle == TrackBehavior::Settle::Bounce) {
+                behavior.insert(QStringLiteral("bounceElasticity"), b.bounceElasticity);
+                behavior.insert(QStringLiteral("bounceGravity"), b.bounceGravity);
+                behavior.insert(QStringLiteral("bounceMaxJumps"), b.bounceMaxJumps);
+                if (b.bounceJumpOut)
+                    behavior.insert(QStringLiteral("bounceJumpOut"), true);
+            }
         }
         out.insert(QStringLiteral("behavior"), behavior);
     }
@@ -115,6 +122,10 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
         behavior.settleAmplitude = b.value(QStringLiteral("settleAmplitude")).toDouble(0.05);
         behavior.settleFrequency = b.value(QStringLiteral("settleFrequency")).toDouble(3.0);
         behavior.settleDecay = b.value(QStringLiteral("settleDecay")).toDouble(5.0);
+        behavior.bounceElasticity = b.value(QStringLiteral("bounceElasticity")).toDouble(0.6);
+        behavior.bounceGravity = b.value(QStringLiteral("bounceGravity")).toDouble(1.0);
+        behavior.bounceMaxJumps = b.value(QStringLiteral("bounceMaxJumps")).toInt(5);
+        behavior.bounceJumpOut = b.value(QStringLiteral("bounceJumpOut")).toBool(false);
         behavior.expression = b.value(QStringLiteral("expression")).toString();
         track.setBehavior(behavior);
     }

@@ -744,6 +744,11 @@ public:
     Q_INVOKABLE QString newCompositionFromAssets(const QStringList &assetIds);
     // A composition bin item with its own (empty) sequence, in the folder being viewed.
     QString addEmptyCompositionAsset(const QString &name, bool withTrack);
+    // Motion Tools' Bounce / Elastic controls of a clip (0.26), in After Effects' numbers:
+    // [{key, props, label, kind, amplitude, frequency, decay | gravity, maxJumps, jumpOut}]. The
+    // setter takes any of them for every prop of a line; an empty map removes the behaviour.
+    Q_INVOKABLE QVariantList settleBehaviors(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setSettleParams(int trackIndex, int clipIndex, const QStringList &props, const QVariantMap &params);
     // A solid's bin item in Media › Solids (the folder made the first time); returns its asset id.
     QString addSolidAsset(const QString &name, const QColor &color, int width, int height);
     // A clip's box at the playhead where it is drawn (layout plus anchor shift), in project px.

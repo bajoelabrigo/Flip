@@ -11265,6 +11265,107 @@ void AppController::easePickedKeyframes(const QString &mode, double inInfluence,
     finishEdit(tr("Easy ease"));
 }
 
+QVariantList AppController::settleBehaviors(int trackIndex, int clipIndex) const
+{
+    // Motion Tools' Bounce / Elastic controls (0.26), as After Effects shows them in Effect
+    // Controls, in its own numbers: Elastic Amplitude 20 / Frequency 40 / Decay 60, Bounce
+    // Amplitude 50 / Gravity 15 / Max Jumps 5. X and Y of Position read as one line.
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    QStringList seen;
+    for (const QString &prop : clipAnimatedProperties(trackIndex, clipIndex)) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, prop);
+        if (!isValidClipIndex(t, c))
+            continue;
+        const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(m_project.tracks().at(t).clips.at(c), prop);
+        if (!kt || kt->behavior().settle == drift::TrackBehavior::Settle::None)
+            continue;
+        const bool position = prop == QLatin1String("x") || prop == QLatin1String("y");
+        const QString key = position ? QStringLiteral("position") : prop;
+        if (seen.contains(key)) {
+            for (QVariant &v : out) {
+                QVariantMap m = v.toMap();
+                if (m.value(QStringLiteral("key")).toString() == key) {
+                    QStringList props = m.value(QStringLiteral("props")).toStringList();
+                    props.append(prop);
+                    m.insert(QStringLiteral("props"), props);
+                    v = m;
+                }
+            }
+            continue;
+        }
+        seen.append(key);
+        const drift::TrackBehavior b = kt->behavior();
+        const bool bounce = b.settle == drift::TrackBehavior::Settle::Bounce;
+        QVariantMap m{{QStringLiteral("key"), key},
+                      {QStringLiteral("props"), QStringList{prop}},
+                      {QStringLiteral("label"), position ? tr("Position") : animatedPropertyLabel(trackIndex, clipIndex, prop)},
+                      {QStringLiteral("kind"), bounce ? QStringLiteral("bounce") : QStringLiteral("elastic")}};
+        if (bounce) {
+            m.insert(QStringLiteral("amplitude"), b.bounceElasticity * 100.0 / 1.2);
+            m.insert(QStringLiteral("gravity"), b.bounceGravity * 15.0);
+            m.insert(QStringLiteral("maxJumps"), b.bounceMaxJumps);
+            m.insert(QStringLiteral("jumpOut"), b.bounceJumpOut);
+        } else {
+            m.insert(QStringLiteral("amplitude"), b.settleAmplitude / 0.006);
+            m.insert(QStringLiteral("frequency"), b.settleFrequency * 40.0 / 3.0);
+            m.insert(QStringLiteral("decay"), b.settleDecay * 60.0 / 3.5);
+        }
+        out.append(m);
+    }
+    return out;
+}
+
+void AppController::setSettleParams(int trackIndex, int clipIndex, const QStringList &props, const QVariantMap &params)
+{
+    // In After Effects' numbers (see settleBehaviors); every prop of the line takes them. An empty
+    // map removes the behaviour (Reset).
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QString &prop : props) {
+        int t = trackIndex;
+        int c = clipIndex;
+        redirectToKeyframeHost(&t, &c, prop);
+        if (!isValidClipIndex(t, c))
+            continue;
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(m_project.tracks()[t].clips[c], prop, false);
+        if (!kt)
+            continue;
+        drift::TrackBehavior b = kt->behavior();
+        if (params.isEmpty()) {
+            b.settle = drift::TrackBehavior::Settle::None;
+        } else if (b.settle == drift::TrackBehavior::Settle::Bounce) {
+            if (params.contains(QStringLiteral("amplitude")))
+                b.bounceElasticity = qBound(0.0, params.value(QStringLiteral("amplitude")).toDouble() * 1.2 / 100.0, 0.98);
+            if (params.contains(QStringLiteral("gravity")))
+                b.bounceGravity = qBound(0.05, params.value(QStringLiteral("gravity")).toDouble() / 15.0, 20.0);
+            if (params.contains(QStringLiteral("maxJumps")))
+                b.bounceMaxJumps = qBound(0, params.value(QStringLiteral("maxJumps")).toInt(), 50);
+            if (params.contains(QStringLiteral("jumpOut")))
+                b.bounceJumpOut = params.value(QStringLiteral("jumpOut")).toBool();
+        } else {
+            if (params.contains(QStringLiteral("amplitude")))
+                b.settleAmplitude = qBound(0.0, params.value(QStringLiteral("amplitude")).toDouble() * 0.006, 2.0);
+            if (params.contains(QStringLiteral("frequency")))
+                b.settleFrequency = qBound(0.1, params.value(QStringLiteral("frequency")).toDouble() * 3.0 / 40.0, 30.0);
+            if (params.contains(QStringLiteral("decay")))
+                b.settleDecay = qBound(0.1, params.value(QStringLiteral("decay")).toDouble() * 3.5 / 60.0, 30.0);
+        }
+        kt->setBehavior(b);
+        changed = true;
+    }
+    if (!changed)
+        return;
+    const QString message = params.isEmpty() ? tr("Behavior removed") : tr("Behavior changed");
+    pushProjectEdit(before, message);
+    finishEdit(message);
+}
+
 void AppController::applySettleToPicked(const QString &kind)
 {
     // The properties to settle: those of the picked keys, else the selected clip's animated transform.
@@ -11299,6 +11400,12 @@ void AppController::applySettleToPicked(const QString &kind)
         b.settle = kind == QLatin1String("elastic")  ? drift::TrackBehavior::Settle::Elastic
                    : kind == QLatin1String("bounce") ? drift::TrackBehavior::Settle::Bounce
                                                      : drift::TrackBehavior::Settle::None;
+        if (b.settle == drift::TrackBehavior::Settle::Bounce) {
+            b.bounceElasticity = 0.6;
+            b.bounceGravity = 1.0;
+            b.bounceMaxJumps = 5;
+            b.bounceJumpOut = false;
+        }
         if (b.settle == drift::TrackBehavior::Settle::Elastic) {
             // A swing you can see: about a tenth of the speed it arrived with, three swings a
             // second dying out over one (the old 0.05 / 5 moved a ball a few pixels).

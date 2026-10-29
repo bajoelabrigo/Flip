@@ -94,6 +94,13 @@ struct TrackBehavior
     double settleAmplitude = 0.05;
     double settleFrequency = 3.0;
     double settleDecay = 5.0;
+    // Bounce as a ball (0.26): the share of the speed each hop leaves with, gravity as a multiple of
+    // the one the fall itself implies, how many hops at most, and «Jump In/Out» (hops on the far
+    // side of the key, as if passing through it, instead of back off it).
+    double bounceElasticity = 0.6;
+    double bounceGravity = 1.0;
+    int bounceMaxJumps = 5;
+    bool bounceJumpOut = false;
     // A JavaScript expression run last, on the value with everything above (empty = none).
     QString expression;
 
@@ -107,7 +114,9 @@ struct TrackBehavior
         return loop == o.loop && speed == o.speed && wiggleFrequency == o.wiggleFrequency
                && wiggleAmount == o.wiggleAmount && wiggleSeed == o.wiggleSeed && settle == o.settle
                && settleAmplitude == o.settleAmplitude && settleFrequency == o.settleFrequency
-               && settleDecay == o.settleDecay && expression == o.expression;
+               && settleDecay == o.settleDecay && bounceElasticity == o.bounceElasticity
+               && bounceGravity == o.bounceGravity && bounceMaxJumps == o.bounceMaxJumps
+               && bounceJumpOut == o.bounceJumpOut && expression == o.expression;
     }
 };
 
@@ -392,18 +401,20 @@ private:
             // taken from the fall itself (reaching that speed over the previous stretch), so each
             // hop climbs back e² of the height of the one before and they shorten until it rests.
             // (A tiny sine wobble read as a shiver, not a bounce: Jorge, 0.26.)
-            constexpr double kElasticity = 0.6;
+            const double elasticity = qBound(0.0, m_behavior.bounceElasticity, 0.98);
             const double fall = qMax(0.05, double(at - std::prev(rest).key()) / 1e6);
             const double speed = qAbs(velocity);
-            const double gravity = speed / fall;
-            double hop = kElasticity * speed;
+            const double gravity = speed / fall * qMax(0.05, m_behavior.bounceGravity);
+            // Back off the key, or (Jump In/Out) on through to its far side.
+            const double side = (velocity > 0 ? -1.0 : 1.0) * (m_behavior.bounceJumpOut ? -1.0 : 1.0);
+            double hop = elasticity * speed;
             double left = t;
-            for (int n = 0; n < 12 && hop > 1e-3; ++n) {
+            for (int n = 0; n < qBound(0, m_behavior.bounceMaxJumps, 50) && hop > 1e-3; ++n) {
                 const double flight = 2.0 * hop / gravity;
                 if (left < flight)
-                    return -(hop * left - 0.5 * gravity * left * left) * (velocity > 0 ? 1.0 : -1.0);
+                    return side * (hop * left - 0.5 * gravity * left * left);
                 left -= flight;
-                hop *= kElasticity;
+                hop *= elasticity;
             }
             return 0.0;
         }

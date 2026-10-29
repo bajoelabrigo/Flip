@@ -5174,6 +5174,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18103,6 +18111,50 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Copies the picked keys to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the behaviour off this property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amplitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max jumps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump In/Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hops on the far side of the key, as if it went through, instead of back off it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

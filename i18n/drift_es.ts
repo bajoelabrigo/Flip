@@ -5174,6 +5174,14 @@
         <translation>Sólidos</translation>
     </message>
     <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Behavior changed</source>
+        <translation>Comportamiento cambiado</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation>Luz puntual %1</translation>
     </message>
@@ -18104,6 +18112,50 @@ LA PRÓXIMA</translation>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation>Copia las claves elegidas en el cabezal</translation>
+    </message>
+    <message>
+        <source>Bounce: %1</source>
+        <translation>Rebote: %1</translation>
+    </message>
+    <message>
+        <source>Elastic: %1</source>
+        <translation>Elástico: %1</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Take the behaviour off this property</source>
+        <translation>Quita el comportamiento de esta propiedad</translation>
+    </message>
+    <message>
+        <source>Amplitude</source>
+        <translation>Amplitud</translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation>Gravedad</translation>
+    </message>
+    <message>
+        <source>Max jumps</source>
+        <translation>Saltos máximos</translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation>Frecuencia</translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation>Decaimiento</translation>
+    </message>
+    <message>
+        <source>Jump In/Out</source>
+        <translation>Saltar al otro lado</translation>
+    </message>
+    <message>
+        <source>Hops on the far side of the key, as if it went through, instead of back off it</source>
+        <translation>Rebota del otro lado de la clave, como si la atravesara, en vez de volver</translation>
     </message>
     <message>
         <source>Sequence</source>
