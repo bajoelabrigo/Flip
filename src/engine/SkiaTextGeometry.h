@@ -4,6 +4,8 @@
 #include "include/core/SkPath.h"
 #include "include/core/SkPoint.h"
 
+#include <QString>
+
 #include <vector>
 
 // What TextLayout keeps per piece in Skia's own types, so TextLayout.h stays Skia-free. Read by
@@ -21,6 +23,11 @@ struct PieceGeometry
     SkFont font;
     std::vector<SkGlyphID> glyphs;
     std::vector<SkPoint> positions;
+
+    // Character Offset / Replace (0.26): the piece's text and where its first glyph sits, so the
+    // painter can draw another letter in its place with `font`.
+    QString text;
+    SkPoint origin{0, 0};
 };
 
 } // namespace drift::text

@@ -136,6 +136,7 @@ private slots:
     void squashAnimationWritesKeysAndDeformer();
     void morphAndLiquidTools();
     void penDrawsTheShapeLayerLive();
+    void curvesPanelAppliesAndReadsCurves();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -12992,6 +12993,55 @@ void EditorStateTest::penDrawsTheShapeLayerLive()
     QCOMPARE(style.puckerBloat, 60.0);
     QVERIFY(drift::shapeStyleHash(style) != plain);
     QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
+void EditorStateTest::curvesPanelAppliesAndReadsCurves()
+{
+    // Curvas (0.26, EasyCurve): a 4-key curve on three picked keys bends the stretch up to the
+    // middle key with `a` and the one back down with `b`, as one undo step; Read gives them back.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const double start = drift::usToSeconds(state.project()->tracks().at(t).clips.at(c).timelineStart);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 1.0, 1.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 2.0, 0.0);
+    QVariantList keys;
+    for (double s : {0.0, 1.0, 2.0})
+        keys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                                {QStringLiteral("seconds"), start + s}});
+    state.setPickedKeyframes(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("keys"), keys}});
+    state.applyCurveToPicked({0.4, 0.0, 0.6, 1.0}, {0.1, 0.0, 0.9, 1.0});
+    const QVariantMap read = state.pickedKeyframeCurves();
+    QVERIFY(read.value(QStringLiteral("ok")).toBool());
+    QCOMPARE(read.value(QStringLiteral("keys")).toInt(), 3);
+    const QVariantList a = read.value(QStringLiteral("a")).toList();
+    const QVariantList b = read.value(QStringLiteral("b")).toList();
+    QCOMPARE(a.size(), 4);
+    QCOMPARE(b.size(), 4);
+    QVERIFY(std::abs(a.at(0).toDouble() - 0.4) < 1e-3);
+    QVERIFY(std::abs(a.at(3).toDouble() - 1.0) < 1e-3);
+    QVERIFY(std::abs(b.at(0).toDouble() - 0.1) < 1e-3);
+    QVERIFY(std::abs(b.at(2).toDouble() - 0.9) < 1e-3);
+
+    // TextEvo's rows (0.26): Character Offset / Replace, Edges in and From index survive the JSON.
+    drift::TextAnimator animator;
+    animator.props.charOffset = drift::TextAnimParam(5.0);
+    animator.props.charReplace = drift::TextAnimParam(60.0);
+    drift::TextRangeSelector sel;
+    sel.order = drift::TextAnimOrder::EdgesIn;
+    sel.fromIndex = 3;
+    animator.selectors.append(sel);
+    const drift::TextAnimator back = drift::textAnimatorFromJson(drift::textAnimatorToJson(animator));
+    QCOMPARE(back.props.charOffset.value, 5.0);
+    QCOMPARE(back.props.charReplace.value, 60.0);
+    QCOMPARE(back.selectors.first().order, drift::TextAnimOrder::EdgesIn);
+    QCOMPARE(back.selectors.first().fromIndex, 3);
+    QCOMPARE(drift::textanim::reindexForOrder(0, 5, drift::TextAnimOrder::EdgesIn, 0), 0.0);
+    QCOMPARE(drift::textanim::reindexForOrder(2, 5, drift::TextAnimOrder::EdgesIn, 0), 2.0);
 }
 
 void EditorStateTest::motionToolsTrimBendAndCaps()

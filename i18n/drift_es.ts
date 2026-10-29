@@ -5186,6 +5186,10 @@
         <translation>Sólidos</translation>
     </message>
     <message>
+        <source>Curve applied</source>
+        <translation>Curva aplicada</translation>
+    </message>
+    <message>
         <source>Position</source>
         <translation>Posición</translation>
     </message>
@@ -12958,6 +12962,147 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>CurvesPanel</name>
+    <message>
+        <source>Ease in</source>
+        <translation>Entrada suave</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Salida suave</translation>
+    </message>
+    <message>
+        <source>Ease in-out</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Pasarse</translation>
+    </message>
+    <message>
+        <source>Anticipate</source>
+        <translation>Anticipar</translation>
+    </message>
+    <message>
+        <source>Spike</source>
+        <translation>Pico</translation>
+    </message>
+    <message>
+        <source>Export curves</source>
+        <translation>Exportar curvas</translation>
+    </message>
+    <message>
+        <source>Curves (*.json)</source>
+        <translation>Curvas (*.json)</translation>
+    </message>
+    <message>
+        <source>Curves exported</source>
+        <translation>Curvas exportadas</translation>
+    </message>
+    <message>
+        <source>Import curves</source>
+        <translation>Importar curvas</translation>
+    </message>
+    <message>
+        <source>No curves of this mode in that file</source>
+        <translation>Ese archivo no tiene curvas de este modo</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curves imported</source>
+        <translation>
+            <numerusform>%n curva importada</numerusform>
+            <numerusform>%n curvas importadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a curves file</source>
+        <translation>Ese archivo no es de curvas</translation>
+    </message>
+    <message>
+        <source>2 keys</source>
+        <translation>2 claves</translation>
+    </message>
+    <message>
+        <source>A curve from one key to the next</source>
+        <translation>Una curva de una clave a la siguiente</translation>
+    </message>
+    <message>
+        <source>4 keys</source>
+        <translation>4 claves</translation>
+    </message>
+    <message>
+        <source>Up to a peak and back: the stretches before and after the middle of three keys</source>
+        <translation>Sube a un pico y vuelve: los tramos antes y después de la clave del medio de tres</translation>
+    </message>
+    <message>
+        <source>Read</source>
+        <translation>Leer</translation>
+    </message>
+    <message>
+        <source>Puts the curve of the picked keys in the graph</source>
+        <translation>Pone en el gráfico la curva de las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Personalizada</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keys picked on the timeline.</source>
+        <translation>
+            <numerusform>%n clave elegida en la línea de tiempo.</numerusform>
+            <numerusform>%n claves elegidas en la línea de tiempo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>
+        <translation>Elige tres claves en la línea de tiempo (clic en los rombos, Ctrl para sumar): la curva sube a la del medio y vuelve.</translation>
+    </message>
+    <message>
+        <source>Pick keys on the timeline (click the diamonds, Ctrl for more): each one takes the curve to the next.</source>
+        <translation>Elige claves en la línea de tiempo (clic en los rombos, Ctrl para sumar): cada una lleva la curva hasta la siguiente.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Keeps this curve in My curves</source>
+        <translation>Guarda esta curva en Mis curvas</translation>
+    </message>
+    <message>
+        <source>My 4-key curves</source>
+        <translation>Mis curvas de 4 claves</translation>
+    </message>
+    <message>
+        <source>My curves</source>
+        <translation>Mis curvas</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation>Exportar</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Importar</translation>
+    </message>
+    <message>
+        <source>Click to load it, double click to apply it, right click to delete it</source>
+        <translation>Clic para cargarla, doble clic para aplicarla, clic derecho para borrarla</translation>
+    </message>
+</context>
+<context>
     <name>DebugInfoDialog</name>
     <message>
         <source>Debug info</source>
@@ -20513,6 +20658,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Motion Tools</translation>
     </message>
     <message>
+        <source>Curves</source>
+        <translation>Curvas</translation>
+    </message>
+    <message>
         <source>Masks</source>
         <translation>Máscaras</translation>
     </message>
@@ -25768,6 +25917,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Del centro hacia afuera</translation>
     </message>
     <message>
+        <source>Edges in</source>
+        <translation>Desde los bordes</translation>
+    </message>
+    <message>
         <source>Random</source>
         <translation>Aleatorio</translation>
     </message>
@@ -25852,6 +26005,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Brillo</translation>
     </message>
     <message>
+        <source>Skew</source>
+        <translation>Sesgar</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Interlineado</translation>
+    </message>
+    <message>
+        <source>Character offset</source>
+        <translation>Desplazar caracteres</translation>
+    </message>
+    <message>
+        <source>Character replace</source>
+        <translation>Reemplazar caracteres</translation>
+    </message>
+    <message>
         <source>Edit text animation</source>
         <translation>Editar animación de texto</translation>
     </message>
@@ -25906,6 +26075,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Stagger</source>
         <translation>Escalonamiento</translation>
+    </message>
+    <message>
+        <source>Start at</source>
+        <translation>Empezar en</translation>
+    </message>
+    <message>
+        <source>Fit in 1 s</source>
+        <translation>Repartir en 1 s</translation>
+    </message>
+    <message>
+        <source>Sets the stagger so every unit of the text has started within a second</source>
+        <translation>Ajusta el retraso para que todo el texto haya empezado en un segundo</translation>
     </message>
     <message>
         <source>Duration</source>

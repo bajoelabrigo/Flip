@@ -803,6 +803,16 @@ public:
     Q_INVOKABLE void easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
                                          double velocity = 0.0);
     Q_INVOKABLE void applySettleToPicked(const QString &kind);
+    // Curvas (0.26, EasyCurve): the curve of the picked keys' first property, as the graph shows
+    // it — {ok, keys (how many of that property are picked), a: [x1, y1, x2, y2] on the stretch
+    // the first key starts, b: the same on the next stretch (the 4-key graph's second half)};
+    // and applying a curve to every stretch the picked keys start (with `b` set, the stretches
+    // alternate a, b, a…, as EasyCurve's 4-KEY), as one undo step.
+    Q_INVOKABLE QVariantMap pickedKeyframeCurves() const;
+    Q_INVOKABLE void applyCurveToPicked(const QVariantList &a, const QVariantList &b = {});
+    // A small text file (Curvas' Export / Import of presets): read whole, or written whole.
+    Q_INVOKABLE QString readTextFile(const QUrl &fileUrl) const;
+    Q_INVOKABLE bool writeTextFile(const QUrl &fileUrl, const QString &text) const;
     Q_INVOKABLE bool clonePickedKeyframes();
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
     Q_INVOKABLE void addNullForSelection();

@@ -43,8 +43,9 @@ Column {
 
     readonly property var units: ["block", "character", "word", "line"]
     readonly property var unitLabels: [qsTr("Whole block"), qsTr("Character"), qsTr("Word"), qsTr("Line")]
-    readonly property var orders: ["forward", "backward", "centerOut", "random"]
-    readonly property var orderLabels: [qsTr("Forward"), qsTr("Backward"), qsTr("Center out"), qsTr("Random")]
+    readonly property var orders: ["forward", "backward", "centerOut", "edgesIn", "random"]
+    readonly property var orderLabels: [qsTr("Forward"), qsTr("Backward"), qsTr("Center out"), qsTr("Edges in"),
+        qsTr("Random")]
     readonly property var easeChips: [
         { "id": "linear", "label": qsTr("Linear") },
         { "id": "easeInOut", "label": qsTr("Smooth") },
@@ -68,8 +69,34 @@ Column {
         { "id": "tracking", "label": qsTr("Letter spacing"), "unit": "px", "from": -50, "to": 200, "step": 1, "def": 30 },
         { "id": "fillColor", "label": qsTr("Fill colour"), "color": true, "def": "#ff3fd0c9" },
         { "id": "strokeWidth", "label": qsTr("Stroke width"), "unit": "px", "from": 0, "to": 50, "step": 0.5, "def": 4 },
-        { "id": "glow", "label": qsTr("Glow"), "unit": "px", "from": 0, "to": 100, "step": 1, "def": 20 }
+        { "id": "glow", "label": qsTr("Glow"), "unit": "px", "from": 0, "to": 100, "step": 1, "def": 20 },
+        // TextEvo's Transform and Style rows (0.26): skew, line spacing, and After Effects'
+        // Character Offset (letters run on: a → b → c) and a Character Replace scramble.
+        { "id": "skew", "label": qsTr("Skew"), "unit": "°", "from": -80, "to": 80, "step": 1, "def": 20 },
+        { "id": "lineSpacing", "label": qsTr("Line spacing"), "unit": "px", "from": -200, "to": 400, "step": 1, "def": 40 },
+        { "id": "charOffset", "label": qsTr("Character offset"), "unit": "", "from": -26, "to": 26, "step": 1, "def": 10 },
+        { "id": "charReplace", "label": qsTr("Character replace"), "unit": "%", "from": 0, "to": 100, "step": 1, "def": 100 }
     ]
+
+    // TextEvo's «Auto adapt the delay» (0.26): the stagger so that every unit of the text has
+    // started within `seconds`, by how many units the text has in this part's split.
+    function unitsInText(sel) {
+        const clip = EditorState.clipAt(root.trackIndex, root.clipIndex) || {}
+        const text = String(clip.textContent || "")
+        const u = root.unitIndex(sel)
+        if (u === 1)
+            return text.replace(/\s/g, "").length
+        if (u === 3)
+            return text.split(/\n/).filter(l => l.trim().length > 0).length
+        return text.split(/\s+/).filter(w => w.length > 0).length
+    }
+    function fitStagger(i, seconds) {
+        const sel = root.selectorOf(root.animators[i])
+        const n = root.unitsInText(sel)
+        const dur = Number(sel ? sel.durationUs : 400000) / 1000000
+        const each = n > 1 ? Math.max(0, (seconds - dur) / (n - 1)) : 0
+        root.setSelectorKey(i, "staggerUs", Math.round(each * 1000) * 1000, false)
+    }
 
     // ----- Data -------------------------------------------------------------------------------
 
@@ -483,6 +510,33 @@ Column {
                         }
                         onMoved: root.setSelectorKey(card.index, "staggerUs", Math.round(value) * 1000, pressed)
                         onPressedChanged: pressed ? root.beginDrag() : root.endDrag()
+                    }
+
+                    // TextEvo's From index and «Auto adapt the delay» (0.26).
+                    Row {
+                        width: parent.width
+                        spacing: 8
+                        enabled: root.unitIndex(card.sel) !== 0
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Start at")
+                            color: Theme.mutedForeground
+                            font.pixelSize: Theme.fontSizeXs
+                            font.family: Theme.fontFamily
+                        }
+                        ThemedNumberField {
+                            width: 80
+                            from: 0
+                            to: 999
+                            value: Number(card.sel ? card.sel.fromIndex || 0 : 0)
+                            onEdited: value => root.setSelectorKey(card.index, "fromIndex", Math.round(value), false)
+                        }
+                        ThemedButton {
+                            text: qsTr("Fit in 1 s")
+                            tooltip: qsTr("Sets the stagger so every unit of the text has started within a second")
+                            variant: "secondary"
+                            onClicked: root.fitStagger(card.index, 1.0)
+                        }
                     }
 
                     Text {

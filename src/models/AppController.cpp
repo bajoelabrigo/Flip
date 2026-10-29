@@ -11430,6 +11430,117 @@ void AppController::stretchKeyframes(int trackIndex, const QVariantList &keys, d
     }
 }
 
+QVariantMap AppController::pickedKeyframeCurves() const
+{
+    QVariantMap out{{QStringLiteral("ok"), false}};
+    const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
+    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    if (keys.isEmpty())
+        return out;
+    const QVariantMap first = keys.first().toMap();
+    const int clipIndex = first.value(QStringLiteral("clip")).toInt();
+    const QString prop = first.value(QStringLiteral("prop")).toString();
+    int count = 0;
+    double earliest = std::numeric_limits<double>::max();
+    for (const QVariant &v : keys) {
+        const QVariantMap k = v.toMap();
+        if (k.value(QStringLiteral("clip")).toInt() != clipIndex || k.value(QStringLiteral("prop")).toString() != prop)
+            continue;
+        ++count;
+        earliest = std::min(earliest, k.value(QStringLiteral("seconds")).toDouble());
+    }
+    int t = track;
+    int c = clipIndex;
+    redirectToKeyframeHost(&t, &c, prop);
+    if (!isValidClipIndex(t, c))
+        return out;
+    drift::Clip clip = m_project.tracks().at(t).clips.at(c);
+    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false);
+    if (!kt || kt->keyframes().size() < 2)
+        return out;
+    const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(earliest) - clip.timelineStart, kKeyframeToleranceUs);
+    if (at < 0)
+        return out;
+    auto it = kt->keyframes().constFind(at);
+    if (std::next(it) == kt->keyframes().constEnd())
+        it = std::prev(it);
+    // The stretch from `from` as unit handles; a straight or held stretch reads as linear.
+    const auto curveOf = [&](auto from) {
+        const auto to = std::next(from);
+        const double span = double(to.key() - from.key());
+        const double dv = to.value().value - from.value().value;
+        const drift::Keyframe<double> &a = from.value();
+        const drift::Keyframe<double> &b = to.value();
+        const bool flat = std::abs(dv) < 1e-9;
+        double x1 = a.outDx / span, y1 = flat ? x1 : a.outDy / dv;
+        double x2 = 1.0 + b.inDx / span, y2 = flat ? x2 : 1.0 + b.inDy / dv;
+        if (qFuzzyIsNull(a.outDx) && qFuzzyIsNull(a.outDy)) {
+            x1 = 1.0 / 3.0;
+            y1 = 1.0 / 3.0;
+        }
+        if (qFuzzyIsNull(b.inDx) && qFuzzyIsNull(b.inDy)) {
+            x2 = 2.0 / 3.0;
+            y2 = 2.0 / 3.0;
+        }
+        return QVariantList{x1, y1, x2, y2};
+    };
+    out.insert(QStringLiteral("a"), curveOf(it));
+    if (std::next(it, 1) != kt->keyframes().constEnd() && std::next(it, 2) != kt->keyframes().constEnd())
+        out.insert(QStringLiteral("b"), curveOf(std::next(it)));
+    out.insert(QStringLiteral("keys"), count);
+    out.insert(QStringLiteral("ok"), true);
+    return out;
+}
+
+void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList &b)
+{
+    const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
+    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    if (keys.isEmpty() || a.size() != 4)
+        return;
+    const bool fourKey = b.size() == 4;
+    // The picked keys of each property in time order: every stretch they start takes a (or a, b
+    // in turn).
+    QMap<QPair<int, QString>, QList<QVariantMap>> groups;
+    for (const QVariant &v : keys) {
+        const QVariantMap k = v.toMap();
+        groups[{k.value(QStringLiteral("clip")).toInt(), k.value(QStringLiteral("prop")).toString()}].append(k);
+    }
+    QVariantList withA;
+    QVariantList withB;
+    for (auto it = groups.begin(); it != groups.end(); ++it) {
+        QList<QVariantMap> list = it.value();
+        std::sort(list.begin(), list.end(), [](const QVariantMap &l, const QVariantMap &r) {
+            return l.value(QStringLiteral("seconds")).toDouble() < r.value(QStringLiteral("seconds")).toDouble();
+        });
+        const int stretches = list.size() == 1 ? 1 : int(list.size()) - 1;
+        for (int i = 0; i < stretches; ++i)
+            (fourKey && i % 2 == 1 ? withB : withA).append(list.at(i));
+    }
+    beginEditSession(tr("Curve applied"));
+    if (!withA.isEmpty())
+        setKeyframesCurve(track, withA, a.at(0).toDouble(), a.at(1).toDouble(), a.at(2).toDouble(), a.at(3).toDouble());
+    if (!withB.isEmpty())
+        setKeyframesCurve(track, withB, b.at(0).toDouble(), b.at(1).toDouble(), b.at(2).toDouble(), b.at(3).toDouble());
+    endEditSession(true);
+}
+
+QString AppController::readTextFile(const QUrl &fileUrl) const
+{
+    QFile file(fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.toString());
+    if (!file.open(QIODevice::ReadOnly))
+        return {};
+    return QString::fromUtf8(file.readAll());
+}
+
+bool AppController::writeTextFile(const QUrl &fileUrl, const QString &text) const
+{
+    QFile file(fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.toString());
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
+        return false;
+    return file.write(text.toUtf8()) >= 0;
+}
+
 void AppController::easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
                                         double velocity)
 {

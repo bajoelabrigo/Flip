@@ -160,6 +160,8 @@ PanelFrame {
         { id: "blending", label: qsTr("Blending"), icon: Theme.icons.blend, group: 2, needs: ["blendable"] },
         // Motion Tools (0.26, Jorge): eases, anchor grid, Elastic / Bounce / Clone, Sequence…
         { id: "motionTools", label: qsTr("Motion Tools"), icon: "activity", group: 2, needs: [] },
+        // Curvas (0.26, Jorge: EasyCurve in the side bar): the speed curve of the picked keys.
+        { id: "curves", label: qsTr("Curves"), icon: Theme.icons.penCurve, group: 2, needs: [] },
         // Masks and effect stacks live on the adjustments pinned to a clip, and those adjustments
         // are what you select to edit them. A clip can carry several mask adjustments, and
         // reporting one clip-shaped stack for it could only ever show the first.
@@ -778,6 +780,12 @@ PanelFrame {
                     active: root.currentTabId === "motionTools"
                     visible: active
                     sourceComponent: Component { MotionToolsPanel { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "curves"
+                    visible: active
+                    sourceComponent: Component { CurvesPanel { width: tabColumn.width } }
                 }
 
                 Loader {

@@ -5186,6 +5186,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curve applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12958,6 +12962,147 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>CurvesPanel</name>
+    <message>
+        <source>Ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anticipate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves exported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No curves of this mode in that file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curves imported</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a curves file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2 keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A curve from one key to the next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4 keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to a peak and back: the stretches before and after the middle of three keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the curve of the picked keys in the graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keys picked on the timeline.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick keys on the timeline (click the diamonds, Ctrl for more): each one takes the curve to the next.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keeps this curve in My curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My 4-key curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to load it, double click to apply it, right click to delete it</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DebugInfoDialog</name>
     <message>
         <source>Debug info</source>
@@ -20513,6 +20658,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Masks</source>
         <translation>Máscaras</translation>
     </message>
@@ -25768,6 +25917,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Do centro para fora</translation>
     </message>
     <message>
+        <source>Edges in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Random</source>
         <translation>Aleatório</translation>
     </message>
@@ -25852,6 +26005,22 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Brilho</translation>
     </message>
     <message>
+        <source>Skew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Character offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Character replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit text animation</source>
         <translation>Editar animação de texto</translation>
     </message>
@@ -25906,6 +26075,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Stagger</source>
         <translation>Escalonamento</translation>
+    </message>
+    <message>
+        <source>Start at</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit in 1 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the stagger so every unit of the text has started within a second</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration</source>

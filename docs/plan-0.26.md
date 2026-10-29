@@ -394,6 +394,20 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   (`ShapeStyle::puckerBloat`, −100…100 %, con claves, `puckerBloated` en `SkiaShapePainter`, como el de Lottie).
 - Prueba `penDrawsTheShapeLayerLive`. **Falta:** build de CI y probarlo en ventana.
 
+## Etapa J — Curvas (EasyCurve) y lo que faltaba de TextEvo 2 (Jorge, 2026-10-29)
+
+- **Curvas** (`CurvesPanel.qml`, pestaña «Curvas» de la barra lateral, junto a Motion Tools): gráfico con tiradores
+  que pasan de 0–1 (sobrepasar/anticipar), modos **2 claves** y **4 claves** (sube a un pico y vuelve, tramos antes y
+  después de la clave del medio), Entrada suave / Salida suave / Suave / Lineal / Pasarse / Anticipar / Pico,
+  **Leer** (`pickedKeyframeCurves`), **Aplicar** a las claves elegidas (`applyCurveToPicked`, un solo deshacer),
+  Guardar en «Mis curvas» con miniatura (Settings `curves`), Exportar/Importar JSON (`readTextFile`/`writeTextFile`).
+- **TextEvo 2** (lo que no teníamos; el resto —Intensidad, retraso, dirección, semilla, transformar, estilo, preajustes
+  con importar/exportar— ya estaba en Texto › Animación › Personalizar): propiedades **Sesgar**, **Interlineado**,
+  **Desplazar caracteres** (a → b → c, como Character Offset de AE) y **Reemplazar caracteres** (letras al azar que se
+  asientan); orden **Desde los bordes**; **Empezar en** (índice de inicio); **Repartir en 1 s** (retraso automático).
+  El glifo se cambia al dibujar (`SkiaTextPainter::swapLetters`, `PieceGeometry::text/origin`).
+- Prueba `curvesPanelAppliesAndReadsCurves`. **Falta:** build y probar en ventana.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

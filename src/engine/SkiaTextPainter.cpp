@@ -78,6 +78,8 @@ struct Piece
     QPointF runCentre; // centre of the stretch's box, in output pixels
     double runOpacity = 1.0; // the letters' own opacity (0.24)
     bool runUnderline = false;
+    // Character Offset / Replace (0.26): a one-letter piece can be redrawn as another letter.
+    std::shared_ptr<const text::PieceGeometry> source;
 };
 
 struct BlockGeometry
@@ -119,6 +121,8 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
                 piece.emoji = SkTextBlob::MakeFromPosGlyphs(geometry.glyphs, geometry.positions, geometry.font);
             } else {
                 piece.glyphs = geometry.path;
+                if (geometry.text.size() == 1)
+                    piece.source = word.geometry;
             }
         }
         geometry->pieces.append(piece);
@@ -857,9 +861,58 @@ private:
                        piece.baselineY + box.height() * 0.5 * m_alignment.y());
     }
 
+    // Character Offset / Replace (0.26): the letter `shift` on in its own range (a-z, A-Z, 0-9
+    // wrap), or, scrambled, a random one of its kind that changes as the animation moves.
+    static QChar shiftedLetter(QChar c, int shift, double scramble, int index)
+    {
+        struct Range { char16_t lo, n; };
+        const Range ranges[] = {{u'a', 26}, {u'A', 26}, {u'0', 10}};
+        for (const Range &r : ranges) {
+            const int at = int(c.unicode()) - int(r.lo);
+            if (at < 0 || at >= r.n)
+                continue;
+            int k = ((at + shift) % r.n + r.n) % r.n;
+            if (scramble > 0.0) {
+                const quint32 step = quint32(std::lround(scramble * 24.0));
+                const quint32 h = qHash(quint32(index) * 2654435761u ^ (step * 40503u));
+                if ((h & 0xffffu) / 65535.0 < scramble)
+                    k = int((h >> 16) % r.n);
+            }
+            return QChar(char16_t(r.lo + k));
+        }
+        return c;
+    }
+
+    void swapLetters()
+    {
+        for (int i = 0; i < m_pieces.size(); ++i) {
+            Piece &piece = m_pieces[i];
+            if (!piece.source)
+                continue;
+            const textanim::FragmentProps &p = props(i);
+            const int shift = int(std::lround(p.charShift));
+            if (shift == 0 && p.charScramble < 1e-3)
+                continue;
+            const QChar from = piece.source->text.at(0);
+            const QChar to = shiftedLetter(from, shift, p.charScramble, i);
+            if (to == from)
+                continue;
+            const SkGlyphID glyph = piece.source->font.unicharToGlyph(SkUnichar(to.unicode()));
+            if (glyph == 0)
+                continue;
+            const std::optional<SkPath> outline = piece.source->font.getPath(glyph);
+            if (!outline)
+                continue;
+            SkPathBuilder moved;
+            moved.addPath(*outline, piece.source->origin.x(), piece.source->origin.y());
+            piece.glyphs = moved.detach();
+        }
+    }
+
     void prepare()
     {
         m_pieces = m_geometry->pieces;
+        swapLetters();
         // Where each transformed stretch's box is: the letters turn about its centre. Stretches
         // side by side with the same transform are one box (the letters picked at once, split
         // only because some of them already had a colour or a font).

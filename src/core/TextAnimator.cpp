@@ -22,6 +22,8 @@ QString textAnimOrderToString(TextAnimOrder order)
         return QStringLiteral("centerOut");
     case TextAnimOrder::Random:
         return QStringLiteral("random");
+    case TextAnimOrder::EdgesIn:
+        return QStringLiteral("edgesIn");
     case TextAnimOrder::Forward:
         return QStringLiteral("forward");
     }
@@ -36,6 +38,8 @@ TextAnimOrder textAnimOrderFromString(const QString &order)
         return TextAnimOrder::CenterOut;
     if (order == QStringLiteral("random"))
         return TextAnimOrder::Random;
+    if (order == QStringLiteral("edgesIn"))
+        return TextAnimOrder::EdgesIn;
     return TextAnimOrder::Forward;
 }
 
@@ -147,6 +151,15 @@ double unitCubic(const QPointF &c1, const QPointF &c2, double x)
 }
 
 namespace {
+
+// From index (0.26): unit `from` goes first and the rest follow round from it.
+int startingAt(int index, int count, int from)
+{
+    if (from <= 0 || count <= 1)
+        return index;
+    return ((index - from) % count + count) % count;
+}
+
 
 // Skottie's selector shapes as a signal generator: edges e0/e1 and a cubic ramp of size crs,
 // with an optional nonlinear ramp mapper (Round / Smooth).
@@ -374,7 +387,7 @@ double selectorCoverage(const TextRangeSelector &sel, const FragmentInfo &frag, 
     case TextSelectorDriver::Curves:
         return rangeSelectorCoverage(sel, d.index, d.size, st.progress);
     case TextSelectorDriver::Stagger: {
-        double slot = reindexForOrder(d.index, d.size, sel.order, sel.seed);
+        double slot = reindexForOrder(startingAt(d.index, d.size, sel.fromIndex), d.size, sel.order, sel.seed);
         if (st.isOut)
             slot = maxReindex(d.size, sel.order) - slot;
         return staggerCoverage(sel, slot, st.staggerElapsedUs);
@@ -447,6 +460,8 @@ void applyFragmentProps(const TextAnimatorProps &p, double a, double progress, F
     out.lineSpacing += p.lineSpacing.at(progress) * ctx.renderScale * a;
     out.strokeWidthDelta += p.strokeWidth.at(progress) * ctx.renderScale * a;
     out.glowPx += std::max(0.0, p.glow.at(progress)) * ctx.renderScale * ap;
+    out.charShift += p.charOffset.at(progress) * a;
+    out.charScramble = std::max(out.charScramble, clamp01(p.charReplace.at(progress) / 100.0) * ap);
     if (p.hasFillOpacity)
         out.fillOpacity = lerp(out.fillOpacity, p.fillOpacity.at(progress) / 100.0, ap);
     if (p.hasStrokeOpacity)
@@ -536,7 +551,7 @@ bool isIdentity(const FragmentProps &p)
         && qFuzzyCompare(p.opacity, 1.0) && qFuzzyCompare(p.fillOpacity, 1.0)
         && qFuzzyCompare(p.strokeOpacity, 1.0) && qFuzzyIsNull(p.blurPx)
         && qFuzzyIsNull(p.strokeWidthDelta) && qFuzzyIsNull(p.glowPx) && !p.fillColor && !p.strokeColor
-        && p.wipeProgress < 0.0;
+        && p.wipeProgress < 0.0 && std::abs(p.charShift) < 0.5 && p.charScramble < 1e-3;
 }
 
 bool isIdentity(const BlockProps &b)
@@ -563,7 +578,7 @@ quint64 poseHashOf(const Frame &frame)
         h = qHashMulti(h, q(p.dx), q(p.dy), q(p.scaleX), q(p.scaleY), q(p.rotation), q(p.skew),
                        q(p.rotationX), q(p.rotationY),
                        q(p.opacity), q(p.fillOpacity), q(p.strokeOpacity), q(p.blurPx),
-                       q(p.strokeWidthDelta), q(p.wipeProgress), q(p.glowPx),
+                       q(p.strokeWidthDelta), q(p.wipeProgress), q(p.glowPx), q(p.charShift), q(p.charScramble),
                        p.fillColor ? p.fillColor->rgba() : 0u, p.strokeColor ? p.strokeColor->rgba() : 0u);
     }
     return h;
@@ -728,7 +743,8 @@ void slotParticles(const QList<TextParticleSpec> &specs, const QList<TextAnimato
             return sinceStart;
         }
         const DomainRef d = domainRef(stagger->domain, frag, domains);
-        double s = reindexForOrder(d.index, d.size, stagger->order, stagger->seed);
+        double s = reindexForOrder(startingAt(d.index, d.size, stagger->fromIndex), d.size, stagger->order,
+                                   stagger->seed);
         if (st.isOut) {
             s = maxReindex(d.size, stagger->order) - s;
             const double departs = s * usToSeconds(stagger->staggerUs) + usToSeconds(stagger->durationUs);
@@ -846,6 +862,8 @@ double reindexForOrder(int index, int count, TextAnimOrder order, quint32 seed)
         return count - 1 - index;
     case TextAnimOrder::CenterOut:
         return std::abs(index - (count - 1) / 2.0);
+    case TextAnimOrder::EdgesIn:
+        return (count - 1) / 2.0 - std::abs(index - (count - 1) / 2.0);
     case TextAnimOrder::Random: {
         // Stable per-index pseudo-random slot so the shuffle holds still across frames. Seed 0
         // is the legacy table; other seeds give a different, equally stable shuffle.
@@ -860,7 +878,7 @@ double maxReindex(int count, TextAnimOrder order)
 {
     if (count <= 1)
         return 0.0;
-    if (order == TextAnimOrder::CenterOut)
+    if (order == TextAnimOrder::CenterOut || order == TextAnimOrder::EdgesIn)
         return (count - 1) / 2.0;
     return count - 1;
 }
@@ -1177,6 +1195,8 @@ QJsonObject textRangeSelectorToJson(const TextRangeSelector &s)
         o.insert(QStringLiteral("durationUs"), static_cast<qint64>(s.durationUs));
         o.insert(QStringLiteral("ease"), textEaseSpecToJson(s.ease));
         o.insert(QStringLiteral("order"), textAnimOrderToString(s.order));
+        if (s.fromIndex != 0)
+            o.insert(QStringLiteral("fromIndex"), s.fromIndex);
         break;
     case TextSelectorDriver::Wiggle:
         o.insert(QStringLiteral("wave"), textWiggleWaveToString(s.wave));
@@ -1215,6 +1235,7 @@ TextRangeSelector textRangeSelectorFromJson(const QJsonObject &o)
     if (o.contains(QStringLiteral("ease")))
         s.ease = textEaseSpecFromJson(o.value(QStringLiteral("ease")));
     s.order = textAnimOrderFromString(o.value(QStringLiteral("order")).toString());
+    s.fromIndex = std::max(0, o.value(QStringLiteral("fromIndex")).toInt(0));
     s.wave = textWiggleWaveFromString(o.value(QStringLiteral("wave")).toString());
     s.frequencyHz = o.value(QStringLiteral("frequencyHz")).toDouble(s.frequencyHz);
     s.spatialPhaseDeg = o.value(QStringLiteral("spatialPhaseDeg")).toDouble(s.spatialPhaseDeg);
@@ -1261,6 +1282,8 @@ QJsonObject textAnimatorToJson(const TextAnimator &a)
     putParam(props, QStringLiteral("lineSpacing"), p.lineSpacing, 0.0);
     putParam(props, QStringLiteral("strokeWidth"), p.strokeWidth, 0.0);
     putParam(props, QStringLiteral("glow"), p.glow, 0.0);
+    putParam(props, QStringLiteral("charOffset"), p.charOffset, 0.0);
+    putParam(props, QStringLiteral("charReplace"), p.charReplace, 0.0);
     if (p.wipe.enabled)
         props.insert(QStringLiteral("wipe"), QJsonObject{{QStringLiteral("enabled"), true},
                                                          {QStringLiteral("angleDeg"), p.wipe.angleDeg},
@@ -1321,6 +1344,8 @@ TextAnimator textAnimatorFromJson(const QJsonObject &o)
     p.lineSpacing = textAnimParamFromJson(props.value(QStringLiteral("lineSpacing")), 0.0);
     p.strokeWidth = textAnimParamFromJson(props.value(QStringLiteral("strokeWidth")), 0.0);
     p.glow = textAnimParamFromJson(props.value(QStringLiteral("glow")), 0.0);
+    p.charOffset = textAnimParamFromJson(props.value(QStringLiteral("charOffset")), 0.0);
+    p.charReplace = textAnimParamFromJson(props.value(QStringLiteral("charReplace")), 0.0);
     const QJsonObject wipe = props.value(QStringLiteral("wipe")).toObject();
     if (!wipe.isEmpty()) {
         p.wipe.enabled = jsonBool(wipe.value(QStringLiteral("enabled")), true);

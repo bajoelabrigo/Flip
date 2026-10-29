@@ -749,6 +749,9 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
                     word.colour = true;
                     word.inkRect = word.cellRect;
                 } else {
+                    geometry->text = slice;
+                    if (!geometry->positions.empty())
+                        geometry->origin = geometry->positions.front();
                     geometry->glyphs.clear();
                     geometry->positions.clear();
                     geometry->path = builder.detach();
