@@ -215,7 +215,7 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
         cambia el clip; la pestaña Entrada/Salida/Combinada se recuerda (`inspectorUi.clipAnimTab`). La Salida en
         la segunda mitad de una foto cortada **sí** se aplica (probado por MCP y con clics); el salto de panel es lo
         que parecía «no funciona».
-  - [~] Claves que no se crean al arrastrar la foto, y «claves pegadas» (Jorge quiere: animar 0→1 s, quieta, y
+  - [x] Claves que no se crean al arrastrar la foto, y «claves pegadas» (Jorge quiere: animar 0→1 s, quieta, y
         otra animación de 3 a 4 s). Reproducido en `prueba-h`: con una clave «quieta» puesta con ◆ en 2,0 s, arrastrar
         la foto en 2,4 s **movía la clave de 2,0 s** (X 289 en 2,0 y ninguna en 2,4). El punto de esa clave cae bajo la
         capa; al apretar, el punto se llevaba el clic y además llevaba el cabezal a su clave
@@ -227,6 +227,16 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   - [x] Imán en la vista previa entre capas (Jorge): además del lienzo y las guías, los bordes y centros de las otras
         capas que se ven en el cabezal (`PreviewController::appendLayerSnapTargets`, en mover y en cambiar de tamaño;
         sin las giradas, los nulos, los grupos ni con cámara). Ctrl lo apaga, como antes.
+- **Probado en ventana (build 548e6, `pruebas\FlipStudio-0.26-prueba-j`, 2026-10-29):** arrancar sin errores; foto
+  con clave en 0 y arrastrar desde encima de su rombo en el fotograma 20 → clave nueva en 0,667 (antes movía la
+  clave del 0); ◆ en 1,5 s y arrastrar en 2,0 s → claves 0 / 0,667 / 1,5 (quieta) / 2,0, y en 1,1 s la foto queda
+  quieta; elegir Fundido en Salida → se aplica y el panel sigue en Animación › Salida; imán entre capas → el borde
+  izquierdo de la foto se pegó al del texto (X 837 = 836,6). **Falta en ventana:** reglas (Ctrl+R) y guías,
+  máscara fija/pegada, pista vacía que se borra, tirador que ya no tiembla (el hover no se simula bien) y el trazado
+  en vivo (se vio en pie durante el arrastre).
+- **Trampa (otra vez):** restaurar el registro después de que un portable usó la cuenta cerró la sesión de Google de
+  Jorge (el token renovado se perdió y el viejo ya estaba gastado). Antes de restaurar: exportar
+  `HKCU\Software\Flip Studio\Flip Studio\account`, restaurar y volver a importar esa clave.
 
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
