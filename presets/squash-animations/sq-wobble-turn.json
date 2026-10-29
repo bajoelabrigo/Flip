@@ -1,0 +1,61 @@
+{
+ "format": 1,
+ "id": "sq-wobble-turn",
+ "label": "Wobble Turn",
+ "category": "rotations",
+ "duration": 1.2,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "rotation": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    190,
+    "easeInOut"
+   ],
+   [
+    0.65,
+    170,
+    "easeInOut"
+   ],
+   [
+    0.82,
+    182,
+    "easeInOut"
+   ],
+   [
+    1,
+    180,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    18,
+    "easeInOut"
+   ],
+   [
+    0.65,
+    -10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 503
+}

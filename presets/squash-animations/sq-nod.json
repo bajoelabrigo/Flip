@@ -1,0 +1,66 @@
+{
+ "format": 1,
+ "id": "sq-nod",
+ "label": "Nod",
+ "category": "highlights",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    28,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    14,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    -12,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    4,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 406
+}

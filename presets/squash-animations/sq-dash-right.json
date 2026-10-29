@@ -1,0 +1,103 @@
+{
+ "format": 1,
+ "id": "sq-dash-right",
+ "label": "Dash Right",
+ "category": "moves",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "x": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    -0.025,
+    "easeIn"
+   ],
+   [
+    0.55,
+    0.3,
+    "easeOut"
+   ],
+   [
+    0.75,
+    0.31,
+    "easeInOut"
+   ],
+   [
+    1,
+    0.3,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    18,
+    "easeIn"
+   ],
+   [
+    0.35,
+    -40,
+    "easeOut"
+   ],
+   [
+    0.55,
+    30,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -12,
+    "easeInOut"
+   ],
+   [
+    0.85,
+    5,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.4,
+    -25,
+    "easeInOut"
+   ],
+   [
+    0.6,
+    10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 209
+}

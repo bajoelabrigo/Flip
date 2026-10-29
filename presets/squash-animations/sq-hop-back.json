@@ -1,0 +1,120 @@
+{
+ "format": 1,
+ "id": "sq-hop-back",
+ "label": "Hop Back",
+ "category": "moves",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeOut"
+   ],
+   [
+    0.55,
+    -0.18,
+    "easeIn"
+   ],
+   [
+    0.88,
+    0,
+    "hold"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.22,
+    -32,
+    "easeOut"
+   ],
+   [
+    0.352,
+    38.4,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.8799,
+    25.6,
+    "easeOut"
+   ],
+   [
+    0.88,
+    -32,
+    "easeOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.22,
+    16.0,
+    "easeInOut"
+   ],
+   [
+    0.352,
+    -6.4,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    16.0,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "x": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    -0.2,
+    "hold"
+   ]
+  ]
+ },
+ "order": 204
+}

@@ -1,0 +1,106 @@
+{
+ "format": 1,
+ "id": "sq-jelly",
+ "label": "Jelly",
+ "category": "highlights",
+ "duration": 1.2,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    28.0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    -24.0,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    20.0,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -16.0,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    12.0,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    -8.0,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    4.0,
+    "easeInOut"
+   ],
+   [
+    1,
+    0.0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    -15.75,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    13.5,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    -11.25,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    9.0,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    -6.75,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    4.5,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    -2.25,
+    "easeInOut"
+   ],
+   [
+    1,
+    0.0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 403
+}

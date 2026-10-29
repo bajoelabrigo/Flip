@@ -2791,6 +2791,10 @@
         <translation>Combinado</translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Todo</translation>
     </message>
@@ -5618,6 +5622,14 @@
     <message>
         <source>Trending</source>
         <translation>Tendencias</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch: %1</source>
+        <translation>Squash &amp; Stretch: %1</translation>
     </message>
     <message>
         <source>Slide</source>
@@ -10351,6 +10363,34 @@
         <translation>Posición (fuera, centro, dentro)</translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Zoom (%)</source>
+        <translation>Zoom (%)</translation>
+    </message>
+    <message>
+        <source>Stretch (%)</source>
+        <translation>Estirar (%)</translation>
+    </message>
+    <message>
+        <source>Keep volume (%)</source>
+        <translation>Conservar volumen (%)</translation>
+    </message>
+    <message>
+        <source>Ground (%)</source>
+        <translation>Suelo (%)</translation>
+    </message>
+    <message>
+        <source>Bend (%)</source>
+        <translation>Inclinar (%)</translation>
+    </message>
+    <message>
+        <source>Bulge (%)</source>
+        <translation>Abombar (%)</translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Aparecer</translation>
     </message>
@@ -11669,6 +11709,210 @@ LA PRÓXIMA</translation>
     <message>
         <source>Blown away like sand</source>
         <translation>Arena al viento</translation>
+    </message>
+    <message>
+        <source>Attention</source>
+        <translation>Atención</translation>
+    </message>
+    <message>
+        <source>Backflip</source>
+        <translation>Mortal hacia atrás</translation>
+    </message>
+    <message>
+        <source>Big Jump</source>
+        <translation>Gran salto</translation>
+    </message>
+    <message>
+        <source>Blow Away</source>
+        <translation>Volar lejos</translation>
+    </message>
+    <message>
+        <source>Bounce In</source>
+        <translation>Entrar rebotando</translation>
+    </message>
+    <message>
+        <source>Dance</source>
+        <translation>Baile</translation>
+    </message>
+    <message>
+        <source>Dash Left</source>
+        <translation>Carrera a la izquierda</translation>
+    </message>
+    <message>
+        <source>Dash Right</source>
+        <translation>Carrera a la derecha</translation>
+    </message>
+    <message>
+        <source>Double Hop</source>
+        <translation>Doble saltito</translation>
+    </message>
+    <message>
+        <source>Drop In</source>
+        <translation>Caer</translation>
+    </message>
+    <message>
+        <source>Fall and Bounce</source>
+        <translation>Caer y rebotar</translation>
+    </message>
+    <message>
+        <source>Fall Out</source>
+        <translation>Caerse</translation>
+    </message>
+    <message>
+        <source>Flip Around</source>
+        <translation>Voltereta</translation>
+    </message>
+    <message>
+        <source>Glitch In</source>
+        <translation>Entrada glitch</translation>
+    </message>
+    <message>
+        <source>Glitch Jump</source>
+        <translation>Salto glitch</translation>
+    </message>
+    <message>
+        <source>Glitch Out</source>
+        <translation>Salida glitch</translation>
+    </message>
+    <message>
+        <source>Glitch Squash</source>
+        <translation>Aplastado glitch</translation>
+    </message>
+    <message>
+        <source>Grow Up</source>
+        <translation>Crecer</translation>
+    </message>
+    <message>
+        <source>Hop Back</source>
+        <translation>Saltito atrás</translation>
+    </message>
+    <message>
+        <source>Hop Forward</source>
+        <translation>Saltito adelante</translation>
+    </message>
+    <message>
+        <source>Inchworm</source>
+        <translation>Oruga</translation>
+    </message>
+    <message>
+        <source>Jelly In</source>
+        <translation>Entrada de gelatina</translation>
+    </message>
+    <message>
+        <source>Jelly Shake</source>
+        <translation>Temblor de gelatina</translation>
+    </message>
+    <message>
+        <source>Jump Out</source>
+        <translation>Salir saltando</translation>
+    </message>
+    <message>
+        <source>Jump Spin</source>
+        <translation>Salto con giro</translation>
+    </message>
+    <message>
+        <source>Launch and Spin</source>
+        <translation>Despegar girando</translation>
+    </message>
+    <message>
+        <source>Leap Over</source>
+        <translation>Salto largo</translation>
+    </message>
+    <message>
+        <source>Melt</source>
+        <translation>Derretirse</translation>
+    </message>
+    <message>
+        <source>Nod</source>
+        <translation>Asentir</translation>
+    </message>
+    <message>
+        <source>Pop In</source>
+        <translation>Aparecer de golpe</translation>
+    </message>
+    <message>
+        <source>Pop Out</source>
+        <translation>Desaparecer de golpe</translation>
+    </message>
+    <message>
+        <source>Rise and Wobble</source>
+        <translation>Subir y tambalearse</translation>
+    </message>
+    <message>
+        <source>Rubber Band</source>
+        <translation>Goma elástica</translation>
+    </message>
+    <message>
+        <source>Sack Race</source>
+        <translation>Carrera de sacos</translation>
+    </message>
+    <message>
+        <source>Shake No</source>
+        <translation>Negar</translation>
+    </message>
+    <message>
+        <source>Slide In Left</source>
+        <translation>Entrar por la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide In Right</source>
+        <translation>Entrar por la derecha</translation>
+    </message>
+    <message>
+        <source>Slide Out Left</source>
+        <translation>Salir por la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide Out Right</source>
+        <translation>Salir por la derecha</translation>
+    </message>
+    <message>
+        <source>Spin with Squash</source>
+        <translation>Giro aplastado</translation>
+    </message>
+    <message>
+        <source>Spring Up</source>
+        <translation>Resorte</translation>
+    </message>
+    <message>
+        <source>Squash Down</source>
+        <translation>Aplastarse</translation>
+    </message>
+    <message>
+        <source>Stumble</source>
+        <translation>Tropezar</translation>
+    </message>
+    <message>
+        <source>Super Squash Landing</source>
+        <translation>Aterrizaje superaplastado</translation>
+    </message>
+    <message>
+        <source>Swing In</source>
+        <translation>Entrar columpiándose</translation>
+    </message>
+    <message>
+        <source>Ta-da</source>
+        <translation>¡Tachán!</translation>
+    </message>
+    <message>
+        <source>Tiny Hops</source>
+        <translation>Saltitos</translation>
+    </message>
+    <message>
+        <source>Topple</source>
+        <translation>Volcarse</translation>
+    </message>
+    <message>
+        <source>Trampoline</source>
+        <translation>Cama elástica</translation>
+    </message>
+    <message>
+        <source>Soft Wiggle</source>
+        <translation>Meneo suave</translation>
+    </message>
+    <message>
+        <source>Wobble Turn</source>
+        <translation>Giro tambaleante</translation>
     </message>
     <message>
         <source>Shatter</source>
@@ -13651,6 +13895,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Generate &amp; Simulate</source>
         <translation>Generar y simular</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
     </message>
     <message>
         <source>Other</source>
@@ -20109,6 +20357,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Lo que After Effects hace con expresiones, sin escribir código. Se suman: primero el bucle, después la velocidad constante y después el temblor.</translation>
     </message>
     <message>
+        <source>Apply to</source>
+        <translation>Aplicar a</translation>
+    </message>
+    <message>
         <source>Loop after the last keyframe</source>
         <translation>Bucle después de la última clave</translation>
     </message>
@@ -20151,6 +20403,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
         <translation>Látigo: arrástralo hasta la fila de una propiedad de otra capa en la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>My expressions (%1)</source>
+        <translation>Mis expresiones (%1)</translation>
+    </message>
+    <message>
+        <source>Delete this saved expression</source>
+        <translation>Borrar esta expresión guardada</translation>
+    </message>
+    <message>
+        <source>Name to save this expression</source>
+        <translation>Nombre para guardar esta expresión</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Expression saved as &quot;%1&quot;</source>
+        <translation>Expresión guardada como «%1»</translation>
     </message>
     <message>
         <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
@@ -23495,6 +23767,73 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Render</source>
         <translation>Renderizar</translation>
+    </message>
+</context>
+<context>
+    <name>SquashStretchPanel</name>
+    <message>
+        <source>In</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Moves</source>
+        <translation>Movimientos</translation>
+    </message>
+    <message>
+        <source>Jumps</source>
+        <translation>Saltos</translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation>Destacados</translation>
+    </message>
+    <message>
+        <source>Rotations</source>
+        <translation>Rotaciones</translation>
+    </message>
+    <message>
+        <source>Wiggles</source>
+        <translation>Temblores</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Glitch</translation>
+    </message>
+    <message>
+        <source>Click one to write it as keyframes: In at the start of the clip, Out at its end, the rest at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation>Haz clic en una para escribirla como fotogramas clave: las de Entrada al principio del clip, las de Salida al final y las demás en el cabezal. Pon otra más adelante para seguir animando la misma capa.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todo</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>How hard it squashes, stretches and bends</source>
+        <translation>Cuánto se aplasta, se estira y se dobla</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>How far it travels and turns</source>
+        <translation>Cuánto se desplaza y gira</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Faster makes it shorter, slower makes it longer</source>
+        <translation>Más rápido la acorta, más lento la alarga</translation>
     </message>
 </context>
 <context>

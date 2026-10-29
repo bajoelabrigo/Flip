@@ -1,0 +1,56 @@
+{
+ "format": 1,
+ "id": "sq-spin-squash",
+ "label": "Spin with Squash",
+ "category": "rotations",
+ "duration": 1.2,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "rotation": [
+   [
+    0,
+    0,
+    "back"
+   ],
+   [
+    0.85,
+    360,
+    "linear"
+   ],
+   [
+    1,
+    360,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    -20,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    25,
+    "easeInOut"
+   ],
+   [
+    0.85,
+    -15,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 501
+}

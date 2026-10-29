@@ -1,0 +1,78 @@
+{
+ "format": 1,
+ "id": "sq-jump-out",
+ "label": "Jump Out",
+ "category": "out",
+ "duration": 1.0,
+ "place": "end",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.28,
+    -35,
+    "easeIn"
+   ],
+   [
+    0.4,
+    50,
+    "easeOut"
+   ],
+   [
+    0.7,
+    30,
+    "easeInOut"
+   ],
+   [
+    1,
+    40,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.28,
+    18,
+    "easeIn"
+   ],
+   [
+    0.4,
+    -8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.36,
+    0,
+    "easeIn"
+   ],
+   [
+    1,
+    -1.1,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 101
+}

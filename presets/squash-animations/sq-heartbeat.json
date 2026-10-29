@@ -1,0 +1,66 @@
+{
+ "format": 1,
+ "id": "sq-heartbeat",
+ "label": "Heartbeat",
+ "category": "highlights",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "zoom": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.15,
+    12,
+    "easeIn"
+   ],
+   [
+    0.3,
+    0,
+    "easeOut"
+   ],
+   [
+    0.45,
+    16,
+    "easeIn"
+   ],
+   [
+    0.7,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.15,
+    8,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    10,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 402
+}

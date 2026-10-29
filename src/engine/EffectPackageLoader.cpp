@@ -84,6 +84,8 @@ EffectPresetEntry EffectPackageLoader::loadPackage(const QString &packageDir, QS
         for (const QJsonValue &v : padding.value(QStringLiteral("params")).toArray())
             entry.paddingParams.append(v.toString());
         entry.paddingExtra = padding.value(QStringLiteral("extra")).toDouble(0.0);
+        for (const QJsonValue &v : padding.value(QStringLiteral("percentParams")).toArray())
+            entry.paddingPercentParams.append(v.toString());
     }
 
     // A single name, or a list when a package needs more than one kind of per-frame data.

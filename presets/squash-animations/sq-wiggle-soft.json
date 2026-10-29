@@ -1,0 +1,44 @@
+{
+ "format": 1,
+ "id": "sq-wiggle-soft",
+ "label": "Soft Wiggle",
+ "category": "wiggles",
+ "duration": 2.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    14,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    -14,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    14,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    -14,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 601
+}

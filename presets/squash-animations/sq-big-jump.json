@@ -1,0 +1,103 @@
+{
+ "format": 1,
+ "id": "sq-big-jump",
+ "label": "Big Jump",
+ "category": "jumps",
+ "duration": 1.4,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeOut"
+   ],
+   [
+    0.55,
+    -0.42,
+    "easeIn"
+   ],
+   [
+    0.88,
+    0,
+    "hold"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.22,
+    -45,
+    "easeOut"
+   ],
+   [
+    0.352,
+    54.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.8799,
+    36.0,
+    "easeOut"
+   ],
+   [
+    0.88,
+    -45,
+    "easeOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.22,
+    22.5,
+    "easeInOut"
+   ],
+   [
+    0.352,
+    -9.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    22.5,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 301
+}

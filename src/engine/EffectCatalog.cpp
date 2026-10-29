@@ -71,6 +71,9 @@ QString translatedCategoryLabel(const QString &slug)
         return QCoreApplication::translate("EffectCatalog", "Layer Styles");
     if (slug == QLatin1String("generate"))
         return QCoreApplication::translate("EffectCatalog", "Generate & Simulate");
+    // 0.26: the rubber deformer the Squash & Stretch animations key.
+    if (slug == QLatin1String("squash"))
+        return QCoreApplication::translate("EffectCatalog", "Squash & Stretch");
     if (slug.isEmpty())
         return QCoreApplication::translate("EffectCatalog", "Other");
     return slug.at(0).toUpper() + slug.mid(1);

@@ -1,0 +1,96 @@
+{
+ "format": 1,
+ "id": "sq-shake-no",
+ "label": "Shake No",
+ "category": "highlights",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "x": [
+   [
+    0,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.1429,
+    0.026,
+    "easeInOut"
+   ],
+   [
+    0.2857,
+    -0.021,
+    "easeInOut"
+   ],
+   [
+    0.4286,
+    0.017,
+    "easeInOut"
+   ],
+   [
+    0.5714,
+    -0.013,
+    "easeInOut"
+   ],
+   [
+    0.7143,
+    0.009,
+    "easeInOut"
+   ],
+   [
+    0.8571,
+    -0.004,
+    "easeInOut"
+   ],
+   [
+    1,
+    0.0,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.1429,
+    -21.429,
+    "easeInOut"
+   ],
+   [
+    0.2857,
+    17.857,
+    "easeInOut"
+   ],
+   [
+    0.4286,
+    -14.286,
+    "easeInOut"
+   ],
+   [
+    0.5714,
+    10.714,
+    "easeInOut"
+   ],
+   [
+    0.7143,
+    -7.143,
+    "easeInOut"
+   ],
+   [
+    0.8571,
+    3.571,
+    "easeInOut"
+   ],
+   [
+    1,
+    0.0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 407
+}

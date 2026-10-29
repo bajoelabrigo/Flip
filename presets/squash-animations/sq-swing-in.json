@@ -1,0 +1,73 @@
+{
+ "format": 1,
+ "id": "sq-swing-in",
+ "label": "Swing In",
+ "category": "in",
+ "duration": 1.2,
+ "place": "start",
+ "ground": 0,
+ "keys": {
+  "y": [
+   [
+    0,
+    -0.6,
+    "easeOut"
+   ],
+   [
+    0.4,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "rotation": [
+   [
+    0,
+    -35,
+    "easeOut"
+   ],
+   [
+    0.4,
+    14,
+    "easeInOut"
+   ],
+   [
+    0.6,
+    -7,
+    "easeInOut"
+   ],
+   [
+    0.78,
+    3,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.4,
+    18,
+    "easeInOut"
+   ],
+   [
+    0.6,
+    -8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 10
+}

@@ -1,0 +1,90 @@
+{
+ "format": 1,
+ "id": "sq-drop-in",
+ "label": "Drop In",
+ "category": "in",
+ "duration": 1.1,
+ "place": "start",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    -0.75,
+    "easeIn"
+   ],
+   [
+    0.42,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    25,
+    "easeIn"
+   ],
+   [
+    0.4,
+    45,
+    "easeOut"
+   ],
+   [
+    0.44,
+    -38,
+    "easeOut"
+   ],
+   [
+    0.62,
+    14,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    -5,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0.4,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.44,
+    18,
+    "easeOut"
+   ],
+   [
+    0.62,
+    -4,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "opacity": [
+   [
+    0,
+    100,
+    "linear"
+   ],
+   [
+    1,
+    100,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 1
+}

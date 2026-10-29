@@ -1,0 +1,58 @@
+{
+ "format": 1,
+ "id": "sq-melt-out",
+ "label": "Melt",
+ "category": "out",
+ "duration": 1.0,
+ "place": "end",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    1,
+    -85,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    1,
+    60,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    6,
+    "easeInOut"
+   ],
+   [
+    0.6,
+    -6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 109
+}

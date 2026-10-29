@@ -1191,6 +1191,16 @@ public:
     // Video › Animation: the clip animation presets of a slot ("in", "out", "combo"), their chips,
     // and a preset's pose at a progress (for the gallery's live cards).
     Q_INVOKABLE QVariantList clipAnimationPresets(const QString &slot) const;
+    // Animation › Squash & Stretch (0.26, Jorge): rubbery cartoon motions written as keyframes on
+    // the clip (position, rotation, opacity and the "squash.deform" effect), at its start (In), its
+    // end (Out) or the playhead. `intensity` scales the deformation, `scale` the travel and turn,
+    // `speed` the length (all in %). One undo step.
+    Q_INVOKABLE QVariantList squashAnimations() const;
+    // The animation's curves at `progress` (0..1), for the gallery's live cards: x, y, rotation,
+    // opacity, zoom, stretch, bend, bulge (missing ones at rest) and ground.
+    Q_INVOKABLE QVariantMap squashAnimationPose(const QString &id, double progress) const;
+    Q_INVOKABLE void applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
+                                          double scale, double speed);
     Q_INVOKABLE QVariantList clipAnimationCategories(const QString &slot) const;
     Q_INVOKABLE QVariantMap clipAnimationPreviewSample(const QString &presetId, double progress) const;
     // Where to seek to preview the slot: the window start (In), before the exit (Out), the playhead (Loop).

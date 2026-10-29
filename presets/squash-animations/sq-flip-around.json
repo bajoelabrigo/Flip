@@ -1,0 +1,51 @@
+{
+ "format": 1,
+ "id": "sq-flip-around",
+ "label": "Flip Around",
+ "category": "rotations",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "rotation": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -360,
+    "easeOut"
+   ],
+   [
+    1,
+    -360,
+    "easeInOut"
+   ]
+  ],
+  "zoom": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.35,
+    -25,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 505
+}

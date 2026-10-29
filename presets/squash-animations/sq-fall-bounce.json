@@ -1,0 +1,138 @@
+{
+ "format": 1,
+ "id": "sq-fall-bounce",
+ "label": "Fall and Bounce",
+ "category": "moves",
+ "duration": 1.6,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    0.35,
+    0.3,
+    "easeOut"
+   ],
+   [
+    0.55,
+    0.2,
+    "easeIn"
+   ],
+   [
+    0.72,
+    0.3,
+    "easeOut"
+   ],
+   [
+    0.82,
+    0.27,
+    "easeIn"
+   ],
+   [
+    0.9,
+    0.3,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    0.33,
+    35,
+    "easeInOut"
+   ],
+   [
+    0.36,
+    -40,
+    "easeOut"
+   ],
+   [
+    0.45,
+    15,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.71,
+    15,
+    "easeInOut"
+   ],
+   [
+    0.73,
+    -25,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    5,
+    "easeInOut"
+   ],
+   [
+    0.9,
+    -10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0.33,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.36,
+    20,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.71,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.73,
+    12,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.9,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 208
+}

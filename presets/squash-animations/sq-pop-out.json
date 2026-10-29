@@ -1,0 +1,68 @@
+{
+ "format": 1,
+ "id": "sq-pop-out",
+ "label": "Pop Out",
+ "category": "out",
+ "duration": 0.7,
+ "place": "end",
+ "ground": 50,
+ "keys": {
+  "zoom": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.45,
+    20,
+    "easeIn"
+   ],
+   [
+    1,
+    -100,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    -18,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    20,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    15,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 103
+}

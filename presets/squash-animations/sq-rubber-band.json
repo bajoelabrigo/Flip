@@ -1,0 +1,66 @@
+{
+ "format": 1,
+ "id": "sq-rubber-band",
+ "label": "Rubber Band",
+ "category": "highlights",
+ "duration": 1.0,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.3,
+    -32,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.6,
+    -14,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    18,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    -8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 404
+}

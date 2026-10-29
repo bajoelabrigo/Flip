@@ -1,0 +1,103 @@
+{
+ "format": 1,
+ "id": "sq-hop",
+ "label": "Hop",
+ "category": "moves",
+ "duration": 0.9,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeOut"
+   ],
+   [
+    0.55,
+    -0.16,
+    "easeIn"
+   ],
+   [
+    0.88,
+    0,
+    "hold"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.22,
+    -30,
+    "easeOut"
+   ],
+   [
+    0.352,
+    36.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.8799,
+    24.0,
+    "easeOut"
+   ],
+   [
+    0.88,
+    -30,
+    "easeOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.22,
+    15.0,
+    "easeInOut"
+   ],
+   [
+    0.352,
+    -6.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    15.0,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 201
+}

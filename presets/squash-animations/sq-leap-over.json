@@ -1,0 +1,120 @@
+{
+ "format": 1,
+ "id": "sq-leap-over",
+ "label": "Leap Over",
+ "category": "jumps",
+ "duration": 1.4,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeOut"
+   ],
+   [
+    0.55,
+    -0.3,
+    "easeIn"
+   ],
+   [
+    0.88,
+    0,
+    "hold"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.22,
+    -40,
+    "easeOut"
+   ],
+   [
+    0.352,
+    48.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.8799,
+    32.0,
+    "easeOut"
+   ],
+   [
+    0.88,
+    -40,
+    "easeOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.22,
+    20.0,
+    "easeInOut"
+   ],
+   [
+    0.352,
+    -8.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    20.0,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "x": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    0.35,
+    "hold"
+   ]
+  ]
+ },
+ "order": 305
+}

@@ -28,6 +28,9 @@ struct EffectPresetEntry
     // The layer's texture is grown by it before the chain runs, so a shadow or a glow is not cut.
     QStringList paddingParams;
     double paddingExtra = 0.0;
+    // Squash & Stretch (0.26): parameters in % of the layer's longer side ("percentParams"), for a
+    // deform that reaches as far as the layer is big.
+    QStringList paddingPercentParams;
     drift::GpuEffectDefinition gpu;        // valid when isGpu && gpu.valid; packageDir also set for model3d
     int catalogOrder = 0;                  // lower sorts first in the browser catalog
     QString thumbnailPath;                 // absolute path to package thumbnail (optional)

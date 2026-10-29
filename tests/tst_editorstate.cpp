@@ -133,6 +133,7 @@ private slots:
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
     void shapeAsFixedOrStuckMask();
+    void squashAnimationWritesKeysAndDeformer();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -12931,6 +12932,63 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
 
 // A shape as another clip's mask (0.26): the clip takes it as its alpha matte; "stuck" parents the
 // shape to the clip, "fixed" leaves it on screen; switching between the two is one undo step each.
+void EditorStateTest::squashAnimationWritesKeysAndDeformer()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QVERIFY(!state.squashAnimations().isEmpty());
+    state.addDrawnShape(QStringLiteral("rectangle"), 800, 400, 300, 300, QStringLiteral("#ffffff"),
+                        QStringLiteral("none"), 0);
+    const QString shapeId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    const double y0 = state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"), 0.0, 0.0);
+
+    state.setPlayheadSeconds(0.0);
+    state.applySquashAnimation(where(shapeId).first, where(shapeId).second, QStringLiteral("sq-hop"), 100, 100, 100);
+    const int t = where(shapeId).first;
+    const int c = where(shapeId).second;
+    // The hop lifts it halfway through and puts it back down where it was.
+    QVERIFY(state.clipKeyframes(t, c, QStringLiteral("y")).size() >= 3);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(qAbs(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9, 0.0) - y0) < 1.0);
+    // The deformer is on the clip, keyed.
+    state.selectClip(t, c);
+    int deform = -1;
+    const QVariantList effects = state.selectedClipEffects();
+    for (int i = 0; i < effects.size(); ++i) {
+        if (effects.at(i).toMap().value(QStringLiteral("catalogId")).toString() == QLatin1String("squash.deform"))
+            deform = i;
+    }
+    QVERIFY(deform >= 0);
+    QVERIFY(state.clipKeyframes(t, c, QStringLiteral("fx.%1.stretch").arg(deform)).size() >= 3);
+
+    // A second one further on keeps the first: two hops on the same layer.
+    state.setPlayheadSeconds(2.0);
+    state.applySquashAnimation(t, c, QStringLiteral("sq-hop"), 100, 100, 100);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 2.0 + 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(qAbs(state.propertyValueAt(t, c, QStringLiteral("y"), 1.5, 0.0) - y0) < 1.0);
+
+    // Each one is a single undo step, deformer included.
+    state.undo();
+    QVERIFY(qAbs(state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"),
+                                       2.0 + 0.9 * 0.55, 0.0) - y0) < 1.0);
+    QVERIFY(state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"), 0.9 * 0.55, 0.0)
+            < y0 - 50);
+    state.undo();
+    QVERIFY(state.clipKeyframes(where(shapeId).first, where(shapeId).second, QStringLiteral("y")).size() <= 1);
+    state.selectClip(where(shapeId).first, where(shapeId).second);
+    for (const QVariant &e : state.selectedClipEffects())
+        QVERIFY(e.toMap().value(QStringLiteral("catalogId")).toString() != QLatin1String("squash.deform"));
+}
+
 void EditorStateTest::shapeAsFixedOrStuckMask()
 {
     AssetLibrary library;

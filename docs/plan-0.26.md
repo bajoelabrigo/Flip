@@ -238,6 +238,34 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   Jorge (el token renovado se perdió y el viejo ya estaba gastado). Antes de restaurar: exportar
   `HKCU\Software\Flip Studio\Flip Studio\account`, restaurar y volver a importar esa clave.
 
+
+## Etapa H — Expresiones guardadas y Squash & Stretch (Jorge, 2026-10-29)
+- [x] H1. **Expresiones como AE:** el diálogo Comportamiento… tiene «Aplicar a» (Posición, Posición X/Y, Escala,
+      Ancho, Alto, Rotación, Opacidad, Punto de anclaje; Volumen y Panorama en audio; y las demás filas de la pista),
+      y **Mis expresiones** (guardar con nombre, cargar, borrar; `Settings` de QtCore, categoría `expressions`, para
+      todos los proyectos). `PropertyBehaviorDialog.qml` + `TrackHeaderColumn.qml` (`expressionTargets`).
+- [x] H2. **Squash & Stretch** (pestaña de Animación al lado de Combinado; Jorge compró Squash & Stretch Pro y pidió
+      replicarlo). Sus 169 animaciones y 641 sonidos tienen licencia para él, no para repartirlos: **las nuestras son
+      propias** (`tools/squash_animations/build.py` → `presets/squash-animations/`, 59 en 8 categorías: Entrada,
+      Salida, Movimientos, Saltos, Destacados, Rotaciones, Temblores, Glitch). Cómo funciona el original (para
+      entenderlo, sin copiar): posición + Bezier Warp de AE animados, intensidad de deformación 0–150 %, escala
+      0–200 %, anclado al inicio o al final, sonidos opcionales.
+      - Motor: efecto `squash.deform` (`effects/squash_deform`: zoom, estirar con volumen, suelo, inclinar, abombar;
+        mapa inverso en el shader). Margen nuevo `"padding": {"percentParams": [...]}` (en % del lado mayor de la capa,
+        `applyEffectPadding`).
+      - `core/SquashAnimation` (catálogo, curvas con el formato de `ClipAnimTrack`, `clipAnimTrackFromJson`),
+        `AppController::squashAnimations`, `squashAnimationPose`, `applySquashAnimation` (escribe claves en x, y,
+        rotation, opacity y `fx.N.zoom/stretch/bend/bulge`; Entrada al inicio, Salida al final, el resto en el cabezal;
+        borra lo que había en ese tramo; back/elastic/bounce se escriben una clave por fotograma; un paso de deshacer
+        con `beginEditSession`).
+      - Interfaz: `SquashStretchPanel.qml` (categorías, Intensidad/Escala/Velocidad, cuadrícula) y `SquashAnimTile.qml`
+        (un bloque con ojos que se deforma con el mismo mapa que el shader, al pasar el mouse).
+      - Prueba `EditorStateTest::squashAnimationWritesKeysAndDeformer`.
+      - **Falta:** probar en ventana (que el deformador no se corte al estirar, sobre todo en un video con carril de
+        ajuste), miniatura propia del efecto (hoy es la de la Marioneta), sonidos propios (Stock › Sonidos) más adelante.
+- Dónde están los efectos de AE (pregunta de Jorge): Efectos › categorías «Generar y simular» (Ruido fractal, Mundo de
+  partículas, Se hace añicos, Desplazamiento turbulento, Rampa de degradado, Ondas de radio) y «Estilos de capa»
+  (también como botones en Fusión); la Marioneta está en «Glitch» y en la barra de la vista previa.
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

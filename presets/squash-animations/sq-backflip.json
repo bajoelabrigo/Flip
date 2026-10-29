@@ -1,0 +1,125 @@
+{
+ "format": 1,
+ "id": "sq-backflip",
+ "label": "Backflip",
+ "category": "jumps",
+ "duration": 1.3,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeOut"
+   ],
+   [
+    0.55,
+    -0.35,
+    "easeIn"
+   ],
+   [
+    0.88,
+    0,
+    "hold"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.22,
+    -40,
+    "easeOut"
+   ],
+   [
+    0.352,
+    48.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeIn"
+   ],
+   [
+    0.8799,
+    32.0,
+    "easeOut"
+   ],
+   [
+    0.88,
+    -40,
+    "easeOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.22,
+    20.0,
+    "easeInOut"
+   ],
+   [
+    0.352,
+    -8.0,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    20.0,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "rotation": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.22,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.88,
+    -360,
+    "hold"
+   ],
+   [
+    1,
+    -360,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 304
+}

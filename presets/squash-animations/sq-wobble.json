@@ -1,0 +1,66 @@
+{
+ "format": 1,
+ "id": "sq-wobble",
+ "label": "Wobble",
+ "category": "wiggles",
+ "duration": 1.4,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "rotation": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    6,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -6,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    10,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    -10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 605
+}

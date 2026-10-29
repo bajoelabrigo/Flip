@@ -10,6 +10,8 @@
 #include "FileDialogs.h"
 #include "core/Clip.h"
 #include "core/ClipAnimationPreset.h"
+#include "core/CatalogText.h"
+#include "core/SquashAnimation.h"
 #include "core/CubeLut.h"
 #include "core/Mask.h"
 #include "core/SpeedCurve.h"
@@ -30354,6 +30356,171 @@ QVariantList AppController::clipAnimationPresets(const QString &slot) const
                                {QStringLiteral("duration"), p.defaultSeconds}});
     }
     return out;
+}
+
+QVariantList AppController::squashAnimations() const
+{
+    QVariantList out;
+    for (const drift::SquashAnimation &a : drift::SquashAnimationCatalog::instance().animations()) {
+        out.append(QVariantMap{{QStringLiteral("id"), a.id},
+                               {QStringLiteral("label"), drift::catalogText(a.label)},
+                               {QStringLiteral("category"), a.category},
+                               {QStringLiteral("duration"), a.seconds}});
+    }
+    return out;
+}
+
+QVariantMap AppController::squashAnimationPose(const QString &id, double progress) const
+{
+    const std::optional<drift::SquashAnimation> anim = drift::SquashAnimationCatalog::instance().animationForId(id);
+    if (!anim)
+        return {};
+    const auto at = [&](const char *name, double rest) {
+        const auto it = anim->tracks.constFind(QLatin1String(name));
+        return it == anim->tracks.constEnd() ? rest : it->at(progress, rest);
+    };
+    return {{QStringLiteral("x"), at("x", 0.0)},           {QStringLiteral("y"), at("y", 0.0)},
+            {QStringLiteral("rotation"), at("rotation", 0.0)}, {QStringLiteral("opacity"), at("opacity", 100.0)},
+            {QStringLiteral("zoom"), at("zoom", 0.0)},     {QStringLiteral("stretch"), at("stretch", 0.0)},
+            {QStringLiteral("bend"), at("bend", 0.0)},     {QStringLiteral("bulge"), at("bulge", 0.0)},
+            {QStringLiteral("ground"), anim->ground}};
+}
+
+void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
+                                         double scale, double speed)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const std::optional<drift::SquashAnimation> anim = drift::SquashAnimationCatalog::instance().animationForId(id);
+    if (!anim)
+        return;
+    {
+        const drift::Clip &probe = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+        if (probe.type == drift::ClipType::Audio || probe.type == drift::ClipType::Subtitle)
+            return;
+    }
+    const QString clipId = m_project.tracks().at(trackIndex).clips.at(clipIndex).id;
+    const QString deformId = QStringLiteral("squash.deform");
+
+    // The deformer's place in the clip's effect stack (on the adjustment that holds it).
+    const auto deformIndex = [&](int t, int c) {
+        const drift::ClipRef host = effectHostRef(t, c, drift::AdjustmentKind::VideoEffects, /*create=*/false);
+        if (host.trackIndex < 0)
+            return -1;
+        const QList<drift::Effect> &effects = m_project.tracks().at(host.trackIndex).clips.at(host.clipIndex).effects;
+        for (int i = 0; i < effects.size(); ++i) {
+            if (effects.at(i).catalogId == deformId)
+                return i;
+        }
+        return -1;
+    };
+
+    beginEditSession(tr("Squash & Stretch"));
+    if (deformIndex(trackIndex, clipIndex) < 0) {
+        addEffect(trackIndex, clipIndex, deformId);
+        // Adding it may mint a lane and shift the indices.
+        if (!findClipById(m_project, clipId, &trackIndex, &clipIndex)) {
+            endEditSession(false);
+            return;
+        }
+    }
+    const int fx = deformIndex(trackIndex, clipIndex);
+    const drift::ClipRef host = effectHostRef(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects, false);
+
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const int fps = qMax(1, m_project.fps());
+    const double seconds = anim->seconds * 100.0 / qBound(10.0, speed, 400.0);
+    const drift::TimeUs length = qMin<drift::TimeUs>(drift::secondsToUs(seconds), clip.timelineDuration);
+    drift::TimeUs startRel = 0;
+    if (anim->place == drift::SquashPlace::End)
+        startRel = clip.timelineDuration - length;
+    else if (anim->place == drift::SquashPlace::Playhead)
+        startRel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration - length);
+    const double startAbs = drift::usToSeconds(clip.timelineStart + startRel);
+
+    const double travel = scale / 100.0;
+    const double deform = intensity / 100.0;
+    const double x0 = propertyValueAt(trackIndex, clipIndex, QStringLiteral("x"), startAbs, 0.0);
+    const double y0 = propertyValueAt(trackIndex, clipIndex, QStringLiteral("y"), startAbs, 0.0);
+    const double r0 = propertyValueAt(trackIndex, clipIndex, QStringLiteral("rotation"), startAbs, 0.0);
+    const double o0 = propertyValueAt(trackIndex, clipIndex, QStringLiteral("opacity"), startAbs, 1.0);
+
+    drift::Clip *hostClip = (fx >= 0 && host.trackIndex >= 0)
+                                ? &m_project.tracks()[host.trackIndex].clips[host.clipIndex]
+                                : nullptr;
+    if (hostClip) {
+        hostClip->effects[fx].parameters.insert(QStringLiteral("ground"), anim->ground);
+        hostClip->effects[fx].paramKeyframes.remove(QStringLiteral("ground"));
+    }
+
+    for (auto it = anim->tracks.constBegin(); it != anim->tracks.constEnd(); ++it) {
+        const QString &name = it.key();
+        const drift::ClipAnimTrack &curve = it.value();
+        const bool onDeformer = name == QLatin1String("zoom") || name == QLatin1String("stretch")
+                                || name == QLatin1String("bend") || name == QLatin1String("bulge");
+        drift::KeyframeTrack<double> *kt = nullptr;
+        drift::TimeUs offset = startRel;
+        if (onDeformer) {
+            if (!hostClip)
+                continue;
+            kt = &hostClip->effects[fx].paramKeyframes[name];
+            offset = clip.timelineStart + startRel - hostClip->timelineStart;
+        } else {
+            kt = keyframeTrackForProp(clip, name, /*createIfMissing=*/true);
+        }
+        if (!kt)
+            continue;
+        const auto valueAt = [&](double progress) {
+            const double v = curve.at(progress, 0.0);
+            if (name == QLatin1String("x"))
+                return x0 + v * m_project.width() * travel;
+            if (name == QLatin1String("y"))
+                return y0 + v * m_project.height() * travel;
+            if (name == QLatin1String("rotation"))
+                return r0 + v * travel;
+            if (name == QLatin1String("opacity"))
+                return o0 * qBound(0.0, v / 100.0, 1.0);
+            return v * deform;
+        };
+        // What was keyed over this stretch goes; the animation takes its place.
+        const QList<drift::TimeUs> existing = kt->keyframes().keys();
+        for (const drift::TimeUs k : existing) {
+            if (k >= offset && k <= offset + length)
+                kt->removeKeyframe(k);
+        }
+        // A key at each of the recipe's keys, eased as close as our keys go; a back, elastic or
+        // bounce stretch is laid down a key a frame so it moves exactly as designed.
+        const QList<drift::ClipAnimKey> &keys = curve.keys;
+        const auto put = [&](double progress, drift::Interpolation mode) {
+            const drift::TimeUs at = offset + qRound64(progress * double(length));
+            kt->setKeyframe(at, valueAt(progress));
+            kt->setEasing(at, mode);
+        };
+        for (int i = 0; i < keys.size(); ++i) {
+            const drift::ClipAnimKey &key = keys.at(i);
+            const bool last = i + 1 == keys.size();
+            using E = drift::ClipAnimKeyEase;
+            const bool sampled = !last && (key.ease == E::Back || key.ease == E::BackIn || key.ease == E::Elastic
+                                           || key.ease == E::Bounce);
+            const drift::Interpolation mode = key.ease == E::Linear || sampled ? drift::Interpolation::Linear
+                                            : key.ease == E::Hold          ? drift::Interpolation::Hold
+                                                                           : drift::Interpolation::Ease;
+            put(key.t, mode);
+            if (sampled) {
+                const double from = key.t;
+                const double to = keys.at(i + 1).t;
+                const int steps = qMax(2, int(std::ceil((to - from) * drift::usToSeconds(length) * fps)));
+                for (int s = 1; s < steps; ++s)
+                    put(from + (to - from) * s / steps, drift::Interpolation::Linear);
+            }
+        }
+        kt->setStopwatch(true);
+    }
+
+    pushProjectEdit(before, tr("Squash & Stretch"));
+    finishEdit(tr("Squash & Stretch: %1").arg(drift::catalogText(anim->label)));
+    endEditSession(true);
 }
 
 QVariantList AppController::clipAnimationCategories(const QString &slot) const

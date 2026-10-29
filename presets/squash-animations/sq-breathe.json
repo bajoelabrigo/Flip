@@ -1,0 +1,46 @@
+{
+ "format": 1,
+ "id": "sq-breathe",
+ "label": "Breathe",
+ "category": "wiggles",
+ "duration": 2.4,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    9,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -4,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 604
+}

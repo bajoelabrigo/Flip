@@ -1,0 +1,51 @@
+{
+ "format": 1,
+ "id": "sq-pulse",
+ "label": "Pulse",
+ "category": "highlights",
+ "duration": 0.7,
+ "place": "playhead",
+ "ground": 50,
+ "keys": {
+  "zoom": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.4,
+    14,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -3,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.4,
+    10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 401
+}

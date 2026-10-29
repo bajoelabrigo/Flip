@@ -1,0 +1,88 @@
+{
+ "format": 1,
+ "id": "sq-super-squash",
+ "label": "Super Squash Landing",
+ "category": "jumps",
+ "duration": 1.5,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    -0.5,
+    "easeIn"
+   ],
+   [
+    0.3,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    30,
+    "easeIn"
+   ],
+   [
+    0.28,
+    55,
+    "easeOut"
+   ],
+   [
+    0.31,
+    -70,
+    "easeOut"
+   ],
+   [
+    0.5,
+    30,
+    "easeInOut"
+   ],
+   [
+    0.65,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0.28,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.31,
+    40,
+    "easeOut"
+   ],
+   [
+    0.5,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.65,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 307
+}

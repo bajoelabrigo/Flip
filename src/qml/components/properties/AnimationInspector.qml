@@ -50,10 +50,13 @@ Item {
     // signed out asks for the account and applies it once signed in.
     readonly property bool trendsNeedAccount: Account.available && !Account.signedIn
     readonly property string slotKey: animTab === "in" ? "animIn" : animTab === "out" ? "animOut" : "animCombo"
-    readonly property var currentAnim: animTab === "in" ? animIn : animTab === "out" ? animOut : animCombo
+    // Squash & Stretch (0.26) writes keyframes and has no slot of its own.
+    readonly property bool squashTab: animTab === "squash"
+    readonly property var currentAnim: squashTab ? ({ kind: "none" })
+                                     : animTab === "in" ? animIn : animTab === "out" ? animOut : animCombo
     readonly property bool currentSlotActive: !!currentAnim && (currentAnim.kind || "none") !== "none"
-    readonly property var animPresets: EditorState.clipAnimationPresets(animTab)
-    readonly property var animCategories: EditorState.clipAnimationCategories(animTab)
+    readonly property var animPresets: squashTab ? [] : EditorState.clipAnimationPresets(animTab)
+    readonly property var animCategories: squashTab ? [] : EditorState.clipAnimationCategories(animTab)
     // The kinds that came before the presets, matched to the preset that replaced each.
     readonly property var legacyPreset: ({
         "slideUp": "slide-up", "slideDown": "slide-down", "slideLeft": "slide-left", "slideRight": "slide-right",
@@ -241,7 +244,8 @@ Item {
             model: [
                 { "id": "in", "label": qsTr("In") },
                 { "id": "out", "label": qsTr("Out") },
-                { "id": "combo", "label": qsTr("Combo") }
+                { "id": "combo", "label": qsTr("Combo") },
+                { "id": "squash", "label": qsTr("Squash & Stretch") }
             ]
             current: root.animTab
             onActivated: id => {
@@ -253,7 +257,7 @@ Item {
 
         ChipScroller {
             id: clipAnimChips
-            visible: root.supportsBodyAnim && root.animCategories.length > 0
+            visible: root.supportsBodyAnim && !root.squashTab && root.animCategories.length > 0
             width: parent.width
 
             ThemedChip {
@@ -293,9 +297,14 @@ Item {
             sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
         }
 
+        SquashStretchPanel {
+            visible: root.supportsBodyAnim && root.squashTab
+            width: parent.width
+        }
+
         Grid {
             id: animGrid
-            visible: root.supportsBodyAnim
+            visible: root.supportsBodyAnim && !root.squashTab
             width: parent.width
             readonly property real gap: Theme.spacingMd
             columns: Math.max(3, Math.floor((width + gap) / (76 + gap)))

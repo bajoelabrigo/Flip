@@ -1,0 +1,97 @@
+{
+ "format": 1,
+ "id": "sq-blow-away",
+ "label": "Blow Away",
+ "category": "out",
+ "duration": 1.1,
+ "place": "end",
+ "ground": 100,
+ "keys": {
+  "x": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    1,
+    0.9,
+    "easeInOut"
+   ]
+  ],
+  "y": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.4,
+    -0.08,
+    "easeInOut"
+   ],
+   [
+    1,
+    -0.45,
+    "easeInOut"
+   ]
+  ],
+  "rotation": [
+   [
+    0,
+    0,
+    "easeIn"
+   ],
+   [
+    1,
+    70,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    -25,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    20,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    -15,
+    "easeInOut"
+   ],
+   [
+    1,
+    10,
+    "easeInOut"
+   ]
+  ],
+  "opacity": [
+   [
+    0,
+    100,
+    "easeInOut"
+   ],
+   [
+    0.8,
+    100,
+    "linear"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 108
+}

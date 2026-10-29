@@ -1,0 +1,51 @@
+{
+ "format": 1,
+ "id": "sq-fall-out",
+ "label": "Fall Out",
+ "category": "out",
+ "duration": 0.9,
+ "place": "end",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.2,
+    -18,
+    "easeIn"
+   ],
+   [
+    0.35,
+    10,
+    "easeIn"
+   ],
+   [
+    1,
+    45,
+    "easeInOut"
+   ]
+  ],
+  "y": [
+   [
+    0,
+    0,
+    "easeOut"
+   ],
+   [
+    0.2,
+    -0.04,
+    "easeIn"
+   ],
+   [
+    1,
+    1.0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 102
+}

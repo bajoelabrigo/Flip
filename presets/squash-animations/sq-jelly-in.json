@@ -1,0 +1,108 @@
+{
+ "format": 1,
+ "id": "sq-jelly-in",
+ "label": "Jelly In",
+ "category": "in",
+ "duration": 1.2,
+ "place": "start",
+ "ground": 50,
+ "keys": {
+  "zoom": [
+   [
+    0,
+    -100,
+    "back"
+   ],
+   [
+    0.35,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0.25,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.3571,
+    29.143,
+    "easeInOut"
+   ],
+   [
+    0.4643,
+    -24.286,
+    "easeInOut"
+   ],
+   [
+    0.5714,
+    19.429,
+    "easeInOut"
+   ],
+   [
+    0.6786,
+    -14.571,
+    "easeInOut"
+   ],
+   [
+    0.7857,
+    9.714,
+    "easeInOut"
+   ],
+   [
+    0.8929,
+    -4.857,
+    "easeInOut"
+   ],
+   [
+    1.0,
+    0.0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0.25,
+    0.0,
+    "easeInOut"
+   ],
+   [
+    0.3571,
+    -15.429,
+    "easeInOut"
+   ],
+   [
+    0.4643,
+    12.857,
+    "easeInOut"
+   ],
+   [
+    0.5714,
+    -10.286,
+    "easeInOut"
+   ],
+   [
+    0.6786,
+    7.714,
+    "easeInOut"
+   ],
+   [
+    0.7857,
+    -5.143,
+    "easeInOut"
+   ],
+   [
+    0.8929,
+    2.571,
+    "easeInOut"
+   ],
+   [
+    1.0,
+    0.0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 7
+}

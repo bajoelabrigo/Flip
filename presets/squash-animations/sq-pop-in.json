@@ -1,0 +1,83 @@
+{
+ "format": 1,
+ "id": "sq-pop-in",
+ "label": "Pop In",
+ "category": "in",
+ "duration": 0.8,
+ "place": "start",
+ "ground": 50,
+ "keys": {
+  "zoom": [
+   [
+    0,
+    -100,
+    "easeOut"
+   ],
+   [
+    0.45,
+    18,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.3,
+    25,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.72,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    12,
+    "easeInOut"
+   ],
+   [
+    0.7,
+    -4,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 3
+}

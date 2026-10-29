@@ -1,0 +1,76 @@
+{
+ "format": 1,
+ "id": "sq-jelly-shake",
+ "label": "Jelly Shake",
+ "category": "wiggles",
+ "duration": 1.6,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    -16,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    -16,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    10,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    10,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 602
+}

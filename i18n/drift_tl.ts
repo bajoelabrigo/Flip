@@ -2791,6 +2791,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5622,6 +5626,14 @@
     <message>
         <source>Trending</source>
         <translation>Uso</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slide</source>
@@ -10351,6 +10363,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep volume (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ground (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bulge (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation type="unfinished">Unti-unting paglitaw</translation>
     </message>
@@ -11664,6 +11704,210 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Blown away like sand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Attention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backflip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big Jump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blow Away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double Hop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fall and Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fall Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Around</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch Jump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch Squash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grow Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inchworm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jelly In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jelly Shake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Launch and Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leap Over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Melt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rise and Wobble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rubber Band</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sack Race</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shake No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide In Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide In Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide Out Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide Out Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin with Squash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spring Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stumble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Super Squash Landing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swing In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ta-da</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tiny Hops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Topple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trampoline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wobble Turn</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13646,6 +13890,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Generate &amp; Simulate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20099,6 +20347,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Loop after the last keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20140,6 +20392,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My expressions (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this saved expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name to save this expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression saved as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23483,6 +23755,73 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Render</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SquashStretchPanel</name>
+    <message>
+        <source>In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jumps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click one to write it as keyframes: In at the start of the clip, Out at its end, the rest at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How hard it squashes, stretches and bends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How far it travels and turns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Faster makes it shorter, slower makes it longer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

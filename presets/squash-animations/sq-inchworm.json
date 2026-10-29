@@ -1,0 +1,118 @@
+{
+ "format": 1,
+ "id": "sq-inchworm",
+ "label": "Inchworm",
+ "category": "moves",
+ "duration": 2.4,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.17,
+    35,
+    "easeInOut"
+   ],
+   [
+    0.33,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.67,
+    35,
+    "easeInOut"
+   ],
+   [
+    0.83,
+    -15,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.17,
+    20,
+    "easeInOut"
+   ],
+   [
+    0.33,
+    -8,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.67,
+    20,
+    "easeInOut"
+   ],
+   [
+    0.83,
+    -8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "x": [
+   [
+    0,
+    0,
+    "hold"
+   ],
+   [
+    0.2,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.4,
+    0.06,
+    "hold"
+   ],
+   [
+    0.7,
+    0.06,
+    "easeInOut"
+   ],
+   [
+    0.9,
+    0.12,
+    "hold"
+   ],
+   [
+    1,
+    0.12,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 206
+}

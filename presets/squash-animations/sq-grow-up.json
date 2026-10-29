@@ -1,0 +1,68 @@
+{
+ "format": 1,
+ "id": "sq-grow-up",
+ "label": "Grow Up",
+ "category": "in",
+ "duration": 0.9,
+ "place": "start",
+ "ground": 100,
+ "keys": {
+  "stretch": [
+   [
+    0,
+    -90,
+    "easeOut"
+   ],
+   [
+    0.45,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.68,
+    -8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.45,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.68,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "opacity": [
+   [
+    0,
+    0,
+    "linear"
+   ],
+   [
+    0.12,
+    100,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 8
+}

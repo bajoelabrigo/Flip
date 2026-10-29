@@ -1,0 +1,84 @@
+{
+  "id": "squash.deform",
+  "displayName": "Squash & Stretch",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 940,
+  "description": "Zooms, squashes, stretches, bends and bulges the layer like rubber, from a ground edge that stays put. The Squash & Stretch animations key it; it can also be keyed by hand.",
+  "padding": {
+    "percentParams": [
+      "stretch",
+      "bend",
+      "bulge",
+      "zoom"
+    ],
+    "extra": 8
+  },
+  "parameters": [
+    {
+      "identifier": "zoom",
+      "displayName": "Zoom (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 300,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "stretch",
+      "displayName": "Stretch (%)",
+      "type": "float",
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "volume",
+      "displayName": "Keep volume (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 100
+    },
+    {
+      "identifier": "ground",
+      "displayName": "Ground (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 100
+    },
+    {
+      "identifier": "bend",
+      "displayName": "Bend (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 100,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "bulge",
+      "displayName": "Bulge (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 100,
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

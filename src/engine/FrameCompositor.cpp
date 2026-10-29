@@ -1112,12 +1112,16 @@ void applyEffectPadding(GpuLayer &layer, double renderScale)
         if (!effect.enabled)
             continue;
         const EffectPresetEntry *def = effectDefForId(effect.catalogId);
-        if (!def || (def->paddingParams.isEmpty() && def->paddingExtra <= 0.0))
+        if (!def
+            || (def->paddingParams.isEmpty() && def->paddingPercentParams.isEmpty() && def->paddingExtra <= 0.0))
             continue;
         const QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
         double room = def->paddingExtra;
         for (const QString &key : def->paddingParams)
             room += qAbs(params.value(key).toDouble());
+        const double side = qMax(layer.rect.width(), layer.rect.height()) / qMax(1e-6, renderScale);
+        for (const QString &key : def->paddingPercentParams)
+            room += qAbs(params.value(key).toDouble()) / 100.0 * side;
         pad = qMax(pad, room);
     }
     if (pad <= 0.0)

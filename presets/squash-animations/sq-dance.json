@@ -1,0 +1,133 @@
+{
+ "format": 1,
+ "id": "sq-dance",
+ "label": "Dance",
+ "category": "wiggles",
+ "duration": 2.0,
+ "place": "playhead",
+ "ground": 100,
+ "keys": {
+  "bend": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    -22,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    10,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    -15,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    10,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    -15,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "y": [
+   [
+    0,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.125,
+    0.01,
+    "easeInOut"
+   ],
+   [
+    0.25,
+    -0.02,
+    "easeInOut"
+   ],
+   [
+    0.375,
+    0.01,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.625,
+    0.01,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    -0.02,
+    "easeInOut"
+   ],
+   [
+    0.875,
+    0.01,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 603
+}

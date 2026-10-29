@@ -1,0 +1,143 @@
+{
+ "format": 1,
+ "id": "sq-bounce-in",
+ "label": "Bounce In",
+ "category": "in",
+ "duration": 1.5,
+ "place": "start",
+ "ground": 100,
+ "keys": {
+  "y": [
+   [
+    0,
+    -0.7,
+    "easeIn"
+   ],
+   [
+    0.32,
+    0,
+    "easeOut"
+   ],
+   [
+    0.5,
+    -0.12,
+    "easeIn"
+   ],
+   [
+    0.66,
+    0,
+    "easeOut"
+   ],
+   [
+    0.76,
+    -0.035,
+    "easeIn"
+   ],
+   [
+    0.84,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    20,
+    "easeIn"
+   ],
+   [
+    0.3,
+    40,
+    "easeOut"
+   ],
+   [
+    0.33,
+    -40,
+    "easeOut"
+   ],
+   [
+    0.42,
+    22,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    0,
+    "easeIn"
+   ],
+   [
+    0.64,
+    18,
+    "easeOut"
+   ],
+   [
+    0.67,
+    -24,
+    "easeOut"
+   ],
+   [
+    0.74,
+    8,
+    "easeInOut"
+   ],
+   [
+    0.84,
+    -10,
+    "easeOut"
+   ],
+   [
+    0.92,
+    3,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bulge": [
+   [
+    0.3,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.33,
+    18,
+    "easeInOut"
+   ],
+   [
+    0.42,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.64,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.67,
+    12,
+    "easeInOut"
+   ],
+   [
+    0.74,
+    0,
+    "easeInOut"
+   ],
+   [
+    0.84,
+    6,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 2
+}

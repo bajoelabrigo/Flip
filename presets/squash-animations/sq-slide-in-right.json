@@ -1,0 +1,88 @@
+{
+ "format": 1,
+ "id": "sq-slide-in-right",
+ "label": "Slide In Right",
+ "category": "in",
+ "duration": 1.0,
+ "place": "start",
+ "ground": 100,
+ "keys": {
+  "x": [
+   [
+    0,
+    0.75,
+    "easeOut"
+   ],
+   [
+    0.5,
+    -0.03,
+    "easeInOut"
+   ],
+   [
+    0.75,
+    0.008,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "bend": [
+   [
+    0,
+    -35,
+    "easeOut"
+   ],
+   [
+    0.45,
+    -18,
+    "easeInOut"
+   ],
+   [
+    0.55,
+    28,
+    "easeInOut"
+   ],
+   [
+    0.72,
+    -12,
+    "easeInOut"
+   ],
+   [
+    0.86,
+    5,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ],
+  "stretch": [
+   [
+    0,
+    -10,
+    "easeInOut"
+   ],
+   [
+    0.5,
+    -18,
+    "easeInOut"
+   ],
+   [
+    0.62,
+    8,
+    "easeInOut"
+   ],
+   [
+    1,
+    0,
+    "easeInOut"
+   ]
+  ]
+ },
+ "order": 6
+}
