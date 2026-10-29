@@ -2963,10 +2963,19 @@ PanelFrame {
 
                         // Follow either drag live so the preview scrubs with it.
                         onXChanged: {
-                            if (playheadDragArea.drag.active || playheadLineDrag.drag.active)
-                                EditorState.playheadSeconds = EditorState.snapPlayheadToKeys(
-                                    root.snapToFrame(playhead.x / root.pxPerSecond),
-                                    root.playheadKeySnapPx / root.pxPerSecond)
+                            if (!playheadDragArea.drag.active && !playheadLineDrag.drag.active)
+                                return
+                            const snapped = EditorState.snapPlayheadToKeys(
+                                root.snapToFrame(playhead.x / root.pxPerSecond),
+                                root.playheadKeySnapPx / root.pxPerSecond)
+                            EditorState.playheadSeconds = snapped
+                            // Drawn where it lands, on the frame or the key it caught, not under the
+                            // pointer: dragged freely it only jumped there on release, so the magnet
+                            // never showed (Jorge, 0.26). The drag sets x from its start plus the
+                            // pointer's travel, so this does not build up.
+                            const snappedX = snapped * root.pxPerSecond
+                            if (Math.abs(playhead.x - snappedX) > 0.5)
+                                playhead.x = snappedX
                         }
 
                         function finishSeek() {
