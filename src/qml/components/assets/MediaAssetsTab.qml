@@ -32,7 +32,20 @@ Item {
     readonly property bool columnsMode: viewMode === "columns"
     property string columnSortKey: ""
     property bool columnSortAscending: true
-    readonly property var columnWidths: ({ kind: 64, size: 78, duration: 58, uses: 40 })
+    readonly property var columnWidths: ({ kind: 62, size: 74, duration: 54, uses: 36 })
+    // The columns that fit beside a readable name (at least 110 px): in a narrow panel Size goes
+    // first, then Uses, then Type; widened, they come back.
+    readonly property var visibleColumns: {
+        const rowWidth = listColumn.width - 2 * Theme.spacingSm - Theme.iconButtonSize - 26
+        const order = ["kind", "size", "duration", "uses"]
+        const dropFirst = ["size", "uses", "kind", "duration"]
+        let shown = order.slice()
+        const total = () => shown.reduce((sum, key) => sum + root.columnWidths[key], 0)
+        for (let i = 0; i < dropFirst.length && rowWidth - total() < 110; ++i)
+            shown = shown.filter(key => key !== dropFirst[i])
+        return shown
+    }
+    readonly property real visibleColumnsWidth: root.visibleColumns.reduce((sum, key) => sum + root.columnWidths[key], 0)
     function sortColumn(key) {
         if (root.columnSortKey === key)
             root.columnSortAscending = !root.columnSortAscending
@@ -1218,8 +1231,8 @@ Item {
             color: Theme.panelBackground
             Row {
                 anchors.fill: parent
-                anchors.leftMargin: Theme.spacingLg
-                anchors.rightMargin: Theme.spacingLg
+                anchors.leftMargin: Theme.spacingSm
+                anchors.rightMargin: Theme.spacingSm
                 Repeater {
                     model: [
                         { key: "name", text: qsTr("Name") },
@@ -1227,13 +1240,11 @@ Item {
                         { key: "size", text: qsTr("Size") },
                         { key: "duration", text: qsTr("Duration") },
                         { key: "uses", text: qsTr("Uses") }
-                    ]
+                    ].filter(c => c.key === "name" || root.visibleColumns.indexOf(c.key) >= 0)
                     Item {
                         required property var modelData
-                        width: modelData.key === "name"
-                               ? parent.width - root.columnWidths.kind - root.columnWidths.size
-                                 - root.columnWidths.duration - root.columnWidths.uses
-                               : root.columnWidths[modelData.key]
+                        width: modelData.key === "name" ? parent.width - root.visibleColumnsWidth
+                                                        : root.columnWidths[modelData.key]
                         height: parent.height
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
@@ -1376,14 +1387,15 @@ Item {
             Row {
                 id: listRowContent
                 anchors.fill: parent
-                anchors.margins: Theme.spacingLg
-                anchors.leftMargin: Theme.spacingLg + listRow.treeIndent + listRow.disclosureSpace
-                spacing: Theme.spacingLg + Theme.spacingXs
+                anchors.margins: root.columnsMode ? Theme.spacingSm : Theme.spacingLg
+                anchors.leftMargin: (root.columnsMode ? Theme.spacingSm : Theme.spacingLg) + listRow.treeIndent
+                                    + listRow.disclosureSpace
+                spacing: root.columnsMode ? Theme.spacingSm : Theme.spacingLg + Theme.spacingXs
 
                 Rectangle {
                     id: listThumbFrame
-                    width: root.columnsMode ? 32 : 56
-                    height: root.columnsMode ? 20 : 32
+                    width: root.columnsMode ? 18 : 56
+                    height: root.columnsMode ? 18 : 32
                     radius: Theme.radiusSm
                     color: Theme.panelBackground
                     clip: true
@@ -1540,7 +1552,7 @@ Item {
                             { key: "duration", text: listRow.isFolder ? "" : duration },
                             { key: "uses", text: listRow.isFolder ? "" : String((void EditorState.tracksRevision,
                                                                      EditorState.clipCountForAsset(listRow.assetIndex))) }
-                        ]
+                        ].filter(c => root.visibleColumns.indexOf(c.key) >= 0)
                         Text {
                             required property var modelData
                             width: root.columnWidths[modelData.key]
