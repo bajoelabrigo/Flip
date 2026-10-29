@@ -406,6 +406,17 @@ Column {
             EditorState.setClipTrackMatte(root.trackIndex, root.clipIndex, root.info.matteMode, o.track, o.clip)
         }
     }
+    // Off: the matte stays put on screen and this layer moves through it (a text appearing out of
+    // nothing). On: the matte is parented to this layer and moves with it.
+    ThemedSwitch {
+        width: parent.width
+        visible: !!root.info && (root.info.matteMode || "none") !== "none" && root.info.matteTrack >= 0
+        text: qsTr("Mask moves with this layer")
+        tooltip: qsTr("Off, the mask stays fixed on screen while this layer moves through it")
+        checked: !!root.info && !!root.info.matteFollows
+        onToggled: EditorState.useAsMatteFor(root.info.matteTrack, root.info.matteClip,
+                                             root.trackIndex, root.clipIndex, checked)
+    }
 
     ThemedSwitch {
         width: parent.width

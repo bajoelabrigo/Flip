@@ -5258,6 +5258,22 @@
         <translation>Texto sobre el contorno de la forma</translation>
     </message>
     <message>
+        <source>The mask ends before the clip: past its end the clip is not shown</source>
+        <translation>La máscara termina antes que el clip: después de su final el clip no se ve</translation>
+    </message>
+    <message>
+        <source>The mask starts after the clip: until then the clip is not shown</source>
+        <translation>La máscara empieza después que el clip: hasta entonces el clip no se ve</translation>
+    </message>
+    <message>
+        <source>Mask stuck to the layer</source>
+        <translation>Máscara pegada a la capa</translation>
+    </message>
+    <message>
+        <source>Mask fixed on screen</source>
+        <translation>Máscara fija en la pantalla</translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation>Composición creada</translation>
     </message>
@@ -18005,6 +18021,14 @@ LA PRÓXIMA</translation>
         <translation>La capa que hace de mate</translation>
     </message>
     <message>
+        <source>Mask moves with this layer</source>
+        <translation>La máscara se mueve con esta capa</translation>
+    </message>
+    <message>
+        <source>Off, the mask stays fixed on screen while this layer moves through it</source>
+        <translation>Apagado, la máscara queda fija en la pantalla y esta capa pasa a través de ella</translation>
+    </message>
+    <message>
         <source>Motion blur</source>
         <translation>Desenfoque de movimiento</translation>
     </message>
@@ -27741,6 +27765,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>Use as mask stuck to</source>
+        <translation>Usar como máscara pegada a</translation>
+    </message>
+    <message>
+        <source>Use as fixed mask of</source>
+        <translation>Usar como máscara fija de</translation>
     </message>
     <message>
         <source>Motion blur</source>

@@ -686,6 +686,42 @@ Item {
                     onObjectRemoved: (index, object) => parentMenu.removeItem(object)
                 }
             }
+            // A shape (or a text, a photo) as the mask of any other clip (0.26): fixed on screen, so
+            // the clip appears out of nothing as it moves through it, or stuck to that clip.
+            // A Menu cannot hide a submenu, so the two are made only for the kinds that offer them,
+            // and slotted in under Parent.
+            Instantiator {
+                model: ["shape", "text", "image"].indexOf(clipItem.clipData.kind) >= 0 ? [false, true] : []
+                delegate: ThemedContextMenu {
+                    id: matteMenu
+                    required property bool modelData
+                    title: modelData ? qsTr("Use as mask stuck to") : qsTr("Use as fixed mask of")
+                    property var options: []
+                    onAboutToShow: options = EditorState.matteTargetOptions(clipItem.trackIndex, clipItem.clipIndex)
+                    Instantiator {
+                        model: matteMenu.options
+                        delegate: ThemedMenuItem {
+                            required property var modelData
+                            text: modelData.name
+                            onTriggered: EditorState.useAsMatteFor(clipItem.trackIndex, clipItem.clipIndex,
+                                                                   modelData.track, modelData.clip,
+                                                                   matteMenu.modelData)
+                        }
+                        onObjectAdded: (index, object) => matteMenu.insertItem(index, object)
+                        onObjectRemoved: (index, object) => matteMenu.removeItem(object)
+                    }
+                }
+                onObjectAdded: (index, object) => {
+                    let at = clipContextMenu.count
+                    for (let i = 0; i < clipContextMenu.count; ++i) {
+                        const item = clipContextMenu.itemAt(i)
+                        if (item && item.subMenu === parentMenu)
+                            at = i + 1
+                    }
+                    clipContextMenu.insertMenu(at + index, object)
+                }
+                onObjectRemoved: (index, object) => clipContextMenu.removeMenu(object)
+            }
             ThemedMenuItem {
                 text: qsTr("Motion blur")
                 readonly property bool on: {

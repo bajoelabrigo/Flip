@@ -12400,6 +12400,20 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
             }
         }
     }
+    // The matte's place, and whether it follows this clip (a mask stuck to the layer).
+    out.insert(QStringLiteral("matteTrack"), -1);
+    out.insert(QStringLiteral("matteClip"), -1);
+    out.insert(QStringLiteral("matteFollows"), false);
+    for (int t = 0; t < tracks.size() && !clip.matteClipId.isEmpty(); ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            const drift::Clip &m = tracks.at(t).clips.at(c);
+            if (m.id == clip.matteClipId) {
+                out.insert(QStringLiteral("matteTrack"), t);
+                out.insert(QStringLiteral("matteClip"), c);
+                out.insert(QStringLiteral("matteFollows"), m.parentId == clip.id);
+            }
+        }
+    }
     return out;
 }
 
@@ -12473,6 +12487,94 @@ void AppController::setClipTrackMatte(int trackIndex, int clipIndex, const QStri
     const QString message = m == Matte::None ? tr("Track matte removed") : tr("Track matte set");
     pushProjectEdit(before, message);
     finishEdit(message);
+}
+
+QVariantList AppController::matteTargetOptions(int trackIndex, int clipIndex) const
+{
+    QVariantList overlapping;
+    QVariantList others;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return overlapping;
+    const drift::Clip &self = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::Track> &tracks = m_project.tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
+            const drift::Clip &candidate = tracks.at(t).clips.at(c);
+            if (candidate.id == self.id || self.matteClipId == candidate.id
+                || !drift::appdetail::clipAcceptsPreviewTransform(candidate)
+                || candidate.type == drift::ClipType::Adjustment || candidate.nullObject || candidate.light.kind > 0)
+                continue;
+            const QVariantMap entry{{QStringLiteral("track"), t},
+                                    {QStringLiteral("clip"), c},
+                                    {QStringLiteral("id"), candidate.id},
+                                    {QStringLiteral("name"), candidate.name}};
+            const bool overlaps =
+                candidate.timelineStart < self.timelineEnd() && self.timelineStart < candidate.timelineEnd();
+            (overlaps ? overlapping : others).append(entry);
+        }
+    }
+    return overlapping + others;
+}
+
+void AppController::useAsMatteFor(int matteTrack, int matteClip, int targetTrack, int targetClip, bool follow)
+{
+    if (!isValidClipIndex(matteTrack, matteClip) || !isValidClipIndex(targetTrack, targetClip)
+        || (matteTrack == targetTrack && matteClip == targetClip))
+        return;
+    const drift::Project before = m_project;
+    const QString matteId = m_project.tracks().at(matteTrack).clips.at(matteClip).id;
+    const QString targetId = m_project.tracks().at(targetTrack).clips.at(targetClip).id;
+
+    drift::Clip &target = m_project.tracks()[targetTrack].clips[targetClip];
+    using Matte = drift::Clip::TrackMatte;
+    // An inverted or luma matte already set from this same layer keeps its mode.
+    if (target.matteClipId != matteId || target.matteMode == Matte::None)
+        target.matteMode = Matte::Alpha;
+    target.matteClipId = matteId;
+    // The target cannot follow its own matte while the matte follows it.
+    if (follow && target.parentId == matteId)
+        drift::setClipParentKeepingPlace(m_project, target, nullptr, m_playheadUs);
+
+    drift::Clip &matte = m_project.tracks()[matteTrack].clips[matteClip];
+    const drift::Clip *targetPtr = drift::findClipInProject(m_project, targetId);
+    if (follow && matte.parentId != targetId && targetPtr
+        && !drift::parentLinkMakesCycle(m_project, matte.id, targetId))
+        drift::setClipParentKeepingPlace(m_project, matte, targetPtr, m_playheadUs);
+    else if (!follow && matte.parentId == targetId)
+        drift::setClipParentKeepingPlace(m_project, matte, nullptr, m_playheadUs);
+
+    // Outside the matte's span the target has nothing to show through: lengthen a matte that ends
+    // first, when nothing else on its track is in the way. Its start is left alone, since its keys
+    // count from there.
+    QString warning;
+    const drift::TimeUs targetEnd = targetPtr ? targetPtr->timelineEnd() : 0;
+    const drift::TimeUs targetStart = targetPtr ? targetPtr->timelineStart : 0;
+    if (matte.timelineEnd() < targetEnd) {
+        bool room = true;
+        for (const drift::Clip &other : m_project.tracks().at(matteTrack).clips) {
+            if (other.id != matte.id && other.timelineStart < targetEnd && matte.timelineEnd() < other.timelineEnd())
+                room = false;
+        }
+        const bool still = matte.type == drift::ClipType::Shape || matte.type == drift::ClipType::Text
+                           || matte.type == drift::ClipType::Image;
+        if (room && still) {
+            const drift::TimeUs grow = targetEnd - matte.timelineEnd();
+            matte.timelineDuration += grow;
+            matte.srcOut += grow;
+        } else {
+            warning = tr("The mask ends before the clip: past its end the clip is not shown");
+        }
+    }
+    if (warning.isEmpty() && matte.timelineStart > targetStart)
+        warning = tr("The mask starts after the clip: until then the clip is not shown");
+
+    const QString message = follow ? tr("Mask stuck to the layer") : tr("Mask fixed on screen");
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    if (!warning.isEmpty())
+        setLastMessage(warning, QStringLiteral("warning"));
+    else
+        setLastMessage(message, QStringLiteral("success"));
 }
 
 QVariantList AppController::clipParentOptions(int trackIndex, int clipIndex) const

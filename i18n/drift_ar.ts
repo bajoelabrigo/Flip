@@ -5306,6 +5306,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The mask ends before the clip: past its end the clip is not shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask starts after the clip: until then the clip is not shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask stuck to the layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask fixed on screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18273,6 +18289,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Mask moves with this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off, the mask stays fixed on screen while this layer moves through it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion blur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28080,6 +28104,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use as mask stuck to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use as fixed mask of</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

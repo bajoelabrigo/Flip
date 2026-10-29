@@ -132,6 +132,7 @@ private slots:
     void shadedLettersTakeLayersLooksAndBoxAlone();
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
+    void shapeAsFixedOrStuckMask();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -12928,6 +12929,59 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
     QCOMPARE(cue(1).wordEndsUs.size(), 2);
 }
 
+// A shape as another clip's mask (0.26): the clip takes it as its alpha matte; "stuck" parents the
+// shape to the clip, "fixed" leaves it on screen; switching between the two is one undo step each.
+void EditorStateTest::shapeAsFixedOrStuckMask()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Aparece"), 0.0);
+    const QString textId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 400, 200, QStringLiteral("#ffffff"),
+                        QStringLiteral("none"), 0);
+    const QString shapeId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    QVERIFY(!textId.isEmpty() && !shapeId.isEmpty() && textId != shapeId);
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    const auto clip = [&](const QString &id) {
+        const auto at = where(id);
+        return &state.project()->tracks().at(at.first).clips.at(at.second);
+    };
+
+    bool offered = false;
+    for (const QVariant &v : state.matteTargetOptions(where(shapeId).first, where(shapeId).second))
+        offered = offered || v.toMap().value(QStringLiteral("id")).toString() == textId;
+    QVERIFY(offered);
+
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        false);
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::Alpha);
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
+    QVERIFY(clip(shapeId)->parentId.isEmpty());
+    QVERIFY(clip(shapeId)->timelineEnd() >= clip(textId)->timelineEnd());
+    QVERIFY(!state.clipMotionInfo(where(textId).first, where(textId).second)
+                 .value(QStringLiteral("matteFollows"))
+                 .toBool());
+
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        true);
+    QCOMPARE(clip(shapeId)->parentId, textId);
+    QVERIFY(state.clipMotionInfo(where(textId).first, where(textId).second)
+                .value(QStringLiteral("matteFollows"))
+                .toBool());
+
+    state.undo();
+    QVERIFY(clip(shapeId)->parentId.isEmpty());
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
+    state.undo();
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::None);
+}
+
 QTEST_MAIN(EditorStateTest)
 #include "tst_editorstate.moc"
-

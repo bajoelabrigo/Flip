@@ -829,6 +829,15 @@ public:
     Q_INVOKABLE void setClipTrackMatte(int trackIndex, int clipIndex, const QString &mode, int matteTrack,
                                        int matteClip);
     Q_INVOKABLE QVariantList clipMatteOptions(int trackIndex, int clipIndex) const;
+    // A shape (or any drawn layer) as the mask of another clip of any kind (0.26), from the
+    // shape's right-click menu: the target takes it as its alpha matte, so the shape stops being
+    // drawn and the target shows only inside it. follow: the shape is parented to the target and
+    // moves with it ("stuck to the layer"); otherwise it stays where it is on screen while the
+    // target moves through it ("fixed"), which is how a text appears out of nothing. A shape that
+    // ends before the target is lengthened when its track has room. One undo step.
+    Q_INVOKABLE void useAsMatteFor(int matteTrack, int matteClip, int targetTrack, int targetClip, bool follow);
+    // The clips the layer can mask: [{track, clip, id, name}], those that overlap it in time first.
+    Q_INVOKABLE QVariantList matteTargetOptions(int trackIndex, int clipIndex) const;
     Q_INVOKABLE QVariantMap motionBlurSettings() const;
     Q_INVOKABLE void setMotionBlurSettings(double shutterDeg, int samples);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
