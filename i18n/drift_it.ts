@@ -6757,22 +6757,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Area di lavoro</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automatica (segue la tela)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Verticale</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -13996,22 +13980,6 @@ LA PROSSIMA</translation>
         <translation>Multicam</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Spazio di lavoro</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automatico (segui area di disegno)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Verticale</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -16856,14 +16824,6 @@ LA PROSSIMA</translation>
         <translation>&amp;Finestra</translation>
     </message>
     <message>
-        <source>Landscape Workspace</source>
-        <translation>Area di lavoro orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait Workspace</source>
-        <translation>Area di lavoro verticale</translation>
-    </message>
-    <message>
         <source>Auto Workspace (Follow Canvas)</source>
         <translation>Area di lavoro automatica (segue la tela)</translation>
     </message>
@@ -16920,8 +16880,24 @@ LA PROSSIMA</translation>
         <translation>Impostazioni…</translation>
     </message>
     <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug Info…</source>
         <translation>Informazioni di debug…</translation>
+    </message>
+    <message>
+        <source>Save workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My workspace</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -24788,6 +24764,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Di tendenza</translation>
     </message>
     <message>
+        <source>VFX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Backgrounds</source>
         <translation>Sfondi</translation>
     </message>
@@ -32150,6 +32130,119 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Close</source>
         <translation>Chiudi</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceMenu</name>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as new workspace…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceView</name>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide this panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Workspaces</name>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics and text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Review</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

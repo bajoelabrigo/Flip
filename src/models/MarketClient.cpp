@@ -451,6 +451,7 @@ QString favoriteGroupForType(const QString &type)
         {QStringLiteral("text-style"), QStringLiteral("textStyles")},
         {QStringLiteral("text-animation"), QStringLiteral("textAnimations")},
         {QStringLiteral("animation"), QStringLiteral("stickers")},
+        {QStringLiteral("vfx"), QStringLiteral("stickers")},
         {QStringLiteral("background"), QStringLiteral("stickers")},
         {QStringLiteral("shape"), QStringLiteral("shapes")},
         {QStringLiteral("music"), QStringLiteral("music")},
@@ -481,6 +482,8 @@ QString folderForType(const QString &type)
 {
     static const QHash<QString, QString> folders{
         {QStringLiteral("animation"), QStringLiteral("animaciones")},
+        // Stock › VFX (0.26): the cartoon / anime effects, Lottie like the animations.
+        {QStringLiteral("vfx"), QStringLiteral("vfx")},
         {QStringLiteral("overlay"), QStringLiteral("superposiciones")},
         {QStringLiteral("background"), QStringLiteral("fondos")},
         {QStringLiteral("sound"), QStringLiteral("sonidos")},
@@ -852,7 +855,7 @@ bool MarketClient::isTrendingItem(const QVariantMap &item) const
     static const QSet<QString> panelTypes{
         QStringLiteral("effect"), QStringLiteral("overlay"), QStringLiteral("look"), QStringLiteral("lut"),
         QStringLiteral("transition"), QStringLiteral("text-style"), QStringLiteral("text-animation"),
-        QStringLiteral("animation"), QStringLiteral("background"), QStringLiteral("shape"),
+        QStringLiteral("animation"), QStringLiteral("vfx"), QStringLiteral("background"), QStringLiteral("shape"),
         QStringLiteral("music"), QStringLiteral("sound"), QStringLiteral("template")};
     return panelTypes.contains(item.value(QStringLiteral("type")).toString());
 }

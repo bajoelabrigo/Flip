@@ -660,35 +660,9 @@ Rectangle {
                     id: settingsMenu
                     minimumWidth: 248
 
-                    ThemedMenuItem {
-                        sectionHeader: true
-                        text: qsTr("Workspace")
-                    }
-
-                    // The active entry swaps its own icon for a tick rather than
-                    // adding a trailing column — every row keeps a glyph, so the
-                    // labels stay aligned.
-                    ThemedMenuItem {
-                        text: qsTr("Auto (follow canvas)")
-                        icon.name: EditorState.preferences.workspaceLayoutOverridden ? Theme.icons.grid
-                                                                         : Theme.icons.check
-                        onTriggered: EditorState.preferences.clearWorkspaceLayoutPreference()
-                    }
-
-                    ThemedMenuItem {
-                        text: qsTr("Landscape")
-                        icon.name: EditorState.preferences.workspaceLayoutOverridden
-                                   && EditorState.preferences.workspaceLayoutPreferred === "landscape"
-                                   ? Theme.icons.check : Theme.icons.monitor
-                        onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("landscape")
-                    }
-
-                    ThemedMenuItem {
-                        text: qsTr("Portrait")
-                        icon.name: EditorState.preferences.workspaceLayoutOverridden
-                                   && EditorState.preferences.workspaceLayoutPreferred === "portrait"
-                                   ? Theme.icons.check : Theme.icons.smartphone
-                        onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("portrait")
+                    // The workspaces (0.26, as After Effects) are a submenu of their own now.
+                    WorkspaceMenu {
+                        win: root.Window.window
                     }
 
                     ThemedMenuSeparator { }

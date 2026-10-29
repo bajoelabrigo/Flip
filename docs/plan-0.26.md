@@ -408,6 +408,24 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   El glifo se cambia al dibujar (`SkiaTextPainter::swapLetters`, `PieceGeometry::text/origin`).
 - Prueba `curvesPanelAppliesAndReadsCurves`. **Falta:** build y probar en ventana.
 
+## Etapa K — Espacios de trabajo como After Effects y Stock › VFX (Jorge, 2026-10-29)
+
+- **Espacios de trabajo** (`WorkspaceView.qml`, `Workspaces.qml`, `WorkspaceMenu.qml`): cada espacio es un árbol de
+  divisiones con los cuatro paneles (Biblioteca, Vista previa, Propiedades, Línea de tiempo), que se re-emparentan
+  (nunca se reconstruyen: la vista previa tiene el render). Diez de serie: Estándar (= «landscape»), Vertical
+  (= «portrait»), Animación, Efectos, Gráficos y texto, Color, Audio, Bibliotecas, Pantalla pequeña, Revisión.
+  Cada uno recuerda sus tamaños y cambios (Settings `workspaces/edited`), «Restablecer», «Guardar como espacio de
+  trabajo nuevo…» (`user:N`), «Eliminar». **Distribuir paneles**: arrastrar un panel sobre otro lo intercambia, sobre
+  su borde lo acopla a ese lado; × lo oculta; Ventana › Espacio de trabajo › Biblioteca/Vista previa/… los muestra u
+  oculta. Pantalla completa: la vista previa sola en `fullscreenHost`. Reemplaza `rootSplit/outerSplit/innerSplit` y
+  las fracciones de `LayoutStore` (la ventana sigue guardándose ahí). `PreferencesController` acepta cualquier id.
+- **Stock › VFX**: tipo `vfx` en el servidor (`flipstudio-api` rama `stock-vfx`, sin desplegar: el tipo solo sale
+  cuando la carpeta `vfx` tiene contenido), primero después de Inicio; chip **VFX** en Stickers después de
+  Tendencias; favoritos y carpeta en `MarketClient`. Ahí irá todo lo de RTFX hecho con el motor nuevo
+  (`tools/animations/rtfx_field.py`, `rtfx2_fire.py`; revisión en https://claude.ai/artifact/X4g5xQ3f8KcJrYwXoUryDu).
+- **Falta:** build y probar en ventana (cambiar de espacio, distribuir, ocultar/mostrar, pantalla completa, guardar
+  y restablecer).
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

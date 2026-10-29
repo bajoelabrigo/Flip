@@ -27,6 +27,8 @@ Item {
     // ones, or in chips of their own («stock:<category>»).
     readonly property string trendsId: "__trends__"
     readonly property string backgroundsId: "__stock_backgrounds__"
+    // Stock › VFX (0.26, Jorge): the cartoon / anime effects, right after Trending.
+    readonly property string vfxId: "__stock_vfx__"
     property int stockTick: 0
     readonly property var stockChips: {
         void root.stockTick
@@ -34,19 +36,21 @@ Item {
                                     : ({ extra: [], categoriesOf: {} })
     }
     readonly property var categories: Market.configured
-        ? [{ "id": root.trendsId, "label": qsTr("Trending") }, { "id": root.backgroundsId, "label": qsTr("Backgrounds") }]
+        ? [{ "id": root.trendsId, "label": qsTr("Trending") }, { "id": root.vfxId, "label": qsTr("VFX") },
+           { "id": root.backgroundsId, "label": qsTr("Backgrounds") }]
               .concat(root.ownCategories).concat(root.stockChips.extra || [])
         : root.ownCategories
     readonly property var stockCategoriesHere: (root.stockChips.categoriesOf || {})[root.activeCategory] || []
     readonly property bool showingStockOnly: root.query.length === 0
                                              && (root.activeCategory === root.trendsId
                                                  || root.activeCategory === root.backgroundsId
+                                                 || root.activeCategory === root.vfxId
                                                  || root.activeCategory.indexOf("stock:") === 0)
     readonly property var stockFavorites: {
         void root.favoritesTick
         void Market.favoriteItemsRevision
         return root.activeCategory === root.favoritesId && root.query.length === 0
-               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("stickers"), ["animation", "background"], "stickers")
+               ? Market.stockFavoriteItems(EditorState.assetFavoriteIds("stickers"), ["animation", "vfx", "background"], "stickers")
                : []
     }
     readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
@@ -182,9 +186,10 @@ Item {
                     width: stockView.width
                     sidePadding: Theme.pagePadding
                     flickable: stockView
-                    type: root.activeCategory === root.backgroundsId ? "background" : "animation"
+                    type: root.activeCategory === root.backgroundsId ? "background"
+                        : root.activeCategory === root.vfxId ? "vfx" : "animation"
                     layout: root.activeCategory === root.backgroundsId ? "wide" : "square"
-                    categories: root.activeCategory === root.backgroundsId ? [""]
+                    categories: root.activeCategory === root.backgroundsId || root.activeCategory === root.vfxId ? [""]
                               : root.activeCategory === root.trendsId ? [] : root.stockCategoriesHere
                     glyph: Theme.icons.smile
                     isInstalled: function(item) { return root.stockInstalled(item) }

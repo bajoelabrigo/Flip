@@ -6757,22 +6757,6 @@
         <translation>Reglas</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Espacio de trabajo</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automático (seguir lienzo)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Vertical</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -13996,22 +13980,6 @@ LA PRÓXIMA</translation>
         <translation>Cámara múltiple</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Espacio de trabajo</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automático (seguir lienzo)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Vertical</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -16856,14 +16824,6 @@ LA PRÓXIMA</translation>
         <translation>Ve&amp;ntana</translation>
     </message>
     <message>
-        <source>Landscape Workspace</source>
-        <translation>Espacio de trabajo horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait Workspace</source>
-        <translation>Espacio de trabajo vertical</translation>
-    </message>
-    <message>
         <source>Auto Workspace (Follow Canvas)</source>
         <translation>Espacio de trabajo automático (según el lienzo)</translation>
     </message>
@@ -16920,8 +16880,24 @@ LA PRÓXIMA</translation>
         <translation>Ajustes…</translation>
     </message>
     <message>
+        <source>Done arranging</source>
+        <translation>Listo</translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation>Distribuir paneles</translation>
+    </message>
+    <message>
         <source>Debug Info…</source>
         <translation>Información de depuración…</translation>
+    </message>
+    <message>
+        <source>Save workspace</source>
+        <translation>Guardar espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>My workspace</source>
+        <translation>Mi espacio de trabajo</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -24788,6 +24764,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tendencias</translation>
     </message>
     <message>
+        <source>VFX</source>
+        <translation>VFX</translation>
+    </message>
+    <message>
         <source>Backgrounds</source>
         <translation>Fondos</translation>
     </message>
@@ -32150,6 +32130,119 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceMenu</name>
+    <message>
+        <source>Workspace</source>
+        <translation>Espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation>Automático (según el lienzo)</translation>
+    </message>
+    <message>
+        <source>Done arranging</source>
+        <translation>Listo</translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation>Distribuir paneles</translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation>Biblioteca</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation>Propiedades</translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation>Línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Save as new workspace…</source>
+        <translation>Guardar como espacio de trabajo nuevo…</translation>
+    </message>
+    <message>
+        <source>Reset «%1»</source>
+        <translation>Restablecer «%1»</translation>
+    </message>
+    <message>
+        <source>Delete «%1»</source>
+        <translation>Eliminar «%1»</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceView</name>
+    <message>
+        <source>Library</source>
+        <translation>Biblioteca</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation>Propiedades</translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation>Línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Hide this panel</source>
+        <translation>Ocultar este panel</translation>
+    </message>
+</context>
+<context>
+    <name>Workspaces</name>
+    <message>
+        <source>Standard</source>
+        <translation>Estándar</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation>Vertical</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Graphics and text</source>
+        <translation>Gráficos y texto</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation>Bibliotecas</translation>
+    </message>
+    <message>
+        <source>Small screen</source>
+        <translation>Pantalla pequeña</translation>
+    </message>
+    <message>
+        <source>Review</source>
+        <translation>Revisión</translation>
     </message>
 </context>
 <context>

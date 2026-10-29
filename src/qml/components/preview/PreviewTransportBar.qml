@@ -239,6 +239,7 @@ Item {
         IconButton {
             readonly property var win: bar.Window.window
             readonly property bool mismatch: !!win && win.portraitWorkspace !== undefined
+                                             && (win.workspaceLayout === "landscape" || win.workspaceLayout === "portrait")
                                              && EditorState.projectPortrait !== win.portraitWorkspace
             Layout.alignment: Qt.AlignVCenter
             visible: mismatch && !bar.fullscreen && Qt.platform.os !== "android"

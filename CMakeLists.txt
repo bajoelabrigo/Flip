@@ -1485,6 +1485,9 @@ qt_add_qml_module(drift
         src/qml/components/LottieHoverSprite.qml
         src/qml/components/TextStylePackPicker.qml
         src/qml/components/NameDialog.qml
+        src/qml/components/WorkspaceView.qml
+        src/qml/components/Workspaces.qml
+        src/qml/components/WorkspaceMenu.qml
         src/qml/components/SolidDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml

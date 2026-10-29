@@ -12,6 +12,7 @@
 #include <QLocale>
 #include <QProcess>
 #include <QScreen>
+#include <QRegularExpression>
 #include <QSettings>
 #include <QTranslator>
 #include <QVariantMap>
@@ -175,9 +176,9 @@ PreferencesController::PreferencesController(QObject *parent)
     const QVariant storedWorkspace = settings.value(QStringLiteral("ui/workspaceLayout"));
     m_workspaceLayoutOverridden = storedWorkspace.isValid();
     if (m_workspaceLayoutOverridden) {
-        m_workspaceLayoutPreferred = storedWorkspace.toString() == QStringLiteral("portrait")
-            ? QStringLiteral("portrait")
-            : QStringLiteral("landscape");
+        static const QRegularExpression valid(QStringLiteral("^(user:\\d+|[a-z]+)$"));
+        const QString stored = storedWorkspace.toString();
+        m_workspaceLayoutPreferred = valid.match(stored).hasMatch() ? stored : QStringLiteral("landscape");
     }
 }
 
@@ -214,9 +215,10 @@ void PreferencesController::clearDarkModePreference()
 
 void PreferencesController::setWorkspaceLayoutPreference(const QString &layout)
 {
-    const QString normalized = layout == QStringLiteral("portrait")
-        ? QStringLiteral("portrait")
-        : QStringLiteral("landscape");
+    // Any workspace (0.26: Standard = "landscape", Vertical = "portrait", Animation, Effects… and
+    // the user's own "user:N"); anything else is the standard one.
+    static const QRegularExpression valid(QStringLiteral("^(user:\\d+|[a-z]+)$"));
+    const QString normalized = valid.match(layout).hasMatch() ? layout : QStringLiteral("landscape");
     if (m_workspaceLayoutOverridden && m_workspaceLayoutPreferred == normalized)
         return;
     m_workspaceLayoutOverridden = true;

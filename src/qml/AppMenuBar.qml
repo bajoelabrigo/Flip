@@ -471,26 +471,8 @@ Row {
                 onTriggered: root.dispatch("toggleRulers")
             }
             ThemedMenuSeparator {}
-            ThemedContextMenu {
-                title: qsTr("Workspace")
-
-                ThemedMenuItem {
-                    text: qsTr("Auto (follow canvas)")
-                    icon.name: EditorState.preferences.workspaceLayoutOverridden ? "" : Theme.icons.check
-                    onTriggered: EditorState.preferences.clearWorkspaceLayoutPreference()
-                }
-                ThemedMenuItem {
-                    text: qsTr("Landscape")
-                    icon.name: EditorState.preferences.workspaceLayoutOverridden
-                               && EditorState.preferences.workspaceLayoutPreferred === "landscape" ? Theme.icons.check : ""
-                    onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("landscape")
-                }
-                ThemedMenuItem {
-                    text: qsTr("Portrait")
-                    icon.name: EditorState.preferences.workspaceLayoutOverridden
-                               && EditorState.preferences.workspaceLayoutPreferred === "portrait" ? Theme.icons.check : ""
-                    onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("portrait")
-                }
+            WorkspaceMenu {
+                win: root.win
             }
             ThemedContextMenu {
                 title: qsTr("Theme")

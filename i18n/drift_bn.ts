@@ -6757,22 +6757,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation type="unfinished">কর্মক্ষেত্র</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation type="unfinished">স্বয়ংক্রিয় (ক্যানভাস অনুযায়ী)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation type="unfinished">আড়াআড়ি</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation type="unfinished">লম্বালম্বি</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation type="unfinished">থিম</translation>
     </message>
@@ -14000,22 +13984,6 @@ NEXT TIME</source>
         <translation>মাল্টিক্যাম</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>কর্মক্ষেত্র</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>স্বয়ংক্রিয় (ক্যানভাস অনুযায়ী)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>আড়াআড়ি</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>লম্বালম্বি</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>থিম</translation>
     </message>
@@ -16852,14 +16820,6 @@ NEXT TIME</source>
         <translation>উইন্ডো (&amp;W)</translation>
     </message>
     <message>
-        <source>Landscape Workspace</source>
-        <translation type="unfinished">ল্যান্ডস্কেপ ওয়ার্কস্পেস</translation>
-    </message>
-    <message>
-        <source>Portrait Workspace</source>
-        <translation type="unfinished">পোর্ট্রেট ওয়ার্কস্পেস</translation>
-    </message>
-    <message>
         <source>Auto Workspace (Follow Canvas)</source>
         <translation type="unfinished">অটো ওয়ার্কস্পেস (ক্যানভাস অনুসরণ করুন)</translation>
     </message>
@@ -16920,8 +16880,24 @@ NEXT TIME</source>
         <translation type="unfinished">সেটিংস…</translation>
     </message>
     <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug Info…</source>
         <translation type="unfinished">ডিবাগ তথ্য…</translation>
+    </message>
+    <message>
+        <source>Save workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My workspace</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -24784,6 +24760,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>VFX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Backgrounds</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32146,6 +32126,119 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceMenu</name>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as new workspace…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceView</name>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide this panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Workspaces</name>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics and text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Review</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
