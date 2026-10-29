@@ -192,6 +192,88 @@ SkPath offsetOutline(const SkPath &path, double amount)
     return result;
 }
 
+// Pucker & Bloat (0.26), as After Effects: `amount` (percent, -100..100) pulls every vertex towards
+// the centre of the vertices and pushes its handles away (positive: bloat, petals swelling out), or
+// the other way round (negative: pucker, points drawn out to spikes). Straight sides count as curves
+// whose handles sit on their vertices, so a polygon turns into a flower as in AE.
+SkPath puckerBloated(const SkPath &path, double amount)
+{
+    const float k = float(amount / 100.0);
+    if (qAbs(k) < 1e-4)
+        return path;
+    struct Seg { bool move = false, close = false; SkPoint a, b, c, d; };
+    std::vector<Seg> segs;
+    double sx = 0.0, sy = 0.0;
+    int n = 0;
+    SkPoint last{0, 0};
+    SkPath::Iter iter(path, false);
+    SkPoint pts[4];
+    const auto cubic = [&](SkPoint b, SkPoint c, SkPoint d) {
+        Seg s;
+        s.a = last; s.b = b; s.c = c; s.d = d;
+        segs.push_back(s);
+        last = d;
+        sx += d.x(); sy += d.y(); ++n;
+    };
+    const auto quad = [&](SkPoint q, SkPoint d) {
+        cubic(last + (q - last) * (2.0f / 3.0f), d + (q - d) * (2.0f / 3.0f), d);
+    };
+    for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+        switch (verb) {
+        case SkPath::kMove_Verb: {
+            Seg s;
+            s.move = true;
+            s.d = pts[0];
+            segs.push_back(s);
+            last = pts[0];
+            sx += last.x(); sy += last.y(); ++n;
+            break;
+        }
+        case SkPath::kLine_Verb:
+            cubic(last, pts[1], pts[1]);
+            break;
+        case SkPath::kQuad_Verb:
+            quad(pts[1], pts[2]);
+            break;
+        case SkPath::kConic_Verb: {
+            SkPoint q[1 + 2 * 4];
+            const int count = SkPath::ConvertConicToQuads(pts[0], pts[1], pts[2], iter.conicWeight(), q, 2);
+            for (int i = 0; i < count; ++i)
+                quad(q[1 + 2 * i], q[2 + 2 * i]);
+            break;
+        }
+        case SkPath::kCubic_Verb:
+            cubic(pts[1], pts[2], pts[3]);
+            break;
+        case SkPath::kClose_Verb: {
+            Seg s;
+            s.close = true;
+            segs.push_back(s);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    if (n == 0)
+        return path;
+    const SkPoint centre{float(sx / n), float(sy / n)};
+    const auto vertex = [&](SkPoint p) { return p + (centre - p) * k; };
+    const auto handle = [&](SkPoint p) { return p - (centre - p) * k; };
+    SkPathBuilder out;
+    for (const Seg &s : segs) {
+        if (s.move)
+            out.moveTo(vertex(s.d));
+        else if (s.close)
+            out.close();
+        else
+            out.cubicTo(handle(s.b), handle(s.c), vertex(s.d));
+    }
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
 // Zig Zag and Twist (0.26): every contour resampled, each point pushed alternately either side of
 // the outline (zig zag), then turned about `centre` by twist × its distance from the centre over
 // the farthest one.
@@ -344,11 +426,13 @@ public:
         m_silhouetteStrokePx = widestOutwardStroke(style) * m_scale * 2.0;
         m_boxW = width;
         m_boxH = height;
-        // After Effects' order down the stack: merge, offset, zig zag / twist, wiggle, trim.
+        // After Effects' order down the stack: merge, offset, pucker & bloat, zig zag / twist, wiggle, trim.
         if (m_style.mergeMode >= 0.5)
             m_path = mergedPath(m_path, qRound(m_style.mergeMode));
         if (qAbs(m_style.offsetPath) >= 0.01)
             m_path = offsetOutline(m_path, m_style.offsetPath * m_scale);
+        if (qAbs(m_style.puckerBloat) > 1e-6)
+            m_path = puckerBloated(m_path, m_style.puckerBloat);
         if (m_style.zigzagSize > 0.0 || qAbs(m_style.twistAngle) > 1e-6)
             m_path = zigzagTwisted(m_path, m_style.zigzagSize * m_scale, qRound(m_style.zigzagRidges),
                                    m_style.zigzagSmooth >= 0.5, m_style.twistAngle,

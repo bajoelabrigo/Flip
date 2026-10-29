@@ -120,6 +120,9 @@ struct ShapeStyle
     double zigzagRidges = 12.0;
     double zigzagSmooth = 0.0;
     double twistAngle = 0.0;
+    // Pucker & Bloat (0.26): percent, -100..100. Vertices towards the centre and handles away
+    // (positive, bloat) or the other way (negative, pucker), as After Effects.
+    double puckerBloat = 0.0;
 
     // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
     // each key, the index of that key's outline in pathShapes. Between two keys the outlines

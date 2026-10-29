@@ -19490,7 +19490,15 @@ ZOBACZENIA</translation>
 <context>
     <name>PenToolOverlay</name>
     <message>
+        <source>Convert vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add vertex</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -23159,7 +23167,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <source>As in After Effects. Edit points: click a point to select it, Shift+click or drag a box for several, drag to move them, drag a line to bend it, Delete removes them and the arrows nudge them. Alt+click turns a point corner or smooth, Alt+drag pulls new handles, Ctrl+click removes it. Pen: click for corners, click and drag for curves, click the first point to close, Enter to leave it open; over a selected shape it adds a point on a line, carries on an open end, or starts another path. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23176,6 +23184,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Draw with the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path runs the other way: Trim Paths draws it from the other end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23323,11 +23347,15 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Offset, zig zag and twist</source>
+        <source>Offset, pucker, zig zag and twist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offset paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23595,6 +23623,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Twist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

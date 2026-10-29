@@ -19417,8 +19417,16 @@ LA PRÓXIMA</translation>
 <context>
     <name>PenToolOverlay</name>
     <message>
+        <source>Convert vertex</source>
+        <translation>Convertir vértice</translation>
+    </message>
+    <message>
         <source>Path edited</source>
         <translation>Trazado editado</translation>
+    </message>
+    <message>
+        <source>Add vertex</source>
+        <translation>Añadir vértice</translation>
     </message>
 </context>
 <context>
@@ -23079,8 +23087,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Trazado</translation>
     </message>
     <message>
-        <source>Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
-        <translation>Arrastra los puntos en la vista previa. Alt+clic en un punto lo vuelve esquina o lo suaviza otra vez; Ctrl+clic lo quita. Con el cronómetro encendido, cada cambio es una clave en el cabezal y la forma se transforma de una a otra.</translation>
+        <source>As in After Effects. Edit points: click a point to select it, Shift+click or drag a box for several, drag to move them, drag a line to bend it, Delete removes them and the arrows nudge them. Alt+click turns a point corner or smooth, Alt+drag pulls new handles, Ctrl+click removes it. Pen: click for corners, click and drag for curves, click the first point to close, Enter to leave it open; over a selected shape it adds a point on a line, carries on an open end, or starts another path. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <translation>Como en After Effects. Editar puntos: haz clic en un punto para elegirlo, Mayús+clic o arrastra un recuadro para elegir varios, arrástralos para moverlos, arrastra una línea para curvarla, Suprimir los borra y las flechas los mueven de a poco. Alt+clic cambia un punto entre esquina y suave, Alt+arrastrar saca tiradores nuevos, Ctrl+clic lo borra. Pluma: clic para esquinas, clic y arrastrar para curvas, clic en el primer punto para cerrar, Intro para dejarlo abierto; sobre una forma elegida añade un punto en una línea, sigue un extremo abierto o empieza otro trazado. Con el cronómetro encendido, cada cambio es una clave en el cabezal y la forma se transforma entre ellas.</translation>
     </message>
     <message>
         <source>This shape becomes an editable path when you edit its points.</source>
@@ -23097,6 +23105,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Draw with the pen</source>
         <translation>Dibujar con la pluma</translation>
+    </message>
+    <message>
+        <source>Open path</source>
+        <translation>Abrir trazado</translation>
+    </message>
+    <message>
+        <source>Close path</source>
+        <translation>Cerrar trazado</translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation>Invertir dirección</translation>
+    </message>
+    <message>
+        <source>The path runs the other way: Trim Paths draws it from the other end</source>
+        <translation>El trazado va al revés: Recortar trazados lo dibuja desde el otro extremo</translation>
     </message>
     <message>
         <source>Animate the path</source>
@@ -23243,12 +23267,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Excluir intersecciones</translation>
     </message>
     <message>
-        <source>Offset, zig zag and twist</source>
-        <translation>Desplazar, zigzag y retorcer</translation>
+        <source>Offset, pucker, zig zag and twist</source>
+        <translation>Desplazar, fruncir, zigzag y torcer</translation>
     </message>
     <message>
         <source>Offset paths</source>
         <translation>Desplazar trazados</translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation>Fruncir e inflar</translation>
     </message>
     <message>
         <source>Zig zag size</source>
@@ -23516,6 +23544,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Twist</source>
         <translation>Retorcer</translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation>Fruncir e inflar</translation>
     </message>
     <message>
         <source>Points</source>

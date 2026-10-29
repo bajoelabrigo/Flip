@@ -547,6 +547,7 @@ constexpr KnobField kKnobs[] = {
     {"zigzagRidges", QT_TRANSLATE_NOOP("ShapeStyle", "Ridges"), &ShapeStyle::zigzagRidges, 1.0, 200.0},
     {"zigzagSmooth", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth points"), &ShapeStyle::zigzagSmooth, 0.0, 1.0},
     {"twistAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Twist"), &ShapeStyle::twistAngle, -3600.0, 3600.0},
+    {"puckerBloat", QT_TRANSLATE_NOOP("ShapeStyle", "Pucker & Bloat"), &ShapeStyle::puckerBloat, -100.0, 100.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -729,7 +730,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
                         style.repeatStartOpacity, style.repeatEndOpacity)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
            ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
-                        style.zigzagSmooth, style.twistAngle)
+                        style.zigzagSmooth, style.twistAngle, style.puckerBloat)
            ^ qHash(style.pathShapes);
 }
 

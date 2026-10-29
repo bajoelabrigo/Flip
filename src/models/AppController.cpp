@@ -2112,7 +2112,7 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
     for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat"}) {
         double value = 0.0;
         if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
             map.insert(QLatin1String(key), value);
@@ -11113,6 +11113,135 @@ void AppController::addPenShape(const QVariantList &points, bool closed)
     selectClip(target, newClipIndex);
 }
 
+QString AppController::beginPenShape(const QString &clipId)
+{
+    if (!m_penShapeId.isEmpty())
+        finishPenShape(true);
+    beginEditSession(tr("Pen"));
+    int t = -1;
+    int c = -1;
+    if (!clipId.isEmpty() && findClipById(m_project, clipId, &t, &c)
+        && m_project.tracks().at(t).clips.at(c).type == drift::ClipType::Shape) {
+        if (m_project.tracks().at(t).clips.at(c).shapeStyle.kind != drift::ShapeKind::Custom) {
+            selectClip(t, c);
+            convertSelectionToShape();
+        }
+        m_penShapeId = clipId;
+        selectClip(t, c);
+        return clipId;
+    }
+    const drift::Project before = m_project;
+    const double W = m_project.width();
+    const double H = m_project.height();
+    const drift::TimeUs start = m_playheadUs;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::defaultStillDurationUs(), true);
+    if (target < 0) {
+        endEditSession(false);
+        return {};
+    }
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Shape layer");
+    clip.shapeStyle.kind = drift::ShapeKind::Custom;
+    clip.shapeStyle.customPath = QStringLiteral("M 0 0 Z");
+    const QString fill = m_preview ? m_preview->toolFill() : QString();
+    QString stroke = m_preview ? m_preview->toolStroke() : QStringLiteral("#ffffff");
+    double strokeWidth = m_preview ? m_preview->toolStrokeWidth() : 0.0;
+    paintDrawnShape(clip.shapeStyle, fill, stroke, strokeWidth);
+    drift::Track &track = m_project.tracks()[target];
+    clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::defaultStillDurationUs(),
+                                                 m_snapEnabled, m_playheadUs);
+    clip.timelineDuration = drift::defaultStillDurationUs();
+    clip.srcIn = 0;
+    clip.srcOut = clip.timelineDuration;
+    // The whole canvas while drawing: the preview writes the path in canvas fractions.
+    setClipLayoutPixels(clip, 0.0, 0.0, W, H);
+    track.clips.append(clip);
+    m_penShapeId = clip.id;
+    pushProjectEdit(before, tr("Pen"));
+    finishEdit(tr("Pen"));
+    if (findClipById(m_project, clip.id, &t, &c))
+        selectClip(t, c);
+    return clip.id;
+}
+
+void AppController::finishPenShape(bool keep)
+{
+    const QString id = m_penShapeId;
+    m_penShapeId.clear();
+    if (id.isEmpty())
+        return;
+    int t = -1;
+    int c = -1;
+    if (!findClipById(m_project, id, &t, &c)) {
+        endEditSession(keep);
+        return;
+    }
+    drift::Clip &clip = m_project.tracks()[t].clips[c];
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    QList<drift::PathContour> contours = drift::pathContoursFromSvg(drift::shapePathAt(clip.shapeStyle, rel));
+    // Contours of fewer than two points are no path.
+    contours.erase(std::remove_if(contours.begin(), contours.end(),
+                                  [](const drift::PathContour &k) { return k.vertices.size() < 2; }),
+                   contours.end());
+    if (!keep || contours.isEmpty()) {
+        endEditSession(false);
+        return;
+    }
+    const drift::Project before = m_project;
+    bool open = false;
+    for (const drift::PathContour &k : std::as_const(contours))
+        open = open || !k.closed;
+    // An open path with no stroke would show nothing but its fill's chord: give it one, as AE's
+    // default stroke.
+    bool stroked = false;
+    for (const drift::TextShadingLayer &layer : std::as_const(clip.shapeStyle.layers))
+        stroked = stroked || (layer.enabled && layer.kind == drift::TextLayerKind::Stroke && layer.width > 0.0);
+    if (open && !stroked) {
+        for (drift::TextShadingLayer &layer : clip.shapeStyle.layers) {
+            if (layer.kind == drift::TextLayerKind::Stroke) {
+                layer.enabled = true;
+                layer.width = 6.0;
+                layer.strokeAlign = drift::StrokeAlign::Center;
+                if (!layer.paint.color.isValid() || layer.paint.color.alpha() == 0)
+                    layer.paint.color = Qt::white;
+            }
+        }
+    }
+    // The box fitted to the path (at least 64 px each way, so a straight line can be drawn), unless
+    // the path or the box is animated.
+    const auto it = clip.shapeStyle.keyframes.constFind(QLatin1String(drift::kShapePathKey));
+    const bool animated = it != clip.shapeStyle.keyframes.constEnd() && !it->isEmpty();
+    const auto single = [](const drift::KeyframeTrack<double> &k) { return k.keyframes().size() <= 1; };
+    if (!animated && single(clip.transformX) && single(clip.transformY) && single(clip.transformW)
+        && single(clip.transformH)) {
+        const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
+        const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+        const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+        const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+        QRectF fit = atLeastOnePixel(drift::pathContoursBounds(contours));
+        const double minW = 64.0 / qMax(1e-6, w) * 100.0;
+        const double minH = 64.0 / qMax(1e-6, h) * 100.0;
+        if (fit.width() < minW)
+            fit.adjust(-(minW - fit.width()) / 2.0, 0, (minW - fit.width()) / 2.0, 0);
+        if (fit.height() < minH)
+            fit.adjust(0, -(minH - fit.height()) / 2.0, 0, (minH - fit.height()) / 2.0);
+        setClipLayoutPixels(clip, x + fit.left() / 100.0 * w, y + fit.top() / 100.0 * h, fit.width() / 100.0 * w,
+                            fit.height() / 100.0 * h);
+        clip.shapeStyle.customPath = drift::svgFromPathContours(refitContours(contours, fit));
+    } else {
+        drift::setShapePathAt(clip.shapeStyle, rel, drift::svgFromPathContours(contours),
+                              drift::frameDurationUs(m_project.fps()) / 2);
+    }
+    pushProjectEdit(before, tr("Pen"));
+    finishEdit(tr("Shape drawn"));
+    endEditSession(true);
+    if (findClipById(m_project, id, &t, &c))
+        selectClip(t, c);
+}
+
 QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
 {
     QVariantMap out{{QStringLiteral("editable"), false}};
@@ -11166,7 +11295,8 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     const QRectF bounds = drift::pathContoursBounds(parsed);
     // A still outline that left its box takes the box with it, so the frame and grips fit it again.
     // An animated one (or a moving box) keeps the box; the painter's margin covers the overflow.
-    if (!animated && !m_previewDragActive && single(clip.transformX) && single(clip.transformY)
+    if (!animated && !m_previewDragActive && m_penShapeId != clip.id && single(clip.transformX)
+        && single(clip.transformY)
         && single(clip.transformW) && single(clip.transformH)
         && (bounds.left() < -0.01 || bounds.top() < -0.01 || bounds.right() > 100.01 || bounds.bottom() > 100.01)) {
         const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
@@ -19266,7 +19396,7 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
     for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat"}) {
         if (m.contains(QLatin1String(key)))
             drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
     }

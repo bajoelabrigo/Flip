@@ -342,6 +342,7 @@ QJsonObject shapeStyleSchema()
         {QStringLiteral("zigzagRidges"), numberProp(QStringLiteral("Zig Zag ridges per contour"), 0, 100)},
         {QStringLiteral("zigzagSmooth"), numberProp(QStringLiteral("Zig Zag smooth points, 0 or 1"), 0, 1)},
         {QStringLiteral("twistAngle"), numberProp(QStringLiteral("Twist, degrees at the edge"), -3600, 3600)},
+        {QStringLiteral("puckerBloat"), numberProp(QStringLiteral("Pucker & Bloat, percent (negative puckers)"), -100, 100)},
     });
     s.insert(QStringLiteral("description"),
              QStringLiteral("Partial style patch; only supplied keys change. Each geometry knob is read by a subset of shape kinds"));

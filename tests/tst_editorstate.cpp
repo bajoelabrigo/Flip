@@ -135,6 +135,7 @@ private slots:
     void shapeAsFixedOrStuckMask();
     void squashAnimationWritesKeysAndDeformer();
     void morphAndLiquidTools();
+    void penDrawsTheShapeLayerLive();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -12934,6 +12935,65 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
 
 // A shape as another clip's mask (0.26): the clip takes it as its alpha matte; "stuck" parents the
 // shape to the clip, "fixed" leaves it on screen; switching between the two is one undo step each.
+void EditorStateTest::penDrawsTheShapeLayerLive()
+{
+    // After Effects' Pen (0.26, Jorge): the layer is on the timeline from the first click, an open
+    // path is kept with a stroke, the box fits the path, and the whole drawing undoes at once.
+    AssetLibrary library;
+    AppController state(&library);
+    const auto count = [&] {
+        int n = 0;
+        for (const drift::Track &track : state.project()->tracks())
+            n += int(track.clips.size());
+        return n;
+    };
+    const int before = count();
+    const QString id = state.beginPenShape(QString());
+    QVERIFY(!id.isEmpty());
+    QCOMPARE(state.penShapeClipId(), id);
+    QCOMPARE(count(), before + 1);
+    const auto vertex = [](double x, double y) {
+        return QVariantMap{{QStringLiteral("x"), x}, {QStringLiteral("y"), y}, {QStringLiteral("ix"), x},
+                           {QStringLiteral("iy"), y}, {QStringLiteral("ox"), x}, {QStringLiteral("oy"), y}};
+    };
+    // Canvas fractions while drawing: a line from a quarter to three quarters across.
+    QVariantList points{vertex(0.25, 0.5)};
+    state.setShapePathPoints(state.selectedTrack(), state.selectedClip(),
+                             {QVariantMap{{QStringLiteral("closed"), false}, {QStringLiteral("points"), points}}});
+    points.append(vertex(0.75, 0.25));
+    state.setShapePathPoints(state.selectedTrack(), state.selectedClip(),
+                             {QVariantMap{{QStringLiteral("closed"), false}, {QStringLiteral("points"), points}}});
+    state.finishPenShape(true);
+    QVERIFY(state.penShapeClipId().isEmpty());
+    QCOMPARE(count(), before + 1);
+    const drift::Clip &clip = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip());
+    QCOMPARE(clip.id, id);
+    const double W = state.project()->width();
+    const double H = state.project()->height();
+    QVERIFY(std::abs(clip.transformX.evaluateAt(0) - 0.25 * W) < 2.0);
+    QVERIFY(std::abs(clip.transformW.evaluateAt(0) - 0.5 * W) < 2.0);
+    QVERIFY(std::abs(clip.transformY.evaluateAt(0) - 0.25 * H) < 2.0);
+    bool stroked = false;
+    for (const drift::TextShadingLayer &layer : clip.shapeStyle.layers)
+        stroked = stroked || (layer.enabled && layer.kind == drift::TextLayerKind::Stroke && layer.width > 0.0);
+    QVERIFY(stroked);
+    state.undo();
+    QCOMPARE(count(), before);
+
+    // Taken back: nothing stays.
+    state.beginPenShape(QString());
+    state.finishPenShape(false);
+    QCOMPARE(count(), before);
+
+    // Pucker & Bloat is a keyable operator that changes the pixels.
+    drift::ShapeStyle style;
+    const quint64 plain = drift::shapeStyleHash(style);
+    QVERIFY(drift::setShapeStyleScalar(style, QStringLiteral("puckerBloat"), 60.0));
+    QCOMPARE(style.puckerBloat, 60.0);
+    QVERIFY(drift::shapeStyleHash(style) != plain);
+    QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
 void EditorStateTest::motionToolsTrimBendAndCaps()
 {
     AssetLibrary library;

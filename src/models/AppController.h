@@ -695,6 +695,17 @@ public:
     // [{x, y, ix, iy, ox, oy}] in canvas px (the vertex and its two handles), closed or open. A
     // closed outline is filled, an open one stroked. It becomes the selection.
     Q_INVOKABLE void addPenShape(const QVariantList &points, bool closed);
+    // After Effects' Pen, live (0.26, Jorge): the first click makes the shape layer at once, as AE
+    // does. beginPenShape opens an undo session and, with `clipId` empty, adds a custom shape whose
+    // box is the whole canvas (so the preview writes the path in canvas fractions while drawing),
+    // painted with the toolbar's fill and stroke; with a shape's id it draws on that one (another
+    // path in the same layer, or carrying on an open one). It returns the clip's id and selects it.
+    // While it lasts, setShapePathPoints does not refit the box. finishPenShape refits the box to the
+    // path, gives an open path a stroke if it has none, and closes the session as one undo step;
+    // with `keep` false (or no path of two points) the drawing is taken back.
+    Q_INVOKABLE QString beginPenShape(const QString &clipId);
+    Q_INVOKABLE void finishPenShape(bool keep);
+    Q_INVOKABLE QString penShapeClipId() const { return m_penShapeId; }
     // The Shape tool (0.26): a shape of `kind` dragged out on the preview, the box in canvas px,
     // painted with the toolbar's fill and stroke ("none" for either leaves it off).
     Q_INVOKABLE void addDrawnShape(const QString &kind, double x, double y, double w, double h,
@@ -2842,6 +2853,8 @@ protected:
     void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
     QList<QPair<int, int>> m_selection;
+    // The shape the Pen is drawing (0.26): its box is not refitted until finishPenShape.
+    QString m_penShapeId;
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
     QString m_keyframeRowsOnlyGroup;

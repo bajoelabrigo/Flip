@@ -378,6 +378,22 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 - Dónde están los efectos de AE (pregunta de Jorge): Efectos › categorías «Generar y simular» (Ruido fractal, Mundo de
   partículas, Se hace añicos, Desplazamiento turbulento, Rampa de degradado, Ondas de radio) y «Estilos de capa»
   (también como botones en Fusión); la Marioneta está en «Glitch» y en la barra de la vista previa.
+## Etapa I — Pluma y trazados como After Effects (Jorge, 2026-10-29: «que no tenga nada que envidiar al sistema de formas de After Effects»)
+
+- **Pluma en vivo** (`AppController::beginPenShape` / `finishPenShape`, `PenToolOverlay.qml`): el primer clic ya crea
+  la capa de forma en la pista (antes aparecía solo al cerrar). Clic = esquina; clic y arrastrar = curva (Alt mueve
+  solo el tirador de salida, Mayús a 45°); clic en el primer punto cierra; Intro, Esc, doble clic o clic derecho
+  terminan dejándolo abierto (con trazo blanco de 6 px si no tenía); Retroceso quita el último punto; todo el dibujo
+  se deshace de una vez. La caja se ajusta al trazado al terminar.
+- **Pluma sobre una forma elegida:** clic en una línea añade un vértice sin cambiar la curva (de Casteljau),
+  Ctrl+clic borra, Alt+clic esquina ⇄ suave, Alt+arrastrar saca tiradores, clic en un extremo abierto lo continúa,
+  clic fuera empieza otro trazado en la misma capa. Pista junto al cursor (+ − ^ / ○).
+- **Editar puntos (Selección):** clic elige, Mayús+clic suma, recuadro para varios, arrastrar mueve todos, Suprimir
+  borra, flechas 1 px (Mayús 10), Ctrl+A todos, arrastrar una línea la curva, tiradores en pareja salvo con Alt.
+- Inspector › Trazado: **Cerrar/Abrir trazado** e **Invertir dirección**; operador nuevo **Fruncir e inflar**
+  (`ShapeStyle::puckerBloat`, −100…100 %, con claves, `puckerBloated` en `SkiaShapePainter`, como el de Lottie).
+- Prueba `penDrawsTheShapeLayerLive`. **Falta:** build de CI y probarlo en ventana.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

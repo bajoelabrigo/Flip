@@ -324,7 +324,8 @@ Item {
                 ThemedLabel {
                     width: parent.width
                     opacity: 0.8
-                    text: qsTr("Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.")
+                    wrapMode: Text.WordWrap
+                    text: qsTr("As in After Effects. Edit points: click a point to select it, Shift+click or drag a box for several, drag to move them, drag a line to bend it, Delete removes them and the arrows nudge them. Alt+click turns a point corner or smooth, Alt+drag pulls new handles, Ctrl+click removes it. Pen: click for corners, click and drag for curves, click the first point to close, Enter to leave it open; over a selected shape it adds a point on a line, carries on an open end, or starts another path. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.")
                 }
                 ThemedLabel {
                     width: parent.width
@@ -353,6 +354,48 @@ Item {
                         text: qsTr("Draw with the pen")
                         variant: "secondary"
                         onClicked: EditorState.preview.penMode = true
+                    }
+                }
+                // Close or open every path, and reverse its direction (where Trim Paths starts).
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    visible: root.shapeStyle.kind === "custom" && (parent.pathState.contours || []).length > 0
+                    readonly property bool allClosed: {
+                        const list = parent.pathState.contours || []
+                        for (const k of list)
+                            if (!k.closed)
+                                return false
+                        return list.length > 0
+                    }
+                    function rewrite(change) {
+                        const list = JSON.parse(JSON.stringify(parent.pathState.contours || []))
+                        for (const k of list)
+                            change(k)
+                        EditorState.setShapePathPoints(EditorState.selectedTrack, EditorState.selectedClip, list)
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: parent.allClosed ? qsTr("Open path") : qsTr("Close path")
+                        variant: "secondary"
+                        onClicked: {
+                            const close = !parent.allClosed
+                            parent.rewrite(k => { k.closed = close })
+                        }
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Reverse direction")
+                        tooltip: qsTr("The path runs the other way: Trim Paths draws it from the other end")
+                        variant: "secondary"
+                        onClicked: parent.rewrite(k => {
+                            k.points.reverse()
+                            for (const p of k.points) {
+                                const ix = p.ix, iy = p.iy
+                                p.ix = p.ox; p.iy = p.oy
+                                p.ox = ix; p.oy = iy
+                            }
+                        })
                     }
                 }
                 ThemedSwitch {
@@ -645,9 +688,9 @@ Item {
 
         CollapsibleSection {
             width: parent.width
-            title: qsTr("Offset, zig zag and twist")
+            title: qsTr("Offset, pucker, zig zag and twist")
             expanded: Number(root.shapeStyle.offsetPath || 0) !== 0 || Number(root.shapeStyle.zigzagSize || 0) > 0
-                      || Number(root.shapeStyle.twistAngle || 0) !== 0
+                      || Number(root.shapeStyle.twistAngle || 0) !== 0 || Number(root.shapeStyle.puckerBloat || 0) !== 0
 
             Column {
                 width: parent.width
@@ -663,6 +706,17 @@ Item {
                     inputFrom: -500
                     inputTo: 500
                     unit: "px"
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("puckerBloat", qsTr("Pucker & Bloat"), 0)
+                    keyframeList: root.knobKeyframes("puckerBloat")
+                    useSlider: true
+                    sliderFrom: -100
+                    sliderTo: 100
+                    inputFrom: -100
+                    inputTo: 100
+                    unit: "%"
                 }
                 Row {
                     width: parent.width
