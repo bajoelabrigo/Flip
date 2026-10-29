@@ -52,9 +52,15 @@ class Mass:
             # to (radians; the back of a puff thrown forward, so it curls into a C).
             if len(lobe) > 7 and lobe[7] > 0:
                 k = lobe[7]
-                hx = cx + math.cos(lobe[8]) * r * 0.55
-                hy = cy + math.sin(lobe[8]) * r * 0.55
-                holes = np.maximum(holes, bump(X, Y, hx, hy, r * (0.3 + 0.9 * k), 1.0, 1.1))
+                # lobe[9], when given: how far off centre the hollow sits, and it then takes the
+                # puff's own shape, so a flat puff becomes a ring (a coil of a tornado).
+                off = lobe[9] if len(lobe) > 9 else 0.55
+                hx = cx + math.cos(lobe[8]) * r * off * (sx if len(lobe) > 9 else 1.0)
+                hy = cy + math.sin(lobe[8]) * r * off * (sy if len(lobe) > 9 else 1.0)
+                if len(lobe) > 9:
+                    holes = np.maximum(holes, bump(X, Y, hx, hy, r * (0.3 + 0.9 * k), sx, sy, ang))
+                else:
+                    holes = np.maximum(holes, bump(X, Y, hx, hy, r * (0.3 + 0.9 * k), 1.0, 1.1))
         d = mx + 0.05 * np.clip(sm, 0, 2) - 1.5 * holes
         dc = mc - 1.5 * holes
         ox, oy = origin
@@ -314,6 +320,44 @@ def make_slash():
     return render(s, slash(512, 512, 19, size=1.0))
 
 
+def ray(W, H, seed, size=1.0):
+    """A fire ray going up (RTFX's «Ray Up»): flat coils of flame wound round a rising column, like a
+    tornado seen from the side, each a C-shaped lick hollowed on alternate sides, the top ones
+    curling over; it burns out upward into hooked wisps."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, base = m.gw / 2, m.gh * 0.8
+    coils = [(i / 7, rnd.uniform(-1, 1), rnd.uniform(0.85, 1.15)) for i in range(8)]
+
+    def field(t):
+        lobes = []
+        for i, (h, j, js) in enumerate(coils):
+            born = h * 0.3
+            age = t - born
+            if age < 0 or age > 1.0:
+                continue
+            rise = (h * 90 + age * 40) * k
+            sway = math.sin(age * 7 + i * 1.3) * 16 * k
+            w = (44 + 14 * h) * js * k * min(1, age / 0.15)
+            x = cx + sway + j * 6 * k
+            y = base - rise
+            heart = 0.8 * max(0.0, 1 - max(0.0, age - 0.45) * 2.0)
+            side = 1 if i % 2 else -1
+            hole = 0.33 + 0.17 * max(0.0, min(1.0, (age - 0.1) / 0.5))
+            lobes.append((x, y, w, 1.0, 0.32, 0.08 * side, heart, hole, -math.pi / 2 + side * 0.5, 0.35))
+        return m.field(lobes, t, "up", (cx, base + 10 * k), 200 * k, 0.6, 0.6, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_ray():
+    s = new("ex-fuego-rayo-arriba", "Fuego · Rayo hacia arriba", "Fire · Ray up", "fuego", 32, 6006,
+            ["fuego", "fire", "rayo", "ray", "remolino"], size=512, thumb=0.35)
+    s.fps = 24
+    return render(s, ray(512, 512, 23, size=1.0))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -328,4 +372,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray]
