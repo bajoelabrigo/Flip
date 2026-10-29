@@ -1201,6 +1201,14 @@ public:
     // empty one is left as it is. One undo step. The state reads the first selected stroke:
     // {cap, join, strokes}.
     Q_INVOKABLE void setStrokeCaps(const QString &cap, const QString &join);
+    // Motion Tools › Elements (0.26, as the Super Morphings and Super Liquids scripts): our animated
+    // shape elements of a category ("morph", "liquid"), each one's layers at a progress for the
+    // gallery's live cards ([{color, svg}] on a 0..100 square), and putting one on the timeline at
+    // the playhead: a shape layer per layer, on tracks of their own, painted with `colors` (by each
+    // layer's colour index). One undo step; the new layers end up selected.
+    Q_INVOKABLE QVariantList shapeElements(const QString &category) const;
+    Q_INVOKABLE QVariantList shapeElementFrame(const QString &id, double progress) const;
+    Q_INVOKABLE void insertShapeElement(const QString &id, const QStringList &colors);
     // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
     // shapes (and the strokes of selected texts), `frames` long from the playhead. Modes: "in"
     // (draws on), "out" (draws off, ending at the clip's end), "inout", "centerIn", "centerOut",

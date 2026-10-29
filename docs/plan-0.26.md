@@ -277,7 +277,16 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
         en punta/redonda/biselada (`TextShadingLayer::cap/join`, JSON `cap`/`join` solo si no son redondos; los dos
         pintores de Skia).
       - Prueba `EditorStateTest::motionToolsTrimBendAndCaps`.
-- [ ] H4. **RTFX** (Jorge): es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
+- [x] H5. **Elementos** (Motion Tools, Jorge: como los scripts Super Morphings y Super Liquids, `.jsxbin` con todo
+      compilado dentro): 34 elementos propios (22 morphings: formas que se transforman unas en otras y transiciones de
+      círculo/cuadrado/estrella/corazón; 12 líquidos: mancha, gota y salpicadura, salpicadura, goteo, goteos, burbuja,
+      fusión viscosa, charco, estallido, transición líquida, ola). Generados con `tools/shape_elements/build.py` →
+      `presets/shape-elements/` (contornos de 48 puntos, 12 por segundo, todos con los mismos puntos para que el
+      morph sea limpio). `core/ShapeElement` (catálogo, `outlinesAt`), `AppController::shapeElements`,
+      `shapeElementFrame`, `insertShapeElement` (una capa de forma por capa, en pistas propias, con `pathShapes` y
+      claves `path` lineales; centrado = tamaño × lado corto; transición = cuadrado del tamaño de la diagonal).
+      `ShapeElementsPanel.qml`: Morphings / Líquidos, 8 paletas de 3 colores, tarjetas que se animan al pasar el mouse.
+- [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.
       Pendiente de empezar.

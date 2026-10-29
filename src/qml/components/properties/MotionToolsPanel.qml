@@ -18,7 +18,7 @@ Item {
     property real easeOut: 33
     // Motion Tools' third row: the speed the picked keys pass through (0 = they rest there).
     property real easeVelocity: 0
-    // Which tab is open: "tools", "trim", "bend" or "caps".
+    // Which tab is open: "tools", "trim", "bend", "caps" or "elements".
     property string tab: "tools"
     // As Motion Tools: the picked keys take the handles as they move, one undo step per drag.
     function applyEaseLive() {
@@ -104,14 +104,15 @@ Item {
             font.weight: Font.Bold
         }
         // Tools, and the scripts motion designers dock next to them (0.26, Jorge): Trim-Pack,
-        // Bend Layers and ButtCapper, each as a tab.
+        // Bend Layers, ButtCapper and Super Morphings / Super Liquids (Elements), each as a tab.
         AnimSlotTabs {
             width: parent.width
             model: [
                 { "id": "tools", "label": qsTr("Tools") },
                 { "id": "trim", "label": qsTr("Trim") },
                 { "id": "bend", "label": qsTr("Bend") },
-                { "id": "caps", "label": qsTr("Caps") }
+                { "id": "caps", "label": qsTr("Caps") },
+                { "id": "elements", "label": qsTr("Elements") }
             ]
             current: root.tab
             onActivated: id => root.tab = id
@@ -126,6 +127,10 @@ Item {
         }
         StrokeCapsPanel {
             visible: root.tab === "caps"
+            width: parent.width
+        }
+        ShapeElementsPanel {
+            visible: root.tab === "elements"
             width: parent.width
         }
 

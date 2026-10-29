@@ -66,6 +66,8 @@ def main():
         strings.append(load(path).get("label", ""))
     for path in sorted(glob.glob(os.path.join(ROOT, "presets", "squash-animations", "*.json"))):
         strings.append(load(path).get("label", ""))
+    for path in sorted(glob.glob(os.path.join(ROOT, "presets", "shape-elements", "*.json"))):
+        strings.append(load(path).get("label", ""))
 
     seen = set()
     unique = []

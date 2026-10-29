@@ -12983,6 +12983,19 @@ void EditorStateTest::motionToolsTrimBendAndCaps()
             bent = true;
     }
     QVERIFY(bent);
+
+    // Elements: a two-layer splash goes on as two shape layers whose outline is keyed.
+    QVERIFY(!state.shapeElements(QStringLiteral("liquid")).isEmpty());
+    QVERIFY(state.shapeElementFrame(QStringLiteral("el-splash"), 0.5).size() == 2);
+    const int before = state.project()->tracks().size();
+    state.setPlayheadSeconds(1.0);
+    state.insertShapeElement(QStringLiteral("el-splash"), {QStringLiteral("#ff0000"), QStringLiteral("#00ff00")});
+    QCOMPARE(state.project()->tracks().size(), before + 2);
+    const drift::Clip &layer = state.project()->tracks().at(0).clips.first();
+    QCOMPARE(layer.type, drift::ClipType::Shape);
+    QVERIFY(layer.shapeStyle.pathShapes.size() > 10);
+    QVERIFY(layer.shapeStyle.keyframes.value(QStringLiteral("path")).keyframes().size() > 10);
+    QCOMPARE(layer.timelineStart, drift::secondsToUs(1.0));
 }
 
 void EditorStateTest::squashAnimationWritesKeysAndDeformer()

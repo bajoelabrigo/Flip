@@ -5624,6 +5624,10 @@
         <translation>Tendencias</translation>
     </message>
     <message>
+        <source>Add %1</source>
+        <translation>Añadir %1</translation>
+    </message>
+    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation>Elige una forma o un texto con trazo</translation>
     </message>
@@ -12040,6 +12044,134 @@ LA PRÓXIMA</translation>
     <message>
         <source>Wobble Turn</source>
         <translation>Giro tambaleante</translation>
+    </message>
+    <message>
+        <source>Blob</source>
+        <translation>Mancha</translation>
+    </message>
+    <message>
+        <source>Bubble Pop</source>
+        <translation>Burbuja que revienta</translation>
+    </message>
+    <message>
+        <source>Circle to Heart</source>
+        <translation>Círculo a corazón</translation>
+    </message>
+    <message>
+        <source>Circle to Star</source>
+        <translation>Círculo a estrella</translation>
+    </message>
+    <message>
+        <source>Drip</source>
+        <translation>Goteo</translation>
+    </message>
+    <message>
+        <source>Drop to Circle</source>
+        <translation>Gota a círculo</translation>
+    </message>
+    <message>
+        <source>Drop and Splash</source>
+        <translation>Gota y salpicadura</translation>
+    </message>
+    <message>
+        <source>Flower Bloom</source>
+        <translation>Flor que se abre</translation>
+    </message>
+    <message>
+        <source>Gear to Circle</source>
+        <translation>Engranaje a círculo</translation>
+    </message>
+    <message>
+        <source>Gear Spin</source>
+        <translation>Engranaje girando</translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation>Geometría</translation>
+    </message>
+    <message>
+        <source>Goo Merge</source>
+        <translation>Fusión viscosa</translation>
+    </message>
+    <message>
+        <source>Heart Beat</source>
+        <translation>Latido</translation>
+    </message>
+    <message>
+        <source>Heart to Star</source>
+        <translation>Corazón a estrella</translation>
+    </message>
+    <message>
+        <source>Liquid Blob</source>
+        <translation>Mancha líquida</translation>
+    </message>
+    <message>
+        <source>Liquid Burst</source>
+        <translation>Estallido líquido</translation>
+    </message>
+    <message>
+        <source>Liquid Transition Right</source>
+        <translation>Transición líquida derecha</translation>
+    </message>
+    <message>
+        <source>Liquid Transition</source>
+        <translation>Transición líquida</translation>
+    </message>
+    <message>
+        <source>Plus to Cross</source>
+        <translation>Más a equis</translation>
+    </message>
+    <message>
+        <source>Puddle</source>
+        <translation>Charco</translation>
+    </message>
+    <message>
+        <source>Shape Shuffle</source>
+        <translation>Ronda de formas</translation>
+    </message>
+    <message>
+        <source>Sparkle to Star</source>
+        <translation>Destello a estrella</translation>
+    </message>
+    <message>
+        <source>Splash</source>
+        <translation>Salpicadura</translation>
+    </message>
+    <message>
+        <source>Square to Circle</source>
+        <translation>Cuadrado a círculo</translation>
+    </message>
+    <message>
+        <source>Star to Flower</source>
+        <translation>Estrella a flor</translation>
+    </message>
+    <message>
+        <source>Triangle to Hexagon</source>
+        <translation>Triángulo a hexágono</translation>
+    </message>
+    <message>
+        <source>Wave Transition</source>
+        <translation>Transición de ola</translation>
+    </message>
+    <message>
+        <source>Circle Transition</source>
+        <translation>Transición de círculo</translation>
+    </message>
+    <message>
+        <source>Double Circle Transition</source>
+        <translation>Transición de doble círculo</translation>
+    </message>
+    <message>
+        <source>Heart Transition</source>
+        <translation>Transición de corazón</translation>
+    </message>
+    <message>
+        <source>Square Transition</source>
+        <translation>Transición de cuadrado</translation>
+    </message>
+    <message>
+        <source>Star Transition</source>
+        <translation>Transición de estrella</translation>
     </message>
     <message>
         <source>Shatter</source>
@@ -18469,6 +18601,10 @@ LA PRÓXIMA</translation>
         <source>Caps</source>
         <translation>Extremos</translation>
     </message>
+    <message>
+        <source>Elements</source>
+        <translation>Elementos</translation>
+    </message>
     <message numerus="yes">
         <source>%n keyframe(s) picked on the timeline.</source>
         <translation>
@@ -22775,6 +22911,21 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Adjust extrude</source>
         <translation>Ajustar extrusión</translation>
+    </message>
+</context>
+<context>
+    <name>ShapeElementsPanel</name>
+    <message>
+        <source>Morphings</source>
+        <translation>Morphings</translation>
+    </message>
+    <message>
+        <source>Liquids</source>
+        <translation>Líquidos</translation>
+    </message>
+    <message>
+        <source>Click one to put it at the playhead. The transitions cover the whole screen.</source>
+        <translation>Haz clic en uno para ponerlo en el cabezal. Las transiciones cubren toda la pantalla.</translation>
     </message>
 </context>
 <context>

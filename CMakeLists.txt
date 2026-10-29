@@ -470,8 +470,10 @@ add_library(driftcore STATIC
     src/core/ClipAnimation.cpp
     src/core/ClipAnimationPreset.h
     src/core/SquashAnimation.h
+    src/core/ShapeElement.h
     src/core/ClipAnimationPreset.cpp
     src/core/SquashAnimation.cpp
+    src/core/ShapeElement.cpp
     src/core/SubtitleCue.h
     src/core/SubtitleCue.cpp
     src/core/Transcript.h
@@ -572,6 +574,13 @@ qt_add_resources(driftcore "drift_squash_animations"
     PREFIX "/squash-animations"
     BASE "${CMAKE_SOURCE_DIR}/presets/squash-animations"
     FILES ${DRIFT_SQUASH_ANIMATION_FILES}
+)
+
+file(GLOB DRIFT_SHAPE_ELEMENT_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/shape-elements/*.json")
+qt_add_resources(driftcore "drift_shape_elements"
+    PREFIX "/shape-elements"
+    BASE "${CMAKE_SOURCE_DIR}/presets/shape-elements"
+    FILES ${DRIFT_SHAPE_ELEMENT_FILES}
 )
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
@@ -1360,6 +1369,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/TrimPackPanel.qml
         src/qml/components/properties/BendLayersPanel.qml
         src/qml/components/properties/StrokeCapsPanel.qml
+        src/qml/components/properties/ShapeElementsPanel.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
         src/qml/components/properties/TrackingInspector.qml

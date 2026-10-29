@@ -11,6 +11,7 @@
 #include "core/Clip.h"
 #include "core/ClipAnimationPreset.h"
 #include "core/CatalogText.h"
+#include "core/ShapeElement.h"
 #include "core/SquashAnimation.h"
 #include "core/CubeLut.h"
 #include "core/Mask.h"
@@ -30368,6 +30369,93 @@ QVariantList AppController::squashAnimations() const
                                {QStringLiteral("duration"), a.seconds}});
     }
     return out;
+}
+
+QVariantList AppController::shapeElements(const QString &category) const
+{
+    QVariantList out;
+    for (const drift::ShapeElement &e : drift::ShapeElementCatalog::instance().elements()) {
+        if (!category.isEmpty() && e.category != category)
+            continue;
+        int colors = 1;
+        for (const drift::ShapeElementLayer &layer : e.layers)
+            colors = qMax(colors, layer.color + 1);
+        out.append(QVariantMap{{QStringLiteral("id"), e.id},
+                               {QStringLiteral("label"), drift::catalogText(e.label)},
+                               {QStringLiteral("category"), e.category},
+                               {QStringLiteral("duration"), e.seconds},
+                               {QStringLiteral("cover"), e.cover},
+                               {QStringLiteral("colors"), colors}});
+    }
+    return out;
+}
+
+QVariantList AppController::shapeElementFrame(const QString &id, double progress) const
+{
+    const std::optional<drift::ShapeElement> e = drift::ShapeElementCatalog::instance().elementForId(id);
+    if (!e)
+        return {};
+    const QStringList outlines = e->outlinesAt(qBound(0.0, progress, 1.0));
+    QVariantList out;
+    for (int i = 0; i < outlines.size() && i < e->layers.size(); ++i)
+        out.append(QVariantMap{{QStringLiteral("color"), e->layers.at(i).color},
+                               {QStringLiteral("svg"), outlines.at(i)}});
+    return out;
+}
+
+void AppController::insertShapeElement(const QString &id, const QStringList &colors)
+{
+    const std::optional<drift::ShapeElement> e = drift::ShapeElementCatalog::instance().elementForId(id);
+    if (!e)
+        return;
+    const double w = m_project.width();
+    const double h = m_project.height();
+    const double side = e->cover ? std::hypot(w, h) : e->size * qMin(w, h);
+    const double x = (w - side) / 2.0;
+    const double y = (h - side) / 2.0;
+    const drift::TimeUs start = m_playheadUs;
+    const drift::TimeUs length = drift::secondsToUs(e->seconds);
+
+    const drift::Project before = m_project;
+    QStringList ids;
+    for (int li = 0; li < e->layers.size(); ++li) {
+        const drift::ShapeElementLayer &layer = e->layers.at(li);
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.type = drift::ClipType::Shape;
+        clip.name = e->layers.size() > 1 ? QStringLiteral("%1 %2").arg(drift::catalogText(e->label)).arg(li + 1)
+                                        : drift::catalogText(e->label);
+        clip.shapeStyle.kind = drift::ShapeKind::Custom;
+        clip.shapeStyle.customPath = layer.keys.first().svg;
+        // The outline at each key is the next entry of pathShapes; the path track holds its index.
+        drift::KeyframeTrack<double> &path = clip.shapeStyle.keyframes[QLatin1String(drift::kShapePathKey)];
+        for (int k = 0; k < layer.keys.size(); ++k) {
+            clip.shapeStyle.pathShapes.append(layer.keys.at(k).svg);
+            const drift::TimeUs at = qRound64(layer.keys.at(k).t * double(length));
+            path.setKeyframe(at, double(k));
+            path.setEasing(at, drift::Interpolation::Linear);
+        }
+        path.setStopwatch(true);
+        const QString color = layer.color >= 0 && layer.color < colors.size() ? colors.at(layer.color)
+                                                                              : QStringLiteral("#1fd1b8");
+        paintDrawnShape(clip.shapeStyle, color, QStringLiteral("none"), 0.0);
+        clip.timelineStart = start;
+        clip.timelineDuration = length;
+        clip.srcIn = 0;
+        clip.srcOut = length;
+        setClipLayoutPixels(clip, x, y, side, side);
+        // Each layer on a track of its own, the later ones on top.
+        m_project.tracks().insert(0, drift::Track{.type = drift::TrackType::Shape});
+        m_project.tracks()[0].clips.append(clip);
+        ids.append(clip.id);
+    }
+    m_project.ensureTrackIds();
+    pushProjectEdit(before, tr("Add %1").arg(drift::catalogText(e->label)));
+    finishEdit(tr("Add %1").arg(drift::catalogText(e->label)));
+    int t = -1;
+    int c = -1;
+    if (!ids.isEmpty() && findClipById(m_project, ids.last(), &t, &c))
+        selectClip(t, c);
 }
 
 void AppController::setStrokeCaps(const QString &cap, const QString &join)

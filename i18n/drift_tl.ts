@@ -5628,6 +5628,10 @@
         <translation>Uso</translation>
     </message>
     <message>
+        <source>Add %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12035,6 +12039,134 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Wobble Turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blob</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bubble Pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle to Heart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle to Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop to Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop and Splash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flower Bloom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gear to Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gear Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Geometry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Goo Merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart Beat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart to Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid Blob</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid Burst</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid Transition Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plus to Cross</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puddle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape Shuffle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sparkle to Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Splash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square to Circle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star to Flower</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Triangle to Hexagon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Circle Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double Circle Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heart Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square Transition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star Transition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -18465,6 +18597,10 @@ NEXT TIME</source>
         <source>Caps</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Elements</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>%n keyframe(s) picked on the timeline.</source>
         <translation type="unfinished">
@@ -22763,6 +22899,21 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Adjust extrude</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShapeElementsPanel</name>
+    <message>
+        <source>Morphings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click one to put it at the playhead. The transitions cover the whole screen.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
