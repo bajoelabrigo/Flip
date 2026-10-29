@@ -590,6 +590,8 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     , m_assetLibrary(assetLibrary)
 {
     m_autoCrossfade = QSettings().value(QStringLiteral("timeline/autoCrossfade"), true).toBool();
+    m_positionLinked = QSettings().value(QStringLiteral("editor/positionLinked"), true).toBool();
+    m_dimensionsSeparated = !m_positionLinked;
     m_jobs = new JobRegistry(this);
     m_cloud = new CloudProviders(this);
     m_project.resetToDefaultTimeline();
@@ -5860,6 +5862,23 @@ void AppController::setAutoKeyEnabled(bool enabled)
 
 void AppController::setPositionLinked(bool linked)
 {
+    if (m_positionLinked == linked)
+        return;
+    m_positionLinked = linked;
+    m_dimensionsSeparated = !linked;
+    // After Effects' Separate Dimensions: kept between sessions, and the timeline's Position line
+    // becomes X Position and Y Position (or joins back).
+    QSettings().setValue(QStringLiteral("editor/positionLinked"), linked);
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    emit positionLinkedChanged();
+    notifyTracksChanged();
+}
+
+void AppController::setPositionLinkedForDrag(bool linked)
+{
+    // Only the X/Y coupling of the edits, for the length of a drag: the user's setting, the
+    // timeline's lines and the stored preference stay as they are.
     if (m_positionLinked == linked)
         return;
     m_positionLinked = linked;
@@ -25974,18 +25993,23 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             // Shift+A/P/R/T/S (0.26): only that line.
             if (!m_keyframeRowsOnlyGroup.isEmpty() && groupId != m_keyframeRowsOnlyGroup)
                 continue;
-            const bool expanded = group.props.size() > 1
+            // Separate Dimensions (0.26): X Position and Y Position, each a property of its own
+            // with its own stopwatch and keys, in place of the joined Position line.
+            const bool separated = groupId == QLatin1String("position") && m_dimensionsSeparated;
+            const bool expanded = !separated && group.props.size() > 1
                 && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
-            rows.append(QVariantMap{
-                {QStringLiteral("group"), groupId},
-                {QStringLiteral("groupProps"), group.props},
-                {QStringLiteral("prop"), group.props.first()},
-                {QStringLiteral("label"), groupId},
-                {QStringLiteral("expandable"), group.props.size() > 1},
-                {QStringLiteral("expanded"), expanded},
-                {QStringLiteral("clips"), clips},
-            });
-            if (!expanded)
+            if (!separated) {
+                rows.append(QVariantMap{
+                    {QStringLiteral("group"), groupId},
+                    {QStringLiteral("groupProps"), group.props},
+                    {QStringLiteral("prop"), group.props.first()},
+                    {QStringLiteral("label"), groupId},
+                    {QStringLiteral("expandable"), group.props.size() > 1},
+                    {QStringLiteral("expanded"), expanded},
+                    {QStringLiteral("clips"), clips},
+                });
+            }
+            if (!expanded && !separated)
                 continue;
             // Opened: one line per axis, under the joined one.
             for (const QString &prop : group.props) {
@@ -26004,6 +26028,7 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 rows.append(QVariantMap{
                     {QStringLiteral("group"), groupId},
                     {QStringLiteral("axis"), true},
+                    {QStringLiteral("separated"), separated},
                     {QStringLiteral("prop"), prop},
                     {QStringLiteral("label"), prop},
                     {QStringLiteral("clips"), axisClips},

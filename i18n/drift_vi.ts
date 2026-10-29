@@ -28394,6 +28394,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28550,6 +28554,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

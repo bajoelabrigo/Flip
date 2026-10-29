@@ -28393,6 +28393,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28549,6 +28553,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

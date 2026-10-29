@@ -28482,6 +28482,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Quitar todos los fotogramas clave…</translation>
     </message>
     <message>
+        <source>Separate dimensions</source>
+        <translation>Separar dimensiones</translation>
+    </message>
+    <message>
         <source>Behavior…</source>
         <translation>Comportamiento…</translation>
     </message>
@@ -28641,6 +28645,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Pan</source>
         <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Y Position</source>
+        <translation>Posición Y</translation>
     </message>
     <message>
         <source>Anchor point</source>

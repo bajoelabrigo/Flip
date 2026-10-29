@@ -1525,7 +1525,8 @@ Item {
                             spacing: 0
                             Text {
                                 width: parent.width
-                                text: (keyLine.modelData.axis ? "· " : "") + keyRowsNames.rowLabel(keyLine.modelData)
+                                text: (keyLine.modelData.axis && !keyLine.modelData.separated ? "· " : "")
+                                      + keyRowsNames.rowLabel(keyLine.modelData)
                                       + (keyLine.hasBehavior ? "  ≈" : "")
                                 color: Theme.panelForeground
                                 font.family: Theme.fontFamily
@@ -1685,6 +1686,14 @@ Item {
                             ThemedMenuItem {
                                 text: qsTr("Remove all keyframes…")
                                 onTriggered: removeAllDialog.open()
+                            }
+                            ThemedMenuItem {
+                                // After Effects' Separate Dimensions: X and Y with keys of their own.
+                                visible: keyLine.modelData.group === "position"
+                                height: visible ? implicitHeight : 0
+                                text: qsTr("Separate dimensions")
+                                icon.name: EditorState.positionLinked ? "" : Theme.icons.check
+                                onTriggered: EditorState.positionLinked = !EditorState.positionLinked
                             }
                             ThemedMenuSeparator {}
                             ThemedMenuItem {

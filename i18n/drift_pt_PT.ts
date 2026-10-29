@@ -28482,6 +28482,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28640,6 +28644,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

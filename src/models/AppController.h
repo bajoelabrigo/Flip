@@ -406,6 +406,8 @@ public:
     bool autoKeyEnabled() const { return m_autoKeyEnabled; }
     bool positionLinked() const { return m_positionLinked; }
     void setPositionLinked(bool linked);
+    // The motion-path handles unlink X and Y while dragged, without touching Separate Dimensions.
+    Q_INVOKABLE void setPositionLinkedForDrag(bool linked);
     bool sizeLinked() const { return m_sizeLinked; }
     void setSizeLinked(bool linked);
     double masterVolume() const;
@@ -2663,6 +2665,8 @@ protected:
     QString m_mediaViewMode = QStringLiteral("grid");
     bool m_autoKeyEnabled = false;
     bool m_positionLinked = true;
+    // Separate Dimensions as the user set it (the timeline's X / Y Position lines).
+    bool m_dimensionsSeparated = false;
     bool m_sizeLinked = true;
     // One benchmark at a time: it drives the shared decoders and the GL thread, and two
     // sweeps interleaved would measure each other rather than the pipeline.

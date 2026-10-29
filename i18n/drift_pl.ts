@@ -28570,6 +28570,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28730,6 +28734,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

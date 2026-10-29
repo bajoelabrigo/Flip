@@ -210,7 +210,7 @@ Item {
                     onPressed: {
                         wasLinked = EditorState.positionLinked
                         // The X and Y handles are set apart here; linked, one would rescale the other.
-                        EditorState.positionLinked = false
+                        EditorState.setPositionLinkedForDrag(false)
                         root.shaping = true
                         EditorState.beginPreviewDrag(qsTr("Shape motion path"))
                     }
@@ -226,7 +226,7 @@ Item {
                     onCanceled: finish()
                     function finish() {
                         EditorState.commitPreviewDrag()
-                        EditorState.positionLinked = wasLinked
+                        EditorState.setPositionLinkedForDrag(wasLinked)
                         root.shaping = false
                         root.rebuild()
                     }
