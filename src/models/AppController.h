@@ -1201,14 +1201,25 @@ public:
     // empty one is left as it is. One undo step. The state reads the first selected stroke:
     // {cap, join, strokes}.
     Q_INVOKABLE void setStrokeCaps(const QString &cap, const QString &join);
-    // Motion Tools › Elements (0.26, as the Super Morphings and Super Liquids scripts): our animated
-    // shape elements of a category ("morph", "liquid"), each one's layers at a progress for the
-    // gallery's live cards ([{color, svg}] on a 0..100 square), and putting one on the timeline at
-    // the playhead: a shape layer per layer, on tracks of their own, painted with `colors` (by each
-    // layer's colour index). One undo step; the new layers end up selected.
-    Q_INVOKABLE QVariantList shapeElements(const QString &category) const;
-    Q_INVOKABLE QVariantList shapeElementFrame(const QString &id, double progress) const;
-    Q_INVOKABLE void insertShapeElement(const QString &id, const QStringList &colors);
+    // Motion Tools › Elements (0.26, as Super Morphings, Super Liquids and Liquid Line, studied in
+    // their demos). One undo step each.
+    // Morph: the selected layers in the order picked, the last one the target. From the playhead,
+    // each other one draws back, flies on an arc to the target growing and turning, and at the end
+    // the picture cuts to the target, which carries on the motion and settles with a bounce (a
+    // matching cut, which is what Super Morphings does). `trails` copies follow each one a little
+    // later, fainter; `arc` bends the flight (0 = straight), `spin` turns it (degrees).
+    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin);
+    // Liquid trail: drops thrown by the selected (moving) layer wherever it goes faster than
+    // `threshold` px/s, frame by frame: `perFrame` a frame, carrying its speed (`inherit`, 0..1) and
+    // some of their own (`randomness`), falling (or, `horizontal`, drifting sideways) and shrinking
+    // away. A shape layer behind it, keyed every `frameSkip` frames, melted with the Liquid effect.
+    Q_INVOKABLE void generateLiquidTrail(int perFrame, int frameSkip, double threshold, bool horizontal,
+                                         double inherit, double randomness, double size, const QString &color);
+    // Liquid line: the selected shape's outline becomes a stream of liquid running along it from the
+    // playhead over `seconds`: `length` of the path long (0..1), `width` px at its thickest, its edges
+    // torn by `roughness` (0..1) and changing every frame.
+    Q_INVOKABLE void generateLiquidLine(double seconds, double width, double length, double roughness,
+                                        const QString &color);
     // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
     // shapes (and the strokes of selected texts, every letter at once), `frames` long from the
     // playhead. Modes: "in" (draws on), "out" (draws off), "inout" (in from the playhead, out at the

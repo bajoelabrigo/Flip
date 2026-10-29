@@ -5624,10 +5624,6 @@
         <translation>Tendencias</translation>
     </message>
     <message>
-        <source>Add %1</source>
-        <translation>Añadir %1</translation>
-    </message>
-    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation>Elige una forma o un texto con trazo</translation>
     </message>
@@ -5801,6 +5797,42 @@
     <message>
         <source>Mine</source>
         <translation>Mías</translation>
+    </message>
+    <message>
+        <source>Select the layers to morph, and the one they turn into last (Ctrl+click)</source>
+        <translation>Elige las capas que se transforman y, al final, en la que se convierten (Ctrl+clic)</translation>
+    </message>
+    <message>
+        <source>%1 trail %2</source>
+        <translation>%1 estela %2</translation>
+    </message>
+    <message>
+        <source>Morph</source>
+        <translation>Morph</translation>
+    </message>
+    <message>
+        <source>Select the moving layer the liquid comes off</source>
+        <translation>Elige la capa en movimiento que suelta el líquido</translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation>Estela líquida</translation>
+    </message>
+    <message>
+        <source>%1 liquid</source>
+        <translation>%1 líquido</translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen: the liquid runs along it</source>
+        <translation>Elige una forma o una línea hecha con la pluma: el líquido corre por ella</translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation>Chorro líquido</translation>
+    </message>
+    <message>
+        <source>%1 liquid line</source>
+        <translation>%1 chorro líquido</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -10514,6 +10546,18 @@
         <translation>Inclinar (%)</translation>
     </message>
     <message>
+        <source>Liquid</source>
+        <translation>Líquido</translation>
+    </message>
+    <message>
+        <source>Melt (px)</source>
+        <translation>Fundir (px)</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Borde</translation>
+    </message>
+    <message>
         <source>Base width (%)</source>
         <translation>Ancho de la base (%)</translation>
     </message>
@@ -12056,134 +12100,6 @@ LA PRÓXIMA</translation>
     <message>
         <source>Wobble Turn</source>
         <translation>Giro tambaleante</translation>
-    </message>
-    <message>
-        <source>Blob</source>
-        <translation>Mancha</translation>
-    </message>
-    <message>
-        <source>Bubble Pop</source>
-        <translation>Burbuja que revienta</translation>
-    </message>
-    <message>
-        <source>Circle to Heart</source>
-        <translation>Círculo a corazón</translation>
-    </message>
-    <message>
-        <source>Circle to Star</source>
-        <translation>Círculo a estrella</translation>
-    </message>
-    <message>
-        <source>Drip</source>
-        <translation>Goteo</translation>
-    </message>
-    <message>
-        <source>Drop to Circle</source>
-        <translation>Gota a círculo</translation>
-    </message>
-    <message>
-        <source>Drop and Splash</source>
-        <translation>Gota y salpicadura</translation>
-    </message>
-    <message>
-        <source>Flower Bloom</source>
-        <translation>Flor que se abre</translation>
-    </message>
-    <message>
-        <source>Gear to Circle</source>
-        <translation>Engranaje a círculo</translation>
-    </message>
-    <message>
-        <source>Gear Spin</source>
-        <translation>Engranaje girando</translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation>Geometría</translation>
-    </message>
-    <message>
-        <source>Goo Merge</source>
-        <translation>Fusión viscosa</translation>
-    </message>
-    <message>
-        <source>Heart Beat</source>
-        <translation>Latido</translation>
-    </message>
-    <message>
-        <source>Heart to Star</source>
-        <translation>Corazón a estrella</translation>
-    </message>
-    <message>
-        <source>Liquid Blob</source>
-        <translation>Mancha líquida</translation>
-    </message>
-    <message>
-        <source>Liquid Burst</source>
-        <translation>Estallido líquido</translation>
-    </message>
-    <message>
-        <source>Liquid Transition Right</source>
-        <translation>Transición líquida derecha</translation>
-    </message>
-    <message>
-        <source>Liquid Transition</source>
-        <translation>Transición líquida</translation>
-    </message>
-    <message>
-        <source>Plus to Cross</source>
-        <translation>Más a equis</translation>
-    </message>
-    <message>
-        <source>Puddle</source>
-        <translation>Charco</translation>
-    </message>
-    <message>
-        <source>Shape Shuffle</source>
-        <translation>Ronda de formas</translation>
-    </message>
-    <message>
-        <source>Sparkle to Star</source>
-        <translation>Destello a estrella</translation>
-    </message>
-    <message>
-        <source>Splash</source>
-        <translation>Salpicadura</translation>
-    </message>
-    <message>
-        <source>Square to Circle</source>
-        <translation>Cuadrado a círculo</translation>
-    </message>
-    <message>
-        <source>Star to Flower</source>
-        <translation>Estrella a flor</translation>
-    </message>
-    <message>
-        <source>Triangle to Hexagon</source>
-        <translation>Triángulo a hexágono</translation>
-    </message>
-    <message>
-        <source>Wave Transition</source>
-        <translation>Transición de ola</translation>
-    </message>
-    <message>
-        <source>Circle Transition</source>
-        <translation>Transición de círculo</translation>
-    </message>
-    <message>
-        <source>Double Circle Transition</source>
-        <translation>Transición de doble círculo</translation>
-    </message>
-    <message>
-        <source>Heart Transition</source>
-        <translation>Transición de corazón</translation>
-    </message>
-    <message>
-        <source>Square Transition</source>
-        <translation>Transición de cuadrado</translation>
-    </message>
-    <message>
-        <source>Star Transition</source>
-        <translation>Transición de estrella</translation>
     </message>
     <message>
         <source>Shatter</source>
@@ -22928,16 +22844,100 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>ShapeElementsPanel</name>
     <message>
-        <source>Morphings</source>
-        <translation>Morphings</translation>
+        <source>Morph</source>
+        <translation>Morph</translation>
     </message>
     <message>
-        <source>Liquids</source>
-        <translation>Líquidos</translation>
+        <source>Liquid trail</source>
+        <translation>Estela líquida</translation>
     </message>
     <message>
-        <source>Click one to put it at the playhead. The transitions cover the whole screen.</source>
-        <translation>Haz clic en uno para ponerlo en el cabezal. Las transiciones cubren toda la pantalla.</translation>
+        <source>Liquid line</source>
+        <translation>Chorro líquido</translation>
+    </message>
+    <message>
+        <source>Select the layers with Ctrl+click in order: the last one is what they turn into. From the playhead, they fly into it and the picture cuts to it, as Super Morphings does.</source>
+        <translation>Elige las capas en orden con Ctrl+clic: la última es en la que se convierten. Desde el cabezal vuelan hacia ella y la imagen corta a ella, como Super Morphings.</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Giro</translation>
+    </message>
+    <message>
+        <source>Trails</source>
+        <translation>Estelas</translation>
+    </message>
+    <message>
+        <source>Morph it</source>
+        <translation>Transformar</translation>
+    </message>
+    <message>
+        <source>Select a layer that moves. Wherever it goes fast it throws liquid behind it, frame by frame, as Super Liquids does.</source>
+        <translation>Elige una capa que se mueva. Por donde pasa rápido suelta líquido detrás, cuadro a cuadro, como Super Liquids.</translation>
+    </message>
+    <message>
+        <source>Drops a frame</source>
+        <translation>Gotas por cuadro</translation>
+    </message>
+    <message>
+        <source>Frame skipping</source>
+        <translation>Saltar cuadros</translation>
+    </message>
+    <message>
+        <source>Speed threshold</source>
+        <translation>Umbral de velocidad</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Velocity</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
+        <translation>Velocidad aleatoria</translation>
+    </message>
+    <message>
+        <source>Horizontal (no gravity)</source>
+        <translation>Horizontal (sin gravedad)</translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen. A stream of liquid runs along it from the playhead.</source>
+        <translation>Elige una forma o una línea hecha con la pluma. Un chorro de líquido la recorre desde el cabezal.</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Grosor</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Largo</translation>
+    </message>
+    <message>
+        <source>Roughness</source>
+        <translation>Rugosidad</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Generate liquid trail</source>
+        <translation>Generar estela líquida</translation>
+    </message>
+    <message>
+        <source>Generate liquid line</source>
+        <translation>Generar chorro líquido</translation>
     </message>
 </context>
 <context>

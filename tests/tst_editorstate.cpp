@@ -134,6 +134,7 @@ private slots:
     void findAndReplaceInSubtitleCues();
     void shapeAsFixedOrStuckMask();
     void squashAnimationWritesKeysAndDeformer();
+    void morphAndLiquidTools();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -12983,19 +12984,67 @@ void EditorStateTest::motionToolsTrimBendAndCaps()
             bent = true;
     }
     QVERIFY(bent);
+}
 
-    // Elements: a two-layer splash goes on as two shape layers whose outline is keyed.
-    QVERIFY(!state.shapeElements(QStringLiteral("liquid")).isEmpty());
-    QVERIFY(state.shapeElementFrame(QStringLiteral("el-splash"), 0.5).size() == 2);
-    const int before = state.project()->tracks().size();
-    state.setPlayheadSeconds(1.0);
-    state.insertShapeElement(QStringLiteral("el-splash"), {QStringLiteral("#ff0000"), QStringLiteral("#00ff00")});
-    QCOMPARE(state.project()->tracks().size(), before + 2);
-    const drift::Clip &layer = state.project()->tracks().at(0).clips.first();
-    QCOMPARE(layer.type, drift::ClipType::Shape);
-    QVERIFY(layer.shapeStyle.pathShapes.size() > 10);
-    QVERIFY(layer.shapeStyle.keyframes.value(QStringLiteral("path")).keyframes().size() > 10);
-    QCOMPARE(layer.timelineStart, drift::secondsToUs(1.0));
+void EditorStateTest::morphAndLiquidTools()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("ellipse"), 200, 200, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const QString a = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.addDrawnShape(QStringLiteral("rectangle"), 1200, 500, 300, 300, QStringLiteral("#00ff00"),
+                        QStringLiteral("none"), 0);
+    const QString b = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+
+    // Morph: the circle flies into the square and the picture cuts to it.
+    state.setPlayheadSeconds(0.0);
+    state.selectClip(where(a).first, where(a).second);
+    state.addToSelection(where(b).first, where(b).second);
+    state.morphLayers(0.5, 1, 0.25, 90);
+    const auto value = [&](const QString &id, const QString &prop, double at) {
+        return state.propertyValueAt(where(id).first, where(id).second, prop, at, -1);
+    };
+    QVERIFY(value(a, QStringLiteral("opacity"), 0.2) > 0.9);
+    QCOMPARE(value(a, QStringLiteral("opacity"), 0.6), 0.0);
+    QCOMPARE(value(b, QStringLiteral("opacity"), 0.2), 0.0);
+    QVERIFY(value(b, QStringLiteral("opacity"), 0.6) > 0.9);
+    // It ends where the square is, the size of it.
+    QVERIFY(qAbs(value(a, QStringLiteral("x"), 0.5) + value(a, QStringLiteral("width"), 0.5) / 2 - 1350) < 2);
+    state.undo();
+    QVERIFY(value(a, QStringLiteral("opacity"), 0.6) > 0.9);
+
+    // Liquid trail: the circle slides across; drops come off it on a layer behind, melted.
+    state.selectClip(where(a).first, where(a).second);
+    state.setClipKeyframe(where(a).first, where(a).second, QStringLiteral("x"), 0.0, 100);
+    state.setClipKeyframe(where(a).first, where(a).second, QStringLiteral("x"), 1.0, 1500);
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where(a).first, where(a).second);
+    state.generateLiquidTrail(4, 2, 200, false, 0.6, 0.5, 20, QString());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 1);
+    const int under = where(a).first + 1;
+    const drift::Clip &trail = state.project()->tracks().at(under).clips.first();
+    QCOMPARE(trail.type, drift::ClipType::Shape);
+    QVERIFY(trail.shapeStyle.pathShapes.size() > 10);
+    QVERIFY(trail.shapeStyle.pathShapes.at(10).count(QLatin1Char('M')) >= 2);
+
+    // Liquid line: a stream along the square's outline.
+    state.selectClip(where(b).first, where(b).second);
+    state.setPlayheadSeconds(0.0);
+    state.generateLiquidLine(1.0, 40, 0.35, 0.5, QStringLiteral("#2244ff"));
+    bool found = false;
+    for (const drift::Track &track : state.project()->tracks())
+        for (const drift::Clip &clip : track.clips)
+            found = found || (clip.type == drift::ClipType::Shape && clip.shapeStyle.pathShapes.size() > 20);
+    QVERIFY(found);
 }
 
 void EditorStateTest::squashAnimationWritesKeysAndDeformer()

@@ -317,7 +317,20 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
     (`TextShadingLayer::trimOffset`). Botones: In, Out, I&O, Mid-in, Mid-out (invertido = medio recorrido, desde o
     hacia las puntas), Equal-in, Equal-out (N tramos = Copias), Hueco que corre (el título de contorno del video),
     Copias, Rastro, Convertir, Quitar. Out y Mid-out empiezan en el cabezal, como Trim-Pack.
-  - [ ] **Líquidos y morphings**: no son galerías, son herramientas. Super Liquids genera **estelas de líquido** sobre
+  - [~] **Líquidos y morphings rehechos como herramientas** (videos de Jorge analizados cuadro por cuadro):
+    - Super Liquids: un emisor de gotas cuadro a cuadro sobre un objeto animado (panel: líquidos por cuadro, saltar
+      cuadros, umbral de velocidad, efectos extra, horizontal/vertical; controles: velocidad, velocidad aleatoria,
+      física, ruido, semilla). Las gotas heredan la velocidad del objeto, caen con gravedad y se encogen; los «efectos
+      extra» las funden (gooey) con un brillo. → **Estela líquida** (`AppController::generateLiquidTrail`) + efecto
+      **Líquido** (`effects/liquid_gooey`: desenfoque + umbral + brillo, dos pasadas).
+    - Liquid Line: un trazo que se vuelve un chorro de líquido que viaja por él (cabeza gruesa, cola fina, bordes
+      rasgados que cambian cada cuadro, brillo). → **Chorro líquido** (`generateLiquidLine`).
+    - Super Morphings: no transforma vértices; es un **corte a juego**: varias capas elegidas en orden, la última es el
+      destino; cada una se anticipa, vuela en arco al destino agrandándose y girando, y en el instante justo se corta
+      al destino, que sigue el movimiento y se asienta con un rebote; «Trails» = copias que siguen con retraso.
+      → **Morph** (`morphLayers`).
+    - La galería de Elementos (34 animaciones propias) se quitó: era el enfoque equivocado.
+  - [ ] (viejo) **Líquidos y morphings**: no son galerías, son herramientas. Super Liquids genera **estelas de líquido** sobre
     un objeto (quieto o en movimiento, horizontal o vertical, con capas de forma); Super Morphings **transforma una
     forma en otra** con un clic (varios a la vez, estelas, «slicer», suavizado). Pedidos a Jorge los videos de cómo
     funcionan para rehacerlos como herramientas.

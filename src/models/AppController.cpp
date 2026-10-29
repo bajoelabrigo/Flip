@@ -11,7 +11,6 @@
 #include "core/Clip.h"
 #include "core/ClipAnimationPreset.h"
 #include "core/CatalogText.h"
-#include "core/ShapeElement.h"
 #include "core/SquashAnimation.h"
 #include "core/CubeLut.h"
 #include "core/Mask.h"
@@ -30379,91 +30378,487 @@ QVariantList AppController::squashAnimations() const
     return out;
 }
 
-QVariantList AppController::shapeElements(const QString &category) const
+namespace {
+
+// Where a clip is at an instant, by its centre: what Morph and the liquids follow.
+struct ClipGeometry
 {
-    QVariantList out;
-    for (const drift::ShapeElement &e : drift::ShapeElementCatalog::instance().elements()) {
-        if (!category.isEmpty() && e.category != category)
-            continue;
-        int colors = 1;
-        for (const drift::ShapeElementLayer &layer : e.layers)
-            colors = qMax(colors, layer.color + 1);
-        out.append(QVariantMap{{QStringLiteral("id"), e.id},
-                               {QStringLiteral("label"), drift::catalogText(e.label)},
-                               {QStringLiteral("category"), e.category},
-                               {QStringLiteral("duration"), e.seconds},
-                               {QStringLiteral("cover"), e.cover},
-                               {QStringLiteral("colors"), colors}});
+    double cx = 0.0, cy = 0.0, w = 0.0, h = 0.0, rotation = 0.0, opacity = 1.0;
+};
+
+double smoothNoise(double x, double seed)
+{
+    return 0.5 * std::sin(x * 1.7 + seed) + 0.3 * std::sin(x * 3.9 + seed * 2.3) + 0.2 * std::sin(x * 7.3 + seed * 0.7);
+}
+
+// An ellipse as four cubic arcs, in the 0..100 box a full-canvas shape layer draws on.
+QString ellipseContour(double cx, double cy, double a, double b, double angle, double canvasW, double canvasH)
+{
+    constexpr double k = 0.5522847498;
+    const double c = std::cos(angle);
+    const double s = std::sin(angle);
+    const auto p = [&](double x, double y) {
+        const double px = cx + x * c - y * s;
+        const double py = cy + x * s + y * c;
+        return QStringLiteral("%1 %2").arg(px / canvasW * 100.0, 0, 'f', 3).arg(py / canvasH * 100.0, 0, 'f', 3);
+    };
+    return QStringLiteral("M %1 C %2 %3 %4 C %5 %6 %7 C %8 %9 %10 C %11 %12 %13 Z")
+        .arg(p(a, 0), p(a, k * b), p(k * a, b), p(0, b), p(-k * a, b), p(-a, k * b), p(-a, 0), p(-a, -k * b),
+             p(-k * a, -b))
+        .arg(p(0, -b), p(k * a, -b), p(a, -k * b), p(a, 0));
+}
+
+} // namespace
+
+void AppController::morphLayers(double seconds, int trails, double arc, double spin)
+{
+    QStringList ids;
+    for (const QPair<int, int> &ref : std::as_const(m_selection)) {
+        if (isValidClipIndex(ref.first, ref.second)) {
+            const drift::Clip &clip = m_project.tracks().at(ref.first).clips.at(ref.second);
+            if (clip.type != drift::ClipType::Audio && clip.type != drift::ClipType::Adjustment && !ids.contains(clip.id))
+                ids.append(clip.id);
+        }
     }
-    return out;
-}
-
-QVariantList AppController::shapeElementFrame(const QString &id, double progress) const
-{
-    const std::optional<drift::ShapeElement> e = drift::ShapeElementCatalog::instance().elementForId(id);
-    if (!e)
-        return {};
-    const QStringList outlines = e->outlinesAt(qBound(0.0, progress, 1.0));
-    QVariantList out;
-    for (int i = 0; i < outlines.size() && i < e->layers.size(); ++i)
-        out.append(QVariantMap{{QStringLiteral("color"), e->layers.at(i).color},
-                               {QStringLiteral("svg"), outlines.at(i)}});
-    return out;
-}
-
-void AppController::insertShapeElement(const QString &id, const QStringList &colors)
-{
-    const std::optional<drift::ShapeElement> e = drift::ShapeElementCatalog::instance().elementForId(id);
-    if (!e)
+    // The target is the layer touched last (the selection's primary one).
+    if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const QString primary = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).id;
+        if (ids.removeAll(primary) > 0)
+            ids.append(primary);
+    }
+    if (ids.size() < 2) {
+        setLastMessage(tr("Select the layers to morph, and the one they turn into last (Ctrl+click)"),
+                       QStringLiteral("warning"));
         return;
-    const double w = m_project.width();
-    const double h = m_project.height();
-    const double side = e->cover ? std::hypot(w, h) : e->size * qMin(w, h);
-    const double x = (w - side) / 2.0;
-    const double y = (h - side) / 2.0;
-    const drift::TimeUs start = m_playheadUs;
-    const drift::TimeUs length = drift::secondsToUs(e->seconds);
+    }
+    const drift::TimeUs t0 = m_playheadUs;
+    const drift::TimeUs length = drift::secondsToUs(qBound(0.1, seconds, 10.0));
+    const drift::TimeUs t1 = t0 + length;
+    const int fps = qMax(1, m_project.fps());
+    const drift::TimeUs frame = drift::secondsToUs(1.0 / fps);
+    const auto geometry = [&](const QString &id, drift::TimeUs at) {
+        ClipGeometry g;
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            return g;
+        const double s = drift::usToSeconds(at);
+        const double x = propertyValueAt(t, c, QStringLiteral("x"), s, 0.0);
+        const double y = propertyValueAt(t, c, QStringLiteral("y"), s, 0.0);
+        g.w = propertyValueAt(t, c, QStringLiteral("width"), s, m_project.width());
+        g.h = propertyValueAt(t, c, QStringLiteral("height"), s, m_project.height());
+        g.cx = x + g.w / 2.0;
+        g.cy = y + g.h / 2.0;
+        g.rotation = propertyValueAt(t, c, QStringLiteral("rotation"), s, 0.0);
+        g.opacity = propertyValueAt(t, c, QStringLiteral("opacity"), s, 1.0);
+        return g;
+    };
+    // Keys on one property of a clip, at timeline times, replacing what was keyed between them.
+    const auto keyAll = [&](drift::Clip &clip, const QString &prop,
+                            const QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> &keys) {
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, true);
+        if (!kt || keys.isEmpty())
+            return;
+        const drift::TimeUs from = std::get<0>(keys.first()) - clip.timelineStart;
+        const drift::TimeUs to = std::get<0>(keys.last()) - clip.timelineStart;
+        const QList<drift::TimeUs> existing = kt->keyframes().keys();
+        for (const drift::TimeUs k : existing) {
+            if (k >= from && k <= to)
+                kt->removeKeyframe(k);
+        }
+        for (const auto &[at, value, mode] : keys) {
+            const drift::TimeUs rel = qMax<drift::TimeUs>(0, at - clip.timelineStart);
+            kt->setKeyframe(rel, value);
+            kt->setEasing(rel, mode);
+        }
+        kt->setStopwatch(true);
+    };
+    const auto keyBox = [&](drift::Clip &clip,
+                            const QList<std::tuple<drift::TimeUs, double, double, double, double, drift::Interpolation>> &boxes) {
+        QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> xs, ys, ws, hs;
+        for (const auto &[at, cx, cy, w, h, mode] : boxes) {
+            xs.append({at, cx - w / 2.0, mode});
+            ys.append({at, cy - h / 2.0, mode});
+            ws.append({at, w, mode});
+            hs.append({at, h, mode});
+        }
+        keyAll(clip, QStringLiteral("x"), xs);
+        keyAll(clip, QStringLiteral("y"), ys);
+        keyAll(clip, QStringLiteral("width"), ws);
+        keyAll(clip, QStringLiteral("height"), hs);
+    };
+    const auto stillKind = [](const drift::Clip &clip) {
+        return clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text
+               || clip.type == drift::ClipType::Image;
+    };
 
     const drift::Project before = m_project;
-    QStringList ids;
-    for (int li = 0; li < e->layers.size(); ++li) {
-        const drift::ShapeElementLayer &layer = e->layers.at(li);
-        drift::Clip clip;
-        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
-        clip.type = drift::ClipType::Shape;
-        clip.name = e->layers.size() > 1 ? QStringLiteral("%1 %2").arg(drift::catalogText(e->label)).arg(li + 1)
-                                        : drift::catalogText(e->label);
-        clip.shapeStyle.kind = drift::ShapeKind::Custom;
-        clip.shapeStyle.customPath = layer.keys.first().svg;
-        // The outline at each key is the next entry of pathShapes; the path track holds its index.
-        drift::KeyframeTrack<double> &path = clip.shapeStyle.keyframes[QLatin1String(drift::kShapePathKey)];
-        for (int k = 0; k < layer.keys.size(); ++k) {
-            clip.shapeStyle.pathShapes.append(layer.keys.at(k).svg);
-            const drift::TimeUs at = qRound64(layer.keys.at(k).t * double(length));
-            path.setKeyframe(at, double(k));
-            path.setEasing(at, drift::Interpolation::Linear);
+    const QString targetId = ids.last();
+    const ClipGeometry goal = geometry(targetId, t1);
+    using I = drift::Interpolation;
+    for (int i = 0; i + 1 < ids.size(); ++i) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, ids.at(i), &t, &c))
+            continue;
+        const ClipGeometry g = geometry(ids.at(i), t0);
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        if (stillKind(clip) && clip.timelineEnd() < t1 + frame)
+            clip.timelineDuration = t1 + frame - clip.timelineStart;
+        const double dx = goal.cx - g.cx;
+        const double dy = goal.cy - g.cy;
+        const double dist = std::hypot(dx, dy);
+        const double side = (i % 2 == 0) ? 1.0 : -1.0;
+        const double px = dist > 1e-6 ? -dy / dist : 0.0;
+        const double py = dist > 1e-6 ? dx / dist : 0.0;
+        const double k = std::max(goal.w, goal.h) / std::max(1.0, std::max(g.w, g.h));
+        const drift::TimeUs tb = t0 + length * 18 / 100;
+        const drift::TimeUs tm = t0 + length * 62 / 100;
+        const double sm = 1.0 + (k - 1.0) * 0.55;
+        keyBox(clip, {{t0, g.cx, g.cy, g.w, g.h, I::Ease},
+                      {tb, g.cx - dx * 0.06, g.cy - dy * 0.06, g.w * 0.92, g.h * 0.92, I::Ease},
+                      {tm, g.cx + dx * 0.55 + px * arc * dist * side, g.cy + dy * 0.55 + py * arc * dist * side,
+                       g.w * sm, g.h * sm, I::Linear},
+                      {t1, goal.cx, goal.cy, g.w * k, g.h * k, I::Hold}});
+        keyAll(clip, QStringLiteral("rotation"),
+               {{t0, g.rotation, I::Ease}, {tb, g.rotation - 6.0 * side, I::Ease},
+                {tm, g.rotation + spin * 0.6 * side, I::Linear}, {t1, g.rotation + spin * side, I::Hold}});
+        // The cut: there until the target takes over, then gone.
+        keyAll(clip, QStringLiteral("opacity"), {{t0, g.opacity, I::Hold}, {t1, 0.0, I::Hold}});
+
+        // Trails: copies a couple of frames behind, fainter, under it.
+        const drift::Clip source = clip;
+        for (int n = 1; n <= qBound(0, trails, 8); ++n) {
+            drift::Clip copy = source;
+            copy.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+            copy.name = tr("%1 trail %2").arg(source.name).arg(n);
+            const drift::TimeUs delay = frame * 2 * n;
+            for (const QString &prop : {QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"),
+                                        QStringLiteral("height"), QStringLiteral("rotation"), QStringLiteral("opacity")}) {
+                drift::KeyframeTrack<double> *kt = keyframeTrackForProp(copy, prop, false);
+                if (!kt || kt->isEmpty())
+                    continue;
+                const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt->keyframes();
+                for (auto it = keys.cbegin(); it != keys.cend(); ++it)
+                    kt->removeKeyframe(it.key());
+                const double fade = prop == QLatin1String("opacity") ? 1.0 - double(n) / (qBound(0, trails, 8) + 1) : 1.0;
+                for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
+                    drift::Keyframe<double> key = it.value();
+                    key.value *= fade;
+                    kt->setKeyframe(it.key() + (it.key() > 0 ? delay : 0), key);
+                }
+            }
+            if (stillKind(copy))
+                copy.timelineDuration += delay;
+            int at = -1;
+            int idx = -1;
+            findClipById(m_project, source.id, &at, &idx);
+            const int below = qMin(int(m_project.tracks().size()), at + n);
+            m_project.tracks().insert(below, drift::Track{.type = drift::trackTypeForClipType(copy.type)});
+            m_project.tracks()[below].clips.append(copy);
         }
-        path.setStopwatch(true);
-        const QString color = layer.color >= 0 && layer.color < colors.size() ? colors.at(layer.color)
-                                                                              : QStringLiteral("#1fd1b8");
-        paintDrawnShape(clip.shapeStyle, color, QStringLiteral("none"), 0.0);
-        clip.timelineStart = start;
-        clip.timelineDuration = length;
-        clip.srcIn = 0;
-        clip.srcOut = length;
-        setClipLayoutPixels(clip, x, y, side, side);
-        // Each layer on a track of its own, the later ones on top.
-        m_project.tracks().insert(0, drift::Track{.type = drift::TrackType::Shape});
-        m_project.tracks()[0].clips.append(clip);
-        ids.append(clip.id);
+    }
+    // The target: hidden until the cut, then arriving a little big and turned, settling with a bounce.
+    int tt = -1;
+    int tc = -1;
+    if (findClipById(m_project, targetId, &tt, &tc)) {
+        drift::Clip &target = m_project.tracks()[tt].clips[tc];
+        const drift::TimeUs settle = drift::secondsToUs(0.32);
+        if (stillKind(target) && target.timelineEnd() < t1 + settle)
+            target.timelineDuration = t1 + settle - target.timelineStart;
+        QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> opacity;
+        if (target.timelineStart < t1)
+            opacity.append({target.timelineStart, 0.0, I::Hold});
+        opacity.append({t1, goal.opacity, I::Hold});
+        keyAll(target, QStringLiteral("opacity"), opacity);
+        const double side = ids.size() % 2 == 0 ? -1.0 : 1.0;
+        keyBox(target, {{t1, goal.cx, goal.cy, goal.w * 1.18, goal.h * 1.18, I::Ease},
+                        {t1 + settle / 2, goal.cx, goal.cy, goal.w * 0.96, goal.h * 0.96, I::Ease},
+                        {t1 + settle, goal.cx, goal.cy, goal.w, goal.h, I::Ease}});
+        keyAll(target, QStringLiteral("rotation"),
+               {{t1, goal.rotation + spin * 0.12 * side, I::Ease}, {t1 + settle, goal.rotation, I::Ease}});
     }
     m_project.ensureTrackIds();
-    pushProjectEdit(before, tr("Add %1").arg(drift::catalogText(e->label)));
-    finishEdit(tr("Add %1").arg(drift::catalogText(e->label)));
+    pushProjectEdit(before, tr("Morph"));
+    finishEdit(tr("Morph"));
+}
+
+void AppController::generateLiquidTrail(int perFrame, int frameSkip, double threshold, bool horizontal,
+                                        double inherit, double randomness, double size, const QString &color)
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        setLastMessage(tr("Select the moving layer the liquid comes off"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::Clip source = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+    const int fps = qMax(1, m_project.fps());
+    const double dt = 1.0 / fps;
+    const double W = m_project.width();
+    const double H = m_project.height();
+    const double unit = qMin(W, H) / 1080.0;
+    const int frames = qMax(2, int(std::ceil(drift::usToSeconds(source.timelineDuration) * fps)));
+    const int tail = int(std::ceil(1.0 * fps));
+    QRandomGenerator rng(quint32(qHash(source.id)));
+    const auto uniform = [&](double a, double b) { return a + (b - a) * rng.generateDouble(); };
+
+    struct Drop
+    {
+        double x, y, vx, vy, r0, age, life;
+    };
+    QList<Drop> drops;
+    QStringList outlines;
+    QList<drift::TimeUs> times;
+    double lastCx = 0.0, lastCy = 0.0;
+    bool have = false;
+    const int step = qMax(1, frameSkip);
+    for (int f = 0; f < frames + tail; ++f) {
+        const bool alive = f < frames;
+        if (alive) {
+            const double s = drift::usToSeconds(source.timelineStart) + f * dt;
+            const double x = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("x"), s, 0.0);
+            const double y = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("y"), s, 0.0);
+            const double w = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("width"), s, W);
+            const double h = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("height"), s, H);
+            const double cx = x + w / 2.0;
+            const double cy = y + h / 2.0;
+            if (have) {
+                const double vx = (cx - lastCx) / dt;
+                const double vy = (cy - lastCy) / dt;
+                const double speed = std::hypot(vx, vy);
+                if (speed > threshold * unit) {
+                    for (int n = 0; n < perFrame; ++n) {
+                        const double spread = speed * randomness;
+                        const double a = uniform(0.0, 2.0 * M_PI);
+                        Drop d;
+                        // Off the trailing side of the body, where liquid would be left behind.
+                        d.x = cx + uniform(-0.3, 0.3) * w - vx / speed * w * 0.15;
+                        d.y = cy + uniform(-0.3, 0.3) * h - vy / speed * h * 0.15;
+                        const double keep = inherit * uniform(0.25, 0.9);
+                        d.vx = vx * keep + std::cos(a) * spread * uniform(0.1, 0.6);
+                        d.vy = vy * keep + std::sin(a) * spread * uniform(0.1, 0.6) - (horizontal ? 0.0 : uniform(0, 220) * unit);
+                        d.r0 = size * unit * uniform(0.35, 1.0);
+                        d.age = 0.0;
+                        d.life = uniform(0.35, 0.9);
+                        drops.append(d);
+                    }
+                }
+            }
+            lastCx = cx;
+            lastCy = cy;
+            have = true;
+        }
+        // Physics: gravity (or none, sideways), and the air slowing them.
+        for (Drop &d : drops) {
+            if (!horizontal)
+                d.vy += 2400.0 * unit * dt;
+            d.vx *= horizontal ? 0.9 : 0.97;
+            d.vy *= horizontal ? 0.9 : 0.99;
+            d.x += d.vx * dt;
+            d.y += d.vy * dt;
+            d.age += dt;
+        }
+        drops.erase(std::remove_if(drops.begin(), drops.end(), [](const Drop &d) { return d.age >= d.life; }),
+                    drops.end());
+        if (f % step != 0)
+            continue;
+        QStringList contours;
+        for (const Drop &d : std::as_const(drops)) {
+            const double fade = std::pow(qMax(0.0, 1.0 - d.age / d.life), 0.6);
+            const double r = d.r0 * fade;
+            if (r < 0.4)
+                continue;
+            const double speed = std::hypot(d.vx, d.vy);
+            const double stretch = 1.0 + qMin(1.4, speed / (1100.0 * unit));
+            contours.append(ellipseContour(d.x, d.y, r * stretch, r / std::sqrt(stretch), std::atan2(d.vy, d.vx), W, H));
+        }
+        if (contours.isEmpty())
+            contours.append(ellipseContour(-50.0, -50.0, 0.01, 0.01, 0.0, W, H));
+        outlines.append(contours.join(QLatin1Char(' ')));
+        times.append(drift::secondsToUs(f * dt));
+    }
+
+    beginEditSession(tr("Liquid trail"));
+    const drift::Project before = m_project;
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("%1 liquid").arg(source.name);
+    clip.shapeStyle.kind = drift::ShapeKind::Custom;
+    clip.shapeStyle.customPath = outlines.first();
+    QString paint = color;
+    if (source.type == drift::ClipType::Shape && !QColor::isValidColorName(paint))
+        paint = source.shapeStyle.primaryColor().name();
+    if (!QColor::isValidColorName(paint))
+        paint = QStringLiteral("#1f7bff");
+    paintDrawnShape(clip.shapeStyle, paint, QStringLiteral("none"), 0.0);
+    // Frame by frame: each outline held until the next, as drawn animation is.
+    drift::KeyframeTrack<double> &path = clip.shapeStyle.keyframes[QLatin1String(drift::kShapePathKey)];
+    for (int k = 0; k < outlines.size(); ++k) {
+        clip.shapeStyle.pathShapes.append(outlines.at(k));
+        path.setKeyframe(times.at(k), double(k));
+        path.setEasing(times.at(k), drift::Interpolation::Hold);
+    }
+    path.setStopwatch(true);
+    clip.timelineStart = source.timelineStart;
+    clip.timelineDuration = drift::secondsToUs((frames + tail) * dt);
+    clip.srcIn = 0;
+    clip.srcOut = clip.timelineDuration;
+    setClipLayoutPixels(clip, 0.0, 0.0, W, H);
+    // Behind the layer it comes off.
+    const int below = qMin(int(m_project.tracks().size()), m_selectedTrack + 1);
+    m_project.tracks().insert(below, drift::Track{.type = drift::TrackType::Shape});
+    m_project.tracks()[below].clips.append(clip);
+    m_project.ensureTrackIds();
+    const QString sourceId = source.id;
+    pushProjectEdit(before, tr("Liquid trail"));
+    finishEdit(tr("Liquid trail"));
     int t = -1;
     int c = -1;
-    if (!ids.isEmpty() && findClipById(m_project, ids.last(), &t, &c))
+    if (findClipById(m_project, clip.id, &t, &c)) {
+        m_addEffectKeepsSelection = true;
+        addEffect(t, c, QStringLiteral("liquid.gooey"));
+        m_addEffectKeepsSelection = false;
+    }
+    endEditSession(true);
+    if (findClipById(m_project, sourceId, &t, &c))
         selectClip(t, c);
+}
+
+void AppController::generateLiquidLine(double seconds, double width, double length, double roughness,
+                                       const QString &color)
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
+        || m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).type != drift::ClipType::Shape) {
+        setLastMessage(tr("Select a shape or a line drawn with the pen: the liquid runs along it"),
+                       QStringLiteral("warning"));
+        return;
+    }
+    const drift::Clip source = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+    const double at = drift::usToSeconds(m_playheadUs);
+    const double x = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("x"), at, 0.0);
+    const double y = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("y"), at, 0.0);
+    const double w = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("width"), at, m_project.width());
+    const double h = propertyValueAt(m_selectedTrack, m_selectedClip, QStringLiteral("height"), at, m_project.height());
+    const QPainterPath outline = drift::shapePath(source.shapeStyle.resolvedAt(m_playheadUs - source.timelineStart),
+                                                  QRectF(0.0, 0.0, w, h));
+    const QList<QPolygonF> parts = outline.toSubpathPolygons();
+    if (parts.isEmpty() || parts.first().size() < 2)
+        return;
+    // The centre line, in canvas px, and how far along it each point is.
+    QPolygonF line = parts.first().translated(x, y);
+    QList<double> along{0.0};
+    for (int i = 1; i < line.size(); ++i)
+        along.append(along.last() + QLineF(line.at(i - 1), line.at(i)).length());
+    const double total = along.last();
+    if (total <= 1.0)
+        return;
+    const auto pointAt = [&](double u, QPointF *tangent) {
+        const double d = qBound(0.0, u, 1.0) * total;
+        int i = 1;
+        while (i < line.size() - 1 && along.at(i) < d)
+            ++i;
+        const double seg = qMax(1e-6, along.at(i) - along.at(i - 1));
+        const double f = (d - along.at(i - 1)) / seg;
+        const QPointF a = line.at(i - 1);
+        const QPointF b = line.at(i);
+        const QPointF dir = (b - a) / seg;
+        if (tangent)
+            *tangent = dir;
+        return a + (b - a) * f;
+    };
+
+    const int fps = qMax(1, m_project.fps());
+    const int frames = qMax(2, int(std::ceil(qBound(0.2, seconds, 20.0) * fps)));
+    const double W = m_project.width();
+    const double H = m_project.height();
+    const double len = qBound(0.05, length, 1.0);
+    QRandomGenerator rng(quint32(qHash(source.id)) ^ 0x5eed);
+    QStringList outlines;
+    QList<drift::TimeUs> times;
+    const int samples = 40;
+    for (int f = 0; f <= frames; ++f) {
+        const double p = double(f) / frames;
+        const double eased = p < 0.5 ? 4 * p * p * p : 1 - std::pow(-2 * p + 2, 3) / 2;
+        const double head = eased * (1.0 + len);
+        const double tailU = head - len;
+        const double s0 = qMax(0.0, tailU);
+        const double s1 = qMin(1.0, head);
+        QString svg;
+        if (s1 - s0 > 1e-3) {
+            const double seed = rng.generateDouble() * 100.0;
+            QList<QPointF> left, right;
+            for (int i = 0; i <= samples; ++i) {
+                const double u = s0 + (s1 - s0) * i / samples;
+                const double kk = qBound(0.0, (u - tailU) / len, 1.0); // 0 tail .. 1 head
+                QPointF tangent;
+                const QPointF c = pointAt(u, &tangent);
+                const QPointF normal(-tangent.y(), tangent.x());
+                // Thin at the tail, fullest near the head, rounded off at it.
+                double half = width / 2.0 * std::pow(std::sin(M_PI * std::pow(qMax(kk, 1e-3), 0.6)), 0.75);
+                const double torn = roughness * width * 0.22;
+                const double nl = 1.0 + smoothNoise(kk * 9.0, seed) * torn / qMax(1.0, half);
+                const double nr = 1.0 + smoothNoise(kk * 9.0 + 17.0, seed) * torn / qMax(1.0, half);
+                left.append(c + normal * half * qMax(0.2, nl));
+                right.append(c - normal * half * qMax(0.2, nr));
+            }
+            QStringList pts;
+            for (const QPointF &q : std::as_const(left))
+                pts.append(QStringLiteral("%1 %2").arg(q.x() / W * 100.0, 0, 'f', 3).arg(q.y() / H * 100.0, 0, 'f', 3));
+            for (int i = right.size() - 1; i >= 0; --i)
+                pts.append(QStringLiteral("%1 %2").arg(right.at(i).x() / W * 100.0, 0, 'f', 3)
+                               .arg(right.at(i).y() / H * 100.0, 0, 'f', 3));
+            svg = QStringLiteral("M ") + pts.join(QStringLiteral(" L ")) + QStringLiteral(" Z");
+        } else {
+            svg = ellipseContour(-50.0, -50.0, 0.01, 0.01, 0.0, W, H);
+        }
+        outlines.append(svg);
+        times.append(drift::secondsToUs(double(f) / fps));
+    }
+
+    beginEditSession(tr("Liquid line"));
+    const drift::Project before = m_project;
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("%1 liquid line").arg(source.name);
+    clip.shapeStyle.kind = drift::ShapeKind::Custom;
+    clip.shapeStyle.customPath = outlines.first();
+    QString paint = QColor::isValidColorName(color) ? color : source.shapeStyle.primaryColor().name();
+    paintDrawnShape(clip.shapeStyle, paint, QStringLiteral("none"), 0.0);
+    drift::KeyframeTrack<double> &path = clip.shapeStyle.keyframes[QLatin1String(drift::kShapePathKey)];
+    for (int k = 0; k < outlines.size(); ++k) {
+        clip.shapeStyle.pathShapes.append(outlines.at(k));
+        path.setKeyframe(times.at(k), double(k));
+        path.setEasing(times.at(k), drift::Interpolation::Hold);
+    }
+    path.setStopwatch(true);
+    clip.timelineStart = m_playheadUs;
+    clip.timelineDuration = drift::secondsToUs(double(frames + 1) / fps);
+    clip.srcIn = 0;
+    clip.srcOut = clip.timelineDuration;
+    setClipLayoutPixels(clip, 0.0, 0.0, W, H);
+    m_project.tracks().insert(qMax(0, m_selectedTrack), drift::Track{.type = drift::TrackType::Shape});
+    m_project.tracks()[qMax(0, m_selectedTrack)].clips.append(clip);
+    m_project.ensureTrackIds();
+    pushProjectEdit(before, tr("Liquid line"));
+    finishEdit(tr("Liquid line"));
+    int t = -1;
+    int c = -1;
+    if (findClipById(m_project, clip.id, &t, &c)) {
+        m_addEffectKeepsSelection = true;
+        addEffect(t, c, QStringLiteral("liquid.gooey"));
+        m_addEffectKeepsSelection = false;
+        // A thin stream wants a smaller melt than the default.
+        const drift::ClipRef host = effectHostRef(t, c, drift::AdjustmentKind::VideoEffects, false);
+        if (host.trackIndex >= 0) {
+            QList<drift::Effect> &effects = m_project.tracks()[host.trackIndex].clips[host.clipIndex].effects;
+            for (drift::Effect &e : effects) {
+                if (e.catalogId == QLatin1String("liquid.gooey"))
+                    e.parameters.insert(QStringLiteral("goo"), qBound(2.0, width * 0.18, 30.0));
+            }
+        }
+    }
+    endEditSession(true);
 }
 
 void AppController::setStrokeCaps(const QString &cap, const QString &join)

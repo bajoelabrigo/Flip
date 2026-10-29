@@ -5724,10 +5724,6 @@
         <translation>ট্রেন্ড</translation>
     </message>
     <message>
-        <source>Add %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select a shape or a text with a stroke</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5901,6 +5897,42 @@
     <message>
         <source>Mine</source>
         <translation>আমার</translation>
+    </message>
+    <message>
+        <source>Select the layers to morph, and the one they turn into last (Ctrl+click)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 trail %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Morph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the moving layer the liquid comes off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 liquid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen: the liquid runs along it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 liquid line</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -10514,6 +10546,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Liquid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Melt (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Base width (%)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12051,134 +12095,6 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Wobble Turn</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Blob</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bubble Pop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Circle to Heart</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Circle to Star</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Drip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Drop to Circle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Drop and Splash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Flower Bloom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gear to Circle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gear Spin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Geometry</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Goo Merge</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Heart Beat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Heart to Star</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Liquid Blob</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Liquid Burst</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Liquid Transition Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Liquid Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Plus to Cross</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Puddle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shape Shuffle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sparkle to Star</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Splash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Square to Circle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Star to Flower</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Triangle to Hexagon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wave Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Circle Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Double Circle Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Heart Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Square Transition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Star Transition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22924,15 +22840,99 @@ If playback stutters, try another.</source>
 <context>
     <name>ShapeElementsPanel</name>
     <message>
-        <source>Morphings</source>
+        <source>Morph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Liquids</source>
+        <source>Liquid trail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Click one to put it at the playhead. The transitions cover the whole screen.</source>
+        <source>Liquid line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers with Ctrl+click in order: the last one is what they turn into. From the playhead, they fly into it and the picture cuts to it, as Super Morphings does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Morph it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a layer that moves. Wherever it goes fast it throws liquid behind it, frame by frame, as Super Liquids does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drops a frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frame skipping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontal (no gravity)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen. A stream of liquid runs along it from the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roughness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate liquid trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate liquid line</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
