@@ -1018,11 +1018,16 @@ QVariantList PreviewController::clipsAtPlayhead() const
             };
             // Where the box lands on screen, through its own pose, every parent and the camera.
             {
-                const QRectF rect(entry.value(QStringLiteral("x")).toDouble(),
-                                  entry.value(QStringLiteral("y")).toDouble(),
+                const double spin = entry.value(QStringLiteral("rotation")).toDouble();
+                // The renderer moves the box so the turn pivots on the anchor point; the quad has to
+                // sit where the clip is drawn, or the tools that map the pointer into the box (anchor,
+                // puppet pins) land off by that much on a turned layer with its anchor off centre.
+                const QPointF anchorShift = clip.anchorShift(relative, entry.value(QStringLiteral("width")).toDouble(),
+                                                             entry.value(QStringLiteral("height")).toDouble(), spin);
+                const QRectF rect(entry.value(QStringLiteral("x")).toDouble() + anchorShift.x(),
+                                  entry.value(QStringLiteral("y")).toDouble() + anchorShift.y(),
                                   entry.value(QStringLiteral("width")).toDouble(),
                                   entry.value(QStringLiteral("height")).toDouble());
-                const double spin = entry.value(QStringLiteral("rotation")).toDouble();
                 const drift::ClipPose3d pose = previewBoxPose(entry);
                 QMatrix4x4 placed;
                 if (cameraActive) {

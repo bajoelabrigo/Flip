@@ -45,6 +45,8 @@ Column {
         return EditorState.lightSettings(root.trackIndex, root.clipIndex)
     }
     readonly property bool isLight: !!light && light.kind !== undefined
+    // Lights and null objects never paint, so layer styles would do nothing on them.
+    readonly property bool paints: !isLight && !(!!info && info.nullObject === true)
     function setLight(key, value) {
         const m = {}
         m[key] = value
@@ -268,12 +270,14 @@ Column {
 
     // ----- After Effects' Layer Styles (0.26), on any layer ------------------------------------
     Text {
+        visible: root.paints
         text: qsTr("Layer styles")
         color: Theme.mutedForeground
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSizeXs
     }
     Text {
+        visible: root.paints
         width: parent.width
         wrapMode: Text.WordWrap
         text: qsTr("Added as effects, so each one is adjusted, animated or removed in the Effects tab.")
@@ -283,6 +287,7 @@ Column {
         opacity: 0.8
     }
     Flow {
+        visible: root.paints
         width: parent.width
         spacing: Theme.spacingSm
         Repeater {

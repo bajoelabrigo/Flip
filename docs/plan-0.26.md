@@ -66,8 +66,11 @@ Si otro asistente sigue este trabajo: este archivo dice qué está hecho (`[x]`)
       una clave en cada punta con lo que ya se ve; la fila «Reasignación de tiempo» sale con las demás.
 - [x] D3. Vista previa: ½ y ¼ y el fondo a cuadros ya existían; nuevas las **zonas seguras** (opciones de la vista
       previa; `EditorState.preview.safeZones`).
-- [ ] D4. Luces 3D: **no entra en la 0.26** (necesita un tipo de capa nuevo y sombreado por capa; se deja para
-      después).
+- [x] D4. Luces 3D (Jorge: «haz lo de las luces de una vez»): capas de luz Puntual, Foco, Paralela y Ambiente
+      (`Clip::light`, un clip nulo que no pinta; Motion Tools y el menú de pista nueva). Las capas 3D con «Acepta
+      luces» (`Clip::acceptsLights`) se sombrean por píxel en el espacio del mundo (`applyLighting` en
+      `GpuCompositor.cpp`: ambiente + difusa + brillo, caída y cono suaves; hasta 8 luces). Ajustes en Vincular y
+      movimiento: tipo, color, intensidad, ángulo y difuminado del cono, radio y distancia de caída.
 
 ## Etapa E — Barra de herramientas y Preferencias (Jorge, 2026-10-28)
 - [x] E1. **Barra de herramientas sobre la vista previa** (como el panel Herramientas de AE,
@@ -145,8 +148,16 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 - **Probado en ventana (build 381cad8, `pruebas\FlipStudio-0.26-prueba-d`):** los tres arreglos (Marioneta dobla fuera
   del recuadro, RAM en bucle, cambio de capa en el editor de curvas), expresión `time * 90` en Rotación (120,1° a
   1,33 s, la fila muestra «≈»), látigo (↳ Círculo sin salto), zigzag, Ondas de radio y fondo a cuadros.
-- **Falta antes de publicar:** lo de etapas anteriores sin ventana (editar puntos, herramientas Anclaje y Mano,
-  velocidad de claves, reasignación de tiempo, Mayús+A/P/R/T/S, invertir/estirar claves); D4 luces 3D fuera.
+- **Probado en ventana (build c4d44b2, `pruebas\FlipStudio-0.26-prueba-e`):** las cuatro luces desde Motion Tools
+  (Puntual ilumina según dónde se arrastre, Foco con cono de 90° y de 30°, Paralela oscurece la capa girada, Ambiente
+  pareja), color/intensidad/cono/atenuación en Fusión, «Acepta luces» apagado devuelve el color original; Mano,
+  Punto de anclaje y la ventana de Velocidad del fotograma clave.
+- **Arreglado tras esa prueba:** la luz nueva cubre toda la composición desde el 0 (antes empezaba en el cabezal y
+  alargaba el proyecto); los Estilos de capa no salen en luces ni nulos; el recuadro (`quad`) de la vista previa suma
+  el corrimiento del anclaje (`anchorShift`), así el Punto de anclaje y los pines caen donde se suelta en una capa
+  girada con el anclaje fuera del centro.
+- **Falta antes de publicar:** lo de etapas anteriores sin ventana (editar puntos, reasignación de tiempo,
+  Mayús+A/P/R/T/S, invertir/estirar claves: Mayús no llega con mensajes simulados, lo prueba Jorge).
 - **Trampa:** `/tmp/chk.sh` no tenía g++ en el PATH y no comprobaba nada (salida vacía = «bien»): ahora exporta
   `.qtmingw/Tools/mingw1310_64/bin` y define `QT_NO_FOREACH`. Un efecto GPU sin `"pipeline"` se salta al cargar
   («pipeline has no passes»), sin aviso en la interfaz.

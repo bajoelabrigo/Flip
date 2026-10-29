@@ -11282,8 +11282,11 @@ void AppController::addLight(int kind)
 {
     kind = qBound(1, kind, 4);
     const drift::Project before = m_project;
-    const drift::TimeUs start = m_playheadUs;
-    const drift::TimeUs duration = qMax(drift::defaultStillDurationUs(), m_project.durationUs() - start);
+    // As in After Effects, a new light spans the whole composition: one that started at the playhead
+    // left the layers unlit before it and stretched the project past its end.
+    const drift::TimeUs start = 0;
+    const drift::TimeUs duration =
+        m_project.durationUs() > 0 ? m_project.durationUs() : drift::defaultStillDurationUs();
     const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
     if (target < 0)
         return;
