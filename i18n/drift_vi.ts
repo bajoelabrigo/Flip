@@ -17994,6 +17994,14 @@ LẦN SAU</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speed at the keys, in units a second: 0 stops there, more keeps it moving through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ease</source>
         <translation type="unfinished"></translation>
     </message>

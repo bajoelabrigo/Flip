@@ -782,7 +782,10 @@ public:
     // the selected clips by offset frames every `step` clips (reverse = from the last); a null
     // that the selected clips follow; and Convert to shape (a text's outlines or a built-in
     // shape as an editable path).
-    Q_INVOKABLE void easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence);
+    // Easy ease with these influences (%) and, Motion Tools' third row, this speed at the keys
+    // (units a second; 0 = they come to rest there).
+    Q_INVOKABLE void easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
+                                         double velocity = 0.0);
     Q_INVOKABLE void applySettleToPicked(const QString &kind);
     Q_INVOKABLE bool clonePickedKeyframes();
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);

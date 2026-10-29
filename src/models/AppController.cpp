@@ -11219,7 +11219,8 @@ void AppController::stretchKeyframes(int trackIndex, const QVariantList &keys, d
     }
 }
 
-void AppController::easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence)
+void AppController::easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
+                                        double velocity)
 {
     const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
     const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
@@ -11250,13 +11251,14 @@ void AppController::easePickedKeyframes(const QString &mode, double inInfluence,
         drift::Keyframe<double> key = it.value();
         key.hold = false;
         // Easy Ease with the panel's influences: flat handles reaching that far into each gap.
+        // The handles' slope is the speed at the key (units a second over microseconds).
         if (it != kt->keyframes().constBegin()) {
             key.inDx = -double(at - std::prev(it).key()) * qBound(0.1, inInfluence, 100.0) / 100.0;
-            key.inDy = 0.0;
+            key.inDy = velocity * key.inDx / 1e6;
         }
         if (std::next(it) != kt->keyframes().constEnd()) {
             key.outDx = double(std::next(it).key() - at) * qBound(0.1, outInfluence, 100.0) / 100.0;
-            key.outDy = 0.0;
+            key.outDy = velocity * key.outDx / 1e6;
         }
         key.corner = false;
         kt->setKeyframe(at, key);

@@ -18062,6 +18062,14 @@ LA PRÓXIMA</translation>
         <translation>Suavizar salida: cuánto arranca despacio al dejar la clave</translation>
     </message>
     <message>
+        <source>Speed at the keys, in units a second: 0 stops there, more keeps it moving through</source>
+        <translation>Velocidad en las claves, en unidades por segundo: 0 se detiene ahí; más, sigue de largo</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suavizado</translation>
+    </message>
+    <message>
         <source>Ease</source>
         <translation>Suavizar</translation>
     </message>

@@ -16,6 +16,15 @@ Item {
     readonly property bool hasClip: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
     property real easeIn: 33
     property real easeOut: 33
+    property real easeIn: 33
+    property real easeOut: 33
+    // Motion Tools' third row: the speed the picked keys pass through (0 = they rest there).
+    property real easeVelocity: 0
+    // As Motion Tools: the picked keys take the handles as they move, one undo step per drag.
+    function applyEaseLive() {
+        if (root.pickedCount > 0)
+            EditorState.easePickedKeyframes("ease", root.easeIn, root.easeOut, root.easeVelocity)
+    }
 
     height: col.height
     implicitHeight: col.height
@@ -107,34 +116,51 @@ Item {
         Card {
             Repeater {
                 model: [
-                    { id: "in", glyph: Theme.icons.chevronLeft, tip: qsTr("Ease in: how far the curve slows down arriving at the key") },
-                    { id: "out", glyph: Theme.icons.chevronRight, tip: qsTr("Ease out: how far it starts slowly leaving the key") }
+                    { id: "in", glyph: Theme.icons.chevronLeft, from: 0.1, to: 100,
+                      tip: qsTr("Ease in: how far the curve slows down arriving at the key") },
+                    { id: "out", glyph: Theme.icons.chevronRight, from: 0.1, to: 100,
+                      tip: qsTr("Ease out: how far it starts slowly leaving the key") },
+                    { id: "velocity", glyph: "x", from: -2000, to: 2000,
+                      tip: qsTr("Speed at the keys, in units a second: 0 stops there, more keeps it moving through") }
                 ]
                 RowLayout {
+                    id: easeRow
                     required property var modelData
                     width: parent.width
                     spacing: Theme.spacingSm
+                    readonly property real current: modelData.id === "in" ? root.easeIn
+                                                    : modelData.id === "out" ? root.easeOut : root.easeVelocity
+                    function setValue(v) {
+                        if (modelData.id === "in")
+                            root.easeIn = v
+                        else if (modelData.id === "out")
+                            root.easeOut = v
+                        else
+                            root.easeVelocity = v
+                        root.applyEaseLive()
+                    }
                     IconGlyph { glyph: modelData.glyph; iconSize: 16 }
                     ThemedSlider {
                         Layout.fillWidth: true
-                        label: modelData.tip
-                        from: 0.1
-                        to: 100
-                        value: modelData.id === "in" ? root.easeIn : root.easeOut
-                        onMoved: {
-                            if (modelData.id === "in")
-                                root.easeIn = value
-                            else
-                                root.easeOut = value
+                        label: easeRow.modelData.tip
+                        from: easeRow.modelData.from
+                        to: easeRow.modelData.to
+                        value: easeRow.current
+                        onPressedChanged: {
+                            if (pressed && root.pickedCount > 0)
+                                EditorState.beginEditSession(qsTr("Easy ease"))
+                            else if (!pressed)
+                                EditorState.endEditSession(true)
                         }
+                        onMoved: easeRow.setValue(value)
                     }
-                    Text {
-                        Layout.preferredWidth: 34
-                        horizontalAlignment: Text.AlignRight
-                        text: Math.round(modelData.id === "in" ? root.easeIn : root.easeOut)
-                        color: Theme.panelForeground
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.fontSizeSm
+                    ThemedNumberField {
+                        Layout.preferredWidth: 58
+                        from: easeRow.modelData.from
+                        to: easeRow.modelData.to
+                        decimals: 0
+                        value: easeRow.current
+                        onEdited: v => easeRow.setValue(v)
                     }
                 }
             }
@@ -147,7 +173,7 @@ Item {
                     glyph: "circle"
                     tip: qsTr("Easy ease with these influences on the picked keys")
                     enabledTool: root.pickedCount > 0
-                    onActivated: EditorState.easePickedKeyframes("ease", root.easeIn, root.easeOut)
+                    onActivated: EditorState.easePickedKeyframes("ease", root.easeIn, root.easeOut, root.easeVelocity)
                 }
                 ToolButton {
                     width: (parent.width - 2 * parent.spacing) / 3
