@@ -11706,7 +11706,7 @@ void AppController::addNullForSelection()
     finishEdit(tr("Parent set"));
 }
 
-void AppController::convertSelectionToShape()
+void AppController::convertSelectionToShape(bool asOutline)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
         return;
@@ -11755,6 +11755,10 @@ void AppController::convertSelectionToShape()
         clip.shapeStyle.customPath = drift::painterPathToSvg(toUnit.map(outline));
         clip.shapeStyle.customEvenOdd = false;
         clip.shapeStyle.layers = drift::defaultShapeLayers(color, color, Qt::white, 0.0);
+        if (asOutline) {
+            const double strokeWidth = qBound(2.0, clip.textStyle.pixelSize / 16.0, 24.0);
+            paintDrawnShape(clip.shapeStyle, QStringLiteral("none"), color.name(), strokeWidth);
+        }
         // The outlines' own box, centred where the text's was.
         setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, yy + (h - b.height()) / 2.0, b.width(), b.height());
         clip.name = text.left(40);

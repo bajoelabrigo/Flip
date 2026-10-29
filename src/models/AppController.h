@@ -795,7 +795,9 @@ public:
     Q_INVOKABLE bool clonePickedKeyframes();
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
     Q_INVOKABLE void addNullForSelection();
-    Q_INVOKABLE void convertSelectionToShape();
+    // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no
+    // fill, ready for Trim Paths (a trimmed fill only shows pieces).
+    Q_INVOKABLE void convertSelectionToShape(bool outline = false);
     Q_INVOKABLE void centerSelectionInFrame();
     // After Effects' Motion Sketch (0.26): the pointer's path recorded on the preview
     // ([{t: timeline seconds, x, y: canvas px of the clip's centre}]) becomes its Position keys

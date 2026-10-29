@@ -165,7 +165,7 @@ Column {
             tint: "#f06ab4"
             label: qsTr("Convert")
             tip: qsTr("A text or shape into an editable path, so it can be trimmed letter by letter")
-            onActivated: EditorState.convertSelectionToShape()
+            onActivated: EditorState.convertSelectionToShape(true)
         }
         TrimButton { mode: "clear"; icon: "clear"; tint: "#9aa0a6"; label: qsTr("Clear"); tip: qsTr("Take the Trim Paths animation off") }
     }
