@@ -38,7 +38,9 @@ class Mass:
         mx = np.zeros_like(xx)
         sm = np.zeros_like(xx)
         mc = np.zeros_like(xx)
-        for cx, cy, r, sx, sy, ang, heart in lobes:
+        holes = np.zeros_like(xx)
+        for lobe in lobes:
+            cx, cy, r, sx, sy, ang, heart = lobe[:7]
             if r <= 0.5:
                 continue
             g = bump(X, Y, cx, cy, r, sx, sy, ang)
@@ -46,8 +48,12 @@ class Mass:
             sm += g
             if heart > 0.05:
                 mc = np.maximum(mc, bump(X, Y, cx, cy, r * heart, sx, sy, ang))
-        d = mx + 0.05 * np.clip(sm, 0, 2)
-        dc = mc
+            # A hollow opening under the puff as it burns out (lobe[7] 0..1, lobe[8] its side).
+            if len(lobe) > 7 and lobe[7] > 0:
+                k = lobe[7]
+                holes = np.maximum(holes, bump(X, Y, cx + lobe[8] * r * 0.3, cy + r * 0.5, r * (0.3 + 0.9 * k), 1.0, 1.1))
+        d = mx + 0.05 * np.clip(sm, 0, 2) - 1.5 * holes
+        dc = mc - 1.5 * holes
         ox, oy = origin
         if flow == "radial":
             ang = np.arctan2(yy - oy, xx - ox)
@@ -110,6 +116,43 @@ def explosion(W, H, seed, size=1.0, grow=0.22, dur=1.9):
     return field
 
 
+def torch(W, H, seed, size=1.0, dur=1.9):
+    """A fireball column rising (RTFX's «Torch Fireball Up»): puffs born up a sinuous tongue, the top
+    ones leaning and drawn out into licks, hollows opening as they age, torn upward as it dies."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    puffs = [(i / 9, rnd.uniform(-1, 1), rnd.uniform(0.8, 1.15)) for i in range(10)]
+    k = size * m.gw / 256
+    ox, base = m.gw / 2, m.gh * 0.74
+
+    def field(t):
+        t *= 1.55  # RTFX's torch is over in under a second
+        lobes = []
+        for i, (h, jx, js) in enumerate(puffs):
+            age = t - h * 0.28
+            if age < 0 or age > 1.25:
+                continue
+            side = 1 if i % 2 else -1
+            cx = ox + (math.sin(h * 4.0 + 0.4) * 34 * h + side * 13 * (1 - h) + jx * 5) * k
+            cy = base - (h * 120 + age * 45) * k
+            r = (7 + 25 * min(1, age / 0.15)) * js * (1.1 - 0.45 * h) * (1 - 0.3 * max(0, age - 0.6)) * k
+            lean = 1.6 * (h - 0.7) / 0.3 if h > 0.7 else 0.0
+            heart = 0.85 * max(0.0, min(1.0, 1.0 - max(0.0, age - 0.55) * 1.6))
+            hole = 0.7 * max(0.0, (age / 1.25 - 0.55) / 0.45)
+            lobes.append((cx, cy, r, 1.0, 1.05 + 0.6 * h * h, lean, heart, hole, jx))
+        return m.field(lobes, t, "up", (ox, base + 6 * k), 170 * k, 0.75, 0.75, crown=0.0,
+                       life=min(1.0, t / 1.5))
+
+    return field
+
+
+def make_torch():
+    s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
+            ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, torch(512, 512, 7, size=0.95))
+
+
 def make_explosion():
     s = new("ex-fuego-explosion-radial", "Fuego · Explosión radial", "Fire · Radial explosion", "fuego", 46, 6000,
             ["fuego", "fire", "explosión", "explosion"], size=512, thumb=0.25)
@@ -117,4 +160,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion]
+STICKERS = [make_explosion, make_torch]
