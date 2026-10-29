@@ -718,6 +718,9 @@ incluye igual, y como el catálogo regional `drift_es_CO` va encima de `drift_es
 `es_CO`), salían cosas como «Desenfoque» en vez de «Desenfocar». Se vaciaron las 148 de `es_CO` y
 lupdate corre con `-disable-heuristic sametext -disable-heuristic similartext` (también en CMake).
 
+**Trampa (0.26):** el `lupdate` va también sobre la plantilla `i18n\drift.ts` (`-ts i18n\drift.ts (gci i18n\drift_*.ts)`):
+con solo `drift_*.ts` la plantilla queda vieja y el test Translations falla aunque todas las traducciones estén bien.
+
 **Trampa que costó dos ciclos de CI:** editar un `.ts` a mano (o con un script de reemplazo) puede
 dejar el archivo en una forma que `lupdate` no reproduce, y entonces el test Translations falla
 aunque el contenido se vea correcto. El orden es: `lupdate` primero, después rellenar
