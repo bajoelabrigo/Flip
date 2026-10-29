@@ -73,11 +73,15 @@ def main() -> int:
                         default=ROOT / "pruebas" / "FlipStudio-0.12.0-prueba" / "app" / "Flip Studio" / "flipstudio.exe")
     parser.add_argument("--only", default="")
     parser.add_argument("--no-render", action="store_true")
+    # Another set of designs (a module next to this file with a STICKERS list), e.g. extremas.
+    parser.add_argument("--designs", default="designs")
     args = parser.parse_args()
+    import importlib
+    source = importlib.import_module(args.designs)
     only = {s for s in args.only.split(",") if s}
 
     jobs = []
-    for make in designs.STICKERS:
+    for make in source.STICKERS:
         st = make()
         if only and st.id not in only:
             continue
