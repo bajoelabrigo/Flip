@@ -299,6 +299,7 @@ private slots:
     void removingATemplatePutsTheClipBack();
     void trackKeyframeRowsUnfoldAndEdit();
     void solidsAndCompositionsInMedia();
+    void pasteOntoItsOwnKeysCarriesOn();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
@@ -10411,6 +10412,44 @@ void EditorStateTest::solidsAndCompositionsInMedia()
     QCOMPARE(state.project()->tracks().size(), 2);
     QCOMPARE(state.project()->tracks().at(0).clips.first().assetId, redId);
     QCOMPARE(state.project()->tracks().at(1).clips.first().assetId, blueId);
+}
+
+// Copying (or cloning) keys and pasting them back onto themselves carries the animation on after
+// them, one step on, instead of landing on top (0.26, Jorge: as After Effects users expect).
+void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    const QString rot = QStringLiteral("rotation");
+    state.setClipKeyframe(track, 0, rot, 0.0, 0.0);
+    state.setClipKeyframe(track, 0, rot, 1.0, 90.0);
+    const QVariantList picked{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), rot}, {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), rot}, {QStringLiteral("seconds"), 1.0}}};
+    QCOMPARE(state.copyKeyframes(track, picked), 2);
+    state.setPlayheadSeconds(1.0); // on the copied keys themselves
+    QVERIFY(state.pasteKeyframes(track, 0));
+    const auto times = [&] {
+        QList<double> out;
+        for (const QVariant &v : state.clipKeyframes(track, 0, rot))
+            out.append(v.toMap().value(QStringLiteral("seconds")).toDouble());
+        return out;
+    };
+    QCOMPARE(times(), (QList<double>{0.0, 1.0, 2.0, 3.0}));
+    QCOMPARE(state.propertyValueAt(track, 0, rot, 2.0, 0.0), 0.0);
+    QCOMPARE(state.propertyValueAt(track, 0, rot, 3.0, 0.0), 90.0);
+    // The playhead waits one step on, so the next paste continues the chain.
+    QVERIFY(qAbs(state.playheadSeconds() - 4.0) < 1e-6);
+    QVERIFY(state.pasteKeyframes(track, 0));
+    QCOMPARE(times().size(), 6);
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()

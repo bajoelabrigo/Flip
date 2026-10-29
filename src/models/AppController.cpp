@@ -20996,8 +20996,24 @@ int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
     if (copied.isEmpty())
         return 0;
     drift::TimeUs first = copied.first().afterFirstUs;
-    for (const CopiedKey &key : std::as_const(copied))
+    drift::TimeUs last = first;
+    QSet<drift::TimeUs> times;
+    for (const CopiedKey &key : std::as_const(copied)) {
         first = qMin(first, key.afterFirstUs);
+        last = qMax(last, key.afterFirstUs);
+        times.insert(key.afterFirstUs);
+    }
+    {
+        // The clip they came from (the first key's), for a paste back onto themselves.
+        const QVariantMap k = keys.first().toMap();
+        int t = trackIndex;
+        int c = k.value(QStringLiteral("clip")).toInt();
+        redirectToKeyframeHost(&t, &c, k.value(QStringLiteral("prop")).toString());
+        m_keyClipboardClipId = isValidClipIndex(t, c) ? m_project.tracks().at(t).clips.at(c).id : QString();
+    }
+    m_keyClipboardFirstUs = first;
+    m_keyClipboardLastUs = last;
+    m_keyClipboardTimes = int(times.size());
     for (CopiedKey &key : copied)
         key.afterFirstUs -= first;
     m_keyClipboard = copied;
@@ -21012,6 +21028,24 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
     const drift::Project before = m_project;
     int pasted = 0;
     QStringList missing;
+    // Pasted (or cloned) back onto the very keys they came from, the copies go after them, one
+    // step on (the keys' own spacing), so the animation carries on (As After Effects users expect:
+    // Jorge, 0.26; on top they changed nothing). Elsewhere they land at the playhead.
+    drift::TimeUs pasteAtUs = m_playheadUs;
+    {
+        int t = trackIndex;
+        int c = clipIndex;
+        if (!m_keyClipboard.isEmpty())
+            redirectToKeyframeHost(&t, &c, m_keyClipboard.first().prop);
+        const bool sameClip = isValidClipIndex(t, c)
+                              && m_project.tracks().at(t).clips.at(c).id == m_keyClipboardClipId;
+        const drift::TimeUs span = m_keyClipboardLastUs - m_keyClipboardFirstUs;
+        if (sameClip && span > 0 && m_playheadUs >= m_keyClipboardFirstUs - drift::kUsPerSecond / 100
+            && m_playheadUs <= m_keyClipboardLastUs + drift::kUsPerSecond / 100) {
+            const drift::TimeUs step = span / qMax(1, m_keyClipboardTimes - 1);
+            pasteAtUs = m_keyClipboardLastUs + step;
+        }
+    }
     for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
         int t = trackIndex;
         int c = clipIndex;
@@ -21025,7 +21059,7 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
                 missing.append(copied.prop);
             continue;
         }
-        const drift::TimeUs at = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart) + copied.afterFirstUs;
+        const drift::TimeUs at = qMax<drift::TimeUs>(0, pasteAtUs - clip.timelineStart) + copied.afterFirstUs;
         kt->setKeyframe(at, copied.key);
         ++pasted;
     }
@@ -21036,6 +21070,15 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
     }
     pushProjectEdit(before, tr("Paste keyframes"));
     finishEdit(tr("Paste keyframes"));
+    if (pasteAtUs != m_playheadUs) {
+        // The copies are now the keys a further paste continues after, and the playhead waits one
+        // step past them, where the next clone carries the chain on (A B A B…).
+        const drift::TimeUs span = m_keyClipboardLastUs - m_keyClipboardFirstUs;
+        const drift::TimeUs step = span / qMax(1, m_keyClipboardTimes - 1);
+        m_keyClipboardFirstUs = pasteAtUs;
+        m_keyClipboardLastUs = pasteAtUs + span;
+        setPlayheadUs(m_keyClipboardLastUs + step);
+    }
     setLastMessage(tr("Pasted %n keyframe(s)", "", pasted), QStringLiteral("success"));
     return true;
 }

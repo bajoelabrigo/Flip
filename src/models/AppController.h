@@ -2872,6 +2872,12 @@ protected:
         drift::Keyframe<double> key;
     };
     QList<CopiedKey> m_keyClipboard;
+    // Where the copied keys came from (clip id and timeline span), so pasting or cloning them back
+    // onto themselves continues the animation after them instead of landing on top (0.26).
+    QString m_keyClipboardClipId;
+    drift::TimeUs m_keyClipboardFirstUs = 0;
+    drift::TimeUs m_keyClipboardLastUs = 0;
+    int m_keyClipboardTimes = 0;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.
