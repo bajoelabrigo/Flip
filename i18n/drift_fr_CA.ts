@@ -23085,6 +23085,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This shape becomes an editable path when you edit its points.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Done editing</source>
         <translation type="unfinished"></translation>
     </message>

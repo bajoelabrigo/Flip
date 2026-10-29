@@ -307,7 +307,9 @@ Item {
         CollapsibleSection {
             width: parent.width
             title: qsTr("Path")
-            visible: root.shapeStyle.kind === "custom"
+            // Every shape: a rectangle, ellipse or star turns into an editable path on "Edit points"
+            // (Jorge, 0.26: the section was missing on them and nothing said why).
+            readonly property bool editablePath: root.shapeStyle.kind === "custom"
 
             Column {
                 width: parent.width
@@ -324,6 +326,14 @@ Item {
                     opacity: 0.8
                     text: qsTr("Drag the points on the preview. Alt+click a point to make it a corner or smooth it again, Ctrl+click to remove it. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.")
                 }
+                ThemedLabel {
+                    width: parent.width
+                    visible: root.shapeStyle.kind !== "custom"
+                    wrapMode: Text.WordWrap
+                    size: "sm"
+                    opacity: 0.7
+                    text: qsTr("This shape becomes an editable path when you edit its points.")
+                }
                 Row {
                     width: parent.width
                     spacing: 8
@@ -332,7 +342,11 @@ Item {
                         text: EditorState.preview.pathEditMode ? qsTr("Done editing") : qsTr("Edit points")
                         glyph: Theme.icons.pencil
                         variant: EditorState.preview.pathEditMode ? "primary" : "secondary"
-                        onClicked: EditorState.preview.pathEditMode = !EditorState.preview.pathEditMode
+                        onClicked: {
+                            if (!EditorState.preview.pathEditMode && root.shapeStyle.kind !== "custom")
+                                EditorState.convertSelectionToShape()
+                            EditorState.preview.pathEditMode = !EditorState.preview.pathEditMode
+                        }
                     }
                     ThemedButton {
                         width: (parent.width - parent.spacing) / 2
@@ -343,6 +357,7 @@ Item {
                 }
                 ThemedSwitch {
                     width: parent.width
+                    visible: root.shapeStyle.kind === "custom"
                     text: qsTr("Animate the path")
                     tooltip: qsTr("After Effects' Path stopwatch: a key with this outline at the playhead")
                     checked: parent.pathState.animated === true

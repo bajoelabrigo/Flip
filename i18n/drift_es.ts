@@ -23083,6 +23083,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Arrastra los puntos en la vista previa. Alt+clic en un punto lo vuelve esquina o lo suaviza otra vez; Ctrl+clic lo quita. Con el cronómetro encendido, cada cambio es una clave en el cabezal y la forma se transforma de una a otra.</translation>
     </message>
     <message>
+        <source>This shape becomes an editable path when you edit its points.</source>
+        <translation>Al editar sus puntos, esta forma pasa a ser un trazado editable.</translation>
+    </message>
+    <message>
         <source>Done editing</source>
         <translation>Terminar</translation>
     </message>

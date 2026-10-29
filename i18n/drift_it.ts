@@ -23083,6 +23083,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This shape becomes an editable path when you edit its points.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Done editing</source>
         <translation type="unfinished"></translation>
     </message>
