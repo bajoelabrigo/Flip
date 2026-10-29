@@ -5147,11 +5147,19 @@
         <translation>不透明度</translation>
     </message>
     <message>
+        <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rendering the preview to memory… press it again to stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ruler guides</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6604,6 +6612,10 @@
     <message>
         <source>Guides</source>
         <translation>参考线</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Workspace</source>
@@ -19183,6 +19195,13 @@ If playback stutters, try another.</source>
     <message>
         <source>Seek</source>
         <translation>定位</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewRulers</name>
+    <message>
+        <source>Release to remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

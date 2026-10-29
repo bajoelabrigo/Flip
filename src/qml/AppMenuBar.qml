@@ -463,6 +463,13 @@ Row {
                 enabled: root.editing
                 onTriggered: root.dispatch("toggleGuides")
             }
+            ThemedMenuItem {
+                text: qsTr("Rulers")
+                icon.name: EditorState.preview.rulersVisible ? Theme.icons.check : ""
+                shortcutText: root.keys("toggleRulers")
+                enabled: root.editing
+                onTriggered: root.dispatch("toggleRulers")
+            }
             ThemedMenuSeparator {}
             ThemedContextMenu {
                 title: qsTr("Workspace")

@@ -75,7 +75,8 @@ PanelFrame {
             // The inset is also the gutter the transform grips overflow into when a clip sits
             // flush against a canvas edge — viewportOuter clips, so a zero margin would shear
             // the bottom handles in half. Fullscreen is for watching, so the frame fills it.
-            anchors.margins: root.previewFullscreen ? 0 : Theme.spacingLg
+            anchors.margins: root.previewFullscreen ? 0 : rulers.visible ? rulers.rulerPx + Theme.spacingSm
+                                                                         : Theme.spacingLg
             mode3d: root.mode3d
 
             toolHost.tools: ({
@@ -102,6 +103,16 @@ PanelFrame {
                 z: -1
                 sourceComponent: root.mode3d ? mode3dView : mode2dView
             }
+        }
+
+        // After Effects' rulers (Ctrl+R, 0.26), and the guides dragged out of them.
+        PreviewRulers {
+            id: rulers
+            anchors.fill: parent
+            z: 4
+            visible: EditorState.preview.rulersVisible && !root.previewFullscreen && !root.mode3d
+                     && !root.mobile
+            viewport: panelViewport
         }
 
         // Hand and Zoom (0.26): over the whole viewport while either tool is on.

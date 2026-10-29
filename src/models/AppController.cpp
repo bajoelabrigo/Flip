@@ -4776,6 +4776,8 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("speedUp"), QStringLiteral("L")},
         {QStringLiteral("speedDown"), QStringLiteral("J")},
         {QStringLiteral("toggleGuides"), QStringLiteral("G")},
+        // After Effects' Show Rulers.
+        {QStringLiteral("toggleRulers"), QStringLiteral("Ctrl+R")},
         // After Effects' J / K / U (0.25). J is taken by the shuttle (speedDown), so the steps
         // between keys take Shift: rebindable all the same.
         {QStringLiteral("previousKeyframe"), QStringLiteral("Shift+J")},
@@ -5659,6 +5661,7 @@ QVariantList AppController::actions() const
         action(QStringLiteral("speedUp"), tr("Increase playback speed")),
         action(QStringLiteral("speedDown"), tr("Decrease playback speed")),
         action(QStringLiteral("toggleGuides"), tr("Toggle guides")),
+        action(QStringLiteral("toggleRulers"), tr("Show rulers")),
         action(QStringLiteral("previousKeyframe"), tr("Go to previous keyframe")),
         action(QStringLiteral("nextKeyframe"), tr("Go to next keyframe")),
         action(QStringLiteral("revealKeyframes"), tr("Show animated properties")),
@@ -6146,6 +6149,29 @@ void AppController::guideLibraryEdited(const QString &id)
 static QString newGuideId()
 {
     return QUuid::createUuid().toString(QUuid::WithoutBraces);
+}
+
+QString AppController::rulerGuideSet()
+{
+    QSettings settings;
+    QString id = settings.value(QStringLiteral("preview/rulerGuideSet")).toString();
+    if (id.isEmpty() || !libraryGuideSet(id)) {
+        id = createGuideSet(tr("Ruler guides"));
+        settings.setValue(QStringLiteral("preview/rulerGuideSet"), id);
+    }
+    setGuideSetActive(id, true);
+    m_preview->setGuidesEnabled(true);
+    return id;
+}
+
+QString AppController::existingRulerGuideSet() const
+{
+    const QString id = QSettings().value(QStringLiteral("preview/rulerGuideSet")).toString();
+    for (const drift::GuideSet &set : m_guideLibrary) {
+        if (set.id == id)
+            return id;
+    }
+    return {};
 }
 
 QString AppController::createGuideSet(const QString &name)
@@ -7461,9 +7487,11 @@ void AppController::deleteSelectedClip()
         return;
 
     const drift::Project before = m_project;
+    m_project.ensureTrackIds();
     QList<QPair<int, int>> pairs = m_selection;
     expandSelectionWithLinkedPartners(m_project, pairs);
     QSet<QString> removedClipIds;
+    QSet<QString> touchedTrackIds;
     // With "Close gaps when trimming" on, what was deleted leaves no hole (CapCut, Filmora): the
     // clips after it move left. A clip and its linked partners share one span, so they ripple
     // their tracks together, once.
@@ -7483,6 +7511,7 @@ void AppController::deleteSelectedClip()
             continue;
         const drift::Clip &removed = m_project.tracks().at(pair.first).clips.at(pair.second);
         removedClipIds.insert(removed.id);
+        touchedTrackIds.insert(m_project.tracks().at(pair.first).id);
         if (m_rippleEnabled) {
             auto span = std::find_if(removedSpans.begin(), removedSpans.end(), [&](const RemovedSpan &s) {
                 return s.start == removed.timelineStart && s.end == removed.timelineEnd();
@@ -7517,6 +7546,38 @@ void AppController::deleteSelectedClip()
                 track.transitions.removeAt(i);
         }
     }
+    // A clip that used a deleted one as its matte shows whole again, rather than not at all.
+    for (drift::Track &track : m_project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (!clip.matteClipId.isEmpty() && removedClipIds.contains(clip.matteClipId)) {
+                clip.matteMode = drift::Clip::TrackMatte::None;
+                clip.matteClipId.clear();
+            }
+        }
+    }
+    // A track its last clips were deleted from goes too, as in CapCut, with its lanes; one video
+    // track always stays, the main one.
+    for (const QString &id : std::as_const(touchedTrackIds)) {
+        const int index = m_project.trackIndexById(id);
+        if (index < 0)
+            continue;
+        const drift::Track &track = m_project.tracks().at(index);
+        if (!track.clips.isEmpty() || track.isAdjustmentLane())
+            continue;
+        if (track.type == drift::TrackType::Video) {
+            int videoTracks = 0;
+            for (const drift::Track &other : m_project.tracks())
+                videoTracks += other.type == drift::TrackType::Video ? 1 : 0;
+            if (videoTracks <= 1)
+                continue;
+        }
+        for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
+            const drift::Track &other = m_project.tracks().at(i);
+            if (other.id == id || (other.isAdjustmentLane() && other.parentTrackId == id))
+                m_project.tracks().removeAt(i);
+        }
+    }
+    normalizeAdjustmentLanes(m_project);
     pushProjectEdit(before, tr("Clip deleted"));
     clearSelection();
     finishEdit(tr("Clip deleted"));
@@ -28331,6 +28392,8 @@ void AppController::triggerAction(const QString &actionId)
         nudgeSelection(0.1);
     else if (actionId == QStringLiteral("toggleGuides"))
         m_preview->setGuidesEnabled(!m_preview->guidesEnabled());
+    else if (actionId == QStringLiteral("toggleRulers"))
+        m_preview->setRulersVisible(!m_preview->rulersVisible());
     else if (actionId == QStringLiteral("showAnchorRows"))
         showOnlyKeyframeGroup(QStringLiteral("anchor"));
     else if (actionId == QStringLiteral("showPositionRows"))

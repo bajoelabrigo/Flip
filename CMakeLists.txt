@@ -1321,6 +1321,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/GuideLayer.qml
         src/qml/components/preview/GuidesPopover.qml
         src/qml/components/preview/GuideEditOverlay.qml
+        src/qml/components/preview/PreviewRulers.qml
         src/qml/components/preview/MaskOverlay.qml
         src/qml/components/preview/DepthEffectOverlay.qml
         src/qml/components/preview/TrackingOverlay.qml

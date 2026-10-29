@@ -5162,12 +5162,20 @@
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>Show rulers</source>
+        <translation>Mostrar reglas</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation>Vista previa en RAM (calcular en memoria y reproducir)</translation>
     </message>
     <message>
         <source>Rendering the preview to memory… press it again to stop</source>
         <translation>Calculando la vista previa en memoria… vuelve a pulsarlo para detenerla</translation>
+    </message>
+    <message>
+        <source>Ruler guides</source>
+        <translation>Guías de las reglas</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -6639,6 +6647,10 @@
     <message>
         <source>Guides</source>
         <translation>Guías</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation>Reglas</translation>
     </message>
     <message>
         <source>Workspace</source>
@@ -19256,6 +19268,13 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Seek</source>
         <translation>Buscar posición</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewRulers</name>
+    <message>
+        <source>Release to remove</source>
+        <translation>Suelta para eliminar</translation>
     </message>
 </context>
 <context>

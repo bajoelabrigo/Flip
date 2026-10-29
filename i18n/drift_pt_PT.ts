@@ -5162,11 +5162,19 @@
         <translation>Opacidade</translation>
     </message>
     <message>
+        <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rendering the preview to memory… press it again to stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ruler guides</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6639,6 +6647,10 @@
     <message>
         <source>Guides</source>
         <translation>Guias</translation>
+    </message>
+    <message>
+        <source>Rulers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Workspace</source>
@@ -19256,6 +19268,13 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Seek</source>
         <translation>Buscar</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewRulers</name>
+    <message>
+        <source>Release to remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -12981,6 +12981,20 @@ void EditorStateTest::shapeAsFixedOrStuckMask()
     QCOMPARE(clip(textId)->matteClipId, shapeId);
     state.undo();
     QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::None);
+
+    // Deleting the mask: its emptied track goes with it, and the text shows whole again.
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        false);
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where(shapeId).first, where(shapeId).second);
+    state.deleteSelectedClip();
+    QCOMPARE(where(shapeId).first, -1);
+    QCOMPARE(state.project()->tracks().size(), tracksBefore - 1);
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::None);
+    QVERIFY(clip(textId)->matteClipId.isEmpty());
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
 }
 
 QTEST_MAIN(EditorStateTest)

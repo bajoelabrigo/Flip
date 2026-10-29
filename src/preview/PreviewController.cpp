@@ -74,6 +74,7 @@ PreviewController::PreviewController(AppController &app, QObject *parent)
 {
     QSettings settings;
     m_guidesEnabled = settings.value(QStringLiteral("preview/guidesEnabled"), false).toBool();
+    m_rulersVisible = settings.value(QStringLiteral("preview/rulersVisible"), false).toBool();
     m_gizmoTool = settings.value(QStringLiteral("preview/gizmoTool"), m_gizmoTool).toString();
     m_gizmoOrientation =
         settings.value(QStringLiteral("preview/gizmoOrientation"), m_gizmoOrientation).toString();
@@ -134,6 +135,15 @@ void PreviewController::updateHandlesVisible()
         return;
     m_handlesVisible = visible;
     emit handlesVisibleChanged();
+}
+
+void PreviewController::setRulersVisible(bool visible)
+{
+    if (m_rulersVisible == visible)
+        return;
+    m_rulersVisible = visible;
+    QSettings().setValue(QStringLiteral("preview/rulersVisible"), m_rulersVisible);
+    emit rulersVisibleChanged();
 }
 
 void PreviewController::setGuidesEnabled(bool enabled)

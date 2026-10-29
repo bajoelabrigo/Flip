@@ -472,6 +472,11 @@ public:
     Q_INVOKABLE void setGuideItemProperty(const QString &setId, const QString &itemId,
                                           const QString &key, const QVariant &value);
     Q_INVOKABLE void removeGuideItem(const QString &setId, const QString &itemId);
+    // The set the guides dragged out of the rulers go into (0.26): made the first time, in this
+    // machine's library, and switched on with the guides, so they show and snap.
+    Q_INVOKABLE QString rulerGuideSet();
+    // That set's id when it was made already, else empty; makes nothing.
+    Q_INVOKABLE QString existingRulerGuideSet() const;
     QVariantList actions() const;
     QVariantList bookmarks() const;
     bool workAreaActive() const { return m_project.hasWorkArea(); }

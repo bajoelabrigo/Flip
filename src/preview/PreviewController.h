@@ -39,6 +39,9 @@ class PreviewController : public QObject
     Q_PROPERTY(QString gizmoTool READ gizmoTool WRITE setGizmoTool NOTIFY gizmoChanged)
     Q_PROPERTY(QString gizmoOrientation READ gizmoOrientation WRITE setGizmoOrientation NOTIFY gizmoChanged)
     Q_PROPERTY(bool guidesEnabled READ guidesEnabled WRITE setGuidesEnabled NOTIFY guidesEnabledChanged)
+    // After Effects' rulers (Ctrl+R, 0.26): along the top and left of the preview, in project px;
+    // guides are dragged out of them. Remembered on this machine.
+    Q_PROPERTY(bool rulersVisible READ rulersVisible WRITE setRulersVisible NOTIFY rulersVisibleChanged)
     // Library set whose guides are being dragged on the preview; empty when not editing.
     Q_PROPERTY(QString guideEditSetId READ guideEditSetId WRITE setGuideEditSetId NOTIFY guideEditSetIdChanged)
     Q_PROPERTY(bool canvasCropMode READ canvasCropMode WRITE setCanvasCropMode NOTIFY canvasCropModeChanged)
@@ -81,6 +84,8 @@ public:
     QString gizmoOrientation() const { return m_gizmoOrientation; }
     void setGizmoOrientation(const QString &orientation);
     bool guidesEnabled() const { return m_guidesEnabled; }
+    bool rulersVisible() const { return m_rulersVisible; }
+    void setRulersVisible(bool visible);
     void setGuidesEnabled(bool enabled);
     // A loaded project's saved value: neither dirties the project nor becomes the app default.
     void restoreGuidesEnabled(bool enabled);
@@ -267,6 +272,7 @@ signals:
     void viewChanged();
     void gizmoChanged();
     void guidesEnabledChanged();
+    void rulersVisibleChanged();
     void guideEditSetIdChanged();
     void canvasCropModeChanged();
     void penModeChanged();
@@ -306,6 +312,7 @@ private:
     QString m_gizmoTool = QStringLiteral("move");
     QString m_gizmoOrientation = QStringLiteral("global");
     bool m_guidesEnabled = false;
+    bool m_rulersVisible = false;
     QString m_guideEditSetId;
     bool m_canvasCropMode = false;
     bool m_penMode = false;
