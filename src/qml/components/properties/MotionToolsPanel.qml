@@ -16,8 +16,6 @@ Item {
     readonly property bool hasClip: EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0
     property real easeIn: 33
     property real easeOut: 33
-    property real easeIn: 33
-    property real easeOut: 33
     // Motion Tools' third row: the speed the picked keys pass through (0 = they rest there).
     property real easeVelocity: 0
     // As Motion Tools: the picked keys take the handles as they move, one undo step per drag.
