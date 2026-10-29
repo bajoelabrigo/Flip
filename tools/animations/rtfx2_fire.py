@@ -48,10 +48,13 @@ class Mass:
             sm += g
             if heart > 0.05:
                 mc = np.maximum(mc, bump(X, Y, cx, cy, r * heart, sx, sy, ang))
-            # A hollow opening under the puff as it burns out (lobe[7] 0..1, lobe[8] its side).
+            # A hollow opening in the puff as it burns out (lobe[7] 0..1), on the side lobe[8] points
+            # to (radians; the back of a puff thrown forward, so it curls into a C).
             if len(lobe) > 7 and lobe[7] > 0:
                 k = lobe[7]
-                holes = np.maximum(holes, bump(X, Y, cx + lobe[8] * r * 0.3, cy + r * 0.5, r * (0.3 + 0.9 * k), 1.0, 1.1))
+                hx = cx + math.cos(lobe[8]) * r * 0.55
+                hy = cy + math.sin(lobe[8]) * r * 0.55
+                holes = np.maximum(holes, bump(X, Y, hx, hy, r * (0.3 + 0.9 * k), 1.0, 1.1))
         d = mx + 0.05 * np.clip(sm, 0, 2) - 1.5 * holes
         dc = mc - 1.5 * holes
         ox, oy = origin
@@ -139,11 +142,55 @@ def torch(W, H, seed, size=1.0, dur=1.9):
             lean = 1.6 * (h - 0.7) / 0.3 if h > 0.7 else 0.0
             heart = 0.85 * max(0.0, min(1.0, 1.0 - max(0.0, age - 0.55) * 1.6))
             hole = 0.7 * max(0.0, (age / 1.25 - 0.55) / 0.45)
-            lobes.append((cx, cy, r, 1.0, 1.05 + 0.6 * h * h, lean, heart, hole, jx))
+            lobes.append((cx, cy, r, 1.0, 1.05 + 0.6 * h * h, lean, heart, hole, math.pi / 2 + jx * 0.6))
         return m.field(lobes, t, "up", (ox, base + 6 * k), 170 * k, 0.75, 0.75, crown=0.0,
                        life=min(1.0, t / 1.5))
 
     return field
+
+
+def thrower(W, H, seed, angle=0.0, size=1.0, dur=1.3):
+    """A flamethrower (RTFX's «Flamethrower»): a thin jet from the nozzle, puffs thrown out along it
+    that slow, swell and drift to either side, each hollowed from the back into a curling C."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    ca, sa = math.cos(angle), math.sin(angle)
+    nx, ny = m.gw / 2 - ca * 80 * k, m.gh / 2 - sa * 80 * k
+    puffs = [(i * 0.13 + rnd.uniform(0, 0.03), rnd.uniform(0.85, 1.15), (1 if i % 2 else -1) * rnd.uniform(0.5, 1.0))
+             for i in range(4)]
+
+    def field(t):
+        lobes = []
+        # The jet: a long thin lobe along the throw while the puffs leave.
+        jet = max(0.0, 1 - max(0.0, t - 0.55) / 0.15)
+        if jet > 0:
+            L = 110 * k * min(1, t / 0.1)
+            lobes.append((nx + ca * L * 0.5, ny + sa * L * 0.5, L * 0.5, 1.0, 0.06, angle, 0.7 * jet))
+        for born, js, side in puffs:
+            age = t - born
+            if age < 0 or age > 1.3:
+                continue
+            go = 150 * k * (1 - math.exp(-age * 3.5)) + 25 * k * age
+            drift = side * 48 * k * (1 - math.exp(-age * 3))
+            cx = nx + ca * go - sa * drift
+            cy = ny + sa * go + ca * drift
+            r = (7 + 36 * min(1, age / 0.25)) * js * k * (1 - 0.3 * max(0, age - 0.7))
+            heart = 0.8 * max(0.0, 1 - max(0.0, age - 0.75) * 1.8)
+            hole = 0.6 * max(0.0, min(1.0, (age - 0.2) / 0.7))
+            # The hollow opens at the back, turned the way the puff drifts so it curls.
+            back = math.atan2(-sa, -ca) + side * 0.9
+            lobes.append((cx, cy, r, 1.0, 1.0, 0.0, heart, hole, back))
+        return m.field(lobes, t, angle, (nx, ny), 260 * k, 0.95, 0.6, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_thrower():
+    s = new("ex-fuego-lanzallamas-derecha", "Fuego · Lanzallamas a la derecha", "Fire · Flamethrower right", "fuego",
+            40, 6002, ["fuego", "fire", "lanzallamas", "flamethrower"], size=512, thumb=0.35)
+    s.fps = 24
+    return render(s, thrower(512, 512, 11, size=0.75))
 
 
 def make_torch():
@@ -160,4 +207,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch]
+STICKERS = [make_explosion, make_torch, make_thrower]
