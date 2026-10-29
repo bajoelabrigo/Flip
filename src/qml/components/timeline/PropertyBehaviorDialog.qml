@@ -1,3 +1,4 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
@@ -6,7 +7,8 @@ import ".."
 
 // After Effects' most used expressions as a behaviour of one property (0.26): loopOut (cycle,
 // ping-pong, offset, continue), time × speed and wiggle, which add up in that order. Opened from a
-// keyframe row's menu.
+// keyframe row's menu; "Apply to" picks any other property of the layer, as After Effects' stopwatch
+// of each property does, and the expressions written can be saved and used again (Jorge, 0.26).
 ThemedDialog {
     id: root
 
@@ -15,6 +17,29 @@ ThemedDialog {
     // The props of the row (X and Y for Position); all of them take the same behaviour.
     property var props: []
     property string label: ""
+    // [{label, props}]: what "Apply to" offers; the row it was opened from comes first.
+    property var targets: []
+    property int targetIndex: 0
+
+    // My expressions, kept with the app's settings so every project has them: [{name, code}].
+    Settings {
+        id: savedStore
+        category: "expressions"
+        property string saved: "[]"
+    }
+    property var savedExpressions: []
+    function loadSaved() {
+        try {
+            const list = JSON.parse(savedStore.saved)
+            root.savedExpressions = Array.isArray(list) ? list : []
+        } catch (e) {
+            root.savedExpressions = []
+        }
+    }
+    function storeSaved(list) {
+        savedStore.saved = JSON.stringify(list)
+        root.savedExpressions = list
+    }
 
     readonly property var loops: [
         { id: "none", label: qsTr("No loop") },
@@ -28,12 +53,34 @@ ThemedDialog {
     acceptText: qsTr("Apply")
     preferredWidth: Theme.dialogWidthSm
 
-    function openFor(track, clip, props, label) {
+    function openFor(track, clip, props, label, targets) {
         root.trackIndex = track
         root.clipIndex = clip
-        root.props = props
-        root.label = label
-        const b = EditorState.propertyBehavior(track, clip, props[0]) || {}
+        // The row it was opened from first, then the layer's other properties.
+        const list = [{ label: label, props: props }]
+        for (const t of (targets || [])) {
+            if (JSON.stringify(t.props) !== JSON.stringify(props))
+                list.push(t)
+        }
+        root.targets = list
+        root.targetIndex = 0
+        targetBox.currentIndex = 0
+        root.loadSaved()
+        savedBox.currentIndex = -1
+        nameField.text = ""
+        root.loadTarget(0)
+        open()
+    }
+
+    // Shows what the property picked in "Apply to" already does.
+    function loadTarget(index) {
+        const t = root.targets[index]
+        if (!t)
+            return
+        root.targetIndex = index
+        root.props = t.props
+        root.label = t.label
+        const b = EditorState.propertyBehavior(root.trackIndex, root.clipIndex, t.props[0]) || {}
         let li = 0
         for (let i = 0; i < loops.length; ++i) {
             if (loops[i].id === (b.loop || "none"))
@@ -46,7 +93,6 @@ ThemedDialog {
         seedField.value = b.wiggleSeed || 0
         speedField.value = b.speed || 0
         expressionField.text = b.expression || ""
-        open()
     }
 
     function behavior() {
@@ -78,6 +124,14 @@ ThemedDialog {
             size: "sm"
             opacity: 0.85
             text: qsTr("What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.")
+        }
+
+        ThemedLabel { text: qsTr("Apply to") }
+        ThemedComboBox {
+            id: targetBox
+            width: parent.width
+            model: root.targets.map(t => t.label)
+            onActivated: index => root.loadTarget(index)
         }
 
         ThemedLabel { text: qsTr("Loop after the last keyframe") }
@@ -245,6 +299,64 @@ ThemedDialog {
             height: 72
             placeholderText: "value + wiggle(2, 10) - value  /  time * 90  /  thisComp.layer(\"Nulo 1\").transform.rotation"
             font.family: "Consolas"
+        }
+        // My expressions: pick one to write it in, or save the one written under a name.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedComboBox {
+                id: savedBox
+                width: parent.width - deleteSaved.width - parent.spacing
+                model: root.savedExpressions.map(e => e.name)
+                displayText: currentIndex < 0 ? qsTr("My expressions (%1)").arg(root.savedExpressions.length)
+                                              : currentText
+                onActivated: index => {
+                    const e = root.savedExpressions[index]
+                    if (e)
+                        expressionField.text = e.code
+                }
+            }
+            ThemedButton {
+                id: deleteSaved
+                variant: "ghost"
+                glyph: Theme.icons.trash
+                tooltip: qsTr("Delete this saved expression")
+                enabled: savedBox.currentIndex >= 0
+                onClicked: {
+                    const list = root.savedExpressions.slice()
+                    list.splice(savedBox.currentIndex, 1)
+                    root.storeSaved(list)
+                    savedBox.currentIndex = -1
+                }
+            }
+        }
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedTextField {
+                id: nameField
+                width: parent.width - saveButton.width - parent.spacing
+                placeholderText: qsTr("Name to save this expression")
+            }
+            ThemedButton {
+                id: saveButton
+                text: qsTr("Save")
+                enabled: expressionField.text.trim().length > 0
+                         && EditorState.checkExpression(expressionField.text).length === 0
+                onClicked: {
+                    const name = nameField.text.trim().length > 0 ? nameField.text.trim()
+                                                                   : expressionField.text.trim().split("
+")[0].slice(0, 40)
+                    // The same name replaces the one saved before.
+                    const list = root.savedExpressions.filter(e => e.name !== name)
+                    list.push({ name: name, code: expressionField.text })
+                    list.sort((a, b) => a.name.localeCompare(b.name))
+                    root.storeSaved(list)
+                    savedBox.currentIndex = list.findIndex(e => e.name === name)
+                    nameField.text = ""
+                    EditorState.setLastMessage(qsTr("Expression saved as \"%1\"").arg(name), "info")
+                }
+            }
         }
         ThemedLabel {
             readonly property string error: EditorState.checkExpression(expressionField.text)

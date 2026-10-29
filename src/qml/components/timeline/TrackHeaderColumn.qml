@@ -1118,6 +1118,35 @@ Item {
                     void EditorState.tracksRevision
                     return EditorState.keyframeTargetClip(keyLines.trackIndex)
                 }
+                // What the expression dialog's "Apply to" offers (0.26): the layer's usual properties,
+                // whether their line is showing or not, then every other line of the track.
+                function expressionTargets() {
+                    const rows = trackLabelRow.keyframeRows || []
+                    const audio = rows.some(r => r.group === "volume" || r.group === "pan")
+                    const T = (s) => qsTranslate("TrackKeyframeRows", s)
+                    const list = audio
+                        ? [{ label: T("Volume"), props: ["volume"] }, { label: T("Pan"), props: ["pan"] }]
+                        : [{ label: T("Position"), props: ["x", "y"] },
+                           { label: T("X Position"), props: ["x"] },
+                           { label: T("Y Position"), props: ["y"] },
+                           { label: T("Scale"), props: ["width", "height"] },
+                           { label: T("Width"), props: ["width"] },
+                           { label: T("Height"), props: ["height"] },
+                           { label: T("Rotation"), props: ["rotation"] },
+                           { label: T("Opacity"), props: ["opacity"] },
+                           { label: T("Anchor point"), props: ["anchorX", "anchorY"] }]
+                    const known = new Set(list.map(t => JSON.stringify(t.props)))
+                    for (const row of rows) {
+                        if (row.group)
+                            continue
+                        const props = [row.prop]
+                        if (known.has(JSON.stringify(props)))
+                            continue
+                        known.add(JSON.stringify(props))
+                        list.push({ label: keyRowsNames.rowLabel(row), props: props })
+                    }
+                    return list
+                }
                 Repeater {
                     model: trackLabelRow.keyframeRows
                     delegate: Rectangle {
@@ -1726,7 +1755,8 @@ Item {
                                 text: qsTr("Behavior…")
                                 icon.name: keyLine.hasBehavior ? Theme.icons.check : ""
                                 onTriggered: behaviorDialog.openFor(keyLines.trackIndex, keyLine.clip, keyLine.props,
-                                                                    keyRowsNames.rowLabel(keyLine.modelData))
+                                                                    keyRowsNames.rowLabel(keyLine.modelData),
+                                                                    keyLines.expressionTargets())
                             }
                         }
 
