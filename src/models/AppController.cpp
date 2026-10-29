@@ -11068,7 +11068,14 @@ void AppController::addPenShape(const QVariantList &points, bool closed)
     contour.closed = closed && contour.vertices.size() >= 3;
     if (contour.vertices.size() < 2)
         return;
-    const QRectF box = atLeastOnePixel(drift::pathContoursBounds({contour}));
+    QRectF box = atLeastOnePixel(drift::pathContoursBounds({contour}));
+    // A straight line has a box with no height (or width): the layer drew nothing at all. At least
+    // as thick as a stroke can be, centred on the line, which stays where it was drawn.
+    constexpr double kMinSide = 64.0;
+    if (box.width() < kMinSide)
+        box.adjust(-(kMinSide - box.width()) / 2.0, 0, (kMinSide - box.width()) / 2.0, 0);
+    if (box.height() < kMinSide)
+        box.adjust(0, -(kMinSide - box.height()) / 2.0, 0, (kMinSide - box.height()) / 2.0);
 
     const drift::Project before = m_project;
     const drift::TimeUs start = m_playheadUs;
@@ -11166,7 +11173,14 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
         const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
         const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
         const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
-        const QRectF fit = atLeastOnePixel(bounds);
+        QRectF fit = atLeastOnePixel(bounds);
+        // A straight line keeps a box it can be drawn in (as addPenShape gives it).
+        const double minW = 64.0 / qMax(1e-6, w) * 100.0;
+        const double minH = 64.0 / qMax(1e-6, h) * 100.0;
+        if (fit.width() < minW)
+            fit.adjust(-(minW - fit.width()) / 2.0, 0, (minW - fit.width()) / 2.0, 0);
+        if (fit.height() < minH)
+            fit.adjust(0, -(minH - fit.height()) / 2.0, 0, (minH - fit.height()) / 2.0);
         setClipLayoutPixels(clip, x + fit.left() / 100.0 * w, y + fit.top() / 100.0 * h, fit.width() / 100.0 * w,
                             fit.height() / 100.0 * h);
         parsed = refitContours(parsed, fit);

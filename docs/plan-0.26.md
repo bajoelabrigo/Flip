@@ -352,6 +352,13 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   - Trim Pack: 16 botones; Trace/MidTrace = **otra capa recorre la punta** (no una rayita): la última elegida es la
     línea, las otras la recorren (sin ninguna, un punto); Reverse Path Direction de verdad (`trimReverse` en formas y
     trazos de texto), Divide In/Out, Añadir línea horizontal/vertical (`addPenShape`).
+- **Probado en ventana (build 2a2f…/run 40938090520, `pruebas\FlipStudio-0.26-prueba-m`):** Squash & Stretch (panel
+  Pro V2, «Gran salto» con Aplicar: agachado abombado, en el aire estirado, aterriza); Doblar (Medio anillo: articulación
+  con Inicio/Fin); Recorte (16 botones, Añadir línea, Rastro entrada: un punto recorre la punta, Entrada a medias con
+  extremo plano); Estela líquida (gotas naranjas fundidas detrás de la foto en movimiento); Chorro líquido (chorro azul
+  con bordes rasgados por la línea); Morph (la línea vuela girando y corta a la foto). **Arreglado tras la prueba:** una
+  línea recta de la pluma (o «Añadir línea») tenía una caja de 1 px y la vista previa no la dibujaba: caja mínima de
+  64 px (`addPenShape` y al editar puntos).
 - [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.
