@@ -110,11 +110,22 @@ def pieces(kind, d, t, f, dur, loop, W, H, seed, k):
                 else:
                     out.append(bolt(cx + off, H * 0.12, cx + off, H * 0.88, F * 17 + j, S * 0.11, w))
         else:
+            # Each charge its own: ring size, how many rings, how rough, the orb, how many spokes.
+            r *= R.uniform(0.6, 1.5)
+            rings = R.choice([1, 1, 2])
+            rough = R.uniform(0.02, 0.07)
+            orb_r = R.uniform(0.0, 0.11)
+            spokes = R.randint(0, 6)
             m = 14
-            pts = [(cx + math.cos(2 * math.pi * i / m) * r, cy + math.sin(2 * math.pi * i / m) * r) for i in range(m + 1)]
-            out.append(lambda wf: strip(jag(pts, random.Random(F * 19), S * 0.03, 2), w * 0.9 * wf))
-            out.append(lambda wf: orb(cx, cy, S * 0.07 * (0.8 + 0.2 * math.sin(u * 30)) * (0.6 + 0.4 * wf)))
-            for j in range(3):
+            for g in range(rings):
+                rg = r * (1 - 0.35 * g)
+                pts = [(cx + math.cos(2 * math.pi * i / m) * rg, cy + math.sin(2 * math.pi * i / m) * rg)
+                       for i in range(m + 1)]
+                out.append(lambda wf, pts=pts, g=g: strip(jag(pts, random.Random(F * 19 + g), S * rough, 2),
+                                                          w * 0.9 * wf))
+            if orb_r > 0.02:
+                out.append(lambda wf: orb(cx, cy, S * orb_r * (0.8 + 0.2 * math.sin(u * 30)) * (0.6 + 0.4 * wf)))
+            for j in range(spokes):
                 ang = random.Random(F + 31 * j).uniform(0, 2 * math.pi)
                 out.append(bolt(cx, cy, cx + math.cos(ang) * r, cy + math.sin(ang) * r, F * 23 + j, S * 0.04, w * 0.7))
         if not loop and u > 0.7:

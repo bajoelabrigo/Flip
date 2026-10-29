@@ -45,6 +45,8 @@ CATEGORY_NAMES = {
     "extremas-lineas": {"es": "Extremas · Líneas", "en": "Extreme · Lines"},
     "extremas-destellos": {"es": "Extremas · Destellos", "en": "Extreme · Flashes"},
     "extremas-transiciones": {"es": "Extremas · Transiciones", "en": "Extreme · Transitions"},
+    "extremas-simples": {"es": "Extremas · Simples", "en": "Extreme · Simple"},
+    "extremas-mates": {"es": "Extremas · Mates de transición", "en": "Extreme · Transition mattes"},
 }
 
 
