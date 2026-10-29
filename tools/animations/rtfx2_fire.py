@@ -277,6 +277,43 @@ def make_ring():
     return render(s, ring(512, 512, 17, size=1.0))
 
 
+def slash(W, H, seed, angle=0.0, size=1.0):
+    """A fire slash (RTFX's «Slash»): a comet of flame shooting across, a round hot head and a tail
+    of licks behind it that tears away from the back while the head runs on."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    ca, sa = math.cos(angle), math.sin(angle)
+    tail = [(i / 6, rnd.uniform(-1, 1), rnd.uniform(0.8, 1.2)) for i in range(7)]
+
+    def field(t):
+        e = 1 - (1 - min(1, t / 0.18)) ** 2
+        run = -60 * k + 150 * k * (1 - math.exp(-t * 2.2))
+        hx, hy = m.gw / 2 + ca * run, m.gh / 2 + sa * run
+        lobes = []
+        for u, j, js in tail:
+            back = (8 + 110 * u) * k * e
+            off = j * 5 * k * u
+            x = hx - ca * back - sa * off
+            y = hy - sa * back + ca * off
+            r = (28 - 18 * u) * js * k * (0.4 + 0.6 * e)
+            heart = 0.72 * max(0.0, min(1.0, 1.0 - max(0.0, t - 0.35 - 0.3 * (1 - u)) * 2.0))
+            hole = 0.35 * max(0.0, min(1.0, (t - 0.1) / 0.5)) if u > 0.15 else 0.0
+            lobes.append((x, y, r, 1.5 - 0.5 * u, 0.9, angle, heart, hole, angle + math.pi / 2 * (1 if j > 0 else -1)))
+        # Tears from the tail: the flow points back along the tail from the head.
+        return m.field(lobes, t, angle + math.pi, (hx + ca * 20 * k, hy + sa * 20 * k), 150 * k, 0.25, 0.6,
+                       crown=0.0, life=0.0)
+
+    return field
+
+
+def make_slash():
+    s = new("ex-fuego-corte-derecha", "Fuego · Corte a la derecha", "Fire · Slash right", "fuego", 26, 6005,
+            ["fuego", "fire", "corte", "slash"], size=512, thumb=0.25)
+    s.fps = 24
+    return render(s, slash(512, 512, 19, size=1.0))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -291,4 +328,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash]
