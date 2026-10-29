@@ -152,9 +152,17 @@ SkPath strokedPathFor(const TextShadingLayer &layer, const SkPath &path)
 {
     if (qFuzzyIsNull(layer.trimStart) && qFuzzyCompare(layer.trimEnd, 1.0) && layer.trimSegments <= 1)
         return path;
-    const double shift = layer.trimOffset / 360.0;
-    return trimEachContour(path, qMin(layer.trimStart, layer.trimEnd) + shift,
-                           qMax(layer.trimStart, layer.trimEnd) + shift, layer.trimSegments);
+    double a = qMin(layer.trimStart, layer.trimEnd);
+    double b = qMax(layer.trimStart, layer.trimEnd);
+    double shift = layer.trimOffset / 360.0;
+    if (layer.trimReverse) {
+        // The other way round: what runs from 0 to b now runs from 1 to 1 - b.
+        const double ra = 1.0 - b;
+        b = 1.0 - a;
+        a = ra;
+        shift = -shift;
+    }
+    return trimEachContour(path, a + shift, b + shift, layer.trimSegments);
 }
 
 sk_sp<SkPathEffect> fillPathEffectFor(const TextShadingLayer &layer, double scale)

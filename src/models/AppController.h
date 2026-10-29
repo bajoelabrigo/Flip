@@ -1236,19 +1236,29 @@ public:
     // above, each starting a little later), "traceIn", "traceOut", "traceInOut" (a short line runs
     // ahead on a copy). `reverse` draws from the other end (Trim-Pack's Alt); `animateOffset` also
     // turns the offset by `offsetRange` degrees (its Shift). One undo step.
-    // Motion Tools › Bend (0.26, as the Bend Layers script): the "ae.bend" effect on every selected
-    // clip. "set" bends it by `degrees` (a key at the playhead when the bend is already animated),
-    // "in" unbends it from `degrees` to flat over `frames` from the playhead, "out" bends it to
-    // `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
-    Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double pivot, int frames);
+    // Motion Tools › Bend (0.26, as Bendio and the Bend Layers script): the "ae.bend" joint on every
+    // selected clip, curving from `start` to `end` (% of its length; across, or along the height
+    // with `vertical`) by `degrees`. "set" bends it (a key at the playhead when the bend is already
+    // animated), "in" unbends it from `degrees` to straight over `frames` from the playhead, "out"
+    // bends it to `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
+    Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
+                               int frames);
     Q_INVOKABLE void applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
                                    bool animateOffset);
     Q_INVOKABLE QVariantMap strokeCapsState() const;
     // The animation's curves at `progress` (0..1), for the gallery's live cards: x, y, rotation,
     // opacity, zoom, stretch, bend, bulge (missing ones at rest) and ground.
     Q_INVOKABLE QVariantMap squashAnimationPose(const QString &id, double progress) const;
+    // `timing` (as Squash & Stretch Pro V2): "start" begins it at the playhead, "end" ends it there;
+    // empty keeps the old placement (In at the clip's start, Out at its end, the rest at the playhead).
+    // `atUs` >= 0 stands in for the playhead.
     Q_INVOKABLE void applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
-                                          double scale, double speed);
+                                          double scale, double speed, const QString &timing = QString(),
+                                          qint64 atUs = -1);
+    // Squash & Stretch Pro V2's Apply: the animation on every selected layer, each `staggerFrames`
+    // later than the one before (in the order they were picked), one undo step.
+    Q_INVOKABLE void applySquashToSelection(const QString &id, double intensity, double scale, double speed,
+                                            const QString &timing, int staggerFrames);
     Q_INVOKABLE QVariantList clipAnimationCategories(const QString &slot) const;
     Q_INVOKABLE QVariantMap clipAnimationPreviewSample(const QString &presetId, double progress) const;
     // Where to seek to preview the slot: the window start (In), before the exit (Out), the playhead (Loop).

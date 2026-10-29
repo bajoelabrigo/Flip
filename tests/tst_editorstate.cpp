@@ -12966,6 +12966,21 @@ void EditorStateTest::motionToolsTrimBendAndCaps()
     state.undo();
     QCOMPARE(state.project()->tracks().size(), tracksBefore);
 
+    // Reverse Path Direction flips the way the trim runs.
+    state.selectClip(where().first, where().second);
+    state.applyTrimPack(QStringLiteral("reversePath"), 20, 180, 4, false, false);
+    QVERIFY(state.project()->tracks().at(where().first).clips.at(where().second).shapeStyle.trimReverse > 0.5);
+    state.undo();
+    // Trace In: with no other layer picked, a dot rides the line's end, keyed frame by frame.
+    const int tracksTrace = state.project()->tracks().size();
+    state.selectClip(where().first, where().second);
+    state.setPlayheadSeconds(0.0);
+    state.applyTrimPack(QStringLiteral("traceIn"), 20, 180, 4, false, false);
+    QCOMPARE(state.project()->tracks().size(), tracksTrace + 1);
+    const drift::Clip &rider = state.project()->tracks().at(where().first - 1).clips.first();
+    QVERIFY(rider.transformX.keyframes().size() > 5);
+    state.undo();
+
     // Caps: the stroke ends flat and turns with a bevel.
     state.selectClip(where().first, where().second);
     state.setStrokeCaps(QStringLiteral("butt"), QStringLiteral("bevel"));
@@ -12975,7 +12990,7 @@ void EditorStateTest::motionToolsTrimBendAndCaps()
 
     // Bend: the effect goes on with the angle asked for.
     state.selectClip(where().first, where().second);
-    state.applyBend(QStringLiteral("set"), 120, false, 50, 20);
+    state.applyBend(QStringLiteral("set"), 120, false, 30, 70, 20);
     state.selectClip(where().first, where().second);
     bool bent = false;
     for (const QVariant &e : state.selectedClipEffects()) {

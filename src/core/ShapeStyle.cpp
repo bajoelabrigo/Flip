@@ -528,6 +528,7 @@ constexpr KnobField kKnobs[] = {
     {"trimEnd", QT_TRANSLATE_NOOP("ShapeStyle", "Trim end"), &ShapeStyle::trimEnd, 0.0, 100.0},
     {"trimOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Trim offset"), &ShapeStyle::trimOffset, -36000.0, 36000.0},
     {"trimSegments", QT_TRANSLATE_NOOP("ShapeStyle", "Trim segments"), &ShapeStyle::trimSegments, 1.0, 64.0},
+    {"trimReverse", QT_TRANSLATE_NOOP("ShapeStyle", "Reverse path direction"), &ShapeStyle::trimReverse, 0.0, 1.0},
     {"repeatCopies", QT_TRANSLATE_NOOP("ShapeStyle", "Copies"), &ShapeStyle::repeatCopies, 1.0, 200.0},
     {"repeatOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater offset"), &ShapeStyle::repeatOffset, -200.0, 200.0},
     {"repeatX", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater position X"), &ShapeStyle::repeatX, -10000.0, 10000.0},
@@ -723,7 +724,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
                       style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
                       style.customPath, style.customEvenOdd)
-           ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.trimSegments, style.repeatCopies, style.repeatOffset,
+           ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.trimSegments, style.trimReverse, style.repeatCopies, style.repeatOffset,
                         style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
                         style.repeatStartOpacity, style.repeatEndOpacity)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)

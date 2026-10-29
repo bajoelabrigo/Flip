@@ -342,6 +342,16 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
     un objeto (quieto o en movimiento, horizontal o vertical, con capas de forma); Super Morphings **transforma una
     forma en otra** con un clic (varios a la vez, estelas, «slicer», suavizado). Pedidos a Jorge los videos de cómo
     funcionan para rehacerlos como herramientas.
+- **Tutoriales de Bendio, Trim Pack (español) y Squash & Stretch Pro V2 (2026-10-29, noche):**
+  - Squash & Stretch Pro V2: «Squash & Stretch %», «Oomph %», Timing «Start/End of behavior» (empieza o termina en
+    el cabezal), Apply sobre varias capas con escalonado. → panel: clic elige y muestra en grande, Aplicar
+    (`applySquashToSelection`, una sesión para todas; `applySquashAnimation(..., timing, atUs)` no abre otra si ya hay).
+  - Bendio: Start/End sobre la capa, Bend; antes de Start fijo, entre Start y End arco, después recto y girado (con
+    360° da la vuelta). → `effects/ae_bend` reescrito (inverso por tramos, probado con `bendsim.py`), panel Inicio/Fin.
+    Attach Points (otras capas que siguen la curva): pendiente.
+  - Trim Pack: 16 botones; Trace/MidTrace = **otra capa recorre la punta** (no una rayita): la última elegida es la
+    línea, las otras la recorren (sin ninguna, un punto); Reverse Path Direction de verdad (`trimReverse` en formas y
+    trazos de texto), Divide In/Out, Añadir línea horizontal/vertical (`addPenShape`).
 - [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.

@@ -28,7 +28,7 @@ Column {
         wrapMode: Text.WordWrap
         size: "sm"
         opacity: 0.8
-        text: qsTr("Select shapes or texts with a stroke. The keys start at the playhead; I&O ends with the clip.")
+        text: qsTr("Select shapes or texts with a stroke. The keys start at the playhead; I&O ends with the clip. For Trace, pick the layers that ride the line first and the line last (with none, a dot rides it).")
     }
 
     // A Trim-Pack button: its icon is a ring with the part that the animation draws.
@@ -97,6 +97,17 @@ Column {
                     ctx.beginPath(); ctx.moveTo(28, 22); ctx.lineTo(8, 22); ctx.stroke()
                     ctx.beginPath(); ctx.moveTo(4, 22); ctx.lineTo(10, 17); ctx.lineTo(10, 27); ctx.fill()
                     break
+                case "hline":
+                case "vline":
+                    ctx.strokeStyle = c
+                    ctx.lineWidth = 3
+                    ctx.beginPath()
+                    for (let i = 0; i < 3; ++i) {
+                        if (tb.icon === "hline") { ctx.moveTo(8, 11 + i * 6); ctx.lineTo(26, 11 + i * 6) }
+                        else { ctx.moveTo(11 + i * 6, 8); ctx.lineTo(11 + i * 6, 26) }
+                    }
+                    ctx.stroke()
+                    break
                 case "clear":
                     ctx.strokeStyle = c
                     ctx.lineWidth = 3
@@ -135,16 +146,20 @@ Column {
         TrimButton { mode: "in"; icon: "in"; label: qsTr("In"); tip: qsTr("The line draws on from its start") }
         TrimButton { mode: "out"; icon: "out"; label: qsTr("Out"); tip: qsTr("The line draws off from its start") }
         TrimButton { mode: "inout"; icon: "io"; label: qsTr("I&O"); tip: qsTr("Draws on from the playhead and off at the end of the clip") }
-        TrimButton { mode: "swap"; icon: "swap"; label: qsTr("Swap"); tip: qsTr("The keys already there run from the other end") }
+        TrimButton { mode: "reversePath"; icon: "swap"; label: qsTr("Reverse"); tip: qsTr("Reverse path direction: the trim runs round the other way") }
         TrimButton { mode: "midIn"; icon: "midIn"; tint: "#8ddc5a"; label: qsTr("Mid-in"); tip: qsTr("Grows both ways from the middle (reversed: in from both ends)") }
         TrimButton { mode: "midOut"; icon: "midOut"; tint: "#8ddc5a"; label: qsTr("Mid-out"); tip: qsTr("Shrinks into the middle (reversed: off towards both ends)") }
-        TrimButton { mode: "equalIn"; icon: "equalIn"; tint: "#3fb6f0"; label: qsTr("Equal-in"); tip: qsTr("Equal stretches (as many as Copies) draw on at once") }
-        TrimButton { mode: "equalOut"; icon: "equalOut"; tint: "#3fb6f0"; label: qsTr("Equal-out"); tip: qsTr("Equal stretches (as many as Copies) draw off at once") }
+        TrimButton { mode: "divideIn"; icon: "equalIn"; tint: "#3fb6f0"; label: qsTr("Divide-in"); tip: qsTr("The path in equal parts (as many as Copies) that draw on at once") }
+        TrimButton { mode: "divideOut"; icon: "equalOut"; tint: "#3fb6f0"; label: qsTr("Divide-out"); tip: qsTr("The path in equal parts (as many as Copies) that draw off at once") }
         TrimButton { mode: "gapLoop"; icon: "gap"; tint: "#ffffff"; label: qsTr("Running gap"); tip: qsTr("A small gap runs round each outline all the clip long, as an outlined title") }
         TrimButton { mode: "copies"; icon: "copies"; tint: "#c58cf5"; label: qsTr("Copies"); tip: qsTr("Copies above, each one drawing on a little later") }
-        TrimButton { mode: "traceIn"; icon: "traceIn"; tint: "#ff9b54"; label: qsTr("Trace In"); tip: qsTr("A short line runs ahead while it draws on") }
-        TrimButton { mode: "traceOut"; icon: "traceOut"; tint: "#ff9b54"; label: qsTr("Trace Out"); tip: qsTr("A short line runs off as it draws off") }
-        TrimButton { mode: "traceInOut"; icon: "traceIo"; tint: "#ff9b54"; label: qsTr("Trace I&O"); tip: qsTr("A trace on the way in and on the way out") }
+        TrimButton { mode: "traceIn"; icon: "traceIn"; tint: "#ff9b54"; label: qsTr("Trace In"); tip: qsTr("Draws on with another layer riding its end") }
+        TrimButton { mode: "traceOut"; icon: "traceOut"; tint: "#ff9b54"; label: qsTr("Trace Out"); tip: qsTr("Draws off with another layer riding its end") }
+        TrimButton { mode: "traceInOut"; icon: "traceIo"; tint: "#ff9b54"; label: qsTr("Trace I&O"); tip: qsTr("A layer on each end, in and out") }
+        TrimButton { mode: "midTraceIn"; icon: "midIn"; tint: "#2ee6c0"; label: qsTr("MidTrace In"); tip: qsTr("Grows from the middle with a layer on each end") }
+        TrimButton { mode: "midTraceOut"; icon: "midOut"; tint: "#2ee6c0"; label: qsTr("MidTrace Out"); tip: qsTr("Shrinks into the middle with a layer on each end") }
+        TrimButton { mode: "addHLine"; icon: "hline"; tint: "#c58cf5"; label: qsTr("Add line"); tip: qsTr("Add a horizontal line to trim") }
+        TrimButton { mode: "addVLine"; icon: "vline"; tint: "#c58cf5"; label: qsTr("Add line"); tip: qsTr("Add a vertical line to trim") }
         TrimButton {
             icon: "copies"
             tint: "#f06ab4"

@@ -5643,6 +5643,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trace rides a shape&apos;s line: pick the shape last</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim Paths animation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5652,6 +5656,10 @@
     </message>
     <message>
         <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers to animate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7670,15 +7678,7 @@
 <context>
     <name>BendLayersPanel</name>
     <message>
-        <source>Select the layers. Positive bends the ends up into an arch, negative down; a full 360° rolls it into a ring.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fixed point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7690,7 +7690,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Centre</source>
+        <source>Select the layers. Between Start and End the layer curves like a joint, as Bendio does: before Start it stays, after End it carries on straight, turned. Positive bends up, negative down; 360° rolls it round.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10272,10 +10272,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fixed point (%)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Fractal Noise</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10513,6 +10509,14 @@
     </message>
     <message>
         <source>Bend (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End (%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23354,6 +23358,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse path direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24078,7 +24086,51 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Click one to write it as keyframes: In at the start of the clip, Out at its end, the rest at the playhead. Put another one further on to keep animating the same layer.</source>
+        <source>Pick one to see it, then Apply: it is written as keyframes on every selected layer, starting (or ending) at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oomph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How far it travels, jumps and turns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start of behavior (at the playhead)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End of behavior (at the playhead)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>between layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24086,19 +24138,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Intensity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>How hard it squashes, stretches and bends</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels and turns</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30248,6 +30288,66 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip. For Trace, pick the layers that ride the line first and the line last (with none, a dot rides it).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw on at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw off at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws on with another layer riding its end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws off with another layer riding its end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A layer on each end, in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MidTrace In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grows from the middle with a layer on each end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MidTrace Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle with a layer on each end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a horizontal line to trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a vertical line to trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Draw from the other end of the path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30264,14 +30364,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Swap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The keys already there run from the other end</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Copies above, each one drawing on a little later</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30280,15 +30372,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A short line runs ahead while it draws on</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Trace Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30308,6 +30392,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse path direction: the trim runs round the other way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Mid-in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30324,22 +30416,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Equal-in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Equal stretches (as many as Copies) draw on at once</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Equal-out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Equal stretches (as many as Copies) draw off at once</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Running gap</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30348,15 +30424,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A short line runs off as it draws off</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Trace I&amp;O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A trace on the way in and on the way out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -11,7 +11,8 @@ Column {
 
     property real degrees: 90
     property bool vertical: false
-    property real pivot: 50
+    property real start: 30
+    property real end: 70
     property int frames: 20
 
     spacing: Theme.spacingMd
@@ -21,7 +22,7 @@ Column {
         wrapMode: Text.WordWrap
         size: "sm"
         opacity: 0.8
-        text: qsTr("Select the layers. Positive bends the ends up into an arch, negative down; a full 360° rolls it into a ring.")
+        text: qsTr("Select the layers. Between Start and End the layer curves like a joint, as Bendio does: before Start it stays, after End it carries on straight, turned. Positive bends up, negative down; 360° rolls it round.")
     }
 
     Row {
@@ -45,24 +46,29 @@ Column {
             onEdited: v => root.degrees = v
         }
     }
-    Row {
-        width: parent.width
-        spacing: Theme.spacingSm
-        ThemedLabel { width: 72; anchors.verticalCenter: parent.verticalCenter; text: qsTr("Fixed point") }
-        ThemedSlider {
-            width: parent.width - 72 - 64 - 2 * parent.spacing
-            anchors.verticalCenter: parent.verticalCenter
-            from: 0; to: 100; stepSize: 1
-            value: root.pivot
-            valueFormatter: v => Math.round(v) + " %"
-            onMoved: root.pivot = Math.round(value)
-        }
-        ThemedLabel {
-            width: 64
-            anchors.verticalCenter: parent.verticalCenter
-            horizontalAlignment: Text.AlignRight
-            text: root.pivot === 0 ? qsTr("Start") : root.pivot === 100 ? qsTr("End")
-                  : root.pivot === 50 ? qsTr("Centre") : Math.round(root.pivot) + " %"
+    // Bendio's Start and End: the stretch of the layer that curves; before it stays, after it turns.
+    Repeater {
+        model: [{ key: "start", label: qsTr("Start") }, { key: "end", label: qsTr("End") }]
+        delegate: Row {
+            id: pointRow
+            required property var modelData
+            width: root.width
+            spacing: Theme.spacingSm
+            ThemedLabel { width: 72; anchors.verticalCenter: parent.verticalCenter; text: pointRow.modelData.label }
+            ThemedSlider {
+                width: parent.width - 72 - 64 - 2 * parent.spacing
+                anchors.verticalCenter: parent.verticalCenter
+                from: 0; to: 100; stepSize: 1
+                value: root[pointRow.modelData.key]
+                valueFormatter: v => Math.round(v) + " %"
+                onMoved: root[pointRow.modelData.key] = Math.round(value)
+            }
+            ThemedLabel {
+                width: 64
+                anchors.verticalCenter: parent.verticalCenter
+                horizontalAlignment: Text.AlignRight
+                text: Math.round(root[pointRow.modelData.key]) + " %"
+            }
         }
     }
     ThemedSwitch {
@@ -89,7 +95,7 @@ Column {
                 text: modelData.label
                 onClicked: {
                     root.degrees = modelData.deg
-                    EditorState.applyBend("set", root.degrees, root.vertical, root.pivot, root.frames)
+                    EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames)
                 }
             }
         }
@@ -113,25 +119,25 @@ Column {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Bend")
             tooltip: qsTr("Bend it this much (a key at the playhead if the bend is animated)")
-            onClicked: EditorState.applyBend("set", root.degrees, root.vertical, root.pivot, root.frames)
+            onClicked: EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Unbend in")
             tooltip: qsTr("Starts bent and straightens out from the playhead")
-            onClicked: EditorState.applyBend("in", root.degrees, root.vertical, root.pivot, root.frames)
+            onClicked: EditorState.applyBend("in", root.degrees, root.vertical, root.start, root.end, root.frames)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Bend out")
             tooltip: qsTr("Bends away at the end of the clip")
-            onClicked: EditorState.applyBend("out", root.degrees, root.vertical, root.pivot, root.frames)
+            onClicked: EditorState.applyBend("out", root.degrees, root.vertical, root.start, root.end, root.frames)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Remove")
             variant: "ghost"
-            onClicked: EditorState.applyBend("remove", 0, root.vertical, root.pivot, root.frames)
+            onClicked: EditorState.applyBend("remove", 0, root.vertical, root.start, root.end, root.frames)
         }
     }
 }

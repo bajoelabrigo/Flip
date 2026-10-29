@@ -270,13 +270,19 @@ SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, d
 
 // Trim Paths (0.26): start and end in percent, the offset in degrees (once round = 360°), wrapping
 // past the outline's end the way After Effects does.
-SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg, int segments)
+SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg, int segments, bool reverse)
 {
     double a = qBound(0.0, startPct, 100.0) / 100.0;
     double b = qBound(0.0, endPct, 100.0) / 100.0;
     if (a > b)
         std::swap(a, b);
-    const double shift = offsetDeg / 360.0;
+    double shift = offsetDeg / 360.0;
+    if (reverse) {
+        const double ra = 1.0 - b;
+        b = 1.0 - a;
+        a = ra;
+        shift = -shift;
+    }
     // Each contour on its own, as After Effects' default (Simultaneously).
     return trimEachContour(path, a + shift, b + shift, segments);
 }
@@ -352,7 +358,7 @@ public:
                                  m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
         if (m_style.hasTrim() || !qFuzzyIsNull(m_style.trimOffset))
             m_path = trimmedPath(m_path, m_style.trimStart, m_style.trimEnd, m_style.trimOffset,
-                                 qRound(m_style.trimSegments));
+                                 qRound(m_style.trimSegments), m_style.trimReverse > 0.5);
     }
 
     QSize size() const override { return m_size; }

@@ -397,7 +397,7 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
         h = qHashMulti(h, l.id, static_cast<int>(l.kind), paintHash(l.paint), l.opacity, static_cast<int>(l.blend),
                        l.offsetX, l.offsetY, l.blur, l.width, l.spread, static_cast<int>(l.strokeAlign),
                        static_cast<int>(l.dash), l.dashOffset, static_cast<int>(l.cap), static_cast<int>(l.join),
-                       l.knockout, l.trimStart, l.trimEnd, l.trimSegments, l.trimOffset, l.sketchLength,
+                       l.knockout, l.trimStart, l.trimEnd, l.trimSegments, l.trimOffset, l.trimReverse, l.sketchLength,
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
     }
@@ -566,6 +566,8 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         o.insert(QStringLiteral("trimSegments"), l.trimSegments);
     if (!qFuzzyIsNull(l.trimOffset))
         o.insert(QStringLiteral("trimOffset"), l.trimOffset);
+    if (l.trimReverse)
+        o.insert(QStringLiteral("trimReverse"), true);
     if (l.kind == TextLayerKind::Extrude) {
         o.insert(QStringLiteral("extrudeSteps"), l.extrudeSteps);
         o.insert(QStringLiteral("extrudeAngle"), l.extrudeAngle);
@@ -604,6 +606,7 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.trimEnd = o.value(QStringLiteral("trimEnd")).toDouble(1.0);
     l.trimSegments = qBound(1, o.value(QStringLiteral("trimSegments")).toInt(1), 64);
     l.trimOffset = o.value(QStringLiteral("trimOffset")).toDouble(0.0);
+    l.trimReverse = o.value(QStringLiteral("trimReverse")).toBool(false);
     l.extrudeSteps = o.value(QStringLiteral("extrudeSteps")).toInt(8);
     l.extrudeAngle = o.value(QStringLiteral("extrudeAngle")).toDouble(45.0);
     l.extrudeDarken = o.value(QStringLiteral("extrudeDarken")).toDouble(0.5);

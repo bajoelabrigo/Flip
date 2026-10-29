@@ -30373,6 +30373,9 @@ QVariantList AppController::squashAnimations() const
         out.append(QVariantMap{{QStringLiteral("id"), a.id},
                                {QStringLiteral("label"), drift::catalogText(a.label)},
                                {QStringLiteral("category"), a.category},
+                               {QStringLiteral("place"), a.place == drift::SquashPlace::End ? QStringLiteral("end")
+                                                         : a.place == drift::SquashPlace::Start ? QStringLiteral("start")
+                                                                                                : QStringLiteral("playhead")},
                                {QStringLiteral("duration"), a.seconds}});
     }
     return out;
@@ -31076,9 +31079,38 @@ QVariantMap AppController::strokeCapsState() const
 void AppController::applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
                                   bool animateOffset)
 {
+    // Add Horizontal / Vertical Line: a line to trim, across the middle of the canvas.
+    if (mode == QLatin1String("addHLine") || mode == QLatin1String("addVLine")) {
+        const bool horizontal = mode == QLatin1String("addHLine");
+        const double W = m_project.width();
+        const double H = m_project.height();
+        QVariantList points;
+        const auto point = [](double x, double y) { return QVariantMap{{QStringLiteral("x"), x}, {QStringLiteral("y"), y}}; };
+        if (horizontal) {
+            points << point(W * 0.2, H / 2.0) << point(W * 0.8, H / 2.0);
+        } else {
+            points << point(W / 2.0, H * 0.2) << point(W / 2.0, H * 0.8);
+        }
+        addPenShape(points, false);
+        return;
+    }
+    const bool traceMode = mode.startsWith(QLatin1String("trace")) || mode.startsWith(QLatin1String("midTrace"));
     QList<QPair<int, int>> targets = m_selection;
     if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
         targets.append({m_selectedTrack, m_selectedClip});
+    // Trace: the layer picked last is the path; the others ride its ends (Trim-Pack's star).
+    QStringList followerIds;
+    if (traceMode && isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const QString pathId = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).id;
+        for (const QPair<int, int> &ref : std::as_const(targets)) {
+            if (isValidClipIndex(ref.first, ref.second)) {
+                const QString id = m_project.tracks().at(ref.first).clips.at(ref.second).id;
+                if (id != pathId && !followerIds.contains(id))
+                    followerIds.append(id);
+            }
+        }
+        targets = {{m_selectedTrack, m_selectedClip}};
+    }
     // By id: copies add tracks and shift the indices.
     QStringList ids;
     for (const QPair<int, int> &ref : std::as_const(targets)) {
@@ -31224,13 +31256,14 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
             drawIn(t, head);
             drawOut(t, tail);
             turn(t, head);
-        } else if (mode == QLatin1String("midIn") || mode == QLatin1String("midOut")) {
+        } else if (mode == QLatin1String("midIn") || mode == QLatin1String("midOut")
+                   || mode == QLatin1String("midTraceIn") || mode == QLatin1String("midTraceOut")) {
             // Mid-in grows both ways from the middle; Mid-out shrinks into it. Reversed, the same
             // half way round: in from both ends, or off towards them.
             setSegments(clip, 1);
             if (!animateOffset)
                 setOffset(clip, reverse ? 180.0 : 0.0);
-            if (mode == QLatin1String("midIn")) {
+            if (mode == QLatin1String("midIn") || mode == QLatin1String("midTraceIn")) {
                 ramp(t.start, head, t.full / 2, 0.0);
                 ramp(t.end, head, t.full / 2, t.full);
             } else {
@@ -31238,10 +31271,11 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
                 ramp(t.end, head, t.full, t.full / 2);
             }
             turn(t, head);
-        } else if (mode == QLatin1String("equalIn") || mode == QLatin1String("equalOut")) {
+        } else if (mode == QLatin1String("equalIn") || mode == QLatin1String("equalOut")
+                   || mode == QLatin1String("divideIn") || mode == QLatin1String("divideOut")) {
             // Equal-in / Equal-out: `copies` equal stretches drawing on (or off) at once.
             setSegments(clip, qBound(2, copies, 64));
-            if (mode == QLatin1String("equalIn"))
+            if (mode == QLatin1String("equalIn") || mode == QLatin1String("divideIn"))
                 drawIn(t, head);
             else
                 drawOut(t, head);
@@ -31279,25 +31313,15 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
                 kt->setKeyframe(length, 360.0 * turns);
                 kt->setStopwatch(true);
             }
-        } else if (mode == QLatin1String("swap")) {
-            // The same timing, run from the other end: start' = full - end, end' = full - start.
-            for (int i = 0; i < qMin(t.start.size(), t.end.size()); ++i) {
-                drift::KeyframeTrack<double> *s = t.start.at(i);
-                drift::KeyframeTrack<double> *e = t.end.at(i);
-                if (!s || !e)
-                    continue;
-                drift::KeyframeTrack<double> oldStart = *s;
-                drift::KeyframeTrack<double> oldEnd = *e;
-                const auto mirror = [&](drift::KeyframeTrack<double> *into, const drift::KeyframeTrack<double> &from) {
-                    *into = from;
-                    for (auto it = from.keyframes().cbegin(); it != from.keyframes().cend(); ++it) {
-                        drift::Keyframe<double> key = it.value();
-                        key.value = t.full - key.value;
-                        into->setKeyframe(it.key(), key);
-                    }
-                };
-                mirror(s, oldEnd);
-                mirror(e, oldStart);
+        } else if (mode == QLatin1String("reversePath") || mode == QLatin1String("swap")) {
+            // Reverse Path Direction: the trim runs round the outline the other way.
+            if (clip.type == drift::ClipType::Shape) {
+                clip.shapeStyle.trimReverse = clip.shapeStyle.trimReverse > 0.5 ? 0.0 : 1.0;
+            } else {
+                for (drift::TextShadingLayer &layer : clip.textStyle.layers) {
+                    if (layer.kind == drift::TextLayerKind::Stroke)
+                        layer.trimReverse = !layer.trimReverse;
+                }
             }
         } else if (mode == QLatin1String("clear")) {
             for (const auto *list : {&t.start, &t.end, &t.offset}) {
@@ -31319,8 +31343,16 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
                     layer.trimSegments = 1;
                 }
             }
-        } else if (mode == QLatin1String("copies") || mode.startsWith(QLatin1String("trace"))) {
-            const bool trace = mode.startsWith(QLatin1String("trace"));
+        } else if (mode == QLatin1String("traceIn") || mode == QLatin1String("traceOut")
+                   || mode == QLatin1String("traceInOut")) {
+            setSegments(clip, 1);
+            if (mode != QLatin1String("traceOut"))
+                drawIn(t, head);
+            if (mode != QLatin1String("traceIn"))
+                drawOut(t, mode == QLatin1String("traceOut") ? head : tail);
+            turn(t, head);
+        } else if (mode == QLatin1String("copies")) {
+            const bool trace = false;
             const bool tin = mode == QLatin1String("traceIn") || mode == QLatin1String("traceInOut");
             const bool tout = mode == QLatin1String("traceOut") || mode == QLatin1String("traceInOut");
             const int n = trace ? 1 : qBound(1, copies, 12);
@@ -31379,11 +31411,163 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
         m_project = before;
         return;
     }
+
+    // Trace / MidTrace: other layers ride the line's ends (Trim-Pack's star), frame by frame.
+    if (traceMode && !ids.isEmpty()) {
+        int pt = -1;
+        int pc = -1;
+        if (findClipById(m_project, ids.first(), &pt, &pc) && m_project.tracks().at(pt).clips.at(pc).type == drift::ClipType::Shape) {
+            const drift::Clip path = m_project.tracks().at(pt).clips.at(pc);
+            // With none picked, a dot in the line's colour rides it.
+            if (followerIds.isEmpty()) {
+                drift::Clip dot;
+                dot.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                dot.type = drift::ClipType::Shape;
+                dot.name = tr("%1 trace").arg(path.name);
+                dot.shapeStyle.kind = drift::ShapeKind::Ellipse;
+                QColor colour = path.shapeStyle.primaryColor();
+                for (const drift::TextShadingLayer &layer : path.shapeStyle.layers) {
+                    if (layer.enabled && layer.kind == drift::TextLayerKind::Stroke)
+                        colour = layer.paint.color;
+                }
+                paintDrawnShape(dot.shapeStyle, colour.name(), QStringLiteral("none"), 0.0);
+                dot.timelineStart = path.timelineStart;
+                dot.timelineDuration = path.timelineDuration;
+                dot.srcIn = 0;
+                dot.srcOut = dot.timelineDuration;
+                const double r = 14.0 * qMin(m_project.width(), m_project.height()) / 1080.0;
+                setClipLayoutPixels(dot, 0, 0, r * 2, r * 2);
+                m_project.tracks().insert(pt, drift::Track{.type = drift::TrackType::Shape});
+                m_project.tracks()[pt].clips.append(dot);
+                followerIds.append(dot.id);
+                findClipById(m_project, path.id, &pt, &pc);
+            }
+            const bool twoEnds = mode == QLatin1String("traceInOut") || mode.startsWith(QLatin1String("midTrace"));
+            // A second rider for the other end: the second one picked, else a copy of the first.
+            if (twoEnds && followerIds.size() < 2) {
+                int ft = -1;
+                int fc = -1;
+                if (findClipById(m_project, followerIds.first(), &ft, &fc)) {
+                    drift::Clip copy = m_project.tracks().at(ft).clips.at(fc);
+                    copy.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+                    copy.name = tr("%1 copy").arg(copy.name);
+                    m_project.tracks().insert(ft, drift::Track{.type = drift::trackTypeForClipType(copy.type)});
+                    m_project.tracks()[ft].clips.append(copy);
+                    followerIds.append(copy.id);
+                    findClipById(m_project, path.id, &pt, &pc);
+                }
+            }
+            // The outline in canvas px, as a polyline measured by length.
+            const double ps = drift::usToSeconds(path.timelineStart);
+            const double px = propertyValueAt(pt, pc, QStringLiteral("x"), ps, 0.0);
+            const double py = propertyValueAt(pt, pc, QStringLiteral("y"), ps, 0.0);
+            const double pw = propertyValueAt(pt, pc, QStringLiteral("width"), ps, m_project.width());
+            const double ph = propertyValueAt(pt, pc, QStringLiteral("height"), ps, m_project.height());
+            const QList<QPolygonF> polys =
+                drift::shapePath(path.shapeStyle.resolvedAt(0), QRectF(0, 0, pw, ph)).translated(px, py).toSubpathPolygons();
+            if (!polys.isEmpty() && polys.first().size() >= 2) {
+                const QPolygonF line = polys.first();
+                const bool closed = line.isClosed();
+                QList<double> along{0.0};
+                for (int i = 1; i < line.size(); ++i)
+                    along.append(along.last() + QLineF(line.at(i - 1), line.at(i)).length());
+                const double total = qMax(1e-6, along.last());
+                const auto pointAt = [&](double f, double *angle) {
+                    f = closed ? f - std::floor(f) : qBound(0.0, f, 1.0);
+                    const double d = f * total;
+                    int i = 1;
+                    while (i < line.size() - 1 && along.at(i) < d)
+                        ++i;
+                    const double seg = qMax(1e-6, along.at(i) - along.at(i - 1));
+                    const QPointF a = line.at(i - 1);
+                    const QPointF b = line.at(i);
+                    *angle = qRadiansToDegrees(std::atan2(b.y() - a.y(), b.x() - a.x()));
+                    return a + (b - a) * ((d - along.at(i - 1)) / seg);
+                };
+                const auto value = [&](const QString &prop, drift::TimeUs at, double fallback) {
+                    return propertyValueAt(pt, pc, prop, drift::usToSeconds(at), fallback);
+                };
+                const bool rev = path.shapeStyle.trimReverse > 0.5;
+                // Where an end (its trim value, 0..100) is, with the offset and the direction.
+                const auto endFraction = [&](double v, drift::TimeUs at) {
+                    const double shift = value(QStringLiteral("shape.trimOffset"), at, path.shapeStyle.trimOffset) / 360.0;
+                    const double f = v / 100.0;
+                    return rev ? 1.0 - f - shift : f + shift;
+                };
+                const int fpsNow = qMax(1, m_project.fps());
+                const drift::TimeUs frame = drift::secondsToUs(1.0 / fpsNow);
+                const drift::TimeUs from = path.timelineStart;
+                const drift::TimeUs to = path.timelineEnd();
+                for (int k = 0; k < followerIds.size() && k < (twoEnds ? 2 : 1); ++k) {
+                    int ft = -1;
+                    int fc = -1;
+                    if (!findClipById(m_project, followerIds.at(k), &ft, &fc))
+                        continue;
+                    drift::Clip &rider = m_project.tracks()[ft].clips[fc];
+                    if ((rider.type == drift::ClipType::Shape || rider.type == drift::ClipType::Text
+                         || rider.type == drift::ClipType::Image)
+                        && (rider.timelineStart > from || rider.timelineEnd() < to)) {
+                        rider.timelineStart = qMin(rider.timelineStart, from);
+                        rider.timelineDuration = qMax(rider.timelineEnd(), to) - rider.timelineStart;
+                    }
+                    const double s0 = drift::usToSeconds(rider.timelineStart);
+                    const double rw = propertyValueAt(ft, fc, QStringLiteral("width"), s0, m_project.width());
+                    const double rh = propertyValueAt(ft, fc, QStringLiteral("height"), s0, m_project.height());
+                    const double baseRotation = propertyValueAt(ft, fc, QStringLiteral("rotation"), s0, 0.0);
+                    drift::Clip &r = m_project.tracks()[ft].clips[fc];
+                    drift::KeyframeTrack<double> *kx = keyframeTrackForProp(r, QStringLiteral("x"), true);
+                    drift::KeyframeTrack<double> *ky = keyframeTrackForProp(r, QStringLiteral("y"), true);
+                    drift::KeyframeTrack<double> *kr = keyframeTrackForProp(r, QStringLiteral("rotation"), true);
+                    *kx = drift::KeyframeTrack<double>();
+                    *ky = drift::KeyframeTrack<double>();
+                    *kr = drift::KeyframeTrack<double>();
+                    // The first rider on the drawing end (End), the second on the other (Start); a
+                    // Trace Out rider on the end that leaves (Start).
+                    const bool onStart = k == 1 || mode == QLatin1String("traceOut");
+                    double lastAngle = 0.0;
+                    for (drift::TimeUs at = from; at <= to; at += frame) {
+                        const double v = onStart ? value(QStringLiteral("shape.trimStart"), at, path.shapeStyle.trimStart)
+                                                 : value(QStringLiteral("shape.trimEnd"), at, path.shapeStyle.trimEnd);
+                        double angle = 0.0;
+                        const QPointF p = pointAt(endFraction(v, at), &angle);
+                        // Turned so it runs along the line, the way the line runs (unwrapped).
+                        double heading = (onStart != rev) ? angle + 180.0 : angle;
+                        while (heading - lastAngle > 180.0)
+                            heading -= 360.0;
+                        while (heading - lastAngle < -180.0)
+                            heading += 360.0;
+                        lastAngle = heading;
+                        const drift::TimeUs rel = at - r.timelineStart;
+                        kx->setKeyframe(rel, p.x() - rw / 2.0);
+                        ky->setKeyframe(rel, p.y() - rh / 2.0);
+                        kr->setKeyframe(rel, baseRotation + heading);
+                    }
+                    for (drift::KeyframeTrack<double> *kt : {kx, ky, kr}) {
+                        // Only the frames where it moves need a key: a straight run is one segment.
+                        const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt->keyframes();
+                        QList<drift::TimeUs> times = keys.keys();
+                        for (int i = 1; i + 1 < times.size(); ++i) {
+                            const double a = keys.value(times.at(i - 1)).value;
+                            const double b = keys.value(times.at(i)).value;
+                            const double c = keys.value(times.at(i + 1)).value;
+                            if (qAbs(b - a) < 1e-3 && qAbs(c - b) < 1e-3)
+                                kt->removeKeyframe(times.at(i));
+                        }
+                        kt->setStopwatch(true);
+                    }
+                }
+            }
+        } else if (!followerIds.isEmpty()) {
+            setLastMessage(tr("Trace rides a shape's line: pick the shape last"), QStringLiteral("warning"));
+        }
+        m_project.ensureTrackIds();
+    }
     pushProjectEdit(before, tr("Trim Paths animation"));
     finishEdit(tr("Trim Paths animation"));
 }
 
-void AppController::applyBend(const QString &mode, double degrees, bool vertical, double pivot, int frames)
+void AppController::applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
+                               int frames)
 {
     QList<QPair<int, int>> targets = m_selection;
     if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
@@ -31448,7 +31632,9 @@ void AppController::applyBend(const QString &mode, double degrees, bool vertical
         drift::Clip &hostClip = m_project.tracks()[host.trackIndex].clips[host.clipIndex];
         drift::Effect &effect = hostClip.effects[fx];
         effect.parameters.insert(QStringLiteral("vertical"), vertical);
-        effect.parameters.insert(QStringLiteral("pivot"), qBound(0.0, pivot, 100.0));
+        effect.parameters.remove(QStringLiteral("pivot"));
+        effect.parameters.insert(QStringLiteral("start"), qBound(0.0, start, 100.0));
+        effect.parameters.insert(QStringLiteral("end"), qBound(0.0, end, 100.0));
         drift::KeyframeTrack<double> &kt = effect.paramKeyframes[QStringLiteral("bend")];
         const drift::TimeUs length = clip.timelineDuration;
         const drift::TimeUs base = clip.timelineStart - hostClip.timelineStart;
@@ -31505,8 +31691,35 @@ QVariantMap AppController::squashAnimationPose(const QString &id, double progres
     return pose;
 }
 
+void AppController::applySquashToSelection(const QString &id, double intensity, double scale, double speed,
+                                           const QString &timing, int staggerFrames)
+{
+    QStringList ids;
+    for (const QPair<int, int> &ref : std::as_const(m_selection)) {
+        if (isValidClipIndex(ref.first, ref.second))
+            ids.append(m_project.tracks().at(ref.first).clips.at(ref.second).id);
+    }
+    if (ids.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        ids.append(m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).id);
+    if (ids.isEmpty()) {
+        setLastMessage(tr("Select the layers to animate"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::TimeUs frame = drift::secondsToUs(1.0 / qMax(1, m_project.fps()));
+    const drift::TimeUs at = m_playheadUs;
+    beginEditSession(tr("Squash & Stretch"));
+    for (int n = 0; n < ids.size(); ++n) {
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, ids.at(n), &t, &c))
+            applySquashAnimation(t, c, id, intensity, scale, speed, timing, at + frame * qMax(0, staggerFrames) * n);
+    }
+    endEditSession(true);
+    selectClipById(ids.last());
+}
+
 void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
-                                         double scale, double speed)
+                                         double scale, double speed, const QString &timing, qint64 atUs)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return;
@@ -31534,14 +31747,18 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
         return -1;
     };
 
-    beginEditSession(tr("Squash & Stretch"));
+    // Inside Apply over several layers the outer session holds them all.
+    const bool ownSession = !m_editSessionOpen;
+    if (ownSession)
+        beginEditSession(tr("Squash & Stretch"));
     if (deformIndex(trackIndex, clipIndex) < 0) {
         m_addEffectKeepsSelection = true;
         addEffect(trackIndex, clipIndex, deformId);
         m_addEffectKeepsSelection = false;
         // Adding it may mint a lane and shift the indices.
         if (!findClipById(m_project, clipId, &trackIndex, &clipIndex)) {
-            endEditSession(false);
+            if (ownSession)
+                endEditSession(false);
             return;
         }
     }
@@ -31553,11 +31770,16 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
     const int fps = qMax(1, m_project.fps());
     const double seconds = anim->seconds * 100.0 / qBound(10.0, speed, 400.0);
     const drift::TimeUs length = qMin<drift::TimeUs>(drift::secondsToUs(seconds), clip.timelineDuration);
+    const drift::TimeUs anchor = atUs >= 0 ? atUs : m_playheadUs;
     drift::TimeUs startRel = 0;
-    if (anim->place == drift::SquashPlace::End)
+    if (timing == QLatin1String("start"))
+        startRel = qBound<drift::TimeUs>(0, anchor - clip.timelineStart, clip.timelineDuration - length);
+    else if (timing == QLatin1String("end"))
+        startRel = qBound<drift::TimeUs>(0, anchor - length - clip.timelineStart, clip.timelineDuration - length);
+    else if (anim->place == drift::SquashPlace::End)
         startRel = clip.timelineDuration - length;
     else if (anim->place == drift::SquashPlace::Playhead)
-        startRel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration - length);
+        startRel = qBound<drift::TimeUs>(0, anchor - clip.timelineStart, clip.timelineDuration - length);
     const double startAbs = drift::usToSeconds(clip.timelineStart + startRel);
 
     const double travel = scale / 100.0;
@@ -31641,7 +31863,8 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
 
     pushProjectEdit(before, tr("Squash & Stretch"));
     finishEdit(tr("Squash & Stretch: %1").arg(drift::catalogText(anim->label)));
-    endEditSession(true);
+    if (ownSession)
+        endEditSession(true);
     // Adding the deformer selected the lane that holds it: back to the clip, so the Animation
     // panel stays open on it.
     if (findClipById(m_project, clipId, &trackIndex, &clipIndex))

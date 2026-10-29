@@ -4,10 +4,12 @@
   "category": "squash",
   "backend": "gpu",
   "order": 945,
-  "description": "Bends the layer into an arc, as the Bend Layers script and CC Bend It do: up to a full ring, across or along, from a point that stays put. Motion Tools › Bend applies and animates it.",
+  "description": "Bends the layer like a joint, as Bendio and the Bend Layers script do: from Start to End along its length it curves by the angle; before Start it stays put, after End it carries on straight, turned. Across or along the height. Motion Tools › Bend applies and animates it.",
   "padding": {
-    "percentParams": ["bend"],
-    "percentFactor": 0.4,
+    "percentParams": [
+      "bend"
+    ],
+    "percentFactor": 0.25,
     "extra": 8
   },
   "parameters": [
@@ -20,18 +22,26 @@
       "defaultValue": 0
     },
     {
+      "identifier": "start",
+      "displayName": "Start (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 30
+    },
+    {
+      "identifier": "end",
+      "displayName": "End (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 70
+    },
+    {
       "identifier": "vertical",
       "displayName": "Along the height",
       "type": "bool",
       "defaultValue": false
-    },
-    {
-      "identifier": "pivot",
-      "displayName": "Fixed point (%)",
-      "type": "float",
-      "minValue": 0,
-      "maxValue": 100,
-      "defaultValue": 50
     }
   ],
   "pipeline": {

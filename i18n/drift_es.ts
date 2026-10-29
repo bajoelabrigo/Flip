@@ -5660,6 +5660,10 @@
         <translation>%1 copia %2</translation>
     </message>
     <message>
+        <source>Trace rides a shape&apos;s line: pick the shape last</source>
+        <translation>Trace recorre la línea de una forma: elige la forma al final</translation>
+    </message>
+    <message>
         <source>Trim Paths animation</source>
         <translation>Animación de Recortar trazados</translation>
     </message>
@@ -5670,6 +5674,10 @@
     <message>
         <source>Bend</source>
         <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Select the layers to animate</source>
+        <translation>Elige las capas que quieres animar</translation>
     </message>
     <message>
         <source>Squash &amp; Stretch</source>
@@ -7712,16 +7720,8 @@
 <context>
     <name>BendLayersPanel</name>
     <message>
-        <source>Select the layers. Positive bends the ends up into an arch, negative down; a full 360° rolls it into a ring.</source>
-        <translation>Elige las capas. En positivo los extremos suben formando un arco; en negativo bajan; con 360° se enrolla en un anillo.</translation>
-    </message>
-    <message>
         <source>Bend</source>
         <translation>Doblar</translation>
-    </message>
-    <message>
-        <source>Fixed point</source>
-        <translation>Punto fijo</translation>
     </message>
     <message>
         <source>Start</source>
@@ -7732,8 +7732,8 @@
         <translation>Final</translation>
     </message>
     <message>
-        <source>Centre</source>
-        <translation>Centro</translation>
+        <source>Select the layers. Between Start and End the layer curves like a joint, as Bendio does: before Start it stays, after End it carries on straight, turned. Positive bends up, negative down; 360° rolls it round.</source>
+        <translation>Elige las capas. Entre Inicio y Fin la capa se curva como una articulación, igual que Bendio: antes de Inicio queda quieta y después de Fin sigue recta, girada. En positivo se dobla hacia arriba, en negativo hacia abajo; con 360° da la vuelta.</translation>
     </message>
     <message>
         <source>Along the height</source>
@@ -10314,10 +10314,6 @@
         <translation>A lo alto</translation>
     </message>
     <message>
-        <source>Fixed point (%)</source>
-        <translation>Punto fijo (%)</translation>
-    </message>
-    <message>
         <source>Fractal Noise</source>
         <translation>Ruido fractal</translation>
     </message>
@@ -10556,6 +10552,14 @@
     <message>
         <source>Bend (%)</source>
         <translation>Inclinar (%)</translation>
+    </message>
+    <message>
+        <source>Start (%)</source>
+        <translation>Inicio (%)</translation>
+    </message>
+    <message>
+        <source>End (%)</source>
+        <translation>Fin (%)</translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -23434,6 +23438,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tramos del recorte</translation>
     </message>
     <message>
+        <source>Reverse path direction</source>
+        <translation>Invertir dirección del trazado</translation>
+    </message>
+    <message>
         <source>Copies</source>
         <translation>Copias</translation>
     </message>
@@ -24158,28 +24166,60 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Glitch</translation>
     </message>
     <message>
-        <source>Click one to write it as keyframes: In at the start of the clip, Out at its end, the rest at the playhead. Put another one further on to keep animating the same layer.</source>
-        <translation>Haz clic en una para escribirla como fotogramas clave: las de Entrada al principio del clip, las de Salida al final y las demás en el cabezal. Pon otra más adelante para seguir animando la misma capa.</translation>
+        <source>Pick one to see it, then Apply: it is written as keyframes on every selected layer, starting (or ending) at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation>Elige una para verla y pulsa Aplicar: se escribe como fotogramas clave en cada capa elegida, empezando (o terminando) en el cabezal. Pon otra más adelante para seguir animando la misma capa.</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Oomph</source>
+        <translation>Impulso</translation>
+    </message>
+    <message>
+        <source>How far it travels, jumps and turns</source>
+        <translation>Cuánto se desplaza, salta y gira</translation>
+    </message>
+    <message>
+        <source>Timing</source>
+        <translation>Tiempo</translation>
+    </message>
+    <message>
+        <source>Start of behavior (at the playhead)</source>
+        <translation>Empieza en el cabezal</translation>
+    </message>
+    <message>
+        <source>End of behavior (at the playhead)</source>
+        <translation>Termina en el cabezal</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Escalonar</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>between layers</source>
+        <translation>entre capas</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
+        <translation>Se aplica a cada capa elegida. Las claves se pueden editar en la línea de tiempo.</translation>
     </message>
     <message>
         <source>All</source>
         <translation>Todo</translation>
     </message>
     <message>
-        <source>Intensity</source>
-        <translation>Intensidad</translation>
-    </message>
-    <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation>Cuánto se aplasta, se estira y se dobla</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation>Escala</translation>
-    </message>
-    <message>
-        <source>How far it travels and turns</source>
-        <translation>Cuánto se desplaza y gira</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -30343,6 +30383,66 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Copias</translation>
     </message>
     <message>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip. For Trace, pick the layers that ride the line first and the line last (with none, a dot rides it).</source>
+        <translation>Elige formas o textos con trazo. Las claves empiezan en el cabezal; I&amp;O termina con el clip. Para Trace, elige primero las capas que recorren la línea y la línea al final (sin ninguna, la recorre un punto).</translation>
+    </message>
+    <message>
+        <source>Divide-in</source>
+        <translation>Divide-in</translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw on at once</source>
+        <translation>El trazado en partes iguales (tantas como Copias) que se dibujan a la vez</translation>
+    </message>
+    <message>
+        <source>Divide-out</source>
+        <translation>Divide-out</translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw off at once</source>
+        <translation>El trazado en partes iguales (tantas como Copias) que se borran a la vez</translation>
+    </message>
+    <message>
+        <source>Draws on with another layer riding its end</source>
+        <translation>Se dibuja con otra capa pegada a su punta</translation>
+    </message>
+    <message>
+        <source>Draws off with another layer riding its end</source>
+        <translation>Se borra con otra capa pegada a su punta</translation>
+    </message>
+    <message>
+        <source>A layer on each end, in and out</source>
+        <translation>Una capa en cada punta, al entrar y al salir</translation>
+    </message>
+    <message>
+        <source>MidTrace In</source>
+        <translation>MidTrace In</translation>
+    </message>
+    <message>
+        <source>Grows from the middle with a layer on each end</source>
+        <translation>Crece desde el medio con una capa en cada punta</translation>
+    </message>
+    <message>
+        <source>MidTrace Out</source>
+        <translation>MidTrace Out</translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle with a layer on each end</source>
+        <translation>Se encoge hacia el medio con una capa en cada punta</translation>
+    </message>
+    <message>
+        <source>Add line</source>
+        <translation>Añadir línea</translation>
+    </message>
+    <message>
+        <source>Add a horizontal line to trim</source>
+        <translation>Añade una línea horizontal para recortar</translation>
+    </message>
+    <message>
+        <source>Add a vertical line to trim</source>
+        <translation>Añade una línea vertical para recortar</translation>
+    </message>
+    <message>
         <source>Draw from the other end of the path</source>
         <translation>Dibuja desde el otro extremo del trazado</translation>
     </message>
@@ -30359,14 +30459,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Salida</translation>
     </message>
     <message>
-        <source>Swap</source>
-        <translation>Invertir</translation>
-    </message>
-    <message>
-        <source>The keys already there run from the other end</source>
-        <translation>Las claves que ya hay corren desde el otro extremo</translation>
-    </message>
-    <message>
         <source>Copies above, each one drawing on a little later</source>
         <translation>Copias encima, cada una se dibuja un poco después</translation>
     </message>
@@ -30375,16 +30467,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Rastro entrada</translation>
     </message>
     <message>
-        <source>A short line runs ahead while it draws on</source>
-        <translation>Una línea corta va por delante mientras se dibuja</translation>
-    </message>
-    <message>
         <source>Trace Out</source>
         <translation>Rastro salida</translation>
-    </message>
-    <message>
-        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip.</source>
-        <translation>Elige formas o textos con trazo. Las claves empiezan en el cabezal; I&amp;O termina con el clip.</translation>
     </message>
     <message>
         <source>The line draws on from its start</source>
@@ -30403,6 +30487,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Se dibuja desde el cabezal y se borra al final del clip</translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Reverse path direction: the trim runs round the other way</source>
+        <translation>Invertir dirección del trazado: el recorte va en el otro sentido</translation>
+    </message>
+    <message>
         <source>Mid-in</source>
         <translation>Mid-in</translation>
     </message>
@@ -30419,22 +30511,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Se encoge hacia el medio (invertido: hacia las dos puntas)</translation>
     </message>
     <message>
-        <source>Equal-in</source>
-        <translation>Equal-in</translation>
-    </message>
-    <message>
-        <source>Equal stretches (as many as Copies) draw on at once</source>
-        <translation>Tramos iguales (tantos como Copias) se dibujan a la vez</translation>
-    </message>
-    <message>
-        <source>Equal-out</source>
-        <translation>Equal-out</translation>
-    </message>
-    <message>
-        <source>Equal stretches (as many as Copies) draw off at once</source>
-        <translation>Tramos iguales (tantos como Copias) se borran a la vez</translation>
-    </message>
-    <message>
         <source>Running gap</source>
         <translation>Hueco que corre</translation>
     </message>
@@ -30443,16 +30519,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Un hueco pequeño recorre cada contorno todo el clip, como un título de contorno</translation>
     </message>
     <message>
-        <source>A short line runs off as it draws off</source>
-        <translation>Una línea corta se va mientras se borra</translation>
-    </message>
-    <message>
         <source>Trace I&amp;O</source>
         <translation>Rastro E/S</translation>
-    </message>
-    <message>
-        <source>A trace on the way in and on the way out</source>
-        <translation>Un rastro al entrar y otro al salir</translation>
     </message>
     <message>
         <source>Convert</source>

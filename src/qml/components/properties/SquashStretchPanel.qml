@@ -33,7 +33,7 @@ Column {
         wrapMode: Text.WordWrap
         size: "sm"
         opacity: 0.8
-        text: qsTr("Click one to write it as keyframes: In at the start of the clip, Out at its end, the rest at the playhead. Put another one further on to keep animating the same layer.")
+        text: qsTr("Pick one to see it, then Apply: it is written as keyframes on every selected layer, starting (or ending) at the playhead. Put another one further on to keep animating the same layer.")
     }
 
     ChipScroller {
@@ -64,10 +64,10 @@ Column {
     // Intensity, Scale and Speed, as Squash & Stretch Pro offers them.
     Repeater {
         model: [
-            { key: "intensity", label: qsTr("Intensity"), from: 0, to: 150, value: 100,
+            { key: "intensity", label: qsTr("Squash & Stretch"), from: 0, to: 150, value: 100,
               tip: qsTr("How hard it squashes, stretches and bends") },
-            { key: "scale", label: qsTr("Scale"), from: 0, to: 200, value: 100,
-              tip: qsTr("How far it travels and turns") },
+            { key: "scale", label: qsTr("Oomph"), from: 0, to: 200, value: 100,
+              tip: qsTr("How far it travels, jumps and turns") },
             { key: "speed", label: qsTr("Speed"), from: 25, to: 300, value: 100,
               tip: qsTr("Faster makes it shorter, slower makes it longer") }
         ]
@@ -77,13 +77,13 @@ Column {
             width: root.width
             spacing: Theme.spacingSm
             ThemedLabel {
-                width: 72
+                width: 96
                 anchors.verticalCenter: parent.verticalCenter
                 text: optionRow.modelData.label
             }
             ThemedSlider {
                 id: optionSlider
-                width: parent.width - 72 - valueText.width - 2 * parent.spacing
+                width: parent.width - 96 - valueText.width - 2 * parent.spacing
                 anchors.verticalCenter: parent.verticalCenter
                 from: optionRow.modelData.from
                 to: optionRow.modelData.to
@@ -111,6 +111,79 @@ Column {
         property real speed: 100
     }
 
+    // Timing, as Squash & Stretch Pro V2: the animation starts at the playhead, or ends there.
+    Row {
+        width: root.width
+        spacing: Theme.spacingSm
+        ThemedLabel { width: 96; anchors.verticalCenter: parent.verticalCenter; text: qsTr("Timing") }
+        ThemedComboBox {
+            id: timingBox
+            width: parent.width - 96 - parent.spacing
+            model: [qsTr("Start of behavior (at the playhead)"), qsTr("End of behavior (at the playhead)")]
+        }
+    }
+    // Several layers picked: each one starts this many frames after the one before.
+    Row {
+        width: root.width
+        spacing: Theme.spacingSm
+        ThemedLabel { width: 96; anchors.verticalCenter: parent.verticalCenter; text: qsTr("Stagger") }
+        ThemedNumberField {
+            id: staggerField
+            width: 72
+            from: 0; to: 60; step: 1
+            value: 3
+            unit: qsTr(" fr")
+        }
+        ThemedLabel {
+            anchors.verticalCenter: parent.verticalCenter
+            opacity: 0.7
+            size: "sm"
+            text: qsTr("between layers")
+        }
+    }
+
+    // The one picked, playing big, and Apply.
+    property string picked: ""
+    readonly property var pickedAnim: {
+        for (const a of root.animations)
+            if (a.id === root.picked)
+                return a
+        return null
+    }
+    Row {
+        visible: root.pickedAnim !== null
+        width: root.width
+        spacing: Theme.spacingMd
+        SquashAnimTile {
+            animId: root.picked
+            label: root.pickedAnim ? root.pickedAnim.label : ""
+            seconds: root.pickedAnim ? root.pickedAnim.duration * 100 / Math.max(25, options.speed) : 1
+            tileWidth: 120
+            playing: root.visible && !EditorState.playing
+        }
+        Column {
+            width: parent.width - 120 - parent.spacing
+            spacing: Theme.spacingSm
+            anchors.verticalCenter: parent.verticalCenter
+            ThemedButton {
+                width: parent.width
+                variant: "primary"
+                text: qsTr("Apply")
+                onClicked: EditorState.applySquashToSelection(root.picked, options.intensity, options.scale,
+                                                              options.speed,
+                                                              timingBox.currentIndex === 1 ? "end" : "start",
+                                                              Math.round(staggerField.value))
+            }
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                size: "sm"
+                opacity: 0.7
+                text: qsTr("Applies to every selected layer. The keys stay editable on the timeline.")
+            }
+        }
+    }
+
     Grid {
         id: grid
         width: parent.width
@@ -129,9 +202,11 @@ Column {
                 seconds: modelData.duration * 100 / Math.max(25, options.speed)
                 tileWidth: grid.tileWidth
                 playing: root.visible && !EditorState.playing && (Theme.touchUi ? false : hovered)
-                onClicked: EditorState.applySquashAnimation(EditorState.selectedTrack, EditorState.selectedClip,
-                                                            modelData.id, options.intensity, options.scale,
-                                                            options.speed)
+                onClicked: {
+                    root.picked = modelData.id
+                    // The animation's own timing: an Out ends at the playhead.
+                    timingBox.currentIndex = modelData.place === "end" ? 1 : 0
+                }
             }
         }
     }
