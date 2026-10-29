@@ -204,7 +204,12 @@ Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, doubl
         if (!drift::parseSvgPathData(style.pathSvg, &outline) || outline.isEmpty())
             return bend;
         outline = QTransform::fromScale(box.width() / 100.0, box.height() / 100.0).map(outline);
-        SkContourMeasureIter iter(toSkPath(outline), false);
+        // An outline that ends where it starts (a circle or a star from a shape layer comes without
+        // its close) is a loop: the letters go round it again instead of running off at the end.
+        const QPointF first(outline.elementAt(0).x, outline.elementAt(0).y);
+        const QPointF last = outline.currentPosition();
+        const bool loops = QLineF(first, last).length() < 0.5;
+        SkContourMeasureIter iter(toSkPath(outline), loops);
         sk_sp<SkContourMeasure> contour = iter.next();
         if (!contour || contour->length() < 1.0f)
             return bend;

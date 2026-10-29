@@ -2290,6 +2290,13 @@ Item {
                         enabled: pathSection.shapes.length > 0
                         onPressedChanged: if (pressed) pathSection.shapes = EditorState.textPathShapes()
                         Component.onCompleted: pathSection.shapes = EditorState.textPathShapes()
+                        // Picking another shape puts the text on it at once, as After Effects' Path list.
+                        onActivated: index => {
+                            const s = pathSection.shapes[index]
+                            if (s)
+                                EditorState.useShapeAsTextPath(EditorState.selectedTrack, EditorState.selectedClip,
+                                                               s.track, s.clip)
+                        }
                     }
                     ThemedButton {
                         id: pathShapeButton

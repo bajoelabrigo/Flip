@@ -2035,7 +2035,8 @@ PanelFrame {
                             delegate: Rectangle {
                                 id: trackRow
                                 // Above the rows below it while one of its clips is dragged, so the clip draws over them.
-                                z: trackClipsRenderer.dragging ? 20 : 0
+                                // A box being drawn over the key lines has to sit above the tracks below it.
+                                z: trackClipsRenderer.dragging || trackKeyRows.marqueeActive ? 20 : 0
                                 property int trackIndex: index
                                 // Drawn inside its parent's row instead of getting one here.
                                 // Column skips invisible children entirely, so this costs no
@@ -2524,6 +2525,7 @@ PanelFrame {
 
                                 // The unfolded property lines, under the clips.
                                 TrackKeyframeRows {
+                                    id: trackKeyRows
                                     // The curve editor draws over this track's lines instead.
                                     visible: trackRow.keyframeRows.length > 0
                                              && trackRow.trackIndex !== root.curveEditorTrack

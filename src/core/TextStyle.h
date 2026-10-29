@@ -186,6 +186,9 @@ struct TextStyle
     // slide along). A closed outline wraps round.
     QString pathSvg;
     double pathOffset = 0.0;
+    // The shape layer (clip id) whose outline pathSvg follows, kept up to date as that layer changes
+    // («Follow shape»); empty for a ready-made path.
+    QString pathShapeId;
 
     TextAlign align = TextAlign::Center;
     TextVAlign valign = TextVAlign::Middle;

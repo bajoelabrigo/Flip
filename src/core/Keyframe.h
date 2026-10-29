@@ -387,10 +387,29 @@ private:
         if (qAbs(velocity) < 1e-9)
             return 0.0;
         const double t = double(time - at) / 1e6;
+        if (m_behavior.settle == TrackBehavior::Settle::Bounce) {
+            // A ball: it leaves the key at a share of the speed it came in with, under a gravity
+            // taken from the fall itself (reaching that speed over the previous stretch), so each
+            // hop climbs back e² of the height of the one before and they shorten until it rests.
+            // (A tiny sine wobble read as a shiver, not a bounce: Jorge, 0.26.)
+            constexpr double kElasticity = 0.6;
+            const double fall = qMax(0.05, double(at - std::prev(rest).key()) / 1e6);
+            const double speed = qAbs(velocity);
+            const double gravity = speed / fall;
+            double hop = kElasticity * speed;
+            double left = t;
+            for (int n = 0; n < 12 && hop > 1e-3; ++n) {
+                const double flight = 2.0 * hop / gravity;
+                if (left < flight)
+                    return -(hop * left - 0.5 * gravity * left * left) * (velocity > 0 ? 1.0 : -1.0);
+                left -= flight;
+                hop *= kElasticity;
+            }
+            return 0.0;
+        }
         const double wave = std::sin(m_behavior.settleFrequency * t * 6.2831853) / std::exp(m_behavior.settleDecay * t);
         const double swing = velocity * m_behavior.settleAmplitude * wave;
-        // Bounce comes back off the key instead of passing through it.
-        return m_behavior.settle == TrackBehavior::Settle::Bounce ? -qAbs(swing) * (velocity > 0 ? 1.0 : -1.0) : swing;
+        return swing;
     }
 
     double evaluateWithBehavior(TimeUs time) const

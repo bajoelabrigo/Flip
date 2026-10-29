@@ -731,6 +731,10 @@ public:
     Q_INVOKABLE int addPuppetPin(int trackIndex, int clipIndex, double u, double v);
     Q_INVOKABLE void movePuppetPin(int trackIndex, int clipIndex, int pin, double u, double v);
     Q_INVOKABLE bool useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip);
+    // The shape's outline mapped into the text's box (SVG on 0..100), at the playhead; empty if it has none.
+    QString shapeOutlineInTextBox(const drift::Clip &text, const drift::Clip &shape) const;
+    // Texts linked to a shape layer («Follow shape») take its outline again after every edit.
+    void refreshTextPathsFromShapes();
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys

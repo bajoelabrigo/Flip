@@ -1778,6 +1778,7 @@ QJsonObject textStyleToJson(const TextStyle &s)
         {QStringLiteral("wordSpacing"), s.wordSpacing},
         {QStringLiteral("pathSvg"), s.pathSvg},
         {QStringLiteral("pathOffset"), s.pathOffset},
+        {QStringLiteral("pathShape"), s.pathShapeId},
         {QStringLiteral("accent"), wordAccentToJson(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToJson(s.animation)},
     };
@@ -1934,6 +1935,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.pathCircle = qBound(0.0, o.value(QStringLiteral("pathCircle")).toDouble(s.pathCircle), 100.0);
     s.pathSvg = o.value(QStringLiteral("pathSvg")).toString(s.pathSvg);
     s.pathOffset = o.value(QStringLiteral("pathOffset")).toDouble(s.pathOffset);
+    s.pathShapeId = o.value(QStringLiteral("pathShape")).toString(s.pathShapeId);
     s.wordSpacing = o.value(QStringLiteral("wordSpacing")).toDouble(s.wordSpacing);
     s.accent = wordAccentFromJson(o.value(QStringLiteral("accent")).toObject());
     s.runs.clear();

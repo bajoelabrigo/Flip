@@ -1997,6 +1997,10 @@ void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
     move.setBehavior(settle);
     for (int ms = 510; ms < 2000; ms += 10)
         QVERIFY(move.evaluateAt(ms * 1000) <= 500.0 + 1e-9);
+    // A ball, not a shiver: it came in at 1000 px/s over 0.5 s, so the first hop climbs 0.6² of
+    // that fall (90 px, at its top 0.3 s later) and the hops die out within ~1.5 s.
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(0.8)) - 410.0) < 1.0);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(2.2)), 500.0);
     QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
 }
 
