@@ -18,6 +18,8 @@ Item {
     property real easeOut: 33
     // Motion Tools' third row: the speed the picked keys pass through (0 = they rest there).
     property real easeVelocity: 0
+    // Which tab is open: "tools", "trim", "bend" or "caps".
+    property string tab: "tools"
     // As Motion Tools: the picked keys take the handles as they move, one undo step per drag.
     function applyEaseLive() {
         if (root.pickedCount > 0)
@@ -101,6 +103,37 @@ Item {
             font.pixelSize: Theme.fontSizeLg
             font.weight: Font.Bold
         }
+        // Tools, and the scripts motion designers dock next to them (0.26, Jorge): Trim-Pack,
+        // Bend Layers and ButtCapper, each as a tab.
+        AnimSlotTabs {
+            width: parent.width
+            model: [
+                { "id": "tools", "label": qsTr("Tools") },
+                { "id": "trim", "label": qsTr("Trim") },
+                { "id": "bend", "label": qsTr("Bend") },
+                { "id": "caps", "label": qsTr("Caps") }
+            ]
+            current: root.tab
+            onActivated: id => root.tab = id
+        }
+        TrimPackPanel {
+            visible: root.tab === "trim"
+            width: parent.width
+        }
+        BendLayersPanel {
+            visible: root.tab === "bend"
+            width: parent.width
+        }
+        StrokeCapsPanel {
+            visible: root.tab === "caps"
+            width: parent.width
+        }
+
+        Column {
+            visible: root.tab === "tools"
+            width: parent.width
+            spacing: Theme.spacingMd
+
         ThemedLabel {
             width: parent.width
             wrapMode: Text.WordWrap
@@ -458,6 +491,7 @@ Item {
                     onActivated: EditorState.addLight(modelData.kind)
                 }
             }
+        }
         }
     }
 }

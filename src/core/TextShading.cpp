@@ -174,6 +174,30 @@ QString strokeDashToString(StrokeDash dash)
     return QStringLiteral("solid");
 }
 
+QString strokeCapToString(StrokeCap cap)
+{
+    return cap == StrokeCap::Butt ? QStringLiteral("butt") : cap == StrokeCap::Square ? QStringLiteral("square")
+                                                                                      : QStringLiteral("round");
+}
+
+StrokeCap strokeCapFromString(const QString &cap)
+{
+    return cap == QLatin1String("butt") ? StrokeCap::Butt : cap == QLatin1String("square") ? StrokeCap::Square
+                                                                                         : StrokeCap::Round;
+}
+
+QString strokeJoinToString(StrokeJoin join)
+{
+    return join == StrokeJoin::Miter ? QStringLiteral("miter") : join == StrokeJoin::Bevel ? QStringLiteral("bevel")
+                                                                                           : QStringLiteral("round");
+}
+
+StrokeJoin strokeJoinFromString(const QString &join)
+{
+    return join == QLatin1String("miter") ? StrokeJoin::Miter : join == QLatin1String("bevel") ? StrokeJoin::Bevel
+                                                                                             : StrokeJoin::Round;
+}
+
 StrokeDash strokeDashFromString(const QString &dash)
 {
     if (dash == QStringLiteral("dash"))
@@ -372,7 +396,8 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
             continue;
         h = qHashMulti(h, l.id, static_cast<int>(l.kind), paintHash(l.paint), l.opacity, static_cast<int>(l.blend),
                        l.offsetX, l.offsetY, l.blur, l.width, l.spread, static_cast<int>(l.strokeAlign),
-                       static_cast<int>(l.dash), l.dashOffset, l.knockout, l.trimStart, l.trimEnd, l.sketchLength,
+                       static_cast<int>(l.dash), l.dashOffset, static_cast<int>(l.cap), static_cast<int>(l.join),
+                       l.knockout, l.trimStart, l.trimEnd, l.sketchLength,
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
     }
@@ -521,6 +546,10 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         o.insert(QStringLiteral("strokeAlign"), strokeAlignToString(l.strokeAlign));
         o.insert(QStringLiteral("dash"), strokeDashToString(l.dash));
         o.insert(QStringLiteral("dashOffset"), l.dashOffset);
+        if (l.cap != StrokeCap::Round)
+            o.insert(QStringLiteral("cap"), strokeCapToString(l.cap));
+        if (l.join != StrokeJoin::Round)
+            o.insert(QStringLiteral("join"), strokeJoinToString(l.join));
     }
     if (l.sketchLength > 0.0 || l.sketchDeviation > 0.0) {
         o.insert(QStringLiteral("sketchLength"), l.sketchLength);
@@ -561,6 +590,8 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
         l.strokeAlign = o.value(QStringLiteral("strokeOutside")).toBool(true) ? StrokeAlign::Outside : StrokeAlign::Center;
     l.dash = strokeDashFromString(o.value(QStringLiteral("dash")).toString());
     l.dashOffset = o.value(QStringLiteral("dashOffset")).toDouble(0.0);
+    l.cap = strokeCapFromString(o.value(QStringLiteral("cap")).toString());
+    l.join = strokeJoinFromString(o.value(QStringLiteral("join")).toString());
     l.sketchLength = o.value(QStringLiteral("sketchLength")).toDouble(0.0);
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);

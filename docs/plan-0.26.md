@@ -263,6 +263,24 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
       - Prueba `EditorStateTest::squashAnimationWritesKeysAndDeformer`.
       - **Falta:** probar en ventana (que el deformador no se corte al estirar, sobre todo en un video con carril de
         ajuste), miniatura propia del efecto (hoy es la de la Marioneta), sonidos propios (Stock › Sonidos) más adelante.
+- [x] H3. **Motion Tools con pestañas** (Jorge: los scripts Trim-Pack, Bend Layers y ButtCapper, `.jsxbin` compilados:
+      se replicó lo que hacen, no su código). Pestañas Herramientas / Recorte / Doblar / Extremos (`MotionToolsPanel.qml`).
+      - **Recorte** (`TrimPackPanel.qml`, `AppController::applyTrimPack`): Entrada, Salida, Entrada y salida, Desde y
+        Hacia el centro, Invertir, Copias (N copias en pistas encima, escalonadas), Rastro entrada/salida/E-S (una copia
+        con una línea corta que va por delante), Convertir, Quitar. Ajustes como Trim-Pack: fotogramas, rango de
+        desplazamiento, copias; sus teclas Alt/Mayús son dos interruptores (invertir dirección, girar el desplazamiento).
+        Formas (`shape.trimStart/End/Offset`, 0–100) y trazos de textos (`text.layer.<id>.trimStart/End`, 0–1).
+      - **Doblar** (`BendLayersPanel.qml`, `applyBend`, efecto `ae.bend`: arco de hasta 360°, a lo ancho o a lo alto,
+        punto fijo): Arco, Sonrisa, Medio anillo, Anillo, Doblar, Enderezar al entrar, Doblar al salir, Quitar. Margen
+        `"percentFactor"` nuevo en `padding`.
+      - **Extremos** (`StrokeCapsPanel.qml`, `setStrokeCaps`, `strokeCapsState`): extremo plano/redondo/cuadrado y unión
+        en punta/redonda/biselada (`TextShadingLayer::cap/join`, JSON `cap`/`join` solo si no son redondos; los dos
+        pintores de Skia).
+      - Prueba `EditorStateTest::motionToolsTrimBendAndCaps`.
+- [ ] H4. **RTFX** (Jorge): es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
+      líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
+      Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.
+      Pendiente de empezar.
 - Dónde están los efectos de AE (pregunta de Jorge): Efectos › categorías «Generar y simular» (Ruido fractal, Mundo de
   partículas, Se hace añicos, Desplazamiento turbulento, Rampa de degradado, Ondas de radio) y «Estilos de capa»
   (también como botones en Fusión); la Marioneta está en «Glitch» y en la barra de la vista previa.

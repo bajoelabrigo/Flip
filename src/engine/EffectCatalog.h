@@ -31,6 +31,7 @@ struct EffectPresetEntry
     // Squash & Stretch (0.26): parameters in % of the layer's longer side ("percentParams"), for a
     // deform that reaches as far as the layer is big.
     QStringList paddingPercentParams;
+    double paddingPercentFactor = 1.0; // "percentFactor": how much room each % gives (Bend: degrees)
     drift::GpuEffectDefinition gpu;        // valid when isGpu && gpu.valid; packageDir also set for model3d
     int catalogOrder = 0;                  // lower sorts first in the browser catalog
     QString thumbnailPath;                 // absolute path to package thumbnail (optional)

@@ -434,8 +434,8 @@ private:
                 break;
             applyShadingPaint(paint, layer.paint, box, m_timeSec, 1.0);
             paint.setStyle(SkPaint::kStroke_Style);
-            paint.setStrokeJoin(SkPaint::kRound_Join);
-            paint.setStrokeCap(SkPaint::kRound_Cap);
+            paint.setStrokeJoin(skStrokeJoin(layer.join));
+            paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
             if (layer.strokeAlign == StrokeAlign::Center) {
                 paint.setStrokeWidth(float(width));

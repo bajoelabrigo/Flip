@@ -5624,6 +5624,38 @@
         <translation>Tendencias</translation>
     </message>
     <message>
+        <source>Select a shape or a text with a stroke</source>
+        <translation>Elige una forma o un texto con trazo</translation>
+    </message>
+    <message>
+        <source>Line caps</source>
+        <translation>Extremos del trazo</translation>
+    </message>
+    <message>
+        <source>Select a shape, or a text with a stroke, to animate its Trim Paths</source>
+        <translation>Elige una forma, o un texto con trazo, para animar su Recortar trazados</translation>
+    </message>
+    <message>
+        <source>%1 trace</source>
+        <translation>%1 rastro</translation>
+    </message>
+    <message>
+        <source>%1 copy %2</source>
+        <translation>%1 copia %2</translation>
+    </message>
+    <message>
+        <source>Trim Paths animation</source>
+        <translation>Animación de Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Select the layers to bend</source>
+        <translation>Elige las capas que quieres doblar</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
         <source>Squash &amp; Stretch</source>
         <translation>Squash &amp; Stretch</translation>
     </message>
@@ -7627,6 +7659,85 @@
     <message>
         <source>The audio device does not support playback of this project.</source>
         <translation>El dispositivo de audio no admite la reproducción de este proyecto.</translation>
+    </message>
+</context>
+<context>
+    <name>BendLayersPanel</name>
+    <message>
+        <source>Select the layers. Positive bends the ends up into an arch, negative down; a full 360° rolls it into a ring.</source>
+        <translation>Elige las capas. En positivo los extremos suben formando un arco; en negativo bajan; con 360° se enrolla en un anillo.</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Fixed point</source>
+        <translation>Punto fijo</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Final</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centro</translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation>A lo alto</translation>
+    </message>
+    <message>
+        <source>Bend the layer top to bottom instead of side to side</source>
+        <translation>Dobla la capa de arriba abajo en vez de lado a lado</translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Smile</source>
+        <translation>Sonrisa</translation>
+    </message>
+    <message>
+        <source>Half ring</source>
+        <translation>Medio anillo</translation>
+    </message>
+    <message>
+        <source>Ring</source>
+        <translation>Anillo</translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation>Fotogramas</translation>
+    </message>
+    <message>
+        <source>Bend it this much (a key at the playhead if the bend is animated)</source>
+        <translation>Dóblala esta cantidad (una clave en el cabezal si el doblez está animado)</translation>
+    </message>
+    <message>
+        <source>Unbend in</source>
+        <translation>Enderezar al entrar</translation>
+    </message>
+    <message>
+        <source>Starts bent and straightens out from the playhead</source>
+        <translation>Empieza doblada y se endereza desde el cabezal</translation>
+    </message>
+    <message>
+        <source>Bend out</source>
+        <translation>Doblar al salir</translation>
+    </message>
+    <message>
+        <source>Bends away at the end of the clip</source>
+        <translation>Se dobla al final del clip</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>
@@ -10141,6 +10252,22 @@
     <message>
         <source>Fade</source>
         <translation>Fundido</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Bend (°)</source>
+        <translation>Doblez (°)</translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation>A lo alto</translation>
+    </message>
+    <message>
+        <source>Fixed point (%)</source>
+        <translation>Punto fijo (%)</translation>
     </message>
     <message>
         <source>Fractal Noise</source>
@@ -18326,6 +18453,22 @@ LA PRÓXIMA</translation>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Tools</source>
+        <translation>Herramientas</translation>
+    </message>
+    <message>
+        <source>Trim</source>
+        <translation>Recorte</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Caps</source>
+        <translation>Extremos</translation>
+    </message>
     <message numerus="yes">
         <source>%n keyframe(s) picked on the timeline.</source>
         <translation>
@@ -24622,6 +24765,48 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>StrokeCapsPanel</name>
+    <message numerus="yes">
+        <source>%n stroke(s) in the selection.</source>
+        <translation>
+            <numerusform>%n trazo en la selección.</numerusform>
+            <numerusform>%n trazos en la selección.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke.</source>
+        <translation>Elige formas o textos con trazo.</translation>
+    </message>
+    <message>
+        <source>Line cap</source>
+        <translation>Extremo de línea</translation>
+    </message>
+    <message>
+        <source>Butt</source>
+        <translation>Plano</translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation>Redondo</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrado</translation>
+    </message>
+    <message>
+        <source>Line join</source>
+        <translation>Unión de línea</translation>
+    </message>
+    <message>
+        <source>Miter</source>
+        <translation>En punta</translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation>Biselada</translation>
+    </message>
+</context>
+<context>
     <name>SubtitleCue</name>
     <message>
         <source>Subtitles</source>
@@ -29926,6 +30111,141 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
+    </message>
+</context>
+<context>
+    <name>TrimPackPanel</name>
+    <message>
+        <source>Select shapes or texts with a stroke. Each button writes the keys from the playhead; Out ends at the end of the clip.</source>
+        <translation>Elige formas o textos con trazo. Cada botón escribe las claves desde el cabezal; las de Salida terminan al final del clip.</translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation>Fotogramas</translation>
+    </message>
+    <message>
+        <source>Offset range</source>
+        <translation>Rango de desplazamiento</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation>Invertir dirección</translation>
+    </message>
+    <message>
+        <source>Draw from the other end of the path</source>
+        <translation>Dibuja desde el otro extremo del trazado</translation>
+    </message>
+    <message>
+        <source>Turn the offset too</source>
+        <translation>Girar también el desplazamiento</translation>
+    </message>
+    <message>
+        <source>The line also travels round the path by the offset range</source>
+        <translation>La línea además recorre el trazado según el rango de desplazamiento</translation>
+    </message>
+    <message>
+        <source>Draw</source>
+        <translation>Dibujar</translation>
+    </message>
+    <message>
+        <source>In</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>The line draws on</source>
+        <translation>La línea se dibuja</translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>The line draws off, ending with the clip</source>
+        <translation>La línea se borra y termina con el clip</translation>
+    </message>
+    <message>
+        <source>In &amp; Out</source>
+        <translation>Entrada y salida</translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end</source>
+        <translation>Se dibuja desde el cabezal y se borra al final</translation>
+    </message>
+    <message>
+        <source>From centre</source>
+        <translation>Desde el centro</translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle of the path</source>
+        <translation>Crece hacia los dos lados desde el medio del trazado</translation>
+    </message>
+    <message>
+        <source>To centre</source>
+        <translation>Hacia el centro</translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle of the path, ending with the clip</source>
+        <translation>Se encoge hacia el medio del trazado y termina con el clip</translation>
+    </message>
+    <message>
+        <source>Swap</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>The keys already there run from the other end</source>
+        <translation>Las claves que ya hay corren desde el otro extremo</translation>
+    </message>
+    <message>
+        <source>Copies and trace</source>
+        <translation>Copias y rastro</translation>
+    </message>
+    <message>
+        <source>Copies above, each one drawing on a little later</source>
+        <translation>Copias encima, cada una se dibuja un poco después</translation>
+    </message>
+    <message>
+        <source>Trace In</source>
+        <translation>Rastro entrada</translation>
+    </message>
+    <message>
+        <source>A short line runs ahead while it draws on</source>
+        <translation>Una línea corta va por delante mientras se dibuja</translation>
+    </message>
+    <message>
+        <source>Trace Out</source>
+        <translation>Rastro salida</translation>
+    </message>
+    <message>
+        <source>A short line runs off as it ends</source>
+        <translation>Una línea corta se va al terminar</translation>
+    </message>
+    <message>
+        <source>Trace I&amp;O</source>
+        <translation>Rastro E/S</translation>
+    </message>
+    <message>
+        <source>A trace on the way in and on the way out</source>
+        <translation>Un rastro al entrar y otro al salir</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Convertir</translation>
+    </message>
+    <message>
+        <source>A text or shape into an editable path, so it can be trimmed letter by letter</source>
+        <translation>Un texto o una forma en trazado editable, para recortarlo letra por letra</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Quitar</translation>
+    </message>
+    <message>
+        <source>Take the Trim Paths animation off</source>
+        <translation>Quita la animación de Recortar trazados</translation>
     </message>
 </context>
 <context>

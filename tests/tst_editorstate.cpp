@@ -134,6 +134,7 @@ private slots:
     void findAndReplaceInSubtitleCues();
     void shapeAsFixedOrStuckMask();
     void squashAnimationWritesKeysAndDeformer();
+    void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -12932,6 +12933,58 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
 
 // A shape as another clip's mask (0.26): the clip takes it as its alpha matte; "stuck" parents the
 // shape to the clip, "fixed" leaves it on screen; switching between the two is one undo step each.
+void EditorStateTest::motionToolsTrimBendAndCaps()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("ellipse"), 600, 300, 400, 400, QStringLiteral("none"),
+                        QStringLiteral("#ffffff"), 12);
+    const QString id = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&]() {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    state.selectClip(where().first, where().second);
+
+    // Trim: In draws the line on over 20 frames from the playhead.
+    state.setPlayheadSeconds(0.0);
+    state.applyTrimPack(QStringLiteral("in"), 20, 180, 4, false, false);
+    const int fps = state.project()->fps();
+    QCOMPARE(state.propertyValueAt(where().first, where().second, QStringLiteral("shape.trimEnd"), 0.0, -1), 0.0);
+    QCOMPARE(state.propertyValueAt(where().first, where().second, QStringLiteral("shape.trimEnd"), 20.0 / fps, -1),
+             100.0);
+    // Copies: three more on tracks of their own above.
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where().first, where().second);
+    state.applyTrimPack(QStringLiteral("copies"), 20, 180, 3, false, false);
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 3);
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+    // Caps: the stroke ends flat and turns with a bevel.
+    state.selectClip(where().first, where().second);
+    state.setStrokeCaps(QStringLiteral("butt"), QStringLiteral("bevel"));
+    const QVariantMap caps = state.strokeCapsState();
+    QCOMPARE(caps.value(QStringLiteral("cap")).toString(), QStringLiteral("butt"));
+    QCOMPARE(caps.value(QStringLiteral("join")).toString(), QStringLiteral("bevel"));
+
+    // Bend: the effect goes on with the angle asked for.
+    state.selectClip(where().first, where().second);
+    state.applyBend(QStringLiteral("set"), 120, false, 50, 20);
+    state.selectClip(where().first, where().second);
+    bool bent = false;
+    for (const QVariant &e : state.selectedClipEffects()) {
+        const QVariantMap m = e.toMap();
+        if (m.value(QStringLiteral("catalogId")).toString() == QLatin1String("ae.bend"))
+            bent = true;
+    }
+    QVERIFY(bent);
+}
+
 void EditorStateTest::squashAnimationWritesKeysAndDeformer()
 {
     AssetLibrary library;

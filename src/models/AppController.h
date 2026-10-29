@@ -1196,6 +1196,26 @@ public:
     // end (Out) or the playhead. `intensity` scales the deformation, `scale` the travel and turn,
     // `speed` the length (all in %). One undo step.
     Q_INVOKABLE QVariantList squashAnimations() const;
+    // Motion Tools › Caps (0.26, as the ButtCapper script): the Line Cap ("butt", "round", "square")
+    // and Line Join ("miter", "round", "bevel") of every stroke of the selected shapes and texts; an
+    // empty one is left as it is. One undo step. The state reads the first selected stroke:
+    // {cap, join, strokes}.
+    Q_INVOKABLE void setStrokeCaps(const QString &cap, const QString &join);
+    // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
+    // shapes (and the strokes of selected texts), `frames` long from the playhead. Modes: "in"
+    // (draws on), "out" (draws off, ending at the clip's end), "inout", "centerIn", "centerOut",
+    // "swap" (the keys run the other way), "clear", "copies" (`copies` duplicates above, each one
+    // starting a little later), "traceIn", "traceOut", "traceInOut" (a short line runs ahead on a
+    // copy). `reverse` draws from the other end; `animateOffset` also turns the offset by
+    // `offsetRange` degrees. One undo step.
+    // Motion Tools › Bend (0.26, as the Bend Layers script): the "ae.bend" effect on every selected
+    // clip. "set" bends it by `degrees` (a key at the playhead when the bend is already animated),
+    // "in" unbends it from `degrees` to flat over `frames` from the playhead, "out" bends it to
+    // `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
+    Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double pivot, int frames);
+    Q_INVOKABLE void applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
+                                   bool animateOffset);
+    Q_INVOKABLE QVariantMap strokeCapsState() const;
     // The animation's curves at `progress` (0..1), for the gallery's live cards: x, y, rotation,
     // opacity, zoom, stretch, bend, bulge (missing ones at rest) and ground.
     Q_INVOKABLE QVariantMap squashAnimationPose(const QString &id, double progress) const;

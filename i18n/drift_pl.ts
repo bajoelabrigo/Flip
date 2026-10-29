@@ -5641,6 +5641,38 @@
         <translation>Na czasie</translation>
     </message>
     <message>
+        <source>Select a shape or a text with a stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line caps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape, or a text with a stroke, to animate its Trim Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 trace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 copy %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim Paths animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers to bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Squash &amp; Stretch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7669,6 +7701,85 @@
     <message>
         <source>The audio device does not support playback of this project.</source>
         <translation>Urządzenie audio nie obsługuje odtwarzania tego projektu.</translation>
+    </message>
+</context>
+<context>
+    <name>BendLayersPanel</name>
+    <message>
+        <source>Select the layers. Positive bends the ends up into an arch, negative down; a full 360° rolls it into a ring.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the layer top to bottom instead of side to side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Half ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend it this much (a key at the playhead if the bend is animated)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unbend in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starts bent and straightens out from the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bends away at the end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10183,6 +10294,22 @@
     <message>
         <source>Fade</source>
         <translation>Przenikanie</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend (°)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fixed point (%)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fractal Noise</source>
@@ -18393,6 +18520,22 @@ ZOBACZENIA</translation>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caps</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>%n keyframe(s) picked on the timeline.</source>
         <translation type="unfinished">
@@ -24704,6 +24847,49 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
 </context>
 <context>
+    <name>StrokeCapsPanel</name>
+    <message numerus="yes">
+        <source>%n stroke(s) in the selection.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line cap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Butt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line join</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SubtitleCue</name>
     <message>
         <source>Subtitles</source>
@@ -30020,6 +30206,141 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Dodaj do ulubionych</translation>
+    </message>
+</context>
+<context>
+    <name>TrimPackPanel</name>
+    <message>
+        <source>Select shapes or texts with a stroke. Each button writes the keys from the playhead; Out ends at the end of the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw from the other end of the path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn the offset too</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line also travels round the path by the offset range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws off, ending with the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In &amp; Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle of the path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle of the path, ending with the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The keys already there run from the other end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies and trace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies above, each one drawing on a little later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A short line runs ahead while it draws on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A short line runs off as it ends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace I&amp;O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A trace on the way in and on the way out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text or shape into an editable path, so it can be trimmed letter by letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the Trim Paths animation off</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1121,7 +1121,7 @@ void applyEffectPadding(GpuLayer &layer, double renderScale)
             room += qAbs(params.value(key).toDouble());
         const double side = qMax(layer.rect.width(), layer.rect.height()) / qMax(1e-6, renderScale);
         for (const QString &key : def->paddingPercentParams)
-            room += qAbs(params.value(key).toDouble()) / 100.0 * side;
+            room += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
         pad = qMax(pad, room);
     }
     if (pad <= 0.0)

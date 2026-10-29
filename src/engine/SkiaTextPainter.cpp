@@ -1236,8 +1236,8 @@ private:
             // over it, which is what the legacy outline did; Inside clips the same stroke to the
             // glyph instead.
             paint.setStrokeWidth(float(layer.strokeAlign != StrokeAlign::Center ? width * 2.0 : width));
-            paint.setStrokeJoin(SkPaint::kRound_Join);
-            paint.setStrokeCap(SkPaint::kRound_Cap);
+            paint.setStrokeJoin(skStrokeJoin(layer.join));
+            paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
             if (layer.strokeAlign == StrokeAlign::Inside) {
                 canvas.save();

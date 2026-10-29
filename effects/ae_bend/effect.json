@@ -1,0 +1,54 @@
+{
+  "id": "ae.bend",
+  "displayName": "Bend",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 945,
+  "description": "Bends the layer into an arc, as the Bend Layers script and CC Bend It do: up to a full ring, across or along, from a point that stays put. Motion Tools › Bend applies and animates it.",
+  "padding": {
+    "percentParams": ["bend"],
+    "percentFactor": 0.4,
+    "extra": 8
+  },
+  "parameters": [
+    {
+      "identifier": "bend",
+      "displayName": "Bend (°)",
+      "type": "float",
+      "minValue": -360,
+      "maxValue": 360,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "vertical",
+      "displayName": "Along the height",
+      "type": "bool",
+      "defaultValue": false
+    },
+    {
+      "identifier": "pivot",
+      "displayName": "Fixed point (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

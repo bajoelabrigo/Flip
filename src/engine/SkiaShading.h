@@ -19,6 +19,18 @@ namespace drift::skia {
 
 SkBlendMode toSkBlendMode(BlendMode mode);
 
+// A stroke layer's Line Cap and Line Join (0.26).
+inline SkPaint::Cap skStrokeCap(StrokeCap cap)
+{
+    return cap == StrokeCap::Butt ? SkPaint::kButt_Cap : cap == StrokeCap::Square ? SkPaint::kSquare_Cap
+                                                                                  : SkPaint::kRound_Cap;
+}
+inline SkPaint::Join skStrokeJoin(StrokeJoin join)
+{
+    return join == StrokeJoin::Miter ? SkPaint::kMiter_Join : join == StrokeJoin::Bevel ? SkPaint::kBevel_Join
+                                                                                        : SkPaint::kRound_Join;
+}
+
 // The layer's own paint source — solid, gradient over `box`, texture or shader effect — into
 // `paint`, with `alpha` folded into the colour. A texture or effect that fails to build falls
 // back to the tint. `progress` feeds progress-driven effects (a text wipe); -1 when there is none.

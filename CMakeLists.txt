@@ -1357,6 +1357,9 @@ qt_add_qml_module(drift
         src/qml/components/properties/ClipAnimPresetTile.qml
         src/qml/components/properties/SquashAnimTile.qml
         src/qml/components/properties/SquashStretchPanel.qml
+        src/qml/components/properties/TrimPackPanel.qml
+        src/qml/components/properties/BendLayersPanel.qml
+        src/qml/components/properties/StrokeCapsPanel.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
         src/qml/components/properties/TrackingInspector.qml
