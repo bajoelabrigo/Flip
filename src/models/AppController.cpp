@@ -10828,7 +10828,7 @@ void AppController::addNullObject()
     int count = 0;
     for (const drift::Track &t : m_project.tracks()) {
         for (const drift::Clip &c : t.clips)
-            count += c.nullObject ? 1 : 0;
+            count += c.nullObject && c.light.kind == 0 ? 1 : 0; // lights are nulls too: not counted
     }
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
