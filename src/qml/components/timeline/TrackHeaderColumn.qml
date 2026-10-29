@@ -1127,6 +1127,31 @@ Item {
                         readonly property bool joined: !!modelData.group && !modelData.axis
                         readonly property var props: joined ? modelData.groupProps : [modelData.prop]
                         readonly property int clip: keyLines.targetClip
+                        // After Effects' expression pick whip (0.26) lands here: the line names the
+                        // layer's property as an expression reads it, or "" when expressions cannot.
+                        readonly property bool exprWhipTarget: true
+                        function exprWhipReference(targetProp) {
+                            if (keyLine.clip < 0)
+                                return ""
+                            const name = (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}).name || ""
+                            if (name.length === 0)
+                                return ""
+                            // A joined line gives the axis matching the property being edited.
+                            const second = targetProp === "y" || targetProp === "height" || targetProp === "anchorY"
+                            const axis = keyLine.joined ? (second ? 1 : 0) : -1
+                            const paths = {
+                                "x": "transform.position[0]", "y": "transform.position[1]",
+                                "position": "transform.position[" + Math.max(0, axis) + "]",
+                                "rotation": "transform.rotation", "opacity": "transform.opacity",
+                                "width": "transform.scale[0]", "height": "transform.scale[1]",
+                                "scale": "transform.scale[" + Math.max(0, axis) + "]",
+                                "anchorX": "transform.anchorPoint[0]", "anchorY": "transform.anchorPoint[1]",
+                                "anchor": "transform.anchorPoint[" + Math.max(0, axis) + "]"
+                            }
+                            const key = keyLine.joined ? keyLine.modelData.group : keyLine.modelData.prop
+                            const path = paths[key]
+                            return path ? "thisComp.layer(" + JSON.stringify(name) + ")." + path : ""
+                        }
                         // Position, Rotation, Scale and Opacity (and their axes) can go back to the
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group

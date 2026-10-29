@@ -20042,6 +20042,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Expresión (JavaScript)</translation>
     </message>
     <message>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <translation>El látigo enlaza la posición, la rotación, la escala, la opacidad o el punto de anclaje de otra capa</translation>
+    </message>
+    <message>
+        <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation>Látigo: arrástralo hasta la fila de una propiedad de otra capa en la línea de tiempo</translation>
+    </message>
+    <message>
         <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
         <translation>value, time, wiggle(frecuencia, cantidad), Math y thisComp.layer(&quot;Nombre&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
     </message>

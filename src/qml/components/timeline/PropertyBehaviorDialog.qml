@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtQuick.Window
 import Drift
 import ".."
 
@@ -134,7 +135,110 @@ ThemedDialog {
         }
 
         // After Effects' expression, in JavaScript (0.26): run last, on the value with all the above.
-        ThemedLabel { text: qsTr("Expression (JavaScript)") }
+        // The spiral is After Effects' pick whip: dragged onto another layer's property line in the
+        // timeline, it writes that property where the cursor is.
+        Row {
+            spacing: Theme.spacingSm
+            ThemedLabel {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Expression (JavaScript)")
+            }
+            Item {
+                id: whip
+                width: 20
+                height: 20
+                anchors.verticalCenter: parent.verticalCenter
+                property point from: Qt.point(0, 0)
+                property point to: Qt.point(0, 0)
+
+                // The property line under a point of the window, if any.
+                function lineAt(item, sx, sy) {
+                    if (!item || !item.visible)
+                        return null
+                    const kids = item.children
+                    for (let i = kids.length - 1; i >= 0; --i) {
+                        const k = kids[i]
+                        if (!k || !k.visible || k.width <= 0 || k.height <= 0)
+                            continue
+                        const p = k.mapFromItem(null, sx, sy)
+                        if (p.x < 0 || p.y < 0 || p.x > k.width || p.y > k.height)
+                            continue
+                        if (k.exprWhipTarget === true)
+                            return k
+                        const inner = lineAt(k, sx, sy)
+                        if (inner)
+                            return inner
+                    }
+                    return null
+                }
+
+                IconGlyph {
+                    anchors.centerIn: parent
+                    glyph: "pick-whip"
+                    iconSize: 15
+                    iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary : Theme.mutedForeground
+                }
+                MouseArea {
+                    id: whipArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    preventStealing: true
+                    cursorShape: Qt.CrossCursor
+                    onPressed: mouse => {
+                        whip.from = mapToItem(null, width / 2, height / 2)
+                        whip.to = whip.from
+                        // See through the dialog to the timeline while aiming.
+                        root.opacity = 0.3
+                        whipLine.requestPaint()
+                    }
+                    onPositionChanged: mouse => {
+                        if (!pressed)
+                            return
+                        whip.to = mapToItem(null, mouse.x, mouse.y)
+                        whipLine.requestPaint()
+                    }
+                    onReleased: mouse => {
+                        root.opacity = 1
+                        const p = mapToItem(null, mouse.x, mouse.y)
+                        const line = whip.lineAt(whip.Window.window ? whip.Window.window.contentItem : null, p.x, p.y)
+                        if (!line)
+                            return
+                        const ref = line.exprWhipReference(root.props.length > 0 ? root.props[0] : "")
+                        if (ref.length === 0) {
+                            EditorState.setLastMessage(qsTr("The pick whip links another layer's position, rotation, scale, opacity or anchor point"), "warning")
+                            return
+                        }
+                        expressionField.insert(expressionField.cursorPosition, ref)
+                        expressionField.forceActiveFocus()
+                    }
+                    onCanceled: root.opacity = 1
+                }
+                ThemedToolTip {
+                    visible: whipArea.containsMouse && !whipArea.pressed
+                    text: qsTr("Pick whip: drag onto another layer's property line in the timeline")
+                }
+                // The rubber line while aiming, over everything.
+                Canvas {
+                    id: whipLine
+                    parent: Overlay.overlay
+                    anchors.fill: parent
+                    z: 100000
+                    visible: whipArea.pressed
+                    onPaint: {
+                        const ctx = getContext("2d")
+                        ctx.clearRect(0, 0, width, height)
+                        if (!whipArea.pressed)
+                            return
+                        ctx.strokeStyle = Theme.primary
+                        ctx.lineWidth = 2
+                        ctx.beginPath()
+                        ctx.moveTo(whip.from.x, whip.from.y)
+                        ctx.lineTo(whip.to.x, whip.to.y)
+                        ctx.stroke()
+                    }
+                }
+            }
+        }
         ThemedTextArea {
             id: expressionField
             width: parent.width
