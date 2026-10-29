@@ -193,6 +193,42 @@ def make_thrower():
     return render(s, thrower(512, 512, 11, size=0.75))
 
 
+def wings(W, H, seed, size=1.0, dur=2.2):
+    """Wings of fire opening up (RTFX's «Wings Up»): from a burst at the base two wings unfold, each a
+    chain of puffs swelling towards the tip and leaning out; they hold, then fray from the tips
+    inward into a lacy edge and burn out."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, base = m.gw / 2, m.gh * 0.78
+    feathers = [(i / 7, rnd.uniform(-1, 1), rnd.uniform(0.85, 1.1)) for i in range(8)]
+
+    def field(t):
+        e = 1 - (1 - min(1, t / 0.3)) ** 3
+        lobes = []
+        for side in (-1, 1):
+            for u, j, js in feathers:
+                # Along a curve from the base out and up to the tip.
+                ang = -math.pi / 2 + side * (0.22 + 0.38 * u)
+                reach = (14 + 95 * u) * k * e
+                x = cx + math.cos(ang) * reach * 0.95 + side * 8 * k
+                y = base + math.sin(ang) * reach - 20 * k * u * u * e
+                r = (11 + 34 * u) * js * k * (0.4 + 0.6 * e)
+                lean = ang + math.pi / 2
+                heart = 0.85 * max(0.0, min(1.0, 1 - max(0.0, t - 0.7 - 0.5 * (1 - u)) * 1.2))
+                lobes.append((x, y, r, 0.95, 1.25, lean, heart))
+        return m.field(lobes, t, "radial", (cx, base + 10 * k), 150 * k, 0.75, 1.3, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_wings():
+    s = new("ex-fuego-alas-arriba", "Fuego · Alas de fuego", "Fire · Wings of fire", "fuego", 52, 6003,
+            ["fuego", "fire", "alas", "wings"], size=512, thumb=0.35)
+    s.fps = 24
+    return render(s, wings(512, 512, 13, size=1.05))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -207,4 +243,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings]
