@@ -31,9 +31,9 @@ def bez(points, smooth=1.0):
         px, py = points[i - 1]
         nx, ny = points[(i + 1) % n]
         tx, ty = (nx - px) * smooth / 6, (ny - py) * smooth / 6
-        ins.append([round(-tx, 1), round(-ty, 1)])
-        outs.append([round(tx, 1), round(ty, 1)])
-    return {"c": True, "v": [[round(x, 1), round(y, 1)] for x, y in points], "i": ins, "o": outs}
+        ins.append([round(-tx), round(-ty)])
+        outs.append([round(tx), round(ty)])
+    return {"c": True, "v": [[round(x), round(y)] for x, y in points], "i": ins, "o": outs}
 
 
 class Sharp(list):
