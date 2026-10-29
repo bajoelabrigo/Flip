@@ -643,7 +643,6 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
-            onEntered: drag => drag.accept(Qt.CopyAction)
             Drag.mimeData: { "text/plain": assetIndex.toString() }
             // Default hotspot is (0,0) at the card top-left; Wayland
             // compositors (notably Mutter) then deliver drop Y far from
@@ -1379,7 +1378,6 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
-            onEntered: drag => drag.accept(Qt.CopyAction)
             Drag.mimeData: { "text/plain": assetIndex.toString() }
             Drag.hotSpot.x: width / 2
             Drag.hotSpot.y: height / 2
