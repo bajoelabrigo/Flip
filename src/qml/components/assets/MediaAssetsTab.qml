@@ -588,8 +588,10 @@ Item {
                 z: 20
                 enabled: cardRoot.isFolder
                 keys: ["text/plain"]
+                onEntered: drag => drag.accept(Qt.CopyAction)
                 onDropped: drop => {
-                    const id = AssetLibrary.assetIdAt(parseInt(drop.text))
+                    const index = EditorState.draggingAssetIndex >= 0 ? EditorState.draggingAssetIndex : parseInt(drop.text)
+                    const id = AssetLibrary.assetIdAt(index)
                     if (!id || id.length === 0)
                         return
                     drop.accept()
@@ -641,6 +643,7 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
+            onEntered: drag => drag.accept(Qt.CopyAction)
             Drag.mimeData: { "text/plain": assetIndex.toString() }
             // Default hotspot is (0,0) at the card top-left; Wayland
             // compositors (notably Mutter) then deliver drop Y far from
@@ -1337,8 +1340,10 @@ Item {
                 z: 20
                 enabled: listRow.isFolder
                 keys: ["text/plain"]
+                onEntered: drag => drag.accept(Qt.CopyAction)
                 onDropped: drop => {
-                    const id = AssetLibrary.assetIdAt(parseInt(drop.text))
+                    const index = EditorState.draggingAssetIndex >= 0 ? EditorState.draggingAssetIndex : parseInt(drop.text)
+                    const id = AssetLibrary.assetIdAt(index)
                     if (!id || id.length === 0)
                         return
                     drop.accept()
@@ -1374,6 +1379,7 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
+            onEntered: drag => drag.accept(Qt.CopyAction)
             Drag.mimeData: { "text/plain": assetIndex.toString() }
             Drag.hotSpot.x: width / 2
             Drag.hotSpot.y: height / 2

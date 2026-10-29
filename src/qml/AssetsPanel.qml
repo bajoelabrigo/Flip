@@ -1401,8 +1401,10 @@ PanelFrame {
                             id: newCompositionDrop
                             anchors.fill: parent
                             keys: ["text/plain"]
+                            onEntered: drag => drag.accept(Qt.CopyAction)
                             onDropped: drop => {
-                                const index = parseInt(drop.text)
+                                const index = EditorState.draggingAssetIndex >= 0 ? EditorState.draggingAssetIndex
+                                                                             : parseInt(drop.text)
                                 if (isNaN(index))
                                     return
                                 const id = AssetLibrary.assetIdAt(index)
