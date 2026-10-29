@@ -122,7 +122,7 @@ def build_sim(kind, direction, loop, W, H, dur, seed, k=1.0):
     elif kind == "wide":
         for i in range(7):
             x = W * (0.08 + 0.84 * i / 6)
-            emit(sim, rnd, 14, 0, dur, (x, H * 0.92), -math.pi / 2, 0.2, (120, 300), (18 * k, 34 * k),
+            emit(sim, rnd, 14, 0, dur, (x, H * 0.92), -math.pi / 2, 0.3, (160, 380), (30 * k, 52 * k),
                  (0.4, 0.75), lift=180)
     elif kind == "thrower":
         o = (cx - math.cos(a) * W * 0.4, cy - math.sin(a) * H * 0.4)
@@ -201,6 +201,7 @@ def classify(name):
         loop = loop or True
     if kind == "wide":
         loop = True
+        direction = "up"
     return kind, direction, loop
 
 
