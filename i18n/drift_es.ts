@@ -5170,6 +5170,10 @@
         <translation>Calculando la vista previa en memoria… vuelve a pulsarlo para detenerla</translation>
     </message>
     <message>
+        <source>Solids</source>
+        <translation>Sólidos</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation>Luz puntual %1</translation>
     </message>
@@ -5244,6 +5248,14 @@
     <message>
         <source>Text on the shape&apos;s outline</source>
         <translation>Texto sobre el contorno de la forma</translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation>Composición creada</translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
+        <translation>Elige material para hacer una composición (una composición no puede ir dentro de otra)</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -7000,6 +7012,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Leyendo medios y generando miniaturas.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation>Nueva composición (suelta material aquí para hacer una con él)</translation>
     </message>
     <message>
         <source>More import options</source>
@@ -16975,6 +16991,10 @@ LA PRÓXIMA</translation>
         <translation>Vista de árbol</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation>Vista con columnas (como el panel Proyecto de After Effects)</translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>Ordenar por nombre</translation>
     </message>
@@ -17023,6 +17043,18 @@ LA PRÓXIMA</translation>
         <translation>Cambiar nombre…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation>Imagen</translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation>Composición</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — arrastra a la línea de tiempo, clic derecho para previsualizar</translation>
     </message>
@@ -17053,6 +17085,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>Recortar, encuadrar y escalar…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation>Nueva composición con la selección</translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -17103,6 +17139,30 @@ LA PRÓXIMA</translation>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>Convertido a una velocidad de fotogramas constante para una edición fluida</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation>Usos</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation>Carpeta</translation>
     </message>
     <message>
         <source>Collapse folder</source>

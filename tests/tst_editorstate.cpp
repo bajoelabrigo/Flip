@@ -298,6 +298,7 @@ private slots:
     void effectTemplateStaysEditable();
     void removingATemplatePutsTheClipBack();
     void trackKeyframeRowsUnfoldAndEdit();
+    void solidsAndCompositionsInMedia();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
@@ -10325,6 +10326,91 @@ void EditorStateTest::cutoutTemplateLandsInAComposition()
         QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
         QCOMPARE(state.project()->tracks().at(0).clips.at(0).id, clip.id);
     }
+}
+
+// After Effects' Project panel (0.26): a solid files a bin item in Media › Solids that its layers
+// share, and a composition can be made from the bin, empty or holding the picked media.
+void EditorStateTest::solidsAndCompositionsInMedia()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+
+    state.addSolidClip(QStringLiteral("#ffcc3344"), QStringLiteral("Red solid"), 640, 360);
+    state.addSolidClip(QStringLiteral("#ff2244cc"), QStringLiteral("Blue solid"), 0, 0);
+    QList<const drift::MediaAsset *> solids;
+    for (const drift::MediaAsset &asset : state.project()->assets()) {
+        if (asset.kind == drift::MediaKind::Solid)
+            solids.append(&asset);
+    }
+    QCOMPARE(solids.size(), 2);
+    // Both in the one «Solids» folder at the root, made the first time.
+    QVERIFY(!solids.first()->folderId.isEmpty());
+    QCOMPARE(solids.first()->folderId, solids.last()->folderId);
+    const drift::BinFolder *folder = state.project()->binFolder(solids.first()->folderId);
+    QVERIFY(folder);
+    QVERIFY(folder->parentId.isEmpty());
+    QCOMPARE(state.project()->binFolders().size(), 1);
+    const drift::MediaAsset *red = solids.first()->name == QLatin1String("Red solid") ? solids.first() : solids.last();
+    QCOMPARE(red->width, 640);
+    QCOMPARE(red->height, 360);
+    QCOMPARE(QColor(red->solidColor), QColor(QStringLiteral("#ffcc3344")));
+    // Ids, not pointers: the asset list grows below.
+    const QString redId = red->id;
+    const QString blueId = solids.first()->id == redId ? solids.last()->id : solids.first()->id;
+
+    // The layer points at its bin item, and its settings carry over to the item.
+    int track = -1;
+    int clip = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        for (int c = 0; c < state.project()->tracks().at(t).clips.size(); ++c) {
+            if (state.project()->tracks().at(t).clips.at(c).assetId == redId) {
+                track = t;
+                clip = c;
+            }
+        }
+    }
+    QVERIFY(track >= 0);
+    state.setSolidSettings(track, clip, QStringLiteral("#ff00ff00"), QStringLiteral("Green solid"), 0, 0);
+    QCOMPARE(state.project()->asset(redId)->name, QStringLiteral("Green solid"));
+    QCOMPARE(QColor(state.project()->asset(redId)->solidColor), QColor(QStringLiteral("#ff00ff00")));
+
+    // Saved and read back.
+    const drift::Project copy = drift::Project::fromJson(state.project()->toJson());
+    QCOMPARE(copy.asset(redId)->kind, drift::MediaKind::Solid);
+    QCOMPARE(QColor(copy.asset(redId)->solidColor), QColor(QStringLiteral("#ff00ff00")));
+
+    // From the bin, a solid lands as a solid layer of its colour and size.
+    const int index = library.indexOfId(redId);
+    QVERIFY(index >= 0);
+    state.addClipFromAssetOnNewTrack(index, 0.0);
+    int placed = 0;
+    for (const drift::Track &t : state.project()->tracks()) {
+        for (const drift::Clip &c : t.clips) {
+            if (c.assetId == redId) {
+                QVERIFY(c.isSolid);
+                QCOMPARE(c.type, drift::ClipType::Shape);
+                QCOMPARE(c.shapeStyle.primaryColor(), QColor(QStringLiteral("#ff00ff00")));
+                ++placed;
+            }
+        }
+    }
+    QCOMPARE(placed, 2);
+
+    // A new composition: in Media, opened.
+    const QString compId = state.newComposition(QStringLiteral("Intro"));
+    QVERIFY(!compId.isEmpty());
+    QCOMPARE(state.project()->asset(compId)->kind, drift::MediaKind::Composite);
+    QCOMPARE(state.project()->activeSequenceId(), state.project()->asset(compId)->sequenceId);
+    state.openSequence(QString());
+
+    // From the picked media: both solids inside, the first on top.
+    const QString fromId = state.newCompositionFromAssets({redId, blueId});
+    QVERIFY(!fromId.isEmpty());
+    QCOMPARE(state.project()->activeSequenceId(), state.project()->asset(fromId)->sequenceId);
+    QCOMPARE(state.project()->tracks().size(), 2);
+    QCOMPARE(state.project()->tracks().at(0).clips.first().assetId, redId);
+    QCOMPARE(state.project()->tracks().at(1).clips.first().assetId, blueId);
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()

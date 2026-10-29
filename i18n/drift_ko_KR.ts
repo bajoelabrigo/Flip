@@ -5155,6 +5155,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5228,6 +5232,14 @@
     </message>
     <message>
         <source>Text on the shape&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6961,6 +6973,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>미디어를 읽고 썸네일을 생성하는 중입니다.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More import options</source>
@@ -16922,6 +16938,10 @@ NEXT TIME</source>
         <translation>트리 보기</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>이름순 정렬</translation>
     </message>
@@ -16970,6 +16990,18 @@ NEXT TIME</source>
         <translation>이름 변경…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — 타임라인으로 드래그하거나 마우스 오른쪽 버튼으로 클릭하여 미리보기</translation>
     </message>
@@ -17000,6 +17032,10 @@ NEXT TIME</source>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>트리밍, 자르기 및 업스케일…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -17048,6 +17084,30 @@ NEXT TIME</source>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>매끄러운 편집을 위해 일정한 프레임 속도로 변환됨</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collapse folder</source>

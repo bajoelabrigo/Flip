@@ -5178,6 +5178,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5251,6 +5255,14 @@
     </message>
     <message>
         <source>Text on the shape&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7000,6 +7012,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Leyendo medios y generando miniaturas.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More import options</source>
@@ -16971,6 +16987,10 @@ NEXT TIME</source>
         <translation>Vista en árbol</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>Ordenar por nombre</translation>
     </message>
@@ -17019,6 +17039,18 @@ NEXT TIME</source>
         <translation>Cambiar nombre…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — arrastra a la línea de tiempo, clic derecho para previsualizar</translation>
     </message>
@@ -17049,6 +17081,10 @@ NEXT TIME</source>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>Recortar, encuadrar y escalar…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -17099,6 +17135,30 @@ NEXT TIME</source>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>Convertido a una velocidad de fotogramas constante para una edición fluida</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collapse folder</source>

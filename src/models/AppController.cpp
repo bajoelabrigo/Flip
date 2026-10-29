@@ -3818,6 +3818,22 @@ drift::TimeUs trimmedClipDurationUs(const QVariantMap &asset, drift::TimeUs full
 
 void applyAssetLayout(drift::Clip &clip, const QVariantMap &asset, int canvasW, int canvasH)
 {
+    // A solid from the bin (0.26, as After Effects' Solids folder): a solid layer of its colour and
+    // size, centred in the frame.
+    if (asset.value(QStringLiteral("kind")).toString() == QLatin1String("solid")) {
+        const QColor color(asset.value(QStringLiteral("solidColor")).toString());
+        clip.type = drift::ClipType::Shape;
+        clip.isSolid = true;
+        clip.path.clear();
+        clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
+        clip.shapeStyle.layers = {drift::solidFillLayer(color.isValid() ? color : QColor(40, 40, 46))};
+        const int w = qMax(1, asset.value(QStringLiteral("width")).toInt() > 0
+                                  ? asset.value(QStringLiteral("width")).toInt() : canvasW);
+        const int h = qMax(1, asset.value(QStringLiteral("height")).toInt() > 0
+                                  ? asset.value(QStringLiteral("height")).toInt() : canvasH);
+        setClipLayoutPixels(clip, (canvasW - w) / 2.0, (canvasH - h) / 2.0, w, h);
+        return;
+    }
     int mediaW = asset.value(QStringLiteral("width")).toInt();
     int mediaH = asset.value(QStringLiteral("height")).toInt();
     // "effectiveRotation" folds in any bin-preview override over the probed rotationDegrees
@@ -5841,7 +5857,8 @@ void AppController::setMediaViewMode(const QString &mode)
 {
     // An unknown mode (an older build's project, a bad MCP argument) falls back to the
     // grid rather than leaving the bin with nothing to render.
-    const QString next = (mode == QLatin1String("list") || mode == QLatin1String("tree"))
+    const QString next = (mode == QLatin1String("list") || mode == QLatin1String("tree")
+                          || mode == QLatin1String("columns"))
                              ? mode
                              : QStringLiteral("grid");
     if (m_mediaViewMode == next)
@@ -10697,11 +10714,37 @@ void AppController::addSolidClip(const QString &colorName, const QString &name, 
     const double w = width > 0 ? width : m_project.width();
     const double h = height > 0 ? height : m_project.height();
     setClipLayoutPixels(clip, (m_project.width() - w) / 2.0, (m_project.height() - h) / 2.0, w, h);
-    track.clips.append(clip);
-    const int newClipIndex = track.clips.size() - 1;
+    // Its bin item in Media › Solids, as After Effects files every solid it makes (0.26).
+    clip.assetId = addSolidAsset(clip.name, color, qRound(w), qRound(h));
+    m_project.tracks()[target].clips.append(clip);
+    const int newClipIndex = m_project.tracks().at(target).clips.size() - 1;
     pushProjectEdit(before, tr("Solid added"));
     finishEdit(tr("Solid added"));
     selectClip(target, newClipIndex);
+}
+
+QString AppController::addSolidAsset(const QString &name, const QColor &color, int width, int height)
+{
+    // The «Solids» folder at the bin root, made the first time (After Effects' Solids folder).
+    QString folderId;
+    for (const QString &id : m_project.binFolderOrder()) {
+        const drift::BinFolder *folder = m_project.binFolder(id);
+        if (folder && folder->parentId.isEmpty() && folder->name == tr("Solids")) {
+            folderId = id;
+            break;
+        }
+    }
+    if (folderId.isEmpty())
+        folderId = m_bin->m_folderModel.createFolder(tr("Solids"), QString());
+    drift::MediaAsset asset;
+    asset.kind = drift::MediaKind::Solid;
+    asset.name = name;
+    asset.solidColor = color.name(QColor::HexArgb);
+    asset.width = width;
+    asset.height = height;
+    asset.fps = m_project.fps();
+    asset.folderId = folderId;
+    return m_project.addAsset(asset);
 }
 
 QVariantMap AppController::solidSettings(int trackIndex, int clipIndex) const
@@ -10745,6 +10788,24 @@ void AppController::setSolidSettings(int trackIndex, int clipIndex, const QStrin
         const double x0 = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(0);
         const double y0 = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
         setClipLayoutPixels(clip, x0 + (w0 - width) / 2.0, y0 + (h0 - height) / 2.0, width, height);
+    }
+    // The bin item takes the new settings, and so does the colour of every layer made from it
+    // (After Effects: a solid is one footage item its layers share).
+    if (drift::MediaAsset *asset = m_project.asset(clip.assetId); asset && asset->kind == drift::MediaKind::Solid) {
+        const QColor color = clip.shapeStyle.primaryColor();
+        asset->name = clip.name;
+        asset->solidColor = color.name(QColor::HexArgb);
+        if (width > 0 && height > 0) {
+            asset->width = qRound(width);
+            asset->height = qRound(height);
+        }
+        const QString assetId = clip.assetId;
+        for (drift::Track &t : m_project.tracks()) {
+            for (drift::Clip &other : t.clips) {
+                if (other.assetId == assetId && other.isSolid)
+                    other.shapeStyle.setPrimaryColor(color);
+            }
+        }
     }
     pushProjectEdit(before, tr("Solid settings"));
     finishEdit(tr("Solid settings"));
@@ -17894,6 +17955,84 @@ QVariantList AppController::compositeSequences() const
         });
     }
     return sequences;
+}
+
+QString AppController::newComposition(const QString &name)
+{
+    // After Effects' New Composition, from the Media panel (0.26): an empty composition of the
+    // project's size in the folder being viewed, opened to work in. It shows in Media and drags
+    // onto any timeline like the ones made by grouping clips.
+    const drift::Project before = m_project;
+    const QString assetId = addEmptyCompositionAsset(name, true);
+    if (assetId.isEmpty())
+        return {};
+    pushProjectEdit(before, tr("Composition created"));
+    finishEdit(tr("Composition created"));
+    openCompositeAsset(assetId);
+    return assetId;
+}
+
+QString AppController::newCompositionFromAssets(const QStringList &assetIds)
+{
+    // After Effects' New Composition From Selection: one composition holding every picked item,
+    // the first one on top, all starting at 0, named after the first. Compositions are left out
+    // (one cannot be placed inside another here). One undo step.
+    QStringList ids;
+    for (const QString &id : assetIds) {
+        const drift::MediaAsset *asset = m_project.asset(id);
+        if (asset && asset->kind != drift::MediaKind::Composite && !ids.contains(id))
+            ids.append(id);
+    }
+    if (ids.isEmpty() || !m_assetLibrary) {
+        setLastMessage(tr("Pick media to make a composition from (compositions cannot go inside one)"),
+                       QStringLiteral("warning"));
+        return {};
+    }
+    beginEditSession(tr("Composition created"));
+    const auto close = qScopeGuard([this] { endEditSession(true); });
+    const drift::MediaAsset *first = m_project.asset(ids.first());
+    const QString name = ids.size() == 1 && first ? first->name : QString();
+    const drift::Project before = m_project;
+    const QString assetId = addEmptyCompositionAsset(name, false);
+    if (assetId.isEmpty())
+        return {};
+    pushProjectEdit(before, tr("Composition created"));
+    finishEdit(tr("Composition created"));
+    openCompositeAsset(assetId);
+    // Bottom first, each on a new track above the last, so the first picked ends on top.
+    for (int i = ids.size() - 1; i >= 0; --i) {
+        const int index = m_assetLibrary->indexOfId(ids.at(i));
+        if (index >= 0)
+            addClipFromAssetOnNewTrackAt(index, 0, 0.0);
+    }
+    return assetId;
+}
+
+QString AppController::addEmptyCompositionAsset(const QString &name, bool withTrack)
+{
+    drift::TrackList tracks;
+    if (withTrack) {
+        drift::Track track{.type = drift::TrackType::Video};
+        track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        tracks.append(track);
+    }
+    const QString sequenceId = m_project.addSequence(tracks);
+    if (sequenceId.isEmpty())
+        return {};
+    int compositeCount = 0;
+    for (const drift::MediaAsset &existing : m_project.assets()) {
+        if (existing.kind == drift::MediaKind::Composite)
+            ++compositeCount;
+    }
+    drift::MediaAsset asset;
+    asset.kind = drift::MediaKind::Composite;
+    asset.name = name.trimmed().isEmpty() ? tr("Composite %1").arg(compositeCount + 1) : name.trimmed();
+    asset.sequenceId = sequenceId;
+    asset.width = m_project.width();
+    asset.height = m_project.height();
+    asset.fps = m_project.fps();
+    asset.folderId = m_bin->currentFolderId();
+    return m_project.addAsset(asset);
 }
 
 void AppController::openSequence(const QString &sequenceId)

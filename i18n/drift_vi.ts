@@ -5163,6 +5163,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5236,6 +5240,14 @@
     </message>
     <message>
         <source>Text on the shape&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6961,6 +6973,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Đang đọc phương tiện và tạo hình thu nhỏ.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More import options</source>
@@ -16922,6 +16938,10 @@ LẦN SAU</translation>
         <translation>Chế độ xem dạng cây</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>Sắp xếp theo tên</translation>
     </message>
@@ -16970,6 +16990,18 @@ LẦN SAU</translation>
         <translation>Đổi tên…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 - kéo vào dòng thời gian, nhấp chuột phải để xem trước</translation>
     </message>
@@ -17000,6 +17032,10 @@ LẦN SAU</translation>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>Cắt, xén và nâng độ phân giải…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -17048,6 +17084,30 @@ LẦN SAU</translation>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>Đã chuyển đổi sang tốc độ khung hình không đổi để chỉnh sửa mượt mà</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collapse folder</source>

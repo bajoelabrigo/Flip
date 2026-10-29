@@ -32,7 +32,9 @@ inline QRectF sourceFrameFromJson(const QJsonArray &a)
 }
 
 // Composite has no file: it is the bin entry for a nested timeline (sequenceId).
-enum class MediaKind { Video, Audio, Image, Vector, Model3d, Pdf, Composite, Other };
+// Solid has no file either: After Effects' solid footage, one colour at a size (0.26), the bin
+// entry every solid layer made from it shares.
+enum class MediaKind { Video, Audio, Image, Vector, Model3d, Pdf, Composite, Solid, Other };
 
 // Suffixes Drift treats as still images. Lives in core rather than next to the other media lists
 // in AssetLibrary because the engine needs it too — FrameCompositor classifies mask media by it,
@@ -106,6 +108,8 @@ struct MediaAsset
 
     // Composite only: the Project::sequenceTracks id this bin item stands for.
     QString sequenceId;
+    // Solid only: its colour (#AARRGGBB); width and height above are its size.
+    QString solidColor;
 
     // Audio Drift generated rather than imported (voiceover, sound effect): what made it —
     // {provider, kind, voice, model, text/prompt} — so it can be regenerated. Empty otherwise.

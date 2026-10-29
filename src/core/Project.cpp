@@ -701,6 +701,8 @@ QJsonObject assetToJson(const MediaAsset &asset)
         object.insert(QStringLiteral("folderId"), asset.folderId);
     if (!asset.sequenceId.isEmpty())
         object.insert(QStringLiteral("sequenceId"), asset.sequenceId);
+    if (!asset.solidColor.isEmpty())
+        object.insert(QStringLiteral("solidColor"), asset.solidColor);
     if (!asset.generator.isEmpty())
         object.insert(QStringLiteral("generator"), asset.generator);
     if (asset.sourceFrame != QRectF(0, 0, 1, 1))
@@ -733,6 +735,7 @@ MediaAsset assetFromJsonV2(const QJsonObject &object)
     asset.filmstripPath = object.value(QStringLiteral("filmstripPath")).toString();
     asset.folderId = object.value(QStringLiteral("folderId")).toString();
     asset.sequenceId = object.value(QStringLiteral("sequenceId")).toString();
+    asset.solidColor = object.value(QStringLiteral("solidColor")).toString();
     asset.generator = object.value(QStringLiteral("generator")).toObject();
     if (object.contains(QStringLiteral("variableFrameRate"))) {
         asset.frameRateKnown = true;

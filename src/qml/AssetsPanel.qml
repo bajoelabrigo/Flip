@@ -1348,6 +1348,7 @@ PanelFrame {
                 readonly property real fullHeaderWidth: Theme.pagePadding + headerTitle.implicitWidth + Theme.spacingLg
                     + 2 * (Theme.spacingXl * 2 + Theme.iconSizeMd + labelledButtonExtra) + 6
                     + newFolderLabelMetrics.advanceWidth + importLabelMetrics.advanceWidth
+                    + Theme.spacingXl * 2 + Theme.iconSizeMd + 6
                     + (Theme.touchUi ? 0 : Theme.borderWidth * 3 + Theme.spacingLg * 2 + Theme.iconSizeSm) + 8
                 readonly property bool compactActions: width < fullHeaderWidth
 
@@ -1384,6 +1385,33 @@ PanelFrame {
                         tooltip: qsTr("Create a new folder here")
                         anchors.verticalCenter: parent.verticalCenter
                         onClicked: newFolderDialog.open()
+                    }
+
+                    // After Effects' New Composition (0.26): a click makes an empty one and opens
+                    // it; media dropped on it makes one holding that media.
+                    ThemedButton {
+                        id: newCompositionButton
+                        text: ""
+                        variant: newCompositionDrop.containsDrag ? "secondary" : "ghost"
+                        glyph: Theme.icons.layers
+                        tooltip: qsTr("New composition (drop media here to make one with it)")
+                        anchors.verticalCenter: parent.verticalCenter
+                        onClicked: EditorState.newComposition("")
+                        DropArea {
+                            id: newCompositionDrop
+                            anchors.fill: parent
+                            keys: ["text/plain"]
+                            onDropped: drop => {
+                                const index = parseInt(drop.text)
+                                if (isNaN(index))
+                                    return
+                                const id = AssetLibrary.assetIdAt(index)
+                                if (id.length > 0) {
+                                    drop.accept()
+                                    EditorState.newCompositionFromAssets([id])
+                                }
+                            }
+                        }
                     }
 
                     // Split button: the left half imports files, the chevron opens the

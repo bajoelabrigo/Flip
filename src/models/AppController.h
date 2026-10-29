@@ -737,6 +737,15 @@ public:
     QString shapeOutlineInTextBox(const drift::Clip &text, const drift::Clip &shape) const;
     // Texts linked to a shape layer («Follow shape») take its outline again after every edit.
     void refreshTextPathsFromShapes();
+    // After Effects' New Composition (empty, opened) and New Composition From Selection (the
+    // picked media stacked from 0, first on top), from the Media panel (0.26). One undo step each;
+    // they return the new composition's asset id.
+    Q_INVOKABLE QString newComposition(const QString &name = QString());
+    Q_INVOKABLE QString newCompositionFromAssets(const QStringList &assetIds);
+    // A composition bin item with its own (empty) sequence, in the folder being viewed.
+    QString addEmptyCompositionAsset(const QString &name, bool withTrack);
+    // A solid's bin item in Media › Solids (the folder made the first time); returns its asset id.
+    QString addSolidAsset(const QString &name, const QColor &color, int width, int height);
     // A clip's box at the playhead where it is drawn (layout plus anchor shift), in project px.
     QRectF drawnBoxAt(const drift::Clip &clip) const;
     // After Effects' expressions without code (0.26): the behaviour of one animatable property

@@ -40,6 +40,8 @@ QString mediaKindToString(MediaKind kind)
         return QStringLiteral("pdf");
     case MediaKind::Composite:
         return QStringLiteral("composite");
+    case MediaKind::Solid:
+        return QStringLiteral("solid");
     case MediaKind::Other:
         break;
     }
@@ -62,6 +64,8 @@ MediaKind mediaKindFromString(const QString &kind)
         return MediaKind::Pdf;
     if (kind == QStringLiteral("composite"))
         return MediaKind::Composite;
+    if (kind == QStringLiteral("solid"))
+        return MediaKind::Solid;
     return MediaKind::Other;
 }
 

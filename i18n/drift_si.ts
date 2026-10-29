@@ -5170,6 +5170,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5243,6 +5247,14 @@
     </message>
     <message>
         <source>Text on the shape&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7000,6 +7012,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>මාධ්‍ය කියවමින් සහ සිඟිති රූ ජනනය කරමින්.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More import options</source>
@@ -16971,6 +16987,10 @@ NEXT TIME</source>
         <translation>ශාඛා දසුන (Tree view)</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>නම අනුව පෙළගස්වන්න</translation>
     </message>
@@ -17019,6 +17039,18 @@ NEXT TIME</source>
         <translation>නම වෙනස් කරන්න…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — කාලරේඛාවට අදින්න, පෙරදසුන සඳහා දකුණු-ක්ලික් කරන්න</translation>
     </message>
@@ -17048,6 +17080,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Trim, crop and upscale…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17099,6 +17135,30 @@ NEXT TIME</source>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>සුමට සංස්කරණයක් සඳහා නියත රාමු අනුපාතයකට පරිවර්තනය කරන ලදී</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collapse folder</source>
