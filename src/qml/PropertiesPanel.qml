@@ -54,9 +54,12 @@ PanelFrame {
         property string videoPage: "basico"
         property string retouchArea: "rostro"
         property string adjustPage: "basic"
+        // The clip Animation tab's In / Out / Combo, kept when the tab reloads.
+        property string clipAnimTab: "in"
     }
 
     property int activeTab: 1 // General; 0 is the scene template tab, shown only for one
+    property string lastSelectionKey: ""
     readonly property string currentTabId: tabs[activeTab].id
     readonly property bool keyframesTab: !!tabs[activeTab].keyframes
 
@@ -69,11 +72,19 @@ PanelFrame {
         target: EditorState
         function onSelectionChanged() {
             root.clipDataRevision++
-            root.syncAdjustmentTab()
-            root.openSubtitlesTabOnSelect()
-            // Picking a scene template is picking its slots to fill.
-            if (root.tabVisible("template"))
-                root.activeTab = tabIndexOf("template")
+            // An edit re-announces the same selection: only another clip moves the pane, or picking
+            // an animation threw the pane back to Video (Jorge, 0.26).
+            const data = EditorState.selectedClipData || {}
+            const key = (data.id || "") + "/" + EditorState.selectedTrack + "/" + EditorState.selectedClip
+            const sameClip = key === root.lastSelectionKey
+            root.lastSelectionKey = key
+            if (!sameClip) {
+                root.syncAdjustmentTab()
+                root.openSubtitlesTabOnSelect()
+                // Picking a scene template is picking its slots to fill.
+                if (root.tabVisible("template"))
+                    root.activeTab = tabIndexOf("template")
+            }
             root.syncActiveTab()
         }
         function onSelectedClipDataChanged() {
@@ -733,7 +744,13 @@ PanelFrame {
                 Loader {
                     active: root.currentTabId === "animation"
                     visible: active
-                    sourceComponent: Component { AnimationInspector { width: tabColumn.width } }
+                    sourceComponent: Component {
+                        AnimationInspector {
+                            width: tabColumn.width
+                            animTab: inspectorUi.clipAnimTab
+                            onAnimTabChanged: inspectorUi.clipAnimTab = animTab
+                        }
+                    }
                 }
 
                 Loader {

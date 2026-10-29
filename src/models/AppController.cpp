@@ -14456,8 +14456,20 @@ void AppController::setAnchorKeepingPlace(int trackIndex, int clipIndex, double 
 
 double AppController::snapPlayheadToKeys(double seconds, double toleranceSeconds) const
 {
+    // Keys always catch it; with the magnet on, so do the clip edges, the markers and the
+    // work area (never the playhead itself, which made it stick where it was: Jorge, 0.26).
     QList<drift::TimeUs> keys;
     appendKeyframeSnapTargets(&keys, QString());
+    if (m_snapEnabled) {
+        keys.append(0);
+        keys.append(extraSnapTargetsCached());
+        for (const drift::Track &track : m_project.tracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                keys.append(clip.timelineStart);
+                keys.append(clip.timelineEnd());
+            }
+        }
+    }
     const drift::TimeUs at = drift::secondsToUs(seconds);
     const drift::TimeUs tolerance = drift::secondsToUs(qMax(0.0, toleranceSeconds));
     drift::TimeUs best = -1;

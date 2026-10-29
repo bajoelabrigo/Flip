@@ -204,6 +204,22 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   - **Pista vacía se borra** al borrar su último clip (`deleteSelectedClip`), con sus carriles; queda siempre una
     pista de video. Y si se borra la forma que hacía de mate, el clip vuelve a verse entero.
 
+- **Ronda de Jorge (2026-10-29, mañana), sobre el portable `prueba-h`:**
+  - [x] El imán del cabezal era débil: arrastrando la cabeza solo se pegaba a claves (8 px), y en la regla el imán
+        general tenía como objetivo la posición del propio cabezal (se quedaba pegado donde estaba). Ahora
+        `snapPlayheadToKeys` suma bordes de clips, marcadores y el área de trabajo (con el imán encendido), a 14 px.
+  - [x] El tirador del final temblaba bajo la bolita de la transición: la zona del mouse estaba atada al ancho del
+        tirador, que se adelgaza al pasar el mouse (entraba/salía en bucle). Zona fija en los dos tiradores.
+  - [x] Elegir una animación (Entrada/Salida/Combinada) devolvía el inspector a Video › Básico, y al volver se
+        abría en Entrada: `onSelectionChanged` volvía a correr `syncAdjustmentTab` con el mismo clip. Solo corre si
+        cambia el clip; la pestaña Entrada/Salida/Combinada se recuerda (`inspectorUi.clipAnimTab`). La Salida en
+        la segunda mitad de una foto cortada **sí** se aplica (probado por MCP y con clics); el salto de panel es lo
+        que parecía «no funciona».
+  - [ ] Claves automáticas al arrastrar una foto en el fotograma 20: con «Fotogramas clave automáticos» encendido
+        se crean (probado: claves en 0 y 20). Falta saber qué hizo Jorge distinto.
+  - [ ] «Las claves salen pegadas, no se puede cortar una animación y seguir con otra más adelante» (como AE):
+        falta aclarar con Jorge.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista

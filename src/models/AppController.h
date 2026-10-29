@@ -948,7 +948,8 @@ public:
     // After Effects' stopwatch switched off (0.25): every key of these properties goes and each keeps
     // the value it has at atSeconds. One undo step.
     Q_INVOKABLE void stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds);
-    // The playhead dragged near a key lands on it (0.25, After Effects): the nearest key time within
+    // The playhead dragged near a key lands on it (0.25, After Effects), and with the magnet on near a
+    // clip edge, a marker or the work area (0.26): the nearest within
     // toleranceSeconds, else `seconds` unchanged.
     Q_INVOKABLE double snapPlayheadToKeys(double seconds, double toleranceSeconds) const;
     // Motion Tools' anchor grid (0.25): the anchor point to a corner, an edge's middle or the centre

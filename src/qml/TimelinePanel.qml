@@ -657,8 +657,9 @@ PanelFrame {
         solidSettings.openFor(trackIndex, clipIndex)
     }
 
-    // How near (screen px) a key has to be for the dragged playhead to land on it (0.25).
-    readonly property real playheadKeySnapPx: 8
+    // How near (screen px) a key, a clip edge or a marker has to be for the dragged playhead to land on
+    // it (0.25; wider and with the edges in 0.26, Jorge found 8 px too weak).
+    readonly property real playheadKeySnapPx: 14
 
     // The curve editor on and off; on, it opens the lines of the clip being edited.
     function toggleGraphMode() {
@@ -1629,7 +1630,7 @@ PanelFrame {
                                 // After Effects.
                                 const t = root.snapToFrame(Math.max(0, x) / root.pxPerSecond)
                                 const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
-                                EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
+                                EditorState.playheadSeconds = onKey
                             }
 
                             // Seeking is not a selection change: scrubbing to look at a
@@ -2981,7 +2982,7 @@ PanelFrame {
                         function finishSeek() {
                             const t = root.snapToFrame(playhead.x / root.pxPerSecond)
                             const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
-                            EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
+                            EditorState.playheadSeconds = onKey
                         }
 
                         Rectangle {

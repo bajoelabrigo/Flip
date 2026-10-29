@@ -993,9 +993,14 @@ Item {
 
         MouseArea {
             id: leftTrimMouse
-            anchors.fill: parent
+            // The hot zone keeps the idle bar's width: tied to the bar, it shrank with the hairline
+            // the hover draws, the pointer fell out, the bar grew back, and so on (it shook under the
+            // fade dot: Jorge, 0.26).
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: clipItem.trimHandleWidth + clipItem.trimHotspotExtra + 4
             anchors.leftMargin: -clipItem.trimHotspotExtra
-            anchors.rightMargin: -4
             // Leave the top corner for the fade-in dot.
             anchors.topMargin: clipItem.timelineFadeHandles && clipItem.showTrimHandles
                                && !clipItem.touchMode ? (clipItem.height < 35 ? 10 : 16) : -6
@@ -1159,8 +1164,11 @@ Item {
 
         MouseArea {
             id: rightTrimMouse
-            anchors.fill: parent
-            anchors.leftMargin: -4
+            // Same fixed hot zone as the start's.
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: clipItem.trimHandleWidth + clipItem.trimHotspotExtra + 4
             anchors.rightMargin: -clipItem.trimHotspotExtra
             // Leave the top corner for the fade-out dot.
             anchors.topMargin: clipItem.timelineFadeHandles && clipItem.showTrimHandles
