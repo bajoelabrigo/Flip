@@ -2809,7 +2809,9 @@ protected:
                                                         const QSet<QString> &movedIds);
     void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
-    QList<QPair<int, int>> m_selection;    QVariantMap m_pickedKeyframes;
+    QList<QPair<int, int>> m_selection;
+    // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
+    bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
     QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;

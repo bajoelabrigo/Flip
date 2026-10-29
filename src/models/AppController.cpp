@@ -22256,9 +22256,13 @@ void AppController::addEffect(int trackIndex, int clipIndex, const QString &effe
     // inspector shows it: the Effects tab is no longer offered for the clip the effect was aimed
     // at. redirectToEffectHost already returns post-insert indices, and normalizeProjectStructure
     // carries the selection across any reorder by track id.
-    m_selectedTrack = hostTrack;
-    m_selectedClip = hostClip;
-    m_selection = {qMakePair(hostTrack, hostClip)};
+    // Squash & Stretch and Bend (0.26) add their effect without leaving the clip: the panel the
+    // person is on stays open. A lane is stored below its parent, so the clip's indices hold.
+    if (!m_addEffectKeepsSelection) {
+        m_selectedTrack = hostTrack;
+        m_selectedClip = hostClip;
+        m_selection = {qMakePair(hostTrack, hostClip)};
+    }
 
     pushProjectEdit(before, tr("Add effect"));
     finishEdit(tr("Effect added"));
@@ -30808,7 +30812,9 @@ void AppController::applyBend(const QString &mode, double degrees, bool vertical
             continue;
         }
         if (fx < 0) {
+            m_addEffectKeepsSelection = true;
             addEffect(t, c, bendId);
+            m_addEffectKeepsSelection = false;
             if (!findClipById(m_project, id, &t, &c))
                 continue;
             fx = bendIndex(t, c, &host);
@@ -30854,6 +30860,11 @@ void AppController::applyBend(const QString &mode, double degrees, bool vertical
     }
     finishEdit(tr("Bend"));
     endEditSession(true);
+    // Adding the effect selected its lane: back to the layers, so Motion Tools stays on them.
+    int t = -1;
+    int c = -1;
+    if (findClipById(m_project, ids.first(), &t, &c))
+        selectClip(t, c);
 }
 
 QVariantMap AppController::squashAnimationPose(const QString &id, double progress) const
@@ -30903,7 +30914,9 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
 
     beginEditSession(tr("Squash & Stretch"));
     if (deformIndex(trackIndex, clipIndex) < 0) {
+        m_addEffectKeepsSelection = true;
         addEffect(trackIndex, clipIndex, deformId);
+        m_addEffectKeepsSelection = false;
         // Adding it may mint a lane and shift the indices.
         if (!findClipById(m_project, clipId, &trackIndex, &clipIndex)) {
             endEditSession(false);
@@ -31007,6 +31020,10 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
     pushProjectEdit(before, tr("Squash & Stretch"));
     finishEdit(tr("Squash & Stretch: %1").arg(drift::catalogText(anim->label)));
     endEditSession(true);
+    // Adding the deformer selected the lane that holds it: back to the clip, so the Animation
+    // panel stays open on it.
+    if (findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        selectClip(trackIndex, clipIndex);
 }
 
 QVariantList AppController::clipAnimationCategories(const QString &slot) const

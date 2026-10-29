@@ -286,6 +286,15 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
       `shapeElementFrame`, `insertShapeElement` (una capa de forma por capa, en pistas propias, con `pathShapes` y
       claves `path` lineales; centrado = tamaño × lado corto; transición = cuadrado del tamaño de la diagonal).
       `ShapeElementsPanel.qml`: Morphings / Líquidos, 8 paletas de 3 colores, tarjetas que se animan al pasar el mouse.
+- **Probado en ventana (build 15d365b, `pruebas\FlipStudio-0.26-prueba-k`, 2026-10-29):** pestaña Squash & Stretch
+  (categorías, controles, tarjetas en español); «Entrar rebotando» en una foto: claves de altura 0/0,48/0,75/0,99/1,14/
+  1,26 y en 0,5 s la foto aterriza aplastada y abombada sin cortarse; Motion Tools con sus 5 pestañas; Elementos ›
+  Líquidos › «Gota y salpicadura»: dos capas, charco y gotitas animados; Doblar › Medio anillo: la foto se curva;
+  deshacer quita cada cosa en un paso. **Arreglado tras la prueba:** Squash & Stretch y Doblar dejaban elegida la capa
+  de ajuste nueva (el panel se cerraba): `m_addEffectKeepsSelection`; las tarjetas de Elementos dibujaban las formas
+  al 160 % (llenaban la tarjeta). **Falta en ventana:** Recorte y Extremos (probados por la prueba de CI), y el diálogo
+  de expresiones («Aplicar a», «Mis expresiones»): el menú «…» de la fila no se abre con clics simulados, lo prueba
+  Jorge.
 - [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.

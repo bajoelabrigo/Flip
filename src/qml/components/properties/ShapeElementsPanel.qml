@@ -140,10 +140,10 @@ Column {
                         onPaint: {
                             const ctx = getContext("2d")
                             ctx.reset()
-                            // A transition's square is as big as the screen's diagonal: shown
-                            // smaller so the card holds it.
-                            const s = width / 100 * (tile.modelData.cover ? 1.0 : 1.6)
-                            const off = tile.modelData.cover ? 0 : -30 * width / 100
+                            // The element's square fills the card; a transition's square (as big as the
+                            // screen's diagonal) is shown smaller, so its growth reads.
+                            const s = width / 100 * (tile.modelData.cover ? 0.55 : 1.0)
+                            const off = tile.modelData.cover ? width * 0.225 : 0
                             for (const layer of tile.frame) {
                                 ctx.save()
                                 ctx.translate(off, off)
