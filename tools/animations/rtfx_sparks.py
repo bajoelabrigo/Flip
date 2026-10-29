@@ -57,7 +57,7 @@ def build(kind, d, loop, W, H, dur, seed, k):
         marks.append((0.0, "star", cx, cy))
     elif kind in ("shot", "shothit"):
         start = (cx - math.cos(a) * W * 0.4, cy - math.sin(a) * H * 0.4) if not radial else (cx, cy)
-        end = (cx + math.cos(a) * W * 0.25, cy + math.sin(a) * H * 0.25) if not radial else (cx, cy)
+        end = (cx + math.cos(a) * W * 0.1, cy + math.sin(a) * H * 0.1) if not radial else (cx, cy)
         fly = 0.35
         def at(t):
             u = min(1.0, t / fly)
@@ -186,7 +186,7 @@ def make_one(index, entry):
                 continue
             for tone, wf in enumerate((1.0, 0.55, 0.22)):
                 if what == "ring":
-                    o = ring(x, y, 20 + 110 * (1 - (1 - u) ** 3) * k, 9 * k * (1 - u) * wf)
+                    o = ring(x, y, 16 + 75 * (1 - (1 - u) ** 3) * k, 9 * k * (1 - u) * wf)
                 else:
                     o = star(x, y, 90 * k * math.sin(math.pi * min(1, u * 1.4)) * (0.6 + 0.4 * wf), 5 * wf * k,
                              0.2 + u * 0.5)
