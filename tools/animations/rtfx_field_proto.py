@@ -1,6 +1,6 @@
 """Animaciones Extremas, second try (0.26): the first set (particle soups, rtfx_*.py) was rejected and taken
 down. Prototype of the field engine — one mass per effect, tones cut from it, torn into strands as it
-dies — matched side by side against RTFX Fire 037. Run: python rtfx_field_proto.py boom|torch out.png
+dies — matched side by side against RTFX Fire 037. Run: python rtfx_field_proto.py boom|torch out.png"""
 import math, sys
 import numpy as np
 import cv2
