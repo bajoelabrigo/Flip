@@ -1,0 +1,120 @@
+"""Animaciones Extremas · Fuego, second try (0.26), on the field engine (rtfx_field.py).
+
+A fire element is a mass of puffs ("lobes"): each puff a flat-topped bump with its own yellow ball
+inside, so between balls the red shows through; the mass is warped a little so the edges lick; a
+cauliflower noise breaks the heart's edge; and as it dies a shredding front runs in from the outside
+along the flow (out from the centre for a burst, upward for a column), tearing the mass into strands
+while the heart holds on longest. Studied against RTFX's fire previews frame by frame.
+"""
+
+from __future__ import annotations
+
+import math
+
+import numpy as np
+
+from rtfx_field import Tex, bump, render
+from rtfx_engine import new
+
+G = 256  # grid columns; rows follow the canvas aspect
+
+
+class Mass:
+    def __init__(self, W, H, seed):
+        self.gw = G
+        self.gh = int(round(G * H / W))
+        self.yy, self.xx = np.mgrid[0:self.gh, 0:self.gw].astype(np.float32)
+        self.cell = Tex(seed)
+        self.streak = Tex(seed + 1)
+        self.warp = Tex(seed + 2)
+
+    def field(self, lobes, t, flow, origin, reach, die_at, die_len, crown=0.35, life=1.0):
+        """lobes: (cx, cy, r, sx, sy, ang, heart) in grid cells; heart is the yellow ball's size (0 = none).
+        flow 'radial' or 'up'; the shredding front starts at die_at seconds and takes die_len."""
+        xx, yy = self.xx, self.yy
+        wx = (self.warp.fbm(xx * 0.022, yy * 0.022 + t * 1.5, 2) - 0.5) * 12
+        wy = (self.warp.fbm(xx * 0.022 + 40, yy * 0.022 + t * 1.5, 2) - 0.5) * 8
+        X, Y = xx + wx, yy + wy
+        mx = np.zeros_like(xx)
+        sm = np.zeros_like(xx)
+        mc = np.zeros_like(xx)
+        for cx, cy, r, sx, sy, ang, heart in lobes:
+            if r <= 0.5:
+                continue
+            g = bump(X, Y, cx, cy, r, sx, sy, ang)
+            mx = np.maximum(mx, g)
+            sm += g
+            if heart > 0.05:
+                mc = np.maximum(mc, bump(X, Y, cx, cy, r * heart, sx, sy, ang))
+        d = mx + 0.05 * np.clip(sm, 0, 2)
+        dc = mc
+        ox, oy = origin
+        if flow == "radial":
+            ang = np.arctan2(yy - oy, xx - ox)
+            rad = np.hypot(xx - ox, yy - oy)
+            bend = (self.warp.fbm(xx * 0.03 + 7, yy * 0.03 + 3, 2) - 0.5) * 6
+            su, sv = ang * 32 / math.pi + rad * 0.05 + bend, rad * 0.02 - t * 1.6
+            far = np.clip(rad / reach, 0, 1)
+        else:
+            a = -math.pi / 2 if flow == "up" else flow
+            # Along the flow: v runs with it, u across it.
+            ca, sa = math.cos(a), math.sin(a)
+            along = (xx - ox) * ca + (yy - oy) * sa
+            across = -(xx - ox) * sa + (yy - oy) * ca
+            bend = (self.warp.fbm(xx * 0.03 + 7, yy * 0.03 + 3, 2) - 0.5) * 4
+            su, sv = across * 0.16 + bend, along * 0.02 - t * 2.0
+            far = np.clip(along / reach, 0, 1)
+        st = self.streak.fbm(su, sv, 2)
+        prog = min(1.0, max(0.0, (t - die_at) / die_len))
+        front = np.clip((far - (1.0 - prog * 1.35)) / 0.3, 0, 1)
+        cut = 0.47 - 0.12 * prog
+        gap = np.clip((st - cut) / 0.07, 0, 1)
+        keep = np.clip((cut - st) / 0.07, 0, 1)
+        eat = front * (1.6 * gap - 0.15 * keep * (1 - prog)) + prog ** 3 * 0.9
+        d = d - eat
+        dc = dc - 0.08 * eat
+        cauli = self.cell.fbm(xx * 0.07, yy * 0.07 - t * 1.2, 2) - 0.5
+        top = np.clip((oy - yy) / reach, 0, 1) if flow == "radial" else 0.0
+        d = d + 0.18 * cauli
+        core = dc + 0.5 * cauli + 0.06 - 0.05 * life - 0.9 * life * far - crown * top * min(1.0, t / 0.4)
+        return d, core
+
+
+# A cartoon explosion is a pyramid of puffs: a heart, three at the base, two above, one on top, small
+# ones in the gaps (offsets in units of the puff radius).
+PYRAMID = [(0.0, 0.3, 0.7), (-1.05, 0.55, 1.0), (0.0, 0.62, 1.05), (1.05, 0.55, 1.0), (-0.55, -0.15, 1.0),
+           (0.55, -0.15, 1.0), (0.0, -0.85, 1.0), (-0.5, 0.25, 0.7), (0.5, 0.25, 0.7), (0.0, 0.1, 0.8),
+           (-0.3, -0.55, 0.65), (0.3, -0.55, 0.65), (-1.3, 0.85, 0.5), (1.3, 0.85, 0.5)]
+
+
+def explosion(W, H, seed, size=1.0, grow=0.22, dur=1.9):
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    jit = [(rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.random()) for _ in PYRAMID]
+    R = 31 * size * m.gw / 256
+    ox, oy = m.gw / 2, m.gh * 0.6
+
+    def field(t):
+        e = 1 - (1 - min(1, t / grow)) ** 3
+        lobes = []
+        for (px, py, k), (jx, jy, js) in zip(PYRAMID, jit):
+            cx = ox + (px + jx * 0.12) * R * 1.25 * e
+            cy = oy + (py + jy * 0.12) * R * 1.15 * e - 14 * t
+            r = (4 + R * 0.85 * e) * k * (0.9 + 0.2 * js) * (1 - 0.15 * max(0, t - 0.6))
+            dist = math.hypot(px, py - 0.3) * 0.8 + (0.5 if py < -0.3 else 0.0)
+            heart = 0.85 * max(0.0, min(1.0, 1.0 - max(0.0, t - 0.62 + 0.08 * dist) * (0.6 + 1.4 * dist)))
+            lobes.append((cx, cy, r, 1.0, 0.95, 0.0, heart))
+        return m.field(lobes, t, "radial", (ox, oy), 110 * size * m.gw / 256, 0.5, 0.8,
+                       life=min(1.0, t / 1.6))
+
+    return field
+
+
+def make_explosion():
+    s = new("ex-fuego-explosion-radial", "Fuego · Explosión radial", "Fire · Radial explosion", "fuego", 46, 6000,
+            ["fuego", "fire", "explosión", "explosion"], size=512, thumb=0.25)
+    s.fps = 24
+    return render(s, explosion(512, 512, 5, size=1.35))
+
+
+STICKERS = [make_explosion]
