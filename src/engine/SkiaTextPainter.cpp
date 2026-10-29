@@ -1239,13 +1239,14 @@ private:
             paint.setStrokeJoin(skStrokeJoin(layer.join));
             paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
+            const SkPath stroked = strokedPathFor(layer, piece.glyphs);
             if (layer.strokeAlign == StrokeAlign::Inside) {
                 canvas.save();
                 canvas.clipPath(piece.glyphs, SkClipOp::kIntersect, true);
-                canvas.drawPath(piece.glyphs, paint);
+                canvas.drawPath(stroked, paint);
                 canvas.restore();
             } else {
-                canvas.drawPath(piece.glyphs, paint);
+                canvas.drawPath(stroked, paint);
             }
             break;
         }

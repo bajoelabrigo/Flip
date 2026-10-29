@@ -37,10 +37,17 @@ inline SkPaint::Join skStrokeJoin(StrokeJoin join)
 void applyShadingPaint(SkPaint &paint, const TextPaint &source, const QRectF &box, double timeSec, double alpha,
                        double progress = -1.0);
 
-// Trim → dash → sketch, composed inner-to-outer so the write-on trims the original outline, the
-// dash runs along what is left and the jitter is applied last. Null when none applies.
-// `strokeWidthPx` scales the dash pattern and offset; `scale` the sketch lengths.
+// Dash → sketch, composed inner-to-outer so the dash runs along the (already trimmed) outline and the
+// jitter is applied last. Null when none applies. `strokeWidthPx` scales the dash pattern and
+// offset; `scale` the sketch lengths. The write-on trim is strokedPathFor's.
 sk_sp<SkPathEffect> strokePathEffectFor(const TextShadingLayer &layer, double strokeWidthPx, double scale);
+// After Effects' Trim Paths with "Trim Multiple Shapes: Simultaneously" (its default, 0.26): each
+// contour is cut from `start` to `end` (fractions of its own length; past 1 wraps round to its
+// start), so every letter of a text draws on at once instead of one after the other.
+// With `segments` > 1 each contour is cut into that many equal stretches, all trimmed alike.
+SkPath trimEachContour(const SkPath &path, double start, double end, int segments = 1);
+// The outline a stroke layer draws: trimmed by its write-on, else as it is.
+SkPath strokedPathFor(const TextShadingLayer &layer, const SkPath &path);
 // The sketch jitter on a fill outline; null when off.
 sk_sp<SkPathEffect> fillPathEffectFor(const TextShadingLayer &layer, double scale);
 

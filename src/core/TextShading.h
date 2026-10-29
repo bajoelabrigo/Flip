@@ -128,6 +128,8 @@ struct TextShadingLayer
     bool knockout = false;     // a fill that punches through the layers beneath (hollow text)
     double trimStart = 0.0;    // stroke write-on
     double trimEnd = 1.0;
+    int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches
+    double trimOffset = 0.0;   // degrees (360 = once round), as a shape's Trim Paths offset (0.26)
     double sketchLength = 0.0;    // SkDiscretePathEffect segment length, px; 0 = off
     double sketchDeviation = 0.0; // px
     int sketchSeed = 0;

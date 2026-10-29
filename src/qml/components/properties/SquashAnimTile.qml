@@ -4,8 +4,8 @@ import ".."
 
 // One Squash & Stretch animation (0.26): a little rubber block on the ground that moves, squashes
 // and stretches the way the animation does, with the label under it. The block is bent with the
-// same map as the "squash.deform" shader (stretch from the ground keeping the volume, bend growing
-// with the square of the height, bulge halfway), from EditorState.squashAnimationPose. Plays in a
+// same map as the "squash.deform" shader (height from the ground, base and top widths, lean, bend
+// and bulge), from EditorState.squashAnimationPose. Plays in a
 // loop while `playing`; still, it shows a telling moment.
 Column {
     id: tile
@@ -76,17 +76,19 @@ Column {
                 const bx = W / 2 - bw / 2 + (p.x || 0) * W
                 const by = H * 0.78 - bh + (p.y || 0) * H
                 const sy = Math.max(0.05, 1 + (p.stretch || 0) / 100)
-                const sx = Math.pow(sy, -1)
                 const gy = (p.ground === undefined ? 100 : p.ground) / 100
                 const z = Math.max(0, 1 + (p.zoom || 0) / 100)
+                const gw = 1 + (p.groundWidth || 0) / 100
+                const fw = 1 + (p.farWidth || 0) / 100
+                const shear = (p.shear || 0) / 100
                 const bend = (p.bend || 0) / 100
                 const bulge = (p.bulge || 0) / 100
                 // The shader's map, forward: (u, v) of the box -> where it is drawn.
                 const map = (u, v) => {
                     const far = v < gy ? Math.max(gy, 1e-4) : Math.max(1 - gy, 1e-4)
                     const t = Math.min(1, Math.abs(v - gy) / far)
-                    const swell = 1 + bulge * 4 * t * (1 - t)
-                    let x = 0.5 + (u - 0.5) * sx * swell + bend * t * t
+                    const width = (gw + (fw - gw) * t) * (1 + bulge * 4 * t * (1 - t))
+                    let x = 0.5 + (u - 0.5) * width + shear * t + bend * t * t
                     let y = gy + (v - gy) * sy
                     x = 0.5 + (x - 0.5) * z
                     y = 0.5 + (y - 0.5) * z

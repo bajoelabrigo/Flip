@@ -13,7 +13,8 @@
 // Squash & Stretch Pro script for After Effects, designed by us (presets/squash-animations/*.json).
 // Applying one writes keyframes on the clip, so they can be edited as any others: position (a
 // fraction of the canvas), rotation (degrees), opacity (percent) and the "squash.deform" effect's
-// zoom, stretch, bend and bulge (percent). The curves run over the animation's progress (0 → 1).
+// zoom, stretch, groundWidth, farWidth, shear, bend and bulge (percent). The curves run over the
+// animation's progress (0 → 1).
 namespace drift {
 
 enum class SquashPlace { Start, End, Playhead };
@@ -30,7 +31,7 @@ struct SquashAnimation
     SquashPlace place = SquashPlace::Playhead;
     // The edge that stays put while it squashes, in % from the top (100 = the bottom).
     double ground = 100.0;
-    // "x", "y", "rotation", "opacity", "zoom", "stretch", "bend", "bulge"
+    // "x", "y", "rotation", "opacity" and the deformer's channels
     QMap<QString, ClipAnimTrack> tracks;
 
     static std::optional<SquashAnimation> fromJson(const QJsonObject &o, QString *error = nullptr);

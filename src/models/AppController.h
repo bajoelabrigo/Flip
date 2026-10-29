@@ -1210,12 +1210,14 @@ public:
     Q_INVOKABLE QVariantList shapeElementFrame(const QString &id, double progress) const;
     Q_INVOKABLE void insertShapeElement(const QString &id, const QStringList &colors);
     // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
-    // shapes (and the strokes of selected texts), `frames` long from the playhead. Modes: "in"
-    // (draws on), "out" (draws off, ending at the clip's end), "inout", "centerIn", "centerOut",
-    // "swap" (the keys run the other way), "clear", "copies" (`copies` duplicates above, each one
-    // starting a little later), "traceIn", "traceOut", "traceInOut" (a short line runs ahead on a
-    // copy). `reverse` draws from the other end; `animateOffset` also turns the offset by
-    // `offsetRange` degrees. One undo step.
+    // shapes (and the strokes of selected texts, every letter at once), `frames` long from the
+    // playhead. Modes: "in" (draws on), "out" (draws off), "inout" (in from the playhead, out at the
+    // clip's end), "midIn" / "midOut" (from / into the middle; reversed, from / off both ends),
+    // "equalIn" / "equalOut" (`copies` equal stretches at once), "gapLoop" (a gap running round all
+    // the clip long), "swap" (the keys run the other way), "clear", "copies" (`copies` duplicates
+    // above, each starting a little later), "traceIn", "traceOut", "traceInOut" (a short line runs
+    // ahead on a copy). `reverse` draws from the other end (Trim-Pack's Alt); `animateOffset` also
+    // turns the offset by `offsetRange` degrees (its Shift). One undo step.
     // Motion Tools › Bend (0.26, as the Bend Layers script): the "ae.bend" effect on every selected
     // clip. "set" bends it by `degrees` (a key at the playhead when the bend is already animated),
     // "in" unbends it from `degrees` to flat over `frames` from the playhead, "out" bends it to

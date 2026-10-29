@@ -4,9 +4,10 @@ import Drift
 import ".."
 
 // Motion Tools › Trim (0.26, Jorge: as the Trim-Pack script): one click animates the Trim Paths of
-// the selected shapes, and the strokes of the selected texts. Settings as Trim-Pack's: how many
-// frames, how far the offset turns and how many copies; its Alt and Shift keys are the two
-// switches (draw from the other end, turn the offset too).
+// the selected shapes, and the strokes of the selected texts (every letter at once, as After
+// Effects' "Simultaneously"). The buttons are Trim-Pack's — In, Out, I&O, Mid-in, Mid-out,
+// Equal-in, Equal-out — each drawing what it does; its settings are here (frames, offset range,
+// copies) and its Alt and Shift keys are the two switches (reverse, offset).
 Column {
     id: root
 
@@ -27,9 +28,134 @@ Column {
         wrapMode: Text.WordWrap
         size: "sm"
         opacity: 0.8
-        text: qsTr("Select shapes or texts with a stroke. Each button writes the keys from the playhead; Out ends at the end of the clip.")
+        text: qsTr("Select shapes or texts with a stroke. The keys start at the playhead; I&O ends with the clip.")
     }
 
+    // A Trim-Pack button: its icon is a ring with the part that the animation draws.
+    component TrimButton: Rectangle {
+        id: tb
+        property string mode: ""
+        property string label: ""
+        property string tip: ""
+        // "in", "out", "io", "midIn", "midOut", "equalIn", "equalOut", "gap", "swap", "copies",
+        // "traceIn", "traceOut", "traceIo", "clear"
+        property string icon: ""
+        property color tint: "#ffd23f"
+        signal activated()
+        width: (root.width - 3 * Theme.spacingSm) / 4
+        height: 62
+        radius: Theme.radiusSm
+        color: area.pressed ? Theme.panelMuted : (area.containsMouse ? Theme.panelAccent : Theme.panelBackground)
+        border.width: Theme.borderWidth
+        border.color: area.containsMouse ? tb.tint : Theme.panelBorder
+        Canvas {
+            id: glyph
+            width: 34
+            height: 34
+            anchors.top: parent.top
+            anchors.topMargin: 5
+            anchors.horizontalCenter: parent.horizontalCenter
+            onPaint: {
+                const ctx = getContext("2d")
+                ctx.reset()
+                const cx = width / 2, cy = height / 2, r = 12
+                const top = -Math.PI / 2
+                const arc = (a0, a1, color, w) => {
+                    ctx.beginPath()
+                    ctx.strokeStyle = color
+                    ctx.lineWidth = w
+                    ctx.lineCap = "butt"
+                    ctx.arc(cx, cy, r, top + a0 * 2 * Math.PI, top + a1 * 2 * Math.PI, false)
+                    ctx.stroke()
+                }
+                const ghost = Qt.rgba(1, 1, 1, 0.14)
+                arc(0, 1, ghost, 3)
+                const c = tb.tint
+                switch (tb.icon) {
+                case "in": arc(0, 0.62, c, 4); break
+                case "out": arc(0.38, 1, c, 4); break
+                case "io": arc(0.2, 0.7, c, 4); break
+                case "midIn": arc(-0.28, 0.28, c, 4); break
+                case "midOut": arc(0.22, 0.4, c, 4); arc(0.6, 0.78, c, 4); break
+                case "equalIn": for (let i = 0; i < 4; ++i) arc(i / 4, i / 4 + 0.1, c, 4); break
+                case "equalOut": for (let i = 0; i < 4; ++i) arc(i / 4 + 0.12, i / 4 + 0.25, c, 4); break
+                case "gap": arc(0.1, 0.94, c, 4); break
+                case "traceIn": arc(0, 0.45, c, 4); arc(0.5, 0.62, "#ffffff", 4); break
+                case "traceOut": arc(0.55, 1, c, 4); arc(0.38, 0.5, "#ffffff", 4); break
+                case "traceIo": arc(0.2, 0.6, c, 4); arc(0.66, 0.76, "#ffffff", 4); break
+                case "copies":
+                    arc(0, 0.55, c, 4)
+                    ctx.globalAlpha = 0.5
+                    arc(0, 0.35, c, 4)
+                    ctx.globalAlpha = 1
+                    break
+                case "swap":
+                    ctx.strokeStyle = c
+                    ctx.fillStyle = c
+                    ctx.lineWidth = 3
+                    ctx.beginPath(); ctx.moveTo(6, 12); ctx.lineTo(26, 12); ctx.stroke()
+                    ctx.beginPath(); ctx.moveTo(28, 22); ctx.lineTo(8, 22); ctx.stroke()
+                    ctx.beginPath(); ctx.moveTo(4, 22); ctx.lineTo(10, 17); ctx.lineTo(10, 27); ctx.fill()
+                    break
+                case "clear":
+                    ctx.strokeStyle = c
+                    ctx.lineWidth = 3
+                    ctx.beginPath(); ctx.moveTo(10, 10); ctx.lineTo(24, 24); ctx.moveTo(24, 10); ctx.lineTo(10, 24)
+                    ctx.stroke()
+                    break
+                }
+            }
+        }
+        Text {
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - 4
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideRight
+            text: tb.label
+            color: tb.tint
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+            font.weight: Font.DemiBold
+        }
+        MouseArea {
+            id: area
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: tb.mode.length > 0 ? root.run(tb.mode) : tb.activated()
+        }
+        ThemedToolTip { visible: area.containsMouse && tb.tip.length > 0; text: tb.tip }
+    }
+
+    Flow {
+        width: parent.width
+        spacing: Theme.spacingSm
+        TrimButton { mode: "in"; icon: "in"; label: qsTr("In"); tip: qsTr("The line draws on from its start") }
+        TrimButton { mode: "out"; icon: "out"; label: qsTr("Out"); tip: qsTr("The line draws off from its start") }
+        TrimButton { mode: "inout"; icon: "io"; label: qsTr("I&O"); tip: qsTr("Draws on from the playhead and off at the end of the clip") }
+        TrimButton { mode: "swap"; icon: "swap"; label: qsTr("Swap"); tip: qsTr("The keys already there run from the other end") }
+        TrimButton { mode: "midIn"; icon: "midIn"; tint: "#8ddc5a"; label: qsTr("Mid-in"); tip: qsTr("Grows both ways from the middle (reversed: in from both ends)") }
+        TrimButton { mode: "midOut"; icon: "midOut"; tint: "#8ddc5a"; label: qsTr("Mid-out"); tip: qsTr("Shrinks into the middle (reversed: off towards both ends)") }
+        TrimButton { mode: "equalIn"; icon: "equalIn"; tint: "#3fb6f0"; label: qsTr("Equal-in"); tip: qsTr("Equal stretches (as many as Copies) draw on at once") }
+        TrimButton { mode: "equalOut"; icon: "equalOut"; tint: "#3fb6f0"; label: qsTr("Equal-out"); tip: qsTr("Equal stretches (as many as Copies) draw off at once") }
+        TrimButton { mode: "gapLoop"; icon: "gap"; tint: "#ffffff"; label: qsTr("Running gap"); tip: qsTr("A small gap runs round each outline all the clip long, as an outlined title") }
+        TrimButton { mode: "copies"; icon: "copies"; tint: "#c58cf5"; label: qsTr("Copies"); tip: qsTr("Copies above, each one drawing on a little later") }
+        TrimButton { mode: "traceIn"; icon: "traceIn"; tint: "#ff9b54"; label: qsTr("Trace In"); tip: qsTr("A short line runs ahead while it draws on") }
+        TrimButton { mode: "traceOut"; icon: "traceOut"; tint: "#ff9b54"; label: qsTr("Trace Out"); tip: qsTr("A short line runs off as it draws off") }
+        TrimButton { mode: "traceInOut"; icon: "traceIo"; tint: "#ff9b54"; label: qsTr("Trace I&O"); tip: qsTr("A trace on the way in and on the way out") }
+        TrimButton {
+            icon: "copies"
+            tint: "#f06ab4"
+            label: qsTr("Convert")
+            tip: qsTr("A text or shape into an editable path, so it can be trimmed letter by letter")
+            onActivated: EditorState.convertSelectionToShape()
+        }
+        TrimButton { mode: "clear"; icon: "clear"; tint: "#9aa0a6"; label: qsTr("Clear"); tip: qsTr("Take the Trim Paths animation off") }
+    }
+
+    // Trim-Pack's settings.
     Grid {
         width: parent.width
         columns: 3
@@ -60,51 +186,16 @@ Column {
 
     ThemedSwitch {
         width: parent.width
-        text: qsTr("Reverse direction")
+        text: qsTr("Reverse (Alt)")
         tooltip: qsTr("Draw from the other end of the path")
         checked: root.reverse
         onToggled: root.reverse = checked
     }
     ThemedSwitch {
         width: parent.width
-        text: qsTr("Turn the offset too")
+        text: qsTr("Offset (Shift)")
         tooltip: qsTr("The line also travels round the path by the offset range")
         checked: root.animateOffset
         onToggled: root.animateOffset = checked
-    }
-
-    component TrimButton: ThemedButton {
-        property string mode: ""
-        width: (root.width - 2 * Theme.spacingSm) / 3
-        onClicked: root.run(mode)
-    }
-
-    ThemedLabel { text: qsTr("Draw"); opacity: 0.7 }
-    Flow {
-        width: parent.width
-        spacing: Theme.spacingSm
-        TrimButton { mode: "in"; text: qsTr("In"); tooltip: qsTr("The line draws on") }
-        TrimButton { mode: "out"; text: qsTr("Out"); tooltip: qsTr("The line draws off, ending with the clip") }
-        TrimButton { mode: "inout"; text: qsTr("In & Out"); tooltip: qsTr("Draws on from the playhead and off at the end") }
-        TrimButton { mode: "centerIn"; text: qsTr("From centre"); tooltip: qsTr("Grows both ways from the middle of the path") }
-        TrimButton { mode: "centerOut"; text: qsTr("To centre"); tooltip: qsTr("Shrinks into the middle of the path, ending with the clip") }
-        TrimButton { mode: "swap"; text: qsTr("Swap"); tooltip: qsTr("The keys already there run from the other end") }
-    }
-
-    ThemedLabel { text: qsTr("Copies and trace"); opacity: 0.7 }
-    Flow {
-        width: parent.width
-        spacing: Theme.spacingSm
-        TrimButton { mode: "copies"; text: qsTr("Copies"); tooltip: qsTr("Copies above, each one drawing on a little later") }
-        TrimButton { mode: "traceIn"; text: qsTr("Trace In"); tooltip: qsTr("A short line runs ahead while it draws on") }
-        TrimButton { mode: "traceOut"; text: qsTr("Trace Out"); tooltip: qsTr("A short line runs off as it ends") }
-        TrimButton { mode: "traceInOut"; text: qsTr("Trace I&O"); tooltip: qsTr("A trace on the way in and on the way out") }
-        ThemedButton {
-            width: (root.width - 2 * Theme.spacingSm) / 3
-            text: qsTr("Convert")
-            tooltip: qsTr("A text or shape into an editable path, so it can be trimmed letter by letter")
-            onClicked: EditorState.convertSelectionToShape()
-        }
-        TrimButton { mode: "clear"; text: qsTr("Clear"); variant: "ghost"; tooltip: qsTr("Take the Trim Paths animation off") }
     }
 }

@@ -384,8 +384,21 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
         return path;
     }
     case ShapeKind::Ellipse: {
+        // As After Effects draws it (0.26): from the top, clockwise, so Trim Paths starts at 12
+        // o'clock and goes round the way the clock does. QPainterPath::addEllipse starts at 3
+        // o'clock and goes the other way.
+        constexpr double k = 0.5522847498;
+        const double cx = bounds.center().x();
+        const double cy = bounds.center().y();
+        const double rx = bounds.width() / 2.0;
+        const double ry = bounds.height() / 2.0;
         QPainterPath path;
-        path.addEllipse(bounds);
+        path.moveTo(cx, cy - ry);
+        path.cubicTo(cx + k * rx, cy - ry, cx + rx, cy - k * ry, cx + rx, cy);
+        path.cubicTo(cx + rx, cy + k * ry, cx + k * rx, cy + ry, cx, cy + ry);
+        path.cubicTo(cx - k * rx, cy + ry, cx - rx, cy + k * ry, cx - rx, cy);
+        path.cubicTo(cx - rx, cy - k * ry, cx - k * rx, cy - ry, cx, cy - ry);
+        path.closeSubpath();
         return path;
     }
     case ShapeKind::Triangle:

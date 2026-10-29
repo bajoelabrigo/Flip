@@ -10989,6 +10989,10 @@ void paintDrawnShape(drift::ShapeStyle &style, const QString &fill, const QStrin
         if (layer.kind == drift::TextLayerKind::Stroke) {
             layer.enabled = QColor::isValidColorName(stroke) && strokeWidth > 0.0;
             layer.strokeAlign = drift::StrokeAlign::Center;
+            // After Effects' defaults for a new shape's stroke (0.26): flat ends and sharp corners,
+            // so a Trim Paths animation ends square as it does there.
+            layer.cap = drift::StrokeCap::Butt;
+            layer.join = drift::StrokeJoin::Miter;
         }
     }
 }
@@ -30580,8 +30584,32 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
             const QString base = QStringLiteral("text.layer.%1.").arg(layer.id);
             t.start.append(keyframeTrackForProp(clip, base + QStringLiteral("trimStart"), true));
             t.end.append(keyframeTrackForProp(clip, base + QStringLiteral("trimEnd"), true));
+            t.offset.append(keyframeTrackForProp(clip, base + QStringLiteral("trimOffset"), true));
         }
         return t;
+    };
+    // Equal-in / Equal-out: the outline in `n` equal stretches (1 = whole).
+    const auto setSegments = [](drift::Clip &clip, int n) {
+        if (clip.type == drift::ClipType::Shape) {
+            clip.shapeStyle.trimSegments = n;
+            return;
+        }
+        for (drift::TextShadingLayer &layer : clip.textStyle.layers) {
+            if (layer.kind == drift::TextLayerKind::Stroke)
+                layer.trimSegments = n;
+        }
+    };
+    // A still offset (degrees) when the offset is not animated: Mid's Reverse turns the trim half
+    // way round, so on a line it runs in from both ends instead of out from the middle.
+    const auto setOffset = [](drift::Clip &clip, double degrees) {
+        if (clip.type == drift::ClipType::Shape) {
+            clip.shapeStyle.trimOffset = degrees;
+            return;
+        }
+        for (drift::TextShadingLayer &layer : clip.textStyle.layers) {
+            if (layer.kind == drift::TextLayerKind::Stroke)
+                layer.trimOffset = degrees;
+        }
     };
     // A move from a to b over [from, from + span] (clip-relative), replacing what was keyed there.
     const auto ramp = [&](const QList<drift::KeyframeTrack<double> *> &list, drift::TimeUs from, double a, double b) {
@@ -30642,24 +30670,74 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
         const drift::TimeUs tail = qMax<drift::TimeUs>(0, length - span);
         TrimTracks t = tracksOf(clip);
 
+        if (mode == QLatin1String("in") || mode == QLatin1String("out") || mode == QLatin1String("inout"))
+            setSegments(clip, 1);
         if (mode == QLatin1String("in")) {
             drawIn(t, head);
             turn(t, head);
         } else if (mode == QLatin1String("out")) {
-            drawOut(t, tail);
-            turn(t, tail);
+            // From the playhead, as Trim-Pack's Out (I&O is the one that ends with the layer).
+            drawOut(t, head);
+            turn(t, head);
         } else if (mode == QLatin1String("inout")) {
             drawIn(t, head);
             drawOut(t, tail);
             turn(t, head);
-        } else if (mode == QLatin1String("centerIn")) {
-            ramp(t.start, head, t.full / 2, 0.0);
-            ramp(t.end, head, t.full / 2, t.full);
+        } else if (mode == QLatin1String("midIn") || mode == QLatin1String("midOut")) {
+            // Mid-in grows both ways from the middle; Mid-out shrinks into it. Reversed, the same
+            // half way round: in from both ends, or off towards them.
+            setSegments(clip, 1);
+            if (!animateOffset)
+                setOffset(clip, reverse ? 180.0 : 0.0);
+            if (mode == QLatin1String("midIn")) {
+                ramp(t.start, head, t.full / 2, 0.0);
+                ramp(t.end, head, t.full / 2, t.full);
+            } else {
+                ramp(t.start, head, 0.0, t.full / 2);
+                ramp(t.end, head, t.full, t.full / 2);
+            }
             turn(t, head);
-        } else if (mode == QLatin1String("centerOut")) {
-            ramp(t.start, tail, 0.0, t.full / 2);
-            ramp(t.end, tail, t.full, t.full / 2);
-            turn(t, tail);
+        } else if (mode == QLatin1String("equalIn") || mode == QLatin1String("equalOut")) {
+            // Equal-in / Equal-out: `copies` equal stretches drawing on (or off) at once.
+            setSegments(clip, qBound(2, copies, 64));
+            if (mode == QLatin1String("equalIn"))
+                drawIn(t, head);
+            else
+                drawOut(t, head);
+            turn(t, head);
+        } else if (mode == QLatin1String("gapLoop")) {
+            // A small gap running round each outline for the whole clip, as the classic outlined
+            // title: the line nearly whole, its offset turning once a second.
+            setSegments(clip, 1);
+            for (drift::KeyframeTrack<double> *kt : t.start) {
+                if (kt)
+                    *kt = drift::KeyframeTrack<double>();
+            }
+            for (drift::KeyframeTrack<double> *kt : t.end) {
+                if (kt)
+                    *kt = drift::KeyframeTrack<double>();
+            }
+            if (clip.type == drift::ClipType::Shape) {
+                clip.shapeStyle.trimStart = 0.0;
+                clip.shapeStyle.trimEnd = 88.0;
+            } else {
+                for (drift::TextShadingLayer &layer : clip.textStyle.layers) {
+                    if (layer.kind == drift::TextLayerKind::Stroke) {
+                        layer.trimStart = 0.0;
+                        layer.trimEnd = 0.88;
+                    }
+                }
+            }
+            const double turns = drift::usToSeconds(length) * (reverse ? -1.0 : 1.0);
+            for (drift::KeyframeTrack<double> *kt : t.offset) {
+                if (!kt)
+                    continue;
+                *kt = drift::KeyframeTrack<double>();
+                kt->setKeyframe(0, 0.0);
+                kt->setEasing(0, drift::Interpolation::Linear);
+                kt->setKeyframe(length, 360.0 * turns);
+                kt->setStopwatch(true);
+            }
         } else if (mode == QLatin1String("swap")) {
             // The same timing, run from the other end: start' = full - end, end' = full - start.
             for (int i = 0; i < qMin(t.start.size(), t.end.size()); ++i) {
@@ -30691,10 +30769,13 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
                 clip.shapeStyle.trimStart = 0.0;
                 clip.shapeStyle.trimEnd = 100.0;
                 clip.shapeStyle.trimOffset = 0.0;
+                clip.shapeStyle.trimSegments = 1.0;
             } else {
                 for (drift::TextShadingLayer &layer : clip.textStyle.layers) {
                     layer.trimStart = 0.0;
                     layer.trimEnd = 1.0;
+                    layer.trimOffset = 0.0;
+                    layer.trimSegments = 1;
                 }
             }
         } else if (mode == QLatin1String("copies") || mode.startsWith(QLatin1String("trace"))) {
@@ -30707,7 +30788,7 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
             if (!trace || tin)
                 drawIn(t, head + (trace ? step : 0));
             if (trace && tout)
-                drawOut(t, tail);
+                drawOut(t, tin ? tail : head);
             turn(t, head);
             const drift::Clip original = clip;
             for (int k = 1; k <= n; ++k) {
@@ -30738,7 +30819,7 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
                     if (tin)
                         run(head);
                     if (tout)
-                        run(qMax<drift::TimeUs>(0, tail - span / 4));
+                        run(tin ? qMax<drift::TimeUs>(0, tail - span / 4) : head);
                 } else {
                     drawIn(c, qMin<drift::TimeUs>(head + k * step, qMax<drift::TimeUs>(0, length - span)));
                 }
@@ -30876,11 +30957,11 @@ QVariantMap AppController::squashAnimationPose(const QString &id, double progres
         const auto it = anim->tracks.constFind(QLatin1String(name));
         return it == anim->tracks.constEnd() ? rest : it->at(progress, rest);
     };
-    return {{QStringLiteral("x"), at("x", 0.0)},           {QStringLiteral("y"), at("y", 0.0)},
-            {QStringLiteral("rotation"), at("rotation", 0.0)}, {QStringLiteral("opacity"), at("opacity", 100.0)},
-            {QStringLiteral("zoom"), at("zoom", 0.0)},     {QStringLiteral("stretch"), at("stretch", 0.0)},
-            {QStringLiteral("bend"), at("bend", 0.0)},     {QStringLiteral("bulge"), at("bulge", 0.0)},
-            {QStringLiteral("ground"), anim->ground}};
+    QVariantMap pose{{QStringLiteral("ground"), anim->ground}};
+    for (const char *name : {"x", "y", "rotation", "zoom", "stretch", "groundWidth", "farWidth", "shear", "bend", "bulge"})
+        pose.insert(QLatin1String(name), at(name, 0.0));
+    pose.insert(QStringLiteral("opacity"), at("opacity", 100.0));
+    return pose;
 }
 
 void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
@@ -30956,8 +31037,8 @@ void AppController::applySquashAnimation(int trackIndex, int clipIndex, const QS
     for (auto it = anim->tracks.constBegin(); it != anim->tracks.constEnd(); ++it) {
         const QString &name = it.key();
         const drift::ClipAnimTrack &curve = it.value();
-        const bool onDeformer = name == QLatin1String("zoom") || name == QLatin1String("stretch")
-                                || name == QLatin1String("bend") || name == QLatin1String("bulge");
+        const bool onDeformer = name != QLatin1String("x") && name != QLatin1String("y")
+                                && name != QLatin1String("rotation") && name != QLatin1String("opacity");
         drift::KeyframeTrack<double> *kt = nullptr;
         drift::TimeUs offset = startRel;
         if (onDeformer) {

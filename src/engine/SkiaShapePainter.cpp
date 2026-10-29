@@ -270,32 +270,15 @@ SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, d
 
 // Trim Paths (0.26): start and end in percent, the offset in degrees (once round = 360°), wrapping
 // past the outline's end the way After Effects does.
-SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg)
+SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg, int segments)
 {
     double a = qBound(0.0, startPct, 100.0) / 100.0;
     double b = qBound(0.0, endPct, 100.0) / 100.0;
     if (a > b)
         std::swap(a, b);
-    if (b - a <= 1e-6)
-        return {};
     const double shift = offsetDeg / 360.0;
-    a += shift;
-    b += shift;
-    const double whole = std::floor(a);
-    a -= whole;
-    b -= whole;
-    sk_sp<SkPathEffect> effect = b <= 1.0 + 1e-9
-                                     ? SkTrimPathEffect::Make(float(a), float(qMin(1.0, b)))
-                                     : SkTrimPathEffect::Make(float(b - 1.0), float(a), SkTrimPathEffect::Mode::kInverted);
-    if (!effect)
-        return path;
-    SkPathBuilder trimmed;
-    SkStrokeRec rec(SkStrokeRec::kHairline_InitStyle);
-    if (!effect->filterPath(&trimmed, path, &rec))
-        return path;
-    SkPath result = trimmed.detach();
-    result.setFillType(path.getFillType());
-    return result;
+    // Each contour on its own, as After Effects' default (Simultaneously).
+    return trimEachContour(path, a + shift, b + shift, segments);
 }
 
 // Repeater (0.26): copy `index` (fractional with the offset) of a w × h box, in box px: moved,
@@ -368,7 +351,8 @@ public:
             m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale,
                                  m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
         if (m_style.hasTrim() || !qFuzzyIsNull(m_style.trimOffset))
-            m_path = trimmedPath(m_path, m_style.trimStart, m_style.trimEnd, m_style.trimOffset);
+            m_path = trimmedPath(m_path, m_style.trimStart, m_style.trimEnd, m_style.trimOffset,
+                                 qRound(m_style.trimSegments));
     }
 
     QSize size() const override { return m_size; }
@@ -437,9 +421,10 @@ private:
             paint.setStrokeJoin(skStrokeJoin(layer.join));
             paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
+            const SkPath stroked = strokedPathFor(layer, m_path);
             if (layer.strokeAlign == StrokeAlign::Center) {
                 paint.setStrokeWidth(float(width));
-                canvas.drawPath(m_path, paint);
+                canvas.drawPath(stroked, paint);
                 break;
             }
             // A centred stroke of twice the width, clipped to one side of the outline, is the
@@ -448,7 +433,7 @@ private:
             canvas.save();
             canvas.clipPath(m_path, layer.strokeAlign == StrokeAlign::Inside ? SkClipOp::kIntersect : SkClipOp::kDifference,
                             true);
-            canvas.drawPath(m_path, paint);
+            canvas.drawPath(stroked, paint);
             canvas.restore();
             break;
         }

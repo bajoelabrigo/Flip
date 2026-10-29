@@ -4,13 +4,16 @@
   "category": "squash",
   "backend": "gpu",
   "order": 940,
-  "description": "Zooms, squashes, stretches, bends and bulges the layer like rubber, from a ground edge that stays put. The Squash & Stretch animations key it; it can also be keyed by hand.",
+  "description": "Squashes and stretches the layer like rubber from a ground edge that stays put: its height, the width at the base and at the top, how far the top leans, bends and bulges. The Squash & Stretch animations key it; it can also be keyed by hand.",
   "padding": {
     "percentParams": [
+      "zoom",
       "stretch",
+      "groundWidth",
+      "farWidth",
+      "shear",
       "bend",
-      "bulge",
-      "zoom"
+      "bulge"
     ],
     "extra": 8
   },
@@ -32,20 +35,28 @@
       "defaultValue": 0
     },
     {
-      "identifier": "volume",
-      "displayName": "Keep volume (%)",
+      "identifier": "groundWidth",
+      "displayName": "Base width (%)",
       "type": "float",
-      "minValue": 0,
-      "maxValue": 100,
-      "defaultValue": 100
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
     },
     {
-      "identifier": "ground",
-      "displayName": "Ground (%)",
+      "identifier": "farWidth",
+      "displayName": "Top width (%)",
       "type": "float",
-      "minValue": 0,
-      "maxValue": 100,
-      "defaultValue": 100
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "shear",
+      "displayName": "Lean (%)",
+      "type": "float",
+      "minValue": -200,
+      "maxValue": 200,
+      "defaultValue": 0
     },
     {
       "identifier": "bend",
@@ -62,6 +73,14 @@
       "minValue": -100,
       "maxValue": 100,
       "defaultValue": 0
+    },
+    {
+      "identifier": "ground",
+      "displayName": "Ground (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 100
     }
   ],
   "pipeline": {

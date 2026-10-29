@@ -297,6 +297,30 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   Jorge.
 - **Probado en ventana (build final de la tanda, `pruebas\FlipStudio-0.26-prueba-l`):** tras aplicar «Entrar rebotando» la
   foto sigue elegida y el panel en Squash & Stretch; las tarjetas de Elementos muestran cada forma entera.
+- **Ronda de Jorge (2026-10-29, tarde): «Squash & Stretch no es realista, sobre todo los saltos; Trim Paths como
+  Trim-Pack; líquidos y morphings terribles».**
+  - [x] **Squash & Stretch rehecho.** Se estudió la animación de Squash & Stretch Pro (solo para aprender la física, sin
+    usar sus datos): la base queda fija; anticipación con la parte de arriba más ancha y lados abombados (alto 77 %,
+    arriba 104 %); despega estirado y afinado arriba (124 %, arriba 83 %, base 105 %); flota arriba 3–4 cuadros
+    estirado; cae con gravedad; al aterrizar se aplasta con la base ancha (alto 70–75 %, base 120–138 %); rebotito;
+    se calma con un temblor. Al deslizarse, la parte de arriba se queda atrás y al frenar se pasa y vuelve.
+    Deformador nuevo (`effects/squash_deform`: alto, ancho de la base, ancho de arriba, inclinación, doblez, abombado,
+    zoom; sin «volumen»). Generador con física (`tools/squash_animations/build.py`): se diseña solo la trayectoria
+    (agacharse, saltar, caer, deslizarse, girar) y la forma sale de un resorte amortiguado movido por la velocidad, los
+    impactos y la aceleración; luego RDP deja las claves que hacen falta. `--preview <carpeta>` dibuja tiras con el
+    mismo mapa del shader para revisarlas. 60 animaciones.
+  - [x] **Recorte como Trim-Pack** (visto en el GIF y el video de Jorge): la elipse empieza arriba y va en sentido
+    horario (`ShapePath.cpp`, antes empezaba a las 3 y al revés); trazos nuevos con extremo plano y unión en punta como
+    AE (`paintDrawnShape`); recorte **por contorno** («Simultáneamente» de AE: cada letra a la vez,
+    `trimEachContour` en `SkiaShading`, también para los trazos de texto, que antes usaban `SkTrimPathEffect` sobre
+    todo el texto); **tramos** (`trimSegments`) para Equal-in/out; **desplazamiento** en los trazos de texto
+    (`TextShadingLayer::trimOffset`). Botones: In, Out, I&O, Mid-in, Mid-out (invertido = medio recorrido, desde o
+    hacia las puntas), Equal-in, Equal-out (N tramos = Copias), Hueco que corre (el título de contorno del video),
+    Copias, Rastro, Convertir, Quitar. Out y Mid-out empiezan en el cabezal, como Trim-Pack.
+  - [ ] **Líquidos y morphings**: no son galerías, son herramientas. Super Liquids genera **estelas de líquido** sobre
+    un objeto (quieto o en movimiento, horizontal o vertical, con capas de forma); Super Morphings **transforma una
+    forma en otra** con un clic (varios a la vez, estelas, «slicer», suavizado). Pedidos a Jorge los videos de cómo
+    funcionan para rehacerlos como herramientas.
 - [ ] H4. **RTFX → Stock › «Animaciones Extremas»** (Jorge, 2026-10-29). Es un paquete de contenido (1035 videos de elementos: fuego, humo, electricidad, chispas,
       líquidos, cómic; transiciones; 48 títulos y tercios inferiores de AE; fondos; 201 sonidos), con licencia para él.
       Plan: nuestro propio paquete para Stock con las mismas categorías, renderizado con nuestros efectos y partículas.

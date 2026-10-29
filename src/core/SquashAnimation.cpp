@@ -19,7 +19,8 @@ namespace {
 
 QMutex g_squashMutex;
 
-const char *const kSquashProps[] = {"x", "y", "rotation", "opacity", "zoom", "stretch", "bend", "bulge"};
+const char *const kSquashProps[] = {"x",           "y",        "rotation", "opacity", "zoom", "stretch",
+                                    "groundWidth", "farWidth", "shear",    "bend",    "bulge"};
 
 } // namespace
 

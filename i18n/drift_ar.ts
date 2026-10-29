@@ -10674,15 +10674,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Keep volume (%)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ground (%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bend (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base width (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top width (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lean (%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12034,6 +12042,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Dash In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dash Left</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12047,6 +12059,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Drop In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Excited Jumps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12074,11 +12090,11 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Glitch Squash</source>
+        <source>Heavy Jump</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Grow Up</source>
+        <source>Rise Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12090,15 +12106,27 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hop In Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Out Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Inchworm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Jelly In</source>
+        <source>Jelly Shake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Jelly Shake</source>
+        <source>Jump Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12118,10 +12146,6 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Melt</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Nod</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12131,10 +12155,6 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Pop Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Rise and Wobble</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12179,14 +12199,6 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Stumble</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Super Squash Landing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Swing In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23694,6 +23706,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Trim segments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28116,6 +28132,10 @@ If playback stutters, try another.</source>
         <translation>قص النهاية</translation>
     </message>
     <message>
+        <source>Trim offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>إزاحة الشرطة</translation>
     </message>
@@ -30647,10 +30667,6 @@ If playback stutters, try another.</source>
 <context>
     <name>TrimPackPanel</name>
     <message>
-        <source>Select shapes or texts with a stroke. Each button writes the keys from the playhead; Out ends at the end of the clip.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Frames</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30663,15 +30679,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Reverse direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Draw from the other end of the path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn the offset too</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30679,47 +30687,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Draw</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The line draws on</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The line draws off, ending with the clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>In &amp; Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Draws on from the playhead and off at the end</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>From centre</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Grows both ways from the middle of the path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>To centre</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shrinks into the middle of the path, ending with the clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30728,10 +30700,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The keys already there run from the other end</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Copies and trace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30751,7 +30719,67 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A short line runs off as it ends</source>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws on from its start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws off from its start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle (reversed: in from both ends)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle (reversed: off towards both ends)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equal-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equal stretches (as many as Copies) draw on at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equal-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Equal stretches (as many as Copies) draw off at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A small gap runs round each outline all the clip long, as an outlined title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A short line runs off as it draws off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30776,6 +30804,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Take the Trim Paths animation off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse (Alt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset (Shift)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

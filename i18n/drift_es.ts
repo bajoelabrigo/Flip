@@ -10506,16 +10506,24 @@
         <translation>Estirar (%)</translation>
     </message>
     <message>
-        <source>Keep volume (%)</source>
-        <translation>Conservar volumen (%)</translation>
-    </message>
-    <message>
         <source>Ground (%)</source>
         <translation>Suelo (%)</translation>
     </message>
     <message>
         <source>Bend (%)</source>
         <translation>Inclinar (%)</translation>
+    </message>
+    <message>
+        <source>Base width (%)</source>
+        <translation>Ancho de la base (%)</translation>
+    </message>
+    <message>
+        <source>Top width (%)</source>
+        <translation>Ancho de arriba (%)</translation>
+    </message>
+    <message>
+        <source>Lean (%)</source>
+        <translation>Inclinación (%)</translation>
     </message>
     <message>
         <source>Bulge (%)</source>
@@ -11866,6 +11874,10 @@ LA PRÓXIMA</translation>
         <translation>Baile</translation>
     </message>
     <message>
+        <source>Dash In</source>
+        <translation>Entrar corriendo</translation>
+    </message>
+    <message>
         <source>Dash Left</source>
         <translation>Carrera a la izquierda</translation>
     </message>
@@ -11880,6 +11892,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Drop In</source>
         <translation>Caer</translation>
+    </message>
+    <message>
+        <source>Excited Jumps</source>
+        <translation>Saltos de emoción</translation>
     </message>
     <message>
         <source>Fall and Bounce</source>
@@ -11906,12 +11922,12 @@ LA PRÓXIMA</translation>
         <translation>Salida glitch</translation>
     </message>
     <message>
-        <source>Glitch Squash</source>
-        <translation>Aplastado glitch</translation>
+        <source>Heavy Jump</source>
+        <translation>Salto pesado</translation>
     </message>
     <message>
-        <source>Grow Up</source>
-        <translation>Crecer</translation>
+        <source>Rise Up</source>
+        <translation>Subir</translation>
     </message>
     <message>
         <source>Hop Back</source>
@@ -11922,16 +11938,28 @@ LA PRÓXIMA</translation>
         <translation>Saltito adelante</translation>
     </message>
     <message>
+        <source>Hop In Left</source>
+        <translation>Entrar a saltitos</translation>
+    </message>
+    <message>
+        <source>Hop Out Right</source>
+        <translation>Salir a saltitos</translation>
+    </message>
+    <message>
         <source>Inchworm</source>
         <translation>Oruga</translation>
     </message>
     <message>
-        <source>Jelly In</source>
-        <translation>Entrada de gelatina</translation>
-    </message>
-    <message>
         <source>Jelly Shake</source>
         <translation>Temblor de gelatina</translation>
+    </message>
+    <message>
+        <source>Jump Forward</source>
+        <translation>Salto hacia adelante</translation>
+    </message>
+    <message>
+        <source>Jump In</source>
+        <translation>Entrar de un salto</translation>
     </message>
     <message>
         <source>Jump Out</source>
@@ -11950,10 +11978,6 @@ LA PRÓXIMA</translation>
         <translation>Salto largo</translation>
     </message>
     <message>
-        <source>Melt</source>
-        <translation>Derretirse</translation>
-    </message>
-    <message>
         <source>Nod</source>
         <translation>Asentir</translation>
     </message>
@@ -11964,10 +11988,6 @@ LA PRÓXIMA</translation>
     <message>
         <source>Pop Out</source>
         <translation>Desaparecer de golpe</translation>
-    </message>
-    <message>
-        <source>Rise and Wobble</source>
-        <translation>Subir y tambalearse</translation>
     </message>
     <message>
         <source>Rubber Band</source>
@@ -12012,14 +12032,6 @@ LA PRÓXIMA</translation>
     <message>
         <source>Stumble</source>
         <translation>Tropezar</translation>
-    </message>
-    <message>
-        <source>Super Squash Landing</source>
-        <translation>Aterrizaje superaplastado</translation>
-    </message>
-    <message>
-        <source>Swing In</source>
-        <translation>Entrar columpiándose</translation>
     </message>
     <message>
         <source>Ta-da</source>
@@ -23374,6 +23386,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplazamiento del recorte</translation>
     </message>
     <message>
+        <source>Trim segments</source>
+        <translation>Tramos del recorte</translation>
+    </message>
+    <message>
         <source>Copies</source>
         <translation>Copias</translation>
     </message>
@@ -27772,6 +27788,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Final del recorte</translation>
     </message>
     <message>
+        <source>Trim offset</source>
+        <translation>Desplazamiento del recorte</translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>Desplazamiento del guion</translation>
     </message>
@@ -30267,10 +30287,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>TrimPackPanel</name>
     <message>
-        <source>Select shapes or texts with a stroke. Each button writes the keys from the playhead; Out ends at the end of the clip.</source>
-        <translation>Elige formas o textos con trazo. Cada botón escribe las claves desde el cabezal; las de Salida terminan al final del clip.</translation>
-    </message>
-    <message>
         <source>Frames</source>
         <translation>Fotogramas</translation>
     </message>
@@ -30283,64 +30299,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Copias</translation>
     </message>
     <message>
-        <source>Reverse direction</source>
-        <translation>Invertir dirección</translation>
-    </message>
-    <message>
         <source>Draw from the other end of the path</source>
         <translation>Dibuja desde el otro extremo del trazado</translation>
-    </message>
-    <message>
-        <source>Turn the offset too</source>
-        <translation>Girar también el desplazamiento</translation>
     </message>
     <message>
         <source>The line also travels round the path by the offset range</source>
         <translation>La línea además recorre el trazado según el rango de desplazamiento</translation>
     </message>
     <message>
-        <source>Draw</source>
-        <translation>Dibujar</translation>
-    </message>
-    <message>
         <source>In</source>
         <translation>Entrada</translation>
     </message>
     <message>
-        <source>The line draws on</source>
-        <translation>La línea se dibuja</translation>
-    </message>
-    <message>
         <source>Out</source>
         <translation>Salida</translation>
-    </message>
-    <message>
-        <source>The line draws off, ending with the clip</source>
-        <translation>La línea se borra y termina con el clip</translation>
-    </message>
-    <message>
-        <source>In &amp; Out</source>
-        <translation>Entrada y salida</translation>
-    </message>
-    <message>
-        <source>Draws on from the playhead and off at the end</source>
-        <translation>Se dibuja desde el cabezal y se borra al final</translation>
-    </message>
-    <message>
-        <source>From centre</source>
-        <translation>Desde el centro</translation>
-    </message>
-    <message>
-        <source>Grows both ways from the middle of the path</source>
-        <translation>Crece hacia los dos lados desde el medio del trazado</translation>
-    </message>
-    <message>
-        <source>To centre</source>
-        <translation>Hacia el centro</translation>
-    </message>
-    <message>
-        <source>Shrinks into the middle of the path, ending with the clip</source>
-        <translation>Se encoge hacia el medio del trazado y termina con el clip</translation>
     </message>
     <message>
         <source>Swap</source>
@@ -30349,10 +30321,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>The keys already there run from the other end</source>
         <translation>Las claves que ya hay corren desde el otro extremo</translation>
-    </message>
-    <message>
-        <source>Copies and trace</source>
-        <translation>Copias y rastro</translation>
     </message>
     <message>
         <source>Copies above, each one drawing on a little later</source>
@@ -30371,8 +30339,68 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Rastro salida</translation>
     </message>
     <message>
-        <source>A short line runs off as it ends</source>
-        <translation>Una línea corta se va al terminar</translation>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip.</source>
+        <translation>Elige formas o textos con trazo. Las claves empiezan en el cabezal; I&amp;O termina con el clip.</translation>
+    </message>
+    <message>
+        <source>The line draws on from its start</source>
+        <translation>La línea se dibuja desde su inicio</translation>
+    </message>
+    <message>
+        <source>The line draws off from its start</source>
+        <translation>La línea se borra desde su inicio</translation>
+    </message>
+    <message>
+        <source>I&amp;O</source>
+        <translation>I&amp;O</translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end of the clip</source>
+        <translation>Se dibuja desde el cabezal y se borra al final del clip</translation>
+    </message>
+    <message>
+        <source>Mid-in</source>
+        <translation>Mid-in</translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle (reversed: in from both ends)</source>
+        <translation>Crece hacia los dos lados desde el medio (invertido: desde las dos puntas)</translation>
+    </message>
+    <message>
+        <source>Mid-out</source>
+        <translation>Mid-out</translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle (reversed: off towards both ends)</source>
+        <translation>Se encoge hacia el medio (invertido: hacia las dos puntas)</translation>
+    </message>
+    <message>
+        <source>Equal-in</source>
+        <translation>Equal-in</translation>
+    </message>
+    <message>
+        <source>Equal stretches (as many as Copies) draw on at once</source>
+        <translation>Tramos iguales (tantos como Copias) se dibujan a la vez</translation>
+    </message>
+    <message>
+        <source>Equal-out</source>
+        <translation>Equal-out</translation>
+    </message>
+    <message>
+        <source>Equal stretches (as many as Copies) draw off at once</source>
+        <translation>Tramos iguales (tantos como Copias) se borran a la vez</translation>
+    </message>
+    <message>
+        <source>Running gap</source>
+        <translation>Hueco que corre</translation>
+    </message>
+    <message>
+        <source>A small gap runs round each outline all the clip long, as an outlined title</source>
+        <translation>Un hueco pequeño recorre cada contorno todo el clip, como un título de contorno</translation>
+    </message>
+    <message>
+        <source>A short line runs off as it draws off</source>
+        <translation>Una línea corta se va mientras se borra</translation>
     </message>
     <message>
         <source>Trace I&amp;O</source>
@@ -30397,6 +30425,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Take the Trim Paths animation off</source>
         <translation>Quita la animación de Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Reverse (Alt)</source>
+        <translation>Invertir (Alt)</translation>
+    </message>
+    <message>
+        <source>Offset (Shift)</source>
+        <translation>Desplazamiento (Mayús)</translation>
     </message>
 </context>
 <context>

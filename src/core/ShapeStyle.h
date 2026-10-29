@@ -87,6 +87,9 @@ struct ShapeStyle
     double trimStart = 0.0;
     double trimEnd = 100.0;
     double trimOffset = 0.0;
+    // Trim-Pack's Equal-in / Equal-out (0.26): the outline cut into this many equal stretches, each
+    // trimmed from trimStart to trimEnd at once.
+    double trimSegments = 1.0;
     // Repeater: repeatCopies copies (rounded), the first at repeatOffset copies along, each one
     // moved by (repeatX, repeatY) project px, turned repeatRotation degrees and scaled
     // repeatScale percent from the one before, about the box centre; opacity runs from
@@ -123,7 +126,7 @@ struct ShapeStyle
     // replaces its entry.
     QStringList pathShapes;
 
-    bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0; }
+    bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0 || qRound(trimSegments) > 1; }
     bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
     bool hasWiggle() const { return wiggleSize > 0.0; }
 
