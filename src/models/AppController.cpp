@@ -133,6 +133,7 @@
 #include <QElapsedTimer>
 #include <QSettings>
 #include <QByteArray>
+#include <QScopeGuard>
 #include <QSet>
 #include <QStandardPaths>
 #include <QTimer>
@@ -10754,8 +10755,11 @@ void AppController::addNullObject()
     // After Effects' Null Object (0.26): only a handle for the layers parented to it. A shape so it
     // keys, rows and snaps like any other; the compositor skips it and the preview shows its frame.
     const drift::Project before = m_project;
-    const drift::TimeUs start = m_playheadUs;
-    const drift::TimeUs duration = qMax(drift::defaultStillDurationUs(), m_project.durationUs() - start);
+    // As in After Effects, the null spans the whole composition (from the playhead it left what it
+    // carries unparented before it and stretched the project past its end).
+    const drift::TimeUs start = 0;
+    const drift::TimeUs duration =
+        m_project.durationUs() > 0 ? m_project.durationUs() : drift::defaultStillDurationUs();
     const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
     if (target < 0)
         return;
@@ -11426,13 +11430,11 @@ void AppController::addNullForSelection()
         if (!drift::appdetail::clipAcceptsPreviewTransform(c) || c.type == drift::ClipType::Adjustment)
             continue;
         ids.append(c.id);
-        const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - c.timelineStart, c.timelineDuration);
-        const QRectF box(c.transformX.isEmpty() ? 0.0 : c.transformX.evaluateAt(rel),
-                         c.transformY.isEmpty() ? 0.0 : c.transformY.evaluateAt(rel),
-                         c.transformW.isEmpty() ? m_project.width() : c.transformW.evaluateAt(rel),
-                         c.transformH.isEmpty() ? m_project.height() : c.transformH.evaluateAt(rel));
-        bounds = bounds.isNull() ? box : bounds.united(box);
+        bounds = bounds.isNull() ? drawnBoxAt(c) : bounds.united(drawnBoxAt(c));
     }
+    // The null and the links to it are one undo step (undo left the null behind).
+    beginEditSession(tr("Null object added"));
+    const auto close = qScopeGuard([this] { endEditSession(true); });
     addNullObject();
     if (ids.isEmpty() || !isValidClipIndex(m_selectedTrack, m_selectedClip))
         return;
@@ -11610,6 +11612,18 @@ void AppController::applyMotionSketch(int trackIndex, int clipIndex, const QVari
     finishEdit(tr("Motion sketch"));
 }
 
+QRectF AppController::drawnBoxAt(const drift::Clip &c) const
+{
+    // The clip's box at the playhead where it is drawn: its layout moved by the anchor shift.
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - c.timelineStart, c.timelineDuration);
+    const double w = c.transformW.isEmpty() ? m_project.width() : c.transformW.evaluateAt(rel);
+    const double h = c.transformH.isEmpty() ? m_project.height() : c.transformH.evaluateAt(rel);
+    const double rotation = (c.rotation.isEmpty() ? 0.0 : c.rotation.evaluateAt(rel)) + c.autoOrientDegrees(rel);
+    const QPointF shift = c.anchorShift(rel, w, h, rotation);
+    return QRectF((c.transformX.isEmpty() ? 0.0 : c.transformX.evaluateAt(rel)) + shift.x(),
+                  (c.transformY.isEmpty() ? 0.0 : c.transformY.evaluateAt(rel)) + shift.y(), w, h);
+}
+
 void AppController::centerSelectionInFrame()
 {
     QList<QPair<int, int>> targets = m_selection;
@@ -11621,14 +11635,26 @@ void AppController::centerSelectionInFrame()
         if (!isValidClipIndex(p.first, p.second))
             continue;
         drift::Clip &c = m_project.tracks()[p.first].clips[p.second];
-        if (c.transformX.keyframes().size() > 1 || c.transformY.keyframes().size() > 1)
+        // Where it is drawn at the playhead (anchor shift included) to the middle of the frame. An
+        // animated position moves as a whole, so the path keeps its shape (the animated ones were
+        // skipped without a word).
+        const QPointF delta = QPointF(m_project.width() / 2.0, m_project.height() / 2.0) - drawnBoxAt(c).center();
+        if (qAbs(delta.x()) < 0.01 && qAbs(delta.y()) < 0.01)
             continue;
-        const double w = c.transformW.isEmpty() ? m_project.width() : c.transformW.evaluateAt(0);
-        const double h = c.transformH.isEmpty() ? m_project.height() : c.transformH.evaluateAt(0);
-        c.transformX = {};
-        c.transformY = {};
-        c.transformX.setKeyframe(0, (m_project.width() - w) / 2.0);
-        c.transformY.setKeyframe(0, (m_project.height() - h) / 2.0);
+        const auto shift = [](drift::KeyframeTrack<double> &t, double d) {
+            if (t.isEmpty()) {
+                t.setKeyframe(0, d);
+                return;
+            }
+            const QList<drift::TimeUs> times = t.keyframes().keys();
+            for (const drift::TimeUs k : times) {
+                drift::Keyframe<double> key = t.keyframes().value(k);
+                key.value += d;
+                t.setKeyframe(k, key);
+            }
+        };
+        shift(c.transformX, delta.x());
+        shift(c.transformY, delta.y());
         changed = true;
     }
     if (!changed)
@@ -12074,24 +12100,32 @@ QString AppController::shapeOutlineInTextBox(const drift::Clip &text, const drif
     }
     if (outline.isEmpty())
         return {};
-    // Both boxes on the canvas, then the outline from the shape's box into the text's.
-    const auto boxOf = [this](const drift::Clip &clip) {
+    // Each box's 0..100 onto the canvas as it is drawn: moved by its anchor shift and turned about
+    // its centre (a turned or re-anchored shape kept the text on its untouched box).
+    const auto boxToCanvas = [this](const drift::Clip &clip, bool *ok) {
         const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
         const auto value = [rel](const drift::KeyframeTrack<double> &t, double fallback) {
             return t.isEmpty() ? fallback : t.evaluateAt(rel);
         };
-        return QRectF(value(clip.transformX, 0.0), value(clip.transformY, 0.0),
-                      value(clip.transformW, m_project.width()), value(clip.transformH, m_project.height()));
+        const double w = value(clip.transformW, m_project.width());
+        const double h = value(clip.transformH, m_project.height());
+        const double rotation = value(clip.rotation, 0.0) + clip.autoOrientDegrees(rel);
+        const QPointF shift = clip.anchorShift(rel, w, h, rotation);
+        *ok = w >= 1.0 && h >= 1.0;
+        QTransform t;
+        t.translate(value(clip.transformX, 0.0) + shift.x() + w / 2.0, value(clip.transformY, 0.0) + shift.y() + h / 2.0);
+        t.rotate(rotation);
+        t.translate(-w / 2.0, -h / 2.0);
+        t.scale(w / 100.0, h / 100.0);
+        return t;
     };
-    const QRectF from = boxOf(shape);
-    const QRectF to = boxOf(text);
-    if (to.width() < 1.0 || to.height() < 1.0)
+    bool shapeOk = false;
+    bool textOk = false;
+    const QTransform from = boxToCanvas(shape, &shapeOk);
+    const QTransform to = boxToCanvas(text, &textOk);
+    if (!shapeOk || !textOk)
         return {};
-    QTransform map;
-    map.scale(100.0 / to.width(), 100.0 / to.height());
-    map.translate(from.x() - to.x(), from.y() - to.y());
-    map.scale(from.width() / 100.0, from.height() / 100.0);
-    return drift::painterPathToSvg(map.map(outline));
+    return drift::painterPathToSvg((from * to.inverted()).map(outline));
 }
 
 bool AppController::useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip)

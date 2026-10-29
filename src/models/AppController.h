@@ -737,6 +737,8 @@ public:
     QString shapeOutlineInTextBox(const drift::Clip &text, const drift::Clip &shape) const;
     // Texts linked to a shape layer («Follow shape») take its outline again after every edit.
     void refreshTextPathsFromShapes();
+    // A clip's box at the playhead where it is drawn (layout plus anchor shift), in project px.
+    QRectF drawnBoxAt(const drift::Clip &clip) const;
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys

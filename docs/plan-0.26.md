@@ -156,6 +156,24 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   alargaba el proyecto); los Estilos de capa no salen en luces ni nulos; el recuadro (`quad`) de la vista previa suma
   el corrimiento del anclaje (`anchorShift`), así el Punto de anclaje y los pines caen donde se suelta en una capa
   girada con el anclaje fuera del centro.
+- **Ronda de Jorge (2026-10-28, noche) y prueba en ventana (build 2f60f77, `pruebas\FlipStudio-0.26-prueba-g`):**
+  - Cronómetro encendido = clave donde cambie (`writeKeyframeValue`): arrastrar en la vista previa a 2,5 s dejó claves
+    nuevas en X e Y sin tocar las demás.
+  - **Separar dimensiones** (menú «…» de Posición, se guarda en `editor/positionLinked`): filas Posición X / Posición Y
+    con su cronómetro; un rombo en X no pone clave en Y. Los tiradores del trazado sueltan X/Y solo durante el
+    arrastre (`setPositionLinkedForDrag`).
+  - Texto sobre un trazado **enlazado** a la capa de forma (`TextStyle::pathShapeId`, `refreshTextPathsFromShapes` en
+    `finishEdit`): agrandar el círculo agrandó el anillo de letras; elegir otra forma en la lista la aplica al momento
+    (lista no probada con clics simulados). Un contorno que termina donde empieza da vueltas (offset 100 = igual a 0).
+    Arreglado en la prueba: el contorno no sumaba el anclaje ni el giro de la forma (`shapeOutlineInTextBox`).
+  - **Rebote** como pelota (botes al 0,6 de la velocidad, gravedad de la caída): primer bote 97 px, segundo 35 px.
+    **Elástico** a 0,12: pasa el piso 23 px y se calma en ~0,8 s.
+  - Motion Tools en ventana: cuadrícula del anclaje, Secuencia (0 / 5 / 10 fotogramas), Unir y Extraer, Convertir en
+    forma (texto), Suavizar / Lineal / Mantener sobre claves elegidas y Clonar (al primer clic). Arreglados en la
+    prueba: **Centrar** se saltaba sin aviso las capas animadas (ahora mueve toda la animación y cuenta el anclaje);
+    **Añadir nulo** empezaba en el cabezal (alargaba el proyecto), quedaba fuera del centro con el anclaje movido y
+    dejaba dos pasos de deshacer.
+  - El recuadro de selección de claves sube sobre las pistas de abajo mientras se dibuja.
 - **Falta antes de publicar:** lo de etapas anteriores sin ventana (editar puntos, reasignación de tiempo,
   Mayús+A/P/R/T/S, invertir/estirar claves: Mayús no llega con mensajes simulados, lo prueba Jorge).
 - **Trampa:** `/tmp/chk.sh` no tenía g++ en el PATH y no comprobaba nada (salida vacía = «bien»): ahora exporta
