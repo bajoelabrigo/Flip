@@ -190,6 +190,18 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   Prueba `EditorStateTest::shapeAsFixedOrStuckMask`. **Probar en ventana:** texto que entra deslizándose por debajo
   de un rectángulo fijo (aparece de la nada) y el mismo con la máscara pegada.
 
+- **Ronda de Jorge (2026-10-29), commit `a3d01`, sin probar en ventana todavía (build 40844216565):**
+  - **Mover un texto animado «lo hacía desaparecer»:** reproducido en ventana (`pruebas\mate-texto	exto-forma.flip`,
+    cabezal en 15f). El tirador recto de la clave del 0 se dibuja a un tercio del trazado, justo bajo el texto, y se
+    llevaba el clic: el texto no se movía y la curva sí (con un arrastre largo el texto salía de la pantalla). Ahora
+    un tirador recto o el rombo de otra clave que caen sobre la capa dejan pasar el clic (`MotionPathOverlay.overLayer`).
+  - **Reglas como AE** (Ver › Reglas, Ctrl+R; `PreviewRulers.qml`, `PreviewController::rulersVisible`): marcas en px
+    del proyecto que siguen el zoom, marca del puntero, guías que se arrastran desde la regla (conjunto propio
+    «Guías de las reglas», `AppController::rulerGuideSet`), se mueven arrastrándolas y se quitan soltándolas sobre
+    la regla o fuera del cuadro; Mayús redondea a 10 px.
+  - **Pista vacía se borra** al borrar su último clip (`deleteSelectedClip`), con sus carriles; queda siempre una
+    pista de video. Y si se borra la forma que hacía de mate, el clip vuelve a verse entero.
+
 ## Dónde vive cada cosa
 - Matriz de los padres: `src/engine/TransformLayer.*` (`transformParentsAt` = capas de transformación por pista;
   ahora también el padre de cada clip). El compositor la aplica en `buildGpuScene` (`applyParent`) y la vista
