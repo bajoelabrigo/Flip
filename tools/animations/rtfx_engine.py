@@ -25,6 +25,12 @@ STEP = 2
 
 
 def bez(points, smooth=1.0):
+    # Every outline turns the same way round: overlapping outlines of one tone add up instead of
+    # cancelling into a hole under the non-zero fill rule (rings are one keyhole outline, so they keep
+    # their hole).
+    area = sum(points[i - 1][0] * points[i][1] - points[i][0] * points[i - 1][1] for i in range(len(points)))
+    if area < 0:
+        points = list(points)[::-1]
     n = len(points)
     ins, outs = [], []
     for i in range(n):
