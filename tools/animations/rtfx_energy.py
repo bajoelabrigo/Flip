@@ -146,7 +146,7 @@ def pieces(kind, d, t, dur, loop, W, H, rnd_seed, k):
         sy = 0.4 if d in ("up", "down") else 1.0
         oy = cy + (S * 0.25 if d == "up" else -S * 0.25 if d == "down" else 0)
         rot = math.pi / 4 if d != "right" else 0
-        r = S * (0.1 + 0.25 * e)
+        r = S * (0.18 + 0.3 * e)
         out.append(lambda wf: ring(cx, oy - (S * 0.2 * e if d == "up" else -S * 0.2 * e if d == "down" else 0), r,
                                    9 * k * fade * wf, sy=sy, rot=rot, sides=sides))
     elif kind == "explosion":
@@ -164,11 +164,29 @@ def pieces(kind, d, t, dur, loop, W, H, rnd_seed, k):
     elif kind == "ray":
         grow = ease_out(u / 0.25)
         thin = 1 - min(1.0, max(0.0, (u - 0.3) / 0.6)) if not loop else 0.75 + 0.25 * math.sin(u * 2 * math.pi * 4)
-        L = S * 0.8 * grow
+        # Each beam its own: thickness, length, a base ring or not, twin beams, a spiral round it.
+        fat = R.uniform(0.6, 2.6)
+        L = S * R.uniform(0.6, 0.9) * grow
         x0, y0 = cx - math.cos(a) * S * 0.4, cy - math.sin(a) * S * 0.4
-        out.append(lambda wf: spindle(x0, y0, x0 + math.cos(a) * L, y0 + math.sin(a) * L, 40 * k * thin * wf, 0.15))
-        out.append(lambda wf: ring(x0, y0, S * 0.1 * grow, 8 * k * thin * wf, sx=1.0 if d in ("up", "down") else 0.35,
-                                   sy=0.35 if d in ("up", "down") else 1.0))
+        nx, ny = -math.sin(a), math.cos(a)
+        twins = R.random() < 0.35
+        bul = R.uniform(0.08, 0.3)
+        offs = (-1, 1) if twins else (0,)
+        for o in offs:
+            gap = 14 * k * fat * o
+            out.append(lambda wf, gap=gap: spindle(x0 + nx * gap, y0 + ny * gap, x0 + nx * gap + math.cos(a) * L,
+                                                   y0 + ny * gap + math.sin(a) * L,
+                                                   40 * k * fat * thin * wf / len(offs), bul))
+        if R.random() < 0.7:
+            out.append(lambda wf: ring(x0, y0, S * 0.1 * grow * fat ** 0.5, 8 * k * thin * wf,
+                                       sx=1.0 if d in ("up", "down") else 0.35, sy=0.35 if d in ("up", "down") else 1.0))
+        if R.random() < 0.4:
+            for j in range(3):
+                v = (u * 2 + j / 3) % 1.0
+                px, py = x0 + math.cos(a) * L * v, y0 + math.sin(a) * L * v
+                out.append(lambda wf, px=px, py=py: ring(px, py, 18 * k * fat, 5 * k * thin * wf,
+                                                         sx=1.0 if d in ("up", "down") else 0.3,
+                                                         sy=0.3 if d in ("up", "down") else 1.0))
     elif kind == "slash":
         radial = d == "radial"
         sw = ease_out(u / 0.3)
@@ -220,19 +238,19 @@ def pieces(kind, d, t, dur, loop, W, H, rnd_seed, k):
                                                                cx + math.cos(ang) * (r0 + ln), cy + math.sin(ang) * (r0 + ln),
                                                                9 * k * wf))
     elif kind == "rays":
-        for i in range(7):
-            off = R.uniform(-0.42, 0.42)
-            ph = (u * 1.5 + R.random()) % 1.0
+        for i in range(14):
+            off = R.uniform(-0.45, 0.45)
+            ph = (u * 1.5 + i / 14 + R.uniform(0, 0.05)) % 1.0
             ln = S * R.uniform(0.3, 0.6)
             p = -0.6 + 1.6 * ph
             if d == "up":
                 x = cx + off * W
                 y1 = H * (1 - p)
-                out.append(lambda wf, x=x, y1=y1, ln=ln: spindle(x, y1 + ln, x, y1, 12 * k * wf))
+                out.append(lambda wf, x=x, y1=y1, ln=ln: spindle(x, y1 + ln, x, y1, 22 * k * wf))
             else:
                 y = cy + off * H
                 x1 = W * p
-                out.append(lambda wf, y=y, x1=x1, ln=ln: spindle(x1 - ln, y, x1, y, 12 * k * wf))
+                out.append(lambda wf, y=y, x1=x1, ln=ln: spindle(x1 - ln, y, x1, y, 22 * k * wf))
     return out
 
 
