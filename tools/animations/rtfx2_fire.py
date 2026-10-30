@@ -13,7 +13,7 @@ import math
 
 import numpy as np
 
-from rtfx_field import Tex, bump, render
+from rtfx_field import HOT, RIM, Tex, bump, render
 from rtfx_engine import new
 
 G = 256  # grid columns; rows follow the canvas aspect
@@ -28,9 +28,11 @@ class Mass:
         self.streak = Tex(seed + 1)
         self.warp = Tex(seed + 2)
 
-    def field(self, lobes, t, flow, origin, reach, die_at, die_len, crown=0.35, life=1.0):
+    def field(self, lobes, t, flow, origin, reach, die_at, die_len, crown=0.35, life=1.0, char=0.0):
         """lobes: (cx, cy, r, sx, sy, ang, heart) in grid cells; heart is the yellow ball's size (0 = none).
-        flow 'radial' or 'up'; the shredding front starts at die_at seconds and takes die_len."""
+        flow 'radial' or 'up'; the shredding front starts at die_at seconds and takes die_len.
+        char (0..1): the mass burns out from the inside instead, the back first, leaving a glowing
+        line along its outer edge and the seams between puffs that thins and breaks up."""
         xx, yy = self.xx, self.yy
         wx = (self.warp.fbm(xx * 0.022, yy * 0.022 + t * 1.5, 2) - 0.5) * 12
         wy = (self.warp.fbm(xx * 0.022 + 40, yy * 0.022 + t * 1.5, 2) - 0.5) * 8
@@ -44,13 +46,23 @@ class Mass:
             if r <= 0.5:
                 continue
             g = bump(X, Y, cx, cy, r, sx, sy, ang)
+            own = None
+            if len(lobe) > 10 and lobe[10] and lobe[7] > 0:
+                # lobe[10]: the hollow cuts this puff only, so it leaves a crescent even over its
+                # neighbours (a hit's dome burning out puff by puff).
+                kk, off = lobe[7], lobe[9]
+                own = bump(X, Y, cx + math.cos(lobe[8]) * r * off * sx, cy + math.sin(lobe[8]) * r * off * sy,
+                           r * (0.3 + 0.9 * kk), sx, sy, ang)
+                own = np.clip((own - 0.25) * 3.0, 0, 1)  # a sharp cut, so the crescent left is the size asked
+                g = g - 1.5 * own
             mx = np.maximum(mx, g)
-            sm += g
+            sm += np.maximum(g, 0)
             if heart > 0.05:
-                mc = np.maximum(mc, bump(X, Y, cx, cy, r * heart, sx, sy, ang))
+                c = bump(X, Y, cx, cy, r * heart, sx, sy, ang)
+                mc = np.maximum(mc, c if own is None else c + 0.14 - 1.3 * own)
             # A hollow opening in the puff as it burns out (lobe[7] 0..1), on the side lobe[8] points
             # to (radians; the back of a puff thrown forward, so it curls into a C).
-            if len(lobe) > 7 and lobe[7] > 0:
+            if len(lobe) > 7 and lobe[7] > 0 and own is None:
                 k = lobe[7]
                 # lobe[9], when given: how far off centre the hollow sits, and it then takes the
                 # puff's own shape, so a flat puff becomes a ring (a coil of a tornado).
@@ -92,7 +104,23 @@ class Mass:
         top = np.clip((oy - yy) / reach, 0, 1) if flow == "radial" else 0.0
         d = d + 0.18 * cauli
         core = dc + 0.5 * cauli + 0.06 - 0.05 * life - 0.9 * life * far - crown * top * min(1.0, t / 0.4)
+        if char > 0:
+            d, core = self.charred(d, core, far, t, char)
         return d, core
+
+    def charred(self, d, core, far, t, ch):
+        # The band kept is the part of the mass whose level is under m: the flat inside of every puff
+        # is above it and goes, the edges and the dips where puffs meet stay. m drops to the rim.
+        n = self.cell.fbm(self.xx * 0.06 + 31, self.yy * 0.06 - t * 0.8, 2) - 0.5
+        b = 0.6 * max(0.0, 1 - ch) ** 1.5 + 0.13 - 0.3 * ch * ch + 0.5 * n - 0.25 * ch * (1 - far)
+        m = RIM + np.maximum(b, -0.3)
+        over = d - m
+        nd = np.where(over > 0, m - 4.0 * over, d)
+        mid = (RIM + m) / 2
+        half = np.maximum((m - RIM) / 2, 0.01)
+        band = HOT + 0.12 - 0.3 * ch - 0.3 * np.abs(d - mid) / half
+        k = min(1.0, ch * 3)
+        return nd, (1 - k) * core + k * np.minimum(core + 0.2, band)
 
 
 # A cartoon explosion is a pyramid of puffs: a heart, three at the base, two above, one on top, small
@@ -358,6 +386,126 @@ def make_ray():
     return render(s, ray(512, 512, 23, size=1.0))
 
 
+# A hit's cloud: a dome of puffs (offsets in units of the puff radius, each puff's size, and whether
+# it makes the outline or sits inside it).
+DOME = [(0.0, -1.55, 1.0, 1), (-0.85, -1.05, 0.9, 1), (0.85, -1.05, 0.9, 1), (-1.3, -0.25, 0.85, 1),
+        (1.3, -0.25, 0.85, 1), (-0.5, -1.55, 0.6, 1), (0.5, -1.5, 0.6, 1), (-1.3, -0.8, 0.6, 1), (1.3, -0.8, 0.6, 1),
+        (-0.45, -0.45, 0.85, 0), (0.45, -0.45, 0.85, 0), (0.0, 0.15, 0.8, 0), (-0.75, 0.35, 0.7, 0),
+        (0.75, 0.35, 0.7, 0)]
+
+
+def dome(cx, cy, R, a, t, e, jit, lift=0.0, sy=1.05, speed=1.0):
+    """A hit's dome of puffs facing direction a (radians), grown to e (0..1), lifted along a by lift.
+    t counts from the hit: each puff burns out from the back (a sharp hollow of its own shape opening
+    behind it, the back ones first), leaving crescents along the front that thin out."""
+    rot = a + math.pi / 2
+    c, s_ = math.cos(rot), math.sin(rot)
+    lobes = []
+    for (px, py, s, rim), (jx, jy, js) in zip(DOME, jit):
+        ox, oy = (px + jx) * R * (0.4 + 0.6 * e), (py + jy) * sy * R * (0.4 + 0.6 * e) - lift
+        x, y = cx + ox * c - oy * s_, cy + ox * s_ + oy * c
+        r = R * s * js * (0.3 + 0.7 * e)
+        hole = max(0.0, (t * speed - 0.17 - 0.1 * (0.4 - py)) / 0.4)
+        heart = 0.97 * max(0.0, 1 - max(0.0, hole - 0.9) * 1.5)
+        lobes.append((x, y, r, 1.0, 0.95, rot, heart, (0.5 if rim else 0.75) + 0.33 * min(1.0, hole) if hole > 0 else 0.0,
+                      a + math.pi + jx, 0.55 - 0.25 * min(1.0, hole), True))
+    return lobes
+
+
+def hit_up(W, H, seed, size=1.0):
+    """A fire hit going up (RTFX's «Hit Up»): a pointed tongue shoots up and swells into a dome of
+    puffs with flame dripping from its underside, then each puff burns out from below (a hollow of its
+    own shape rising inside it, the bottom ones first), leaving glowing crescents along the tops that
+    thin and break into embers."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh * 0.62
+    R = 33 * k
+    jit = [(rnd.uniform(-0.12, 0.12), rnd.uniform(-0.12, 0.12), rnd.uniform(0.9, 1.1)) for _ in DOME]
+    drips = [(-0.85, 0.7), (-0.3, 1.1), (0.25, 0.8), (0.8, 0.6)]
+
+    def field(t):
+        lobes = []
+        # The tongue, the first frames only: pointed, swelling into the dome.
+        tg = max(0.0, 1 - t / 0.12)
+        if tg > 0:
+            lobes.append((cx, cy + 0.7 * R, R * (1.0 + 0.4 * (1 - tg)), 0.3 + 0.5 * (1 - tg), 1.0, 0.0, 0.75))
+        e = 1 - (1 - min(1.0, max(0.0, (t - 0.03) / 0.18))) ** 3
+        if e > 0:
+            lift = 12 * k * t
+            lobes += dome(cx, cy, R, -math.pi / 2, t - 0.03, e, jit, lift)
+            dr = max(0.0, 1 - max(0.0, t - 0.12) / 0.3) * e
+            for px, ln in drips:
+                if dr > 0:
+                    lobes.append((cx + px * R, cy + (0.45 + 0.5 * ln * dr) * R - lift, R * 0.55 * ln * dr, 0.3, 1.0,
+                                  0.0, 0.5 * dr))
+        ch = max(0.0, (t - 0.55) / 0.45)
+        return m.field(lobes, t, "up", (cx, cy + 1.4 * R), 2.6 * R, 9.0, 1.0, crown=0.0, life=0.0, char=ch)
+
+    return field
+
+
+def shot_hit(W, H, seed, angle=0.0, size=1.0):
+    """A fireball shot that hits (RTFX's «Hit Shot»): a ball streaks in trailing a thin tail, bursts
+    into a dome facing the way it flew, and the dome burns out from the back, leaving crescents at the
+    front while the tail breaks into beads."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    ca, sa = math.cos(angle), math.sin(angle)
+    hx, hy = m.gw / 2 + ca * 33 * k, m.gh / 2 + sa * 33 * k
+    R = 13 * k
+    jit = [(rnd.uniform(-0.12, 0.12), rnd.uniform(-0.12, 0.12), rnd.uniform(0.9, 1.1)) for _ in DOME]
+    beads = [(0.25 + 0.17 * i + rnd.uniform(-0.04, 0.04), rnd.uniform(-1, 1)) for i in range(5)]
+    hit = 0.12
+
+    def field(t):
+        lobes = []
+        go = min(1.0, t / hit)
+        bx, by = hx - ca * 80 * k * (1 - go), hy - sa * 80 * k * (1 - go)
+        # The tail: long and thin behind the ball, thinning to beads after the hit.
+        tl = max(0.0, 1 - max(0.0, t - hit) / 0.35)
+        if tl > 0:
+            L = 100 * k * min(1.0, t / 0.1)
+            lobes.append((bx - ca * L * 0.5, by - sa * L * 0.5, L * 0.5, 1.0, (0.05 + 0.12 * max(0.0, 1 - t / hit)) * tl,
+                          angle, 0.6 * tl))
+            if t < hit + 0.08:
+                # The body of flame right behind the ball, swallowed by the burst.
+                fb = max(0.0, 1 - max(0.0, t - hit) / 0.08)
+                lobes.append((bx - ca * 22 * k, by - sa * 22 * k, 20 * k * fb, 1.0, 0.45, angle, 0.8 * fb))
+            for u, j in beads:
+                rr = (3 + 3 * (1 - u)) * k * min(1.0, t / 0.12) * (0.5 + 0.5 * tl)
+                if t > hit:
+                    lobes.append((bx - ca * L * u - sa * j * 3 * k, by - sa * L * u + ca * j * 3 * k, rr * (1.6 - tl),
+                                  1.8, 0.8, angle, 0.6))
+        if t < hit + 0.05:
+            lobes.append((bx, by, (9 + 5 * go) * k, 1.8, 0.9, angle, 0.8))
+        e = 1 - (1 - min(1.0, max(0.0, (t - hit + 0.03) / 0.14))) ** 3
+        if t > hit - 0.03:
+            lobes += dome(hx, hy, R, angle, t - hit, e, jit, -6 * k * (t - hit), sy=1.3, speed=1.5)
+        ch = max(0.0, (t - hit - 0.35) / 0.4)
+        return m.field(lobes, t, angle, (hx - ca * 1.5 * R, hy - sa * 1.5 * R), 3.0 * R, 9.0, 1.0, crown=0.0,
+                       life=0.0, char=ch)
+
+    return field
+
+
+def make_hit_up():
+    s = new("ex-fuego-golpe-arriba", "Fuego · Golpe hacia arriba", "Fire · Hit up", "fuego", 30, 6007,
+            ["fuego", "fire", "golpe", "hit", "impacto"], size=512, thumb=0.2)
+    s.fps = 24
+    return render(s, hit_up(512, 512, 29, size=1.0))
+
+
+def make_shot_hit():
+    s = new("ex-fuego-disparo-golpe-derecha", "Fuego · Disparo con golpe a la derecha", "Fire · Shot hit right", "fuego",
+            26, 6008, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"], size=512,
+            thumb=0.2)
+    s.fps = 24
+    return render(s, shot_hit(512, 512, 31, size=1.4))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -372,4 +520,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit]
