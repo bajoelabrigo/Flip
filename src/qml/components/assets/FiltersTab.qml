@@ -18,7 +18,8 @@ Item {
     // of their own after these; none matches a chip of this tab.
     readonly property string trendsId: "__trends__"
     readonly property string favoritesId: "__favorites__"
-    property string activeCategory: Market.configured ? trendsId : "factory"
+    // Trending needs an account: signed out, the filters that come with the app open first.
+    property string activeCategory: Market.configured && Market.authenticated ? trendsId : "factory"
     property int stockTick: 0
     readonly property var stockChips: {
         void root.stockTick
