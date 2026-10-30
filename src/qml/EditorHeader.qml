@@ -835,7 +835,9 @@ Rectangle {
                 width: implicitWidth
                 height: implicitHeight
                 anchors.verticalCenter: parent.verticalCenter
-                visible: Qt.platform.os !== "android" && (Updates.supported || storeCopy)
+                // Only when there is something to install: an "Update" button sitting there every day
+                // read as "update the project". Checking by hand stays in Help › Check for updates.
+                visible: Qt.platform.os !== "android" && Updates.supported && Updates.updateAvailable
 
                 IconButton {
                     id: updateBtn
@@ -873,9 +875,12 @@ Rectangle {
                 }
             }
 
-            HeaderSeparator {}
+            HeaderSeparator { visible: EditorState.mcp.running }
 
             IconButton {
+                // Agent access is for AI assistants: shown here only while it is on (switched on and
+                // off in Advanced), so the header stays free of a robot nobody asked about.
+                visible: EditorState.mcp.running
                 glyph: Theme.icons.bot
                 variant: "ghost"
                 text: root.showMenuBar ? "" : qsTr("Agent")

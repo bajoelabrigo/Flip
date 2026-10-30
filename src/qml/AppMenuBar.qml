@@ -538,6 +538,11 @@ Row {
             minimumWidth: 260
 
             ThemedMenuItem {
+                // The step-by-step guide with pictures, basic to advanced (getflipstudio.com/guia.html).
+                text: qsTr("User Guide")
+                onTriggered: Qt.openUrlExternally("https://getflipstudio.com/guia.html")
+            }
+            ThemedMenuItem {
                 text: qsTr("Keyboard Shortcuts")
                 shortcutText: "F1"
                 onTriggered: root.win.showAssetsTab("shortcuts")
