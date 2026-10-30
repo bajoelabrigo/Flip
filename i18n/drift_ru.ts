@@ -14886,6 +14886,34 @@ NEXT TIME</source>
         <translation>Сохраняет изображение из предпросмотра. Выберите размер — соотношение сторон сохранится.</translation>
     </message>
     <message>
+        <source>For</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts and YouTube: 1080p, high quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WhatsApp (light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smaller file that sends fast: 720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project&apos;s own size at the highest quality, to keep or edit again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Resolution</source>
         <translation>Разрешение</translation>
     </message>

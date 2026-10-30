@@ -14780,6 +14780,34 @@ NEXT TIME</source>
         <translation>미리보기에서 보이는 내용을 저장합니다. 크기를 선택해도 화면 비율은 그대로 유지됩니다.</translation>
     </message>
     <message>
+        <source>For</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts and YouTube: 1080p, high quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WhatsApp (light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smaller file that sends fast: 720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project&apos;s own size at the highest quality, to keep or edit again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Resolution</source>
         <translation>해상도</translation>
     </message>

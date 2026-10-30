@@ -7081,7 +7081,7 @@
     </message>
     <message>
         <source>Scenes</source>
-        <translation>Escenas</translation>
+        <translation>Detectar cortes</translation>
     </message>
     <message>
         <source>Masks</source>
@@ -7102,7 +7102,7 @@
     <message>
         <source>Stickers</source>
         <comment>category row</comment>
-        <translation type="unfinished"></translation>
+        <translation>Stickers</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -7114,7 +7114,7 @@
     </message>
     <message>
         <source>Audio FX</source>
-        <translation>Efectos de audio</translation>
+        <translation>Efectos de voz</translation>
     </message>
     <message>
         <source>Music</source>
@@ -7247,7 +7247,7 @@
     </message>
     <message>
         <source>Sound effects</source>
-        <translation>Efectos de sonido</translation>
+        <translation>Sonidos</translation>
     </message>
 </context>
 <context>
@@ -14827,6 +14827,34 @@ NEXT TIME</source>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Guarda lo que ves en la vista previa. Elige un tamaño: la forma de la imagen se mantiene.</translation>
+    </message>
+    <message>
+        <source>For</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts and YouTube: 1080p, high quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WhatsApp (light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smaller file that sends fast: 720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project&apos;s own size at the highest quality, to keep or edit again</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resolution</source>
