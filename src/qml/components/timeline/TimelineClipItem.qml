@@ -486,16 +486,11 @@ Item {
             }
             ThemedMenuSeparator { }
             ThemedMenuItem {
+                // One Split, for this clip (and its linked audio). A second entry that cut every
+                // track sat next to it with almost the same name; the toolbar keeps that one.
                 text: qsTr("Split at current time")
                 icon.name: Theme.icons.scissors
-                onTriggered: EditorState.splitAtPlayhead()
-            }
-            ThemedMenuItem {
-                text: qsTr("Split item at current time")
-                icon.name: Theme.icons.scissors
-                // Scoped to just this clip (and its linked partner, e.g. companion
-                // audio) — splitAtPlayhead() above cuts every clip under the playhead
-                // across every track, which is surprising when picked from one clip's menu.
+                shortcutText: "S"
                 visible: EditorState.playheadSeconds > clipItem.clipData.start
                         && EditorState.playheadSeconds < clipItem.clipData.start + clipItem.clipData.duration
                 onTriggered: EditorState.splitClipAt(clipItem.trackIndex, clipItem.clipIndex,
@@ -580,22 +575,26 @@ Item {
             ThemedMenuSeparator { }
             ThemedMenuItem {
                 text: qsTr("Cut")
+                shortcutText: "Ctrl+X"
                 icon.name: Theme.icons.scissors
                 onTriggered: EditorState.cutSelection()
             }
             ThemedMenuItem {
                 text: qsTr("Copy")
+                shortcutText: "Ctrl+C"
                 icon.name: Theme.icons.copy
                 onTriggered: EditorState.copySelection()
             }
             ThemedMenuItem {
                 text: qsTr("Paste attributes…")
+                shortcutText: "Ctrl+Alt+V"
                 icon.name: Theme.icons.clipboardPaste
                 enabled: clipContextMenu.canPasteAttributes
                 onTriggered: EditorState.requestPasteAttributes()
             }
             ThemedMenuItem {
                 text: qsTr("Duplicate")
+                shortcutText: "Ctrl+D"
                 icon.name: Theme.icons.copyPlus
                 onTriggered: EditorState.duplicateSelectedClip()
             }
@@ -607,6 +606,7 @@ Item {
             ThemedMenuSeparator { visible: !clipItem.isTransformClip }
             ThemedMenuItem {
                 text: qsTr("Copy effects")
+                shortcutText: "Ctrl+Alt+C"
                 icon.name: Theme.icons.wand
                 visible: clipItem.hasAnyEffects
                 onTriggered: EditorState.copyClipEffectsToClipboard(clipItem.trackIndex,
@@ -614,6 +614,7 @@ Item {
             }
             ThemedMenuItem {
                 text: qsTr("Paste effects")
+                shortcutText: "Ctrl+Shift+V"
                 icon.name: Theme.icons.clipboardPaste
                 visible: !clipItem.isTransformClip
                 enabled: clipContextMenu.canPasteEffects
@@ -658,105 +659,111 @@ Item {
             ThemedMenuSeparator {
                 visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
             }
+            // The After Effects tools (Parent, mattes, motion blur, auto-orient, time remap) in one
+            // submenu: at the top level they buried Split, Copy and Delete for a beginner.
             ThemedContextMenu {
-                id: parentMenu
-                title: qsTr("Parent")
-                property var options: []
-                property var info: ({})
-                onAboutToShow: {
-                    info = EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex)
-                    options = EditorState.clipParentOptions(clipItem.trackIndex, clipItem.clipIndex)
-                }
-                ThemedMenuItem {
-                    text: qsTr("None")
-                    icon.name: !parentMenu.info.parentId ? Theme.icons.check : ""
-                    onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
-                }
-                Instantiator {
-                    model: parentMenu.options
-                    delegate: ThemedMenuItem {
-                        required property var modelData
-                        text: modelData.name
-                        icon.name: parentMenu.info.parentId === modelData.id ? Theme.icons.check
-                                   : modelData.nullObject ? Theme.icons.locateFixed : ""
-                        onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex,
-                                                               modelData.track, modelData.clip)
-                    }
-                    onObjectAdded: (index, object) => parentMenu.insertItem(index + 1, object)
-                    onObjectRemoved: (index, object) => parentMenu.removeItem(object)
-                }
-            }
-            // A shape (or a text, a photo) as the mask of any other clip (0.26): fixed on screen, so
-            // the clip appears out of nothing as it moves through it, or stuck to that clip.
-            // A Menu cannot hide a submenu, so the two are made only for the kinds that offer them,
-            // and slotted in under Parent.
-            Instantiator {
-                model: ["shape", "text", "image"].indexOf(clipItem.clipData.kind) >= 0 ? [false, true] : []
-                delegate: ThemedContextMenu {
-                    id: matteMenu
-                    required property bool modelData
-                    title: modelData ? qsTr("Use as mask stuck to") : qsTr("Use as fixed mask of")
+                id: advancedMenu
+                title: qsTr("Advanced")
+                ThemedContextMenu {
+                    id: parentMenu
+                    title: qsTr("Parent")
                     property var options: []
-                    onAboutToShow: options = EditorState.matteTargetOptions(clipItem.trackIndex, clipItem.clipIndex)
+                    property var info: ({})
+                    onAboutToShow: {
+                        info = EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex)
+                        options = EditorState.clipParentOptions(clipItem.trackIndex, clipItem.clipIndex)
+                    }
+                    ThemedMenuItem {
+                        text: qsTr("None")
+                        icon.name: !parentMenu.info.parentId ? Theme.icons.check : ""
+                        onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
+                    }
                     Instantiator {
-                        model: matteMenu.options
+                        model: parentMenu.options
                         delegate: ThemedMenuItem {
                             required property var modelData
                             text: modelData.name
-                            onTriggered: EditorState.useAsMatteFor(clipItem.trackIndex, clipItem.clipIndex,
-                                                                   modelData.track, modelData.clip,
-                                                                   matteMenu.modelData)
+                            icon.name: parentMenu.info.parentId === modelData.id ? Theme.icons.check
+                                       : modelData.nullObject ? Theme.icons.locateFixed : ""
+                            onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex,
+                                                                   modelData.track, modelData.clip)
                         }
-                        onObjectAdded: (index, object) => matteMenu.insertItem(index, object)
-                        onObjectRemoved: (index, object) => matteMenu.removeItem(object)
+                        onObjectAdded: (index, object) => parentMenu.insertItem(index + 1, object)
+                        onObjectRemoved: (index, object) => parentMenu.removeItem(object)
                     }
                 }
-                onObjectAdded: (index, object) => {
-                    let at = clipContextMenu.count
-                    for (let i = 0; i < clipContextMenu.count; ++i) {
-                        const item = clipContextMenu.itemAt(i)
-                        if (item && item.subMenu === parentMenu)
-                            at = i + 1
+                // A shape (or a text, a photo) as the mask of any other clip (0.26): fixed on screen, so
+                // the clip appears out of nothing as it moves through it, or stuck to that clip.
+                // A Menu cannot hide a submenu, so the two are made only for the kinds that offer them,
+                // and slotted in under Parent.
+                Instantiator {
+                    model: ["shape", "text", "image"].indexOf(clipItem.clipData.kind) >= 0 ? [false, true] : []
+                    delegate: ThemedContextMenu {
+                        id: matteMenu
+                        required property bool modelData
+                        title: modelData ? qsTr("Use as mask stuck to") : qsTr("Use as fixed mask of")
+                        property var options: []
+                        onAboutToShow: options = EditorState.matteTargetOptions(clipItem.trackIndex, clipItem.clipIndex)
+                        Instantiator {
+                            model: matteMenu.options
+                            delegate: ThemedMenuItem {
+                                required property var modelData
+                                text: modelData.name
+                                onTriggered: EditorState.useAsMatteFor(clipItem.trackIndex, clipItem.clipIndex,
+                                                                       modelData.track, modelData.clip,
+                                                                       matteMenu.modelData)
+                            }
+                            onObjectAdded: (index, object) => matteMenu.insertItem(index, object)
+                            onObjectRemoved: (index, object) => matteMenu.removeItem(object)
+                        }
                     }
-                    clipContextMenu.insertMenu(at + index, object)
+                    onObjectAdded: (index, object) => {
+                        let at = advancedMenu.count
+                        for (let i = 0; i < advancedMenu.count; ++i) {
+                            const item = advancedMenu.itemAt(i)
+                            if (item && item.subMenu === parentMenu)
+                                at = i + 1
+                        }
+                        advancedMenu.insertMenu(at + index, object)
+                    }
+                    onObjectRemoved: (index, object) => advancedMenu.removeMenu(object)
                 }
-                onObjectRemoved: (index, object) => clipContextMenu.removeMenu(object)
-            }
-            ThemedMenuItem {
-                text: qsTr("Motion blur")
-                readonly property bool on: {
-                    void EditorState.tracksRevision
-                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).motionBlur
+                ThemedMenuItem {
+                    text: qsTr("Motion blur")
+                    readonly property bool on: {
+                        void EditorState.tracksRevision
+                        return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).motionBlur
+                    }
+                    icon.name: on ? Theme.icons.check : ""
+                    visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                    height: visible ? implicitHeight : 0
+                    onTriggered: EditorState.setClipMotionBlur(clipItem.trackIndex, clipItem.clipIndex, !on)
                 }
-                icon.name: on ? Theme.icons.check : ""
-                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
-                height: visible ? implicitHeight : 0
-                onTriggered: EditorState.setClipMotionBlur(clipItem.trackIndex, clipItem.clipIndex, !on)
-            }
-            ThemedMenuItem {
-                // After Effects' Auto-Orient: turn to face the way the clip moves (0.26).
-                text: qsTr("Auto-orient along path")
-                readonly property bool on: {
-                    void EditorState.tracksRevision
-                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).autoOrient
+                ThemedMenuItem {
+                    // After Effects' Auto-Orient: turn to face the way the clip moves (0.26).
+                    text: qsTr("Auto-orient along path")
+                    readonly property bool on: {
+                        void EditorState.tracksRevision
+                        return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).autoOrient
+                    }
+                    icon.name: on ? Theme.icons.check : ""
+                    visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                    height: visible ? implicitHeight : 0
+                    onTriggered: EditorState.setClipAutoOrient(clipItem.trackIndex, clipItem.clipIndex, !on)
                 }
-                icon.name: on ? Theme.icons.check : ""
-                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
-                height: visible ? implicitHeight : 0
-                onTriggered: EditorState.setClipAutoOrient(clipItem.trackIndex, clipItem.clipIndex, !on)
-            }
-            ThemedMenuItem {
-                // After Effects' Time Remapping (Ctrl+Alt+T there): a Time remap row whose keys say
-                // which moment of the video shows when (0.26).
-                text: qsTr("Time remapping")
-                readonly property bool on: {
-                    void EditorState.tracksRevision
-                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).timeRemap
+                ThemedMenuItem {
+                    // After Effects' Time Remapping (Ctrl+Alt+T there): a Time remap row whose keys say
+                    // which moment of the video shows when (0.26).
+                    text: qsTr("Time remapping")
+                    readonly property bool on: {
+                        void EditorState.tracksRevision
+                        return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).timeRemap
+                    }
+                    icon.name: on ? Theme.icons.check : ""
+                    visible: clipItem.clipData.kind === "video" || clipItem.clipData.kind === "composite"
+                    height: visible ? implicitHeight : 0
+                    onTriggered: EditorState.setClipTimeRemap(clipItem.trackIndex, clipItem.clipIndex, !on)
                 }
-                icon.name: on ? Theme.icons.check : ""
-                visible: clipItem.clipData.kind === "video" || clipItem.clipData.kind === "composite"
-                height: visible ? implicitHeight : 0
-                onTriggered: EditorState.setClipTimeRemap(clipItem.trackIndex, clipItem.clipIndex, !on)
             }
             ThemedMenuItem {
                 // Premiere-style: the fades become points on the volume line (0.25).
@@ -772,6 +779,7 @@ Item {
             ThemedMenuSeparator { }
             ThemedMenuItem {
                 text: qsTr("Delete")
+                shortcutText: qsTr("Del")
                 icon.name: Theme.icons.trash
                 onTriggered: EditorState.deleteSelectedClip()
             }
