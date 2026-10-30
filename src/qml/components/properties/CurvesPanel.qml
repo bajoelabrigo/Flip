@@ -228,7 +228,7 @@ Item {
                 return Qt.point((x - pad) / w, hi - (y - pad) / h * (hi - lo))
             }
             // The fixed points: the keys (and the peak in 4-key mode).
-            function anchors() {
+            function keyPoints() {
                 return root.mode === "four" ? [Qt.point(0, 0), Qt.point(0.5, 1), Qt.point(1, 0)]
                                             : [Qt.point(0, 0), Qt.point(1, 1)]
             }
@@ -254,7 +254,7 @@ Item {
                         const y = P(Qt.point(0, i / 4)).y
                         ctx.beginPath(); ctx.moveTo(frame.pad, y); ctx.lineTo(width - frame.pad, y); ctx.stroke()
                     }
-                    const a = frame.anchors()
+                    const a = frame.keyPoints()
                     const hs = root.handles
                     const segs = root.mode === "four" ? [[a[0], hs[0], hs[1], a[1]], [a[1], hs[2], hs[3], a[2]]]
                                                       : [[a[0], hs[0], hs[1], a[1]]]

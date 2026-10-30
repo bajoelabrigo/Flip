@@ -802,6 +802,14 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 
 **En QML, una propiedad no puede llamarse `on` + Mayúscula** (`onPage`, `onLine`…): QML la toma como manejador de señal y su enlace no se recalcula, sin dar ningún error (0.26: las Preferencias salían en blanco por `onPage`). Usar otro nombre (`pageMatches`). Para probar QML suelto: `.qtmingw\6.10.3\mingw_64\bin\qml.exe` con `QT_QPA_PLATFORM=offscreen` y `console.log` (los tipos de Drift no cargan: simularlos).
 
+**En QML, una función no puede llamarse como una propiedad del tipo** (`anchors`, `width`, `x`, `data`…): la propiedad
+gana y la llamada da «Property 'anchors' … is not a function» sin romper nada más (0.26: el gráfico de Curvas salía
+vacío). Usar otro nombre (`keyPoints`).
+
+**Pruebas con clics simulados y los bordes de los paneles:** un `SplitView` arranca el arrastre en el borde que tiene
+el puntero **real** encima, aunque el clic simulado sea en otro lado. Si el ratón de Jorge quedó sobre un borde, los
+clics de prueba mueven los paneles (y el espacio de trabajo queda «editado»): no es un fallo de la app.
+
 **Un manejador de señal en un objeto que no tiene esa señal tumba la app al arrancar, y nada lo avisa antes.** En la
 0.26 `472fe` puso `onEntered` en las tarjetas de Medios (que son el origen del arrastre, no un `DropArea`): el CI
 compiló y pasó las pruebas, `qmllint` no dijo nada, y el portable se cerraba al abrir («Cannot assign to non-existent

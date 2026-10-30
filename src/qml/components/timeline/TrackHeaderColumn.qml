@@ -1625,8 +1625,9 @@ Item {
                                             prop: modelData.prop || ""
                                             value: modelData.value !== undefined ? modelData.value
                                                                                  : keyLine.valueOf(modelData.prop)
-                                            toDisplay: modelData.toDisplay
-                                            fromDisplay: modelData.fromDisplay
+                                            // The chain between the two Scale values has none.
+                                            toDisplay: modelData.toDisplay || ((v) => v)
+                                            fromDisplay: modelData.fromDisplay || ((d) => d)
                                             displayMin: modelData.min
                                             displayMax: modelData.max
                                             step: modelData.step
