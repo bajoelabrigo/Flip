@@ -106,8 +106,14 @@ QVariantList TtsController::languageOptions() const
 {
     QVariantList out;
     for (const QString &code : drift::ChatterboxTts::supportedLanguages()) {
-        out.append(QVariantMap{{QStringLiteral("code"), code},
-                               {QStringLiteral("label"), QLocale::languageToString(QLocale(code).language())}});
+        // Each language in its own name (español, français…), as the language chooser shows them:
+        // languageToString is English only, so a Spanish interface listed "Spanish".
+        QString label = QLocale(code).nativeLanguageName();
+        if (label.isEmpty())
+            label = QLocale::languageToString(QLocale(code).language());
+        if (!label.isEmpty())
+            label[0] = label.at(0).toUpper();
+        out.append(QVariantMap{{QStringLiteral("code"), code}, {QStringLiteral("label"), label}});
     }
     return out;
 }
@@ -230,14 +236,14 @@ void TtsController::generate(const QString &text, const QString &voiceId, const 
                 return ctx.fail(QStringLiteral("internal"), err);
             if (ctx.cancelled())
                 return;
-            ctx.progress(0.02, QStringLiteral("Preparing voice…"));
+            ctx.progress(0.02, tr("Preparing voice…"));
             const auto voice = m_voices->conditioning(voiceId, &err);
             if (!voice)
                 return ctx.fail(QStringLiteral("internal"), err);
             const std::vector<float> pcm = m_engine.synthesize(
                 script, lang, *voice, static_cast<float>(exaggeration),
                 [&ctx](double p) {
-                    ctx.progress(0.05 + 0.9 * p, QStringLiteral("Generating speech…"));
+                    ctx.progress(0.05 + 0.9 * p, tr("Generating speech…"));
                     return !ctx.cancelled();
                 },
                 &err);
@@ -318,7 +324,7 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
                 return ctx.fail(QStringLiteral("internal"), err);
             if (ctx.cancelled())
                 return;
-            ctx.progress(0.02, QStringLiteral("Preparing voice…"));
+            ctx.progress(0.02, tr("Preparing voice…"));
             const auto voice = m_voices->conditioning(voiceId, &err);
             if (!voice)
                 return ctx.fail(QStringLiteral("internal"), err);
