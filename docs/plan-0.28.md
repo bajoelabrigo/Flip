@@ -111,7 +111,8 @@ Si otro asistente sigue: `[x]` hecho, `[~]` a medias, `[ ]` falta.
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
 
 ## Decisiones (Jorge)
-- [ ] Nombres en la columna derecha: «Borde» y «Posición y giro de la parte» (claros) con el nombre de AE en la ayuda,
-      y en la línea de tiempo los de AE («Trazo», «Transformar: …»). ¿O AE en las dos?
+- [x] Nombres (Jorge, 2026-10-30: opción A): columna derecha con nombres claros (Forma, Relleno, **Borde**, **Posición y
+      giro de la parte**, Efectos de trazado) y el nombre de AE en la ayuda (?); línea de tiempo con los de AE
+      (Trazado de elipse, Relleno, Trazo, Transformar: Elipse 1).
 - [x] Dibujar con una capa de forma elegida: **se suma a esa capa** (como AE), con el aviso «Añadido a … · Hacer capa
       nueva» (Jorge, 2026-10-30).
