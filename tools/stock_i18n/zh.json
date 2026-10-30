@@ -34332,6 +34332,86 @@
     "信息"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "带计数器的频道栏",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "计数器",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "大图标：点赞、订阅、铃铛",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "图标",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "点赞与订阅胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "胶囊",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "铃铛与订阅胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "铃铛",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "从头像伸出的胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "照片",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "关注我的社交账号",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "社交媒体",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "带订阅按钮的频道卡片",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "卡片",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "小号订阅卡片",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "极简",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "横条文字",
    "tags": [

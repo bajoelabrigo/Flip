@@ -33941,6 +33941,86 @@
     "情報"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "カウンター付きチャンネルバー",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "カウンター",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "大きなアイコン：高評価・登録・ベル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "アイコン",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "高評価と登録のピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ピル",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "ベルと登録のピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ベル",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "写真から伸びるピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "写真",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "SNSでフォローしてね",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "sns",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "登録ボタン付きチャンネルカード",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "カード",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "小さな登録カード",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ミニマル",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "バー上のワード",
    "tags": [

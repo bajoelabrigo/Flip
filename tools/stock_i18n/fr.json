@@ -35547,6 +35547,86 @@
     "dernière minute"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Barre de chaîne avec compteur",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "compteur",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Grandes icônes : j'aime, abonnement, cloche",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "icônes",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pilule j'aime et abonnement",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "pilule",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pilule cloche et abonnement",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "cloche",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pilule qui s'étire depuis la photo",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "photo",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Suivez-moi sur mes réseaux",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "réseaux sociaux",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Carte de chaîne avec abonnement",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "carte",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Petite carte d'abonnement",
+   "tags": [
+    "abonnement",
+    "bouton",
+    "clic",
+    "minimaliste",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Mots sur barres",
    "tags": [

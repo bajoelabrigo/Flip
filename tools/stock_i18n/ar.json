@@ -33571,6 +33571,86 @@
     "معلومات"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "شريط القناة مع عدّاد",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "عدّاد",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "أيقونات كبيرة: إعجاب واشتراك وجرس",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "أيقونات",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "كبسولة إعجاب واشتراك",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "كبسولة",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "كبسولة الجرس والاشتراك",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "جرس",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "كبسولة تمتد من الصورة",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "صورة",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "تابعني على حساباتي",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "تواصل اجتماعي",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "بطاقة القناة مع زر الاشتراك",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "بطاقة",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "بطاقة اشتراك صغيرة",
+   "tags": [
+    "اشتراك",
+    "زر",
+    "نقرة",
+    "بسيط",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "كلمات على أشرطة",
    "tags": [

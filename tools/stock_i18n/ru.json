@@ -34215,6 +34215,86 @@
     "информация"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Панель канала со счётчиком",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "счётчик",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Большие значки: лайк, подписка, колокольчик",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "значки",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Плашка: лайк и подписка",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "плашка",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Плашка с колокольчиком и подпиской",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "колокольчик",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Плашка, выезжающая из фото",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "фото",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Подписывайтесь на мои соцсети",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "соцсети",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Карточка канала с подпиской",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "карточка",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Маленькая карточка подписки",
+   "tags": [
+    "подписка",
+    "кнопка",
+    "клик",
+    "минимализм",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Слова на полосах",
    "tags": [

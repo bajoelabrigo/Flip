@@ -33844,6 +33844,86 @@
     "තොරතුරු"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "ගණකය සහිත නාලිකා තීරුව",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "ගණකය",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "විශාල අයිකන: කැමතියි, දායක වන්න, සීනුව",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "අයිකන",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "කැමතියි සහ දායක වීමේ කැප්සියුලය",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "කැප්සියුලය",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "සීනුව සහ දායක වීමේ කැප්සියුලය",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "සීනුව",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "ඡායාරූපයෙන් දිගු වන කැප්සියුලය",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "ඡායාරූපය",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "මගේ සමාජ මාධ්‍යවල මා අනුගමනය කරන්න",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "සමාජ මාධ්‍ය",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "දායක වීමේ බොත්තම සහිත නාලිකා කාඩ්පත",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "කාඩ්පත",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "කුඩා දායක වීමේ කාඩ්පත",
+   "tags": [
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "සරල",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "තීරු මත වචන",
    "tags": [

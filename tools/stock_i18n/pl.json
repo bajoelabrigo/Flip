@@ -34701,6 +34701,86 @@
     "informacje"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Pasek kanału z licznikiem",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "licznik",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Duże ikony: lubię to, subskrybuj, dzwonek",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "ikony",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pigułka: lubię to i subskrybuj",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "pigułka",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pigułka z dzwonkiem i subskrypcją",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "dzwonek",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pigułka wysuwana ze zdjęcia",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "zdjęcie",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Obserwuj mnie w sieciach",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "media społecznościowe",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Karta kanału z subskrypcją",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "karta",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Mała karta subskrypcji",
+   "tags": [
+    "subskrybuj",
+    "przycisk",
+    "kliknięcie",
+    "minimalizm",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Słowa na paskach",
    "tags": [

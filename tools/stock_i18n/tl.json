@@ -34409,6 +34409,86 @@
     "impormasyon"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Bar ng channel na may bilang",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "bilang",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Malalaking icon: like, subscribe, kampana",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "icon",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pill na may like at subscribe",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "pill",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pill na may kampana at subscribe",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "kampana",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pill na humahaba mula sa larawan",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "larawan",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "I-follow ako sa aking socials",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "social media",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Card ng channel na may subscribe",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "card",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Maliit na card ng subscribe",
+   "tags": [
+    "subscribe",
+    "pindutan",
+    "pindot",
+    "simple",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Mga salita sa mga bar",
    "tags": [

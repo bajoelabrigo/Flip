@@ -34892,6 +34892,86 @@
     "informação"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Barra do canal com contador",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "contador",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Ícones grandes: curtir, inscrever-se, sino",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "ícones",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pílula curtir e inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "pílula",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pílula com sino e inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "sino",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pílula que se estica da foto",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "foto",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Me siga nas redes",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "redes sociais",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Cartão do canal com inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "cartão",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Cartão pequeno de inscrição",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "minimalista",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Palavras em barras",
    "tags": [

@@ -33732,6 +33732,86 @@
     "thông tin"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Thanh kênh có bộ đếm",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "bộ đếm",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Biểu tượng lớn: thích, đăng ký, chuông",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "biểu tượng",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Viên thuốc thích và đăng ký",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "viên thuốc",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Viên thuốc chuông và đăng ký",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "chuông",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Viên thuốc kéo dài từ ảnh",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "ảnh",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Theo dõi tôi trên mạng xã hội",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "mạng xã hội",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Thẻ kênh có nút đăng ký",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "thẻ",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Thẻ đăng ký nhỏ",
+   "tags": [
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "tối giản",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Chữ trên thanh",
    "tags": [

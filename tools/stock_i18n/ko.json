@@ -33351,6 +33351,86 @@
     "정보"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "카운터가 있는 채널 바",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "카운터",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "큰 아이콘: 좋아요, 구독, 알림 벨",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "아이콘",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "좋아요와 구독 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "알약",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "알림 벨과 구독 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "알림 벨",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "사진에서 늘어나는 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "사진",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "내 SNS를 팔로우하세요",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "sns",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "구독 버튼이 있는 채널 카드",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "카드",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "작은 구독 카드",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "미니멀",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "바 위 단어",
    "tags": [

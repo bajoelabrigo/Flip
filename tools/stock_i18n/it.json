@@ -35850,6 +35850,86 @@
     "informazioni"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Barra del canale con contatore",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "contatore",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Icone grandi: mi piace, iscriviti, campanella",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "icone",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pillola mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "pillola",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pillola campanella e iscriviti",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pillola che si allunga dalla foto",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "foto",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Seguimi sui miei social",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "social",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Scheda del canale con iscriviti",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "scheda",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Scheda piccola iscriviti",
+   "tags": [
+    "iscriviti",
+    "pulsante",
+    "clic",
+    "minimal",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Parole su barre",
    "tags": [

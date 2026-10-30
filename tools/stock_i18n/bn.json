@@ -34231,6 +34231,86 @@
     "তথ্য"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "কাউন্টারসহ চ্যানেল বার",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "কাউন্টার",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "বড় আইকন: লাইক, সাবস্ক্রাইব, ঘণ্টা",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "আইকন",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "লাইক ও সাবস্ক্রাইব পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "পিল",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "ঘণ্টা ও সাবস্ক্রাইব পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ঘণ্টা",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "ছবি থেকে লম্বা হওয়া পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ছবি",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "আমার সোশ্যালে ফলো করুন",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "সোশ্যাল মিডিয়া",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "সাবস্ক্রাইবসহ চ্যানেল কার্ড",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "কার্ড",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "ছোট সাবস্ক্রাইব কার্ড",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "সাধারণ",
+    "youtube"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "বারের ওপর শব্দ",
    "tags": [
