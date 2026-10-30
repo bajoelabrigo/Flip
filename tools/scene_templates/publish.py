@@ -43,6 +43,7 @@ CATEGORY_NAMES = {
     "thumbnail": {"es": "Miniaturas de YouTube", "en": "Video thumbnails"},
     "counter": {"es": "Contadores", "en": "Counters"},
     "youtuber": {"es": "Estilo youtuber", "en": "YouTuber style"},
+    "ytkit": {"es": "Kit de YouTube", "en": "YouTube Kit"},
 }
 
 

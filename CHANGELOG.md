@@ -3,6 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.27.0 — Más fácil para empezar, y una revisión a fondo
+
+- Ejemplos en el inicio (`ProjectFileController::sampleExamples`, `ejemplos.json` en el VPS, `tools/ejemplos`) con
+  guía de 3 pasos; modo Simple/Pro (`PreferencesController::proMode`, `UiModeDialog.qml`); exportar sin cuenta hasta
+  1080p (`ExportDialog.needsAccount`, `SignInRequiredDialog` «hd»); destinos de exportación y «Mostrar en la carpeta».
+- Espacio de trabajo que sigue a la orientación del video; formato Automático sin preguntar; línea de tiempo vacía con
+  «Importar medios»; nombres bajo los íconos de propiedades; menú de clic derecho con «Avanzado»; Dividir solo el
+  clip elegido; Ayuda › Guía de uso; sin diseño móvil en el escritorio; nombres más claros en español.
+- Auditoría (`docs/plan-0.27.md`): normalizar LUFS, clips apagados audibles, audio con reasignación y transición,
+  caché de máscaras en GPU, límite de tiempo de las expresiones, cortes con reasignación y máscaras extra, candado de
+  pistas, pasos de deshacer, mates mutuos, versión de proyecto 15, hash del instalador antes de ejecutarlo, candado
+  entre procesos al refrescar la sesión, descargas de extras con tiempo límite, voz Chatterbox que perdía la última
+  frase.
+
 ## 0.26.0 — Herramientas de After Effects
 
 - Capas: Primario y látigo (`Clip::parentId/parentRest`, `engine/TransformLayer`), objeto nulo, desenfoque de
