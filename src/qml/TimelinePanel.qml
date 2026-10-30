@@ -3289,6 +3289,27 @@ PanelFrame {
                         }
                     }
                 }
+                // The selection box carried on across the curve editor too, cut to the editor's
+                // band so the part over the tracks is not drawn twice.
+                Item {
+                    visible: root.marqueeActive && curveGraph.item !== null
+                    x: curveGraph.x
+                    y: curveGraph.y
+                    width: curveGraph.width
+                    height: curveGraph.item ? curveGraph.item.height : 0
+                    clip: true
+                    Rectangle {
+                        visible: root.marqueeWidth > 2 || root.marqueeHeight > 2
+                        x: root.marqueeLeft - flick.contentX
+                        y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight + root.marqueeTop
+                           - flick.contentY - flick.headerHeight - curveGraph.y
+                        width: root.marqueeWidth
+                        height: root.marqueeHeight
+                        color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+                        border.width: Theme.borderWidth
+                        border.color: Theme.primary
+                    }
+                }
                 // The timeline's playhead carried on across the curve editor, wherever it is: the
                 // editor is drawn over the tracks and hid it past its clip (0.26, Jorge).
                 Rectangle {
