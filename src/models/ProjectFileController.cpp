@@ -1812,8 +1812,14 @@ QString writeRecoveryTemp(const drift::Project &project, QJsonObject session, co
     QFile file(tmpPath);
     if (!file.open(QIODevice::WriteOnly))
         return {};
-    file.write(QJsonDocument(root).toJson(QJsonDocument::Compact));
+    const QByteArray data = QJsonDocument(root).toJson(QJsonDocument::Compact);
+    // A short write (disk full) must not replace the last good snapshot with a truncated one.
+    const bool written = file.write(data) == data.size() && file.flush();
     file.close();
+    if (!written) {
+        QFile::remove(tmpPath);
+        return {};
+    }
     return tmpPath;
 }
 
@@ -1822,9 +1828,17 @@ void promoteRecoveryTemp(const QString &tmpPath, const QString &path)
     // Never remove the current file for a temp that is not there to replace it.
     if (tmpPath.isEmpty() || !QFile::exists(tmpPath))
         return;
-    if (QFile::exists(path))
-        QFile::remove(path);
-    QFile::rename(tmpPath, path);
+    // The old snapshot steps aside instead of being deleted first, so a crash or a failed rename in
+    // between still leaves one recovery file to offer.
+    const QString previous = path + QStringLiteral(".prev");
+    QFile::remove(previous);
+    const bool hadOld = QFile::exists(path) && QFile::rename(path, previous);
+    if (QFile::rename(tmpPath, path)) {
+        if (hadOld)
+            QFile::remove(previous);
+    } else if (hadOld) {
+        QFile::rename(previous, path);
+    }
 }
 
 } // namespace
