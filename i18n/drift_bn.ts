@@ -380,11 +380,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6085,10 +6085,6 @@
         <translation>এক্সপোর্ট ইতিমধ্যেই চলছে</translation>
     </message>
     <message>
-        <source>Export complete</source>
-        <translation type="unfinished">এক্সপোর্ট সম্পূর্ণ</translation>
-    </message>
-    <message>
         <source>Close gap</source>
         <translation>ফাঁক বন্ধ করুন</translation>
     </message>
@@ -6724,6 +6720,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation type="unfinished">প্লে/পজ করুন</translation>
     </message>
@@ -6802,10 +6802,6 @@
     <message>
         <source>Language…</source>
         <translation type="unfinished">ভাষা…</translation>
-    </message>
-    <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -13939,10 +13935,6 @@ NEXT TIME</source>
         <translation>ভাষা…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>ডিবাগ তথ্য…</translation>
     </message>
@@ -13977,6 +13969,22 @@ NEXT TIME</source>
     <message>
         <source>Agent access is on</source>
         <translation>এজেন্ট অ্যাক্সেস চালু আছে</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My account</source>
@@ -14870,6 +14878,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Resolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16906,7 +16922,23 @@ NEXT TIME</source>
         <translation type="unfinished">টগল গাইড</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
+        <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Got it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20536,6 +20568,26 @@ If playback stutters, try another.</source>
         <translation>প্রজেক্ট লোড হয়েছে। এতে এমন ফন্ট আছে যা এই কম্পিউটারে নেই: %1। সেগুলো ইনস্টল না করা পর্যন্ত টেক্সট অন্য ফন্টে দেখাবে (ফন্ট তালিকায় ফন্ট ইমপোর্ট, বা Extras-এর ফন্ট প্যাক)।</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation type="unfinished">কোনো পুনরুদ্ধার ফাইল পাওয়া যায়নি</translation>
     </message>
@@ -20770,6 +20822,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation type="unfinished">এর বৈশিষ্ট্যগুলি সম্পাদনা করতে টাইমলাইনে একটি ক্লিপ ক্লিক করুন।</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -23948,6 +24008,10 @@ If playback stutters, try another.</source>
         <translation>এই কণ্ঠ ব্যবহার করতে সাইন ইন করুন</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23958,6 +24022,10 @@ If playback stutters, try another.</source>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>আগুনের চিহ্নওয়ালা কণ্ঠগুলো সাইন ইন করা ব্যবহারকারীদের জন্য। শুধু আপনার Google অ্যাকাউন্ট দিয়ে সাইন ইন করুন: এক মুহূর্ত লাগে, একবারই করতে হয়, আর আপনার প্রজেক্ট যেমন আছে তেমনই থাকে।</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24791,6 +24859,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Open project</source>
         <translation type="unfinished">ওপেন প্রজেক্ট</translation>
+    </message>
+    <message>
+        <source>Try an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -30909,6 +30989,33 @@ If playback stutters, try another.</source>
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -379,12 +379,12 @@
         <translation>Flip Studio에 오신 것을 환영합니다</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation>Google 계정으로 로그인하면 편집기 안에서 바로 Pexels와 Pixabay의 무료 사진과 동영상을 검색할 수 있습니다. 계정에는 템플릿과 스토어도 저장됩니다.</translation>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation>모두 무료입니다. 계정 없이도 평소처럼 편집할 수 있으며, 내보내기와 Stock을 이용할 때 로그인을 요청합니다.</translation>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5965,10 +5965,6 @@
         <translation>내보내기가 이미 진행 중입니다</translation>
     </message>
     <message>
-        <source>Export complete</source>
-        <translation>내보내기 완료</translation>
-    </message>
-    <message>
         <source>Close gap</source>
         <translation>간격 닫기</translation>
     </message>
@@ -6688,6 +6684,10 @@
         <translation>보기</translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation>재생 / 일시 정지</translation>
     </message>
@@ -6766,10 +6766,6 @@
     <message>
         <source>Language…</source>
         <translation>언어…</translation>
-    </message>
-    <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>모바일 레이아웃으로 전환…</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -13888,10 +13884,6 @@ NEXT TIME</source>
         <translation>언어…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation>모바일 레이아웃으로 전환…</translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>디버그 정보…</translation>
     </message>
@@ -13922,6 +13914,22 @@ NEXT TIME</source>
     <message>
         <source>Agent access is on</source>
         <translation>에이전트 접근이 켜져 있습니다</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My account</source>
@@ -14822,6 +14830,14 @@ NEXT TIME</source>
     <message>
         <source>Resolution</source>
         <translation>해상도</translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -16854,8 +16870,24 @@ NEXT TIME</source>
         <translation>안내선 표시/숨기기</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>모바일 레이아웃으로 전환…</translation>
+        <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Got it</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -20459,6 +20491,26 @@ If playback stutters, try another.</source>
         <translation>프로젝트를 불러왔습니다. 이 컴퓨터에 없는 글꼴을 사용합니다: %1. 설치할 때까지 다른 글꼴로 표시됩니다(글꼴 목록의 글꼴 가져오기 또는 추가 기능의 글꼴 팩).</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation>복구 파일을 찾을 수 없습니다</translation>
     </message>
@@ -20697,6 +20749,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>타임라인에서 클립을 클릭하여 속성을 편집하세요</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -23868,6 +23928,10 @@ If playback stutters, try another.</source>
         <translation>이 목소리를 사용하려면 로그인하세요</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio는 무료입니다. 내보내기, Stock, 모든 템플릿에 비용이 들지 않습니다.</translation>
     </message>
@@ -23878,6 +23942,10 @@ If playback stutters, try another.</source>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>불꽃 표시가 있는 목소리는 로그인한 사용자용입니다. Google 계정으로 로그인하기만 하면 됩니다. 잠깐이면 되고, 한 번만 하면 되며, 프로젝트는 그대로 유지됩니다.</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24724,6 +24792,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Open project</source>
         <translation>프로젝트 열기</translation>
+    </message>
+    <message>
+        <source>Try an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -30811,6 +30891,33 @@ If playback stutters, try another.</source>
         <translation>
             <numerusform>; %n개가 자막보다 길어졌습니다</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

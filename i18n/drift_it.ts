@@ -380,12 +380,12 @@
         <translation>Benvenuto in Flip Studio</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation>Accedi con il tuo account Google per cercare foto e video gratuiti da Pexels e Pixabay senza uscire dall&apos;editor. Il tuo account conserverà anche i tuoi modelli e il tuo negozio.</translation>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation>È tutto gratis. Puoi continuare senza account e modificare come sempre; per esportare e usare Stock ti chiederemo di accedere.</translation>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5985,10 +5985,6 @@
         <translation>Esportazione già in corso</translation>
     </message>
     <message>
-        <source>Export complete</source>
-        <translation>Esportazione completata</translation>
-    </message>
-    <message>
         <source>Close gap</source>
         <translation>Chiudi spazio</translation>
     </message>
@@ -6724,6 +6720,10 @@
         <translation>Visualizza</translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation>Riproduci / Pausa</translation>
     </message>
@@ -6802,10 +6802,6 @@
     <message>
         <source>Language…</source>
         <translation>Lingua…</translation>
-    </message>
-    <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Passa al layout mobile…</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -13939,10 +13935,6 @@ LA PROSSIMA</translation>
         <translation>Lingua…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation>Passa al layout mobile…</translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>Informazioni di debug…</translation>
     </message>
@@ -13973,6 +13965,22 @@ LA PROSSIMA</translation>
     <message>
         <source>Agent access is on</source>
         <translation>Accesso agente attivo</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My account</source>
@@ -14875,6 +14883,14 @@ LA PROSSIMA</translation>
     <message>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -16910,8 +16926,24 @@ LA PROSSIMA</translation>
         <translation>Mostra o nascondi guide</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Passa al layout mobile…</translation>
+        <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Got it</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -20536,6 +20568,26 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Progetto caricato. Usa caratteri che questo computer non ha: %1. I testi appaiono con un altro carattere finché non li installi (Importa carattere nell’elenco, o i pacchetti di caratteri negli Extra).</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation>Nessun file di ripristino trovato</translation>
     </message>
@@ -20774,6 +20826,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Fai clic su una clip sulla timeline per modificarne le proprietà</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -23952,6 +24012,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Accedi per usare questa voce</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio è gratis: esportare, Stock e tutti i modelli non costano nulla.</translation>
     </message>
@@ -23962,6 +24026,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Le voci con la fiamma sono per chi ha effettuato l&apos;accesso. Basta accedere con il tuo account Google: richiede un attimo, si fa una volta sola e il tuo progetto resta com&apos;è.</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24809,6 +24877,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Open project</source>
         <translation>Apri progetto</translation>
+    </message>
+    <message>
+        <source>Try an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -30913,6 +30993,33 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
             <numerusform>; %n è durata più del suo sottotitolo</numerusform>
             <numerusform>; %n sono durate più dei loro sottotitoli</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

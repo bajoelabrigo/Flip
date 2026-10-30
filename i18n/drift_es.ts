@@ -380,12 +380,12 @@
         <translation>Te damos la bienvenida a Flip Studio</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation>Inicia sesión con tu cuenta de Google para buscar fotos y videos gratis de Pexels y Pixabay sin salir del editor. Tu cuenta también guardará tus plantillas y tu tienda.</translation>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
+        <translation>Inicia sesión con tu cuenta de Google para usar Stock (plantillas, música, efectos y fotos y videos gratis), exportar en 2K, 4K y 8K y guardar lo que descargues.</translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation>Todo es gratis. Puedes seguir sin cuenta y editar como siempre; para exportar y usar Stock te pediremos iniciar sesión.</translation>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
+        <translation>Todo es gratis. Sin cuenta puedes editar y exportar hasta 1080p como siempre.</translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -5985,10 +5985,6 @@
         <translation>La exportación ya está en curso</translation>
     </message>
     <message>
-        <source>Export complete</source>
-        <translation>Exportación completada</translation>
-    </message>
-    <message>
         <source>Close gap</source>
         <translation>Cerrar hueco</translation>
     </message>
@@ -6724,6 +6720,10 @@
         <translation>Ver</translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation>Modo Pro (herramientas de After Effects)</translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation>Reproducir / Pausar</translation>
     </message>
@@ -6802,10 +6802,6 @@
     <message>
         <source>Language…</source>
         <translation>Idioma…</translation>
-    </message>
-    <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Cambiar al diseño móvil…</translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -13939,10 +13935,6 @@ LA PRÓXIMA</translation>
         <translation>Idioma…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation>Cambiar al diseño móvil…</translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>Información de depuración…</translation>
     </message>
@@ -13973,6 +13965,22 @@ LA PRÓXIMA</translation>
     <message>
         <source>Agent access is on</source>
         <translation>El acceso de agente está activado</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation>Simple</translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation>Lo esencial, como CapCut: las herramientas de After Effects quedan ocultas</translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation>Pro</translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation>Todo, con las herramientas de After Effects (pluma, Motion Tools, curvas, emparentar…)</translation>
     </message>
     <message>
         <source>My account</source>
@@ -14875,6 +14883,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Resolution</source>
         <translation>Resolución</translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation>%1 · con cuenta</translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
+        <translation>Inicia sesión (gratis) para exportar en %1×%2</translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -16910,8 +16926,24 @@ LA PRÓXIMA</translation>
         <translation>Mostrar u ocultar guías</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Cambiar al diseño móvil…</translation>
+        <source>Your example is ready. Try this:</source>
+        <translation>Tu ejemplo está listo. Prueba esto:</translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation>Haz clic en un clip de la línea de tiempo para cambiarlo a la derecha.</translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation>Mueve el cabezal y pulsa S para dividir un clip.</translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation>Pulsa Exportar (arriba a la derecha) para guardar tu video.</translation>
+    </message>
+    <message>
+        <source>Got it</source>
+        <translation>Entendido</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -20536,6 +20568,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Proyecto cargado. Usa fuentes que este equipo no tiene: %1. Sus textos se ven con otra fuente hasta que las instales («Importar fuente» en la lista de fuentes, o los paquetes de Fuentes en Extras).</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation>Mi primer video</translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation>No se pudo abrir el ejemplo</translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation>Descargando el ejemplo…</translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation>No se pudo descargar el ejemplo. La primera vez necesita conexión a internet.</translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation>El ejemplo no se descargó bien. Inténtalo de nuevo.</translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation>No se encontró ningún archivo de recuperación</translation>
     </message>
@@ -20774,6 +20826,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Haz clic en un clip en la línea de tiempo para editar sus propiedades</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation>Este clip usa herramientas Pro.</translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation>Ver en Pro</translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -23952,6 +24012,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Inicia sesión para usar esta voz</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation>Inicia sesión para exportar en 2K, 4K u 8K</translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio es gratis: exportar, Stock y todas las plantillas no cuestan nada.</translation>
     </message>
@@ -23962,6 +24026,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Las voces con la llamita son para quienes iniciaron sesión. Solo tienes que entrar con tu cuenta de Google: es un momento, se hace una vez y tu proyecto queda tal como está.</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation>Hasta 1080p puedes exportar sin cuenta. Para 2K, 4K y 8K solo tienes que iniciar sesión con tu cuenta de Google: es gratis, toma un momento y se hace una sola vez.</translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24809,6 +24877,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Open project</source>
         <translation>Abrir proyecto</translation>
+    </message>
+    <message>
+        <source>Try an example</source>
+        <translation>Prueba con un ejemplo</translation>
+    </message>
+    <message>
+        <source>Downloading…</source>
+        <translation>Descargando…</translation>
+    </message>
+    <message>
+        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
+        <translation>Un video de 15 segundos listo para editar: cámbialo, córtalo y expórtalo para aprender cómo funciona.</translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -30913,6 +30993,33 @@ Si la reproducción se corta, prueba con otra opción.</translation>
             <numerusform>; %n duró más que su subtítulo</numerusform>
             <numerusform>; %n duraron más que sus subtítulos</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation>¿Cómo quieres empezar?</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation>Simple</translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation>Pro</translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation>Simple: lo esencial, como CapCut. Cortar, títulos, música, efectos, filtros y exportar, sin las herramientas avanzadas en medio.</translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation>Pro: todo, también con las herramientas de After Effects (pluma, Motion Tools, curvas, emparentar, mates).</translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation>Puedes cambiar cuando quieras con Simple | Pro, arriba. En tus proyectos no se pierde nada.</translation>
     </message>
 </context>
 <context>
