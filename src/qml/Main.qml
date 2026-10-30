@@ -2122,7 +2122,7 @@ ApplicationWindow {
                         Text {
                             anchors.centerIn: parent
                             text: index + 1
-                            color: Theme.panelAccentForeground
+                            color: Theme.primaryForeground
                             font.family: Theme.fontFamily
                             font.pixelSize: 13
                             font.weight: Font.Bold
