@@ -175,9 +175,18 @@ PanelFrame {
           needs: ["transitionable"] }
     ]
 
+    // The motion-graphics tabs, out of sight in Simple mode (0.27). Transform and Blending repeat
+    // what Video › Basic already shows; Motion Tools and Curves are After Effects tools.
+    readonly property var proOnlyTabs: ["transform", "blending", "motionTools", "curves"]
     function tabVisible(tabId) {
         const tab = root.tabs[tabIndexOf(tabId)]
+        if (!EditorState.preferences.proMode && root.proOnlyTabs.indexOf(tabId) >= 0)
+            return false
         return !!tab && tab.needs.every(cap => root.caps.indexOf(cap) >= 0)
+    }
+    Connections {
+        target: EditorState.preferences
+        function onProModeChanged() { root.syncActiveTab() }
     }
 
     // Hairline after this index when the next visible tab belongs to another group.
@@ -595,9 +604,57 @@ PanelFrame {
             color: Theme.panelBorder
         }
 
+        // Simple mode, a clip that uses Pro tools (a parent, a matte, motion blur, time remap…): say
+        // so instead of hiding it silently, with the way back to Pro one click away.
+        Rectangle {
+            id: proBanner
+            readonly property bool usesPro: {
+                void EditorState.tracksRevision
+                if (EditorState.preferences.proMode || !root.hasSelection)
+                    return false
+                const info = EditorState.clipMotionInfo(EditorState.selectedTrack, EditorState.selectedClip) || {}
+                return !!(info.parentId || info.matteMode || info.motionBlur || info.autoOrient
+                          || info.timeRemap || info.nullObject || info.lightKind)
+            }
+            anchors.top: tabStripHost.bottom
+            anchors.left: railDivider.right
+            anchors.right: parent.right
+            anchors.margins: visible ? Theme.spacingSm : 0
+            visible: usesPro
+            height: visible ? bannerRow.implicitHeight + Theme.spacingMd * 2 : 0
+            radius: Theme.radiusMd
+            color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+            border.width: Theme.borderWidth
+            border.color: Theme.primary
+
+            Row {
+                id: bannerRow
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: Theme.spacingMd
+                spacing: Theme.spacingMd
+                Text {
+                    width: parent.width - proButton.width - parent.spacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("This clip uses Pro tools.")
+                    wrapMode: Text.WordWrap
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                }
+                ThemedButton {
+                    id: proButton
+                    text: qsTr("See in Pro")
+                    variant: "secondary"
+                    onClicked: EditorState.preferences.setProMode(true)
+                }
+            }
+        }
+
         Flickable {
             id: tabFlick
-            anchors.top: tabStripHost.bottom
+            anchors.top: proBanner.visible ? proBanner.bottom : tabStripHost.bottom
             anchors.left: railDivider.right
             anchors.right: parent.right
             anchors.bottom: parent.bottom

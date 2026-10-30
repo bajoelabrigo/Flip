@@ -1543,6 +1543,7 @@ qt_add_qml_module(drift
         src/qml/components/SubtitleProgressDialog.qml
         src/qml/components/CircularProgress.qml
         src/qml/components/RecoveryDialog.qml
+        src/qml/components/UiModeDialog.qml
         src/qml/components/UnsavedChangesDialog.qml
         src/qml/components/UpscaleModelCard.qml
         src/qml/components/RecentProjectsPopup.qml

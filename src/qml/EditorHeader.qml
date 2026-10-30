@@ -937,6 +937,28 @@ Rectangle {
                 }
             }
 
+            // Simple | Pro (0.27, Jorge): Simple hides the After Effects tools from the interface
+            // (never from the project); Pro shows everything.
+            Row {
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 2
+                visible: Qt.platform.os !== "android"
+                ThemedChip {
+                    text: qsTr("Simple")
+                    selected: !EditorState.preferences.proMode
+                    tooltip: qsTr("The essentials, like CapCut: the After Effects tools are hidden")
+                    onClicked: EditorState.preferences.setProMode(false)
+                }
+                ThemedChip {
+                    text: qsTr("Pro")
+                    selected: EditorState.preferences.proMode
+                    tooltip: qsTr("Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)")
+                    onClicked: EditorState.preferences.setProMode(true)
+                }
+            }
+
+            HeaderSeparator {}
+
             // Primary CTA. Kept as a bespoke gradient button (the documented
             // exception to Themed* chrome), but it now has the hover, pressed and
             // disabled states every other control has.

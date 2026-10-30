@@ -129,6 +129,16 @@ PreferencesController::PreferencesController(QObject *parent)
 {
     QSettings settings;
     m_reopenLastProject = settings.value(QStringLiteral("editor/reopenLastProject"), false).toBool();
+    // Someone who already used the app (they chose a language before 0.27) stays in Pro, where
+    // everything they had is; a new install starts in Simple and is asked once.
+    if (settings.contains(QStringLiteral("ui/mode"))) {
+        m_proMode = settings.value(QStringLiteral("ui/mode")).toString() != QLatin1String("simple");
+        m_uiModeChosen = true;
+    } else {
+        const bool existing = settings.value(QStringLiteral("ui/languageChosen"), false).toBool();
+        m_proMode = existing;
+        m_uiModeChosen = existing;
+    }
     {
         const QVariantMap defaults = editorDefaultValues();
         for (auto it = defaults.constBegin(); it != defaults.constEnd(); ++it) {
@@ -366,6 +376,16 @@ void PreferencesController::resetEditorDefaults()
     QSettings settings;
     settings.remove(QStringLiteral("defaults"));
     emit editorDefaultsChanged();
+}
+
+void PreferencesController::setProMode(bool pro)
+{
+    const bool changed = m_proMode != pro || !m_uiModeChosen;
+    m_proMode = pro;
+    m_uiModeChosen = true;
+    QSettings().setValue(QStringLiteral("ui/mode"), pro ? QStringLiteral("pro") : QStringLiteral("simple"));
+    if (changed)
+        emit proModeChanged();
 }
 
 void PreferencesController::setReopenLastProject(bool enabled)

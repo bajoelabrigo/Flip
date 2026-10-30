@@ -382,6 +382,13 @@ Row {
             minimumWidth: 290
 
             ThemedMenuItem {
+                // Simple / Pro (0.27): the same switch as the header's.
+                text: qsTr("Pro mode (After Effects tools)")
+                icon.name: EditorState.preferences.proMode ? Theme.icons.check : ""
+                onTriggered: EditorState.preferences.setProMode(!EditorState.preferences.proMode)
+            }
+            ThemedMenuSeparator { }
+            ThemedMenuItem {
                 text: qsTr("Play / Pause")
                 shortcutText: root.keys("playPause")
                 enabled: root.editing

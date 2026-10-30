@@ -57,7 +57,8 @@ PanelFrame {
         anchors.right: parent.right
         anchors.rightMargin: 1
         height: visible ? implicitHeight : 0
-        visible: !root.previewFullscreen && !root.mobile
+        // The After Effects tools: Pro mode only (0.27).
+        visible: !root.previewFullscreen && !root.mobile && EditorState.preferences.proMode
                  && EditorState.preferences.editorDefaults.previewToolbar !== false
         z: 2
     }

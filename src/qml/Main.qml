@@ -740,6 +740,16 @@ ApplicationWindow {
     // The account welcome closed this session (signed in or "Continue without an account").
     property bool accountWelcomeDone: false
 
+    // After the language, on a new install: Simple or Pro (0.27), once.
+    function promptUiModeIfNeeded() {
+        if (EditorState.preferences.uiModeChosen)
+            return false
+        if (uiModeDialogLoader.shown)
+            return true
+        uiModeDialogLoader.ensure().open()
+        return true
+    }
+
     // After the language: "Sign in with Google / Continue without an account", once.
     function promptAccountWelcomeIfNeeded() {
         if (!Account.needsWelcome || window.accountWelcomeDone)
@@ -790,6 +800,16 @@ ApplicationWindow {
         id: projectSetupDialogLoader
         sourceComponent: Component {
             ProjectSetupDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: uiModeDialogLoader
+        sourceComponent: Component {
+            UiModeDialog {
+                // Either button sets the mode (uiModeChosen), so this runs on past it.
+                onClosed: window.continueStartupAfterLanguage()
+            }
         }
     }
 
@@ -1523,6 +1543,8 @@ ApplicationWindow {
     }
 
     function continueStartupAfterLanguage() {
+        if (window.promptUiModeIfNeeded())
+            return
         if (window.promptAccountWelcomeIfNeeded())
             return
         if (Qt.platform.os === "android" && window.routeAndroidIntent(FileDialogs.takeLaunchIntent()))
