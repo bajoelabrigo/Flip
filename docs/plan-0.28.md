@@ -9,6 +9,11 @@ Si otro asistente sigue: `[x]` hecho, `[~]` a medias, `[ ]` falta.
 
 ## Cómo se usa (lo primero: que se entienda)
 
+**Regla de Jorge (dicha dos veces):** tiene que sentirse fácil **para el que es nuevo y para el que viene de After
+Effects**. Cada etapa se revisa con los dos en mente antes de mostrarla: el nuevo entiende la columna derecha sin
+saber AE (nombres claros, ayudas cortas, nada escondido en menús raros); el de AE encuentra en la línea de tiempo lo
+mismo que conoce (orden, nombres, cronómetros, atajos).
+
 ### Tres ideas, nada más
 1. **Una capa de forma tiene partes.** Cada parte («Rectángulo 1», «Elipse 1»…) es una figura con su relleno, su borde
    y su propia posición/giro/escala. La capa entera tiene además su Transformar de siempre (mueve todas las partes).
