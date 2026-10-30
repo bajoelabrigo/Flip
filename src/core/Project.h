@@ -124,7 +124,9 @@ struct Sequence
 class Project
 {
 public:
-    static constexpr int kCurrentVersion = 14;
+    // 15 (Flip 0.27): parenting, nulls, mattes, lights, time remap, behaviours, path keys and the
+    // shape operators of 0.25/0.26, which a build that reads 14 drops silently and could save over.
+    static constexpr int kCurrentVersion = 15;
 
     Project() { resetToDefaultTimeline(); }
 
