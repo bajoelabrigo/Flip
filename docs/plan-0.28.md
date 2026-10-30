@@ -102,7 +102,18 @@ Si otro asistente sigue: `[x]` hecho, `[~]` a medias, `[ ]` falta.
 - MCP: `list_shape_items`, `add_shape_item`, `set_shape_item`, `group_shape_items`.
 
 ## Etapas (cada una se prueba en ventana antes de seguir)
-1. [ ] Datos + dibujo + compatibilidad. Pruebas: orden de pintura de AE, grupos anidados, claves por elemento, proyecto
+1. [~] Datos + dibujo + compatibilidad (commit «a shape layer can be made of parts», build de CI en curso).
+   **Decisión de diseño:** cada parte es una **figura completa** (su contorno, sus rellenos y bordes, sus efectos de
+   trazado y sus claves: la misma `ShapeStyle` de siempre) con su Transformar de grupo; los grupos contienen partes.
+   No hay rellenos o trazos «sueltos» que pinten varias figuras como en AE: eso se hace con una parte de varios
+   contornos (la pluma) o con Fusionar trazados. Así cada parte se dibuja con el pintor de siempre (idéntica) y la lista
+   es fácil de entender; la línea de tiempo igual la muestra como AE (Trazado, Relleno, Trazo, Transformar).
+   `ShapeStyle::parts` (arriba la primera), `partsRefWidth/Height` (la caja de referencia que estira la capa),
+   `ShapePart` (id, nombre, visible, fusión, grupo/hijos, tamaño, `shape`, `transform`, claves propias),
+   `shapeWithParts()` (forma de antes → capa de una parte, mismos píxeles), `ContentsPainter` en `SkiaShapePainter`.
+   Pruebas en `tst_skia`: una parte = mismos píxeles (5 variantes), orden/posición/opacidad/grupo girado/oculta,
+   JSON y claves por parte. Versión de proyecto 16.
+   Original de la etapa: Pruebas: orden de pintura de AE, grupos anidados, claves por elemento, proyecto
    viejo idéntico píxel a píxel, ida y vuelta del JSON.
 2. [ ] Columna derecha: lista Contenido, «+ Añadir», parte elegida con sus secciones, menú de clic derecho.
 3. [ ] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
