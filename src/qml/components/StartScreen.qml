@@ -85,12 +85,13 @@ Rectangle {
     readonly property var tools: [
         { label: qsTr("Auto captions"), glyph: Theme.icons.captions, tab: "subtitles", w: 0, h: 0 },
         { label: qsTr("Text to speech"), glyph: Theme.icons.micVocal, tab: "speech", w: 0, h: 0 },
-        { label: qsTr("Templates"), glyph: Theme.icons.layers, tab: "templates", w: 0, h: 0 },
+        // Stock › Templates when there is a Stock: "My templates" is empty for someone new.
+        { label: qsTr("Templates"), glyph: Theme.icons.layers, tab: Market.configured ? "market:template" : "templates", w: 0, h: 0 },
         { label: qsTr("Filters"), glyph: Theme.icons.blend, tab: "filters", w: 0, h: 0 },
         { label: qsTr("Stickers"), glyph: Theme.icons.smile, tab: "stickers", w: 0, h: 0 },
         { label: qsTr("Vertical video"), glyph: Theme.icons.smartphone, tab: "", w: 1080, h: 1920 },
         { label: qsTr("Stock"), glyph: Theme.icons.store, tab: "market", w: 0, h: 0 }
-    ].filter(t => t.tab !== "market" || Market.configured)
+    ].filter(t => t.tab.indexOf("market") !== 0 || Market.configured)
 
     // The carousel beside Create: what is new, each slide a way in.
     readonly property var slides: {

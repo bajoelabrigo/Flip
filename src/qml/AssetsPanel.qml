@@ -613,6 +613,15 @@ PanelFrame {
     }
 
     function showTab(tabId) {
+        // "market:<type>" opens Stock on that type (the home screen's Templates goes to Stock ›
+        // Templates: the local list is empty for someone new).
+        if (tabId.indexOf("market:") === 0) {
+            const type = tabId.slice(7)
+            root.rememberTab("market", "section", type)
+            if (marketLoader.item && Market.authenticated)
+                marketLoader.item.section = type
+            tabId = "market"
+        }
         for (var i = 0; i < tabsModel.count; ++i) {
             if (tabsModel.get(i).tabId === tabId) {
                 root.activeTab = i
