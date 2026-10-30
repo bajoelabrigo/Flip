@@ -28,6 +28,10 @@ archivos ni su aspecto exacto), todo 100 % editable, en **Stock › Kit de YouTu
 Paleta: azul noche `#0B1A2E`, turquesa `#2EE6C8`, coral `#FF5D73`, sol `#FFD23F`. Sin logos de plataformas ni
 el rojo de YouTube. El fondo de cada pieza es su propia pista «Fondo»: se borra y la pieza queda sobre el video.
 
+## Reglas de diseño (Jorge)
+- Un texto que sale de una línea o barra **nace de la línea**, nunca la cruza: revelado `wipe` con `angle=0`
+  (de izquierda a derecha; el valor por defecto, −90, revela de abajo arriba), no `slide-right`.
+
 ## Para publicar (después del OK)
 1. Tanda grande en `templates_ytkit*.py`; `build.py --only mod:templates_ytkit` (a `paquetes\`).
 2. Subcategorías en Stock: hoy las categorías son planas (`publish.py` `CATEGORY_NAMES`). Hace falta

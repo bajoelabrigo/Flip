@@ -46,7 +46,7 @@ def apertura_hexagono():
     line(t, bar, TEAL, 1.0, 4.0, Box(780, 470, 8, 140), grow="y", length=0.35)
     label(t, t.track("text", "Canal"), "TU CANAL", 1.2, 3.8, Box(820, 440, 1000, 130), "Sora", 104, WHITE,
           weight=800, align="left", spacing=4,
-          anim_in=tanim("slide-right", duration=0.5, unit="character", stagger=0.03, ease="out"), name="Nombre del canal")
+          anim_in=tanim("wipe", duration=0.6, angle=0, softness=0.15), name="Nombre del canal")
     label(t, t.track("text", "Lema"), "videos nuevos cada semana", 1.6, 3.4, Box(824, 570, 1000, 60), "Inter", 40,
           MIST, weight=500, align="left", spacing=2, anim_in=tanim("fade", duration=0.5), name="Lema")
     song(t, "upbeat", 1)
@@ -83,7 +83,7 @@ def titulo_barras():
                 Box(330 + i * 46, 430, 22, 140), slide_in(dy=-60, length=0.35), rotation=keys([(0, 20)]))
     label(t, t.track("text", "Título"), "TU CANAL", 0.6, 4.2, Box(500, 410, 1200, 130), "Montserrat", 110, WHITE,
           weight=900, align="left", spacing=2, layers=[shadow("#000000", 0, 6, 18, 0.5), fill(WHITE)],
-          anim_in=tanim("slide-right", duration=0.5, unit="character", stagger=0.03), name="Título")
+          anim_in=tanim("wipe", duration=0.6, angle=0, softness=0.15), name="Título")
     rrect(t, t.track("shape", "Etiqueta"), TEAL, 1.0, 3.8, Box(504, 548, 420, 54), radius=6,
           motion=[(0, {"sx": 0.0, "dx": -210}, "out"), (0.4, {})])
     label(t, t.track("text", "Subtítulo"), "POR TU NOMBRE", 1.2, 3.6, Box(504, 548, 420, 54), "Inter", 28, NAVY,
