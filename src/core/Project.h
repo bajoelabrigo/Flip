@@ -156,7 +156,8 @@ public:
     int width() const { return m_width; }
     int height() const { return m_height; }
     int sampleRate() const { return m_sampleRate; }
-    void setResolution(int width, int height) { m_width = width; m_height = height; }
+    // At least 1 px: a 0 or negative size from a file divided by zero in every layout rebase.
+    void setResolution(int width, int height) { m_width = qMax(1, width); m_height = qMax(1, height); }
     void setSampleRate(int rate) { m_sampleRate = rate; }
 
     // The tracks of the timeline open for editing: the main timeline, or the composite sequence
