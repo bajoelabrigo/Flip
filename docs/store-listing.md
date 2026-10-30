@@ -110,6 +110,32 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.26.0)**. Lo nuevo desde la 0.25.0.
+
+> Novedades de la 0.26.0
+>
+> - Herramientas de After Effects: emparentar capas, objeto nulo, desenfoque de movimiento, mate de seguimiento, luces 3D y estilos de capa.
+> - Pluma en vivo y edición de puntos; trazados que se transforman, recortar trazados, repetidor y más operadores de forma.
+> - Curvas como EasyCurve: presets, tiradores en vivo y tus propias curvas guardadas.
+> - Squash & Stretch, Motion Tools (recorte, doblar capas, elementos líquidos y morphings) y expresiones.
+> - Texto: desplazar y reemplazar letras, sesgar, interlineado y texto sobre un trazado.
+> - Diez espacios de trabajo y los tuyos: reordena los paneles arrastrándolos.
+> - Barra de herramientas sobre la vista previa, vista previa en RAM y Preferencias por páginas.
+> - Efectos como Ruido fractal y Mundo de partículas, y Stock › VFX con fuego, energía y chispas.
+
+En inglés:
+
+> What's new in 0.26.0
+>
+> - After Effects tools: parent layers, null objects, motion blur, track mattes, 3D lights and layer styles.
+> - A live pen and point editing; paths that morph, trim paths, repeater and more shape operators.
+> - Curves like EasyCurve: presets, live handles and your own saved curves.
+> - Squash & Stretch, Motion Tools (trim, bend layers, liquid and morphing elements) and expressions.
+> - Text: offset and replace letters, skew, line spacing and text on a path.
+> - Ten workspaces plus your own: rearrange the panels by dragging them.
+> - A toolbar over the preview, RAM preview and preferences in pages.
+> - Effects like Fractal Noise and Particle World, and Stock › VFX with fire, energy and sparks.
+
 **Notas para la Store (0.25.0)**. Lo nuevo desde la 0.24.0.
 
 > Novedades de la 0.25.0
