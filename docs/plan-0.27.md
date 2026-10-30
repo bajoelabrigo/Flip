@@ -192,6 +192,16 @@ cualquier clip (`matteMode` "none" es texto).
   silencio y se perdía (corte temprano, recorte del silencio final y un reintento), y los idiomas y el progreso salían
   en inglés.
 
+### Probado en ventana antes de publicar (builds 41113271521 y 41118405004, 2026-10-30)
+- Con la sesión de Jorge: Stock › **Kit de YouTube** con sus secciones; «Usar plantilla» baja la pieza y la pone como
+  composición con sus textos y su hueco de logo; el nombre sale de su línea (barrido arreglado en `TextAnimator`). La
+  cuadrícula del kit dejaba las tarjetas anchas al fondo de celdas altas: ahora la celda toma la forma de la mayoría.
+- Como usuario nuevo (registro vacío): idioma → «¿Cómo quieres empezar?» → bienvenida con «exportar hasta 1080p sin
+  cuenta» → inicio con «Aprende con un ejemplo» (lista del servidor, «Ocultar») → «Vlog de viaje» se baja y abre en
+  horizontal con su guía → Exportar sin cuenta; 4K «con cuenta» pide iniciar sesión.
+- La lista de recientes de Jorge había quedado con los `.flip` de los ejemplos (al hacerlos no se restauró el
+  registro): se dejó como antes (`Downloads\prueba.flip`).
+
 ## Decisiones para Jorge (no hechas a propósito)
 - **Modo simple / Pro (J1)**: esconder por defecto lo de After Effects (barra de herramientas sobre la vista
   previa, Motion Tools, Curvas, cronómetros). Lo pediste en la 0.26, así que no lo escondo sin tu OK.
