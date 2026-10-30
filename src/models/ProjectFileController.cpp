@@ -1137,7 +1137,7 @@ void ProjectFileController::collectMediaToFolder(const QUrl &folder, bool move)
                 const drift::Project before = m_app->m_project;
                 remapProjectPaths(remap);
                 if (move)
-                    m_app->m_undoStack.clear();
+                    m_app->clearUndoHistory();
                 else
                     m_app->pushProjectEdit(before, tr("Collect media"));
                 if (m_app->m_assetLibrary)
@@ -1596,7 +1596,7 @@ void ProjectFileController::newProject(bool silent)
     m_app->m_bin->folderModel()->setProject(&m_app->m_project);
     m_app->m_bin->setCurrentFolderId(QString());
     m_app->m_playback.setProject(&m_app->m_project);
-    m_app->m_undoStack.clear();
+    m_app->clearUndoHistory();
     m_app->clearSelection();
     m_app->setPlayheadUs(0);
     setCurrentProjectPath(QString());

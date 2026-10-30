@@ -2758,6 +2758,11 @@ protected:
     QString m_lastAudioError;
     QUndoStack m_undoStack;
     bool m_editSessionOpen = false;
+    // The macro an open session pushed. clear() deletes it while the flag stays set, and the next
+    // endEditSession used to take whatever step was last for it (and undo a normal edit).
+    const QUndoCommand *m_sessionMacro = nullptr;
+    // Clears the undo history and forgets any open session with it (open project, new project).
+    void clearUndoHistory();
     // tracks() serialises every clip in the project into nested QVariantMaps, and used to do it
     // once per binding that read it. Cached between edits; notifyTracksChanged() drops it.
     mutable QVariantList m_tracksCache;

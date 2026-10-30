@@ -16372,6 +16372,16 @@ void AppController::beginEditSession(const QString &label)
         endEditSession(true);
     m_editSessionOpen = true;
     m_undoStack.beginMacro(label);
+    // beginMacro appends the macro at the end of the list; index() only moves past it at endMacro.
+    m_sessionMacro = m_undoStack.count() > 0 ? m_undoStack.command(m_undoStack.count() - 1) : nullptr;
+}
+
+void AppController::clearUndoHistory()
+{
+    m_undoStack.clear();
+    m_editSessionOpen = false;
+    m_sessionMacro = nullptr;
+    m_penShapeId.clear();
 }
 
 void AppController::endEditSession(bool keep)
@@ -16383,6 +16393,10 @@ void AppController::endEditSession(bool keep)
     // The macro is the step just pushed. An empty one (nothing changed) must not stay as a
     // no-op undo entry; a cancelled one is undone whole.
     const QUndoCommand *macro = m_undoStack.index() > 0 ? m_undoStack.command(m_undoStack.index() - 1) : nullptr;
+    const QUndoCommand *opened = std::exchange(m_sessionMacro, nullptr);
+    // Not the macro this session opened (the history was cleared meanwhile): leave it alone.
+    if (!macro || macro != opened)
+        return;
     const bool empty = !macro || macro->childCount() == 0;
     if (!keep || empty) {
         m_undoStack.undo();
@@ -29629,7 +29643,7 @@ void AppController::applyParsedProject(ParsedProject parsed)
     // effect renders pass-through until each lands.
     m_faces->ingestSwapSourcesInProject();
     m_playback.setProject(&m_project);
-    m_undoStack.clear();
+    clearUndoHistory();
     clearSelection();
     m_projectFile->setDirty(false);
     emit snapEnabledChanged();
