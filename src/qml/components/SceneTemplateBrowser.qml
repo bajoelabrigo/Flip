@@ -169,6 +169,8 @@ Column {
             hint: Market.authenticated
                   ? qsTr("Get them from Stock › Templates: they install here and stay in your account.")
                   : qsTr("Sign in and get them from Stock › Templates: they install here and stay in your account.")
+            actionText: Market.configured ? qsTr("See templates in Stock") : ""
+            onActionTriggered: root.Window.window.showAssetsTab("market:template")
         }
 
         Text {

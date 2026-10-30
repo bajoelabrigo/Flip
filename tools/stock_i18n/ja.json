@@ -129,6 +129,7 @@
   "template:thumbnail": "動画サムネイル",
   "template:transition": "トランジション・区切り",
   "template:youtuber": "ユーチューバー風",
+  "template:ytkit": "YouTubeキット",
   "text-animation:brillo": "輝きと色",
   "text-animation:caer": "落下と上昇",
   "text-animation:desenfoque": "ぼかしとフェード",
@@ -33621,6 +33622,1687 @@
     "スポット",
     "旅",
     "案内"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "リングオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "チャンネル",
+    "ロゴ",
+    "オープニング",
+    "リング"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "リングオープニング（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "リング"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "ライトオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "明るい",
+    "白"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "写真コラージュオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "写真コラージュオープニング（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "イントロ",
+    "オープニング",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "デジタルデコードオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "オープニング",
+    "グリッチ",
+    "テクノロジー",
+    "ゲーム実況"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "光のスイープオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "光",
+    "エレガント"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "コーナーフレームオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "フレーム",
+    "黄色"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "バーストオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "エネルギッシュ",
+    "光線"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "ストライプオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "チャンネル",
+    "ロゴ",
+    "オープニング",
+    "ストライプ"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "六角形オープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "チャンネル",
+    "ロゴ",
+    "オープニング"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "ミニマルラインオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "ミニマル",
+    "エレガント"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "モザイクタイルオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "モザイク",
+    "カラフル"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "分割パネルオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "チャンネル",
+    "ロゴ",
+    "オープニング",
+    "パネル"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "分割パネルオープニング（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "パネル"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "タイポブロックオープニング",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "オープニング",
+    "タイポグラフィ",
+    "コーラル"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "チャプター進行バー",
+   "tags": [
+    "youtube",
+    "チャプター",
+    "進行",
+    "バー",
+    "目次",
+    "チュートリアル"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "豆知識バー",
+   "tags": [
+    "youtube",
+    "豆知識",
+    "知ってた",
+    "トリビア",
+    "バー",
+    "情報"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "ライブタグ",
+   "tags": [
+    "youtube",
+    "ライブ",
+    "生配信",
+    "配信",
+    "バー",
+    "ラベル"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "アンケートバー",
+   "tags": [
+    "youtube",
+    "アンケート",
+    "質問",
+    "投票",
+    "バー",
+    "コミュニティ"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "エピソードバッジ",
+   "tags": [
+    "youtube",
+    "エピソード",
+    "ポッドキャスト",
+    "シリーズ",
+    "バー",
+    "シーズン"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "日付と場所のバー",
+   "tags": [
+    "youtube",
+    "日付",
+    "場所",
+    "イベント",
+    "バー",
+    "カレンダー"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "インフォバー",
+   "tags": [
+    "youtube",
+    "バー",
+    "情報",
+    "ニュース",
+    "テロップ"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "スコアバー",
+   "tags": [
+    "youtube",
+    "マーカー",
+    "スポーツ",
+    "試合",
+    "サッカー",
+    "バー"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "見出しバー",
+   "tags": [
+    "youtube",
+    "ニュース",
+    "見出し",
+    "バー",
+    "情報",
+    "生配信"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "スポンサーバー",
+   "tags": [
+    "youtube",
+    "スポンサー",
+    "提供",
+    "ブランド",
+    "ロゴ",
+    "バー"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "トピックバー",
+   "tags": [
+    "youtube",
+    "トピック",
+    "バー",
+    "タイトル",
+    "コーナー",
+    "情報"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "カウントダウンタイマーバー",
+   "tags": [
+    "youtube",
+    "タイマー",
+    "カウントダウン",
+    "時間",
+    "バー",
+    "チャレンジ"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "ニュースティッカー",
+   "tags": [
+    "youtube",
+    "バー",
+    "ニュース",
+    "リボン",
+    "速報",
+    "情報"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "バー上のワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "バー",
+    "リスト",
+    "ワード",
+    "ステップ"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "ライトなキネティックタイトル",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "明るい",
+    "ミニマル",
+    "ワード"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "カウントアップタイトル",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "カウンター",
+    "数字",
+    "お祝い",
+    "登録者"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "カラーカットワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "リズム",
+    "カット",
+    "エネルギッシュ"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "カラーカットワード（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "キネティック",
+    "リズム",
+    "カット"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "画面分割ワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "画面分割",
+    "コントラスト",
+    "ワード"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "拡大するワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "拡大",
+    "リズム"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "動画に重ねるワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "写真",
+    "旅行",
+    "リズム"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "動画に重ねるワード（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "キネティック",
+    "写真",
+    "旅行"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "大小リズム",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "タイポグラフィ",
+    "コントラスト",
+    "ワード"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "大小リズム（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "キネティック",
+    "タイポグラフィ",
+    "コントラスト"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "ラインから出るワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "ライン",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "タイプライタータイトル",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "タイプライター",
+    "テキスト",
+    "チュートリアル"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "回転スタック",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "回転",
+    "リスト"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "バウンスするワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "バウンス",
+    "楽しい",
+    "ワード"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "斜線グループ",
+   "tags": [
+    "youtube",
+    "素材",
+    "バー",
+    "斜め",
+    "装飾",
+    "フレーム"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "読み込みバー",
+   "tags": [
+    "youtube",
+    "素材",
+    "読み込み中",
+    "進行",
+    "バー",
+    "完了"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "マルとバツ",
+   "tags": [
+    "youtube",
+    "チェック",
+    "バツ",
+    "正解",
+    "不正解",
+    "比べる"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "手描きの円",
+   "tags": [
+    "youtube",
+    "素材",
+    "円",
+    "強調",
+    "指し示す"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "クリックボタン",
+   "tags": [
+    "youtube",
+    "素材",
+    "クリック",
+    "カーソル",
+    "ボタン",
+    "ポインター"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "キラキラ",
+   "tags": [
+    "youtube",
+    "素材",
+    "キラキラ",
+    "星",
+    "魔法",
+    "新着"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "手描きの矢印",
+   "tags": [
+    "youtube",
+    "素材",
+    "矢印",
+    "指し示す",
+    "注目"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "吹き出し",
+   "tags": [
+    "youtube",
+    "素材",
+    "吹き出し",
+    "会話",
+    "トーク",
+    "テキスト"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "進行ステップ",
+   "tags": [
+    "youtube",
+    "素材",
+    "ステップ",
+    "進行",
+    "チュートリアル",
+    "リスト"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "下線とマーカー",
+   "tags": [
+    "youtube",
+    "素材",
+    "下線",
+    "マーカー",
+    "強調",
+    "テキスト"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "登録ボタンとベル",
+   "tags": [
+    "youtube",
+    "素材",
+    "チャンネル登録",
+    "ベル",
+    "ボタン",
+    "クリック"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "カメラのファインダー",
+   "tags": [
+    "youtube",
+    "カメラ",
+    "録画中",
+    "rec",
+    "フォーカス",
+    "フレーム"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "アニメーション素材",
+   "tags": [
+    "youtube",
+    "素材",
+    "図形",
+    "装飾",
+    "グラフィック"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "アウトラインボックスタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "アウトライン",
+    "都市",
+    "写真",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "リボンタイトル",
+   "tags": [
+    "youtube",
+    "リボン",
+    "帯",
+    "夏",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "括弧タイトル",
+   "tags": [
+    "youtube",
+    "括弧",
+    "ルーティン",
+    "タイトル",
+    "写真",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "スラッシュカットタイトル",
+   "tags": [
+    "youtube",
+    "カット",
+    "斜め",
+    "ゲーム",
+    "写真",
+    "エネルギッシュ"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "グラデーションバータイトル",
+   "tags": [
+    "youtube",
+    "グラデーション",
+    "バー",
+    "都市",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "ツートーンタイトル",
+   "tags": [
+    "youtube",
+    "ツートーン",
+    "旅行",
+    "冒険",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "コーナーフレームタイトル",
+   "tags": [
+    "youtube",
+    "コーナー",
+    "フレーム",
+    "旅行",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "コーナーフレームタイトル（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "コーナー",
+    "フレーム",
+    "旅行",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "タグ付きタイトル",
+   "tags": [
+    "youtube",
+    "タグ",
+    "ピル",
+    "vlog",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "ハイライトタイトル",
+   "tags": [
+    "youtube",
+    "ハイライト",
+    "ブロック",
+    "レシピ",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "ハイライトタイトル（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ハイライト",
+    "ブロック",
+    "レシピ",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "スタンプ付きタイトル",
+   "tags": [
+    "youtube",
+    "スタンプ",
+    "新着",
+    "ポッドキャスト",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "カラーシャドウタイトル",
+   "tags": [
+    "youtube",
+    "影",
+    "カラー",
+    "夕焼け",
+    "写真",
+    "インパクト"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "ウィンドウカードタイトル",
+   "tags": [
+    "youtube",
+    "ウィンドウ",
+    "カード",
+    "チュートリアル",
+    "タイトル",
+    "写真"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "引用カード",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "モチベーション",
+    "テキスト"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "コーラルの引用カード",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "カラー",
+    "モチベーション"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "イタリック体の引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "エレガント",
+    "イタリック",
+    "愛"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "ライトなエディトリアル引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "エディトリアル",
+    "明るい",
+    "エレガント"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "ライトなエディトリアル引用（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "引用",
+    "エディトリアル",
+    "明るい"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "写真に重ねる引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "写真",
+    "インスピレーション"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "写真に重ねる引用（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "引用",
+    "写真",
+    "インスピレーション"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "番号付きレッスン",
+   "tags": [
+    "youtube",
+    "名言",
+    "レッスン",
+    "コツ",
+    "数字",
+    "チュートリアル"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "フレーム付き引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "フレーム",
+    "モダン"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "ミニマル引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "ミニマル",
+    "ダーク"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "半分写真の引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "写真",
+    "インタビュー"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "大きな一語と引用",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "ワード",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "イエローの引用カード",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "カラー",
+    "モチベーション",
+    "力強い"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "動画に重ねる引用カード",
+   "tags": [
+    "youtube",
+    "名言",
+    "引用",
+    "カード",
+    "写真",
+    "オーバーレイ"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "お客様の声",
+   "tags": [
+    "youtube",
+    "名言",
+    "お客様の声",
+    "意見",
+    "レビュー",
+    "顧客"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "お客様の声（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "ショート",
+    "お客様の声",
+    "意見",
+    "レビュー"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "2動画の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "チャンネル登録",
+    "エンディング",
+    "次の動画"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "中央揃えの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "チャンネル登録",
+    "エンディング",
+    "シンメトリー"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "ライトな終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "チャンネル登録",
+    "エンディング",
+    "明るい",
+    "白"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "コーラルの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "コーラル",
+    "チャンネル登録",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "写真の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "写真",
+    "チャンネル登録",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "「ありがとう」終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "ありがとう",
+    "sns",
+    "チャンネル登録",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "再生リストの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "再生リスト",
+    "プレイリスト",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "ミニマルな終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "ミニマル",
+    "ライン",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "イエローの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "黄色",
+    "高評価",
+    "チャンネル登録",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "3カードの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "カード",
+    "チャンネル登録",
+    "エンディング"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "1動画の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "チャンネル登録",
+    "エンディング",
+    "次の動画"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "SNSバー",
+   "tags": [
+    "youtube",
+    "sns",
+    "バー",
+    "ユーザー名",
+    "テロップ"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "円形アイコン",
+   "tags": [
+    "youtube",
+    "sns",
+    "アイコン",
+    "円",
+    "ユーザー名"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "SNSアカウント（ライト）",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "明るい",
+    "白"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "コーラルのフォロー",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "キネティック",
+    "ユーザー名"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "SNSグリッド",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "グリッド"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "コーナーのユーザー名",
+   "tags": [
+    "youtube",
+    "sns",
+    "ユーザー名",
+    "コーナー",
+    "通知"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "大きなユーザー名",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "大きい"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "大きなユーザー名（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "大きい"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "SNSアカウント",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "連絡先"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "SNSアカウント（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "リスト"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "ピル型SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "ユーザー名",
+    "ピル"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "フォローカード",
+   "tags": [
+    "youtube",
+    "sns",
+    "フォロー",
+    "カード",
+    "ユーザー名"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "ローワーサードのユーザー名",
+   "tags": [
+    "youtube",
+    "sns",
+    "ユーザー名",
+    "ローワーサード",
+    "テロップ"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "アバター付きローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "写真",
+    "プロフィール"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "ライトなローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "明るい",
+    "白"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "括弧ローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "括弧"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "右寄せローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "右寄せ"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "斜めのローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "スポーツ",
+    "エネルギッシュ"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "2行ローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "インタビュー",
+    "ローワーサード"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "2行ローワーサード（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "ショート"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "2人用ローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "ローワーサード",
+    "インタビュー",
+    "ポッドキャスト",
+    "2人"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "ラベル付きローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "ゲスト",
+    "ラベル"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "ミニマルラインのローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "ミニマル",
+    "ライン"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "ステップ番号のローワーサード",
+   "tags": [
+    "youtube",
+    "ステップ",
+    "チュートリアル",
+    "レシピ",
+    "数字",
+    "ローワーサード"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "ピル型ローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "テロップ",
+    "ローワーサード",
+    "ピル"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "ピル型ローワーサード（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "名前",
+    "ローワーサード",
+    "ピル",
+    "ショート"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "場所のローワーサード",
+   "tags": [
+    "youtube",
+    "場所",
+    "位置",
+    "旅行",
+    "ローワーサード",
+    "地図"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "ガラス風ローワーサード",
+   "tags": [
+    "youtube",
+    "名前",
+    "ローワーサード",
+    "ガラス",
+    "半透明",
+    "エレガント"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "ビフォーアフター",
+   "tags": [
+    "youtube",
+    "ビフォー",
+    "アフター",
+    "比較",
+    "ツートーン",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "積み重ねワード",
+   "tags": [
+    "youtube",
+    "積み重ね",
+    "ワード",
+    "タイトル",
+    "タイポグラフィ",
+    "アウトライン"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "積み重ねワード（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "積み重ね",
+    "ワード",
+    "タイポグラフィ",
+    "アウトライン"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "カラーブロックワード",
+   "tags": [
+    "youtube",
+    "ブロック",
+    "ステップ",
+    "ワード",
+    "タイポグラフィ",
+    "カラー"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "番号付きチャプター",
+   "tags": [
+    "youtube",
+    "チャプター",
+    "数字",
+    "タイトル",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "番号付きチャプター（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "チャプター",
+    "数字",
+    "タイトル",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "塗りつぶされるアウトライン",
+   "tags": [
+    "youtube",
+    "アウトライン",
+    "塗りつぶし",
+    "名言",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "2色に分かれたワード",
+   "tags": [
+    "youtube",
+    "2色",
+    "タイトル",
+    "タイポグラフィ",
+    "インパクト"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "ライトなエディトリアルタイトル",
+   "tags": [
+    "youtube",
+    "エディトリアル",
+    "雑誌",
+    "明るい",
+    "エレガント",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "チャプター目次",
+   "tags": [
+    "youtube",
+    "目次",
+    "チャプター",
+    "内容",
+    "リスト",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "ライン入りタイトル",
+   "tags": [
+    "youtube",
+    "ライン",
+    "エピソード",
+    "タイトル",
+    "タイポグラフィ",
+    "エレガント"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "ボックスタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "フレーム",
+    "タイトル",
+    "タイポグラフィ",
+    "ドキュメンタリー"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "マーカータイトル",
+   "tags": [
+    "youtube",
+    "マーカー",
+    "下線",
+    "チュートリアル",
+    "タイトル",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "ランキング番号",
+   "tags": [
+    "youtube",
+    "トップ",
+    "リスト",
+    "ランキング",
+    "数字",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "タイポグラフィブロック",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "テキスト",
+    "タイポグラフィ",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "スラッシュタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "チャンネル",
+    "スタイル",
+    "写真"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "キネティックワード",
+   "tags": [
+    "youtube",
+    "キネティック",
+    "ワード",
+    "リズム",
+    "エネルギッシュ"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "リングズーム",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ズーム",
+    "リング",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "シェブロンスイープ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "矢印",
+    "シェブロン",
+    "スイープ",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "スラッシュワイプ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "斜め",
+    "カット",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "カラーフラッシュ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "閃光",
+    "フラッシュ",
+    "光",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "コーナーワイプ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "斜め",
+    "コーナー",
+    "三角形",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "ストライプスイープ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ストライプ",
+    "スイープ",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "六角形タイル",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "六角形",
+    "ハニカム",
+    "モザイク",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "アイリスワイプ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "円",
+    "アイリス",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "アイリスワイプ（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "トランジション",
+    "円",
+    "アイリス",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "バーウェーブ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "バー",
+    "波",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "パネルワイプ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ワイプ",
+    "図形",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "ブラインドワイプ",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ブラインド",
+    "ストライプ",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "ブラインドワイプ（縦型）",
+   "tags": [
+    "youtube",
+    "縦型",
+    "トランジション",
+    "ブラインド",
+    "ストライプ",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "スプリットドア",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ドア",
+    "エンディング",
+    "場面転換"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "ドットフィル",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "ドット",
+    "円",
+    "場面転換"
    ]
   },
   "template:zoom-3d-parallax": {

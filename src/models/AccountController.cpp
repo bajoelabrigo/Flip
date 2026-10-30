@@ -3,6 +3,9 @@
 
 #include <QCryptographicHash>
 #include <QDateTime>
+#include <QDir>
+#include <QStandardPaths>
+#include <QLockFile>
 #include <QClipboard>
 #include <QDesktopServices>
 #include <QGuiApplication>
@@ -401,6 +404,7 @@ void AccountController::refresh(const std::function<void(bool)> &then)
         return;
     const auto finish = [this](bool ok) {
         m_refreshing = false;
+        m_refreshLock.reset();
         const auto waiters = std::exchange(m_refreshWaiters, {});
         for (const auto &w : waiters)
             w(ok);
@@ -429,12 +433,45 @@ void AccountController::refresh(const std::function<void(bool)> &then)
         return;
     }
     m_refreshing = true;
+    // One copy of the app refreshes at a time. Another one holding the lock is mid-refresh: wait
+    // for it and adopt what it stores instead of sending the same token a second time.
+    {
+        const QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        QDir().mkpath(dir);
+        auto lock = std::make_unique<QLockFile>(dir + QStringLiteral("/account-refresh.lock"));
+        lock->setStaleLockTime(30000);
+        if (!lock->tryLock(0)) {
+            // Try again shortly; the waiters stay queued and refresh() re-reads what it stored.
+            QTimer::singleShot(1500, this, [this]() {
+                m_refreshing = false;
+                refresh({});
+            });
+            return;
+        }
+        m_refreshLock = std::move(lock);
+        QSettings settings;
+        const QString stored = drift::secrets::readSecret(settings, key("refreshToken"));
+        if (!stored.isEmpty() && stored != m_refreshToken) {
+            loadStored();
+            if (QDateTime::currentSecsSinceEpoch() + kRefreshSkewSecs < m_accessExpiresAt
+                && !m_accessToken.isEmpty()) {
+                finish(true);
+                return;
+            }
+        }
+    }
     QJsonObject body;
     body.insert(QStringLiteral("refreshToken"), m_refreshToken);
     QNetworkReply *reply = postJson(QStringLiteral("/v1/auth/refresh"),
                                     QJsonDocument(body).toJson(QJsonDocument::Compact));
-    connect(reply, &QNetworkReply::finished, this, [this, reply, finish] {
+    const quint64 generation = m_sessionGeneration;
+    connect(reply, &QNetworkReply::finished, this, [this, reply, finish, generation] {
         reply->deleteLater();
+        if (generation != m_sessionGeneration) {
+            // Signed out while this was in flight: its new tokens must not bring the session back.
+            finish(false);
+            return;
+        }
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         if (status == 401) {
             // The session was closed (signed out elsewhere, account deleted, or the token was
@@ -519,6 +556,7 @@ void AccountController::store()
 
 void AccountController::clearLocal()
 {
+    ++m_sessionGeneration;
     const bool was = signedIn();
     m_accessToken.clear();
     m_refreshToken.clear();

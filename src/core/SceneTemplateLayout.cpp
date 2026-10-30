@@ -14,6 +14,7 @@ void mapTrack(KeyframeTrack<double> &track, double scale, double offset, double 
         return;
     }
     KeyframeTrack<double> mapped;
+    mapped.copySettingsFrom(track);
     const QMap<TimeUs, Keyframe<double>> &keys = track.keyframes();
     for (auto it = keys.constBegin(); it != keys.constEnd(); ++it) {
         Keyframe<double> key = it.value();

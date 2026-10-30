@@ -375,7 +375,8 @@ SkMatrix repeaterMatrix(const ShapeStyle &style, double index, double w, double 
 {
     SkMatrix m;
     m.setTranslate(float(-w / 2.0), float(-h / 2.0));
-    const double factor = std::pow(qMax(0.0, style.repeatScale) / 100.0, index);
+    // A floor above 0: Scale 0 with a negative offset (index < 0) gave pow(0, -n) = infinity.
+    const double factor = std::pow(qMax(0.001, style.repeatScale / 100.0), index);
     m.postScale(float(factor), float(factor));
     m.postRotate(float(style.repeatRotation * index));
     m.postTranslate(float(w / 2.0 + style.repeatX * index * scale), float(h / 2.0 + style.repeatY * index * scale));

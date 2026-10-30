@@ -379,12 +379,12 @@
         <translation>欢迎使用 Flip Studio</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation>使用 Google 账号登录，即可在编辑器中直接搜索 Pexels 和 Pixabay 的免费照片和视频。你的账号还将保存你的模板和你的商店。</translation>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation>全部免费。无需账号也能照常编辑；导出和使用 Stock 时需要登录。</translation>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -700,6 +700,10 @@
         <translation>推荐包</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -750,10 +754,6 @@
     <message>
         <source>Install all</source>
         <translation>安装全部</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>安装效果、过渡和音频的必备包。即使没有它们，你也可以继续使用 Flip Studio —— 安装后可以在有改进时解锁更新。</translation>
     </message>
 </context>
 <context>
@@ -5275,11 +5275,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reversed clip ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5343,8 +5359,18 @@
         <translation>已删除轨道</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>删除轨道</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -5427,6 +5453,10 @@
     <message>
         <source>Capturing freeze frame…</source>
         <translation>正在截取定格帧…</translation>
+    </message>
+    <message>
+        <source>Freeze frame</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Freeze frame added</source>
@@ -5933,10 +5963,6 @@
     <message>
         <source>Export already in progress</source>
         <translation>导出已在进行中</translation>
-    </message>
-    <message>
-        <source>Export complete</source>
-        <translation>导出完成</translation>
     </message>
     <message>
         <source>Close gap</source>
@@ -6658,6 +6684,10 @@
         <translation>视图</translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation>播放 / 暂停</translation>
     </message>
@@ -6738,10 +6768,6 @@
         <translation>语言…</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>切换到移动版布局…</translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation>高级</translation>
     </message>
@@ -6764,6 +6790,14 @@
     <message>
         <source>Help</source>
         <translation>帮助</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Examples</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -13854,10 +13888,6 @@ NEXT TIME</source>
         <translation>语言…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation>切换到移动版布局…</translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>调试信息…</translation>
     </message>
@@ -13888,6 +13918,22 @@ NEXT TIME</source>
     <message>
         <source>Agent access is on</source>
         <translation>智能体访问已开启</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My account</source>
@@ -14758,8 +14804,44 @@ NEXT TIME</source>
         <translation>保存预览中看到的画面。选择尺寸 — 画面比例保持不变。</translation>
     </message>
     <message>
+        <source>For</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts and YouTube: 1080p, high quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WhatsApp (light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smaller file that sends fast: 720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project&apos;s own size at the highest quality, to keep or edit again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Resolution</source>
         <translation>分辨率</translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -14920,8 +15002,31 @@ NEXT TIME</source>
         <translation>与项目相同 · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>与项目相同（%1 fps）</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16769,8 +16874,24 @@ NEXT TIME</source>
         <translation>切换参考线</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>切换到移动端布局…</translation>
+        <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Got it</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -16799,6 +16920,18 @@ NEXT TIME</source>
     <message>
         <source>Extras…</source>
         <translation>扩展…</translation>
+    </message>
+    <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>“%1” was added to Media.</source>
@@ -18590,6 +18723,10 @@ NEXT TIME</source>
 <context>
     <name>MotionToolsPanel</name>
     <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20358,6 +20495,26 @@ If playback stutters, try another.</source>
         <translation>项目已加载。它使用了此电脑没有的字体：%1。安装前，文字会以其他字体显示（在字体列表中导入字体，或安装扩展中的字体包）。</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation>未找到恢复文件</translation>
     </message>
@@ -20596,6 +20753,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>点击时间线上的片段以编辑其属性</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -21134,20 +21299,20 @@ If playback stutters, try another.</source>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>上次会话中未保存的工作</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>恢复</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>新会话</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>你上次的会话有未保存的更改。你可以恢复这些更改，或开始一个新的空会话。</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21577,6 +21742,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>登录后从素材库 › 模板获取：它们会安装到这里并保存在你的账户中。</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -23764,6 +23933,10 @@ If playback stutters, try another.</source>
         <translation>登录以使用此声音</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio 是免费的：导出、Stock 和所有模板都不花钱。</translation>
     </message>
@@ -23774,6 +23947,10 @@ If playback stutters, try another.</source>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>带火焰标记的声音仅供已登录用户使用。只需用 Google 账号登录：片刻即可完成，只需一次，项目保持原样。</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24622,6 +24799,10 @@ If playback stutters, try another.</source>
         <translation>打开项目</translation>
     </message>
     <message>
+        <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Local projects</source>
         <translation>本地项目</translation>
     </message>
@@ -24668,6 +24849,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Create project</source>
         <translation>创建项目</translation>
+    </message>
+    <message>
+        <source>Learn with an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>They stay in Help › Examples</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search projects</source>
@@ -28673,6 +28866,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28709,6 +28906,10 @@ If playback stutters, try another.</source>
         <translation>删除</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>调整淡化</translation>
     </message>
@@ -28735,10 +28936,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>在当前位置分割项目</translation>
     </message>
 </context>
 <context>
@@ -28804,12 +29001,12 @@ If playback stutters, try another.</source>
         <translation>时间线是空的</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>从素材库将媒体拖到这里，或添加一条空轨道开始。</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>新建轨道</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -28941,6 +29138,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete clip</source>
         <translation>删除片段</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>
@@ -30657,12 +30858,24 @@ If playback stutters, try another.</source>
 <context>
     <name>TtsController</name>
     <message>
+        <source>Loading voice model…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation>请先安装语音模型</translation>
     </message>
     <message>
         <source>Queued</source>
         <translation>排队中</translation>
+    </message>
+    <message>
+        <source>Preparing voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generating speech…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancelled</source>
@@ -30699,6 +30912,33 @@ If playback stutters, try another.</source>
         <translation>
             <numerusform>；%n 句比其字幕更长</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

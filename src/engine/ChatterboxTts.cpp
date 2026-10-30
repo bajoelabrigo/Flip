@@ -350,6 +350,10 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
             generated.push_back(next);
             if (next == stopToken)
                 break;
+            // A sentence the model never closes ran to kMaxNewTokens: 40 s, nearly all silence, for a
+            // few words. Far past what the text needs, it stops (the caller trims and retries).
+            if (step > 120 && step > expectedTokens * 4.0)
+                break;
             if (next >= 0 && next < vocabSize && !penalised[size_t(next)]) {
                 penalised[size_t(next)] = 1;
                 history.push_back(next);
@@ -568,14 +572,38 @@ std::vector<float> ChatterboxTts::synthesize(const QString &text, const QString 
     std::vector<float> out;
     bool cancelled = false;
     const double span = 1.0 / double(chunks.size());
+    // Silence after the last voiced sample, beyond a short tail, is cut: an unclosed sentence came
+    // back as a few words and half a minute of nothing. Returns the voiced length in samples.
+    const auto trimTail = [](std::vector<float> &wav) {
+        constexpr float kQuiet = 0.008f;
+        size_t last = wav.size();
+        while (last > 0 && std::fabs(wav[last - 1]) < kQuiet)
+            --last;
+        const size_t keep = std::min(wav.size(), last + size_t(kSampleRate) * 15 / 100);
+        wav.resize(keep);
+        return last;
+    };
     for (qsizetype i = 0; i < chunks.size(); ++i) {
-        const std::vector<float> wav = d->generateChunk(chunks.at(i), lang, voice, exaggeration,
-                                                        progress, double(i) * span, span, &cancelled,
-                                                        err);
+        std::vector<float> wav = d->generateChunk(chunks.at(i), lang, voice, exaggeration,
+                                                  progress, double(i) * span, span, &cancelled, err);
         if (cancelled)
             return {};
         if (wav.empty())
             return {};
+        // A sentence that came back mute (the model sometimes never speaks one, e.g. a short one
+        // after a colon) gets one more try, worded with a comma instead of the colon.
+        if (trimTail(wav) < size_t(kSampleRate) * 3 / 10 && !chunks.at(i).trimmed().isEmpty()) {
+            QString retry = chunks.at(i);
+            retry.replace(QLatin1Char(':'), QLatin1Char(','));
+            if (retry == chunks.at(i))
+                retry += QStringLiteral(" …");
+            std::vector<float> again = d->generateChunk(retry, lang, voice, exaggeration, progress,
+                                                        double(i) * span, span, &cancelled, err);
+            if (cancelled)
+                return {};
+            if (!again.empty() && trimTail(again) > size_t(kSampleRate) * 3 / 10)
+                wav = std::move(again);
+        }
         if (i > 0)
             out.insert(out.end(), size_t(kChunkGapSamples), 0.0f);
         out.insert(out.end(), wav.begin(), wav.end());

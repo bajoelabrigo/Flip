@@ -43,6 +43,7 @@ CATEGORY_NAMES = {
     "thumbnail": {"es": "Miniaturas de YouTube", "en": "Video thumbnails"},
     "counter": {"es": "Contadores", "en": "Counters"},
     "youtuber": {"es": "Estilo youtuber", "en": "YouTuber style"},
+    "ytkit": {"es": "Kit de YouTube", "en": "YouTube Kit"},
 }
 
 
@@ -110,6 +111,8 @@ def main() -> int:
             "previewWide": f"{tid}/preview-wide.mp4" if (pkg / "preview-wide.mp4").exists() else None,
             "thumbSquare": f"{tid}/thumbnail-square.png" if (pkg / "thumbnail-square.png").exists() else None,
             "previewSquare": f"{tid}/preview-square.mp4" if (pkg / "preview-square.mp4").exists() else None,
+            # The YouTube kit draws with the 0.26 shape tools (custom outlines, trim paths): older apps don't get it.
+            **({"minAppVersion": "0.26.0"} if manifest.get("category") == "ytkit" else {}),
             "zip": f"{tid}.zip",
             "sha256": hashlib.sha256(data).hexdigest(),
             "bytes": len(data),

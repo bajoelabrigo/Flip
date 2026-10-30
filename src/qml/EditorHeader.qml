@@ -229,12 +229,17 @@ Rectangle {
 
     // Exporting asks for a signed-in account (free all the same); once signed in, the dialog that
     // asked opens the Export dialog by itself. A build without accounts exports as before.
+    // Exporting needs no account up to 1080p (0.27, Jorge: a child often has no Google account);
+    // the Export dialog asks only when 2K, 4K or 8K is chosen.
     function exportVideo() {
-        if (Account.available && !Account.signedIn) {
-            signInDialogLoader.ensure().openFor(() => exportDialogLoader.ensure().openDialog())
-            return
-        }
         exportDialogLoader.ensure().openDialog()
+    }
+
+    // The sign-in dialog for a given reason ("export", "hd", "trends", "voices"), then `action`.
+    function requestSignIn(reason, action) {
+        const dialog = signInDialogLoader.ensure()
+        dialog.reason = reason || "export"
+        dialog.openFor(action)
     }
 
     // For the menu bar (AppMenuBar): the dialogs this header owns.
@@ -291,7 +296,11 @@ Rectangle {
 
     LazyLoader {
         id: exportDialogLoader
-        sourceComponent: Component { ExportDialog { } }
+        sourceComponent: Component {
+            ExportDialog {
+                signInRequester: (reason, action) => root.requestSignIn(reason, action)
+            }
+        }
     }
 
     LazyLoader {
@@ -711,12 +720,6 @@ Rectangle {
                         onTriggered: languageChooserDialogLoader.ensure().openFromHeader()
                     }
 
-                    ThemedMenuItem {
-                        text: qsTr("Switch to mobile layout…")
-                        icon.name: Theme.icons.smartphone
-                        onTriggered: root.Window.window.switchShell("mobile")
-                    }
-
                     ThemedMenuSeparator { }
 
                     // Infrequent tools. They were icon-only header buttons of their own,
@@ -835,7 +838,9 @@ Rectangle {
                 width: implicitWidth
                 height: implicitHeight
                 anchors.verticalCenter: parent.verticalCenter
-                visible: Qt.platform.os !== "android" && (Updates.supported || storeCopy)
+                // Only when there is something to install: an "Update" button sitting there every day
+                // read as "update the project". Checking by hand stays in Help › Check for updates.
+                visible: Qt.platform.os !== "android" && Updates.supported && Updates.updateAvailable
 
                 IconButton {
                     id: updateBtn
@@ -873,9 +878,12 @@ Rectangle {
                 }
             }
 
-            HeaderSeparator {}
+            HeaderSeparator { visible: EditorState.mcp.running }
 
             IconButton {
+                // Agent access is for AI assistants: shown here only while it is on (switched on and
+                // off in Advanced), so the header stays free of a robot nobody asked about.
+                visible: EditorState.mcp.running
                 glyph: Theme.icons.bot
                 variant: "ghost"
                 text: root.showMenuBar ? "" : qsTr("Agent")
@@ -926,6 +934,28 @@ Rectangle {
                     }
                 }
             }
+
+            // Simple | Pro (0.27, Jorge): Simple hides the After Effects tools from the interface
+            // (never from the project); Pro shows everything.
+            Row {
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 2
+                visible: Qt.platform.os !== "android"
+                ThemedChip {
+                    text: qsTr("Simple")
+                    selected: !EditorState.preferences.proMode
+                    tooltip: qsTr("The essentials, like CapCut: the After Effects tools are hidden")
+                    onClicked: EditorState.preferences.setProMode(false)
+                }
+                ThemedChip {
+                    text: qsTr("Pro")
+                    selected: EditorState.preferences.proMode
+                    tooltip: qsTr("Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)")
+                    onClicked: EditorState.preferences.setProMode(true)
+                }
+            }
+
+            HeaderSeparator {}
 
             // Primary CTA. Kept as a bespoke gradient button (the documented
             // exception to Themed* chrome), but it now has the hover, pressed and

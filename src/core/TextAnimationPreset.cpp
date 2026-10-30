@@ -78,7 +78,7 @@ void negateParam(TextAnimParam &p)
     if (p.curve.isEmpty())
         return;
     KeyframeTrack<double> flipped;
-    flipped.setEnabled(p.curve.enabled());
+    flipped.copySettingsFrom(p.curve);
     for (auto it = p.curve.keyframes().constBegin(); it != p.curve.keyframes().constEnd(); ++it) {
         Keyframe<double> k = it.value();
         k.value = -k.value;

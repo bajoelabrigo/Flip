@@ -552,11 +552,15 @@ Item {
                     color: Theme.panelSecondaryForeground
                 }
 
+                // Desktop / mobile layout: phones only. On a computer the touch layout ignored the
+                // mouse and left a newcomer with no way back (Jorge, 0.27).
                 ThemedLabel {
+                    visible: Qt.platform.os === "android"
                     text: qsTr("Layout")
                 }
 
                 ThemedComboBox {
+                    visible: Qt.platform.os === "android"
                     width: parent.width
                     textRole: "label"
                     valueRole: "id"
@@ -582,7 +586,7 @@ Item {
 
                 ThemedLabel {
                     width: parent.width
-                    visible: EditorState.preferences.interfaceShellNeedsRestart
+                    visible: Qt.platform.os === "android" && EditorState.preferences.interfaceShellNeedsRestart
                     text: qsTr("Restart Flip Studio to switch layouts.")
                     color: Theme.panelSecondaryForeground
                 }

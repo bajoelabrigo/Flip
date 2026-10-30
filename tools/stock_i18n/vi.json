@@ -129,6 +129,7 @@
   "template:thumbnail": "Ảnh thu nhỏ video",
   "template:transition": "Chuyển cảnh và phân cách",
   "template:youtuber": "Phong cách youtuber",
+  "template:ytkit": "Bộ công cụ YouTube",
   "text-animation:brillo": "Tỏa sáng và màu sắc",
   "text-animation:caer": "Rơi và bay lên",
   "text-animation:desenfoque": "Mờ và tan dần",
@@ -33421,6 +33422,1658 @@
     "thành phố",
     "top 3",
     "địa điểm"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "Mở đầu vòng tròn",
+   "tags": [
+    "youtube",
+    "intro",
+    "kênh",
+    "logo",
+    "mở đầu",
+    "vòng"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "Mở đầu vòng tròn (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "intro",
+    "logo",
+    "mở đầu",
+    "vòng"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "Mở đầu nền sáng",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "sáng",
+    "trắng"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "Mở đầu ghép ảnh",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "ảnh",
+    "cắt ghép"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "Mở đầu ghép ảnh (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "intro",
+    "logo",
+    "ảnh",
+    "cắt ghép"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "Mở đầu giải mã số",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "glitch",
+    "công nghệ",
+    "gaming"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "Mở đầu vệt sáng",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "ánh sáng",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "Mở đầu khung góc",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "khung",
+    "vàng"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "Mở đầu bùng nổ",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "năng lượng",
+    "tia sáng"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "Mở đầu sọc",
+   "tags": [
+    "youtube",
+    "intro",
+    "kênh",
+    "logo",
+    "mở đầu",
+    "sọc"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "Mở đầu lục giác",
+   "tags": [
+    "youtube",
+    "intro",
+    "kênh",
+    "logo",
+    "mở đầu"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "Mở đầu đường kẻ tối giản",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "tối giản",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "Mở đầu ô ghép",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "ghép ô",
+    "màu sắc"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "Mở đầu chia tấm",
+   "tags": [
+    "youtube",
+    "intro",
+    "kênh",
+    "logo",
+    "mở đầu",
+    "tấm"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "Mở đầu chia tấm (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "intro",
+    "logo",
+    "mở đầu",
+    "tấm"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "Mở đầu khối chữ",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mở đầu",
+    "kiểu chữ",
+    "san hô"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "Thanh tiến độ chương",
+   "tags": [
+    "youtube",
+    "chương",
+    "tiến độ",
+    "thanh",
+    "mục lục",
+    "hướng dẫn"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "Thanh sự thật thú vị",
+   "tags": [
+    "youtube",
+    "sự thật",
+    "bạn có biết",
+    "thú vị",
+    "thông tin"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "Nhãn trực tiếp",
+   "tags": [
+    "youtube",
+    "trực tiếp",
+    "phát sóng",
+    "livestream",
+    "nhãn"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "Thanh bình chọn",
+   "tags": [
+    "youtube",
+    "bình chọn",
+    "câu hỏi",
+    "biểu quyết",
+    "cộng đồng"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "Huy hiệu tập",
+   "tags": [
+    "youtube",
+    "tập",
+    "podcast",
+    "loạt phim",
+    "mùa"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "Thanh ngày và địa điểm",
+   "tags": [
+    "youtube",
+    "ngày",
+    "địa điểm",
+    "sự kiện",
+    "lịch"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "Thanh thông tin",
+   "tags": [
+    "youtube",
+    "thanh",
+    "thông tin",
+    "tin tức",
+    "phụ đề tên"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "Thanh tỉ số",
+   "tags": [
+    "youtube",
+    "tỉ số",
+    "thể thao",
+    "trận đấu",
+    "bóng đá",
+    "kết quả"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "Thanh tiêu đề tin",
+   "tags": [
+    "youtube",
+    "tin tức",
+    "tiêu đề",
+    "thanh",
+    "trực tiếp"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "Thanh nhà tài trợ",
+   "tags": [
+    "youtube",
+    "tài trợ",
+    "nhà tài trợ",
+    "thương hiệu",
+    "logo"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "Thanh chủ đề",
+   "tags": [
+    "youtube",
+    "chủ đề",
+    "thanh",
+    "tiêu đề",
+    "góc",
+    "thông tin"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "Thanh đồng hồ đếm ngược",
+   "tags": [
+    "youtube",
+    "hẹn giờ",
+    "đếm ngược",
+    "thời gian",
+    "thử thách"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "Thanh tin chạy",
+   "tags": [
+    "youtube",
+    "thanh",
+    "tin tức",
+    "tin nóng",
+    "thông tin"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "Chữ trên thanh",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "thanh",
+    "danh sách",
+    "từ ngữ",
+    "các bước"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "Chữ động nền sáng",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "sáng",
+    "tối giản",
+    "từ ngữ"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "Tiêu đề đếm số",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "bộ đếm",
+    "con số",
+    "ăn mừng",
+    "người đăng ký"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "Chữ cắt màu",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "nhịp điệu",
+    "cắt",
+    "năng lượng"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "Chữ cắt màu (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "chữ động",
+    "từ ngữ",
+    "nhịp điệu"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "Chữ chia đôi màn hình",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "chia đôi màn hình",
+    "tương phản",
+    "từ ngữ"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "Chữ phóng to thu nhỏ",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "phóng to",
+    "nhịp điệu"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "Chữ trên video của bạn",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "ảnh",
+    "du lịch",
+    "nhịp điệu"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "Chữ trên video của bạn (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "chữ động",
+    "ảnh",
+    "du lịch"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "Nhịp chữ to nhỏ",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "kiểu chữ",
+    "tương phản",
+    "từ ngữ"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "Nhịp chữ to nhỏ (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "chữ động",
+    "kiểu chữ",
+    "tương phản"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "Chữ hiện từ đường kẻ",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "đường kẻ",
+    "tối giản"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "Tiêu đề máy đánh chữ",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "máy đánh chữ",
+    "chữ",
+    "hướng dẫn"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "Chồng chữ xoay",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "xoay",
+    "danh sách"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "Chữ nảy",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "nảy",
+    "vui nhộn",
+    "từ ngữ"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "Nhóm vạch chéo",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "vạch",
+    "đường chéo",
+    "trang trí",
+    "khung"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "Thanh tải",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "đang tải",
+    "tiến độ",
+    "thanh",
+    "xong"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "Dấu tích và dấu chéo",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "dấu tích",
+    "dấu chéo",
+    "đúng",
+    "sai"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "Vòng tròn vẽ tay",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "vòng tròn",
+    "làm nổi bật",
+    "chỉ"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "Nút bấm",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "bấm",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "Lấp lánh",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "lấp lánh",
+    "ngôi sao",
+    "phép thuật",
+    "mới"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "Mũi tên vẽ tay",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "mũi tên",
+    "chỉ",
+    "xem này"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "Bong bóng thoại",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "bong bóng",
+    "hội thoại",
+    "trò chuyện",
+    "chữ"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "Các bước tiến độ",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "các bước",
+    "tiến độ",
+    "hướng dẫn",
+    "danh sách"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "Gạch chân và bút đánh dấu",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "gạch chân",
+    "bút đánh dấu",
+    "làm nổi bật",
+    "chữ"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "Nút đăng ký kèm chuông",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "đăng ký",
+    "chuông",
+    "nút",
+    "bấm"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "Khung ngắm máy quay",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "máy quay",
+    "đang quay",
+    "rec",
+    "khung"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "Bộ yếu tố động",
+   "tags": [
+    "youtube",
+    "yếu tố",
+    "hình khối",
+    "trang trí",
+    "đồ họa"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "Tiêu đề khung viền",
+   "tags": [
+    "youtube",
+    "hộp",
+    "viền",
+    "thành phố",
+    "tiêu đề",
+    "tối giản"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "Tiêu đề dải ruy băng",
+   "tags": [
+    "youtube",
+    "ruy băng",
+    "dải băng",
+    "mùa hè",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "Tiêu đề trong ngoặc",
+   "tags": [
+    "youtube",
+    "ngoặc vuông",
+    "thói quen",
+    "tiêu đề",
+    "ảnh",
+    "tối giản"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "Tiêu đề cắt chéo",
+   "tags": [
+    "youtube",
+    "cắt chéo",
+    "đường chéo",
+    "game",
+    "tiêu đề",
+    "năng lượng"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "Tiêu đề thanh chuyển màu",
+   "tags": [
+    "youtube",
+    "chuyển màu",
+    "thanh",
+    "thành phố",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "Tiêu đề hai tông",
+   "tags": [
+    "youtube",
+    "hai tông",
+    "du lịch",
+    "phiêu lưu",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "Tiêu đề khung góc",
+   "tags": [
+    "youtube",
+    "góc",
+    "khung",
+    "du lịch",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "Tiêu đề khung góc (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "góc",
+    "khung",
+    "du lịch",
+    "tiêu đề"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "Tiêu đề kèm nhãn",
+   "tags": [
+    "youtube",
+    "nhãn",
+    "viên thuốc",
+    "vlog",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "Tiêu đề nổi bật",
+   "tags": [
+    "youtube",
+    "nổi bật",
+    "khối",
+    "công thức",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "Tiêu đề nổi bật (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "nổi bật",
+    "công thức",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "Tiêu đề kèm con dấu",
+   "tags": [
+    "youtube",
+    "con dấu",
+    "mới",
+    "podcast",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "Tiêu đề bóng màu",
+   "tags": [
+    "youtube",
+    "bóng đổ",
+    "màu sắc",
+    "hoàng hôn",
+    "tiêu đề",
+    "ấn tượng"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "Tiêu đề thẻ cửa sổ",
+   "tags": [
+    "youtube",
+    "cửa sổ",
+    "thẻ",
+    "hướng dẫn",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "Thẻ trích dẫn",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "động lực",
+    "chữ"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "Thẻ trích dẫn san hô",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "màu sắc",
+    "động lực"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "Trích dẫn chữ nghiêng có chân",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "thanh lịch",
+    "chữ nghiêng",
+    "tình yêu"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "Trích dẫn tạp chí sáng",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "biên tập",
+    "sáng",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "Trích dẫn tạp chí sáng (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "câu nói",
+    "trích dẫn",
+    "biên tập"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "Trích dẫn trên ảnh",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "ảnh",
+    "cảm hứng"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "Trích dẫn trên ảnh (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "câu nói",
+    "trích dẫn",
+    "ảnh"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "Bài học đánh số",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "bài học",
+    "lời khuyên",
+    "số",
+    "hướng dẫn"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "Trích dẫn trong khung",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "khung",
+    "hiện đại"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "Trích dẫn tối giản",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "tối giản",
+    "tối"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "Trích dẫn nửa ảnh",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "ảnh",
+    "phỏng vấn"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "Từ lớn và trích dẫn",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "từ ngữ",
+    "kiểu chữ"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "Thẻ trích dẫn vàng nắng",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "màu sắc",
+    "động lực",
+    "mạnh mẽ"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "Thẻ trích dẫn trên video",
+   "tags": [
+    "youtube",
+    "câu nói",
+    "trích dẫn",
+    "thẻ",
+    "ảnh",
+    "lớp phủ"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "Lời chứng thực",
+   "tags": [
+    "youtube",
+    "lời chứng thực",
+    "ý kiến",
+    "đánh giá",
+    "khách hàng"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "Lời chứng thực (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "shorts",
+    "lời chứng thực",
+    "đánh giá"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "Màn hình kết thúc hai video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "kết thúc",
+    "video tiếp theo"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "Màn hình kết thúc căn giữa",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "kết thúc",
+    "đối xứng"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "Màn hình kết thúc nền sáng",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "sáng",
+    "trắng"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "Màn hình kết thúc san hô",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "san hô",
+    "đăng ký",
+    "kết thúc"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "Màn hình kết thúc kèm ảnh",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "ảnh",
+    "đăng ký",
+    "kết thúc"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "Màn hình cảm ơn",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "cảm ơn",
+    "mạng xã hội",
+    "đăng ký"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "Màn hình kết thúc danh sách phát",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "danh sách phát",
+    "playlist",
+    "kết thúc"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "Màn hình kết thúc tối giản",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "tối giản",
+    "đường kẻ",
+    "kết thúc"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "Màn hình kết thúc vàng nắng",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "vàng",
+    "thích",
+    "đăng ký"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "Màn hình kết thúc ba thẻ",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "thẻ",
+    "đăng ký",
+    "kết thúc"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "Màn hình kết thúc một video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "kết thúc",
+    "video tiếp theo"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "Thanh mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "thanh",
+    "tên người dùng",
+    "phụ đề tên"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "Biểu tượng tròn",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "biểu tượng",
+    "vòng tròn",
+    "tên người dùng"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "Tài khoản mạng xã hội (sáng)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "sáng",
+    "trắng"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "Theo dõi san hô",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "chữ động",
+    "tên người dùng"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "Lưới mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "lưới"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "Tên tài khoản ở góc",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "tên người dùng",
+    "góc",
+    "thông báo"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "Tên tài khoản lớn",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "lớn"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "Tên tài khoản lớn (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "lớn"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "Tài khoản mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "liên hệ"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "Tài khoản mạng xã hội (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "danh sách"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "Nhãn mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "tên người dùng",
+    "viên thuốc"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "Thẻ theo dõi",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "theo dõi",
+    "thẻ",
+    "tên người dùng"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "Thanh tên tài khoản",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "tên người dùng",
+    "thanh tên",
+    "phụ đề tên"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "Thanh tên kèm ảnh đại diện",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "ảnh",
+    "hồ sơ"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "Thanh tên nền sáng",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "sáng",
+    "trắng"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "Thanh tên ngoặc vuông",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "phụ đề tên",
+    "ngoặc vuông"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "Thanh tên căn phải",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "phụ đề tên",
+    "bên phải"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "Thanh tên nghiêng",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "thể thao",
+    "năng lượng"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "Thanh tên hai dòng",
+   "tags": [
+    "youtube",
+    "tên",
+    "phụ đề tên",
+    "phỏng vấn",
+    "thanh tên"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "Thanh tên hai dòng (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "tên",
+    "thanh tên",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "Thanh tên hai người",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "phỏng vấn",
+    "podcast",
+    "hai người"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "Thanh tên kèm nhãn",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "khách mời",
+    "nhãn"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "Thanh tên đường kẻ tối giản",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "tối giản",
+    "đường kẻ"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "Thanh bước đánh số",
+   "tags": [
+    "youtube",
+    "bước",
+    "hướng dẫn",
+    "công thức",
+    "số",
+    "thanh tên"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "Thanh tên viên thuốc",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "phụ đề tên",
+    "viên thuốc"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "Thanh tên viên thuốc (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "tên",
+    "thanh tên",
+    "viên thuốc",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "Thanh tên địa điểm",
+   "tags": [
+    "youtube",
+    "địa điểm",
+    "vị trí",
+    "du lịch",
+    "thanh tên",
+    "bản đồ"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "Thanh tên kính mờ",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh tên",
+    "kính",
+    "trong mờ",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "Trước và sau",
+   "tags": [
+    "youtube",
+    "trước",
+    "sau",
+    "so sánh",
+    "hai tông"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "Chữ xếp chồng",
+   "tags": [
+    "youtube",
+    "xếp chồng",
+    "từ ngữ",
+    "tiêu đề",
+    "viền chữ"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "Chữ xếp chồng (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "xếp chồng",
+    "từ ngữ",
+    "tiêu đề",
+    "viền chữ"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "Chữ trên khối màu",
+   "tags": [
+    "youtube",
+    "khối màu",
+    "các bước",
+    "từ ngữ",
+    "màu sắc"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "Chương đánh số",
+   "tags": [
+    "youtube",
+    "chương",
+    "số",
+    "tiêu đề",
+    "kiểu chữ"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "Chương đánh số (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "chương",
+    "số",
+    "tiêu đề",
+    "kiểu chữ"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "Viền chữ tự tô đầy",
+   "tags": [
+    "youtube",
+    "viền chữ",
+    "tô màu",
+    "câu nói",
+    "kiểu chữ"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "Chữ hai màu",
+   "tags": [
+    "youtube",
+    "hai màu",
+    "tiêu đề",
+    "kiểu chữ",
+    "ấn tượng"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "Tiêu đề tạp chí sáng",
+   "tags": [
+    "youtube",
+    "biên tập",
+    "tạp chí",
+    "sáng",
+    "thanh lịch",
+    "kiểu chữ"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "Mục lục chương",
+   "tags": [
+    "youtube",
+    "mục lục",
+    "chương",
+    "nội dung",
+    "danh sách"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "Tiêu đề giữa hai đường kẻ",
+   "tags": [
+    "youtube",
+    "đường kẻ",
+    "tập",
+    "tiêu đề",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "Tiêu đề trong khung",
+   "tags": [
+    "youtube",
+    "khung",
+    "tiêu đề",
+    "kiểu chữ",
+    "phóng sự"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "Tiêu đề tô sáng",
+   "tags": [
+    "youtube",
+    "bút đánh dấu",
+    "gạch chân",
+    "hướng dẫn",
+    "tiêu đề"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "Số đếm ngược",
+   "tags": [
+    "youtube",
+    "top",
+    "danh sách",
+    "xếp hạng",
+    "số"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "Khối chữ",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "chữ",
+    "kiểu chữ",
+    "tối giản"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "Tiêu đề vạch chéo",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "kênh",
+    "phong cách",
+    "ảnh"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "Chữ động theo nhịp",
+   "tags": [
+    "youtube",
+    "chữ động",
+    "từ ngữ",
+    "nhịp điệu",
+    "năng lượng"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "Thu phóng vòng",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "thu phóng",
+    "vòng",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "Quét mũi tên",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "mũi tên",
+    "chevron",
+    "quét",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "Chuyển cảnh cắt chéo",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "đường chéo",
+    "cắt",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "Lóe sáng màu",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "lóe sáng",
+    "flash",
+    "ánh sáng",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "Chuyển cảnh góc",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "đường chéo",
+    "góc",
+    "tam giác",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "Quét sọc",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "sọc",
+    "quét",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "Ô lục giác",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "lục giác",
+    "tổ ong",
+    "ghép ô",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "Chuyển cảnh mống mắt",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "vòng tròn",
+    "iris",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "Chuyển cảnh mống mắt (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "chuyển cảnh",
+    "vòng tròn",
+    "iris",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "Sóng thanh",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "thanh",
+    "sóng",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "Chuyển cảnh tấm",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "lướt",
+    "hình khối",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "Chuyển cảnh rèm sáo",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "rèm sáo",
+    "sọc",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "Chuyển cảnh rèm sáo (dọc)",
+   "tags": [
+    "youtube",
+    "dọc",
+    "chuyển cảnh",
+    "rèm sáo",
+    "sọc",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "Cửa tách đôi",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "cửa",
+    "đóng",
+    "đổi cảnh"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "Lấp đầy chấm",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "chấm",
+    "vòng tròn",
+    "đổi cảnh"
    ]
   },
   "template:zoom-3d-parallax": {

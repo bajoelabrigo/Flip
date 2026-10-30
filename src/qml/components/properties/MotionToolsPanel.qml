@@ -97,10 +97,10 @@ Item {
         spacing: Theme.spacingMd
 
         Text {
-            text: "MOTION TOOLS"
+            text: qsTr("Motion Tools").toUpperCase()
             color: Theme.primary
             font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeLg
+            font.pixelSize: Theme.fontSizeBase
             font.weight: Font.Bold
         }
         // Tools, and the scripts motion designers dock next to them (0.26, Jorge): Trim-Pack,
@@ -182,11 +182,17 @@ Item {
                         from: easeRow.modelData.from
                         to: easeRow.modelData.to
                         value: easeRow.current
+                        // Ends only the session it began: closing someone else's (the Pen's) on
+                        // every release cut that one short.
+                        property bool ownsSession: false
                         onPressedChanged: {
-                            if (pressed && root.pickedCount > 0)
+                            if (pressed && root.pickedCount > 0) {
                                 EditorState.beginEditSession(qsTr("Easy ease"))
-                            else if (!pressed)
+                                ownsSession = true
+                            } else if (!pressed && ownsSession) {
+                                ownsSession = false
                                 EditorState.endEditSession(true)
+                            }
                         }
                         onMoved: easeRow.setValue(value)
                     }
@@ -371,7 +377,13 @@ Item {
                             to: modelData.to
                             stepSize: modelData.decimals === 0 ? 1 : 0
                             value: settleCard.modelData[modelData.key]
-                            onMoved: settleCard.set(modelData.key, modelData.decimals === 0 ? Math.round(value) : value)
+                            // Written on release: each write rebuilds this Repeater (tracksRevision),
+                            // which destroyed the slider under the mouse after one step.
+                            function commit() {
+                                settleCard.set(modelData.key, modelData.decimals === 0 ? Math.round(value) : value)
+                            }
+                            onPressedChanged: if (!pressed) commit()
+                            onMoved: if (!pressed) commit()
                         }
                         Text {
                             Layout.preferredWidth: 38

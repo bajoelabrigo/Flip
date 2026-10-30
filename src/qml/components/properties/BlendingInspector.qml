@@ -79,8 +79,11 @@ Item {
                            EditorState.selectedTrack, EditorState.selectedClip, "normal")
         }
 
+        // Parent, track matte, motion blur, lights: Pro mode (they show inside Video › Basic too).
         MotionLinkSection {
             width: parent.width
+            visible: EditorState.preferences.proMode
+            height: visible ? implicitHeight : 0
         }
     }
 }

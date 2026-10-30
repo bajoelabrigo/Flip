@@ -48,10 +48,14 @@ constexpr qint64 kIndexMaxAgeSeconds = 6 * 60 * 60;
 
 // The packs every install is nudged to keep as addons so shader/audio fixes can ship without an
 // app release. Order matches the Extras category order (video → transitions → audio).
+// The small packs a beginner meets empty without (Stickers, the font list, Audio › Sounds): about
+// 18 MB together. Drift's own ids were here (effects.core…), which Flip's index never had, so the
+// startup offer to install them never appeared.
 const QStringList kEssentialAddonIds = {
-    QStringLiteral("effects.core"),
-    QStringLiteral("transitions.core"),
-    QStringLiteral("audioeffects.core"),
+    QStringLiteral("fonts.basic"),
+    QStringLiteral("stickers.emoji"),
+    QStringLiteral("stickers.emoji-animados"),
+    QStringLiteral("sonidos.efectos"),
 };
 
 QString cachedIndexPath()
@@ -391,6 +395,9 @@ void AddonManager::refresh(bool force)
     request.setRawHeader("X-Drift-Client", kClientToken.toUtf8());
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
+    // Qt 6 has no default: a stalled socket left "refreshing" set for good, and every install after
+    // it waited for an index that never came.
+    request.setTransferTimeout(15000);
 
     QNetworkReply *reply = m_network->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, reply] {
@@ -513,6 +520,8 @@ void AddonManager::startDownload(const QString &id)
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     if (have > 0)
         request.setRawHeader("Range", QByteArrayLiteral("bytes=") + QByteArray::number(have) + "-");
+    // Idle timeout (no bytes for a minute), not a cap on the whole download.
+    request.setTransferTimeout(60000);
 
     transfer->reply = m_network->get(request);
     m_transfers.insert(id, transfer);
@@ -580,7 +589,11 @@ void AddonManager::finishDownload(const QString &id)
         }
 
         m_transfers.insert(id, transfer);
-        // The .part file is deliberately left in place so the next attempt resumes.
+        // The .part file is deliberately left in place so the next attempt resumes, except when
+        // the server says the range is past the end (416): the file was already whole (the app was
+        // closed before the rename) and resuming would fail the same way forever.
+        if (status == 416)
+            QFile::remove(transfer->packagePath + QStringLiteral(".part"));
         failTransfer(id, reply->errorString());
         return;
     }

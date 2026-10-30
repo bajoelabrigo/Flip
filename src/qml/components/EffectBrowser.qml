@@ -64,7 +64,10 @@ Column {
     readonly property bool stockFooter: root.query.length === 0 && !root.showingStockOnly
                                         && (root.stockFavorites.length > 0 || root.stockCategoriesHere.length > 0)
     readonly property var catalog: { void catalogTick; return EditorState.effectCatalog() }
-    property string activeCategory: categories.length > 0 ? categories[0].id : ""
+    // Signed out, the first own group: Trending needs an account and opened on a "Sign in" wall.
+    property string activeCategory: !Market.authenticated && root.ownCategories.length > 0
+                                    ? root.ownCategories[0].id
+                                    : (categories.length > 0 ? categories[0].id : "")
     property alias searchText: search.text
     readonly property string query: search.text.trim().toLowerCase()
     property int favoritesTick: 0

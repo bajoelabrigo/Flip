@@ -62,7 +62,9 @@ Rectangle {
         Layout.alignment: Qt.AlignVCenter
         active: toolId.length > 0 && root.tool === toolId
         tooltip: label + root.keys(shortcutId)
-        onClicked: root.pick(toolId)
+        // The shape button handles its own click (a second one opens the shape list): picking here as
+        // well made the first click already count as the second.
+        onClicked: if (toolId !== "shape") root.pick(toolId)
     }
 
     RowLayout {

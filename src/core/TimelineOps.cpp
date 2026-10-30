@@ -1191,11 +1191,15 @@ bool splitClipAtOffsetMin(Clip &head, Clip &tail, TimeUs offset, TimeUs minEdgeU
     if (offset < minEdgeUs || head.timelineDuration - offset < minEdgeUs)
         return false;
 
+    // A time-remapped clip reads its source through the remap curve (seconds from srcIn), so both
+    // halves keep the source range and the tail's curve is carried back with its other keys below.
+    // Moving srcIn/srcOut by the constant-speed amount froze the head and shifted the tail's frames.
+    const bool remapped = !head.timeRemap.isEmpty() && head.timeRemap.enabled();
     const TimeUs sourceSpan = head.srcOut - head.srcIn;
     const TimeUs sourceOffset =
         head.hasSpeedCurve() ? head.speedCurve.sourceOffsetForTimelineOffset(offset, sourceSpan)
                              : head.sourceDeltaForTimelineDelta(offset);
-    if (sourceOffset <= 0 || sourceOffset >= sourceSpan)
+    if (!remapped && (sourceOffset <= 0 || sourceOffset >= sourceSpan))
         return false;
 
     tail = head;
@@ -1212,7 +1216,9 @@ bool splitClipAtOffsetMin(Clip &head, Clip &tail, TimeUs offset, TimeUs minEdgeU
         tail.speedCurve = parent.subRange(cut, 1.0);
     }
 
-    if (head.reverse) {
+    if (remapped) {
+        // Source range unchanged on both halves (see above).
+    } else if (head.reverse) {
         const TimeUs sourceAtSplit = head.srcOut - sourceOffset;
         tail.srcIn = head.srcIn;
         tail.srcOut = sourceAtSplit;
@@ -1494,7 +1500,7 @@ void shiftTrackValues(KeyframeTrack<double> &track, double delta, double implici
         key.value -= delta;
         shifted.setKeyframe(it.key(), key);
     }
-    shifted.setEnabled(track.enabled());
+    shifted.copySettingsFrom(track);
     track = shifted;
 }
 
@@ -1623,6 +1629,9 @@ void forEachKeyframeTrack(Clip &clip, Fn &&fn)
     for (Effect &effect : clip.audioEffects)
         visitMap(effect.paramKeyframes);
     visitMap(clip.mask.keyframes);
+    // Every mask, not only the first: the others played `offset` late on a cut's tail.
+    for (Mask &extra : clip.extraMasks)
+        visitMap(extra.keyframes);
     visitMap(clip.shapeStyle.keyframes);
     visitMap(clip.textStyle.keyframes);
     visitMap(clip.vector.keyframes);
@@ -1650,6 +1659,13 @@ void rebaseKeyframesForSplitTail(Clip &tail, TimeUs offset)
         track.pinValueAt(offset);
         track.shiftBy(-offset);
     });
+    // The time remap too: its keys are clip-relative and its values source seconds from srcIn,
+    // which a remapped split leaves where it was. (Not in forEachKeyframeTrack: the silence cut
+    // moves srcIn per range and would have to rewrite the values as well.)
+    if (!tail.timeRemap.isEmpty()) {
+        tail.timeRemap.pinValueAt(offset);
+        tail.timeRemap.shiftBy(-offset);
+    }
 }
 
 bool sliceClipToTimelineRange(const Clip &src, TimeUs start, TimeUs end, Clip &out)
@@ -1689,7 +1705,7 @@ void scaleTrackValues(KeyframeTrack<double> &track, double factor)
         key.outDy *= factor;
         scaled.setKeyframe(it.key(), key);
     }
-    scaled.setEnabled(track.enabled());
+    scaled.copySettingsFrom(track);
     track = scaled;
 }
 
@@ -1724,7 +1740,7 @@ void rebaseCanvasBox(Clip &clip, int oldWidth, int oldHeight, int newWidth, int 
     const auto rebase = [&](KeyframeTrack<double> &track, bool isX) {
         const auto pick = [isX](QPointF p) { return isX ? p.x() : p.y(); };
         KeyframeTrack<double> out;
-        out.setEnabled(track.enabled());
+        out.copySettingsFrom(track);
         const QMap<TimeUs, Keyframe<double>> &values = track.keyframes();
         for (auto it = values.constBegin(); it != values.constEnd(); ++it) {
             Keyframe<double> key = it.value();

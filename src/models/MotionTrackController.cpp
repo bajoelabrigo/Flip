@@ -20,7 +20,8 @@
 
 namespace {
 
-constexpr quint64 kMotionTrackStreamId = 0xA5'11'5C'A4'00'00'00'0Bull;
+// Its own decode cursor (it shared 0x0B with the cutout scrub and the body analysis).
+constexpr quint64 kMotionTrackStreamId = 0xA5'11'5C'A4'00'00'00'0Dull;
 // Frames are decoded no bigger than this: the tracker works on a small grey copy anyway.
 constexpr int kDecodeSide = 960;
 

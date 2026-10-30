@@ -25,8 +25,8 @@ ThemedContextMenu {
         model: menu.spaces
         delegate: ThemedMenuItem {
             required property var modelData
-            text: modelData.label + (menu.win && menu.win.workspaceEdited(modelData.id) ? "  •" : "")
-            icon.name: EditorState.preferences.workspaceLayoutOverridden && menu.current === modelData.id
+            text: modelData.label + (menu && menu.win && menu.win.workspaceEdited(modelData.id) ? "  •" : "")
+            icon.name: EditorState.preferences.workspaceLayoutOverridden && !!menu && menu.current === modelData.id
                        ? Theme.icons.check : ""
             onTriggered: menu.win.chooseWorkspace(modelData.id)
         }

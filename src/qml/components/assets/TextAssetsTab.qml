@@ -19,7 +19,8 @@ Item {
     signal added()
 
     // "trends", "builtin", "mine", or the id of a template category from Extras.
-    property string section: "trends"
+    // Trending needs an account: signed out it opened on a "Sign in" wall, so Basic comes first.
+    property string section: Market.authenticated ? "trends" : "builtin"
     // For the panel's tree (0.23): the chips below as a list, and the one picked.
     property alias activeCategory: root.section
     readonly property var categories: [{ "id": "favorites", "label": qsTr("Favorites") },

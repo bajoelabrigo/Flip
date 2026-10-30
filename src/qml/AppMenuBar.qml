@@ -382,6 +382,13 @@ Row {
             minimumWidth: 290
 
             ThemedMenuItem {
+                // Simple / Pro (0.27): the same switch as the header's.
+                text: qsTr("Pro mode (After Effects tools)")
+                icon.name: EditorState.preferences.proMode ? Theme.icons.check : ""
+                onTriggered: EditorState.preferences.setProMode(!EditorState.preferences.proMode)
+            }
+            ThemedMenuSeparator { }
+            ThemedMenuItem {
                 text: qsTr("Play / Pause")
                 shortcutText: root.keys("playPause")
                 enabled: root.editing
@@ -492,10 +499,6 @@ Row {
                 text: qsTr("Language…")
                 onTriggered: root.header.openLanguageChooser()
             }
-            ThemedMenuItem {
-                text: qsTr("Switch to Mobile Layout…")
-                onTriggered: root.win.switchShell("mobile")
-            }
         }
     }
 
@@ -537,6 +540,16 @@ Row {
             id: helpMenu
             minimumWidth: 260
 
+            ThemedMenuItem {
+                // The step-by-step guide with pictures, basic to advanced (getflipstudio.com/guia.html).
+                text: qsTr("User Guide")
+                onTriggered: Qt.openUrlExternally("https://getflipstudio.com/guia.html")
+            }
+            ThemedMenuItem {
+                // The home screen's ready-made videos, also for someone who hid them.
+                text: qsTr("Examples")
+                onTriggered: root.win.showExamples()
+            }
             ThemedMenuItem {
                 text: qsTr("Keyboard Shortcuts")
                 shortcutText: "F1"

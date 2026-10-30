@@ -26,6 +26,20 @@ ThemedDialog {
     // Export frame rate. fpsNum 0 means "follow the project fps". Rational so the
     // NTSC rates (30000/1001 and friends) survive the round-trip.
     property string frameRateId: "project"
+    // The resolution a destination asks for, or the project's own when that one is not offered
+    // (a 1080p project lists no separate "1080p": it is "Same as project").
+    function destinationScale(id) {
+        const list = root.scaleOptions || []
+        for (let i = 0; i < list.length; ++i) {
+            if (list[i].id === id)
+                return list[i]
+        }
+        for (let i = 0; i < list.length; ++i) {
+            if (list[i].id === "source")
+                return list[i]
+        }
+        return { id: "source", targetHeight: 0 }
+    }
     property int fpsNum: 0
     property int fpsDen: 1
     property var frameRateOptions: []
@@ -61,6 +75,27 @@ ThemedDialog {
     readonly property bool isGifExport: exportMode === "gif"
 
     // The picked size, and what it asks of the encoder (Exporter::scaleOptions).
+    // Without an account (0.27, Jorge): up to 1080p on the short side. 2K, 4K and 8K ask to sign in
+    // (free), when they are chosen, not before.
+    readonly property bool signedOutLimit: Account.available && !Account.signedIn
+    // Set by the header that owns this dialog: a Popup has no Window to reach the main window by.
+    property var signInRequester: function (reason, action) {}
+    function needsAccount(option) {
+        return root.signedOutLimit && !!option && Math.min(option.width || 0, option.height || 0) > 1080
+    }
+    // The largest size open without an account, for a dialog that would otherwise open on a locked one.
+    function bestOpenScale() {
+        let best = null
+        for (let i = 0; i < scaleOptions.length; ++i) {
+            const o = scaleOptions[i]
+            if (needsAccount(o))
+                continue
+            if (!best || Math.min(o.width, o.height) > Math.min(best.width, best.height))
+                best = o
+        }
+        return best
+    }
+
     readonly property var currentScale: {
         for (var i = 0; i < scaleOptions.length; ++i) {
             if (scaleOptions[i].id === scaleId)
@@ -287,6 +322,16 @@ ThemedDialog {
             }
         }
 
+        if (needsAccount(currentScale)) {
+            const open = bestOpenScale()
+            if (open) {
+                scaleId = open.id
+                targetHeight = open.targetHeight
+                if (open.videoBitrateKbps)
+                    videoBitrateKbps = open.videoBitrateKbps
+            }
+        }
+
         // Codec catalog defaults only on a fresh dialog — otherwise they wipe the remembered CRF.
         if (!hasRemembered)
             applyVideoCodecDefaults(codecById(videoCodecs, videoCodecId))
@@ -356,6 +401,15 @@ ThemedDialog {
     }
 
     onAccepted: {
+        // A size that needs the account: sign in first, then the export goes on by itself.
+        if (!isGifExport && !isAudioOnly && needsAccount(currentScale)) {
+            root.signInRequester("hd", () => root.runExport())
+            return
+        }
+        root.runExport()
+    }
+
+    function runExport() {
         var container = isGifExport ? "gif"
                 : isAudioOnly
                   ? EditorState.exportPreferredAudioOnlyContainer(audioCodecId)
@@ -472,6 +526,41 @@ ThemedDialog {
                     text: qsTr("Saves what you see in the preview. Pick a size — the picture shape stays the same.")
                 }
 
+                // Where the video is going, for anyone who does not know which size to pick: each sets
+                // the size and quality below (still changeable one by one).
+                ThemedLabel {
+                    text: qsTr("For")
+                }
+                Flow {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    Repeater {
+                        model: [
+                            { label: qsTr("Social media"), tip: qsTr("TikTok, Reels, Shorts and YouTube: 1080p, high quality"), scale: "1080p", crf: 18 },
+                            { label: qsTr("WhatsApp (light)"), tip: qsTr("A smaller file that sends fast: 720p"), scale: "720p", crf: 23 },
+                            { label: qsTr("Best quality"), tip: qsTr("The project's own size at the highest quality, to keep or edit again"), scale: "source", crf: 16 }
+                        ]
+                        delegate: ThemedChip {
+                            required property var modelData
+                            text: modelData.label
+                            tooltip: modelData.tip
+                            selected: root.rateControl === "crf" && root.crf === modelData.crf
+                                      && root.scaleId === root.destinationScale(modelData.scale).id
+                            onClicked: {
+                                const option = root.destinationScale(modelData.scale)
+                                root.scaleId = option.id
+                                root.targetHeight = option.targetHeight || 0
+                                if (option.videoBitrateKbps)
+                                    root.videoBitrateKbps = option.videoBitrateKbps
+                                root.videoCodecId = "h264"
+                                root.rateControl = "crf"
+                                root.crf = modelData.crf
+                                root.fitCodecToScale()
+                            }
+                        }
+                    }
+                }
+
                 ThemedLabel {
                     text: qsTr("Resolution")
                 }
@@ -485,9 +574,12 @@ ThemedDialog {
 
                         delegate: ThemedChip {
                             required property var modelData
-                            text: modelData.label
+                            readonly property bool locked: root.needsAccount(modelData)
+                            text: locked ? qsTr("%1 · with account").arg(modelData.label) : modelData.label
+                            opacity: locked && !selected ? 0.7 : 1
                             selected: root.scaleId === modelData.id
-                            tooltip: qsTr("Export at %1×%2").arg(modelData.width).arg(modelData.height)
+                            tooltip: locked ? qsTr("Sign in (free) to export at %1×%2").arg(modelData.width).arg(modelData.height)
+                                            : qsTr("Export at %1×%2").arg(modelData.width).arg(modelData.height)
                             onClicked: {
                                 root.scaleId = modelData.id
                                 root.targetHeight = modelData.targetHeight

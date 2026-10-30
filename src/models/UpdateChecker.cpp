@@ -994,6 +994,19 @@ void UpdateChecker::launchStagedInstall()
         return;
     m_installOnQuit = false;
 
+    // Checked again right before it runs elevated: hours can pass between the download (checked
+    // then) and the close, and the file sits in a folder any program of this user can write to.
+    if (!m_assetSha256.isEmpty()) {
+        QFile staged(m_stagedPath);
+        QCryptographicHash hash(QCryptographicHash::Sha256);
+        if (!staged.open(QIODevice::ReadOnly) || !hash.addData(&staged)
+            || QString::fromLatin1(hash.result().toHex()).compare(m_assetSha256, Qt::CaseInsensitive) != 0) {
+            QFile::remove(m_stagedPath);
+            m_stagedPath.clear();
+            return;
+        }
+    }
+
     const QString dir = updatesDir();
     const qint64 pid = QCoreApplication::applicationPid();
 

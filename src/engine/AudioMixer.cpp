@@ -168,8 +168,12 @@ void AudioMixer::readClipAudio(QVector<float> &out, const drift::Clip &clip, qui
     const drift::TimeUs endUs = audibleEndUs >= 0 ? qMax(audibleEndUs, clip.timelineEnd()) : clip.timelineEnd();
     // Inside the clip this is exactly timelineToSourceUs; only a handle needs the unclamped form.
     const bool extended = startUs < clip.timelineStart || endUs > clip.timelineEnd();
+    // Only a time outside the clip (a transition's handle) takes the unclamped, constant-speed
+    // map: inside it the remap and speed curve rule, or a remapped clip with a transition played
+    // its whole audio off the picture.
     const auto toSource = [&clip, extended](drift::TimeUs t) {
-        return extended ? clip.timelineToSourceUsUnclamped(t) : clip.timelineToSourceUs(t);
+        const bool outside = t < clip.timelineStart || t > clip.timelineEnd();
+        return extended && outside ? clip.timelineToSourceUsUnclamped(t) : clip.timelineToSourceUs(t);
     };
 
     const drift::TimeUs winDurUs = framesToUs(outFrames, sampleRate);
@@ -650,6 +654,9 @@ void AudioMixer::mix(drift::TimeUs timelineStartUs, int sampleCount, int sampleR
         float peakR = 0.0f;
         if (track.type == drift::TrackType::Audio) {
             for (const drift::Clip &clip : track.clips) {
+                // A clip switched off (Premiere's Enable) is out of the picture and out of the mix.
+                if (clip.disabled)
+                    continue;
                 const size_t laneKey = adjustmentsForClip(trackLive, clip.id, live);
                 accumulateClipAudio(*project, clip, track, timelineStartUs, sampleCount, sampleRate,
                                     interleavedStereoOut, m_clipAudioMutex, m_clipAudio,
@@ -658,7 +665,7 @@ void AudioMixer::mix(drift::TimeUs timelineStartUs, int sampleCount, int sampleR
         } else if (track.isPictureTrack()) {
             for (const drift::Clip &clip : track.clips) {
                 if ((clip.type == drift::ClipType::Video || clip.type == drift::ClipType::Composite)
-                    && !clip.suppressEmbeddedAudio) {
+                    && !clip.suppressEmbeddedAudio && !clip.disabled) {
                     const size_t laneKey = adjustmentsForClip(trackLive, clip.id, live);
                     accumulateClipAudio(*project, clip, track, timelineStartUs, sampleCount,
                                         sampleRate, interleavedStereoOut, m_clipAudioMutex,

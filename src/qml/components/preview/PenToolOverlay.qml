@@ -316,7 +316,10 @@ Item {
                 const list = root.cloneContours(root.contours)
                 for (const key of root.selected) {
                     const [c, i] = key.split(":").map(Number)
-                    const p = list[c].points[i]
+                    // A picked point can be gone (undo, a delete): skip it rather than throw.
+                    const p = list[c] && list[c].points[i]
+                    if (!p)
+                        continue
                     p.x += dx; p.ix += dx; p.ox += dx
                     p.y += dy; p.iy += dy; p.oy += dy
                 }
@@ -641,6 +644,15 @@ Item {
                 root.stateRevision++
             }
         }
+        // A popup or Alt-Tab mid-drag: the half-made drag is dropped, not merged into the next one.
+        onCanceled: {
+            const d = op
+            op = null
+            if (d && (d.type === "move" || d.type === "handle" || d.type === "convert"))
+                EditorState.cancelPreviewDrag()
+            root.liveContours = null
+            root.stateRevision++
+        }
         onDoubleClicked: mouse => {
             // The second press of a double click put a vertex on top of the last one: take it back.
             if (root.drawing) {
@@ -743,7 +755,10 @@ Item {
                 const dx = now.x - was.x, dy = now.y - was.y
                 for (const key of root.selected) {
                     const [c, i] = key.split(":").map(Number)
-                    const p = list[c].points[i]
+                    // A picked point can be gone (undo, a delete): skip it rather than throw.
+                    const p = list[c] && list[c].points[i]
+                    if (!p)
+                        continue
                     p.x += dx; p.ix += dx; p.ox += dx
                     p.y += dy; p.iy += dy; p.oy += dy
                 }

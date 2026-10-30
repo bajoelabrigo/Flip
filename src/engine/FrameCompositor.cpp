@@ -1932,21 +1932,33 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 
     // Track mattes (0.26): the clips another visible clip uses as its matte right now are drawn
     // only into that matte, as After Effects switches a matte layer's video off.
-    QSet<QString> matteSources;
+    // Who uses whom as a matte now. A pair that uses each other (A by B and B by A) is ignored on
+    // both sides: each would hide as the other's matte and the two vanished.
+    QHash<QString, QString> matteOf;
     for (const drift::Track &track : tracks) {
         if (track.hidden)
             continue;
         for (const drift::Clip &clip : track.clips) {
             if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
                 && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled)
-                matteSources.insert(clip.matteClipId);
+                matteOf.insert(clip.id, clip.matteClipId);
         }
+    }
+    const auto matteIsMutual = [&matteOf](const drift::Clip &host) {
+        return matteOf.value(host.matteClipId) == host.id;
+    };
+    QSet<QString> matteSources;
+    for (auto it = matteOf.cbegin(); it != matteOf.cend(); ++it) {
+        if (matteOf.value(it.value()) != it.key())
+            matteSources.insert(it.value());
     }
     // The matte clip as it would draw on the canvas; null when it is not on screen now.
     const auto matteLayerFor = [&](const drift::Clip &host) -> std::shared_ptr<const GpuLayer> {
         for (int mt = 0; mt < tracks.size(); ++mt) {
             const drift::Track &track = tracks.at(mt);
-            if (track.hidden || track.type == drift::TrackType::Audio)
+            // A hidden track still lends its clip as a matte (After Effects hides the matte layer
+            // as a matter of course); skipping it here made an alpha-matte host disappear.
+            if (track.type == drift::TrackType::Audio)
                 continue;
             for (const drift::Clip &candidate : track.clips) {
                 if (candidate.id != host.matteClipId)
@@ -2139,7 +2151,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 item.layer.lit = true;
             }
             if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
-                && clip.matteClipId != clip.id) {
+                && clip.matteClipId != clip.id && !matteIsMutual(clip)) {
                 item.matteMode = int(clip.matteMode);
                 item.matte = matteLayerFor(clip);
             }

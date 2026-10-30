@@ -7,6 +7,7 @@
 #include <QUrl>
 
 #include <functional>
+#include <memory>
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -127,4 +128,9 @@ private:
 
     bool m_refreshing = false;
     QList<std::function<void(bool)>> m_refreshWaiters;
+    // Held from the refresh POST until its reply, across running copies of the app: two copies
+    // sending the same refresh token made the server see a reuse and close the whole session.
+    std::unique_ptr<class QLockFile> m_refreshLock;
+    // Bumped by clearLocal: a refresh reply from before a sign-out must not sign the user back in.
+    quint64 m_sessionGeneration = 0;
 };

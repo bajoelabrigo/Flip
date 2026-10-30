@@ -2205,6 +2205,9 @@ public:
     Q_INVOKABLE QVariantMap lastExportSettings() const;
     // Directory of the last successful save-picker choice; empty if never set or gone.
     Q_INVOKABLE QString lastExportFolder() const;
+    // The file of the last export, selected in Explorer (the folder elsewhere): the "Show in
+    // folder" button of the export-finished notice.
+    Q_INVOKABLE bool revealLastExport() const;
     Q_INVOKABLE QString exportPreferredContainer(const QString &videoCodecId,
                                                 const QString &audioCodecId) const;
     Q_INVOKABLE QString exportPreferredAudioOnlyContainer(const QString &audioCodecId) const;
@@ -2557,6 +2560,8 @@ protected:
                                                                        int maxWordsPerCue) const;
     // Silence cuts waiting on a transcription job: job id -> {clip id, min pause, fillers}.
     QHash<QString, QVariantMap> m_pendingSilenceCuts;
+    // Per instance: a function-level static hooked only the first controller's job registry.
+    bool m_silenceCutHooked = false;
     void applySilenceCut(const QString &clipId, double minPause, bool removeFillers);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
@@ -2756,6 +2761,11 @@ protected:
     QString m_lastAudioError;
     QUndoStack m_undoStack;
     bool m_editSessionOpen = false;
+    // The macro an open session pushed. clear() deletes it while the flag stays set, and the next
+    // endEditSession used to take whatever step was last for it (and undo a normal edit).
+    const QUndoCommand *m_sessionMacro = nullptr;
+    // Clears the undo history and forgets any open session with it (open project, new project).
+    void clearUndoHistory();
     // tracks() serialises every clip in the project into nested QVariantMaps, and used to do it
     // once per binding that read it. Cached between edits; notifyTracksChanged() drops it.
     mutable QVariantList m_tracksCache;

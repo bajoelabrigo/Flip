@@ -380,12 +380,12 @@
         <translation>Benvenuto in Flip Studio</translation>
     </message>
     <message>
-        <source>Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.</source>
-        <translation>Accedi con il tuo account Google per cercare foto e video gratuiti da Pexels e Pixabay senza uscire dall&apos;editor. Il tuo account conserverà anche i tuoi modelli e il tuo negozio.</translation>
+        <source>Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.</source>
-        <translation>È tutto gratis. Puoi continuare senza account e modificare come sempre; per esportare e usare Stock ti chiederemo di accedere.</translation>
+        <source>Everything is free. Without an account you can edit and export up to 1080p as usual.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for the browser…</source>
@@ -701,6 +701,10 @@
         <translation>Pacchetti consigliati</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -751,10 +755,6 @@
     <message>
         <source>Install all</source>
         <translation>Installa tutto</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>Installa i pacchetti essenziali per effetti, transizioni e audio. Puoi continuare a usare Flip Studio senza di essi: installandoli sbloccherai gli aggiornamenti con i miglioramenti futuri.</translation>
     </message>
 </context>
 <context>
@@ -5290,11 +5290,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reversed clip ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5358,8 +5374,19 @@
         <translation>Traccia eliminata</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>Elimina tracce</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -5443,6 +5470,10 @@
     <message>
         <source>Capturing freeze frame…</source>
         <translation>Cattura fotogramma fisso in corso…</translation>
+    </message>
+    <message>
+        <source>Freeze frame</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Freeze frame added</source>
@@ -5952,10 +5983,6 @@
     <message>
         <source>Export already in progress</source>
         <translation>Esportazione già in corso</translation>
-    </message>
-    <message>
-        <source>Export complete</source>
-        <translation>Esportazione completata</translation>
     </message>
     <message>
         <source>Close gap</source>
@@ -6693,6 +6720,10 @@
         <translation>Visualizza</translation>
     </message>
     <message>
+        <source>Pro mode (After Effects tools)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Play / Pause</source>
         <translation>Riproduci / Pausa</translation>
     </message>
@@ -6773,10 +6804,6 @@
         <translation>Lingua…</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Passa al layout mobile…</translation>
-    </message>
-    <message>
         <source>Advanced</source>
         <translation>Avanzate</translation>
     </message>
@@ -6799,6 +6826,14 @@
     <message>
         <source>Help</source>
         <translation>Aiuto</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Examples</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -13904,10 +13939,6 @@ LA PROSSIMA</translation>
         <translation>Lingua…</translation>
     </message>
     <message>
-        <source>Switch to mobile layout…</source>
-        <translation>Passa al layout mobile…</translation>
-    </message>
-    <message>
         <source>Debug info…</source>
         <translation>Informazioni di debug…</translation>
     </message>
@@ -13938,6 +13969,22 @@ LA PROSSIMA</translation>
     <message>
         <source>Agent access is on</source>
         <translation>Accesso agente attivo</translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The essentials, like CapCut: the After Effects tools are hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Everything, with the After Effects tools (pen, Motion Tools, curves, parenting…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My account</source>
@@ -14810,8 +14857,44 @@ LA PROSSIMA</translation>
         <translation>Salva ciò che vedi nell&apos;anteprima. Scegli una dimensione: la proporzione dell&apos;immagine rimane la stessa.</translation>
     </message>
     <message>
+        <source>For</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Social media</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok, Reels, Shorts and YouTube: 1080p, high quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WhatsApp (light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smaller file that sends fast: 720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The project&apos;s own size at the highest quality, to keep or edit again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
+    </message>
+    <message>
+        <source>%1 · with account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in (free) to export at %1×%2</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export at %1×%2</source>
@@ -14972,8 +15055,31 @@ LA PROSSIMA</translation>
         <translation>Come il progetto · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>Come il progetto (%1 fps)</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16824,8 +16930,24 @@ LA PROSSIMA</translation>
         <translation>Mostra o nascondi guide</translation>
     </message>
     <message>
-        <source>Switch to Mobile Layout…</source>
-        <translation>Passa al layout mobile…</translation>
+        <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a clip on the timeline to change it on the right.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the playhead and press S to split a clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Press Export (top right) to save your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Got it</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -16854,6 +16976,18 @@ LA PROSSIMA</translation>
     <message>
         <source>Extras…</source>
         <translation>Extra…</translation>
+    </message>
+    <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>“%1” was added to Media.</source>
@@ -18659,6 +18793,10 @@ LA PROSSIMA</translation>
 <context>
     <name>MotionToolsPanel</name>
     <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20434,6 +20572,26 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Progetto caricato. Usa caratteri che questo computer non ha: %1. I testi appaiono con un altro carattere finché non li installi (Importa carattere nell’elenco, o i pacchetti di caratteri negli Extra).</translation>
     </message>
     <message>
+        <source>My first video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t open the example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading the example…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Couldn’t download the example. It needs an internet connection the first time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The example did not download correctly. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No recovery file found</source>
         <translation>Nessun file di ripristino trovato</translation>
     </message>
@@ -20672,6 +20830,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Fai clic su una clip sulla timeline per modificarne le proprietà</translation>
+    </message>
+    <message>
+        <source>This clip uses Pro tools.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save effect preset</source>
@@ -21210,20 +21376,20 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>Lavoro non salvato dell&apos;ultima sessione</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>Ripristina</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>Nuova sessione</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>L&apos;ultima sessione conteneva modifiche non salvate. Puoi ripristinarle o avviare una nuova sessione vuota.</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21655,6 +21821,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>Accedi e ottienili da Stock › Modelli: vengono installati qui e restano nel tuo account.</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -23846,6 +24016,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Accedi per usare questa voce</translation>
     </message>
     <message>
+        <source>Sign in to export in 2K, 4K or 8K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio è gratis: esportare, Stock e tutti i modelli non costano nulla.</translation>
     </message>
@@ -23856,6 +24030,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
         <translation>Le voci con la fiamma sono per chi ha effettuato l&apos;accesso. Basta accedere con il tuo account Google: richiede un attimo, si fa una volta sola e il tuo progetto resta com&apos;è.</translation>
+    </message>
+    <message>
+        <source>Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.</source>
@@ -24705,6 +24883,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Apri progetto</translation>
     </message>
     <message>
+        <source>Downloading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Local projects</source>
         <translation>Progetti locali</translation>
     </message>
@@ -24751,6 +24933,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Create project</source>
         <translation>Crea progetto</translation>
+    </message>
+    <message>
+        <source>Learn with an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>They stay in Help › Examples</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search projects</source>
@@ -28762,6 +28956,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28798,6 +28996,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Elimina</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>Regola dissolvenza</translation>
     </message>
@@ -28824,10 +29026,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>Dividi elemento alla posizione corrente</translation>
     </message>
 </context>
 <context>
@@ -28893,12 +29091,12 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>La timeline è vuota</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>Trascina gli elementi multimediali qui dalla libreria o aggiungi una traccia vuota per iniziare.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>Nuova traccia</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -29030,6 +29228,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Delete clip</source>
         <translation>Elimina clip</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>
@@ -30755,12 +30957,24 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>TtsController</name>
     <message>
+        <source>Loading voice model…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation>Installa prima il modello vocale</translation>
     </message>
     <message>
         <source>Queued</source>
         <translation>In coda</translation>
+    </message>
+    <message>
+        <source>Preparing voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generating speech…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancelled</source>
@@ -30799,6 +31013,33 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
             <numerusform>; %n è durata più del suo sottotitolo</numerusform>
             <numerusform>; %n sono durate più dei loro sottotitoli</numerusform>
         </translation>
+    </message>
+</context>
+<context>
+    <name>UiModeDialog</name>
+    <message>
+        <source>How do you want to start?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Simple: the essentials, like CapCut. Cut, titles, music, effects, filters and export, without the advanced tools in the way.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pro: everything, with the After Effects tools too (pen, Motion Tools, curves, parenting, mattes).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time with Simple | Pro at the top. Nothing in your projects is lost.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

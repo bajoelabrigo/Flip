@@ -283,6 +283,10 @@ PlaybackEngine::~PlaybackEngine()
     m_playing = false;
     m_compositeTimer.stop();
     m_clock.stop();
+    // A RAM preview still rendering stops at its next frame instead of running on (up to 3 GiB of
+    // frames) while the app waits for the thread pool on exit.
+    if (m_ramCancel)
+        m_ramCancel->store(true);
 
     // Blocking, so the audio thread cannot be inside fillAudio() while the members it reads are
     // torn down under it. The channel closes the sink and joins its thread from its own destructor.
@@ -866,6 +870,8 @@ void PlaybackEngine::buildRamPreview(double inSeconds, double outSeconds, bool p
     if (!snapshot)
         return;
     FrameCompositor::RenderOptions options = playbackRenderOptions();
+    // Built while paused, so the text editing box would be baked into every cached frame.
+    options.textEdit = {};
     auto cancel = std::make_shared<std::atomic<bool>>(false);
     m_ramCancel = cancel;
     const quint64 generation = ++m_ramGeneration;

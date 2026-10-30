@@ -110,6 +110,30 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.27.0)**. Lo nuevo desde la 0.26.0.
+
+> Novedades de la 0.27.0
+>
+> - Aprende con un ejemplo: seis proyectos listos en la pantalla de inicio (reel, vlog, voz con subtítulos, fotos con música, anuncio e intro para YouTube), cada uno con una guía de tres pasos.
+> - Modo Simple o Pro: Simple esconde las herramientas avanzadas para empezar sin líos; Pro lo muestra todo.
+> - Exporta sin cuenta hasta 1080p, con destinos listos para TikTok/Reels, YouTube y WhatsApp, y «Mostrar en la carpeta» al terminar.
+> - Nombres claros bajo los íconos, un menú de clic derecho más corto y Dividir que corta solo el clip elegido.
+> - El espacio de trabajo pasa solo a vertical u horizontal según el video.
+> - Stock › Kit de YouTube: aperturas, títulos, tercios inferiores, transiciones, pantallas finales y más, todo editable.
+> - Revisión a fondo: arreglos de audio, máscaras animadas, deshacer, voz con IA y actualizaciones más seguras.
+
+En inglés:
+
+> What's new in 0.27.0
+>
+> - Learn with an example: six ready projects on the start screen (reel, vlog, voice with captions, photos with music, ad and YouTube intro), each with a three-step guide.
+> - Simple or Pro mode: Simple hides the advanced tools so you can start easily; Pro shows everything.
+> - Export without an account up to 1080p, with presets for TikTok/Reels, YouTube and WhatsApp, and "Show in folder" when done.
+> - Clear names under the icons, a shorter right-click menu, and Split cuts only the selected clip.
+> - The workspace switches to vertical or horizontal on its own to match the video.
+> - Stock › YouTube Kit: openers, titles, lower thirds, transitions, end screens and more, all editable.
+> - A thorough review: fixes to audio, animated masks, undo, AI voice, and safer updates.
+
 **Notas para la Store (0.26.0)**. Lo nuevo desde la 0.25.0.
 
 > Novedades de la 0.26.0

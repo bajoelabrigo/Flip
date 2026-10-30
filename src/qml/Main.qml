@@ -342,11 +342,6 @@ ApplicationWindow {
                     enabled: !window.showStartScreen
                     onTriggered: window.dispatchAction("toggleGuides")
                 }
-                Platform.MenuSeparator {}
-                Platform.MenuItem {
-                    text: qsTr("Switch to Mobile Layout…")
-                    onTriggered: window.switchShell("mobile")
-                }
             }
 
             Platform.Menu {
@@ -697,10 +692,35 @@ ApplicationWindow {
                                               ? EditorState.preferences.workspaceLayoutPreferred
                                               : (EditorState.projectPortrait ? "portrait" : "landscape")
     readonly property bool portraitWorkspace: workspaceLayout === "portrait"
+    // The video turned vertical (a Short) or horizontal (Video › format, a template, another
+    // project): the panels follow it, as Auto does, even when a workspace had been picked by hand
+    // (Jorge, 0.27: picking Short left the landscape panels). Only a real flip changes it.
+    readonly property bool canvasPortrait: EditorState.projectPortrait
+    onCanvasPortraitChanged: {
+        if (EditorState.preferences.workspaceLayoutOverridden
+                && window.workspaceLayout !== (canvasPortrait ? "portrait" : "landscape"))
+            EditorState.preferences.clearWorkspaceLayoutPreference()
+    }
+
+    // Set when the project was created with "Automatic" on the home screen: the first clip decides
+    // the canvas, so the width/height/fps dialog is not asked as well.
+    property bool autoSetupFromFirstClip: false
 
     function configureAndAddAsset(assetIndex, runner) {
         if (!EditorState.shouldConfigureProjectForAsset(assetIndex)) {
             runner()
+            return
+        }
+        if (window.autoSetupFromFirstClip) {
+            window.autoSetupFromFirstClip = false
+            const s = EditorState.suggestedProjectSetupForAsset(assetIndex)
+            const w = s.width || 1920
+            const h = s.height || 1080
+            EditorState.projectFile.setProjectSetup(w, h, s.fps || 30)
+            EditorState.markProjectLayoutChosen()
+            runner()
+            Toasts.post("info", qsTr("Your video takes this clip's shape: %1×%2").arg(w).arg(h), 7000,
+                        qsTr("Change"), () => editorHeader.openVideoSize())
             return
         }
         projectSetupDialogLoader.ensure().openForAsset(assetIndex, runner)
@@ -723,6 +743,16 @@ ApplicationWindow {
 
     // The account welcome closed this session (signed in or "Continue without an account").
     property bool accountWelcomeDone: false
+
+    // After the language, on a new install: Simple or Pro (0.27), once.
+    function promptUiModeIfNeeded() {
+        if (EditorState.preferences.uiModeChosen)
+            return false
+        if (uiModeDialogLoader.shown)
+            return true
+        uiModeDialogLoader.ensure().open()
+        return true
+    }
 
     // After the language: "Sign in with Google / Continue without an account", once.
     function promptAccountWelcomeIfNeeded() {
@@ -774,6 +804,16 @@ ApplicationWindow {
         id: projectSetupDialogLoader
         sourceComponent: Component {
             ProjectSetupDialog { }
+        }
+    }
+
+    LazyLoader {
+        id: uiModeDialogLoader
+        sourceComponent: Component {
+            UiModeDialog {
+                // Either button sets the mode (uiModeChosen), so this runs on past it.
+                onClosed: window.continueStartupAfterLanguage()
+            }
         }
     }
 
@@ -1096,6 +1136,10 @@ ApplicationWindow {
     }
 
     // Jumps the assets panel to a tab ("subtitles", "effects", ...): toolbar shortcuts into it.
+    function requestSignIn(reason, action) {
+        editorHeader.requestSignIn(reason, action)
+    }
+
     function showAssetsTab(tabId) {
         assetsPanel.showTab(tabId)
     }
@@ -1247,6 +1291,7 @@ ApplicationWindow {
             return
         editorHeader.confirmIfDirty(function () {
             EditorState.projectFile.newProject()
+            window.autoSetupFromFirstClip = false
             window.showStartScreen = false
             window.promptLayoutChooserIfNeeded()
         })
@@ -1259,11 +1304,13 @@ ApplicationWindow {
             return
         editorHeader.confirmIfDirty(function () {
             EditorState.projectFile.newProject()
+            window.autoSetupFromFirstClip = false
             if (width > 0 && height > 0) {
                 EditorState.projectFile.setProjectSetup(width, height, EditorState.projectFile.projectFps())
                 EditorState.markProjectLayoutChosen()
             } else {
                 window.layoutPromptDismissed = true
+                window.autoSetupFromFirstClip = true
             }
             window.showStartScreen = false
             if (tabId && tabId.length > 0)
@@ -1281,6 +1328,21 @@ ApplicationWindow {
                 return
             EditorState.projectFile.loadProject(url)
         })
+    }
+
+    function requestOpenSample(id) {
+        if (window.rejectIfProjectOpenPending())
+            return
+        editorHeader.confirmIfDirty(function () {
+            EditorState.projectFile.openSampleProject(id || "")
+        })
+    }
+
+    // Help › Examples: back home with the examples showing, also after "Hide" or with many projects.
+    property bool samplesForced: false
+    function showExamples() {
+        window.samplesForced = true
+        window.requestCloseProject()
     }
 
     function requestOpenRecentProject(path) {
@@ -1500,6 +1562,8 @@ ApplicationWindow {
     }
 
     function continueStartupAfterLanguage() {
+        if (window.promptUiModeIfNeeded())
+            return
         if (window.promptAccountWelcomeIfNeeded())
             return
         if (Qt.platform.os === "android" && window.routeAndroidIntent(FileDialogs.takeLaunchIntent()))
@@ -1592,7 +1656,9 @@ ApplicationWindow {
         // export or transcription was reported only to the console.
         function onExportFinished(success) {
             if (success) {
-                Toasts.success(qsTr("Export finished."))
+                // Where the video went is the first thing anyone asks after exporting.
+                Toasts.post("success", qsTr("Export finished."), 8000, qsTr("Show in folder"),
+                            () => EditorState.revealLastExport())
                 return
             }
             // Exporter reports cancellation as a failed run with this message —
@@ -1999,6 +2065,8 @@ ApplicationWindow {
         active: window.showStartScreen
         sourceComponent: Component {
             StartScreen {
+                samplesForced: window.samplesForced
+                onSamplesHidden: window.samplesForced = false
                 // Delegate to the same functions Ctrl+N / Ctrl+O / the header's Projects menu
                 // use, so there is exactly one place that gates on unsaved changes and decides
                 // when the screen is allowed to disappear.
@@ -2006,6 +2074,90 @@ ApplicationWindow {
                 onNewProjectWithSetupRequested: (w, h, tabId) => window.requestNewProjectWithSetup(w, h, tabId)
                 onOpenProjectRequested: window.requestOpenProjectDialog()
                 onOpenRecentRequested: (path) => window.requestOpenRecentProject(path)
+                onSampleRequested: (id) => window.requestOpenSample(id)
+            }
+        }
+    }
+
+    // The example's three steps (0.27): shown when "Try an example" opens it, closed with Got it.
+    property bool sampleGuideVisible: false
+    property var sampleGuideSteps: []
+    Connections {
+        target: EditorState.projectFile
+        function onSampleOpened(steps) {
+            window.sampleGuideSteps = steps && steps.length > 0 ? steps
+                : [qsTr("Click a clip on the timeline to change it on the right."),
+                   qsTr("Move the playhead and press S to split a clip."),
+                   qsTr("Press Export (top right) to save your video.")]
+            window.sampleGuideVisible = true
+        }
+    }
+    Rectangle {
+        id: sampleGuide
+        visible: window.sampleGuideVisible && !window.showStartScreen
+        z: 50
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 24
+        width: 320
+        height: guideColumn.implicitHeight + 32
+        radius: Theme.radiusLg
+        color: Theme.panelBackground
+        border.width: 2
+        border.color: Theme.primary
+
+        Column {
+            id: guideColumn
+            x: 16
+            y: 16
+            width: parent.width - 32
+            spacing: 10
+            Text {
+                width: parent.width
+                text: qsTr("Your example is ready. Try this:")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: 15
+                font.weight: Font.DemiBold
+                wrapMode: Text.WordWrap
+            }
+            Repeater {
+                model: window.sampleGuideSteps
+                Row {
+                    required property int index
+                    required property string modelData
+                    width: guideColumn.width
+                    spacing: 10
+                    Rectangle {
+                        width: 24
+                        height: 24
+                        radius: 12
+                        color: Theme.primary
+                        Text {
+                            anchors.centerIn: parent
+                            text: index + 1
+                            color: Theme.primaryForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 13
+                            font.weight: Font.Bold
+                        }
+                    }
+                    Text {
+                        width: parent.width - 34
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: modelData
+                        wrapMode: Text.WordWrap
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+                }
+            }
+            ThemedButton {
+                anchors.right: parent.right
+                text: qsTr("Got it")
+                variant: "primary"
+                onClicked: window.sampleGuideVisible = false
             }
         }
     }

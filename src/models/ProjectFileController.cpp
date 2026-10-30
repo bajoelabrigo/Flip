@@ -25,6 +25,12 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDir>
+#include <QRegularExpression>
+#include <QLocale>
+#include <QSaveFile>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
 #include <QFile>
 #include <QFileInfo>
 #include <QFutureWatcher>
@@ -1137,7 +1143,7 @@ void ProjectFileController::collectMediaToFolder(const QUrl &folder, bool move)
                 const drift::Project before = m_app->m_project;
                 remapProjectPaths(remap);
                 if (move)
-                    m_app->m_undoStack.clear();
+                    m_app->clearUndoHistory();
                 else
                     m_app->pushProjectEdit(before, tr("Collect media"));
                 if (m_app->m_assetLibrary)
@@ -1596,7 +1602,7 @@ void ProjectFileController::newProject(bool silent)
     m_app->m_bin->folderModel()->setProject(&m_app->m_project);
     m_app->m_bin->setCurrentFolderId(QString());
     m_app->m_playback.setProject(&m_app->m_project);
-    m_app->m_undoStack.clear();
+    m_app->clearUndoHistory();
     m_app->clearSelection();
     m_app->setPlayheadUs(0);
     setCurrentProjectPath(QString());
@@ -1778,6 +1784,196 @@ void ProjectFileController::setCurrentProjectPath(const QString &path)
     emit currentProjectPathChanged();
 }
 
+namespace {
+
+// The examples live on the website: ejemplos.json lists them (file, SHA-256, titles, guide), so
+// one is added or changed without a new build. The first entry doubles as the built-in fallback
+// for a first start offline that has never seen the list.
+const char kSampleBase[] = "https://getflipstudio.com/modelos/ejemplo/";
+const char kFallbackFile[] = "ejemplo-1.flip";
+const char kFallbackSha256[] = "a3d0f4cfa7d6ed90770dc816bc37bf499f5b3fdae2691641ae6817b9710288eb";
+
+QString sampleDir()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/samples");
+}
+
+bool fileMatchesSha256(const QString &path, const QByteArray &hex)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly))
+        return false;
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+    return hash.addData(&file) && hash.result().toHex() == hex;
+}
+
+// A {"es": "...", "en": "..."} object in the interface's language, English otherwise.
+QString localized(const QJsonValue &value)
+{
+    if (value.isString())
+        return value.toString();
+    const QJsonObject o = value.toObject();
+    const QString hit = o.value(QLocale().name().left(2)).toString();
+    return hit.isEmpty() ? o.value(QStringLiteral("en")).toString() : hit;
+}
+
+// Only a plain file name: the list comes from the network.
+bool safeSampleFile(const QString &name)
+{
+    static const QRegularExpression ok(QStringLiteral("^[A-Za-z0-9._-]+\\.(flip|jpg|png)$"));
+    return ok.match(name).hasMatch() && !name.contains(QStringLiteral(".."));
+}
+
+} // namespace
+
+void ProjectFileController::loadCachedSampleIndex()
+{
+    if (m_sampleIndexLoaded)
+        return;
+    m_sampleIndexLoaded = true;
+    QFile file(sampleDir() + QStringLiteral("/ejemplos.json"));
+    if (file.open(QIODevice::ReadOnly))
+        m_sampleIndex = QJsonDocument::fromJson(file.readAll()).object().value(QStringLiteral("examples")).toArray();
+    if (m_sampleIndex.isEmpty()) {
+        m_sampleIndex.append(QJsonObject{
+            {QStringLiteral("id"), QStringLiteral("accion")},
+            {QStringLiteral("file"), QString::fromLatin1(kFallbackFile)},
+            {QStringLiteral("sha256"), QString::fromLatin1(kFallbackSha256)},
+            {QStringLiteral("thumb"), QStringLiteral("ejemplo-1.jpg")},
+            {QStringLiteral("format"), QStringLiteral("9:16")},
+        });
+    }
+}
+
+QVariantList ProjectFileController::sampleExamples() const
+{
+    const_cast<ProjectFileController *>(this)->loadCachedSampleIndex();
+    QVariantList out;
+    for (const QJsonValue &v : m_sampleIndex) {
+        const QJsonObject e = v.toObject();
+        const QString thumb = e.value(QStringLiteral("thumb")).toString();
+        out.append(QVariantMap{
+            {QStringLiteral("id"), e.value(QStringLiteral("id")).toString()},
+            {QStringLiteral("title"), localized(e.value(QStringLiteral("title")))},
+            {QStringLiteral("teaches"), localized(e.value(QStringLiteral("teaches")))},
+            {QStringLiteral("format"), e.value(QStringLiteral("format")).toString()},
+            {QStringLiteral("thumb"), safeSampleFile(thumb) ? QString::fromLatin1(kSampleBase) + thumb : QString()},
+        });
+    }
+    return out;
+}
+
+void ProjectFileController::refreshSampleExamples()
+{
+    loadCachedSampleIndex();
+    if (!m_sampleNetwork)
+        m_sampleNetwork = new QNetworkAccessManager(this);
+    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleBase) + QStringLiteral("ejemplos.json"))};
+    request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork);
+    request.setTransferTimeout(15000);
+    QNetworkReply *reply = m_sampleNetwork->get(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError)
+            return; // keep the cached list
+        const QByteArray data = reply->readAll();
+        const QJsonArray list = QJsonDocument::fromJson(data).object().value(QStringLiteral("examples")).toArray();
+        if (list.isEmpty() || list == m_sampleIndex)
+            return;
+        m_sampleIndex = list;
+        QDir().mkpath(sampleDir());
+        QSaveFile out(sampleDir() + QStringLiteral("/ejemplos.json"));
+        if (out.open(QIODevice::WriteOnly) && out.write(data) == data.size())
+            out.commit();
+        emit sampleExamplesChanged();
+    });
+}
+
+void ProjectFileController::openSampleProject(const QString &id)
+{
+    if (m_sampleDownloading)
+        return;
+    loadCachedSampleIndex();
+    QJsonObject entry;
+    for (const QJsonValue &v : m_sampleIndex) {
+        if (id.isEmpty() || v.toObject().value(QStringLiteral("id")).toString() == id) {
+            entry = v.toObject();
+            break;
+        }
+    }
+    const QString fileName = entry.value(QStringLiteral("file")).toString();
+    const QByteArray sha = entry.value(QStringLiteral("sha256")).toString().toLatin1();
+    if (!safeSampleFile(fileName) || sha.size() != 64) {
+        m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+        return;
+    }
+    // Its own three steps, in the interface's language (English otherwise).
+    QStringList steps;
+    const QJsonObject stepsByLang = entry.value(QStringLiteral("steps")).toObject();
+    QJsonArray stepList = stepsByLang.value(QLocale().name().left(2)).toArray();
+    if (stepList.isEmpty())
+        stepList = stepsByLang.value(QStringLiteral("en")).toArray();
+    for (const QJsonValue &step : stepList)
+        steps.append(step.toString());
+    const QString title = localized(entry.value(QStringLiteral("title")));
+
+    const QString dir = sampleDir();
+    QDir().mkpath(dir);
+    const QString cached = dir + QLatin1Char('/') + fileName;
+
+    const auto openCopy = [this, dir, cached, steps, title]() {
+        // A fresh copy each time, named after the example: edits never touch the original.
+        QString name = title.isEmpty() ? tr("My first video") : title;
+        static const QRegularExpression unsafe(QStringLiteral("[\\\\/:*?\"<>|]"));
+        name.replace(unsafe, QStringLiteral(" "));
+        const QString work = dir + QLatin1Char('/') + name
+                             + QDateTime::currentDateTime().toString(QStringLiteral(" yyyy-MM-dd HH.mm.ss"))
+                             + QStringLiteral(".flip");
+        if (!QFile::copy(cached, work)) {
+            m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+            return;
+        }
+        loadProject(QUrl::fromLocalFile(work));
+        emit sampleOpened(steps);
+    };
+
+    if (fileMatchesSha256(cached, sha)) {
+        openCopy();
+        return;
+    }
+
+    if (!m_sampleNetwork)
+        m_sampleNetwork = new QNetworkAccessManager(this);
+    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleBase) + fileName)};
+    request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
+    request.setTransferTimeout(30000);
+    m_sampleDownloading = true;
+    emit sampleDownloadingChanged();
+    m_app->setLastMessage(tr("Downloading the example…"));
+    QNetworkReply *reply = m_sampleNetwork->get(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply, cached, sha, openCopy]() {
+        reply->deleteLater();
+        m_sampleDownloading = false;
+        emit sampleDownloadingChanged();
+        if (reply->error() != QNetworkReply::NoError) {
+            m_app->setLastMessage(tr("Couldn’t download the example. It needs an internet connection the first time."),
+                                  QStringLiteral("error"));
+            return;
+        }
+        const QByteArray data = reply->readAll();
+        if (QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex() != sha) {
+            m_app->setLastMessage(tr("The example did not download correctly. Try again."), QStringLiteral("error"));
+            return;
+        }
+        QSaveFile out(cached);
+        if (!out.open(QIODevice::WriteOnly) || out.write(data) != data.size() || !out.commit()) {
+            m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+            return;
+        }
+        openCopy();
+    });
+}
+
 QString ProjectFileController::recoveryFilePath()
 {
     const QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
@@ -1812,8 +2008,14 @@ QString writeRecoveryTemp(const drift::Project &project, QJsonObject session, co
     QFile file(tmpPath);
     if (!file.open(QIODevice::WriteOnly))
         return {};
-    file.write(QJsonDocument(root).toJson(QJsonDocument::Compact));
+    const QByteArray data = QJsonDocument(root).toJson(QJsonDocument::Compact);
+    // A short write (disk full) must not replace the last good snapshot with a truncated one.
+    const bool written = file.write(data) == data.size() && file.flush();
     file.close();
+    if (!written) {
+        QFile::remove(tmpPath);
+        return {};
+    }
     return tmpPath;
 }
 
@@ -1822,9 +2024,17 @@ void promoteRecoveryTemp(const QString &tmpPath, const QString &path)
     // Never remove the current file for a temp that is not there to replace it.
     if (tmpPath.isEmpty() || !QFile::exists(tmpPath))
         return;
-    if (QFile::exists(path))
-        QFile::remove(path);
-    QFile::rename(tmpPath, path);
+    // The old snapshot steps aside instead of being deleted first, so a crash or a failed rename in
+    // between still leaves one recovery file to offer.
+    const QString previous = path + QStringLiteral(".prev");
+    QFile::remove(previous);
+    const bool hadOld = QFile::exists(path) && QFile::rename(path, previous);
+    if (QFile::rename(tmpPath, path)) {
+        if (hadOld)
+            QFile::remove(previous);
+    } else if (hadOld) {
+        QFile::rename(previous, path);
+    }
 }
 
 } // namespace

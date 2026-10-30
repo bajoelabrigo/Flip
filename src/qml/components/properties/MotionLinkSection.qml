@@ -448,7 +448,7 @@ Column {
             to: 720
             step: 15
             unit: "°"
-            value: root.blur.shutterDeg || 180
+            value: (root.blur.shutterDeg ?? 180)
             placeholderText: qsTr("Shutter")
             onEdited: v => EditorState.setMotionBlurSettings(v, root.blur.samples || 16)
         }
@@ -459,7 +459,7 @@ Column {
             step: 1
             value: root.blur.samples || 16
             placeholderText: qsTr("Samples")
-            onEdited: v => EditorState.setMotionBlurSettings(root.blur.shutterDeg || 180, Math.round(v))
+            onEdited: v => EditorState.setMotionBlurSettings((root.blur.shutterDeg ?? 180), Math.round(v))
         }
     }
 }

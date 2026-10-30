@@ -52,6 +52,11 @@ class PreferencesController : public QObject
                    NOTIFY timelineToolbarLayoutChanged)
     // Opt-in: on launch, restore the last open project (saved .drift or unsaved recovery snapshot).
     Q_PROPERTY(bool reopenLastProject READ reopenLastProject WRITE setReopenLastProject NOTIFY reopenLastProjectChanged)
+    // Simple (CapCut-like) or Pro (with the After Effects tools). Pro hides nothing; Simple hides the
+    // motion-graphics tools from the interface, never from the project (0.27, Jorge).
+    Q_PROPERTY(bool proMode READ proMode WRITE setProMode NOTIFY proModeChanged)
+    // False until the person picked a mode in the first-run question (new installs only).
+    Q_PROPERTY(bool uiModeChosen READ uiModeChosen NOTIFY proModeChanged)
     // The Preferences (0.26) that are editing defaults rather than look: levels of undo, autosave
     // interval, how long a photo/shape and a text last when placed, the interpolation of new
     // keys, and the preview tools' remembered state. Every key always present (defaults filled
@@ -130,6 +135,9 @@ public:
                                               const QStringList &menuItems);
 
     bool reopenLastProject() const { return m_reopenLastProject; }
+    bool proMode() const { return m_proMode; }
+    bool uiModeChosen() const { return m_uiModeChosen; }
+    Q_INVOKABLE void setProMode(bool pro);
     QVariantMap editorDefaults() const;
     Q_INVOKABLE QVariant editorDefault(const QString &key) const { return editorDefaults().value(key); }
     // Unknown keys are ignored; numbers are kept inside their range.
@@ -198,6 +206,7 @@ signals:
     void trackLabelsWidthChanged();
     void timelineToolbarLayoutChanged();
     void reopenLastProjectChanged();
+    void proModeChanged();
     void editorDefaultsChanged();
     void vaapiZeroCopyChanged();
     void mediaCodecZeroCopyChanged();
@@ -224,6 +233,8 @@ private:
     QStringList m_timelineToolbarItems;
     QStringList m_timelineMenuItems;
     bool m_reopenLastProject = false;
+    bool m_proMode = true;
+    bool m_uiModeChosen = true;
     QVariantMap m_editorDefaults; // only what the person changed
     bool m_vaapiZeroCopy = false;
     bool m_mediaCodecZeroCopy = false;

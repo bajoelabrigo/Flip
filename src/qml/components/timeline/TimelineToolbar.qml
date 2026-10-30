@@ -48,7 +48,8 @@ Item {
                        tip: qsTr("Trim start — click a clip to drop everything left of the cut") },
         "trimEnd": { glyph: Theme.icons.trimEnd, label: qsTr("Trim end"),
                      tip: qsTr("Trim end — click a clip to drop everything right of the cut") },
-        "split": { glyph: "square-split-horizontal", label: qsTr("Split"),
+        // The two a beginner reaches for first carry their names, as in CapCut.
+        "split": { glyph: "square-split-horizontal", label: qsTr("Split"), caption: qsTr("Split"),
                    tip: qsTr("Split at the current time"), shortcut: "split" },
         "deleteLeft": { glyph: Theme.icons.trimStart, label: qsTr("Delete left"),
                         tip: qsTr("Delete left — remove the selected clip's part before the current time"),
@@ -74,7 +75,7 @@ Item {
         "rotate": { glyph: "rotate-cw-square", label: qsTr("Rotate"), tip: qsTr("Rotate the selected clip 90°") },
         "undo": { glyph: Theme.icons.undo, label: qsTr("Undo"), shortcut: "undo" },
         "redo": { glyph: Theme.icons.redo, label: qsTr("Redo"), shortcut: "redo" },
-        "delete": { glyph: Theme.icons.trash, label: qsTr("Delete clip"), shortcut: "delete" },
+        "delete": { glyph: Theme.icons.trash, label: qsTr("Delete clip"), caption: qsTr("Delete"), shortcut: "delete" },
         "copy": { glyph: Theme.icons.copy, label: qsTr("Copy selection"), shortcut: "copy" },
         "paste": { glyph: Theme.icons.clipboardPaste, label: qsTr("Paste at current time"),
                    shortcut: "paste" },
@@ -103,11 +104,14 @@ Item {
     // Laid out like CapCut's: tools, history, the cut group, then what acts on the selected clip.
     readonly property var defaultToolbarItems: [
         "select", "cut", "separator", "undo", "redo", "separator",
-        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "adjustmentLayer", "separator",
+        "split", "deleteLeft", "deleteRight", "delete", "bookmark", "separator",
         "crop", "freeze", "transform", "transcribe", "cutSilences", "removeBg", "separateAudio", "enhanceAudio",
         "enhanceVideo", "unlink", "link"
     ]
     readonly property var defaultMenuItems: [
+        // The adjustment layer moved here from the bar: it was its only named button, and an
+        // advanced one.
+        "adjustmentLayer", "separator",
         "trimStart", "trimEnd", "separator", "copy", "paste", "duplicate", "separator",
         "markIn", "markOut", "loop", "clearWorkArea", "separator",
         "merge", "flip", "rotate", "transformLayer", "camera"

@@ -129,6 +129,7 @@
   "template:thumbnail": "ভিডিও থাম্বনেইল",
   "template:transition": "ট্রানজিশন ও বিভাজক",
   "template:youtuber": "ইউটিউবার স্টাইল",
+  "template:ytkit": "YouTube কিট",
   "text-animation:brillo": "চকচক ও রঙ",
   "text-animation:caer": "পড়া ও ওঠা",
   "text-animation:desenfoque": "ব্লার ও ফেড",
@@ -33937,6 +33938,1592 @@
     "জায়গা",
     "গাইড",
     "ইউটিউবার"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "রিং ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "চ্যানেল",
+    "লোগো",
+    "রিং"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "রিং ইন্ট্রো (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "ইন্ট্রো",
+    "লোগো",
+    "রিং"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "হালকা ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "হালকা",
+    "সাদা"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "ছবির কোলাজ ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "ছবির কোলাজ ইন্ট্রো (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "ইন্ট্রো",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "ডিজিটাল ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "গ্লিচ",
+    "প্রযুক্তি",
+    "গেমিং"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "আলোর ঝলক ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "আলো",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "কোণের ফ্রেম ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "ফ্রেম",
+    "হলুদ"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "বিস্ফোরণ ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "এনার্জি",
+    "রশ্মি"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "ডোরাকাটা ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "চ্যানেল",
+    "লোগো",
+    "ডোরা"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "ষড়ভুজ ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "চ্যানেল",
+    "লোগো",
+    "ষড়ভুজ"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "মিনিমাল ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "মিনিমাল",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "মোজাইক ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "মোজাইক",
+    "রং"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "প্যানেল ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "চ্যানেল",
+    "লোগো",
+    "প্যানেল"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "প্যানেল ইন্ট্রো (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "ইন্ট্রো",
+    "লোগো",
+    "প্যানেল"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "টাইপোগ্রাফি ইন্ট্রো",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "টাইপোগ্রাফি",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "অধ্যায়ের বার",
+   "tags": [
+    "youtube",
+    "অধ্যায়",
+    "অগ্রগতি",
+    "বার",
+    "টিউটোরিয়াল"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "মজার তথ্যের বার",
+   "tags": [
+    "youtube",
+    "তথ্য",
+    "জানো কি",
+    "কৌতূহল",
+    "মজার"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "লাইভ ব্যাজ",
+   "tags": [
+    "youtube",
+    "লাইভ",
+    "সরাসরি",
+    "সম্প্রচার",
+    "ব্যাজ"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "পোলের বার",
+   "tags": [
+    "youtube",
+    "পোল",
+    "প্রশ্ন",
+    "ভোট",
+    "কমিউনিটি"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "পর্বের ব্যাজ",
+   "tags": [
+    "youtube",
+    "পর্ব",
+    "পডকাস্ট",
+    "সিরিজ",
+    "সিজন"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "তারিখ ও স্থানের বার",
+   "tags": [
+    "youtube",
+    "তারিখ",
+    "স্থান",
+    "ইভেন্ট",
+    "ক্যালেন্ডার"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "তথ্যের বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "তথ্য",
+    "খবর",
+    "নামফলক"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "স্কোরবোর্ড",
+   "tags": [
+    "youtube",
+    "স্কোর",
+    "খেলা",
+    "ম্যাচ",
+    "ফুটবল"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "শিরোনামের বার",
+   "tags": [
+    "youtube",
+    "খবর",
+    "শিরোনাম",
+    "বার",
+    "লাইভ"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "স্পনসরের বার",
+   "tags": [
+    "youtube",
+    "স্পনসর",
+    "পৃষ্ঠপোষকতা",
+    "ব্র্যান্ড",
+    "লোগো"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "বিষয়ের বার",
+   "tags": [
+    "youtube",
+    "বিষয়",
+    "বার",
+    "শিরোনাম",
+    "কোণ"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "কাউন্টডাউনের বার",
+   "tags": [
+    "youtube",
+    "টাইমার",
+    "কাউন্টডাউন",
+    "সময়",
+    "চ্যালেঞ্জ"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "চলমান খবরের বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "খবর",
+    "ব্রেকিং নিউজ",
+    "তথ্য"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "বারের ওপর শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "বার",
+    "তালিকা",
+    "ধাপ"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "হালকা কাইনেটিক শিরোনাম",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "হালকা",
+    "মিনিমাল",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "তালে তালে কাউন্টার",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "কাউন্টার",
+    "সংখ্যা",
+    "সাবস্ক্রাইবার"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "রঙিন কাটে শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "তাল",
+    "কাট"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "রঙিন কাটে শব্দ (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "কাইনেটিক",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "স্প্লিট স্ক্রিনে শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "স্প্লিট স্ক্রিন",
+    "বৈপরীত্য",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "বড় হতে থাকা শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "স্কেল",
+    "তাল"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "তোমার ভিডিওর ওপর শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "ছবি",
+    "ভ্রমণ"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "তোমার ভিডিওর ওপর শব্দ (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "কাইনেটিক",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "বড় আর ছোট",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "টাইপোগ্রাফি",
+    "বৈপরীত্য",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "বড় আর ছোট (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "কাইনেটিক",
+    "বৈপরীত্য"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "রেখা থেকে শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "রেখা",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "টাইপরাইটার",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "টাইপরাইটার",
+    "লেখা",
+    "টিউটোরিয়াল"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "ঘূর্ণায়মান স্তূপ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "ঘূর্ণন",
+    "তালিকা"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "লাফানো শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "বাউন্স",
+    "মজার",
+    "শব্দ"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "তির্যক রেখার গুচ্ছ",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "রেখা",
+    "তির্যক",
+    "সাজসজ্জা"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "লোডিং বার",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "লোডিং",
+    "অগ্রগতি",
+    "বার"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "টিক ও ক্রস",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "টিক",
+    "ক্রস",
+    "তুলনা"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "হাতে আঁকা বৃত্ত",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "বৃত্ত",
+    "হাইলাইট",
+    "নির্দেশ"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "ক্লিকসহ বোতাম",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "ক্লিক",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "ঝিকিমিকি",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "ঝলক",
+    "তারা",
+    "জাদু"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "হাতে আঁকা তীর",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "তীর",
+    "নির্দেশ",
+    "এটা দেখো"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "কথার বুদবুদ",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "বুদবুদ",
+    "সংলাপ",
+    "কথোপকথন"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "অগ্রগতির ধাপ",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "ধাপ",
+    "অগ্রগতি",
+    "টিউটোরিয়াল"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "আন্ডারলাইন ও মার্কার",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "আন্ডারলাইন",
+    "মার্কার",
+    "লেখা"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "ঘণ্টাসহ সাবস্ক্রাইব বোতাম",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "সাবস্ক্রাইব",
+    "ঘণ্টা",
+    "বোতাম"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "ক্যামেরার ভিউফাইন্ডার",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "ক্যামেরা",
+    "রেকর্ডিং",
+    "rec",
+    "ফ্রেম"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "অ্যানিমেটেড উপাদান",
+   "tags": [
+    "youtube",
+    "উপাদান",
+    "আকার",
+    "সাজসজ্জা",
+    "গ্রাফিক্স"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "আউটলাইন বাক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বাক্স",
+    "আউটলাইন",
+    "শহর",
+    "শিরোনাম",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "ফিতায় শিরোনাম",
+   "tags": [
+    "youtube",
+    "ফিতা",
+    "ব্যান্ড",
+    "গ্রীষ্ম",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "বন্ধনীর মধ্যে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বন্ধনী",
+    "রুটিন",
+    "শিরোনাম",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "তির্যক কাটের শিরোনাম",
+   "tags": [
+    "youtube",
+    "তির্যক",
+    "গেম",
+    "শিরোনাম",
+    "এনার্জি"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "গ্রেডিয়েন্ট বারে শিরোনাম",
+   "tags": [
+    "youtube",
+    "গ্রেডিয়েন্ট",
+    "বার",
+    "শহর",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "দুই রঙের শিরোনাম",
+   "tags": [
+    "youtube",
+    "দুই রং",
+    "ভ্রমণ",
+    "অ্যাডভেঞ্চার",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "কোণের ফ্রেমে শিরোনাম",
+   "tags": [
+    "youtube",
+    "কোণ",
+    "ফ্রেম",
+    "ভ্রমণ",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "কোণের ফ্রেমে শিরোনাম (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "কোণ",
+    "ফ্রেম",
+    "ভ্রমণ",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "ট্যাগসহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "ট্যাগ",
+    "পিল",
+    "ভ্লগ",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "হাইলাইট করা শিরোনাম",
+   "tags": [
+    "youtube",
+    "হাইলাইট",
+    "ব্লক",
+    "রেসিপি",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "হাইলাইট করা শিরোনাম (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "হাইলাইট",
+    "রেসিপি",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "সিলমোহরসহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "সিল",
+    "নতুন",
+    "পডকাস্ট",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "রঙিন ছায়ার শিরোনাম",
+   "tags": [
+    "youtube",
+    "ছায়া",
+    "রং",
+    "সূর্যাস্ত",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "উইন্ডো কার্ডে শিরোনাম",
+   "tags": [
+    "youtube",
+    "উইন্ডো",
+    "কার্ড",
+    "টিউটোরিয়াল",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "উক্তির কার্ড",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাণী",
+    "অনুপ্রেরণা",
+    "লেখা"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "প্রবাল রঙের উক্তির কার্ড",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "রং",
+    "অনুপ্রেরণা",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "ইটালিক উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "মার্জিত",
+    "ইটালিক",
+    "ভালোবাসা"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "হালকা এডিটোরিয়াল উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "এডিটোরিয়াল",
+    "হালকা",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "হালকা এডিটোরিয়াল উক্তি (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "উক্তি",
+    "এডিটোরিয়াল"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "ছবির ওপর উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাণী",
+    "ছবি",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "ছবির ওপর উক্তি (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "উক্তি",
+    "ছবি"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "নম্বরসহ শিক্ষা",
+   "tags": [
+    "youtube",
+    "শিক্ষা",
+    "পরামর্শ",
+    "নম্বর",
+    "টিউটোরিয়াল"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "ফ্রেমে বাঁধানো উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "ফ্রেম",
+    "আধুনিক",
+    "বাণী"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "মিনিমাল উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাণী",
+    "মিনিমাল",
+    "গাঢ়"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "পাশে ছবিসহ উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "ছবি",
+    "সাক্ষাৎকার",
+    "বাণী"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "বড় শব্দ ও উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "শব্দ",
+    "টাইপোগ্রাফি",
+    "বাণী"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "হলুদ উক্তির কার্ড",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "রং",
+    "অনুপ্রেরণা",
+    "হলুদ"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "ভিডিওর ওপর উক্তির কার্ড",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "কার্ড",
+    "ছবি",
+    "ওভারলে"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "গ্রাহকের মতামত",
+   "tags": [
+    "youtube",
+    "মতামত",
+    "রিভিউ",
+    "গ্রাহক",
+    "উক্তি"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "গ্রাহকের মতামত (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "shorts",
+    "মতামত",
+    "রিভিউ"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "দুই ভিডিওর এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি",
+    "পরের ভিডিও"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "মাঝখানে সাজানো এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি",
+    "প্রতিসম"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "হালকা এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "হালকা",
+    "সাদা"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "প্রবাল রঙের এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "প্রবাল",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "ছবির পটভূমিতে এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "ছবি",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "«ধন্যবাদ!» এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "ধন্যবাদ",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "প্লেলিস্টসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "প্লেলিস্ট",
+    "সমাপ্তি",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "মিনিমাল এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "মিনিমাল",
+    "রেখা",
+    "সমাপ্তি"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "হলুদ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "হলুদ",
+    "লাইক",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "তিন কার্ডের এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "কার্ড",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "এক ভিডিওর এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "সমাপ্তি",
+    "পরের ভিডিও"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "সোশ্যাল বার",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "বার",
+    "ইউজারনেম",
+    "নামফলক"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "বৃত্তে আইকন",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "আইকন",
+    "বৃত্ত",
+    "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "তোমার সোশ্যাল (হালকা)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম",
+    "হালকা"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "প্রবাল রঙে ফলো করো",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "কাইনেটিক",
+    "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "গ্রিডে সোশ্যাল",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম",
+    "গ্রিড"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "কোণে ইউজারনেম",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউজারনেম",
+    "কোণ",
+    "নোটিফিকেশন"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "বড় ইউজারনেম",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম",
+    "বড়"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "বড় ইউজারনেম (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "তোমার সোশ্যাল",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম",
+    "যোগাযোগ"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "তোমার সোশ্যাল (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "পিলে সোশ্যাল",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "ইউজারনেম",
+    "পিল"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "ফলো করার কার্ড",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ফলো করো",
+    "কার্ড",
+    "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "নামফলকে ইউজারনেম",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউজারনেম",
+    "নামফলক",
+    "লোয়ার থার্ড"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "ছবিসহ নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "ছবি",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "হালকা নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "হালকা",
+    "সাদা"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "বন্ধনী নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "লোয়ার থার্ড",
+    "বন্ধনী"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "ডানদিকের নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "লোয়ার থার্ড",
+    "ডান"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "তির্যক নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "খেলা",
+    "এনার্জি"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "দুই লাইনের নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "সাক্ষাৎকার",
+    "লোয়ার থার্ড"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "দুই লাইনের নামফলক (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "নাম",
+    "নামফলক",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "সাক্ষাৎকারের নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "সাক্ষাৎকার",
+    "পডকাস্ট",
+    "দুজন"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "ট্যাগসহ নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "অতিথি",
+    "ট্যাগ"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "মিনিমাল নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "মিনিমাল",
+    "রেখা"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "ধাপের নামফলক",
+   "tags": [
+    "youtube",
+    "ধাপ",
+    "টিউটোরিয়াল",
+    "রেসিপি",
+    "নম্বর"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "পিল নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "লোয়ার থার্ড",
+    "পিল"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "পিল নামফলক (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "নাম",
+    "নামফলক",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "স্থানের নামফলক",
+   "tags": [
+    "youtube",
+    "স্থান",
+    "লোকেশন",
+    "ভ্রমণ",
+    "মানচিত্র"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "কাচের নামফলক",
+   "tags": [
+    "youtube",
+    "নাম",
+    "নামফলক",
+    "কাচ",
+    "স্বচ্ছ",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "আগে ও পরে",
+   "tags": [
+    "youtube",
+    "আগে",
+    "পরে",
+    "তুলনা",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "সাজানো শব্দ",
+   "tags": [
+    "youtube",
+    "স্তূপ",
+    "শব্দ",
+    "শিরোনাম",
+    "আউটলাইন"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "সাজানো শব্দ (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "স্তূপ",
+    "শব্দ",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "রঙিন ব্লকে শব্দ",
+   "tags": [
+    "youtube",
+    "ব্লক",
+    "ধাপ",
+    "শব্দ",
+    "রং"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "নম্বরসহ অধ্যায়",
+   "tags": [
+    "youtube",
+    "অধ্যায়",
+    "নম্বর",
+    "শিরোনাম",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "নম্বরসহ অধ্যায় (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "অধ্যায়",
+    "নম্বর",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "ভরে ওঠা আউটলাইন",
+   "tags": [
+    "youtube",
+    "আউটলাইন",
+    "ভরাট",
+    "বাক্য",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "দুই রঙের শব্দ",
+   "tags": [
+    "youtube",
+    "দুই রং",
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "প্রভাব"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "হালকা এডিটোরিয়াল শিরোনাম",
+   "tags": [
+    "youtube",
+    "এডিটোরিয়াল",
+    "ম্যাগাজিন",
+    "হালকা",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "অধ্যায়ের সূচি",
+   "tags": [
+    "youtube",
+    "সূচি",
+    "অধ্যায়",
+    "বিষয়বস্তু",
+    "তালিকা"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "দুই রেখার মাঝে শিরোনাম",
+   "tags": [
+    "youtube",
+    "রেখা",
+    "পর্ব",
+    "শিরোনাম",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "বাক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বাক্স",
+    "ফ্রেম",
+    "শিরোনাম",
+    "প্রতিবেদন"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "মার্কার দেওয়া শিরোনাম",
+   "tags": [
+    "youtube",
+    "মার্কার",
+    "আন্ডারলাইন",
+    "টিউটোরিয়াল",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "তালিকার নম্বর",
+   "tags": [
+    "youtube",
+    "টপ",
+    "তালিকা",
+    "র‍্যাংকিং",
+    "নম্বর"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "টাইপোগ্রাফি ব্লক",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "লেখা",
+    "টাইপোগ্রাফি",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "তির্যক রেখার শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "চ্যানেল",
+    "স্টাইল",
+    "ছবি"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "তালে তালে শব্দ",
+   "tags": [
+    "youtube",
+    "কাইনেটিক",
+    "শব্দ",
+    "তাল",
+    "এনার্জি"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "রিং জুম",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "জুম",
+    "রিং",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "শেভরন সুইপ",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "তীর",
+    "শেভরন",
+    "সুইপ"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "তির্যক কাট ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "তির্যক",
+    "কাট",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "রঙিন ঝলক",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "ফ্ল্যাশ",
+    "আলো",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "কোণের ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "কোণ",
+    "ত্রিভুজ",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "ডোরাকাটা সুইপ",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "ডোরা",
+    "সুইপ",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "ষড়ভুজ ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "ষড়ভুজ",
+    "মোজাইক",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "আইরিস ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "বৃত্ত",
+    "আইরিস",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "আইরিস ট্রানজিশন (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "ট্রানজিশন",
+    "বৃত্ত",
+    "আইরিস"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "বারের ঢেউ",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "বার",
+    "ঢেউ",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "প্যানেল ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "ওয়াইপ",
+    "আকার",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "খড়খড়ি ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "খড়খড়ি",
+    "ডোরা",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "খড়খড়ি ট্রানজিশন (ভার্টিক্যাল)",
+   "tags": [
+    "youtube",
+    "ভার্টিক্যাল",
+    "ট্রানজিশন",
+    "খড়খড়ি",
+    "ডোরা"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "দরজা ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "দরজা",
+    "বন্ধ",
+    "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "বিন্দু ট্রানজিশন",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "বিন্দু",
+    "বৃত্ত",
+    "দৃশ্য বদল"
    ]
   },
   "template:zoom-3d-parallax": {

@@ -94,6 +94,17 @@ Item {
     // ----- Motion sketch: the pointer's path while the playhead runs in real time ---------------
     property var sketch: []
     property real sketchStart: 0
+    property int sketchTrack: -1
+    property int sketchClip: -1
+    onSketchReadyChanged: {
+        // The tool or the clip went away mid-sketch: stop instead of running the playhead on.
+        if (!sketchReady && sketchTimer.running) {
+            sketchTimer.stop()
+            if (sketch.length > 1 && sketchTrack >= 0)
+                EditorState.applyMotionSketch(sketchTrack, sketchClip, sketch, 2.0)
+            sketch = []
+        }
+    }
     property real sketchClock: 0
     property point sketchPointer: Qt.point(0, 0)
     Timer {
@@ -195,6 +206,9 @@ Item {
             } else if (root.tool === "anchor") {
                 root.anchorLive = Qt.point(mouse.x, mouse.y)
             } else if (root.sketchReady) {
+                // The clip being sketched, kept: once the playhead runs past its end `box` is null.
+                root.sketchTrack = root.box.track
+                root.sketchClip = root.box.clip
                 root.sketchPointer = Qt.point(mouse.x, mouse.y)
                 root.sketchStart = EditorState.playheadSeconds
                 root.sketchClock = Date.now()
@@ -244,14 +258,23 @@ Item {
                                           EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth)
             } else if (root.tool === "sketch" && sketchTimer.running) {
                 sketchTimer.stop()
-                if (root.sketch.length > 1)
-                    EditorState.applyMotionSketch(root.box.track, root.box.clip, root.sketch, 2.0)
+                if (root.sketch.length > 1 && root.sketchTrack >= 0)
+                    EditorState.applyMotionSketch(root.sketchTrack, root.sketchClip, root.sketch, 2.0)
                 root.sketch = []
-            } else if (root.tool === "anchor" && root.anchorReady) {
+            } else if (root.tool === "anchor" && root.anchorReady && root.box) {
                 const f = root.overlayToBox(mouse.x, mouse.y)
                 root.anchorLive = Qt.point(-1, -1)
                 EditorState.setAnchorKeepingPlace(root.box.track, root.box.clip, f.x, f.y)
             }
+        }
+        // A popup or Alt-Tab mid-gesture: nothing half done is left running (the sketch timer moved
+        // the playhead forever and grew its trail without limit).
+        onCanceled: {
+            sketchTimer.stop()
+            root.sketch = []
+            root.dragging = false
+            root.puppetDrag = -1
+            root.anchorLive = Qt.point(-1, -1)
         }
         onClicked: mouse => {
             if (root.tool !== "text")

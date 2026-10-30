@@ -110,21 +110,27 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
     if (object.contains(QStringLiteral("behavior"))) {
         const QJsonObject b = object.value(QStringLiteral("behavior")).toObject();
         TrackBehavior behavior;
+        // Bounded as the editor bounds them: a negative decay grew without end, a huge wiggle
+        // frequency overflowed the noise index, and NaN from a hand-edited file spread to every frame.
+        const auto num = [&b](const char *key, double fallback, double lo, double hi) {
+            const double v = b.value(QLatin1String(key)).toDouble(fallback);
+            return std::isfinite(v) ? qBound(lo, v, hi) : fallback;
+        };
         behavior.loop = loopModeFromString(b.value(QStringLiteral("loop")).toString());
-        behavior.speed = b.value(QStringLiteral("speed")).toDouble(0.0);
-        behavior.wiggleFrequency = b.value(QStringLiteral("wiggleFrequency")).toDouble(0.0);
-        behavior.wiggleAmount = b.value(QStringLiteral("wiggleAmount")).toDouble(0.0);
+        behavior.speed = num("speed", 0.0, -1e6, 1e6);
+        behavior.wiggleFrequency = num("wiggleFrequency", 0.0, 0.0, 1000.0);
+        behavior.wiggleAmount = num("wiggleAmount", 0.0, -1e6, 1e6);
         behavior.wiggleSeed = b.value(QStringLiteral("wiggleSeed")).toInt(0);
         const QString settle = b.value(QStringLiteral("settle")).toString();
         behavior.settle = settle == QLatin1String("elastic")  ? TrackBehavior::Settle::Elastic
                           : settle == QLatin1String("bounce") ? TrackBehavior::Settle::Bounce
                                                               : TrackBehavior::Settle::None;
-        behavior.settleAmplitude = b.value(QStringLiteral("settleAmplitude")).toDouble(0.05);
-        behavior.settleFrequency = b.value(QStringLiteral("settleFrequency")).toDouble(3.0);
-        behavior.settleDecay = b.value(QStringLiteral("settleDecay")).toDouble(5.0);
-        behavior.bounceElasticity = b.value(QStringLiteral("bounceElasticity")).toDouble(0.6);
-        behavior.bounceGravity = b.value(QStringLiteral("bounceGravity")).toDouble(1.0);
-        behavior.bounceMaxJumps = b.value(QStringLiteral("bounceMaxJumps")).toInt(5);
+        behavior.settleAmplitude = num("settleAmplitude", 0.05, 0.0, 10.0);
+        behavior.settleFrequency = num("settleFrequency", 3.0, 0.01, 200.0);
+        behavior.settleDecay = num("settleDecay", 5.0, 0.0, 1000.0);
+        behavior.bounceElasticity = num("bounceElasticity", 0.6, 0.0, 1.0);
+        behavior.bounceGravity = num("bounceGravity", 1.0, 0.01, 100.0);
+        behavior.bounceMaxJumps = qBound(0, b.value(QStringLiteral("bounceMaxJumps")).toInt(5), 50);
         behavior.bounceJumpOut = b.value(QStringLiteral("bounceJumpOut")).toBool(false);
         behavior.expression = b.value(QStringLiteral("expression")).toString();
         track.setBehavior(behavior);
@@ -267,7 +273,7 @@ void rescaleEffectKeyframes(QList<Effect> &effects, TimeUs fromDurationUs, TimeU
 
             KeyframeTrack<double> out;
             // A track switched off keeps its keys, and must keep being switched off.
-            out.setEnabled(track.enabled());
+            out.copySettingsFrom(track);
             for (auto k = track.keyframes().constBegin(); k != track.keyframes().constEnd(); ++k) {
                 Keyframe<double> key = k.value();
                 // Handles live in curve space: dx is microseconds on the same axis as the key
