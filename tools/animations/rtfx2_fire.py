@@ -21,8 +21,11 @@ G = 256  # grid columns; rows follow the canvas aspect
 
 # Fire in four tones as RTFX draws it: the red rim, an orange band, amber, then the yellow heart; and
 # a warm haze round it, wide and soft plus a nearer one.
-CEL = [("rojo", "#ff0d00"), ("amarillo", "#fff69c", 0.62)]
-CEL_HAZE = [("#ff2a00", 70, 70), ("#ff4a08", 20, 85)]
+# RTFX's colours, measured on its videos: pure red, a pale lemon yellow, and a deep red glow; flames
+# (torch, wings, the burning loops) add an orange band between the red and the yellow.
+CEL = [("rojo", "#fd1000"), ("amarillo", "#fefe8f", 0.62)]
+CEL3 = [("rojo", "#fd1400"), ("naranja", "#ff6a04", 0.45), ("amarillo", "#fefe8f", 0.7)]
+CEL_HAZE = [("#ff0800", 70, 75), ("#ff1000", 20, 85)]
 FIRE = [("rojo", "#e8140a"), ("naranja", "#ff6200", 0.42), ("ámbar", "#ffaa1c", 0.53), ("amarillo", "#fff2a6", 0.63)]
 HAZE = [("#ff5a00", 80, 55), ("#ff7a10", 28, 60)]
 
@@ -74,6 +77,10 @@ class Mass:
         for lobe in lobes:
             cx, cy, r, sx, sy, ang, heart = lobe[:7]
             if r <= 0.5:
+                continue
+            if heart <= -2:
+                # A cut: takes a bite of its own shape out of the whole mass.
+                holes = np.maximum(holes, bump(X, Y, cx, cy, r, sx, sy, ang))
                 continue
             if heart < 0:
                 # A red bubble welling up through the yellow: it cools the heart and adds no mass.
@@ -253,31 +260,44 @@ def explosion(W, H, seed, size=1.0, grow=0.22, dur=1.9):
 
 
 def torch(W, H, seed, size=1.0, dur=1.9):
-    """A fireball column rising (RTFX's «Torch Fireball Up»): puffs born up a sinuous tongue, the top
-    ones leaning and drawn out into licks, hollows opening as they age, torn upward as it dies."""
+    """A fireball column rising (RTFX's «Torch Fireball Up»), studied frame by frame: a ball bursts at
+    the foot and grows up into an S-shaped column, a bulb at the bottom and a neck leaning over at the
+    top, the yellow a thin winding vein up its middle; then each puff hollows out from below into a
+    hook, the bottom ones first, and the hooks drift up and fade."""
     m = Mass(W, H, seed)
     rnd = np.random.default_rng(seed)
-    puffs = [(i / 9, rnd.uniform(-1, 1), rnd.uniform(0.8, 1.15)) for i in range(10)]
     k = size * m.gw / 256
-    ox, base = m.gw / 2, m.gh * 0.74
+    cx, base = m.gw / 2, m.gh * 0.78
+    # Puffs up the column: how far up (0..1), their side of the spine, size, hollow direction, and
+    # when the hollow starts; bulging alternately left and right so the outline winds.
+    sizes = [38, 34, 31, 28, 25, 21, 17, 12]
+    puffs = [(i / (len(sizes) - 1), (1 if i % 2 else -1) * rnd.uniform(0.5, 0.75), r * rnd.uniform(0.9, 1.1),
+              rnd.uniform(-1.4, 1.4), rnd.uniform(-0.06, 0.06), rnd.uniform(-1, 1)) for i, r in enumerate(sizes)]
+
+    def spine(u, Hc):
+        # An S: the bulb leans one way, the neck the other, the tip hooks back.
+        return cx + (math.sin(u * 4.4 + 0.3) * 26 * min(1.0, u * 1.4)) * k, base - Hc * u
 
     def field(t):
-        t *= 1.55  # RTFX's torch is over in under a second
+        Hc = 175 * k * min(1.0, t / 0.38) ** 0.75
         lobes = []
-        for i, (h, jx, js) in enumerate(puffs):
-            age = t - h * 0.28
-            if age < 0 or age > 1.25:
+        for u, side, r0, ha, dly, drift in puffs:
+            if u * 175 * k > Hc + 12 * k:
                 continue
-            side = 1 if i % 2 else -1
-            cx = ox + (math.sin(h * 4.0 + 0.4) * 34 * h + side * 13 * (1 - h) + jx * 5) * k
-            cy = base - (h * 120 + age * 45) * k
-            r = (7 + 25 * min(1, age / 0.15)) * js * (1.1 - 0.45 * h) * (1 - 0.3 * max(0, age - 0.6)) * k
-            lean = 1.6 * (h - 0.7) / 0.3 if h > 0.7 else 0.0
-            heart = 0.85 * max(0.0, min(1.0, 1.0 - max(0.0, age - 0.55) * 1.6))
-            hole = 0.7 * max(0.0, (age / 1.25 - 0.55) / 0.45)
-            lobes.append((cx, cy, r, 1.0, 1.05 + 0.6 * h * h, lean, heart, hole, math.pi / 2 + jx * 0.6))
-        return m.field(lobes, t, "up", (ox, base + 6 * k), 170 * k, 0.75, 0.75, crown=0.0,
-                       life=min(1.0, t / 1.5))
+            x, y = spine(u, Hc)
+            late = max(0.0, t - 0.5)
+            x += (side * r0 * 0.6 + drift * 26 * late) * k
+            y -= (26 + 20 * u) * k * late  # the pieces drift up and part as it burns out
+            r = r0 * k * min(1.0, t / 0.1 + 0.3) * (1.0 + 0.25 * late)
+            # Each puff hollows from below, the bottom ones first: a hook, its open side mostly down.
+            hole = max(0.0, (t - 0.4 - 0.16 * u - dly) / 0.34)
+            heart = 0.7 * max(0.0, 1 - max(0.0, hole - 0.75) * 1.5)
+            # Up the column the puffs draw out into licks leaning along the S.
+            x2, y2 = spine(min(1.0, u + 0.05), Hc)
+            lean = max(-0.6, min(0.6, -math.atan2(x2 - x, y - y2))) if u > 0.3 else 0.0
+            lobes.append((x, y, r, 1.0, 1.05 + 0.7 * u * u, lean, heart, min(1.15, 0.45 + 0.65 * hole) if hole > 0 else 0.0,
+                          math.pi / 2 + ha, 0.5 - 0.12 * min(1.0, hole), True))
+        return m.field(lobes, t, "up", (cx, base + 6 * k), 170 * k, 9.0, 1.0, crown=0.0, life=0.0)
 
     return field
 
@@ -327,30 +347,74 @@ def make_thrower():
 
 
 def wings(W, H, seed, size=1.0, dur=2.2):
-    """Wings of fire opening up (RTFX's «Wings Up»): from a burst at the base two wings unfold, each a
-    chain of puffs swelling towards the tip and leaning out; they hold, then fray from the tips
-    inward into a lacy edge and burn out."""
+    """Wings of fire opening up (RTFX's «Wings Up»), studied frame by frame: a ball bursts at the
+    centre and splits into two lobes thrown left and right; each grows into a broad wing filling the
+    space between a steep inner edge and a wide outer edge that both rise from the bottom centre to a
+    high outer corner, flames feathering its outer edge; they hold, then are eaten from the outer edge
+    inward, leaving a thin V fringed with embers."""
     m = Mass(W, H, seed)
     rnd = np.random.default_rng(seed)
     k = size * m.gw / 256
-    cx, base = m.gw / 2, m.gh * 0.78
-    feathers = [(i / 7, rnd.uniform(-1, 1), rnd.uniform(0.85, 1.1)) for i in range(8)]
+    cx, base = m.gw / 2, m.gh * 0.82
+    NU, NV = 15, 4
+    jit = [[(rnd.uniform(0.85, 1.15), rnd.uniform(-0.12, 0.12)) for _ in range(NU * NV)] for _ in range(2)]
+    feathers = [[(rnd.uniform(0.15, 1.0), rnd.uniform(0.6, 1.2)) for _ in range(9)] for _ in range(2)]
+    embers = [(rnd.uniform(0.1, 1.0), rnd.uniform(0.3, 1.6), rnd.uniform(1.5, 3.2), rnd.random()) for _ in range(50)]
+
+    def bez(p0, p1, p2, u):
+        return ((1 - u) ** 2 * p0[0] + 2 * (1 - u) * u * p1[0] + u * u * p2[0],
+                (1 - u) ** 2 * p0[1] + 2 * (1 - u) * u * p1[1] + u * u * p2[1])
+
+    def point(side, u, v, L):
+        # Local wing coords (x out, y up) in units of L: the inner and the outer edge, both from the
+        # root to the top, and v across between them.
+        ix, iy = bez((0.06, 0.0), (0.18, 0.62), (0.62, 1.05), u)
+        ox, oy = bez((0.06, 0.0), (1.05, 0.05), (0.92, 0.95), u)
+        x, y = ix + (ox - ix) * v, iy + (oy - iy) * v
+        return cx + side * x * L, base - y * L
 
     def field(t):
-        e = 1 - (1 - min(1, t / 0.3)) ** 3
         lobes = []
-        for side in (-1, 1):
-            for u, j, js in feathers:
-                # Along a curve from the base out and up to the tip.
-                ang = -math.pi / 2 + side * (0.22 + 0.38 * u)
-                reach = (14 + 95 * u) * k * e
-                x = cx + math.cos(ang) * reach * 0.95 + side * 8 * k
-                y = base + math.sin(ang) * reach - 20 * k * u * u * e
-                r = (11 + 34 * u) * js * k * (0.4 + 0.6 * e)
-                lean = ang + math.pi / 2
-                heart = 0.85 * max(0.0, min(1.0, 1 - max(0.0, t - 0.7 - 0.5 * (1 - u)) * 1.2))
-                lobes.append((x, y, r, 0.95, 1.25, lean, heart))
-        return m.field(lobes, t, "radial", (cx, base + 10 * k), 150 * k, 0.75, 1.3, crown=0.0, life=0.0)
+        if t < 0.3:  # the ball, then the two lobes thrown apart
+            b = min(1.0, t / 0.08)
+            split = max(0.0, (t - 0.08) / 0.2)
+            for side in (-1, 1):
+                r = (16 + 6 * b) * k * (1.15 if side < 0 else 0.9) * (1 - 0.35 * split)
+                lobes.append((cx + side * 32 * k * split, base - 34 * k - 4 * k * split, r, 1.15, 0.95, 0.0, 0.8))
+        e = 1 - (1 - min(1.0, max(0.0, (t - 0.2) / 0.2))) ** 2
+        eat = min(0.86, max(0.0, (t - 0.6) / 0.9))  # the outer edge eaten inward, a thin V left
+        L = 115 * k * (0.35 + 0.65 * e)
+        if eat > 0.3:  # what is left: a lacy V along the inner edges, thinning
+            th = 3.5 * k * (1 - (eat - 0.3) / 0.6) + 1.0 * k
+            for side in (-1, 1):
+                lobes += ribbon(lambda u, side=side: point(side, 0.04 + 0.96 * u, 0.06, L),
+                                lambda u: th * (0.6 + 0.4 * math.sin(u * 23 + t * 9)), 40, lambda u: 0.72 - 0.3 * eat)
+        if e > 0:
+            for side, J, F in ((-1, jit[0], feathers[0]), (1, jit[1], feathers[1])):
+                for i in range(NU):
+                    for j in range(NV):
+                        u, v = (i + 0.5) / NU, (j + 0.5) / NV
+                        if v > 1.05 - eat:
+                            continue
+                        js, jj = J[i * NV + j]
+                        x, y = point(side, u, v, L)
+                        w = L * (0.11 + 0.11 * math.sin(math.pi * min(1.0, u * 1.1))) * js * (1 - 0.55 * eat)
+                        lobes.append((x, y, w, 1.0, 1.0, jj, 0.82 - 0.2 * eat))
+                for u, fl in F:  # feathers up the outer edge, pointing up and out
+                    if eat > 0.8:
+                        break
+                    x, y = point(side, u, 1.0 - eat, L)
+                    wf = L * 0.12 * fl * (1 - eat)
+                    lobes.append((x + side * wf * 0.4, y - wf * 0.6, wf, 1.0, 0.32, -math.pi / 2 + side * 0.7, 0.5))
+        if eat > 0:
+            for u, d, r, ph in embers:  # embers shed from the eaten edge
+                side = 1 if ph > 0.5 else -1
+                x, y = point(side, u, 1.0 - eat * 0.9, 115 * k)
+                dd = (6 + 26 * d * eat) * k
+                rr = r * k * max(0.0, 1 - eat * (0.5 + 0.7 * ph))
+                if rr > 0.6:
+                    lobes.append((x + side * dd, y - dd * 0.6, rr, 1.0, 1.0, 0.0, 0.5))
+        return m.field(lobes, t, "radial", (cx, base + 10 * k), 150 * k, 1.75, 0.5, crown=0.0, life=0.0)
 
     return field
 
@@ -359,7 +423,7 @@ def make_wings():
     s = new("ex-fuego-alas-arriba", "Fuego · Alas de fuego", "Fire · Wings of fire", "fuego", 52, 6003,
             ["fuego", "fire", "alas", "wings"], size=512, thumb=0.35)
     s.fps = 24
-    return render(s, wings(512, 512, 13, size=1.05), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, wings(512, 512, 13, size=1.05), tones=CEL3, halo=CEL_HAZE, slots=(64, 56, 56))
 
 
 def ring(W, H, seed, size=1.0, dur=1.3):
@@ -857,53 +921,69 @@ def make_ground_trail():
     return render(s, ground_trail(512, 512, 53, size=1.4), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
 
 
-def wall(W, H, seed, period=2.0):
-    """A wall of fire along the bottom, looping (RTFX's «Up Wide loop»): a deep bed of flame with big
-    tongues rising out of it, swaying, stretching and pinching off into licks at the top, and red
-    bubbles welling up through the yellow. Everything runs on the loop's period, and the noise of
-    the first and second time round is cross-faded, so the end meets the start."""
-    m = Mass(W, H, seed)
-    rnd = np.random.default_rng(seed)
-    k = m.gw / 256
-    base = m.gh * 0.76
-    n = 6
-    tongues = [((i + rnd.uniform(-0.25, 0.25)) / (n - 1), rnd.random(), rnd.uniform(0.8, 1.2), int(rnd.integers(1, 3)))
-               for i in range(n)]
-    tongues += [(rnd.random(), rnd.random(), rnd.uniform(0.55, 0.75), 2) for _ in range(2)]
-    bubbles = [(rnd.random(), rnd.random(), rnd.uniform(0.7, 1.3)) for _ in range(6)]
+def flame_points(A, B, cx, base, k, t, period, phase, cycles, wob, gust=0.0):
+    """One hand-drawn flame's outline at t: A hooked right, B its mirror paired point by point; it
+    swings between them cycles times a loop, starting at phase, and wobbles on twos (wob[n])."""
+    ph = 2 * math.pi * (t / period * cycles + phase)
+    n = int(round(t * 12)) % len(wob)
+    w = 0.5 + 0.5 * math.sin(ph)
+    w = w * w * (3 - 2 * w)
+    pts = []
+    for i, ((ax, ay), (bx, by)) in enumerate(zip(A, B)):
+        x = ax * w + bx * (1 - w)
+        y = (ay * w + by * (1 - w)) * (1 + 0.08 * math.sin(2 * ph + i * 0.3))
+        x += wob[n, i, 0] * 1.6 + gust * y * y / 150
+        y = y * (1 - 0.35 * gust * min(1.0, y / 60)) + wob[n, i, 1] * 1.6
+        pts.append((cx + x * k, base - y * k))
+    return pts, w
 
-    def lobes_at(t):
-        lobes = []
-        # The bed: big puffs whose hearts leave red between them.
-        for i in range(8):
-            x = m.gw * (i + 0.5 * (i % 2)) / 7
-            lobes.append((x, base + 26 * k, 34 * k, 1.1, 1.1, 0.0, 0.8 + 0.1 * math.sin(2 * math.pi * t / period + i)))
-        for u, ph, js, cyc in tongues:
-            a = (t / period * cyc + ph) % 1.0  # how far up this tongue has got
-            x0 = m.gw * (u * 1.1 - 0.05) + math.sin(2 * math.pi * (t / period + ph)) * 9 * k
-            top = (54 + 22 * js) * k * (0.45 + 0.55 * a)
-            bend = math.sin(2 * math.pi * (t / period * 2 + ph)) * 22 * k * js
-            # A tongue: a bending stack narrowing to a tip that curls over and pinches off.
-            for j, sv in enumerate((0.2, 0.5, 0.78, 1.0)):
-                if j == 3 and a > 0.8:
-                    sv = 1.0 + (a - 0.8) * 2.5  # the lick, let go
-                y = base + 8 * k - top * sv
-                x = x0 + bend * sv * sv
-                r = (36 - 22 * sv) * js * k * (1.0 if sv <= 1 else max(0.0, 1.6 - sv))
-                ang = math.atan2(2 * bend * sv, top) * 0.8
-                lobes.append((x, y, r, 0.85, 1.5, ang, 0.78 - 0.3 * min(sv, 1.0)))
-        for u, ph, js in bubbles:
-            a = (t / period + ph) % 1.0
-            lobes.append((m.gw * u, base + 50 * k - 70 * k * a, 12 * js * k * math.sin(math.pi * a), 1.0, 1.15, 0.0, -1.0))
-        return lobes
+
+def mirrored(A):
+    B = [(-x, y) for x, y in reversed(A)]
+    best = min(range(len(B)), key=lambda r: sum((A[i][0] - B[(i + r) % len(B)][0]) ** 2 + (A[i][1] - B[(i + r) % len(B)][1]) ** 2
+                                                for i in range(len(A))))
+    return [B[(i + best) % len(B)] for i in range(len(A))]
+
+
+def wall(W, H, seed, period=2.0):
+    """A wall of fire along the bottom, looping (RTFX's «Up Wide loop»): a row of hand-drawn flames
+    of different heights standing on a common bed, each swinging its crest on its own beat and phase
+    (never in step), tearing bits off its tip, with red tongues rising through the yellow."""
+    m = Mass(W, H, seed, rough=0.0)
+    rnd = np.random.default_rng(seed)
+    k0 = m.gw / 256
+    base = m.gh * 1.0
+    A = FLAME
+    B = mirrored(A)
+    flames = []
+    x = -10.0
+    while x < m.gw + 20:
+        sz = rnd.uniform(0.5, 0.82)
+        flip = rnd.random() < 0.5
+        flames.append((x, sz, rnd.random(), int(rnd.integers(1, 3)), rnd.normal(0, 1, (12, len(A), 2)), flip))
+        x += 70 * sz * k0 * rnd.uniform(0.9, 1.15)
+    tongues = [(rnd.random(), rnd.uniform(0, 1), rnd.uniform(0.7, 1.2)) for _ in range(9)]
 
     def field(t):
         t = t % period
-        w = t / period
-        lobes = lobes_at(t)
-        d1, c1 = m.field(lobes, t, "up", (m.gw / 2, base), 100 * k, 99.0, 1.0, crown=0.0, life=0.0)
-        d2, c2 = m.field(lobes, t - period, "up", (m.gw / 2, base), 100 * k, 99.0, 1.0, crown=0.0, life=0.0)
-        return (1 - w) * d1 + w * d2, (1 - w) * c1 + w * c2
+        polys = [[(-20, base - 30 * k0), (m.gw + 20, base - 30 * k0), (m.gw + 20, base + 20), (-20, base + 20)]]
+        tops = []
+        for fx, sz, phase, cyc, wob, flip in flames:
+            pts, w = flame_points(B if flip else A, A if flip else B, fx, base + 4 * k0, sz * k0, t, period, phase, cyc, wob)
+            polys.append(catmull(pts, 6))
+            tops.append((pts[6], sz, phase, cyc))
+        for (tx, ty), sz, phase, cyc in tops:  # bits torn off each tip
+            a = (t / period * cyc * 2 + phase) % 1.0
+            r = (6 * (1 - a) + 1) * sz * 1.4
+            lx, ly = tx, ty - (8 + 30 * a) * sz * k0
+            polys.append(catmull([(lx, ly - 2.2 * r * k0), (lx + r * k0, ly), (lx, ly + r * k0), (lx - r * k0, ly)], 4))
+        d, core = outline_field(m, polys, rim=3.0 * k0, orange=7.0 * k0)
+        core = np.minimum(core, 0.85) - 0.12 * np.clip((base - m.yy) / (110 * k0), 0, 1.2) ** 1.6
+        for p0, u, js in tongues:
+            a = (t / period * 2 + p0) % 1.0
+            g = bump(m.xx, m.yy, m.gw * u, base - (10 + 60 * a) * k0, 22 * js * k0 * math.sin(math.pi * a) + 0.1, 0.55, 1.0)
+            core = core - 0.6 * g
+        return d, core
 
     return field
 
@@ -913,7 +993,7 @@ def make_wall():
             ["fuego", "fire", "muro", "wall", "llamas", "flames", "bucle", "loop", "fondo"], loop=True, size=512,
             height=288, thumb=0.5)
     s.fps = 24
-    return render(s, wall(512, 288, 59), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, wall(512, 288, 59), tones=CEL3, halo=CEL_HAZE, slots=(48, 48, 48))
 
 
 def looped(m, lobes_at, period, flow, origin, reach):
@@ -943,43 +1023,96 @@ def ribbon(path, width, n, heart):
     return lobes
 
 
+def catmull(pts, per=8):
+    """A closed Catmull-Rom curve through pts, per points per span."""
+    out = []
+    n = len(pts)
+    for i in range(n):
+        p0, p1, p2, p3 = pts[i - 1], pts[i], pts[(i + 1) % n], pts[(i + 2) % n]
+        for j in range(per):
+            u = j / per
+            u2, u3 = u * u, u * u * u
+            out.append(tuple(0.5 * (2 * p1[c] + (-p0[c] + p2[c]) * u + (2 * p0[c] - 5 * p1[c] + 4 * p2[c] - p3[c]) * u2
+                                    + (-p0[c] + 3 * p1[c] - 3 * p2[c] + p3[c]) * u3) for c in (0, 1)))
+    return out
+
+
+def outline_field(m, polys, rim=2.2, orange=4.5):
+    """The field of hand-drawn shapes: d from the signed distance to their outlines, the heart from
+    how deep inside a point is (the red rim, then orange, then yellow), as a cel artist draws a flame."""
+    img = np.zeros((m.gh, m.gw), np.uint8)
+    for poly in polys:
+        cv2.fillPoly(img, [np.round(np.array(poly) * 4).astype(np.int32)], 1, lineType=cv2.LINE_8, shift=2)
+    inside = cv2.distanceTransform(img, cv2.DIST_L2, 5)
+    outside = cv2.distanceTransform(1 - img, cv2.DIST_L2, 5)
+    sd = inside - outside
+    d = 0.45 + 0.05 * sd
+    core = 0.45 + (0.7 - 0.45) * (inside - rim) / max(orange - rim, 0.1)
+    return d.astype(np.float32), core.astype(np.float32)
+
+
+# A flame's outline, hooking to the right, in units with y up from its foot: the left flank rising to
+# a tip that curls over, a bite out of the right flank under it, the right shoulder and a round foot.
+FLAME = [(-38, 4), (-42, 34), (-39, 66), (-31, 96), (-17, 122), (2, 140), (20, 140), (30, 128), (22, 116), (6, 106),
+         (4, 92), (16, 78), (36, 74), (42, 54), (42, 28), (38, 6), (20, -3), (0, -5), (-20, -3)]
+
+
 def flame_loop(W, H, seed, wind=0.0, size=1.0, period=2.0):
-    """A burning flame, looping (RTFX's «Torch Calm/Windy loop»): a broad bulb of fire with tongues
-    rising out of it one after another, swaying in an S and hooking over at the tip before they pinch
-    off into licks, red blotches welling up through the yellow. wind bends it all to one side and
-    draws the tongues out long."""
-    m = Mass(W, H, seed)
+    """A burning flame, looping (RTFX's «Torch Calm/Windy loop»), studied frame by frame: one smooth
+    hand-drawn body, broad and flat at the foot, rising into a crest that hooks over with a bite out
+    of the flank beneath it; the crest swings from one side to the other, the outline breathes and
+    wobbles on twos, its tip tears off into little flames that rise and vanish, and long red tongues
+    rise through the yellow. wind leans it one way and draws it out."""
+    m = Mass(W, H, seed, rough=0.0)
     rnd = np.random.default_rng(seed)
-    k = size * m.gw / 256
-    cx, base = m.gw / 2 - wind * 40 * k, m.gh * 0.9
-    tongues = [(i / 2 + rnd.uniform(-0.04, 0.04), 1 if i else (0.7 if wind else -0.6), rnd.uniform(0.9, 1.1)) for i in range(2)]
-    bubbles = [(rnd.random(), rnd.uniform(-1, 1), rnd.uniform(0.8, 1.2)) for _ in range(4)]
+    k = size * m.gw / 256 * 0.85
+    cx, base = m.gw / 2 - wind * 30 * k, m.gh * 0.8
+    A = FLAME
+    B = [(-x, y) for x, y in reversed(A)]
+    best = min(range(len(B)), key=lambda r: sum((A[i][0] - B[(i + r) % len(B)][0]) ** 2 + (A[i][1] - B[(i + r) % len(B)][1]) ** 2
+                                                for i in range(len(A))))
+    B = [B[(i + best) % len(B)] for i in range(len(A))]
+    wob = rnd.normal(0, 1, (12, len(A), 2))
+    tongues = [(rnd.random(), rnd.uniform(-1, 1), rnd.uniform(0.8, 1.2)) for _ in range(4)]
+    licks = [(rnd.random(), rnd.uniform(-1, 1)) for _ in range(3)]
 
-    def lobes_at(t):
-        lobes = [(cx, base - 24 * k, 40 * k, 1.0, 0.7, 0.0, 0.85)]
-        for ph, side, js in tongues:
-            a = (t / period * 2 + ph) % 1.0
-            top = (85 + 75 * a) * k * js * (1 - 0.25 * abs(wind))
-            sway = side * 44 * (1 - 0.6 * abs(wind)) * k * math.sin(math.pi * a) + math.sin(2 * math.pi * (t / period + ph)) * 8 * k
-            hook = (-side * 58 * (1 - abs(wind)) + wind * 50) * k * a  # in the wind it only bends downwind
-            cut = 1.0 - 0.45 * max(0.0, a - 0.6) / 0.4  # the tip pinching off
+    def field(t):
+        t = t % period
+        ph = 2 * math.pi * t / period
+        n = int(round(t * 12)) % 12  # a new drawing every second frame
+        w = 0.5 + 0.5 * math.sin(ph)  # 0: hooked left, 1: hooked right
+        if wind:
+            w = 0.8 + 0.2 * math.sin(2 * ph)
+        w = w * w * (3 - 2 * w)
+        # Gusts: the flame is now upright, now blown nearly flat downwind.
+        gust = wind * (0.55 + 0.45 * math.sin(ph + 0.6 * math.sin(2 * ph)))
+        pts = []
+        for i, ((ax, ay), (bx, by)) in enumerate(zip(A, B)):
+            x = ax * w + bx * (1 - w)
+            y = (ay * w + by * (1 - w)) * (1 + 0.06 * math.sin(2 * ph + i * 0.3))
+            x += wob[n, i, 0] * 1.6 + gust * y * y / 150
+            y = y * (1 - 0.35 * gust * min(1.0, y / 60)) + wob[n, i, 1] * 1.6
+            pts.append((cx + x * k, base - y * k))
+        polys = [catmull(pts)]
+        tip = pts[6]
+        for p0, dx in licks:  # bits torn off the tip, rising
+            a = (t / period * 2 + p0) % 1.0
+            r = 6 * (1 - a) + 1
+            lx, ly = tip[0] + (dx * 8 + (w - 0.5) * 10) * k, tip[1] - (10 + 34 * a) * k
+            polys.append(catmull([(lx, ly - 2.2 * r * k), (lx + r * k, ly), (lx, ly + r * k), (lx - r * k, ly)], 4))
+        d, core = outline_field(m, polys, rim=3.2 * k / 0.85, orange=6.5 * k / 0.85)
+        core = np.minimum(core, 0.85)
+        # The yellow sits low: up the flame it gives way to orange and red.
+        up = np.clip((base - m.yy) / (140 * k), 0, 1.2)
+        core = core - 0.32 * up ** 1.6
+        for p0, dx, js in tongues:  # red tongues rising through the yellow
+            a = (t / period * 2 + p0) % 1.0
+            g = bump(m.xx, m.yy, cx + dx * 18 * k + (w - 0.5) * 20 * k * a, base - (14 + 80 * a) * k,
+                     20 * js * k * math.sin(math.pi * a) + 0.1, 0.42, 1.0, (0.5 - w) * 0.5)
+            core = core - 0.6 * g
+        return d, core
 
-            def path(sv, sway=sway, hook=hook, top=top):
-                bend = sway * math.sin(math.pi * sv * 0.9) + hook * max(0.0, sv - 0.5) ** 2 * 4 + wind * 95 * k * sv * sv
-                return cx + bend, base - 30 * k - top * sv * (1 - 0.3 * abs(wind) * sv)
-
-            lobes += ribbon(path, lambda sv, js=js, cut=cut: (36 - 28 * sv) * js * k * (1.0 if sv < cut else 0.0), 44,
-                            lambda sv: 0.72 - 0.3 * sv)
-            if a > 0.6:  # the lick it lets go of
-                x, y = path(1.0 + (a - 0.6) * 0.8)
-                lobes.append((x, y, 9 * k * (1.2 - a), 0.7, 1.3, 0.0, 0.5))
-        for ph, side, js in bubbles:
-            a = (t / period * 2 + ph) % 1.0
-            lobes.append((cx + side * 22 * k + wind * 60 * k * a * a, base - 25 * k - 85 * k * a,
-                          11 * js * k * math.sin(math.pi * a), 1.0, 1.3, 0.0, -1.0))
-        return lobes
-
-    return looped(m, lobes_at, period, "up", (cx, base), 160 * k)
+    return field
 
 
 def make_flame_calm():
@@ -987,7 +1120,7 @@ def make_flame_calm():
             ["fuego", "fire", "llama", "flame", "antorcha", "torch", "fogata", "bucle", "loop"], loop=True, size=512,
             thumb=0.5)
     s.fps = 24
-    return render(s, flame_loop(512, 512, 61, wind=0.0, size=1.25), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, flame_loop(512, 512, 61, wind=0.0, size=1.25), tones=CEL3, halo=CEL_HAZE, slots=(48, 40, 40))
 
 
 def make_flame_windy():
@@ -995,7 +1128,7 @@ def make_flame_windy():
             6016, ["fuego", "fire", "llama", "flame", "viento", "wind", "antorcha", "torch", "bucle", "loop"], loop=True,
             size=512, thumb=0.5)
     s.fps = 24
-    return render(s, flame_loop(512, 512, 67, wind=0.5, size=1.2), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, flame_loop(512, 512, 67, wind=1.0, size=1.0), tones=CEL3, halo=CEL_HAZE, slots=(48, 40, 40))
 
 
 def slash_arc(W, H, seed, size=1.0, sweep=-2.3, start=-1.75):
@@ -1027,12 +1160,67 @@ def make_slash_arc():
     return render(s, slash_arc(512, 512, 71, size=1.5), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
 
 
+def shot_up(W, H, seed, size=1.0):
+    """A fire shot up from the ground (RTFX's «Hit Shot Up»), studied frame by frame: a tongue leaps up,
+    swells into a column with a head splitting into two horns, while at its foot the flame splashes
+    flat out to both sides; then the column thins into beads, the head hollows into curls and drifts
+    up, and the splash at the foot breaks into bits sliding outward."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, ground = m.gw / 2, m.gh * 0.78
+    beads = [(0.15 + 0.12 * i + rnd.uniform(-0.03, 0.03), rnd.uniform(-1, 1)) for i in range(6)]
+    bits = [(s_, rnd.uniform(0.3, 1.0), rnd.uniform(0.7, 1.3)) for s_ in (-1, 1) for _ in range(4)]
+
+    def field(t):
+        lobes = []
+        rise = min(1.0, t / 0.16)
+        Hc = 95 * k * (1 - (1 - rise) ** 2)
+        late = max(0.0, t - 0.28)
+        top = ground - Hc - 22 * k * late
+        # The stem: thick, then thinning into beads.
+        thin = min(1.0, late / 0.2)
+        if thin < 1:
+            lobes += ribbon(lambda u: (cx + math.sin(u * 7 + t * 20) * 4 * k, ground - Hc * u),  # a wavy, bulging stem
+                            lambda u: (8 + 2.5 * math.sin(u * 11 + t * 15) - 3 * u) * k * (1 - 0.7 * thin), 30,
+                            lambda u: 0.66)
+        for u, j in beads:
+            if thin > 0 and late < 0.45:
+                rr = 4.5 * k * (1 - late / 0.45)
+                lobes.append((cx + j * 3 * k, ground - Hc * u - 10 * k * late, rr, 1.0, 1.3, 0.0, 0.6))
+        # The head: two horns, hollowing into curls.
+        if t > 0.08:
+            hg = min(1.0, (t - 0.08) / 0.12)
+            hole = max(0.0, (t - 0.3) / 0.35)
+            for sd in (-1, 1):
+                lobes.append((cx + sd * 9 * k * hg, top + 4 * k, 14 * k * hg, 0.9, 1.1, sd * 0.4, 0.75,
+                              min(1.1, 0.45 + 0.6 * hole) if hole > 0 else 0.0, math.pi / 2 - sd * 0.6, 0.45, True))
+            lobes.append((cx, top + 14 * k, 11 * k * hg * max(0.0, 1 - hole), 1.0, 1.0, 0.0, 0.7))
+        # The splash at the foot, out to both sides, then breaking into bits.
+        if t > 0.1:
+            sp = min(1.0, (t - 0.1) / 0.18)
+            brk = max(0.0, (t - 0.3) / 0.4)
+            if brk < 1:
+                for sd in (-1, 1):
+                    L = 34 * k * sp
+                    lobes += ribbon(lambda u, sd=sd, L=L: (cx + sd * L * (0.1 + 1.0 * u), ground - 6 * k - 4 * k * math.sin(u * 9 + t * 18)),
+                                    lambda u: (10 - 5 * u) * k * sp * (1 - 0.6 * brk), 16, lambda u: 0.62 * (1 - brk))
+            for sd, d, js in bits:
+                if brk > 0:
+                    rr = 6 * js * k * max(0.0, 1 - brk)
+                    lobes.append((cx + sd * (20 + 40 * d * min(1.0, brk * 1.5)) * k, ground - 4 * k - 6 * k * d * brk, rr,
+                                  1.4, 0.8, 0.0, 0.55))
+        return m.field(lobes, t, "up", (cx, ground + 4 * k), 140 * k, 0.55, 0.45, crown=0.0, life=0.0)
+
+    return field
+
+
 def make_shot_hit_up():
     s = new("ex-fuego-disparo-golpe-arriba", "Fuego · Disparo con golpe hacia arriba", "Fire · Shot hit up", "fuego",
             26, 6018, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"], size=512,
             thumb=0.2)
     s.fps = 24
-    return render(s, shot_hit(512, 512, 73, angle=-math.pi / 2, size=1.4), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, shot_up(512, 512, 73, size=1.45), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
 
 
 def make_shot_hit_left():
@@ -1047,7 +1235,7 @@ def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
     s.fps = 24
-    return render(s, torch(512, 512, 7, size=0.95), tones=CEL, halo=CEL_HAZE, slots=(56, 48))
+    return render(s, torch(512, 512, 7, size=0.95), tones=CEL3, halo=CEL_HAZE, slots=(56, 48, 48))
 
 
 def make_explosion():
