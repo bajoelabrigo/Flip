@@ -48,10 +48,14 @@ constexpr qint64 kIndexMaxAgeSeconds = 6 * 60 * 60;
 
 // The packs every install is nudged to keep as addons so shader/audio fixes can ship without an
 // app release. Order matches the Extras category order (video → transitions → audio).
+// The small packs a beginner meets empty without (Stickers, the font list, Audio › Sounds): about
+// 18 MB together. Drift's own ids were here (effects.core…), which Flip's index never had, so the
+// startup offer to install them never appeared.
 const QStringList kEssentialAddonIds = {
-    QStringLiteral("effects.core"),
-    QStringLiteral("transitions.core"),
-    QStringLiteral("audioeffects.core"),
+    QStringLiteral("fonts.basic"),
+    QStringLiteral("stickers.emoji"),
+    QStringLiteral("stickers.emoji-animados"),
+    QStringLiteral("sonidos.efectos"),
 };
 
 QString cachedIndexPath()
