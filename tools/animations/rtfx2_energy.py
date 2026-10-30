@@ -291,4 +291,85 @@ def make_halo():
     return render(s, halo(512, 512, 97, size=1.1), tones=TONES, glow=GLOW)
 
 
-STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash, make_projectile, make_charge_orb, make_halo]
+def burst(W, H, seed, size=1.0):
+    """An energy explosion hit (RTFX's «Energy Hit Explosion Radial»): a flower of puffs bursts open
+    round a centre with needles of light shooting out between them, then the puffs hollow out from
+    the middle into a lacy rim that breaks into specks."""
+    m = Mass(W, H, seed, rough=0.45)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    petals = [(2 * math.pi * i / 7 + rnd.uniform(-0.2, 0.2), rnd.uniform(0.85, 1.15)) for i in range(7)]
+    needles = [(rnd.uniform(0, 2 * math.pi), rnd.uniform(0.8, 1.3)) for _ in range(7)]
+
+    def field(t):
+        e = 1 - (1 - min(1.0, t / 0.3)) ** 3
+        lobes = []
+        R = (10 + 26 * e) * k
+        for a, js in petals:
+            hole = max(0.0, (t - 0.15) / 0.45)
+            lobes.append((cx + math.cos(a) * R, cy + math.sin(a) * R, (9 + 14 * e) * js * k * max(0.0, 1 - max(0.0, t - 0.55) / 0.35), 1.0, 1.0, a, 0.9,
+                          min(0.85, 0.4 + 0.6 * hole) if hole > 0 else 0.0, a + math.pi, 0.45 - 0.2 * min(1.0, hole), True))
+        core = max(0.0, 1 - t / 0.18)
+        if core > 0:
+            lobes.append((cx, cy, 20 * k * core, 1.0, 1.0, 0.0, 0.9))
+        nd = max(0.0, 1 - max(0.0, t - 0.2) / 0.3) * min(1.0, t / 0.08)
+        if nd > 0:
+            for a, ln in needles:
+                L = (6 + 12 * e) * ln * k
+                d = R + L * 0.8
+                lobes.append((cx + math.cos(a) * d, cy + math.sin(a) * d, L, 1.0, 0.07, a, 0.9 * nd))
+        ch = max(0.0, (t - 0.35) / 0.9)
+        return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0, char=ch)
+
+    return field
+
+
+def make_burst():
+    s = new("ex-energia-explosion", "Energía · Explosión de energía", "Energy · Energy burst", "energia", 20, 7007,
+            ["energía", "energy", "explosión", "explosion", "golpe", "hit", "impacto"], size=512, thumb=0.2)
+    s.fps = 24
+    return render(s, burst(512, 512, 101, size=1.35), tones=TONES, glow=GLOW)
+
+
+def flash(W, H, seed, size=1.0):
+    """A flash hit (RTFX's «Energy Hit Radial» 005): a white ball with spikes swells for a few frames,
+    opens into a ring with specks thrown off it, and a thin crescent is left, turning and fading."""
+    m = Mass(W, H, seed, rough=0.05)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+
+    def field(t):
+        lobes = []
+        g = min(1.0, t / 0.17)
+        R = (14 + 22 * g) * k
+        if t < 0.17:
+            lobes.append((cx, cy, R, 1.0, 1.0, 0.0, 0.95))
+        elif t < 0.26:
+            o = (t - 0.17) / 0.09
+            lobes.append(ring(cx, cy, R * (1 + 0.15 * o), R * (0.6 - 0.5 * o), 0.95))
+        sp = 1 - abs(t - 0.15) / 0.12
+        if sp > 0:
+            for j in range(5):
+                a = j * 2 * math.pi / 5 + 0.3
+                d = R + 6 * k + 12 * k * max(0.0, t - 0.15) / 0.1
+                lobes.append((cx + math.cos(a) * d, cy + math.sin(a) * d, 8 * k * sp, 1.0, 0.22, a, 0.9))
+        c = max(0.0, (t - 0.24) / 0.14)
+        if 0 < c < 1:
+            def arc(u, c=c):
+                a = -1.2 + 0.4 * c + 1.7 * u
+                return cx + math.cos(a) * R * 1.12, cy + math.sin(a) * R * 1.12
+            lobes += ribbon(arc, lambda u: 3.0 * k * math.sin(math.pi * u) * (1 - c * 0.7), 40, lambda u: 0.95)
+        return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_flash():
+    s = new("ex-energia-destello", "Energía · Destello", "Energy · Flash", "energia", 14, 7008,
+            ["energía", "energy", "destello", "flash", "golpe", "hit", "brillo"], size=512, thumb=0.15)
+    s.fps = 24
+    return render(s, flash(512, 512, 103, size=1.5), tones=TONES, glow=GLOW)
+
+
+STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash, make_projectile, make_charge_orb, make_halo, make_burst, make_flash]
