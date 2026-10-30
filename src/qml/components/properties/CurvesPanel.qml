@@ -330,9 +330,14 @@ Item {
                 }
                 // Applied live while a handle is dragged, the whole drag one undo step.
                 property bool live: false
+                // Where the dragged handle started: with Shift it only moves along a straight line
+                // from there, level or upright, whichever way it is pulled more (as in After Effects).
+                property point startPoint: Qt.point(0, 0)
                 onPressed: mouse => {
                     grabbed = nearest(mouse.x, mouse.y)
                     graph.requestPaint()
+                    if (grabbed >= 0)
+                        startPoint = root.handles[grabbed]
                     live = grabbed >= 0 && root.targetCount > 0
                     if (live)
                         EditorState.beginEditSession(qsTr("Curve applied"))
@@ -340,7 +345,12 @@ Item {
                 onPositionChanged: mouse => {
                     if (grabbed < 0)
                         return
-                    const p = frame.fromPx(mouse.x, mouse.y)
+                    let p = frame.fromPx(mouse.x, mouse.y)
+                    if (mouse.modifiers & Qt.ShiftModifier) {
+                        const s0 = frame.toPx(startPoint)
+                        p = Math.abs(mouse.x - s0.x) >= Math.abs(mouse.y - s0.y) ? Qt.point(p.x, startPoint.y)
+                                                                                 : Qt.point(startPoint.x, p.y)
+                    }
                     // A handle stays within its own stretch in time (x), free in value (y).
                     let x0 = 0, x1 = 1
                     if (root.mode === "four") {
