@@ -3289,6 +3289,16 @@ PanelFrame {
                         }
                     }
                 }
+                // The timeline's playhead carried on across the curve editor, wherever it is: the
+                // editor is drawn over the tracks and hid it past its clip (0.26, Jorge).
+                Rectangle {
+                    visible: curveGraph.item !== null && x >= curveGraph.x && x <= curveOverlay.width
+                    x: curveGraph.x + playhead.x - flick.contentX
+                    y: curveGraph.y
+                    width: Theme.playheadLineWidth
+                    height: curveGraph.item ? curveGraph.item.height : 0
+                    color: Theme.primary
+                }
             }
             }
         } // Column (keyframes + tracks)
