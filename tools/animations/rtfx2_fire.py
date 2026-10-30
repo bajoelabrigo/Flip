@@ -41,9 +41,14 @@ class Mass:
         sm = np.zeros_like(xx)
         mc = np.zeros_like(xx)
         holes = np.zeros_like(xx)
+        cool = np.zeros_like(xx)
         for lobe in lobes:
             cx, cy, r, sx, sy, ang, heart = lobe[:7]
             if r <= 0.5:
+                continue
+            if heart < 0:
+                # A red bubble welling up through the yellow: it cools the heart and adds no mass.
+                cool = np.maximum(cool, bump(X, Y, cx, cy, r * -heart, sx, sy, ang))
                 continue
             g = bump(X, Y, cx, cy, r, sx, sy, ang)
             own = None
@@ -74,7 +79,7 @@ class Mass:
                 else:
                     holes = np.maximum(holes, bump(X, Y, hx, hy, r * (0.3 + 0.9 * k), 1.0, 1.1))
         d = mx + 0.05 * np.clip(sm, 0, 2) - 1.5 * holes
-        dc = mc - 1.5 * holes
+        dc = mc - 1.5 * holes - 1.2 * cool
         ox, oy = origin
         if flow == "radial":
             ang = np.arctan2(yy - oy, xx - ox)
@@ -548,7 +553,7 @@ def projectile(W, H, seed, angle=0.0, size=1.0):
 def make_projectile():
     s = new("ex-fuego-proyectil-derecha", "Fuego · Proyectil a la derecha (bucle)", "Fire · Projectile right (loop)",
             "fuego", 48, 6009, ["fuego", "fire", "proyectil", "projectile", "bola de fuego", "fireball", "bucle", "loop"],
-            size=512, thumb=0.3)
+            loop=True, size=512, thumb=0.3)
     s.fps = 24
     return render(s, projectile(512, 512, 37, size=1.3))
 
@@ -705,6 +710,115 @@ def make_charge():
     return render(s, charge(512, 512, 47, size=1.25))
 
 
+# The column a ground trail rears up into: puffs (dx, dy, r) from the head, leaning back up a curl.
+REAR = [(0, -14, 24), (-14, -30, 22), (10, -34, 18), (-26, -50, 19), (-6, -58, 17), (-34, -70, 14), (-16, -78, 12),
+        (-46, -64, 11)]
+
+
+def ground_trail(W, H, seed, size=1.0):
+    """A trail of fire running along the ground (RTFX's «Trail Right»): a row of low tongues creeps to
+    the right, taller towards the front, then the front rears up into a cauliflower mass leaning back
+    against the run, which tears upward into strands while the row dies down."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    x0, x1, ground = m.gw / 2 - 85 * k, m.gw / 2 + 55 * k, m.gh * 0.78
+    run = 0.38
+    tongues = [(i / 21, rnd.uniform(0.7, 1.3), rnd.uniform(-0.3, 0.3)) for i in range(22)]
+    jit = [(rnd.uniform(-4, 4), rnd.uniform(-4, 4), rnd.uniform(0.85, 1.15)) for _ in REAR]
+
+    def field(t):
+        lobes = []
+        head = min(1.0, t / run)
+        hx = x0 + (x1 - x0) * head
+        fade = max(0.0, 1 - max(0.0, t - run - 0.1) / 0.3)
+        for u, js, lean in tongues:
+            if u > head:
+                break
+            near = max(0.0, 1 - (head - u) * 1.4)  # 1 at the head
+            h = (6 + 10 * near * near + 2.5 * math.sin(t * 20 + u * 30)) * js * k * fade
+            if h > 0.8:
+                lobes.append((x0 + (x1 - x0) * u, ground - h * 0.35, h, 0.9, 0.6, lean - 0.25 * near, 0.6))
+        rise = max(0.0, (t - run + 0.04) / 0.2)
+        if rise > 0:
+            e = 1 - (1 - min(1.0, rise)) ** 3
+            heart = 0.85
+            for (dx, dy, r), (jx, jy, js) in zip(REAR, jit):
+                lobes.append((hx + (dx + jx) * 1.15 * k * e, ground + (dy + jy) * 1.35 * k * e - 14 * k * max(0.0, t - run),
+                              r * 1.3 * js * k * (0.35 + 0.65 * e), 1.0, 1.0, 0.0, heart))
+        # The mass reddens from the top as it tears.
+        return m.field(lobes, t, "up", (hx, ground + 4 * k), 95 * k, run + 0.2, 0.4, crown=0.0,
+                       life=min(1.0, max(0.0, (t - run - 0.06) / 0.18)))
+
+    return field
+
+
+def make_ground_trail():
+    s = new("ex-fuego-estela-suelo-derecha", "Fuego · Estela por el suelo a la derecha", "Fire · Ground trail right",
+            "fuego", 30, 6013, ["fuego", "fire", "estela", "trail", "suelo", "ground", "camino"], size=512, thumb=0.45)
+    s.fps = 24
+    return render(s, ground_trail(512, 512, 53, size=1.4))
+
+
+def wall(W, H, seed, period=2.0):
+    """A wall of fire along the bottom, looping (RTFX's «Up Wide loop»): a deep bed of flame with big
+    tongues rising out of it, swaying, stretching and pinching off into licks at the top, and red
+    bubbles welling up through the yellow. Everything runs on the loop's period, and the noise of
+    the first and second time round is cross-faded, so the end meets the start."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = m.gw / 256
+    base = m.gh * 0.76
+    n = 6
+    tongues = [((i + rnd.uniform(-0.25, 0.25)) / (n - 1), rnd.random(), rnd.uniform(0.8, 1.2), int(rnd.integers(1, 3)))
+               for i in range(n)]
+    tongues += [(rnd.random(), rnd.random(), rnd.uniform(0.55, 0.75), 2) for _ in range(2)]
+    bubbles = [(rnd.random(), rnd.random(), rnd.uniform(0.7, 1.3)) for _ in range(6)]
+
+    def lobes_at(t):
+        lobes = []
+        # The bed: big puffs whose hearts leave red between them.
+        for i in range(8):
+            x = m.gw * (i + 0.5 * (i % 2)) / 7
+            lobes.append((x, base + 26 * k, 34 * k, 1.1, 1.1, 0.0, 0.8 + 0.1 * math.sin(2 * math.pi * t / period + i)))
+        for u, ph, js, cyc in tongues:
+            a = (t / period * cyc + ph) % 1.0  # how far up this tongue has got
+            x0 = m.gw * (u * 1.1 - 0.05) + math.sin(2 * math.pi * (t / period + ph)) * 9 * k
+            top = (54 + 22 * js) * k * (0.45 + 0.55 * a)
+            bend = math.sin(2 * math.pi * (t / period * 2 + ph)) * 22 * k * js
+            # A tongue: a bending stack narrowing to a tip that curls over and pinches off.
+            for j, sv in enumerate((0.2, 0.5, 0.78, 1.0)):
+                if j == 3 and a > 0.8:
+                    sv = 1.0 + (a - 0.8) * 2.5  # the lick, let go
+                y = base + 8 * k - top * sv
+                x = x0 + bend * sv * sv
+                r = (36 - 22 * sv) * js * k * (1.0 if sv <= 1 else max(0.0, 1.6 - sv))
+                ang = math.atan2(2 * bend * sv, top) * 0.8
+                lobes.append((x, y, r, 0.85, 1.5, ang, 0.78 - 0.3 * min(sv, 1.0)))
+        for u, ph, js in bubbles:
+            a = (t / period + ph) % 1.0
+            lobes.append((m.gw * u, base + 50 * k - 70 * k * a, 12 * js * k * math.sin(math.pi * a), 1.0, 1.15, 0.0, -1.0))
+        return lobes
+
+    def field(t):
+        t = t % period
+        w = t / period
+        lobes = lobes_at(t)
+        d1, c1 = m.field(lobes, t, "up", (m.gw / 2, base), 100 * k, 99.0, 1.0, crown=0.0, life=0.0)
+        d2, c2 = m.field(lobes, t - period, "up", (m.gw / 2, base), 100 * k, 99.0, 1.0, crown=0.0, life=0.0)
+        return (1 - w) * d1 + w * d2, (1 - w) * c1 + w * c2
+
+    return field
+
+
+def make_wall():
+    s = new("ex-fuego-muro-bucle", "Fuego · Muro de fuego (bucle)", "Fire · Wall of fire (loop)", "fuego", 48, 6014,
+            ["fuego", "fire", "muro", "wall", "llamas", "flames", "bucle", "loop", "fondo"], loop=True, size=512,
+            height=288, thumb=0.5)
+    s.fps = 24
+    return render(s, wall(512, 288, 59))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -719,4 +833,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge, make_ground_trail, make_wall]

@@ -41,8 +41,9 @@ ACCOUNT_KEY = r"HKCU\Software\Flip Studio\Flip Studio\account"
 def render_project(doc_path: Path, width: int, height: int, seconds: float) -> dict:
     us = int(seconds * 1_000_000)
     tall = height > width
-    cw, ch = (1080, 1920) if tall else (1080, 1080)
-    box = (0, 0, cw, ch) if tall else (90, 90, 900, 900)
+    wide = height < width
+    cw, ch = (1080, 1920) if tall else (1920, 1080) if wide else (1080, 1080)
+    box = (0, 0, cw, ch) if tall or wide else (90, 90, 900, 900)
     return {
         "version": 14, "width": cw, "height": ch, "fps": 30, "sampleRate": 48000,
         "background": {"kind": "color", "color": "#ff1d1f27"},
@@ -119,7 +120,7 @@ def main() -> int:
                 print(f"  capture failed: {shot}", flush=True)
                 continue
             with Image.open(path) as im:
-                card = (216, 384) if st.h > st.size else (384, 384)
+                card = (216, 384) if st.h > st.size else (384, 216) if st.h < st.size else (384, 384)
                 im.convert("RGB").resize(card, Image.LANCZOS).save(folder / "thumbnail.png", optimize=True)
             os.remove(path)
             preview = folder / "preview.mp4"
