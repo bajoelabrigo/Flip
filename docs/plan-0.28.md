@@ -155,7 +155,21 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    Los encabezados se dibujan encima de la fila de valor en `TrackHeaderColumn` (capa `headingLine`). Las claves
    `part.*` ya no salen repetidas entre «otras propiedades animadas». «Color» de cada relleno/trazo: una fila que une
    sus cuatro canales (como Posición une X e Y), con un cuadrito que abre el selector y escribe los cuatro en un paso.
-4. [ ] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
+4. [~] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
+   Hecho (falta compilar y probar en ventana): `ShapePartOverlay.qml` dentro de la caja de la capa elegida (Pro, 2D):
+   contorno de la parte elegida, sus tiradores (arrastrar dentro = mover; esquinas = escalar por sus ejes, Mayús igual en
+   los dos; el redondo = girar, Mayús de 15 en 15°) y la parte bajo el puntero punteada. Doble clic entra (la capa →
+   sus partes; un grupo → las suyas), clic al lado elige la vecina o vuelve a la capa, **Esc** sube un nivel (y en la
+   capa la suelta). Migas «Capa › Grupo › Parte» arriba a la izquierda de la vista previa. `AppController::
+   shapePartFrames` (esquinas de cada parte en fracciones de la caja, su anclaje y el mapa del padre) y
+   `shapePartCrumbs`. **Dibujar dentro:** en Pro, con una capa de forma elegida y a la vista, la herramienta de formas
+   añade una parte donde se dibujó (`addDrawnShapeToLayer`) y avisa «se añadió a … · pulsa Esc antes»; Esc con la
+   herramienta suelta la capa. **Combinar en una capa de forma** (clic derecho con varias formas, Pro;
+   `combineSelectedShapes`: cada una queda donde estaba, una capa de partes del tamaño de todas; solo formas quietas sin
+   máscaras ni efectos) y **Separar en capas** (`separateShapeParts`: cada parte en su capa encima, se ve igual).
+   Prueba `shapeLayerCombineSeparateAndFrames`. En el paso: un proyecto nuevo ya no deja «Video 1» vacío bajo la
+   primera forma (`ensureFreeTrackForClipType`, prueba `firstShapeTakesTheEmptyStartingTrack`), y la opacidad del
+   relleno se lee «100 %». Falta: la pluma dentro de una capa (sigue creando capa nueva).
 5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
 

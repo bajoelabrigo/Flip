@@ -5238,6 +5238,40 @@
         <translation>Forma añadida a la capa</translation>
     </message>
     <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
+        <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes</translation>
+    </message>
+    <message>
+        <source>Pick two or more shapes to combine them</source>
+        <translation>Elige dos o más formas para combinarlas</translation>
+    </message>
+    <message>
+        <source>Only shapes that do not move, with no masks or effects of their own, can be combined</source>
+        <translation>Solo se pueden combinar formas que no se mueven y que no tienen máscaras ni efectos propios</translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Forma</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n shapes combined into one layer</source>
+        <translation>
+            <numerusform>%n forma combinada en una capa</numerusform>
+            <numerusform>%n formas combinadas en una capa</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This shape has only one part</source>
+        <translation>Esta forma tiene una sola parte</translation>
+    </message>
+    <message numerus="yes">
+        <source>Separated into %n layers</source>
+        <translation>
+            <numerusform>Separada en %n capa</numerusform>
+            <numerusform>Separada en %n capas</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
@@ -23874,6 +23908,21 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>ShapePartOverlay</name>
+    <message>
+        <source>Move part</source>
+        <translation>Mover parte</translation>
+    </message>
+    <message>
+        <source>Rotate part</source>
+        <translation>Girar parte</translation>
+    </message>
+    <message>
+        <source>Scale part</source>
+        <translation>Escalar parte</translation>
+    </message>
+</context>
+<context>
     <name>ShapeStyle</name>
     <message>
         <source>Rectangle</source>
@@ -29061,6 +29110,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Group</source>
         <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>Combine into one shape layer</source>
+        <translation>Combinar en una capa de forma</translation>
+    </message>
+    <message>
+        <source>Separate into layers</source>
+        <translation>Separar en capas</translation>
     </message>
     <message>
         <source>AI transition to the next clip</source>

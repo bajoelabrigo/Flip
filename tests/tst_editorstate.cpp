@@ -131,6 +131,7 @@ private slots:
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
     void firstShapeTakesTheEmptyStartingTrack();
+    void shapeLayerCombineSeparateAndFrames();
     void shadedLettersTakeLayersLooksAndBoxAlone();
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
@@ -1073,6 +1074,56 @@ void EditorStateTest::firstShapeTakesTheEmptyStartingTrack()
     // A text keeps the starting video track beside it, as before.
     state.addTextClip(QStringLiteral("Hola"), 0.0);
     QCOMPARE(state.project()->tracks().size(), 2);
+}
+
+// 0.28 stage 4: two still shapes combine into one layer of parts (each where it was, one undo step), the preview
+// frames place the parts on the layer's box, and separating gives two layers back.
+void EditorStateTest::shapeLayerCombineSeparateAndFrames()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("rectangle"), 0.0);
+    const int firstTrack = state.selectedTrack();
+    const int c1 = state.selectedClip();
+    state.addShapeClip(QStringLiteral("circle"), 0.0);
+    const int t2 = state.selectedTrack();
+    const int c2 = state.selectedClip();
+    // The circle overlaps it in time, so it got a track of its own above (the rectangle's moved down one).
+    const int t1 = t2 <= firstTrack ? firstTrack + 1 : firstTrack;
+    QVERIFY(t1 != t2);
+    QVERIFY(state.project()->tracks().at(t1).clips.at(c1).shapeStyle.kind != drift::ShapeKind::Ellipse);
+    state.setSelection({QVariantMap{{QStringLiteral("track"), t1}, {QStringLiteral("clip"), c1}},
+                        QVariantMap{{QStringLiteral("track"), t2}, {QStringLiteral("clip"), c2}}});
+    const auto clipAt = [&](int t, int c) -> const drift::Clip & { return state.project()->tracks().at(t).clips.at(c); };
+    const QRectF boxA(clipAt(t1, c1).transformX.evaluateAt(0), clipAt(t1, c1).transformY.evaluateAt(0),
+                      clipAt(t1, c1).transformW.evaluateAt(0), clipAt(t1, c1).transformH.evaluateAt(0));
+    const int tracksBefore = state.project()->tracks().size();
+    QVERIFY(state.combineSelectedShapes());
+    QCOMPARE(state.project()->tracks().size(), tracksBefore - 1);
+    const drift::Clip &layer = clipAt(state.selectedTrack(), state.selectedClip());
+    QCOMPARE(int(layer.shapeStyle.parts.size()), 2);
+    // The top one (the circle, on the upper track) first.
+    QCOMPARE(layer.shapeStyle.parts.at(0).shape.kind, drift::ShapeKind::Ellipse);
+    // The rectangle's part sits where the rectangle was: its frame's corners on the layer's box.
+    const QVariantList frames = state.shapePartFrames(state.selectedTrack(), state.selectedClip());
+    QCOMPARE(frames.size(), 2);
+    const QVariantMap rect = frames.at(1).toMap();
+    const QVariantList pts = rect.value(QStringLiteral("pts")).toList();
+    const double lx = layer.transformX.evaluateAt(0), ly = layer.transformY.evaluateAt(0);
+    const double lw = layer.transformW.evaluateAt(0), lh = layer.transformH.evaluateAt(0);
+    QVERIFY(qAbs(lx + pts.at(0).toDouble() * lw - boxA.left()) < 0.5);
+    QVERIFY(qAbs(ly + pts.at(1).toDouble() * lh - boxA.top()) < 0.5);
+    QVERIFY(qAbs(lx + pts.at(4).toDouble() * lw - boxA.right()) < 0.5);
+    QVERIFY(qAbs(ly + pts.at(5).toDouble() * lh - boxA.bottom()) < 0.5);
+    // Undo brings the two shapes back.
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    state.redo();
+    // Separate: two layers again, each holding one part.
+    const int before = state.project()->tracks().size();
+    QVERIFY(state.separateShapeParts(state.selectedTrack(), state.selectedClip()));
+    QCOMPARE(state.project()->tracks().size(), before + 1);
+    QCOMPARE(int(clipAt(state.selectedTrack(), state.selectedClip()).shapeStyle.parts.size()), 1);
 }
 
 void EditorStateTest::addTextClip()

@@ -1317,6 +1317,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/PreviewTransportBar.qml
         src/qml/components/preview/modes/Preview2DMode.qml
         src/qml/components/preview/modes/Preview3DMode.qml
+        src/qml/components/preview/ShapePartOverlay.qml
         src/qml/components/preview/TransformGizmo.qml
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml

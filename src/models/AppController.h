@@ -740,6 +740,13 @@ public:
     QString selectedShapePart() const;
     Q_INVOKABLE void selectShapePart(int trackIndex, int clipIndex, const QString &partId);
     Q_INVOKABLE QVariantList shapePartRows(int trackIndex, int clipIndex) const;
+    // The preview's handles on a layer of parts (0.28 stage 4): each part's corners as fractions of the layer's
+    // box, its anchor and its parent's linear map; and the «Layer › Group › Part» crumbs of the picked part.
+    Q_INVOKABLE QVariantList shapePartFrames(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE QVariantList shapePartCrumbs() const;
+    // «Combine into one layer» (the picked shapes become the parts of one layer) and «Separate into layers».
+    Q_INVOKABLE bool combineSelectedShapes();
+    Q_INVOKABLE bool separateShapeParts(int trackIndex, int clipIndex);
     Q_INVOKABLE void setShapeGroupExpanded(int trackIndex, int clipIndex, const QString &groupId, bool expanded);
     Q_INVOKABLE QString addShapePart(int trackIndex, int clipIndex, const QString &kind);
     Q_INVOKABLE void removeShapePart(int trackIndex, int clipIndex, const QString &partId);
@@ -795,6 +802,8 @@ public:
     QString addSolidAsset(const QString &name, const QColor &color, int width, int height);
     // A clip's box at the playhead where it is drawn (layout plus anchor shift), in project px.
     QRectF drawnBoxAt(const drift::Clip &clip) const;
+    void addDrawnShapeToLayer(int trackIndex, int clipIndex, const drift::ShapeStyle &style, const QString &kind,
+                              double x, double y, double w, double h);
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys

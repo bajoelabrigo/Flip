@@ -5231,6 +5231,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick two or more shapes to combine them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only shapes that do not move, with no masks or effects of their own, can be combined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n shapes combined into one layer</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This shape has only one part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Separated into %n layers</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Group</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23791,6 +23823,21 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>ShapePartOverlay</name>
+    <message>
+        <source>Move part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale part</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShapeStyle</name>
     <message>
         <source>Rectangle</source>
@@ -28972,6 +29019,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Group</source>
         <translation>Nhóm</translation>
+    </message>
+    <message>
+        <source>Combine into one shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate into layers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AI transition to the next clip</source>

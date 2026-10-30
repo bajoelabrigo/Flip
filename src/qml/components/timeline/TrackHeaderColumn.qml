@@ -1541,6 +1541,15 @@ Item {
                                 return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
                             }
+                            // Contents (0.28): a fill's or stroke's opacity is stored 0..1 and reads as a
+                            // percentage; a part's scale and opacity are already percentages, its angles degrees.
+                            if (/\.layer\.[^.]+\.opacity$/.test(prop))
+                                return [{ "prop": prop, "tag": "", "toDisplay": pct, "fromDisplay": unPct,
+                                          "min": 0, "max": 100, "step": 0.5, "decimals": 0, "suffix": " %" }]
+                            if (/^part\.[^.]+\.(scaleX|scaleY|opacity)$/.test(prop))
+                                return [plain(prop, "", 0.5, 1, " %")]
+                            if (/^part\.[^.]+\.(rotation|skew|skewAxis)$/.test(prop))
+                                return [plain(prop, "", 0.5, 1, "°")]
                             const v = valueOf(prop)
                             return [plain(prop, "", Math.abs(v) >= 10 ? 1 : 0.01, Math.abs(v) >= 10 ? 0 : 2, "")]
                         }
