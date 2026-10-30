@@ -18,7 +18,9 @@
 
 namespace {
 
-constexpr quint64 kBodyStreamId = 0xA5'11'5C'A4'00'00'00'0Bull;
+// Its own decode cursor: sharing 0x0B with the cutout scrub and the motion tracker made each reseek
+// the other on every frame when they ran together.
+constexpr quint64 kBodyStreamId = 0xA5'11'5C'A4'00'00'00'0Cull;
 const QString kHairEffectId = QStringLiteral("hair.color");
 
 bool locateClip(const drift::Project &project, const QString &clipId, int *trackOut, int *clipOut)
