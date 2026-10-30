@@ -8,9 +8,10 @@ import Drift
 ThemedDialog {
     id: root
 
-    title: qsTr("Unsaved work from last session")
+    title: qsTr("You have unsaved work from last time")
     acceptText: qsTr("Restore")
-    rejectText: qsTr("New session")
+    // Says what it does: "New session" threw the recovered work away without a word.
+    rejectText: qsTr("Discard it")
     rejectVariant: "secondary"
     preferredWidth: 440
     // Deliberately not dismissable by clicking away — the choice matters — but
@@ -32,7 +33,7 @@ ThemedDialog {
             width: parent.width
             size: "sm"
             wrapMode: Text.WordWrap
-            text: qsTr("Your last session had unsaved changes. You can restore them or start a new empty session.")
+            text: qsTr("Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.")
         }
 
         Rectangle {
