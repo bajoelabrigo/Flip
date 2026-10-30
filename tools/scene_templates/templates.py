@@ -216,6 +216,7 @@ import templates_ytkit_e  # noqa: E402
 import templates_ytkit_f  # noqa: E402
 import templates_ytkit_g  # noqa: E402
 import templates_ytkit_h  # noqa: E402
+import templates_igkit  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
              + templates_text_collage.TEMPLATES + templates_rest.TEMPLATES
@@ -231,4 +232,4 @@ TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + temp
              + templates_c1.TEMPLATES + templates_c2.TEMPLATES
              + templates_y2.TEMPLATES + templates_y3.TEMPLATES + templates_y4.TEMPLATES + templates_y5.TEMPLATES + templates_y6.TEMPLATES + templates_y7.TEMPLATES
              + templates_ytkit.TEMPLATES
-             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES)
+             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES + templates_igkit.TEMPLATES)
