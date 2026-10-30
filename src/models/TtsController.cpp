@@ -178,7 +178,7 @@ void TtsController::warmUp()
     m_loadJobId = m_app->m_jobs->start(
         QStringLiteral("tts-load"), QStringLiteral("chatterbox"), JobRegistry::Lane::Model,
         [this](JobContext &ctx) {
-            ctx.progress(0.0, QStringLiteral("Loading voice model…"));
+            ctx.progress(0.0, tr("Loading voice model…"));
             QString err;
             if (!ensureLoaded(&err))
                 return ctx.fail(QStringLiteral("internal"), err);
@@ -231,7 +231,7 @@ void TtsController::generate(const QString &text, const QString &voiceId, const 
         QStringLiteral("tts"), QStringLiteral("chatterbox"), JobRegistry::Lane::Model,
         [this, script, voiceId, lang, exaggeration, path](JobContext &ctx) {
             QString err;
-            ctx.progress(0.0, QStringLiteral("Loading voice model…"));
+            ctx.progress(0.0, tr("Loading voice model…"));
             if (!ensureLoaded(&err))
                 return ctx.fail(QStringLiteral("internal"), err);
             if (ctx.cancelled())
@@ -319,7 +319,7 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
         QStringLiteral("tts"), QStringLiteral("chatterbox"), JobRegistry::Lane::Model,
         [this, lines, voiceId, lang, exaggeration](JobContext &ctx) {
             QString err;
-            ctx.progress(0.0, QStringLiteral("Loading voice model…"));
+            ctx.progress(0.0, tr("Loading voice model…"));
             if (!ensureLoaded(&err))
                 return ctx.fail(QStringLiteral("internal"), err);
             if (ctx.cancelled())
