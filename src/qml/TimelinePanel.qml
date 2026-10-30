@@ -1947,14 +1947,16 @@ PanelFrame {
                         y: flick.contentY + flick.headerHeight
                            + Math.max(0, (flick.height - flick.headerHeight - height) / 2)
                         width: Math.min(flick.width - Theme.spacing3xl, 320)
-                        visible: root.tracks.length === 0
+                        // Also with the starting empty track (a new project has one), which is
+                        // what a beginner sees; the first step is bringing media in, not a track.
+                        visible: root.tracks.length === 0 || EditorState.durationSeconds <= 0
                         z: 4
                         glyph: Theme.icons.layers
                         title: qsTr("Your timeline is empty")
-                        hint: qsTr("Drag media here from the library, or add an empty track to start.")
-                        actionText: qsTr("New track")
+                        hint: qsTr("Import your videos, photos and music, then drag them here.")
+                        actionText: qsTr("Import media")
                         actionVariant: "primary"
-                        onActionTriggered: newTrackMenuFromEmpty.open()
+                        onActionTriggered: root.Window.window.importMediaFiles()
 
                         NewTrackMenu {
                             id: newTrackMenuFromEmpty
