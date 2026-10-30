@@ -130,6 +130,7 @@ private slots:
     void channelCountIsKnownBeforeAnythingDecodes();
     void separateAudioCarriesAudioEffectsAndSpeedCurve();
     void addTextClip();
+    void firstShapeTakesTheEmptyStartingTrack();
     void shadedLettersTakeLayersLooksAndBoxAlone();
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
@@ -1051,6 +1052,27 @@ void EditorStateTest::motionTrackingHidesAnObjectAndDrivesAMask()
     // Nothing picked: refused with a message, nothing added.
     tracking->hideObject(1, 0, QStringLiteral("blur"), QVariantMap{});
     QCOMPARE(state.project()->tracks().size(), tracksBefore);
+}
+
+// Jorge, 2026-10-30: a first shape in a new project used to leave the empty «Video 1» it starts with under its
+// own track. Now it takes that track over; once the project has clips, a shape gets a track of its own again.
+void EditorStateTest::firstShapeTakesTheEmptyStartingTrack()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QCOMPARE(state.project()->tracks().size(), 1);
+    state.addShapeClip(QStringLiteral("circle"), 0.0);
+    QCOMPARE(state.project()->tracks().size(), 1);
+    QCOMPARE(state.project()->tracks().at(0).type, drift::TrackType::Shape);
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+    // Undo gives the new project back as it was.
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), 1);
+    QCOMPARE(state.project()->tracks().at(0).type, drift::TrackType::Video);
+    QVERIFY(state.project()->tracks().at(0).clips.isEmpty());
+    // A text keeps the starting video track beside it, as before.
+    state.addTextClip(QStringLiteral("Hola"), 0.0);
+    QCOMPARE(state.project()->tracks().size(), 2);
 }
 
 void EditorStateTest::addTextClip()

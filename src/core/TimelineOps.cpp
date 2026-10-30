@@ -1125,8 +1125,22 @@ int ensureFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, 
             return i;
     }
 
-    if (firstMatch < 0)
+    if (firstMatch < 0) {
+        // A new project's only track, still empty and unnamed, is the one the user starts on: a first shape
+        // takes it over instead of leaving an empty «Video 1» under its own track (Jorge, 2026-10-30: «se
+        // agrega Video 1 que no creé»).
+        if (tracks.size() == 1 && type == ClipType::Shape) {
+            Track &only = project.tracks()[0];
+            if (only.clips.isEmpty() && only.name.isEmpty() && !only.isAdjustmentLane() && !only.locked
+                && only.type == TrackType::Video) {
+                only.type = trackType;
+                if (only.allowsClipType(type))
+                    return 0;
+                only.type = TrackType::Video;
+            }
+        }
         return ensureTrackForClipType(project, type, insertAtTop);
+    }
     // Every existing lane is busy at this moment, so give the clip one of its own directly above
     // the first, which keeps later graphics drawing over earlier ones.
     return insertTrackAboveForClipType(project, firstMatch, type);
