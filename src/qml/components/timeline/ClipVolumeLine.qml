@@ -19,6 +19,9 @@ Item {
     property real pxPerSecond: 100
     // The level an unkeyed clip plays at.
     property real staticGain: 1.0
+    // The level shown while the line is dragged; -1 when not. Writing staticGain itself broke the
+    // clip's binding to it, and the line kept the dragged level after an undo.
+    property real dragGain: -1
 
     readonly property real minDb: -40
     readonly property real maxDb: 6
@@ -60,7 +63,7 @@ Item {
     // The level the line shows at x (linear between keys, as it draws).
     function gainAtX(x) {
         if (!root.animated)
-            return root.keys.length === 1 ? root.keys[0].value : root.staticGain
+            return root.keys.length === 1 ? root.keys[0].value : (root.dragGain >= 0 ? root.dragGain : root.staticGain)
         const s = root.clipStart + x / root.pxPerSecond
         const ks = root.keys
         if (s <= ks[0].seconds)
@@ -141,7 +144,7 @@ Item {
                 const g = Math.min(2, root.gainOf(root.dbOf(baseGains[0]) + dDb))
                 EditorState.previewSetClipKeyframe(root.trackIndex, root.clipIndex, "volume",
                                                    root.clipStart, g)
-                root.staticGain = g
+                root.dragGain = g
                 return
             }
             const next = root.keys.slice()
@@ -194,12 +197,14 @@ Item {
             EditorState.beginPreviewDrag(qsTr("Adjust volume"))
         }
         onReleased: {
+            root.dragGain = -1
             if (!root.dragging)
                 return
             EditorState.commitPreviewDrag()
             root.dragging = false
         }
         onCanceled: {
+            root.dragGain = -1
             if (!root.dragging)
                 return
             EditorState.commitPreviewDrag()
@@ -209,11 +214,13 @@ Item {
 
     // The keys' dots, dragged in time (between their neighbours, inside the clip) and level.
     Repeater {
-        model: root.animated ? root.keys : []
+        // A count, not the array: each drag step reassigns `keys`, and with the array as the model
+        // that rebuilt every dot, so the one under the mouse died after one step.
+        model: root.animated ? root.keys.length : 0
         delegate: Rectangle {
             id: dot
-            required property var modelData
             required property int index
+            readonly property var modelData: root.keys[index] ?? ({ seconds: 0, value: 1 })
             width: 9
             height: 9
             radius: 4.5
