@@ -1185,6 +1185,7 @@ Item {
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
                                                            && modelData.group !== "volume" && modelData.group !== "pan"
+                                                           && modelData.group !== "color"
                         // A behaviour (0.26) on the row's property: marked with ≈ after its name.
                         readonly property bool hasBehavior: {
                             void EditorState.tracksRevision
@@ -1490,6 +1491,9 @@ Item {
                                 "prop": prop, "tag": tag, "toDisplay": id, "fromDisplay": id,
                                 "min": -1e9, "max": 1e9, "step": step, "decimals": decimals, "suffix": suffix })
                             const group = keyLine.joined ? keyLine.modelData.group : ""
+                            // A colour line (0.28) shows a swatch, not numbers.
+                            if (group === "color")
+                                return []
                             if (group === "position")
                                 return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
                             if (group === "anchor") {
@@ -1770,6 +1774,34 @@ Item {
                             Row {
                                 spacing: 6
                                 visible: keyLine.clip >= 0
+                                // «Color» (0.28): the colour at the playhead; picking one writes the four
+                                // channels in one undo step (a key at the playhead when it is animated).
+                                ColorSwatchField {
+                                    visible: keyLine.modelData.group === "color"
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    showHex: false
+                                    swatchSize: 14
+                                    readonly property var channels: keyLine.modelData.group === "color" ? keyLine.props : []
+                                    hex: {
+                                        if (channels.length < 4)
+                                            return "#ffffffff"
+                                        const h = (v) => ("0" + Math.round(Math.max(0, Math.min(1, v)) * 255).toString(16)).slice(-2)
+                                        return "#" + h(keyLine.valueOf(channels[3])) + h(keyLine.valueOf(channels[0]))
+                                               + h(keyLine.valueOf(channels[1])) + h(keyLine.valueOf(channels[2]))
+                                    }
+                                    tooltip: qsTr("Colour")
+                                    onEdited: value => {
+                                        const c = Qt.color(value)
+                                        if (EditorState.selectedTrack !== keyLines.trackIndex || EditorState.selectedClip !== keyLine.clip)
+                                            EditorState.selectClip(keyLines.trackIndex, keyLine.clip)
+                                        EditorState.beginPreviewDrag(qsTr("Colour"))
+                                        const values = [c.r, c.g, c.b, c.a]
+                                        for (let i = 0; i < 4; ++i)
+                                            EditorState.previewSetPropertyValue(keyLines.trackIndex, keyLine.clip, channels[i],
+                                                                                EditorState.playheadSeconds, values[i])
+                                        EditorState.commitPreviewDrag()
+                                    }
+                                }
                                 Repeater {
                                     model: keyLine.hotValues
                                     delegate: Row {

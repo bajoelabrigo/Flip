@@ -5406,6 +5406,10 @@
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation>Puntas</translation>
     </message>
@@ -30160,6 +30164,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Click to pick all its keyframes</source>
         <translation>Clic para elegir todos sus fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>

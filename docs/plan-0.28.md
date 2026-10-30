@@ -146,7 +146,8 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    opacidad); los grupos con sus partes. Después, «Transformar» de la capa con sus filas de siempre. Todo plegado;
    elegir una parte (columna, línea de tiempo o vista previa) abre Contenido y esa parte. U deja solo lo animado.
    Los encabezados se dibujan encima de la fila de valor en `TrackHeaderColumn` (capa `headingLine`). Las claves
-   `part.*` ya no salen repetidas entre «otras propiedades animadas». Falta: el color como fila (se edita a la derecha).
+   `part.*` ya no salen repetidas entre «otras propiedades animadas». «Color» de cada relleno/trazo: una fila que une
+   sus cuatro canales (como Posición une X e Y), con un cuadrito que abre el selector y escribe los cuatro en un paso.
 4. [ ] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
 5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.

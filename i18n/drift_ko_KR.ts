@@ -5391,6 +5391,10 @@
         <translation>마스크 페더</translation>
     </message>
     <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30065,6 +30069,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

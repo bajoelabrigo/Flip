@@ -8,6 +8,9 @@ Row {
     // #RRGGBB or #AARRGGBB.
     property string hex: "#ffffffff"
     property string tooltip: qsTr("Choose colour")
+    // A bare swatch (no hex field), at this size: the timeline's colour lines (0.28).
+    property bool showHex: true
+    property real swatchSize: Theme.spacing3xl
     // Emitted once the user commits, never on every keystroke.
     signal edited(string value)
     signal eyedropperStarted()
@@ -24,8 +27,8 @@ Row {
     }
 
     Rectangle {
-        width: Theme.spacing3xl
-        height: Theme.spacing3xl
+        width: root.swatchSize
+        height: root.swatchSize
         radius: Theme.radiusSm
         anchors.verticalCenter: parent.verticalCenter
         color: root.hex
@@ -58,6 +61,7 @@ Row {
 
     ThemedTextField {
         id: hexField
+        visible: root.showHex
         width: 92
         text: root.hex
         color: Theme.panelForeground

@@ -27487,6 +27487,46 @@ QVariantList AppController::shapeContentRows(int trackIndex, int clipIndex) cons
              }}},
         });
     };
+    // «Color»: the paint's four channels (0..1) as one line, as Position joins X and Y; one diamond per time
+    // carries the channels' own keys (refs) so a drag moves them together.
+    const auto colorLine = [&](const QString &prefix, int depth, QVariantList &out) {
+        const QStringList props{prefix + QStringLiteral("color.r"), prefix + QStringLiteral("color.g"),
+                                prefix + QStringLiteral("color.b"), prefix + QStringLiteral("color.a")};
+        QMap<qint64, QVariantMap> merged;
+        for (const QString &prop : props) {
+            if (!animated.contains(prop))
+                continue;
+            for (const QVariant &v : clipKeyframes(trackIndex, clipIndex, prop)) {
+                QVariantMap key = v.toMap();
+                const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                QVariantMap &at = merged[qRound64(seconds * 1000.0)];
+                if (at.isEmpty())
+                    at = key;
+                QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                refs.append(QVariantMap{{QStringLiteral("prop"), prop}, {QStringLiteral("seconds"), seconds}});
+                at.insert(QStringLiteral("refs"), refs);
+            }
+        }
+        if (m_keyframeRowsAnimatedOnly && merged.isEmpty())
+            return;
+        QVariantList keys;
+        for (const QVariantMap &key : std::as_const(merged))
+            keys.append(key);
+        out.append(QVariantMap{
+            {QStringLiteral("label"), tr("Color")},
+            {QStringLiteral("group"), QStringLiteral("color")},
+            {QStringLiteral("groupProps"), props},
+            {QStringLiteral("prop"), props.first()},
+            {QStringLiteral("depth"), depth},
+            {QStringLiteral("clips"), QVariantList{QVariantMap{
+                 {QStringLiteral("clip"), clipIndex},
+                 {QStringLiteral("prop"), props.first()},
+                 {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                 {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                 {QStringLiteral("keys"), keys},
+             }}},
+        });
+    };
     // A heading with its lines: kept when open (or with U, when something under it is animated).
     const auto section = [&](QVariantList &out, const QVariantMap &head, const QVariantList &body) {
         if (m_keyframeRowsAnimatedOnly && body.isEmpty())
@@ -27526,6 +27566,8 @@ QVariantList AppController::shapeContentRows(int trackIndex, int clipIndex) cons
                     const int n = ++count[int(layer.kind)];
                     QVariantList fields;
                     const QString lb = base + QStringLiteral("shape.layer.%1.").arg(layer.id);
+                    if (layer.paint.kind != drift::TextPaintKind::Gradient)
+                        colorLine(lb, depth + 2, fields);
                     line(lb + QStringLiteral("opacity"), tr("Opacity"), depth + 2, fields);
                     if (layer.kind == drift::TextLayerKind::Stroke)
                         line(lb + QStringLiteral("width"), tr("Stroke width"), depth + 2, fields);

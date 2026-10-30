@@ -5406,6 +5406,10 @@
         <translation>Sfumatura bordo maschera</translation>
     </message>
     <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30159,6 +30163,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

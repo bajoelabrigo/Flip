@@ -5406,6 +5406,10 @@
         <translation>Suavização da máscara</translation>
     </message>
     <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30159,6 +30163,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
