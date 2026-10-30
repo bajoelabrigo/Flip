@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
+import QtQuick.Window
 import Drift
 
 ThemedDialog {
@@ -75,6 +76,25 @@ ThemedDialog {
     readonly property bool isGifExport: exportMode === "gif"
 
     // The picked size, and what it asks of the encoder (Exporter::scaleOptions).
+    // Without an account (0.27, Jorge): up to 1080p on the short side. 2K, 4K and 8K ask to sign in
+    // (free), when they are chosen, not before.
+    readonly property bool signedOutLimit: Account.available && !Account.signedIn
+    function needsAccount(option) {
+        return root.signedOutLimit && !!option && Math.min(option.width || 0, option.height || 0) > 1080
+    }
+    // The largest size open without an account, for a dialog that would otherwise open on a locked one.
+    function bestOpenScale() {
+        let best = null
+        for (let i = 0; i < scaleOptions.length; ++i) {
+            const o = scaleOptions[i]
+            if (needsAccount(o))
+                continue
+            if (!best || Math.min(o.width, o.height) > Math.min(best.width, best.height))
+                best = o
+        }
+        return best
+    }
+
     readonly property var currentScale: {
         for (var i = 0; i < scaleOptions.length; ++i) {
             if (scaleOptions[i].id === scaleId)
@@ -301,6 +321,16 @@ ThemedDialog {
             }
         }
 
+        if (needsAccount(currentScale)) {
+            const open = bestOpenScale()
+            if (open) {
+                scaleId = open.id
+                targetHeight = open.targetHeight
+                if (open.videoBitrateKbps)
+                    videoBitrateKbps = open.videoBitrateKbps
+            }
+        }
+
         // Codec catalog defaults only on a fresh dialog — otherwise they wipe the remembered CRF.
         if (!hasRemembered)
             applyVideoCodecDefaults(codecById(videoCodecs, videoCodecId))
@@ -370,6 +400,15 @@ ThemedDialog {
     }
 
     onAccepted: {
+        // A size that needs the account: sign in first, then the export goes on by itself.
+        if (!isGifExport && !isAudioOnly && needsAccount(currentScale)) {
+            root.Window.window.requestSignIn("hd", () => root.runExport())
+            return
+        }
+        root.runExport()
+    }
+
+    function runExport() {
         var container = isGifExport ? "gif"
                 : isAudioOnly
                   ? EditorState.exportPreferredAudioOnlyContainer(audioCodecId)
@@ -534,9 +573,12 @@ ThemedDialog {
 
                         delegate: ThemedChip {
                             required property var modelData
-                            text: modelData.label
+                            readonly property bool locked: root.needsAccount(modelData)
+                            text: locked ? qsTr("%1 · with account").arg(modelData.label) : modelData.label
+                            opacity: locked && !selected ? 0.7 : 1
                             selected: root.scaleId === modelData.id
-                            tooltip: qsTr("Export at %1×%2").arg(modelData.width).arg(modelData.height)
+                            tooltip: locked ? qsTr("Sign in (free) to export at %1×%2").arg(modelData.width).arg(modelData.height)
+                                            : qsTr("Export at %1×%2").arg(modelData.width).arg(modelData.height)
                             onClicked: {
                                 root.scaleId = modelData.id
                                 root.targetHeight = modelData.targetHeight

@@ -1112,6 +1112,10 @@ ApplicationWindow {
     }
 
     // Jumps the assets panel to a tab ("subtitles", "effects", ...): toolbar shortcuts into it.
+    function requestSignIn(reason, action) {
+        editorHeader.requestSignIn(reason, action)
+    }
+
     function showAssetsTab(tabId) {
         assetsPanel.showTab(tabId)
     }

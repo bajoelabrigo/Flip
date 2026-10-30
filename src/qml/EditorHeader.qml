@@ -229,12 +229,17 @@ Rectangle {
 
     // Exporting asks for a signed-in account (free all the same); once signed in, the dialog that
     // asked opens the Export dialog by itself. A build without accounts exports as before.
+    // Exporting needs no account up to 1080p (0.27, Jorge: a child often has no Google account);
+    // the Export dialog asks only when 2K, 4K or 8K is chosen.
     function exportVideo() {
-        if (Account.available && !Account.signedIn) {
-            signInDialogLoader.ensure().openFor(() => exportDialogLoader.ensure().openDialog())
-            return
-        }
         exportDialogLoader.ensure().openDialog()
+    }
+
+    // The sign-in dialog for a given reason ("export", "hd", "trends", "voices"), then `action`.
+    function requestSignIn(reason, action) {
+        const dialog = signInDialogLoader.ensure()
+        dialog.reason = reason || "export"
+        dialog.openFor(action)
     }
 
     // For the menu bar (AppMenuBar): the dialogs this header owns.

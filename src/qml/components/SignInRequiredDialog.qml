@@ -15,6 +15,7 @@ ThemedDialog {
 
     title: root.reason === "trends" ? qsTr("Sign in to use what's trending")
          : root.reason === "voices" ? qsTr("Sign in to use this voice")
+         : root.reason === "hd" ? qsTr("Sign in to export in 2K, 4K or 8K")
          : qsTr("Sign in to export")
     showFooter: false
     preferredWidth: Theme.dialogWidthSm
@@ -79,6 +80,8 @@ ThemedDialog {
                   ? qsTr("Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
                   : root.reason === "voices"
                   ? qsTr("The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
+                  : root.reason === "hd"
+                  ? qsTr("Up to 1080p you can export without an account. For 2K, 4K and 8K you only need to sign in with your Google account: it is free, it takes a moment and it is done once.")
                   : qsTr("To export your video you only need to sign in with your Google account. It takes a moment, it is done once, and your project stays just as it is.")
         }
 
