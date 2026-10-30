@@ -267,6 +267,9 @@ Item {
                 // Created outside the split and handed to it with addItem: a Container only
                 // takes items it is given that way.
                 const child = root.make(c, root, node.d)
+                // Handed to the split first: its attached SplitView properties only exist on a
+                // direct child of the split.
+                item.addItem(child)
                 if (node.d === "h") {
                     if (c === filler)
                         child.SplitView.fillWidth = true
@@ -280,7 +283,6 @@ Item {
                         child.SplitView.preferredHeight = Qt.binding(() => Math.max(0, item.height * c.f))
                     child.SplitView.minimumHeight = Qt.binding(() => Math.min(root.minAlong(c, "h"), Math.max(0, item.height * 0.25)))
                 }
-                item.addItem(child)
             }
         }
         return item
