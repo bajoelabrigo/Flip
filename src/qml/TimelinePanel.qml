@@ -716,7 +716,10 @@ PanelFrame {
 
     // Computed once per model change instead of at each of the ten call sites below — one of
     // which is the drag bounds of every clip delegate, making it O(clips x tracks) on any edit.
-    readonly property real totalTracksHeightCached: (root.tracks, root.totalTracksHeight())
+    // The curve editor opening under a track makes that row taller: without it among the
+    // dependencies the playhead and the work area stopped short of the rows below (0.26).
+    readonly property real totalTracksHeightCached: (root.tracks, root.curveEditorTrack, root.curveEditorHeight,
+                                                     root.totalTracksHeight())
 
     function totalTracksHeight() {
         var h = 0;
@@ -1889,10 +1892,11 @@ PanelFrame {
                         }
                     }
 
-                    // Work area overlay across the track rows.
+                    // Work area overlay across the track rows: over them (it is a faint tint), or
+                    // the rows' own backgrounds hid it behind the clips and the key lines (0.26).
                     Item {
                         id: workAreaOverlay
-                        z: 1
+                        z: 3
                         y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight
                         width: parent.width
                         height: Math.max(root.totalTracksHeightCached + Theme.trackGap,
