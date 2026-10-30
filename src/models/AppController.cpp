@@ -2843,6 +2843,22 @@ bool looksLikeTextProp(const QString &prop)
     return !drift::textKeyframeCanonicalKey(suffix, probe).isEmpty();
 }
 
+namespace {
+
+// The ids from the top part down to `id` (the part and every group around it); empty when it is not there.
+bool shapePartPathTo(const std::vector<drift::ShapePart> &parts, const QString &id, QStringList &path)
+{
+    for (const drift::ShapePart &part : parts) {
+        if (part.id == id || shapePartPathTo(part.children, id, path)) {
+            path.prepend(part.id);
+            return true;
+        }
+    }
+    return false;
+}
+
+} // namespace
+
 // After Effects' Contents (0.28): the part of a layer of parts the inspector edits. Set by
 // AppController::selectShapePart; a plain function here so every "shape.<key>" path below sends
 // its edit to the part without taking the controller along.
@@ -12684,17 +12700,10 @@ void AppController::selectShapePart(int trackIndex, int clipIndex, const QString
         const QString trackKey = m_project.tracks().at(trackIndex).id + QLatin1Char('|');
         m_keyframeGroupsExpanded.insert(trackKey + QStringLiteral("contents"));
         // The part and every group around it.
-        std::function<bool(const std::vector<drift::ShapePart> &)> openPath =
-            [&](const std::vector<drift::ShapePart> &parts) {
-                for (const drift::ShapePart &part : parts) {
-                    if (part.id == id || openPath(part.children)) {
-                        m_keyframeGroupsExpanded.insert(trackKey + QStringLiteral("part:") + part.id);
-                        return true;
-                    }
-                }
-                return false;
-            };
-        openPath(clip.shapeStyle.parts);
+        QStringList path;
+        shapePartPathTo(clip.shapeStyle.parts, id, path);
+        for (const QString &partId : std::as_const(path))
+            m_keyframeGroupsExpanded.insert(trackKey + QStringLiteral("part:") + partId);
         m_tracksCacheValid = false;
         m_tracksCache.clear();
         emit tracksChanged();
@@ -27434,6 +27443,203 @@ int AppController::keyframeTargetClip(int trackIndex) const
     return -1;
 }
 
+namespace {
+
+// Builds Contents' lines for shapeContentRows. Plain member functions, no lambdas: MSVC 19.4x crashed
+// (0xC0000005) compiling the first version, a recursive std::function lambda calling five local lambdas.
+struct ShapeContentRowsBuilder
+{
+    const AppController *app = nullptr;
+    int trackIndex = -1;
+    int clipIndex = -1;
+    const drift::Clip *clip = nullptr;
+    QString trackKey;
+    QStringList animated;
+    QString picked;
+    const QSet<QString> *expandedKeys = nullptr;
+    bool animatedOnly = false;
+
+    QVariantMap heading(const QString &key, const QString &label, int depth, const QVariantMap &extra) const
+    {
+        QVariantMap row{
+            {QStringLiteral("kind"), QStringLiteral("heading")},
+            {QStringLiteral("key"), key},
+            {QStringLiteral("label"), label},
+            {QStringLiteral("depth"), depth},
+            {QStringLiteral("expandable"), true},
+            {QStringLiteral("expanded"), expandedKeys->contains(trackKey + key)},
+            {QStringLiteral("prop"), QString()},
+            {QStringLiteral("clips"), QVariantList()},
+        };
+        for (auto it = extra.constBegin(); it != extra.constEnd(); ++it)
+            row.insert(it.key(), it.value());
+        return row;
+    }
+
+    QVariantMap clipEntry(const QString &prop, const QVariantList &keys) const
+    {
+        return QVariantMap{
+            {QStringLiteral("clip"), clipIndex},
+            {QStringLiteral("prop"), prop},
+            {QStringLiteral("start"), drift::usToSeconds(clip->timelineStart)},
+            {QStringLiteral("duration"), drift::usToSeconds(clip->timelineDuration)},
+            {QStringLiteral("keys"), keys},
+        };
+    }
+
+    // One value line, on this clip only: U shows only the animated ones.
+    void line(const QString &prop, const QString &label, int depth, QVariantList &out) const
+    {
+        const bool isAnimated = animated.contains(prop);
+        if (animatedOnly && !isAnimated)
+            return;
+        QVariantMap row;
+        row.insert(QStringLiteral("label"), label);
+        row.insert(QStringLiteral("prop"), prop);
+        row.insert(QStringLiteral("depth"), depth);
+        row.insert(QStringLiteral("clips"), QVariantList{clipEntry(
+            prop, isAnimated ? app->clipKeyframes(trackIndex, clipIndex, prop) : QVariantList())});
+        out.append(row);
+    }
+
+    // «Color»: the paint's four channels (0..1) as one line, as Position joins X and Y; one diamond per time
+    // carries the channels' own keys (refs) so a drag moves them together.
+    void colorLine(const QString &prefix, int depth, QVariantList &out) const
+    {
+        const QStringList props{prefix + QStringLiteral("color.r"), prefix + QStringLiteral("color.g"),
+                                prefix + QStringLiteral("color.b"), prefix + QStringLiteral("color.a")};
+        QMap<qint64, QVariantMap> merged;
+        for (const QString &prop : props) {
+            if (!animated.contains(prop))
+                continue;
+            const QVariantList propKeys = app->clipKeyframes(trackIndex, clipIndex, prop);
+            for (const QVariant &v : propKeys) {
+                const QVariantMap key = v.toMap();
+                const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                const qint64 ms = qRound64(seconds * 1000.0);
+                QVariantMap at = merged.value(ms, key);
+                QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                QVariantMap ref;
+                ref.insert(QStringLiteral("prop"), prop);
+                ref.insert(QStringLiteral("seconds"), seconds);
+                refs.append(ref);
+                at.insert(QStringLiteral("refs"), refs);
+                merged.insert(ms, at);
+            }
+        }
+        if (animatedOnly && merged.isEmpty())
+            return;
+        QVariantList keys;
+        for (auto it = merged.constBegin(); it != merged.constEnd(); ++it)
+            keys.append(it.value());
+        QVariantMap row;
+        row.insert(QStringLiteral("label"), AppController::tr("Color"));
+        row.insert(QStringLiteral("group"), QStringLiteral("color"));
+        row.insert(QStringLiteral("groupProps"), props);
+        row.insert(QStringLiteral("prop"), props.first());
+        row.insert(QStringLiteral("depth"), depth);
+        row.insert(QStringLiteral("clips"), QVariantList{clipEntry(props.first(), keys)});
+        out.append(row);
+    }
+
+    // A heading with its lines: kept when open (or with U, when something under it is animated).
+    void section(QVariantList &out, const QVariantMap &head, const QVariantList &body) const
+    {
+        if (animatedOnly && body.isEmpty())
+            return;
+        out.append(head);
+        if (head.value(QStringLiteral("expanded")).toBool() || animatedOnly)
+            out.append(body);
+    }
+
+    // A part's path: its size and the knobs its kind has.
+    void pathLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                   QVariantList &body) const
+    {
+        QVariantList path;
+        line(base + QStringLiteral("width"), AppController::tr("Width"), depth + 2, path);
+        line(base + QStringLiteral("height"), AppController::tr("Height"), depth + 2, path);
+        const drift::ShapeKind kind = part.shape.kind;
+        if (kind == drift::ShapeKind::Star || kind == drift::ShapeKind::Burst) {
+            line(base + QStringLiteral("shape.points"), AppController::tr("Points"), depth + 2, path);
+            line(base + QStringLiteral("shape.innerRatio"), AppController::tr("Inner radius"), depth + 2, path);
+        } else if (kind != drift::ShapeKind::Ellipse) {
+            line(base + QStringLiteral("shape.cornerRadius"), AppController::tr("Roundness"), depth + 2, path);
+        }
+        const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(drift::shapeKindToString(kind));
+        const QString kindName = entry ? entry->label : drift::shapeKindToString(kind);
+        section(body, heading(pkey + QStringLiteral(":path"), AppController::tr("%1 path").arg(kindName), depth + 1,
+                              QVariantMap()), path);
+    }
+
+    // Its fills and strokes, front first as AE lists them, numbered per kind.
+    void layerLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                    QVariantList &body) const
+    {
+        QHash<int, int> count;
+        for (int i = int(part.shape.layers.size()) - 1; i >= 0; --i) {
+            const drift::TextShadingLayer &layer = part.shape.layers.at(i);
+            const int n = ++count[int(layer.kind)];
+            QVariantList fields;
+            const QString lb = base + QStringLiteral("shape.layer.%1.").arg(layer.id);
+            if (layer.paint.kind != drift::TextPaintKind::Gradient)
+                colorLine(lb, depth + 2, fields);
+            line(lb + QStringLiteral("opacity"), AppController::tr("Opacity"), depth + 2, fields);
+            if (layer.kind == drift::TextLayerKind::Stroke)
+                line(lb + QStringLiteral("width"), AppController::tr("Stroke width"), depth + 2, fields);
+            QVariantMap extra;
+            extra.insert(QStringLiteral("layerEnabled"), layer.enabled);
+            extra.insert(QStringLiteral("layerOf"), part.id);
+            extra.insert(QStringLiteral("layerId"), layer.id);
+            const QString label = QStringLiteral("%1 %2").arg(drift::shadingLayerKindLabel(layer.kind)).arg(n);
+            section(body, heading(pkey + QStringLiteral(":layer:") + layer.id, label, depth + 1, extra), fields);
+        }
+    }
+
+    // «Transform: <name>», as AE's group transform.
+    void transformLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                        QVariantList &body) const
+    {
+        static const char *const fields[] = {"anchorX", "anchorY", "x", "y", "scaleX",
+                                             "scaleY", "skew", "skewAxis", "rotation", "opacity"};
+        const QStringList labels{AppController::tr("Anchor point X"), AppController::tr("Anchor point Y"),
+                                 AppController::tr("Position X"), AppController::tr("Position Y"),
+                                 AppController::tr("Scale X"), AppController::tr("Scale Y"),
+                                 AppController::tr("Skew"), AppController::tr("Skew axis"),
+                                 AppController::tr("Rotation"), AppController::tr("Opacity")};
+        QVariantList tf;
+        for (int f = 0; f < labels.size(); ++f)
+            line(base + QLatin1String(fields[f]), labels.at(f), depth + 2, tf);
+        section(body, heading(pkey + QStringLiteral(":tf"), AppController::tr("Transform: %1").arg(part.name),
+                              depth + 1, QVariantMap()), tf);
+    }
+
+    void addParts(const std::vector<drift::ShapePart> &parts, int depth, QVariantList &out) const
+    {
+        for (const drift::ShapePart &part : parts) {
+            const QString base = QStringLiteral("part.%1.").arg(part.id);
+            const QString pkey = QStringLiteral("part:") + part.id;
+            QVariantList body;
+            if (part.group) {
+                addParts(part.children, depth + 1, body);
+            } else {
+                pathLines(part, base, pkey, depth, body);
+                layerLines(part, base, pkey, depth, body);
+            }
+            transformLines(part, base, pkey, depth, body);
+            QVariantMap extra;
+            extra.insert(QStringLiteral("partId"), part.id);
+            extra.insert(QStringLiteral("isGroup"), part.group);
+            extra.insert(QStringLiteral("partVisible"), part.visible);
+            extra.insert(QStringLiteral("blend"), drift::blendModeToString(part.blend));
+            extra.insert(QStringLiteral("picked"), part.id == picked);
+            section(out, heading(pkey, part.name, depth, extra), body);
+        }
+    }
+};
+
+} // namespace
+
 // After Effects' Contents in the timeline (0.28, stage 3): under a shape layer of parts, in Pro, a
 // «Contents» heading, then each part as AE lists it (its path, fills and strokes, «Transform: …»),
 // groups holding their parts, every animatable value a line with its stopwatch and keys. Headings
@@ -27448,170 +27654,35 @@ QVariantList AppController::shapeContentRows(int trackIndex, int clipIndex) cons
     const drift::Clip &clip = track.clips.at(clipIndex);
     if (clip.type != drift::ClipType::Shape || !clip.shapeStyle.hasParts())
         return rows;
-    const QString trackKey = track.id + QLatin1Char('|');
-    const auto open = [&](const QString &key) { return m_keyframeGroupsExpanded.contains(trackKey + key); };
-    const QStringList animated = clipAnimatedProperties(trackIndex, clipIndex);
     const ShapePartFocus &focus = shapePartFocus();
-    const QString picked = focus.clipId == clip.id ? focus.partId : QString();
 
-    const auto heading = [&](const QString &key, const QString &label, int depth, const QVariantMap &extra = {}) {
-        QVariantMap row{
-            {QStringLiteral("kind"), QStringLiteral("heading")},
-            {QStringLiteral("key"), key},
-            {QStringLiteral("label"), label},
-            {QStringLiteral("depth"), depth},
-            {QStringLiteral("expandable"), true},
-            {QStringLiteral("expanded"), open(key)},
-            {QStringLiteral("prop"), QString()},
-            {QStringLiteral("clips"), QVariantList()},
-        };
-        for (auto it = extra.constBegin(); it != extra.constEnd(); ++it)
-            row.insert(it.key(), it.value());
-        return row;
-    };
-    // One value line, on this clip only: U shows only the animated ones.
-    const auto line = [&](const QString &prop, const QString &label, int depth, QVariantList &out) {
-        const bool isAnimated = animated.contains(prop);
-        if (m_keyframeRowsAnimatedOnly && !isAnimated)
-            return;
-        out.append(QVariantMap{
-            {QStringLiteral("label"), label},
-            {QStringLiteral("prop"), prop},
-            {QStringLiteral("depth"), depth},
-            {QStringLiteral("clips"), QVariantList{QVariantMap{
-                 {QStringLiteral("clip"), clipIndex},
-                 {QStringLiteral("prop"), prop},
-                 {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
-                 {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
-                 {QStringLiteral("keys"), isAnimated ? clipKeyframes(trackIndex, clipIndex, prop) : QVariantList()},
-             }}},
-        });
-    };
-    // «Color»: the paint's four channels (0..1) as one line, as Position joins X and Y; one diamond per time
-    // carries the channels' own keys (refs) so a drag moves them together.
-    const auto colorLine = [&](const QString &prefix, int depth, QVariantList &out) {
-        const QStringList props{prefix + QStringLiteral("color.r"), prefix + QStringLiteral("color.g"),
-                                prefix + QStringLiteral("color.b"), prefix + QStringLiteral("color.a")};
-        QMap<qint64, QVariantMap> merged;
-        for (const QString &prop : props) {
-            if (!animated.contains(prop))
-                continue;
-            for (const QVariant &v : clipKeyframes(trackIndex, clipIndex, prop)) {
-                QVariantMap key = v.toMap();
-                const double seconds = key.value(QStringLiteral("seconds")).toDouble();
-                QVariantMap &at = merged[qRound64(seconds * 1000.0)];
-                if (at.isEmpty())
-                    at = key;
-                QVariantList refs = at.value(QStringLiteral("refs")).toList();
-                refs.append(QVariantMap{{QStringLiteral("prop"), prop}, {QStringLiteral("seconds"), seconds}});
-                at.insert(QStringLiteral("refs"), refs);
-            }
-        }
-        if (m_keyframeRowsAnimatedOnly && merged.isEmpty())
-            return;
-        QVariantList keys;
-        for (const QVariantMap &key : std::as_const(merged))
-            keys.append(key);
-        out.append(QVariantMap{
-            {QStringLiteral("label"), tr("Color")},
-            {QStringLiteral("group"), QStringLiteral("color")},
-            {QStringLiteral("groupProps"), props},
-            {QStringLiteral("prop"), props.first()},
-            {QStringLiteral("depth"), depth},
-            {QStringLiteral("clips"), QVariantList{QVariantMap{
-                 {QStringLiteral("clip"), clipIndex},
-                 {QStringLiteral("prop"), props.first()},
-                 {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
-                 {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
-                 {QStringLiteral("keys"), keys},
-             }}},
-        });
-    };
-    // A heading with its lines: kept when open (or with U, when something under it is animated).
-    const auto section = [&](QVariantList &out, const QVariantMap &head, const QVariantList &body) {
-        if (m_keyframeRowsAnimatedOnly && body.isEmpty())
-            return;
-        out.append(head);
-        if (head.value(QStringLiteral("expanded")).toBool() || m_keyframeRowsAnimatedOnly)
-            out.append(body);
-    };
+    ShapeContentRowsBuilder b;
+    b.app = this;
+    b.trackIndex = trackIndex;
+    b.clipIndex = clipIndex;
+    b.clip = &clip;
+    b.trackKey = track.id + QLatin1Char('|');
+    b.animated = clipAnimatedProperties(trackIndex, clipIndex);
+    b.picked = focus.clipId == clip.id ? focus.partId : QString();
+    b.expandedKeys = &m_keyframeGroupsExpanded;
+    b.animatedOnly = m_keyframeRowsAnimatedOnly;
 
-    std::function<void(const std::vector<drift::ShapePart> &, int, QVariantList &)> addParts;
-    addParts = [&](const std::vector<drift::ShapePart> &parts, int depth, QVariantList &out) {
-        for (const drift::ShapePart &part : parts) {
-            const QString base = QStringLiteral("part.%1.").arg(part.id);
-            const QString pkey = QStringLiteral("part:") + part.id;
-            QVariantList body;
-            if (part.group) {
-                addParts(part.children, depth + 1, body);
-            } else {
-                // Its path: size, and the knobs its kind has.
-                QVariantList path;
-                line(base + QStringLiteral("width"), tr("Width"), depth + 2, path);
-                line(base + QStringLiteral("height"), tr("Height"), depth + 2, path);
-                const drift::ShapeKind kind = part.shape.kind;
-                if (kind == drift::ShapeKind::Star || kind == drift::ShapeKind::Burst) {
-                    line(base + QStringLiteral("shape.points"), tr("Points"), depth + 2, path);
-                    line(base + QStringLiteral("shape.innerRatio"), tr("Inner radius"), depth + 2, path);
-                } else if (kind != drift::ShapeKind::Ellipse) {
-                    line(base + QStringLiteral("shape.cornerRadius"), tr("Roundness"), depth + 2, path);
-                }
-                const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(drift::shapeKindToString(kind));
-                const QString kindName = entry ? entry->label : drift::shapeKindToString(kind);
-                section(body, heading(pkey + QStringLiteral(":path"), tr("%1 path").arg(kindName), depth + 1), path);
-                // Its fills and strokes, front first as AE lists them, numbered per kind.
-                QHash<int, int> count;
-                for (int i = part.shape.layers.size() - 1; i >= 0; --i) {
-                    const drift::TextShadingLayer &layer = part.shape.layers.at(i);
-                    const int n = ++count[int(layer.kind)];
-                    QVariantList fields;
-                    const QString lb = base + QStringLiteral("shape.layer.%1.").arg(layer.id);
-                    if (layer.paint.kind != drift::TextPaintKind::Gradient)
-                        colorLine(lb, depth + 2, fields);
-                    line(lb + QStringLiteral("opacity"), tr("Opacity"), depth + 2, fields);
-                    if (layer.kind == drift::TextLayerKind::Stroke)
-                        line(lb + QStringLiteral("width"), tr("Stroke width"), depth + 2, fields);
-                    section(body, heading(pkey + QStringLiteral(":layer:") + layer.id,
-                                          QStringLiteral("%1 %2").arg(drift::shadingLayerKindLabel(layer.kind)).arg(n),
-                                          depth + 1, {{QStringLiteral("layerEnabled"), layer.enabled},
-                                                      {QStringLiteral("layerOf"), part.id},
-                                                      {QStringLiteral("layerId"), layer.id}}),
-                            fields);
-                }
-            }
-            // «Transform: <name>», as AE's group transform.
-            QVariantList tf;
-            for (const auto &[field, label] : std::initializer_list<std::pair<const char *, QString>>{
-                     {"anchorX", tr("Anchor point X")}, {"anchorY", tr("Anchor point Y")},
-                     {"x", tr("Position X")}, {"y", tr("Position Y")},
-                     {"scaleX", tr("Scale X")}, {"scaleY", tr("Scale Y")},
-                     {"skew", tr("Skew")}, {"skewAxis", tr("Skew axis")},
-                     {"rotation", tr("Rotation")}, {"opacity", tr("Opacity")}})
-                line(base + QLatin1String(field), label, depth + 2, tf);
-            section(body, heading(pkey + QStringLiteral(":tf"), tr("Transform: %1").arg(part.name), depth + 1), tf);
-
-            section(out, heading(pkey, part.name, depth,
-                                 {{QStringLiteral("partId"), part.id},
-                                  {QStringLiteral("isGroup"), part.group},
-                                  {QStringLiteral("partVisible"), part.visible},
-                                  {QStringLiteral("blend"), drift::blendModeToString(part.blend)},
-                                  {QStringLiteral("picked"), part.id == picked}}),
-                    body);
-        }
-    };
     QVariantList body;
-    addParts(clip.shapeStyle.parts, 1, body);
-    section(rows, heading(QStringLiteral("contents"), tr("Contents"), 0, {{QStringLiteral("contents"), true}}), body);
-    if (!rows.isEmpty())
-        rows.append(QVariantMap{
-            {QStringLiteral("kind"), QStringLiteral("heading")},
-            {QStringLiteral("key"), QStringLiteral("transform")},
-            {QStringLiteral("label"), tr("Transform")},
-            {QStringLiteral("depth"), 0},
-            {QStringLiteral("expandable"), false},
-            {QStringLiteral("prop"), QString()},
-            {QStringLiteral("clips"), QVariantList()},
-        });
+    b.addParts(clip.shapeStyle.parts, 1, body);
+    QVariantMap contents;
+    contents.insert(QStringLiteral("contents"), true);
+    b.section(rows, b.heading(QStringLiteral("contents"), tr("Contents"), 0, contents), body);
+    if (!rows.isEmpty()) {
+        QVariantMap transform;
+        transform.insert(QStringLiteral("kind"), QStringLiteral("heading"));
+        transform.insert(QStringLiteral("key"), QStringLiteral("transform"));
+        transform.insert(QStringLiteral("label"), tr("Transform"));
+        transform.insert(QStringLiteral("depth"), 0);
+        transform.insert(QStringLiteral("expandable"), false);
+        transform.insert(QStringLiteral("prop"), QString());
+        transform.insert(QStringLiteral("clips"), QVariantList());
+        rows.append(transform);
+    }
     return rows;
 }
 
