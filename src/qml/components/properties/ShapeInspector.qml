@@ -268,6 +268,7 @@ Item {
                 }
                 CollapsibleSection {
                     width: parent.width
+                    expanded: false
                     title: qsTr("Skew and anchor point")
                     Column {
                         width: parent.width

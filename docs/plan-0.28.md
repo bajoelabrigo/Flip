@@ -122,8 +122,13 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    JSON y claves por parte. Versión de proyecto 16.
    Original de la etapa: Pruebas: orden de pintura de AE, grupos anidados, claves por elemento, proyecto
    viejo idéntico píxel a píxel, ida y vuelta del JSON.
-2. [~] Columna derecha: lista Contenido, «+ Añadir», parte elegida con sus secciones, menú de clic derecho.
-   Hecho (falta probar en ventana): `ShapeContentsList.qml` (capa arriba, partes con ojo, color, nombre; grupos que se
+2. [x] Columna derecha: lista Contenido, «+ Añadir», parte elegida con sus secciones, menú de clic derecho.
+   **Probado en ventana (build 41130586723):** lista con grupo abierto, elegir una parte, mover solo esa parte, deshacer,
+   «+ Añadir» (menú bajo el botón, numeración «Estrella 2»), cambiar las puntas solo en esa estrella, ojo, clic derecho y
+   Agrupar, convertir una forma sencilla (no se mueve) y Simple con «Ver en Pro». Pendiente menor: en Simple, poder
+   cambiar el color de todas las partes; «Trazo» de la pila de capas sigue llamándose así (la opción A pide «Borde» en
+   la columna derecha: cambiarlo con cuidado porque la misma fila sirve al texto).
+   Hecho: `ShapeContentsList.qml` (capa arriba, partes con ojo, color, nombre; grupos que se
    pliegan; doble clic renombra; clic derecho: Cambiar nombre, Duplicar Ctrl+D, Agrupar Ctrl+G, Desagrupar Ctrl+Mayús+G,
    Mostrar/Ocultar, Eliminar Supr; arrastrar reordena, con línea antes/después o recuadro «dentro» de un grupo).
    `ShapeInspector`: la lista solo en Pro; con una parte elegida, las secciones de siempre editan **esa parte** (el
