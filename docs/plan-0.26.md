@@ -423,6 +423,11 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   cuando la carpeta `vfx` tiene contenido), primero después de Inicio; chip **VFX** en Stickers después de
   Tendencias; favoritos y carpeta en `MarketClient`. Ahí irá todo lo de RTFX hecho con el motor nuevo
   (`tools/animations/rtfx_field.py`, `rtfx2_fire.py`; revisión en https://claude.ai/artifact/X4g5xQ3f8KcJrYwXoUryDu).
+- **Stock › VFX PUBLICADO (2026-10-30):** Jorge aprobó 17 de los 38 (7 fuegos, 6 de energía, 3 de chispas, 1 de
+  electricidad; lista en `tools/animations/publish_vfx.py` › `APPROVED`). Subidos a
+  `/var/www/flipstudio-templates/vfx` y servidor `flipstudio-api` rama `stock-vfx` **desplegado**; comprobado en la
+  app (Stock › VFX con Fuego/Energía/Chispas/Electricidad). Para sumar más: renderizarlos con `build.py`, añadirlos
+  a `APPROVED`, `publish_vfx.py <carpeta>` y volver a subir la carpeta `vfx`. Jorge irá eligiendo otros.
 - **VFX EN PAUSA (Jorge, 2026-10-30: «no me convencen, ya lo retomamos en otra ocasión»).** Nada subido a Stock;
   la carpeta `vfx` del VPS sigue vacía y la rama `stock-vfx` del servidor sin desplegar (el chip VFX no sale hasta que
   haya contenido, así que la 0.26 puede salir sin esto). Hecho hasta ahora: `rtfx2_fire.py` (20), `rtfx2_energy.py`
