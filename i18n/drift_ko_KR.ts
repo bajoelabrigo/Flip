@@ -700,6 +700,10 @@
         <translation>추천 팩</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -750,10 +754,6 @@
     <message>
         <source>Install all</source>
         <translation>모두 설치</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>효과, 전환 및 오디오에 필요한 기본 팩을 설치하세요. 설치하지 않아도 Drift를 계속 사용할 수 있지만, 설치하면 개선 사항이 적용된 업데이트를 받을 수 있습니다.</translation>
     </message>
 </context>
 <context>

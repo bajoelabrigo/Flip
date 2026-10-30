@@ -701,6 +701,10 @@
         <translation>extensions recommandées</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1&#x202f;à %2&#x202f;%</translation>
     </message>
@@ -752,10 +756,6 @@
     <message>
         <source>Install all</source>
         <translation>Tout installer</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>Installez les extensions essentielles pour les effets, transitions et audio. Vous pouvez continuer à utiliser Flip Studio sans eux — leur installation vous permettra de recevoir les mises à jour lorsqu’ils seront améliorés.</translation>
     </message>
 </context>
 <context>

@@ -701,6 +701,10 @@
         <translation>නිර්දේශිත පැකේජ</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -751,10 +755,6 @@
     <message>
         <source>Install all</source>
         <translation>සියල්ල ස්ථාපනය කරන්න</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>ප්‍රයෝග, සංක්‍රාන්ති සහ ශ්‍රව්‍ය සඳහා අත්‍යවශ්‍ය පැකේජ ස්ථාපනය කරන්න. ඒවා නොමැතිව ද ඔබට Flip Studio භාවිත කළ හැක — ස්ථාපනය කිරීමෙන් වැඩිදියුණු වන විට යාවත්කාලීන ලබාගත හැක.</translation>
     </message>
 </context>
 <context>

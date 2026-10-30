@@ -701,6 +701,10 @@
         <translation>Mga inirerekomendang pakete</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -751,10 +755,6 @@
     <message>
         <source>Install all</source>
         <translation>I-install lahat</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>I-install ang mga mahahalagang pakete para sa mga epekto, pagbabagong-kalagayan, at audyo. Maaari mo pa ring gamitin ang Flip Studio nang wala ang mga ito — nagbibigay-daan ang pag-i-install sa mga update kapag gumanda ang mga ito.</translation>
     </message>
 </context>
 <context>

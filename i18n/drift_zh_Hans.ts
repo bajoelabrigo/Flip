@@ -700,6 +700,10 @@
         <translation>推荐包</translation>
     </message>
     <message>
+        <source>Install the basic packs: fonts, emoji stickers and sound effects (about 18 MB). Without them those lists stay empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1… %2%</source>
         <translation>%1… %2%</translation>
     </message>
@@ -750,10 +754,6 @@
     <message>
         <source>Install all</source>
         <translation>安装全部</translation>
-    </message>
-    <message>
-        <source>Install the essential packs for effects, transitions, and audio. You can keep using Flip Studio without them — installing unlocks updates when they improve.</source>
-        <translation>安装效果、过渡和音频的必备包。即使没有它们，你也可以继续使用 Flip Studio —— 安装后可以在有改进时解锁更新。</translation>
     </message>
 </context>
 <context>
