@@ -716,12 +716,6 @@ Rectangle {
                         onTriggered: languageChooserDialogLoader.ensure().openFromHeader()
                     }
 
-                    ThemedMenuItem {
-                        text: qsTr("Switch to mobile layout…")
-                        icon.name: Theme.icons.smartphone
-                        onTriggered: root.Window.window.switchShell("mobile")
-                    }
-
                     ThemedMenuSeparator { }
 
                     // Infrequent tools. They were icon-only header buttons of their own,

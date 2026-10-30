@@ -499,10 +499,6 @@ Row {
                 text: qsTr("Language…")
                 onTriggered: root.header.openLanguageChooser()
             }
-            ThemedMenuItem {
-                text: qsTr("Switch to Mobile Layout…")
-                onTriggered: root.win.switchShell("mobile")
-            }
         }
     }
 

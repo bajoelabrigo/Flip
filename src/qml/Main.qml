@@ -342,11 +342,6 @@ ApplicationWindow {
                     enabled: !window.showStartScreen
                     onTriggered: window.dispatchAction("toggleGuides")
                 }
-                Platform.MenuSeparator {}
-                Platform.MenuItem {
-                    text: qsTr("Switch to Mobile Layout…")
-                    onTriggered: window.switchShell("mobile")
-                }
             }
 
             Platform.Menu {

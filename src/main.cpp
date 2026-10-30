@@ -759,6 +759,14 @@ int main(int argc, char *argv[])
         shellPreference = QStringLiteral("desktop");
     else if (envShell == QLatin1String("mobile") || envShell == QLatin1String("desktop"))
         shellPreference = envShell;
+#if !defined(Q_OS_ANDROID)
+    // A desktop app: the phone layout stays for development (--shell=mobile, DRIFT_SHELL), but a
+    // stored choice from the old "Switch to mobile layout" item is ignored. It did not answer the
+    // mouse, and someone new could not find the way back (Jorge, 0.27).
+    if (shellPreference == QLatin1String("mobile") && !shellArgs.contains(QStringLiteral("--shell=mobile"))
+        && envShell != QLatin1String("mobile"))
+        shellPreference = QStringLiteral("desktop");
+#endif
     PreferencesController::setAppliedShell(shellPreference);
 
     // Resolved, not the raw preference: "auto" has to mean the same thing here as in Settings,
