@@ -88,19 +88,24 @@ Item {
         if (item.orientation === "square") return 1
         return templates ? 16 / 9 : (animations ? 1 : 9 / 16)
     }
-    // The grid's cell: the shape every result shares, or, when they differ (All, a template
-    // search across formats), a box each card is fitted into at its own shape.
+    // The grid's cell: the shape most results share; the others are fitted into it at their own
+    // shape. (The tallest shape left the wide cards of the YouTube kit, mostly 16:9 with a few
+    // Shorts, at the bottom of tall empty boxes.)
     readonly property real tileAspect: {
         const items = Market.items
         if (items.length === 0)
             return templates ? 16 / 9 : (animations ? 1 : 9 / 16)
-        let lo = 99, hi = 0
+        const counts = {}
+        let best = 0, bestCount = 0
         for (let i = 0; i < items.length; ++i) {
-            const a = aspectOf(items[i])
-            lo = Math.min(lo, a)
-            hi = Math.max(hi, a)
+            const a = Math.round(aspectOf(items[i]) * 100) / 100
+            counts[a] = (counts[a] || 0) + 1
+            if (counts[a] > bestCount || (counts[a] === bestCount && a > best)) {
+                best = a
+                bestCount = counts[a]
+            }
         }
-        return Math.abs(hi - lo) < 0.01 ? hi : Math.min(hi, 16 / 9)
+        return Math.min(best, 16 / 9)
     }
     function usesText(n) {
         n = Number(n || 0)
