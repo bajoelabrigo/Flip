@@ -26,6 +26,20 @@ ThemedDialog {
     // Export frame rate. fpsNum 0 means "follow the project fps". Rational so the
     // NTSC rates (30000/1001 and friends) survive the round-trip.
     property string frameRateId: "project"
+    // The resolution a destination asks for, or the project's own when that one is not offered
+    // (a 1080p project lists no separate "1080p": it is "Same as project").
+    function destinationScale(id) {
+        const list = root.scaleOptions || []
+        for (let i = 0; i < list.length; ++i) {
+            if (list[i].id === id)
+                return list[i]
+        }
+        for (let i = 0; i < list.length; ++i) {
+            if (list[i].id === "source")
+                return list[i]
+        }
+        return { id: "source", targetHeight: 0 }
+    }
     property int fpsNum: 0
     property int fpsDen: 1
     property var frameRateOptions: []
@@ -470,6 +484,41 @@ ThemedDialog {
                     width: parent.width
                     size: "sm"
                     text: qsTr("Saves what you see in the preview. Pick a size — the picture shape stays the same.")
+                }
+
+                // Where the video is going, for anyone who does not know which size to pick: each sets
+                // the size and quality below (still changeable one by one).
+                ThemedLabel {
+                    text: qsTr("For")
+                }
+                Flow {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    Repeater {
+                        model: [
+                            { label: qsTr("Social media"), tip: qsTr("TikTok, Reels, Shorts and YouTube: 1080p, high quality"), scale: "1080p", crf: 18 },
+                            { label: qsTr("WhatsApp (light)"), tip: qsTr("A smaller file that sends fast: 720p"), scale: "720p", crf: 23 },
+                            { label: qsTr("Best quality"), tip: qsTr("The project's own size at the highest quality, to keep or edit again"), scale: "source", crf: 16 }
+                        ]
+                        delegate: ThemedChip {
+                            required property var modelData
+                            text: modelData.label
+                            tooltip: modelData.tip
+                            selected: root.rateControl === "crf" && root.crf === modelData.crf
+                                      && root.scaleId === root.destinationScale(modelData.scale).id
+                            onClicked: {
+                                const option = root.destinationScale(modelData.scale)
+                                root.scaleId = option.id
+                                root.targetHeight = option.targetHeight || 0
+                                if (option.videoBitrateKbps)
+                                    root.videoBitrateKbps = option.videoBitrateKbps
+                                root.videoCodecId = "h264"
+                                root.rateControl = "crf"
+                                root.crf = modelData.crf
+                                root.fitCodecToScale()
+                            }
+                        }
+                    }
                 }
 
                 ThemedLabel {
