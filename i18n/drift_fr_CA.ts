@@ -6833,6 +6833,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Examples</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>What&apos;s New</source>
         <translation>Nouveautés</translation>
     </message>
@@ -24881,15 +24885,7 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Ouvrir un projet</translation>
     </message>
     <message>
-        <source>Try an example</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Downloading…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24939,6 +24935,18 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Create project</source>
         <translation>Créer un projet</translation>
+    </message>
+    <message>
+        <source>Learn with an example</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>They stay in Help › Examples</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search projects</source>
@@ -30953,12 +30961,24 @@ Si la lecture saccade, essayez une autre option.</translation>
 <context>
     <name>TtsController</name>
     <message>
+        <source>Loading voice model…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation>Installez d&apos;abord le modèle de voix</translation>
     </message>
     <message>
         <source>Queued</source>
         <translation>En file d&apos;attente</translation>
+    </message>
+    <message>
+        <source>Preparing voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generating speech…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancelled</source>

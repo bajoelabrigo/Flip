@@ -6832,6 +6832,10 @@
         <translation>Guía de uso</translation>
     </message>
     <message>
+        <source>Examples</source>
+        <translation>Ejemplos</translation>
+    </message>
+    <message>
         <source>What&apos;s New</source>
         <translation>Novedades</translation>
     </message>
@@ -24879,16 +24883,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Abrir proyecto</translation>
     </message>
     <message>
-        <source>Try an example</source>
-        <translation>Prueba con un ejemplo</translation>
-    </message>
-    <message>
         <source>Downloading…</source>
         <translation>Descargando…</translation>
-    </message>
-    <message>
-        <source>A 15-second video ready to edit: change it, cut it and export it to learn how it works.</source>
-        <translation>Un video de 15 segundos listo para editar: cámbialo, córtalo y expórtalo para aprender cómo funciona.</translation>
     </message>
     <message>
         <source>Local projects</source>
@@ -24937,6 +24933,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Create project</source>
         <translation>Crear proyecto</translation>
+    </message>
+    <message>
+        <source>Learn with an example</source>
+        <translation>Aprende con un ejemplo</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
+    </message>
+    <message>
+        <source>They stay in Help › Examples</source>
+        <translation>Siguen en Ayuda › Ejemplos</translation>
     </message>
     <message>
         <source>Search projects</source>
@@ -30949,12 +30957,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>TtsController</name>
     <message>
+        <source>Loading voice model…</source>
+        <translation>Cargando el modelo de voz…</translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation>Primero instala el modelo de voz</translation>
     </message>
     <message>
         <source>Queued</source>
         <translation>En cola</translation>
+    </message>
+    <message>
+        <source>Preparing voice…</source>
+        <translation>Preparando la voz…</translation>
+    </message>
+    <message>
+        <source>Generating speech…</source>
+        <translation>Generando la voz…</translation>
     </message>
     <message>
         <source>Cancelled</source>
