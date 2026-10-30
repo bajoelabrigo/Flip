@@ -1899,7 +1899,7 @@
     </message>
     <message>
         <source>Flatten composite</source>
-        <translation>Acoplar composición</translation>
+        <translation>Convertir el grupo en un video</translation>
     </message>
     <message>
         <source>Render it into a single video clip</source>
@@ -1907,7 +1907,7 @@
     </message>
     <message>
         <source>Make composite</source>
-        <translation>Crear composición</translation>
+        <translation>Agrupar</translation>
     </message>
     <message>
         <source>Group the selected clips into one</source>
@@ -1963,7 +1963,7 @@
     </message>
     <message>
         <source>Convert to edit-friendly format</source>
-        <translation>Convertir a formato optimizado para edición</translation>
+        <translation>Hacer que vaya más fluido al editar</translation>
     </message>
     <message>
         <source>Smoother editing for phone and screen recordings</source>
@@ -5290,6 +5290,14 @@
         <translation>Máscara fija en la pantalla</translation>
     </message>
     <message>
+        <source>Getting ready…</source>
+        <translation>Preparando…</translation>
+    </message>
+    <message>
+        <source>Reversed clip ready</source>
+        <translation>Clip al revés listo</translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation>Composición creada</translation>
     </message>
@@ -5462,6 +5470,10 @@
     <message>
         <source>Capturing freeze frame…</source>
         <translation>Capturando fotograma congelado…</translation>
+    </message>
+    <message>
+        <source>Freeze frame</source>
+        <translation>Fotograma congelado</translation>
     </message>
     <message>
         <source>Freeze frame added</source>
@@ -7467,7 +7479,7 @@
     </message>
     <message>
         <source>Normalize to −14 LUFS</source>
-        <translation>Normalizar a −14 LUFS</translation>
+        <translation>Volumen igual que en redes</translation>
     </message>
     <message>
         <source>Enhance voice</source>
@@ -17914,7 +17926,7 @@ LA PRÓXIMA</translation>
     </message>
     <message>
         <source>Convert to edit-friendly format</source>
-        <translation>Convertir a formato apto para edición</translation>
+        <translation>Hacer que vaya más fluido al editar</translation>
     </message>
     <message numerus="yes">
         <source>Remove %n items from project</source>
@@ -28733,11 +28745,11 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Flatten composite</source>
-        <translation>Acoplar composición</translation>
+        <translation>Convertir el grupo en un video</translation>
     </message>
     <message>
         <source>Make composite</source>
-        <translation>Crear clip compuesto</translation>
+        <translation>Agrupar</translation>
     </message>
     <message>
         <source>Transform together</source>
@@ -28757,7 +28769,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Covers…</source>
-        <translation>Cubre…</translation>
+        <translation>Qué tapa este clip…</translation>
     </message>
     <message>
         <source>Select covered clips</source>
@@ -28777,7 +28789,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Convert to edit-friendly format</source>
-        <translation>Convertir a formato optimizado para edición</translation>
+        <translation>Hacer que vaya más fluido al editar</translation>
     </message>
     <message>
         <source>Crop…</source>
@@ -28885,7 +28897,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Time remapping</source>
-        <translation>Reasignación de tiempo</translation>
+        <translation>Velocidad con fotogramas clave</translation>
     </message>
     <message>
         <source>Fades to volume keyframes</source>
@@ -29786,7 +29798,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Covers…</source>
-        <translation>Cubre…</translation>
+        <translation>Qué tapa esta capa…</translation>
     </message>
     <message>
         <source>Select covered clips</source>

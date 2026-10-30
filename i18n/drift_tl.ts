@@ -5294,6 +5294,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Getting ready…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reversed clip ready</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Composition created</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5465,6 +5473,10 @@
     </message>
     <message>
         <source>Capturing freeze frame…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freeze frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
