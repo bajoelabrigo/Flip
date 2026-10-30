@@ -600,6 +600,111 @@ def make_splash_up():
     return render(s, splash_up(512, 512, 41, size=0.72))
 
 
+def traced(curve, head, t, k, width=11.0, life=0.4, step=0.012, lick=0.0, rnd=None, thick=None, end=1.0, fade=0.8, hot=0.62):
+    """Lobes along a path being drawn: curve(u) -> (x, y, tangent angle) for u in 0..1, the head at
+    head (0..1+) of it. Each point flares up as the head passes, thickest just behind it, and thins
+    away over life (in units of the path), so the tail breaks up as it goes. thick(u) shapes the line;
+    the path ends at end (a closed curve can be run on past 1)."""
+    lobes = []
+    u = max(0.0, head - life * 1.3)
+    while u <= min(head, end):
+        age = (head - u) / life
+        # Along the line it wobbles and, as it ages, breaks where it is weakest.
+        nz = 0.5 + 0.5 * math.sin(u * 41 + 1.3) * math.sin(u * 17 + t * 3 + 0.4)
+        gate = min(1.0, max(0.0, (nz + 0.55 - age * 1.1) * 3))
+        w = width * k * min(1.0, age * 6 + 0.25) * max(0.0, 1 - age) ** fade * gate
+        if thick:  # the line's shape shows while it is fresh
+            w *= 1 + (thick(u) - 1) * max(0.0, 1 - age * 1.5)
+        if w > 0.6:
+            x, y, a = curve(u)
+            wob = (math.sin(u * 140 + t * 5) + 0.7 * math.sin(u * 61 - t * 4)) * 1.6 * k
+            x, y = x + math.cos(a + math.pi / 2) * wob, y + math.sin(a + math.pi / 2) * wob
+            j = rnd.uniform(-1, 1) if rnd is not None else 0.0
+            lobes.append((x, y, w * 2.2, 1.0, (0.42 + 0.1 * j) * (rnd.uniform(0.6, 1.3) if rnd is not None else 1.0),
+                          a, hot * max(0.0, 1 - age * 1.4)))
+            if lick and rnd.random() < lick:
+                # A lick standing off the line, outward.
+                o = a - math.pi / 2
+                lobes.append((x + math.cos(o) * w * 1.2, y + math.sin(o) * w * 1.2, w * 1.4, 0.35, 1.0, a, 0.4))
+        u += step
+    return lobes
+
+
+def trail_ring(W, H, seed, size=1.0):
+    """A ring of fire being drawn (RTFX's «Trail Radial»): a flame runs round a circle from the top,
+    thickest just behind its head, and the line it leaves thins and breaks into wisps behind it."""
+    m = Mass(W, H, seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    R = 62 * k
+
+    def circle(u):
+        a = -math.pi / 2 + 2 * math.pi * u
+        return cx + math.cos(a) * R, cy + math.sin(a) * R, a + math.pi / 2
+
+    def field(t):
+        rnd = np.random.default_rng(seed + int(round(t * 24)) // 2)
+        head = 2.1 * t - 0.36 * (1 - math.exp(-t / 0.17))  # eases in, then runs on so the tail keeps dying
+        lobes = traced(circle, head, t, k, width=8.0, life=0.85, lick=0.06, rnd=rnd, end=1.25, fade=0.7,
+                       thick=lambda u: 0.6 + 1.0 * math.exp(-((u - 0.8) / 0.18) ** 2))
+        return m.field(lobes, t, "radial", (cx, cy),
+                       R * 1.2, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_trail_ring():
+    s = new("ex-fuego-estela-circular", "Fuego · Estela circular", "Fire · Ring trail", "fuego", 30, 6011,
+            ["fuego", "fire", "estela", "trail", "círculo", "circle", "anillo", "ring"], size=512, thumb=0.45)
+    s.fps = 24
+    return render(s, trail_ring(512, 512, 43, size=1.5))
+
+
+def charge(W, H, seed, size=1.0):
+    """A fire charge (RTFX's «Charge Radial»): flaming loops whip round a centre on tilted orbits, one
+    after another, crossing as they gather, then burn out from their tails leaving an arc on top."""
+    m = Mass(W, H, seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    # (rx, ry, tilt, start angle, delay, width, centre offset)
+    orbits = [(70, 52, -0.45, -2.6, 0.0, 6.5, (-6, 4)), (84, 36, 0.75, -0.6, 0.12, 6.0, (10, 2)),
+              (56, 72, 0.1, 2.0, 0.24, 5.5, (-4, -8))]
+
+    def orbit(rx, ry, tilt, a0, off):
+        ox, oy = cx + off[0] * k, cy + off[1] * k
+
+        def curve(u):
+            a = a0 + 2 * math.pi * u
+            x, y = math.cos(a) * rx * k, math.sin(a) * ry * k
+            c, s_ = math.cos(tilt), math.sin(tilt)
+            tx, ty = -math.sin(a) * rx, math.cos(a) * ry
+            return ox + x * c - y * s_, oy + x * s_ + y * c, math.atan2(tx * s_ + ty * c, tx * c - ty * s_)
+        return curve
+
+    curves = [orbit(rx, ry, tilt, a0, off) for rx, ry, tilt, a0, _, _, off in orbits]
+
+    def field(t):
+        rnd = np.random.default_rng(seed + int(round(t * 24)) // 2)
+        lobes = []
+        for (rx, ry, tilt, a0, delay, w, off), curve in zip(orbits, curves):
+            tt = t - delay
+            if tt <= 0:
+                continue
+            head = 2.0 * tt - 0.3 * (1 - math.exp(-tt / 0.15))
+            lobes += traced(curve, head, tt, k, width=w, life=0.7, lick=0.08, rnd=rnd, end=1.1, fade=0.7, hot=0.85,
+                            thick=lambda u: 0.7 + 0.7 * math.exp(-((u - 0.55) / 0.25) ** 2))
+        return m.field(lobes, t, "radial", (cx, cy), 70 * k, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_charge():
+    s = new("ex-fuego-carga-circular", "Fuego · Carga circular", "Fire · Radial charge", "fuego", 34, 6012,
+            ["fuego", "fire", "carga", "charge", "poder", "power", "aura"], size=512, thumb=0.45)
+    s.fps = 24
+    return render(s, charge(512, 512, 47, size=1.25))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -614,4 +719,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge]
