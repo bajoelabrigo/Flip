@@ -1592,7 +1592,9 @@ ApplicationWindow {
         // export or transcription was reported only to the console.
         function onExportFinished(success) {
             if (success) {
-                Toasts.success(qsTr("Export finished."))
+                // Where the video went is the first thing anyone asks after exporting.
+                Toasts.post("success", qsTr("Export finished."), 8000, qsTr("Show in folder"),
+                            () => EditorState.revealLastExport())
                 return
             }
             // Exporter reports cancellation as a failed run with this message —

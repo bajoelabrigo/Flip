@@ -109,6 +109,8 @@
 #include <QCursor>
 #include <QDateTime>
 #include <QDir>
+#include <QDesktopServices>
+#include <QProcess>
 #include <QEventLoop>
 #include <QFile>
 #include <QFileInfo>
@@ -29795,6 +29797,24 @@ QString AppController::lastExportFolder() const
     if (folder.isEmpty() || !QDir(folder).exists())
         return {};
     return folder;
+}
+
+bool AppController::revealLastExport() const
+{
+    if (m_lastExportUrl.isEmpty() || !m_lastExportUrl.isLocalFile())
+        return false;
+    const QString path = m_lastExportUrl.toLocalFile();
+    if (!QFileInfo::exists(path))
+        return false;
+#if defined(Q_OS_WIN)
+    // explorer wants the argument as one piece: /select,"C:\pathile.mp4".
+    return QProcess::startDetached(QStringLiteral("explorer.exe"),
+                                   {QStringLiteral("/select,") + QDir::toNativeSeparators(path)});
+#elif defined(Q_OS_MACOS)
+    return QProcess::startDetached(QStringLiteral("open"), {QStringLiteral("-R"), path});
+#else
+    return QDesktopServices::openUrl(QUrl::fromLocalFile(QFileInfo(path).absolutePath()));
+#endif
 }
 
 void AppController::rememberExportChoice(const QString &outputPath, const QVariantMap &settings)

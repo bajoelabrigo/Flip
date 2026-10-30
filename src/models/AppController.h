@@ -2205,6 +2205,9 @@ public:
     Q_INVOKABLE QVariantMap lastExportSettings() const;
     // Directory of the last successful save-picker choice; empty if never set or gone.
     Q_INVOKABLE QString lastExportFolder() const;
+    // The file of the last export, selected in Explorer (the folder elsewhere): the "Show in
+    // folder" button of the export-finished notice.
+    Q_INVOKABLE bool revealLastExport() const;
     Q_INVOKABLE QString exportPreferredContainer(const QString &videoCodecId,
                                                 const QString &audioCodecId) const;
     Q_INVOKABLE QString exportPreferredAudioOnlyContainer(const QString &audioCodecId) const;
