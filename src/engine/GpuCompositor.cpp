@@ -390,8 +390,15 @@ QString maskCacheKey(const drift::Mask &mask)
         .arg(mask.invert ? 1 : 0)
         .arg(mask.points.size())
         .arg(quint64(pointsHash))
-        // Pen and text masks draw differently from the same rect and points.
-        + QStringLiteral(":%1:%2:%3:%4").arg(mask.smooth ? 1 : 0).arg(qHash(mask.text)).arg(mask.expand).arg(mask.opacity);
+        // Pen and text masks draw differently from the same rect and points, and two library
+        // shapes (pathData) can share both.
+        + QStringLiteral(":%1:%2:%3:%4:%5:%6")
+              .arg(mask.smooth ? 1 : 0)
+              .arg(qHash(mask.text))
+              .arg(mask.expand)
+              .arg(mask.opacity)
+              .arg(qHash(mask.pathData))
+              .arg(mask.pathEvenOdd ? 1 : 0);
 }
 
 // Parametric coverage only changes when the stack or the size does, so it is rasterized once and
@@ -404,20 +411,29 @@ GLuint maskTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QList<drift::
     for (const drift::Mask &mask : masks)
         key += QLatin1Char('|') + maskCacheKey(mask);
 
-    const auto it = rt.staticTextures.find(key);
-    if (it != rt.staticTextures.end())
-        return it->second;
-
-    const QImage alpha = drift::maskAlphaMap(masks, size.width(), size.height());
-    if (alpha.isNull()) {
-        rt.staticTextures[key] = 0;
-        return 0;
+    // Most recently used at the back. A still mask hits every frame; an animated one misses, and
+    // the oldest entries are deleted so video memory stays flat however long the export.
+    constexpr size_t kMaxMaskTextures = 48;
+    for (auto it = rt.maskTextures.begin(); it != rt.maskTextures.end(); ++it) {
+        if (it->first == key) {
+            rt.maskTextures.splice(rt.maskTextures.end(), rt.maskTextures, it);
+            return rt.maskTextures.back().second;
+        }
+    }
+    while (rt.maskTextures.size() >= kMaxMaskTextures) {
+        GLuint old = rt.maskTextures.front().second;
+        if (old)
+            gl->glDeleteTextures(1, &old);
+        rt.maskTextures.pop_front();
     }
 
+    const QImage alpha = drift::maskAlphaMap(masks, size.width(), size.height());
+    GLuint tex = 0;
     // Layer textures are FBO-backed (v=0 == image top); a plain upload puts row 0
     // at v=0 too, so no flip is needed to line the mask up with the layer.
-    const GLuint tex = uploadTexture(gl, alpha.convertToFormat(QImage::Format_RGBA8888));
-    rt.staticTextures[key] = tex;
+    if (!alpha.isNull())
+        tex = uploadTexture(gl, alpha.convertToFormat(QImage::Format_RGBA8888));
+    rt.maskTextures.emplace_back(key, tex);
     return tex;
 }
 

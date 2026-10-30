@@ -130,6 +130,10 @@ public:
     std::unique_ptr<QOpenGLShaderProgram> copyProgram;
     std::map<QString, CompiledEffect> programs;
     std::map<QString, GLuint> staticTextures; // absolute path -> GL texture
+    // Rasterised parametric masks, least recently used first. Kept apart from staticTextures and
+    // bounded: an animated mask makes a new key every frame, and in staticTextures each one stayed
+    // in video memory until shutdown (a long export ran the driver out of memory).
+    std::list<std::pair<QString, GLuint>> maskTextures;
     // .cube LUTs by path, re-read when the file changes on disk. tex 0 marks one that failed.
     struct LutTexture
     {

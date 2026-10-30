@@ -1426,6 +1426,12 @@ void GlRuntime::shutdown()
                     gl->glDeleteTextures(1, &tex);
                 }
                 staticTextures.clear();
+                for (const auto &entry : maskTextures) {
+                    GLuint tex = entry.second;
+                    if (tex)
+                        gl->glDeleteTextures(1, &tex);
+                }
+                maskTextures.clear();
                 for (const auto &entry : lutTextures) {
                     GLuint tex = entry.second.tex;
                     if (tex)

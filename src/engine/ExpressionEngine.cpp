@@ -4,16 +4,87 @@
 #include "core/Keyframe.h"
 #include "core/Project.h"
 
+#include <QCoreApplication>
 #include <QHash>
 #include <QJSEngine>
 #include <QJSValue>
 #include <QObject>
 
+#include <chrono>
+#include <condition_variable>
 #include <memory>
+#include <mutex>
+#include <thread>
+#include <unordered_map>
 
 namespace drift {
 
 namespace {
+
+// Interrupts an expression that runs too long. A `while (true) {}` typed in the editor, or saved
+// in a project or a Stock template, used to freeze the GUI, the preview and the export for good.
+// One thread for the whole app; an engine is armed only while a call runs.
+class ExpressionWatchdog
+{
+public:
+    static ExpressionWatchdog &instance()
+    {
+        // Never destroyed: engines live in thread_local storage and can outlive any static.
+        static ExpressionWatchdog *dog = new ExpressionWatchdog;
+        return *dog;
+    }
+
+    void arm(QJSEngine *engine, std::chrono::milliseconds budget)
+    {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        m_armed[engine] = std::chrono::steady_clock::now() + budget;
+        m_wake.notify_one();
+    }
+
+    void disarm(QJSEngine *engine)
+    {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        m_armed.erase(engine);
+    }
+
+private:
+    ExpressionWatchdog()
+    {
+        std::thread([this]() { loop(); }).detach();
+    }
+
+    void loop()
+    {
+        std::unique_lock<std::mutex> lock(m_mutex);
+        for (;;) {
+            if (m_armed.empty()) {
+                m_wake.wait(lock);
+                continue;
+            }
+            auto next = std::chrono::steady_clock::time_point::max();
+            for (const auto &entry : m_armed)
+                next = std::min(next, entry.second);
+            m_wake.wait_until(lock, next);
+            const auto now = std::chrono::steady_clock::now();
+            for (auto it = m_armed.begin(); it != m_armed.end();) {
+                if (it->second <= now) {
+                    // Thread-safe in QJSEngine: the running script throws at its next check.
+                    it->first->setInterrupted(true);
+                    it = m_armed.erase(it);
+                } else {
+                    ++it;
+                }
+            }
+        }
+    }
+
+    std::mutex m_mutex;
+    std::condition_variable m_wake;
+    std::unordered_map<QJSEngine *, std::chrono::steady_clock::time_point> m_armed;
+};
+
+// An expression gets this long per call. Real ones take microseconds.
+constexpr std::chrono::milliseconds kExpressionBudget{50};
 
 // What the JavaScript calls back into: smooth noise and other layers' properties.
 class ExpressionHelper : public QObject
@@ -135,7 +206,21 @@ double evaluate(const QString &expression, double value, double seconds)
     const QJSValue fn = compiledFor(t, expression);
     double out = value;
     if (fn.isCallable()) {
+        // Only the outermost call is timed: one reading another layer runs inside its budget.
+        const bool outer = t.depth == 1;
+        if (outer)
+            ExpressionWatchdog::instance().arm(t.engine.get(), kExpressionBudget);
         const QJSValue result = fn.call({QJSValue(value), QJSValue(seconds)});
+        if (outer) {
+            ExpressionWatchdog::instance().disarm(t.engine.get());
+            if (t.engine->isInterrupted()) {
+                t.engine->setInterrupted(false);
+                // Never run it again on this thread: the property keeps its keyframed value.
+                t.compiled.insert(expression, QJSValue());
+                --t.depth;
+                return value;
+            }
+        }
         if (!result.isError()) {
             // A [x, y] answer on a scalar property takes its first entry.
             const QJSValue scalar = result.isArray() ? result.property(0) : result;
@@ -178,7 +263,14 @@ QString expressionError(const QString &expression)
         return fn.toString();
     if (!fn.isCallable())
         return QStringLiteral("not a function");
+    ExpressionWatchdog::instance().arm(t.engine.get(), kExpressionBudget);
     const QJSValue result = fn.call({QJSValue(0.0), QJSValue(0.0)});
+    ExpressionWatchdog::instance().disarm(t.engine.get());
+    if (t.engine->isInterrupted()) {
+        t.engine->setInterrupted(false);
+        t.compiled.insert(expression, QJSValue());
+        return QCoreApplication::translate("Expressions", "The expression takes too long (does it loop forever?)");
+    }
     if (result.isError())
         return result.toString();
     const QJSValue scalar = result.isArray() ? result.property(0) : result;
