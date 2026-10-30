@@ -475,7 +475,9 @@ PanelFrame {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.left: parent.left
-            width: root.sheetMode ? 0 : Theme.tabRailWidth
+            // Wider than the icons alone: each carries its name under it (13 unnamed icons were the
+            // first thing a beginner had to decode).
+            width: root.sheetMode ? 0 : Theme.tabRailWidth + 16
             visible: !root.sheetMode
             contentWidth: width
             contentHeight: propertiesTabRailColumn.height
@@ -541,6 +543,26 @@ PanelFrame {
                             Accessible.role: Accessible.PageTab
                             Accessible.name: modelData.label
                             Accessible.checked: root.activeTab === index
+                        }
+
+                        Text {
+                            width: parent.width - 4
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: modelData.label
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 2
+                            elide: Text.ElideRight
+                            color: root.activeTab === index ? Theme.primary : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeTiny
+                            lineHeight: 0.9
+
+                            MouseArea {
+                                anchors.fill: parent
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: root.activeTab = index
+                            }
                         }
 
                         Item {
