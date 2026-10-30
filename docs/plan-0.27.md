@@ -163,6 +163,14 @@ B4–B7, C4–C10, D5–D10, E4–E9, F2–F4, G2–G5, H4–H6, I2–I5, J2–J
 - Cada archivo C++ tocado: `g++ -fsyntax-only` con los headers reales; cada QML: `qmlformat` y `qmllint`.
 - `lupdate` dos pasadas iguales; español 0 sin terminar.
 - Prueba nueva `splitCutsOnlyThePickedClips` (tst_editorstate).
-- **Falta:** CI en verde y probar en ventana (Dividir con selección, menú de clic derecho con Avanzado, Exportar con
+- **CI (run 41084424456) en verde y pruebas (CTest) en verde.** Probado en ventana con ese build (2026-10-30):
+  «Dividir» con un clip elegido corta solo ese (la música quedó entera), nombres bajo los íconos de propiedades,
+  «Dividir»/«Eliminar» con nombre en la barra, línea de tiempo vacía con «Importar medios», «Stickers» y «Detectar
+  cortes», Exportar con «Igual que el proyecto» en español y los destinos (WhatsApp marca 720p), aviso final con
+  «Mostrar en la carpeta», sin botón Actualizar. Encontrado y arreglado después: Plantillas del inicio solo
+  marcaba el árbol (no mostraba las plantillas) y dos avisos al terminar de exportar.
+- **Lo prueba Jorge (los clics simulados no llegan):** menú de clic derecho (Avanzado y atajos), formato
+  Automático al arrastrar el primer clip, arrastrar la línea de volumen y los deslizadores de Rebote.
+- **Falta (antes):** probar en ventana (Dividir con selección, menú de clic derecho con Avanzado, Exportar con
   destinos y «Mostrar en la carpeta», formato Automático sin preguntar, línea de tiempo vacía, nombres en la barra de
   propiedades, línea de volumen, deslizadores de Rebote, máscara animada en exportación larga).
