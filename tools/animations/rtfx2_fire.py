@@ -513,11 +513,11 @@ def make_shot_hit():
     return render(s, shot_hit(512, 512, 31, size=1.4))
 
 
-def projectile(W, H, seed, angle=0.0, size=1.0):
+def projectile(W, H, seed, angle=0.0, size=1.0, rough=1.0, dots=0):
     """A fireball in flight, looping (RTFX's «Projectile Loop»): a flame drawn out into a lens, pointed
     at the nose and the tail, redrawn on every second frame so it boils, with thin slivers peeling
-    off above and below."""
-    m = Mass(W, H, seed)
+    off above and below. rough and dots make the energy one: cleaner edges and a wake of specks."""
+    m = Mass(W, H, seed, rough)
     k = size * m.gw / 256
     ca, sa = math.cos(angle), math.sin(angle)
     cx, cy = m.gw / 2, m.gh / 2
@@ -547,6 +547,9 @@ def projectile(W, H, seed, angle=0.0, size=1.0):
             side = 1 if rnd.random() < 0.5 else -1
             x, y = at(sc * rnd.uniform(-40, 10), side * sc * rnd.uniform(17, 27))
             lobes.append((x, y, sc * rnd.uniform(16, 28) * k, 1.0, 0.13, angle - side * rnd.uniform(0.05, 0.3), 0.0))
+        for _ in range(dots):  # specks left in its wake
+            x, y = at(rnd.uniform(-130, -70), rnd.uniform(-12, 12))
+            lobes.append((x, y, rnd.uniform(2.5, 4.5) * k, 1.0, 1.0, 0.0, 0.9))
         return m.field(lobes, n * 0.37, angle + math.pi, at(60, 0), 120 * k, 99.0, 1.0, crown=0.0, life=0.0)
 
     return field

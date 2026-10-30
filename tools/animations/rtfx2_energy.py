@@ -12,7 +12,7 @@ import math
 
 import numpy as np
 
-from rtfx2_fire import Mass, ribbon, traced
+from rtfx2_fire import Mass, looped, ribbon, traced
 from rtfx_field import render
 from rtfx_engine import new
 
@@ -175,4 +175,120 @@ def make_slash():
     return render(s, slash(512, 512, 9, size=1.2), tones=TONES, glow=GLOW)
 
 
-STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash]
+def orb_shot(W, H, seed, size=1.0):
+    """An energy projectile, looping (RTFX's «Energy Projectile Right Loop»): a blunt-nosed drop of
+    light flying right, its back tapering into licks that flicker on every second frame, with jagged
+    white inside and specks of light left in its wake."""
+    m = Mass(W, H, seed, rough=0.4)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2 + 20 * k, m.gh / 2
+
+    def field(t):
+        n = int(round(t * 24)) // 2
+        rnd = np.random.default_rng(seed * 1000 + n)
+        sc = rnd.uniform(0.85, 1.1)
+        lobes = [(cx, cy, 22 * k * sc, 1.0, 1.0, 0.0, 0.62)]  # the nose
+        for j in range(4):  # the body tapering back, each lick its own length
+            u = (j + 1) / 4
+            L = (16 + 26 * u) * k * rnd.uniform(0.8, 1.2) * sc
+            v = rnd.uniform(-1, 1) * 9 * k * u
+            lobes.append((cx - 8 * k - L * 0.8, cy + v, L, 1.0, (0.75 - 0.35 * u) * rnd.uniform(0.8, 1.2), v * 0.01 / k,
+                          0.7 - 0.2 * u))
+        for _ in range(5):  # the wake
+            lobes.append((cx - rnd.uniform(70, 110) * k, cy + rnd.uniform(-10, 10) * k, rnd.uniform(2, 3.5) * k, 1.0,
+                          1.0, 0.0, 0.9))
+        return m.field(lobes, n * 0.37, math.pi, (cx + 25 * k, cy), 120 * k, 99.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_projectile():
+    s = new("ex-energia-proyectil-derecha", "Energía · Proyectil a la derecha (bucle)", "Energy · Projectile right (loop)",
+            "energia", 48, 7004, ["energía", "energy", "proyectil", "projectile", "bola", "orb", "bucle", "loop"],
+            loop=True, size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, orb_shot(512, 512, 83, size=1.3), tones=CYAN, glow=GLOW)
+
+
+def crackle(rnd, cx, cy, r0, r1, k):
+    """A lightning crackle round a centre: a jagged arc of thin segments between radii r0 and r1."""
+    a = rnd.uniform(0, 2 * math.pi)
+    span = rnd.uniform(1.2, 2.6)
+    n = 9
+    pts = []
+    for i in range(n + 1):
+        b = a + span * i / n
+        r = rnd.uniform(r0, r1)
+        pts.append((cx + math.cos(b) * r, cy + math.sin(b) * r))
+    lobes = []
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        L = math.hypot(x1 - x0, y1 - y0) / 2
+        lobes.append(((x0 + x1) / 2, (y0 + y1) / 2, L + 1.5 * k, 1.0, 1.6 * k / (L + 1.5 * k), math.atan2(y1 - y0, x1 - x0),
+                      0.9))
+    return lobes
+
+
+def charge_orb(W, H, seed, size=1.0, period=2.0):
+    """An energy charge, looping (RTFX's «Charge Radial Loop»): a white orb with a soft halo that swells
+    and a ring that pulses out from it, while crackles of lightning flicker round it now and then."""
+    m = Mass(W, H, seed, rough=0.05)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+
+    def lobes_at(t):
+        n = int(round(t * 24)) // 2
+        rnd = np.random.default_rng(seed * 100 + n)
+        beat = 0.5 + 0.5 * math.sin(2 * math.pi * t / period * 2)
+        lobes = [(cx, cy, (17 + 2 * beat) * k, 1.0, 1.0, 0.0, 0.95),
+                 (cx, cy, (24 + 5 * beat) * k, 1.0, 1.0, 0.0, 0.0)]  # the halo, rim only
+        for ph in (0.0, 0.5):
+            a = (t / period * 2 + ph) % 1.0
+            r = (22 + 30 * a) * k
+            w = r * 0.12 * (1 - a)
+            if w > 0.6:
+                lobes.append(ring(cx, cy, r, w, 0.0))
+        if n % 4 != 1:
+            for _ in range(1 + (n % 2)):
+                lobes += crackle(rnd, cx, cy, 24 * k, 44 * k, k)
+        return lobes
+
+    return looped(m, lobes_at, period, "radial", (cx, cy), 60 * k)
+
+
+def make_charge_orb():
+    s = new("ex-energia-carga-esfera", "Energía · Carga de energía (bucle)", "Energy · Charge orb (loop)", "energia", 48,
+            7005, ["energía", "energy", "carga", "charge", "esfera", "orb", "poder", "power", "bucle", "loop"], loop=True,
+            size=512, thumb=0.5)
+    s.fps = 24
+    return render(s, charge_orb(512, 512, 89, size=1.5), tones=TONES, glow=GLOW)
+
+
+def halo(W, H, seed, size=1.0, period=2.0):
+    """A halo of energy, looping (RTFX's «Ray Up Loop»): a flat ring seen at an angle, its rim licking
+    with little flames that run round it, the inside a thin blue sheet."""
+    m = Mass(W, H, seed, rough=0.35)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    rx, ry = 52 * k, 12 * k
+
+    def lobes_at(t):
+        lobes = [(cx, cy, rx, 1.0, ry / rx, 0.0, 0.0)]  # the sheet: rim only
+        n = 90
+        for i in range(n):
+            a = 2 * math.pi * i / n
+            x, y = cx + math.cos(a) * rx, cy + math.sin(a) * ry
+            lick = 0.5 + 0.5 * math.sin(a * 5 + 2 * math.pi * t / period * 3)
+            lobes.append((x, y - lick * 1.6 * k, (1.8 + 0.9 * lick) * k, 1.0, 1.0 + 0.9 * lick, 0.0, 0.92))
+        return lobes
+
+    return looped(m, lobes_at, period, "up", (cx, cy + ry), 40 * k)
+
+
+def make_halo():
+    s = new("ex-energia-halo", "Energía · Halo de energía (bucle)", "Energy · Energy halo (loop)", "energia", 48, 7006,
+            ["energía", "energy", "halo", "anillo", "ring", "aura", "bucle", "loop"], loop=True, size=512, thumb=0.5)
+    s.fps = 24
+    return render(s, halo(512, 512, 97, size=1.1), tones=TONES, glow=GLOW)
+
+
+STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash, make_projectile, make_charge_orb, make_halo]
