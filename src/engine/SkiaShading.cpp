@@ -14,6 +14,8 @@
 #include "include/effects/SkDashPathEffect.h"
 #include "include/effects/SkDiscretePathEffect.h"
 #include "include/effects/SkImageFilters.h"
+#include "include/core/SkPathBuilder.h"
+#include "include/core/SkPathMeasure.h"
 #include "include/effects/SkTrimPathEffect.h"
 
 namespace drift::skia {
@@ -97,8 +99,6 @@ sk_sp<SkPathEffect> sketchEffect(const TextShadingLayer &layer, double scale)
 sk_sp<SkPathEffect> strokePathEffectFor(const TextShadingLayer &layer, double strokeWidthPx, double scale)
 {
     sk_sp<SkPathEffect> effect;
-    if (!qFuzzyIsNull(layer.trimStart) || !qFuzzyCompare(layer.trimEnd, 1.0))
-        effect = SkTrimPathEffect::Make(float(layer.trimStart), float(layer.trimEnd));
     const QList<double> pattern = strokeDashIntervals(layer.dash);
     if (!pattern.isEmpty() && strokeWidthPx > 0.0) {
         std::vector<SkScalar> intervals;
@@ -112,6 +112,57 @@ sk_sp<SkPathEffect> strokePathEffectFor(const TextShadingLayer &layer, double st
     if (sk_sp<SkPathEffect> sketch = sketchEffect(layer, scale))
         effect = effect ? SkPathEffect::MakeCompose(std::move(sketch), std::move(effect)) : std::move(sketch);
     return effect;
+}
+
+SkPath trimEachContour(const SkPath &path, double start, double end, int segments)
+{
+    if (end - start <= 1e-6)
+        return {};
+    const double whole = std::floor(start);
+    start -= whole;
+    end -= whole;
+    const int parts = qMax(1, segments);
+    SkPathBuilder out;
+    SkPathMeasure measure(path, false);
+    do {
+        const double length = measure.getLength();
+        if (length <= 0.0)
+            continue;
+        const double part = length / parts;
+        for (int p = 0; p < parts; ++p) {
+            const double base = p * part;
+            if (end <= 1.0 + 1e-9) {
+                measure.getSegment(float(base + start * part), float(base + qMin(1.0, end) * part), &out, true);
+            } else {
+                // Past the end of the stretch it carries on from its start (the next stretch's,
+                // or the contour's own start for the last one).
+                measure.getSegment(float(base + start * part), float(base + part), &out, true);
+                const double over = qMin(1.0, end - 1.0) * part;
+                const double from = p + 1 < parts ? base + part : 0.0;
+                measure.getSegment(float(from), float(from + over), &out, true);
+            }
+        }
+    } while (measure.nextContour());
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
+SkPath strokedPathFor(const TextShadingLayer &layer, const SkPath &path)
+{
+    if (qFuzzyIsNull(layer.trimStart) && qFuzzyCompare(layer.trimEnd, 1.0) && layer.trimSegments <= 1)
+        return path;
+    double a = qMin(layer.trimStart, layer.trimEnd);
+    double b = qMax(layer.trimStart, layer.trimEnd);
+    double shift = layer.trimOffset / 360.0;
+    if (layer.trimReverse) {
+        // The other way round: what runs from 0 to b now runs from 1 to 1 - b.
+        const double ra = 1.0 - b;
+        b = 1.0 - a;
+        a = ra;
+        shift = -shift;
+    }
+    return trimEachContour(path, a + shift, b + shift, layer.trimSegments);
 }
 
 sk_sp<SkPathEffect> fillPathEffectFor(const TextShadingLayer &layer, double scale)

@@ -41,6 +41,12 @@ Popup {
             else
                 EditorState.addSolidClip("")
         }
+        else if (type === "null")
+            EditorState.addNullObject()
+        else if (type.indexOf("light:") === 0)
+            EditorState.addLight(parseInt(type.substring("light:".length)))
+        else if (type === "pen")
+            EditorState.preview.penMode = true
         else if (type === "adjustmentLayer")
             EditorState.addAdjustmentClip(-1, -1)
         else if (type.indexOf("adjustment:") === 0)
@@ -123,6 +129,15 @@ Popup {
         { type: "shape", label: qsTr("Graphic"), icon: Theme.icons.shapes },
         // After Effects' Solid: one colour over the whole frame (0.25).
         { type: "solid", label: qsTr("Solid"), icon: Theme.icons.square },
+        // After Effects' Null Object: draws nothing, there for other layers to follow (0.26).
+        { type: "null", label: qsTr("Null object"), icon: Theme.icons.locateFixed },
+        // After Effects' Light layers: they light the 3D layers (0.26).
+        { type: "light:1", label: qsTr("Point light"), icon: Theme.icons.sun },
+        { type: "light:2", label: qsTr("Spot light"), icon: Theme.icons.sun },
+        { type: "light:3", label: qsTr("Parallel light"), icon: Theme.icons.sun },
+        { type: "light:4", label: qsTr("Ambient light"), icon: Theme.icons.sun },
+        // After Effects' Pen: click on the preview to draw a shape of your own (0.26).
+        { type: "pen", label: qsTr("Shape with the pen"), icon: Theme.icons.pencil },
         // A standalone adjustment layer at the playhead, ready to edit (an empty adjustment
         // track did nothing until a layer was put on it). It applies to everything composited
         // below; drag it onto a track to nest it there instead and scope it to that track alone.

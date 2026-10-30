@@ -1,0 +1,64 @@
+{
+  "id": "ae.bend",
+  "displayName": "Bend",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 945,
+  "description": "Bends the layer like a joint, as Bendio and the Bend Layers script do: from Start to End along its length it curves by the angle; before Start it stays put, after End it carries on straight, turned. Across or along the height. Motion Tools › Bend applies and animates it.",
+  "padding": {
+    "percentParams": [
+      "bend"
+    ],
+    "percentFactor": 0.25,
+    "extra": 8
+  },
+  "parameters": [
+    {
+      "identifier": "bend",
+      "displayName": "Bend (°)",
+      "type": "float",
+      "minValue": -360,
+      "maxValue": 360,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "start",
+      "displayName": "Start (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 30
+    },
+    {
+      "identifier": "end",
+      "displayName": "End (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 70
+    },
+    {
+      "identifier": "vertical",
+      "displayName": "Along the height",
+      "type": "bool",
+      "defaultValue": false
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

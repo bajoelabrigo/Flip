@@ -25,7 +25,8 @@
 namespace drift {
 
 // Order the staggered fragments fire in. Kept here (not TextStyle.h) because selectors own it.
-enum class TextAnimOrder { Forward, Backward, CenterOut, Random };
+// EdgesIn (0.26, TextEvo's direction): from both ends towards the middle.
+enum class TextAnimOrder { Forward, Backward, CenterOut, Random, EdgesIn };
 QString textAnimOrderToString(TextAnimOrder order);
 TextAnimOrder textAnimOrderFromString(const QString &order);
 
@@ -107,6 +108,9 @@ struct TextRangeSelector
     // Karaoke: coverage 1 on the word being spoken (EvalContext::activeWordIndex).
 
     quint32 seed = 0; // Random order / Noise; 0 = the stable legacy hash
+    // TextEvo's From index (0.26): the stagger starts at this unit and runs round (Forward /
+    // Backward), so the reveal can begin mid-text.
+    int fromIndex = 0;
 };
 
 enum class TextLengthUnit { Px, Em, Box }; // Box = fraction of the layout rect
@@ -158,6 +162,11 @@ struct TextAnimatorProps
     // A soft halo around the letters, its radius in project px (0.22.1): the glow loops pulse it.
     // In the text glow layer's colour when the style has one, else in the letters' own.
     TextAnimParam glow{0.0};
+    // After Effects' Character Offset (0.26, as TextEvo's): each letter shown this many letters on
+    // (a + 2 = c), digits and letters wrapping in their own range; and Character Replace: the
+    // share (percent) of letters showing a random one of their kind, a scramble that settles.
+    TextAnimParam charOffset{0.0};
+    TextAnimParam charReplace{0.0};
     TextAnimWipe wipe;
 };
 
@@ -352,6 +361,8 @@ struct FragmentProps
     double lineSpacing = 0.0;
     double strokeWidthDelta = 0.0;
     double glowPx = 0.0; // render px, the animated halo's radius
+    double charShift = 0.0;   // letters on (Character Offset)
+    double charScramble = 0.0; // 0..1 share of letters scrambled (Character Replace)
     std::optional<QColor> fillColor;
     std::optional<QColor> strokeColor;
     double wipeProgress = -1.0; // revealed fraction 0..1; -1 = no wipe

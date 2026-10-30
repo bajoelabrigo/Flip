@@ -54,9 +54,12 @@ PanelFrame {
         property string videoPage: "basico"
         property string retouchArea: "rostro"
         property string adjustPage: "basic"
+        // The clip Animation tab's In / Out / Combo, kept when the tab reloads.
+        property string clipAnimTab: "in"
     }
 
     property int activeTab: 1 // General; 0 is the scene template tab, shown only for one
+    property string lastSelectionKey: ""
     readonly property string currentTabId: tabs[activeTab].id
     readonly property bool keyframesTab: !!tabs[activeTab].keyframes
 
@@ -69,11 +72,19 @@ PanelFrame {
         target: EditorState
         function onSelectionChanged() {
             root.clipDataRevision++
-            root.syncAdjustmentTab()
-            root.openSubtitlesTabOnSelect()
-            // Picking a scene template is picking its slots to fill.
-            if (root.tabVisible("template"))
-                root.activeTab = tabIndexOf("template")
+            // An edit re-announces the same selection: only another clip moves the pane, or picking
+            // an animation threw the pane back to Video (Jorge, 0.26).
+            const data = EditorState.selectedClipData || {}
+            const key = (data.id || "") + "/" + EditorState.selectedTrack + "/" + EditorState.selectedClip
+            const sameClip = key === root.lastSelectionKey
+            root.lastSelectionKey = key
+            if (!sameClip) {
+                root.syncAdjustmentTab()
+                root.openSubtitlesTabOnSelect()
+                // Picking a scene template is picking its slots to fill.
+                if (root.tabVisible("template"))
+                    root.activeTab = tabIndexOf("template")
+            }
             root.syncActiveTab()
         }
         function onSelectedClipDataChanged() {
@@ -147,6 +158,10 @@ PanelFrame {
         { id: "audio", label: qsTr("Audio"), icon: Theme.icons.volumeHigh, group: 1, needs: ["audible"], keyframes: true },
         { id: "speed", label: qsTr("Speed"), icon: Theme.icons.gauge, group: 1, needs: ["retimable"] },
         { id: "blending", label: qsTr("Blending"), icon: Theme.icons.blend, group: 2, needs: ["blendable"] },
+        // Motion Tools (0.26, Jorge): eases, anchor grid, Elastic / Bounce / Clone, Sequence…
+        { id: "motionTools", label: qsTr("Motion Tools"), icon: "activity", group: 2, needs: [] },
+        // Curvas (0.26, Jorge: EasyCurve in the side bar): the speed curve of the picked keys.
+        { id: "curves", label: qsTr("Curves"), icon: Theme.icons.penCurve, group: 2, needs: [] },
         // Masks and effect stacks live on the adjustments pinned to a clip, and those adjustments
         // are what you select to edit them. A clip can carry several mask adjustments, and
         // reporting one clip-shaped stack for it could only ever show the first.
@@ -187,6 +202,19 @@ PanelFrame {
         return -1
     }
     readonly property int textTabIndex: tabIndexOf("text")
+
+    // The preview toolbar's Roto (0.26) and anything else that asks for a page of a tab.
+    Connections {
+        target: EditorState.preview
+        function onInspectorPageRequested(tab, page) {
+            const index = root.tabIndexOf(tab)
+            if (index < 0 || !root.tabVisible(tab))
+                return
+            if (tab === "video" && page.length > 0)
+                inspectorUi.videoPage = page
+            root.activeTab = index
+        }
+    }
 
     // Selecting a subtitle clip opens its cue editor, with the phrases laid out on the timeline:
     // closed, a generated clip looked like one opaque block with no text to edit.
@@ -718,7 +746,13 @@ PanelFrame {
                 Loader {
                     active: root.currentTabId === "animation"
                     visible: active
-                    sourceComponent: Component { AnimationInspector { width: tabColumn.width } }
+                    sourceComponent: Component {
+                        AnimationInspector {
+                            width: tabColumn.width
+                            animTab: inspectorUi.clipAnimTab
+                            onAnimTabChanged: inspectorUi.clipAnimTab = animTab
+                        }
+                    }
                 }
 
                 Loader {
@@ -740,6 +774,18 @@ PanelFrame {
                     active: root.currentTabId === "transition"
                     visible: active
                     sourceComponent: Component { TransitionInspector { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "motionTools"
+                    visible: active
+                    sourceComponent: Component { MotionToolsPanel { width: tabColumn.width } }
+                }
+
+                Loader {
+                    active: root.currentTabId === "curves"
+                    visible: active
+                    sourceComponent: Component { CurvesPanel { width: tabColumn.width } }
                 }
 
                 Loader {

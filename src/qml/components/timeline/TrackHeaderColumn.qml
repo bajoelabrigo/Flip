@@ -1118,6 +1118,35 @@ Item {
                     void EditorState.tracksRevision
                     return EditorState.keyframeTargetClip(keyLines.trackIndex)
                 }
+                // What the expression dialog's "Apply to" offers (0.26): the layer's usual properties,
+                // whether their line is showing or not, then every other line of the track.
+                function expressionTargets() {
+                    const rows = trackLabelRow.keyframeRows || []
+                    const audio = rows.some(r => r.group === "volume" || r.group === "pan")
+                    const T = (s) => qsTranslate("TrackKeyframeRows", s)
+                    const list = audio
+                        ? [{ label: T("Volume"), props: ["volume"] }, { label: T("Pan"), props: ["pan"] }]
+                        : [{ label: T("Position"), props: ["x", "y"] },
+                           { label: T("X Position"), props: ["x"] },
+                           { label: T("Y Position"), props: ["y"] },
+                           { label: T("Scale"), props: ["width", "height"] },
+                           { label: T("Width"), props: ["width"] },
+                           { label: T("Height"), props: ["height"] },
+                           { label: T("Rotation"), props: ["rotation"] },
+                           { label: T("Opacity"), props: ["opacity"] },
+                           { label: T("Anchor point"), props: ["anchorX", "anchorY"] }]
+                    const known = new Set(list.map(t => JSON.stringify(t.props)))
+                    for (const row of rows) {
+                        if (row.group)
+                            continue
+                        const props = [row.prop]
+                        if (known.has(JSON.stringify(props)))
+                            continue
+                        known.add(JSON.stringify(props))
+                        list.push({ label: keyRowsNames.rowLabel(row), props: props })
+                    }
+                    return list
+                }
                 Repeater {
                     model: trackLabelRow.keyframeRows
                     delegate: Rectangle {
@@ -1127,10 +1156,43 @@ Item {
                         readonly property bool joined: !!modelData.group && !modelData.axis
                         readonly property var props: joined ? modelData.groupProps : [modelData.prop]
                         readonly property int clip: keyLines.targetClip
+                        // After Effects' expression pick whip (0.26) lands here: the line names the
+                        // layer's property as an expression reads it, or "" when expressions cannot.
+                        readonly property bool exprWhipTarget: true
+                        function exprWhipReference(targetProp) {
+                            if (keyLine.clip < 0)
+                                return ""
+                            const name = (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}).name || ""
+                            if (name.length === 0)
+                                return ""
+                            // A joined line gives the axis matching the property being edited.
+                            const second = targetProp === "y" || targetProp === "height" || targetProp === "anchorY"
+                            const axis = keyLine.joined ? (second ? 1 : 0) : -1
+                            const paths = {
+                                "x": "transform.position[0]", "y": "transform.position[1]",
+                                "position": "transform.position[" + Math.max(0, axis) + "]",
+                                "rotation": "transform.rotation", "opacity": "transform.opacity",
+                                "width": "transform.scale[0]", "height": "transform.scale[1]",
+                                "scale": "transform.scale[" + Math.max(0, axis) + "]",
+                                "anchorX": "transform.anchorPoint[0]", "anchorY": "transform.anchorPoint[1]",
+                                "anchor": "transform.anchorPoint[" + Math.max(0, axis) + "]"
+                            }
+                            const key = keyLine.joined ? keyLine.modelData.group : keyLine.modelData.prop
+                            const path = paths[key]
+                            return path ? "thisComp.layer(" + JSON.stringify(name) + ")." + path : ""
+                        }
                         // Position, Rotation, Scale and Opacity (and their axes) can go back to the
                         // clip's reset; other animated properties have no reset of their own.
                         readonly property bool resettable: !!modelData.group
                                                            && modelData.group !== "volume" && modelData.group !== "pan"
+                        // A behaviour (0.26) on the row's property: marked with ≈ after its name.
+                        readonly property bool hasBehavior: {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0])
+                            return !!b && b.active === true
+                        }
                         HoverHandler { id: lineHover }
                         width: parent.width
                         height: Theme.keyframeRowHeight
@@ -1517,7 +1579,9 @@ Item {
                             spacing: 0
                             Text {
                                 width: parent.width
-                                text: (keyLine.modelData.axis ? "· " : "") + keyRowsNames.rowLabel(keyLine.modelData)
+                                text: (keyLine.modelData.axis && !keyLine.modelData.separated ? "· " : "")
+                                      + keyRowsNames.rowLabel(keyLine.modelData)
+                                      + (keyLine.hasBehavior ? "  ≈" : "")
                                 color: Theme.panelForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeXs
@@ -1561,8 +1625,9 @@ Item {
                                             prop: modelData.prop || ""
                                             value: modelData.value !== undefined ? modelData.value
                                                                                  : keyLine.valueOf(modelData.prop)
-                                            toDisplay: modelData.toDisplay
-                                            fromDisplay: modelData.fromDisplay
+                                            // The chain between the two Scale values has none.
+                                            toDisplay: modelData.toDisplay || ((v) => v)
+                                            fromDisplay: modelData.fromDisplay || ((d) => d)
                                             displayMin: modelData.min
                                             displayMax: modelData.max
                                             step: modelData.step
@@ -1646,92 +1711,8 @@ Item {
                             variant: "text"
                             buttonSize: 18
                             iconSize: 13
-                            tooltip: keyLine.modelData.group === "anchor" ? qsTr("Anchor point: corners and centre")
-                                                                           : qsTr("More")
-                            onClicked: {
-                                if (keyLine.modelData.group === "anchor")
-                                    anchorGrid.open()
-                                else
-                                    lineMenu.popup()
-                            }
-                        }
-
-                        // Motion Tools' anchor grid (0.25): a click puts the anchor point on that
-                        // corner, edge or the centre, and the clip stays where it is on screen.
-                        Popup {
-                            id: anchorGrid
-                            x: moreButton.x + moreButton.width - width
-                            y: moreButton.y + moreButton.height + 2
-                            padding: 8
-                            modal: false
-                            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                            background: Rectangle {
-                                color: Theme.panelBackground
-                                border.width: 1
-                                border.color: Theme.panelBorder
-                                radius: Theme.radiusMd
-                            }
-                            contentItem: Column {
-                                spacing: 8
-                                Grid {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    columns: 3
-                                    spacing: 4
-                                    Repeater {
-                                        model: 9
-                                        delegate: Rectangle {
-                                            required property int index
-                                            readonly property real fx: (index % 3) / 2
-                                            readonly property real fy: Math.floor(index / 3) / 2
-                                            readonly property bool current: {
-                                                void EditorState.tracksRevision
-                                                void EditorState.playheadSeconds
-                                                return Math.abs(keyLine.valueOf("anchorX") - fx) < 0.01
-                                                       && Math.abs(keyLine.valueOf("anchorY") - fy) < 0.01
-                                            }
-                                            width: 22
-                                            height: 22
-                                            radius: 3
-                                            color: cellMouse.containsMouse || current ? Theme.primary
-                                                                                      : Qt.rgba(Theme.primary.r, Theme.primary.g,
-                                                                                                Theme.primary.b, 0.35)
-                                            border.width: current ? 2 : 0
-                                            border.color: Theme.panelForeground
-                                            Rectangle {
-                                                visible: index === 4
-                                                anchors.centerIn: parent
-                                                width: 8
-                                                height: 8
-                                                color: "transparent"
-                                                border.width: 1.5
-                                                border.color: Theme.panelForeground
-                                            }
-                                            MouseArea {
-                                                id: cellMouse
-                                                anchors.fill: parent
-                                                hoverEnabled: true
-                                                cursorShape: Qt.PointingHandCursor
-                                                onClicked: {
-                                                    const track = keyLines.trackIndex
-                                                    const clip = keyLine.clip
-                                                    const fx = parent.fx
-                                                    const fy = parent.fy
-                                                    anchorGrid.close()
-                                                    EditorState.setAnchorKeepingPlace(track, clip, fx, fy)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                ThemedButton {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    text: qsTr("More…")
-                                    onClicked: {
-                                        anchorGrid.close()
-                                        lineMenu.popup()
-                                    }
-                                }
-                            }
+                            tooltip: qsTr("More")
+                            onClicked: lineMenu.popup()
                         }
 
                         ThemedContextMenu {
@@ -1761,6 +1742,27 @@ Item {
                                 text: qsTr("Remove all keyframes…")
                                 onTriggered: removeAllDialog.open()
                             }
+                            ThemedMenuItem {
+                                // After Effects' Separate Dimensions: X and Y with keys of their own.
+                                visible: keyLine.modelData.group === "position"
+                                height: visible ? implicitHeight : 0
+                                text: qsTr("Separate dimensions")
+                                icon.name: EditorState.positionLinked ? "" : Theme.icons.check
+                                onTriggered: EditorState.positionLinked = !EditorState.positionLinked
+                            }
+                            ThemedMenuSeparator {}
+                            ThemedMenuItem {
+                                // After Effects' expressions without code (0.26): loop, wiggle, speed.
+                                text: qsTr("Behavior…")
+                                icon.name: keyLine.hasBehavior ? Theme.icons.check : ""
+                                onTriggered: behaviorDialog.openFor(keyLines.trackIndex, keyLine.clip, keyLine.props,
+                                                                    keyRowsNames.rowLabel(keyLine.modelData),
+                                                                    keyLines.expressionTargets())
+                            }
+                        }
+
+                        PropertyBehaviorDialog {
+                            id: behaviorDialog
                         }
 
                         ThemedDialog {

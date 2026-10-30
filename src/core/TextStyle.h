@@ -180,6 +180,15 @@ struct TextStyle
     // Text around a circle (0.22.1): 0 = off; else how much of the circle the line wraps, in percent
     // (100 = all the way round, as a round logo). The bend's sign still says outward (+) or inward.
     double pathCircle = 0.0;
+    // After Effects' text on a path (0.26): the outline a single line's baseline follows, as SVG
+    // path data on 0..100 of the text box (empty = off; wins over the bend and the circle), and
+    // where the line starts along it, in percent of the outline's length (keyframable: letters
+    // slide along). A closed outline wraps round.
+    QString pathSvg;
+    double pathOffset = 0.0;
+    // The shape layer (clip id) whose outline pathSvg follows, kept up to date as that layer changes
+    // («Follow shape»); empty for a ready-made path.
+    QString pathShapeId;
 
     TextAlign align = TextAlign::Center;
     TextVAlign valign = TextVAlign::Middle;

@@ -1,0 +1,80 @@
+{
+  "id": "ae.radio_waves",
+  "displayName": "Radio Waves",
+  "category": "generate",
+  "backend": "gpu",
+  "order": 923,
+  "parameters": [
+    {
+      "identifier": "centerX",
+      "displayName": "Centre X (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "centerY",
+      "displayName": "Centre Y (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "frequency",
+      "displayName": "Waves per second",
+      "type": "float",
+      "minValue": 0.1,
+      "maxValue": 10,
+      "defaultValue": 1.5
+    },
+    {
+      "identifier": "speed",
+      "displayName": "Expansion (px/s)",
+      "type": "float",
+      "minValue": 10,
+      "maxValue": 2000,
+      "defaultValue": 300
+    },
+    {
+      "identifier": "width",
+      "displayName": "Width",
+      "type": "float",
+      "minValue": 1,
+      "maxValue": 60,
+      "defaultValue": 6
+    },
+    {
+      "identifier": "color",
+      "displayName": "Color",
+      "type": "color",
+      "defaultValue": "#5ee7ff"
+    },
+    {
+      "identifier": "fade",
+      "displayName": "Fade out (px)",
+      "type": "float",
+      "minValue": 50,
+      "maxValue": 3000,
+      "defaultValue": 600
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

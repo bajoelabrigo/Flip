@@ -26,7 +26,71 @@ Item {
     // "grid" | "list" | "tree", owned by EditorState so it saves with the project.
     readonly property string viewMode: EditorState.mediaViewMode
     readonly property bool gridMode: viewMode === "grid"
-    readonly property bool treeMode: viewMode === "tree"
+    readonly property bool treeMode: viewMode === "tree" || viewMode === "columns"
+    // After Effects' Project panel (0.26): the tree with Type, Size, Duration and Uses columns,
+    // sorted by clicking a column's title (again: the other way).
+    readonly property bool columnsMode: viewMode === "columns"
+    property string columnSortKey: ""
+    property bool columnSortAscending: true
+    readonly property var columnWidths: ({ kind: 62, size: 74, duration: 54, uses: 36 })
+    // The columns that fit beside a readable name (at least 110 px): in a narrow panel Size goes
+    // first, then Uses, then Type; widened, they come back.
+    readonly property var visibleColumns: {
+        const rowWidth = listColumn.width - 2 * Theme.spacingSm - Theme.iconButtonSize - 26
+        const order = ["kind", "size", "duration", "uses"]
+        const dropFirst = ["size", "uses", "kind", "duration"]
+        let shown = order.slice()
+        const total = () => shown.reduce((sum, key) => sum + root.columnWidths[key], 0)
+        for (let i = 0; i < dropFirst.length && rowWidth - total() < 110; ++i)
+            shown = shown.filter(key => key !== dropFirst[i])
+        return shown
+    }
+    readonly property real visibleColumnsWidth: root.visibleColumns.reduce((sum, key) => sum + root.columnWidths[key], 0)
+    function sortColumn(key) {
+        if (root.columnSortKey === key)
+            root.columnSortAscending = !root.columnSortAscending
+        else {
+            root.columnSortKey = key
+            root.columnSortAscending = true
+        }
+    }
+    function kindLabel(kind) {
+        switch (kind) {
+        case "video": return qsTr("Video")
+        case "audio": return qsTr("Audio")
+        case "image": return qsTr("Image")
+        case "vector": return qsTr("Vector")
+        case "model3d": return qsTr("3D")
+        case "pdf": return qsTr("PDF")
+        case "composite": return qsTr("Composition")
+        case "solid": return qsTr("Solid")
+        }
+        return kind
+    }
+    function sizeLabel(asset) {
+        return asset && asset.width > 0 && asset.height > 0 ? asset.width + " × " + asset.height : ""
+    }
+    // A level of the tree in the column's order (the bin's own order when none is picked).
+    function sortedAssets(list) {
+        if (!root.columnsMode || root.columnSortKey.length === 0)
+            return list
+        const key = root.columnSortKey
+        const dir = root.columnSortAscending ? 1 : -1
+        const value = a => key === "kind" ? root.kindLabel(a.kind)
+                         : key === "size" ? (a.width || 0) * (a.height || 0)
+                         : key === "duration" ? (a.durationSeconds || 0)
+                         : key === "uses" ? EditorState.clipCountForAsset(a.assetIndex)
+                         : a.name.toLowerCase()
+        return list.slice().sort((a, b) => {
+            const va = value(a)
+            const vb = value(b)
+            if (va < vb)
+                return -dir
+            if (va > vb)
+                return dir
+            return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1
+        })
+    }
     // Sorting is a bin-wide reorder of AssetLibrary itself, so this only tracks
     // which of the two orders the toolbar applied last.
     property bool sortByKind: false
@@ -387,7 +451,7 @@ Item {
                     walk(folder.id, depth + 1, seen)
             }
 
-            const assets = childAssets[parentId] || []
+            const assets = root.sortedAssets(childAssets[parentId] || [])
             for (const asset of assets) {
                 if (q.length > 0 && asset.name.toLowerCase().indexOf(q) < 0)
                     continue
@@ -420,6 +484,8 @@ Item {
     // versa) so one delegate below can bind every field as `required` without runtime errors.
     readonly property var combinedItems: {
         void root._refreshTick
+        void root.columnSortKey
+        void root.columnSortAscending
         const q = root.query
         const currentFolder = EditorState.bin.currentFolderId
         const items = []
@@ -515,6 +581,32 @@ Item {
 
             readonly property bool selected: !isFolder && root.isAssetSelected(assetId)
 
+            // A folder takes the media dropped on it (0.26, as After Effects' Project panel): the
+            // dropped item, or the whole selection when it is one of the picked ones.
+            DropArea {
+                anchors.fill: parent
+                z: 20
+                enabled: cardRoot.isFolder
+                keys: ["text/plain"]
+                onEntered: drag => drag.accept(Qt.CopyAction)
+                onDropped: drop => {
+                    const index = EditorState.draggingAssetIndex >= 0 ? EditorState.draggingAssetIndex : parseInt(drop.text)
+                    const id = AssetLibrary.assetIdAt(index)
+                    if (!id || id.length === 0)
+                        return
+                    drop.accept()
+                    EditorState.bin.moveAssetsToFolder(root.isAssetSelected(id) ? root.selectedAssetIds : [id],
+                                                       cardRoot.folderId)
+                }
+                Rectangle {
+                    anchors.fill: parent
+                    visible: parent.containsDrag
+                    radius: Theme.radiusSm
+                    color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.18)
+                    border.width: 2
+                    border.color: Theme.primary
+                }
+            }
             // Bound to the model snapshot by default, but re-readable in place: a rotate/trim
             // edit only ever changes this one card's thumbnail, so refreshing it directly here
             // avoids MediaAssetsTab's full combinedItems rebuild (and the scroll-position
@@ -682,12 +774,26 @@ Item {
                     }
                 }
 
+                // A solid (0.26) shows its colour, as After Effects' Project panel does.
+                Rectangle {
+                    visible: kind === "solid"
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingSm
+                    radius: Theme.radiusSm
+                    border.width: 1
+                    border.color: Theme.panelBorder
+                    color: {
+                        void AssetLibrary.badgeRevision
+                        return AssetLibrary.assetAt(cardRoot.assetIndex).solidColor || "#ff28282e"
+                    }
+                }
+
                 IconGlyph {
                     anchors.centerIn: parent
                     // Also covers Image.Error, so a missing
                     // thumbnail file falls back to the kind icon
                     // instead of staying blank forever.
-                    visible: !cardRoot.isFolder
+                    visible: !cardRoot.isFolder && kind !== "solid"
                              && (cardRoot._liveThumbnailPath.length === 0 || gridThumb.status === Image.Error)
                     glyph: kind === "audio" ? Theme.icons.music
                             : kind === "image" ? Theme.icons.image
@@ -974,8 +1080,16 @@ Item {
                     ThemedMenuItem {
                         text: kind === "video" ? qsTr("Trim, crop and upscale…") : qsTr("Preview and edit…")
                         icon.name: Theme.icons.eye
-                        visible: kind !== "composite"
+                        visible: kind !== "composite" && kind !== "solid"
                         onTriggered: root.previewRequested(assetIndex)
+                    }
+                    ThemedMenuItem {
+                        // After Effects' New Composition From Selection (0.26): the picked media, stacked.
+                        text: qsTr("New composition from selection")
+                        icon.name: Theme.icons.layers
+                        visible: kind !== "composite"
+                        onTriggered: EditorState.newCompositionFromAssets(root.isAssetSelected(cardRoot.assetId)
+                                                                          ? root.selectedAssetIds : [cardRoot.assetId])
                     }
                     ThemedMenuItem {
                         text: qsTr("Rename…")
@@ -986,7 +1100,7 @@ Item {
                     ThemedMenuItem {
                         text: qsTr("Replace media…")
                         icon.name: Theme.icons.refresh
-                        visible: kind !== "composite" && root.selectedAssetIds.length <= 1
+                        visible: kind !== "composite" && kind !== "solid" && root.selectedAssetIds.length <= 1
                         onTriggered: root.replaceRequested(assetIndex)
                     }
                     ThemedMenuItem {
@@ -1029,7 +1143,7 @@ Item {
                     ThemedMenuItem {
                         text: qsTr("Save As…")
                         icon.name: Theme.icons.save
-                        visible: kind !== "composite" && root.selectedAssetIds.length <= 1
+                        visible: kind !== "composite" && kind !== "solid" && root.selectedAssetIds.length <= 1
                         onTriggered: root.saveAsRequested(assetIndex)
                     }
                     ThemedMenuItem {
@@ -1109,12 +1223,66 @@ Item {
         }
     }
 
+    // The column titles of the columns view: a click sorts by that column, again the other way.
+    Component {
+        id: columnsHeader
+        Rectangle {
+            width: ListView.view ? ListView.view.width : 0
+            height: 24
+            z: 3
+            color: Theme.panelBackground
+            Row {
+                anchors.fill: parent
+                anchors.leftMargin: Theme.spacingSm
+                anchors.rightMargin: Theme.spacingSm
+                Repeater {
+                    model: [
+                        { key: "name", text: qsTr("Name") },
+                        { key: "kind", text: qsTr("Type") },
+                        { key: "size", text: qsTr("Size") },
+                        { key: "duration", text: qsTr("Duration") },
+                        { key: "uses", text: qsTr("Uses") }
+                    ].filter(c => c.key === "name" || root.visibleColumns.indexOf(c.key) >= 0)
+                    Item {
+                        required property var modelData
+                        width: modelData.key === "name" ? parent.width - root.visibleColumnsWidth
+                                                        : root.columnWidths[modelData.key]
+                        height: parent.height
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: parent.width
+                            text: modelData.text + (root.columnSortKey === modelData.key
+                                                    ? (root.columnSortAscending ? " ▲" : " ▼") : "")
+                            color: root.columnSortKey === modelData.key ? Theme.panelForeground : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            font.weight: Font.DemiBold
+                            elide: Text.ElideRight
+                            horizontalAlignment: modelData.key === "uses" ? Text.AlignRight : Text.AlignLeft
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: root.sortColumn(modelData.key)
+                        }
+                    }
+                }
+            }
+            Rectangle {
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 1
+                color: Theme.panelBorder
+            }
+        }
+    }
+
     Component {
         id: listDelegate
         Rectangle {
             id: listRow
             width: ListView.view ? ListView.view.width : 0
-            height: 48
+            height: root.columnsMode ? 32 : 48
             radius: Theme.radiusSm
             color: rowHover.hovered ? Theme.popoverHover : Theme.panelAccent
             // Matches the grid card's selection ring.
@@ -1164,6 +1332,32 @@ Item {
                 && EditorState.bin.replacingAssetId === AssetLibrary.assetIdAt(assetIndex)
             readonly property bool selected: !isFolder && root.isAssetSelected(assetId)
 
+            // A folder takes the media dropped on it (0.26, as After Effects' Project panel): the
+            // dropped item, or the whole selection when it is one of the picked ones.
+            DropArea {
+                anchors.fill: parent
+                z: 20
+                enabled: listRow.isFolder
+                keys: ["text/plain"]
+                onEntered: drag => drag.accept(Qt.CopyAction)
+                onDropped: drop => {
+                    const index = EditorState.draggingAssetIndex >= 0 ? EditorState.draggingAssetIndex : parseInt(drop.text)
+                    const id = AssetLibrary.assetIdAt(index)
+                    if (!id || id.length === 0)
+                        return
+                    drop.accept()
+                    EditorState.bin.moveAssetsToFolder(root.isAssetSelected(id) ? root.selectedAssetIds : [id],
+                                                       listRow.folderId)
+                }
+                Rectangle {
+                    anchors.fill: parent
+                    visible: parent.containsDrag
+                    radius: Theme.radiusSm
+                    color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.18)
+                    border.width: 2
+                    border.color: Theme.primary
+                }
+            }
             // See the matching property on gridDelegate's cardRoot: lets a rotate/trim edit
             // refresh just this row's thumbnail without MediaAssetsTab rebuilding the whole list.
             property string _liveThumbnailPath: thumbnailPath
@@ -1197,14 +1391,15 @@ Item {
             Row {
                 id: listRowContent
                 anchors.fill: parent
-                anchors.margins: Theme.spacingLg
-                anchors.leftMargin: Theme.spacingLg + listRow.treeIndent + listRow.disclosureSpace
-                spacing: Theme.spacingLg + Theme.spacingXs
+                anchors.margins: root.columnsMode ? Theme.spacingSm : Theme.spacingLg
+                anchors.leftMargin: (root.columnsMode ? Theme.spacingSm : Theme.spacingLg) + listRow.treeIndent
+                                    + listRow.disclosureSpace
+                spacing: root.columnsMode ? Theme.spacingSm : Theme.spacingLg + Theme.spacingXs
 
                 Rectangle {
                     id: listThumbFrame
-                    width: 56
-                    height: 32
+                    width: root.columnsMode ? 18 : 56
+                    height: root.columnsMode ? 18 : 32
                     radius: Theme.radiusSm
                     color: Theme.panelBackground
                     clip: true
@@ -1230,10 +1425,24 @@ Item {
                                              Math.ceil(listThumbFrame.height * Screen.devicePixelRatio))
                     }
 
+                    Rectangle {
+                        visible: kind === "solid"
+                        anchors.fill: parent
+                        anchors.margins: 3
+                        radius: 2
+                        border.width: 1
+                        border.color: Theme.panelBorder
+                        color: {
+                            void AssetLibrary.badgeRevision
+                            return AssetLibrary.assetAt(listRow.assetIndex).solidColor || "#ff28282e"
+                        }
+                    }
+
                     IconGlyph {
                         anchors.centerIn: parent
                         visible: listRow.isFolder
-                                    || listRow._liveThumbnailPath.length === 0 || listThumb.status === Image.Error
+                                    || (kind !== "solid"
+                                        && (listRow._liveThumbnailPath.length === 0 || listThumb.status === Image.Error))
                         glyph: listRow.isFolder ? Theme.icons.folder
                                : (kind === "audio" ? Theme.icons.music
                                   : kind === "vector" ? Theme.icons.layers
@@ -1279,6 +1488,7 @@ Item {
                     // Derived from the actual thumbnail width
                     // rather than a magic constant.
                     width: parent.width - listThumbFrame.width - listRowContent.spacing
+                           - (root.columnsMode ? rowColumns.width + listRowContent.spacing : 0)
                     Row {
                         id: rowNameRow
                         width: parent.width
@@ -1317,7 +1527,7 @@ Item {
                         }
                     }
                     Text {
-                        visible: !listRow.isFolder
+                        visible: !listRow.isFolder && !root.columnsMode
                         text: kind + (duration.length > 0 ? " · " + duration : "")
                         color: Theme.mutedForeground
                         font.pixelSize: Theme.fontSizeXs
@@ -1326,6 +1536,37 @@ Item {
                         // at narrow panel widths.
                         elide: Text.ElideRight
                         width: parent.width
+                    }
+                }
+
+                // The After Effects columns: Type, Size, Duration and how many clips use it.
+                Row {
+                    id: rowColumns
+                    visible: root.columnsMode
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 0
+                    readonly property var asset: {
+                        void AssetLibrary.badgeRevision
+                        return listRow.isFolder ? null : AssetLibrary.assetAt(listRow.assetIndex)
+                    }
+                    Repeater {
+                        model: [
+                            { key: "kind", text: listRow.isFolder ? qsTr("Folder") : root.kindLabel(kind) },
+                            { key: "size", text: root.sizeLabel(rowColumns.asset) },
+                            { key: "duration", text: listRow.isFolder ? "" : duration },
+                            { key: "uses", text: listRow.isFolder ? "" : String((void EditorState.tracksRevision,
+                                                                     EditorState.clipCountForAsset(listRow.assetIndex))) }
+                        ].filter(c => root.visibleColumns.indexOf(c.key) >= 0)
+                        Text {
+                            required property var modelData
+                            width: root.columnWidths[modelData.key]
+                            text: modelData.text
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            elide: Text.ElideRight
+                            horizontalAlignment: modelData.key === "uses" ? Text.AlignRight : Text.AlignLeft
+                        }
                     }
                 }
             }
@@ -1474,8 +1715,16 @@ Item {
                 ThemedMenuItem {
                     text: kind === "video" ? qsTr("Trim, crop and upscale…") : qsTr("Preview and edit…")
                     icon.name: Theme.icons.eye
-                    visible: kind !== "composite"
+                    visible: kind !== "composite" && kind !== "solid"
                     onTriggered: root.previewRequested(assetIndex)
+                }
+                ThemedMenuItem {
+                    // After Effects' New Composition From Selection (0.26): the picked media, stacked.
+                    text: qsTr("New composition from selection")
+                    icon.name: Theme.icons.layers
+                    visible: kind !== "composite"
+                    onTriggered: EditorState.newCompositionFromAssets(root.isAssetSelected(listRow.assetId)
+                                                                      ? root.selectedAssetIds : [listRow.assetId])
                 }
                 ThemedMenuItem {
                     text: qsTr("Rename…")
@@ -1486,7 +1735,7 @@ Item {
                 ThemedMenuItem {
                     text: qsTr("Replace media…")
                     icon.name: Theme.icons.refresh
-                    visible: kind !== "composite" && root.selectedAssetIds.length <= 1
+                    visible: kind !== "composite" && kind !== "solid" && root.selectedAssetIds.length <= 1
                     onTriggered: root.replaceRequested(assetIndex)
                 }
                 ThemedMenuItem {
@@ -1527,7 +1776,7 @@ Item {
                 ThemedMenuItem {
                     text: qsTr("Save As…")
                     icon.name: Theme.icons.save
-                    visible: kind !== "composite" && root.selectedAssetIds.length <= 1
+                    visible: kind !== "composite" && kind !== "solid" && root.selectedAssetIds.length <= 1
                     onTriggered: root.saveAsRequested(assetIndex)
                 }
                 ThemedMenuItem {
@@ -1790,8 +2039,16 @@ Item {
             glyph: Theme.icons.listTree
             variant: "ghost"
             tooltip: qsTr("Tree view")
-            active: root.treeMode
+            active: root.viewMode === "tree"
             onClicked: EditorState.mediaViewMode = "tree"
+        }
+
+        IconButton {
+            glyph: "table"
+            variant: "ghost"
+            tooltip: qsTr("Columns view (as After Effects' Project panel)")
+            active: root.columnsMode
+            onClicked: EditorState.mediaViewMode = "columns"
         }
 
         IconButton {
@@ -2038,5 +2295,7 @@ Item {
 
         model: root.gridMode ? [] : root.combinedItems
         delegate: listDelegate
+        headerPositioning: ListView.OverlayHeader
+        header: root.columnsMode ? columnsHeader : null
     }
 }

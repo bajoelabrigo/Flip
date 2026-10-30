@@ -1025,6 +1025,55 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
         return ok(clipFeedback(ref, {{QStringLiteral("flipH"), flipH}, {QStringLiteral("flipV"), flipV}}));
     }
 
+    if (tool == QLatin1String("add_null_object")) {
+        m_controller->addNullObject();
+        return ok(QJsonObject{{QStringLiteral("track"), m_controller->selectedTrack()},
+                              {QStringLiteral("clip"), m_controller->selectedClip()}});
+    }
+
+    if (tool == QLatin1String("set_parent")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        const int parentTrack = args.value(QStringLiteral("parentTrack")).toInt(-1);
+        const int parentClip = args.value(QStringLiteral("parentClip")).toInt(-1);
+        m_controller->setClipParent(ref.track, ref.clip, parentTrack, parentClip);
+        const QVariantMap info = m_controller->clipMotionInfo(ref.track, ref.clip);
+        return ok(clipFeedback(ref, {{QStringLiteral("parentId"), info.value(QStringLiteral("parentId")).toString()},
+                                     {QStringLiteral("parentName"), info.value(QStringLiteral("parentName")).toString()}}));
+    }
+
+    if (tool == QLatin1String("set_track_matte")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        m_controller->setClipTrackMatte(ref.track, ref.clip, args.value(QStringLiteral("mode")).toString(),
+                                        args.value(QStringLiteral("matteTrack")).toInt(-1),
+                                        args.value(QStringLiteral("matteClip")).toInt(-1));
+        const QVariantMap info = m_controller->clipMotionInfo(ref.track, ref.clip);
+        return ok(clipFeedback(ref, {{QStringLiteral("mode"), info.value(QStringLiteral("matteMode")).toString()},
+                                     {QStringLiteral("matteId"), info.value(QStringLiteral("matteId")).toString()}}));
+    }
+
+    if (tool == QLatin1String("set_motion_blur")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        if (args.contains(QStringLiteral("on")))
+            m_controller->setClipMotionBlur(ref.track, ref.clip, args.value(QStringLiteral("on")).toBool());
+        if (args.contains(QStringLiteral("shutterDeg")) || args.contains(QStringLiteral("samples"))) {
+            const QVariantMap now = m_controller->motionBlurSettings();
+            m_controller->setMotionBlurSettings(
+                jsonNumber(args.value(QStringLiteral("shutterDeg")), now.value(QStringLiteral("shutterDeg")).toDouble()),
+                args.value(QStringLiteral("samples")).toInt(now.value(QStringLiteral("samples")).toInt()));
+        }
+        const QVariantMap info = m_controller->clipMotionInfo(ref.track, ref.clip);
+        const QVariantMap blur = m_controller->motionBlurSettings();
+        return ok(clipFeedback(ref, {{QStringLiteral("on"), info.value(QStringLiteral("motionBlur")).toBool()},
+                                     {QStringLiteral("shutterDeg"), blur.value(QStringLiteral("shutterDeg")).toDouble()},
+                                     {QStringLiteral("samples"), blur.value(QStringLiteral("samples")).toInt()}}));
+    }
+
     if (tool == QLatin1String("set_blend_mode")) {
         const ClipRef ref = resolveClip(args);
         if (!ref.valid())

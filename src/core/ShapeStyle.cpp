@@ -1,4 +1,5 @@
 #include "ShapeStyle.h"
+#include "ShapePathEdit.h"
 
 #include "Effect.h"
 
@@ -523,6 +524,30 @@ constexpr KnobField kKnobs[] = {
     {"thickness", QT_TRANSLATE_NOOP("ShapeStyle", "Thickness"), &ShapeStyle::thickness, 0.05, 1.0},
     {"tailX", QT_TRANSLATE_NOOP("ShapeStyle", "Tail position"), &ShapeStyle::tailX, 0.08, 0.92},
     {"tailSize", QT_TRANSLATE_NOOP("ShapeStyle", "Tail size"), &ShapeStyle::tailSize, 0.05, 0.5},
+    {"trimStart", QT_TRANSLATE_NOOP("ShapeStyle", "Trim start"), &ShapeStyle::trimStart, 0.0, 100.0},
+    {"trimEnd", QT_TRANSLATE_NOOP("ShapeStyle", "Trim end"), &ShapeStyle::trimEnd, 0.0, 100.0},
+    {"trimOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Trim offset"), &ShapeStyle::trimOffset, -36000.0, 36000.0},
+    {"trimSegments", QT_TRANSLATE_NOOP("ShapeStyle", "Trim segments"), &ShapeStyle::trimSegments, 1.0, 64.0},
+    {"trimReverse", QT_TRANSLATE_NOOP("ShapeStyle", "Reverse path direction"), &ShapeStyle::trimReverse, 0.0, 1.0},
+    {"repeatCopies", QT_TRANSLATE_NOOP("ShapeStyle", "Copies"), &ShapeStyle::repeatCopies, 1.0, 200.0},
+    {"repeatOffset", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater offset"), &ShapeStyle::repeatOffset, -200.0, 200.0},
+    {"repeatX", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater position X"), &ShapeStyle::repeatX, -10000.0, 10000.0},
+    {"repeatY", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater position Y"), &ShapeStyle::repeatY, -10000.0, 10000.0},
+    {"repeatScale", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater scale"), &ShapeStyle::repeatScale, 0.0, 1000.0},
+    {"repeatRotation", QT_TRANSLATE_NOOP("ShapeStyle", "Repeater rotation"), &ShapeStyle::repeatRotation, -36000.0, 36000.0},
+    {"repeatStartOpacity", QT_TRANSLATE_NOOP("ShapeStyle", "Start opacity"), &ShapeStyle::repeatStartOpacity, 0.0, 100.0},
+    {"repeatEndOpacity", QT_TRANSLATE_NOOP("ShapeStyle", "End opacity"), &ShapeStyle::repeatEndOpacity, 0.0, 100.0},
+    {"wiggleSize", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle size"), &ShapeStyle::wiggleSize, 0.0, 1000.0},
+    {"wiggleDetail", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle detail"), &ShapeStyle::wiggleDetail, 2.0, 500.0},
+    {"wiggleSpeed", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggles per second"), &ShapeStyle::wiggleSpeed, 0.0, 30.0},
+    {"wiggleSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Random seed"), &ShapeStyle::wiggleSeed, 0.0, 1000.0},
+    {"mergeMode", QT_TRANSLATE_NOOP("ShapeStyle", "Merge paths"), &ShapeStyle::mergeMode, 0.0, 4.0},
+    {"offsetPath", QT_TRANSLATE_NOOP("ShapeStyle", "Offset paths"), &ShapeStyle::offsetPath, -500.0, 500.0},
+    {"zigzagSize", QT_TRANSLATE_NOOP("ShapeStyle", "Zig zag size"), &ShapeStyle::zigzagSize, 0.0, 500.0},
+    {"zigzagRidges", QT_TRANSLATE_NOOP("ShapeStyle", "Ridges"), &ShapeStyle::zigzagRidges, 1.0, 200.0},
+    {"zigzagSmooth", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth points"), &ShapeStyle::zigzagSmooth, 0.0, 1.0},
+    {"twistAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Twist"), &ShapeStyle::twistAngle, -3600.0, 3600.0},
+    {"puckerBloat", QT_TRANSLATE_NOOP("ShapeStyle", "Pucker & Bloat"), &ShapeStyle::puckerBloat, -100.0, 100.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -541,6 +566,8 @@ QStringList shapeKeyframeProperties(const ShapeStyle &style)
     for (const KnobField &knob : kKnobs)
         out.append(QLatin1String(knob.key));
     out.append(QStringLiteral("points"));
+    if (style.kind == ShapeKind::Custom)
+        out.append(QLatin1String(kShapePathKey));
     for (const TextShadingLayer &layer : style.layers) {
         for (const QString &field : shadingLayerKeyframeFields(layer))
             out.append(QStringLiteral("layer.%1.%2").arg(layer.id, field));
@@ -550,7 +577,7 @@ QStringList shapeKeyframeProperties(const ShapeStyle &style)
 
 QString shapeKeyframeCanonicalKey(const QString &key, const ShapeStyle &style)
 {
-    if (knobFor(key) || key == QLatin1String("points"))
+    if (knobFor(key) || key == QLatin1String("points") || key == QLatin1String(kShapePathKey))
         return key;
     LayerKeyPath path;
     if (!parseLayerKey(key, &path))
@@ -568,6 +595,8 @@ QString shapeKeyframeLabel(const QString &key, const ShapeStyle &style)
         return QCoreApplication::translate("ShapeStyle", knob->label);
     if (key == QLatin1String("points"))
         return QCoreApplication::translate("ShapeStyle", "Points");
+    if (key == QLatin1String(kShapePathKey))
+        return QCoreApplication::translate("ShapeStyle", "Path");
     return shadingLayerKeyframeLabel(style.layers, key);
 }
 
@@ -618,21 +647,98 @@ ShapeStyle ShapeStyle::resolvedAt(TimeUs clipTimeUs) const
 {
     ShapeStyle out = *this;
     for (auto it = keyframes.constBegin(); it != keyframes.constEnd(); ++it) {
+        if (it.key() == QLatin1String(kShapePathKey))
+            continue;
         if (!it->isEmpty())
             setShapeStyleScalar(out, it.key(), it->evaluateAt(clipTimeUs));
     }
+    if (kind == ShapeKind::Custom)
+        out.customPath = shapePathAt(*this, clipTimeUs);
     return out;
+}
+
+QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs)
+{
+    const auto it = style.keyframes.constFind(QLatin1String(kShapePathKey));
+    if (it == style.keyframes.constEnd() || it->isEmpty() || style.pathShapes.isEmpty())
+        return style.customPath;
+    const QMap<TimeUs, Keyframe<double>> &keys = it->keyframes();
+    const auto outline = [&style](double index) {
+        const int i = qRound(index);
+        return i >= 0 && i < style.pathShapes.size() ? style.pathShapes.at(i) : style.customPath;
+    };
+    // Switched off: the first key's outline throughout, as every other property does.
+    if (!it->enabled() || clipTimeUs <= keys.firstKey())
+        return outline(keys.first().value);
+    if (clipTimeUs >= keys.lastKey())
+        return outline(keys.last().value);
+    auto next = keys.upperBound(clipTimeUs);
+    auto prev = std::prev(next);
+    const double v0 = prev->value;
+    const double v1 = next->value;
+    if (prev->hold || qFuzzyCompare(v0 + 1.0, v1 + 1.0))
+        return outline(v0);
+    const double t = qBound(0.0, (it->evaluateAt(clipTimeUs) - v0) / (v1 - v0), 1.0);
+    return morphSvgPaths(outline(v0), outline(v1), t);
+}
+
+void setShapePathAt(ShapeStyle &style, TimeUs clipTimeUs, const QString &svg, TimeUs toleranceUs)
+{
+    auto it = style.keyframes.find(QLatin1String(kShapePathKey));
+    if (it == style.keyframes.end() || it->isEmpty()) {
+        style.customPath = svg;
+        return;
+    }
+    const TimeUs near = it->nearestKeyframe(clipTimeUs, toleranceUs);
+    if (near >= 0) {
+        const int index = qRound(it->keyframes().value(near).value);
+        if (index >= 0 && index < style.pathShapes.size()) {
+            style.pathShapes[index] = svg;
+            return;
+        }
+    }
+    style.pathShapes.append(svg);
+    it->setKeyframe(clipTimeUs, double(style.pathShapes.size() - 1));
+    it->setStopwatch(true);
+}
+
+void setShapePathAnimated(ShapeStyle &style, bool on, TimeUs clipTimeUs)
+{
+    if (on) {
+        if (style.keyframes.contains(QLatin1String(kShapePathKey))
+            && !style.keyframes.value(QLatin1String(kShapePathKey)).isEmpty())
+            return;
+        style.pathShapes = {style.customPath};
+        KeyframeTrack<double> track;
+        track.setKeyframe(qMax<TimeUs>(0, clipTimeUs), 0.0);
+        track.setStopwatch(true);
+        style.keyframes.insert(QLatin1String(kShapePathKey), track);
+        return;
+    }
+    style.customPath = shapePathAt(style, clipTimeUs);
+    style.keyframes.remove(QLatin1String(kShapePathKey));
+    style.pathShapes.clear();
 }
 
 quint64 shapeStyleHash(const ShapeStyle &style)
 {
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
                       style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
-                      style.customPath, style.customEvenOdd);
+                      style.customPath, style.customEvenOdd)
+           ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.trimSegments, style.trimReverse, style.repeatCopies, style.repeatOffset,
+                        style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
+                        style.repeatStartOpacity, style.repeatEndOpacity)
+           ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
+           ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
+                        style.zigzagSmooth, style.twistAngle, style.puckerBloat)
+           ^ qHash(style.pathShapes);
 }
 
 bool shapeTimeDrivenPaint(const ShapeStyle &style)
 {
+    // A wiggle that moves redraws every frame.
+    if (style.hasWiggle() && style.wiggleSpeed > 0.0)
+        return true;
     for (const TextShadingLayer &layer : style.layers) {
         if (!layer.enabled)
             continue;
@@ -666,11 +772,23 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
         {QStringLiteral("tailX"), s.tailX},
         {QStringLiteral("tailSize"), s.tailSize},
     };
+    // The shape operators (0.26) are written only away from their defaults, so a shape without
+    // them saves as it always did.
+    {
+        const ShapeStyle defaults;
+        for (const KnobField &knob : kKnobs) {
+            const double value = s.*(knob.field);
+            if (value != defaults.*(knob.field) && !o.contains(QLatin1String(knob.key)))
+                o.insert(QLatin1String(knob.key), value);
+        }
+    }
     if (s.kind == ShapeKind::Custom) {
         o.insert(QStringLiteral("customPath"), s.customPath);
         if (s.customEvenOdd)
             o.insert(QStringLiteral("customEvenOdd"), true);
     }
+    if (!s.pathShapes.isEmpty())
+        o.insert(QStringLiteral("pathShapes"), QJsonArray::fromStringList(s.pathShapes));
     QJsonObject keyframesJson;
     for (auto it = s.keyframes.constBegin(); it != s.keyframes.constEnd(); ++it) {
         if (!it->isEmpty())
@@ -744,11 +862,17 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     s.thickness = o.value(QStringLiteral("thickness")).toDouble(s.thickness);
     s.tailX = o.value(QStringLiteral("tailX")).toDouble(s.tailX);
     s.tailSize = o.value(QStringLiteral("tailSize")).toDouble(s.tailSize);
+    for (const KnobField &knob : kKnobs) {
+        if (o.contains(QLatin1String(knob.key)))
+            s.*(knob.field) = qBound(knob.min, o.value(QLatin1String(knob.key)).toDouble(), knob.max);
+    }
     s.customPath = o.value(QStringLiteral("customPath")).toString();
     s.customEvenOdd = o.value(QStringLiteral("customEvenOdd")).toBool(false);
     // A custom kind without an outline would draw nothing; a rectangle is the honest fallback.
     if (s.kind == ShapeKind::Custom && s.customPath.isEmpty())
         s.kind = ShapeKind::Rectangle;
+    for (const QJsonValue &v : o.value(QStringLiteral("pathShapes")).toArray())
+        s.pathShapes.append(v.toString());
     const QJsonObject keyframesJson = o.value(QStringLiteral("keyframes")).toObject();
     for (auto it = keyframesJson.constBegin(); it != keyframesJson.constEnd(); ++it) {
         const QString canonical = shapeKeyframeCanonicalKey(it.key(), s);

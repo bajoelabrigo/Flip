@@ -188,7 +188,9 @@ void AudioMixer::readClipAudio(QVector<float> &out, const drift::Clip &clip, qui
     // to pass through 1.0 in this block still goes through the stretcher: bypassing it for one
     // block would skip the source read, leave the retimer's cursor where it was, and re-enter the
     // stream with a hole in it.
-    if (!clip.hasSpeedCurve() && qFuzzyCompare(clip.effectiveSpeed(), 1.0)) {
+    // A time-remapped clip (0.26) is retimed like a ramp: its keys can slow, freeze or reverse it.
+    const bool remapped = !clip.timeRemap.isEmpty() && clip.timeRemap.enabled();
+    if (!remapped && !clip.hasSpeedCurve() && qFuzzyCompare(clip.effectiveSpeed(), 1.0)) {
         // Frame counts are derived in the sample domain, never by going through microseconds. A
         // block whose duration is not a whole number of microseconds — 1024 frames at 48 kHz is
         // 21333.33 — used to truncate twice, once into µs and once back out, and ask the decoder
@@ -225,7 +227,17 @@ void AudioMixer::readClipAudio(QVector<float> &out, const drift::Clip &clip, qui
     // clamps at the clip's end, so differencing there would under-report the rate.
     const drift::TimeUs blockEndUs = playStartUs + framesToUs(wantFrames, sampleRate);
     double tempo = clip.effectiveSpeed();
-    if (clip.hasSpeedCurve()) {
+    bool backwards = clip.reverse;
+    if (remapped) {
+        // The remap's own rate over the block; a freeze still has to move the cursor a little, and
+        // a stretch that runs back plays backwards.
+        const drift::TimeUs a = clip.timelineToSourceUs(playStartUs);
+        const drift::TimeUs b = clip.timelineToSourceUs(qMin(blockEndUs, clip.timelineEnd()));
+        const double span = double(qMax<drift::TimeUs>(1, qMin(blockEndUs, clip.timelineEnd()) - playStartUs));
+        const double rate = double(b - a) / span;
+        backwards = rate < 0.0;
+        tempo = qBound(0.05, qAbs(rate), 8.0);
+    } else if (clip.hasSpeedCurve()) {
         tempo = blockEndUs <= clip.timelineEnd()
                     ? static_cast<double>(clip.timelineToSourceUs(blockEndUs)
                                           - clip.timelineToSourceUs(playStartUs))
@@ -242,7 +254,7 @@ void AudioMixer::readClipAudio(QVector<float> &out, const drift::Clip &clip, qui
     // order, which is exactly what the retimer's cursor means; it walks backwards from there.
     block.sourceStartUs = toSource(playStartUs);
     block.tempo = tempo;
-    block.reverse = clip.reverse;
+    block.reverse = backwards;
 
     const QString path = clip.path;
     const int audioStreamIndex = clip.audioStreamIndex;

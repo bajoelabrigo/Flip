@@ -2791,6 +2791,10 @@
         <translation>Combinata</translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Tutto</translation>
     </message>
@@ -2920,6 +2924,26 @@
     <message>
         <source>Toggle guides</source>
         <translation>Mostra/Nascondi guide</translation>
+    </message>
+    <message>
+        <source>Show only Anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only Scale</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add/remove bookmark at current time</source>
@@ -3339,6 +3363,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hand tool (preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom tool (preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D camera tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Ingrandisci</translation>
     </message>
@@ -3432,6 +3484,126 @@
     </message>
     <message>
         <source>Solid settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null object added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape drawn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes reversed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes stretched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick some keyframes first (or select an animated layer)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select two or more layers to sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layers sequenced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text or a shape to convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Converted to shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centred in the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path animation removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the layer to use as the matte on a track above first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-orient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4994,6 +5166,138 @@
         <translation>Opacità</translation>
     </message>
     <message>
+        <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RAM preview (render to memory and play)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rendering the preview to memory… press it again to stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ruler guides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights only change 3D layers: turn on «3D layer» on the layers to light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape added to the layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added to Essential Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removed from Essential Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>«%1» is now a control of this composition: select the composition outside to change it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Essential Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text on the shape&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask ends before the clip: past its end the clip is not shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The mask starts after the clip: until then the clip is not shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask stuck to the layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask fixed on screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volume</translation>
     </message>
@@ -5007,6 +5311,10 @@
     </message>
     <message>
         <source>Anchor point Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5320,6 +5628,70 @@
         <translation>Di tendenza</translation>
     </message>
     <message>
+        <source>%1 slice %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 band %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>drops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 liquid (%2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape or a text with a stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line caps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape, or a text with a stroke, to animate its Trim Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 trace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 copy %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace rides a shape&apos;s line: pick the shape last</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim Paths animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers to bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers to animate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Slide</source>
         <translation>Scorri</translation>
     </message>
@@ -5453,6 +5825,38 @@
     <message>
         <source>Mine</source>
         <translation>Mie</translation>
+    </message>
+    <message>
+        <source>Select the layers to morph, and the one they turn into last (Ctrl+click)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 trail %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Morph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the moving layer the liquid comes off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen: the liquid runs along it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 liquid line</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -6309,6 +6713,14 @@
         <translation>Riproduzione in loop</translation>
     </message>
     <message>
+        <source>Stop RAM Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RAM Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Bookmarks</source>
         <translation>Segnalibri</translation>
     </message>
@@ -6341,20 +6753,8 @@
         <translation>Guide</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Area di lavoro</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automatica (segue la tela)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Verticale</translation>
+        <source>Rulers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Theme</source>
@@ -6736,6 +7136,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Lettura dei file multimediali e generazione delle miniature in corso.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>More import options</source>
@@ -7299,6 +7703,77 @@
     <message>
         <source>The audio device does not support playback of this project.</source>
         <translation>Il dispositivo audio non supporta la riproduzione di questo progetto.</translation>
+    </message>
+</context>
+<context>
+    <name>BendLayersPanel</name>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers. Between Start and End the layer curves like a joint, as Bendio does: before Start it stays, after End it carries on straight, turned. Positive bends up, negative down; 360° rolls it round.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the layer top to bottom instead of side to side</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Half ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend it this much (a key at the playhead if the bend is animated)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unbend in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starts bent and straightens out from the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bends away at the end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9815,6 +10290,294 @@
         <translation>Dissolvenza</translation>
     </message>
     <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend (°)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fractal Noise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Complexity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evolution speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend with original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient Ramp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start X (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Y (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End X (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End Y (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Particle World</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Birth rate (per s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longevity (s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Emitter X (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Emitter Y (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity (px/s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity (px/s²)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spread (deg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direction (deg)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puppet Pins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stiffness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radio Waves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre X (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre Y (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Waves per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expansion (px/s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade out (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Explosion</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pieces across</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Origin X (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Origin Y (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turbulent Displace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevel and Emboss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop Shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outer Glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position (out, centre, in)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ground (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Melt (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base width (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top width (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lean (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bulge (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Comparsa</translation>
     </message>
@@ -11135,6 +11898,214 @@ LA PROSSIMA</translation>
         <translation>Sabbia al vento</translation>
     </message>
     <message>
+        <source>Attention</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backflip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Big Jump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blow Away</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dash Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Double Hop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Excited Jumps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fall and Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fall Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Around</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch Jump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heavy Jump</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rise Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop In Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hop Out Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inchworm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jelly Shake</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump Forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Launch and Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leap Over</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rubber Band</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sack Race</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shake No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide In Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide In Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide Out Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide Out Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin with Squash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spring Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stumble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ta-da</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tiny Hops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Topple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trampoline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wobble Turn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shatter</source>
         <translation>Va in frantumi</translation>
     </message>
@@ -11972,6 +12943,155 @@ LA PROSSIMA</translation>
     <message>
         <source>Custom fade applied</source>
         <translation>Dissolvenza personalizzata applicata</translation>
+    </message>
+</context>
+<context>
+    <name>CurvesPanel</name>
+    <message>
+        <source>Ease in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anticipate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves (*.json)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves exported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No curves of this mode in that file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curves imported</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a curves file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2 keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A curve from one key to the next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>4 keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to a peak and back: the stretches before and after the middle of three keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the curve of the picked keys in the graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curve applied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keys picked on the timeline.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Goes onto every key of the selected clip. To shape only some, pick their diamonds on the timeline (Ctrl for more).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick keys on the timeline (click the diamonds, Ctrl for more): each one takes the curve to the next.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keeps this curve in My curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My 4-key curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click to load it, double click to apply it, right click to delete it</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12868,22 +13988,6 @@ LA PROSSIMA</translation>
         <translation>Multicam</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Spazio di lavoro</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automatico (segui area di disegno)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Verticale</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -13107,6 +14211,18 @@ LA PROSSIMA</translation>
     <message>
         <source>Background Removal</source>
         <translation>Rimozione sfondo</translation>
+    </message>
+    <message>
+        <source>Layer Styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate &amp; Simulate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Other</source>
@@ -15053,6 +16169,10 @@ LA PROSSIMA</translation>
         <translation>Sfumatura maschera</translation>
     </message>
     <message>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keyframes</source>
         <translation>Fotogrammi chiave</translation>
     </message>
@@ -15063,6 +16183,14 @@ LA PROSSIMA</translation>
     <message>
         <source>Expand curve editor to view and edit Bezier handles (180px)</source>
         <translation>Espandi l&apos;editor delle curve per vedere e modificare le maniglie Bézier (180 px)</translation>
+    </message>
+    <message>
+        <source>Hide the other selected layers&apos; curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the other selected layers&apos; curves</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Value graph</source>
@@ -15143,6 +16271,14 @@ LA PROSSIMA</translation>
         <source>Edit keyframe curve</source>
         <translation>Modifica curva fotogramma chiave</translation>
     </message>
+    <message>
+        <source>The layer whose curves you are editing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit this layer&apos;s curves (dashed)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
@@ -15153,6 +16289,14 @@ LA PROSSIMA</translation>
     <message>
         <source>Move keyframes</source>
         <translation>Sposta fotogrammi chiave</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Straight</source>
@@ -15183,12 +16327,59 @@ LA PROSSIMA</translation>
         <translation>Modifica curva…</translation>
     </message>
     <message>
+        <source>Reverse keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe velocity…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete keyframe</source>
         <translation>Elimina fotogramma chiave</translation>
     </message>
     <message>
         <source>Delete keyframes</source>
         <translation>Elimina fotogrammi chiave</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeVelocityDialog</name>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Incoming velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Influence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outgoing velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous (the same speed on both sides)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -15641,14 +16832,6 @@ LA PROSSIMA</translation>
         <translation>&amp;Finestra</translation>
     </message>
     <message>
-        <source>Landscape Workspace</source>
-        <translation>Area di lavoro orizzontale</translation>
-    </message>
-    <message>
-        <source>Portrait Workspace</source>
-        <translation>Area di lavoro verticale</translation>
-    </message>
-    <message>
         <source>Auto Workspace (Follow Canvas)</source>
         <translation>Area di lavoro automatica (segue la tela)</translation>
     </message>
@@ -15705,8 +16888,24 @@ LA PROSSIMA</translation>
         <translation>Impostazioni…</translation>
     </message>
     <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Debug Info…</source>
         <translation>Informazioni di debug…</translation>
+    </message>
+    <message>
+        <source>Save workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My workspace</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -16408,6 +17607,10 @@ LA PROSSIMA</translation>
         <translation>Vista ad albero</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>Ordina per nome</translation>
     </message>
@@ -16456,6 +17659,18 @@ LA PROSSIMA</translation>
         <translation>Rinomina…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — trascina sulla timeline, fai clic con il pulsante destro del mouse per l&apos;anteprima</translation>
     </message>
@@ -16486,6 +17701,10 @@ LA PROSSIMA</translation>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>Taglia, ritaglia e aumenta risoluzione…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -16536,6 +17755,30 @@ LA PROSSIMA</translation>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>Convertito a una frequenza dei fotogrammi costante per una modifica fluida</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Collapse folder</source>
@@ -17192,6 +18435,213 @@ LA PROSSIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionLinkSection</name>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It lights the 3D layers that accept lights. Move it, take it nearer (depth) or tilt it like any layer; its opacity is its strength over time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cone angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cone feather</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falloff radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Falloff distance (0 = none)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights change this 3D layer (when there is at least one light)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Essential Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Essential Graphics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offered as a control of the composition: click to take it out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offer it as a control of the composition, editable from outside</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Layer styles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Added as effects, so each one is adjusted, animated or removed in the Effects tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop shadow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outer glow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevel and emboss</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer follows the parent&apos;s position, rotation and scale from the moment you link it, as in After Effects. A null object is a handle that is never drawn.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer this one follows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No track matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha inverted matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Luma matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Luma inverted matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Track matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows this layer only where another one covers it (alpha) or is bright (luma). The matte layer is hidden, as in After Effects.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The layer used as the matte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mask moves with this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off, the mask stays fixed on screen while this layer moves through it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blurs the layer along its movement, as a camera shutter would</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutter angle and samples, for the whole project: 180° blurs over half a frame; more samples are smoother and slower.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shutter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Samples</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
@@ -17203,6 +18653,248 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MotionToolsPanel</name>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Caps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) picked on the timeline.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick keyframes on the timeline (drag a box over them) to ease, clone or settle them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease in: how far the curve slows down arriving at the key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease out: how far it starts slowly leaving the key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed at the keys, in units a second: 0 stops there, more keeps it moving through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Easy ease with these influences on the picked keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight, constant speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump to the next key instead of moving</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overshoots and settles where the movement stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounces back off the last position, like a ball</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies the picked keys to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bounce: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elastic: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the behaviour off this property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amplitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Max jumps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jump In/Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hops on the far side of the key, as if it went through, instead of back off it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staggers the selected layers in time, top to bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sequence from the bottom up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset in frames between layers; Step = how many layers start together.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extract</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Takes the layers out of the selected composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in one composition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add null</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A null in the middle of the selected layers, which follow it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert to shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text&apos;s letters or a shape become an editable path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in the middle of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shines all round from one point, like a bulb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A cone of light, like a stage spot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Even light from one direction, like the sun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lights every side evenly, without direction</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -17491,6 +19183,30 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Solid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape with the pen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17828,6 +19544,21 @@ LA PROSSIMA</translation>
     </message>
 </context>
 <context>
+    <name>PenToolOverlay</name>
+    <message>
+        <source>Convert vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
     <message>
         <source>Auto</source>
@@ -18053,6 +19784,22 @@ Hardware è migliore per il 4K di alta qualità e forza un decodificatore GPU.
 Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
+        <source>Transparency grid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows a checkerboard instead of the project background, to see what is transparent (only on the preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Safe zones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects&apos; title and action safe margins, and the centre (only on the preview)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Keep mask handles up</source>
         <translation>Mantieni visibili le maniglie della maschera</translation>
     </message>
@@ -18132,6 +19879,13 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>PreviewRulers</name>
+    <message>
+        <source>Release to remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PreviewStatusLayer</name>
     <message>
         <source>PAUSED %1s</source>
@@ -18172,6 +19926,85 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation>Flip Studio non è riuscito ad avviare il renderer GPU, quindi l&apos;anteprima non può essere disegnata.</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewToolbar</name>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hand: drag to move the view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom: click to zoom in, Alt+click to zoom out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Region of interest: drag the part of the frame to preview; the rest is not drawn, so it plays faster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset the region of interest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point: drag it without moving the layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pen: click for corners, drag for curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text: click on the preview and type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Puppet pins: click on the selected layer to pin it, drag a pin to bend it (each move is a keyframe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion sketch: drag the selected layer and the path becomes its Position keys, in real time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roto: cut the person or object out of the selected video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>3D camera: orbit, move and zoom the view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -18805,6 +20638,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Fusione</translation>
     </message>
     <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Masks</source>
         <translation>Maschere</translation>
     </message>
@@ -18843,6 +20684,113 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>My look</source>
         <translation>Il mio stile</translation>
+    </message>
+</context>
+<context>
+    <name>PropertyBehaviorDialog</name>
+    <message>
+        <source>No loop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cycle (repeat the keys)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ping-pong (back and forth)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset (repeat, adding up)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continue (keep the last speed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loop after the last keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A smooth random shake around the value, like wiggle(frequency, amount)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Constant speed (per second)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression (JavaScript)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My expressions (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this saved expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name to save this expression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression saved as &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -20194,8 +22142,56 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Appearance and language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline and keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview and performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account and privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AI in the cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>Impostazioni</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
@@ -20549,6 +22545,126 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Download in corso…</translation>
     </message>
     <message>
+        <source>Colour and theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How long a layer lasts when you put it on the timeline, as After Effects&apos; Still footage duration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Photos, shapes and solids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New keyframes are</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight (linear)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth (Easy Ease)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can always change a key afterwards from its menu (Straight, Smooth, Hold, Keyframe velocity…).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the tools bar above the preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Safe zones on from the start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes and the pen use the fill, stroke and width last chosen on the tools bar; they are remembered between sessions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke width for new shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save a recovery copy every</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If Flip Studio closes unexpectedly, it offers this copy the next time it opens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Levels of undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>More levels use more memory. The new number applies from the next project you open.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Every action can take another key: the tools bar (V, H, Z, Y, P…), the keyframes (Shift+J / Shift+K, U), the timeline and the menus.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore the editing defaults</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Durations, keyframes, saving, undo and the preview tools go back to how they came. Your account, language and devices are not touched.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
         <translation>Scheda grafica su cui viene eseguito Flip Studio. Alte prestazioni mantiene sulla scheda NVIDIA i video decodificati su di essa; Risparmio energetico consuma meno batteria. Diventa effettivo dopo il riavvio.</translation>
     </message>
@@ -20883,6 +22999,137 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>ShapeElementsPanel</name>
+    <message>
+        <source>Morph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layers with Ctrl+click in order: the last one is what they turn into. From the playhead, they fly into it and the picture cuts to it, as Super Morphings does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slicer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Morph it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wobble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wobble speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply extra effects (melt like liquid)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gravity (they fall)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Frame skipping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Life</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the layer that moves last, and before it (Ctrl+click) the shapes to throw: drops, rings, lines… With none, round drops. Wherever it goes fast it throws copies of them, frame by frame, as Super Liquids does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquids per frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen. A stream of liquid runs along it from the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roughness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate liquid trail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate liquid line</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShapeInspector</name>
     <message>
         <source>Shape</source>
@@ -20967,6 +23214,218 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Tail size</source>
         <translation>Dimensione coda</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>As in After Effects. Edit points: click a point to select it, Shift+click or drag a box for several, drag to move them, drag a line to bend it, Delete removes them and the arrows nudge them. Alt+click turns a point corner or smooth, Alt+drag pulls new handles, Ctrl+click removes it. Pen: click for corners, click and drag for curves, click the first point to close, Enter to leave it open; over a selected shape it adds a point on a line, carries on an open end, or starts another path. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This shape becomes an editable path when you edit its points.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done editing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw with the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path runs the other way: Trim Paths draws it from the other end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate the path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects&apos; Path stopwatch: a key with this outline at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editing the key at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moving a point here adds a key at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shows only part of the outline: animate Start or End to draw the shape on, and Offset to run it round.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies of the shape, each one moved, turned and scaled from the one before.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makes the outline wobble: Size is how far it moves, Detail how often along the edge, and Wiggles per second how fast.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Detail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes in this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add more shapes to the same layer, then choose how they combine (Merge paths).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclude intersections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset, pucker, zig zag and twist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth zig zag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -21128,8 +23587,108 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Dimensione coda</translation>
     </message>
     <message>
+        <source>Trim start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim segments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse path direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater position X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater position Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeater rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle detail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation>Punti</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -21742,6 +24301,105 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>SquashStretchPanel</name>
+    <message>
+        <source>In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Moves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Jumps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick one to see it, then Apply: it is written as keyframes on every selected layer, starting (or ending) at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Oomph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How far it travels, jumps and turns</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start of behavior (at the playhead)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End of behavior (at the playhead)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>between layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How hard it squashes, stretches and bends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Faster makes it shorter, slower makes it longer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SrtIO</name>
     <message>
         <source>Missing output</source>
@@ -22112,6 +24770,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Trending</source>
         <translation>Di tendenza</translation>
+    </message>
+    <message>
+        <source>VFX</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Backgrounds</source>
@@ -22524,6 +25186,48 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Retry</source>
         <translation>Riprova</translation>
+    </message>
+</context>
+<context>
+    <name>StrokeCapsPanel</name>
+    <message numerus="yes">
+        <source>%n stroke(s) in the selection.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line cap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Butt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line join</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -23201,6 +25905,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Dal centro all&apos;esterno</translation>
     </message>
     <message>
+        <source>Edges in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Random</source>
         <translation>Casuale</translation>
     </message>
@@ -23285,6 +25993,22 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Bagliore</translation>
     </message>
     <message>
+        <source>Skew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Character offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Character replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit text animation</source>
         <translation>Modifica animazione testo</translation>
     </message>
@@ -23339,6 +26063,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Stagger</source>
         <translation>Sfasamento</translation>
+    </message>
+    <message>
+        <source>Start at</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit in 1 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the stagger so every unit of the text has started within a second</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Duration</source>
@@ -24442,6 +27178,58 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Lettere all’interno del cerchio</translation>
     </message>
     <message>
+        <source>Text on a path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A single line of text follows an outline: a ready-made one or a shape layer&apos;s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the text on a path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Valley</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S curve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rising</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No shape layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Follow shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the text on this shape layer&apos;s outline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animate the offset to make the letters run along the path. Only one line of text follows it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Salva come mio stile…</translation>
     </message>
@@ -25289,6 +28077,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Fine ritaglio</translation>
     </message>
     <message>
+        <source>Trim offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>Offset tratteggio</translation>
     </message>
@@ -25653,6 +28445,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Il numero tranquillo</translation>
     </message>
     <message>
+        <source>Path offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Position X</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25966,6 +28762,34 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Parent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use as mask stuck to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use as fixed mask of</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-orient along path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Time remapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fades to volume keyframes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25996,6 +28820,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Drag to trim the end</source>
         <translation>Trascina per ritagliare la fine</translation>
+    </message>
+    <message>
+        <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Split item at current time</source>
@@ -26801,10 +29629,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Anchor point: corners and centre</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>More</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26817,11 +29641,15 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>More…</source>
+        <source>Remove all keyframes…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remove all keyframes…</source>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Behavior…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26979,6 +29807,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Pan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Y Position</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27735,6 +30571,185 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Aggiungi ai preferiti</translation>
+    </message>
+</context>
+<context>
+    <name>TrimPackPanel</name>
+    <message>
+        <source>Frames</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip. For Trace, pick the layers that ride the line first and the line last (with none, a dot rides it).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw on at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Divide-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw off at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws on with another layer riding its end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws off with another layer riding its end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A layer on each end, in and out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MidTrace In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grows from the middle with a layer on each end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MidTrace Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle with a layer on each end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a horizontal line to trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a vertical line to trim</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw from the other end of the path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line also travels round the path by the offset range</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copies above, each one drawing on a little later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace In</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws on from its start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The line draws off from its start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end of the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse path direction: the trim runs round the other way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle (reversed: in from both ends)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mid-out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle (reversed: off towards both ends)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Running gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A small gap runs round each outline all the clip long, as an outlined title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trace I&amp;O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text or shape into an editable path, so it can be trimmed letter by letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take the Trim Paths animation off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse (Alt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offset (Shift)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -29123,6 +32138,119 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Close</source>
         <translation>Chiudi</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceMenu</name>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done arranging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save as new workspace…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reset «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete «%1»</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceView</name>
+    <message>
+        <source>Library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide this panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Workspaces</name>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graphics and text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Review</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

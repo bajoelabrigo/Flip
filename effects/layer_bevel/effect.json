@@ -1,0 +1,70 @@
+{
+  "id": "layer.bevel",
+  "displayName": "Bevel and Emboss",
+  "category": "layerstyles",
+  "backend": "gpu",
+  "order": 903,
+  "parameters": [
+    {
+      "identifier": "size",
+      "displayName": "Size",
+      "type": "float",
+      "minValue": 1,
+      "maxValue": 60,
+      "defaultValue": 8
+    },
+    {
+      "identifier": "depth",
+      "displayName": "Depth",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 3,
+      "defaultValue": 1
+    },
+    {
+      "identifier": "angle",
+      "displayName": "Angle",
+      "type": "float",
+      "minValue": -180,
+      "maxValue": 180,
+      "defaultValue": 120
+    },
+    {
+      "identifier": "highlight",
+      "displayName": "Highlight",
+      "type": "color",
+      "defaultValue": "#ffffff"
+    },
+    {
+      "identifier": "shadow",
+      "displayName": "Shadow",
+      "type": "color",
+      "defaultValue": "#000000"
+    },
+    {
+      "identifier": "opacity",
+      "displayName": "Opacity",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.75
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

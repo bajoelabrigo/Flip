@@ -14,7 +14,9 @@
 #include <QSettings>
 #include <QVector4D>
 
+#include <algorithm>
 #include <cmath>
+#include <limits>
 
 using namespace drift::appdetail;
 
@@ -74,6 +76,7 @@ PreviewController::PreviewController(AppController &app, QObject *parent)
 {
     QSettings settings;
     m_guidesEnabled = settings.value(QStringLiteral("preview/guidesEnabled"), false).toBool();
+    m_rulersVisible = settings.value(QStringLiteral("preview/rulersVisible"), false).toBool();
     m_gizmoTool = settings.value(QStringLiteral("preview/gizmoTool"), m_gizmoTool).toString();
     m_gizmoOrientation =
         settings.value(QStringLiteral("preview/gizmoOrientation"), m_gizmoOrientation).toString();
@@ -134,6 +137,15 @@ void PreviewController::updateHandlesVisible()
         return;
     m_handlesVisible = visible;
     emit handlesVisibleChanged();
+}
+
+void PreviewController::setRulersVisible(bool visible)
+{
+    if (m_rulersVisible == visible)
+        return;
+    m_rulersVisible = visible;
+    QSettings().setValue(QStringLiteral("preview/rulersVisible"), m_rulersVisible);
+    emit rulersVisibleChanged();
 }
 
 void PreviewController::setGuidesEnabled(bool enabled)
@@ -701,6 +713,46 @@ drift::snap::PlacedClip PreviewController::placedClip(const QVariantMap &box) co
     return placed;
 }
 
+void PreviewController::appendLayerSnapTargets(const QVariantMap &self,
+                                               drift::snap::Targets *targets) const
+{
+    const int selfTrack = self.value(QStringLiteral("track"), -1).toInt();
+    const int selfClip = self.value(QStringLiteral("clip"), -1).toInt();
+    for (const QVariant &item : clipsAtPlayhead()) {
+        const QVariantMap box = item.toMap();
+        if (box.value(QStringLiteral("track")).toInt() == selfTrack
+            && box.value(QStringLiteral("clip")).toInt() == selfClip)
+            continue;
+        // A group's frame, a null or a light draws nothing to line up with; a spun or tilted
+        // layer has no edges along the screen axes, and under a camera nothing is flat.
+        if (box.value(QStringLiteral("kind")).toString() == QLatin1String("transform")
+            || box.value(QStringLiteral("nullObject")).toBool()
+            || box.value(QStringLiteral("cameraActive")).toBool()
+            || qAbs(box.value(QStringLiteral("rotation")).toDouble()) >= 0.01
+            || qAbs(box.value(QStringLiteral("rotationX")).toDouble()) >= 0.01
+            || qAbs(box.value(QStringLiteral("rotationY")).toDouble()) >= 0.01)
+            continue;
+        const QVariantList quad = box.value(QStringLiteral("quad")).toList();
+        if (quad.size() != 4)
+            continue;
+        double left = std::numeric_limits<double>::max();
+        double top = left;
+        double right = std::numeric_limits<double>::lowest();
+        double bottom = right;
+        for (const QVariant &corner : quad) {
+            const QPointF p = corner.toPointF();
+            left = std::min(left, p.x());
+            right = std::max(right, p.x());
+            top = std::min(top, p.y());
+            bottom = std::max(bottom, p.y());
+        }
+        if (right - left < 1.0 || bottom - top < 1.0)
+            continue;
+        targets->x << left << (left + right) / 2.0 << right;
+        targets->y << top << (top + bottom) / 2.0 << bottom;
+    }
+}
+
 QVariantMap PreviewController::snapMove(const QVariantMap &box, double pressX, double pressY,
                                            double nowX, double nowY, double tolerance,
                                            bool snap) const
@@ -716,7 +768,9 @@ QVariantMap PreviewController::snapMove(const QVariantMap &box, double pressX, d
         const double w = box.value(QStringLiteral("canvasWidth")).toDouble();
         const double h = box.value(QStringLiteral("canvasHeight")).toDouble();
         const QVariantMap guides = m_guidesEnabled ? m_app.guideSnapTargets(w, h) : QVariantMap{};
-        moved = drift::snap::snapMove(placed, *delta, canvasSnapTargets(w, h, guides), tolerance);
+        drift::snap::Targets targets = canvasSnapTargets(w, h, guides);
+        appendLayerSnapTargets(box, &targets);
+        moved = drift::snap::snapMove(placed, *delta, targets, tolerance);
     }
     return {
         {QStringLiteral("valid"), true},
@@ -745,7 +799,8 @@ QVariantMap PreviewController::snapResize(const QVariantMap &box, double width, 
     const double cw = box.value(QStringLiteral("canvasWidth")).toDouble();
     const double ch = box.value(QStringLiteral("canvasHeight")).toDouble();
     const QVariantMap guides = m_guidesEnabled ? m_app.guideSnapTargets(cw, ch) : QVariantMap{};
-    const drift::snap::Targets targets = canvasSnapTargets(cw, ch, guides);
+    drift::snap::Targets targets = canvasSnapTargets(cw, ch, guides);
+    appendLayerSnapTargets(box, &targets);
     // Where the moving edge sits in the grabbed rect's own px, as anchor + scale * size: about
     // the centre it moves half as far, about the opposite edge the whole way.
     const auto axis = [&](int sign, double start, double size, bool horizontal,
@@ -929,7 +984,7 @@ QVariantList PreviewController::clipsAtPlayhead() const
             && track.type != drift::TrackType::Text && track.type != drift::TrackType::Subtitle
             && !track.isTransformLayer())
             continue;
-        const drift::TransformParent parent =
+        const drift::TransformParent trackParent =
             parents.isEmpty() ? drift::TransformParent{} : parents.at(trackIndex);
         QVariantList parentChain;
         for (const int layer : drift::transformLayersCovering(tracks, trackIndex)) {
@@ -942,25 +997,34 @@ QVariantList PreviewController::clipsAtPlayhead() const
                                                 {QStringLiteral("name"), candidate.name}});
             }
         }
-        const QVariantList parentMatrix = transformToList(parent.matrix);
-        QString parentSig;
-        if (parent.hasParent) {
-            for (const QVariant &v : parentMatrix)
-                parentSig += QString::number(v.toDouble(), 'g', 6) + QLatin1Char(',');
-        }
-        parentSig += QString::number(parent.opacity, 'g', 4);
-
         for (int clipIndex = 0; clipIndex < track.clips.size(); ++clipIndex) {
             const drift::Clip &clip = track.clips.at(clipIndex);
             if (!clip.containsTime(m_app.m_playheadUs) || !clipAcceptsPreviewTransform(clip))
                 continue;
+
+            // The clip's own parent (0.26) moves it before the transform layers over its track.
+            drift::TransformParent parent = trackParent;
+            bool clipParented = false;
+            const QTransform clipParent =
+                drift::clipParentMatrix(m_app.m_project, clip, m_app.m_playheadUs, 1.0, &clipParented);
+            if (clipParented) {
+                parent.matrix = parent.hasParent ? clipParent * parent.matrix : clipParent;
+                parent.hasParent = true;
+            }
+            const QVariantList parentMatrix = transformToList(parent.matrix);
+            QString parentSig;
+            if (parent.hasParent) {
+                for (const QVariant &v : parentMatrix)
+                    parentSig += QString::number(v.toDouble(), 'g', 6) + QLatin1Char(',');
+            }
+            parentSig += QString::number(parent.opacity, 'g', 4);
 
             const drift::TimeUs relative = m_app.m_playheadUs - clip.timelineStart;
             const double x = clipTransformValue(clip.transformX, relative, 0.0);
             const double y = clipTransformValue(clip.transformY, relative, 0.0);
             const double w = clipTransformValue(clip.transformW, relative, static_cast<double>(canvasWidth));
             const double h = clipTransformValue(clip.transformH, relative, static_cast<double>(canvasHeight));
-            const double rotation = clipTransformValue(clip.rotation, relative, 0.0);
+            const double rotation = clipTransformValue(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
 
             const bool isTransform = track.isTransformLayer();
             int childCount = 0;
@@ -986,6 +1050,8 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("parentSig"), parentSig},
                 {QStringLiteral("parents"), parentChain},
                 {QStringLiteral("name"), clip.name},
+                {QStringLiteral("nullObject"), clip.nullObject},
+                {QStringLiteral("clipParented"), clipParented},
                 {QStringLiteral("pixelSize"), clip.textStyle.pixelSize},
                 {QStringLiteral("x"), x},
                 {QStringLiteral("y"), y},
@@ -1007,11 +1073,16 @@ QVariantList PreviewController::clipsAtPlayhead() const
             };
             // Where the box lands on screen, through its own pose, every parent and the camera.
             {
-                const QRectF rect(entry.value(QStringLiteral("x")).toDouble(),
-                                  entry.value(QStringLiteral("y")).toDouble(),
+                const double spin = entry.value(QStringLiteral("rotation")).toDouble();
+                // The renderer moves the box so the turn pivots on the anchor point; the quad has to
+                // sit where the clip is drawn, or the tools that map the pointer into the box (anchor,
+                // puppet pins) land off by that much on a turned layer with its anchor off centre.
+                const QPointF anchorShift = clip.anchorShift(relative, entry.value(QStringLiteral("width")).toDouble(),
+                                                             entry.value(QStringLiteral("height")).toDouble(), spin);
+                const QRectF rect(entry.value(QStringLiteral("x")).toDouble() + anchorShift.x(),
+                                  entry.value(QStringLiteral("y")).toDouble() + anchorShift.y(),
                                   entry.value(QStringLiteral("width")).toDouble(),
                                   entry.value(QStringLiteral("height")).toDouble());
-                const double spin = entry.value(QStringLiteral("rotation")).toDouble();
                 const drift::ClipPose3d pose = previewBoxPose(entry);
                 QMatrix4x4 placed;
                 if (cameraActive) {

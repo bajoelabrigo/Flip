@@ -332,6 +332,38 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("effects"), effectsToJson(clip.effects)},
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
+    // Saved only when set, so a project without them reads back byte for byte.
+    if (!clip.timeRemap.isEmpty())
+        json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
+    if (clip.autoOrient)
+        json.insert(QStringLiteral("autoOrient"), true);
+    if (clip.nullObject)
+        json.insert(QStringLiteral("nullObject"), true);
+    if (clip.light.kind != 0) {
+        json.insert(QStringLiteral("light"),
+                    QJsonObject{{QStringLiteral("kind"), clip.light.kind},
+                                {QStringLiteral("color"), clip.light.color.name(QColor::HexRgb)},
+                                {QStringLiteral("intensity"), clip.light.intensity},
+                                {QStringLiteral("coneAngle"), clip.light.coneAngle},
+                                {QStringLiteral("coneFeather"), clip.light.coneFeather},
+                                {QStringLiteral("falloffRadius"), clip.light.falloffRadius},
+                                {QStringLiteral("falloffDistance"), clip.light.falloffDistance}});
+    }
+    if (!clip.acceptsLights)
+        json.insert(QStringLiteral("acceptsLights"), false);
+    if (clip.motionBlur)
+        json.insert(QStringLiteral("motionBlur"), true);
+    if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
+        static const char *const modes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
+        json.insert(QStringLiteral("matte"), QJsonObject{{QStringLiteral("clip"), clip.matteClipId},
+                                                         {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}});
+    }
+    if (!clip.parentId.isEmpty()) {
+        const QTransform &r = clip.parentRest;
+        json.insert(QStringLiteral("parentId"), clip.parentId);
+        json.insert(QStringLiteral("parentRest"),
+                    QJsonArray{r.m11(), r.m12(), r.m13(), r.m21(), r.m22(), r.m23(), r.m31(), r.m32(), r.m33()});
+    }
     if (clip.audioFadeInUs > 0)
         json.insert(QStringLiteral("audioFadeInUs"), static_cast<double>(clip.audioFadeInUs));
     if (clip.audioFadeOutUs > 0)
@@ -369,6 +401,8 @@ QJsonObject clipToJson(const Clip &clip)
     }
     if (clip.masksLimitEffects)
         json.insert(QStringLiteral("masksLimitEffects"), true);
+    if (!clip.essentialProps.isEmpty())
+        json.insert(QStringLiteral("essential"), QJsonArray::fromStringList(clip.essentialProps));
     if (!clip.placeholderId.isEmpty()) {
         json.insert(QStringLiteral("placeholderId"), clip.placeholderId);
         json.insert(QStringLiteral("placeholderLabel"), clip.placeholderLabel);
@@ -434,6 +468,45 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    if (object.contains(QStringLiteral("timeRemap")))
+        clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
+    clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
+    clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
+    if (object.contains(QStringLiteral("light"))) {
+        const QJsonObject l = object.value(QStringLiteral("light")).toObject();
+        clip.light.kind = qBound(0, l.value(QStringLiteral("kind")).toInt(0), 4);
+        const QColor color(l.value(QStringLiteral("color")).toString());
+        if (color.isValid())
+            clip.light.color = color;
+        clip.light.intensity = l.value(QStringLiteral("intensity")).toDouble(clip.light.intensity);
+        clip.light.coneAngle = l.value(QStringLiteral("coneAngle")).toDouble(clip.light.coneAngle);
+        clip.light.coneFeather = l.value(QStringLiteral("coneFeather")).toDouble(clip.light.coneFeather);
+        clip.light.falloffRadius = l.value(QStringLiteral("falloffRadius")).toDouble(0.0);
+        clip.light.falloffDistance = l.value(QStringLiteral("falloffDistance")).toDouble(0.0);
+    }
+    clip.acceptsLights = object.value(QStringLiteral("acceptsLights")).toBool(true);
+    clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
+    if (object.contains(QStringLiteral("matte"))) {
+        const QJsonObject matte = object.value(QStringLiteral("matte")).toObject();
+        const QString mode = matte.value(QStringLiteral("mode")).toString();
+        clip.matteClipId = matte.value(QStringLiteral("clip")).toString();
+        clip.matteMode = mode == QLatin1String("alpha")           ? Clip::TrackMatte::Alpha
+                         : mode == QLatin1String("alphaInverted") ? Clip::TrackMatte::AlphaInverted
+                         : mode == QLatin1String("luma")          ? Clip::TrackMatte::Luma
+                         : mode == QLatin1String("lumaInverted")  ? Clip::TrackMatte::LumaInverted
+                                                                  : Clip::TrackMatte::None;
+        if (clip.matteClipId.isEmpty())
+            clip.matteMode = Clip::TrackMatte::None;
+    }
+    clip.parentId = object.value(QStringLiteral("parentId")).toString();
+    if (!clip.parentId.isEmpty()) {
+        const QJsonArray r = object.value(QStringLiteral("parentRest")).toArray();
+        if (r.size() == 9) {
+            clip.parentRest = QTransform(r.at(0).toDouble(), r.at(1).toDouble(), r.at(2).toDouble(),
+                                         r.at(3).toDouble(), r.at(4).toDouble(), r.at(5).toDouble(),
+                                         r.at(6).toDouble(), r.at(7).toDouble(), r.at(8).toDouble());
+        }
+    }
     clip.audioStreamIndex = object.value(QStringLiteral("audioStreamIndex")).toInt(0);
     clip.type = clipTypeFromString(object.value(QStringLiteral("type")).toString());
     clip.adjustmentKind =
@@ -445,6 +518,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
         clip.extraMasks.append(maskFromJson(value.toObject()));
     clip.masksLimitEffects = object.value(QStringLiteral("masksLimitEffects")).toBool(false);
     clip.placeholderId = object.value(QStringLiteral("placeholderId")).toString();
+    for (const QJsonValue &v : object.value(QStringLiteral("essential")).toArray())
+        clip.essentialProps.append(v.toString());
     clip.placeholderLabel = object.value(QStringLiteral("placeholderLabel")).toString();
     clip.placeholderEmpty = object.value(QStringLiteral("placeholderEmpty")).toBool(false);
     clip.brandRole = object.value(QStringLiteral("brandRole")).toString();
@@ -626,6 +701,8 @@ QJsonObject assetToJson(const MediaAsset &asset)
         object.insert(QStringLiteral("folderId"), asset.folderId);
     if (!asset.sequenceId.isEmpty())
         object.insert(QStringLiteral("sequenceId"), asset.sequenceId);
+    if (!asset.solidColor.isEmpty())
+        object.insert(QStringLiteral("solidColor"), asset.solidColor);
     if (!asset.generator.isEmpty())
         object.insert(QStringLiteral("generator"), asset.generator);
     if (asset.sourceFrame != QRectF(0, 0, 1, 1))
@@ -658,6 +735,7 @@ MediaAsset assetFromJsonV2(const QJsonObject &object)
     asset.filmstripPath = object.value(QStringLiteral("filmstripPath")).toString();
     asset.folderId = object.value(QStringLiteral("folderId")).toString();
     asset.sequenceId = object.value(QStringLiteral("sequenceId")).toString();
+    asset.solidColor = object.value(QStringLiteral("solidColor")).toString();
     asset.generator = object.value(QStringLiteral("generator")).toObject();
     if (object.contains(QStringLiteral("variableFrameRate"))) {
         asset.frameRateKnown = true;
@@ -836,6 +914,7 @@ void detachClip(Clip &clip)
     clip.panKeys.detachSharedData();
     clip.anchorX.detachSharedData();
     clip.anchorY.detachSharedData();
+    clip.timeRemap.detachSharedData();
     clip.speedCurve.detachSharedData();
     clip.mask.points.detach();
     clip.mask.pathKeys.detach();
@@ -1302,6 +1381,8 @@ Project Project::fromJson(const QJsonObject &object, QString *errorOut)
         project.m_bookmarks.append(bookmark);
     }
 
+    project.setMotionBlurShutterDeg(object.value(QStringLiteral("motionBlurShutterDeg")).toDouble(180.0));
+    project.setMotionBlurSamples(object.value(QStringLiteral("motionBlurSamples")).toInt(16));
     project.clearWorkArea();
     if (object.contains(QStringLiteral("workAreaInUs"))) {
         project.setWorkAreaInUs(static_cast<TimeUs>(object.value(QStringLiteral("workAreaInUs")).toDouble(-1)));
@@ -1464,6 +1545,10 @@ QJsonObject Project::toJson(bool includeTranscripts) const
     }
     if (!m_openSequenceTabs.isEmpty())
         root.insert(QStringLiteral("openSequenceTabs"), QJsonArray::fromStringList(m_openSequenceTabs));
+    if (m_motionBlurShutterDeg != 180.0 || m_motionBlurSamples != 16) {
+        root.insert(QStringLiteral("motionBlurShutterDeg"), m_motionBlurShutterDeg);
+        root.insert(QStringLiteral("motionBlurSamples"), m_motionBlurSamples);
+    }
     if (hasWorkArea()) {
         root.insert(QStringLiteral("workAreaInUs"), static_cast<double>(m_workAreaInUs));
         root.insert(QStringLiteral("workAreaOutUs"), static_cast<double>(m_workAreaOutUs));

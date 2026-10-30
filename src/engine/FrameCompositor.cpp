@@ -6,6 +6,7 @@
 #include "CompositorFrameHistory.h"
 #include "EffectCatalog.h"
 #include "EffectProcessor.h"
+#include "ExpressionEngine.h"
 #include "FaceTrack.h"
 #include "PoseTrack.h"
 #include "GpuCompositor.h"
@@ -916,7 +917,7 @@ void layoutRectForClip(const drift::Clip &clip, drift::TimeUs timelineUs, int pr
     *yOut = transformValue(clip.transformY, relative, 0.0) * renderScale;
     *wOut = transformValue(clip.transformW, relative, static_cast<double>(projectWidth)) * scale;
     *hOut = transformValue(clip.transformH, relative, static_cast<double>(projectHeight)) * scale;
-    const double rotation = transformValue(clip.rotation, relative, 0.0);
+    const double rotation = transformValue(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
     if (rotationOut)
         *rotationOut = rotation;
     // The anchor point (0.25): the box moves so the turn pivots there rather than on its centre.
@@ -1095,6 +1096,130 @@ void applyClipBodyAnimation(GpuLayer &layer, const drift::Clip &clip, drift::Tim
             effect.parameters.insert(it.key(), it.value());
         layer.effects.append(effect);
     }
+}
+
+// Layer styles (0.26): grows the layer's rect by the room its effects draw past the box, and
+// records it as a fraction for the GPU side. Layers with masks keep their box (their masks are
+// laid out on it).
+void applyEffectPadding(GpuLayer &layer, double renderScale)
+{
+    layer.renderScale = renderScale;
+    if (layer.effects.isEmpty() || !drift::masksAreInert(layer.masks) || layer.rect.width() < 1.0
+        || layer.rect.height() < 1.0)
+        return;
+    double pad = 0.0;
+    for (const drift::Effect &effect : layer.effects) {
+        if (!effect.enabled)
+            continue;
+        const EffectPresetEntry *def = effectDefForId(effect.catalogId);
+        if (!def
+            || (def->paddingParams.isEmpty() && def->paddingPercentParams.isEmpty() && def->paddingExtra <= 0.0))
+            continue;
+        const QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+        double room = def->paddingExtra;
+        for (const QString &key : def->paddingParams)
+            room += qAbs(params.value(key).toDouble());
+        const double side = qMax(layer.rect.width(), layer.rect.height()) / qMax(1e-6, renderScale);
+        for (const QString &key : def->paddingPercentParams)
+            room += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
+        pad = qMax(pad, room);
+    }
+    if (pad <= 0.0)
+        return;
+    const double px = qMin(pad * renderScale, 2048.0);
+    layer.padFractionX = px / layer.rect.width();
+    layer.padFractionY = px / layer.rect.height();
+    layer.rect.adjust(-px, -px, px, px);
+}
+
+// The box and turn a clip is laid out at `timelineUs`, its body animation included, before any
+// parent: the geometry motion blur samples across the shutter.
+void clipGeometryAt(const drift::Clip &clip, drift::TimeUs timelineUs, int projectWidth, int projectHeight,
+                    double renderScale, QRectF *rect, double *rotation)
+{
+    double x = 0.0, y = 0.0, w = 0.0, h = 0.0, rot = 0.0;
+    layoutRectForClip(clip, timelineUs, projectWidth, projectHeight, renderScale, 1.0, &x, &y, &w, &h, &rot);
+    QRectF box(x, y, w, h);
+    double opacity = 1.0;
+    GpuLayer scratch;
+    applyClipBodyAnimation(scratch, clip, timelineUs, w, h, &box, &opacity, &rot, nullptr, nullptr);
+    *rect = box;
+    *rotation = rot;
+}
+
+// Motion blur (0.26): where `layer` (already built and parented for `timelineUs`) is at each
+// sub-frame of the project's shutter, centred on the frame as After Effects' default phase.
+// Nothing when the clip does not move over the shutter, so a still clip costs one draw.
+void addMotionBlurSamples(GpuLayer &layer, const drift::Project &project, const drift::Clip &clip,
+                          int trackIndex, drift::TimeUs timelineUs, double renderScale,
+                          bool trackParentActive)
+{
+    // A corner pin warps through the parent too; such a clip is left sharp.
+    if (!clip.motionBlur || layer.screenSpace || clip.cornerPinEnabled)
+        return;
+    const double shutterDeg = project.motionBlurShutterDeg();
+    const int samples = project.motionBlurSamples();
+    if (shutterDeg <= 0.0 || samples < 2)
+        return;
+    const drift::TimeUs frame = drift::frameDurationUs(project.fps());
+    const double span = double(frame) * shutterDeg / 360.0;
+
+    QRectF refRect;
+    double refRotation = 0.0;
+    clipGeometryAt(clip, timelineUs, project.width(), project.height(), renderScale, &refRect, &refRotation);
+    if (refRect.width() < 0.5 || refRect.height() < 0.5)
+        return;
+    // The layer's own rect can differ from the layout box (a text's bleed margin): each sample
+    // carries it the way the box moved, so the margin rides along.
+    const QRectF base = layer.rect;
+    const double kx = base.width() / refRect.width();
+    const double ky = base.height() / refRect.height();
+    const QPointF offset = base.center() - refRect.center();
+
+    QList<GpuLayer::MotionSample> out;
+    out.reserve(samples);
+    bool moves = false;
+    const QTransform ownParentNow = layer.parent;
+    for (int k = 0; k < samples; ++k) {
+        const drift::TimeUs t = timelineUs + drift::TimeUs(std::llround(-span / 2.0 + span * (k + 0.5) / samples));
+        QRectF rect;
+        double rotation = 0.0;
+        clipGeometryAt(clip, t, project.width(), project.height(), renderScale, &rect, &rotation);
+        GpuLayer::MotionSample sample;
+        const QSizeF size(rect.width() * kx, rect.height() * ky);
+        const QPointF scaledOffset(offset.x() * rect.width() / refRect.width(),
+                                   offset.y() * rect.height() / refRect.height());
+        sample.rect = QRectF(QPointF(0, 0), size);
+        sample.rect.moveCenter(rect.center() + scaledOffset);
+        sample.rotation = layer.rotation + (rotation - refRotation);
+
+        // Parents at the sub-frame: the clip's own, then the transform layers over its track.
+        QTransform parent;
+        bool hasParent = false;
+        bool clipActive = false;
+        const QTransform clipParent = drift::clipParentMatrix(project, clip, t, renderScale, &clipActive);
+        if (clipActive) {
+            parent = clipParent;
+            hasParent = true;
+        }
+        if (trackParentActive) {
+            const QList<drift::TransformParent> parents = drift::transformParentsAt(project, t, renderScale);
+            if (trackIndex >= 0 && trackIndex < parents.size() && parents.at(trackIndex).hasParent) {
+                parent = hasParent ? parent * parents.at(trackIndex).matrix : parents.at(trackIndex).matrix;
+                hasParent = true;
+            }
+        }
+        sample.parent = parent;
+        sample.hasParent = hasParent;
+        moves = moves || qAbs(sample.rect.x() - base.x()) > 0.25 || qAbs(sample.rect.y() - base.y()) > 0.25
+                || qAbs(sample.rect.width() - base.width()) > 0.25
+                || qAbs(sample.rect.height() - base.height()) > 0.25
+                || qAbs(sample.rotation - layer.rotation) > 0.05
+                || (hasParent != layer.hasParent) || (hasParent && parent != ownParentNow);
+        out.append(sample);
+    }
+    if (moves)
+        layer.motionSamples = out;
 }
 
 // One media file's pixels at `mediaUs`. Video goes through the preview read, the same path
@@ -1633,14 +1758,15 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 {
     GpuScene scene;
     scene.canvasSize = QSize(width, height);
-    scene.cacheVideoSources = options.cacheVideoSources;
+    scene.cacheVideoSources = options.cacheVideoSources;    // Expressions (0.26) that read another layer read it from this timeline, at this frame.
+    const drift::ExpressionScope expressionScope(&project, timelineUs);
 
     const int projectWidth = project.width();
     const int projectHeight = project.height();
     const int fps = project.fps();
 
     const drift::Background &bg = project.background();
-    if (nested) {
+    if (nested || options.transparentBackground) {
         scene.backgroundColor = QColor(0, 0, 0, 0);
     } else if (options.editor.active) {
         // The 3D view looks at the world, not the camera's frame: the project background is what
@@ -1673,6 +1799,18 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
         layer.parent = parent.matrix;
         layer.hasParent = parent.hasParent;
     };
+    // A clip's own parent (After Effects' Parent, 0.26) moves it first; the transform layers over
+    // its track then carry the result.
+    const auto applyClipParent = [&project, timelineUs, renderScale](GpuLayer &layer, const drift::Clip &clip) {
+        if (clip.parentId.isEmpty())
+            return;
+        bool active = false;
+        const QTransform delta = drift::clipParentMatrix(project, clip, timelineUs, renderScale, &active);
+        if (!active)
+            return;
+        layer.parent = layer.hasParent ? delta * layer.parent : delta;
+        layer.hasParent = true;
+    };
 
     // The scene camera: one viewpoint for every clip on this timeline at this instant. Resolved
     // once per frame, then stamped onto each layer the way a transform parent is. With no camera
@@ -1683,6 +1821,42 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     if (const drift::Clip *cameraClip = drift::cameraClipAt(project.tracks(), timelineUs)) {
         sceneCamera = drift::sceneCameraFromClip(*cameraClip, timelineUs, renderScale);
         sceneCameraActive = true;
+    }
+    // After Effects' lights (0.26): every light clip at this time, in world space. With none, 3D
+    // layers stay fully lit, as in After Effects.
+    QList<GpuLight> sceneLights;
+    for (const drift::Track &track : project.tracks()) {
+        if (track.hidden)
+            continue;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.light.kind == 0 || clip.disabled || !clip.containsTime(timelineUs) || sceneLights.size() >= 8)
+                continue;
+            const drift::TimeUs rel = timelineUs - clip.timelineStart;
+            double lx = 0.0, ly = 0.0, lw = 0.0, lh = 0.0;
+            layoutRectForClip(clip, timelineUs, project.width(), project.height(), renderScale, 1.0, &lx, &ly, &lw,
+                              &lh);
+            GpuLight light;
+            light.kind = clip.light.kind;
+            light.position = QVector3D(float(lx + lw / 2.0 - width / 2.0), float(ly + lh / 2.0 - height / 2.0),
+                                       float(transformValue(clip.positionZ, rel, 0.0) * renderScale));
+            const QVector3D aim =
+                light.position.lengthSquared() > 1e-6f ? (-light.position).normalized() : QVector3D(0.f, 0.f, -1.f);
+            QMatrix4x4 turn;
+            turn.rotate(float(transformValue(clip.rotationX, rel, 0.0)), 1.f, 0.f, 0.f);
+            turn.rotate(float(transformValue(clip.rotationY, rel, 0.0)), 0.f, 1.f, 0.f);
+            light.direction = turn.mapVector(aim).normalized();
+            const double strength =
+                qMax(0.0, clip.light.intensity) / 100.0 * qBound(0.0, transformValue(clip.opacity, rel, 1.0), 1.0);
+            light.color = QVector3D(float(clip.light.color.redF()), float(clip.light.color.greenF()),
+                                    float(clip.light.color.blueF()))
+                          * float(strength);
+            const double half = qDegreesToRadians(qBound(1.0, clip.light.coneAngle, 179.0) / 2.0);
+            light.cosOuter = float(std::cos(half));
+            light.cosInner = float(std::cos(half * (1.0 - qBound(0.0, clip.light.coneFeather, 100.0) / 100.0)));
+            light.radius = float(qMax(0.0, clip.light.falloffRadius) * renderScale);
+            light.falloff = float(qMax(0.0, clip.light.falloffDistance) * renderScale);
+            sceneLights.append(light);
+        }
     }
     QMatrix4x4 sceneView = drift::cameraViewProjection(sceneCamera, QSizeF(width, height));
     bool sceneViewActive = sceneCameraActive;
@@ -1755,6 +1929,47 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
 
     // Track 0 is topmost and composites in front, so emit back-to-front.
     const QList<drift::Track> &tracks = project.tracks();
+
+    // Track mattes (0.26): the clips another visible clip uses as its matte right now are drawn
+    // only into that matte, as After Effects switches a matte layer's video off.
+    QSet<QString> matteSources;
+    for (const drift::Track &track : tracks) {
+        if (track.hidden)
+            continue;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
+                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled)
+                matteSources.insert(clip.matteClipId);
+        }
+    }
+    // The matte clip as it would draw on the canvas; null when it is not on screen now.
+    const auto matteLayerFor = [&](const drift::Clip &host) -> std::shared_ptr<const GpuLayer> {
+        for (int mt = 0; mt < tracks.size(); ++mt) {
+            const drift::Track &track = tracks.at(mt);
+            if (track.hidden || track.type == drift::TrackType::Audio)
+                continue;
+            for (const drift::Clip &candidate : track.clips) {
+                if (candidate.id != host.matteClipId)
+                    continue;
+                if (!candidate.containsTime(timelineUs) || candidate.disabled
+                    || candidate.type == drift::ClipType::Adjustment)
+                    return nullptr;
+                auto layer = std::make_shared<GpuLayer>(buildGpuLayer(
+                    project, candidate, timelineUs, projectWidth, projectHeight, renderScale, width, height, fps,
+                    options.maxTimeEchoHistoryFrames, laneAdjustmentChain(project, mt, timelineUs, candidate.id),
+                    drift::laneMasksAt(project, mt, timelineUs, candidate.id)));
+                if (!layer->valid)
+                    return nullptr;
+                applyParent(*layer, mt);
+                applyClipParent(*layer, candidate);
+                applyCornerPin(*layer, candidate, renderScale);
+                applyCamera(*layer);
+                return layer;
+            }
+        }
+        return nullptr;
+    };
+
     for (int ti = tracks.size() - 1; ti >= 0; --ti) {
         const drift::Track &track = tracks.at(ti);
         if (track.hidden || track.type == drift::TrackType::Audio)
@@ -1792,6 +2007,8 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                                         drift::laneMasksAt(project, ti, timelineUs, toClip->id));
                 applyParent(item.from, ti);
                 applyParent(item.to, ti);
+                applyClipParent(item.from, *fromClip);
+                applyClipParent(item.to, *toClip);
                 // Both sides of a transition are placed before the shader mixes them, so each one
                 // is framed by the camera just as a plain layer would be.
                 applyCamera(item.from);
@@ -1820,6 +2037,11 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 continue;
             // Switched off: kept on the timeline with all its settings, left out of the picture.
             if (clip.disabled)
+                continue;
+            // A null object is only a handle for its children: it never paints.
+            if (clip.nullObject)
+                continue;
+            if (matteSources.contains(clip.id))
                 continue;
 
             if (clip.type == drift::ClipType::Adjustment) {
@@ -1864,6 +2086,26 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 continue;
             }
 
+            // Region of interest (0.26): a plain layer whose box lies wholly outside it is skipped
+            // before anything is decoded. Layers that can draw past their box (effects, text, motion
+            // blur) or that something else places (parents, 3D) are always drawn.
+            if (!nested && !options.regionOfInterest.isEmpty() && clip.effects.isEmpty() && !clip.motionBlur
+                && !clip.layer3d && clip.parentId.isEmpty() && (parents.isEmpty() || !parents.at(ti).hasParent)
+                && clip.type != drift::ClipType::Text && clip.type != drift::ClipType::Subtitle) {
+                double bx = 0.0, by = 0.0, bw = 0.0, bh = 0.0, turn = 0.0;
+                layoutRectForClip(clip, timelineUs, projectWidth, projectHeight, renderScale, 1.0, &bx, &by, &bw, &bh,
+                                  &turn);
+                const QPointF centre(bx + bw / 2.0, by + bh / 2.0);
+                QTransform spin;
+                spin.translate(centre.x(), centre.y());
+                spin.rotate(turn);
+                spin.translate(-centre.x(), -centre.y());
+                const QRectF bounds = spin.mapRect(QRectF(bx, by, bw, bh));
+                const QRectF &f = options.regionOfInterest;
+                const QRectF roi(f.x() * width, f.y() * height, f.width() * width, f.height() * height);
+                if (!bounds.intersects(roi))
+                    continue;
+            }
             const bool editingText = !nested && clip.type == drift::ClipType::Text && options.textEdit.active()
                                      && options.textEdit.clipId == clip.id;
             GpuItem item;
@@ -1874,9 +2116,33 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                                        drift::laneMasksAt(project, ti, timelineUs, clip.id), editingText);
             if (!item.layer.valid)
                 continue;
+            applyEffectPadding(item.layer, renderScale);
             applyParent(item.layer, ti);
+            applyClipParent(item.layer, clip);
+            if (clip.motionBlur && !editingText)
+                addMotionBlurSamples(item.layer, project, clip, ti, timelineUs, renderScale,
+                                     !parents.isEmpty() && parents.at(ti).hasParent);
             applyCornerPin(item.layer, clip, renderScale);
             applyCamera(item.layer);
+            // Lights (0.26): a 3D layer that accepts them is lit where it stands in the world.
+            if (!sceneLights.isEmpty() && clip.layer3d && clip.acceptsLights && !item.layer.screenSpace
+                && !item.layer.model3d && (!item.layer.hasParent || item.layer.parent.isAffine())) {
+                const QSizeF canvas(width, height);
+                const QMatrix4x4 parentWorld =
+                    item.layer.hasParent ? drift::worldParentFromAffine(item.layer.parent, canvas) : QMatrix4x4();
+                item.layer.worldQuad = parentWorld
+                                       * drift::clipQuadToWorld(item.layer.rect, item.layer.rotation, item.layer.flipH,
+                                                                item.layer.flipV, item.layer.pose3d, canvas);
+                item.layer.eye = sceneCameraActive ? drift::sceneCameraEye(sceneCamera)
+                                                   : QVector3D(0.f, 0.f, float(item.layer.pose3d.perspective));
+                item.layer.lights = sceneLights;
+                item.layer.lit = true;
+            }
+            if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
+                && clip.matteClipId != clip.id) {
+                item.matteMode = int(clip.matteMode);
+                item.matte = matteLayerFor(clip);
+            }
             noteSelection(clip, item.layer);
             applyDepthOcclusion(project, scene, item.layer, nearestOccluder, occluders);
             scene.items.append(item);

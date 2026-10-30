@@ -14,6 +14,8 @@
 #include "engine/PreviewVideoFrame.h"
 
 #include <QColor>
+#include <QMatrix4x4>
+#include <QVector3D>
 #include <QImage>
 #include <QList>
 #include <QMap>
@@ -48,6 +50,20 @@ struct MaskMediaFrame
     {
         return video.isValid() ? QSize(video.displayWidth(), video.displayHeight()) : image.size();
     }
+};
+
+// One light of the scene (0.26), in world space (canvas px about the canvas centre, y down, +z
+// toward the viewer). Kind: 1 point, 2 spot, 3 parallel, 4 ambient.
+struct GpuLight
+{
+    int kind = 1;
+    QVector3D position;
+    QVector3D direction{0.f, 0.f, -1.f};
+    QVector3D color{1.f, 1.f, 1.f}; // already times the intensity
+    float cosOuter = -1.f;          // spot cone edge, and where its feather starts
+    float cosInner = -1.f;
+    float radius = 0.f;             // falloff: full up to radius, gone at radius + falloff
+    float falloff = 0.f;
 };
 
 // A single textured layer: the clip's source pixels plus everything needed to
@@ -100,6 +116,29 @@ struct GpuLayer
     // Transform layers over this clip's track, in canvas pixels; see drift::transformParentsAt.
     QTransform parent;
     bool hasParent = false;
+    // Motion blur (0.26): where the layer is at each sub-frame of the shutter. When set, the layer
+    // is drawn once per sample at 1/N into a canvas of its own and that average is composited in
+    // its place, which is After Effects' 2D motion blur. Empty for a still or unblurred layer.
+    struct MotionSample
+    {
+        QRectF rect;
+        double rotation = 0.0;
+        QTransform parent;
+        bool hasParent = false;
+    };
+    QList<MotionSample> motionSamples;
+    // After Effects' lights on a 3D layer (0.26): the layer's unit quad in world space, the eye,
+    // and the scene's lights; the layer's texture is lit by them before it is placed.
+    bool lit = false;
+    QMatrix4x4 worldQuad;
+    QVector3D eye;
+    QList<GpuLight> lights;
+    // Effects that draw outside the box (layer styles, 0.26): how much the texture grows on each
+    // side, as a fraction of the content's width / height. `rect` already includes it.
+    double padFractionX = 0.0;
+    double padFractionY = 0.0;
+    // Render px per project px, for effects whose sizes are in project px (u_unitPx).
+    double renderScale = 1.0;
     // The shared viewpoint at this frame, world -> homogeneous canvas px: the scene camera's
     // (drift::cameraViewProjection), or the preview's free 3D view. Carried per layer rather than
     // read off the scene so modelMatrixFor stays a pure function of the layer, the same way
@@ -159,6 +198,11 @@ struct GpuItem
     drift::BlendMode blend = drift::BlendMode::Normal;
 
     GpuLayer layer; // when !isTransition
+    // After Effects' Track Matte (0.26): `matte` is the matte layer as it would draw on the
+    // canvas (null when it is not on screen at this time, which is an empty matte), and
+    // matteMode 1 alpha, 2 inverted alpha, 3 luma, 4 inverted luma; 0 for none.
+    std::shared_ptr<const GpuLayer> matte;
+    int matteMode = 0;
 
     GpuLayer from; // when isTransition
     GpuLayer to;

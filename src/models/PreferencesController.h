@@ -52,6 +52,11 @@ class PreferencesController : public QObject
                    NOTIFY timelineToolbarLayoutChanged)
     // Opt-in: on launch, restore the last open project (saved .drift or unsaved recovery snapshot).
     Q_PROPERTY(bool reopenLastProject READ reopenLastProject WRITE setReopenLastProject NOTIFY reopenLastProjectChanged)
+    // The Preferences (0.26) that are editing defaults rather than look: levels of undo, autosave
+    // interval, how long a photo/shape and a text last when placed, the interpolation of new
+    // keys, and the preview tools' remembered state. Every key always present (defaults filled
+    // in); see editorDefaultValues() for the keys and their defaults.
+    Q_PROPERTY(QVariantMap editorDefaults READ editorDefaults NOTIFY editorDefaultsChanged)
     // Preview zero-copy import: VAAPI dma-buf on Linux, D3D11 interop on Windows. Takes effect
     // after restart; hidden when this machine has no decode backend for either.
     Q_PROPERTY(bool vaapiZeroCopy READ vaapiZeroCopy WRITE setVaapiZeroCopy NOTIFY vaapiZeroCopyChanged)
@@ -125,6 +130,12 @@ public:
                                               const QStringList &menuItems);
 
     bool reopenLastProject() const { return m_reopenLastProject; }
+    QVariantMap editorDefaults() const;
+    Q_INVOKABLE QVariant editorDefault(const QString &key) const { return editorDefaults().value(key); }
+    // Unknown keys are ignored; numbers are kept inside their range.
+    Q_INVOKABLE void setEditorDefault(const QString &key, const QVariant &value);
+    Q_INVOKABLE void resetEditorDefaults();
+    static QVariantMap editorDefaultValues();
     void setReopenLastProject(bool enabled);
     bool vaapiZeroCopy() const { return m_vaapiZeroCopy; }
     void setVaapiZeroCopy(bool enabled);
@@ -187,6 +198,7 @@ signals:
     void trackLabelsWidthChanged();
     void timelineToolbarLayoutChanged();
     void reopenLastProjectChanged();
+    void editorDefaultsChanged();
     void vaapiZeroCopyChanged();
     void mediaCodecZeroCopyChanged();
     void preferredGpuChanged();
@@ -212,6 +224,7 @@ private:
     QStringList m_timelineToolbarItems;
     QStringList m_timelineMenuItems;
     bool m_reopenLastProject = false;
+    QVariantMap m_editorDefaults; // only what the person changed
     bool m_vaapiZeroCopy = false;
     bool m_mediaCodecZeroCopy = false;
     QString m_preferredGpu = QStringLiteral("auto");

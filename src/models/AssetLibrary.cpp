@@ -333,6 +333,9 @@ QString durationLabelFor(const drift::MediaAsset &asset)
     // A composite's length follows its sequence, so the label is derived rather than stored.
     if (asset.kind == drift::MediaKind::Composite)
         return formatDuration(asset.durationUs);
+    // A solid lasts as long as its layers do: no length of its own.
+    if (asset.kind == drift::MediaKind::Solid)
+        return QString();
     const bool trimmed = asset.trimInUs > 0 || asset.trimOutUs >= 0;
     if (asset.durationLabel.isEmpty() || !trimmed)
         return asset.durationLabel;
@@ -950,8 +953,8 @@ void AssetLibrary::startThumbJob(const QString &assetId)
     }
 
     drift::MediaAsset *asset = m_project->asset(assetId);
-    // A composite has no file to probe or thumbnail.
-    if (!asset || asset->kind == drift::MediaKind::Composite)
+    // A composite or a solid has no file to probe or thumbnail.
+    if (!asset || asset->kind == drift::MediaKind::Composite || asset->kind == drift::MediaKind::Solid)
         return;
 
     const bool needThumb = asset->thumbnailPath.isEmpty() || !QFileInfo::exists(asset->thumbnailPath);
@@ -1422,6 +1425,7 @@ QVariantMap AssetLibrary::assetAt(int index) const
         {QStringLiteral("assetIndex"), index},
         {QStringLiteral("folderId"), asset->folderId},
         {QStringLiteral("sequenceId"), asset->sequenceId},
+        {QStringLiteral("solidColor"), asset->solidColor},
         {QStringLiteral("missing"), isMissingPath(asset->path)},
     };
 }
@@ -1477,7 +1481,8 @@ void AssetLibrary::ensureAudioPresence(const QString &assetId)
         return;
 
     drift::MediaAsset *asset = m_project->asset(assetId);
-    if (!asset || asset->hasAudioKnown || asset->kind == drift::MediaKind::Composite)
+    if (!asset || asset->hasAudioKnown || asset->kind == drift::MediaKind::Composite
+        || asset->kind == drift::MediaKind::Solid)
         return;
 
     if (asset->channels > 0 || asset->sampleRate > 0) {

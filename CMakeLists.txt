@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.25.0 LANGUAGES CXX C)
+project(Drift VERSION 0.26.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -469,7 +469,9 @@ add_library(driftcore STATIC
     src/core/ClipAnimation.h
     src/core/ClipAnimation.cpp
     src/core/ClipAnimationPreset.h
+    src/core/SquashAnimation.h
     src/core/ClipAnimationPreset.cpp
+    src/core/SquashAnimation.cpp
     src/core/SubtitleCue.h
     src/core/SubtitleCue.cpp
     src/core/Transcript.h
@@ -508,6 +510,8 @@ add_library(driftcore STATIC
     src/core/ShapeStyle.cpp
     src/core/ShapePath.h
     src/core/ShapePath.cpp
+    src/core/ShapePathEdit.h
+    src/core/ShapePathEdit.cpp
     src/core/VectorSource.h
     src/core/VectorSource.cpp
     src/core/Model3dSource.h
@@ -561,6 +565,13 @@ qt_add_resources(driftcore "drift_clip_animations"
     PREFIX "/clip-animations"
     BASE "${CMAKE_SOURCE_DIR}/presets/clip-animations"
     FILES ${DRIFT_CLIP_ANIMATION_FILES}
+)
+
+file(GLOB DRIFT_SQUASH_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/squash-animations/*.json")
+qt_add_resources(driftcore "drift_squash_animations"
+    PREFIX "/squash-animations"
+    BASE "${CMAKE_SOURCE_DIR}/presets/squash-animations"
+    FILES ${DRIFT_SQUASH_ANIMATION_FILES}
 )
 
 file(GLOB DRIFT_TEXT_ANIMATION_FILES CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/presets/text-animations/*.json")
@@ -788,6 +799,8 @@ add_library(driftengine STATIC
     src/engine/PreviewSnap.cpp
     src/engine/TransformLayer.h
     src/engine/TransformLayer.cpp
+    src/engine/ExpressionEngine.h
+    src/engine/ExpressionEngine.cpp
     src/engine/ClipGizmo.h
     src/engine/ClipGizmo.cpp
     src/engine/ModelClipTransform.h
@@ -854,7 +867,7 @@ target_include_directories(driftengine PUBLIC src)
 target_include_directories(driftengine SYSTEM PRIVATE ${CMAKE_SOURCE_DIR}/third_party/cgltf)
 target_link_libraries(driftengine PUBLIC Qt6::Core Qt6::Gui Qt6::OpenGL Qt6::Multimedia FFmpeg::FFmpeg driftcore
     driftaudiodsp onnxruntime::headers)
-target_link_libraries(driftengine PRIVATE ${DRIFT_ZSTD_TARGET} OpenSSL::Crypto ${CMAKE_DL_LIBS})
+target_link_libraries(driftengine PRIVATE ${DRIFT_ZSTD_TARGET} OpenSSL::Crypto ${CMAKE_DL_LIBS} Qt6::Qml)
 if(WIN32)
     # Hybrid-graphics laptops: D3D11VA -> OpenGL preview interop, and DXGI adapter enumeration for
     # the GPU preference and for opening D3D11VA on the GPU that renders.
@@ -1307,11 +1320,17 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformGizmo.qml
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
+        src/qml/components/preview/PenToolOverlay.qml
+        src/qml/components/preview/PreviewToolOverlay.qml
+        src/qml/components/preview/PreviewToolbar.qml
+        src/qml/components/timeline/PropertyBehaviorDialog.qml
+        src/qml/components/timeline/KeyframeVelocityDialog.qml
         src/qml/components/preview/PreviewDropOverlay.qml
         src/qml/components/preview/CropOverlay.qml
         src/qml/components/preview/GuideLayer.qml
         src/qml/components/preview/GuidesPopover.qml
         src/qml/components/preview/GuideEditOverlay.qml
+        src/qml/components/preview/PreviewRulers.qml
         src/qml/components/preview/MaskOverlay.qml
         src/qml/components/preview/DepthEffectOverlay.qml
         src/qml/components/preview/TrackingOverlay.qml
@@ -1336,6 +1355,12 @@ qt_add_qml_module(drift
         src/qml/components/properties/ShadingLayerRow.qml
         src/qml/components/properties/TextAnimPresetTile.qml
         src/qml/components/properties/ClipAnimPresetTile.qml
+        src/qml/components/properties/SquashAnimTile.qml
+        src/qml/components/properties/SquashStretchPanel.qml
+        src/qml/components/properties/TrimPackPanel.qml
+        src/qml/components/properties/BendLayersPanel.qml
+        src/qml/components/properties/StrokeCapsPanel.qml
+        src/qml/components/properties/ShapeElementsPanel.qml
         src/qml/components/properties/TextLookPicker.qml
         src/qml/components/properties/TransformInspector.qml
         src/qml/components/properties/TrackingInspector.qml
@@ -1349,6 +1374,9 @@ qt_add_qml_module(drift
         src/qml/components/properties/AnimationInspector.qml
         src/qml/components/properties/TransitionInspector.qml
         src/qml/components/properties/BlendingInspector.qml
+        src/qml/components/properties/MotionLinkSection.qml
+        src/qml/components/properties/MotionToolsPanel.qml
+        src/qml/components/properties/CurvesPanel.qml
         src/qml/components/properties/ShapeInspector.qml
         src/qml/components/properties/VoiceoverDialog.qml
         src/qml/components/properties/VectorInspector.qml
@@ -1457,6 +1485,9 @@ qt_add_qml_module(drift
         src/qml/components/LottieHoverSprite.qml
         src/qml/components/TextStylePackPicker.qml
         src/qml/components/NameDialog.qml
+        src/qml/components/WorkspaceView.qml
+        src/qml/components/Workspaces.qml
+        src/qml/components/WorkspaceMenu.qml
         src/qml/components/SolidDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml

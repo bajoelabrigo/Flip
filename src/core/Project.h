@@ -233,6 +233,13 @@ public:
     }
     bool hasWorkArea() const { return m_workAreaInUs >= 0 && m_workAreaOutUs > m_workAreaInUs; }
 
+    // Motion blur (0.26), as After Effects' composition settings: the shutter angle (180° = half
+    // a frame) and how many sub-frames a moving clip is averaged over.
+    double motionBlurShutterDeg() const { return m_motionBlurShutterDeg; }
+    int motionBlurSamples() const { return m_motionBlurSamples; }
+    void setMotionBlurShutterDeg(double deg) { m_motionBlurShutterDeg = qBound(0.0, deg, 720.0); }
+    void setMotionBlurSamples(int n) { m_motionBlurSamples = qBound(2, n, 64); }
+
     const Background &background() const { return m_background; }
     void setBackground(const Background &background) { m_background = background; }
 
@@ -301,6 +308,8 @@ private:
     QString m_activeSequenceId;
     QStringList m_openSequenceTabs;
     QList<Bookmark> m_bookmarks;
+    double m_motionBlurShutterDeg = 180.0;
+    int m_motionBlurSamples = 16;
     TimeUs m_workAreaInUs = -1;
     TimeUs m_workAreaOutUs = -1;
     Background m_background;

@@ -1,0 +1,98 @@
+{
+  "id": "ae.fractal_noise",
+  "displayName": "Fractal Noise",
+  "category": "generate",
+  "backend": "gpu",
+  "order": 920,
+  "parameters": [
+    {
+      "identifier": "scale",
+      "displayName": "Scale",
+      "type": "float",
+      "minValue": 10,
+      "maxValue": 1000,
+      "defaultValue": 200
+    },
+    {
+      "identifier": "complexity",
+      "displayName": "Complexity",
+      "type": "float",
+      "minValue": 1,
+      "maxValue": 10,
+      "defaultValue": 6
+    },
+    {
+      "identifier": "contrast",
+      "displayName": "Contrast",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 4,
+      "defaultValue": 1.2
+    },
+    {
+      "identifier": "brightness",
+      "displayName": "Brightness",
+      "type": "float",
+      "minValue": -1,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "evolution",
+      "displayName": "Evolution speed",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 5,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "offsetX",
+      "displayName": "Offset X",
+      "type": "float",
+      "minValue": -2000,
+      "maxValue": 2000,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "offsetY",
+      "displayName": "Offset Y",
+      "type": "float",
+      "minValue": -2000,
+      "maxValue": 2000,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "invert",
+      "displayName": "Invert",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "blend",
+      "displayName": "Blend with original",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

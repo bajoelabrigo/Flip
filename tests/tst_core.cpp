@@ -19,6 +19,7 @@
 #include "core/SceneTemplateTools.h"
 #include "core/Stabilize.h"
 #include "core/ShapePath.h"
+#include "core/ShapePathEdit.h"
 #include "core/SrtIO.h"
 #include "core/SubtitleCue.h"
 #include "core/Transcript.h"
@@ -148,6 +149,10 @@ private slots:
     void lottieTextImport();
     void karaokeWordIndexTracksTheCue();
     void shapeStyleSerialization();
+    void shapePathContoursRoundTrip();
+    void shapePathMorphsBetweenKeys();
+    void trackBehaviorsLoopWiggleAndSpeed();
+    void timeRemapAndAutoOrient();
     void legacyShapeStyleLoadsWithDefaults();
     void shapeCatalogPathsFitBounds();
     void vectorSourceSerialization();
@@ -1844,6 +1849,218 @@ void CoreTest::karaokeWordIndexTracksTheCue()
     QCOMPARE(drift::activeWordIndexAt(text, start, end, end - 1), 3);
     // Past the end (rounding at a cue boundary) keeps the last word lit rather than blanking it.
     QCOMPARE(drift::activeWordIndexAt(text, start, end, end), 3);
+}
+
+// After Effects' path editing (0.26): an outline goes to vertices and back unchanged, quadratics
+// and lines included, and a closed contour stays closed.
+void CoreTest::shapePathContoursRoundTrip()
+{
+    const QString d = QStringLiteral("M 0 0 L 100 0 C 100 50 50 100 0 100 Z M 20 20 Q 40 0 60 20");
+    const QList<drift::PathContour> contours = drift::pathContoursFromSvg(d);
+    QCOMPARE(contours.size(), 2);
+    QVERIFY(contours.at(0).closed);
+    QCOMPARE(contours.at(0).vertices.size(), 3);
+    QVERIFY(!contours.at(1).closed);
+    QCOMPARE(contours.at(1).vertices.size(), 2);
+    // The quadratic's single control point becomes two cubic handles 2/3 of the way there.
+    QCOMPARE(contours.at(1).vertices.at(0).out, QPointF(20 + (40 - 20) * 2.0 / 3.0, 20 + (0 - 20) * 2.0 / 3.0));
+    const QString back = drift::svgFromPathContours(contours);
+    const QList<drift::PathContour> again = drift::pathContoursFromSvg(back);
+    QCOMPARE(again.size(), 2);
+    for (int c = 0; c < 2; ++c) {
+        QCOMPARE(again.at(c).closed, contours.at(c).closed);
+        QCOMPARE(again.at(c).vertices.size(), contours.at(c).vertices.size());
+        for (int i = 0; i < again.at(c).vertices.size(); ++i) {
+            QVERIFY(QLineF(again.at(c).vertices.at(i).point, contours.at(c).vertices.at(i).point).length() < 1e-3);
+            QVERIFY(QLineF(again.at(c).vertices.at(i).out, contours.at(c).vertices.at(i).out).length() < 1e-3);
+        }
+    }
+    const QRectF box = drift::pathContoursBounds(contours);
+    QCOMPARE(box, QRectF(0, 0, 100, 100));
+}
+
+// Two outlines with the same vertices blend; a pair that does not match holds the first.
+void CoreTest::shapePathMorphsBetweenKeys()
+{
+    const QString square = QStringLiteral("M 0 0 L 100 0 L 100 100 L 0 100 Z");
+    const QString diamond = QStringLiteral("M 50 0 L 100 50 L 50 100 L 0 50 Z");
+    const QList<drift::PathContour> half = drift::pathContoursFromSvg(drift::morphSvgPaths(square, diamond, 0.5));
+    QCOMPARE(half.size(), 1);
+    QCOMPARE(half.at(0).vertices.at(0).point, QPointF(25, 0));
+    QCOMPARE(half.at(0).vertices.at(1).point, QPointF(100, 25));
+    const QString triangle = QStringLiteral("M 50 0 L 100 100 L 0 100 Z");
+    QCOMPARE(drift::morphSvgPaths(square, triangle, 0.5), square);
+    QCOMPARE(drift::morphSvgPaths(square, triangle, 1.0), triangle);
+
+    // The Path stopwatch: keys at 0 s and 2 s, morphing on the track's own (linear) curve.
+    drift::ShapeStyle style;
+    style.kind = drift::ShapeKind::Custom;
+    style.customPath = square;
+    drift::setShapePathAnimated(style, true, 0);
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), diamond, 1000);
+    QCOMPARE(style.pathShapes.size(), 2);
+    QCOMPARE(drift::shapePathAt(style, 0), square);
+    QCOMPARE(drift::shapePathAt(style, drift::secondsToUs(3.0)), diamond);
+    const QList<drift::PathContour> mid = drift::pathContoursFromSvg(drift::shapePathAt(style, drift::secondsToUs(1.0)));
+    QCOMPARE(mid.at(0).vertices.at(0).point, QPointF(25, 0));
+    QCOMPARE(style.resolvedAt(drift::secondsToUs(1.0)).customPath, drift::shapePathAt(style, drift::secondsToUs(1.0)));
+    // Editing at a key replaces it; the rows list the Path property.
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), triangle, 1000);
+    QCOMPARE(style.pathShapes.size(), 2);
+    QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("path")));
+    // Saved and read back.
+    const drift::ShapeStyle back = drift::shapeStyleFromJson(drift::shapeStyleToJson(style));
+    QCOMPARE(back.pathShapes, style.pathShapes);
+    QCOMPARE(drift::shapePathAt(back, drift::secondsToUs(3.0)), triangle);
+    // Stopping keeps the outline seen at that time.
+    drift::setShapePathAnimated(style, false, drift::secondsToUs(3.0));
+    QVERIFY(style.pathShapes.isEmpty());
+    QCOMPARE(style.customPath, triangle);
+    QVERIFY(!style.isAnimated());
+}
+
+// After Effects' expressions as track behaviours (0.26): loopOut's four modes, time × speed and
+// wiggle, alone and added up, saved and read back.
+void CoreTest::trackBehaviorsLoopWiggleAndSpeed()
+{
+    drift::KeyframeTrack<double> track;
+    track.setKeyframe(0, 0.0);
+    track.setKeyframe(drift::secondsToUs(1.0), 10.0);
+    drift::TrackBehavior b;
+    b.loop = drift::LoopMode::Cycle;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.5)), 5.0);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 5.0); // inside the keys nothing changes
+    b.loop = drift::LoopMode::PingPong;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.25)), 7.5);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.25)), 2.5);
+    b.loop = drift::LoopMode::Offset;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.5)), 25.0);
+    b.loop = drift::LoopMode::Continue;
+    track.setBehavior(b);
+    QVERIFY(qAbs(track.evaluateAt(drift::secondsToUs(3.0)) - 30.0) < 1e-6);
+
+    b = drift::TrackBehavior();
+    b.speed = 90.0;
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 5.0 + 45.0);
+    // The keys alone are still there to edit.
+    QCOMPARE(track.evaluateKeys(drift::secondsToUs(0.5)), 5.0);
+
+    b = drift::TrackBehavior();
+    b.wiggleFrequency = 2.0;
+    b.wiggleAmount = 20.0;
+    track.setBehavior(b);
+    double low = 1e9, high = -1e9, prev = track.evaluateAt(0) , step = 0.0;
+    for (int i = 0; i < 3000; ++i) {
+        const double v = track.evaluateAt(drift::secondsToUs(1.0) + i * 1000) - 10.0;
+        low = qMin(low, v);
+        high = qMax(high, v);
+        if (i > 0)
+            step = qMax(step, qAbs(v - prev));
+        prev = v;
+    }
+    QVERIFY2(low >= -20.0 && high <= 20.0 && high - low > 10.0, qPrintable(QStringLiteral("%1..%2").arg(low).arg(high)));
+    QVERIFY(step < 1.0); // smooth from one millisecond to the next
+    b.wiggleSeed = 3;
+    drift::KeyframeTrack<double> other = track;
+    other.setBehavior(b);
+    QVERIFY(other.evaluateAt(drift::secondsToUs(1.3)) != track.evaluateAt(drift::secondsToUs(1.3)));
+
+    // Saved only when set, and read back as it was.
+    b.loop = drift::LoopMode::PingPong;
+    b.speed = -4.0;
+    track.setBehavior(b);
+    const drift::KeyframeTrack<double> back = drift::keyframesFromJson(drift::keyframesToJson(track));
+    QVERIFY(back.behavior() == b);
+    QCOMPARE(back.evaluateAt(drift::secondsToUs(2.2)), track.evaluateAt(drift::secondsToUs(2.2)));
+    drift::KeyframeTrack<double> plain;
+    plain.setKeyframe(0, 1.0);
+    QVERIFY(!drift::keyframesToJson(plain).contains(QStringLiteral("behavior")));
+    // Switched off, the property holds its first key as always.
+    track.setEnabled(false);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(2.2)), 0.0);
+
+    // Motion Tools' Elastic overshoots past the last key and settles; Bounce comes back off it.
+    drift::KeyframeTrack<double> move;
+    move.setKeyframe(0, 0.0);
+    move.setKeyframe(drift::secondsToUs(0.5), 500.0);
+    drift::TrackBehavior settle;
+    settle.settle = drift::TrackBehavior::Settle::Elastic;
+    move.setBehavior(settle);
+    QVERIFY(move.evaluateAt(drift::secondsToUs(0.55)) > 510.0);
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(1.5)) - 500.0) < 1.0);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(0.25)), 250.0); // the keys themselves untouched
+    settle.settle = drift::TrackBehavior::Settle::Bounce;
+    move.setBehavior(settle);
+    for (int ms = 510; ms < 2000; ms += 10)
+        QVERIFY(move.evaluateAt(ms * 1000) <= 500.0 + 1e-9);
+    // A ball, not a shiver: it came in at 1000 px/s over 0.5 s, so the first hop climbs 0.6² of
+    // that fall (90 px, at its top 0.3 s later) and the hops die out within ~1.5 s.
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(0.8)) - 410.0) < 1.0);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(2.2)), 500.0);
+    // Its controls (After Effects' Max Jumps, Jump In/Out): one hop only, then still; through the key.
+    settle.bounceMaxJumps = 1;
+    move.setBehavior(settle);
+    QCOMPARE(move.evaluateAt(drift::secondsToUs(1.2)), 500.0);
+    settle.bounceMaxJumps = 5;
+    settle.bounceJumpOut = true;
+    move.setBehavior(settle);
+    QVERIFY(qAbs(move.evaluateAt(drift::secondsToUs(0.8)) - 590.0) < 1.0);
+    QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
+    QVERIFY(drift::keyframesFromJson(drift::keyframesToJson(move)).behavior() == settle);
+}
+
+// After Effects' Time Remap and Auto-Orient (0.26).
+void CoreTest::timeRemapAndAutoOrient()
+{
+    drift::Clip clip;
+    clip.id = QStringLiteral("v");
+    clip.type = drift::ClipType::Video;
+    clip.timelineStart = drift::secondsToUs(2.0);
+    clip.timelineDuration = drift::secondsToUs(10.0);
+    clip.srcIn = drift::secondsToUs(1.0);
+    clip.srcOut = drift::secondsToUs(11.0);
+    clip.speed = 1.0;
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(7.0)), drift::secondsToUs(6.0));
+    // Keys say which second of the material shows: here it plays at half speed, then freezes.
+    clip.timeRemap.setKeyframe(0, 0.0);
+    clip.timeRemap.setKeyframe(drift::secondsToUs(4.0), 2.0);
+    clip.timeRemap.setKeyframe(drift::secondsToUs(10.0), 2.0);
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(4.0)), drift::secondsToUs(2.0)); // 2 s in: 1 s of material
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(9.0)), drift::secondsToUs(3.0)); // frozen at 2 s
+    // Never past the material.
+    clip.timeRemap.setKeyframe(drift::secondsToUs(10.0), 50.0);
+    QCOMPARE(clip.timelineToSourceUs(drift::secondsToUs(12.0)), clip.srcOut);
+
+    // Auto-orient: moving right faces 0°, moving down-right 45°, and it adds to Rotation.
+    drift::Clip moving;
+    moving.transformX.setKeyframe(0, 0.0);
+    moving.transformX.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    moving.transformY.setKeyframe(0, 0.0);
+    QCOMPARE(moving.autoOrientDegrees(drift::secondsToUs(0.5)), 0.0);
+    moving.autoOrient = true;
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(0.5))) < 1e-6);
+    moving.transformY.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(0.5)) - 45.0) < 1e-6);
+    // At the end it keeps facing the way it came.
+    QVERIFY(qAbs(moving.autoOrientDegrees(drift::secondsToUs(1.0)) - 45.0) < 1e-6);
+
+    // Saved and read back.
+    drift::Project project;
+    project.tracks().clear();
+    drift::Track track{.type = drift::TrackType::Video};
+    track.id = QStringLiteral("t");
+    clip.autoOrient = true;
+    track.clips.append(clip);
+    project.tracks().append(track);
+    const drift::Project back = drift::Project::fromJson(project.toJson());
+    const drift::Clip &c = back.tracks().constFirst().clips.constFirst();
+    QCOMPARE(c.timeRemap.keyframes().size(), 3);
+    QVERIFY(c.autoOrient);
+    QCOMPARE(c.timelineToSourceUs(drift::secondsToUs(4.0)), drift::secondsToUs(2.0));
 }
 
 void CoreTest::shapeStyleSerialization()

@@ -13,6 +13,7 @@ class AppController;
 
 namespace drift::snap {
 struct PlacedClip;
+struct Targets;
 }
 namespace drift::gizmo {
 struct View;
@@ -39,9 +40,27 @@ class PreviewController : public QObject
     Q_PROPERTY(QString gizmoTool READ gizmoTool WRITE setGizmoTool NOTIFY gizmoChanged)
     Q_PROPERTY(QString gizmoOrientation READ gizmoOrientation WRITE setGizmoOrientation NOTIFY gizmoChanged)
     Q_PROPERTY(bool guidesEnabled READ guidesEnabled WRITE setGuidesEnabled NOTIFY guidesEnabledChanged)
+    // After Effects' rulers (Ctrl+R, 0.26): along the top and left of the preview, in project px;
+    // guides are dragged out of them. Remembered on this machine.
+    Q_PROPERTY(bool rulersVisible READ rulersVisible WRITE setRulersVisible NOTIFY rulersVisibleChanged)
     // Library set whose guides are being dragged on the preview; empty when not editing.
     Q_PROPERTY(QString guideEditSetId READ guideEditSetId WRITE setGuideEditSetId NOTIFY guideEditSetIdChanged)
     Q_PROPERTY(bool canvasCropMode READ canvasCropMode WRITE setCanvasCropMode NOTIFY canvasCropModeChanged)
+    // After Effects' Pen tool (0.26): clicks on the preview draw a new shape's outline; and the
+    // selected custom shape's vertices shown to drag.
+    Q_PROPERTY(bool penMode READ penMode WRITE setPenMode NOTIFY penModeChanged)
+    Q_PROPERTY(bool pathEditMode READ pathEditMode WRITE setPathEditMode NOTIFY pathEditModeChanged)
+    // After Effects' Title/Action Safe guides (0.26), drawn over the preview only.
+    Q_PROPERTY(bool safeZones READ safeZones WRITE setSafeZones NOTIFY safeZonesChanged)
+    // After Effects' Tools panel (0.26): "select" | "hand" | "zoom" | "anchor" | "shape" | "pen" |
+    // "text". "pen" is penMode; leaving it (Enter, Escape, a finished outline) goes back to select.
+    // The shape tool's kind ("rectangle" | "ellipse" | "star" | "polygon") and the fill and stroke
+    // a drawn shape or outline gets (the options on the toolbar's right).
+    Q_PROPERTY(QString tool READ tool WRITE setTool NOTIFY toolChanged)
+    Q_PROPERTY(QString shapeToolKind READ shapeToolKind WRITE setShapeToolKind NOTIFY toolChanged)
+    Q_PROPERTY(QString toolFill READ toolFill WRITE setToolFill NOTIFY toolChanged)
+    Q_PROPERTY(QString toolStroke READ toolStroke WRITE setToolStroke NOTIFY toolChanged)
+    Q_PROPERTY(double toolStrokeWidth READ toolStrokeWidth WRITE setToolStrokeWidth NOTIFY toolChanged)
     Q_PROPERTY(bool maskEditMode READ maskEditMode WRITE setMaskEditMode NOTIFY maskEditModeChanged)
     // Whether the preview should be showing mask handles right now. Selecting a mask clip is
     // itself a request to edit it, so the toggle is only needed to keep the handles up while some
@@ -66,12 +85,89 @@ public:
     QString gizmoOrientation() const { return m_gizmoOrientation; }
     void setGizmoOrientation(const QString &orientation);
     bool guidesEnabled() const { return m_guidesEnabled; }
+    bool rulersVisible() const { return m_rulersVisible; }
+    void setRulersVisible(bool visible);
     void setGuidesEnabled(bool enabled);
     // A loaded project's saved value: neither dirties the project nor becomes the app default.
     void restoreGuidesEnabled(bool enabled);
     QString guideEditSetId() const { return m_guideEditSetId; }
     void setGuideEditSetId(const QString &id);
     bool canvasCropMode() const { return m_canvasCropMode; }
+    bool penMode() const { return m_penMode; }
+    void setPenMode(bool on)
+    {
+        if (m_penMode == on)
+            return;
+        m_penMode = on;
+        emit penModeChanged();
+        const QString want = on ? QStringLiteral("pen") : (m_tool == QLatin1String("pen") ? QStringLiteral("select") : m_tool);
+        if (want != m_tool) {
+            m_tool = want;
+            emit toolChanged();
+        }
+    }
+    Q_INVOKABLE void openInspectorPage(const QString &tab, const QString &page)
+    {
+        emit inspectorPageRequested(tab, page);
+    }
+    QString tool() const { return m_tool; }
+    void setTool(const QString &tool)
+    {
+        const QString next = tool.isEmpty() ? QStringLiteral("select") : tool;
+        if (next == m_tool)
+            return;
+        m_tool = next;
+        emit toolChanged();
+        setPenMode(next == QLatin1String("pen"));
+    }
+    QString shapeToolKind() const { return m_shapeToolKind; }
+    void setShapeToolKind(const QString &kind)
+    {
+        if (kind == m_shapeToolKind)
+            return;
+        m_shapeToolKind = kind;
+        emit toolChanged();
+    }
+    QString toolFill() const { return m_toolFill; }
+    void setToolFill(const QString &c)
+    {
+        if (c == m_toolFill)
+            return;
+        m_toolFill = c;
+        emit toolChanged();
+    }
+    QString toolStroke() const { return m_toolStroke; }
+    void setToolStroke(const QString &c)
+    {
+        if (c == m_toolStroke)
+            return;
+        m_toolStroke = c;
+        emit toolChanged();
+    }
+    double toolStrokeWidth() const { return m_toolStrokeWidth; }
+    void setToolStrokeWidth(double w)
+    {
+        if (qFuzzyCompare(w + 1.0, m_toolStrokeWidth + 1.0))
+            return;
+        m_toolStrokeWidth = qBound(0.0, w, 200.0);
+        emit toolChanged();
+    }
+    bool pathEditMode() const { return m_pathEditMode; }
+    bool safeZones() const { return m_safeZones; }
+    void setSafeZones(bool on)
+    {
+        if (m_safeZones == on)
+            return;
+        m_safeZones = on;
+        emit safeZonesChanged();
+    }
+    void setPathEditMode(bool on)
+    {
+        if (m_pathEditMode == on)
+            return;
+        m_pathEditMode = on;
+        emit pathEditModeChanged();
+    }
     void setCanvasCropMode(bool active);
     bool maskEditMode() const { return m_maskEditMode; }
     void setMaskEditMode(bool active);
@@ -130,8 +226,8 @@ public:
 
     // A body drag of a clipsAtPlayhead box from press to now (canvas px), through its pose,
     // parents and the camera, so the grabbed point stays under the pointer. With `snap`, the
-    // projected edges and centre pull to the canvas edges, centre lines and visible guides within
-    // `tolerance` canvas px. Returns {valid, x, y, guideX, guideY} with the box's new rect origin;
+    // projected edges and centre pull to the canvas edges, centre lines, visible guides and the
+    // other layers' edges and centres within `tolerance` canvas px. Returns {valid, x, y, guideX, guideY} with the box's new rect origin;
     // guides are canvas px, -1 when not engaged.
     Q_INVOKABLE QVariantMap snapMove(const QVariantMap &box, double pressX, double pressY,
                                      double nowX, double nowY, double tolerance, bool snap) const;
@@ -177,8 +273,16 @@ signals:
     void viewChanged();
     void gizmoChanged();
     void guidesEnabledChanged();
+    void rulersVisibleChanged();
     void guideEditSetIdChanged();
     void canvasCropModeChanged();
+    void penModeChanged();
+    void pathEditModeChanged();
+    void safeZonesChanged();
+    void toolChanged();
+    // Asks the inspector to show a tab and a page of it (the toolbar's Roto opens Video › Remove
+    // background), 0.26.
+    void inspectorPageRequested(const QString &tab, const QString &page);
     void maskEditModeChanged();
     void maskEditActiveChanged();
     void activeToolChanged();
@@ -191,6 +295,9 @@ private:
     drift::SceneCamera3d sceneCamera(bool *active = nullptr) const;
     // A clipsAtPlayhead box as the snapping maths needs it, in canvas px.
     drift::snap::PlacedClip placedClip(const QVariantMap &box) const;
+    // The edges and centre lines of the other layers seen at the playhead (Jorge, 0.26: images, texts
+    // and videos line up with each other, not only with the canvas).
+    void appendLayerSnapTargets(const QVariantMap &self, drift::snap::Targets *targets) const;
     // The viewpoint the gizmo is drawn and solved from: the scene camera when one covers the
     // playhead, otherwise none (each clip's own eye).
     drift::gizmo::View gizmoView() const;
@@ -209,8 +316,18 @@ private:
     QString m_gizmoTool = QStringLiteral("move");
     QString m_gizmoOrientation = QStringLiteral("global");
     bool m_guidesEnabled = false;
+    bool m_rulersVisible = false;
     QString m_guideEditSetId;
     bool m_canvasCropMode = false;
+    bool m_penMode = false;
+    bool m_pathEditMode = false;
+    bool m_safeZones = false;
+    QString m_tool = QStringLiteral("select");
+    QString m_shapeToolKind = QStringLiteral("rectangle");
+    // "none" leaves that paint off.
+    QString m_toolFill = QStringLiteral("#ffff4d6d");
+    QString m_toolStroke = QStringLiteral("#ffffffff");
+    double m_toolStrokeWidth = 0.0;
     bool m_maskEditMode = false;
     QString m_activeTool = QStringLiteral("transform");
     bool m_handlesVisible = false;

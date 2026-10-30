@@ -307,10 +307,12 @@ QJsonObject mcpDetailRow(const QVariantMap &clipMap, const QVariantMap &transfor
             if (!style.value(QLatin1String(key)).toBool())
                 style.remove(QLatin1String(key));
         }
-        for (const char *key : {"wordSpacing", "pathCircle"}) {
+        for (const char *key : {"wordSpacing", "pathCircle", "pathOffset"}) {
             if (style.value(QLatin1String(key)).toDouble() == 0.0)
                 style.remove(QLatin1String(key));
         }
+        if (style.value(QStringLiteral("pathSvg")).toString().isEmpty())
+            style.remove(QStringLiteral("pathSvg"));
         // The CapCut-style background fields only say something about a box that is drawn, and
         // then only where they differ from the plain box.
         const bool box = style.value(QStringLiteral("boxEnabled")).toBool();

@@ -718,6 +718,9 @@ incluye igual, y como el catálogo regional `drift_es_CO` va encima de `drift_es
 `es_CO`), salían cosas como «Desenfoque» en vez de «Desenfocar». Se vaciaron las 148 de `es_CO` y
 lupdate corre con `-disable-heuristic sametext -disable-heuristic similartext` (también en CMake).
 
+**Trampa (0.26):** el `lupdate` va también sobre la plantilla `i18n\drift.ts` (`-ts i18n\drift.ts (gci i18n\drift_*.ts)`):
+con solo `drift_*.ts` la plantilla queda vieja y el test Translations falla aunque todas las traducciones estén bien.
+
 **Trampa que costó dos ciclos de CI:** editar un `.ts` a mano (o con un script de reemplazo) puede
 dejar el archivo en una forma que `lupdate` no reproduce, y entonces el test Translations falla
 aunque el contenido se vea correcto. El orden es: `lupdate` primero, después rellenar
@@ -796,6 +799,22 @@ llamadas JSONL contra `flipstudio.exe --headless --mcp-stdio` y guarda cada resp
 ---
 
 ## Trampas que ya nos costaron tiempo
+
+**En QML, una propiedad no puede llamarse `on` + Mayúscula** (`onPage`, `onLine`…): QML la toma como manejador de señal y su enlace no se recalcula, sin dar ningún error (0.26: las Preferencias salían en blanco por `onPage`). Usar otro nombre (`pageMatches`). Para probar QML suelto: `.qtmingw\6.10.3\mingw_64\bin\qml.exe` con `QT_QPA_PLATFORM=offscreen` y `console.log` (los tipos de Drift no cargan: simularlos).
+
+**En QML, una función no puede llamarse como una propiedad del tipo** (`anchors`, `width`, `x`, `data`…): la propiedad
+gana y la llamada da «Property 'anchors' … is not a function» sin romper nada más (0.26: el gráfico de Curvas salía
+vacío). Usar otro nombre (`keyPoints`).
+
+**Pruebas con clics simulados y los bordes de los paneles:** un `SplitView` arranca el arrastre en el borde que tiene
+el puntero **real** encima, aunque el clic simulado sea en otro lado. Si el ratón de Jorge quedó sobre un borde, los
+clics de prueba mueven los paneles (y el espacio de trabajo queda «editado»): no es un fallo de la app.
+
+**Un manejador de señal en un objeto que no tiene esa señal tumba la app al arrancar, y nada lo avisa antes.** En la
+0.26 `472fe` puso `onEntered` en las tarjetas de Medios (que son el origen del arrastre, no un `DropArea`): el CI
+compiló y pasó las pruebas, `qmllint` no dijo nada, y el portable se cerraba al abrir («Cannot assign to non-existent
+property "onEntered"», visible solo con `-RedirectStandardError`). Por eso cada build se abre en ventana antes de
+seguir probando, aunque el cambio parezca de una línea.
 
 **Python en Windows escribe CRLF.** `open(p, "w")` traduce `\n` a `\r\n`: un script que reescribe un `.qml` o `.py`
 lo deja entero como cambiado. Usar `newline=""` (o `sed -i`), y pedirlo a los agentes. (Este `CLAUDE.md`, en cambio,

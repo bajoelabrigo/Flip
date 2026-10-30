@@ -3,6 +3,7 @@
 #include "SkiaPath.h"
 #include "SkiaShading.h"
 #include "core/ShapePath.h"
+#include "core/ShapePathEdit.h"
 
 #include <QtMath>
 
@@ -13,6 +14,9 @@
 #include "include/core/SkPathBuilder.h"
 #include "include/core/SkStrokeRec.h"
 #include "include/effects/SkCornerPathEffect.h"
+#include "include/core/SkPathMeasure.h"
+#include "include/effects/SkTrimPathEffect.h"
+#include "include/pathops/SkPathOps.h"
 
 namespace drift::skia {
 
@@ -57,6 +61,344 @@ double widestOutwardStroke(const ShapeStyle &style)
     return widest;
 }
 
+// Wiggle Paths (0.26): every contour resampled each `detail` px, each sample pushed along its normal
+// by a noise that is smooth both along the outline and in time (`phase` = seconds × wiggles/s),
+// then joined through the midpoints so the result stays round rather than jagged.
+SkPath wiggledPath(const SkPath &path, double size, double detail, double phase, double seed)
+{
+    if (size <= 0.0 || detail <= 0.0)
+        return path;
+    const double s1 = std::fmod(seed * 12.9898, 6.2831853);
+    const double s2 = std::fmod(seed * 78.233, 6.2831853);
+    const double s3 = std::fmod(seed * 37.719, 6.2831853);
+    const double t = phase * 6.2831853;
+    const auto noise = [&](double u) {
+        return 0.5 * std::sin(u * 1.00 + s1 + t) + 0.3 * std::sin(u * 2.31 + s2 - 1.37 * t)
+               + 0.2 * std::sin(u * 0.57 + s3 + 0.71 * t);
+    };
+    SkPathBuilder out;
+    SkPathMeasure measure(path, false);
+    do {
+        const double length = measure.getLength();
+        if (length <= 0.0)
+            continue;
+        const bool closed = measure.isClosed();
+        const int count = qMax(4, int(std::ceil(length / detail)));
+        std::vector<SkPoint> pts;
+        pts.reserve(count + 1);
+        const int last = closed ? count - 1 : count;
+        for (int i = 0; i <= last; ++i) {
+            SkPoint pos;
+            SkVector tan;
+            if (!measure.getPosTan(float(length * i / count), &pos, &tan))
+                continue;
+            // The ends of an open outline stay where they are, as AE keeps them pinned.
+            const double push = (!closed && (i == 0 || i == last)) ? 0.0 : size * noise(i * 0.35);
+            pts.push_back({float(pos.x() - tan.y() * push), float(pos.y() + tan.x() * push)});
+        }
+        if (pts.size() < 2)
+            continue;
+        if (closed) {
+            const auto mid = [](const SkPoint &a, const SkPoint &b) {
+                return SkPoint{(a.x() + b.x()) * 0.5f, (a.y() + b.y()) * 0.5f};
+            };
+            const size_t n = pts.size();
+            out.moveTo(mid(pts[n - 1], pts[0]));
+            for (size_t i = 0; i < n; ++i)
+                out.quadTo(pts[i], mid(pts[i], pts[(i + 1) % n]));
+            out.close();
+        } else {
+            out.moveTo(pts.front());
+            for (size_t i = 1; i < pts.size(); ++i)
+                out.lineTo(pts[i]);
+        }
+    } while (measure.nextContour());
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
+// The path's contours as separate paths.
+std::vector<SkPath> splitContours(const SkPath &path)
+{
+    std::vector<SkPath> out;
+    SkPathBuilder current;
+    bool open = false;
+    SkPath::Iter iter(path, false);
+    SkPoint pts[4];
+    for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+        switch (verb) {
+        case SkPath::kMove_Verb:
+            if (open)
+                out.push_back(current.detach());
+            current.moveTo(pts[0]);
+            open = true;
+            break;
+        case SkPath::kLine_Verb:
+            current.lineTo(pts[1]);
+            break;
+        case SkPath::kQuad_Verb:
+            current.quadTo(pts[1], pts[2]);
+            break;
+        case SkPath::kConic_Verb:
+            current.conicTo(pts[1], pts[2], iter.conicWeight());
+            break;
+        case SkPath::kCubic_Verb:
+            current.cubicTo(pts[1], pts[2], pts[3]);
+            break;
+        case SkPath::kClose_Verb:
+            current.close();
+            break;
+        default:
+            break;
+        }
+    }
+    if (open)
+        out.push_back(current.detach());
+    return out;
+}
+
+// Merge Paths (0.26): each contour combined with the result so far, as After Effects' modes.
+SkPath mergedPath(const SkPath &path, int mode)
+{
+    const std::vector<SkPath> parts = splitContours(path);
+    if (parts.size() < 2 || mode <= 0)
+        return path;
+    const SkPathOp op = mode == 2 ? kDifference_SkPathOp : mode == 3 ? kIntersect_SkPathOp
+                      : mode == 4 ? kXOR_SkPathOp : kUnion_SkPathOp;
+    SkPath result = parts.front();
+    for (size_t i = 1; i < parts.size(); ++i) {
+        SkPath next;
+        if (Op(result, parts[i], op, &next))
+            result = next;
+    }
+    return result;
+}
+
+// Offset Paths (0.26): the outline grown (or shrunk) by `amount` px, with round joins.
+SkPath offsetOutline(const SkPath &path, double amount)
+{
+    if (qAbs(amount) < 0.01)
+        return path;
+    SkStrokeRec rec(SkStrokeRec::kFill_InitStyle);
+    rec.setStrokeStyle(float(qAbs(amount) * 2.0));
+    rec.setStrokeParams(SkPaint::kRound_Cap, SkPaint::kRound_Join, 4.0f);
+    SkPathBuilder ring;
+    if (!rec.applyToPath(&ring, path))
+        return path;
+    SkPath result;
+    if (!Op(path, ring.detach(), amount > 0 ? kUnion_SkPathOp : kDifference_SkPathOp, &result))
+        return path;
+    return result;
+}
+
+// Pucker & Bloat (0.26), as After Effects: `amount` (percent, -100..100) pulls every vertex towards
+// the centre of the vertices and pushes its handles away (positive: bloat, petals swelling out), or
+// the other way round (negative: pucker, points drawn out to spikes). Straight sides count as curves
+// whose handles sit on their vertices, so a polygon turns into a flower as in AE.
+SkPath puckerBloated(const SkPath &path, double amount)
+{
+    const float k = float(amount / 100.0);
+    if (qAbs(k) < 1e-4)
+        return path;
+    struct Seg { bool move = false, close = false; SkPoint a, b, c, d; };
+    std::vector<Seg> segs;
+    double sx = 0.0, sy = 0.0;
+    int n = 0;
+    SkPoint last{0, 0};
+    SkPath::Iter iter(path, false);
+    SkPoint pts[4];
+    const auto cubic = [&](SkPoint b, SkPoint c, SkPoint d) {
+        Seg s;
+        s.a = last; s.b = b; s.c = c; s.d = d;
+        segs.push_back(s);
+        last = d;
+        sx += d.x(); sy += d.y(); ++n;
+    };
+    const auto quad = [&](SkPoint q, SkPoint d) {
+        cubic(last + (q - last) * (2.0f / 3.0f), d + (q - d) * (2.0f / 3.0f), d);
+    };
+    for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+        switch (verb) {
+        case SkPath::kMove_Verb: {
+            Seg s;
+            s.move = true;
+            s.d = pts[0];
+            segs.push_back(s);
+            last = pts[0];
+            sx += last.x(); sy += last.y(); ++n;
+            break;
+        }
+        case SkPath::kLine_Verb:
+            cubic(last, pts[1], pts[1]);
+            break;
+        case SkPath::kQuad_Verb:
+            quad(pts[1], pts[2]);
+            break;
+        case SkPath::kConic_Verb: {
+            SkPoint q[1 + 2 * 4];
+            const int count = SkPath::ConvertConicToQuads(pts[0], pts[1], pts[2], iter.conicWeight(), q, 2);
+            for (int i = 0; i < count; ++i)
+                quad(q[1 + 2 * i], q[2 + 2 * i]);
+            break;
+        }
+        case SkPath::kCubic_Verb:
+            cubic(pts[1], pts[2], pts[3]);
+            break;
+        case SkPath::kClose_Verb: {
+            Seg s;
+            s.close = true;
+            segs.push_back(s);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    if (n == 0)
+        return path;
+    const SkPoint centre{float(sx / n), float(sy / n)};
+    const auto vertex = [&](SkPoint p) { return p + (centre - p) * k; };
+    const auto handle = [&](SkPoint p) { return p - (centre - p) * k; };
+    SkPathBuilder out;
+    for (const Seg &s : segs) {
+        if (s.move)
+            out.moveTo(vertex(s.d));
+        else if (s.close)
+            out.close();
+        else
+            out.cubicTo(handle(s.b), handle(s.c), vertex(s.d));
+    }
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
+// Zig Zag and Twist (0.26): every contour resampled, each point pushed alternately either side of
+// the outline (zig zag), then turned about `centre` by twist × its distance from the centre over
+// the farthest one.
+SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, double twistDeg, SkPoint centre)
+{
+    const bool zig = size > 0.0;
+    const bool twist = qAbs(twistDeg) > 1e-6;
+    if (!zig && !twist)
+        return path;
+    double farthest = 1.0;
+    {
+        const SkRect b = path.getBounds();
+        for (const SkPoint corner : {SkPoint{b.left(), b.top()}, SkPoint{b.right(), b.top()},
+                                     SkPoint{b.right(), b.bottom()}, SkPoint{b.left(), b.bottom()}})
+            farthest = qMax(farthest, double(SkPoint::Distance(corner, centre)));
+    }
+    SkPathBuilder out;
+    SkPathMeasure measure(path, false);
+    do {
+        const double length = measure.getLength();
+        if (length <= 0.0)
+            continue;
+        const bool closed = measure.isClosed();
+        // Two points per ridge for the zig zag; dense enough to bend smoothly for a twist.
+        const int count = zig ? qMax(2, ridges * 2) : qMax(16, int(std::ceil(length / 6.0)));
+        std::vector<SkPoint> pts;
+        const int last = closed ? count - 1 : count;
+        for (int i = 0; i <= last; ++i) {
+            SkPoint pos;
+            SkVector tan;
+            if (!measure.getPosTan(float(length * i / count), &pos, &tan))
+                continue;
+            if (zig) {
+                const double side = (i % 2 == 0 ? 1.0 : -1.0) * size;
+                pos = {float(pos.x() - tan.y() * side), float(pos.y() + tan.x() * side)};
+            }
+            if (twist) {
+                const double dx = pos.x() - centre.x();
+                const double dy = pos.y() - centre.y();
+                const double a = qDegreesToRadians(twistDeg) * std::hypot(dx, dy) / farthest;
+                pos = {float(centre.x() + dx * std::cos(a) - dy * std::sin(a)),
+                       float(centre.y() + dx * std::sin(a) + dy * std::cos(a))};
+            }
+            pts.push_back(pos);
+        }
+        if (pts.size() < 2)
+            continue;
+        if (smooth || (!zig && twist)) {
+            const auto mid = [](const SkPoint &a, const SkPoint &b) {
+                return SkPoint{(a.x() + b.x()) * 0.5f, (a.y() + b.y()) * 0.5f};
+            };
+            const size_t n = pts.size();
+            if (closed) {
+                out.moveTo(mid(pts[n - 1], pts[0]));
+                for (size_t i = 0; i < n; ++i)
+                    out.quadTo(pts[i], mid(pts[i], pts[(i + 1) % n]));
+                out.close();
+            } else {
+                out.moveTo(pts.front());
+                for (size_t i = 1; i + 1 < n; ++i)
+                    out.quadTo(pts[i], mid(pts[i], pts[i + 1]));
+                out.lineTo(pts.back());
+            }
+        } else {
+            out.moveTo(pts.front());
+            for (size_t i = 1; i < pts.size(); ++i)
+                out.lineTo(pts[i]);
+            if (closed)
+                out.close();
+        }
+    } while (measure.nextContour());
+    SkPath result = out.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
+// Trim Paths (0.26): start and end in percent, the offset in degrees (once round = 360°), wrapping
+// past the outline's end the way After Effects does.
+SkPath trimmedPath(const SkPath &path, double startPct, double endPct, double offsetDeg, int segments, bool reverse)
+{
+    double a = qBound(0.0, startPct, 100.0) / 100.0;
+    double b = qBound(0.0, endPct, 100.0) / 100.0;
+    if (a > b)
+        std::swap(a, b);
+    double shift = offsetDeg / 360.0;
+    if (reverse) {
+        const double ra = 1.0 - b;
+        b = 1.0 - a;
+        a = ra;
+        shift = -shift;
+    }
+    // Each contour on its own, as After Effects' default (Simultaneously).
+    return trimEachContour(path, a + shift, b + shift, segments);
+}
+
+// Repeater (0.26): copy `index` (fractional with the offset) of a w × h box, in box px: moved,
+// turned and scaled from its centre, each step compounding as in After Effects.
+SkMatrix repeaterMatrix(const ShapeStyle &style, double index, double w, double h, double scale)
+{
+    SkMatrix m;
+    m.setTranslate(float(-w / 2.0), float(-h / 2.0));
+    const double factor = std::pow(qMax(0.0, style.repeatScale) / 100.0, index);
+    m.postScale(float(factor), float(factor));
+    m.postRotate(float(style.repeatRotation * index));
+    m.postTranslate(float(w / 2.0 + style.repeatX * index * scale), float(h / 2.0 + style.repeatY * index * scale));
+    return m;
+}
+
+// How far the repeater's copies reach outside the w × h box, in box px.
+double repeaterReach(const ShapeStyle &style, double w, double h, double scale)
+{
+    if (!style.hasRepeater())
+        return 0.0;
+    const int copies = qBound(1, qRound(style.repeatCopies), 200);
+    double reach = 0.0;
+    for (int k = 0; k < copies; ++k) {
+        const SkMatrix m = repeaterMatrix(style, k + style.repeatOffset, w, h, scale);
+        for (const SkPoint corner : {SkPoint{0, 0}, SkPoint{float(w), 0}, SkPoint{float(w), float(h)}, SkPoint{0, float(h)}}) {
+            const SkPoint p = m.mapPoint(corner);
+            reach = qMax(reach, qMax(qMax(-double(p.x()), double(p.x()) - w), qMax(-double(p.y()), double(p.y()) - h)));
+        }
+    }
+    return reach;
+}
+
 class ShapePainter final : public VectorPainter
 {
 public:
@@ -82,6 +424,25 @@ public:
             m_path = outline;
         }
         m_silhouetteStrokePx = widestOutwardStroke(style) * m_scale * 2.0;
+        m_boxW = width;
+        m_boxH = height;
+        // After Effects' order down the stack: merge, offset, pucker & bloat, zig zag / twist, wiggle, trim.
+        if (m_style.mergeMode >= 0.5)
+            m_path = mergedPath(m_path, qRound(m_style.mergeMode));
+        if (qAbs(m_style.offsetPath) >= 0.01)
+            m_path = offsetOutline(m_path, m_style.offsetPath * m_scale);
+        if (qAbs(m_style.puckerBloat) > 1e-6)
+            m_path = puckerBloated(m_path, m_style.puckerBloat);
+        if (m_style.zigzagSize > 0.0 || qAbs(m_style.twistAngle) > 1e-6)
+            m_path = zigzagTwisted(m_path, m_style.zigzagSize * m_scale, qRound(m_style.zigzagRidges),
+                                   m_style.zigzagSmooth >= 0.5, m_style.twistAngle,
+                                   SkPoint{float(width / 2.0), float(height / 2.0)});
+        if (m_style.hasWiggle())
+            m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale,
+                                 m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
+        if (m_style.hasTrim() || !qFuzzyIsNull(m_style.trimOffset))
+            m_path = trimmedPath(m_path, m_style.trimStart, m_style.trimEnd, m_style.trimOffset,
+                                 qRound(m_style.trimSegments), m_style.trimReverse > 0.5);
     }
 
     QSize size() const override { return m_size; }
@@ -90,8 +451,35 @@ public:
     void paint(SkCanvas &canvas) const override
     {
         canvas.translate(float(m_bleed), float(m_bleed));
+        if (m_path.isEmpty())
+            return;
         const SkRect bounds = m_path.getBounds();
         const QRectF box(bounds.left(), bounds.top(), bounds.width(), bounds.height());
+        if (!m_style.hasRepeater()) {
+            drawLayers(canvas, box);
+            return;
+        }
+        // The last copy first, so the original sits on top (After Effects' "Below" composite).
+        const int copies = qBound(1, qRound(m_style.repeatCopies), 200);
+        for (int k = copies - 1; k >= 0; --k) {
+            const double f = copies > 1 ? double(k) / double(copies - 1) : 0.0;
+            const double alpha = qBound(0.0, (m_style.repeatStartOpacity + (m_style.repeatEndOpacity - m_style.repeatStartOpacity) * f) / 100.0, 1.0);
+            if (alpha <= 0.0)
+                continue;
+            canvas.save();
+            canvas.concat(repeaterMatrix(m_style, k + m_style.repeatOffset, m_boxW, m_boxH, m_scale));
+            if (alpha < 1.0)
+                canvas.saveLayerAlphaf(nullptr, float(alpha));
+            drawLayers(canvas, box);
+            if (alpha < 1.0)
+                canvas.restore();
+            canvas.restore();
+        }
+    }
+
+private:
+    void drawLayers(SkCanvas &canvas, const QRectF &box) const
+    {
         for (const TextShadingLayer &layer : m_style.layers) {
             if (!layer.enabled || layer.opacity <= 0.0)
                 continue;
@@ -104,7 +492,6 @@ public:
         }
     }
 
-private:
     void drawLayer(SkCanvas &canvas, const TextShadingLayer &layer, const QRectF &box) const
     {
         SkPaint paint;
@@ -121,12 +508,13 @@ private:
                 break;
             applyShadingPaint(paint, layer.paint, box, m_timeSec, 1.0);
             paint.setStyle(SkPaint::kStroke_Style);
-            paint.setStrokeJoin(SkPaint::kRound_Join);
-            paint.setStrokeCap(SkPaint::kRound_Cap);
+            paint.setStrokeJoin(skStrokeJoin(layer.join));
+            paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
+            const SkPath stroked = strokedPathFor(layer, m_path);
             if (layer.strokeAlign == StrokeAlign::Center) {
                 paint.setStrokeWidth(float(width));
-                canvas.drawPath(m_path, paint);
+                canvas.drawPath(stroked, paint);
                 break;
             }
             // A centred stroke of twice the width, clipped to one side of the outline, is the
@@ -135,7 +523,7 @@ private:
             canvas.save();
             canvas.clipPath(m_path, layer.strokeAlign == StrokeAlign::Inside ? SkClipOp::kIntersect : SkClipOp::kDifference,
                             true);
-            canvas.drawPath(m_path, paint);
+            canvas.drawPath(stroked, paint);
             canvas.restore();
             break;
         }
@@ -176,6 +564,8 @@ private:
     quint64 m_key = 0;
     SkPath m_path;
     double m_silhouetteStrokePx = 0.0;
+    double m_boxW = 0.0;
+    double m_boxH = 0.0;
 };
 
 } // namespace
@@ -212,9 +602,24 @@ double shapeBleedFor(const ShapeStyle &style)
 ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
 {
     ShapePainterResult result;
-    const double bleed = std::ceil(shapeBleedFor(request.style) * request.renderScale);
     const int w = qMax(1, qRound(request.layoutRect.width()));
     const int h = qMax(1, qRound(request.layoutRect.height()));
+    // A wiggle pushes the outline out by its size; the repeater's copies can land well outside the
+    // box, capped so a runaway repeater cannot ask for a texture the GPU will not hold.
+    double operators = (request.style.wiggleSize + qMax(0.0, request.style.offsetPath) + request.style.zigzagSize)
+                           * request.renderScale
+                       + qMin(4096.0, repeaterReach(request.style, w, h, request.renderScale));
+    // A custom outline edited past its box (a vertex or handle dragged out, a morph between keys)
+    // is still drawn whole.
+    if (request.style.kind == ShapeKind::Custom) {
+        const QRectF b = pathContoursBounds(pathContoursFromSvg(request.style.customPath));
+        if (!b.isNull()) {
+            const double over = qMax(qMax(-b.left() * w, (b.right() - 100.0) * w),
+                                     qMax(-b.top() * h, (b.bottom() - 100.0) * h)) / 100.0;
+            operators += qMin(4096.0, qMax(0.0, over));
+        }
+    }
+    const double bleed = std::ceil(shapeBleedFor(request.style) * request.renderScale + operators);
     auto painter = std::make_shared<ShapePainter>(request.style, w, h, request.renderScale, request.timeSec, bleed);
     result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, painter->size().width(),
                          painter->size().height());

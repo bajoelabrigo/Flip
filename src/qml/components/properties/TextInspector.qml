@@ -2241,6 +2241,96 @@ Item {
                 }
             }
 
+            // --- Texto sobre trazado (0.26), as After Effects' Path Options -----------------------
+            CollapsibleSection {
+                id: pathSection
+                width: parent.width
+                title: qsTr("Text on a path")
+                tooltip: qsTr("A single line of text follows an outline: a ready-made one or a shape layer's")
+                visible: root.hasTextStyle
+                showSwitch: true
+                switchChecked: String(root.textStyle.pathSvg || "") !== ""
+                switchTooltip: qsTr("Put the text on a path")
+                onSwitchToggled: on => root.setTextStyleKey("pathSvg", on ? pathSection.presets[0].d : "")
+
+                // Outlines on 0..100 of the text box.
+                readonly property var presets: [
+                    { "label": qsTr("Wave"), "d": "M 0 50 C 25 10 25 10 50 50 S 75 90 100 50" },
+                    { "label": qsTr("Arch"), "d": "M 0 85 Q 50 -15 100 85" },
+                    { "label": qsTr("Valley"), "d": "M 0 15 Q 50 115 100 15" },
+                    { "label": qsTr("S curve"), "d": "M 0 20 C 70 20 30 80 100 80" },
+                    { "label": qsTr("Rising"), "d": "M 0 90 L 100 10" },
+                    { "label": qsTr("Loop"), "d": "M 50 5 C 75 5 95 25 95 50 C 95 75 75 95 50 95 C 25 95 5 75 5 50 C 5 25 25 5 50 5 Z" }
+                ]
+                property var shapes: []
+
+                Flow {
+                    width: parent.width
+                    spacing: Theme.spacingXs
+                    Repeater {
+                        model: pathSection.presets
+                        ThemedButton {
+                            required property var modelData
+                            variant: root.textStyle.pathSvg === modelData.d ? "primary" : "secondary"
+                            text: modelData.label
+                            onClicked: root.setTextStyleKey("pathSvg", modelData.d)
+                        }
+                    }
+                }
+
+                // A shape layer's outline, where it sits on the canvas now.
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedComboBox {
+                        id: pathShapeBox
+                        width: parent.width - pathShapeButton.width - parent.spacing
+                        model: pathSection.shapes.length > 0 ? pathSection.shapes.map(s => s.name || qsTr("Shape"))
+                                                             : [qsTr("No shape layers")]
+                        enabled: pathSection.shapes.length > 0
+                        onPressedChanged: if (pressed) pathSection.shapes = EditorState.textPathShapes()
+                        Component.onCompleted: pathSection.shapes = EditorState.textPathShapes()
+                        // Picking another shape puts the text on it at once, as After Effects' Path list.
+                        onActivated: index => {
+                            const s = pathSection.shapes[index]
+                            if (s)
+                                EditorState.useShapeAsTextPath(EditorState.selectedTrack, EditorState.selectedClip,
+                                                               s.track, s.clip)
+                        }
+                    }
+                    ThemedButton {
+                        id: pathShapeButton
+                        variant: "secondary"
+                        text: qsTr("Follow shape")
+                        tooltip: qsTr("Put the text on this shape layer's outline")
+                        enabled: pathSection.shapes.length > 0
+                        onClicked: {
+                            const s = pathSection.shapes[pathShapeBox.currentIndex]
+                            if (s)
+                                EditorState.useShapeAsTextPath(EditorState.selectedTrack, EditorState.selectedClip,
+                                                               s.track, s.clip)
+                        }
+                    }
+                }
+
+                PropertyKeyframeRow {
+                    width: parent.width
+                    visible: String(root.textStyle.pathSvg || "") !== ""
+                    propDef: root.textProp("pathOffset", qsTr("Path offset"), 1)
+                    keyframeList: root.textKeyframes("pathOffset")
+                    useSlider: true
+                    sliderFrom: -100
+                    sliderTo: 100
+                }
+                Label {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    color: Theme.mutedForeground
+                    font.pixelSize: Theme.fontSizeSm
+                    text: qsTr("Animate the offset to make the letters run along the path. Only one line of text follows it.")
+                }
+            }
+
             // Your own template: this text's whole look, kept under Efectos → My styles and the Text tab.
             ThemedButton {
                 width: parent.width

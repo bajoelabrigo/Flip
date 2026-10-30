@@ -34,6 +34,19 @@ CATEGORY_NAMES = {
     "comida": {"es": "Comida y bebida", "en": "Food and drink"},
     "deportes": {"es": "Deportes", "en": "Sports"},
     "iconos": {"es": "Iconos", "en": "Icons"},
+    # Animaciones Extremas (0.26): cartoon / anime FX drawn frame by frame (extremas.py).
+    "extremas-fuego": {"es": "Extremas · Fuego", "en": "Extreme · Fire"},
+    "extremas-explosiones": {"es": "Extremas · Explosiones", "en": "Extreme · Explosions"},
+    "extremas-humo": {"es": "Extremas · Humo", "en": "Extreme · Smoke"},
+    "extremas-energia": {"es": "Extremas · Energía", "en": "Extreme · Energy"},
+    "extremas-electricidad": {"es": "Extremas · Electricidad", "en": "Extreme · Electricity"},
+    "extremas-chispas": {"es": "Extremas · Chispas", "en": "Extreme · Sparks"},
+    "extremas-liquidos": {"es": "Extremas · Líquidos", "en": "Extreme · Liquids"},
+    "extremas-lineas": {"es": "Extremas · Líneas", "en": "Extreme · Lines"},
+    "extremas-destellos": {"es": "Extremas · Destellos", "en": "Extreme · Flashes"},
+    "extremas-transiciones": {"es": "Extremas · Transiciones", "en": "Extreme · Transitions"},
+    "extremas-simples": {"es": "Extremas · Simples", "en": "Extreme · Simple"},
+    "extremas-mates": {"es": "Extremas · Mates de transición", "en": "Extreme · Transition mattes"},
 }
 
 

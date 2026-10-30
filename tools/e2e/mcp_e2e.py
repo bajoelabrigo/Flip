@@ -328,6 +328,24 @@ def type_text(pid, text):
     return f"typed {len(text)} characters"
 
 
+def press_key(pid, vk):
+    """A key press (Windows virtual-key code: 0x0D Enter, 0x1B Escape, 0x2E Delete, 0x08 Backspace,
+    0x25-0x28 arrows) posted to the window like click(). Modifiers cannot be posted: Qt reads them
+    from the real keyboard."""
+    import ctypes
+
+    user32 = ctypes.windll.user32
+    hwnd, _ = _window_lparam(pid, 0, 0)
+    if not hwnd:
+        return "no window"
+    scan = user32.MapVirtualKeyW(vk, 0)
+    extended = 1 << 24 if vk in (0x2E, 0x25, 0x26, 0x27, 0x28) else 0
+    user32.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16) | extended)  # WM_KEYDOWN
+    time.sleep(0.05)
+    user32.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | extended | (3 << 30))  # WM_KEYUP
+    return f"pressed key 0x{vk:02X}"
+
+
 def drag(pid, x, y, x2, y2, steps=12):
     """A left-button drag from (x, y) to (x2, y2), posted like click()."""
     import ctypes
@@ -434,6 +452,10 @@ def main():
                 continue
             if tool == "type":
                 print(f"[{index}] {type_text(gui.pid if gui else bridge.proc.pid, args['text'])}")
+                time.sleep(float(call.get("sleep", 0.5)))
+                continue
+            if tool == "key":
+                print(f"[{index}] {press_key(gui.pid if gui else bridge.proc.pid, int(args['vk']))}")
                 time.sleep(float(call.get("sleep", 0.5)))
                 continue
             if tool == "drag":

@@ -43,6 +43,8 @@ ClipType clipTypeFromString(const QString &type)
         return ClipType::Subtitle;
     if (type == QStringLiteral("shape"))
         return ClipType::Shape;
+    if (type == QStringLiteral("solid"))
+        return ClipType::Shape; // a solid from the bin is a solid shape layer
     if (type == QStringLiteral("adjustment"))
         return ClipType::Adjustment;
     if (type == QStringLiteral("vector"))

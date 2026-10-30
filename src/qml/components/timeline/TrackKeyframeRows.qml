@@ -147,6 +147,10 @@ Item {
 
     // A line's name: the joined transform lines by their group, the rest as the app names them.
     function rowLabel(row) {
+        // Separate Dimensions: After Effects' X Position and Y Position.
+        if (row.separated)
+            return row.prop === "x" ? qsTranslate("TrackKeyframeRows", "X Position")
+                                    : qsTranslate("TrackKeyframeRows", "Y Position")
         switch (row.group && !row.axis ? row.group : "") {
         case "anchor": return qsTranslate("TrackKeyframeRows", "Anchor point")
         case "position": return qsTranslate("TrackKeyframeRows", "Position")

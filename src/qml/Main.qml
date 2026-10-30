@@ -350,25 +350,30 @@ ApplicationWindow {
             }
 
             Platform.Menu {
+                id: windowMenu
                 title: qsTr("&Window")
 
-                Platform.MenuItem {
-                    text: qsTr("Landscape Workspace")
-                    checkable: true
-                    checked: !EditorState.preferences.workspaceLayoutOverridden || EditorState.preferences.workspaceLayoutPreferred === "landscape"
-                    onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("landscape")
-                }
-                Platform.MenuItem {
-                    text: qsTr("Portrait Workspace")
-                    checkable: true
-                    checked: EditorState.preferences.workspaceLayoutOverridden && EditorState.preferences.workspaceLayoutPreferred === "portrait"
-                    onTriggered: EditorState.preferences.setWorkspaceLayoutPreference("portrait")
-                }
                 Platform.MenuItem {
                     text: qsTr("Auto Workspace (Follow Canvas)")
                     checkable: true
                     checked: !EditorState.preferences.workspaceLayoutOverridden
                     onTriggered: EditorState.preferences.clearWorkspaceLayoutPreference()
+                }
+                Instantiator {
+                    model: window.workspacesModel
+                    delegate: Platform.MenuItem {
+                        required property var modelData
+                        text: modelData.label
+                        checkable: true
+                        checked: EditorState.preferences.workspaceLayoutOverridden && window.workspaceLayout === modelData.id
+                        onTriggered: window.chooseWorkspace(modelData.id)
+                    }
+                    onObjectAdded: (index, object) => windowMenu.insertItem(1 + index, object)
+                    onObjectRemoved: (index, object) => windowMenu.removeItem(object)
+                }
+                Platform.MenuItem {
+                    text: window.arrangingPanels ? qsTr("Done arranging") : qsTr("Arrange panels")
+                    onTriggered: window.arrangingPanels = !window.arrangingPanels
                 }
                 Platform.MenuSeparator {}
                 Platform.MenuItem {
@@ -557,118 +562,53 @@ ApplicationWindow {
 
     function persistLayout() {
         window.persistWindowState()
-        window.capturePanelFractions()
-        for (const key in window.panelFractions)
-            LayoutMemory.setPanelFraction(key, window.panelFractions[key])
     }
 
-    // Panel sizes are kept as a fraction of the split they sit in rather than a pixel
-    // width, so a layout dragged out on a 4K display still reads on a laptop screen.
-    // Keyed by workspace, because portrait and landscape are different arrangements
-    // and each deserves to remember its own.
-    property var panelFractions: ({})
-    // Nothing is captured until the stored layout has been applied, or the defaults
-    // from the first layout pass would immediately overwrite it.
-    property bool panelLayoutRestored: false
-
-    Timer {
-        id: panelSettleTimer
-        interval: 250
-        onTriggered: {
-            window.capturePanelFractions()
-            for (const key in window.panelFractions)
-                LayoutMemory.setPanelFraction(key, window.panelFractions[key])
-        }
+    // The workspaces (0.26, as After Effects): the ones that come with Flip, the user's own and
+    // the changes made to them. Each remembers its own panel sizes and arrangement.
+    Workspaces {
+        id: workspaces
     }
-
-    function schedulePanelCapture() {
-        if (!window.panelLayoutRestored || workspaceApplyTimer.running)
+    readonly property var workspaceTree: workspaces.treeFor(window.workspaceLayout)
+    // Window › Arrange panels: drag a panel onto another to swap them or onto its edge to dock.
+    property bool arrangingPanels: false
+    function chooseWorkspace(id) {
+        window.arrangingPanels = false
+        EditorState.preferences.setWorkspaceLayoutPreference(id)
+    }
+    function saveWorkspaceAs(label) {
+        const name = String(label || "").trim()
+        if (name.length === 0)
             return
-        panelSettleTimer.restart()
+        window.chooseWorkspace(workspaces.saveAs(name, workspaces.treeFor(window.workspaceLayout)))
     }
-
-    function capturePanelFractions() {
-        // Fullscreen collapses every panel around the preview; those sizes are a mode,
-        // not a layout, and must not be written over the user's arrangement.
-        if (window.previewFullscreen)
+    function togglePanel(id) {
+        const tree = workspaces.treeFor(window.workspaceLayout)
+        const shown = workspaceView.panelsIn(tree).indexOf(id) >= 0
+        if (shown && workspaceView.panelsIn(tree).length <= 1)
             return
-        const prefix = window.workspaceLayout + "/"
-        if (outerSplit.height > 0 && innerSplit.height > 0)
-            window.panelFractions[prefix + "editorRow"] = innerSplit.height / outerSplit.height
-        if (innerSplit.width > 0) {
-            // "assetsWide" since 0.17: the narrower widths saved before the category row are not reused.
-            window.panelFractions[prefix + "assetsWide"] = assetsPanel.width / innerSplit.width
-            window.panelFractions[prefix + "properties"] = propertiesPanel.width / innerSplit.width
-        }
-        // Landscape hands the preview the slack in its row (fillWidth), so it has no
-        // width of its own to remember there.
-        if (window.portraitWorkspace && rootSplit.width > 0)
-            window.panelFractions[prefix + "preview"] = previewPanel.width / rootSplit.width
+        workspaces.edit(window.workspaceLayout, shown ? workspaceView.without(workspaceView.clone(tree), id)
+                                                      : workspaceView.shown(tree, id))
     }
-
-    // Writing an attached SplitView size drops the default binding behind it — which
-    // is the point: from here on the panel keeps the size the user chose, exactly as
-    // it does after a handle drag.
-    function applySavedPanelSizes() {
-        const prefix = window.workspaceLayout + "/"
-        const editorRow = LayoutMemory.panelFraction(prefix + "editorRow", 0)
-        if (editorRow > 0 && outerSplit.height > 0)
-            innerSplit.SplitView.preferredHeight = outerSplit.height * editorRow
-        const assets = LayoutMemory.panelFraction(prefix + "assetsWide", 0)
-        if (assets > 0 && innerSplit.width > 0)
-            assetsPanel.SplitView.preferredWidth = innerSplit.width * assets
-        const properties = LayoutMemory.panelFraction(prefix + "properties", 0)
-        if (properties > 0 && innerSplit.width > 0)
-            propertiesPanel.SplitView.preferredWidth = innerSplit.width * properties
-        if (window.portraitWorkspace) {
-            const preview = LayoutMemory.panelFraction(prefix + "preview", 0)
-            if (preview > 0 && rootSplit.width > 0)
-                previewPanel.SplitView.preferredWidth = rootSplit.width * preview
-        }
+    function panelShown(id) {
+        return workspaceView.panelsIn(window.workspaceTree).indexOf(id) >= 0
     }
-
-    // Every extent is 0 on the first layout pass, and a fraction of 0 is 0 — so the
-    // restore waits for real sizes rather than running at Component.onCompleted.
-    //
-    // It also waits for the window to be shown at its final size. Applying a fraction turns it
-    // into pixels, and a session left maximized is first laid out at its windowed size: the
-    // panels were sized against that small window, kept those pixels once it maximized, and
-    // the capture that followed saved the shrunken fractions — so every launch squeezed the
-    // preview and the libraries further towards their minimums.
-    function restorePanelSizesWhenReady() {
-        if (window.panelLayoutRestored)
-            return
-        if (rootSplit.width <= 0 || outerSplit.height <= 0 || innerSplit.width <= 0)
-            return
-        if (window.visibility === Window.Hidden)
-            return
-        if (Qt.platform.os !== "android" && LayoutMemory.savedWindowMaximized()
-                && window.visibility !== Window.Maximized && window.visibility !== Window.FullScreen)
-            return
-        // Platforms report the size and the visibility of a maximize in either order; the
-        // timer lets both land before the fractions become pixels.
-        panelRestoreTimer.restart()
+    readonly property var workspacesModel: workspaces.all
+    function workspaceEdited(id) { return workspaces.isEdited(id) }
+    function workspaceLabel(id) { return workspaces.label(id) }
+    function resetWorkspace(id) { workspaces.reset(id) }
+    function deleteWorkspace(id) {
+        if (id === window.workspaceLayout)
+            window.chooseWorkspace("landscape")
+        workspaces.remove(id)
     }
-
-    Timer {
-        id: panelRestoreTimer
-        interval: 150
-        onTriggered: {
-            if (window.panelLayoutRestored)
-                return
-            window.applySavedPanelSizes()
-            window.panelLayoutRestored = true
-        }
+    function askWorkspaceName() {
+        workspaceNameDialog.openWith(qsTr("Save workspace"), qsTr("My workspace"))
     }
-
-    // A workspace flip moves the preview between splits, so the panels around it are
-    // still resizing on the frame the flip lands. Reapplying immediately would divide
-    // by stale extents; waiting lets the new arrangement settle first, and capture is
-    // suppressed until it has (schedulePanelCapture checks this timer).
-    Timer {
-        id: workspaceApplyTimer
-        interval: 100
-        onTriggered: window.applySavedPanelSizes()
+    NameDialog {
+        id: workspaceNameDialog
+        placeholder: qsTr("My workspace")
+        onSubmitted: name => window.saveWorkspaceAs(name)
     }
 
     // Fullscreen preview: the window goes fullscreen *and* every panel around the
@@ -757,16 +697,6 @@ ApplicationWindow {
                                               ? EditorState.preferences.workspaceLayoutPreferred
                                               : (EditorState.projectPortrait ? "portrait" : "landscape")
     readonly property bool portraitWorkspace: workspaceLayout === "portrait"
-
-    onPortraitWorkspaceChanged: {
-        rootSplit.relocatePreview()
-        // The two workspaces remember their own proportions, so the flip pulls in the
-        // other one's — and any capture already in flight belongs to the old layout.
-        if (window.panelLayoutRestored) {
-            panelSettleTimer.stop()
-            workspaceApplyTimer.restart()
-        }
-    }
 
     function configureAndAddAsset(assetIndex, runner) {
         if (!EditorState.shouldConfigureProjectForAsset(assetIndex)) {
@@ -1598,9 +1528,6 @@ ApplicationWindow {
         // Maximizing does not have to change the window size (a window already filling
         // the work area does not), so the geometry sampler alone can miss the switch.
         window.persistWindowState()
-        // The stored panel layout waits for the window's final state (see
-        // restorePanelSizesWhenReady), and reaching it need not resize anything.
-        window.restorePanelSizesWhenReady()
         if (visible && EditorState.projectFile.recoveryAvailable && !EditorState.preferences.reopenLastProject)
             recoveryOpenTimer.start()
     }
@@ -1828,6 +1755,11 @@ ApplicationWindow {
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
     function dispatchAction(id) {
+        // Escape leaves a preview tool first, back to selection as in After Effects.
+        if (id === "clearSelection" && EditorState.preview.tool !== "select") {
+            EditorState.preview.tool = "select"
+            return
+        }
         if (id === "clearSelection" && EditorState.preview.guideEditSetId !== "") {
             EditorState.preview.guideEditSetId = ""
             return
@@ -1854,6 +1786,18 @@ ApplicationWindow {
         // than by triggerAction.
         if (id === "selectTool") {
             timelinePanel.timelineTool = ""
+            EditorState.preview.tool = "select"
+            return
+        }
+        // The preview toolbar's tools (0.26).
+        const previewTools = { previewHandTool: "hand", previewZoomTool: "zoom", previewAnchorTool: "anchor",
+                               previewShapeTool: "shape", previewPenTool: "pen", previewTextTool: "text" }
+        if (previewTools[id] !== undefined) {
+            EditorState.preview.tool = EditorState.preview.tool === previewTools[id] ? "select" : previewTools[id]
+            return
+        }
+        if (id === "previewCameraTool") {
+            EditorState.preview.mode = EditorState.preview.mode === "3d" ? "2d" : "3d"
             return
         }
         if (id === "bladeTool") {
@@ -1978,180 +1922,65 @@ ApplicationWindow {
             height: Math.max(0, parent.height
                                 - (window.previewFullscreen ? 0 : Theme.headerHeight))
 
-            // Two workspaces (issue #46). Landscape is the classic three-pane row
-            // above the timeline. Portrait lifts the preview out into a full-height
-            // column on the right, so a 9:16 frame is bounded by the window height
-            // instead of by the height of the top row — where it renders
-            // postage-stamp small. Only the preview moves between the two; assets,
-            // properties and the timeline keep their slots either way.
-            SplitView {
-                id: rootSplit
+            // The workspace (0.26): the panels laid out as the chosen workspace's tree says. The
+            // panels themselves live below, in a hidden stash, and are only re-parented.
+            WorkspaceView {
+                id: workspaceView
                 anchors.fill: parent
-                // Edge-to-edge in fullscreen; the usual page padding otherwise.
-                anchors.margins: window.previewFullscreen ? 0 : Theme.pagePadding
+                anchors.margins: Theme.pagePadding
                 anchors.topMargin: 0
-                orientation: Qt.Horizontal
-                spacing: Theme.panelGap
+                visible: !window.previewFullscreen
+                arranging: window.arrangingPanels
+                tree: window.workspaceTree
+                panels: ({ "assets": assetsPanel, "preview": previewPanel, "properties": propertiesPanel,
+                           "timeline": timelinePanel })
+                onLayoutEdited: tree => workspaces.edit(window.workspaceLayout, tree)
+            }
 
-                handle: PanelSplitHandle { view: rootSplit }
-
-                // Container.removeItem() *destroys* what it removes — takeItem() is
-                // the one that hands the item back. That distinction matters here:
-                // the preview owns the video sink and the GL runtime, so rebuilding
-                // it (via removeItem, or a Loader) would tear down the renderer and
-                // drop playback state on every workspace switch. Moving the one live
-                // instance keeps the switch free.
-                function relocatePreview() {
-                    const wantRoot = window.portraitWorkspace
-                    if (wantRoot === (previewPanel.SplitView.view === rootSplit))
-                        return
-                    const from = wantRoot ? innerSplit : rootSplit
-                    for (let i = 0; i < from.count; ++i) {
-                        if (from.itemAt(i) === previewPanel) {
-                            from.takeItem(i)
-                            break
-                        }
-                    }
-                    // Index 1 either way: after the assets panel in the landscape
-                    // row, after the editing stack in the portrait column.
-                    if (wantRoot)
-                        rootSplit.insertItem(1, previewPanel)
-                    else
-                        innerSplit.insertItem(1, previewPanel)
-                }
-
-                // The preview is declared in its landscape slot below, so a session
-                // that starts portrait needs one move once the tree exists. Also
-                // covers a layout flip that lands before this point during startup —
-                // relocatePreview() is a no-op when nothing has to move.
-                Component.onCompleted: relocatePreview()
-
-                // The stored panel sizes need real extents to be fractions of, and
-                // these are 0 until the first layout pass lands.
-                onWidthChanged: window.restorePanelSizesWhenReady()
-                onHeightChanged: window.restorePanelSizesWhenReady()
-
-                SplitView {
-                    id: outerSplit
-                    SplitView.fillWidth: true
-                    orientation: Qt.Vertical
-                    spacing: Theme.panelGap
-
-                    handle: PanelSplitHandle { view: outerSplit }
-
-                    // In the portrait workspace the preview is a sibling of this
-                    // whole stack, so fullscreen has to collapse the stack itself —
-                    // hiding only the panels inside it would leave the preview
-                    // confined to its column. SplitView drops hidden items from the
-                    // layout, so this hands the window to the preview.
-                    visible: !(window.previewFullscreen && window.portraitWorkspace)
-
-                    onHeightChanged: window.restorePanelSizesWhenReady()
-
-                    SplitView {
-                        id: innerSplit
-                        // Sized against the enclosing SplitView by id. `parent` here
-                        // is the SplitView's own content item, which makes these
-                        // percentage constraints self-referential during a resize.
-                        // In fullscreen the timeline is hidden, so the normal 30–85%
-                        // band would leave a dead strip below the preview.
-                        //
-                        // Never set a fixed minimum larger than the current parent
-                        // size: on the first layout pass width/height are 0, and
-                        // Qt SplitView asserts when maximum < minimum (qBound).
-                        SplitView.preferredHeight: window.previewFullscreen
-                                                   ? outerSplit.height : outerSplit.height * 0.5
-                        SplitView.minimumHeight: window.previewFullscreen
-                                                 ? outerSplit.height
-                                                 : Math.min(outerSplit.height, outerSplit.height * 0.3)
-                        SplitView.maximumHeight: window.previewFullscreen
-                                                 ? outerSplit.height
-                                                 : Math.max(SplitView.minimumHeight, outerSplit.height * 0.85)
-                        orientation: Qt.Horizontal
-                        spacing: Theme.panelGap
-
-                        handle: PanelSplitHandle { view: innerSplit }
-
-                        onWidthChanged: window.restorePanelSizesWhenReady()
-                        // This split's share of the vertical one is the timeline's
-                        // height, seen from the other side.
-                        onHeightChanged: {
-                            window.restorePanelSizesWhenReady()
-                            window.schedulePanelCapture()
-                        }
-
-                        AssetsPanel {
-                            id: assetsPanel
-                            visible: !window.previewFullscreen
-                            // A quarter of the row alongside the preview. In portrait
-                            // the preview is gone from this row and the properties
-                            // panel — last, and the only one without a fill — soaks up
-                            // everything left over, so an unchanged quarter here left
-                            // the library at a third of the inspector's width. Half
-                            // splits the row evenly between the two instead.
-                            // At least as wide as the category row (Media … Templates), so it opens
-                            // whole; narrower is the user's choice, by dragging (the row then scrolls).
-                            SplitView.preferredWidth: Math.max(0, Math.max(innerSplit.width
-                                                                           * (window.portraitWorkspace ? 0.5 : 0.25),
-                                                                           Math.min(assetsPanel.categoryRowWidth + 2,
-                                                                                    innerSplit.width * 0.45)))
-                            // Cap mins to available width so 200+320+240 never exceeds a
-                            // zero/partial first layout pass (Qt asserts max < min).
-                            SplitView.minimumWidth: Math.min(200, Math.max(0, innerSplit.width * 0.2))
-                            onWidthChanged: window.schedulePanelCapture()
-                        }
-
-                        // Declared in its landscape slot; rootSplit.relocatePreview()
-                        // moves this same instance out to the portrait column.
-                        PreviewPanel {
-                            id: previewPanel
-                            previewFullscreen: window.previewFullscreen
-                            onFullscreenRequested: window.togglePreviewFullscreen()
-                            // Landscape: the pane that absorbs the slack in the top
-                            // row. Portrait: a sized column, with the editing stack
-                            // taking the slack instead — except in fullscreen, where
-                            // the stack is hidden and the preview is all there is.
-                            SplitView.fillWidth: !window.portraitWorkspace || window.previewFullscreen
-                            // Portrait default: wide enough for the tall frame once
-                            // the panel's transport row and gutters are discounted,
-                            // capped so the libraries and timeline keep a usable
-                            // share. Ignored while fillWidth is set, and replaced
-                            // outright once the user drags the handle — SplitView
-                            // writes this attached property, which drops the binding.
-                            SplitView.preferredWidth: Math.max(0, Math.min(rootSplit.width * 0.4,
-                                                                           (rootSplit.height - 72) * 9 / 16))
-                            SplitView.minimumWidth: window.portraitWorkspace
-                                                    ? Math.min(260, Math.max(0, rootSplit.width * 0.2))
-                                                    : Math.min(320, Math.max(0, innerSplit.width * 0.3))
-                            onWidthChanged: window.schedulePanelCapture()
-                        }
-
-                        PropertiesPanel {
-                            id: propertiesPanel
-                            visible: !window.previewFullscreen
-                            SplitView.preferredWidth: Math.max(0, innerSplit.width * 0.28)
-                            // 340: below it the five Ajuste pages ("Círculo cromático") cannot fit
-                            // their names even at the smallest label size.
-                            SplitView.minimumWidth: Math.min(340, Math.max(0, innerSplit.width * 0.22))
-                            // Empty-state browse CTAs jump the assets panel to the
-                            // matching library tab.
-                            onWidthChanged: window.schedulePanelCapture()
-                            onBrowseEffectsRequested: assetsPanel.showTab("effects")
-                            onBrowseAudioEffectsRequested: assetsPanel.showTab("sounds")
-                        }
-                    }
-
-                    TimelinePanel {
-                        id: timelinePanel
-                        visible: !window.previewFullscreen
-                        keyframesTab: propertiesPanel.keyframesTab
-                        SplitView.preferredHeight: Math.max(0, outerSplit.height * 0.5)
-                        SplitView.minimumHeight: Math.min(140, Math.max(0, outerSplit.height * 0.2))
+            // Fullscreen preview: the preview alone, edge to edge.
+            Item {
+                id: fullscreenHost
+                anchors.fill: parent
+                visible: window.previewFullscreen
+            }
+            Connections {
+                target: window
+                function onPreviewFullscreenChanged() {
+                    if (window.previewFullscreen) {
+                        previewPanel.parent = fullscreenHost
+                        previewPanel.anchors.fill = fullscreenHost
+                    } else {
+                        workspaceView.build()
                     }
                 }
+            }
 
-                // The preview is inserted here, after the editing stack, while the
-                // portrait workspace is active.
+            Item {
+                id: panelStash
+                visible: false
+
+                AssetsPanel {
+                    id: assetsPanel
+                }
+
+                PreviewPanel {
+                    id: previewPanel
+                    previewFullscreen: window.previewFullscreen
+                    onFullscreenRequested: window.togglePreviewFullscreen()
+                }
+
+                PropertiesPanel {
+                    id: propertiesPanel
+                    // Empty-state browse CTAs jump the assets panel to the
+                    // matching library tab.
+                    onBrowseEffectsRequested: assetsPanel.showTab("effects")
+                    onBrowseAudioEffectsRequested: assetsPanel.showTab("sounds")
+                }
+
+                TimelinePanel {
+                    id: timelinePanel
+                    keyframesTab: propertiesPanel.keyframesTab
+                }
             }
         }
     }

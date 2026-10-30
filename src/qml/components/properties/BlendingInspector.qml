@@ -78,5 +78,9 @@ Item {
             onClicked: EditorState.setClipBlendMode(
                            EditorState.selectedTrack, EditorState.selectedClip, "normal")
         }
+
+        MotionLinkSection {
+            width: parent.width
+        }
     }
 }

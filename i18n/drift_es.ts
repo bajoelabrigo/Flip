@@ -2791,6 +2791,10 @@
         <translation>Combinado</translation>
     </message>
     <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Todo</translation>
     </message>
@@ -2920,6 +2924,26 @@
     <message>
         <source>Toggle guides</source>
         <translation>Alternar guías</translation>
+    </message>
+    <message>
+        <source>Show only Anchor point</source>
+        <translation>Mostrar solo Punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Show only Position</source>
+        <translation>Mostrar solo Posición</translation>
+    </message>
+    <message>
+        <source>Show only Rotation</source>
+        <translation>Mostrar solo Rotación</translation>
+    </message>
+    <message>
+        <source>Show only Opacity</source>
+        <translation>Mostrar solo Opacidad</translation>
+    </message>
+    <message>
+        <source>Show only Scale</source>
+        <translation>Mostrar solo Escala</translation>
     </message>
     <message>
         <source>Add/remove bookmark at current time</source>
@@ -3339,6 +3363,34 @@
         <translation>Mostrar las propiedades animadas</translation>
     </message>
     <message>
+        <source>Hand tool (preview)</source>
+        <translation>Herramienta Mano (vista previa)</translation>
+    </message>
+    <message>
+        <source>Zoom tool (preview)</source>
+        <translation>Herramienta Zoom (vista previa)</translation>
+    </message>
+    <message>
+        <source>Anchor point tool</source>
+        <translation>Herramienta Punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Shape tool</source>
+        <translation>Herramienta Forma</translation>
+    </message>
+    <message>
+        <source>Pen tool</source>
+        <translation>Herramienta Pluma</translation>
+    </message>
+    <message>
+        <source>Text tool</source>
+        <translation>Herramienta Texto</translation>
+    </message>
+    <message>
+        <source>3D camera tool</source>
+        <translation>Herramienta Cámara 3D</translation>
+    </message>
+    <message>
         <source>Zoom in</source>
         <translation>Acercar zoom</translation>
     </message>
@@ -3433,6 +3485,126 @@
     <message>
         <source>Solid settings</source>
         <translation>Ajustes del sólido</translation>
+    </message>
+    <message>
+        <source>Null %1</source>
+        <translation>Nulo %1</translation>
+    </message>
+    <message>
+        <source>Null object added</source>
+        <translation>Objeto nulo agregado</translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation>Capa de forma</translation>
+    </message>
+    <message>
+        <source>Shape drawn</source>
+        <translation>Forma dibujada</translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation>Trazado editado</translation>
+    </message>
+    <message>
+        <source>Keyframes reversed</source>
+        <translation>Fotogramas clave invertidos</translation>
+    </message>
+    <message>
+        <source>Keyframes stretched</source>
+        <translation>Fotogramas clave estirados</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Pick some keyframes first (or select an animated layer)</source>
+        <translation>Primero elige algunos fotogramas clave (o una capa animada)</translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation>Elástico</translation>
+    </message>
+    <message>
+        <source>Select two or more layers to sequence</source>
+        <translation>Elige dos capas o más para ponerlas en secuencia</translation>
+    </message>
+    <message>
+        <source>Layers sequenced</source>
+        <translation>Capas en secuencia</translation>
+    </message>
+    <message>
+        <source>Select a text or a shape to convert</source>
+        <translation>Elige un texto o una forma para convertir</translation>
+    </message>
+    <message>
+        <source>Converted to shape</source>
+        <translation>Convertido en forma</translation>
+    </message>
+    <message>
+        <source>Centred in the frame</source>
+        <translation>Centrado en el cuadro</translation>
+    </message>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation>Velocidad del fotograma clave</translation>
+    </message>
+    <message>
+        <source>Behavior set</source>
+        <translation>Comportamiento aplicado</translation>
+    </message>
+    <message>
+        <source>Behavior removed</source>
+        <translation>Comportamiento quitado</translation>
+    </message>
+    <message>
+        <source>Path animated</source>
+        <translation>Trazado animado</translation>
+    </message>
+    <message>
+        <source>Path animation removed</source>
+        <translation>Animación del trazado quitada</translation>
+    </message>
+    <message>
+        <source>Put the layer to use as the matte on a track above first</source>
+        <translation>Primero pon en una pista de arriba la capa que hará de mate</translation>
+    </message>
+    <message>
+        <source>Track matte removed</source>
+        <translation>Mate de seguimiento quitado</translation>
+    </message>
+    <message>
+        <source>Track matte set</source>
+        <translation>Mate de seguimiento aplicado</translation>
+    </message>
+    <message>
+        <source>Parent removed</source>
+        <translation>Primario quitado</translation>
+    </message>
+    <message>
+        <source>Parent set</source>
+        <translation>Primario asignado</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Time remapping on</source>
+        <translation>Reasignación de tiempo activada</translation>
+    </message>
+    <message>
+        <source>Time remapping off</source>
+        <translation>Reasignación de tiempo desactivada</translation>
+    </message>
+    <message>
+        <source>Auto-orient</source>
+        <translation>Orientación automática</translation>
+    </message>
+    <message>
+        <source>Motion blur settings</source>
+        <translation>Ajustes del desenfoque de movimiento</translation>
     </message>
     <message>
         <source>Adjustment Layer</source>
@@ -4994,6 +5166,138 @@
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>Show rulers</source>
+        <translation>Mostrar reglas</translation>
+    </message>
+    <message>
+        <source>RAM preview (render to memory and play)</source>
+        <translation>Vista previa en RAM (calcular en memoria y reproducir)</translation>
+    </message>
+    <message>
+        <source>Rendering the preview to memory… press it again to stop</source>
+        <translation>Calculando la vista previa en memoria… vuelve a pulsarlo para detenerla</translation>
+    </message>
+    <message>
+        <source>Ruler guides</source>
+        <translation>Guías de las reglas</translation>
+    </message>
+    <message>
+        <source>Solids</source>
+        <translation>Sólidos</translation>
+    </message>
+    <message>
+        <source>Curve applied</source>
+        <translation>Curva aplicada</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Behavior changed</source>
+        <translation>Comportamiento cambiado</translation>
+    </message>
+    <message>
+        <source>Point light %1</source>
+        <translation>Luz puntual %1</translation>
+    </message>
+    <message>
+        <source>Spot light %1</source>
+        <translation>Foco %1</translation>
+    </message>
+    <message>
+        <source>Parallel light %1</source>
+        <translation>Luz paralela %1</translation>
+    </message>
+    <message>
+        <source>Ambient light %1</source>
+        <translation>Luz ambiente %1</translation>
+    </message>
+    <message>
+        <source>Light added</source>
+        <translation>Luz añadida</translation>
+    </message>
+    <message>
+        <source>Lights only change 3D layers: turn on «3D layer» on the layers to light</source>
+        <translation>Las luces solo cambian las capas 3D: activa «Capa 3D» en las capas que quieras iluminar</translation>
+    </message>
+    <message>
+        <source>Light changed</source>
+        <translation>Luz cambiada</translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation>Acepta luces</translation>
+    </message>
+    <message>
+        <source>Motion sketch</source>
+        <translation>Bosquejo de movimiento</translation>
+    </message>
+    <message>
+        <source>Shape added to the layer</source>
+        <translation>Forma añadida a la capa</translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>Tamaño del texto</translation>
+    </message>
+    <message>
+        <source>Added to Essential Graphics</source>
+        <translation>Añadido a Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Removed from Essential Graphics</source>
+        <translation>Quitado de Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>«%1» is now a control of this composition: select the composition outside to change it</source>
+        <translation>«%1» ahora es un control de esta composición: elige la composición desde fuera para cambiarlo</translation>
+    </message>
+    <message>
+        <source>Essential Graphics</source>
+        <translation>Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Text on the shape&apos;s outline</source>
+        <translation>Texto sobre el contorno de la forma</translation>
+    </message>
+    <message>
+        <source>The mask ends before the clip: past its end the clip is not shown</source>
+        <translation>La máscara termina antes que el clip: después de su final el clip no se ve</translation>
+    </message>
+    <message>
+        <source>The mask starts after the clip: until then the clip is not shown</source>
+        <translation>La máscara empieza después que el clip: hasta entonces el clip no se ve</translation>
+    </message>
+    <message>
+        <source>Mask stuck to the layer</source>
+        <translation>Máscara pegada a la capa</translation>
+    </message>
+    <message>
+        <source>Mask fixed on screen</source>
+        <translation>Máscara fija en la pantalla</translation>
+    </message>
+    <message>
+        <source>Composition created</source>
+        <translation>Composición creada</translation>
+    </message>
+    <message>
+        <source>Pick media to make a composition from (compositions cannot go inside one)</source>
+        <translation>Elige material para hacer una composición (una composición no puede ir dentro de otra)</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volumen</translation>
     </message>
@@ -5008,6 +5312,10 @@
     <message>
         <source>Anchor point Y</source>
         <translation>Punto de anclaje Y</translation>
+    </message>
+    <message>
+        <source>Time remap</source>
+        <translation>Reasignación de tiempo</translation>
     </message>
     <message>
         <source>Mask X</source>
@@ -5320,6 +5628,70 @@
         <translation>Tendencias</translation>
     </message>
     <message>
+        <source>%1 slice %2</source>
+        <translation>%1 trozo %2</translation>
+    </message>
+    <message>
+        <source>%1 band %2</source>
+        <translation>%1 franja %2</translation>
+    </message>
+    <message>
+        <source>drops</source>
+        <translation>gotas</translation>
+    </message>
+    <message>
+        <source>%1 liquid (%2)</source>
+        <translation>%1 líquido (%2)</translation>
+    </message>
+    <message>
+        <source>Select a shape or a text with a stroke</source>
+        <translation>Elige una forma o un texto con trazo</translation>
+    </message>
+    <message>
+        <source>Line caps</source>
+        <translation>Extremos del trazo</translation>
+    </message>
+    <message>
+        <source>Select a shape, or a text with a stroke, to animate its Trim Paths</source>
+        <translation>Elige una forma, o un texto con trazo, para animar su Recortar trazados</translation>
+    </message>
+    <message>
+        <source>%1 trace</source>
+        <translation>%1 rastro</translation>
+    </message>
+    <message>
+        <source>%1 copy %2</source>
+        <translation>%1 copia %2</translation>
+    </message>
+    <message>
+        <source>Trace rides a shape&apos;s line: pick the shape last</source>
+        <translation>Trace recorre la línea de una forma: elige la forma al final</translation>
+    </message>
+    <message>
+        <source>Trim Paths animation</source>
+        <translation>Animación de Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Select the layers to bend</source>
+        <translation>Elige las capas que quieres doblar</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Select the layers to animate</source>
+        <translation>Elige las capas que quieres animar</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch: %1</source>
+        <translation>Squash &amp; Stretch: %1</translation>
+    </message>
+    <message>
         <source>Slide</source>
         <translation>Deslizar</translation>
     </message>
@@ -5453,6 +5825,38 @@
     <message>
         <source>Mine</source>
         <translation>Mías</translation>
+    </message>
+    <message>
+        <source>Select the layers to morph, and the one they turn into last (Ctrl+click)</source>
+        <translation>Elige las capas que se transforman y, al final, en la que se convierten (Ctrl+clic)</translation>
+    </message>
+    <message>
+        <source>%1 trail %2</source>
+        <translation>%1 estela %2</translation>
+    </message>
+    <message>
+        <source>Morph</source>
+        <translation>Morph</translation>
+    </message>
+    <message>
+        <source>Select the moving layer the liquid comes off</source>
+        <translation>Elige la capa en movimiento que suelta el líquido</translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation>Estela líquida</translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen: the liquid runs along it</source>
+        <translation>Elige una forma o una línea hecha con la pluma: el líquido corre por ella</translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation>Chorro líquido</translation>
+    </message>
+    <message>
+        <source>%1 liquid line</source>
+        <translation>%1 chorro líquido</translation>
     </message>
     <message>
         <source>Apply text look</source>
@@ -6309,6 +6713,14 @@
         <translation>Reproducción en bucle</translation>
     </message>
     <message>
+        <source>Stop RAM Preview</source>
+        <translation>Detener la vista previa en RAM</translation>
+    </message>
+    <message>
+        <source>RAM Preview</source>
+        <translation>Vista previa en RAM</translation>
+    </message>
+    <message>
         <source>Bookmarks</source>
         <translation>Marcadores</translation>
     </message>
@@ -6341,20 +6753,8 @@
         <translation>Guías</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Espacio de trabajo</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automático (seguir lienzo)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Vertical</translation>
+        <source>Rulers</source>
+        <translation>Reglas</translation>
     </message>
     <message>
         <source>Theme</source>
@@ -6736,6 +7136,10 @@
     <message>
         <source>Reading media and generating thumbnails.</source>
         <translation>Leyendo medios y generando miniaturas.</translation>
+    </message>
+    <message>
+        <source>New composition (drop media here to make one with it)</source>
+        <translation>Nueva composición (suelta material aquí para hacer una con él)</translation>
     </message>
     <message>
         <source>More import options</source>
@@ -7299,6 +7703,77 @@
     <message>
         <source>The audio device does not support playback of this project.</source>
         <translation>El dispositivo de audio no admite la reproducción de este proyecto.</translation>
+    </message>
+</context>
+<context>
+    <name>BendLayersPanel</name>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Final</translation>
+    </message>
+    <message>
+        <source>Select the layers. Between Start and End the layer curves like a joint, as Bendio does: before Start it stays, after End it carries on straight, turned. Positive bends up, negative down; 360° rolls it round.</source>
+        <translation>Elige las capas. Entre Inicio y Fin la capa se curva como una articulación, igual que Bendio: antes de Inicio queda quieta y después de Fin sigue recta, girada. En positivo se dobla hacia arriba, en negativo hacia abajo; con 360° da la vuelta.</translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation>A lo alto</translation>
+    </message>
+    <message>
+        <source>Bend the layer top to bottom instead of side to side</source>
+        <translation>Dobla la capa de arriba abajo en vez de lado a lado</translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Smile</source>
+        <translation>Sonrisa</translation>
+    </message>
+    <message>
+        <source>Half ring</source>
+        <translation>Medio anillo</translation>
+    </message>
+    <message>
+        <source>Ring</source>
+        <translation>Anillo</translation>
+    </message>
+    <message>
+        <source>Frames</source>
+        <translation>Fotogramas</translation>
+    </message>
+    <message>
+        <source>Bend it this much (a key at the playhead if the bend is animated)</source>
+        <translation>Dóblala esta cantidad (una clave en el cabezal si el doblez está animado)</translation>
+    </message>
+    <message>
+        <source>Unbend in</source>
+        <translation>Enderezar al entrar</translation>
+    </message>
+    <message>
+        <source>Starts bent and straightens out from the playhead</source>
+        <translation>Empieza doblada y se endereza desde el cabezal</translation>
+    </message>
+    <message>
+        <source>Bend out</source>
+        <translation>Doblar al salir</translation>
+    </message>
+    <message>
+        <source>Bends away at the end of the clip</source>
+        <translation>Se dobla al final del clip</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>
@@ -9815,6 +10290,294 @@
         <translation>Fundido</translation>
     </message>
     <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Bend (°)</source>
+        <translation>Doblez (°)</translation>
+    </message>
+    <message>
+        <source>Along the height</source>
+        <translation>A lo alto</translation>
+    </message>
+    <message>
+        <source>Fractal Noise</source>
+        <translation>Ruido fractal</translation>
+    </message>
+    <message>
+        <source>Complexity</source>
+        <translation>Complejidad</translation>
+    </message>
+    <message>
+        <source>Evolution speed</source>
+        <translation>Velocidad de evolución</translation>
+    </message>
+    <message>
+        <source>Invert</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Blend with original</source>
+        <translation>Mezclar con el original</translation>
+    </message>
+    <message>
+        <source>Gradient Ramp</source>
+        <translation>Rampa de degradado</translation>
+    </message>
+    <message>
+        <source>Start X (%)</source>
+        <translation>Inicio X (%)</translation>
+    </message>
+    <message>
+        <source>Start Y (%)</source>
+        <translation>Inicio Y (%)</translation>
+    </message>
+    <message>
+        <source>Start color</source>
+        <translation>Color inicial</translation>
+    </message>
+    <message>
+        <source>End X (%)</source>
+        <translation>Final X (%)</translation>
+    </message>
+    <message>
+        <source>End Y (%)</source>
+        <translation>Final Y (%)</translation>
+    </message>
+    <message>
+        <source>End color</source>
+        <translation>Color final</translation>
+    </message>
+    <message>
+        <source>Radial</source>
+        <translation>Radial</translation>
+    </message>
+    <message>
+        <source>Particle World</source>
+        <translation>Mundo de partículas</translation>
+    </message>
+    <message>
+        <source>Birth rate (per s)</source>
+        <translation>Nacimientos (por s)</translation>
+    </message>
+    <message>
+        <source>Longevity (s)</source>
+        <translation>Duración (s)</translation>
+    </message>
+    <message>
+        <source>Emitter X (%)</source>
+        <translation>Emisor X (%)</translation>
+    </message>
+    <message>
+        <source>Emitter Y (%)</source>
+        <translation>Emisor Y (%)</translation>
+    </message>
+    <message>
+        <source>Velocity (px/s)</source>
+        <translation>Velocidad (px/s)</translation>
+    </message>
+    <message>
+        <source>Gravity (px/s²)</source>
+        <translation>Gravedad (px/s²)</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Spread (deg)</source>
+        <translation>Apertura (grados)</translation>
+    </message>
+    <message>
+        <source>Direction (deg)</source>
+        <translation>Dirección (grados)</translation>
+    </message>
+    <message>
+        <source>Puppet Pins</source>
+        <translation>Pines de marioneta</translation>
+    </message>
+    <message>
+        <source>Pins</source>
+        <translation>Pines</translation>
+    </message>
+    <message>
+        <source>Stiffness</source>
+        <translation>Rigidez</translation>
+    </message>
+    <message>
+        <source>Place (%)</source>
+        <translation>Lugar (%)</translation>
+    </message>
+    <message>
+        <source>Pin 1</source>
+        <translation>Pin 1</translation>
+    </message>
+    <message>
+        <source>Move (%)</source>
+        <translation>Movimiento (%)</translation>
+    </message>
+    <message>
+        <source>Pin 2</source>
+        <translation>Pin 2</translation>
+    </message>
+    <message>
+        <source>Pin 3</source>
+        <translation>Pin 3</translation>
+    </message>
+    <message>
+        <source>Pin 4</source>
+        <translation>Pin 4</translation>
+    </message>
+    <message>
+        <source>Pin 5</source>
+        <translation>Pin 5</translation>
+    </message>
+    <message>
+        <source>Pin 6</source>
+        <translation>Pin 6</translation>
+    </message>
+    <message>
+        <source>Pin 7</source>
+        <translation>Pin 7</translation>
+    </message>
+    <message>
+        <source>Pin 8</source>
+        <translation>Pin 8</translation>
+    </message>
+    <message>
+        <source>Radio Waves</source>
+        <translation>Ondas de radio</translation>
+    </message>
+    <message>
+        <source>Centre X (%)</source>
+        <translation>Centro X (%)</translation>
+    </message>
+    <message>
+        <source>Centre Y (%)</source>
+        <translation>Centro Y (%)</translation>
+    </message>
+    <message>
+        <source>Waves per second</source>
+        <translation>Ondas por segundo</translation>
+    </message>
+    <message>
+        <source>Expansion (px/s)</source>
+        <translation>Expansión (px/s)</translation>
+    </message>
+    <message>
+        <source>Fade out (px)</source>
+        <translation>Desvanecer (px)</translation>
+    </message>
+    <message>
+        <source>Explosion</source>
+        <translation>Explosión</translation>
+    </message>
+    <message>
+        <source>Pieces across</source>
+        <translation>Piezas a lo ancho</translation>
+    </message>
+    <message>
+        <source>Force</source>
+        <translation>Fuerza</translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation>Gravedad</translation>
+    </message>
+    <message>
+        <source>Origin X (%)</source>
+        <translation>Origen X (%)</translation>
+    </message>
+    <message>
+        <source>Origin Y (%)</source>
+        <translation>Origen Y (%)</translation>
+    </message>
+    <message>
+        <source>Turbulent Displace</source>
+        <translation>Desplazamiento turbulento</translation>
+    </message>
+    <message>
+        <source>Bevel and Emboss</source>
+        <translation>Bisel y relieve</translation>
+    </message>
+    <message>
+        <source>Color Overlay</source>
+        <translation>Superposición de color</translation>
+    </message>
+    <message>
+        <source>Drop Shadow</source>
+        <translation>Sombra paralela</translation>
+    </message>
+    <message>
+        <source>Outer Glow</source>
+        <translation>Resplandor exterior</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
+    </message>
+    <message>
+        <source>Position (out, centre, in)</source>
+        <translation>Posición (fuera, centro, dentro)</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Zoom (%)</source>
+        <translation>Zoom (%)</translation>
+    </message>
+    <message>
+        <source>Stretch (%)</source>
+        <translation>Estirar (%)</translation>
+    </message>
+    <message>
+        <source>Ground (%)</source>
+        <translation>Suelo (%)</translation>
+    </message>
+    <message>
+        <source>Bend (%)</source>
+        <translation>Inclinar (%)</translation>
+    </message>
+    <message>
+        <source>Start (%)</source>
+        <translation>Inicio (%)</translation>
+    </message>
+    <message>
+        <source>End (%)</source>
+        <translation>Fin (%)</translation>
+    </message>
+    <message>
+        <source>Liquid</source>
+        <translation>Líquido</translation>
+    </message>
+    <message>
+        <source>Melt (px)</source>
+        <translation>Fundir (px)</translation>
+    </message>
+    <message>
+        <source>Edge</source>
+        <translation>Borde</translation>
+    </message>
+    <message>
+        <source>Base width (%)</source>
+        <translation>Ancho de la base (%)</translation>
+    </message>
+    <message>
+        <source>Top width (%)</source>
+        <translation>Ancho de arriba (%)</translation>
+    </message>
+    <message>
+        <source>Lean (%)</source>
+        <translation>Inclinación (%)</translation>
+    </message>
+    <message>
+        <source>Bulge (%)</source>
+        <translation>Abombar (%)</translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Aparecer</translation>
     </message>
@@ -11135,6 +11898,214 @@ LA PRÓXIMA</translation>
         <translation>Arena al viento</translation>
     </message>
     <message>
+        <source>Attention</source>
+        <translation>Atención</translation>
+    </message>
+    <message>
+        <source>Backflip</source>
+        <translation>Mortal hacia atrás</translation>
+    </message>
+    <message>
+        <source>Big Jump</source>
+        <translation>Gran salto</translation>
+    </message>
+    <message>
+        <source>Blow Away</source>
+        <translation>Volar lejos</translation>
+    </message>
+    <message>
+        <source>Bounce In</source>
+        <translation>Entrar rebotando</translation>
+    </message>
+    <message>
+        <source>Dance</source>
+        <translation>Baile</translation>
+    </message>
+    <message>
+        <source>Dash In</source>
+        <translation>Entrar corriendo</translation>
+    </message>
+    <message>
+        <source>Dash Left</source>
+        <translation>Carrera a la izquierda</translation>
+    </message>
+    <message>
+        <source>Dash Right</source>
+        <translation>Carrera a la derecha</translation>
+    </message>
+    <message>
+        <source>Double Hop</source>
+        <translation>Doble saltito</translation>
+    </message>
+    <message>
+        <source>Drop In</source>
+        <translation>Caer</translation>
+    </message>
+    <message>
+        <source>Excited Jumps</source>
+        <translation>Saltos de emoción</translation>
+    </message>
+    <message>
+        <source>Fall and Bounce</source>
+        <translation>Caer y rebotar</translation>
+    </message>
+    <message>
+        <source>Fall Out</source>
+        <translation>Caerse</translation>
+    </message>
+    <message>
+        <source>Flip Around</source>
+        <translation>Voltereta</translation>
+    </message>
+    <message>
+        <source>Glitch In</source>
+        <translation>Entrada glitch</translation>
+    </message>
+    <message>
+        <source>Glitch Jump</source>
+        <translation>Salto glitch</translation>
+    </message>
+    <message>
+        <source>Glitch Out</source>
+        <translation>Salida glitch</translation>
+    </message>
+    <message>
+        <source>Heavy Jump</source>
+        <translation>Salto pesado</translation>
+    </message>
+    <message>
+        <source>Rise Up</source>
+        <translation>Subir</translation>
+    </message>
+    <message>
+        <source>Hop Back</source>
+        <translation>Saltito atrás</translation>
+    </message>
+    <message>
+        <source>Hop Forward</source>
+        <translation>Saltito adelante</translation>
+    </message>
+    <message>
+        <source>Hop In Left</source>
+        <translation>Entrar a saltitos</translation>
+    </message>
+    <message>
+        <source>Hop Out Right</source>
+        <translation>Salir a saltitos</translation>
+    </message>
+    <message>
+        <source>Inchworm</source>
+        <translation>Oruga</translation>
+    </message>
+    <message>
+        <source>Jelly Shake</source>
+        <translation>Temblor de gelatina</translation>
+    </message>
+    <message>
+        <source>Jump Forward</source>
+        <translation>Salto hacia adelante</translation>
+    </message>
+    <message>
+        <source>Jump In</source>
+        <translation>Entrar de un salto</translation>
+    </message>
+    <message>
+        <source>Jump Out</source>
+        <translation>Salir saltando</translation>
+    </message>
+    <message>
+        <source>Jump Spin</source>
+        <translation>Salto con giro</translation>
+    </message>
+    <message>
+        <source>Launch and Spin</source>
+        <translation>Despegar girando</translation>
+    </message>
+    <message>
+        <source>Leap Over</source>
+        <translation>Salto largo</translation>
+    </message>
+    <message>
+        <source>Nod</source>
+        <translation>Asentir</translation>
+    </message>
+    <message>
+        <source>Pop In</source>
+        <translation>Aparecer de golpe</translation>
+    </message>
+    <message>
+        <source>Pop Out</source>
+        <translation>Desaparecer de golpe</translation>
+    </message>
+    <message>
+        <source>Rubber Band</source>
+        <translation>Goma elástica</translation>
+    </message>
+    <message>
+        <source>Sack Race</source>
+        <translation>Carrera de sacos</translation>
+    </message>
+    <message>
+        <source>Shake No</source>
+        <translation>Negar</translation>
+    </message>
+    <message>
+        <source>Slide In Left</source>
+        <translation>Entrar por la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide In Right</source>
+        <translation>Entrar por la derecha</translation>
+    </message>
+    <message>
+        <source>Slide Out Left</source>
+        <translation>Salir por la izquierda</translation>
+    </message>
+    <message>
+        <source>Slide Out Right</source>
+        <translation>Salir por la derecha</translation>
+    </message>
+    <message>
+        <source>Spin with Squash</source>
+        <translation>Giro aplastado</translation>
+    </message>
+    <message>
+        <source>Spring Up</source>
+        <translation>Resorte</translation>
+    </message>
+    <message>
+        <source>Squash Down</source>
+        <translation>Aplastarse</translation>
+    </message>
+    <message>
+        <source>Stumble</source>
+        <translation>Tropezar</translation>
+    </message>
+    <message>
+        <source>Ta-da</source>
+        <translation>¡Tachán!</translation>
+    </message>
+    <message>
+        <source>Tiny Hops</source>
+        <translation>Saltitos</translation>
+    </message>
+    <message>
+        <source>Topple</source>
+        <translation>Volcarse</translation>
+    </message>
+    <message>
+        <source>Trampoline</source>
+        <translation>Cama elástica</translation>
+    </message>
+    <message>
+        <source>Soft Wiggle</source>
+        <translation>Meneo suave</translation>
+    </message>
+    <message>
+        <source>Wobble Turn</source>
+        <translation>Giro tambaleante</translation>
+    </message>
+    <message>
         <source>Shatter</source>
         <translation>Se hace añicos</translation>
     </message>
@@ -11972,6 +12943,155 @@ LA PRÓXIMA</translation>
     <message>
         <source>Custom fade applied</source>
         <translation>Fundido personalizado aplicado</translation>
+    </message>
+</context>
+<context>
+    <name>CurvesPanel</name>
+    <message>
+        <source>Ease in</source>
+        <translation>Entrada suave</translation>
+    </message>
+    <message>
+        <source>Ease out</source>
+        <translation>Salida suave</translation>
+    </message>
+    <message>
+        <source>Ease in-out</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Overshoot</source>
+        <translation>Pasarse</translation>
+    </message>
+    <message>
+        <source>Anticipate</source>
+        <translation>Anticipar</translation>
+    </message>
+    <message>
+        <source>Spike</source>
+        <translation>Pico</translation>
+    </message>
+    <message>
+        <source>Export curves</source>
+        <translation>Exportar curvas</translation>
+    </message>
+    <message>
+        <source>Curves (*.json)</source>
+        <translation>Curvas (*.json)</translation>
+    </message>
+    <message>
+        <source>Curves exported</source>
+        <translation>Curvas exportadas</translation>
+    </message>
+    <message>
+        <source>Import curves</source>
+        <translation>Importar curvas</translation>
+    </message>
+    <message>
+        <source>No curves of this mode in that file</source>
+        <translation>Ese archivo no tiene curvas de este modo</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n curves imported</source>
+        <translation>
+            <numerusform>%n curva importada</numerusform>
+            <numerusform>%n curvas importadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>That file is not a curves file</source>
+        <translation>Ese archivo no es de curvas</translation>
+    </message>
+    <message>
+        <source>2 keys</source>
+        <translation>2 claves</translation>
+    </message>
+    <message>
+        <source>A curve from one key to the next</source>
+        <translation>Una curva de una clave a la siguiente</translation>
+    </message>
+    <message>
+        <source>4 keys</source>
+        <translation>4 claves</translation>
+    </message>
+    <message>
+        <source>Up to a peak and back: the stretches before and after the middle of three keys</source>
+        <translation>Sube a un pico y vuelve: los tramos antes y después de la clave del medio de tres</translation>
+    </message>
+    <message>
+        <source>Read</source>
+        <translation>Leer</translation>
+    </message>
+    <message>
+        <source>Puts the curve of the picked keys in the graph</source>
+        <translation>Pone en el gráfico la curva de las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>Personalizada</translation>
+    </message>
+    <message>
+        <source>Curve applied</source>
+        <translation>Curva aplicada</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keys picked on the timeline.</source>
+        <translation>
+            <numerusform>%n clave elegida en la línea de tiempo.</numerusform>
+            <numerusform>%n claves elegidas en la línea de tiempo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Goes onto every key of the selected clip. To shape only some, pick their diamonds on the timeline (Ctrl for more).</source>
+        <translation>Se aplica a todas las claves del clip elegido. Para dar forma solo a algunas, elige sus rombos en la línea de tiempo (Ctrl para sumar).</translation>
+    </message>
+    <message>
+        <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>
+        <translation>Elige tres claves en la línea de tiempo (clic en los rombos, Ctrl para sumar): la curva sube a la del medio y vuelve.</translation>
+    </message>
+    <message>
+        <source>Pick keys on the timeline (click the diamonds, Ctrl for more): each one takes the curve to the next.</source>
+        <translation>Elige claves en la línea de tiempo (clic en los rombos, Ctrl para sumar): cada una lleva la curva hasta la siguiente.</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Keeps this curve in My curves</source>
+        <translation>Guarda esta curva en Mis curvas</translation>
+    </message>
+    <message>
+        <source>My 4-key curves</source>
+        <translation>Mis curvas de 4 claves</translation>
+    </message>
+    <message>
+        <source>My curves</source>
+        <translation>Mis curvas</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation>Exportar</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Importar</translation>
+    </message>
+    <message>
+        <source>Click to load it, double click to apply it, right click to delete it</source>
+        <translation>Clic para cargarla, doble clic para aplicarla, clic derecho para borrarla</translation>
     </message>
 </context>
 <context>
@@ -12868,22 +13988,6 @@ LA PRÓXIMA</translation>
         <translation>Cámara múltiple</translation>
     </message>
     <message>
-        <source>Workspace</source>
-        <translation>Espacio de trabajo</translation>
-    </message>
-    <message>
-        <source>Auto (follow canvas)</source>
-        <translation>Automático (seguir lienzo)</translation>
-    </message>
-    <message>
-        <source>Landscape</source>
-        <translation>Horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait</source>
-        <translation>Vertical</translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -13107,6 +14211,18 @@ LA PRÓXIMA</translation>
     <message>
         <source>Background Removal</source>
         <translation>Quitar fondo</translation>
+    </message>
+    <message>
+        <source>Layer Styles</source>
+        <translation>Estilos de capa</translation>
+    </message>
+    <message>
+        <source>Generate &amp; Simulate</source>
+        <translation>Generar y simular</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
     </message>
     <message>
         <source>Other</source>
@@ -15053,6 +16169,10 @@ LA PRÓXIMA</translation>
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Layer</source>
+        <translation>Capa</translation>
+    </message>
+    <message>
         <source>Keyframes</source>
         <translation>Fotogramas clave</translation>
     </message>
@@ -15063,6 +16183,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Expand curve editor to view and edit Bezier handles (180px)</source>
         <translation>Expandir el editor de curvas para ver y editar los tiradores Bézier (180 px)</translation>
+    </message>
+    <message>
+        <source>Hide the other selected layers&apos; curves</source>
+        <translation>Ocultar las curvas de las otras capas elegidas</translation>
+    </message>
+    <message>
+        <source>Show the other selected layers&apos; curves</source>
+        <translation>Mostrar las curvas de las otras capas elegidas</translation>
     </message>
     <message>
         <source>Value graph</source>
@@ -15143,6 +16271,14 @@ LA PRÓXIMA</translation>
         <source>Edit keyframe curve</source>
         <translation>Editar curva de fotograma clave</translation>
     </message>
+    <message>
+        <source>The layer whose curves you are editing</source>
+        <translation>La capa cuyas curvas estás editando</translation>
+    </message>
+    <message>
+        <source>Edit this layer&apos;s curves (dashed)</source>
+        <translation>Editar las curvas de esta capa (punteadas)</translation>
+    </message>
 </context>
 <context>
     <name>KeyframeKeyTools</name>
@@ -15153,6 +16289,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Move keyframes</source>
         <translation>Mover fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
+        <translation>50 % junta las claves elegidas en la mitad del tiempo, 200 % las reparte en el doble. La primera se queda donde está. Alt + arrastrar la primera o la última hace lo mismo a mano.</translation>
     </message>
     <message>
         <source>Straight</source>
@@ -15183,12 +16327,59 @@ LA PRÓXIMA</translation>
         <translation>Editar curva…</translation>
     </message>
     <message>
+        <source>Reverse keyframes</source>
+        <translation>Invertir fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Stretch keyframes…</source>
+        <translation>Estirar fotogramas clave…</translation>
+    </message>
+    <message>
+        <source>Keyframe velocity…</source>
+        <translation>Velocidad del fotograma clave…</translation>
+    </message>
+    <message>
         <source>Delete keyframe</source>
         <translation>Borrar fotograma clave</translation>
     </message>
     <message>
         <source>Delete keyframes</source>
         <translation>Eliminar fotogramas clave</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeVelocityDialog</name>
+    <message>
+        <source>Keyframe velocity</source>
+        <translation>Velocidad del fotograma clave</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
+        <translation>Velocidad en unidades por segundo. La influencia es hasta dónde llega el tirador hacia la clave vecina: más es una suavización más suave.</translation>
+    </message>
+    <message>
+        <source>Incoming velocity</source>
+        <translation>Velocidad de entrada</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Influence</source>
+        <translation>Influencia</translation>
+    </message>
+    <message>
+        <source>Outgoing velocity</source>
+        <translation>Velocidad de salida</translation>
+    </message>
+    <message>
+        <source>Continuous (the same speed on both sides)</source>
+        <translation>Continua (la misma velocidad a los dos lados)</translation>
     </message>
 </context>
 <context>
@@ -15641,14 +16832,6 @@ LA PRÓXIMA</translation>
         <translation>Ve&amp;ntana</translation>
     </message>
     <message>
-        <source>Landscape Workspace</source>
-        <translation>Espacio de trabajo horizontal</translation>
-    </message>
-    <message>
-        <source>Portrait Workspace</source>
-        <translation>Espacio de trabajo vertical</translation>
-    </message>
-    <message>
         <source>Auto Workspace (Follow Canvas)</source>
         <translation>Espacio de trabajo automático (según el lienzo)</translation>
     </message>
@@ -15705,8 +16888,24 @@ LA PRÓXIMA</translation>
         <translation>Ajustes…</translation>
     </message>
     <message>
+        <source>Done arranging</source>
+        <translation>Listo</translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation>Distribuir paneles</translation>
+    </message>
+    <message>
         <source>Debug Info…</source>
         <translation>Información de depuración…</translation>
+    </message>
+    <message>
+        <source>Save workspace</source>
+        <translation>Guardar espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>My workspace</source>
+        <translation>Mi espacio de trabajo</translation>
     </message>
     <message>
         <source>Still opening a project — try again in a moment.</source>
@@ -16408,6 +17607,10 @@ LA PRÓXIMA</translation>
         <translation>Vista de árbol</translation>
     </message>
     <message>
+        <source>Columns view (as After Effects&apos; Project panel)</source>
+        <translation>Vista con columnas (como el panel Proyecto de After Effects)</translation>
+    </message>
+    <message>
         <source>Sort by name</source>
         <translation>Ordenar por nombre</translation>
     </message>
@@ -16456,6 +17659,18 @@ LA PRÓXIMA</translation>
         <translation>Cambiar nombre…</translation>
     </message>
     <message>
+        <source>Image</source>
+        <translation>Imagen</translation>
+    </message>
+    <message>
+        <source>Composition</source>
+        <translation>Composición</translation>
+    </message>
+    <message>
+        <source>Solid</source>
+        <translation>Sólido</translation>
+    </message>
+    <message>
         <source>%1 — drag to the timeline, right-click to preview</source>
         <translation>%1 — arrastra a la línea de tiempo, clic derecho para previsualizar</translation>
     </message>
@@ -16486,6 +17701,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Trim, crop and upscale…</source>
         <translation>Recortar, encuadrar y escalar…</translation>
+    </message>
+    <message>
+        <source>New composition from selection</source>
+        <translation>Nueva composición con la selección</translation>
     </message>
     <message>
         <source>Replace media…</source>
@@ -16536,6 +17755,30 @@ LA PRÓXIMA</translation>
     <message>
         <source>Converted to a constant frame rate for smooth editing</source>
         <translation>Convertido a una velocidad de fotogramas constante para una edición fluida</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>Uses</source>
+        <translation>Usos</translation>
+    </message>
+    <message>
+        <source>Folder</source>
+        <translation>Carpeta</translation>
     </message>
     <message>
         <source>Collapse folder</source>
@@ -17192,6 +18435,213 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>MotionLinkSection</name>
+    <message>
+        <source>Light</source>
+        <translation>Luz</translation>
+    </message>
+    <message>
+        <source>It lights the 3D layers that accept lights. Move it, take it nearer (depth) or tilt it like any layer; its opacity is its strength over time.</source>
+        <translation>Ilumina las capas 3D que aceptan luces. Muévela, acércala (profundidad) o inclínala como cualquier capa; su opacidad es su fuerza a lo largo del tiempo.</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Puntual</translation>
+    </message>
+    <message>
+        <source>Spot</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>Parallel</source>
+        <translation>Paralela</translation>
+    </message>
+    <message>
+        <source>Ambient</source>
+        <translation>Ambiente</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Intensity</source>
+        <translation>Intensidad</translation>
+    </message>
+    <message>
+        <source>Cone angle</source>
+        <translation>Ángulo del cono</translation>
+    </message>
+    <message>
+        <source>Cone feather</source>
+        <translation>Suavizado del cono</translation>
+    </message>
+    <message>
+        <source>Falloff radius</source>
+        <translation>Radio de atenuación</translation>
+    </message>
+    <message>
+        <source>Falloff distance (0 = none)</source>
+        <translation>Distancia de atenuación (0 = ninguna)</translation>
+    </message>
+    <message>
+        <source>Accepts lights</source>
+        <translation>Acepta luces</translation>
+    </message>
+    <message>
+        <source>Lights change this 3D layer (when there is at least one light)</source>
+        <translation>Las luces cambian esta capa 3D (cuando hay al menos una luz)</translation>
+    </message>
+    <message>
+        <source>Essential Graphics</source>
+        <translation>Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Add to Essential Graphics</source>
+        <translation>Añadir a Gráficos esenciales</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>Text colour</source>
+        <translation>Color del texto</translation>
+    </message>
+    <message>
+        <source>Text size</source>
+        <translation>Tamaño del texto</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Offered as a control of the composition: click to take it out</source>
+        <translation>Es un control de la composición: haz clic para quitarlo</translation>
+    </message>
+    <message>
+        <source>Offer it as a control of the composition, editable from outside</source>
+        <translation>Ofrecerlo como control de la composición, editable desde fuera</translation>
+    </message>
+    <message>
+        <source>Layer styles</source>
+        <translation>Estilos de capa</translation>
+    </message>
+    <message>
+        <source>Added as effects, so each one is adjusted, animated or removed in the Effects tab.</source>
+        <translation>Se añaden como efectos: cada uno se ajusta, se anima o se quita en la pestaña Efectos.</translation>
+    </message>
+    <message>
+        <source>Drop shadow</source>
+        <translation>Sombra paralela</translation>
+    </message>
+    <message>
+        <source>Outer glow</source>
+        <translation>Resplandor exterior</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
+    </message>
+    <message>
+        <source>Bevel and emboss</source>
+        <translation>Bisel y relieve</translation>
+    </message>
+    <message>
+        <source>Color overlay</source>
+        <translation>Superposición de color</translation>
+    </message>
+    <message>
+        <source>Parent</source>
+        <translation>Primario</translation>
+    </message>
+    <message>
+        <source>The layer follows the parent&apos;s position, rotation and scale from the moment you link it, as in After Effects. A null object is a handle that is never drawn.</source>
+        <translation>La capa sigue la posición, la rotación y la escala del primario desde que la enlazas, como en After Effects. Un objeto nulo es un control que nunca se dibuja.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>The layer this one follows</source>
+        <translation>La capa a la que sigue esta</translation>
+    </message>
+    <message>
+        <source>No track matte</source>
+        <translation>Sin mate de seguimiento</translation>
+    </message>
+    <message>
+        <source>Alpha matte</source>
+        <translation>Mate alfa</translation>
+    </message>
+    <message>
+        <source>Alpha inverted matte</source>
+        <translation>Mate alfa invertido</translation>
+    </message>
+    <message>
+        <source>Luma matte</source>
+        <translation>Mate de luminancia</translation>
+    </message>
+    <message>
+        <source>Luma inverted matte</source>
+        <translation>Mate de luminancia invertido</translation>
+    </message>
+    <message>
+        <source>Track matte</source>
+        <translation>Mate de seguimiento</translation>
+    </message>
+    <message>
+        <source>Shows this layer only where another one covers it (alpha) or is bright (luma). The matte layer is hidden, as in After Effects.</source>
+        <translation>Muestra esta capa solo donde otra la cubre (alfa) o es clara (luminancia). La capa mate se oculta, como en After Effects.</translation>
+    </message>
+    <message>
+        <source>The layer used as the matte</source>
+        <translation>La capa que hace de mate</translation>
+    </message>
+    <message>
+        <source>Mask moves with this layer</source>
+        <translation>La máscara se mueve con esta capa</translation>
+    </message>
+    <message>
+        <source>Off, the mask stays fixed on screen while this layer moves through it</source>
+        <translation>Apagado, la máscara queda fija en la pantalla y esta capa pasa a través de ella</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Blurs the layer along its movement, as a camera shutter would</source>
+        <translation>Desenfoca la capa a lo largo de su movimiento, como lo haría el obturador de una cámara</translation>
+    </message>
+    <message>
+        <source>Shutter angle and samples, for the whole project: 180° blurs over half a frame; more samples are smoother and slower.</source>
+        <translation>Ángulo de obturación y muestras, para todo el proyecto: 180° desenfoca durante medio fotograma; más muestras se ven más suaves y van más lentas.</translation>
+    </message>
+    <message>
+        <source>Shutter</source>
+        <translation>Obturación</translation>
+    </message>
+    <message>
+        <source>Samples</source>
+        <translation>Muestras</translation>
+    </message>
+</context>
+<context>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
@@ -17204,6 +18654,248 @@ LA PRÓXIMA</translation>
     <message>
         <source>drag to move the clip at this keyframe</source>
         <translation>arrastra para mover el clip en este fotograma clave</translation>
+    </message>
+</context>
+<context>
+    <name>MotionToolsPanel</name>
+    <message>
+        <source>Tools</source>
+        <translation>Herramientas</translation>
+    </message>
+    <message>
+        <source>Trim</source>
+        <translation>Recorte</translation>
+    </message>
+    <message>
+        <source>Bend</source>
+        <translation>Doblar</translation>
+    </message>
+    <message>
+        <source>Caps</source>
+        <translation>Extremos</translation>
+    </message>
+    <message>
+        <source>Elements</source>
+        <translation>Elementos</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) picked on the timeline.</source>
+        <translation>
+            <numerusform>%n fotograma clave elegido en la línea de tiempo.</numerusform>
+            <numerusform>%n fotogramas clave elegidos en la línea de tiempo.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick keyframes on the timeline (drag a box over them) to ease, clone or settle them.</source>
+        <translation>Elige fotogramas clave en la línea de tiempo (arrastra un recuadro sobre ellos) para suavizarlos, clonarlos o darles rebote.</translation>
+    </message>
+    <message>
+        <source>Ease in: how far the curve slows down arriving at the key</source>
+        <translation>Suavizar entrada: cuánto frena la curva al llegar a la clave</translation>
+    </message>
+    <message>
+        <source>Ease out: how far it starts slowly leaving the key</source>
+        <translation>Suavizar salida: cuánto arranca despacio al dejar la clave</translation>
+    </message>
+    <message>
+        <source>Speed at the keys, in units a second: 0 stops there, more keeps it moving through</source>
+        <translation>Velocidad en las claves, en unidades por segundo: 0 se detiene ahí; más, sigue de largo</translation>
+    </message>
+    <message>
+        <source>Easy ease</source>
+        <translation>Suavizado</translation>
+    </message>
+    <message>
+        <source>Ease</source>
+        <translation>Suavizar</translation>
+    </message>
+    <message>
+        <source>Easy ease with these influences on the picked keys</source>
+        <translation>Suavizado con estas influencias en las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Straight, constant speed</source>
+        <translation>Recta, a velocidad constante</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Jump to the next key instead of moving</source>
+        <translation>Salta a la clave siguiente en vez de moverse</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Punto de anclaje aquí (la capa no se mueve)</translation>
+    </message>
+    <message>
+        <source>Elastic</source>
+        <translation>Elástico</translation>
+    </message>
+    <message>
+        <source>Overshoots and settles where the movement stops</source>
+        <translation>Se pasa y se asienta donde termina el movimiento</translation>
+    </message>
+    <message>
+        <source>Bounce</source>
+        <translation>Rebote</translation>
+    </message>
+    <message>
+        <source>Bounces back off the last position, like a ball</source>
+        <translation>Rebota desde la última posición, como una pelota</translation>
+    </message>
+    <message>
+        <source>Clone</source>
+        <translation>Clonar</translation>
+    </message>
+    <message>
+        <source>Copies the picked keys to the playhead</source>
+        <translation>Copia las claves elegidas en el cabezal</translation>
+    </message>
+    <message>
+        <source>Bounce: %1</source>
+        <translation>Rebote: %1</translation>
+    </message>
+    <message>
+        <source>Elastic: %1</source>
+        <translation>Elástico: %1</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Take the behaviour off this property</source>
+        <translation>Quita el comportamiento de esta propiedad</translation>
+    </message>
+    <message>
+        <source>Amplitude</source>
+        <translation>Amplitud</translation>
+    </message>
+    <message>
+        <source>Gravity</source>
+        <translation>Gravedad</translation>
+    </message>
+    <message>
+        <source>Max jumps</source>
+        <translation>Saltos máximos</translation>
+    </message>
+    <message>
+        <source>Frequency</source>
+        <translation>Frecuencia</translation>
+    </message>
+    <message>
+        <source>Decay</source>
+        <translation>Decaimiento</translation>
+    </message>
+    <message>
+        <source>Jump In/Out</source>
+        <translation>Saltar al otro lado</translation>
+    </message>
+    <message>
+        <source>Hops on the far side of the key, as if it went through, instead of back off it</source>
+        <translation>Rebota del otro lado de la clave, como si la atravesara, en vez de volver</translation>
+    </message>
+    <message>
+        <source>Sequence</source>
+        <translation>Secuencia</translation>
+    </message>
+    <message>
+        <source>Staggers the selected layers in time, top to bottom</source>
+        <translation>Escalona en el tiempo las capas elegidas, de arriba abajo</translation>
+    </message>
+    <message>
+        <source>Sequence from the bottom up</source>
+        <translation>Secuencia de abajo arriba</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desfase</translation>
+    </message>
+    <message>
+        <source>Step</source>
+        <translation>Paso</translation>
+    </message>
+    <message>
+        <source>Offset in frames between layers; Step = how many layers start together.</source>
+        <translation>Desfase en fotogramas entre capas; Paso = cuántas capas empiezan juntas.</translation>
+    </message>
+    <message>
+        <source>Extract</source>
+        <translation>Extraer</translation>
+    </message>
+    <message>
+        <source>Takes the layers out of the selected composition</source>
+        <translation>Saca las capas de la composición elegida</translation>
+    </message>
+    <message>
+        <source>Merge</source>
+        <translation>Unir</translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in one composition</source>
+        <translation>Pone las capas elegidas en una composición</translation>
+    </message>
+    <message>
+        <source>Add null</source>
+        <translation>Añadir nulo</translation>
+    </message>
+    <message>
+        <source>A null in the middle of the selected layers, which follow it</source>
+        <translation>Un nulo en el centro de las capas elegidas, que pasan a seguirlo</translation>
+    </message>
+    <message>
+        <source>Convert to shape</source>
+        <translation>Convertir en forma</translation>
+    </message>
+    <message>
+        <source>A text&apos;s letters or a shape become an editable path</source>
+        <translation>Las letras de un texto o una forma pasan a ser un trazado editable</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centrar</translation>
+    </message>
+    <message>
+        <source>Puts the selected layers in the middle of the frame</source>
+        <translation>Pone las capas elegidas en el centro del cuadro</translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation>Luz puntual</translation>
+    </message>
+    <message>
+        <source>Shines all round from one point, like a bulb</source>
+        <translation>Ilumina en todas direcciones desde un punto, como una bombilla</translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>A cone of light, like a stage spot</source>
+        <translation>Un cono de luz, como un foco de escenario</translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation>Luz paralela</translation>
+    </message>
+    <message>
+        <source>Even light from one direction, like the sun</source>
+        <translation>Luz pareja desde una dirección, como el sol</translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation>Luz ambiente</translation>
+    </message>
+    <message>
+        <source>Lights every side evenly, without direction</source>
+        <translation>Ilumina todo por igual, sin dirección</translation>
     </message>
 </context>
 <context>
@@ -17492,6 +19184,30 @@ LA PRÓXIMA</translation>
     <message>
         <source>Solid</source>
         <translation>Sólido</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>Objeto nulo</translation>
+    </message>
+    <message>
+        <source>Point light</source>
+        <translation>Luz puntual</translation>
+    </message>
+    <message>
+        <source>Spot light</source>
+        <translation>Foco</translation>
+    </message>
+    <message>
+        <source>Parallel light</source>
+        <translation>Luz paralela</translation>
+    </message>
+    <message>
+        <source>Ambient light</source>
+        <translation>Luz ambiente</translation>
+    </message>
+    <message>
+        <source>Shape with the pen</source>
+        <translation>Forma con la pluma</translation>
     </message>
     <message>
         <source>Adjustment layer</source>
@@ -17828,6 +19544,21 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>PenToolOverlay</name>
+    <message>
+        <source>Convert vertex</source>
+        <translation>Convertir vértice</translation>
+    </message>
+    <message>
+        <source>Path edited</source>
+        <translation>Trazado editado</translation>
+    </message>
+    <message>
+        <source>Add vertex</source>
+        <translation>Añadir vértice</translation>
+    </message>
+</context>
+<context>
     <name>PlaybackEngine</name>
     <message>
         <source>Auto</source>
@@ -18053,6 +19784,22 @@ Hardware es mejor para 4K de alta calidad y fuerza un descodificador de GPU.
 Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
+        <source>Transparency grid</source>
+        <translation>Fondo a cuadros</translation>
+    </message>
+    <message>
+        <source>Shows a checkerboard instead of the project background, to see what is transparent (only on the preview)</source>
+        <translation>Muestra un fondo a cuadros en vez del fondo del proyecto, para ver lo que es transparente (solo en la vista previa)</translation>
+    </message>
+    <message>
+        <source>Safe zones</source>
+        <translation>Zonas seguras</translation>
+    </message>
+    <message>
+        <source>After Effects&apos; title and action safe margins, and the centre (only on the preview)</source>
+        <translation>Los márgenes seguros de título y de acción de After Effects, y el centro (solo en la vista previa)</translation>
+    </message>
+    <message>
         <source>Keep mask handles up</source>
         <translation>Mantener visibles los tiradores de máscara</translation>
     </message>
@@ -18132,6 +19879,13 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>PreviewRulers</name>
+    <message>
+        <source>Release to remove</source>
+        <translation>Suelta para eliminar</translation>
+    </message>
+</context>
+<context>
     <name>PreviewStatusLayer</name>
     <message>
         <source>PAUSED %1s</source>
@@ -18172,6 +19926,85 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Flip Studio could not start its GPU renderer, so the preview cannot draw.</source>
         <translation>Flip Studio no pudo iniciar su renderizador por GPU, por lo que la vista previa no puede dibujarse.</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewToolbar</name>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Elipse</translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Selection</source>
+        <translation>Selección</translation>
+    </message>
+    <message>
+        <source>Hand: drag to move the view</source>
+        <translation>Mano: arrastra para mover la vista</translation>
+    </message>
+    <message>
+        <source>Zoom: click to zoom in, Alt+click to zoom out</source>
+        <translation>Zoom: clic para acercar, Alt+clic para alejar</translation>
+    </message>
+    <message>
+        <source>Region of interest: drag the part of the frame to preview; the rest is not drawn, so it plays faster</source>
+        <translation>Región de interés: arrastra la parte del cuadro que quieres ver; el resto no se dibuja y se reproduce más rápido</translation>
+    </message>
+    <message>
+        <source>Reset the region of interest</source>
+        <translation>Quitar la región de interés</translation>
+    </message>
+    <message>
+        <source>Anchor point: drag it without moving the layer</source>
+        <translation>Punto de anclaje: arrástralo sin mover la capa</translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <translation>Forma: arrastra en la vista previa (Mayús para un cuadrado o un círculo)</translation>
+    </message>
+    <message>
+        <source>Pen: click for corners, drag for curves</source>
+        <translation>Pluma: clic para esquinas, arrastrar para curvas</translation>
+    </message>
+    <message>
+        <source>Text: click on the preview and type</source>
+        <translation>Texto: haz clic en la vista previa y escribe</translation>
+    </message>
+    <message>
+        <source>Puppet pins: click on the selected layer to pin it, drag a pin to bend it (each move is a keyframe)</source>
+        <translation>Pines de marioneta: haz clic en la capa elegida para clavar un pin y arrástralo para doblarla (cada movimiento es un fotograma clave)</translation>
+    </message>
+    <message>
+        <source>Motion sketch: drag the selected layer and the path becomes its Position keys, in real time</source>
+        <translation>Bosquejo de movimiento: arrastra la capa elegida y el recorrido se vuelve sus claves de Posición, en tiempo real</translation>
+    </message>
+    <message>
+        <source>Roto: cut the person or object out of the selected video</source>
+        <translation>Roto: recorta a la persona o el objeto del video elegido</translation>
+    </message>
+    <message>
+        <source>3D camera: orbit, move and zoom the view</source>
+        <translation>Cámara 3D: orbita, mueve y acerca la vista</translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation>Relleno</translation>
+    </message>
+    <message>
+        <source>Stroke</source>
+        <translation>Trazo</translation>
     </message>
 </context>
 <context>
@@ -18805,6 +20638,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fusión</translation>
     </message>
     <message>
+        <source>Motion Tools</source>
+        <translation>Motion Tools</translation>
+    </message>
+    <message>
+        <source>Curves</source>
+        <translation>Curvas</translation>
+    </message>
+    <message>
         <source>Masks</source>
         <translation>Máscaras</translation>
     </message>
@@ -18843,6 +20684,113 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>My look</source>
         <translation>Mi aspecto</translation>
+    </message>
+</context>
+<context>
+    <name>PropertyBehaviorDialog</name>
+    <message>
+        <source>No loop</source>
+        <translation>Sin bucle</translation>
+    </message>
+    <message>
+        <source>Cycle (repeat the keys)</source>
+        <translation>Ciclo (repetir las claves)</translation>
+    </message>
+    <message>
+        <source>Ping-pong (back and forth)</source>
+        <translation>Ida y vuelta</translation>
+    </message>
+    <message>
+        <source>Offset (repeat, adding up)</source>
+        <translation>Desfase (repetir sumando)</translation>
+    </message>
+    <message>
+        <source>Continue (keep the last speed)</source>
+        <translation>Continuar (con la última velocidad)</translation>
+    </message>
+    <message>
+        <source>Behavior · %1</source>
+        <translation>Comportamiento · %1</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
+        <translation>Lo que After Effects hace con expresiones, sin escribir código. Se suman: primero el bucle, después la velocidad constante y después el temblor.</translation>
+    </message>
+    <message>
+        <source>Apply to</source>
+        <translation>Aplicar a</translation>
+    </message>
+    <message>
+        <source>Loop after the last keyframe</source>
+        <translation>Bucle después de la última clave</translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation>Temblor</translation>
+    </message>
+    <message>
+        <source>A smooth random shake around the value, like wiggle(frequency, amount)</source>
+        <translation>Una sacudida al azar y suave alrededor del valor, como wiggle(frecuencia, cantidad)</translation>
+    </message>
+    <message>
+        <source>Per second</source>
+        <translation>Por segundo</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Cantidad</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Constant speed (per second)</source>
+        <translation>Velocidad constante (por segundo)</translation>
+    </message>
+    <message>
+        <source>For example 90 on Rotation turns the layer a quarter turn every second, for as long as the clip lasts.</source>
+        <translation>Por ejemplo, 90 en Rotación gira la capa un cuarto de vuelta cada segundo, mientras dure el clip.</translation>
+    </message>
+    <message>
+        <source>Expression (JavaScript)</source>
+        <translation>Expresión (JavaScript)</translation>
+    </message>
+    <message>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <translation>El látigo enlaza la posición, la rotación, la escala, la opacidad o el punto de anclaje de otra capa</translation>
+    </message>
+    <message>
+        <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation>Látigo: arrástralo hasta la fila de una propiedad de otra capa en la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>My expressions (%1)</source>
+        <translation>Mis expresiones (%1)</translation>
+    </message>
+    <message>
+        <source>Delete this saved expression</source>
+        <translation>Borrar esta expresión guardada</translation>
+    </message>
+    <message>
+        <source>Name to save this expression</source>
+        <translation>Nombre para guardar esta expresión</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Expression saved as &quot;%1&quot;</source>
+        <translation>Expresión guardada como «%1»</translation>
+    </message>
+    <message>
+        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, wiggle(frecuencia, cantidad), Math y thisComp.layer(&quot;Nombre&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
     </message>
 </context>
 <context>
@@ -20194,8 +22142,56 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <source>Appearance and language</source>
+        <translation>Apariencia e idioma</translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation>Capas nuevas</translation>
+    </message>
+    <message>
+        <source>Timeline and keyframes</source>
+        <translation>Línea de tiempo y fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation>Herramientas de la vista previa</translation>
+    </message>
+    <message>
+        <source>Preview and performance</source>
+        <translation>Vista previa y rendimiento</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation>Guardado y deshacer</translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation>Atajos de teclado</translation>
+    </message>
+    <message>
+        <source>Account and privacy</source>
+        <translation>Cuenta y privacidad</translation>
+    </message>
+    <message>
+        <source>AI in the cloud</source>
+        <translation>IA en la nube</translation>
+    </message>
+    <message>
         <source>Settings</source>
         <translation>Ajustes</translation>
+    </message>
+    <message>
+        <source>Preferences</source>
+        <translation>Preferencias</translation>
     </message>
     <message>
         <source>Done</source>
@@ -20549,6 +22545,126 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Descargando…</translation>
     </message>
     <message>
+        <source>Colour and theme</source>
+        <translation>Color y tema</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Modo</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Accent colour</source>
+        <translation>Color de acento</translation>
+    </message>
+    <message>
+        <source>New layers</source>
+        <translation>Capas nuevas</translation>
+    </message>
+    <message>
+        <source>How long a layer lasts when you put it on the timeline, as After Effects&apos; Still footage duration.</source>
+        <translation>Cuánto dura una capa al ponerla en la línea de tiempo, como la duración de imágenes fijas de After Effects.</translation>
+    </message>
+    <message>
+        <source>Photos, shapes and solids</source>
+        <translation>Fotos, formas y sólidos</translation>
+    </message>
+    <message>
+        <source>Texts</source>
+        <translation>Textos</translation>
+    </message>
+    <message>
+        <source>Keyframes</source>
+        <translation>Fotogramas clave</translation>
+    </message>
+    <message>
+        <source>New keyframes are</source>
+        <translation>Las claves nuevas son</translation>
+    </message>
+    <message>
+        <source>Straight (linear)</source>
+        <translation>Rectas (lineales)</translation>
+    </message>
+    <message>
+        <source>Smooth (Easy Ease)</source>
+        <translation>Suaves (Easy Ease)</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>You can always change a key afterwards from its menu (Straight, Smooth, Hold, Keyframe velocity…).</source>
+        <translation>Siempre puedes cambiar una clave después desde su menú (Recta, Suave, Mantener, Velocidad del fotograma clave…).</translation>
+    </message>
+    <message>
+        <source>Preview tools</source>
+        <translation>Herramientas de la vista previa</translation>
+    </message>
+    <message>
+        <source>Show the tools bar above the preview</source>
+        <translation>Mostrar la barra de herramientas sobre la vista previa</translation>
+    </message>
+    <message>
+        <source>Safe zones on from the start</source>
+        <translation>Zonas seguras encendidas desde el inicio</translation>
+    </message>
+    <message>
+        <source>Shapes and the pen use the fill, stroke and width last chosen on the tools bar; they are remembered between sessions.</source>
+        <translation>Las formas y la pluma usan el relleno, el trazo y el grosor elegidos por última vez en la barra de herramientas; se recuerdan entre sesiones.</translation>
+    </message>
+    <message>
+        <source>Stroke width for new shapes</source>
+        <translation>Grosor del trazo de las formas nuevas</translation>
+    </message>
+    <message>
+        <source>Saving and undo</source>
+        <translation>Guardado y deshacer</translation>
+    </message>
+    <message>
+        <source>Save a recovery copy every</source>
+        <translation>Guardar una copia de recuperación cada</translation>
+    </message>
+    <message>
+        <source>If Flip Studio closes unexpectedly, it offers this copy the next time it opens.</source>
+        <translation>Si Flip Studio se cierra de golpe, ofrece esta copia la próxima vez que se abre.</translation>
+    </message>
+    <message>
+        <source>Levels of undo</source>
+        <translation>Niveles de deshacer</translation>
+    </message>
+    <message>
+        <source>More levels use more memory. The new number applies from the next project you open.</source>
+        <translation>Más niveles usan más memoria. El número nuevo vale desde el próximo proyecto que abras.</translation>
+    </message>
+    <message>
+        <source>Keyboard shortcuts</source>
+        <translation>Atajos de teclado</translation>
+    </message>
+    <message>
+        <source>Every action can take another key: the tools bar (V, H, Z, Y, P…), the keyframes (Shift+J / Shift+K, U), the timeline and the menus.</source>
+        <translation>Cada acción puede llevar otra tecla: la barra de herramientas (V, H, Z, Y, P…), los fotogramas clave (Mayús+J / Mayús+K, U), la línea de tiempo y los menús.</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Restablecer</translation>
+    </message>
+    <message>
+        <source>Restore the editing defaults</source>
+        <translation>Restablecer los valores de edición</translation>
+    </message>
+    <message>
+        <source>Durations, keyframes, saving, undo and the preview tools go back to how they came. Your account, language and devices are not touched.</source>
+        <translation>Las duraciones, las claves, el guardado, el deshacer y las herramientas de la vista previa vuelven a como venían. No se tocan tu cuenta, tu idioma ni tus dispositivos.</translation>
+    </message>
+    <message>
         <source>Which graphics card Flip Studio runs on. High performance keeps video decoded on an NVIDIA card on that card; power saving uses less battery. Takes effect after restart.</source>
         <translation>En qué tarjeta gráfica se ejecuta Flip Studio. Alto rendimiento mantiene el video descodificado en una tarjeta NVIDIA en esa misma tarjeta; ahorro de energía usa menos batería. Surte efecto tras reiniciar.</translation>
     </message>
@@ -20883,6 +22999,137 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>ShapeElementsPanel</name>
+    <message>
+        <source>Morph</source>
+        <translation>Morph</translation>
+    </message>
+    <message>
+        <source>Liquid trail</source>
+        <translation>Estela líquida</translation>
+    </message>
+    <message>
+        <source>Liquid line</source>
+        <translation>Chorro líquido</translation>
+    </message>
+    <message>
+        <source>Select the layers with Ctrl+click in order: the last one is what they turn into. From the playhead, they fly into it and the picture cuts to it, as Super Morphings does.</source>
+        <translation>Elige las capas en orden con Ctrl+clic: la última es en la que se convierten. Desde el cabezal vuelan hacia ella y la imagen corta a ella, como Super Morphings.</translation>
+    </message>
+    <message>
+        <source>Duration</source>
+        <translation>Duración</translation>
+    </message>
+    <message>
+        <source>Arc</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Spin</source>
+        <translation>Giro</translation>
+    </message>
+    <message>
+        <source>Trails</source>
+        <translation>Estelas</translation>
+    </message>
+    <message>
+        <source>Slicer</source>
+        <translation>Slicer</translation>
+    </message>
+    <message>
+        <source>Morph it</source>
+        <translation>Transformar</translation>
+    </message>
+    <message>
+        <source>Size random</source>
+        <translation>Tamaño aleatorio</translation>
+    </message>
+    <message>
+        <source>Wobble</source>
+        <translation>Temblor</translation>
+    </message>
+    <message>
+        <source>Wobble speed</source>
+        <translation>Velocidad del temblor</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Apply extra effects (melt like liquid)</source>
+        <translation>Efectos extra (fundir como líquido)</translation>
+    </message>
+    <message>
+        <source>Gravity (they fall)</source>
+        <translation>Gravedad (caen)</translation>
+    </message>
+    <message>
+        <source>Frame skipping</source>
+        <translation>Saltar cuadros</translation>
+    </message>
+    <message>
+        <source>Speed threshold</source>
+        <translation>Umbral de velocidad</translation>
+    </message>
+    <message>
+        <source>Spread</source>
+        <translation>Dispersión</translation>
+    </message>
+    <message>
+        <source>Life</source>
+        <translation>Vida</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Velocity</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Select the layer that moves last, and before it (Ctrl+click) the shapes to throw: drops, rings, lines… With none, round drops. Wherever it goes fast it throws copies of them, frame by frame, as Super Liquids does.</source>
+        <translation>Elige al final la capa que se mueve y, antes (Ctrl+clic), las formas que suelta: gotas, anillos, rayas… Sin ninguna, gotas redondas. Por donde pasa rápido suelta copias de ellas, cuadro a cuadro, como Super Liquids.</translation>
+    </message>
+    <message>
+        <source>Liquids per frame</source>
+        <translation>Líquidos por cuadro</translation>
+    </message>
+    <message>
+        <source>Velocity random</source>
+        <translation>Velocidad aleatoria</translation>
+    </message>
+    <message>
+        <source>Select a shape or a line drawn with the pen. A stream of liquid runs along it from the playhead.</source>
+        <translation>Elige una forma o una línea hecha con la pluma. Un chorro de líquido la recorre desde el cabezal.</translation>
+    </message>
+    <message>
+        <source>Thickness</source>
+        <translation>Grosor</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Largo</translation>
+    </message>
+    <message>
+        <source>Roughness</source>
+        <translation>Rugosidad</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Generate liquid trail</source>
+        <translation>Generar estela líquida</translation>
+    </message>
+    <message>
+        <source>Generate liquid line</source>
+        <translation>Generar chorro líquido</translation>
+    </message>
+</context>
+<context>
     <name>ShapeInspector</name>
     <message>
         <source>Shape</source>
@@ -20967,6 +23214,218 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Tail size</source>
         <translation>Tamaño de la cola</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
+    </message>
+    <message>
+        <source>As in After Effects. Edit points: click a point to select it, Shift+click or drag a box for several, drag to move them, drag a line to bend it, Delete removes them and the arrows nudge them. Alt+click turns a point corner or smooth, Alt+drag pulls new handles, Ctrl+click removes it. Pen: click for corners, click and drag for curves, click the first point to close, Enter to leave it open; over a selected shape it adds a point on a line, carries on an open end, or starts another path. With the stopwatch on, each change is a key at the playhead and the shape morphs between them.</source>
+        <translation>Como en After Effects. Editar puntos: haz clic en un punto para elegirlo, Mayús+clic o arrastra un recuadro para elegir varios, arrástralos para moverlos, arrastra una línea para curvarla, Suprimir los borra y las flechas los mueven de a poco. Alt+clic cambia un punto entre esquina y suave, Alt+arrastrar saca tiradores nuevos, Ctrl+clic lo borra. Pluma: clic para esquinas, clic y arrastrar para curvas, clic en el primer punto para cerrar, Intro para dejarlo abierto; sobre una forma elegida añade un punto en una línea, sigue un extremo abierto o empieza otro trazado. Con el cronómetro encendido, cada cambio es una clave en el cabezal y la forma se transforma entre ellas.</translation>
+    </message>
+    <message>
+        <source>This shape becomes an editable path when you edit its points.</source>
+        <translation>Al editar sus puntos, esta forma pasa a ser un trazado editable.</translation>
+    </message>
+    <message>
+        <source>Done editing</source>
+        <translation>Terminar</translation>
+    </message>
+    <message>
+        <source>Edit points</source>
+        <translation>Editar puntos</translation>
+    </message>
+    <message>
+        <source>Draw with the pen</source>
+        <translation>Dibujar con la pluma</translation>
+    </message>
+    <message>
+        <source>Open path</source>
+        <translation>Abrir trazado</translation>
+    </message>
+    <message>
+        <source>Close path</source>
+        <translation>Cerrar trazado</translation>
+    </message>
+    <message>
+        <source>Reverse direction</source>
+        <translation>Invertir dirección</translation>
+    </message>
+    <message>
+        <source>The path runs the other way: Trim Paths draws it from the other end</source>
+        <translation>El trazado va al revés: Recortar trazados lo dibuja desde el otro extremo</translation>
+    </message>
+    <message>
+        <source>Animate the path</source>
+        <translation>Animar el trazado</translation>
+    </message>
+    <message>
+        <source>After Effects&apos; Path stopwatch: a key with this outline at the playhead</source>
+        <translation>El cronómetro de Trazado de After Effects: una clave con este contorno en el cabezal</translation>
+    </message>
+    <message>
+        <source>Editing the key at the playhead.</source>
+        <translation>Editas la clave del cabezal.</translation>
+    </message>
+    <message>
+        <source>Moving a point here adds a key at the playhead.</source>
+        <translation>Mover un punto aquí agrega una clave en el cabezal.</translation>
+    </message>
+    <message>
+        <source>Trim paths</source>
+        <translation>Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Shows only part of the outline: animate Start or End to draw the shape on, and Offset to run it round.</source>
+        <translation>Muestra solo una parte del contorno: anima Inicio o Fin para que la forma se dibuje sola, y Desplazamiento para que dé la vuelta.</translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation>Inicio</translation>
+    </message>
+    <message>
+        <source>End</source>
+        <translation>Fin</translation>
+    </message>
+    <message>
+        <source>Offset</source>
+        <translation>Desplazamiento</translation>
+    </message>
+    <message>
+        <source>Repeater</source>
+        <translation>Repetidor</translation>
+    </message>
+    <message>
+        <source>Copies of the shape, each one moved, turned and scaled from the one before.</source>
+        <translation>Copias de la forma, cada una movida, girada y escalada desde la anterior.</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Position X</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Position Y</source>
+        <translation>Posición Y</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotación</translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation>Opacidad inicial</translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation>Opacidad final</translation>
+    </message>
+    <message>
+        <source>Wiggle paths</source>
+        <translation>Sacudir trazados</translation>
+    </message>
+    <message>
+        <source>Makes the outline wobble: Size is how far it moves, Detail how often along the edge, and Wiggles per second how fast.</source>
+        <translation>Hace temblar el contorno: Tamaño es cuánto se mueve, Detalle cada cuánto a lo largo del borde, y Sacudidas por segundo qué tan rápido.</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Detail</source>
+        <translation>Detalle</translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation>Sacudidas por segundo</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla aleatoria</translation>
+    </message>
+    <message>
+        <source>Shapes in this layer</source>
+        <translation>Formas en esta capa</translation>
+    </message>
+    <message>
+        <source>Add more shapes to the same layer, then choose how they combine (Merge paths).</source>
+        <translation>Añade más formas a la misma capa y elige cómo se combinan (Unir trazados).</translation>
+    </message>
+    <message>
+        <source>+ Rectangle</source>
+        <translation>+ Rectángulo</translation>
+    </message>
+    <message>
+        <source>+ Ellipse</source>
+        <translation>+ Elipse</translation>
+    </message>
+    <message>
+        <source>+ Star</source>
+        <translation>+ Estrella</translation>
+    </message>
+    <message>
+        <source>+ Polygon</source>
+        <translation>+ Polígono</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Unir trazados</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>No</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Sumar</translation>
+    </message>
+    <message>
+        <source>Subtract</source>
+        <translation>Restar</translation>
+    </message>
+    <message>
+        <source>Intersect</source>
+        <translation>Intersecar</translation>
+    </message>
+    <message>
+        <source>Exclude intersections</source>
+        <translation>Excluir intersecciones</translation>
+    </message>
+    <message>
+        <source>Offset, pucker, zig zag and twist</source>
+        <translation>Desplazar, fruncir, zigzag y torcer</translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation>Desplazar trazados</translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation>Fruncir e inflar</translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation>Tamaño del zigzag</translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation>Picos</translation>
+    </message>
+    <message>
+        <source>Smooth zig zag</source>
+        <translation>Zigzag suave</translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation>Retorcer</translation>
     </message>
 </context>
 <context>
@@ -21128,8 +23587,108 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tamaño de la cola</translation>
     </message>
     <message>
+        <source>Trim start</source>
+        <translation>Inicio del recorte</translation>
+    </message>
+    <message>
+        <source>Trim end</source>
+        <translation>Fin del recorte</translation>
+    </message>
+    <message>
+        <source>Trim offset</source>
+        <translation>Desplazamiento del recorte</translation>
+    </message>
+    <message>
+        <source>Trim segments</source>
+        <translation>Tramos del recorte</translation>
+    </message>
+    <message>
+        <source>Reverse path direction</source>
+        <translation>Invertir dirección del trazado</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Repeater offset</source>
+        <translation>Desfase del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater position X</source>
+        <translation>Posición X del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater position Y</source>
+        <translation>Posición Y del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater scale</source>
+        <translation>Escala del repetidor</translation>
+    </message>
+    <message>
+        <source>Repeater rotation</source>
+        <translation>Rotación del repetidor</translation>
+    </message>
+    <message>
+        <source>Start opacity</source>
+        <translation>Opacidad inicial</translation>
+    </message>
+    <message>
+        <source>End opacity</source>
+        <translation>Opacidad final</translation>
+    </message>
+    <message>
+        <source>Wiggle size</source>
+        <translation>Tamaño de la sacudida</translation>
+    </message>
+    <message>
+        <source>Wiggle detail</source>
+        <translation>Detalle de la sacudida</translation>
+    </message>
+    <message>
+        <source>Wiggles per second</source>
+        <translation>Sacudidas por segundo</translation>
+    </message>
+    <message>
+        <source>Random seed</source>
+        <translation>Semilla aleatoria</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Unir trazados</translation>
+    </message>
+    <message>
+        <source>Offset paths</source>
+        <translation>Desplazar trazados</translation>
+    </message>
+    <message>
+        <source>Zig zag size</source>
+        <translation>Tamaño del zigzag</translation>
+    </message>
+    <message>
+        <source>Ridges</source>
+        <translation>Picos</translation>
+    </message>
+    <message>
+        <source>Smooth points</source>
+        <translation>Puntos suaves</translation>
+    </message>
+    <message>
+        <source>Twist</source>
+        <translation>Retorcer</translation>
+    </message>
+    <message>
+        <source>Pucker &amp; Bloat</source>
+        <translation>Fruncir e inflar</translation>
+    </message>
+    <message>
         <source>Points</source>
         <translation>Puntas</translation>
+    </message>
+    <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
     </message>
 </context>
 <context>
@@ -21742,6 +24301,105 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>SquashStretchPanel</name>
+    <message>
+        <source>In</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Moves</source>
+        <translation>Movimientos</translation>
+    </message>
+    <message>
+        <source>Jumps</source>
+        <translation>Saltos</translation>
+    </message>
+    <message>
+        <source>Highlights</source>
+        <translation>Destacados</translation>
+    </message>
+    <message>
+        <source>Rotations</source>
+        <translation>Rotaciones</translation>
+    </message>
+    <message>
+        <source>Wiggles</source>
+        <translation>Temblores</translation>
+    </message>
+    <message>
+        <source>Glitch</source>
+        <translation>Glitch</translation>
+    </message>
+    <message>
+        <source>Pick one to see it, then Apply: it is written as keyframes on every selected layer, starting (or ending) at the playhead. Put another one further on to keep animating the same layer.</source>
+        <translation>Elige una para verla y pulsa Aplicar: se escribe como fotogramas clave en cada capa elegida, empezando (o terminando) en el cabezal. Pon otra más adelante para seguir animando la misma capa.</translation>
+    </message>
+    <message>
+        <source>Squash &amp; Stretch</source>
+        <translation>Squash &amp; Stretch</translation>
+    </message>
+    <message>
+        <source>Oomph</source>
+        <translation>Impulso</translation>
+    </message>
+    <message>
+        <source>How far it travels, jumps and turns</source>
+        <translation>Cuánto se desplaza, salta y gira</translation>
+    </message>
+    <message>
+        <source>Timing</source>
+        <translation>Tiempo</translation>
+    </message>
+    <message>
+        <source>Start of behavior (at the playhead)</source>
+        <translation>Empieza en el cabezal</translation>
+    </message>
+    <message>
+        <source>End of behavior (at the playhead)</source>
+        <translation>Termina en el cabezal</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Escalonar</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>between layers</source>
+        <translation>entre capas</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
+        <translation>Se aplica a cada capa elegida. Las claves se pueden editar en la línea de tiempo.</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todo</translation>
+    </message>
+    <message>
+        <source>How hard it squashes, stretches and bends</source>
+        <translation>Cuánto se aplasta, se estira y se dobla</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>Faster makes it shorter, slower makes it longer</source>
+        <translation>Más rápido la acorta, más lento la alarga</translation>
+    </message>
+</context>
+<context>
     <name>SrtIO</name>
     <message>
         <source>Missing output</source>
@@ -22112,6 +24770,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Trending</source>
         <translation>Tendencias</translation>
+    </message>
+    <message>
+        <source>VFX</source>
+        <translation>VFX</translation>
     </message>
     <message>
         <source>Backgrounds</source>
@@ -22524,6 +25186,48 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Retry</source>
         <translation>Reintentar</translation>
+    </message>
+</context>
+<context>
+    <name>StrokeCapsPanel</name>
+    <message numerus="yes">
+        <source>%n stroke(s) in the selection.</source>
+        <translation>
+            <numerusform>%n trazo en la selección.</numerusform>
+            <numerusform>%n trazos en la selección.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke.</source>
+        <translation>Elige formas o textos con trazo.</translation>
+    </message>
+    <message>
+        <source>Line cap</source>
+        <translation>Extremo de línea</translation>
+    </message>
+    <message>
+        <source>Butt</source>
+        <translation>Plano</translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation>Redondo</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrado</translation>
+    </message>
+    <message>
+        <source>Line join</source>
+        <translation>Unión de línea</translation>
+    </message>
+    <message>
+        <source>Miter</source>
+        <translation>En punta</translation>
+    </message>
+    <message>
+        <source>Bevel</source>
+        <translation>Biselada</translation>
     </message>
 </context>
 <context>
@@ -23201,6 +25905,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Del centro hacia afuera</translation>
     </message>
     <message>
+        <source>Edges in</source>
+        <translation>Desde los bordes</translation>
+    </message>
+    <message>
         <source>Random</source>
         <translation>Aleatorio</translation>
     </message>
@@ -23285,6 +25993,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Brillo</translation>
     </message>
     <message>
+        <source>Skew</source>
+        <translation>Sesgar</translation>
+    </message>
+    <message>
+        <source>Line spacing</source>
+        <translation>Interlineado</translation>
+    </message>
+    <message>
+        <source>Character offset</source>
+        <translation>Desplazar caracteres</translation>
+    </message>
+    <message>
+        <source>Character replace</source>
+        <translation>Reemplazar caracteres</translation>
+    </message>
+    <message>
         <source>Edit text animation</source>
         <translation>Editar animación de texto</translation>
     </message>
@@ -23339,6 +26063,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Stagger</source>
         <translation>Escalonamiento</translation>
+    </message>
+    <message>
+        <source>Start at</source>
+        <translation>Empezar en</translation>
+    </message>
+    <message>
+        <source>Fit in 1 s</source>
+        <translation>Repartir en 1 s</translation>
+    </message>
+    <message>
+        <source>Sets the stagger so every unit of the text has started within a second</source>
+        <translation>Ajusta el retraso para que todo el texto haya empezado en un segundo</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -24442,6 +27178,58 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Letras por dentro del círculo</translation>
     </message>
     <message>
+        <source>Text on a path</source>
+        <translation>Texto sobre un trazado</translation>
+    </message>
+    <message>
+        <source>A single line of text follows an outline: a ready-made one or a shape layer&apos;s</source>
+        <translation>Una línea de texto sigue un contorno: uno listo o el de una capa de forma</translation>
+    </message>
+    <message>
+        <source>Put the text on a path</source>
+        <translation>Poner el texto sobre un trazado</translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation>Onda</translation>
+    </message>
+    <message>
+        <source>Arch</source>
+        <translation>Arco</translation>
+    </message>
+    <message>
+        <source>Valley</source>
+        <translation>Valle</translation>
+    </message>
+    <message>
+        <source>S curve</source>
+        <translation>Curva en S</translation>
+    </message>
+    <message>
+        <source>Rising</source>
+        <translation>Subida</translation>
+    </message>
+    <message>
+        <source>No shape layers</source>
+        <translation>No hay capas de forma</translation>
+    </message>
+    <message>
+        <source>Follow shape</source>
+        <translation>Seguir la forma</translation>
+    </message>
+    <message>
+        <source>Put the text on this shape layer&apos;s outline</source>
+        <translation>Poner el texto sobre el contorno de esta capa de forma</translation>
+    </message>
+    <message>
+        <source>Path offset</source>
+        <translation>Desplazamiento en el trazado</translation>
+    </message>
+    <message>
+        <source>Animate the offset to make the letters run along the path. Only one line of text follows it.</source>
+        <translation>Anima el desplazamiento para que las letras corran por el trazado. Solo una línea de texto lo sigue.</translation>
+    </message>
+    <message>
         <source>Save as my style…</source>
         <translation>Guardar como mi estilo…</translation>
     </message>
@@ -25289,6 +28077,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Final del recorte</translation>
     </message>
     <message>
+        <source>Trim offset</source>
+        <translation>Desplazamiento del recorte</translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>Desplazamiento del guion</translation>
     </message>
@@ -25653,6 +28445,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>El número tranquilo</translation>
     </message>
     <message>
+        <source>Path offset</source>
+        <translation>Desplazamiento en el trazado</translation>
+    </message>
+    <message>
         <source>Position X</source>
         <translation>Posición X</translation>
     </message>
@@ -25966,6 +28762,34 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ajustes del sólido…</translation>
     </message>
     <message>
+        <source>Parent</source>
+        <translation>Primario</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>Use as mask stuck to</source>
+        <translation>Usar como máscara pegada a</translation>
+    </message>
+    <message>
+        <source>Use as fixed mask of</source>
+        <translation>Usar como máscara fija de</translation>
+    </message>
+    <message>
+        <source>Motion blur</source>
+        <translation>Desenfoque de movimiento</translation>
+    </message>
+    <message>
+        <source>Auto-orient along path</source>
+        <translation>Orientar según el trazado</translation>
+    </message>
+    <message>
+        <source>Time remapping</source>
+        <translation>Reasignación de tiempo</translation>
+    </message>
+    <message>
         <source>Fades to volume keyframes</source>
         <translation>Fundidos a fotogramas clave de volumen</translation>
     </message>
@@ -25996,6 +28820,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Drag to trim the end</source>
         <translation>Arrastra para recortar el final</translation>
+    </message>
+    <message>
+        <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
+        <translation>Arrástralo a otra capa para que sea su primario (el látigo de After Effects)</translation>
     </message>
     <message>
         <source>Split item at current time</source>
@@ -26801,10 +29629,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Añadir un fotograma clave en el cabezal</translation>
     </message>
     <message>
-        <source>Anchor point: corners and centre</source>
-        <translation>Punto de anclaje: esquinas y centro</translation>
-    </message>
-    <message>
         <source>More</source>
         <translation>Más</translation>
     </message>
@@ -26817,12 +29641,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fotograma clave siguiente</translation>
     </message>
     <message>
-        <source>More…</source>
-        <translation>Más…</translation>
-    </message>
-    <message>
         <source>Remove all keyframes…</source>
         <translation>Quitar todos los fotogramas clave…</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Separar dimensiones</translation>
+    </message>
+    <message>
+        <source>Behavior…</source>
+        <translation>Comportamiento…</translation>
     </message>
     <message>
         <source>Remove every keyframe of %1?</source>
@@ -26980,6 +29808,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Pan</source>
         <translation>Panorama</translation>
+    </message>
+    <message>
+        <source>X Position</source>
+        <translation>Posición X</translation>
+    </message>
+    <message>
+        <source>Y Position</source>
+        <translation>Posición Y</translation>
     </message>
     <message>
         <source>Anchor point</source>
@@ -27735,6 +30571,185 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add to favorites</source>
         <translation>Añadir a favoritos</translation>
+    </message>
+</context>
+<context>
+    <name>TrimPackPanel</name>
+    <message>
+        <source>Frames</source>
+        <translation>Fotogramas</translation>
+    </message>
+    <message>
+        <source>Offset range</source>
+        <translation>Rango de desplazamiento</translation>
+    </message>
+    <message>
+        <source>Copies</source>
+        <translation>Copias</translation>
+    </message>
+    <message>
+        <source>Select shapes or texts with a stroke. The keys start at the playhead; I&amp;O ends with the clip. For Trace, pick the layers that ride the line first and the line last (with none, a dot rides it).</source>
+        <translation>Elige formas o textos con trazo. Las claves empiezan en el cabezal; I&amp;O termina con el clip. Para Trace, elige primero las capas que recorren la línea y la línea al final (sin ninguna, la recorre un punto).</translation>
+    </message>
+    <message>
+        <source>Divide-in</source>
+        <translation>Divide-in</translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw on at once</source>
+        <translation>El trazado en partes iguales (tantas como Copias) que se dibujan a la vez</translation>
+    </message>
+    <message>
+        <source>Divide-out</source>
+        <translation>Divide-out</translation>
+    </message>
+    <message>
+        <source>The path in equal parts (as many as Copies) that draw off at once</source>
+        <translation>El trazado en partes iguales (tantas como Copias) que se borran a la vez</translation>
+    </message>
+    <message>
+        <source>Draws on with another layer riding its end</source>
+        <translation>Se dibuja con otra capa pegada a su punta</translation>
+    </message>
+    <message>
+        <source>Draws off with another layer riding its end</source>
+        <translation>Se borra con otra capa pegada a su punta</translation>
+    </message>
+    <message>
+        <source>A layer on each end, in and out</source>
+        <translation>Una capa en cada punta, al entrar y al salir</translation>
+    </message>
+    <message>
+        <source>MidTrace In</source>
+        <translation>MidTrace In</translation>
+    </message>
+    <message>
+        <source>Grows from the middle with a layer on each end</source>
+        <translation>Crece desde el medio con una capa en cada punta</translation>
+    </message>
+    <message>
+        <source>MidTrace Out</source>
+        <translation>MidTrace Out</translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle with a layer on each end</source>
+        <translation>Se encoge hacia el medio con una capa en cada punta</translation>
+    </message>
+    <message>
+        <source>Add line</source>
+        <translation>Añadir línea</translation>
+    </message>
+    <message>
+        <source>Add a horizontal line to trim</source>
+        <translation>Añade una línea horizontal para recortar</translation>
+    </message>
+    <message>
+        <source>Add a vertical line to trim</source>
+        <translation>Añade una línea vertical para recortar</translation>
+    </message>
+    <message>
+        <source>Draw from the other end of the path</source>
+        <translation>Dibuja desde el otro extremo del trazado</translation>
+    </message>
+    <message>
+        <source>The line also travels round the path by the offset range</source>
+        <translation>La línea además recorre el trazado según el rango de desplazamiento</translation>
+    </message>
+    <message>
+        <source>In</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>Out</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Copies above, each one drawing on a little later</source>
+        <translation>Copias encima, cada una se dibuja un poco después</translation>
+    </message>
+    <message>
+        <source>Trace In</source>
+        <translation>Rastro entrada</translation>
+    </message>
+    <message>
+        <source>Trace Out</source>
+        <translation>Rastro salida</translation>
+    </message>
+    <message>
+        <source>The line draws on from its start</source>
+        <translation>La línea se dibuja desde su inicio</translation>
+    </message>
+    <message>
+        <source>The line draws off from its start</source>
+        <translation>La línea se borra desde su inicio</translation>
+    </message>
+    <message>
+        <source>I&amp;O</source>
+        <translation>I&amp;O</translation>
+    </message>
+    <message>
+        <source>Draws on from the playhead and off at the end of the clip</source>
+        <translation>Se dibuja desde el cabezal y se borra al final del clip</translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Reverse path direction: the trim runs round the other way</source>
+        <translation>Invertir dirección del trazado: el recorte va en el otro sentido</translation>
+    </message>
+    <message>
+        <source>Mid-in</source>
+        <translation>Mid-in</translation>
+    </message>
+    <message>
+        <source>Grows both ways from the middle (reversed: in from both ends)</source>
+        <translation>Crece hacia los dos lados desde el medio (invertido: desde las dos puntas)</translation>
+    </message>
+    <message>
+        <source>Mid-out</source>
+        <translation>Mid-out</translation>
+    </message>
+    <message>
+        <source>Shrinks into the middle (reversed: off towards both ends)</source>
+        <translation>Se encoge hacia el medio (invertido: hacia las dos puntas)</translation>
+    </message>
+    <message>
+        <source>Running gap</source>
+        <translation>Hueco que corre</translation>
+    </message>
+    <message>
+        <source>A small gap runs round each outline all the clip long, as an outlined title</source>
+        <translation>Un hueco pequeño recorre cada contorno todo el clip, como un título de contorno</translation>
+    </message>
+    <message>
+        <source>Trace I&amp;O</source>
+        <translation>Rastro E/S</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Convertir</translation>
+    </message>
+    <message>
+        <source>A text or shape into an editable path, so it can be trimmed letter by letter</source>
+        <translation>Un texto o una forma en trazado editable, para recortarlo letra por letra</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Quitar</translation>
+    </message>
+    <message>
+        <source>Take the Trim Paths animation off</source>
+        <translation>Quita la animación de Recortar trazados</translation>
+    </message>
+    <message>
+        <source>Reverse (Alt)</source>
+        <translation>Invertir (Alt)</translation>
+    </message>
+    <message>
+        <source>Offset (Shift)</source>
+        <translation>Desplazamiento (Mayús)</translation>
     </message>
 </context>
 <context>
@@ -29123,6 +32138,119 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceMenu</name>
+    <message>
+        <source>Workspace</source>
+        <translation>Espacio de trabajo</translation>
+    </message>
+    <message>
+        <source>Auto (follow canvas)</source>
+        <translation>Automático (según el lienzo)</translation>
+    </message>
+    <message>
+        <source>Done arranging</source>
+        <translation>Listo</translation>
+    </message>
+    <message>
+        <source>Arrange panels</source>
+        <translation>Distribuir paneles</translation>
+    </message>
+    <message>
+        <source>Library</source>
+        <translation>Biblioteca</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation>Propiedades</translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation>Línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Save as new workspace…</source>
+        <translation>Guardar como espacio de trabajo nuevo…</translation>
+    </message>
+    <message>
+        <source>Reset «%1»</source>
+        <translation>Restablecer «%1»</translation>
+    </message>
+    <message>
+        <source>Delete «%1»</source>
+        <translation>Eliminar «%1»</translation>
+    </message>
+</context>
+<context>
+    <name>WorkspaceView</name>
+    <message>
+        <source>Library</source>
+        <translation>Biblioteca</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+    <message>
+        <source>Properties</source>
+        <translation>Propiedades</translation>
+    </message>
+    <message>
+        <source>Timeline</source>
+        <translation>Línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Hide this panel</source>
+        <translation>Ocultar este panel</translation>
+    </message>
+</context>
+<context>
+    <name>Workspaces</name>
+    <message>
+        <source>Standard</source>
+        <translation>Estándar</translation>
+    </message>
+    <message>
+        <source>Vertical</source>
+        <translation>Vertical</translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animación</translation>
+    </message>
+    <message>
+        <source>Effects</source>
+        <translation>Efectos</translation>
+    </message>
+    <message>
+        <source>Graphics and text</source>
+        <translation>Gráficos y texto</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Audio</source>
+        <translation>Audio</translation>
+    </message>
+    <message>
+        <source>Libraries</source>
+        <translation>Bibliotecas</translation>
+    </message>
+    <message>
+        <source>Small screen</source>
+        <translation>Pantalla pequeña</translation>
+    </message>
+    <message>
+        <source>Review</source>
+        <translation>Revisión</translation>
     </message>
 </context>
 <context>

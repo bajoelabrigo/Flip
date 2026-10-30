@@ -363,6 +363,44 @@ Item {
         return out
     }
 
+    // After Effects' Graph Editor shows every selected layer's curves at once (0.26): the other
+    // selected clips' curves are drawn faded and dashed as a reference, in their own value range,
+    // and a click on a layer's name makes it the one being edited.
+    property bool showOtherLayers: true
+    readonly property var otherLayers: {
+        void EditorState.selectionRevision
+        void EditorState.tracksRevision
+        const out = []
+        if (!hasClip || !showOtherLayers)
+            return out
+        const picked = EditorState.selection || []
+        for (let k = 0; k < picked.length; ++k) {
+            const t = picked[k].track
+            const c = picked[k].clip
+            if (t === root.trackIndex && c === root.clipIndex)
+                continue
+            const data = EditorState.clipAt(t, c)
+            if (!data || !data.id)
+                continue
+            const animated = EditorState.clipAnimatedProperties(t, c) || []
+            const curves = []
+            for (let i = 0; i < animated.length; ++i) {
+                const id = animated[i]
+                const pts = EditorState.clipKeyframes(t, c, id) || []
+                if (pts.length < 2)
+                    continue
+                const base = EditorState.propertyBaseValue(t, c, id, 0)
+                const range = root.valueRangeFor(id, pts, base)
+                curves.push({ prop: id, color: Theme.keyframeCurveColor(id), points: pts,
+                              valueMin: range.min, valueMax: range.max })
+            }
+            if (curves.length > 0)
+                out.push({ id: data.id, name: data.name || qsTr("Layer"), start: data.start || 0,
+                           duration: data.duration || 0, curves: curves })
+        }
+        return out
+    }
+
     // The curves actually drawn: everything the chips have left visible.
     readonly property var series: {
         if (draggingKey)
@@ -650,6 +688,19 @@ Item {
                         onClicked: root.toggleExpanded()
                     }
 
+                    // The other selected layers' curves (0.26), on or off.
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: EditorState.selectionCount > 1
+                        glyph: Theme.icons.layers
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 14
+                        active: root.showOtherLayers
+                        tooltip: root.showOtherLayers ? qsTr("Hide the other selected layers' curves")
+                                                      : qsTr("Show the other selected layers' curves")
+                        onClicked: root.showOtherLayers = !root.showOtherLayers
+                    }
                     // After Effects' Speed graph (0.25): how fast the focused curve changes, drawn
                     // over its values, so an ease that is too abrupt shows as a spike.
                     IconButton {
@@ -942,6 +993,76 @@ Item {
                             function onPxPerSecondChanged() { beatCanvas.requestPaint() }
                             function onPaintOriginXChanged() { beatCanvas.requestPaint() }
                         }
+                    }
+
+                    // The other selected layers' curves (0.26), under the edited ones.
+                    Canvas {
+                        id: otherCanvas
+                        x: root.paintOriginX
+                        width: viewport.width + 2 * root.paintChunk
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        visible: root.otherLayers.length > 0
+                        onPaint: {
+                            const ctx = getContext("2d")
+                            ctx.clearRect(0, 0, width, height)
+                            ctx.save()
+                            ctx.translate(-root.paintOriginX, 0)
+                            ctx.lineWidth = 1
+                            ctx.setLineDash([5, 3])
+                            ctx.globalAlpha = 0.6
+                            for (let l = 0; l < root.otherLayers.length; ++l) {
+                                const layer = root.otherLayers[l]
+                                for (let s = 0; s < layer.curves.length; ++s) {
+                                    const entry = layer.curves[s]
+                                    const pts = entry.points.slice().sort((a, b) => a.seconds - b.seconds)
+                                    ctx.strokeStyle = String(entry.color)
+                                    ctx.beginPath()
+                                    ctx.moveTo(root.xForSeconds(layer.start), root.yForValue(pts[0].value, entry))
+                                    ctx.lineTo(root.xForSeconds(pts[0].seconds), root.yForValue(pts[0].value, entry))
+                                    for (let i = 1; i < pts.length; ++i) {
+                                        const a = pts[i - 1]
+                                        const b = pts[i]
+                                        const ax = root.xForSeconds(a.seconds)
+                                        const bx = root.xForSeconds(b.seconds)
+                                        const ay = root.yForValue(a.value, entry)
+                                        const by = root.yForValue(b.value, entry)
+                                        if (a.hold) {
+                                            ctx.lineTo(bx, ay)
+                                            ctx.lineTo(bx, by)
+                                            continue
+                                        }
+                                        const c1x = Math.min(bx, Math.max(ax, ax + root.xForSeconds(a.outDx || 0)))
+                                        const c2x = Math.min(bx, Math.max(ax, bx + root.xForSeconds(b.inDx || 0)))
+                                        ctx.bezierCurveTo(c1x, root.yForValue(a.value + (a.outDy || 0), entry),
+                                                          c2x, root.yForValue(b.value + (b.inDy || 0), entry), bx, by)
+                                    }
+                                    const tail = pts[pts.length - 1]
+                                    ctx.lineTo(root.xForSeconds(layer.start + layer.duration), root.yForValue(tail.value, entry))
+                                    ctx.stroke()
+                                    // Its keys as small hollow diamonds.
+                                    for (let i = 0; i < pts.length; ++i) {
+                                        const kx = root.xForSeconds(pts[i].seconds)
+                                        const ky = root.yForValue(pts[i].value, entry)
+                                        ctx.beginPath()
+                                        ctx.moveTo(kx, ky - 3)
+                                        ctx.lineTo(kx + 3, ky)
+                                        ctx.lineTo(kx, ky + 3)
+                                        ctx.lineTo(kx - 3, ky)
+                                        ctx.closePath()
+                                        ctx.stroke()
+                                    }
+                                }
+                            }
+                            ctx.restore()
+                        }
+                        Connections {
+                            target: root
+                            function onOtherLayersChanged() { otherCanvas.requestPaint() }
+                            function onPxPerSecondChanged() { otherCanvas.requestPaint() }
+                            function onPaintOriginXChanged() { otherCanvas.requestPaint() }
+                        }
+                        onHeightChanged: requestPaint()
                     }
 
                     Canvas {
@@ -1666,6 +1787,46 @@ Item {
         height: 26
         radius: 4
         color: Qt.rgba(0, 0, 0, 0.45)
+    }
+
+    // The other selected layers whose curves are drawn (0.26): their names, a click edits one.
+    Flow {
+        visible: root.hasContent && root.otherLayers.length > 0
+        z: 40
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: root.labelsWidth + 6
+        anchors.bottomMargin: 4
+        width: Math.min(parent.width - root.labelsWidth - 12, 600)
+        spacing: 3
+        ThemedChip {
+            text: root.clip.name || qsTr("Layer")
+            chipHeight: 18
+            horizontalPadding: 4
+            selected: true
+            tooltip: qsTr("The layer whose curves you are editing")
+        }
+        Repeater {
+            model: root.otherLayers
+            delegate: ThemedChip {
+                required property var modelData
+                text: modelData.name
+                chipHeight: 18
+                horizontalPadding: 4
+                selected: false
+                tooltip: qsTr("Edit this layer's curves (dashed)")
+                // As in After Effects, that layer becomes the selected one (the last of the
+                // selection), so its track's lines and this graph follow it; the rest stay picked.
+                onClicked: {
+                    const at = EditorState.clipLocation(modelData.id)
+                    const picked = (EditorState.selection || []).filter(p => p.track !== at.track || p.clip !== at.clip)
+                    picked.push({ "track": at.track, "clip": at.clip })
+                    root.pinnedClipId = modelData.id
+                    EditorState.setSelection(picked)
+                    EditorState.setTrackKeyframesExpanded(at.track, true)
+                }
+            }
+        }
     }
 
     // A click on a line's name in the track (0.25) makes its curve the one being shaped.

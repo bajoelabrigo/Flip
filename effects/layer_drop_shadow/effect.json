@@ -1,0 +1,111 @@
+{
+  "id": "layer.drop_shadow",
+  "displayName": "Drop Shadow",
+  "category": "layerstyles",
+  "backend": "gpu",
+  "order": 900,
+  "padding": {
+    "params": [
+      "distance",
+      "size"
+    ],
+    "extra": 4
+  },
+  "parameters": [
+    {
+      "identifier": "color",
+      "displayName": "Color",
+      "type": "color",
+      "defaultValue": "#000000"
+    },
+    {
+      "identifier": "opacity",
+      "displayName": "Opacity",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.6
+    },
+    {
+      "identifier": "angle",
+      "displayName": "Angle",
+      "type": "float",
+      "minValue": -180,
+      "maxValue": 180,
+      "defaultValue": -45
+    },
+    {
+      "identifier": "distance",
+      "displayName": "Distance",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 300,
+      "defaultValue": 12
+    },
+    {
+      "identifier": "size",
+      "displayName": "Size",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 150,
+      "defaultValue": 14
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [
+      {
+        "id": "h",
+        "scale": 1.0
+      },
+      {
+        "id": "v",
+        "scale": 1.0
+      }
+    ],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "alpha_h.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "buffer",
+          "id": "h"
+        }
+      },
+      {
+        "passIndex": 1,
+        "fragmentShader": "alpha_v.frag",
+        "inputs": [
+          {
+            "type": "buffer",
+            "id": "h"
+          }
+        ],
+        "output": {
+          "type": "buffer",
+          "id": "v"
+        }
+      },
+      {
+        "passIndex": 2,
+        "fragmentShader": "composite.frag",
+        "inputs": [
+          {
+            "type": "buffer",
+            "id": "v"
+          },
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

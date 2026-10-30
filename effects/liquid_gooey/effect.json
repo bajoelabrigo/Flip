@@ -1,0 +1,47 @@
+{
+  "id": "liquid.gooey",
+  "displayName": "Liquid",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 950,
+  "description": "Makes shapes read as liquid: drops that touch melt into one another (a blur and a soft threshold, the gooey trick) and catch a glossy light on their rims. Motion Tools' liquid trail and liquid line put it on; it works on any layer.",
+  "padding": {
+    "params": ["goo"],
+    "extra": 4
+  },
+  "parameters": [
+    {
+      "identifier": "goo",
+      "displayName": "Melt (px)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 60,
+      "defaultValue": 14
+    },
+    {
+      "identifier": "threshold",
+      "displayName": "Edge",
+      "type": "float",
+      "minValue": 0.1,
+      "maxValue": 0.9,
+      "defaultValue": 0.5
+    },
+    {
+      "identifier": "shine",
+      "displayName": "Shine",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0.4
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [{"id": "blurx", "scale": 1.0}],
+    "passes": [
+      {"passIndex": 0, "fragmentShader": "blurx.frag",
+       "inputs": [{"type": "source_texture"}], "output": {"type": "buffer", "id": "blurx"}},
+      {"passIndex": 1, "fragmentShader": "gooey.frag",
+       "inputs": [{"type": "buffer", "id": "blurx"}], "output": {"type": "canvas"}}
+    ]
+  }
+}

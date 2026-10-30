@@ -11,6 +11,20 @@ namespace drift {
 
 constexpr TimeUs kImageClipDurationUs = 5 * kUsPerSecond;
 constexpr TimeUs kTextClipDurationUs = 5 * kUsPerSecond;
+// What a photo, shape or solid (still) and a text last when placed: the constants above unless the
+// Preferences (0.26) change them. Process-wide, set by the app from its preferences.
+inline TimeUs &defaultStillDurationRef()
+{
+    static TimeUs value = kImageClipDurationUs;
+    return value;
+}
+inline TimeUs &defaultTextDurationRef()
+{
+    static TimeUs value = kTextClipDurationUs;
+    return value;
+}
+inline TimeUs defaultStillDurationUs() { return defaultStillDurationRef(); }
+inline TimeUs defaultTextDurationUs() { return defaultTextDurationRef(); }
 constexpr TimeUs kSubtitleClipDurationUs = 30 * kUsPerSecond;
 constexpr TimeUs kMinClipDurationUs = kUsPerSecond / 10;
 constexpr TimeUs kSnapThresholdUs = 150'000;

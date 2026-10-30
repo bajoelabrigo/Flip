@@ -3,6 +3,23 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.26.0 — Herramientas de After Effects
+
+- Capas: Primario y látigo (`Clip::parentId/parentRest`, `engine/TransformLayer`), objeto nulo, desenfoque de
+  movimiento, mate de seguimiento, luces 3D (`applyLighting`), estilos de capa (`effects/layer_*`).
+- Formas: pluma en vivo y edición de puntos (`PenToolOverlay.qml`, `beginPenShape`), trazados animables
+  (`core/ShapePathEdit`), recortar trazados, repetidor, sacudir, unir, desplazar, zigzag, retorcer, fruncir e inflar.
+- Animación: Curvas (`CurvesPanel.qml`, `applyCurveToPicked` en vivo), Squash & Stretch (`squash.deform`), Motion Tools
+  (Recorte, Doblar `ae.bend`, Extremos, Elementos), expresiones JS (`ExpressionEngine`), comportamientos, velocidad
+  de clave, orientar al trazado, reasignación de tiempo, invertir/estirar claves, bosquejo de movimiento.
+- Texto: animadores Sesgar, Interlineado, Desplazar/Reemplazar caracteres (`swapLetters`), Desde los bordes, Empezar
+  en, Repartir en 1 s; texto sobre un trazado.
+- Espacios de trabajo (`WorkspaceView.qml`, `Workspaces.qml`): diez de serie y propios, distribuir paneles; barra de
+  herramientas de la vista previa, vista previa en RAM, región de interés, zonas seguras, Preferencias por páginas.
+- Efectos `ae_*` (ruido fractal, partículas, romper, desplazamiento turbulento, rampa, ondas, marioneta), gráficos
+  esenciales; Stock › VFX (tipo `vfx`, chip en Stickers).
+- La curva abierta bajo una pista ya no tapa el cabezal, el recuadro de selección ni el área marcada.
+
 ## 0.25.0 — Fotogramas clave como After Effects, también en el audio
 
 - Filas fijas por pista (`fixedKeyframeGroups`): Punto de anclaje, Posición, Rotación, Escala y Opacidad; Volumen y

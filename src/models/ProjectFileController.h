@@ -259,6 +259,11 @@ private:
     QString m_currentProjectPath;
     bool m_dirty = false;
     QTimer *m_autosaveTimer = nullptr;
+
+public:
+    // Preferences › Saving (0.26).
+    void setAutosaveIntervalSeconds(int seconds);
+private:
     // The recovery write running on a worker, and a counter that deleteRecoveryFile() bumps so a
     // write that finishes after the file was meant to be gone does not bring it back.
     QFuture<QString> m_recoveryWrite;

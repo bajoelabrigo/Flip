@@ -34,6 +34,10 @@ enum class TextLayerScope { All, Base, Accent };
 // Where a stroke sits relative to the outline: centred on it, grown outward only, or kept inside.
 enum class StrokeAlign { Center, Outside, Inside };
 enum class StrokeDash { Solid, Dash, Dot, DashDot };
+// A stroke's ends and corners (0.26, ButtCapper in Motion Tools): After Effects' Line Cap and
+// Line Join. Round both was the only look before, and stays the default.
+enum class StrokeCap { Butt, Round, Square };
+enum class StrokeJoin { Miter, Round, Bevel };
 
 QString textLayerKindToString(TextLayerKind kind);
 TextLayerKind textLayerKindFromString(const QString &kind);
@@ -49,6 +53,10 @@ QString strokeAlignToString(StrokeAlign align);
 StrokeAlign strokeAlignFromString(const QString &align);
 QString strokeDashToString(StrokeDash dash);
 StrokeDash strokeDashFromString(const QString &dash);
+QString strokeCapToString(StrokeCap cap);
+StrokeCap strokeCapFromString(const QString &cap);
+QString strokeJoinToString(StrokeJoin join);
+StrokeJoin strokeJoinFromString(const QString &join);
 // On/off run lengths in stroke widths; empty for Solid.
 QList<double> strokeDashIntervals(StrokeDash dash);
 
@@ -115,9 +123,14 @@ struct TextShadingLayer
     StrokeAlign strokeAlign = StrokeAlign::Outside; // the legacy outline grew outward only
     StrokeDash dash = StrokeDash::Solid;
     double dashOffset = 0.0;   // dash phase in stroke widths (keyframable → marching ants)
+    StrokeCap cap = StrokeCap::Round;
+    StrokeJoin join = StrokeJoin::Round;
     bool knockout = false;     // a fill that punches through the layers beneath (hollow text)
     double trimStart = 0.0;    // stroke write-on
     double trimEnd = 1.0;
+    int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches
+    double trimOffset = 0.0;   // degrees (360 = once round), as a shape's Trim Paths offset (0.26)
+    bool trimReverse = false;  // Reverse Path Direction (0.26): the trim runs the other way round
     double sketchLength = 0.0;    // SkDiscretePathEffect segment length, px; 0 = off
     double sketchDeviation = 0.0; // px
     int sketchSeed = 0;

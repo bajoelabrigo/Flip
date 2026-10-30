@@ -33,12 +33,27 @@ Item {
         return EditorState.propertyValueAt(root.trackIndex, root.clipIndex, prop, seconds, base)
     }
     function centreAt(seconds) {
+        // The box goes before the clip does (the playhead left it): nothing to place then.
+        if (!root.box)
+            return { x: 0, y: 0 }
         const cw = root.box.canvasWidth
         const ch = root.box.canvasHeight
         return {
             x: root.valueAt("x", seconds, 0) + root.valueAt("width", seconds, cw) / 2,
             y: root.valueAt("y", seconds, 0) + root.valueAt("height", seconds, ch) / 2
         }
+    }
+    // True when a press at (mx, my) of `item` falls on the clip as it is drawn now. A straight
+    // handle or another key's dot there gives the press to the clip, so the text or shape under it
+    // can still be dragged: a third of the way along a segment the clip passes right over them.
+    function overLayer(item, mx, my) {
+        if (!root.box)
+            return false
+        const p = item.mapToItem(root, mx, my)
+        const cx = p.x / root.sx
+        const cy = p.y / root.sy
+        return cx >= root.box.x && cx <= root.box.x + root.box.width
+               && cy >= root.box.y && cy <= root.box.y + root.box.height
     }
     function keyAt(list, seconds) {
         for (const k of list) {
@@ -76,11 +91,12 @@ Item {
             const side = (name, other, dx, dy) => {
                 let ox = dx
                 let oy = dy
-                if (Math.abs(ox) < 1e-6 && Math.abs(oy) < 1e-6) {
+                const straight = Math.abs(ox) < 1e-6 && Math.abs(oy) < 1e-6
+                if (straight) {
                     ox = (other.x - k.x) / 3
                     oy = (other.y - k.y) / 3
                 }
-                out.push({ "seconds": k.seconds, "side": name, "px": k.x, "py": k.y, "ox": ox, "oy": oy,
+                out.push({ "seconds": k.seconds, "side": name, "px": k.x, "py": k.y, "ox": ox, "oy": oy, "straight": straight,
                            "xKey": xk, "yKey": yk,
                            "prevSeconds": prev ? prev.seconds : NaN, "nextSeconds": next ? next.seconds : NaN })
             }
@@ -145,7 +161,22 @@ Item {
         target: EditorState
         function onTracksChanged() { root.rebuild() }
         function onSelectionChanged() { root.rebuild() }
+        // Dragging the clip in the preview writes its keys live but only says so at the release:
+        // the path stood still (and its new key was missing) until then (Jorge, 0.26). Once a frame.
+        function onClipPropertiesPreviewed(trackIndex, clipIndex, keys) {
+            if (trackIndex !== root.trackIndex || clipIndex !== root.clipIndex || root.rebuildQueued)
+                return
+            if (keys.indexOf("x") < 0 && keys.indexOf("y") < 0 && keys.indexOf("width") < 0
+                    && keys.indexOf("height") < 0)
+                return
+            root.rebuildQueued = true
+            Qt.callLater(() => {
+                root.rebuildQueued = false
+                root.rebuild()
+            })
+        }
     }
+    property bool rebuildQueued: false
     onWidthChanged: path.requestPaint()
     onHeightChanged: path.requestPaint()
 
@@ -207,10 +238,14 @@ Item {
                     preventStealing: true
                     cursorShape: Qt.CrossCursor
                     property bool wasLinked: true
-                    onPressed: {
+                    onPressed: (mouse) => {
+                        if (hd.modelData.straight && root.overLayer(gripMouse, mouse.x, mouse.y)) {
+                            mouse.accepted = false
+                            return
+                        }
                         wasLinked = EditorState.positionLinked
                         // The X and Y handles are set apart here; linked, one would rescale the other.
-                        EditorState.positionLinked = false
+                        EditorState.setPositionLinkedForDrag(false)
                         root.shaping = true
                         EditorState.beginPreviewDrag(qsTr("Shape motion path"))
                     }
@@ -226,7 +261,7 @@ Item {
                     onCanceled: finish()
                     function finish() {
                         EditorState.commitPreviewDrag()
-                        EditorState.positionLinked = wasLinked
+                        EditorState.setPositionLinkedForDrag(wasLinked)
                         root.shaping = false
                         root.rebuild()
                     }
@@ -302,6 +337,10 @@ Item {
                 property real baseX: 0
                 property real baseY: 0
                 onPressed: (mouse) => {
+                    if (!dot.here && root.overLayer(dotMouse, mouse.x, mouse.y)) {
+                        mouse.accepted = false
+                        return
+                    }
                     const p = mapToItem(root, mouse.x, mouse.y)
                     press = Qt.point(p.x, p.y)
                     // The keys' own values (top-left), which the drag offsets.

@@ -406,6 +406,8 @@ public:
     bool autoKeyEnabled() const { return m_autoKeyEnabled; }
     bool positionLinked() const { return m_positionLinked; }
     void setPositionLinked(bool linked);
+    // The motion-path handles unlink X and Y while dragged, without touching Separate Dimensions.
+    Q_INVOKABLE void setPositionLinkedForDrag(bool linked);
     bool sizeLinked() const { return m_sizeLinked; }
     void setSizeLinked(bool linked);
     double masterVolume() const;
@@ -470,6 +472,11 @@ public:
     Q_INVOKABLE void setGuideItemProperty(const QString &setId, const QString &itemId,
                                           const QString &key, const QVariant &value);
     Q_INVOKABLE void removeGuideItem(const QString &setId, const QString &itemId);
+    // The set the guides dragged out of the rulers go into (0.26): made the first time, in this
+    // machine's library, and switched on with the guides, so they show and snap.
+    Q_INVOKABLE QString rulerGuideSet();
+    // That set's id when it was made already, else empty; makes nothing.
+    Q_INVOKABLE QString existingRulerGuideSet() const;
     QVariantList actions() const;
     QVariantList bookmarks() const;
     bool workAreaActive() const { return m_project.hasWorkArea(); }
@@ -671,6 +678,198 @@ public:
     Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setSolidSettings(int trackIndex, int clipIndex, const QString &colorName,
                                       const QString &name, double width, double height);
+    // After Effects' Null Object (0.26): a shape that never paints, on its own track at the
+    // playhead, as long as the project (at least the default image length), 100 × 100 centred.
+    Q_INVOKABLE void addNullObject();
+    // After Effects' Light layers (0.26): kind 1 point, 2 spot, 3 parallel, 4 ambient. A light is a
+    // clip that never paints, on its own track at the playhead, up and in front of the frame (an
+    // ambient light has no place). It lights the 3D layers that accept lights.
+    Q_INVOKABLE void addLight(int kind);
+    // {kind, color, intensity, coneAngle, coneFeather, falloffRadius, falloffDistance}; an empty
+    // map for a clip that is not a light. The setter takes any of those keys, as one undo step.
+    Q_INVOKABLE QVariantMap lightSettings(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setLightSettings(int trackIndex, int clipIndex, const QVariantMap &settings);
+    // A 3D layer's «Accepts lights» material option.
+    Q_INVOKABLE void setAcceptsLights(int trackIndex, int clipIndex, bool accepts);
+    // After Effects' Pen (0.26). A new custom shape from the outline drawn on the preview:
+    // [{x, y, ix, iy, ox, oy}] in canvas px (the vertex and its two handles), closed or open. A
+    // closed outline is filled, an open one stroked. It becomes the selection.
+    Q_INVOKABLE void addPenShape(const QVariantList &points, bool closed);
+    // After Effects' Pen, live (0.26, Jorge): the first click makes the shape layer at once, as AE
+    // does. beginPenShape opens an undo session and, with `clipId` empty, adds a custom shape whose
+    // box is the whole canvas (so the preview writes the path in canvas fractions while drawing),
+    // painted with the toolbar's fill and stroke; with a shape's id it draws on that one (another
+    // path in the same layer, or carrying on an open one). It returns the clip's id and selects it.
+    // While it lasts, setShapePathPoints does not refit the box. finishPenShape refits the box to the
+    // path, gives an open path a stroke if it has none, and closes the session as one undo step;
+    // with `keep` false (or no path of two points) the drawing is taken back.
+    Q_INVOKABLE QString beginPenShape(const QString &clipId);
+    Q_INVOKABLE void finishPenShape(bool keep);
+    Q_INVOKABLE QString penShapeClipId() const { return m_penShapeId; }
+    // The Shape tool (0.26): a shape of `kind` dragged out on the preview, the box in canvas px,
+    // painted with the toolbar's fill and stroke ("none" for either leaves it off).
+    Q_INVOKABLE void addDrawnShape(const QString &kind, double x, double y, double w, double h,
+                                   const QString &fill, const QString &stroke, double strokeWidth);
+    // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
+    // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
+    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y);
+    // The selected custom shape's outline at the playhead, for the preview to edit:
+    // {editable, animated, keyHere, contours: [{closed, points: [{x, y, ix, iy, ox, oy}]}]} with
+    // coordinates as fractions of the shape's box (0..1). editable is false for any other clip.
+    Q_INVOKABLE QVariantMap shapePathState(int trackIndex, int clipIndex) const;
+    // Writes the outline back in that form: a key at the playhead when the path is animated
+    // (replacing the one there), the static outline otherwise. One undo step, or part of a
+    // beginPreviewDrag session.
+    Q_INVOKABLE void setShapePathPoints(int trackIndex, int clipIndex, const QVariantList &contours);
+    // The Path stopwatch: on puts a key with the current outline at the playhead, off keeps the
+    // outline seen there and removes the keys.
+    Q_INVOKABLE void setShapePathAnimated(int trackIndex, int clipIndex, bool on);
+    // After Effects' several shapes in one shape layer (0.26): another built-in shape ("rectangle",
+    // "ellipse", "star", "polygon") added to the layer's outline as a new contour, centred at half
+    // the box's size. A built-in shape becomes an editable path first. Merge Paths combines them.
+    Q_INVOKABLE void addShapeToLayer(int trackIndex, int clipIndex, const QString &kind);
+    // After Effects' text on a path (0.26): the shape layers a text can follow [{name, track, clip}],
+    // and putting a text on one's outline (as it is at the playhead, mapped into the text's box).
+    Q_INVOKABLE QVariantList textPathShapes() const;
+    // After Effects' Puppet pins (0.26), on the "ae.puppet" effect of the clip (or of the adjustment
+    // that carries its effects). puppetPins: {effect, pins: [{x, y}]} with each pin where it is at the
+    // playhead, in fractions of the layer. addPuppetPin puts the next of up to 8 pins at (u, v),
+    // adding the effect when needed, and returns its index (-1 when full); movePuppetPin keys a
+    // pin's move at the playhead, as After Effects does for every pin dragged.
+    Q_INVOKABLE QVariantMap puppetPins(int trackIndex, int clipIndex) const;
+    // After Effects' Essential Graphics (0.26). Inside a composition, a clip's property is marked
+    // for the composition's controls ("content", "textColor", "x", "y", "rotation", "opacity",
+    // "text.pixelSize"); on the composition clip outside, essentialControls lists them
+    // [{clipId, prop, label, kind: "text"|"color"|"number", value, min, max}] and setEssentialValue
+    // edits the clip inside.
+    Q_INVOKABLE bool isEssentialProperty(int trackIndex, int clipIndex, const QString &prop) const;
+    Q_INVOKABLE void toggleEssentialProperty(int trackIndex, int clipIndex, const QString &prop);
+    Q_INVOKABLE QVariantList essentialControls(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE bool setEssentialValue(const QString &clipId, const QString &prop, const QVariant &value);
+    Q_INVOKABLE int addPuppetPin(int trackIndex, int clipIndex, double u, double v);
+    Q_INVOKABLE void movePuppetPin(int trackIndex, int clipIndex, int pin, double u, double v);
+    Q_INVOKABLE bool useShapeAsTextPath(int textTrack, int textClip, int shapeTrack, int shapeClip);
+    // The shape's outline mapped into the text's box (SVG on 0..100), at the playhead; empty if it has none.
+    QString shapeOutlineInTextBox(const drift::Clip &text, const drift::Clip &shape) const;
+    // Texts linked to a shape layer («Follow shape») take its outline again after every edit.
+    void refreshTextPathsFromShapes();
+    // After Effects' New Composition (empty, opened) and New Composition From Selection (the
+    // picked media stacked from 0, first on top), from the Media panel (0.26). One undo step each;
+    // they return the new composition's asset id.
+    Q_INVOKABLE QString newComposition(const QString &name = QString());
+    Q_INVOKABLE QString newCompositionFromAssets(const QStringList &assetIds);
+    // A composition bin item with its own (empty) sequence, in the folder being viewed.
+    QString addEmptyCompositionAsset(const QString &name, bool withTrack);
+    // Motion Tools' Bounce / Elastic controls of a clip (0.26), in After Effects' numbers:
+    // [{key, props, label, kind, amplitude, frequency, decay | gravity, maxJumps, jumpOut}]. The
+    // setter takes any of them for every prop of a line; an empty map removes the behaviour.
+    Q_INVOKABLE QVariantList settleBehaviors(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setSettleParams(int trackIndex, int clipIndex, const QStringList &props, const QVariantMap &params);
+    // A solid's bin item in Media › Solids (the folder made the first time); returns its asset id.
+    QString addSolidAsset(const QString &name, const QColor &color, int width, int height);
+    // A clip's box at the playhead where it is drawn (layout plus anchor shift), in project px.
+    QRectF drawnBoxAt(const drift::Clip &clip) const;
+    // After Effects' expressions without code (0.26): the behaviour of one animatable property
+    // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
+    // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
+    // gets one at the clip's start holding its value, so the behaviour has something to ride on.
+    // Keys picked on the timeline ({track, keys: [{clip, prop, seconds}]}), published by the timeline
+    // so the Motion Tools panel (0.26) works on them.
+    Q_PROPERTY(QVariantMap pickedKeyframes READ pickedKeyframes WRITE setPickedKeyframes NOTIFY pickedKeyframesChanged)
+    QVariantMap pickedKeyframes() const { return m_pickedKeyframes; }
+    void setPickedKeyframes(const QVariantMap &picked)
+    {
+        if (picked == m_pickedKeyframes)
+            return;
+        m_pickedKeyframes = picked;
+        emit pickedKeyframesChanged();
+    }
+    // After Effects' Time-Reverse Keyframes (0.26): the picked keys play backwards over the same
+    // span. And Time Stretch by percent (100 = as is), from the first picked key. One undo step.
+    Q_INVOKABLE void reverseKeyframes(int trackIndex, const QVariantList &keys);
+    Q_INVOKABLE void stretchKeyframes(int trackIndex, const QVariantList &keys, double percent);
+    // After Effects' A / P / R / T / S (0.26, Shift+A/P/R/T/S here): on the selected clips' tracks
+    // (or every track with keys when nothing is selected) only that property's line opens; the
+    // same again closes them. group = "anchor" | "position" | "rotation" | "opacity" | "scale".
+    Q_INVOKABLE void showOnlyKeyframeGroup(const QString &group);
+    // Motion Tools (0.26). Easy Ease with these influences on the picked keys (speed 0 both sides,
+    // or "linear" / "hold"); Elastic / Bounce on the picked keys' properties (or the selected
+    // clip's animated transform); Clone pastes the picked keys at the playhead; Sequence staggers
+    // the selected clips by offset frames every `step` clips (reverse = from the last); a null
+    // that the selected clips follow; and Convert to shape (a text's outlines or a built-in
+    // shape as an editable path).
+    // Easy ease with these influences (%) and, Motion Tools' third row, this speed at the keys
+    // (units a second; 0 = they come to rest there).
+    Q_INVOKABLE void easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
+                                         double velocity = 0.0);
+    Q_INVOKABLE void applySettleToPicked(const QString &kind);
+    // Curvas (0.26, EasyCurve): the curve of the picked keys' first property, as the graph shows
+    // it — {ok, keys (how many of that property are picked), a: [x1, y1, x2, y2] on the stretch
+    // the first key starts, b: the same on the next stretch (the 4-key graph's second half)};
+    // and applying a curve to every stretch the picked keys start (with `b` set, the stretches
+    // alternate a, b, a…, as EasyCurve's 4-KEY), as one undo step.
+    Q_INVOKABLE QVariantMap pickedKeyframeCurves() const;
+    // What the Curves panel works on: the picked keys, else every key of the selected clip.
+    Q_INVOKABLE QVariantMap curveTargetKeys() const;
+    Q_INVOKABLE void applyCurveToPicked(const QVariantList &a, const QVariantList &b = {});
+    // A small text file (Curvas' Export / Import of presets): read whole, or written whole.
+    Q_INVOKABLE QString readTextFile(const QUrl &fileUrl) const;
+    Q_INVOKABLE bool writeTextFile(const QUrl &fileUrl, const QString &text) const;
+    Q_INVOKABLE bool clonePickedKeyframes();
+    Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
+    Q_INVOKABLE void addNullForSelection();
+    // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no
+    // fill, ready for Trim Paths (a trimmed fill only shows pieces).
+    Q_INVOKABLE void convertSelectionToShape(bool outline = false);
+    Q_INVOKABLE void centerSelectionInFrame();
+    // After Effects' Motion Sketch (0.26): the pointer's path recorded on the preview
+    // ([{t: timeline seconds, x, y: canvas px of the clip's centre}]) becomes its Position keys
+    // over that time, simplified to the keys that matter (tolerance in px). One undo step.
+    Q_INVOKABLE void applyMotionSketch(int trackIndex, int clipIndex, const QVariantList &samples, double tolerance);    Q_INVOKABLE QVariantMap propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const;
+    // What is wrong with a property expression (0.26), empty when it runs.
+    Q_INVOKABLE QString checkExpression(const QString &expression) const;
+    // After Effects' Keyframe Velocity (0.26) for the key of `prop` at `seconds` (timeline):
+    // {valid, hasIn, hasOut, inSpeed, inInfluence, outSpeed, outInfluence} with speeds in the
+    // property's units per second and influence in percent of the gap to the neighbouring key; and
+    // writing them back as the key's handles (one undo step).
+    Q_INVOKABLE QVariantMap keyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds) const;
+    Q_INVOKABLE void setKeyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds,
+                                    const QVariantMap &velocity);
+    Q_INVOKABLE void setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
+                                         const QVariantMap &behavior);
+    // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
+    // nullObject, motionBlur} for one clip; and the clips it can follow (every visual clip on the
+    // timeline but itself and those that already follow it), [{track, clip, id, name, nullObject}].
+    Q_INVOKABLE QVariantMap clipMotionInfo(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE QVariantList clipParentOptions(int trackIndex, int clipIndex) const;
+    // Links the clip (and the other selected clips with it) to that parent, keeping their place; a
+    // parentTrack < 0 unlinks. One undo step.
+    Q_INVOKABLE void setClipParent(int trackIndex, int clipIndex, int parentTrack, int parentClip);
+    // Motion blur (0.26): the switch on a clip (and the other selected clips), and the project's
+    // shutter {shutterDeg, samples}.
+    Q_INVOKABLE void setClipMotionBlur(int trackIndex, int clipIndex, bool on);
+    // After Effects' Time Remap (0.26): on puts a key at each end holding the material the clip
+    // shows there now (so nothing changes until a key moves); off removes them. And Auto-Orient
+    // along the motion path. clipMotionInfo reports both (timeRemap, autoOrient).
+    Q_INVOKABLE void setClipTimeRemap(int trackIndex, int clipIndex, bool on);
+    Q_INVOKABLE void setClipAutoOrient(int trackIndex, int clipIndex, bool on);
+    // After Effects' Track Matte (0.26). mode "none" | "alpha" | "alphaInverted" | "luma" |
+    // "lumaInverted"; the matte clip by index, or matteTrack < 0 for the nearest clip above that
+    // overlaps it. The options: every visual clip but itself and those that use it as theirs.
+    Q_INVOKABLE void setClipTrackMatte(int trackIndex, int clipIndex, const QString &mode, int matteTrack,
+                                       int matteClip);
+    Q_INVOKABLE QVariantList clipMatteOptions(int trackIndex, int clipIndex) const;
+    // A shape (or any drawn layer) as the mask of another clip of any kind (0.26), from the
+    // shape's right-click menu: the target takes it as its alpha matte, so the shape stops being
+    // drawn and the target shows only inside it. follow: the shape is parented to the target and
+    // moves with it ("stuck to the layer"); otherwise it stays where it is on screen while the
+    // target moves through it ("fixed"), which is how a text appears out of nothing. A shape that
+    // ends before the target is lengthened when its track has room. One undo step.
+    Q_INVOKABLE void useAsMatteFor(int matteTrack, int matteClip, int targetTrack, int targetClip, bool follow);
+    // The clips the layer can mask: [{track, clip, id, name}], those that overlap it in time first.
+    Q_INVOKABLE QVariantList matteTargetOptions(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE QVariantMap motionBlurSettings() const;
+    Q_INVOKABLE void setMotionBlurSettings(double shutterDeg, int samples);
     Q_INVOKABLE void addAdjustmentClip(double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipAt(int trackIndex, double atSeconds = -1.0, double durationSeconds = -1.0);
     Q_INVOKABLE void addAdjustmentClipWithEffect(const QString &effectId, int trackIndex = -1, double atSeconds = -1.0, double durationSeconds = -1.0);
@@ -774,7 +973,8 @@ public:
     // After Effects' stopwatch switched off (0.25): every key of these properties goes and each keeps
     // the value it has at atSeconds. One undo step.
     Q_INVOKABLE void stopAnimating(int trackIndex, int clipIndex, const QStringList &props, double atSeconds);
-    // The playhead dragged near a key lands on it (0.25, After Effects): the nearest key time within
+    // The playhead dragged near a key lands on it (0.25, After Effects), and with the magnet on near a
+    // clip edge, a marker or the work area (0.26): the nearest within
     // toleranceSeconds, else `seconds` unchanged.
     Q_INVOKABLE double snapPlayheadToKeys(double seconds, double toleranceSeconds) const;
     // Motion Tools' anchor grid (0.25): the anchor point to a corner, an edge's middle or the centre
@@ -1016,6 +1216,74 @@ public:
     // Video › Animation: the clip animation presets of a slot ("in", "out", "combo"), their chips,
     // and a preset's pose at a progress (for the gallery's live cards).
     Q_INVOKABLE QVariantList clipAnimationPresets(const QString &slot) const;
+    // Animation › Squash & Stretch (0.26, Jorge): rubbery cartoon motions written as keyframes on
+    // the clip (position, rotation, opacity and the "squash.deform" effect), at its start (In), its
+    // end (Out) or the playhead. `intensity` scales the deformation, `scale` the travel and turn,
+    // `speed` the length (all in %). One undo step.
+    Q_INVOKABLE QVariantList squashAnimations() const;
+    // Motion Tools › Caps (0.26, as the ButtCapper script): the Line Cap ("butt", "round", "square")
+    // and Line Join ("miter", "round", "bevel") of every stroke of the selected shapes and texts; an
+    // empty one is left as it is. One undo step. The state reads the first selected stroke:
+    // {cap, join, strokes}.
+    Q_INVOKABLE void setStrokeCaps(const QString &cap, const QString &join);
+    // Motion Tools › Elements (0.26, as Super Morphings, Super Liquids and Liquid Line, studied in
+    // their demos). One undo step each.
+    // Morph: the selected layers in the order picked, the last one the target. From the playhead,
+    // each other one draws back, flies on an arc to the target growing and turning, and at the end
+    // the picture cuts to the target, which carries on the motion and settles with a bounce (a
+    // matching cut, which is what Super Morphings does). `trails` copies follow each one a little
+    // later, fainter; `slices` > 1 cuts each flying layer into that many bands (Super Morphings'
+    // Slicer) that fly apart a little and turn on their own; `arc` bends the flight (0 = straight),
+    // `spin` turns it (degrees).
+    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1);
+    // Liquid trail (Super Liquids): the primary selected layer moves; any other selected shape
+    // layers are the elements it throws (copies of them, picked at random; with none, round
+    // drops). Wherever it moves faster than `threshold` px/s, `perFrame` elements a frame come off it
+    // at a spread round its centre, flying off at `velocity` px/s (± `velocityRandom`), slowing,
+    // wobbling (`wobble` amplitude at `wobbleFrequency` Hz, dying away) and shrinking over `life` s
+    // (± 50%), `size` × the element (± `sizeRandom`). `gravity` makes them fall; `frameSkip` holds each
+    // drawing that many frames, as drawn animation; `extraEffects` melts them with the Liquid effect.
+    // One shape layer per element, behind the moving layer. Keys of `options`: perFrame, frameSkip,
+    // threshold, velocity, velocityRandom, spread, rotationRandom, life, size, sizeRandom, wobble,
+    // wobbleFrequency, gravity, extraEffects, seed, color.
+    Q_INVOKABLE void generateLiquidTrail(const QVariantMap &options);
+    // Liquid line: the selected shape's outline becomes a stream of liquid running along it from the
+    // playhead over `seconds`: `length` of the path long (0..1), `width` px at its thickest, its edges
+    // torn by `roughness` (0..1) and changing every frame.
+    Q_INVOKABLE void generateLiquidLine(double seconds, double width, double length, double roughness,
+                                        const QString &color);
+    // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
+    // shapes (and the strokes of selected texts, every letter at once), `frames` long from the
+    // playhead. Modes: "in" (draws on), "out" (draws off), "inout" (in from the playhead, out at the
+    // clip's end), "midIn" / "midOut" (from / into the middle; reversed, from / off both ends),
+    // "equalIn" / "equalOut" (`copies` equal stretches at once), "gapLoop" (a gap running round all
+    // the clip long), "swap" (the keys run the other way), "clear", "copies" (`copies` duplicates
+    // above, each starting a little later), "traceIn", "traceOut", "traceInOut" (a short line runs
+    // ahead on a copy). `reverse` draws from the other end (Trim-Pack's Alt); `animateOffset` also
+    // turns the offset by `offsetRange` degrees (its Shift). One undo step.
+    // Motion Tools › Bend (0.26, as Bendio and the Bend Layers script): the "ae.bend" joint on every
+    // selected clip, curving from `start` to `end` (% of its length; across, or along the height
+    // with `vertical`) by `degrees`. "set" bends it (a key at the playhead when the bend is already
+    // animated), "in" unbends it from `degrees` to straight over `frames` from the playhead, "out"
+    // bends it to `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
+    Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
+                               int frames);
+    Q_INVOKABLE void applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
+                                   bool animateOffset);
+    Q_INVOKABLE QVariantMap strokeCapsState() const;
+    // The animation's curves at `progress` (0..1), for the gallery's live cards: x, y, rotation,
+    // opacity, zoom, stretch, bend, bulge (missing ones at rest) and ground.
+    Q_INVOKABLE QVariantMap squashAnimationPose(const QString &id, double progress) const;
+    // `timing` (as Squash & Stretch Pro V2): "start" begins it at the playhead, "end" ends it there;
+    // empty keeps the old placement (In at the clip's start, Out at its end, the rest at the playhead).
+    // `atUs` >= 0 stands in for the playhead.
+    Q_INVOKABLE void applySquashAnimation(int trackIndex, int clipIndex, const QString &id, double intensity,
+                                          double scale, double speed, const QString &timing = QString(),
+                                          qint64 atUs = -1);
+    // Squash & Stretch Pro V2's Apply: the animation on every selected layer, each `staggerFrames`
+    // later than the one before (in the order they were picked), one undo step.
+    Q_INVOKABLE void applySquashToSelection(const QString &id, double intensity, double scale, double speed,
+                                            const QString &timing, int staggerFrames);
     Q_INVOKABLE QVariantList clipAnimationCategories(const QString &slot) const;
     Q_INVOKABLE QVariantMap clipAnimationPreviewSample(const QString &presetId, double progress) const;
     // Where to seek to preview the slot: the window start (In), before the exit (Out), the playhead (Loop).
@@ -1854,6 +2122,9 @@ public:
     Q_INVOKABLE QStringList assetFavoriteIds(const QString &tabId) const;
     Q_INVOKABLE void toggleAssetFavorite(const QString &tabId, const QString &itemId);
     Q_INVOKABLE void togglePlayback();
+    // After Effects' RAM preview (0.26): the work area (or the whole timeline) rendered into memory,
+    // then played in real time from its start. Again while it renders stops it.
+    Q_INVOKABLE void ramPreview();
     // Bracket a scrub gesture (a dragged playhead, or the phone timeline being scrolled under
     // its fixed playhead). In between, the preview shows approximate frames and inspectors
     // follow the playhead at a reduced rate; the exact frame is drawn at the end.
@@ -1973,6 +2244,7 @@ public:
                                          int rotationCorrection = 0) const;
 
 signals:
+    void pickedKeyframesChanged();
     void userTextAnimationPresetsChanged();
 
     // A text clip was added with no text; the preview should open its inline
@@ -2520,6 +2792,8 @@ protected:
     QString m_mediaViewMode = QStringLiteral("grid");
     bool m_autoKeyEnabled = false;
     bool m_positionLinked = true;
+    // Separate Dimensions as the user set it (the timeline's X / Y Position lines).
+    bool m_dimensionsSeparated = false;
     bool m_sizeLinked = true;
     // One benchmark at a time: it drives the shared decoders and the GL thread, and two
     // sweeps interleaved would measure each other rather than the pipeline.
@@ -2591,6 +2865,11 @@ protected:
     void addAutoCrossfade(int trackIndex, const QString &fromId, const QString &toId);
     int m_maskPointFocus = -1;
     QList<QPair<int, int>> m_selection;
+    // The shape the Pen is drawing (0.26): its box is not refitted until finishPenShape.
+    QString m_penShapeId;
+    // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
+    bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
+    QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;
     int m_timelineTrimCursorHeight = 0;
@@ -2713,6 +2992,12 @@ protected:
         drift::Keyframe<double> key;
     };
     QList<CopiedKey> m_keyClipboard;
+    // Where the copied keys came from (clip id and timeline span), so pasting or cloning them back
+    // onto themselves continues the animation after them instead of landing on top (0.26).
+    QString m_keyClipboardClipId;
+    drift::TimeUs m_keyClipboardFirstUs = 0;
+    drift::TimeUs m_keyClipboardLastUs = 0;
+    int m_keyClipboardTimes = 0;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.

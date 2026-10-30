@@ -174,6 +174,30 @@ QString strokeDashToString(StrokeDash dash)
     return QStringLiteral("solid");
 }
 
+QString strokeCapToString(StrokeCap cap)
+{
+    return cap == StrokeCap::Butt ? QStringLiteral("butt") : cap == StrokeCap::Square ? QStringLiteral("square")
+                                                                                      : QStringLiteral("round");
+}
+
+StrokeCap strokeCapFromString(const QString &cap)
+{
+    return cap == QLatin1String("butt") ? StrokeCap::Butt : cap == QLatin1String("square") ? StrokeCap::Square
+                                                                                         : StrokeCap::Round;
+}
+
+QString strokeJoinToString(StrokeJoin join)
+{
+    return join == StrokeJoin::Miter ? QStringLiteral("miter") : join == StrokeJoin::Bevel ? QStringLiteral("bevel")
+                                                                                           : QStringLiteral("round");
+}
+
+StrokeJoin strokeJoinFromString(const QString &join)
+{
+    return join == QLatin1String("miter") ? StrokeJoin::Miter : join == QLatin1String("bevel") ? StrokeJoin::Bevel
+                                                                                             : StrokeJoin::Round;
+}
+
 StrokeDash strokeDashFromString(const QString &dash)
 {
     if (dash == QStringLiteral("dash"))
@@ -372,7 +396,8 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
             continue;
         h = qHashMulti(h, l.id, static_cast<int>(l.kind), paintHash(l.paint), l.opacity, static_cast<int>(l.blend),
                        l.offsetX, l.offsetY, l.blur, l.width, l.spread, static_cast<int>(l.strokeAlign),
-                       static_cast<int>(l.dash), l.dashOffset, l.knockout, l.trimStart, l.trimEnd, l.sketchLength,
+                       static_cast<int>(l.dash), l.dashOffset, static_cast<int>(l.cap), static_cast<int>(l.join),
+                       l.knockout, l.trimStart, l.trimEnd, l.trimSegments, l.trimOffset, l.trimReverse, l.sketchLength,
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
     }
@@ -521,6 +546,10 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         o.insert(QStringLiteral("strokeAlign"), strokeAlignToString(l.strokeAlign));
         o.insert(QStringLiteral("dash"), strokeDashToString(l.dash));
         o.insert(QStringLiteral("dashOffset"), l.dashOffset);
+        if (l.cap != StrokeCap::Round)
+            o.insert(QStringLiteral("cap"), strokeCapToString(l.cap));
+        if (l.join != StrokeJoin::Round)
+            o.insert(QStringLiteral("join"), strokeJoinToString(l.join));
     }
     if (l.sketchLength > 0.0 || l.sketchDeviation > 0.0) {
         o.insert(QStringLiteral("sketchLength"), l.sketchLength);
@@ -533,6 +562,12 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         o.insert(QStringLiteral("trimStart"), l.trimStart);
         o.insert(QStringLiteral("trimEnd"), l.trimEnd);
     }
+    if (l.trimSegments > 1)
+        o.insert(QStringLiteral("trimSegments"), l.trimSegments);
+    if (!qFuzzyIsNull(l.trimOffset))
+        o.insert(QStringLiteral("trimOffset"), l.trimOffset);
+    if (l.trimReverse)
+        o.insert(QStringLiteral("trimReverse"), true);
     if (l.kind == TextLayerKind::Extrude) {
         o.insert(QStringLiteral("extrudeSteps"), l.extrudeSteps);
         o.insert(QStringLiteral("extrudeAngle"), l.extrudeAngle);
@@ -561,12 +596,17 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
         l.strokeAlign = o.value(QStringLiteral("strokeOutside")).toBool(true) ? StrokeAlign::Outside : StrokeAlign::Center;
     l.dash = strokeDashFromString(o.value(QStringLiteral("dash")).toString());
     l.dashOffset = o.value(QStringLiteral("dashOffset")).toDouble(0.0);
+    l.cap = strokeCapFromString(o.value(QStringLiteral("cap")).toString());
+    l.join = strokeJoinFromString(o.value(QStringLiteral("join")).toString());
     l.sketchLength = o.value(QStringLiteral("sketchLength")).toDouble(0.0);
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);
     l.knockout = o.value(QStringLiteral("knockout")).toBool(false);
     l.trimStart = o.value(QStringLiteral("trimStart")).toDouble(0.0);
     l.trimEnd = o.value(QStringLiteral("trimEnd")).toDouble(1.0);
+    l.trimSegments = qBound(1, o.value(QStringLiteral("trimSegments")).toInt(1), 64);
+    l.trimOffset = o.value(QStringLiteral("trimOffset")).toDouble(0.0);
+    l.trimReverse = o.value(QStringLiteral("trimReverse")).toBool(false);
     l.extrudeSteps = o.value(QStringLiteral("extrudeSteps")).toInt(8);
     l.extrudeAngle = o.value(QStringLiteral("extrudeAngle")).toDouble(45.0);
     l.extrudeDarken = o.value(QStringLiteral("extrudeDarken")).toDouble(0.5);
@@ -598,7 +638,8 @@ QStringList shadingLayerKeyframeFields(const TextShadingLayer &layer)
     if (layer.kind == TextLayerKind::Shadow || layer.kind == TextLayerKind::Glow)
         fields.append(QStringLiteral("spread"));
     if (layer.kind == TextLayerKind::Stroke)
-        fields << QStringLiteral("trimStart") << QStringLiteral("trimEnd") << QStringLiteral("dashOffset");
+        fields << QStringLiteral("trimStart") << QStringLiteral("trimEnd") << QStringLiteral("trimOffset")
+               << QStringLiteral("dashOffset");
     if (layer.kind == TextLayerKind::Stroke || layer.kind == TextLayerKind::Fill)
         fields << QStringLiteral("sketchLength") << QStringLiteral("sketchDeviation");
     switch (layer.paint.kind) {
@@ -660,6 +701,8 @@ bool shadingLayerScalar(const TextShadingLayer &l, const QString &field, double 
         *out = l.trimStart;
     else if (field == QLatin1String("trimEnd"))
         *out = l.trimEnd;
+    else if (field == QLatin1String("trimOffset"))
+        *out = l.trimOffset;
     else if (field == QLatin1String("dashOffset"))
         *out = l.dashOffset;
     else if (field == QLatin1String("sketchLength"))
@@ -720,6 +763,8 @@ bool setShadingLayerScalar(TextShadingLayer &l, const QString &field, double val
         l.trimStart = qBound(0.0, value, 1.0);
     else if (field == QLatin1String("trimEnd"))
         l.trimEnd = qBound(0.0, value, 1.0);
+    else if (field == QLatin1String("trimOffset"))
+        l.trimOffset = value;
     else if (field == QLatin1String("dashOffset"))
         l.dashOffset = value;
     else if (field == QLatin1String("sketchLength"))
@@ -771,6 +816,7 @@ QString shadingLayerFieldLabel(const QString &field)
         {QStringLiteral("spread"), QCoreApplication::translate("TextStyle", "Spread")},
         {QStringLiteral("trimStart"), QCoreApplication::translate("TextStyle", "Trim start")},
         {QStringLiteral("trimEnd"), QCoreApplication::translate("TextStyle", "Trim end")},
+        {QStringLiteral("trimOffset"), QCoreApplication::translate("TextStyle", "Trim offset")},
         {QStringLiteral("dashOffset"), QCoreApplication::translate("TextStyle", "Dash offset")},
         {QStringLiteral("sketchLength"), QCoreApplication::translate("TextStyle", "Sketch length")},
         {QStringLiteral("sketchDeviation"), QCoreApplication::translate("TextStyle", "Sketch deviation")},

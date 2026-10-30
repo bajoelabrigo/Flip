@@ -87,7 +87,8 @@ Item {
         y: (viewport.height - height) / 2 + viewport.panY
         // The 3D view draws the whole panel, with its own outline of the stage; this rect only
         // keeps the project frame's place for the tools.
-        color: viewport.mode3d || (EditorState.projectFile.background && EditorState.projectFile.background.kind === "transparent")
+        color: viewport.mode3d || EditorState.playback.transparencyGrid
+               || (EditorState.projectFile.background && EditorState.projectFile.background.kind === "transparent")
                ? "transparent" : Theme.overlayColor
         border.width: viewport.mode3d ? 0 : Theme.borderWidth
         border.color: Theme.border
@@ -120,6 +121,27 @@ Item {
             onWidthChanged: updateRenderSize()
             onHeightChanged: updateRenderSize()
             onPixelRatioChanged: updateRenderSize()
+        }
+
+        // Title safe (80 %) and action safe (90 %) with a centre cross, as After Effects' guides (0.26).
+        Item {
+            anchors.fill: parent
+            z: 1
+            visible: EditorState.preview.safeZones && !viewport.mode3d
+            Repeater {
+                model: [0.9, 0.8]
+                Rectangle {
+                    required property real modelData
+                    anchors.centerIn: parent
+                    width: parent.width * modelData
+                    height: parent.height * modelData
+                    color: "transparent"
+                    border.width: 1
+                    border.color: Qt.rgba(1, 1, 1, 0.55)
+                }
+            }
+            Rectangle { anchors.centerIn: parent; width: 18; height: 1; color: Qt.rgba(1, 1, 1, 0.55) }
+            Rectangle { anchors.centerIn: parent; width: 1; height: 18; color: Qt.rgba(1, 1, 1, 0.55) }
         }
 
         // Above anything a mode view adds to the canvas, such as the guides.

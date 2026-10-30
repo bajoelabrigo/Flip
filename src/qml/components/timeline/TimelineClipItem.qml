@@ -654,6 +654,110 @@ Item {
                 height: visible ? implicitHeight : 0
                 onTriggered: clipItem.panel.openSolidSettings(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // After Effects' Parent column and Motion Blur switch (0.26), for anything drawn.
+            ThemedMenuSeparator {
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+            }
+            ThemedContextMenu {
+                id: parentMenu
+                title: qsTr("Parent")
+                property var options: []
+                property var info: ({})
+                onAboutToShow: {
+                    info = EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex)
+                    options = EditorState.clipParentOptions(clipItem.trackIndex, clipItem.clipIndex)
+                }
+                ThemedMenuItem {
+                    text: qsTr("None")
+                    icon.name: !parentMenu.info.parentId ? Theme.icons.check : ""
+                    onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
+                }
+                Instantiator {
+                    model: parentMenu.options
+                    delegate: ThemedMenuItem {
+                        required property var modelData
+                        text: modelData.name
+                        icon.name: parentMenu.info.parentId === modelData.id ? Theme.icons.check
+                                   : modelData.nullObject ? Theme.icons.locateFixed : ""
+                        onTriggered: EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex,
+                                                               modelData.track, modelData.clip)
+                    }
+                    onObjectAdded: (index, object) => parentMenu.insertItem(index + 1, object)
+                    onObjectRemoved: (index, object) => parentMenu.removeItem(object)
+                }
+            }
+            // A shape (or a text, a photo) as the mask of any other clip (0.26): fixed on screen, so
+            // the clip appears out of nothing as it moves through it, or stuck to that clip.
+            // A Menu cannot hide a submenu, so the two are made only for the kinds that offer them,
+            // and slotted in under Parent.
+            Instantiator {
+                model: ["shape", "text", "image"].indexOf(clipItem.clipData.kind) >= 0 ? [false, true] : []
+                delegate: ThemedContextMenu {
+                    id: matteMenu
+                    required property bool modelData
+                    title: modelData ? qsTr("Use as mask stuck to") : qsTr("Use as fixed mask of")
+                    property var options: []
+                    onAboutToShow: options = EditorState.matteTargetOptions(clipItem.trackIndex, clipItem.clipIndex)
+                    Instantiator {
+                        model: matteMenu.options
+                        delegate: ThemedMenuItem {
+                            required property var modelData
+                            text: modelData.name
+                            onTriggered: EditorState.useAsMatteFor(clipItem.trackIndex, clipItem.clipIndex,
+                                                                   modelData.track, modelData.clip,
+                                                                   matteMenu.modelData)
+                        }
+                        onObjectAdded: (index, object) => matteMenu.insertItem(index, object)
+                        onObjectRemoved: (index, object) => matteMenu.removeItem(object)
+                    }
+                }
+                onObjectAdded: (index, object) => {
+                    let at = clipContextMenu.count
+                    for (let i = 0; i < clipContextMenu.count; ++i) {
+                        const item = clipContextMenu.itemAt(i)
+                        if (item && item.subMenu === parentMenu)
+                            at = i + 1
+                    }
+                    clipContextMenu.insertMenu(at + index, object)
+                }
+                onObjectRemoved: (index, object) => clipContextMenu.removeMenu(object)
+            }
+            ThemedMenuItem {
+                text: qsTr("Motion blur")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).motionBlur
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipMotionBlur(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
+            ThemedMenuItem {
+                // After Effects' Auto-Orient: turn to face the way the clip moves (0.26).
+                text: qsTr("Auto-orient along path")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).autoOrient
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.trackType !== "audio" && clipItem.clipData.kind !== "adjustment"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipAutoOrient(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
+            ThemedMenuItem {
+                // After Effects' Time Remapping (Ctrl+Alt+T there): a Time remap row whose keys say
+                // which moment of the video shows when (0.26).
+                text: qsTr("Time remapping")
+                readonly property bool on: {
+                    void EditorState.tracksRevision
+                    return !!EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).timeRemap
+                }
+                icon.name: on ? Theme.icons.check : ""
+                visible: clipItem.clipData.kind === "video" || clipItem.clipData.kind === "composite"
+                height: visible ? implicitHeight : 0
+                onTriggered: EditorState.setClipTimeRemap(clipItem.trackIndex, clipItem.clipIndex, !on)
+            }
             ThemedMenuItem {
                 // Premiere-style: the fades become points on the volume line (0.25).
                 text: qsTr("Fades to volume keyframes")
@@ -889,9 +993,14 @@ Item {
 
         MouseArea {
             id: leftTrimMouse
-            anchors.fill: parent
+            // The hot zone keeps the idle bar's width: tied to the bar, it shrank with the hairline
+            // the hover draws, the pointer fell out, the bar grew back, and so on (it shook under the
+            // fade dot: Jorge, 0.26).
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: clipItem.trimHandleWidth + clipItem.trimHotspotExtra + 4
             anchors.leftMargin: -clipItem.trimHotspotExtra
-            anchors.rightMargin: -4
             // Leave the top corner for the fade-in dot.
             anchors.topMargin: clipItem.timelineFadeHandles && clipItem.showTrimHandles
                                && !clipItem.touchMode ? (clipItem.height < 35 ? 10 : 16) : -6
@@ -1055,8 +1164,11 @@ Item {
 
         MouseArea {
             id: rightTrimMouse
-            anchors.fill: parent
-            anchors.leftMargin: -4
+            // Same fixed hot zone as the start's.
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            width: clipItem.trimHandleWidth + clipItem.trimHotspotExtra + 4
             anchors.rightMargin: -clipItem.trimHotspotExtra
             // Leave the top corner for the fade-out dot.
             anchors.topMargin: clipItem.timelineFadeHandles && clipItem.showTrimHandles
@@ -1152,4 +1264,119 @@ Item {
             }
         }
     }
+
+    // ----- After Effects' pick whip and Parent (0.26) -------------------------------------------
+    // Which clip this one follows, shown on the clip as "↳ name".
+    readonly property string parentName: {
+        void EditorState.tracksRevision
+        if (clipItem.trackType === "audio" || clipItem.clipData.kind === "adjustment")
+            return ""
+        return EditorState.clipMotionInfo(clipItem.trackIndex, clipItem.clipIndex).parentName || ""
+    }
+    Text {
+        visible: clipItem.parentName.length > 0 && clipItem.width > 60 && clipItem.height >= 24
+        anchors.left: parent.left
+        anchors.leftMargin: 6
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 3
+        width: parent.width - 30
+        z: 35
+        elide: Text.ElideRight
+        text: "↳ " + clipItem.parentName
+        color: Qt.rgba(1, 1, 1, 0.9)
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+    }
+
+    // The spiral: drag it onto another clip and this one follows it; dropped on nothing, it
+    // unlinks. Only on the selected clip, as AE draws it on the layer you are working on.
+    Item {
+        id: pickWhip
+        visible: clipItem.selected && !clipItem.touchMode && clipItem.trackType !== "audio"
+                 && clipItem.clipData.kind !== "adjustment" && clipItem.width > 40 && clipItem.height >= 20
+        width: 16
+        height: 16
+        anchors.right: parent.right
+        anchors.rightMargin: 14
+        anchors.verticalCenter: parent.verticalCenter
+        z: 60
+        property var line: null
+
+        // The clip item under a point of the window, if any.
+        function clipItemAt(item, gx, gy) {
+            if (!item || !item.visible)
+                return null
+            const kids = item.children
+            for (let i = kids.length - 1; i >= 0; --i) {
+                const k = kids[i]
+                if (!k || !k.visible || k.width <= 0 || k.height <= 0)
+                    continue
+                const p = k.mapFromItem(null, gx, gy)
+                if (p.x < 0 || p.y < 0 || p.x > k.width || p.y > k.height)
+                    continue
+                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined && k !== clipItem)
+                    return k
+                const inner = clipItemAt(k, gx, gy)
+                if (inner)
+                    return inner
+            }
+            return null
+        }
+
+        IconGlyph {
+            anchors.centerIn: parent
+            glyph: "pick-whip"
+            iconSize: 14
+            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary : Qt.rgba(1, 1, 1, 0.85)
+        }
+        MouseArea {
+            id: whipArea
+            anchors.fill: parent
+            anchors.margins: -3
+            hoverEnabled: true
+            preventStealing: true
+            cursorShape: Qt.PointingHandCursor
+            onPressed: mouse => {
+                const root = clipItem.Window.window ? clipItem.Window.window.contentItem : null
+                if (!root)
+                    return
+                const start = pickWhip.mapToItem(root, pickWhip.width / 2, pickWhip.height / 2)
+                pickWhip.line = Qt.createQmlObject('import QtQuick; Canvas { z: 100000; property point a; property point b; '
+                    + 'onPaint: { const c = getContext("2d"); c.reset(); c.strokeStyle = "' + Theme.primary + '"; c.lineWidth = 2; '
+                    + 'c.beginPath(); c.moveTo(a.x, a.y); c.lineTo(b.x, b.y); c.stroke(); c.beginPath(); c.arc(b.x, b.y, 4, 0, 6.3); c.fill() } }',
+                    root)
+                pickWhip.line.anchors.fill = root
+                pickWhip.line.a = start
+                pickWhip.line.b = start
+                pickWhip.line.requestPaint()
+            }
+            onPositionChanged: mouse => {
+                if (!pressed || !pickWhip.line)
+                    return
+                const root = clipItem.Window.window.contentItem
+                pickWhip.line.b = whipArea.mapToItem(root, mouse.x, mouse.y)
+                pickWhip.line.requestPaint()
+            }
+            onReleased: mouse => {
+                const root = clipItem.Window.window ? clipItem.Window.window.contentItem : null
+                if (pickWhip.line) {
+                    pickWhip.line.destroy()
+                    pickWhip.line = null
+                }
+                if (!root)
+                    return
+                const g = whipArea.mapToItem(root, mouse.x, mouse.y)
+                const target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
+                if (target)
+                    EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, target.trackIndex, target.clipIndex)
+                else if (clipItem.parentName.length > 0)
+                    EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, -1, -1)
+            }
+        }
+        ThemedToolTip {
+            visible: whipArea.containsMouse && !whipArea.pressed
+            text: qsTr("Drag onto another layer to make it the parent (After Effects' pick whip)")
+        }
+    }
+
 }

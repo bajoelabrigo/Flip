@@ -1,0 +1,104 @@
+{
+  "id": "ae.particle_world",
+  "displayName": "Particle World",
+  "category": "generate",
+  "backend": "gpu",
+  "order": 924,
+  "parameters": [
+    {
+      "identifier": "birthRate",
+      "displayName": "Birth rate (per s)",
+      "type": "float",
+      "minValue": 1,
+      "maxValue": 120,
+      "defaultValue": 30
+    },
+    {
+      "identifier": "lifespan",
+      "displayName": "Longevity (s)",
+      "type": "float",
+      "minValue": 0.2,
+      "maxValue": 8,
+      "defaultValue": 2.5
+    },
+    {
+      "identifier": "emitterX",
+      "displayName": "Emitter X (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "emitterY",
+      "displayName": "Emitter Y (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 60
+    },
+    {
+      "identifier": "velocity",
+      "displayName": "Velocity (px/s)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 2000,
+      "defaultValue": 400
+    },
+    {
+      "identifier": "gravity",
+      "displayName": "Gravity (px/s²)",
+      "type": "float",
+      "minValue": -2000,
+      "maxValue": 2000,
+      "defaultValue": 500
+    },
+    {
+      "identifier": "particleSize",
+      "displayName": "Size",
+      "type": "float",
+      "minValue": 1,
+      "maxValue": 60,
+      "defaultValue": 6
+    },
+    {
+      "identifier": "color",
+      "displayName": "Color",
+      "type": "color",
+      "defaultValue": "#ffd54a"
+    },
+    {
+      "identifier": "spread",
+      "displayName": "Spread (deg)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 360,
+      "defaultValue": 120
+    },
+    {
+      "identifier": "direction",
+      "displayName": "Direction (deg)",
+      "type": "float",
+      "minValue": -180,
+      "maxValue": 180,
+      "defaultValue": 90
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

@@ -132,6 +132,12 @@ private slots:
     void shadedLettersTakeLayersLooksAndBoxAlone();
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
+    void shapeAsFixedOrStuckMask();
+    void squashAnimationWritesKeysAndDeformer();
+    void morphAndLiquidTools();
+    void penDrawsTheShapeLayerLive();
+    void curvesPanelAppliesAndReadsCurves();
+    void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -298,6 +304,8 @@ private slots:
     void effectTemplateStaysEditable();
     void removingATemplatePutsTheClipBack();
     void trackKeyframeRowsUnfoldAndEdit();
+    void solidsAndCompositionsInMedia();
+    void pasteOntoItsOwnKeysCarriesOn();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
@@ -7914,7 +7922,21 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
 
     // 6. Unlinking decoupling
     state.setPositionLinked(false);
+    // Separate Dimensions is kept in the settings: put it back so later tests start linked.
+    const auto relink = qScopeGuard([&state] { state.setPositionLinked(true); });
     QVERIFY(!state.positionLinked());
+    // The timeline shows X Position and Y Position instead of the joined Position line.
+    bool joinedPosition = false;
+    int separatedLines = 0;
+    for (const QVariant &v : state.trackKeyframeRows(track)) {
+        const QVariantMap r = v.toMap();
+        if (r.value(QStringLiteral("group")).toString() != QLatin1String("position"))
+            continue;
+        joinedPosition = joinedPosition || !r.value(QStringLiteral("axis")).toBool();
+        separatedLines += r.value(QStringLiteral("separated")).toBool() ? 1 : 0;
+    }
+    QVERIFY(!joinedPosition);
+    QCOMPARE(separatedLines, 2);
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 0.5, 150.0);
     const QVariantList unlinkedYKeys = state.clipKeyframes(track, clip, QStringLiteral("y"));
     bool foundYAt0_5 = false;
@@ -10311,6 +10333,129 @@ void EditorStateTest::cutoutTemplateLandsInAComposition()
         QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
         QCOMPARE(state.project()->tracks().at(0).clips.at(0).id, clip.id);
     }
+}
+
+// After Effects' Project panel (0.26): a solid files a bin item in Media › Solids that its layers
+// share, and a composition can be made from the bin, empty or holding the picked media.
+void EditorStateTest::solidsAndCompositionsInMedia()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+
+    state.addSolidClip(QStringLiteral("#ffcc3344"), QStringLiteral("Red solid"), 640, 360);
+    state.addSolidClip(QStringLiteral("#ff2244cc"), QStringLiteral("Blue solid"), 0, 0);
+    QList<const drift::MediaAsset *> solids;
+    for (const drift::MediaAsset &asset : state.project()->assets()) {
+        if (asset.kind == drift::MediaKind::Solid)
+            solids.append(&asset);
+    }
+    QCOMPARE(solids.size(), 2);
+    // Both in the one «Solids» folder at the root, made the first time.
+    QVERIFY(!solids.first()->folderId.isEmpty());
+    QCOMPARE(solids.first()->folderId, solids.last()->folderId);
+    const drift::BinFolder *folder = state.project()->binFolder(solids.first()->folderId);
+    QVERIFY(folder);
+    QVERIFY(folder->parentId.isEmpty());
+    QCOMPARE(state.project()->binFolders().size(), 1);
+    const drift::MediaAsset *red = solids.first()->name == QLatin1String("Red solid") ? solids.first() : solids.last();
+    QCOMPARE(red->width, 640);
+    QCOMPARE(red->height, 360);
+    QCOMPARE(QColor(red->solidColor), QColor(QStringLiteral("#ffcc3344")));
+    // Ids, not pointers: the asset list grows below.
+    const QString redId = red->id;
+    const QString blueId = solids.first()->id == redId ? solids.last()->id : solids.first()->id;
+
+    // The layer points at its bin item, and its settings carry over to the item.
+    int track = -1;
+    int clip = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        for (int c = 0; c < state.project()->tracks().at(t).clips.size(); ++c) {
+            if (state.project()->tracks().at(t).clips.at(c).assetId == redId) {
+                track = t;
+                clip = c;
+            }
+        }
+    }
+    QVERIFY(track >= 0);
+    state.setSolidSettings(track, clip, QStringLiteral("#ff00ff00"), QStringLiteral("Green solid"), 0, 0);
+    QCOMPARE(state.project()->asset(redId)->name, QStringLiteral("Green solid"));
+    QCOMPARE(QColor(state.project()->asset(redId)->solidColor), QColor(QStringLiteral("#ff00ff00")));
+
+    // Saved and read back.
+    const drift::Project copy = drift::Project::fromJson(state.project()->toJson());
+    QCOMPARE(copy.asset(redId)->kind, drift::MediaKind::Solid);
+    QCOMPARE(QColor(copy.asset(redId)->solidColor), QColor(QStringLiteral("#ff00ff00")));
+
+    // From the bin, a solid lands as a solid layer of its colour and size.
+    const int index = library.indexOfId(redId);
+    QVERIFY(index >= 0);
+    state.addClipFromAssetOnNewTrack(index, 0.0);
+    int placed = 0;
+    for (const drift::Track &t : state.project()->tracks()) {
+        for (const drift::Clip &c : t.clips) {
+            if (c.assetId == redId) {
+                QVERIFY(c.isSolid);
+                QCOMPARE(c.type, drift::ClipType::Shape);
+                QCOMPARE(c.shapeStyle.primaryColor(), QColor(QStringLiteral("#ff00ff00")));
+                ++placed;
+            }
+        }
+    }
+    QCOMPARE(placed, 2);
+
+    // A new composition: in Media, opened.
+    const QString compId = state.newComposition(QStringLiteral("Intro"));
+    QVERIFY(!compId.isEmpty());
+    QCOMPARE(state.project()->asset(compId)->kind, drift::MediaKind::Composite);
+    QCOMPARE(state.project()->activeSequenceId(), state.project()->asset(compId)->sequenceId);
+    state.openSequence(QString());
+
+    // From the picked media: both solids inside, the first on top.
+    const QString fromId = state.newCompositionFromAssets({redId, blueId});
+    QVERIFY(!fromId.isEmpty());
+    QCOMPARE(state.project()->activeSequenceId(), state.project()->asset(fromId)->sequenceId);
+    QCOMPARE(state.project()->tracks().size(), 2);
+    QCOMPARE(state.project()->tracks().at(0).clips.first().assetId, redId);
+    QCOMPARE(state.project()->tracks().at(1).clips.first().assetId, blueId);
+}
+
+// Copying (or cloning) keys and pasting them back onto themselves carries the animation on after
+// them, one step on, instead of landing on top (0.26, Jorge: as After Effects users expect).
+void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    const QString rot = QStringLiteral("rotation");
+    state.setClipKeyframe(track, 0, rot, 0.0, 0.0);
+    state.setClipKeyframe(track, 0, rot, 1.0, 90.0);
+    const QVariantList picked{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), rot}, {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), rot}, {QStringLiteral("seconds"), 1.0}}};
+    QCOMPARE(state.copyKeyframes(track, picked), 2);
+    state.setPlayheadSeconds(1.0); // on the copied keys themselves
+    QVERIFY(state.pasteKeyframes(track, 0));
+    const auto times = [&] {
+        QList<double> out;
+        for (const QVariant &v : state.clipKeyframes(track, 0, rot))
+            out.append(v.toMap().value(QStringLiteral("seconds")).toDouble());
+        return out;
+    };
+    QCOMPARE(times(), (QList<double>{0.0, 1.0, 2.0, 3.0}));
+    QCOMPARE(state.propertyValueAt(track, 0, rot, 2.0, 0.0), 0.0);
+    QCOMPARE(state.propertyValueAt(track, 0, rot, 3.0, 0.0), 90.0);
+    // The playhead waits one step on, so the next paste continues the chain.
+    QVERIFY(qAbs(state.playheadSeconds() - 4.0) < 1e-6);
+    QVERIFY(state.pasteKeyframes(track, 0));
+    QCOMPARE(times().size(), 6);
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
@@ -12789,6 +12934,380 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
     QCOMPARE(cue(1).wordEndsUs.size(), 2);
 }
 
+// A shape as another clip's mask (0.26): the clip takes it as its alpha matte; "stuck" parents the
+// shape to the clip, "fixed" leaves it on screen; switching between the two is one undo step each.
+void EditorStateTest::penDrawsTheShapeLayerLive()
+{
+    // After Effects' Pen (0.26, Jorge): the layer is on the timeline from the first click, an open
+    // path is kept with a stroke, the box fits the path, and the whole drawing undoes at once.
+    AssetLibrary library;
+    AppController state(&library);
+    const auto count = [&] {
+        int n = 0;
+        for (const drift::Track &track : state.project()->tracks())
+            n += int(track.clips.size());
+        return n;
+    };
+    const int before = count();
+    const QString id = state.beginPenShape(QString());
+    QVERIFY(!id.isEmpty());
+    QCOMPARE(state.penShapeClipId(), id);
+    QCOMPARE(count(), before + 1);
+    const auto vertex = [](double x, double y) {
+        return QVariantMap{{QStringLiteral("x"), x}, {QStringLiteral("y"), y}, {QStringLiteral("ix"), x},
+                           {QStringLiteral("iy"), y}, {QStringLiteral("ox"), x}, {QStringLiteral("oy"), y}};
+    };
+    // Canvas fractions while drawing: a line from a quarter to three quarters across.
+    QVariantList points{vertex(0.25, 0.5)};
+    state.setShapePathPoints(state.selectedTrack(), state.selectedClip(),
+                             {QVariantMap{{QStringLiteral("closed"), false}, {QStringLiteral("points"), points}}});
+    points.append(vertex(0.75, 0.25));
+    state.setShapePathPoints(state.selectedTrack(), state.selectedClip(),
+                             {QVariantMap{{QStringLiteral("closed"), false}, {QStringLiteral("points"), points}}});
+    state.finishPenShape(true);
+    QVERIFY(state.penShapeClipId().isEmpty());
+    QCOMPARE(count(), before + 1);
+    const drift::Clip &clip = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip());
+    QCOMPARE(clip.id, id);
+    const double W = state.project()->width();
+    const double H = state.project()->height();
+    QVERIFY(std::abs(clip.transformX.evaluateAt(0) - 0.25 * W) < 2.0);
+    QVERIFY(std::abs(clip.transformW.evaluateAt(0) - 0.5 * W) < 2.0);
+    QVERIFY(std::abs(clip.transformY.evaluateAt(0) - 0.25 * H) < 2.0);
+    bool stroked = false;
+    for (const drift::TextShadingLayer &layer : clip.shapeStyle.layers)
+        stroked = stroked || (layer.enabled && layer.kind == drift::TextLayerKind::Stroke && layer.width > 0.0);
+    QVERIFY(stroked);
+    state.undo();
+    QCOMPARE(count(), before);
+
+    // Taken back: nothing stays.
+    state.beginPenShape(QString());
+    state.finishPenShape(false);
+    QCOMPARE(count(), before);
+
+    // Pucker & Bloat is a keyable operator that changes the pixels.
+    drift::ShapeStyle style;
+    const quint64 plain = drift::shapeStyleHash(style);
+    QVERIFY(drift::setShapeStyleScalar(style, QStringLiteral("puckerBloat"), 60.0));
+    QCOMPARE(style.puckerBloat, 60.0);
+    QVERIFY(drift::shapeStyleHash(style) != plain);
+    QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
+void EditorStateTest::curvesPanelAppliesAndReadsCurves()
+{
+    // Curvas (0.26, EasyCurve): a 4-key curve on three picked keys bends the stretch up to the
+    // middle key with `a` and the one back down with `b`, as one undo step; Read gives them back.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const double start = drift::usToSeconds(state.project()->tracks().at(t).clips.at(c).timelineStart);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 1.0, 1.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 2.0, 0.0);
+    QVariantList keys;
+    for (double s : {0.0, 1.0, 2.0})
+        keys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                                {QStringLiteral("seconds"), start + s}});
+    state.setPickedKeyframes(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("keys"), keys}});
+    state.applyCurveToPicked({0.4, 0.0, 0.6, 1.0}, {0.1, 0.0, 0.9, 1.0});
+    const QVariantMap read = state.pickedKeyframeCurves();
+    QVERIFY(read.value(QStringLiteral("ok")).toBool());
+    QCOMPARE(read.value(QStringLiteral("keys")).toInt(), 3);
+    const QVariantList a = read.value(QStringLiteral("a")).toList();
+    const QVariantList b = read.value(QStringLiteral("b")).toList();
+    QCOMPARE(a.size(), 4);
+    QCOMPARE(b.size(), 4);
+    QVERIFY(std::abs(a.at(0).toDouble() - 0.4) < 1e-3);
+    QVERIFY(std::abs(a.at(3).toDouble() - 1.0) < 1e-3);
+    QVERIFY(std::abs(b.at(0).toDouble() - 0.1) < 1e-3);
+    QVERIFY(std::abs(b.at(2).toDouble() - 0.9) < 1e-3);
+
+    // TextEvo's rows (0.26): Character Offset / Replace, Edges in and From index survive the JSON.
+    drift::TextAnimator animator;
+    animator.props.charOffset = drift::TextAnimParam(5.0);
+    animator.props.charReplace = drift::TextAnimParam(60.0);
+    drift::TextRangeSelector sel;
+    sel.order = drift::TextAnimOrder::EdgesIn;
+    sel.fromIndex = 3;
+    animator.selectors.append(sel);
+    const drift::TextAnimator back = drift::textAnimatorFromJson(drift::textAnimatorToJson(animator));
+    QCOMPARE(back.props.charOffset.value, 5.0);
+    QCOMPARE(back.props.charReplace.value, 60.0);
+    QCOMPARE(back.selectors.first().order, drift::TextAnimOrder::EdgesIn);
+    QCOMPARE(back.selectors.first().fromIndex, 3);
+    QCOMPARE(drift::textanim::reindexForOrder(0, 5, drift::TextAnimOrder::EdgesIn, 0), 0.0);
+    QCOMPARE(drift::textanim::reindexForOrder(2, 5, drift::TextAnimOrder::EdgesIn, 0), 2.0);
+}
+
+void EditorStateTest::motionToolsTrimBendAndCaps()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("ellipse"), 600, 300, 400, 400, QStringLiteral("none"),
+                        QStringLiteral("#ffffff"), 12);
+    const QString id = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&]() {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    state.selectClip(where().first, where().second);
+
+    // Trim: In draws the line on over 20 frames from the playhead.
+    state.setPlayheadSeconds(0.0);
+    state.applyTrimPack(QStringLiteral("in"), 20, 180, 4, false, false);
+    const int fps = state.project()->fps();
+    QCOMPARE(state.propertyValueAt(where().first, where().second, QStringLiteral("shape.trimEnd"), 0.0, -1), 0.0);
+    QCOMPARE(state.propertyValueAt(where().first, where().second, QStringLiteral("shape.trimEnd"), 20.0 / fps, -1),
+             100.0);
+    // Copies: three more on tracks of their own above.
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where().first, where().second);
+    state.applyTrimPack(QStringLiteral("copies"), 20, 180, 3, false, false);
+    QCOMPARE(state.project()->tracks().size(), tracksBefore + 3);
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+
+    // Reverse Path Direction flips the way the trim runs.
+    state.selectClip(where().first, where().second);
+    state.applyTrimPack(QStringLiteral("reversePath"), 20, 180, 4, false, false);
+    QVERIFY(state.project()->tracks().at(where().first).clips.at(where().second).shapeStyle.trimReverse > 0.5);
+    state.undo();
+    // Trace In: with no other layer picked, a dot rides the line's end, keyed frame by frame.
+    const int tracksTrace = state.project()->tracks().size();
+    state.selectClip(where().first, where().second);
+    state.setPlayheadSeconds(0.0);
+    state.applyTrimPack(QStringLiteral("traceIn"), 20, 180, 4, false, false);
+    QCOMPARE(state.project()->tracks().size(), tracksTrace + 1);
+    const drift::Clip &rider = state.project()->tracks().at(where().first - 1).clips.first();
+    QVERIFY(rider.transformX.keyframes().size() > 5);
+    state.undo();
+
+    // Caps: the stroke ends flat and turns with a bevel.
+    state.selectClip(where().first, where().second);
+    state.setStrokeCaps(QStringLiteral("butt"), QStringLiteral("bevel"));
+    const QVariantMap caps = state.strokeCapsState();
+    QCOMPARE(caps.value(QStringLiteral("cap")).toString(), QStringLiteral("butt"));
+    QCOMPARE(caps.value(QStringLiteral("join")).toString(), QStringLiteral("bevel"));
+
+    // Bend: the effect goes on with the angle asked for.
+    state.selectClip(where().first, where().second);
+    state.applyBend(QStringLiteral("set"), 120, false, 30, 70, 20);
+    state.selectClip(where().first, where().second);
+    bool bent = false;
+    for (const QVariant &e : state.selectedClipEffects()) {
+        const QVariantMap m = e.toMap();
+        if (m.value(QStringLiteral("catalogId")).toString() == QLatin1String("ae.bend"))
+            bent = true;
+    }
+    QVERIFY(bent);
+}
+
+void EditorStateTest::morphAndLiquidTools()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("ellipse"), 200, 200, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const QString a = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.addDrawnShape(QStringLiteral("rectangle"), 1200, 500, 300, 300, QStringLiteral("#00ff00"),
+                        QStringLiteral("none"), 0);
+    const QString b = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+
+    // Morph: the circle flies into the square and the picture cuts to it.
+    state.setPlayheadSeconds(0.0);
+    state.selectClip(where(a).first, where(a).second);
+    state.addToSelection(where(b).first, where(b).second);
+    state.morphLayers(0.5, 1, 0.25, 90);
+    const auto value = [&](const QString &id, const QString &prop, double at) {
+        return state.propertyValueAt(where(id).first, where(id).second, prop, at, -1);
+    };
+    QVERIFY(value(a, QStringLiteral("opacity"), 0.2) > 0.9);
+    QCOMPARE(value(a, QStringLiteral("opacity"), 0.6), 0.0);
+    QCOMPARE(value(b, QStringLiteral("opacity"), 0.2), 0.0);
+    QVERIFY(value(b, QStringLiteral("opacity"), 0.6) > 0.9);
+    // It ends where the square is, the size of it.
+    QVERIFY(qAbs(value(a, QStringLiteral("x"), 0.5) + value(a, QStringLiteral("width"), 0.5) / 2 - 1350) < 2);
+    state.undo();
+    QVERIFY(value(a, QStringLiteral("opacity"), 0.6) > 0.9);
+
+    // Liquid trail: the circle slides across; drops come off it on a layer behind, melted.
+    state.selectClip(where(a).first, where(a).second);
+    state.setClipKeyframe(where(a).first, where(a).second, QStringLiteral("x"), 0.0, 100);
+    state.setClipKeyframe(where(a).first, where(a).second, QStringLiteral("x"), 1.0, 1500);
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where(a).first, where(a).second);
+    state.generateLiquidTrail({{QStringLiteral("perFrame"), 4}, {QStringLiteral("threshold"), 100}});
+    // Its own track behind the circle (and the lane of its Liquid effect under that).
+    QVERIFY(state.project()->tracks().size() >= tracksBefore + 1);
+    const int under = where(a).first + 1;
+    const drift::Clip &trail = state.project()->tracks().at(under).clips.first();
+    QCOMPARE(trail.type, drift::ClipType::Shape);
+    QVERIFY(trail.shapeStyle.pathShapes.size() > 10);
+    QVERIFY(trail.shapeStyle.pathShapes.at(10).count(QLatin1Char('M')) >= 2);
+
+    // Slicer: the circle in three bands, each shown through a band stuck to it.
+    state.selectClip(where(a).first, where(a).second);
+    state.addToSelection(where(b).first, where(b).second);
+    const int beforeSlices = state.project()->tracks().size();
+    state.morphLayers(0.5, 0, 0.25, 90, 3);
+    int mattes = 0;
+    for (const drift::Track &track : state.project()->tracks())
+        for (const drift::Clip &clip : track.clips)
+            mattes += clip.matteMode == drift::Clip::TrackMatte::Alpha ? 1 : 0;
+    QCOMPARE(mattes, 3);
+    QVERIFY(state.project()->tracks().size() >= beforeSlices + 5);
+    state.undo();
+
+    // Liquid line: a stream along the square's outline.
+    state.selectClip(where(b).first, where(b).second);
+    state.setPlayheadSeconds(0.0);
+    state.generateLiquidLine(1.0, 40, 0.35, 0.5, QStringLiteral("#2244ff"));
+    bool found = false;
+    for (const drift::Track &track : state.project()->tracks())
+        for (const drift::Clip &clip : track.clips)
+            found = found || (clip.type == drift::ClipType::Shape && clip.shapeStyle.pathShapes.size() > 20);
+    QVERIFY(found);
+}
+
+void EditorStateTest::squashAnimationWritesKeysAndDeformer()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    QVERIFY(!state.squashAnimations().isEmpty());
+    state.addDrawnShape(QStringLiteral("rectangle"), 800, 400, 300, 300, QStringLiteral("#ffffff"),
+                        QStringLiteral("none"), 0);
+    const QString shapeId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    const double y0 = state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"), 0.0, 0.0);
+
+    state.setPlayheadSeconds(0.0);
+    state.applySquashAnimation(where(shapeId).first, where(shapeId).second, QStringLiteral("sq-hop"), 100, 100, 100);
+    const int t = where(shapeId).first;
+    const int c = where(shapeId).second;
+    // The hop lifts it halfway through and puts it back down where it was.
+    QVERIFY(state.clipKeyframes(t, c, QStringLiteral("y")).size() >= 3);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(qAbs(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9, 0.0) - y0) < 1.0);
+    // The deformer is on the clip, keyed.
+    state.selectClip(t, c);
+    int deform = -1;
+    const QVariantList effects = state.selectedClipEffects();
+    for (int i = 0; i < effects.size(); ++i) {
+        if (effects.at(i).toMap().value(QStringLiteral("catalogId")).toString() == QLatin1String("squash.deform"))
+            deform = i;
+    }
+    QVERIFY(deform >= 0);
+    QVERIFY(state.clipKeyframes(t, c, QStringLiteral("fx.%1.stretch").arg(deform)).size() >= 3);
+
+    // A second one further on keeps the first: two hops on the same layer.
+    state.setPlayheadSeconds(2.0);
+    state.applySquashAnimation(t, c, QStringLiteral("sq-hop"), 100, 100, 100);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(state.propertyValueAt(t, c, QStringLiteral("y"), 2.0 + 0.9 * 0.55, 0.0) < y0 - 50);
+    QVERIFY(qAbs(state.propertyValueAt(t, c, QStringLiteral("y"), 1.5, 0.0) - y0) < 1.0);
+
+    // Each one is a single undo step, deformer included.
+    state.undo();
+    QVERIFY(qAbs(state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"),
+                                       2.0 + 0.9 * 0.55, 0.0) - y0) < 1.0);
+    QVERIFY(state.propertyValueAt(where(shapeId).first, where(shapeId).second, QStringLiteral("y"), 0.9 * 0.55, 0.0)
+            < y0 - 50);
+    state.undo();
+    QVERIFY(state.clipKeyframes(where(shapeId).first, where(shapeId).second, QStringLiteral("y")).size() <= 1);
+    state.selectClip(where(shapeId).first, where(shapeId).second);
+    for (const QVariant &e : state.selectedClipEffects())
+        QVERIFY(e.toMap().value(QStringLiteral("catalogId")).toString() != QLatin1String("squash.deform"));
+}
+
+void EditorStateTest::shapeAsFixedOrStuckMask()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Aparece"), 0.0);
+    const QString textId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 400, 200, QStringLiteral("#ffffff"),
+                        QStringLiteral("none"), 0);
+    const QString shapeId = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip()).id;
+    QVERIFY(!textId.isEmpty() && !shapeId.isEmpty() && textId != shapeId);
+    const auto where = [&](const QString &id) {
+        const QList<drift::Track> &tracks = state.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t)
+            for (int c = 0; c < tracks.at(t).clips.size(); ++c)
+                if (tracks.at(t).clips.at(c).id == id)
+                    return qMakePair(t, c);
+        return qMakePair(-1, -1);
+    };
+    const auto clip = [&](const QString &id) {
+        const auto at = where(id);
+        return &state.project()->tracks().at(at.first).clips.at(at.second);
+    };
+
+    bool offered = false;
+    for (const QVariant &v : state.matteTargetOptions(where(shapeId).first, where(shapeId).second))
+        offered = offered || v.toMap().value(QStringLiteral("id")).toString() == textId;
+    QVERIFY(offered);
+
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        false);
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::Alpha);
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
+    QVERIFY(clip(shapeId)->parentId.isEmpty());
+    QVERIFY(clip(shapeId)->timelineEnd() >= clip(textId)->timelineEnd());
+    QVERIFY(!state.clipMotionInfo(where(textId).first, where(textId).second)
+                 .value(QStringLiteral("matteFollows"))
+                 .toBool());
+
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        true);
+    QCOMPARE(clip(shapeId)->parentId, textId);
+    QVERIFY(state.clipMotionInfo(where(textId).first, where(textId).second)
+                .value(QStringLiteral("matteFollows"))
+                .toBool());
+
+    state.undo();
+    QVERIFY(clip(shapeId)->parentId.isEmpty());
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
+    state.undo();
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::None);
+
+    // Deleting the mask: its emptied track goes with it, and the text shows whole again.
+    state.useAsMatteFor(where(shapeId).first, where(shapeId).second, where(textId).first, where(textId).second,
+                        false);
+    const int tracksBefore = state.project()->tracks().size();
+    state.selectClip(where(shapeId).first, where(shapeId).second);
+    state.deleteSelectedClip();
+    QCOMPARE(where(shapeId).first, -1);
+    QCOMPARE(state.project()->tracks().size(), tracksBefore - 1);
+    QCOMPARE(clip(textId)->matteMode, drift::Clip::TrackMatte::None);
+    QVERIFY(clip(textId)->matteClipId.isEmpty());
+    state.undo();
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    QCOMPARE(clip(textId)->matteClipId, shapeId);
+}
+
 QTEST_MAIN(EditorStateTest)
 #include "tst_editorstate.moc"
-

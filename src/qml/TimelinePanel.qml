@@ -657,8 +657,9 @@ PanelFrame {
         solidSettings.openFor(trackIndex, clipIndex)
     }
 
-    // How near (screen px) a key has to be for the dragged playhead to land on it (0.25).
-    readonly property real playheadKeySnapPx: 8
+    // How near (screen px) a key, a clip edge or a marker has to be for the dragged playhead to land on
+    // it (0.25; wider and with the edges in 0.26, Jorge found 8 px too weak).
+    readonly property real playheadKeySnapPx: 14
 
     // The curve editor on and off; on, it opens the lines of the clip being edited.
     function toggleGraphMode() {
@@ -715,7 +716,10 @@ PanelFrame {
 
     // Computed once per model change instead of at each of the ten call sites below — one of
     // which is the drag bounds of every clip delegate, making it O(clips x tracks) on any edit.
-    readonly property real totalTracksHeightCached: (root.tracks, root.totalTracksHeight())
+    // The curve editor opening under a track makes that row taller: without it among the
+    // dependencies the playhead and the work area stopped short of the rows below (0.26).
+    readonly property real totalTracksHeightCached: (root.tracks, root.curveEditorTrack, root.curveEditorHeight,
+                                                     root.totalTracksHeight())
 
     function totalTracksHeight() {
         var h = 0;
@@ -1629,7 +1633,7 @@ PanelFrame {
                                 // After Effects.
                                 const t = root.snapToFrame(Math.max(0, x) / root.pxPerSecond)
                                 const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
-                                EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
+                                EditorState.playheadSeconds = onKey
                             }
 
                             // Seeking is not a selection change: scrubbing to look at a
@@ -1861,6 +1865,20 @@ PanelFrame {
                             }
                         }
 
+                        // After Effects' green bar (0.26): the frames the RAM preview holds, and
+                        // while it renders, how far it has got.
+                        Repeater {
+                            model: EditorState.playback.ramPreviewRanges
+                            delegate: Rectangle {
+                                required property var modelData
+                                y: Theme.timelineRulerHeight
+                                height: 3
+                                x: modelData.start * root.pxPerSecond
+                                width: Math.max(1, (modelData.end - modelData.start) * root.pxPerSecond)
+                                color: "#ff2fbf4a"
+                                z: 2
+                            }
+                        }
                         // Work area highlight in the bookmark lane (between In/Out markers).
                         Rectangle {
                             visible: EditorState.workAreaActive
@@ -1874,10 +1892,11 @@ PanelFrame {
                         }
                     }
 
-                    // Work area overlay across the track rows.
+                    // Work area overlay across the track rows: over them (it is a faint tint), or
+                    // the rows' own backgrounds hid it behind the clips and the key lines (0.26).
                     Item {
                         id: workAreaOverlay
-                        z: 1
+                        z: 3
                         y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight
                         width: parent.width
                         height: Math.max(root.totalTracksHeightCached + Theme.trackGap,
@@ -2021,7 +2040,8 @@ PanelFrame {
                             delegate: Rectangle {
                                 id: trackRow
                                 // Above the rows below it while one of its clips is dragged, so the clip draws over them.
-                                z: trackClipsRenderer.dragging ? 20 : 0
+                                // A box being drawn over the key lines has to sit above the tracks below it.
+                                z: trackClipsRenderer.dragging || trackKeyRows.marqueeActive ? 20 : 0
                                 property int trackIndex: index
                                 // Drawn inside its parent's row instead of getting one here.
                                 // Column skips invisible children entirely, so this costs no
@@ -2510,6 +2530,7 @@ PanelFrame {
 
                                 // The unfolded property lines, under the clips.
                                 TrackKeyframeRows {
+                                    id: trackKeyRows
                                     // The curve editor draws over this track's lines instead.
                                     visible: trackRow.keyframeRows.length > 0
                                              && trackRow.trackIndex !== root.curveEditorTrack
@@ -2947,16 +2968,25 @@ PanelFrame {
 
                         // Follow either drag live so the preview scrubs with it.
                         onXChanged: {
-                            if (playheadDragArea.drag.active || playheadLineDrag.drag.active)
-                                EditorState.playheadSeconds = EditorState.snapPlayheadToKeys(
-                                    root.snapToFrame(playhead.x / root.pxPerSecond),
-                                    root.playheadKeySnapPx / root.pxPerSecond)
+                            if (!playheadDragArea.drag.active && !playheadLineDrag.drag.active)
+                                return
+                            const snapped = EditorState.snapPlayheadToKeys(
+                                root.snapToFrame(playhead.x / root.pxPerSecond),
+                                root.playheadKeySnapPx / root.pxPerSecond)
+                            EditorState.playheadSeconds = snapped
+                            // Drawn where it lands, on the frame or the key it caught, not under the
+                            // pointer: dragged freely it only jumped there on release, so the magnet
+                            // never showed (Jorge, 0.26). The drag sets x from its start plus the
+                            // pointer's travel, so this does not build up.
+                            const snappedX = snapped * root.pxPerSecond
+                            if (Math.abs(playhead.x - snappedX) > 0.5)
+                                playhead.x = snappedX
                         }
 
                         function finishSeek() {
                             const t = root.snapToFrame(playhead.x / root.pxPerSecond)
                             const onKey = EditorState.snapPlayheadToKeys(t, root.playheadKeySnapPx / root.pxPerSecond)
-                            EditorState.playheadSeconds = onKey !== t ? onKey : EditorState.snapTime(t)
+                            EditorState.playheadSeconds = onKey
                         }
 
                         Rectangle {
@@ -3258,6 +3288,37 @@ PanelFrame {
                             onLaneHeightChanged: root.keyframeLaneHeight = laneHeight
                         }
                     }
+                }
+                // The selection box carried on across the curve editor too, cut to the editor's
+                // band so the part over the tracks is not drawn twice.
+                Item {
+                    visible: root.marqueeActive && curveGraph.item !== null
+                    x: curveGraph.x
+                    y: curveGraph.y
+                    width: curveGraph.width
+                    height: curveGraph.item ? curveGraph.item.height : 0
+                    clip: true
+                    Rectangle {
+                        visible: root.marqueeWidth > 2 || root.marqueeHeight > 2
+                        x: root.marqueeLeft - flick.contentX
+                        y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight + root.marqueeTop
+                           - flick.contentY - flick.headerHeight - curveGraph.y
+                        width: root.marqueeWidth
+                        height: root.marqueeHeight
+                        color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
+                        border.width: Theme.borderWidth
+                        border.color: Theme.primary
+                    }
+                }
+                // The timeline's playhead carried on across the curve editor, wherever it is: the
+                // editor is drawn over the tracks and hid it past its clip (0.26, Jorge).
+                Rectangle {
+                    visible: curveGraph.item !== null && x >= curveGraph.x && x <= curveOverlay.width
+                    x: curveGraph.x + playhead.x - flick.contentX
+                    y: curveGraph.y
+                    width: Theme.playheadLineWidth
+                    height: curveGraph.item ? curveGraph.item.height : 0
+                    color: Theme.primary
                 }
             }
             }

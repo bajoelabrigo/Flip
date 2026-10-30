@@ -1,0 +1,86 @@
+{
+  "id": "ae.gradient_ramp",
+  "displayName": "Gradient Ramp",
+  "category": "generate",
+  "backend": "gpu",
+  "order": 922,
+  "parameters": [
+    {
+      "identifier": "startX",
+      "displayName": "Start X (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "startY",
+      "displayName": "Start Y (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "startColor",
+      "displayName": "Start color",
+      "type": "color",
+      "defaultValue": "#000000"
+    },
+    {
+      "identifier": "endX",
+      "displayName": "End X (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 50
+    },
+    {
+      "identifier": "endY",
+      "displayName": "End Y (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 100
+    },
+    {
+      "identifier": "endColor",
+      "displayName": "End color",
+      "type": "color",
+      "defaultValue": "#ffffff"
+    },
+    {
+      "identifier": "radial",
+      "displayName": "Radial",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "blend",
+      "displayName": "Blend with original",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1,
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

@@ -153,6 +153,24 @@ Popup {
         ThemedSwitch {
             Layout.columnSpan: 2
             Layout.fillWidth: true
+            text: qsTr("Transparency grid")
+            tooltip: qsTr("Shows a checkerboard instead of the project background, to see what is transparent (only on the preview)")
+            checked: EditorState.playback.transparencyGrid
+            onToggled: EditorState.playback.transparencyGrid = checked
+        }
+
+        ThemedSwitch {
+            Layout.columnSpan: 2
+            Layout.fillWidth: true
+            text: qsTr("Safe zones")
+            tooltip: qsTr("After Effects' title and action safe margins, and the centre (only on the preview)")
+            checked: EditorState.preview.safeZones
+            onToggled: EditorState.preview.safeZones = checked
+        }
+
+        ThemedSwitch {
+            Layout.columnSpan: 2
+            Layout.fillWidth: true
             text: qsTr("Keep mask handles up")
             tooltip: qsTr("Keep mask handles on the preview while another clip is selected")
             checked: EditorState.preview.maskEditMode

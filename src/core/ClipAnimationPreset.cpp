@@ -143,6 +143,11 @@ ClipAnimSlot clipAnimSlotFromString(const QString &slot)
     return ClipAnimSlot::In;
 }
 
+ClipAnimTrack clipAnimTrackFromJson(const QJsonValue &v)
+{
+    return trackFromJson(v);
+}
+
 double ClipAnimTrack::at(double progress, double fallback) const
 {
     if (keys.isEmpty())

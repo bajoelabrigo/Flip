@@ -24,6 +24,7 @@
 #include <QOpenGLShaderProgram>
 #include <QScopeGuard>
 #include <QVector2D>
+#include <QVector4D>
 
 #include <cmath>
 #include <map>
@@ -435,6 +436,23 @@ void main() {
 }
 )";
 
+// Track matte (0.26): a straight-alpha canvas of the layer times the matte's coverage. The matte
+// is a premultiplied canvas, so its luma already counts its alpha (transparent reads as black).
+constexpr const char *kTrackMatteFragShader = R"(#version 330 core
+in vec2 v_texCoord;
+out vec4 fragColor;
+uniform sampler2D u_currentTexture;
+uniform sampler2D u_matte;
+uniform float u_mode;
+void main() {
+    vec4 c = texture(u_currentTexture, v_texCoord);
+    vec4 m = texture(u_matte, v_texCoord);
+    float luma = dot(m.rgb, vec3(0.2126, 0.7152, 0.0722));
+    float f = u_mode < 1.5 ? m.a : u_mode < 2.5 ? 1.0 - m.a : u_mode < 3.5 ? luma : 1.0 - luma;
+    fragColor = vec4(c.rgb, c.a * clamp(f, 0.0, 1.0));
+}
+)";
+
 // A cutout's decontaminated foreground in place of the layer's colour, keeping the layer's alpha.
 // Both are straight alpha and share the layer's uv.
 constexpr const char *kForegroundSwapFragShader = R"(#version 330 core
@@ -464,6 +482,34 @@ GlTarget unpremultipliedCopy(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GlT
         program->setUniformValue("u_currentTexture", 0);
         gl->glActiveTexture(GL_TEXTURE0);
         gl->glBindTexture(GL_TEXTURE_2D, canvas.texture());
+        bindQuad(rt, gl);
+        program->release();
+        out.fbo->release();
+    }
+    return out;
+}
+
+// `straight` (a straight-alpha canvas) cut by the matte canvas `matte`, as a new target.
+GlTarget applyTrackMatte(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GlTarget &straight, const GlTarget &matte,
+                         int mode)
+{
+    QOpenGLShaderProgram *program = rt.builtinProgram(QStringLiteral("__track_matte__"), kQuadVertexShader,
+                                                      kTrackMatteFragShader);
+    if (!program)
+        return {};
+    GlTarget out = rt.acquireTarget(straight.width, straight.height);
+    if (out.isValid()) {
+        out.fbo->bind();
+        gl->glViewport(0, 0, out.width, out.height);
+        gl->glDisable(GL_BLEND);
+        program->bind();
+        program->setUniformValue("u_currentTexture", 0);
+        program->setUniformValue("u_matte", 1);
+        program->setUniformValue("u_mode", float(mode));
+        gl->glActiveTexture(GL_TEXTURE1);
+        gl->glBindTexture(GL_TEXTURE_2D, matte.texture());
+        gl->glActiveTexture(GL_TEXTURE0);
+        gl->glBindTexture(GL_TEXTURE_2D, straight.texture());
         bindQuad(rt, gl);
         program->release();
         out.fbo->release();
@@ -622,6 +668,114 @@ GlTarget mixByCoverage(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget untouc
 }
 
 // `modelDepth`: for a model layer that takes part in depth occlusion, its packed depth.
+// After Effects' lights (0.26), in the layer's own texture: each texel is a point of the layer's
+// plane in the world, so it is lit where it really stands, whatever the camera does after. The
+// face toward the eye is the one lit (a light behind the layer does not reach it), as in AE.
+constexpr const char *kLightingFragShader = R"(#version 330 core
+in vec2 v_texCoord;
+out vec4 fragColor;
+uniform sampler2D u_currentTexture;
+uniform mat4 u_worldQuad;
+uniform vec3 u_eye;
+uniform int u_lightCount;
+uniform vec4 u_lightPos[8];   // xyz, kind
+uniform vec4 u_lightDir[8];   // xyz, falloff distance
+uniform vec4 u_lightColor[8]; // rgb times intensity, falloff radius
+uniform vec2 u_lightCone[8];  // cos of the cone edge, cos where the feather starts
+void main() {
+    vec4 c = texture(u_currentTexture, v_texCoord);
+    if (c.a <= 0.0001) {
+        fragColor = c;
+        return;
+    }
+    vec3 p = (u_worldQuad * vec4(v_texCoord * 2.0 - 1.0, 0.0, 1.0)).xyz;
+    vec3 n = normalize(cross(u_worldQuad[0].xyz, u_worldQuad[1].xyz));
+    vec3 v = normalize(u_eye - p);
+    if (dot(n, v) < 0.0)
+        n = -n;
+    vec3 ambient = vec3(0.0);
+    vec3 diffuse = vec3(0.0);
+    vec3 specular = vec3(0.0);
+    for (int i = 0; i < 8; ++i) {
+        if (i >= u_lightCount)
+            break;
+        int kind = int(u_lightPos[i].w + 0.5);
+        vec3 color = u_lightColor[i].rgb;
+        if (kind == 4) {
+            ambient += color;
+            continue;
+        }
+        vec3 l;
+        float strength = 1.0;
+        if (kind == 3) {
+            l = normalize(-u_lightDir[i].xyz);
+        } else {
+            vec3 d = u_lightPos[i].xyz - p;
+            float dist = max(length(d), 0.0001);
+            l = d / dist;
+            float radius = u_lightColor[i].w;
+            float fade = u_lightDir[i].w;
+            if (fade > 0.0)
+                strength *= 1.0 - smoothstep(radius, radius + fade, dist);
+            else if (radius > 0.0)
+                strength *= step(dist, radius);
+        }
+        if (kind == 2) {
+            float along = dot(-l, normalize(u_lightDir[i].xyz));
+            strength *= smoothstep(u_lightCone[i].x, max(u_lightCone[i].y, u_lightCone[i].x + 0.0001), along);
+        }
+        float ndl = max(dot(n, l), 0.0);
+        diffuse += color * ndl * strength;
+        vec3 h = normalize(l + v);
+        specular += color * pow(max(dot(n, h), 0.0), 24.0) * strength * step(0.0001, ndl);
+    }
+    vec3 lit = c.rgb * (ambient + diffuse) + specular * 0.3 * c.a;
+    fragColor = vec4(lit, c.a);
+}
+)";
+
+GlTarget applyLighting(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget source, const GpuLayer &layer)
+{
+    QOpenGLShaderProgram *program =
+        rt.builtinProgram(QStringLiteral("__layer_lights__"), kQuadVertexShader, kLightingFragShader);
+    if (!program || !source.isValid())
+        return source;
+    GlTarget out = rt.acquireTarget(source.width, source.height);
+    if (!out.isValid())
+        return source;
+    QVector4D pos[8];
+    QVector4D dir[8];
+    QVector4D color[8];
+    QVector2D cone[8];
+    const int count = int(qMin<qsizetype>(8, layer.lights.size()));
+    for (int i = 0; i < count; ++i) {
+        const GpuLight &light = layer.lights.at(i);
+        pos[i] = QVector4D(light.position, float(light.kind));
+        dir[i] = QVector4D(light.direction, light.falloff);
+        color[i] = QVector4D(light.color, light.radius);
+        cone[i] = QVector2D(light.cosOuter, light.cosInner);
+    }
+    out.fbo->bind();
+    gl->glViewport(0, 0, out.width, out.height);
+    gl->glDisable(GL_BLEND);
+    program->bind();
+    program->setUniformValue("u_currentTexture", 0);
+    program->setUniformValue("u_worldQuad", layer.worldQuad);
+    program->setUniformValue("u_eye", layer.eye);
+    program->setUniformValue("u_lightCount", count);
+    program->setUniformValueArray("u_lightPos", pos, 8);
+    program->setUniformValueArray("u_lightDir", dir, 8);
+    program->setUniformValueArray("u_lightColor", color, 8);
+    program->setUniformValueArray("u_lightCone", cone, 8);
+    gl->glActiveTexture(GL_TEXTURE0);
+    gl->glBindTexture(GL_TEXTURE_2D, source.texture());
+    bindQuad(rt, gl);
+    program->release();
+    out.fbo->release();
+    rt.releaseTarget(std::move(source));
+    return out;
+}
+
 GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLayer &layer,
                           const QSize &canvasSize, GlTarget *modelDepth = nullptr)
 {
@@ -658,6 +812,26 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
     if (!target.isValid())
         return {};
 
+
+    // Room for effects that draw past the box (0.26): the picture in the middle of a larger,
+    // transparent texture, which the scene's rect already covers.
+    if (layer.padFractionX > 0.0 || layer.padFractionY > 0.0) {
+        const int padX = qMax(1, int(std::lround(target.width * layer.padFractionX)));
+        const int padY = qMax(1, int(std::lround(target.height * layer.padFractionY)));
+        GlTarget grown = rt.acquireTarget(target.width + 2 * padX, target.height + 2 * padY);
+        if (grown.isValid()) {
+            grown.fbo->bind();
+            gl->glViewport(0, 0, grown.width, grown.height);
+            gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+            gl->glClear(GL_COLOR_BUFFER_BIT);
+            grown.fbo->release();
+            QOpenGLFramebufferObject::blitFramebuffer(grown.fbo.get(), QRect(padX, padY, target.width, target.height),
+                                                      target.fbo.get(), QRect(0, 0, target.width, target.height),
+                                                      GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            rt.releaseTarget(std::move(target));
+            target = std::move(grown);
+        }
+    }
     // A lone cutout's foreground only means anything while the cutout still cuts the layer.
     if (!layer.fgr.isNull() && !chainConsumesMasks(layer) && soleMediaIndex(layer) >= 0)
         target = swapInForeground(rt, gl, std::move(target), layer.fgr);
@@ -709,6 +883,13 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
             return;
 
         QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+        // Texture px per project px: sizes given in project px look the same at any preview scale.
+        if (layer.rect.width() > 0.5)
+            params.insert(QStringLiteral("u_unitPx"), double(target.width) / layer.rect.width() * layer.renderScale);
+        // The room a padded layer was given (0.26), as a fraction of the grown texture on each side,
+        // so an effect can find the layer's own box inside it (the puppet's pins are on that box).
+        params.insert(QStringLiteral("u_padX"), layer.padFractionX / (1.0 + 2.0 * layer.padFractionX));
+        params.insert(QStringLiteral("u_padY"), layer.padFractionY / (1.0 + 2.0 * layer.padFractionY));
         if (def->needsFace)
             drift::applyFaceUniforms(&params, layer.faceSlots);
         if (def->needsPose)
@@ -767,6 +948,8 @@ GlTarget buildLayerTarget(GlRuntime &rt, QOpenGLExtraFunctions *gl, const GpuLay
         GlTarget coverage = composeMaskTarget(rt, gl, layer, target.size());
         target = mixByCoverage(rt, gl, std::move(untouched), std::move(target), std::move(coverage));
     }
+    if (layer.lit && !layer.lights.isEmpty())
+        target = applyLighting(rt, gl, std::move(target), layer);
     return target;
 }
 
@@ -1666,6 +1849,71 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
                 if (lostVideo && item.layer.valid && item.layer.video.isValid())
                     *lostVideo = true;
                 continue;
+            }
+            if (!item.layer.motionSamples.isEmpty() || item.matteMode > 0) {
+                // Motion blur and the track matte both need the layer on a canvas of its own: the
+                // blur averages it there over the shutter (additive at 1/N), the matte cuts it.
+                // The result is placed like a transition's mixed one.
+                GlTarget accum = rt.acquireTarget(canvasSize.width(), canvasSize.height());
+                if (accum.isValid()) {
+                    accum.fbo->bind();
+                    gl->glViewport(0, 0, accum.width, accum.height);
+                    gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+                    gl->glClear(GL_COLOR_BUFFER_BIT);
+                    accum.fbo->release();
+                    GpuLayer sub = item.layer;
+                    sub.depthOcclude = false;
+                    if (item.layer.motionSamples.isEmpty()) {
+                        sub.opacity = 1.0;
+                        drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal, canvasSize);
+                    } else {
+                        sub.opacity = 1.0 / double(item.layer.motionSamples.size());
+                        for (const GpuLayer::MotionSample &sample : item.layer.motionSamples) {
+                            sub.rect = sample.rect;
+                            sub.rotation = sample.rotation;
+                            sub.parent = sample.parent;
+                            sub.hasParent = sample.hasParent;
+                            drawLayerOnCanvas(rt, gl, accum, layerTarget, sub, drift::BlendMode::Normal,
+                                              canvasSize, nullptr, CanvasWrite::Add);
+                        }
+                    }
+                    GlTarget straight = unpremultipliedCopy(rt, gl, accum);
+                    rt.releaseTarget(std::move(accum));
+                    if (straight.isValid() && item.matteMode > 0) {
+                        // The matte as it would draw, alone on a canvas; nothing on screen = empty.
+                        GlTarget matte;
+                        if (item.matte && item.matte->valid)
+                            matte = renderIsolatedLayer(rt, gl, *item.matte, canvasSize);
+                        if (!matte.isValid()) {
+                            matte = rt.acquireTarget(canvasSize.width(), canvasSize.height());
+                            if (matte.isValid()) {
+                                matte.fbo->bind();
+                                gl->glViewport(0, 0, matte.width, matte.height);
+                                gl->glClearColor(0.f, 0.f, 0.f, 0.f);
+                                gl->glClear(GL_COLOR_BUFFER_BIT);
+                                matte.fbo->release();
+                            }
+                        }
+                        if (matte.isValid()) {
+                            GlTarget cut = applyTrackMatte(rt, gl, straight, matte, item.matteMode);
+                            rt.releaseTarget(std::move(matte));
+                            if (cut.isValid()) {
+                                rt.releaseTarget(std::move(straight));
+                                straight = std::move(cut);
+                            }
+                        }
+                    }
+                    if (straight.isValid()) {
+                        GpuLayer full;
+                        full.valid = true;
+                        full.rect = QRectF(0, 0, canvasSize.width(), canvasSize.height());
+                        full.opacity = item.layer.opacity;
+                        drawLayerOnCanvas(rt, gl, canvas, straight, full, item.blend, canvasSize);
+                        rt.releaseTarget(std::move(straight));
+                    }
+                    rt.releaseTarget(std::move(layerTarget));
+                    continue;
+                }
             }
             OcclusionDraw occlusion;
             if (const auto it = depthCanvases.find(item.layer.occluderItem);

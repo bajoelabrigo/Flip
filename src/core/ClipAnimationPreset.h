@@ -94,6 +94,10 @@ private:
     mutable QList<ClipAnimationPreset> m_presets;
 };
 
+// [[t, v, "ease"], …], [{"t","v","ease"}, …] or a bare number (constant); the Squash & Stretch
+// animations (0.26) write their curves the same way.
+ClipAnimTrack clipAnimTrackFromJson(const QJsonValue &v);
+
 // Adds the preset's pose at `progress` to `sample`. `boxW` / `boxH` are the clip's box in render
 // px; `shortSidePx` scales the 1080-frame blur.
 void applyClipAnimationPreset(const ClipAnimationPreset &preset, double progress, double boxW, double boxH,

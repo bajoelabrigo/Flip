@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <QPointF>
+#include <QColor>
 
 #include "BlendMode.h"
 #include "ClipAnimation.h"
@@ -23,6 +24,7 @@
 #include <QList>
 #include <QPointF>
 #include <QString>
+#include <QTransform>
 
 namespace drift {
 
@@ -110,6 +112,10 @@ struct Clip
     // On a text clip it marks the text the panel offers to edit. Saved only when set.
     QString placeholderId;
     QString placeholderLabel;
+    // After Effects' Essential Graphics (0.26): this clip's properties offered as controls on the
+    // composition that holds it ("content", "textColor", "x", "y", "rotation", "opacity",
+    // "text.pixelSize"). Saved only when set.
+    QStringList essentialProps;
     // The slot still shows the template's stand-in picture rather than the user's media.
     bool placeholderEmpty = false;
     // A scene template's brand mark (My brand kit): "logo" on a media slot takes the logo;
@@ -121,6 +127,42 @@ struct Clip
     bool suppressEmbeddedAudio = false;
     // An After Effects Solid (0.25): a shape made by «Solid…», which keeps its Solid settings.
     bool isSolid = false;
+    // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
+    // there to be a parent the other layers follow.
+    bool nullObject = false;
+    // After Effects' Light layers (0.26): on a null-like clip (it never paints), it lights the 3D
+    // layers that accept lights. Kind 0 = not a light; 1 point, 2 spot, 3 parallel, 4 ambient. The
+    // light sits at the clip's centre and depth; a spot or a parallel light aims at the frame's
+    // centre, turned by the clip's X/Y tilts. The clip's opacity scales the intensity, so a light
+    // fades and keys like any layer. Lengths are project px.
+    struct Light
+    {
+        int kind = 0;
+        QColor color = QColor(255, 246, 232);
+        double intensity = 100.0;    // percent
+        double coneAngle = 90.0;     // spot: the whole cone, degrees
+        double coneFeather = 50.0;   // spot: percent of the cone that fades out
+        double falloffRadius = 0.0;  // full strength up to here (0 with no distance = no falloff)
+        double falloffDistance = 0.0; // then fades to nothing over this
+    };
+    Light light;
+    // A 3D layer's material option, as in After Effects: lights change it. On by default.
+    bool acceptsLights = true;
+    // After Effects' Parent (0.26): the clip whose motion this one follows, anywhere on the same
+    // timeline; empty for none. `parentRest` is the parent's world pose (unit box centred on the
+    // origin → project px, see engine/TransformLayer.h) when the link was made, so linking never
+    // moves the clip: it follows only what the parent does from there.
+    QString parentId;
+    QTransform parentRest;
+    // After Effects' Motion Blur switch (0.26): the frame is averaged over the shutter the project
+    // sets (Project::motionBlurShutterDeg / motionBlurSamples) while the clip moves.
+    bool motionBlur = false;
+    // After Effects' Track Matte (0.26): this clip shows only where `matteClipId` (any clip on
+    // the same timeline) covers it, by its alpha or its luma, straight or inverted. The matte
+    // clip itself is not drawn while it is one. Empty id = no matte.
+    enum class TrackMatte { None, Alpha, AlphaInverted, Luma, LumaInverted };
+    TrackMatte matteMode = TrackMatte::None;
+    QString matteClipId;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a
@@ -282,6 +324,36 @@ struct Clip
     // Rendering shifts the box by anchorShift() so the turn pivots there.
     KeyframeTrack<double> anchorX;
     KeyframeTrack<double> anchorY;
+    // After Effects' Time Remap (0.26): with keys, which second of the clip's material (counted
+    // from srcIn) shows at each moment, replacing speed, curves and reverse while it has keys.
+    // Key times relative to the clip's start, like every other track.
+    KeyframeTrack<double> timeRemap;
+    // After Effects' Auto-Orient along path (0.26): the clip turns to face the way Position moves,
+    // added to its own Rotation.
+    bool autoOrient = false;
+
+    // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
+    double autoOrientDegrees(TimeUs relative) const
+    {
+        if (!autoOrient || (transformX.keyframes().size() < 2 && transformY.keyframes().size() < 2))
+            return 0.0;
+        constexpr TimeUs step = 5000;
+        const auto at = [this](TimeUs t) {
+            const double w = transformW.isEmpty() ? 0.0 : transformW.evaluateAt(t);
+            const double h = transformH.isEmpty() ? 0.0 : transformH.evaluateAt(t);
+            return QPointF((transformX.isEmpty() ? 0.0 : transformX.evaluateAt(t)) + w / 2.0,
+                           (transformY.isEmpty() ? 0.0 : transformY.evaluateAt(t)) + h / 2.0);
+        };
+        QPointF d = at(relative + step) - at(qMax<TimeUs>(0, relative - step));
+        // Standing still at an end: face the way it last moved (or will move).
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            d = at(relative) - at(qMax<TimeUs>(0, relative - 4 * step));
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            d = at(relative + 4 * step) - at(relative);
+        if (qAbs(d.x()) + qAbs(d.y()) < 1e-6)
+            return 0.0;
+        return std::atan2(d.y(), d.x()) * 180.0 / 3.14159265358979323846;
+    }
 
     // How far the box moves so that turning `rotationDeg` pivots on the anchor instead of the
     // centre, for a box w × h (project px) at clip time `relative`: a − R·a, with a the anchor
@@ -321,6 +393,11 @@ struct Clip
     TimeUs timelineToSourceUs(TimeUs timelineUs) const
     {
         const TimeUs rel = qBound(TimeUs{0}, timelineUs - timelineStart, timelineDuration);
+        if (!timeRemap.isEmpty() && timeRemap.enabled()) {
+            const TimeUs range = qMax<TimeUs>(0, srcOut - srcIn);
+            const TimeUs at = static_cast<TimeUs>(llround(timeRemap.evaluateAt(rel) * 1e6));
+            return srcIn + (range > 0 ? qBound(TimeUs{0}, at, range) : qMax<TimeUs>(0, at));
+        }
         const TimeUs offset =
             hasSpeedCurve() ? speedCurve.sourceOffsetForTimelineOffset(rel, srcOut - srcIn)
                             : sourceDeltaForTimelineDelta(rel);

@@ -10,6 +10,9 @@ ScrollBar {
 
     padding: 2
     hoverEnabled: true
+    // A handle you can always see and grab: on a long content (the timeline at 80x) it shrank
+    // to a sliver and the bar looked gone (Jorge, 0.26).
+    minimumSize: 0.06
 
     contentItem: Rectangle {
         implicitWidth: control.interactive ? 8 : 2

@@ -1,0 +1,103 @@
+{
+  "id": "squash.deform",
+  "displayName": "Squash & Stretch",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 940,
+  "description": "Squashes and stretches the layer like rubber from a ground edge that stays put: its height, the width at the base and at the top, how far the top leans, bends and bulges. The Squash & Stretch animations key it; it can also be keyed by hand.",
+  "padding": {
+    "percentParams": [
+      "zoom",
+      "stretch",
+      "groundWidth",
+      "farWidth",
+      "shear",
+      "bend",
+      "bulge"
+    ],
+    "extra": 8
+  },
+  "parameters": [
+    {
+      "identifier": "zoom",
+      "displayName": "Zoom (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 300,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "stretch",
+      "displayName": "Stretch (%)",
+      "type": "float",
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "groundWidth",
+      "displayName": "Base width (%)",
+      "type": "float",
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "farWidth",
+      "displayName": "Top width (%)",
+      "type": "float",
+      "minValue": -90,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "shear",
+      "displayName": "Lean (%)",
+      "type": "float",
+      "minValue": -200,
+      "maxValue": 200,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "bend",
+      "displayName": "Bend (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 100,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "bulge",
+      "displayName": "Bulge (%)",
+      "type": "float",
+      "minValue": -100,
+      "maxValue": 100,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "ground",
+      "displayName": "Ground (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 100
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

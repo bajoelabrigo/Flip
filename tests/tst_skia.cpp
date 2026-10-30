@@ -294,6 +294,9 @@ private slots:
     void shapeTrimAndDashRemoveMass();
     void shapeShadowOffsetsSilhouette();
     void keyframedShapeStrokeGrowsOverTime();
+    void shapeTrimPathsDrawsPartOfTheOutline();
+    void shapeRepeaterDrawsCopies();
+    void shapeWigglePathsMovesTheOutline();
     void compositorDrawsShapeThroughSkia();
     void textPainterCacheKeys();
     void keyframedTextGrowsOverTime();
@@ -593,6 +596,74 @@ void SkiaTest::allShapeKindsRasterize()
     // Nothing touches the outermost pixel ring: the bleed is wide enough.
     QCOMPARE(massInside(image, QRect(0, 0, image.width(), 1)), 0.0);
     QCOMPARE(massInside(image, QRect(0, image.height() - 1, image.width(), 1)), 0.0);
+}
+
+// After Effects' Trim Paths (0.26): half the outline leaves about half the ink of the stroke, the
+// offset moves which half, and the shape operators survive a save.
+void SkiaTest::shapeTrimPathsDrawsPartOfTheOutline()
+{
+    ShapeStyle style = shapeStyleWith(ShapeKind::Rectangle, QColor(0, 0, 0, 0), 6.0, Qt::white);
+    style.layers[0].enabled = false; // stroke only
+    const QImage whole = rasterShape(style, 100, 100);
+    style.trimEnd = 50.0;
+    const QImage half = rasterShape(style, 100, 100);
+    const double all = massInside(whole, whole.rect());
+    const double part = massInside(half, half.rect());
+    QVERIFY2(part > all * 0.35 && part < all * 0.65, qPrintable(QStringLiteral("%1 of %2").arg(part).arg(all)));
+    // Offset 180° is the other half: together they cover what the whole outline does.
+    style.trimOffset = 180.0;
+    const QImage other = rasterShape(style, 100, 100);
+    QVERIFY(massInside(other, other.rect()) > all * 0.35);
+    QVERIFY(other != half);
+    // Start = End draws nothing.
+    style.trimStart = 50.0;
+    QCOMPARE(massInside(rasterShape(style, 100, 100), QRect(0, 0, 400, 400)), 0.0);
+
+    const ShapeStyle back = shapeStyleFromJson(shapeStyleToJson(style));
+    QCOMPARE(back.trimStart, 50.0);
+    QCOMPARE(back.trimEnd, 50.0);
+    QCOMPARE(back.trimOffset, 180.0);
+    // A shape without operators saves none of their keys.
+    QVERIFY(!shapeStyleToJson(shapeStyleWith(ShapeKind::Rectangle, Qt::red)).contains(QStringLiteral("trimEnd")));
+}
+
+// The repeater (0.26): three copies 120 px apart widen the painter and triple the ink, and the
+// copies fade from the start to the end opacity.
+void SkiaTest::shapeRepeaterDrawsCopies()
+{
+    ShapeStyle style = shapeStyleWith(ShapeKind::Rectangle, Qt::red, 0.0);
+    const skia::ShapePainterResult one = skia::makeShapePainter(style, 100, 100, 1.0, 0.0);
+    style.repeatCopies = 3.0;
+    style.repeatX = 120.0;
+    const skia::ShapePainterResult three = skia::makeShapePainter(style, 100, 100, 1.0, 0.0);
+    QVERIFY(three.painter->size().width() >= one.painter->size().width() + 240);
+    const QImage a = skia::SkiaRuntime::rasterize(*one.painter);
+    const QImage b = skia::SkiaRuntime::rasterize(*three.painter);
+    const double inkOne = massInside(a, a.rect());
+    const double inkThree = massInside(b, b.rect());
+    QVERIFY2(qAbs(inkThree - 3.0 * inkOne) < inkOne * 0.05, qPrintable(QStringLiteral("%1 vs %2").arg(inkThree).arg(inkOne)));
+    style.repeatEndOpacity = 0.0;
+    const QImage faded = skia::SkiaRuntime::rasterize(*skia::makeShapePainter(style, 100, 100, 1.0, 0.0).painter);
+    QVERIFY(massInside(faded, faded.rect()) < inkThree * 0.7);
+}
+
+// Wiggle Paths (0.26): the outline moves off the box, differently from one second to the next
+// when it has a speed, and not at all while its size is 0.
+void SkiaTest::shapeWigglePathsMovesTheOutline()
+{
+    ShapeStyle style = shapeStyleWith(ShapeKind::Ellipse, Qt::red, 0.0);
+    const QImage still = rasterShape(style, 100, 100);
+    style.wiggleSize = 8.0;
+    style.wiggleDetail = 10.0;
+    style.wiggleSpeed = 2.0;
+    const QImage at0 = rasterShape(style, 100, 100, 1.0, 0.0);
+    const QImage at1 = rasterShape(style, 100, 100, 1.0, 0.3);
+    QVERIFY(at0 != at1);
+    QVERIFY(at0.size() != still.size()); // the wiggle's reach is in the bleed
+    QVERIFY(shapeTimeDrivenPaint(style));
+    style.wiggleSpeed = 0.0;
+    QVERIFY(!shapeTimeDrivenPaint(style));
+    QCOMPARE(rasterShape(style, 100, 100, 1.0, 0.0), rasterShape(style, 100, 100, 1.0, 0.7));
 }
 
 void SkiaTest::shapePainterCacheKey()

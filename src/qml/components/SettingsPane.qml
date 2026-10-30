@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
 import Drift
+import "assets"
 
 // Every editor and app preference, in one scrolling pane: the editor, then the app.
 // Hosted by SettingsDialog; it used to be a tab in the assets panel's rail.
@@ -16,6 +17,12 @@ Item {
     // Natural height of the whole list, so the dialog can size itself to the content
     // and cap it at what fits on screen instead of guessing.
     readonly property real contentHeight: flick.contentHeight
+    // Preferences (0.26): the page shown, as After Effects' list on the left; empty shows every
+    // section in one list (the phone).
+    property string page: ""
+    readonly property var defaults: EditorState.preferences.editorDefaults
+    function setDefault(key, value) { EditorState.preferences.setEditorDefault(key, value) }
+    onPageChanged: flick.contentY = 0
 
     Flickable {
         id: flick
@@ -28,6 +35,8 @@ Item {
 
         Column {
             id: settingsColumn
+            // Read by every SettingsSection (0.26 Preferences pages).
+            property string shownPage: root.page
             x: Theme.pagePadding
             width: parent.width - Theme.pagePadding * 2
             spacing: Theme.spacingXl
@@ -37,7 +46,13 @@ Item {
             component SettingsSection: Rectangle {
                 id: section
                 property string title: ""
+                // The Preferences page this section belongs to.
+                property string page: ""
+                // An inline component cannot see the file's ids: the page comes from the column.
+                readonly property string shownPage: parent && parent.shownPage !== undefined ? parent.shownPage : ""
+                readonly property bool pageMatches: shownPage === "" || shownPage === section.page
                 default property alias content: body.data
+                visible: pageMatches
 
                 width: parent ? parent.width : 0
                 implicitHeight: cardCol.implicitHeight
@@ -78,8 +93,209 @@ Item {
                 }
             }
 
+            // ----- Preferences pages new in 0.26 ------------------------------------------------
+            SettingsSection {
+                title: qsTr("Colour and theme")
+                page: "appearance"
+
+                ThemedLabel { text: qsTr("Mode") }
+                ThemedComboBox {
+                    width: parent.width
+                    model: [qsTr("Dark"), qsTr("Light")]
+                    currentIndex: Theme.darkMode ? 0 : 1
+                    onActivated: index => Theme.setDarkMode(index === 0)
+                }
+                ThemedLabel { text: qsTr("Accent colour") }
+                ThemedComboBox {
+                    width: parent.width
+                    model: Theme.colorThemes.map(t => t.label)
+                    currentIndex: Math.max(0, Theme.colorThemes.findIndex(t => t.id === Theme.colorThemeDef.id))
+                    onActivated: index => Theme.setColorTheme(Theme.colorThemes[index].id)
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("New layers")
+                page: "newproject"
+
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("How long a layer lasts when you put it on the timeline, as After Effects' Still footage duration.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingMd
+                    Column {
+                        width: (parent.width - parent.spacing) / 2
+                        spacing: 2
+                        ThemedLabel { text: qsTr("Photos, shapes and solids") }
+                        ThemedNumberField {
+                            width: parent.width
+                            from: 0.1
+                            to: 600
+                            decimals: 1
+                            step: 0.5
+                            unit: "s"
+                            value: Number(root.defaults.stillSeconds)
+                            onEdited: v => root.setDefault("stillSeconds", v)
+                        }
+                    }
+                    Column {
+                        width: (parent.width - parent.spacing) / 2
+                        spacing: 2
+                        ThemedLabel { text: qsTr("Texts") }
+                        ThemedNumberField {
+                            width: parent.width
+                            from: 0.1
+                            to: 600
+                            decimals: 1
+                            step: 0.5
+                            unit: "s"
+                            value: Number(root.defaults.textSeconds)
+                            onEdited: v => root.setDefault("textSeconds", v)
+                        }
+                    }
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("Keyframes")
+                page: "timeline"
+
+                ThemedLabel { text: qsTr("New keyframes are") }
+                ThemedComboBox {
+                    width: parent.width
+                    readonly property var ids: ["linear", "ease", "hold"]
+                    model: [qsTr("Straight (linear)"), qsTr("Smooth (Easy Ease)"), qsTr("Hold")]
+                    currentIndex: Math.max(0, ids.indexOf(String(root.defaults.keyInterpolation)))
+                    onActivated: index => root.setDefault("keyInterpolation", ids[index])
+                }
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("You can always change a key afterwards from its menu (Straight, Smooth, Hold, Keyframe velocity…).")
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("Preview tools")
+                page: "tools"
+
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Show the tools bar above the preview")
+                    checked: root.defaults.previewToolbar === true
+                    onToggled: root.setDefault("previewToolbar", checked)
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Safe zones on from the start")
+                    checked: root.defaults.safeZones === true
+                    onToggled: {
+                        root.setDefault("safeZones", checked)
+                        EditorState.preview.safeZones = checked
+                    }
+                }
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("Shapes and the pen use the fill, stroke and width last chosen on the tools bar; they are remembered between sessions.")
+                }
+                ThemedLabel { text: qsTr("Stroke width for new shapes") }
+                ThemedNumberField {
+                    width: parent.width
+                    from: 0
+                    to: 200
+                    unit: "px"
+                    value: Number(root.defaults.toolStrokeWidth)
+                    onEdited: v => {
+                        root.setDefault("toolStrokeWidth", v)
+                        EditorState.preview.toolStrokeWidth = v
+                    }
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("Saving and undo")
+                page: "saving"
+
+                ThemedLabel { text: qsTr("Save a recovery copy every") }
+                ThemedNumberField {
+                    width: parent.width
+                    from: 5
+                    to: 3600
+                    step: 5
+                    unit: "s"
+                    value: Number(root.defaults.autosaveSeconds)
+                    onEdited: v => root.setDefault("autosaveSeconds", Math.round(v))
+                }
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("If Flip Studio closes unexpectedly, it offers this copy the next time it opens.")
+                }
+                ThemedLabel { text: qsTr("Levels of undo") }
+                ThemedNumberField {
+                    width: parent.width
+                    from: 10
+                    to: 500
+                    step: 10
+                    value: Number(root.defaults.undoLevels)
+                    onEdited: v => root.setDefault("undoLevels", Math.round(v))
+                }
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("More levels use more memory. The new number applies from the next project you open.")
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("Keyboard shortcuts")
+                page: "shortcuts"
+
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("Every action can take another key: the tools bar (V, H, Z, Y, P…), the keyframes (Shift+J / Shift+K, U), the timeline and the menus.")
+                }
+                ShortcutsTab {
+                    width: parent.width
+                    height: 380
+                    panelDriven: false
+                }
+            }
+
+            SettingsSection {
+                title: qsTr("Restore")
+                page: "general"
+
+                ThemedButton {
+                    text: qsTr("Restore the editing defaults")
+                    variant: "secondary"
+                    onClicked: {
+                        EditorState.preferences.resetEditorDefaults()
+                        EditorState.preview.safeZones = false
+                    }
+                }
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    opacity: 0.8
+                    text: qsTr("Durations, keyframes, saving, undo and the preview tools go back to how they came. Your account, language and devices are not touched.")
+                }
+            }
+
             SettingsSection {
                 title: qsTr("Preview")
+                page: "preview"
 
                 ThemedSwitch {
                     checked: EditorState.preview.guidesEnabled
@@ -250,6 +466,7 @@ Item {
 
             SettingsSection {
                 title: qsTr("Playback")
+                page: "audio"
 
                 ThemedLabel {
                     text: qsTr("Audio output")
@@ -296,6 +513,7 @@ Item {
 
             SettingsSection {
                 title: qsTr("Interface")
+                page: "appearance"
 
                 ThemedLabel {
                     text: qsTr("Size")
@@ -426,7 +644,8 @@ Item {
             SettingsSection {
                 id: accountSection
                 title: qsTr("Account")
-                visible: Account.available || UsageStats.available
+                page: "account"
+                visible: pageMatches && (Account.available || UsageStats.available)
 
                 property bool confirmingDelete: false
 
@@ -580,6 +799,7 @@ Item {
 
             SettingsSection {
                 title: qsTr("App")
+                page: "general"
 
                 ThemedSwitch {
                     checked: EditorState.preferences.reopenLastProject
@@ -698,6 +918,7 @@ Item {
             // sent to either until the key is set and the matching switch is on.
             SettingsSection {
                 title: qsTr("Cloud providers")
+                page: "cloud"
 
                 ThemedLabel {
                     width: parent.width

@@ -47,11 +47,26 @@ PanelFrame {
     border.width: previewFullscreen ? 0 : 1
     radius: previewFullscreen ? 0 : Theme.radiusSm
 
+    // After Effects' Tools panel (0.26), above the picture; fullscreen is for watching.
+    PreviewToolbar {
+        id: toolbar
+        anchors.top: parent.top
+        anchors.topMargin: 1
+        anchors.left: parent.left
+        anchors.leftMargin: 1
+        anchors.right: parent.right
+        anchors.rightMargin: 1
+        height: visible ? implicitHeight : 0
+        visible: !root.previewFullscreen && !root.mobile
+                 && EditorState.preferences.editorDefaults.previewToolbar !== false
+        z: 2
+    }
+
     Item {
         id: viewportOuter
-        anchors.top: parent.top
+        anchors.top: toolbar.bottom
         width: parent.width
-        height: root.previewFullscreen ? parent.height : parent.height - bottomBar.height
+        height: root.previewFullscreen ? parent.height : parent.height - bottomBar.height - toolbar.height
         clip: true
 
         PreviewViewport {
@@ -60,7 +75,8 @@ PanelFrame {
             // The inset is also the gutter the transform grips overflow into when a clip sits
             // flush against a canvas edge — viewportOuter clips, so a zero margin would shear
             // the bottom handles in half. Fullscreen is for watching, so the frame fills it.
-            anchors.margins: root.previewFullscreen ? 0 : Theme.spacingLg
+            anchors.margins: root.previewFullscreen ? 0 : rulers.visible ? rulers.rulerPx + Theme.spacingSm
+                                                                         : Theme.spacingLg
             mode3d: root.mode3d
 
             toolHost.tools: ({
@@ -87,6 +103,43 @@ PanelFrame {
                 z: -1
                 sourceComponent: root.mode3d ? mode3dView : mode2dView
             }
+        }
+
+        // After Effects' rulers (Ctrl+R, 0.26), and the guides dragged out of them.
+        PreviewRulers {
+            id: rulers
+            anchors.fill: parent
+            z: 4
+            visible: EditorState.preview.rulersVisible && !root.previewFullscreen && !root.mode3d
+                     && !root.mobile
+            viewport: panelViewport
+        }
+
+        // Hand and Zoom (0.26): over the whole viewport while either tool is on.
+        MouseArea {
+            anchors.fill: parent
+            z: 3
+            visible: EditorState.preview.tool === "hand" || EditorState.preview.tool === "zoom"
+            acceptedButtons: Qt.LeftButton
+            preventStealing: true
+            cursorShape: EditorState.preview.tool === "hand" ? (pressed ? Qt.ClosedHandCursor : Qt.OpenHandCursor)
+                                                             : Qt.CrossCursor
+            property point last
+            onPressed: mouse => last = Qt.point(mouse.x, mouse.y)
+            onPositionChanged: mouse => {
+                if (!pressed || EditorState.preview.tool !== "hand")
+                    return
+                panelViewport.panX += mouse.x - last.x
+                panelViewport.panY += mouse.y - last.y
+                last = Qt.point(mouse.x, mouse.y)
+            }
+            onClicked: mouse => {
+                if (EditorState.preview.tool !== "zoom")
+                    return
+                const p = mapToItem(panelViewport, mouse.x, mouse.y)
+                panelViewport.zoomAt(p.x, p.y, (mouse.modifiers & Qt.AltModifier) ? 1 / 1.5 : 1.5)
+            }
+            onDoubleClicked: panelViewport.resetView ? panelViewport.resetView() : undefined
         }
 
         PreviewOsd {

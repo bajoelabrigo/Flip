@@ -81,6 +81,60 @@ struct ShapeStyle
     QString customPath;
     bool customEvenOdd = false;
 
+    // After Effects' shape operators (0.26), over the whole outline, fill and strokes alike.
+    // Trim Paths: the part of the outline from trimStart to trimEnd (percent of its length),
+    // shifted by trimOffset degrees (360° = once round), wrapping as AE does.
+    double trimStart = 0.0;
+    double trimEnd = 100.0;
+    double trimOffset = 0.0;
+    // Trim-Pack's Equal-in / Equal-out (0.26): the outline cut into this many equal stretches, each
+    // trimmed from trimStart to trimEnd at once.
+    double trimSegments = 1.0;
+    // Trim-Pack's Reverse Path Direction (0.26): the trim runs round the outline the other way (1 = on).
+    double trimReverse = 0.0;
+    // Repeater: repeatCopies copies (rounded), the first at repeatOffset copies along, each one
+    // moved by (repeatX, repeatY) project px, turned repeatRotation degrees and scaled
+    // repeatScale percent from the one before, about the box centre; opacity runs from
+    // repeatStartOpacity on the first to repeatEndOpacity on the last (percent).
+    double repeatCopies = 1.0;
+    double repeatOffset = 0.0;
+    double repeatX = 0.0;
+    double repeatY = 0.0;
+    double repeatScale = 100.0;
+    double repeatRotation = 0.0;
+    double repeatStartOpacity = 100.0;
+    double repeatEndOpacity = 100.0;
+    // Wiggle Paths: the outline resampled every wiggleDetail px and each point pushed up to
+    // wiggleSize px along its normal by a smooth noise that moves wiggleSpeed times a second
+    // (0 = still), from wiggleSeed.
+    double wiggleSize = 0.0;
+    double wiggleDetail = 20.0;
+    double wiggleSpeed = 0.0;
+    double wiggleSeed = 0.0;
+    // More of After Effects' operators (0.26, stage G): Merge Paths between the outline's
+    // contours (0 off, 1 add, 2 subtract, 3 intersect, 4 exclude), Offset Paths (px, negative
+    // shrinks), Zig Zag (size px, ridges per contour, smooth 0/1) and Twist (degrees at the rim).
+    double mergeMode = 0.0;
+    double offsetPath = 0.0;
+    double zigzagSize = 0.0;
+    double zigzagRidges = 12.0;
+    double zigzagSmooth = 0.0;
+    double twistAngle = 0.0;
+    // Pucker & Bloat (0.26): percent, -100..100. Vertices towards the centre and handles away
+    // (positive, bloat) or the other way (negative, pucker), as After Effects.
+    double puckerBloat = 0.0;
+
+    // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
+    // each key, the index of that key's outline in pathShapes. Between two keys the outlines
+    // morph by how far the track has gone from one key's value to the next, so the track's own
+    // easing and handles shape the morph. Indices are unique per key; editing the path at a key
+    // replaces its entry.
+    QStringList pathShapes;
+
+    bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0 || qRound(trimSegments) > 1 || trimReverse > 0.5; }
+    bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
+    bool hasWiggle() const { return wiggleSize > 0.0; }
+
     // Keyed by shapeKeyframeProperties() names ("cornerRadius", "layer.<id>.<field>", …); times
     // are relative to the clip start.
     QMap<QString, KeyframeTrack<double>> keyframes;
@@ -103,6 +157,16 @@ QString shapeKeyframeCanonicalKey(const QString &key, const ShapeStyle &style);
 QString shapeKeyframeLabel(const QString &key, const ShapeStyle &style);
 bool shapeStyleScalar(const ShapeStyle &style, const QString &key, double *out);
 bool setShapeStyleScalar(ShapeStyle &style, const QString &key, double value);
+// The key of the animated path (0.26) and the outline it gives at clip time `clipTimeUs`, or the
+// static customPath when the path is not animated.
+inline constexpr char kShapePathKey[] = "path";
+QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs);
+// Puts `svg` on the path at clip time `clipTimeUs`: replaces the key there (within `toleranceUs`),
+// adds one, or, when the path is not animated, sets customPath.
+void setShapePathAt(ShapeStyle &style, TimeUs clipTimeUs, const QString &svg, TimeUs toleranceUs);
+// Starts animating the path with a key at `clipTimeUs` (stopwatch on), or stops: the outline at
+// that time stays as the static path.
+void setShapePathAnimated(ShapeStyle &style, bool on, TimeUs clipTimeUs);
 // Everything that changes pixels (render cache keys). Keyframes are not part of it.
 quint64 shapeStyleHash(const ShapeStyle &style);
 // A paint that moves on its own (gradient offsetSpeed, a time-driven shader effect).

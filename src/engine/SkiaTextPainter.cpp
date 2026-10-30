@@ -8,6 +8,7 @@
 #include "SkiaTextGeometry.h"
 #include "SkiaTextEffects.h"
 #include "SkiaVectorResources.h"
+#include "core/ShapePath.h"
 #include "core/TextAnimationPreset.h"
 
 #include <QCache>
@@ -15,6 +16,8 @@
 #include <QMutex>
 #include <QMap>
 #include <QMutexLocker>
+#include <QPainterPath>
+#include <QTransform>
 #include <QtMath>
 
 #include <algorithm>
@@ -25,6 +28,7 @@
 #include "include/core/SkBlurTypes.h"
 #include "include/core/SkCanvas.h"
 #include "include/core/SkColorFilter.h"
+#include "include/core/SkContourMeasure.h"
 #include "include/core/SkFont.h"
 #include "include/core/SkFontMgr.h"
 #include "include/core/SkImage.h"
@@ -74,6 +78,8 @@ struct Piece
     QPointF runCentre; // centre of the stretch's box, in output pixels
     double runOpacity = 1.0; // the letters' own opacity (0.24)
     bool runUnderline = false;
+    // Character Offset / Replace (0.26): a one-letter piece can be redrawn as another letter.
+    std::shared_ptr<const text::PieceGeometry> source;
 };
 
 struct BlockGeometry
@@ -115,6 +121,8 @@ std::shared_ptr<const BlockGeometry> geometryFor(const text::FragmentSet &set)
                 piece.emoji = SkTextBlob::MakeFromPosGlyphs(geometry.glyphs, geometry.positions, geometry.font);
             } else {
                 piece.glyphs = geometry.path;
+                if (geometry.text.size() == 1)
+                    piece.source = word.geometry;
             }
         }
         geometry->pieces.append(piece);
@@ -134,8 +142,36 @@ struct Bend
     bool up = true;
     QPointF centre;
 
+    // Text on a path (0.26): the outline the baseline follows, and where the line starts on it.
+    sk_sp<SkContourMeasure> contour;
+    double pathStart = 0.0;
+
     SkMatrix matrixFor(double x0, double baselineY) const
     {
+        if (contour) {
+            const double length = contour->length();
+            double d = (x0 - left) + pathStart;
+            double beyond = 0.0; // an open outline carries on straight past its ends
+            if (contour->isClosed()) {
+                d = std::fmod(d, length);
+                if (d < 0.0)
+                    d += length;
+            } else if (d < 0.0) {
+                beyond = d;
+                d = 0.0;
+            } else if (d > length) {
+                beyond = d - length;
+                d = length;
+            }
+            SkPoint pos{0, 0};
+            SkVector tan{1, 0};
+            contour->getPosTan(float(d), &pos, &tan);
+            pos += tan * float(beyond);
+            SkMatrix m = SkMatrix::Translate(pos.x(), pos.y());
+            m.preConcat(SkMatrix::RotateRad(std::atan2(tan.y(), tan.x())));
+            m.preConcat(SkMatrix::Translate(float(-x0), float(-baselineY)));
+            return m;
+        }
         const double d = (x0 - left) + (arcLen - width) / 2.0;
         const double phi = -sweep / 2.0 + d / radius;
         QPointF pos;
@@ -154,9 +190,44 @@ struct Bend
     }
 };
 
-Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, double renderScale)
+Bend bendFor(const QList<text::StyledWord> &words, const TextStyle &style, double renderScale, const QSizeF &box)
 {
     Bend bend;
+    // On an outline (0.26): the outline is drawn on 0..100 of the text box; the line keeps its
+    // alignment along it (left at the start, centred in the middle) plus the offset.
+    if (!style.pathSvg.isEmpty() && !words.isEmpty()) {
+        double left = words.first().cellRect.left();
+        double right = words.first().cellRect.right();
+        for (const text::StyledWord &word : words) {
+            if (word.line != words.first().line)
+                return bend; // multi-line blocks stay straight
+            left = qMin(left, word.cellRect.left());
+            right = qMax(right, word.cellRect.right());
+        }
+        QPainterPath outline;
+        if (!drift::parseSvgPathData(style.pathSvg, &outline) || outline.isEmpty())
+            return bend;
+        outline = QTransform::fromScale(box.width() / 100.0, box.height() / 100.0).map(outline);
+        // An outline that ends where it starts (a circle or a star from a shape layer comes without
+        // its close) is a loop: the letters go round it again instead of running off at the end.
+        const QPointF first(outline.elementAt(0).x, outline.elementAt(0).y);
+        const QPointF last = outline.currentPosition();
+        const bool loops = QLineF(first, last).length() < 0.5;
+        SkContourMeasureIter iter(toSkPath(outline), loops);
+        sk_sp<SkContourMeasure> contour = iter.next();
+        if (!contour || contour->length() < 1.0f)
+            return bend;
+        const double length = contour->length();
+        const double width = right - left;
+        const double alignShare = style.align == TextAlign::Center ? 0.5 : style.align == TextAlign::Right ? 1.0 : 0.0;
+        bend.active = true;
+        bend.left = left;
+        bend.width = width;
+        bend.baseline = words.first().baselineY;
+        bend.contour = std::move(contour);
+        bend.pathStart = (length - width) * alignShare + style.pathOffset / 100.0 * length;
+        return bend;
+    }
     // Around a circle: the line's own length is the arc, a share of the whole circumference, and
     // the ring is centred on the line's box, starting at the top (letters outward; inward when
     // bent down). A whole ring keeps a letter's gap where the end meets the start.
@@ -790,9 +861,58 @@ private:
                        piece.baselineY + box.height() * 0.5 * m_alignment.y());
     }
 
+    // Character Offset / Replace (0.26): the letter `shift` on in its own range (a-z, A-Z, 0-9
+    // wrap), or, scrambled, a random one of its kind that changes as the animation moves.
+    static QChar shiftedLetter(QChar c, int shift, double scramble, int index)
+    {
+        struct Range { char16_t lo, n; };
+        const Range ranges[] = {{u'a', 26}, {u'A', 26}, {u'0', 10}};
+        for (const Range &r : ranges) {
+            const int at = int(c.unicode()) - int(r.lo);
+            if (at < 0 || at >= r.n)
+                continue;
+            int k = ((at + shift) % r.n + r.n) % r.n;
+            if (scramble > 0.0) {
+                const quint32 step = quint32(std::lround(scramble * 24.0));
+                const quint32 h = qHash(quint32(index) * 2654435761u ^ (step * 40503u));
+                if ((h & 0xffffu) / 65535.0 < scramble)
+                    k = int((h >> 16) % r.n);
+            }
+            return QChar(char16_t(r.lo + k));
+        }
+        return c;
+    }
+
+    void swapLetters()
+    {
+        for (int i = 0; i < m_pieces.size(); ++i) {
+            Piece &piece = m_pieces[i];
+            if (!piece.source)
+                continue;
+            const textanim::FragmentProps &p = props(i);
+            const int shift = int(std::lround(p.charShift));
+            if (shift == 0 && p.charScramble < 1e-3)
+                continue;
+            const QChar from = piece.source->text.at(0);
+            const QChar to = shiftedLetter(from, shift, p.charScramble, i);
+            if (to == from)
+                continue;
+            const SkGlyphID glyph = piece.source->font.unicharToGlyph(SkUnichar(to.unicode()));
+            if (glyph == 0)
+                continue;
+            const std::optional<SkPath> outline = piece.source->font.getPath(glyph);
+            if (!outline)
+                continue;
+            SkPathBuilder moved;
+            moved.addPath(*outline, piece.source->origin.x(), piece.source->origin.y());
+            piece.glyphs = moved.detach();
+        }
+    }
+
     void prepare()
     {
         m_pieces = m_geometry->pieces;
+        swapLetters();
         // Where each transformed stretch's box is: the letters turn about its centre. Stretches
         // side by side with the same transform are one box (the letters picked at once, split
         // only because some of them already had a colour or a font).
@@ -1169,16 +1289,17 @@ private:
             // over it, which is what the legacy outline did; Inside clips the same stroke to the
             // glyph instead.
             paint.setStrokeWidth(float(layer.strokeAlign != StrokeAlign::Center ? width * 2.0 : width));
-            paint.setStrokeJoin(SkPaint::kRound_Join);
-            paint.setStrokeCap(SkPaint::kRound_Cap);
+            paint.setStrokeJoin(skStrokeJoin(layer.join));
+            paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
+            const SkPath stroked = strokedPathFor(layer, piece.glyphs);
             if (layer.strokeAlign == StrokeAlign::Inside) {
                 canvas.save();
                 canvas.clipPath(piece.glyphs, SkClipOp::kIntersect, true);
-                canvas.drawPath(piece.glyphs, paint);
+                canvas.drawPath(stroked, paint);
                 canvas.restore();
             } else {
-                canvas.drawPath(piece.glyphs, paint);
+                canvas.drawPath(stroked, paint);
             }
             break;
         }
@@ -1656,9 +1777,22 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
                                + (env.maxRotation3dDeg > 0.0 ? maxCell * 0.25 : 0.0);
     const double envelope = qMax(env.maxDx, env.maxDy) + env.maxBlurPx * 2.0 + (env.maxScale - 1.0) * maxCell * 0.5
                             + rotationPad + env.maxTrackingPx * lines * 0.5 + env.maxParticlePx;
-    // Around a circle the letters reach a diameter beyond the line, plus a letter's height.
-    const Bend circle = style.pathCircle > 0.5 ? bendFor(request.set->frags, style, scale) : Bend{};
-    const double circleReach = circle.active ? 2.0 * circle.radius + maxCell : 0.0;
+    const Bend bend = bendFor(request.set->frags, style, scale, request.layoutRect.size());
+    // Around a circle the letters reach a diameter beyond the line, plus a letter's height; on an
+    // outline, as far as the outline leaves the box (and what an open end carries on), plus that.
+    double circleReach = 0.0;
+    if (bend.contour) {
+        QPainterPath outline;
+        drift::parseSvgPathData(style.pathSvg, &outline);
+        const QRectF b = QTransform::fromScale(request.layoutRect.width() / 100.0, request.layoutRect.height() / 100.0)
+                             .map(outline)
+                             .boundingRect();
+        const double out = qMax(qMax(-b.left(), -b.top()), qMax(b.right() - request.layoutRect.width(),
+                                                                 b.bottom() - request.layoutRect.height()));
+        circleReach = qMax(0.0, out) + maxCell + (bend.contour->isClosed() ? 0.0 : bend.width);
+    } else if (style.pathCircle > 0.5 && bend.active) {
+        circleReach = 2.0 * bend.radius + maxCell;
+    }
     const double bleed = std::ceil(text::bleedFor(style) * scale + envelope + circleReach) + 2.0;
     const int imageW = qMax(1, qRound(request.layoutRect.width() + bleed * 2.0));
     const int imageH = qMax(1, qRound(request.layoutRect.height() + bleed * 2.0));
@@ -1668,7 +1802,6 @@ TextPainterResult makeTextPainter(const TextPaintRequest &request)
     result.block = request.frame.block;
 
     std::shared_ptr<const BlockGeometry> geometry = geometryFor(*request.set);
-    const Bend bend = bendFor(request.set->frags, style, scale);
 
     const bool cacheable = request.frame.isStatic && !style.isAnimated() && !timeDrivenPaint(style) && !style.counter;
     const quint64 key = cacheable ? qHashMulti(request.set->key, text::styleHash(style), imageW, imageH,
