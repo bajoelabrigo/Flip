@@ -296,7 +296,11 @@ Rectangle {
 
     LazyLoader {
         id: exportDialogLoader
-        sourceComponent: Component { ExportDialog { } }
+        sourceComponent: Component {
+            ExportDialog {
+                signInRequester: (reason, action) => root.requestSignIn(reason, action)
+            }
+        }
     }
 
     LazyLoader {

@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
-import QtQuick.Window
 import Drift
 
 ThemedDialog {
@@ -79,6 +78,8 @@ ThemedDialog {
     // Without an account (0.27, Jorge): up to 1080p on the short side. 2K, 4K and 8K ask to sign in
     // (free), when they are chosen, not before.
     readonly property bool signedOutLimit: Account.available && !Account.signedIn
+    // Set by the header that owns this dialog: a Popup has no Window to reach the main window by.
+    property var signInRequester: function (reason, action) {}
     function needsAccount(option) {
         return root.signedOutLimit && !!option && Math.min(option.width || 0, option.height || 0) > 1080
     }
@@ -402,7 +403,7 @@ ThemedDialog {
     onAccepted: {
         // A size that needs the account: sign in first, then the export goes on by itself.
         if (!isGifExport && !isAudioOnly && needsAccount(currentScale)) {
-            root.Window.window.requestSignIn("hd", () => root.runExport())
+            root.signInRequester("hd", () => root.runExport())
             return
         }
         root.runExport()
