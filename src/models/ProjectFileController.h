@@ -126,6 +126,12 @@ public:
     // lastMessage twice would queue two toasts, since each change is its own toast.
     Q_INVOKABLE void newProject(bool silent = false);
     Q_INVOKABLE void openRecentProject(const QString &path);
+    // The home screen's "Try an example" (0.27): a short project ready to play with. Downloaded
+    // once from getflipstudio.com (checked against its hash) and kept; each open loads a fresh
+    // copy, so the original is never changed.
+    Q_INVOKABLE void openSampleProject();
+    Q_PROPERTY(bool sampleDownloading READ sampleDownloading NOTIFY sampleDownloadingChanged)
+    bool sampleDownloading() const { return m_sampleDownloading; }
     Q_INVOKABLE void clearRecentProjects();
     // Removes one path from the recents list without deleting the file on disk.
     Q_INVOKABLE void removeRecentProject(const QString &path);
@@ -163,6 +169,9 @@ public:
     void detectRecoveryFile();
 
 signals:
+    void sampleDownloadingChanged();
+    // The example project opened: the editor shows its three-step guide.
+    void sampleOpened();
     void projectNameChanged();
     void projectMetadataChanged();
     void packagingChanged();
@@ -197,6 +206,8 @@ signals:
     void saveAsRequested();
 
 private:
+    bool m_sampleDownloading = false;
+    class QNetworkAccessManager *m_sampleNetwork = nullptr;
     // Bracket every loadProject()/loadProjectJson()/restoreAutosave() call, sync or async, success or
     // failure, so projectLoadPending is accurate regardless of what triggered the load.
     // beginProjectLoad() returns false (and acquires nothing) when a load already owns

@@ -25,6 +25,10 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDir>
+#include <QSaveFile>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
 #include <QFile>
 #include <QFileInfo>
 #include <QFutureWatcher>
@@ -1776,6 +1780,88 @@ void ProjectFileController::setCurrentProjectPath(const QString &path)
     // Cleared by newProject(); set after load/save/package so next launch can reopen.
     QSettings().setValue(QStringLiteral("lastSessionPath"), path);
     emit currentProjectPathChanged();
+}
+
+namespace {
+
+// The example project on the website and its SHA-256 (tools: see docs/plan-0.27.md › Ejemplo).
+// A new example is a new file name, so a copy cached by an older build is never mistaken for it.
+const char kSampleUrl[] = "https://getflipstudio.com/modelos/ejemplo/ejemplo-1.flip";
+const char kSampleSha256[] = "a3d0f4cfa7d6ed90770dc816bc37bf499f5b3fdae2691641ae6817b9710288eb";
+
+QString sampleDir()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/samples");
+}
+
+bool fileMatchesSha256(const QString &path, const QByteArray &hex)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly))
+        return false;
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+    return hash.addData(&file) && hash.result().toHex() == hex;
+}
+
+} // namespace
+
+void ProjectFileController::openSampleProject()
+{
+    if (m_sampleDownloading)
+        return;
+    const QString dir = sampleDir();
+    QDir().mkpath(dir);
+    const QString cached = dir + QStringLiteral("/ejemplo-1.flip");
+
+    const auto openCopy = [this, dir, cached]() {
+        // A fresh copy each time, named for the person: their edits never touch the original,
+        // and "My first video" is what shows in the recent projects.
+        const QString work = dir + QLatin1Char('/') + tr("My first video")
+                             + QDateTime::currentDateTime().toString(QStringLiteral(" yyyy-MM-dd HH.mm.ss"))
+                             + QStringLiteral(".flip");
+        if (!QFile::copy(cached, work)) {
+            m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+            return;
+        }
+        loadProject(QUrl::fromLocalFile(work));
+        emit sampleOpened();
+    };
+
+    if (fileMatchesSha256(cached, QByteArray(kSampleSha256))) {
+        openCopy();
+        return;
+    }
+
+    if (!m_sampleNetwork)
+        m_sampleNetwork = new QNetworkAccessManager(this);
+    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleUrl))};
+    request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
+    request.setTransferTimeout(30000);
+    m_sampleDownloading = true;
+    emit sampleDownloadingChanged();
+    m_app->setLastMessage(tr("Downloading the example…"));
+    QNetworkReply *reply = m_sampleNetwork->get(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply, cached, openCopy]() {
+        reply->deleteLater();
+        m_sampleDownloading = false;
+        emit sampleDownloadingChanged();
+        if (reply->error() != QNetworkReply::NoError) {
+            m_app->setLastMessage(tr("Couldn’t download the example. It needs an internet connection the first time."),
+                                  QStringLiteral("error"));
+            return;
+        }
+        const QByteArray data = reply->readAll();
+        if (QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex() != QByteArray(kSampleSha256)) {
+            m_app->setLastMessage(tr("The example did not download correctly. Try again."), QStringLiteral("error"));
+            return;
+        }
+        QSaveFile out(cached);
+        if (!out.open(QIODevice::WriteOnly) || out.write(data) != data.size() || !out.commit()) {
+            m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+            return;
+        }
+        openCopy();
+    });
 }
 
 QString ProjectFileController::recoveryFilePath()

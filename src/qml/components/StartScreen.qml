@@ -18,6 +18,8 @@ Rectangle {
     signal newProjectWithSetupRequested(int width, int height, string tabId)
     signal openProjectRequested()
     signal openRecentRequested(string path)
+    // "Try an example" (0.27): a short ready-made video to play with.
+    signal sampleRequested()
 
     color: Theme.homeBackground
 
@@ -518,6 +520,62 @@ Rectangle {
                                                                         toolCell.modelData.tab)
                         }
                     }
+                }
+            }
+
+            // Try an example (0.27, Jorge): for someone with no projects yet, a short video already
+            // put together (a wave, a motocross jump, a dog, neon and fireworks) to touch and learn.
+            Rectangle {
+                id: sampleCard
+                width: Math.min(parent.width, 560)
+                height: 120
+                visible: root.items.length === 0
+                radius: Theme.radiusLg
+                color: sampleHover.hovered ? Theme.panelAccent : Theme.panelBackground
+                border.width: Theme.borderWidth
+                border.color: sampleHover.hovered ? Theme.primary : Theme.panelBorder
+
+                Image {
+                    id: sampleThumb
+                    x: 10
+                    y: 10
+                    width: 56
+                    height: 100
+                    fillMode: Image.PreserveAspectCrop
+                    source: "https://getflipstudio.com/modelos/ejemplo/ejemplo-1.jpg"
+                    sourceSize: Qt.size(112, 200)
+                    asynchronous: true
+                }
+                Column {
+                    anchors.left: sampleThumb.right
+                    anchors.leftMargin: 16
+                    anchors.right: parent.right
+                    anchors.rightMargin: 16
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 6
+                    Text {
+                        width: parent.width
+                        text: qsTr("Try an example")
+                        color: Theme.foreground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: 16
+                        font.weight: Font.DemiBold
+                    }
+                    Text {
+                        width: parent.width
+                        text: EditorState.projectFile.sampleDownloading
+                              ? qsTr("Downloading…")
+                              : qsTr("A 15-second video ready to edit: change it, cut it and export it to learn how it works.")
+                        wrapMode: Text.WordWrap
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+                }
+                HoverHandler { id: sampleHover; cursorShape: Qt.PointingHandCursor }
+                TapHandler {
+                    enabled: !EditorState.projectFile.sampleDownloading
+                    onTapped: root.sampleRequested()
                 }
             }
 

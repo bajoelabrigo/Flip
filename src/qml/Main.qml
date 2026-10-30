@@ -1330,6 +1330,14 @@ ApplicationWindow {
         })
     }
 
+    function requestOpenSample() {
+        if (window.rejectIfProjectOpenPending())
+            return
+        editorHeader.confirmIfDirty(function () {
+            EditorState.projectFile.openSampleProject()
+        })
+    }
+
     function requestOpenRecentProject(path) {
         if (window.rejectIfProjectOpenPending())
             return
@@ -2057,6 +2065,7 @@ ApplicationWindow {
                 onNewProjectWithSetupRequested: (w, h, tabId) => window.requestNewProjectWithSetup(w, h, tabId)
                 onOpenProjectRequested: window.requestOpenProjectDialog()
                 onOpenRecentRequested: (path) => window.requestOpenRecentProject(path)
+                onSampleRequested: window.requestOpenSample()
             }
         }
     }
