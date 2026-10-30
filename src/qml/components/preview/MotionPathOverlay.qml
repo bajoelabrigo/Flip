@@ -33,6 +33,9 @@ Item {
         return EditorState.propertyValueAt(root.trackIndex, root.clipIndex, prop, seconds, base)
     }
     function centreAt(seconds) {
+        // The box goes before the clip does (the playhead left it): nothing to place then.
+        if (!root.box)
+            return { x: 0, y: 0 }
         const cw = root.box.canvasWidth
         const ch = root.box.canvasHeight
         return {
