@@ -5286,6 +5286,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A shape layer keeps at least one shape. Delete the layer instead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” duplicated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Order changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the group&apos;s skew to 0 and remove its keyframes before ungrouping.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Text colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23501,6 +23549,89 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>ShapeContentsList</name>
+    <message>
+        <source>Contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer (After Effects: Add)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This layer is one shape. Add another one to build it from parts: each part has its own fill, border and position.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole layer. Its position and size are in the Transform tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fold the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShapeElementsPanel</name>
     <message>
         <source>Morph</source>
@@ -23656,6 +23787,98 @@ If playback stutters, try another.</source>
     <message>
         <source>Library shape</source>
         <translation>شكل من المكتبة</translation>
+    </message>
+    <message>
+        <source>This shape is made of several parts. To edit each part, switch to Pro.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a part in the list to edit its shape, fill and border. To move or scale the whole layer, use the Transform tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position and turn of the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position and turn of the part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In After Effects: Transform: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew and anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor Y</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Layers</source>

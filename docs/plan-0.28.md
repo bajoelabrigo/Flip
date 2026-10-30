@@ -122,7 +122,17 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    JSON y claves por parte. Versión de proyecto 16.
    Original de la etapa: Pruebas: orden de pintura de AE, grupos anidados, claves por elemento, proyecto
    viejo idéntico píxel a píxel, ida y vuelta del JSON.
-2. [ ] Columna derecha: lista Contenido, «+ Añadir», parte elegida con sus secciones, menú de clic derecho.
+2. [~] Columna derecha: lista Contenido, «+ Añadir», parte elegida con sus secciones, menú de clic derecho.
+   Hecho (falta probar en ventana): `ShapeContentsList.qml` (capa arriba, partes con ojo, color, nombre; grupos que se
+   pliegan; doble clic renombra; clic derecho: Cambiar nombre, Duplicar Ctrl+D, Agrupar Ctrl+G, Desagrupar Ctrl+Mayús+G,
+   Mostrar/Ocultar, Eliminar Supr; arrastrar reordena, con línea antes/después o recuadro «dentro» de un grupo).
+   `ShapeInspector`: la lista solo en Pro; con una parte elegida, las secciones de siempre editan **esa parte** (el
+   clip redirige `shape.<clave>`, la pila de rellenos/bordes y `setShapeStyle` a la parte: `shapeStyleOf()` en
+   AppController); «Posición y giro de la parte/del grupo» con Ancho/Alto, Posición, Escala, Rotación, Opacidad, Modo
+   de fusión e «Inclinación y punto de anclaje», todo con cronómetro (`part.<id>.<campo>`). Capa de partes sin parte
+   elegida: un aviso que lleva a elegir una parte o a Transformar. En Simple: «Esta forma tiene varias partes · Ver en
+   Pro». La sección Trazado (pluma) se esconde en capas de partes hasta la etapa 4. La primera parte añadida convierte
+   la forma (lo que dibujaba pasa a «<forma> 1» sin moverse). No se puede borrar la última forma de la capa.
 3. [ ] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
 4. [ ] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
 5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,

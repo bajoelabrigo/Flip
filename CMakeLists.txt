@@ -1378,6 +1378,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/MotionToolsPanel.qml
         src/qml/components/properties/CurvesPanel.qml
         src/qml/components/properties/ShapeInspector.qml
+        src/qml/components/properties/ShapeContentsList.qml
         src/qml/components/properties/VoiceoverDialog.qml
         src/qml/components/properties/VectorInspector.qml
         src/qml/components/properties/Model3DInspector.qml

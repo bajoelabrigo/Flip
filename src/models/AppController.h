@@ -264,6 +264,9 @@ class AppController : public QObject
     Q_PROPERTY(bool multicamCanSetUp READ multicamCanSetUp NOTIFY multicamChanged)
     Q_PROPERTY(int selectedTrack READ selectedTrack NOTIFY selectionChanged)
     Q_PROPERTY(int selectedClip READ selectedClip NOTIFY selectionChanged)
+    // After Effects' Contents (0.28): the part of the selected shape layer the inspector edits, or
+    // empty for the whole layer.
+    Q_PROPERTY(QString selectedShapePart READ selectedShapePart NOTIFY selectedShapePartChanged)
     Q_PROPERTY(QVariantList selection READ selection NOTIFY selectionChanged)
     // Change token and size for the selection, so a clip delegate can ask "am I selected?" and
     // "is this a multi-selection?" without the whole selection being rebuilt into QVariantMaps
@@ -728,6 +731,27 @@ public:
     // "ellipse", "star", "polygon") added to the layer's outline as a new contour, centred at half
     // the box's size. A built-in shape becomes an editable path first. Merge Paths combines them.
     Q_INVOKABLE void addShapeToLayer(int trackIndex, int clipIndex, const QString &kind);
+    // After Effects' Contents (0.28). A layer of parts lists them top first; the focused part is
+    // what "shape.<key>", the fill/stroke stack and setShapeStyle edit. addShapePart turns a plain
+    // shape into a layer of parts the first time (what it drew becomes part 1) and adds the new
+    // one inside the focused group, above the focused part, or at the top ("group" adds an empty
+    // group). Part scalars are "part.<id>.<field>" (anchorX, x, scaleX, skew, rotation, opacity,
+    // width…) and "part.<id>.shape.<key>", keyframable like any clip property.
+    QString selectedShapePart() const;
+    Q_INVOKABLE void selectShapePart(int trackIndex, int clipIndex, const QString &partId);
+    Q_INVOKABLE QVariantList shapePartRows(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setShapeGroupExpanded(int trackIndex, int clipIndex, const QString &groupId, bool expanded);
+    Q_INVOKABLE QString addShapePart(int trackIndex, int clipIndex, const QString &kind);
+    Q_INVOKABLE void removeShapePart(int trackIndex, int clipIndex, const QString &partId);
+    Q_INVOKABLE QString duplicateShapePart(int trackIndex, int clipIndex, const QString &partId);
+    Q_INVOKABLE void renameShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &name);
+    Q_INVOKABLE void setShapePartVisible(int trackIndex, int clipIndex, const QString &partId, bool visible);
+    Q_INVOKABLE void setShapePartBlend(int trackIndex, int clipIndex, const QString &partId, const QString &mode);
+    // where: "before" / "after" the target, or "inside" a target group (first in it).
+    Q_INVOKABLE void moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
+                                   const QString &where);
+    Q_INVOKABLE QString groupShapePart(int trackIndex, int clipIndex, const QString &partId);
+    Q_INVOKABLE void ungroupShapePart(int trackIndex, int clipIndex, const QString &groupId);
     // After Effects' text on a path (0.26): the shape layers a text can follow [{name, track, clip}],
     // and putting a text on one's outline (as it is at the playhead, mapped into the text's box).
     Q_INVOKABLE QVariantList textPathShapes() const;
@@ -2318,6 +2342,7 @@ signals:
     // Raised by the "multicam" shortcut/action. QML owns the window, as with the file actions.
     void openMulticamWindowRequested();
     void selectionChanged();
+    void selectedShapePartChanged();
     void editCapabilitiesChanged();
     void sequenceTabsChanged();
     void selectedClipDataChanged();
@@ -2958,6 +2983,8 @@ protected:
     bool m_previewDragDirty = false;
     // "<trackId>|<group>" of the joined keyframe lines opened into their axes.
     QSet<QString> m_keyframeGroupsExpanded;
+    // Groups of a layer of parts folded in the right column's list (0.28): "<clip id>|<part id>".
+    QSet<QString> m_collapsedShapeGroups;
     // U (toggleRevealKeyframes): the tracks' fixed transform lines only when they have keys.
     bool m_keyframeRowsAnimatedOnly = false;
     // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
