@@ -34592,6 +34592,36 @@
     "phụ đề tên"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Đăng ký trên trang sáng",
+   "tags": [
+    "đăng ký",
+    "thích",
+    "chuông",
+    "con trỏ",
+    "trang video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Đăng ký trên điện thoại",
+   "tags": [
+    "đăng ký",
+    "thích",
+    "chuông",
+    "con trỏ",
+    "trang video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Đăng ký trên trang tối",
+   "tags": [
+    "đăng ký",
+    "thích",
+    "chuông",
+    "con trỏ",
+    "trang video"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Thanh tên kèm ảnh đại diện",
    "tags": [

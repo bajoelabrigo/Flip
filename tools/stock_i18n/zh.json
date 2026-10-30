@@ -35195,6 +35195,36 @@
     "下三分之一"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "浅色页面订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "手机端订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "深色页面订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "头像字幕条",
    "tags": [

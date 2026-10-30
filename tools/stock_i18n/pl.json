@@ -35506,6 +35506,36 @@
     "belka"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Subskrypcja na jasnej stronie",
+   "tags": [
+    "subskrypcja",
+    "polubienie",
+    "dzwonek",
+    "kursor",
+    "strona wideo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Subskrypcja na telefonie",
+   "tags": [
+    "subskrypcja",
+    "polubienie",
+    "dzwonek",
+    "kursor",
+    "strona wideo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Subskrypcja na ciemnej stronie",
+   "tags": [
+    "subskrypcja",
+    "polubienie",
+    "dzwonek",
+    "kursor",
+    "strona wideo"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Belka z awatarem",
    "tags": [

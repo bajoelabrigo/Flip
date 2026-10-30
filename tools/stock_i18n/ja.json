@@ -34807,6 +34807,36 @@
     "テロップ"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "ライトページで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "スマホで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "ダークページで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "アバター付きローワーサード",
    "tags": [

@@ -35187,6 +35187,36 @@
     "label"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Mag-subscribe sa maliwanag na pahina",
+   "tags": [
+    "mag-subscribe",
+    "like",
+    "kampana",
+    "cursor",
+    "pahina ng video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Mag-subscribe sa telepono",
+   "tags": [
+    "mag-subscribe",
+    "like",
+    "kampana",
+    "cursor",
+    "pahina ng video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Mag-subscribe sa madilim na pahina",
+   "tags": [
+    "mag-subscribe",
+    "like",
+    "kampana",
+    "cursor",
+    "pahina ng video"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Bar ng pangalan na may larawan",
    "tags": [

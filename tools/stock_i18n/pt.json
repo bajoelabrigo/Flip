@@ -35709,6 +35709,36 @@
     "legenda"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Inscreva-se na página clara",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Inscreva-se no celular",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Inscreva-se na página escura",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Terço inferior com avatar",
    "tags": [

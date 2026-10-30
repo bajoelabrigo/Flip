@@ -36370,6 +36370,36 @@
     "tiers inférieur"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Abonnement sur page claire",
+   "tags": [
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "curseur",
+    "page vidéo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Abonnement sur téléphone",
+   "tags": [
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "curseur",
+    "page vidéo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Abonnement sur page sombre",
+   "tags": [
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "curseur",
+    "page vidéo"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Bandeau avec photo",
    "tags": [

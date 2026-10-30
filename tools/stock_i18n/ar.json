@@ -34394,6 +34394,36 @@
     "الثلث السفلي"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "اشترك في الصفحة الفاتحة",
+   "tags": [
+    "اشترك",
+    "إعجاب",
+    "جرس",
+    "مؤشر",
+    "صفحة الفيديو"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "اشترك على الهاتف",
+   "tags": [
+    "اشترك",
+    "إعجاب",
+    "جرس",
+    "مؤشر",
+    "صفحة الفيديو"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "اشترك في الصفحة الداكنة",
+   "tags": [
+    "اشترك",
+    "إعجاب",
+    "جرس",
+    "مؤشر",
+    "صفحة الفيديو"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "شريط اسم بصورة",
    "tags": [

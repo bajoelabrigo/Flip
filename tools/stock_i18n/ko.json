@@ -34216,6 +34216,36 @@
     "자막"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "밝은 페이지에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "휴대폰에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "어두운 페이지에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "프로필 사진 하단 자막",
    "tags": [

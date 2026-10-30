@@ -35054,6 +35054,36 @@
     "লোয়ার থার্ড"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "হালকা পেজে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "ফোনে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "অন্ধকার পেজে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "ছবিসহ নামফলক",
    "tags": [

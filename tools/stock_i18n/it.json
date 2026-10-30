@@ -36715,6 +36715,36 @@
     "didascalia"
    ]
   },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Iscriviti nella pagina chiara",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "cursore",
+    "pagina video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Iscriviti sul telefono",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "cursore",
+    "pagina video"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Iscriviti nella pagina scura",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "cursore",
+    "pagina video"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Sottopancia con foto",
    "tags": [
