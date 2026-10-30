@@ -752,6 +752,8 @@ public:
                                    const QString &where);
     Q_INVOKABLE QString groupShapePart(int trackIndex, int clipIndex, const QString &partId);
     Q_INVOKABLE void ungroupShapePart(int trackIndex, int clipIndex, const QString &groupId);
+    // Contents' lines in the timeline (0.28): headings and value lines for the layer of parts.
+    QVariantList shapeContentRows(int trackIndex, int clipIndex) const;
     // After Effects' text on a path (0.26): the shape layers a text can follow [{name, track, clip}],
     // and putting a text on one's outline (as it is at the playhead, mapped into the text's box).
     Q_INVOKABLE QVariantList textPathShapes() const;

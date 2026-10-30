@@ -5414,6 +5414,54 @@
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Points</source>
+        <translation>Puntas</translation>
+    </message>
+    <message>
+        <source>Inner radius</source>
+        <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>Redondez</translation>
+    </message>
+    <message>
+        <source>%1 path</source>
+        <translation>Trazado: %1</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Ancho del trazo</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Escala X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Escala Y</translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation>Inclinación</translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation>Eje de inclinación</translation>
+    </message>
+    <message>
+        <source>Transform: %1</source>
+        <translation>Transformar: %1</translation>
+    </message>
+    <message>
+        <source>Contents</source>
+        <translation>Contenido</translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation>Transformar</translation>
+    </message>
+    <message>
         <source>Move track</source>
         <translation>Mover pista</translation>
     </message>
@@ -30004,6 +30052,86 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Show keyframes</source>
         <translation>Mostrar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Mostrar</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Añadir</translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer</source>
+        <translation>Añade una forma o un grupo a esta capa</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Elipse</translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation>Grupo vacío</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiplicar</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Trama</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Superponer</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Oscurecer</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Modo de fusión</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicar</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Remove keyframe</source>

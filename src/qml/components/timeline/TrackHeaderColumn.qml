@@ -1137,7 +1137,7 @@ Item {
                            { label: T("Anchor point"), props: ["anchorX", "anchorY"] }]
                     const known = new Set(list.map(t => JSON.stringify(t.props)))
                     for (const row of rows) {
-                        if (row.group)
+                        if (row.group || row.kind === "heading")
                             continue
                         const props = [row.prop]
                         if (known.has(JSON.stringify(props)))
@@ -1194,6 +1194,183 @@ Item {
                             return !!b && b.active === true
                         }
                         HoverHandler { id: lineHover }
+                        // After Effects' Contents (0.28): a heading line (Contents, a part, its
+                        // path, a fill or stroke, «Transform: …») drawn over the value line, with
+                        // its twirl, eye and name, as AE's tree. A click on a part's name picks it,
+                        // the same pick as the right column's list and the preview.
+                        readonly property bool heading: modelData.kind === "heading"
+                        readonly property int depth: modelData.depth || 0
+                        Rectangle {
+                            id: headingLine
+                            visible: keyLine.heading
+                            anchors.fill: parent
+                            z: 50
+                            color: keyLine.modelData.picked ? Theme.panelAccent : Qt.rgba(0.07, 0.08, 0.09, 1.0)
+                            readonly property string partId: keyLine.modelData.partId || ""
+                            function pickClip() {
+                                if (EditorState.selectedTrack !== keyLines.trackIndex || EditorState.selectedClip !== keyLine.clip)
+                                    EditorState.selectClip(keyLines.trackIndex, keyLine.clip)
+                            }
+                            function pick() {
+                                if (keyLine.clip < 0)
+                                    return
+                                headingLine.pickClip()
+                                if (headingLine.partId.length > 0)
+                                    EditorState.selectShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                            }
+                            // Click anywhere on the line: a part is picked; any other heading folds or opens.
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                                onClicked: mouse => {
+                                    if (mouse.button === Qt.RightButton && headingLine.partId.length > 0) {
+                                        headingLine.pick()
+                                        partLineMenu.popup(headingLine, mouse.x, mouse.y)
+                                        return
+                                    }
+                                    if (headingLine.partId.length > 0)
+                                        headingLine.pick()
+                                    else if (keyLine.modelData.expandable)
+                                        EditorState.setKeyframeGroupExpanded(keyLines.trackIndex, keyLine.modelData.key,
+                                                                             !keyLine.modelData.expanded)
+                                }
+                            }
+                            Row {
+                                anchors.fill: parent
+                                anchors.leftMargin: 4 + keyLine.depth * 12
+                                spacing: 3
+                                IconButton {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    visible: keyLine.modelData.expandable === true
+                                    glyph: keyLine.modelData.expanded ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                                    variant: "text"
+                                    buttonSize: 16
+                                    iconSize: 11
+                                    onClicked: EditorState.setKeyframeGroupExpanded(keyLines.trackIndex, keyLine.modelData.key,
+                                                                                    !keyLine.modelData.expanded)
+                                }
+                                // A part's eye, or a fill's or stroke's: hides it from the picture.
+                                IconButton {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    visible: headingLine.partId.length > 0 || !!keyLine.modelData.layerId
+                                    readonly property bool shown: headingLine.partId.length > 0 ? keyLine.modelData.partVisible !== false
+                                                                                                : keyLine.modelData.layerEnabled !== false
+                                    glyph: shown ? Theme.icons.eye : Theme.icons.eyeOff
+                                    variant: "text"
+                                    buttonSize: 16
+                                    iconSize: 11
+                                    tooltip: shown ? qsTr("Hide") : qsTr("Show")
+                                    onClicked: {
+                                        if (keyLine.clip < 0)
+                                            return
+                                        if (headingLine.partId.length > 0) {
+                                            EditorState.setShapePartVisible(keyLines.trackIndex, keyLine.clip, headingLine.partId, !shown)
+                                            return
+                                        }
+                                        // A fill or stroke belongs to a part: that part becomes the one edited.
+                                        headingLine.pickClip()
+                                        EditorState.selectShapePart(keyLines.trackIndex, keyLine.clip, keyLine.modelData.layerOf)
+                                        EditorState.setStyleLayer(keyLines.trackIndex, keyLine.clip, keyLine.modelData.layerId,
+                                                                  { "enabled": !shown })
+                                    }
+                                }
+                                IconGlyph {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    visible: keyLine.modelData.isGroup === true
+                                    glyph: Theme.icons.folder
+                                    iconSize: 11
+                                    iconColor: Theme.mutedForeground
+                                }
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: Math.max(10, headingLine.width - x - (addPartButton.visible ? addPartButton.width + 6 : 0)
+                                                    - (blendButton.visible ? blendButton.width + 6 : 0) - 8)
+                                    text: keyLine.modelData.label || ""
+                                    elide: Text.ElideRight
+                                    color: Theme.panelForeground
+                                    opacity: keyLine.modelData.partVisible === false ? 0.5 : 1.0
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs
+                                    font.weight: keyLine.depth <= 1 ? Font.DemiBold : Font.Normal
+                                }
+                            }
+                            // «Add ▸» on Contents, as AE.
+                            ThemedButton {
+                                id: addPartButton
+                                visible: keyLine.modelData.contents === true
+                                anchors.right: parent.right
+                                anchors.rightMargin: 4
+                                anchors.verticalCenter: parent.verticalCenter
+                                height: Theme.keyframeRowHeight - 4
+                                variant: "secondary"
+                                text: qsTr("Add") + " ▸"
+                                tooltip: qsTr("Add a shape or a group to this layer")
+                                onClicked: addPartMenu.popup(addPartButton, 0, addPartButton.height)
+                                ThemedContextMenu {
+                                    id: addPartMenu
+                                    function add(kind) {
+                                        headingLine.pickClip()
+                                        EditorState.addShapePart(keyLines.trackIndex, keyLine.clip, kind)
+                                    }
+                                    ThemedMenuItem { text: qsTr("Rectangle"); onTriggered: addPartMenu.add("rectangle") }
+                                    ThemedMenuItem { text: qsTr("Ellipse"); onTriggered: addPartMenu.add("ellipse") }
+                                    ThemedMenuItem { text: qsTr("Star"); onTriggered: addPartMenu.add("star") }
+                                    ThemedMenuItem { text: qsTr("Polygon"); onTriggered: addPartMenu.add("polygon") }
+                                    ThemedMenuSeparator { }
+                                    ThemedMenuItem { text: qsTr("Empty group"); onTriggered: addPartMenu.add("group") }
+                                }
+                            }
+                            // A part's blend mode, as AE's Normal ▾ beside each group.
+                            ThemedButton {
+                                id: blendButton
+                                visible: headingLine.partId.length > 0
+                                anchors.right: parent.right
+                                anchors.rightMargin: 4
+                                anchors.verticalCenter: parent.verticalCenter
+                                height: Theme.keyframeRowHeight - 4
+                                variant: "ghost"
+                                readonly property var modes: ["normal", "multiply", "screen", "overlay", "add", "darken", "lighten"]
+                                readonly property var labels: [qsTr("Normal"), qsTr("Multiply"), qsTr("Screen"), qsTr("Overlay"),
+                                                               qsTr("Add"), qsTr("Darken"), qsTr("Lighten")]
+                                text: labels[Math.max(0, modes.indexOf(keyLine.modelData.blend || "normal"))] + " ▾"
+                                tooltip: qsTr("Blend mode")
+                                onClicked: blendMenu.popup(blendButton, 0, blendButton.height)
+                                ThemedContextMenu {
+                                    id: blendMenu
+                                    Repeater {
+                                        model: blendButton.modes.length
+                                        delegate: ThemedMenuItem {
+                                            required property int index
+                                            text: blendButton.labels[index]
+                                            onTriggered: EditorState.setShapePartBlend(keyLines.trackIndex, keyLine.clip,
+                                                                                       headingLine.partId, blendButton.modes[index])
+                                        }
+                                    }
+                                }
+                            }
+                            ThemedContextMenu {
+                                id: partLineMenu
+                                ThemedMenuItem {
+                                    text: qsTr("Duplicate") + "\tCtrl+D"
+                                    onTriggered: EditorState.duplicateShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                }
+                                ThemedMenuItem {
+                                    text: qsTr("Group") + "\tCtrl+G"
+                                    onTriggered: EditorState.groupShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                }
+                                ThemedMenuItem {
+                                    visible: keyLine.modelData.isGroup === true
+                                    height: visible ? implicitHeight : 0
+                                    text: qsTr("Ungroup")
+                                    onTriggered: EditorState.ungroupShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                }
+                                ThemedMenuSeparator { }
+                                ThemedMenuItem {
+                                    text: qsTr("Delete")
+                                    onTriggered: EditorState.removeShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                }
+                            }
+                        }
                         width: parent.width
                         height: Theme.keyframeRowHeight
                         color: Qt.rgba(0, 0, 0, index % 2 === 0 ? 0.16 : 0.08)
@@ -1572,7 +1749,8 @@ Item {
                         }
                         Column {
                             anchors.left: parent.left
-                            anchors.leftMargin: keyLine.modelData.axis ? 40 : 40
+                            // Contents' lines (0.28) step in under their heading.
+                            anchors.leftMargin: 40 + Math.max(0, keyLine.depth - 2) * 12
                             anchors.right: prevKeyButton.left
                             anchors.rightMargin: 2
                             anchors.verticalCenter: parent.verticalCenter

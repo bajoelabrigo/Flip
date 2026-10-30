@@ -138,7 +138,15 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    elegida: un aviso que lleva a elegir una parte o a Transformar. En Simple: «Esta forma tiene varias partes · Ver en
    Pro». La sección Trazado (pluma) se esconde en capas de partes hasta la etapa 4. La primera parte añadida convierte
    la forma (lo que dibujaba pasa a «<forma> 1» sin moverse). No se puede borrar la última forma de la capa.
-3. [ ] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
+3. [~] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
+   Hecho (falta probar en ventana): `AppController::shapeContentRows` (solo en Pro y en capas de partes, para el clip
+   que miran las filas): «Contenido» con «Añadir ▸», cada parte con su ojo, su modo de fusión ▾ y menú de clic derecho;
+   dentro, «Trazado: <forma>» (Ancho, Alto, Redondez o Puntas/Radio interior), «Relleno N»/«Trazo N» (con ojo;
+   Opacidad, Ancho del trazo) y «Transformar: <parte>» (anclaje, posición, escala, inclinación y su eje, rotación,
+   opacidad); los grupos con sus partes. Después, «Transformar» de la capa con sus filas de siempre. Todo plegado;
+   elegir una parte (columna, línea de tiempo o vista previa) abre Contenido y esa parte. U deja solo lo animado.
+   Los encabezados se dibujan encima de la fila de valor en `TrackHeaderColumn` (capa `headingLine`). Las claves
+   `part.*` ya no salen repetidas entre «otras propiedades animadas». Falta: el color como fila (se edita a la derecha).
 4. [ ] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
 5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
