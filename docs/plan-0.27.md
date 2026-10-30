@@ -24,10 +24,10 @@ sesión: Qt 6.10.3 de `.qtmingw`, FFmpeg 7.1, ORT 1.27, Skia); al final, un buil
 - [x] A2-8 «Mejorar voz» decía «listo» aunque el clip no tuviera sonido.
 - [x] A2-9 Quitar el relleno de canal inexistente dejaba un paso de deshacer vacío.
 - [ ] A2-10…13 Avisos que faltan (normalizar sobre clip borrado, cámara lenta, línea líquida, ruta de salida IA).
-- [ ] A2-14 Textos en inglés sin `tr()` («Getting ready…», «Done», «Freeze frame», errores de `keepRanges`).
-- [ ] A2-15 Estelas de Morph heredan `linkId/parentId/matteClipId`.
+- [x] A2-14 Textos en inglés sin `tr()` («Getting ready…», «Done», «Freeze frame», errores de `keepRanges`).
+- [x] A2-15 Estelas de Morph heredan `linkId/parentId/matteClipId`.
 - [ ] A2-16 Aplicar estilo de texto a subtítulos copia los colores por letra del origen.
-- [ ] A2-17 `clipAnimationCategories` con `static` congela el idioma.
+- [x] A2-17 `clipAnimationCategories` con `static` congela el idioma.
 - [ ] A2-18 Bucles de espera anidados de 15 s (sonido/recurso).
 - [ ] A2-19 Herramientas (Doblar, Líquido) cierran la sesión de Texto avanzado abierta.
 
@@ -37,9 +37,9 @@ sesión: Qt 6.10.3 de `.qtmingw`, FFmpeg 7.1, ORT 1.27, Skia); al final, un buil
 - [x] A1-2 Texto con la herramienta Texto: deshacer/rehacer lo devuelve al centro.
 - [ ] A1-3 Texto sobre forma: el trazado se actualiza después de la foto de deshacer.
 - [x] A1-4/5 «Secuencia» empieza mal si una capa está en 0 s y desincroniza el audio enlazado.
-- [ ] A1-6/7 Comportamientos en filas de efectos/máscaras; los ajustes de Rebote se pierden.
+- [x] A1-6/7 Comportamientos en filas de efectos/máscaras; los ajustes de Rebote se pierden.
 - [x] A1-8 «Subtitles generated» en inglés.
-- [ ] A1-9 Centrar mueve también el audio enlazado.
+- [x] A1-9 Centrar mueve también el audio enlazado.
 - [x] A1-10 Mate de seguimiento en ciclo (A usa B y B usa A): desaparecen los dos.
 - [x] A1-11/12 Candado ignorado en mover a pista nueva, reemplazar en subtítulos y emojis.
 - [ ] A1-13 Mensajes que nunca se ven (`finishEdit(msg)` ignora el texto).
@@ -62,7 +62,7 @@ sesión: Qt 6.10.3 de `.qtmingw`, FFmpeg 7.1, ORT 1.27, Skia); al final, un buil
 - [ ] C-7 Cortar a mitad de un morph de trazado lo hace saltar.
 - [ ] C-8 «Continuar» después de una clave Mantener se dispara.
 - [ ] C-9/10 Zip: entradas sin comprimir sin límite; plantilla borrada antes de reemplazarla.
-- [ ] C-11/12 Valores de archivo sin límites (resolución 0, comportamientos).
+- [x] C-11/12 Valores de archivo sin límites (resolución 0, comportamientos).
 - [ ] C-13 Trazado abierto que vuelve al inicio se cierra solo.
 - [ ] C-14…20 Menores (detach, expresiones en otras secuencias, operadores de forma al escalar, partículas,
       capas vacías, caché de poses, zip deflate).
@@ -76,7 +76,7 @@ sesión: Qt 6.10.3 de `.qtmingw`, FFmpeg 7.1, ORT 1.27, Skia); al final, un buil
 - [x] N-8/9 Extras: descargas sin tiempo límite; `.part` completo que nunca se instala.
 - [ ] N-10/11 Stock: descarga a carpeta sin permiso sigue bajando; 401 simultáneos.
 - [ ] N-12 Fuentes de un `.flip` solo se instalan con el mismo usuario de Windows.
-- [ ] N-13 Mismo id de flujo en cuerpo, recorte y seguimiento.
+- [x] N-13 Mismo id de flujo en cuerpo, recorte y seguimiento.
 - [ ] N-14…23 Menores (token en macOS, límites de preferencias, actualizaciones, textos sin traducir…).
 
 ### Motor de render y exportación
@@ -99,7 +99,7 @@ sesión: Qt 6.10.3 de `.qtmingw`, FFmpeg 7.1, ORT 1.27, Skia); al final, un buil
 - [x] Q-1 Línea de volumen: el punto arrastrado dejaba de seguir al ratón. Q-7 [x] el nivel quedaba fijo tras deshacer.
 - [x] Q-2 Deslizadores de Rebote/Elástico se cortaban a mitad (y un paso de deshacer por movimiento).
 - [x] Q-3 Bosquejo de movimiento: el temporizador seguía moviendo el cabezal para siempre.
-- [ ] Q-4/5/6 Pluma: vértices elegidos tras deshacer, gesto cancelado, escribir en la forma equivocada.
+- [x] Q-4/5/6 Pluma: vértices elegidos tras deshacer, gesto cancelado, escribir en la forma equivocada.
 - [ ] Q-8…12 Ctrl+clic en el volumen pasa al clip; claves tras soltar; menú de formas; tamaños de paneles.
 - [x] Q-13 `Theme.fontSizeLg` no existe; «MOTION TOOLS» sin traducir. Q-15 [x] cierra solo su sesión.
 - [ ] Q-14, Q-16…30 Menores (ver informe).
@@ -116,12 +116,12 @@ UX (sesión 2026-10-30); aquí el resumen y el estado.
 - [ ] A3 Proyecto de ejemplo («Prueba con un ejemplo»).
 - [ ] A4 Recorrido guiado de 4 globos (saltable, se repite desde Ayuda).
 - [x] A5 El atajo «Plantillas» del inicio lleva a una lista vacía.
-- [ ] B1 Instalar los extras básicos (stickers, fuentes, sonidos) sin que el usuario tenga que buscarlos.
+- [x] B1 Instalar los extras básicos (stickers, fuentes, sonidos) sin que el usuario tenga que buscarlos.
 - [x] B2 Línea de tiempo vacía: botón principal «Importar medios».
 - [ ] B3 Importar con el proyecto vacío pone los clips en la línea de tiempo (como CapCut).
 - [x] C1 Títulos/Filtros/Efectos sin sesión abren en «Tendencias» (muro de «Inicia sesión»).
 - [ ] C2 Clic en un filtro/efecto sin clip elegido: aplicarlo al clip bajo el cabezal.
-- [ ] C3 «Escenas» significa dos cosas distintas.
+- [x] C3 «Escenas» significa dos cosas distintas.
 - [x] D1 Barra de pestañas de propiedades: 13 íconos sin nombre.
 - [ ] D2 Video › Básico repite Transformar y Fusión.
 - [ ] D3 Motion Tools y Curvas salen en todos los clips.
@@ -132,7 +132,7 @@ UX (sesión 2026-10-30); aquí el resumen y el estado.
 - [ ] F1 Barra de herramientas de After Effects sobre la vista previa siempre visible.
 - [x] G1 Botón «Actualizar» siempre visible.
 - [x] H1 Al terminar de exportar: «Abrir carpeta», «Reproducir».
-- [ ] H2 Destinos de exportación («TikTok/Reels», «YouTube», «WhatsApp», «Mejor calidad»).
+- [x] H2 Destinos de exportación («TikTok/Reels», «YouTube», «WhatsApp», «Mejor calidad»).
 - [ ] H3 Mostrar dónde se guarda dentro del diálogo.
 - [x] I1 Recuperación: «Nueva sesión» descarta el trabajo sin decirlo.
 - [ ] J1 Modo simple / Pro (simple por defecto).
@@ -140,3 +140,29 @@ UX (sesión 2026-10-30); aquí el resumen y el estado.
 
 ### Después (P2/P3)
 B4–B7, C4–C10, D5–D10, E4–E9, F2–F4, G2–G5, H4–H6, I2–I5, J2–J5, K5–K15 (ver informe de UX).
+
+## Hecho además (2026-10-30)
+- Nombres claros en español: «Imán», «Cortar (para mover)», «Recortar el inicio/final», «Seguir a (primario)»,
+  «Stickers» (una sola palabra), «Detectar cortes», «Efectos de voz», «Sonidos», «Volumen igual que en redes»,
+  «Agrupar», «Convertir el grupo en un video», «Hacer que vaya más fluido al editar», «Qué tapa este clip…»,
+  «Velocidad con fotogramas clave».
+- Extras básicos: la oferta de instalar al arrancar apuntaba a ids de Drift (`effects.core`…) que el índice de Flip
+  no tiene; ahora `fonts.basic`, `stickers.emoji`, `stickers.emoji-animados`, `sonidos.efectos` (≈ 18 MB). Sigue sin
+  abrirse sola: el ícono de Extras late.
+- Ayuda › «Guía de uso» abre getflipstudio.com/guia.html.
+
+## Decisiones para Jorge (no hechas a propósito)
+- **Modo simple / Pro (J1)**: esconder por defecto lo de After Effects (barra de herramientas sobre la vista
+  previa, Motion Tools, Curvas, cronómetros). Lo pediste en la 0.26, así que no lo escondo sin tu OK.
+- **Exportar sin cuenta (A6)**: un niño muchas veces no tiene Google. ¿Las primeras exportaciones o 720p sin cuenta?
+- **Proyecto de ejemplo (A3)**: necesita medios propios dentro del instalador (o en Stock).
+- **Dos copias de la app (N-3)**: la recuperación sigue siendo un solo archivo; lo más simple sería no permitir dos
+  copias abiertas a la vez.
+
+## Cómo se probó
+- Cada archivo C++ tocado: `g++ -fsyntax-only` con los headers reales; cada QML: `qmlformat` y `qmllint`.
+- `lupdate` dos pasadas iguales; español 0 sin terminar.
+- Prueba nueva `splitCutsOnlyThePickedClips` (tst_editorstate).
+- **Falta:** CI en verde y probar en ventana (Dividir con selección, menú de clic derecho con Avanzado, Exportar con
+  destinos y «Mostrar en la carpeta», formato Automático sin preguntar, línea de tiempo vacía, nombres en la barra de
+  propiedades, línea de volumen, deslizadores de Rebote, máscara animada en exportación larga).
