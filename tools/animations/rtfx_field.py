@@ -59,11 +59,17 @@ def bump(X, Y, cx, cy, r, sx=1.0, sy=1.0, ang=0.0):
 
 
 # ------------------------------------------------------------------ cutting into outlines
-def masks(d, core, W, H):
+def levels(tones):
+    """The heart level each tone after the rim starts at: a tone may give its own as a third item."""
+    default = [EDGE, HOT] + [HOT + 0.08 * i for i in range(1, 8)]
+    return [t[2] if len(t) > 2 else default[i] for i, t in enumerate(tones[1:])]
+
+
+def masks(d, core, W, H, tones=None):
     up = cv2.resize(d, (W, H), interpolation=cv2.INTER_CUBIC)
     cu = cv2.resize(core, (W, H), interpolation=cv2.INTER_CUBIC)
     rim = up > RIM
-    return [rim, rim & (cu > EDGE), rim & (cu > HOT)]
+    return [rim] + [rim & (cu > lv) for lv in levels(tones or TONES)]
 
 
 def outlines(mask, min_area=12.0, eps=1.3):
@@ -117,21 +123,28 @@ def gaussian_blur(amount):
 TONES = [("rojo", "#ff1a08"), ("naranja", "#ff6a00"), ("amarillo", "#fff3a0")]
 
 
-def render(sticker: Sticker, field, tones=TONES, glow=24, slots=(48, 40, 40)):
-    """Writes `field(t) -> (d, core)` into the sticker: a glow, then one layer per tone."""
+def render(sticker: Sticker, field, tones=TONES, glow=24, slots=(48, 40, 40), halo=None):
+    """Writes `field(t) -> (d, core)` into the sticker: a glow, then one layer per tone. halo, when
+    given, is a list of (colour, blur, opacity) glows drawn behind instead of the single one: a wide
+    soft one and a near one read as the warm haze round RTFX's effects."""
     W, H = sticker.size, sticker.h
     per_tone = [[] for _ in tones]
     for f in range(0, sticker.frames, STEP):
         d, core = field(f / sticker.fps)
-        for k, m in enumerate(masks(d, core, W, H)[:len(tones)]):
+        for k, m in enumerate(masks(d, core, W, H, tones)):
             per_tone[k].append((f, outlines(m)))
-    ids = [sticker.slot(sid, colour) for sid, colour in tones]
+    ids = [sticker.slot(t[0], t[1]) for t in tones]
     rim_paths = path_keys(per_tone[0], slots[0])
-    if glow and rim_paths:
-        lay = sticker.layer(group(*rim_paths, even_odd_fill(tones[0][1], ids[0], 85), tr=transform()),
-                            ks=layer_transform((0, 0)), name="resplandor")
-        lay["ef"] = [gaussian_blur(glow)]
-    for k, (sid, colour) in enumerate(tones):
+    glows = halo if halo is not None else ([(tones[0][1], glow, 85)] if glow else [])
+    for i, (colour, blur, opacity) in enumerate(glows):
+        if not rim_paths:
+            break
+        sid = sticker.slot(tones[0][0] + " resplandor" + ("" if i == 0 else f" {i + 1}"), colour)
+        lay = sticker.layer(group(*rim_paths, even_odd_fill(colour, sid, opacity), tr=transform()),
+                            ks=layer_transform((0, 0)), name="resplandor" + ("" if i == 0 else f" {i + 1}"))
+        lay["ef"] = [gaussian_blur(blur)]
+    for k, t in enumerate(tones):
+        sid, colour = t[0], t[1]
         paths = rim_paths if k == 0 else path_keys(per_tone[k], slots[min(k, len(slots) - 1)])
         if paths:
             sticker.layer(group(*paths, even_odd_fill(colour, ids[k]), tr=transform()), ks=layer_transform((0, 0)),
@@ -140,15 +153,18 @@ def render(sticker: Sticker, field, tones=TONES, glow=24, slots=(48, 40, 40)):
 
 
 # ------------------------------------------------------------------ previews without the app
-def picture(d, core, W, H, tones=TONES, glow=16):
+def picture(d, core, W, H, tones=TONES, glow=16, halo=None):
     img = np.zeros((H, W, 3), np.float32)
-    ms = masks(d, core, W, H)
-    for m, (_, colour) in zip(ms, tones):
+    ms = masks(d, core, W, H, tones)
+    glows = halo if halo is not None else [(tones[0][1], glow * 2, 100)]
+    for colour, blur, opacity in glows:
         r, g, b = rgb(colour)[:3]
+        # AE's Blurriness is about twice the Gaussian sigma.
+        h = cv2.GaussianBlur(ms[0].astype(np.float32), (0, 0), max(1.0, blur / 2)) * opacity / 100
+        img += h[..., None] * np.array((b, g, r), np.float32) * (1 - img.max(axis=2, keepdims=True).clip(0, 1))
+    for m, t in zip(ms, tones):
+        r, g, b = rgb(t[1])[:3]
         img[m] = (b, g, r)
-    r, g, b = rgb(tones[0][1])[:3]
-    halo = cv2.GaussianBlur(ms[0].astype(np.float32), (0, 0), glow)
-    img += (~ms[0])[..., None] * halo[..., None] * np.array((b, g, r), np.float32)
     return (np.clip(img, 0, 1) * 255).astype(np.uint8)
 
 

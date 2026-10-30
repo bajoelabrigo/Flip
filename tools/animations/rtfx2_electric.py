@@ -18,6 +18,7 @@ from rtfx_engine import new
 
 TONES = [("azul eléctrico", "#2f5bff"), ("celeste", "#8fb8ff"), ("blanco", "#f4f8ff")]
 GLOW = 26
+HALO = [("#1d45ff", 60, 90), ("#5a8cff", 16, 95)]
 
 
 def bolt(pts, k, w=2.3, heart=0.72):
@@ -71,7 +72,7 @@ def make_ray():
             "electricidad", 14, 9000, ["electricidad", "electricity", "rayo", "lightning", "bolt", "chispa"],
             size=512, thumb=0.3)
     s.fps = 24
-    return render(s, ray(512, 512, 3, size=1.4), tones=TONES, glow=GLOW)
+    return render(s, ray(512, 512, 3, size=1.4), tones=TONES, halo=HALO)
 
 
 def charge(W, H, seed, size=1.0, period=1.5):
@@ -104,7 +105,7 @@ def make_charge():
             "electricidad", 36, 9001, ["electricidad", "electricity", "carga", "charge", "rayo", "lightning", "bucle",
                                        "loop"], loop=True, size=512, thumb=0.5)
     s.fps = 24
-    return render(s, charge(512, 512, 5, size=1.6), tones=TONES, glow=GLOW)
+    return render(s, charge(512, 512, 5, size=1.6), tones=TONES, halo=HALO)
 
 
 def blast(W, H, seed, size=1.0):
@@ -140,7 +141,7 @@ def make_blast():
             "electricidad", 14, 9002, ["electricidad", "electricity", "estallido", "blast", "explosión", "explosion",
                                        "golpe", "hit"], size=512, thumb=0.6)
     s.fps = 24
-    return render(s, blast(512, 512, 7, size=1.6), tones=TONES, glow=GLOW)
+    return render(s, blast(512, 512, 7, size=1.6), tones=TONES, halo=HALO)
 
 
 def coil(W, H, seed, size=1.0, period=1.33):
@@ -174,7 +175,7 @@ def make_coil():
             "electricidad", 32, 9003, ["electricidad", "electricity", "espiral", "coil", "anillos", "rings", "bucle",
                                        "loop"], loop=True, size=512, thumb=0.5)
     s.fps = 24
-    return render(s, coil(512, 512, 9, size=1.6), tones=TONES, glow=GLOW)
+    return render(s, coil(512, 512, 9, size=1.6), tones=TONES, halo=HALO)
 
 
 STICKERS = [make_ray, make_charge, make_blast, make_coil]

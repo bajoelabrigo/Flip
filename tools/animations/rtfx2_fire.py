@@ -18,8 +18,23 @@ from rtfx_engine import new
 
 G = 256  # grid columns; rows follow the canvas aspect
 
+# Fire in four tones as RTFX draws it: the red rim, an orange band, amber, then the yellow heart; and
+# a warm haze round it, wide and soft plus a nearer one.
+FIRE = [("rojo", "#e8140a"), ("naranja", "#ff6200", 0.42), ("ámbar", "#ffaa1c", 0.53), ("amarillo", "#fff2a6", 0.63)]
+HAZE = [("#ff5a00", 80, 55), ("#ff7a10", 28, 60)]
+
 
 class Mass:
+    # pockets: how strongly red pockets break up the yellow heart (RTFX's flames are never flat
+    # yellow inside). die: "shred" tears the mass into strands along the flow as it dies; "hollow"
+    # turns the hottest parts into holes first, so each puff burns out into a ring and crescents.
+    pockets = 0.28
+    die = "shred"
+    # seams: red lines where two puffs meet, drawing each puff's outline inside the mass; creases:
+    # fine red wrinkles all over the yellow, like the folds of a cauliflower (both as in RTFX).
+    seams = 0.45
+    creases = 0.0
+
     def __init__(self, W, H, seed, rough=1.0):
         # rough scales the licking and the boiling of the edges: 1 for fire, low for clean energy.
         self.rough = rough
@@ -40,6 +55,7 @@ class Mass:
         wy = (self.warp.fbm(xx * 0.022 + 40, yy * 0.022 + t * 1.5, 2) - 0.5) * 8 * self.rough
         X, Y = xx + wx, yy + wy
         mx = np.zeros_like(xx)
+        mx2 = np.zeros_like(xx)
         sm = np.zeros_like(xx)
         mc = np.zeros_like(xx)
         holes = np.zeros_like(xx)
@@ -62,6 +78,7 @@ class Mass:
                            r * (0.3 + 0.9 * kk), sx, sy, ang)
                 own = np.clip((own - 0.25) * 3.0, 0, 1)  # a sharp cut, so the crescent left is the size asked
                 g = g - 1.5 * own
+            mx2 = np.maximum(mx2, np.minimum(mx, g))
             mx = np.maximum(mx, g)
             sm += np.maximum(g, 0)
             if heart > 0.05:
@@ -105,12 +122,36 @@ class Mass:
         gap = np.clip((st - cut) / 0.07, 0, 1)
         keep = np.clip((cut - st) / 0.07, 0, 1)
         eat = front * (1.6 * gap - 0.15 * keep * (1 - prog)) + prog ** 3 * 0.9
-        d = d - eat
-        dc = dc - 0.08 * eat
+        if self.die == "shred":
+            d = d - eat
+            dc = dc - 0.08 * eat
         cauli = self.cell.fbm(xx * 0.07, yy * 0.07 - t * 1.2, 2) - 0.5
         top = np.clip((oy - yy) / reach, 0, 1) if flow == "radial" else 0.0
         d = d + 0.18 * self.rough * cauli
+        # Small scallops all round the edge, as a cauliflower outline.
+        d = d + 0.05 * self.rough * (self.cell.fbm(xx * 0.17 + 3, yy * 0.17 - t * 2.0, 1) - 0.5)
         core = dc + 0.5 * self.rough * cauli + 0.06 - 0.05 * life - 0.9 * life * far - crown * top * min(1.0, t / 0.4)
+        if self.seams:
+            seam = np.clip(1 - (mx - mx2) / 0.2, 0, 1) * np.clip((mx2 - 0.35) / 0.2, 0, 1)
+            core = core - self.seams * min(1.0, self.rough) * seam
+        if self.creases:
+            wn = self.cell.fbm(xx * 0.075 + 5, yy * 0.075 - t * 1.6, 2)
+            ridge = np.clip((0.06 - np.abs(wn - 0.55)) / 0.02, 0, 1)
+            core = core - self.creases * min(1.0, self.rough) * ridge
+        if self.pockets:
+            pk = self.streak.fbm(xx * 0.05 + 11, yy * 0.05 - t * 1.4, 2)
+            core = core - self.pockets * min(1.0, self.rough) * np.clip((pk - 0.55) / 0.05, 0, 1)
+        if self.die == "hollow" and prog > 0:
+            # The hottest parts go first: holes open where the heart was and widen, leaving rings of
+            # the red and orange that thin out, and whatever is far along the flow goes sooner.
+            heat = core + 0.35 * far * prog
+            thr = 1.0 - 0.95 * prog
+            hole = np.clip((heat - thr) / 0.06, 0, 1)
+            d = d - 2.0 * hole - 0.25 * prog ** 2
+            # Round each hole the heart stays lit a little while: a yellow lip, then orange, then the
+            # red, so the rings keep their colours as they thin.
+            lip = np.clip(1 - (thr - heat) / 0.16, 0, 1) * (1 - prog ** 2)
+            core = np.maximum(core - 0.6 * prog, 0.38 + 0.36 * lip)
         if char > 0:
             d, core = self.charred(d, core, far, t, char)
         return d, core
@@ -231,7 +272,7 @@ def make_thrower():
     s = new("ex-fuego-lanzallamas-derecha", "Fuego · Lanzallamas a la derecha", "Fire · Flamethrower right", "fuego",
             40, 6002, ["fuego", "fire", "lanzallamas", "flamethrower"], size=512, thumb=0.35)
     s.fps = 24
-    return render(s, thrower(512, 512, 11, size=0.75))
+    return render(s, thrower(512, 512, 11, size=0.75), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def wings(W, H, seed, size=1.0, dur=2.2):
@@ -267,7 +308,7 @@ def make_wings():
     s = new("ex-fuego-alas-arriba", "Fuego · Alas de fuego", "Fire · Wings of fire", "fuego", 52, 6003,
             ["fuego", "fire", "alas", "wings"], size=512, thumb=0.35)
     s.fps = 24
-    return render(s, wings(512, 512, 13, size=1.05))
+    return render(s, wings(512, 512, 13, size=1.05), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def ring(W, H, seed, size=1.0, dur=1.3):
@@ -315,7 +356,7 @@ def make_ring():
     s = new("ex-fuego-anillo-radial", "Fuego · Anillo de fuego", "Fire · Ring of fire", "fuego", 30, 6004,
             ["fuego", "fire", "anillo", "ring", "golpe", "hit"], size=512, thumb=0.3)
     s.fps = 24
-    return render(s, ring(512, 512, 17, size=1.0))
+    return render(s, ring(512, 512, 17, size=1.0), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def slash(W, H, seed, angle=0.0, size=1.0):
@@ -352,7 +393,7 @@ def make_slash():
     s = new("ex-fuego-corte-derecha", "Fuego · Corte a la derecha", "Fire · Slash right", "fuego", 26, 6005,
             ["fuego", "fire", "corte", "slash"], size=512, thumb=0.25)
     s.fps = 24
-    return render(s, slash(512, 512, 19, size=1.0))
+    return render(s, slash(512, 512, 19, size=1.0), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def ray(W, H, seed, size=1.0):
@@ -390,7 +431,7 @@ def make_ray():
     s = new("ex-fuego-rayo-arriba", "Fuego · Rayo hacia arriba", "Fire · Ray up", "fuego", 32, 6006,
             ["fuego", "fire", "rayo", "ray", "remolino"], size=512, thumb=0.35)
     s.fps = 24
-    return render(s, ray(512, 512, 23, size=1.0))
+    return render(s, ray(512, 512, 23, size=1.0), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 # A hit's cloud: a dome of puffs (offsets in units of the puff radius, each puff's size, and whether
@@ -502,7 +543,7 @@ def make_hit_up():
     s = new("ex-fuego-golpe-arriba", "Fuego · Golpe hacia arriba", "Fire · Hit up", "fuego", 30, 6007,
             ["fuego", "fire", "golpe", "hit", "impacto"], size=512, thumb=0.2)
     s.fps = 24
-    return render(s, hit_up(512, 512, 29, size=1.0))
+    return render(s, hit_up(512, 512, 29, size=1.0), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_shot_hit():
@@ -510,7 +551,7 @@ def make_shot_hit():
             26, 6008, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"], size=512,
             thumb=0.2)
     s.fps = 24
-    return render(s, shot_hit(512, 512, 31, size=1.4))
+    return render(s, shot_hit(512, 512, 31, size=1.4), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def projectile(W, H, seed, angle=0.0, size=1.0, rough=1.0, dots=0):
@@ -560,7 +601,7 @@ def make_projectile():
             "fuego", 48, 6009, ["fuego", "fire", "proyectil", "projectile", "bola de fuego", "fireball", "bucle", "loop"],
             loop=True, size=512, thumb=0.3)
     s.fps = 24
-    return render(s, projectile(512, 512, 37, size=1.3))
+    return render(s, projectile(512, 512, 37, size=1.3), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def splash_up(W, H, seed, size=1.0):
@@ -607,7 +648,7 @@ def make_splash_up():
     s = new("ex-fuego-salpicadura-arriba", "Fuego · Salpicadura hacia arriba", "Fire · Splash up", "fuego", 28, 6010,
             ["fuego", "fire", "salpicadura", "splash", "llama", "flame"], size=512, thumb=0.2)
     s.fps = 24
-    return render(s, splash_up(512, 512, 41, size=0.72))
+    return render(s, splash_up(512, 512, 41, size=0.72), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def traced(curve, head, t, k, width=11.0, life=0.4, step=0.012, lick=0.0, rnd=None, thick=None, end=1.0, fade=0.8, hot=0.62):
@@ -667,7 +708,7 @@ def make_trail_ring():
     s = new("ex-fuego-estela-circular", "Fuego · Estela circular", "Fire · Ring trail", "fuego", 30, 6011,
             ["fuego", "fire", "estela", "trail", "círculo", "circle", "anillo", "ring"], size=512, thumb=0.45)
     s.fps = 24
-    return render(s, trail_ring(512, 512, 43, size=1.5))
+    return render(s, trail_ring(512, 512, 43, size=1.5), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def charge(W, H, seed, size=1.0):
@@ -712,7 +753,7 @@ def make_charge():
     s = new("ex-fuego-carga-circular", "Fuego · Carga circular", "Fire · Radial charge", "fuego", 34, 6012,
             ["fuego", "fire", "carga", "charge", "poder", "power", "aura"], size=512, thumb=0.45)
     s.fps = 24
-    return render(s, charge(512, 512, 47, size=1.25))
+    return render(s, charge(512, 512, 47, size=1.25), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 # The column a ground trail rears up into: puffs (dx, dy, r) from the head, leaning back up a curl.
@@ -762,7 +803,7 @@ def make_ground_trail():
     s = new("ex-fuego-estela-suelo-derecha", "Fuego · Estela por el suelo a la derecha", "Fire · Ground trail right",
             "fuego", 30, 6013, ["fuego", "fire", "estela", "trail", "suelo", "ground", "camino"], size=512, thumb=0.45)
     s.fps = 24
-    return render(s, ground_trail(512, 512, 53, size=1.4))
+    return render(s, ground_trail(512, 512, 53, size=1.4), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def wall(W, H, seed, period=2.0):
@@ -821,7 +862,7 @@ def make_wall():
             ["fuego", "fire", "muro", "wall", "llamas", "flames", "bucle", "loop", "fondo"], loop=True, size=512,
             height=288, thumb=0.5)
     s.fps = 24
-    return render(s, wall(512, 288, 59))
+    return render(s, wall(512, 288, 59), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def looped(m, lobes_at, period, flow, origin, reach):
@@ -895,7 +936,7 @@ def make_flame_calm():
             ["fuego", "fire", "llama", "flame", "antorcha", "torch", "fogata", "bucle", "loop"], loop=True, size=512,
             thumb=0.5)
     s.fps = 24
-    return render(s, flame_loop(512, 512, 61, wind=0.0, size=1.25))
+    return render(s, flame_loop(512, 512, 61, wind=0.0, size=1.25), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_flame_windy():
@@ -903,7 +944,7 @@ def make_flame_windy():
             6016, ["fuego", "fire", "llama", "flame", "viento", "wind", "antorcha", "torch", "bucle", "loop"], loop=True,
             size=512, thumb=0.5)
     s.fps = 24
-    return render(s, flame_loop(512, 512, 67, wind=0.5, size=1.2))
+    return render(s, flame_loop(512, 512, 67, wind=0.5, size=1.2), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def slash_arc(W, H, seed, size=1.0, sweep=-2.3, start=-1.75):
@@ -932,7 +973,7 @@ def make_slash_arc():
     s = new("ex-fuego-corte-arco", "Fuego · Corte en arco", "Fire · Arc slash", "fuego", 26, 6017,
             ["fuego", "fire", "corte", "slash", "arco", "arc", "espada", "sword"], size=512, thumb=0.3)
     s.fps = 24
-    return render(s, slash_arc(512, 512, 71, size=1.5))
+    return render(s, slash_arc(512, 512, 71, size=1.5), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_shot_hit_up():
@@ -940,7 +981,7 @@ def make_shot_hit_up():
             26, 6018, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"], size=512,
             thumb=0.2)
     s.fps = 24
-    return render(s, shot_hit(512, 512, 73, angle=-math.pi / 2, size=1.4))
+    return render(s, shot_hit(512, 512, 73, angle=-math.pi / 2, size=1.4), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_shot_hit_left():
@@ -948,21 +989,21 @@ def make_shot_hit_left():
             "fuego", 26, 6019, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"],
             size=512, thumb=0.2)
     s.fps = 24
-    return render(s, shot_hit(512, 512, 79, angle=math.pi, size=1.4))
+    return render(s, shot_hit(512, 512, 79, angle=math.pi, size=1.4), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
     s.fps = 24
-    return render(s, torch(512, 512, 7, size=0.95))
+    return render(s, torch(512, 512, 7, size=0.95), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 def make_explosion():
     s = new("ex-fuego-explosion-radial", "Fuego · Explosión radial", "Fire · Radial explosion", "fuego", 46, 6000,
             ["fuego", "fire", "explosión", "explosion"], size=512, thumb=0.25)
     s.fps = 24
-    return render(s, explosion(512, 512, 5, size=1.35))
+    return render(s, explosion(512, 512, 5, size=1.35), tones=FIRE, halo=HAZE, slots=(48, 40, 40, 40))
 
 
 STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge, make_ground_trail, make_wall, make_flame_calm, make_flame_windy, make_slash_arc, make_shot_hit_up,

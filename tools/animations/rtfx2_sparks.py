@@ -18,6 +18,7 @@ from rtfx_engine import new
 
 TONES = [("naranja chispa", "#ff7400"), ("dorado", "#ffc23a"), ("amarillo claro", "#fff4c4")]
 GLOW = 14
+HALO = [("#ff5a00", 46, 85), ("#ffa21c", 12, 95)]
 
 
 def flight(t, v, drag, g):
@@ -61,7 +62,7 @@ def make_burst():
     s = new("ex-chispas-estallido", "Chispas · Estallido", "Sparks · Burst", "chispas", 24, 8000,
             ["chispas", "sparks", "estallido", "burst", "golpe", "hit", "metal"], size=512, thumb=0.25)
     s.fps = 24
-    return render(s, burst(512, 512, 5, size=1.3), tones=TONES, glow=GLOW, slots=(70, 60, 60))
+    return render(s, burst(512, 512, 5, size=1.3), tones=TONES, halo=HALO, slots=(70, 60, 60))
 
 
 def make_streams():
@@ -69,7 +70,7 @@ def make_streams():
             ["chispas", "sparks", "golpe", "hit", "soldadura", "welding", "metal"], size=512, thumb=0.25)
     s.fps = 24
     dirs = [-2.2, -1.1, -0.2, 0.9, 2.0, 2.9]
-    return render(s, burst(512, 512, 7, size=1.3, n=40, spread=dirs, life=0.75), tones=TONES, glow=GLOW,
+    return render(s, burst(512, 512, 7, size=1.3, n=40, spread=dirs, life=0.75), tones=TONES, halo=HALO,
                   slots=(60, 50, 50))
 
 
@@ -112,7 +113,7 @@ def make_fountain():
     s = new("ex-chispas-fuente", "Chispas · Fuente de chispas", "Sparks · Spark fountain", "chispas", 48, 8002,
             ["chispas", "sparks", "fuente", "fountain", "metal", "soldadura", "welding"], size=512, thumb=0.2)
     s.fps = 24
-    return render(s, fountain(512, 512, 11, size=1.3), tones=TONES, glow=GLOW, slots=(60, 50, 50))
+    return render(s, fountain(512, 512, 11, size=1.3), tones=TONES, halo=HALO, slots=(60, 50, 50))
 
 
 def crown(W, H, seed, size=1.0, period=1.5):
@@ -146,7 +147,8 @@ def make_crown():
                                   "loop"], loop=True, size=512, thumb=0.5)
     s.fps = 24
     return render(s, crown(512, 512, 13, size=1.6),
-                  tones=[("rojo chispa", "#ff3a0a"), ("naranja", "#ff9a1f"), ("amarillo claro", "#fff4c4")], glow=20)
+                  tones=[("rojo chispa", "#ff3a0a"), ("naranja", "#ff9a1f"), ("amarillo claro", "#fff4c4")],
+                  halo=[("#ff3a00", 60, 85), ("#ff8a10", 18, 95)])
 
 
 STICKERS = [make_burst, make_streams, make_fountain, make_crown]

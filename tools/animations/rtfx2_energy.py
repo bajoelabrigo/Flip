@@ -16,15 +16,22 @@ from rtfx2_fire import Mass, looped, ribbon, traced
 from rtfx_field import render
 from rtfx_engine import new
 
-TONES = [("azul", "#2456ff"), ("cian", "#5cd6ff"), ("blanco", "#f2fbff")]
-CYAN = [("cian", "#00a8ff"), ("celeste", "#66e6ff"), ("blanco", "#f2fbff")]
+# A thin coloured rim, the white reaching almost to it, and a strong glow round it (RTFX's energy).
+TONES = [("azul", "#3a6bff"), ("cian", "#8fd9ff", 0.2), ("blanco", "#f4fbff", 0.34)]
+CYAN = [("cian", "#18b4ff"), ("celeste", "#7deaff", 0.2), ("blanco", "#f2fdff", 0.34)]
+HALO = [("#1d45ff", 70, 90), ("#4f8dff", 22, 95)]
+HALO_CYAN = [("#0097ff", 70, 90), ("#3fd2ff", 22, 95)]
 GLOW = 30
 
 
 def ring(x, y, r, w, heart=0.95):
-    """A ring of radius r and width w: a puff hollowed from its own centre."""
-    k = max(0.0, (1 - w / max(r, 1e-3)) - 0.3) / 0.9
-    return (x, y, r, 1.0, 1.0, 0.0, heart, k, 0.0, 0.0, True) if k > 0 else (x, y, r, 1.0, 1.0, 0.0, heart)
+    """A ring of radius r and width w, as lobes: a thick one is a puff hollowed from its centre, a
+    thin one a band of small puffs round the circle (a hollowed puff loses a thin rim altogether)."""
+    if w > r * 0.35:
+        k = max(0.0, (1 - w / max(r, 1e-3)) - 0.3) / 0.9
+        return [(x, y, r, 1.0, 1.0, 0.0, heart, k, 0.0, 0.0, True) if k > 0 else (x, y, r, 1.0, 1.0, 0.0, heart)]
+    return ribbon(lambda u: (x + math.cos(2 * math.pi * u) * r, y + math.sin(2 * math.pi * u) * r), lambda u: w / 2,
+                  max(24, int(4 * math.pi * r / max(w, 0.5))), lambda u: heart)
 
 
 def hit_rings(W, H, seed, size=1.0):
@@ -51,7 +58,7 @@ def hit_rings(W, H, seed, size=1.0):
             r = R * k * (0.35 + 0.65 * e) * (1 + 0.15 * max(0.0, a - 0.45))
             w = (r * (0.5 - 0.44 * min(1.0, a / 0.4)) + 3.0 * k) * max(0.0, 1 - max(0.0, a - 0.45) / 0.3)
             if w > 0.5:
-                lobes.append(ring(cx + dx * k * e, cy + dy * k * e, r, w, 0.97 - 0.4 * min(1.0, max(0.0, a - 0.3) / 0.4)))
+                lobes.extend(ring(cx + dx * k * e, cy + dy * k * e, r, w, 0.97 - 0.4 * min(1.0, max(0.0, a - 0.3) / 0.4)))
         return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0)
 
     return field
@@ -61,7 +68,7 @@ def make_hit_rings():
     s = new("ex-energia-golpe-anillos", "Energía · Golpe de anillos", "Energy · Ring hit", "energia", 16, 7000,
             ["energía", "energy", "golpe", "hit", "anillos", "rings", "impacto"], size=512, thumb=0.25)
     s.fps = 24
-    return render(s, hit_rings(512, 512, 3, size=1.4), tones=TONES, glow=GLOW)
+    return render(s, hit_rings(512, 512, 3, size=1.4), tones=TONES, halo=HALO)
 
 
 def star_hit(W, H, seed, size=1.0):
@@ -92,7 +99,7 @@ def star_hit(W, H, seed, size=1.0):
             ra = max(0.0, 1 - max(0.0, t - 0.3) / 0.4)
             if ra > 0:
                 r = (12 + 30 * e) * k
-                lobes.append(ring(cx, cy, r, r * (0.12 + 0.2 * ra) * ra, 0.9))
+                lobes.extend(ring(cx, cy, r, (2.0 + 3.0 * ra) * k * ra, 0.9))
         return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0)
 
     return field
@@ -102,7 +109,7 @@ def make_star_hit():
     s = new("ex-energia-golpe-estrella", "Energía · Golpe de estrella", "Energy · Star hit", "energia", 16, 7001,
             ["energía", "energy", "golpe", "hit", "estrella", "star", "brillo", "glint"], size=512, thumb=0.3)
     s.fps = 24
-    return render(s, star_hit(512, 512, 5, size=1.6), tones=TONES, glow=GLOW)
+    return render(s, star_hit(512, 512, 5, size=1.3), tones=TONES, halo=HALO)
 
 
 def ray_up(W, H, seed, size=1.0):
@@ -143,7 +150,7 @@ def make_ray_up():
     s = new("ex-energia-rayo-arriba", "Energía · Rayo hacia arriba", "Energy · Ray up", "energia", 30, 7002,
             ["energía", "energy", "rayo", "ray", "haz", "beam", "láser", "laser"], size=512, thumb=0.45)
     s.fps = 24
-    return render(s, ray_up(512, 512, 7, size=1.0), tones=CYAN, glow=GLOW)
+    return render(s, ray_up(512, 512, 7, size=1.0), tones=CYAN, halo=HALO_CYAN)
 
 
 def slash(W, H, seed, size=1.0):
@@ -172,14 +179,14 @@ def make_slash():
     s = new("ex-energia-corte-derecha", "Energía · Corte a la derecha", "Energy · Slash right", "energia", 18, 7003,
             ["energía", "energy", "corte", "slash", "espada", "sword"], size=512, thumb=0.1)
     s.fps = 24
-    return render(s, slash(512, 512, 9, size=1.2), tones=TONES, glow=GLOW)
+    return render(s, slash(512, 512, 9, size=1.2), tones=TONES, halo=HALO)
 
 
 def orb_shot(W, H, seed, size=1.0):
     """An energy projectile, looping (RTFX's «Energy Projectile Right Loop»): a blunt-nosed drop of
     light flying right, its back tapering into licks that flicker on every second frame, with jagged
     white inside and specks of light left in its wake."""
-    m = Mass(W, H, seed, rough=0.4)
+    m = Mass(W, H, seed, rough=0.9)
     k = size * m.gw / 256
     cx, cy = m.gw / 2 + 20 * k, m.gh / 2
 
@@ -188,12 +195,12 @@ def orb_shot(W, H, seed, size=1.0):
         rnd = np.random.default_rng(seed * 1000 + n)
         sc = rnd.uniform(0.85, 1.1)
         lobes = [(cx, cy, 22 * k * sc, 1.0, 1.0, 0.0, 0.62)]  # the nose
-        for j in range(4):  # the body tapering back, each lick its own length
-            u = (j + 1) / 4
-            L = (16 + 26 * u) * k * rnd.uniform(0.8, 1.2) * sc
-            v = rnd.uniform(-1, 1) * 9 * k * u
-            lobes.append((cx - 8 * k - L * 0.8, cy + v, L, 1.0, (0.75 - 0.35 * u) * rnd.uniform(0.8, 1.2), v * 0.01 / k,
-                          0.7 - 0.2 * u))
+        for j in range(6):  # licks fanning back from the nose to points, each its own length
+            v = (j - 2.5) / 2.5
+            L = (30 + 22 * (1 - abs(v))) * k * rnd.uniform(0.8, 1.2) * sc
+            ang = math.pi + v * 0.32 + rnd.uniform(-0.06, 0.06)
+            lobes.append((cx + math.cos(ang) * L * 0.75, cy + math.sin(ang) * L * 0.75, L, 1.0,
+                          (0.2 + 0.08 * (1 - abs(v))) * rnd.uniform(0.85, 1.15), ang, 0.62))
         for _ in range(5):  # the wake
             lobes.append((cx - rnd.uniform(70, 110) * k, cy + rnd.uniform(-10, 10) * k, rnd.uniform(2, 3.5) * k, 1.0,
                           1.0, 0.0, 0.9))
@@ -207,7 +214,7 @@ def make_projectile():
             "energia", 48, 7004, ["energía", "energy", "proyectil", "projectile", "bola", "orb", "bucle", "loop"],
             loop=True, size=512, thumb=0.3)
     s.fps = 24
-    return render(s, orb_shot(512, 512, 83, size=1.3), tones=CYAN, glow=GLOW)
+    return render(s, orb_shot(512, 512, 83, size=1.3), tones=CYAN, halo=HALO_CYAN)
 
 
 def crackle(rnd, cx, cy, r0, r1, k):
@@ -239,14 +246,13 @@ def charge_orb(W, H, seed, size=1.0, period=2.0):
         n = int(round(t * 24)) // 2
         rnd = np.random.default_rng(seed * 100 + n)
         beat = 0.5 + 0.5 * math.sin(2 * math.pi * t / period * 2)
-        lobes = [(cx, cy, (17 + 2 * beat) * k, 1.0, 1.0, 0.0, 0.95),
-                 (cx, cy, (24 + 5 * beat) * k, 1.0, 1.0, 0.0, 0.0)]  # the halo, rim only
+        lobes = [(cx, cy, (17 + 2 * beat) * k, 1.0, 1.0, 0.0, 0.97)]
         for ph in (0.0, 0.5):
             a = (t / period * 2 + ph) % 1.0
-            r = (22 + 30 * a) * k
-            w = r * 0.12 * (1 - a)
+            r = (22 + 34 * a) * k
+            w = 1.6 * k * (1 - a)
             if w > 0.6:
-                lobes.append(ring(cx, cy, r, w, 0.0))
+                lobes.extend(ring(cx, cy, r, w, 0.0))
         if n % 4 != 1:
             for _ in range(1 + (n % 2)):
                 lobes += crackle(rnd, cx, cy, 24 * k, 44 * k, k)
@@ -260,7 +266,7 @@ def make_charge_orb():
             7005, ["energía", "energy", "carga", "charge", "esfera", "orb", "poder", "power", "bucle", "loop"], loop=True,
             size=512, thumb=0.5)
     s.fps = 24
-    return render(s, charge_orb(512, 512, 89, size=1.5), tones=TONES, glow=GLOW)
+    return render(s, charge_orb(512, 512, 89, size=1.5), tones=TONES, halo=HALO)
 
 
 def halo(W, H, seed, size=1.0, period=2.0):
@@ -288,7 +294,7 @@ def make_halo():
     s = new("ex-energia-halo", "Energía · Halo de energía (bucle)", "Energy · Energy halo (loop)", "energia", 48, 7006,
             ["energía", "energy", "halo", "anillo", "ring", "aura", "bucle", "loop"], loop=True, size=512, thumb=0.5)
     s.fps = 24
-    return render(s, halo(512, 512, 97, size=1.1), tones=TONES, glow=GLOW)
+    return render(s, halo(512, 512, 97, size=1.1), tones=TONES, halo=HALO)
 
 
 def burst(W, H, seed, size=1.0):
@@ -307,9 +313,9 @@ def burst(W, H, seed, size=1.0):
         lobes = []
         R = (10 + 26 * e) * k
         for a, js in petals:
-            hole = max(0.0, (t - 0.15) / 0.45)
+            hole = max(0.0, (t - 0.1) / 0.35)
             lobes.append((cx + math.cos(a) * R, cy + math.sin(a) * R, (9 + 14 * e) * js * k * max(0.0, 1 - max(0.0, t - 0.55) / 0.35), 1.0, 1.0, a, 0.9,
-                          min(0.85, 0.4 + 0.6 * hole) if hole > 0 else 0.0, a + math.pi, 0.45 - 0.2 * min(1.0, hole), True))
+                          min(0.9, 0.45 + 0.5 * hole) if hole > 0 else 0.0, a + math.pi, 0.42 - 0.2 * min(1.0, hole), True))
         core = max(0.0, 1 - t / 0.18)
         if core > 0:
             lobes.append((cx, cy, 20 * k * core, 1.0, 1.0, 0.0, 0.9))
@@ -329,7 +335,7 @@ def make_burst():
     s = new("ex-energia-explosion", "Energía · Explosión de energía", "Energy · Energy burst", "energia", 20, 7007,
             ["energía", "energy", "explosión", "explosion", "golpe", "hit", "impacto"], size=512, thumb=0.2)
     s.fps = 24
-    return render(s, burst(512, 512, 101, size=1.35), tones=TONES, glow=GLOW)
+    return render(s, burst(512, 512, 101, size=1.35), tones=TONES, halo=HALO)
 
 
 def flash(W, H, seed, size=1.0):
@@ -347,7 +353,7 @@ def flash(W, H, seed, size=1.0):
             lobes.append((cx, cy, R, 1.0, 1.0, 0.0, 0.95))
         elif t < 0.26:
             o = (t - 0.17) / 0.09
-            lobes.append(ring(cx, cy, R * (1 + 0.15 * o), R * (0.6 - 0.5 * o), 0.95))
+            lobes.extend(ring(cx, cy, R * (1 + 0.15 * o), R * (0.6 - 0.5 * o), 0.95))
         sp = 1 - abs(t - 0.15) / 0.12
         if sp > 0:
             for j in range(5):
@@ -369,11 +375,11 @@ def make_flash():
     s = new("ex-energia-destello", "Energía · Destello", "Energy · Flash", "energia", 14, 7008,
             ["energía", "energy", "destello", "flash", "golpe", "hit", "brillo"], size=512, thumb=0.15)
     s.fps = 24
-    return render(s, flash(512, 512, 103, size=1.5), tones=TONES, glow=GLOW)
+    return render(s, flash(512, 512, 103, size=1.5), tones=TONES, halo=HALO)
 
 
-VIOLET = [("violeta", "#7a2cff"), ("lila", "#c58cff"), ("blanco lila", "#fbf2ff")]
-AQUA = [("turquesa", "#00c2b0"), ("aguamarina", "#6dffe9"), ("blanco agua", "#f0fffb")]
+VIOLET = [("violeta", "#8a3cff"), ("lila", "#d29cff", 0.2), ("blanco lila", "#fcf4ff", 0.34)]
+AQUA = [("turquesa", "#00c9b6"), ("aguamarina", "#79ffec", 0.2), ("blanco agua", "#f2fffc", 0.34)]
 
 
 def muzzle(W, H, seed, size=1.0, period=1.0):
@@ -430,8 +436,9 @@ def make_muzzle():
             "energia", 24, 7009, ["energía", "energy", "disparo", "shot", "colores", "colors", "láser", "laser", "bucle",
                                   "loop"], loop=True, size=512, thumb=0.5)
     s.fps = 24
-    for f, tones in zip(muzzle(512, 512, 107, size=1.6), (TONES, AQUA, VIOLET)):
-        render(s, f, tones=tones, glow=GLOW)
+    for f, tones, halo in zip(muzzle(512, 512, 107, size=1.6), (TONES, AQUA, VIOLET),
+                              (HALO, [("#00b39f", 70, 90), ("#3ff0d8", 22, 95)], [("#6a1fff", 70, 90), ("#b070ff", 22, 95)])):
+        render(s, f, tones=tones, halo=halo)
     return s
 
 
