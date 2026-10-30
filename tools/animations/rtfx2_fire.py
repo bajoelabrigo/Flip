@@ -819,6 +819,133 @@ def make_wall():
     return render(s, wall(512, 288, 59))
 
 
+def looped(m, lobes_at, period, flow, origin, reach):
+    """A field that loops on period: the same lobes, with the noise of the first and the second time
+    round cross-faded, so the last frame meets the first."""
+    def field(t):
+        t = t % period
+        w = t / period
+        lobes = lobes_at(t)
+        d1, c1 = m.field(lobes, t, flow, origin, reach, 99.0, 1.0, crown=0.0, life=0.0)
+        d2, c2 = m.field(lobes, t - period, flow, origin, reach, 99.0, 1.0, crown=0.0, life=0.0)
+        return (1 - w) * d1 + w * d2, (1 - w) * c1 + w * c2
+    return field
+
+
+def ribbon(path, width, n, heart):
+    """Dense lobes along path(s) -> (x, y) for s in 0..1, width(s) wide, so a tongue's edge is smooth."""
+    lobes = []
+    for i in range(n + 1):
+        sv = i / n
+        x, y = path(sv)
+        x2, y2 = path(min(1.0, sv + 0.02))
+        x1, y1 = path(max(0.0, sv - 0.02))
+        w = width(sv)
+        if w > 0.8:
+            lobes.append((x, y, w, 1.0, 1.0, math.atan2(y2 - y1, x2 - x1), heart(sv)))
+    return lobes
+
+
+def flame_loop(W, H, seed, wind=0.0, size=1.0, period=2.0):
+    """A burning flame, looping (RTFX's «Torch Calm/Windy loop»): a broad bulb of fire with tongues
+    rising out of it one after another, swaying in an S and hooking over at the tip before they pinch
+    off into licks, red blotches welling up through the yellow. wind bends it all to one side and
+    draws the tongues out long."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, base = m.gw / 2 - wind * 40 * k, m.gh * 0.9
+    tongues = [(i / 2 + rnd.uniform(-0.04, 0.04), 1 if i else (0.7 if wind else -0.6), rnd.uniform(0.9, 1.1)) for i in range(2)]
+    bubbles = [(rnd.random(), rnd.uniform(-1, 1), rnd.uniform(0.8, 1.2)) for _ in range(4)]
+
+    def lobes_at(t):
+        lobes = [(cx, base - 24 * k, 40 * k, 1.0, 0.7, 0.0, 0.85)]
+        for ph, side, js in tongues:
+            a = (t / period * 2 + ph) % 1.0
+            top = (85 + 75 * a) * k * js * (1 - 0.25 * abs(wind))
+            sway = side * 44 * (1 - 0.6 * abs(wind)) * k * math.sin(math.pi * a) + math.sin(2 * math.pi * (t / period + ph)) * 8 * k
+            hook = (-side * 58 * (1 - abs(wind)) + wind * 50) * k * a  # in the wind it only bends downwind
+            cut = 1.0 - 0.45 * max(0.0, a - 0.6) / 0.4  # the tip pinching off
+
+            def path(sv, sway=sway, hook=hook, top=top):
+                bend = sway * math.sin(math.pi * sv * 0.9) + hook * max(0.0, sv - 0.5) ** 2 * 4 + wind * 95 * k * sv * sv
+                return cx + bend, base - 30 * k - top * sv * (1 - 0.3 * abs(wind) * sv)
+
+            lobes += ribbon(path, lambda sv, js=js, cut=cut: (36 - 28 * sv) * js * k * (1.0 if sv < cut else 0.0), 44,
+                            lambda sv: 0.72 - 0.3 * sv)
+            if a > 0.6:  # the lick it lets go of
+                x, y = path(1.0 + (a - 0.6) * 0.8)
+                lobes.append((x, y, 9 * k * (1.2 - a), 0.7, 1.3, 0.0, 0.5))
+        for ph, side, js in bubbles:
+            a = (t / period * 2 + ph) % 1.0
+            lobes.append((cx + side * 22 * k + wind * 60 * k * a * a, base - 25 * k - 85 * k * a,
+                          11 * js * k * math.sin(math.pi * a), 1.0, 1.3, 0.0, -1.0))
+        return lobes
+
+    return looped(m, lobes_at, period, "up", (cx, base), 160 * k)
+
+
+def make_flame_calm():
+    s = new("ex-fuego-llama-tranquila", "Fuego · Llama tranquila (bucle)", "Fire · Calm flame (loop)", "fuego", 48, 6015,
+            ["fuego", "fire", "llama", "flame", "antorcha", "torch", "fogata", "bucle", "loop"], loop=True, size=512,
+            thumb=0.5)
+    s.fps = 24
+    return render(s, flame_loop(512, 512, 61, wind=0.0, size=1.25))
+
+
+def make_flame_windy():
+    s = new("ex-fuego-llama-viento", "Fuego · Llama con viento (bucle)", "Fire · Windy flame (loop)", "fuego", 48,
+            6016, ["fuego", "fire", "llama", "flame", "viento", "wind", "antorcha", "torch", "bucle", "loop"], loop=True,
+            size=512, thumb=0.5)
+    s.fps = 24
+    return render(s, flame_loop(512, 512, 67, wind=0.5, size=1.2))
+
+
+def slash_arc(W, H, seed, size=1.0, sweep=-2.3, start=-1.75):
+    """A slash of fire swept in an arc (RTFX's «Slash Radial»): a blade of flame cuts round a curve
+    fast, fattest in the middle of the swing, and the cut it leaves thins and crumbles away."""
+    m = Mass(W, H, seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2 + 14 * k, m.gh / 2
+    R = 72 * k
+
+    def arc(u):
+        a = start + sweep * u
+        return cx + math.cos(a) * R, cy + math.sin(a) * R, a + math.pi / 2
+
+    def field(t):
+        rnd = np.random.default_rng(seed + int(round(t * 24)) // 2)
+        head = 3.0 * t - 0.2 * (1 - math.exp(-t / 0.06))
+        lobes = traced(arc, head, t, k, width=8.5, life=1.9, lick=0.03, rnd=rnd, end=1.0, fade=0.6, hot=0.92,
+                       thick=lambda u: 0.35 + 1.0 * math.sin(math.pi * u))
+        return m.field(lobes, t, "radial", (cx, cy), R * 1.2, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_slash_arc():
+    s = new("ex-fuego-corte-arco", "Fuego · Corte en arco", "Fire · Arc slash", "fuego", 26, 6017,
+            ["fuego", "fire", "corte", "slash", "arco", "arc", "espada", "sword"], size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, slash_arc(512, 512, 71, size=1.5))
+
+
+def make_shot_hit_up():
+    s = new("ex-fuego-disparo-golpe-arriba", "Fuego · Disparo con golpe hacia arriba", "Fire · Shot hit up", "fuego",
+            26, 6018, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"], size=512,
+            thumb=0.2)
+    s.fps = 24
+    return render(s, shot_hit(512, 512, 73, angle=-math.pi / 2, size=1.4))
+
+
+def make_shot_hit_left():
+    s = new("ex-fuego-disparo-golpe-izquierda", "Fuego · Disparo con golpe a la izquierda", "Fire · Shot hit left",
+            "fuego", 26, 6019, ["fuego", "fire", "disparo", "shot", "golpe", "hit", "bola de fuego", "fireball"],
+            size=512, thumb=0.2)
+    s.fps = 24
+    return render(s, shot_hit(512, 512, 79, angle=math.pi, size=1.4))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -833,4 +960,5 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge, make_ground_trail, make_wall]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up, make_trail_ring, make_charge, make_ground_trail, make_wall, make_flame_calm, make_flame_windy, make_slash_arc, make_shot_hit_up,
+            make_shot_hit_left]
