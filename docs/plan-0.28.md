@@ -169,7 +169,10 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    máscaras ni efectos) y **Separar en capas** (`separateShapeParts`: cada parte en su capa encima, se ve igual).
    Prueba `shapeLayerCombineSeparateAndFrames`. En el paso: un proyecto nuevo ya no deja «Video 1» vacío bajo la
    primera forma (`ensureFreeTrackForClipType`, prueba `firstShapeTakesTheEmptyStartingTrack`), y la opacidad del
-   relleno se lee «100 %». Falta: la pluma dentro de una capa (sigue creando capa nueva).
+   relleno se lee «100 %». **Pluma dentro:** en Pro, con una capa de forma elegida, el trazo de la pluma se dibuja
+   como siempre y al terminarlo pasa a esa capa como «Trazado N» donde se dibujó (`m_penTargetLayerId`,
+   `moveShapeClipIntoLayer`, en el mismo paso de deshacer); el primer Esc con la pluma suelta la capa, el segundo deja
+   la pluma. Una capa de partes ya no se trata como trazado libre (`shapePathState`).
 5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
 

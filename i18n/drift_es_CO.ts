@@ -5246,6 +5246,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
+    </message>
+    <message>
         <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes</translation>
     </message>

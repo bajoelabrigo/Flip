@@ -5286,6 +5286,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>

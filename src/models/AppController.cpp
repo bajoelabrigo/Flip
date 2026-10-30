@@ -11334,8 +11334,18 @@ QString AppController::beginPenShape(const QString &clipId)
             convertSelectionToShape();
         }
         m_penShapeId = clipId;
+        m_penTargetLayerId.clear();
         selectClip(t, c);
         return clipId;
+    }
+    // In Pro, a shape layer picked and on screen takes the stroke as a new part when it ends (0.28, as After
+    // Effects); the stroke is drawn on a layer of its own meanwhile, as always.
+    m_penTargetLayerId.clear();
+    if (m_preferences && m_preferences->proMode() && isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const drift::Clip &picked = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+        if (picked.type == drift::ClipType::Shape && !picked.isSolid && !picked.layer3d
+            && m_playheadUs >= picked.timelineStart && m_playheadUs < picked.timelineEnd())
+            m_penTargetLayerId = picked.id;
     }
     const drift::Project before = m_project;
     const double W = m_project.width();
@@ -11444,9 +11454,40 @@ void AppController::finishPenShape(bool keep)
     }
     pushProjectEdit(before, tr("Pen"));
     finishEdit(tr("Shape drawn"));
+    const QString layerId = m_penTargetLayerId;
+    m_penTargetLayerId.clear();
+    if (!layerId.isEmpty() && moveShapeClipIntoLayer(id, layerId)) {
+        endEditSession(true);
+        return;
+    }
     endEditSession(true);
     if (findClipById(m_project, id, &t, &c))
         selectClip(t, c);
+}
+
+// The pen's stroke into the shape layer picked when it began (0.28): its own layer goes (and its track, if it is
+// left empty) and its shape becomes a part of that layer where it was drawn. In the pen's undo step.
+bool AppController::moveShapeClipIntoLayer(const QString &clipId, const QString &layerId)
+{
+    int st = -1, sc = -1, lt = -1, lc = -1;
+    if (clipId == layerId || !findClipById(m_project, clipId, &st, &sc) || !findClipById(m_project, layerId, &lt, &lc))
+        return false;
+    const drift::Clip stroke = m_project.tracks().at(st).clips.at(sc);
+    if (stroke.shapeStyle.isAnimated() || stroke.transformX.keyframes().size() > 1
+        || stroke.transformY.keyframes().size() > 1)
+        return false;
+    const QRectF box = drawnBoxAt(stroke);
+    const drift::Project before = m_project;
+    const QString trackId = m_project.tracks().at(st).id;
+    m_project.tracks()[st].clips.removeAt(sc);
+    if (m_project.tracks().at(st).clips.isEmpty() && m_project.tracks().size() > 1)
+        m_project.tracks().removeAt(st);
+    pushProjectEdit(before, tr("Pen"));
+    if (!findClipById(m_project, layerId, &lt, &lc))
+        return false;
+    addDrawnShapeToLayer(lt, lc, stroke.shapeStyle, QString(), box.x(), box.y(), box.width(), box.height());
+    selectClip(lt, lc);
+    return true;
 }
 
 QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
@@ -11455,7 +11496,9 @@ QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
     if (!isValidClipIndex(trackIndex, clipIndex))
         return out;
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Shape || clip.shapeStyle.kind != drift::ShapeKind::Custom)
+    // A layer of parts (0.28) draws its parts, not its own path: the pen adds a part to it instead.
+    if (clip.type != drift::ClipType::Shape || clip.shapeStyle.kind != drift::ShapeKind::Custom
+        || clip.shapeStyle.hasParts())
         return out;
     const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
     QVariantList contours;
@@ -12779,8 +12822,9 @@ void AppController::addDrawnShapeToLayer(int trackIndex, int clipIndex, const dr
     part.transform.x = centre.x() * refW / bw;
     part.transform.y = centre.y() * refH / bh;
     part.transform.rotation = -layerRotation;
-    const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(kind);
-    const QString label = entry ? entry->label : drift::shapeKindToString(style.kind);
+    const drift::ShapeCatalogEntry *entry = kind.isEmpty() ? nullptr : drift::shapeCatalogEntry(kind);
+    const QString label = entry ? entry->label
+                          : style.kind == drift::ShapeKind::Custom ? tr("Path") : drift::shapeKindToString(style.kind);
     part.name = QStringLiteral("%1 %2").arg(label).arg(countShapePartsNamed(layer.parts, label + QLatin1Char(' ')) + 1);
     // On top of the layer: drawn last, seen first.
     layer.parts.insert(layer.parts.begin(), part);

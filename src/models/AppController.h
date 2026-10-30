@@ -804,6 +804,7 @@ public:
     QRectF drawnBoxAt(const drift::Clip &clip) const;
     void addDrawnShapeToLayer(int trackIndex, int clipIndex, const drift::ShapeStyle &style, const QString &kind,
                               double x, double y, double w, double h);
+    bool moveShapeClipIntoLayer(const QString &clipId, const QString &layerId);
     // After Effects' expressions without code (0.26): the behaviour of one animatable property
     // {active, loop: "none"|"cycle"|"pingpong"|"offset"|"continue", speed, wiggleFrequency,
     // wiggleAmount, wiggleSeed}; and setting it (all off removes it). A property with no keys
@@ -2913,6 +2914,8 @@ protected:
     QList<QPair<int, int>> m_selection;
     // The shape the Pen is drawing (0.26): its box is not refitted until finishPenShape.
     QString m_penShapeId;
+    // The shape layer a fresh pen stroke goes into when it ends (0.28, Pro), or empty.
+    QString m_penTargetLayerId;
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
     QString m_keyframeRowsOnlyGroup;
