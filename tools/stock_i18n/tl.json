@@ -129,6 +129,7 @@
   "template:thumbnail": "Thumbnail ng video",
   "template:transition": "Transition at separator",
   "template:youtuber": "Istilong youtuber",
+  "template:ytkit": "YouTube Kit",
   "text-animation:brillo": "Kinang at kulay",
   "text-animation:caer": "Laglag at angat",
   "text-animation:desenfoque": "Blur at fade",
@@ -34125,6 +34126,1499 @@
     "lugar",
     "gabay",
     "youtuber"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "Intro na singsing",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "singsing",
+    "bilog"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "Intro na singsing (patayo)",
+   "tags": [
+    "patayo",
+    "intro",
+    "logo",
+    "singsing",
+    "shorts"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "Maliwanag na intro",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "maliwanag",
+    "puti"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "Intro na collage ng larawan",
+   "tags": [
+    "intro",
+    "channel",
+    "larawan",
+    "collage",
+    "pambungad"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "Intro na collage ng larawan (patayo)",
+   "tags": [
+    "patayo",
+    "intro",
+    "larawan",
+    "collage",
+    "shorts"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "Intro na digital",
+   "tags": [
+    "intro",
+    "logo",
+    "glitch",
+    "teknolohiya",
+    "gaming"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "Intro na kislap ng liwanag",
+   "tags": [
+    "intro",
+    "logo",
+    "liwanag",
+    "kislap",
+    "elegante"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "Intro na frame sa sulok",
+   "tags": [
+    "intro",
+    "logo",
+    "frame",
+    "sulok",
+    "dilaw"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "Intro na pagsabog",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "sigla",
+    "sinag"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "Intro na may guhit",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "guhit",
+    "pambungad"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "Intro na heksagon",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "heksagon",
+    "pambungad"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "Minimalist na intro",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "minimalist",
+    "elegante"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "Intro na mosaic",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "mosaic",
+    "makulay"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "Intro na hating panel",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "panel",
+    "hati"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "Intro na hating panel (patayo)",
+   "tags": [
+    "patayo",
+    "intro",
+    "logo",
+    "panel",
+    "shorts"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "Intro na bloke ng titik",
+   "tags": [
+    "intro",
+    "channel",
+    "logo",
+    "titik",
+    "coral"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "Bar ng mga kabanata",
+   "tags": [
+    "kabanata",
+    "progreso",
+    "bar",
+    "talaan",
+    "tutorial"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "Bar ng nakakatuwang kaalaman",
+   "tags": [
+    "alam mo ba",
+    "kaalaman",
+    "trivia",
+    "bar"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "Tag na live",
+   "tags": [
+    "live",
+    "livestream",
+    "bar",
+    "tag"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "Bar ng botohan",
+   "tags": [
+    "botohan",
+    "tanong",
+    "poll",
+    "komunidad"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "Badge ng episode",
+   "tags": [
+    "episode",
+    "podcast",
+    "serye",
+    "season"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "Bar ng petsa at lugar",
+   "tags": [
+    "petsa",
+    "lugar",
+    "event",
+    "bar",
+    "kalendaryo"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "Bar ng impormasyon",
+   "tags": [
+    "bar",
+    "impormasyon",
+    "balita",
+    "label"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "Iskor",
+   "tags": [
+    "iskor",
+    "sports",
+    "laban",
+    "basketbol",
+    "resulta"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "Bar ng ulo ng balita",
+   "tags": [
+    "balita",
+    "headline",
+    "bar",
+    "live"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "Bar ng sponsor",
+   "tags": [
+    "sponsor",
+    "brand",
+    "logo",
+    "bar"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "Bar ng paksa",
+   "tags": [
+    "paksa",
+    "bar",
+    "pamagat",
+    "sulok"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "Bar ng countdown",
+   "tags": [
+    "timer",
+    "countdown",
+    "oras",
+    "hamon"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "Bar ng balita na tumatakbo",
+   "tags": [
+    "bar",
+    "balita",
+    "ticker",
+    "breaking news",
+    "impormasyon"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "Mga salita sa mga bar",
+   "tags": [
+    "kinetic",
+    "bar",
+    "listahan",
+    "salita",
+    "hakbang"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "Maliwanag na kinetic na pamagat",
+   "tags": [
+    "kinetic",
+    "maliwanag",
+    "minimalist",
+    "salita"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "Bilang na umaakyat",
+   "tags": [
+    "kinetic",
+    "bilang",
+    "numero",
+    "selebrasyon",
+    "subscriber"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "Mga salitang hiwa ng kulay",
+   "tags": [
+    "kinetic",
+    "salita",
+    "indak",
+    "hiwa",
+    "sigla"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "Mga salitang hiwa ng kulay (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "kinetic",
+    "salita",
+    "hiwa"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "Mga salita sa hating screen",
+   "tags": [
+    "kinetic",
+    "split screen",
+    "kaibahan",
+    "salita"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "Mga salitang lumalaki",
+   "tags": [
+    "kinetic",
+    "salita",
+    "laki",
+    "indak"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "Mga salita sa iyong video",
+   "tags": [
+    "kinetic",
+    "salita",
+    "video",
+    "biyahe",
+    "indak"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "Mga salita sa iyong video (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "kinetic",
+    "salita",
+    "biyahe"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "Indak ng malaki at maliit",
+   "tags": [
+    "kinetic",
+    "titik",
+    "kaibahan",
+    "salita",
+    "malaki at maliit"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "Indak ng malaki at maliit (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "kinetic",
+    "titik",
+    "kaibahan"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "Mga salitang mula sa linya",
+   "tags": [
+    "kinetic",
+    "salita",
+    "linya",
+    "minimalist"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "Pamagat na makinilya",
+   "tags": [
+    "kinetic",
+    "makinilya",
+    "teksto",
+    "tutorial"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "Umiikot na patong",
+   "tags": [
+    "kinetic",
+    "salita",
+    "ikot",
+    "listahan"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "Mga salitang tumatalbog",
+   "tags": [
+    "kinetic",
+    "talbog",
+    "masaya",
+    "salita"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "Mga grupo ng pahilis na guhit",
+   "tags": [
+    "elemento",
+    "guhit",
+    "pahilis",
+    "palamuti",
+    "frame"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "Bar ng pag-load",
+   "tags": [
+    "elemento",
+    "loading",
+    "progreso",
+    "bar",
+    "handa na"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "Tsek at ekis",
+   "tags": [
+    "elemento",
+    "tsek",
+    "ekis",
+    "tama",
+    "mali",
+    "paghahambing"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "Iginuhit na bilog",
+   "tags": [
+    "elemento",
+    "bilog",
+    "highlight",
+    "ituro"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "Button na may click",
+   "tags": [
+    "elemento",
+    "click",
+    "cursor",
+    "button"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "Mga kislap",
+   "tags": [
+    "elemento",
+    "kinang",
+    "bituin",
+    "mahika",
+    "bago"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "Iginuhit na arrow",
+   "tags": [
+    "elemento",
+    "arrow",
+    "ituro",
+    "tingnan ito"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "Mga speech bubble",
+   "tags": [
+    "elemento",
+    "speech bubble",
+    "usapan",
+    "teksto"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "Mga hakbang na may progreso",
+   "tags": [
+    "elemento",
+    "hakbang",
+    "progreso",
+    "tutorial",
+    "listahan"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "Salungguhit at highlighter",
+   "tags": [
+    "elemento",
+    "salungguhit",
+    "highlighter",
+    "teksto"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "Subscribe button na may kampanilya",
+   "tags": [
+    "elemento",
+    "subscribe",
+    "kampanilya",
+    "button",
+    "click"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "Viewfinder ng kamera",
+   "tags": [
+    "elemento",
+    "kamera",
+    "rec",
+    "focus",
+    "frame"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "Mga gumagalaw na elemento",
+   "tags": [
+    "elemento",
+    "hugis",
+    "palamuti",
+    "graphics"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "Pamagat sa kahong outline",
+   "tags": [
+    "kahon",
+    "outline",
+    "lungsod",
+    "pamagat",
+    "minimalist"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "Pamagat sa laso",
+   "tags": [
+    "laso",
+    "banda",
+    "tag-araw",
+    "pamagat"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "Pamagat sa loob ng bracket",
+   "tags": [
+    "bracket",
+    "rutina",
+    "pamagat",
+    "minimalist"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "Pamagat na may hiwa",
+   "tags": [
+    "hiwa",
+    "pahilis",
+    "laro",
+    "pamagat",
+    "sigla"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "Pamagat sa gradient na bar",
+   "tags": [
+    "gradient",
+    "bar",
+    "lungsod",
+    "pamagat"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "Pamagat na dalawang kulay",
+   "tags": [
+    "dalawang kulay",
+    "biyahe",
+    "pakikipagsapalaran",
+    "pamagat"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "Pamagat na may sulok",
+   "tags": [
+    "sulok",
+    "frame",
+    "biyahe",
+    "pamagat",
+    "larawan"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "Pamagat na may sulok (patayo)",
+   "tags": [
+    "patayo",
+    "sulok",
+    "frame",
+    "biyahe",
+    "pamagat"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "Pamagat na may mga tag",
+   "tags": [
+    "tag",
+    "pill",
+    "vlog",
+    "pamagat",
+    "larawan"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "Naka-highlight na pamagat",
+   "tags": [
+    "highlight",
+    "bloke",
+    "resipe",
+    "pamagat",
+    "larawan"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "Naka-highlight na pamagat (patayo)",
+   "tags": [
+    "patayo",
+    "highlight",
+    "resipe",
+    "pamagat",
+    "shorts"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "Pamagat na may tatak",
+   "tags": [
+    "tatak",
+    "bago",
+    "podcast",
+    "pamagat"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "Pamagat na may makulay na anino",
+   "tags": [
+    "anino",
+    "kulay",
+    "dapithapon",
+    "pamagat",
+    "impact"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "Pamagat sa bintana",
+   "tags": [
+    "bintana",
+    "card",
+    "tutorial",
+    "pamagat"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "Card ng kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "motibasyon",
+    "teksto"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "Coral na card ng kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "kulay",
+    "motibasyon",
+    "coral"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "Kasabihan na pahilig ang titik",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "elegante",
+    "italic",
+    "pag-ibig"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "Maliwanag na editorial na kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "editorial",
+    "maliwanag",
+    "elegante"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "Maliwanag na editorial na kasabihan (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "kasabihan",
+    "editorial",
+    "maliwanag"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "Kasabihan sa larawan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "larawan",
+    "inspirasyon"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "Kasabihan sa larawan (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "kasabihan",
+    "larawan",
+    "inspirasyon"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "Aral na may numero",
+   "tags": [
+    "aral",
+    "payo",
+    "numero",
+    "tutorial",
+    "kasabihan"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "Kasabihan sa frame",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "frame",
+    "moderno"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "Minimalist na kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "minimalist",
+    "madilim"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "Kasabihan na may larawan sa gilid",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "larawan",
+    "panayam"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "Isang salita at kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "salita",
+    "titik"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "Dilaw na card ng kasabihan",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "dilaw",
+    "motibasyon",
+    "matapang"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "Card ng kasabihan sa video",
+   "tags": [
+    "kasabihan",
+    "quote",
+    "card",
+    "video",
+    "overlay"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "Patotoo",
+   "tags": [
+    "patotoo",
+    "opinyon",
+    "review",
+    "customer"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "Patotoo (patayo)",
+   "tags": [
+    "patayo",
+    "shorts",
+    "patotoo",
+    "opinyon",
+    "review"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "Pangwakas na screen, dalawang video",
+   "tags": [
+    "end screen",
+    "subscribe",
+    "pagtatapos",
+    "susunod na video"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "Nakagitnang pangwakas na screen",
+   "tags": [
+    "end screen",
+    "subscribe",
+    "pagtatapos",
+    "simetriko"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "Maliwanag na pangwakas na screen",
+   "tags": [
+    "end screen",
+    "subscribe",
+    "pagtatapos",
+    "maliwanag",
+    "puti"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "Coral na pangwakas na screen",
+   "tags": [
+    "end screen",
+    "coral",
+    "subscribe",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "Pangwakas na screen na may larawan",
+   "tags": [
+    "end screen",
+    "larawan",
+    "subscribe",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "Pangwakas na screen: Salamat!",
+   "tags": [
+    "end screen",
+    "salamat",
+    "social media",
+    "subscribe",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "Pangwakas na screen na may playlist",
+   "tags": [
+    "end screen",
+    "playlist",
+    "pagtatapos",
+    "listahan"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "Minimalist na pangwakas na screen",
+   "tags": [
+    "end screen",
+    "minimalist",
+    "linya",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "Dilaw na pangwakas na screen",
+   "tags": [
+    "end screen",
+    "dilaw",
+    "like",
+    "subscribe",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "Pangwakas na screen, tatlong card",
+   "tags": [
+    "end screen",
+    "card",
+    "subscribe",
+    "pagtatapos"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "Pangwakas na screen, isang video",
+   "tags": [
+    "end screen",
+    "subscribe",
+    "pagtatapos",
+    "susunod na video"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "Bar ng mga social",
+   "tags": [
+    "social media",
+    "bar",
+    "username",
+    "label"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "Mga icon sa bilog",
+   "tags": [
+    "social media",
+    "icon",
+    "bilog",
+    "username"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "Iyong mga social (maliwanag)",
+   "tags": [
+    "social media",
+    "i-follow",
+    "username",
+    "maliwanag",
+    "puti"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "Coral na i-follow",
+   "tags": [
+    "social media",
+    "i-follow",
+    "kinetic",
+    "username",
+    "coral"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "Mga social sa grid",
+   "tags": [
+    "social media",
+    "i-follow",
+    "username",
+    "grid"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "Username sa sulok",
+   "tags": [
+    "social media",
+    "username",
+    "sulok",
+    "notification"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "Malaking username",
+   "tags": [
+    "social media",
+    "i-follow",
+    "username",
+    "malaki"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "Malaking username (patayo)",
+   "tags": [
+    "patayo",
+    "social media",
+    "i-follow",
+    "username",
+    "malaki"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "Iyong mga social",
+   "tags": [
+    "social media",
+    "i-follow",
+    "username",
+    "kontak"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "Iyong mga social (patayo)",
+   "tags": [
+    "patayo",
+    "social media",
+    "i-follow",
+    "username",
+    "listahan"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "Mga social na pill",
+   "tags": [
+    "social media",
+    "i-follow",
+    "username",
+    "pill"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "Mga card na i-follow",
+   "tags": [
+    "social media",
+    "i-follow",
+    "card",
+    "username"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "Username sa bar ng pangalan",
+   "tags": [
+    "social media",
+    "username",
+    "lower third",
+    "label"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "Bar ng pangalan na may larawan",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "larawan",
+    "profile"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "Maliwanag na bar ng pangalan",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "maliwanag",
+    "puti"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "Bar ng pangalan na may bracket",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "label",
+    "bracket"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "Bar ng pangalan sa kanan",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "label",
+    "kanan"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "Pahilis na bar ng pangalan",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "sports",
+    "sigla",
+    "pahilis"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "Bar ng pangalan, dalawang linya",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "panayam",
+    "label"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "Bar ng pangalan, dalawang linya (patayo)",
+   "tags": [
+    "patayo",
+    "pangalan",
+    "lower third",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "Bar ng pangalan para sa panayam",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "panayam",
+    "podcast",
+    "dalawang tao"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "Bar ng pangalan na may tag",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "bisita",
+    "tag"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "Minimalist na bar ng pangalan",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "minimalist",
+    "linya"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "Bar ng hakbang na may numero",
+   "tags": [
+    "hakbang",
+    "tutorial",
+    "resipe",
+    "numero",
+    "lower third"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "Bar ng pangalan na pill",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "label",
+    "pill"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "Bar ng pangalan na pill (patayo)",
+   "tags": [
+    "patayo",
+    "pangalan",
+    "lower third",
+    "pill",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "Bar ng lugar",
+   "tags": [
+    "lugar",
+    "lokasyon",
+    "biyahe",
+    "lower third",
+    "mapa"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "Bar ng pangalan na salamin",
+   "tags": [
+    "pangalan",
+    "lower third",
+    "salamin",
+    "translucent",
+    "elegante"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "Bago at pagkatapos",
+   "tags": [
+    "bago",
+    "pagkatapos",
+    "paghahambing",
+    "dalawang kulay"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "Mga salitang nakapatong",
+   "tags": [
+    "nakapatong",
+    "salita",
+    "pamagat",
+    "outline"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "Mga salitang nakapatong (patayo)",
+   "tags": [
+    "patayo",
+    "nakapatong",
+    "salita",
+    "pamagat",
+    "shorts"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "Mga salita sa bloke ng kulay",
+   "tags": [
+    "bloke",
+    "hakbang",
+    "salita",
+    "kulay"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "Kabanatang may numero",
+   "tags": [
+    "kabanata",
+    "numero",
+    "pamagat",
+    "titik"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "Kabanatang may numero (patayo)",
+   "tags": [
+    "patayo",
+    "kabanata",
+    "numero",
+    "pamagat",
+    "shorts"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "Outline na napupuno",
+   "tags": [
+    "outline",
+    "puno",
+    "kasabihan",
+    "titik"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "Salitang hati sa dalawang kulay",
+   "tags": [
+    "dalawang kulay",
+    "pamagat",
+    "titik",
+    "impact"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "Maliwanag na pamagat na editorial",
+   "tags": [
+    "editorial",
+    "magasin",
+    "maliwanag",
+    "elegante",
+    "pamagat"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "Talaan ng mga kabanata",
+   "tags": [
+    "talaan",
+    "kabanata",
+    "nilalaman",
+    "listahan"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "Pamagat sa pagitan ng linya",
+   "tags": [
+    "linya",
+    "episode",
+    "pamagat",
+    "elegante"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "Pamagat sa kahon",
+   "tags": [
+    "kahon",
+    "frame",
+    "pamagat",
+    "ulat"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "Pamagat na may highlighter",
+   "tags": [
+    "highlighter",
+    "salungguhit",
+    "tutorial",
+    "pamagat"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "Numero ng listahan",
+   "tags": [
+    "top",
+    "listahan",
+    "ranking",
+    "numero"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "Bloke ng titik",
+   "tags": [
+    "pamagat",
+    "teksto",
+    "titik",
+    "minimalist"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "Pamagat na may guhit",
+   "tags": [
+    "pamagat",
+    "channel",
+    "estilo",
+    "larawan"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "Mga salitang may indak",
+   "tags": [
+    "kinetic",
+    "salita",
+    "indak",
+    "sigla"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "Transition na zoom ng singsing",
+   "tags": [
+    "transition",
+    "zoom",
+    "singsing",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "Transition na chevron",
+   "tags": [
+    "transition",
+    "arrow",
+    "chevron",
+    "walis"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "Transition na pahilis na hiwa",
+   "tags": [
+    "transition",
+    "pahilis",
+    "hiwa",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "Transition na kislap ng kulay",
+   "tags": [
+    "transition",
+    "kislap",
+    "flash",
+    "liwanag"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "Transition na sulok",
+   "tags": [
+    "transition",
+    "pahilis",
+    "sulok",
+    "tatsulok"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "Transition na walis ng guhit",
+   "tags": [
+    "transition",
+    "guhit",
+    "walis",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "Transition na heksagon",
+   "tags": [
+    "transition",
+    "heksagon",
+    "pulot-pukyutan",
+    "mosaic"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "Transition na iris",
+   "tags": [
+    "transition",
+    "bilog",
+    "iris",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "Transition na iris (patayo)",
+   "tags": [
+    "patayo",
+    "transition",
+    "bilog",
+    "iris",
+    "shorts"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "Transition na alon ng bar",
+   "tags": [
+    "transition",
+    "bar",
+    "alon",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "Transition na panel",
+   "tags": [
+    "transition",
+    "panel",
+    "hugis",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "Transition na blinds",
+   "tags": [
+    "transition",
+    "blinds",
+    "guhit",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "Transition na blinds (patayo)",
+   "tags": [
+    "patayo",
+    "transition",
+    "blinds",
+    "guhit",
+    "shorts"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "Transition na pinto",
+   "tags": [
+    "transition",
+    "pinto",
+    "sara",
+    "palit-eksena"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "Transition na tuldok",
+   "tags": [
+    "transition",
+    "tuldok",
+    "bilog",
+    "palit-eksena"
    ]
   },
   "template:zoom-3d-parallax": {

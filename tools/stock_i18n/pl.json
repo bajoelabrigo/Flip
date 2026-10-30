@@ -129,6 +129,7 @@
   "template:thumbnail": "Miniatury filmów",
   "template:transition": "Przejścia i przerywniki",
   "template:youtuber": "Styl youtubera",
+  "template:ytkit": "Zestaw YouTube",
   "text-animation:brillo": "Blask i kolor",
   "text-animation:caer": "Spadanie i wznoszenie",
   "text-animation:desenfoque": "Rozmycie i przenikanie",
@@ -34407,6 +34408,1575 @@
     "top 3",
     "miejsca",
     "przewodnik"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "Intro z pierścieniem",
+   "tags": [
+    "youtube",
+    "intro",
+    "kanał",
+    "logo",
+    "pierścień"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "Intro z pierścieniem (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "intro",
+    "logo",
+    "pierścień"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "Jasne intro",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "jasny",
+    "biały"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "Intro z kolażem zdjęć",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "zdjęcia",
+    "kolaż"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "Intro z kolażem zdjęć (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "intro",
+    "zdjęcia",
+    "kolaż"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "Intro z cyfrowym dekodowaniem",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "glitch",
+    "technologia",
+    "gaming"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "Intro ze smugą światła",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "światło",
+    "elegancki"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "Intro z narożną ramką",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "ramka",
+    "żółty"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "Intro z wybuchem",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "energia",
+    "promienie"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "Intro z pasami",
+   "tags": [
+    "youtube",
+    "intro",
+    "kanał",
+    "logo",
+    "pasy"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "Intro z sześciokątem",
+   "tags": [
+    "youtube",
+    "intro",
+    "kanał",
+    "logo",
+    "sześciokąt"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "Minimalistyczne intro z linią",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "minimalizm",
+    "elegancki"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "Intro z mozaiką",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "mozaika",
+    "kolory"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "Intro z dzielonymi panelami",
+   "tags": [
+    "youtube",
+    "intro",
+    "kanał",
+    "logo",
+    "panele"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "Intro z dzielonymi panelami (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "intro",
+    "logo",
+    "panele"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "Typograficzne intro",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "typografia",
+    "koralowy"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "Pasek postępu rozdziałów",
+   "tags": [
+    "youtube",
+    "rozdziały",
+    "postęp",
+    "pasek",
+    "poradnik"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "Pasek z ciekawostką",
+   "tags": [
+    "youtube",
+    "ciekawostka",
+    "czy wiesz",
+    "fakt",
+    "informacje"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "Etykieta na żywo",
+   "tags": [
+    "youtube",
+    "na żywo",
+    "transmisja",
+    "pasek",
+    "etykieta"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "Pasek ankiety",
+   "tags": [
+    "youtube",
+    "ankieta",
+    "pytanie",
+    "głosowanie",
+    "społeczność"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "Plakietka odcinka",
+   "tags": [
+    "youtube",
+    "odcinek",
+    "podcast",
+    "seria",
+    "sezon"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "Pasek z datą i miejscem",
+   "tags": [
+    "youtube",
+    "data",
+    "miejsce",
+    "wydarzenie",
+    "kalendarz"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "Pasek informacyjny",
+   "tags": [
+    "youtube",
+    "pasek",
+    "informacje",
+    "wiadomości",
+    "belka"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "Pasek wyniku",
+   "tags": [
+    "youtube",
+    "wynik",
+    "sport",
+    "mecz",
+    "piłka nożna"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "Pasek nagłówka",
+   "tags": [
+    "youtube",
+    "wiadomości",
+    "nagłówek",
+    "pasek",
+    "na żywo"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "Pasek sponsora",
+   "tags": [
+    "youtube",
+    "sponsor",
+    "sponsoring",
+    "marka",
+    "logo"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "Pasek tematu",
+   "tags": [
+    "youtube",
+    "temat",
+    "pasek",
+    "tytuł",
+    "informacje"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "Pasek odliczania",
+   "tags": [
+    "youtube",
+    "minutnik",
+    "odliczanie",
+    "czas",
+    "wyzwanie"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "Pasek z wiadomościami",
+   "tags": [
+    "youtube",
+    "pasek",
+    "wiadomości",
+    "pilne",
+    "informacje"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "Słowa na paskach",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "paski",
+    "lista",
+    "kroki"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "Jasny tytuł kinetyczny",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "jasny",
+    "minimalizm",
+    "słowa"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "Tytuł z licznikiem",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "licznik",
+    "liczby",
+    "subskrybenci"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "Słowa cięte kolorem",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "rytm",
+    "cięcia"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "Słowa cięte kolorem (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "kinetyczny",
+    "słowa"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "Słowa na podzielonym ekranie",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "podzielony ekran",
+    "kontrast",
+    "słowa"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "Skalujące się słowa",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "skala",
+    "rytm"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "Słowa na twoim filmie",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "zdjęcie",
+    "podróż"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "Słowa na twoim filmie (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "kinetyczny",
+    "słowa"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "Rytm duże-małe",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "typografia",
+    "kontrast",
+    "słowa"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "Rytm duże-małe (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "kinetyczny",
+    "kontrast"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "Słowa z linii",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "linia",
+    "minimalizm"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "Tytuł jak z maszyny do pisania",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "maszyna do pisania",
+    "tekst",
+    "poradnik"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "Obracający się stos",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "obrót",
+    "lista"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "Skaczące słowa",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "odbicie",
+    "zabawny",
+    "słowa"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "Grupy ukośnych kresek",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kreski",
+    "ukośne",
+    "ozdoby"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "Pasek ładowania",
+   "tags": [
+    "youtube",
+    "elementy",
+    "ładowanie",
+    "postęp",
+    "pasek"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "Ptaszek i krzyżyk",
+   "tags": [
+    "youtube",
+    "elementy",
+    "ptaszek",
+    "krzyżyk",
+    "porównanie"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "Ręcznie rysowane kółko",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kółko",
+    "wyróżnić",
+    "wskazać"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "Przycisk z kliknięciem",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kliknięcie",
+    "kursor",
+    "przycisk"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "Iskierki",
+   "tags": [
+    "youtube",
+    "elementy",
+    "blask",
+    "gwiazdki",
+    "magia"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "Ręcznie rysowana strzałka",
+   "tags": [
+    "youtube",
+    "elementy",
+    "strzałka",
+    "wskazać",
+    "zobacz"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "Dymki z tekstem",
+   "tags": [
+    "youtube",
+    "elementy",
+    "dymek",
+    "dialog",
+    "rozmowa"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "Kroki postępu",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kroki",
+    "postęp",
+    "poradnik"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "Podkreślenia i zakreślacz",
+   "tags": [
+    "youtube",
+    "elementy",
+    "podkreślenie",
+    "zakreślacz",
+    "tekst"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "Przycisk subskrypcji z dzwonkiem",
+   "tags": [
+    "youtube",
+    "elementy",
+    "subskrybuj",
+    "dzwonek",
+    "przycisk"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "Wizjer kamery",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kamera",
+    "nagrywanie",
+    "rec",
+    "ramka"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "Animowane elementy",
+   "tags": [
+    "youtube",
+    "elementy",
+    "kształty",
+    "ozdoby",
+    "grafika"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "Tytuł w obrysowanej ramce",
+   "tags": [
+    "youtube",
+    "ramka",
+    "kontur",
+    "miasto",
+    "tytuł",
+    "minimalizm"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "Tytuł na wstędze",
+   "tags": [
+    "youtube",
+    "wstęga",
+    "pasek",
+    "lato",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "Tytuł w nawiasach",
+   "tags": [
+    "youtube",
+    "nawiasy",
+    "rutyna",
+    "tytuł",
+    "minimalizm"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "Tytuł z cięciami",
+   "tags": [
+    "youtube",
+    "cięcia",
+    "ukos",
+    "gra",
+    "tytuł",
+    "energia"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "Tytuł na gradientowym pasku",
+   "tags": [
+    "youtube",
+    "gradient",
+    "pasek",
+    "miasto",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "Tytuł dwukolorowy",
+   "tags": [
+    "youtube",
+    "dwa kolory",
+    "podróż",
+    "przygoda",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "Tytuł w narożnej ramce",
+   "tags": [
+    "youtube",
+    "narożniki",
+    "ramka",
+    "podróż",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "Tytuł w narożnej ramce (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "narożniki",
+    "ramka",
+    "podróż"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "Tytuł z tagami",
+   "tags": [
+    "youtube",
+    "tagi",
+    "pigułki",
+    "vlog",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "Tytuł z wyróżnieniem",
+   "tags": [
+    "youtube",
+    "wyróżnienie",
+    "bloki",
+    "przepis",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "Tytuł z wyróżnieniem (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "wyróżnienie",
+    "przepis",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "Tytuł z pieczątką",
+   "tags": [
+    "youtube",
+    "pieczątka",
+    "nowość",
+    "podcast",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "Tytuł z kolorowym cieniem",
+   "tags": [
+    "youtube",
+    "cień",
+    "kolor",
+    "zachód słońca",
+    "tytuł"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "Tytuł w oknie",
+   "tags": [
+    "youtube",
+    "okno",
+    "karta",
+    "poradnik",
+    "tytuł"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "Karta z cytatem",
+   "tags": [
+    "youtube",
+    "cytat",
+    "motywacja",
+    "tekst"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "Koralowa karta z cytatem",
+   "tags": [
+    "youtube",
+    "cytat",
+    "kolor",
+    "motywacja",
+    "koralowy"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "Cytat kursywą szeryfową",
+   "tags": [
+    "youtube",
+    "cytat",
+    "elegancki",
+    "kursywa",
+    "miłość"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "Jasny cytat redakcyjny",
+   "tags": [
+    "youtube",
+    "cytat",
+    "redakcyjny",
+    "jasny",
+    "elegancki"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "Jasny cytat redakcyjny (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "cytat",
+    "redakcyjny"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "Cytat na zdjęciu",
+   "tags": [
+    "youtube",
+    "cytat",
+    "zdjęcie",
+    "inspiracja"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "Cytat na zdjęciu (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "cytat",
+    "zdjęcie"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "Numerowana lekcja",
+   "tags": [
+    "youtube",
+    "lekcja",
+    "porada",
+    "numer",
+    "poradnik"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "Cytat w ramce",
+   "tags": [
+    "youtube",
+    "cytat",
+    "ramka",
+    "nowoczesny"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "Minimalistyczny cytat",
+   "tags": [
+    "youtube",
+    "cytat",
+    "minimalizm",
+    "ciemny"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "Cytat z połową zdjęcia",
+   "tags": [
+    "youtube",
+    "cytat",
+    "zdjęcie",
+    "wywiad"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "Duże słowo i cytat",
+   "tags": [
+    "youtube",
+    "cytat",
+    "słowo",
+    "typografia"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "Słoneczna karta z cytatem",
+   "tags": [
+    "youtube",
+    "cytat",
+    "kolor",
+    "motywacja",
+    "żółty"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "Karta z cytatem na filmie",
+   "tags": [
+    "youtube",
+    "cytat",
+    "karta",
+    "zdjęcie",
+    "nakładka"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "Opinia klienta",
+   "tags": [
+    "youtube",
+    "opinia",
+    "rekomendacja",
+    "recenzja",
+    "klient"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "Opinia klienta (pionowa)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "shorts",
+    "opinia",
+    "recenzja"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "Ekran końcowy z dwoma filmami",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "subskrybuj",
+    "zakończenie",
+    "następny film"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "Wyśrodkowany ekran końcowy",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "subskrybuj",
+    "symetryczny"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "Jasny ekran końcowy",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "subskrybuj",
+    "jasny",
+    "biały"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "Koralowy ekran końcowy",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "koralowy",
+    "subskrybuj"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "Ekran końcowy ze zdjęciem",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "zdjęcie",
+    "subskrybuj"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "Ekran końcowy z podziękowaniem",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "dziękuję",
+    "subskrybuj"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "Ekran końcowy z playlistą",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "playlista",
+    "zakończenie"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "Minimalistyczny ekran końcowy",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "minimalizm",
+    "linie"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "Słoneczny ekran końcowy",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "żółty",
+    "polub",
+    "subskrybuj"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "Ekran końcowy z trzema kartami",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "karty",
+    "subskrybuj"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "Ekran końcowy z jednym filmem",
+   "tags": [
+    "youtube",
+    "ekran końcowy",
+    "subskrybuj",
+    "zakończenie",
+    "następny film"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "Pasek profili",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "pasek",
+    "nazwa użytkownika"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "Okrągłe ikony",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "ikony",
+    "koła"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "Profile społecznościowe (jasne)",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "jasny",
+    "biały"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "Koralowe obserwuj",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "kinetyczny",
+    "koralowy"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "Siatka profili",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "siatka"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "Profil w rogu",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "nazwa użytkownika",
+    "róg",
+    "powiadomienie"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "Duża nazwa profilu",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "nazwa użytkownika",
+    "duży"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "Duża nazwa profilu (pionowa)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "media społecznościowe",
+    "obserwuj",
+    "duży"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "Profile społecznościowe",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "nazwa użytkownika",
+    "kontakt"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "Profile społecznościowe (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "media społecznościowe",
+    "obserwuj",
+    "lista"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "Profile w pigułkach",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "nazwa użytkownika",
+    "pigułki"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "Karty obserwowania",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "obserwuj",
+    "karty"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "Belka z nazwą profilu",
+   "tags": [
+    "youtube",
+    "media społecznościowe",
+    "nazwa użytkownika",
+    "belka"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "Belka z awatarem",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "zdjęcie",
+    "profil"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "Jasna belka",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "jasny",
+    "biały"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "Belka z nawiasem",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "podpis",
+    "nawias"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "Belka wyrównana do prawej",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "podpis",
+    "prawa strona"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "Skośna belka",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "sport",
+    "energia"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "Belka dwuwierszowa",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "wywiad",
+    "podpis"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "Belka dwuwierszowa (pionowa)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "imię",
+    "belka",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "Belki dla dwóch osób",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "wywiad",
+    "podcast",
+    "dwie osoby"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "Belka z etykietą",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "gość",
+    "etykieta"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "Minimalistyczna belka z linią",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "minimalizm",
+    "linia"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "Belka z numerem kroku",
+   "tags": [
+    "youtube",
+    "krok",
+    "poradnik",
+    "przepis",
+    "numer"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "Belka w kształcie pigułki",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "podpis",
+    "pigułka"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "Belka w kształcie pigułki (pionowa)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "imię",
+    "belka",
+    "pigułka",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "Belka z lokalizacją",
+   "tags": [
+    "youtube",
+    "miejsce",
+    "lokalizacja",
+    "podróż",
+    "mapa"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "Szklana belka",
+   "tags": [
+    "youtube",
+    "imię",
+    "belka",
+    "szkło",
+    "półprzezroczysty",
+    "elegancki"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "Przed i po",
+   "tags": [
+    "youtube",
+    "przed",
+    "po",
+    "porównanie",
+    "dwa kolory"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "Słowa w stosie",
+   "tags": [
+    "youtube",
+    "stos",
+    "słowa",
+    "tytuł",
+    "kontur"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "Słowa w stosie (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "stos",
+    "słowa",
+    "tytuł"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "Słowa na kolorowych blokach",
+   "tags": [
+    "youtube",
+    "bloki",
+    "kroki",
+    "słowa",
+    "kolor"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "Numerowany rozdział",
+   "tags": [
+    "youtube",
+    "rozdział",
+    "numer",
+    "tytuł",
+    "typografia"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "Numerowany rozdział (pionowy)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "rozdział",
+    "numer",
+    "tytuł"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "Kontur, który się wypełnia",
+   "tags": [
+    "youtube",
+    "kontur",
+    "wypełnienie",
+    "fraza",
+    "typografia"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "Słowo w dwóch kolorach",
+   "tags": [
+    "youtube",
+    "dwa kolory",
+    "tytuł",
+    "typografia",
+    "mocny"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "Jasny tytuł redakcyjny",
+   "tags": [
+    "youtube",
+    "redakcyjny",
+    "magazyn",
+    "jasny",
+    "elegancki"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "Spis rozdziałów",
+   "tags": [
+    "youtube",
+    "spis treści",
+    "rozdziały",
+    "lista",
+    "typografia"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "Tytuł między liniami",
+   "tags": [
+    "youtube",
+    "linie",
+    "odcinek",
+    "tytuł",
+    "elegancki"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "Tytuł w ramce",
+   "tags": [
+    "youtube",
+    "ramka",
+    "tytuł",
+    "typografia",
+    "reportaż"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "Tytuł z zakreśleniem",
+   "tags": [
+    "youtube",
+    "zakreślacz",
+    "podkreślenie",
+    "poradnik",
+    "tytuł"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "Numer odliczania",
+   "tags": [
+    "youtube",
+    "top",
+    "lista",
+    "ranking",
+    "numer"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "Blok typograficzny",
+   "tags": [
+    "youtube",
+    "tytuł",
+    "tekst",
+    "typografia",
+    "minimalizm"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "Tytuł z ukośnikami",
+   "tags": [
+    "youtube",
+    "tytuł",
+    "kanał",
+    "styl",
+    "zdjęcie"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "Kinetyczne słowa",
+   "tags": [
+    "youtube",
+    "kinetyczny",
+    "słowa",
+    "rytm",
+    "energia"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "Zoom z pierścieniami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "zoom",
+    "pierścienie",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "Przejście strzałkami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "strzałki",
+    "szewron",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "Przejście ukośnym cięciem",
+   "tags": [
+    "youtube",
+    "przejście",
+    "ukos",
+    "cięcia",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "Kolorowy błysk",
+   "tags": [
+    "youtube",
+    "przejście",
+    "błysk",
+    "flash",
+    "światło"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "Przejście z narożników",
+   "tags": [
+    "youtube",
+    "przejście",
+    "narożniki",
+    "trójkąty",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "Przejście pasami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "pasy",
+    "przesunięcie",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "Sześciokątne kafelki",
+   "tags": [
+    "youtube",
+    "przejście",
+    "sześciokąty",
+    "plaster miodu",
+    "mozaika"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "Przejście przesłoną",
+   "tags": [
+    "youtube",
+    "przejście",
+    "koło",
+    "przesłona",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "Przejście przesłoną (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "przejście",
+    "koło",
+    "przesłona"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "Fala pasków",
+   "tags": [
+    "youtube",
+    "przejście",
+    "paski",
+    "fala",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "Przejście panelami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "panele",
+    "kształty",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "Przejście żaluzjami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "żaluzje",
+    "pasy",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "Przejście żaluzjami (pionowe)",
+   "tags": [
+    "youtube",
+    "pionowy",
+    "przejście",
+    "żaluzje",
+    "pasy"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "Rozsuwane drzwi",
+   "tags": [
+    "youtube",
+    "przejście",
+    "drzwi",
+    "zamknięcie",
+    "zmiana sceny"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "Wypełnienie kropkami",
+   "tags": [
+    "youtube",
+    "przejście",
+    "kropki",
+    "koła",
+    "zmiana sceny"
    ]
   },
   "template:zoom-3d-parallax": {

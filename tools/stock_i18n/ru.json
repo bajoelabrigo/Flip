@@ -129,6 +129,7 @@
   "template:thumbnail": "Превью для видео",
   "template:transition": "Переходы и разделители",
   "template:youtuber": "Стиль ютубера",
+  "template:ytkit": "Набор для YouTube",
   "text-animation:brillo": "Сияние и цвет",
   "text-animation:caer": "Падение и подъём",
   "text-animation:desenfoque": "Размытие и затухание",
@@ -33921,6 +33922,1580 @@
     "места",
     "город",
     "гид"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "Интро с кольцом",
+   "tags": [
+    "youtube",
+    "интро",
+    "канал",
+    "логотип",
+    "кольцо"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "Интро с кольцом (вертикальное)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "интро",
+    "логотип",
+    "кольцо"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "Светлое интро",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "светлый",
+    "белый"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "Интро с фотоколлажем",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "Интро с фотоколлажем (вертикальное)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "интро",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "Интро с цифровой расшифровкой",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "глитч",
+    "технологии",
+    "гейминг"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "Интро с бликом света",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "свет",
+    "элегантный"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "Интро с угловой рамкой",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "рамка",
+    "жёлтый"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "Интро со взрывом",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "энергия",
+    "лучи"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "Интро с полосами",
+   "tags": [
+    "youtube",
+    "интро",
+    "канал",
+    "логотип",
+    "полосы"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "Интро с шестиугольником",
+   "tags": [
+    "youtube",
+    "интро",
+    "канал",
+    "логотип",
+    "шестиугольник"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "Минималистичное интро с линией",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "минимализм",
+    "элегантный"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "Интро с мозаикой",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "мозаика",
+    "цвета"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "Интро с разделёнными панелями",
+   "tags": [
+    "youtube",
+    "интро",
+    "канал",
+    "логотип",
+    "панели"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "Интро с разделёнными панелями (вертикальное)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "интро",
+    "логотип",
+    "панели"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "Типографское интро",
+   "tags": [
+    "youtube",
+    "интро",
+    "логотип",
+    "типографика",
+    "коралловый"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "Полоса прогресса глав",
+   "tags": [
+    "youtube",
+    "главы",
+    "прогресс",
+    "полоса",
+    "урок"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "Полоса с интересным фактом",
+   "tags": [
+    "youtube",
+    "факт",
+    "а вы знали",
+    "интересное",
+    "информация"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "Метка «В эфире»",
+   "tags": [
+    "youtube",
+    "в эфире",
+    "трансляция",
+    "стрим",
+    "метка"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "Полоса опроса",
+   "tags": [
+    "youtube",
+    "опрос",
+    "вопрос",
+    "голосование",
+    "сообщество"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "Значок выпуска",
+   "tags": [
+    "youtube",
+    "выпуск",
+    "подкаст",
+    "сериал",
+    "сезон"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "Полоса с датой и местом",
+   "tags": [
+    "youtube",
+    "дата",
+    "место",
+    "событие",
+    "календарь"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "Информационная полоса",
+   "tags": [
+    "youtube",
+    "полоса",
+    "информация",
+    "новости",
+    "плашка"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "Полоса счёта",
+   "tags": [
+    "youtube",
+    "счёт",
+    "спорт",
+    "матч",
+    "футбол"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "Полоса заголовка новости",
+   "tags": [
+    "youtube",
+    "новости",
+    "заголовок",
+    "полоса",
+    "эфир"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "Полоса спонсора",
+   "tags": [
+    "youtube",
+    "спонсор",
+    "реклама",
+    "бренд",
+    "логотип"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "Полоса темы",
+   "tags": [
+    "youtube",
+    "тема",
+    "полоса",
+    "заголовок",
+    "информация"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "Полоса обратного отсчёта",
+   "tags": [
+    "youtube",
+    "таймер",
+    "обратный отсчёт",
+    "время",
+    "челлендж"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "Бегущая строка новостей",
+   "tags": [
+    "youtube",
+    "полоса",
+    "новости",
+    "срочно",
+    "информация"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "Слова на полосах",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "полосы",
+    "список",
+    "шаги"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "Светлый кинетический заголовок",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "светлый",
+    "минимализм",
+    "слова"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "Заголовок со счётчиком",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "счётчик",
+    "цифры",
+    "подписчики"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "Слова с цветными разрезами",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "ритм",
+    "разрезы"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "Слова с цветными разрезами (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "кинетика",
+    "слова"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "Слова на разделённом экране",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "разделённый экран",
+    "контраст",
+    "слова"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "Масштабируемые слова",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "масштаб",
+    "ритм"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "Слова поверх вашего видео",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "фото",
+    "путешествие"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "Слова поверх вашего видео (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "кинетика",
+    "слова"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "Ритм большое-малое",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "типографика",
+    "контраст",
+    "слова"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "Ритм большое-малое (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "кинетика",
+    "контраст"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "Слова из линии",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "линия",
+    "минимализм"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "Заголовок как на печатной машинке",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "печатная машинка",
+    "текст",
+    "урок"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "Вращающаяся стопка",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "вращение",
+    "список"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "Прыгающие слова",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "отскок",
+    "весёлый",
+    "слова"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "Группы косых черт",
+   "tags": [
+    "youtube",
+    "элементы",
+    "черты",
+    "диагонали",
+    "украшения"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "Полоса загрузки",
+   "tags": [
+    "youtube",
+    "элементы",
+    "загрузка",
+    "прогресс",
+    "полоса"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "Галочка и крестик",
+   "tags": [
+    "youtube",
+    "элементы",
+    "галочка",
+    "крестик",
+    "сравнение"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "Нарисованный круг",
+   "tags": [
+    "youtube",
+    "элементы",
+    "круг",
+    "выделить",
+    "указать"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "Кнопка с нажатием",
+   "tags": [
+    "youtube",
+    "элементы",
+    "клик",
+    "курсор",
+    "кнопка"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "Искорки",
+   "tags": [
+    "youtube",
+    "элементы",
+    "блеск",
+    "звёздочки",
+    "магия"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "Нарисованная стрелка",
+   "tags": [
+    "youtube",
+    "элементы",
+    "стрелка",
+    "указать",
+    "смотри"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "Облачка с репликами",
+   "tags": [
+    "youtube",
+    "элементы",
+    "облачко",
+    "диалог",
+    "разговор"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "Шаги прогресса",
+   "tags": [
+    "youtube",
+    "элементы",
+    "шаги",
+    "прогресс",
+    "урок"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "Подчёркивания и маркер",
+   "tags": [
+    "youtube",
+    "элементы",
+    "подчёркивание",
+    "маркер",
+    "текст"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "Кнопка подписки с колокольчиком",
+   "tags": [
+    "youtube",
+    "элементы",
+    "подписаться",
+    "колокольчик",
+    "кнопка"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "Видоискатель камеры",
+   "tags": [
+    "youtube",
+    "элементы",
+    "камера",
+    "запись",
+    "rec",
+    "рамка"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "Анимированные элементы",
+   "tags": [
+    "youtube",
+    "элементы",
+    "фигуры",
+    "украшения",
+    "графика"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "Заголовок в контурной рамке",
+   "tags": [
+    "youtube",
+    "рамка",
+    "контур",
+    "город",
+    "заголовок",
+    "минимализм"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "Заголовок на ленте",
+   "tags": [
+    "youtube",
+    "лента",
+    "полоса",
+    "лето",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "Заголовок в скобках",
+   "tags": [
+    "youtube",
+    "скобки",
+    "рутина",
+    "заголовок",
+    "минимализм"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "Заголовок с разрезами",
+   "tags": [
+    "youtube",
+    "разрезы",
+    "диагональ",
+    "игра",
+    "заголовок",
+    "энергия"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "Заголовок на градиентной полосе",
+   "tags": [
+    "youtube",
+    "градиент",
+    "полоса",
+    "город",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "Двухцветный заголовок",
+   "tags": [
+    "youtube",
+    "два тона",
+    "путешествие",
+    "приключение",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "Заголовок с угловой рамкой",
+   "tags": [
+    "youtube",
+    "углы",
+    "рамка",
+    "путешествие",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "Заголовок с угловой рамкой (вертикальный)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "углы",
+    "рамка",
+    "путешествие"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "Заголовок с тегами",
+   "tags": [
+    "youtube",
+    "теги",
+    "таблетки",
+    "влог",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "Выделенный заголовок",
+   "tags": [
+    "youtube",
+    "выделение",
+    "блоки",
+    "рецепт",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "Выделенный заголовок (вертикальный)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "выделение",
+    "рецепт",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "Заголовок со штампом",
+   "tags": [
+    "youtube",
+    "штамп",
+    "новинка",
+    "подкаст",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "Заголовок с цветной тенью",
+   "tags": [
+    "youtube",
+    "тень",
+    "цвет",
+    "закат",
+    "заголовок"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "Заголовок в окне",
+   "tags": [
+    "youtube",
+    "окно",
+    "карточка",
+    "урок",
+    "заголовок"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "Карточка с цитатой",
+   "tags": [
+    "youtube",
+    "цитата",
+    "мотивация",
+    "текст"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "Коралловая карточка с цитатой",
+   "tags": [
+    "youtube",
+    "цитата",
+    "цвет",
+    "мотивация",
+    "коралловый"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "Цитата курсивом с засечками",
+   "tags": [
+    "youtube",
+    "цитата",
+    "элегантный",
+    "курсив",
+    "любовь"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "Светлая журнальная цитата",
+   "tags": [
+    "youtube",
+    "цитата",
+    "журнальный",
+    "светлый",
+    "элегантный"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "Светлая журнальная цитата (вертикальная)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "цитата",
+    "журнальный"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "Цитата на фото",
+   "tags": [
+    "youtube",
+    "цитата",
+    "фото",
+    "вдохновение"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "Цитата на фото (вертикальная)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "цитата",
+    "фото"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "Нумерованный урок",
+   "tags": [
+    "youtube",
+    "урок",
+    "совет",
+    "номер",
+    "обучение"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "Цитата в рамке",
+   "tags": [
+    "youtube",
+    "цитата",
+    "рамка",
+    "современный"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "Минималистичная цитата",
+   "tags": [
+    "youtube",
+    "цитата",
+    "минимализм",
+    "тёмный"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "Цитата с половиной фото",
+   "tags": [
+    "youtube",
+    "цитата",
+    "фото",
+    "интервью"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "Крупное слово и цитата",
+   "tags": [
+    "youtube",
+    "цитата",
+    "слово",
+    "типографика"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "Солнечная карточка с цитатой",
+   "tags": [
+    "youtube",
+    "цитата",
+    "цвет",
+    "мотивация",
+    "жёлтый"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "Карточка с цитатой поверх видео",
+   "tags": [
+    "youtube",
+    "цитата",
+    "карточка",
+    "фото",
+    "наложение"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "Отзыв",
+   "tags": [
+    "youtube",
+    "отзыв",
+    "мнение",
+    "рецензия",
+    "клиент"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "Отзыв (вертикальный)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "shorts",
+    "отзыв",
+    "рецензия"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "Конечная заставка с двумя видео",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "подписаться",
+    "концовка",
+    "следующее видео"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "Конечная заставка по центру",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "подписаться",
+    "симметричный"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "Светлая конечная заставка",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "подписаться",
+    "светлый",
+    "белый"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "Коралловая конечная заставка",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "коралловый",
+    "подписаться"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "Конечная заставка с фото",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "фото",
+    "подписаться"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "Конечная заставка с благодарностью",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "спасибо",
+    "соцсети",
+    "подписаться"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "Конечная заставка с плейлистом",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "плейлист",
+    "концовка"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "Минималистичная конечная заставка",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "минимализм",
+    "линии"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "Солнечная конечная заставка",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "жёлтый",
+    "лайк",
+    "подписаться"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "Конечная заставка с тремя карточками",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "карточки",
+    "подписаться"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "Конечная заставка с одним видео",
+   "tags": [
+    "youtube",
+    "конечная заставка",
+    "подписаться",
+    "концовка",
+    "следующее видео"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "Полоса соцсетей",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "полоса",
+    "ник"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "Круглые значки",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "значки",
+    "круги",
+    "ник"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "Соцсети и ники (светлые)",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "светлый",
+    "белый"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "Коралловая подписка",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "кинетика",
+    "коралловый"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "Сетка соцсетей",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "ник",
+    "сетка"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "Ник в углу",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ник",
+    "угол",
+    "уведомление"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "Крупный ник",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "ник",
+    "крупный"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "Крупный ник (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "соцсети",
+    "подписывайтесь",
+    "крупный"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "Соцсети и ники",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "ник",
+    "контакты"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "Соцсети и ники (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "соцсети",
+    "подписывайтесь",
+    "список"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "Соцсети в капсулах",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "ник",
+    "капсулы"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "Карточки для подписки",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "подписывайтесь",
+    "карточки",
+    "ник"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "Ник на плашке",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ник",
+    "плашка",
+    "титр"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "Плашка с аватаром",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "фото",
+    "профиль"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "Светлая плашка",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "светлый",
+    "белый"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "Плашка со скобкой",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "титр",
+    "скобка"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "Плашка справа",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "титр",
+    "справа"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "Наклонная плашка",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "спорт",
+    "энергия"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "Двухстрочная плашка",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "интервью",
+    "титр"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "Двухстрочная плашка (вертикальная)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "имя",
+    "плашка",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "Плашки для двух человек",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "интервью",
+    "подкаст",
+    "два человека"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "Плашка с ярлыком",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "гость",
+    "ярлык"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "Минималистичная плашка с линией",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "минимализм",
+    "линия"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "Плашка с номером шага",
+   "tags": [
+    "youtube",
+    "шаг",
+    "урок",
+    "рецепт",
+    "номер"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "Плашка-капсула",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "титр",
+    "капсула"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "Плашка-капсула (вертикальная)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "имя",
+    "плашка",
+    "капсула",
+    "shorts"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "Плашка с местом",
+   "tags": [
+    "youtube",
+    "место",
+    "локация",
+    "путешествие",
+    "карта"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "Стеклянная плашка",
+   "tags": [
+    "youtube",
+    "имя",
+    "плашка",
+    "стекло",
+    "полупрозрачный",
+    "элегантный"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "До и после",
+   "tags": [
+    "youtube",
+    "до",
+    "после",
+    "сравнение",
+    "два тона"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "Слова стопкой",
+   "tags": [
+    "youtube",
+    "стопка",
+    "слова",
+    "заголовок",
+    "контур"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "Слова стопкой (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "стопка",
+    "слова",
+    "заголовок"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "Слова на цветных блоках",
+   "tags": [
+    "youtube",
+    "блоки",
+    "шаги",
+    "слова",
+    "цвет"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "Нумерованная глава",
+   "tags": [
+    "youtube",
+    "глава",
+    "номер",
+    "заголовок",
+    "типографика"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "Нумерованная глава (вертикально)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "глава",
+    "номер",
+    "заголовок"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "Заполняющийся контур",
+   "tags": [
+    "youtube",
+    "контур",
+    "заливка",
+    "фраза",
+    "типографика"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "Слово в два цвета",
+   "tags": [
+    "youtube",
+    "два цвета",
+    "заголовок",
+    "типографика",
+    "яркий"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "Светлый журнальный заголовок",
+   "tags": [
+    "youtube",
+    "журнальный",
+    "журнал",
+    "светлый",
+    "элегантный"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "Оглавление глав",
+   "tags": [
+    "youtube",
+    "оглавление",
+    "главы",
+    "содержание",
+    "список"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "Заголовок между линиями",
+   "tags": [
+    "youtube",
+    "линии",
+    "выпуск",
+    "заголовок",
+    "элегантный"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "Заголовок в рамке",
+   "tags": [
+    "youtube",
+    "рамка",
+    "заголовок",
+    "типографика",
+    "репортаж"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "Заголовок с маркером",
+   "tags": [
+    "youtube",
+    "маркер",
+    "подчёркивание",
+    "урок",
+    "заголовок"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "Номер обратного отсчёта",
+   "tags": [
+    "youtube",
+    "топ",
+    "список",
+    "рейтинг",
+    "номер"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "Типографский блок",
+   "tags": [
+    "youtube",
+    "заголовок",
+    "текст",
+    "типографика",
+    "минимализм"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "Заголовок с косыми линиями",
+   "tags": [
+    "youtube",
+    "заголовок",
+    "канал",
+    "стиль",
+    "фото"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "Кинетические слова",
+   "tags": [
+    "youtube",
+    "кинетика",
+    "слова",
+    "ритм",
+    "энергия"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "Зум с кольцами",
+   "tags": [
+    "youtube",
+    "переход",
+    "зум",
+    "кольца",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "Проход шевронов",
+   "tags": [
+    "youtube",
+    "переход",
+    "стрелки",
+    "шеврон",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "Переход косым разрезом",
+   "tags": [
+    "youtube",
+    "переход",
+    "диагональ",
+    "разрезы",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "Цветная вспышка",
+   "tags": [
+    "youtube",
+    "переход",
+    "вспышка",
+    "блик",
+    "свет"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "Переход из углов",
+   "tags": [
+    "youtube",
+    "переход",
+    "углы",
+    "треугольники",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "Проход полос",
+   "tags": [
+    "youtube",
+    "переход",
+    "полосы",
+    "шторка",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "Шестиугольная плитка",
+   "tags": [
+    "youtube",
+    "переход",
+    "шестиугольники",
+    "соты",
+    "мозаика"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "Переход диафрагмой",
+   "tags": [
+    "youtube",
+    "переход",
+    "круг",
+    "диафрагма",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "Переход диафрагмой (вертикальный)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "переход",
+    "круг",
+    "диафрагма"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "Волна полос",
+   "tags": [
+    "youtube",
+    "переход",
+    "полосы",
+    "волна",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "Переход панелями",
+   "tags": [
+    "youtube",
+    "переход",
+    "панели",
+    "фигуры",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "Переход жалюзи",
+   "tags": [
+    "youtube",
+    "переход",
+    "жалюзи",
+    "полосы",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "Переход жалюзи (вертикальный)",
+   "tags": [
+    "youtube",
+    "вертикальный",
+    "переход",
+    "жалюзи",
+    "полосы"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "Раздвижные двери",
+   "tags": [
+    "youtube",
+    "переход",
+    "двери",
+    "закрытие",
+    "смена сцены"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "Заливка точками",
+   "tags": [
+    "youtube",
+    "переход",
+    "точки",
+    "круги",
+    "смена сцены"
    ]
   },
   "template:zoom-3d-parallax": {

@@ -129,6 +129,7 @@
   "template:thumbnail": "썸네일",
   "template:transition": "전환과 구분 화면",
   "template:youtuber": "유튜버 스타일",
+  "template:ytkit": "YouTube 키트",
   "text-animation:brillo": "반짝임·컬러",
   "text-animation:caer": "낙하·상승",
   "text-animation:desenfoque": "블러·페이드",
@@ -33032,6 +33033,1685 @@
     "장소",
     "가이드",
     "유튜버"
+   ]
+  },
+  "template:ytk-apertura-anillo": {
+   "name": "링 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "채널",
+    "로고",
+    "오프닝",
+    "링"
+   ]
+  },
+  "template:ytk-apertura-anillo-vertical": {
+   "name": "링 오프닝 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "인트로",
+    "로고",
+    "오프닝",
+    "링"
+   ]
+  },
+  "template:ytk-apertura-clara": {
+   "name": "밝은 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "밝은",
+    "흰색"
+   ]
+  },
+  "template:ytk-apertura-collage": {
+   "name": "사진 콜라주 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:ytk-apertura-collage-vertical": {
+   "name": "사진 콜라주 오프닝 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "인트로",
+    "오프닝",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:ytk-apertura-decodificar": {
+   "name": "디지털 디코드 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "오프닝",
+    "글리치",
+    "기술",
+    "게임"
+   ]
+  },
+  "template:ytk-apertura-destello": {
+   "name": "빛 스윕 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "빛",
+    "우아한"
+   ]
+  },
+  "template:ytk-apertura-esquinas": {
+   "name": "코너 프레임 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "프레임",
+    "노란색"
+   ]
+  },
+  "template:ytk-apertura-explosion": {
+   "name": "버스트 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "에너지",
+    "광선"
+   ]
+  },
+  "template:ytk-apertura-franjas": {
+   "name": "줄무늬 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "채널",
+    "로고",
+    "오프닝",
+    "줄무늬"
+   ]
+  },
+  "template:ytk-apertura-hexagono": {
+   "name": "육각형 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "채널",
+    "로고",
+    "오프닝"
+   ]
+  },
+  "template:ytk-apertura-linea": {
+   "name": "미니멀 라인 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "미니멀",
+    "우아한"
+   ]
+  },
+  "template:ytk-apertura-mosaico": {
+   "name": "모자이크 타일 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "모자이크",
+    "컬러풀"
+   ]
+  },
+  "template:ytk-apertura-paneles": {
+   "name": "분할 패널 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "채널",
+    "로고",
+    "오프닝",
+    "패널"
+   ]
+  },
+  "template:ytk-apertura-paneles-vertical": {
+   "name": "분할 패널 오프닝 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "인트로",
+    "로고",
+    "오프닝",
+    "패널"
+   ]
+  },
+  "template:ytk-apertura-tipografica": {
+   "name": "타이포 블록 오프닝",
+   "tags": [
+    "유튜브",
+    "인트로",
+    "로고",
+    "오프닝",
+    "타이포그래피",
+    "코랄"
+   ]
+  },
+  "template:ytk-barra-capitulos": {
+   "name": "챕터 진행 바",
+   "tags": [
+    "유튜브",
+    "챕터",
+    "진행",
+    "바",
+    "목차",
+    "튜토리얼"
+   ]
+  },
+  "template:ytk-barra-dato": {
+   "name": "재미있는 사실 바",
+   "tags": [
+    "유튜브",
+    "정보",
+    "알고 계셨나요",
+    "상식",
+    "바"
+   ]
+  },
+  "template:ytk-barra-en-vivo": {
+   "name": "라이브 태그",
+   "tags": [
+    "유튜브",
+    "라이브",
+    "생방송",
+    "방송",
+    "바",
+    "라벨"
+   ]
+  },
+  "template:ytk-barra-encuesta": {
+   "name": "설문 바",
+   "tags": [
+    "유튜브",
+    "설문",
+    "질문",
+    "투표",
+    "바",
+    "커뮤니티"
+   ]
+  },
+  "template:ytk-barra-episodio": {
+   "name": "에피소드 배지",
+   "tags": [
+    "유튜브",
+    "에피소드",
+    "팟캐스트",
+    "시리즈",
+    "바",
+    "시즌"
+   ]
+  },
+  "template:ytk-barra-fecha-lugar": {
+   "name": "날짜와 장소 바",
+   "tags": [
+    "유튜브",
+    "날짜",
+    "장소",
+    "이벤트",
+    "바",
+    "달력"
+   ]
+  },
+  "template:ytk-barra-info": {
+   "name": "정보 바",
+   "tags": [
+    "유튜브",
+    "바",
+    "정보",
+    "뉴스",
+    "자막"
+   ]
+  },
+  "template:ytk-barra-marcador": {
+   "name": "스코어 바",
+   "tags": [
+    "유튜브",
+    "형광펜",
+    "스포츠",
+    "경기",
+    "축구",
+    "바"
+   ]
+  },
+  "template:ytk-barra-noticia": {
+   "name": "헤드라인 바",
+   "tags": [
+    "유튜브",
+    "뉴스",
+    "헤드라인",
+    "바",
+    "정보",
+    "생방송"
+   ]
+  },
+  "template:ytk-barra-patrocinado": {
+   "name": "스폰서 바",
+   "tags": [
+    "유튜브",
+    "스폰서",
+    "협찬",
+    "브랜드",
+    "로고",
+    "바"
+   ]
+  },
+  "template:ytk-barra-tema": {
+   "name": "주제 바",
+   "tags": [
+    "유튜브",
+    "주제",
+    "바",
+    "타이틀",
+    "모서리",
+    "정보"
+   ]
+  },
+  "template:ytk-barra-temporizador": {
+   "name": "카운트다운 타이머 바",
+   "tags": [
+    "유튜브",
+    "타이머",
+    "카운트다운",
+    "시간",
+    "바",
+    "챌린지"
+   ]
+  },
+  "template:ytk-barra-ticker": {
+   "name": "뉴스 티커 바",
+   "tags": [
+    "유튜브",
+    "바",
+    "뉴스",
+    "리본",
+    "속보",
+    "정보"
+   ]
+  },
+  "template:ytk-cinetico-barras": {
+   "name": "바 위 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "바",
+    "리스트",
+    "단어",
+    "단계"
+   ]
+  },
+  "template:ytk-cinetico-claro": {
+   "name": "밝은 키네틱 타이틀",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "밝은",
+    "미니멀",
+    "단어"
+   ]
+  },
+  "template:ytk-cinetico-contador": {
+   "name": "카운트업 타이틀",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "카운터",
+    "숫자",
+    "축하",
+    "구독자"
+   ]
+  },
+  "template:ytk-cinetico-cortes": {
+   "name": "컬러 컷 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "리듬",
+    "컷",
+    "에너지"
+   ]
+  },
+  "template:ytk-cinetico-cortes-vertical": {
+   "name": "컬러 컷 단어 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "키네틱",
+    "리듬",
+    "컷"
+   ]
+  },
+  "template:ytk-cinetico-dividida": {
+   "name": "분할 화면 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "분할 화면",
+    "대비",
+    "단어"
+   ]
+  },
+  "template:ytk-cinetico-escala": {
+   "name": "커지는 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "크기",
+    "리듬"
+   ]
+  },
+  "template:ytk-cinetico-foto": {
+   "name": "내 영상 위 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "사진",
+    "여행",
+    "리듬"
+   ]
+  },
+  "template:ytk-cinetico-foto-vertical": {
+   "name": "내 영상 위 단어 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "키네틱",
+    "사진",
+    "여행"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico": {
+   "name": "큰 글자 작은 글자",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "타이포그래피",
+    "대비",
+    "단어"
+   ]
+  },
+  "template:ytk-cinetico-grande-chico-vertical": {
+   "name": "큰 글자 작은 글자 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "키네틱",
+    "타이포그래피",
+    "대비"
+   ]
+  },
+  "template:ytk-cinetico-linea": {
+   "name": "라인에서 나오는 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "라인",
+    "미니멀"
+   ]
+  },
+  "template:ytk-cinetico-maquina": {
+   "name": "타자기 타이틀",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "타자기",
+    "텍스트",
+    "튜토리얼"
+   ]
+  },
+  "template:ytk-cinetico-pila": {
+   "name": "회전 스택",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "회전",
+    "리스트"
+   ]
+  },
+  "template:ytk-cinetico-rebote": {
+   "name": "튀는 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "바운스",
+    "재미있는",
+    "단어"
+   ]
+  },
+  "template:ytk-elemento-barras": {
+   "name": "사선 그룹",
+   "tags": [
+    "유튜브",
+    "요소",
+    "바",
+    "대각선",
+    "장식",
+    "프레임"
+   ]
+  },
+  "template:ytk-elemento-cargando": {
+   "name": "로딩 바",
+   "tags": [
+    "유튜브",
+    "요소",
+    "로딩",
+    "진행",
+    "바",
+    "완료"
+   ]
+  },
+  "template:ytk-elemento-check-cruz": {
+   "name": "체크와 엑스",
+   "tags": [
+    "유튜브",
+    "체크",
+    "엑스",
+    "정답",
+    "오답",
+    "비교"
+   ]
+  },
+  "template:ytk-elemento-circulo": {
+   "name": "손그림 원",
+   "tags": [
+    "유튜브",
+    "요소",
+    "원",
+    "강조",
+    "가리키기"
+   ]
+  },
+  "template:ytk-elemento-clic": {
+   "name": "클릭 버튼",
+   "tags": [
+    "유튜브",
+    "요소",
+    "클릭",
+    "커서",
+    "버튼",
+    "포인터"
+   ]
+  },
+  "template:ytk-elemento-destellos": {
+   "name": "반짝임",
+   "tags": [
+    "유튜브",
+    "요소",
+    "반짝임",
+    "별",
+    "마법",
+    "신규"
+   ]
+  },
+  "template:ytk-elemento-flecha": {
+   "name": "손그림 화살표",
+   "tags": [
+    "유튜브",
+    "요소",
+    "화살표",
+    "가리키기",
+    "주목"
+   ]
+  },
+  "template:ytk-elemento-globos": {
+   "name": "말풍선",
+   "tags": [
+    "유튜브",
+    "요소",
+    "말풍선",
+    "대화",
+    "텍스트"
+   ]
+  },
+  "template:ytk-elemento-pasos": {
+   "name": "진행 단계",
+   "tags": [
+    "유튜브",
+    "요소",
+    "단계",
+    "진행",
+    "튜토리얼",
+    "리스트"
+   ]
+  },
+  "template:ytk-elemento-subrayados": {
+   "name": "밑줄과 형광펜",
+   "tags": [
+    "유튜브",
+    "요소",
+    "밑줄",
+    "형광펜",
+    "강조",
+    "텍스트"
+   ]
+  },
+  "template:ytk-elemento-suscribete": {
+   "name": "구독 버튼과 알림 종",
+   "tags": [
+    "유튜브",
+    "요소",
+    "구독",
+    "알림 종",
+    "버튼",
+    "클릭"
+   ]
+  },
+  "template:ytk-elemento-visor": {
+   "name": "카메라 뷰파인더",
+   "tags": [
+    "유튜브",
+    "카메라",
+    "녹화 중",
+    "rec",
+    "초점",
+    "프레임"
+   ]
+  },
+  "template:ytk-elementos-set": {
+   "name": "애니메이션 요소",
+   "tags": [
+    "유튜브",
+    "요소",
+    "도형",
+    "장식",
+    "그래픽"
+   ]
+  },
+  "template:ytk-estilo-caja": {
+   "name": "외곽선 박스 타이틀",
+   "tags": [
+    "유튜브",
+    "박스",
+    "외곽선",
+    "도시",
+    "사진",
+    "미니멀"
+   ]
+  },
+  "template:ytk-estilo-cinta": {
+   "name": "리본 타이틀",
+   "tags": [
+    "유튜브",
+    "리본",
+    "띠",
+    "여름",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-corchetes": {
+   "name": "괄호 타이틀",
+   "tags": [
+    "유튜브",
+    "괄호",
+    "루틴",
+    "타이틀",
+    "사진",
+    "미니멀"
+   ]
+  },
+  "template:ytk-estilo-cortes": {
+   "name": "슬래시 컷 타이틀",
+   "tags": [
+    "유튜브",
+    "컷",
+    "대각선",
+    "게임",
+    "사진",
+    "에너지"
+   ]
+  },
+  "template:ytk-estilo-degradado": {
+   "name": "그라데이션 바 타이틀",
+   "tags": [
+    "유튜브",
+    "그라데이션",
+    "바",
+    "도시",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-dos-tonos": {
+   "name": "투톤 타이틀",
+   "tags": [
+    "유튜브",
+    "투톤",
+    "여행",
+    "모험",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-esquinas": {
+   "name": "코너 프레임 타이틀",
+   "tags": [
+    "유튜브",
+    "모서리",
+    "프레임",
+    "여행",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-esquinas-vertical": {
+   "name": "코너 프레임 타이틀 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "모서리",
+    "프레임",
+    "여행",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-pildoras": {
+   "name": "태그 타이틀",
+   "tags": [
+    "유튜브",
+    "태그",
+    "알약",
+    "브이로그",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-resaltado": {
+   "name": "하이라이트 타이틀",
+   "tags": [
+    "유튜브",
+    "하이라이트",
+    "블록",
+    "레시피",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-resaltado-vertical": {
+   "name": "하이라이트 타이틀 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "하이라이트",
+    "블록",
+    "레시피",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-sello": {
+   "name": "스탬프 타이틀",
+   "tags": [
+    "유튜브",
+    "스탬프",
+    "신규",
+    "팟캐스트",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-estilo-sombra": {
+   "name": "컬러 그림자 타이틀",
+   "tags": [
+    "유튜브",
+    "그림자",
+    "색상",
+    "노을",
+    "사진",
+    "임팩트"
+   ]
+  },
+  "template:ytk-estilo-ventana": {
+   "name": "창 카드 타이틀",
+   "tags": [
+    "유튜브",
+    "창",
+    "카드",
+    "튜토리얼",
+    "타이틀",
+    "사진"
+   ]
+  },
+  "template:ytk-frase-comillas": {
+   "name": "인용구 카드",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "동기부여",
+    "텍스트"
+   ]
+  },
+  "template:ytk-frase-coral": {
+   "name": "코랄 인용구 카드",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "색상",
+    "동기부여"
+   ]
+  },
+  "template:ytk-frase-cursiva": {
+   "name": "이탤릭 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "우아한",
+    "이탤릭",
+    "사랑"
+   ]
+  },
+  "template:ytk-frase-editorial": {
+   "name": "밝은 에디토리얼 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "에디토리얼",
+    "밝은",
+    "우아한"
+   ]
+  },
+  "template:ytk-frase-editorial-vertical": {
+   "name": "밝은 에디토리얼 인용구 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "인용구",
+    "에디토리얼",
+    "밝은"
+   ]
+  },
+  "template:ytk-frase-foto": {
+   "name": "사진 위 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "사진",
+    "영감"
+   ]
+  },
+  "template:ytk-frase-foto-vertical": {
+   "name": "사진 위 인용구 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "인용구",
+    "사진",
+    "영감"
+   ]
+  },
+  "template:ytk-frase-leccion": {
+   "name": "번호 레슨",
+   "tags": [
+    "유튜브",
+    "문구",
+    "레슨",
+    "팁",
+    "숫자",
+    "튜토리얼"
+   ]
+  },
+  "template:ytk-frase-marco": {
+   "name": "프레임 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "프레임",
+    "모던"
+   ]
+  },
+  "template:ytk-frase-minimal": {
+   "name": "미니멀 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "미니멀",
+    "다크"
+   ]
+  },
+  "template:ytk-frase-mitad": {
+   "name": "반쪽 사진 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "사진",
+    "인터뷰"
+   ]
+  },
+  "template:ytk-frase-palabra": {
+   "name": "큰 단어와 인용구",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "단어",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-frase-sol": {
+   "name": "노란 인용구 카드",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "색상",
+    "동기부여",
+    "강렬한"
+   ]
+  },
+  "template:ytk-frase-tarjeta": {
+   "name": "영상 위 인용구 카드",
+   "tags": [
+    "유튜브",
+    "문구",
+    "인용구",
+    "카드",
+    "사진",
+    "오버레이"
+   ]
+  },
+  "template:ytk-frase-testimonio": {
+   "name": "고객 후기",
+   "tags": [
+    "유튜브",
+    "문구",
+    "후기",
+    "의견",
+    "리뷰",
+    "고객"
+   ]
+  },
+  "template:ytk-frase-testimonio-vertical": {
+   "name": "고객 후기 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쇼츠",
+    "후기",
+    "의견",
+    "리뷰"
+   ]
+  },
+  "template:ytk-pantalla-final": {
+   "name": "영상 2개 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "구독",
+    "엔딩",
+    "다음 영상"
+   ]
+  },
+  "template:ytk-pantalla-final-centro": {
+   "name": "중앙 정렬 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "구독",
+    "엔딩",
+    "대칭"
+   ]
+  },
+  "template:ytk-pantalla-final-clara": {
+   "name": "밝은 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "구독",
+    "엔딩",
+    "밝은",
+    "흰색"
+   ]
+  },
+  "template:ytk-pantalla-final-coral": {
+   "name": "코랄 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "코랄",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-foto": {
+   "name": "사진 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "사진",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-gracias": {
+   "name": "감사 인사 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "감사",
+    "sns",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-lista": {
+   "name": "재생목록 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "재생목록",
+    "플레이리스트",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-minimal": {
+   "name": "미니멀 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "미니멀",
+    "라인",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-sol": {
+   "name": "노란 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "노란색",
+    "좋아요",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-tarjetas": {
+   "name": "카드 3개 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "카드",
+    "구독",
+    "엔딩"
+   ]
+  },
+  "template:ytk-pantalla-final-un-video": {
+   "name": "영상 1개 최종 화면",
+   "tags": [
+    "유튜브",
+    "최종 화면",
+    "구독",
+    "엔딩",
+    "다음 영상"
+   ]
+  },
+  "template:ytk-redes-barra": {
+   "name": "SNS 바",
+   "tags": [
+    "유튜브",
+    "sns",
+    "바",
+    "아이디",
+    "자막"
+   ]
+  },
+  "template:ytk-redes-circulos": {
+   "name": "원형 아이콘",
+   "tags": [
+    "유튜브",
+    "sns",
+    "아이콘",
+    "원",
+    "아이디"
+   ]
+  },
+  "template:ytk-redes-clara": {
+   "name": "내 SNS (밝은)",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "아이디",
+    "밝은",
+    "흰색"
+   ]
+  },
+  "template:ytk-redes-coral": {
+   "name": "코랄 팔로우",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "키네틱",
+    "아이디"
+   ]
+  },
+  "template:ytk-redes-cuadricula": {
+   "name": "SNS 그리드",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "아이디",
+    "그리드"
+   ]
+  },
+  "template:ytk-redes-esquina": {
+   "name": "모서리 아이디",
+   "tags": [
+    "유튜브",
+    "sns",
+    "아이디",
+    "모서리",
+    "알림"
+   ]
+  },
+  "template:ytk-redes-grande": {
+   "name": "큰 아이디",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "아이디",
+    "크게"
+   ]
+  },
+  "template:ytk-redes-grande-vertical": {
+   "name": "큰 아이디 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "sns",
+    "팔로우",
+    "아이디",
+    "크게"
+   ]
+  },
+  "template:ytk-redes-lista": {
+   "name": "내 SNS",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "아이디",
+    "연락처"
+   ]
+  },
+  "template:ytk-redes-lista-vertical": {
+   "name": "내 SNS (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "sns",
+    "팔로우",
+    "아이디",
+    "리스트"
+   ]
+  },
+  "template:ytk-redes-pildoras": {
+   "name": "알약형 SNS",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "아이디",
+    "알약"
+   ]
+  },
+  "template:ytk-redes-tarjetas": {
+   "name": "팔로우 카드",
+   "tags": [
+    "유튜브",
+    "sns",
+    "팔로우",
+    "카드",
+    "아이디"
+   ]
+  },
+  "template:ytk-redes-tercio": {
+   "name": "하단 자막 아이디",
+   "tags": [
+    "유튜브",
+    "sns",
+    "아이디",
+    "하단 자막",
+    "자막"
+   ]
+  },
+  "template:ytk-tercio-avatar": {
+   "name": "프로필 사진 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "사진",
+    "프로필"
+   ]
+  },
+  "template:ytk-tercio-claro": {
+   "name": "밝은 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "밝은",
+    "흰색"
+   ]
+  },
+  "template:ytk-tercio-corchete": {
+   "name": "괄호 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "괄호"
+   ]
+  },
+  "template:ytk-tercio-derecha": {
+   "name": "오른쪽 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "오른쪽"
+   ]
+  },
+  "template:ytk-tercio-diagonal": {
+   "name": "사선 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "스포츠",
+    "에너지"
+   ]
+  },
+  "template:ytk-tercio-doble": {
+   "name": "두 줄 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "인터뷰",
+    "하단 자막"
+   ]
+  },
+  "template:ytk-tercio-doble-vertical": {
+   "name": "두 줄 하단 자막 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "이름",
+    "자막",
+    "하단 자막",
+    "쇼츠"
+   ]
+  },
+  "template:ytk-tercio-entrevista": {
+   "name": "2인 인터뷰 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "하단 자막",
+    "인터뷰",
+    "팟캐스트",
+    "두 사람"
+   ]
+  },
+  "template:ytk-tercio-etiqueta": {
+   "name": "라벨 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "게스트",
+    "라벨"
+   ]
+  },
+  "template:ytk-tercio-minimal": {
+   "name": "미니멀 라인 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "미니멀",
+    "라인"
+   ]
+  },
+  "template:ytk-tercio-paso": {
+   "name": "단계 번호 하단 자막",
+   "tags": [
+    "유튜브",
+    "단계",
+    "튜토리얼",
+    "레시피",
+    "숫자",
+    "하단 자막"
+   ]
+  },
+  "template:ytk-tercio-pildora": {
+   "name": "알약형 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "자막",
+    "하단 자막",
+    "알약"
+   ]
+  },
+  "template:ytk-tercio-pildora-vertical": {
+   "name": "알약형 하단 자막 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "이름",
+    "하단 자막",
+    "알약",
+    "쇼츠"
+   ]
+  },
+  "template:ytk-tercio-ubicacion": {
+   "name": "장소 하단 자막",
+   "tags": [
+    "유튜브",
+    "장소",
+    "위치",
+    "여행",
+    "하단 자막",
+    "지도"
+   ]
+  },
+  "template:ytk-tercio-vidrio": {
+   "name": "유리 하단 자막",
+   "tags": [
+    "유튜브",
+    "이름",
+    "하단 자막",
+    "유리",
+    "반투명",
+    "우아한"
+   ]
+  },
+  "template:ytk-tipo-antes-despues": {
+   "name": "비포 애프터",
+   "tags": [
+    "유튜브",
+    "비포",
+    "애프터",
+    "비교",
+    "투톤",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-apilado": {
+   "name": "쌓인 단어",
+   "tags": [
+    "유튜브",
+    "쌓기",
+    "단어",
+    "타이틀",
+    "타이포그래피",
+    "외곽선"
+   ]
+  },
+  "template:ytk-tipo-apilado-vertical": {
+   "name": "쌓인 단어 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "쌓기",
+    "단어",
+    "타이포그래피",
+    "외곽선"
+   ]
+  },
+  "template:ytk-tipo-bloques": {
+   "name": "컬러 블록 단어",
+   "tags": [
+    "유튜브",
+    "블록",
+    "단계",
+    "단어",
+    "타이포그래피",
+    "색상"
+   ]
+  },
+  "template:ytk-tipo-capitulo": {
+   "name": "번호 챕터",
+   "tags": [
+    "유튜브",
+    "챕터",
+    "숫자",
+    "타이틀",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-capitulo-vertical": {
+   "name": "번호 챕터 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "챕터",
+    "숫자",
+    "타이틀",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-contorno": {
+   "name": "채워지는 외곽선",
+   "tags": [
+    "유튜브",
+    "외곽선",
+    "채우기",
+    "문구",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-dividido": {
+   "name": "투톤 단어",
+   "tags": [
+    "유튜브",
+    "투톤",
+    "타이틀",
+    "타이포그래피",
+    "임팩트"
+   ]
+  },
+  "template:ytk-tipo-editorial": {
+   "name": "밝은 에디토리얼 타이틀",
+   "tags": [
+    "유튜브",
+    "에디토리얼",
+    "매거진",
+    "밝은",
+    "우아한",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-indice": {
+   "name": "챕터 목차",
+   "tags": [
+    "유튜브",
+    "목차",
+    "챕터",
+    "내용",
+    "리스트",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-lineas": {
+   "name": "라인 사이 타이틀",
+   "tags": [
+    "유튜브",
+    "라인",
+    "에피소드",
+    "타이틀",
+    "타이포그래피",
+    "우아한"
+   ]
+  },
+  "template:ytk-tipo-recuadro": {
+   "name": "박스 타이틀",
+   "tags": [
+    "유튜브",
+    "박스",
+    "프레임",
+    "타이틀",
+    "타이포그래피",
+    "다큐"
+   ]
+  },
+  "template:ytk-tipo-subrayado": {
+   "name": "형광펜 타이틀",
+   "tags": [
+    "유튜브",
+    "형광펜",
+    "밑줄",
+    "튜토리얼",
+    "타이틀",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipo-top": {
+   "name": "순위 숫자",
+   "tags": [
+    "유튜브",
+    "탑",
+    "리스트",
+    "랭킹",
+    "숫자",
+    "타이포그래피"
+   ]
+  },
+  "template:ytk-tipografia-bloque": {
+   "name": "타이포 블록",
+   "tags": [
+    "유튜브",
+    "타이틀",
+    "텍스트",
+    "타이포그래피",
+    "미니멀"
+   ]
+  },
+  "template:ytk-titulo-barras": {
+   "name": "슬래시 타이틀",
+   "tags": [
+    "유튜브",
+    "타이틀",
+    "채널",
+    "스타일",
+    "사진"
+   ]
+  },
+  "template:ytk-titulo-cinetico": {
+   "name": "키네틱 단어",
+   "tags": [
+    "유튜브",
+    "키네틱",
+    "단어",
+    "리듬",
+    "에너지"
+   ]
+  },
+  "template:ytk-transicion-aro-zoom": {
+   "name": "링 줌",
+   "tags": [
+    "유튜브",
+    "전환",
+    "줌",
+    "링",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-chevrones": {
+   "name": "셰브런 스윕",
+   "tags": [
+    "유튜브",
+    "전환",
+    "화살표",
+    "셰브런",
+    "스윕",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-cortes": {
+   "name": "슬래시 와이프",
+   "tags": [
+    "유튜브",
+    "전환",
+    "대각선",
+    "컷",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-destello": {
+   "name": "컬러 플래시",
+   "tags": [
+    "유튜브",
+    "전환",
+    "섬광",
+    "플래시",
+    "빛",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-esquinas": {
+   "name": "코너 와이프",
+   "tags": [
+    "유튜브",
+    "전환",
+    "대각선",
+    "모서리",
+    "삼각형",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-franjas": {
+   "name": "줄무늬 스윕",
+   "tags": [
+    "유튜브",
+    "전환",
+    "줄무늬",
+    "스윕",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-hexagonos": {
+   "name": "육각형 타일",
+   "tags": [
+    "유튜브",
+    "전환",
+    "육각형",
+    "벌집",
+    "모자이크",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-iris": {
+   "name": "아이리스 와이프",
+   "tags": [
+    "유튜브",
+    "전환",
+    "원",
+    "아이리스",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-iris-vertical": {
+   "name": "아이리스 와이프 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "전환",
+    "원",
+    "아이리스",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-ola": {
+   "name": "바 웨이브",
+   "tags": [
+    "유튜브",
+    "전환",
+    "바",
+    "물결",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-paneles": {
+   "name": "패널 와이프",
+   "tags": [
+    "유튜브",
+    "전환",
+    "와이프",
+    "도형",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-persianas": {
+   "name": "블라인드 와이프",
+   "tags": [
+    "유튜브",
+    "전환",
+    "블라인드",
+    "줄무늬",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-persianas-vertical": {
+   "name": "블라인드 와이프 (세로)",
+   "tags": [
+    "유튜브",
+    "세로",
+    "전환",
+    "블라인드",
+    "줄무늬",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-puertas": {
+   "name": "스플릿 도어",
+   "tags": [
+    "유튜브",
+    "전환",
+    "문",
+    "엔딩",
+    "장면 전환"
+   ]
+  },
+  "template:ytk-transicion-puntos": {
+   "name": "도트 채우기",
+   "tags": [
+    "유튜브",
+    "전환",
+    "점",
+    "원",
+    "장면 전환"
    ]
   },
   "template:zoom-3d-parallax": {
