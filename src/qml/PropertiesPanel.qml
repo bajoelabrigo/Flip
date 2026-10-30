@@ -620,8 +620,9 @@ PanelFrame {
                 if (EditorState.preferences.proMode || !root.hasSelection)
                     return false
                 const info = EditorState.clipMotionInfo(EditorState.selectedTrack, EditorState.selectedClip) || {}
-                return !!(info.parentId || info.matteMode || info.motionBlur || info.autoOrient
-                          || info.timeRemap || info.nullObject || info.lightKind)
+                // matteMode is a name: "none" is a string, and truthy.
+                return !!(info.parentId || (info.matteMode && info.matteMode !== "none") || info.motionBlur
+                          || info.autoOrient || info.timeRemap || info.nullObject || info.lightKind)
             }
             anchors.top: tabStripHost.bottom
             anchors.left: railDivider.right
