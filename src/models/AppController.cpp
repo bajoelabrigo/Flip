@@ -12315,6 +12315,8 @@ QString AppController::checkExpression(const QString &expression) const
 QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
 {
     QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};
+    // An effect's or a mask's row lives on the adjustment that carries it, as the keys do.
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
     if (!isValidClipIndex(trackIndex, clipIndex))
         return out;
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
@@ -12335,6 +12337,8 @@ QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const
 void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
                                         const QVariantMap &behavior)
 {
+    // On the adjustment carrying an effect's or a mask's keys, not the clip they show on.
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
     if (!isValidClipIndex(trackIndex, clipIndex))
         return;
     drift::TrackBehavior b;
@@ -12359,6 +12363,10 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
         b.settleAmplitude = current->behavior().settleAmplitude;
         b.settleFrequency = current->behavior().settleFrequency;
         b.settleDecay = current->behavior().settleDecay;
+        b.bounceElasticity = current->behavior().bounceElasticity;
+        b.bounceGravity = current->behavior().bounceGravity;
+        b.bounceMaxJumps = current->behavior().bounceMaxJumps;
+        b.bounceJumpOut = current->behavior().bounceJumpOut;
     }
     // The value it holds now, read before the edit in case the track has to be made.
     const double base = propertyBaseValue(trackIndex, clipIndex, prop);
@@ -17217,7 +17225,7 @@ void AppController::startReverseRender(const QString &sourcePath, drift::TimeUs 
     m_reverseCancel.storeRelaxed(0);
     m_reverseProgress = 0.0;
     emit reverseRenderProgressChanged();
-    m_reverseStatus = QStringLiteral("Getting ready…");
+    m_reverseStatus = tr("Getting ready…");
     emit reverseRenderStatusChanged();
     m_reverseRendering = true;
     emit reverseRenderingChanged();
@@ -17248,7 +17256,7 @@ void AppController::startReverseRender(const QString &sourcePath, drift::TimeUs 
                     emit reverseRenderingChanged();
                     m_reverseProgress = ok ? 1.0 : 0.0;
                     emit reverseRenderProgressChanged();
-                    m_reverseStatus = ok ? QStringLiteral("Done") : message;
+                    m_reverseStatus = ok ? tr("Done") : message;
                     emit reverseRenderStatusChanged();
                     if (ok) {
                         drift::ReverseProxyCache::instance().insert(sourcePath, coverInUs,
@@ -17277,7 +17285,7 @@ void AppController::startReverseRender(const QString &sourcePath, drift::TimeUs 
                 setProgress(fraction, tr("Reversing video…"));
                 return m_reverseCancel.loadRelaxed() == 0;
             });
-        finish(ok, ok ? QStringLiteral("Reversed clip ready") : error, proxyPath);
+        finish(ok, ok ? tr("Reversed clip ready") : error, proxyPath);
     });
 }
 
@@ -27695,7 +27703,7 @@ void AppController::freezeFrameAtPlayhead()
                 const drift::Project before = m_project;
 
                 drift::MediaAsset asset;
-                asset.name = QStringLiteral("Freeze frame");
+                asset.name = tr("Freeze frame");
                 asset.path = outPath;
                 asset.kind = drift::MediaKind::Image;
                 asset.width = size.width();
@@ -27734,7 +27742,7 @@ void AppController::freezeFrameAtPlayhead()
                 freezeClip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
                 freezeClip.assetId = assetId;
                 freezeClip.type = drift::ClipType::Image;
-                freezeClip.name = QStringLiteral("Freeze frame");
+                freezeClip.name = tr("Freeze frame");
                 freezeClip.path = outPath;
                 freezeClip.thumbnailPath = thumb;
                 freezeClip.filmstripPath = thumb;
@@ -30943,6 +30951,11 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
             drift::Clip copy = source;
             copy.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
             copy.name = tr("%1 trail %2").arg(source.name).arg(n);
+            // A trail is a picture of its own: not in the source's link group (moving or deleting it
+            // took the linked audio along), nor its parent or matte.
+            copy.linkId.clear();
+            copy.parentId.clear();
+            copy.matteClipId.clear();
             const drift::TimeUs delay = frame * 2 * n;
             for (const QString &prop : {QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"),
                                         QStringLiteral("height"), QStringLiteral("rotation"), QStringLiteral("opacity")}) {
@@ -32290,7 +32303,8 @@ QVariantList AppController::clipAnimationCategories(const QString &slot) const
         if (!seen.contains(category))
             seen.append(category);
     }
-    static const QMap<QString, QString> labels{
+    // Built on every call: a static froze the names in the first language they were asked in.
+    const QMap<QString, QString> labels{
         {QStringLiteral("basic"), tr("Basic")},
         {QStringLiteral("slide"), tr("Slide")},
         {QStringLiteral("zoom"), tr("Zoom")},
