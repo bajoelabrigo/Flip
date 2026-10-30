@@ -449,10 +449,14 @@ void applyFragmentProps(const TextAnimatorProps &p, double a, double progress, F
         if (p.hasOpacity)
             out.opacity = lerp(out.opacity, p.opacity.at(progress) / 100.0, ap);
         if (p.wipe.enabled) {
+            // The in and out animators both run on every frame: only the one hiding the most sets the
+            // direction, or an idle wipe out turned the wipe in around.
             const double revealed = 1.0 - clamp01(a);
-            out.wipeProgress = out.wipeProgress < 0.0 ? revealed : std::min(out.wipeProgress, revealed);
-            out.wipeAngle = p.wipe.angleDeg;
-            out.wipeSoftness = p.wipe.softness;
+            if (out.wipeProgress < 0.0 || revealed < out.wipeProgress) {
+                out.wipeProgress = revealed;
+                out.wipeAngle = p.wipe.angleDeg;
+                out.wipeSoftness = p.wipe.softness;
+            }
         }
     }
     out.skew += p.skew.at(progress) * a;
@@ -487,10 +491,13 @@ void applyBlockProps(const TextAnimatorProps &p, double a, double progress, Bloc
     if (p.hasOpacity)
         out.opacity = lerp(out.opacity, p.opacity.at(progress) / 100.0, ap);
     if (p.wipe.enabled) {
+        // As above: the wipe hiding the most picks the direction.
         const double revealed = 1.0 - clamp01(a);
-        out.wipeProgress = out.wipeProgress < 0.0 ? revealed : std::min(out.wipeProgress, revealed);
-        out.wipeAngle = p.wipe.angleDeg;
-        out.wipeSoftness = p.wipe.softness;
+        if (out.wipeProgress < 0.0 || revealed < out.wipeProgress) {
+            out.wipeProgress = revealed;
+            out.wipeAngle = p.wipe.angleDeg;
+            out.wipeSoftness = p.wipe.softness;
+        }
     }
 }
 
