@@ -506,6 +506,100 @@ def make_shot_hit():
     return render(s, shot_hit(512, 512, 31, size=1.4))
 
 
+def projectile(W, H, seed, angle=0.0, size=1.0):
+    """A fireball in flight, looping (RTFX's «Projectile Loop»): a flame drawn out into a lens, pointed
+    at the nose and the tail, redrawn on every second frame so it boils, with thin slivers peeling
+    off above and below."""
+    m = Mass(W, H, seed)
+    k = size * m.gw / 256
+    ca, sa = math.cos(angle), math.sin(angle)
+    cx, cy = m.gw / 2, m.gh / 2
+
+    def at(u, v):  # along the flight, across it
+        return cx + ca * u * k - sa * v * k, cy + sa * u * k + ca * v * k
+
+    def field(t):
+        n = int(round(t * 24)) // 2
+        rnd = np.random.default_rng(seed * 1000 + n)
+        lobes = []
+        sc = rnd.uniform(0.7, 1.15)  # each drawing a size of its own, so it pulses as it boils
+        # The body: a few drawn-out puffs along the axis, the biggest behind the nose.
+        for u, r, sy in ((14, 32, 1.05), (-10, 30, 1.0), (-36, 22, 0.85)):
+            x, y = at(sc * u + rnd.uniform(-5, 5), rnd.uniform(-5, 5))
+            lobes.append((x, y, sc * r * k * rnd.uniform(0.85, 1.15), 1.8, sy * rnd.uniform(0.8, 1.2),
+                          angle + rnd.uniform(-0.1, 0.1), rnd.uniform(0.62, 0.78)))
+        # The nose and the tail drawn out to points: a chain of ever smaller drops along the axis.
+        for u0, d, n_ in ((60, 1, 4), (-62, -1, 5)):
+            v = rnd.uniform(-3, 3)
+            for j in range(n_):
+                x, y = at(sc * (u0 + d * j * 9) + rnd.uniform(-2, 2), v * (1 + j * 0.4))
+                f = 1 - j / n_
+                lobes.append((x, y, sc * (5 + 9 * f) * k, 1.8, 0.5, angle, 0.7 * f))
+        # Slivers peeling off above and below, swept back.
+        for _ in range(rnd.integers(1, 4)):
+            side = 1 if rnd.random() < 0.5 else -1
+            x, y = at(sc * rnd.uniform(-40, 10), side * sc * rnd.uniform(17, 27))
+            lobes.append((x, y, sc * rnd.uniform(16, 28) * k, 1.0, 0.13, angle - side * rnd.uniform(0.05, 0.3), 0.0))
+        return m.field(lobes, n * 0.37, angle + math.pi, at(60, 0), 120 * k, 99.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_projectile():
+    s = new("ex-fuego-proyectil-derecha", "Fuego · Proyectil a la derecha (bucle)", "Fire · Projectile right (loop)",
+            "fuego", 48, 6009, ["fuego", "fire", "proyectil", "projectile", "bola de fuego", "fireball", "bucle", "loop"],
+            size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, projectile(512, 512, 37, size=1.3))
+
+
+def splash_up(W, H, seed, size=1.0):
+    """A splash of fire going up (RTFX's «Splash Up»): a narrow flame leaps up in wavy tongues, drops
+    break off its tips and fly on up, and it sinks back into the ground leaving a few drops."""
+    m = Mass(W, H, seed)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, base = m.gw / 2, m.gh * 0.96
+    tongues = [(-12, 0.55, rnd.uniform(0, 6)), (0, 1.0, rnd.uniform(0, 6)), (13, 0.42, rnd.uniform(0, 6))]
+    drops = [(rnd.uniform(0.1, 0.4), rnd.uniform(-26, 26), rnd.uniform(0.6, 1.0), rnd.uniform(3, 6))
+             for _ in range(7)]
+
+    def field(t):
+        lobes = []
+        grow = 1 - (1 - min(1.0, 0.25 + t / 0.17)) ** 2
+        sink = max(0.0, (t - 0.38) / 0.25)
+        tall = 230 * k * grow * (1 - 0.85 * min(1.0, sink))
+        if tall > 2:
+            for x0, h, ph in tongues:
+                th = tall * h
+                # A tongue: a stack of drawn-up drops narrowing to the tip, swaying as it rises.
+                n = 9
+                for j in range(n):
+                    u = j / (n - 1)
+                    sway = math.sin(t * 9 + ph + u * 3.2) * 12 * k * u
+                    w = (46 - 34 * u) * k * (0.7 + 0.3 * grow)
+                    lobes.append((cx + x0 * k + sway, base - th * u * 0.85, w, 0.75, 1.2 + 0.6 * u, sway * 0.01 / k,
+                                  0.8 - 0.35 * u))
+        for born, x0, s, v in drops:
+            age = t - born
+            if age < 0 or age > 0.6:
+                continue
+            # Drops leave the tips and fly on up, slowing and shrinking.
+            y = base - tall * 0.95 - (v * 80 * age - 40 * age * age) * k
+            r = (8 + 6 * s) * k * (1 - age / 0.6)
+            lobes.append((cx + x0 * k * 0.6 + math.sin(age * 8) * 5 * k, y, r, 0.9, 1.15, 0.0, 0.55))
+        return m.field(lobes, t, "up", (cx, base + 5 * k), 260 * k, 0.4, 0.45, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_splash_up():
+    s = new("ex-fuego-salpicadura-arriba", "Fuego · Salpicadura hacia arriba", "Fire · Splash up", "fuego", 28, 6010,
+            ["fuego", "fire", "salpicadura", "splash", "llama", "flame"], size=512, thumb=0.2)
+    s.fps = 24
+    return render(s, splash_up(512, 512, 41, size=0.72))
+
+
 def make_torch():
     s = new("ex-fuego-antorcha-arriba", "Fuego · Antorcha hacia arriba", "Fire · Torch up", "fuego", 32, 6001,
             ["fuego", "fire", "antorcha", "torch"], size=512, thumb=0.3)
@@ -520,4 +614,4 @@ def make_explosion():
     return render(s, explosion(512, 512, 5, size=1.35))
 
 
-STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit]
+STICKERS = [make_explosion, make_torch, make_thrower, make_wings, make_ring, make_slash, make_ray, make_hit_up, make_shot_hit, make_projectile, make_splash_up]
