@@ -21779,9 +21779,13 @@ bool AppController::applyKeyframeEasing(int trackIndex, int clipIndex, const QSt
             return;
         if (mode == QLatin1String("easeIn") || mode == QLatin1String("easeOut")) {
             kt->setEasing(at, drift::Interpolation::Ease);
-            drift::Keyframe<double> *key = keyframeAt(trackIndex, clipIndex, p, atSeconds);
-            if (!key)
+            // The key found above, not a second search with a narrower tolerance: that one could
+            // miss it and return after the easing was already changed, with no undo step.
+            drift::Keyframe<double> *key = kt->keyframeRef(at);
+            if (!key) {
+                changed = true;
                 return;
+            }
             if (mode == QLatin1String("easeIn")) {
                 key->outDx = 0.0;
                 key->outDy = 0.0;
@@ -22597,19 +22601,28 @@ void AppController::applyRetouchLook(int trackIndex, int clipIndex, const QStrin
         return -1;
     };
 
+    // One card is one undo step: adding the effect and each of its values used to push 1+N.
+    const bool ownSession = !m_editSessionOpen;
+    if (ownSession)
+        beginEditSession(tr("Retouch"));
     int index = lastIndex(trackIndex, clipIndex);
     if (index < 0) {
         addEffect(trackIndex, clipIndex, effectId);
         // Adding mints a lane, so the clip's indices may have moved.
-        if (!findClipById(m_project, clipId, &trackIndex, &clipIndex))
+        if (!findClipById(m_project, clipId, &trackIndex, &clipIndex)) {
+            if (ownSession)
+                endEditSession(true);
             return;
+        }
         index = lastIndex(trackIndex, clipIndex);
     }
     selectClip(trackIndex, clipIndex);
-    if (index < 0)
-        return;
-    for (auto it = values.constBegin(); it != values.constEnd(); ++it)
-        setEffectParam(trackIndex, clipIndex, index, it.key(), it.value().toDouble());
+    if (index >= 0) {
+        for (auto it = values.constBegin(); it != values.constEnd(); ++it)
+            setEffectParam(trackIndex, clipIndex, index, it.key(), it.value().toDouble());
+    }
+    if (ownSession)
+        endEditSession(true);
 }
 
 namespace {
@@ -24641,6 +24654,11 @@ void AppController::enhanceVoice(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return;
+    const drift::ClipType kind = m_project.tracks().at(trackIndex).clips.at(clipIndex).type;
+    if (kind != drift::ClipType::Audio && kind != drift::ClipType::Video) {
+        setLastMessage(tr("Select a clip with sound to enhance its voice"), QStringLiteral("warning"));
+        return;
+    }
     m_mcpController->beginBatch();
     // The first effect moves the selection to the audio-effects layer it lands on (created for
     // the clip when it has none); the rest go to that same layer.
@@ -24686,9 +24704,8 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
                                                    {QStringLiteral("minPause"), minPause},
                                                    {QStringLiteral("fillers"), removeFillers}});
-    static bool connected = false;
-    if (!connected) {
-        connected = true;
+    if (!m_silenceCutHooked) {
+        m_silenceCutHooked = true;
         connect(m_jobs, &JobRegistry::jobFinished, this, [this](const QString &id, bool ok) {
             const auto it = m_pendingSilenceCuts.constFind(id);
             if (it == m_pendingSilenceCuts.constEnd())
@@ -25090,10 +25107,16 @@ void AppController::setChannelFill(int trackIndex, int clipIndex, int mode)
     if (host.trackIndex < 0)
         return;
     QList<drift::Effect> &stack = m_project.tracks()[host.trackIndex].clips[host.clipIndex].audioEffects;
+    bool removed = false;
     for (int i = stack.size() - 1; i >= 0; --i) {
-        if (stack.at(i).catalogId == QLatin1String("utility.channelfill"))
+        if (stack.at(i).catalogId == QLatin1String("utility.channelfill")) {
             stack.removeAt(i);
+            removed = true;
+        }
     }
+    // Turning off a fill that is not there changes nothing: no empty undo step.
+    if (mode < 0 && !removed)
+        return;
     if (mode >= 0) {
         // Before anything else in the stack: the voice and effects should hear both sides.
         QMap<QString, QVariant> params;
@@ -25169,11 +25192,20 @@ void AppController::finishNormalize(const QString &clipId, double lufs, double t
                 capped = gain > kMaxClipVolume;
                 clip.volume.setKeyframe(0, qBound(0.0, gain, kMaxClipVolume));
             } else {
+                // The loudness was measured on the source at volume 1, so the keys are set
+                // relative to the loudest one: that one ends at `gain` and a duck keeps its depth.
+                // Multiplying the current values instead counted the old volume twice, and a second
+                // press doubled the gain again.
+                double loudest = 0.0;
+                for (auto it = clip.volume.keyframes().cbegin(); it != clip.volume.keyframes().cend(); ++it)
+                    loudest = qMax(loudest, it.value().value);
+                const double factor = loudest > 0.0 ? gain / loudest : gain;
                 drift::KeyframeTrack<double> scaled = clip.volume;
                 for (auto it = clip.volume.keyframes().cbegin(); it != clip.volume.keyframes().cend(); ++it) {
                     drift::Keyframe<double> key = it.value();
-                    capped = capped || key.value * gain > kMaxClipVolume;
-                    key.value = qBound(0.0, key.value * gain, kMaxClipVolume);
+                    const double wanted = loudest > 0.0 ? key.value * factor : gain;
+                    capped = capped || wanted > kMaxClipVolume;
+                    key.value = qBound(0.0, wanted, kMaxClipVolume);
                     scaled.setKeyframe(it.key(), key);
                 }
                 clip.volume = scaled;
@@ -27097,9 +27129,22 @@ int AppController::selectedTracksClipCount() const
 
 bool AppController::removeSelectedTracks()
 {
-    const QStringList picked = selectedTrackIds();
+    QStringList picked = selectedTrackIds();
     if (picked.isEmpty())
         return false;
+    // A locked track keeps its clips everywhere else; the header selection is no exception.
+    QStringList unlocked;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const QString id = m_project.tracks().at(t).id;
+        if (picked.contains(id) && !isTrackLocked(t))
+            unlocked.append(id);
+    }
+    const bool keptLocked = unlocked.size() < picked.size();
+    picked = unlocked;
+    if (picked.isEmpty()) {
+        setLastMessage(tr("Locked tracks were kept"), QStringLiteral("warning"));
+        return false;
+    }
     setPlaying(false);
     const drift::Project before = m_project;
     const QSet<QString> doomed = tracksWithTheirLanes(m_project, picked);
@@ -27124,7 +27169,9 @@ bool AppController::removeSelectedTracks()
     clearSelection();
     pushProjectEdit(before, tr("Delete tracks"));
     finishEdit(QString());
-    setLastMessage(tr("%n track(s) deleted", "", int(picked.size())), QStringLiteral("info"));
+    setLastMessage(keptLocked ? tr("%n track(s) deleted; locked tracks were kept", "", int(picked.size()))
+                              : tr("%n track(s) deleted", "", int(picked.size())),
+                   QStringLiteral("info"));
     return true;
 }
 
@@ -27556,7 +27603,7 @@ void AppController::freezeFrameAtPlayhead()
     }
     const std::shared_ptr<const drift::Project> snapshot = still;
 
-    (void)QtConcurrent::run([this, snapshot, playheadUs, outPath, clipId]() {
+    (void)QtConcurrent::run([this, self = QPointer<AppController>(this), snapshot, playheadUs, outPath, clipId]() {
         FrameCompositor compositor;
         compositor.setProject(snapshot.get());
 
@@ -27568,7 +27615,7 @@ void AppController::freezeFrameAtPlayhead()
         const QSize size = frame.size();
 
         QMetaObject::invokeMethod(
-            this,
+            self.data(),
             [this, ok, outPath, thumb, size, playheadUs, clipId]() {
                 constexpr drift::TimeUs kFreezeUs = 3 * drift::kUsPerSecond;
                 if (!ok) {
@@ -27757,7 +27804,7 @@ void AppController::addAiTransitionAfter(int trackIndex, int clipIndex)
 
     setPlaying(false);
     setLastMessage(tr("Making the AI transition…"));
-    (void)QtConcurrent::run([this, from, to, clipId, outPath, fps, name, kAiTransitionUs]() {
+    (void)QtConcurrent::run([this, self = QPointer<AppController>(this), from, to, clipId, outPath, fps, name, kAiTransitionUs]() {
         constexpr quint64 kStreamId = 0xA1'7A'05'00'00'00'00'01ull;
         const auto grab = [](const Shot &shot) {
             if (shot.image)
@@ -27802,7 +27849,7 @@ void AppController::addAiTransitionAfter(int trackIndex, int clipIndex)
         const MediaInfo info = ok ? MediaProbe::probe(outPath) : MediaInfo{};
 
         QMetaObject::invokeMethod(
-            this,
+            self.data(),
             [this, ok, error, outPath, thumb, info, clipId, name, kAiTransitionUs]() {
                 if (!ok) {
                     QFile::remove(outPath);
@@ -27917,7 +27964,7 @@ void AppController::smoothSlowMotion(int trackIndex, int clipIndex)
 
     setPlaying(false);
     setLastMessage(tr("Making smooth slow motion…"));
-    (void)QtConcurrent::run([this, clip, sourceFps, fps, outPath, name]() {
+    (void)QtConcurrent::run([this, self = QPointer<AppController>(this), clip, sourceFps, fps, outPath, name]() {
         constexpr quint64 kStreamId = 0xA1'7A'05'00'00'00'00'02ull;
         QString error;
         std::shared_ptr<drift::FrameInterpolator> model = drift::FrameInterpolator::load(&error);
@@ -27971,7 +28018,7 @@ void AppController::smoothSlowMotion(int trackIndex, int clipIndex)
             const int shown = (k + 1) * 100 / frames;
             if (shown / 5 != lastShown / 5) {
                 lastShown = shown;
-                QMetaObject::invokeMethod(this, [this, shown]() {
+                QMetaObject::invokeMethod(self.data(), [this, shown]() {
                     setLastMessage(tr("Making smooth slow motion… %1 %").arg(shown));
                 }, Qt::QueuedConnection);
             }
@@ -27985,7 +28032,7 @@ void AppController::smoothSlowMotion(int trackIndex, int clipIndex)
         const MediaInfo info = ok ? MediaProbe::probe(outPath) : MediaInfo{};
 
         QMetaObject::invokeMethod(
-            this,
+            self.data(),
             [this, ok, error, outPath, thumb, info, clipId = clip.id, name]() {
                 int trackIndex = -1;
                 int clipIndex = -1;
@@ -28115,7 +28162,7 @@ void AppController::addAiText(const QString &text, const QString &idea)
 
     setLastMessage(tr("Choosing a style with AI…"));
     const double atSeconds = drift::usToSeconds(m_playheadUs);
-    (void)QtConcurrent::run([this, candidates, wanted, text, atSeconds]() {
+    (void)QtConcurrent::run([this, self = QPointer<AppController>(this), candidates, wanted, text, atSeconds]() {
         static QMutex cacheMutex;
         static QHash<QString, std::vector<float>> cache;
         QString error;
@@ -28148,7 +28195,7 @@ void AppController::addAiText(const QString &text, const QString &idea)
             }
         }
         QMetaObject::invokeMethod(
-            this,
+            self.data(),
             [this, bestId, bestSample, text, atSeconds, error]() {
                 if (bestId.isEmpty()) {
                     setLastMessage(error.isEmpty() ? tr("Couldn’t choose a style") : error, QStringLiteral("error"));

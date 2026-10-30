@@ -2557,6 +2557,8 @@ protected:
                                                                        int maxWordsPerCue) const;
     // Silence cuts waiting on a transcription job: job id -> {clip id, min pause, fillers}.
     QHash<QString, QVariantMap> m_pendingSilenceCuts;
+    // Per instance: a function-level static hooked only the first controller's job registry.
+    bool m_silenceCutHooked = false;
     void applySilenceCut(const QString &clipId, double minPause, bool removeFillers);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
