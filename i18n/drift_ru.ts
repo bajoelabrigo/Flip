@@ -13077,6 +13077,10 @@ NEXT TIME</source>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Curve applied</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
         <source>%n keys picked on the timeline.</source>
         <translation type="unfinished">
@@ -13084,6 +13088,10 @@ NEXT TIME</source>
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Goes onto every key of the selected clip. To shape only some, pick their diamonds on the timeline (Ctrl for more).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>

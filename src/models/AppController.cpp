@@ -11430,11 +11430,40 @@ void AppController::stretchKeyframes(int trackIndex, const QVariantList &keys, d
     }
 }
 
+// The keys the Curves panel works on: the ones picked on the timeline, or, with none picked,
+// every key of the selected clip's animated transform properties (EasyCurve works on what is
+// selected, and a clip is what most people have selected).
+QVariantMap AppController::curveTargetKeys() const
+{
+    if (!m_pickedKeyframes.value(QStringLiteral("keys")).toList().isEmpty())
+        return m_pickedKeyframes;
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return {};
+    static const QStringList props{QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"),
+                                   QStringLiteral("height"), QStringLiteral("rotation"), QStringLiteral("opacity"),
+                                   QStringLiteral("anchorX"), QStringLiteral("anchorY"), QStringLiteral("rotationX"),
+                                   QStringLiteral("rotationY"), QStringLiteral("z")};
+    QVariantList keys;
+    for (const QString &prop : props) {
+        const QVariantList list = clipKeyframes(m_selectedTrack, m_selectedClip, prop);
+        if (list.size() < 2)
+            continue;
+        for (const QVariant &v : list)
+            keys.append(QVariantMap{{QStringLiteral("clip"), m_selectedClip},
+                                    {QStringLiteral("prop"), prop},
+                                    {QStringLiteral("seconds"), v.toMap().value(QStringLiteral("seconds"))}});
+    }
+    if (keys.isEmpty())
+        return {};
+    return {{QStringLiteral("track"), m_selectedTrack}, {QStringLiteral("keys"), keys}};
+}
+
 QVariantMap AppController::pickedKeyframeCurves() const
 {
     QVariantMap out{{QStringLiteral("ok"), false}};
-    const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
-    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    const QVariantMap target = curveTargetKeys();
+    const int track = target.value(QStringLiteral("track")).toInt();
+    const QVariantList keys = target.value(QStringLiteral("keys")).toList();
     if (keys.isEmpty())
         return out;
     const QVariantMap first = keys.first().toMap();
@@ -11494,8 +11523,9 @@ QVariantMap AppController::pickedKeyframeCurves() const
 
 void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList &b)
 {
-    const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
-    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    const QVariantMap target = curveTargetKeys();
+    const int track = target.value(QStringLiteral("track")).toInt();
+    const QVariantList keys = target.value(QStringLiteral("keys")).toList();
     if (keys.isEmpty() || a.size() != 4)
         return;
     const bool fourKey = b.size() == 4;
@@ -11517,12 +11547,17 @@ void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList
         for (int i = 0; i < stretches; ++i)
             (fourKey && i % 2 == 1 ? withB : withA).append(list.at(i));
     }
-    beginEditSession(tr("Curve applied"));
+    // Inside a session the caller opened (the Curves panel while a handle is dragged, applying
+    // live) every write joins that one undo step; otherwise this is a step of its own.
+    const bool own = !m_editSessionOpen;
+    if (own)
+        beginEditSession(tr("Curve applied"));
     if (!withA.isEmpty())
         setKeyframesCurve(track, withA, a.at(0).toDouble(), a.at(1).toDouble(), a.at(2).toDouble(), a.at(3).toDouble());
     if (!withB.isEmpty())
         setKeyframesCurve(track, withB, b.at(0).toDouble(), b.at(1).toDouble(), b.at(2).toDouble(), b.at(3).toDouble());
-    endEditSession(true);
+    if (own)
+        endEditSession(true);
 }
 
 QString AppController::readTextFile(const QUrl &fileUrl) const

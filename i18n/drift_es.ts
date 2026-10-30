@@ -13034,12 +13034,20 @@ LA PRÓXIMA</translation>
         <source>Custom</source>
         <translation>Personalizada</translation>
     </message>
+    <message>
+        <source>Curve applied</source>
+        <translation>Curva aplicada</translation>
+    </message>
     <message numerus="yes">
         <source>%n keys picked on the timeline.</source>
         <translation>
             <numerusform>%n clave elegida en la línea de tiempo.</numerusform>
             <numerusform>%n claves elegidas en la línea de tiempo.</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Goes onto every key of the selected clip. To shape only some, pick their diamonds on the timeline (Ctrl for more).</source>
+        <translation>Se aplica a todas las claves del clip elegido. Para dar forma solo a algunas, elige sus rombos en la línea de tiempo (Ctrl para sumar).</translation>
     </message>
     <message>
         <source>Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.</source>

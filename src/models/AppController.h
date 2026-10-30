@@ -809,6 +809,8 @@ public:
     // and applying a curve to every stretch the picked keys start (with `b` set, the stretches
     // alternate a, b, a…, as EasyCurve's 4-KEY), as one undo step.
     Q_INVOKABLE QVariantMap pickedKeyframeCurves() const;
+    // What the Curves panel works on: the picked keys, else every key of the selected clip.
+    Q_INVOKABLE QVariantMap curveTargetKeys() const;
     Q_INVOKABLE void applyCurveToPicked(const QVariantList &a, const QVariantList &b = {});
     // A small text file (Curvas' Export / Import of presets): read whole, or written whole.
     Q_INVOKABLE QString readTextFile(const QUrl &fileUrl) const;

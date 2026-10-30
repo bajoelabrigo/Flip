@@ -15,6 +15,15 @@ Item {
 
     readonly property var picked: EditorState.pickedKeyframes || ({})
     readonly property int pickedCount: (picked.keys || []).length
+    // What a curve goes onto: the picked keys, else every key of the selected clip's animated
+    // properties. Re-read when the pick, the selection or the clips change.
+    readonly property int targetCount: {
+        root.picked
+        EditorState.selectionRevision
+        EditorState.tracksRevision
+        const t = EditorState.curveTargetKeys()
+        return (t && t.keys) ? t.keys.length : 0
+    }
     // "two" or "four" (EasyCurve's 4-KEY).
     property string mode: "two"
     // The handles in graph coordinates (x 0..1 left to right, y 0 at the bottom key and 1 at the
@@ -42,19 +51,21 @@ Item {
     function pointsOf(list) {
         return list.map(p => Qt.point(p[0], p[1]))
     }
-    function choose(p) {
+    function choose(p, keep) {
         root.preset = p.id
         root.handles = root.pointsOf(p.h)
         graph.requestPaint()
+        if (!keep)
+            root.apply()
     }
     function setMode(m) {
         if (root.mode === m)
             return
         root.mode = m
-        root.choose(root.presetList[2])
+        root.choose(root.presetList[2], true)
     }
     function reset() {
-        root.choose(root.presetList[2])
+        root.choose(root.presetList[2], true)
     }
     // The handles as the two stretches' unit curves for applyCurveToPicked.
     function curves() {
@@ -64,7 +75,10 @@ Item {
         return { "a": [h[0].x / 0.5, h[0].y, h[1].x / 0.5, h[1].y],
                  "b": [(h[2].x - 0.5) / 0.5, 1 - h[2].y, (h[3].x - 0.5) / 0.5, 1 - h[3].y] }
     }
+    // As EasyCurve: a preset chosen or a handle let go goes straight onto the keys.
     function apply() {
+        if (root.targetCount === 0)
+            return
         const c = root.curves()
         EditorState.applyCurveToPicked(c.a, c.b)
     }
@@ -178,7 +192,7 @@ Item {
             ThemedChip {
                 text: qsTr("Read")
                 variant: "outline"
-                enabled: root.pickedCount > 0
+                enabled: root.targetCount > 0
                 tooltip: qsTr("Puts the curve of the picked keys in the graph")
                 onClicked: root.read()
             }
@@ -314,9 +328,14 @@ Item {
                     }
                     return best
                 }
+                // Applied live while a handle is dragged, the whole drag one undo step.
+                property bool live: false
                 onPressed: mouse => {
                     grabbed = nearest(mouse.x, mouse.y)
                     graph.requestPaint()
+                    live = grabbed >= 0 && root.targetCount > 0
+                    if (live)
+                        EditorState.beginEditSession(qsTr("Curve applied"))
                 }
                 onPositionChanged: mouse => {
                     if (grabbed < 0)
@@ -332,10 +351,21 @@ Item {
                     list[grabbed] = Qt.point(Math.max(x0, Math.min(x1, p.x)), Math.max(frame.lo, Math.min(frame.hi, p.y)))
                     root.handles = list
                     root.preset = "custom"
+                    if (live)
+                        root.apply()
                 }
                 onReleased: {
                     grabbed = -1
                     graph.requestPaint()
+                    if (live)
+                        EditorState.endEditSession(true)
+                    live = false
+                }
+                onCanceled: {
+                    grabbed = -1
+                    if (live)
+                        EditorState.endEditSession(true)
+                    live = false
                 }
                 onDoubleClicked: root.reset()
             }
@@ -348,6 +378,8 @@ Item {
             opacity: 0.75
             text: root.pickedCount > 0
                   ? qsTr("%n keys picked on the timeline.", "", root.pickedCount)
+                  : root.targetCount > 0
+                  ? qsTr("Goes onto every key of the selected clip. To shape only some, pick their diamonds on the timeline (Ctrl for more).")
                   : (root.mode === "four"
                      ? qsTr("Pick three keys on the timeline (click the diamonds, Ctrl for more): the curve rises to the middle one and comes back.")
                      : qsTr("Pick keys on the timeline (click the diamonds, Ctrl for more): each one takes the curve to the next."))
@@ -366,7 +398,7 @@ Item {
                 width: (parent.width - 12) / 3
                 text: qsTr("Apply")
                 variant: "primary"
-                enabled: root.pickedCount > 0
+                enabled: root.targetCount > 0
                 onClicked: root.apply()
             }
             ThemedButton {
