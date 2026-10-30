@@ -158,3 +158,7 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
       (Trazado de elipse, Relleno, Trazo, Transformar: Elipse 1).
 - [x] Dibujar con una capa de forma elegida: **se suma a esa capa** (como AE), con el aviso «Añadido a … · Hacer capa
       nueva» (Jorge, 2026-10-30).
+
+## Publicación (Jorge, 2026-10-30)
+La 0.27.0 **no se subió** a la Store: no hay 0.27.1. El arreglo del espacio de trabajo «Vertical» (`WorkspaceView.qml`,
+`captured` se borra al cambiar de árbol) va en la 0.28, y las notas de la Store de la 0.28 son **combinadas 0.27 + 0.28**.
