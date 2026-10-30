@@ -372,4 +372,67 @@ def make_flash():
     return render(s, flash(512, 512, 103, size=1.5), tones=TONES, glow=GLOW)
 
 
-STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash, make_projectile, make_charge_orb, make_halo, make_burst, make_flash]
+VIOLET = [("violeta", "#7a2cff"), ("lila", "#c58cff"), ("blanco lila", "#fbf2ff")]
+AQUA = [("turquesa", "#00c2b0"), ("aguamarina", "#6dffe9"), ("blanco agua", "#f0fffb")]
+
+
+def muzzle(W, H, seed, size=1.0, period=1.0):
+    """A shot fired, looping (RTFX's «Energy Shot Right MIX»): at the muzzle a flash is drawn anew on
+    every second frame, each drawing in one of three colours: now an arrow-shaped burst with chevrons
+    and sparks flying off it, now a row of dashes shooting right. Returns one field per colour, each
+    empty on the drawings that are not its own."""
+    m = Mass(W, H, seed, rough=0.2)
+    k = size * m.gw / 256
+    mx, my = m.gw * 0.3, m.gh / 2
+    empty = (np.zeros_like(m.xx), np.zeros_like(m.xx))
+    per = int(round(period * 12))
+
+    def drawing(n):
+        rnd = np.random.default_rng(seed * 1000 + n % per)
+        colour = (n % per) % 3
+        lobes = []
+        if (n % per) % 2 == 0:  # the burst
+            r = rnd.uniform(13, 18) * k
+            lobes.append((mx, my, r, 1.35, 0.85, 0.0, 0.9))
+            lobes.append((mx + r * 0.9, my, r * 0.8, 1.0, 0.35, 0.0, 0.9))  # drawn to a point
+            for j in range(rnd.integers(2, 4)):
+                x = mx + r * 1.2 + j * 9 * k
+                for side in (-1, 1):
+                    lobes.append((x, my + side * 5 * k, 7 * k, 1.0, 0.22, -side * 0.7, 0.9))
+            for _ in range(rnd.integers(1, 3)):
+                side = 1 if rnd.random() < 0.5 else -1
+                lobes.append((mx - rnd.uniform(0, 8) * k, my + side * rnd.uniform(14, 22) * k, rnd.uniform(2.5, 4.5) * k,
+                              0.7, 1.4, 0.0, 0.85))
+        else:  # the dashes
+            lobes.append((mx, my, 9 * k, 1.2, 1.0, 0.0, 0.9))
+            x = mx + 12 * k
+            for j in range(rnd.integers(3, 5)):
+                L = rnd.uniform(5, 12) * k
+                x += L + rnd.uniform(4, 8) * k
+                lobes.append((x, my + rnd.uniform(-1.5, 1.5) * k, L, 1.0, 0.35, 0.0, 0.85))
+                x += L
+        return colour, lobes
+
+    def field_for(c):
+        def field(t):
+            n = int(round(t * 24)) // 2
+            colour, lobes = drawing(n)
+            if colour != c:
+                return empty
+            return m.field(lobes, n * 0.37, math.pi, (mx + 60 * k, my), 120 * k, 99.0, 1.0, crown=0.0, life=0.0)
+        return field
+
+    return [field_for(c) for c in range(3)]
+
+
+def make_muzzle():
+    s = new("ex-energia-disparo-colores", "Energía · Disparo de colores (bucle)", "Energy · Colour shot (loop)",
+            "energia", 24, 7009, ["energía", "energy", "disparo", "shot", "colores", "colors", "láser", "laser", "bucle",
+                                  "loop"], loop=True, size=512, thumb=0.5)
+    s.fps = 24
+    for f, tones in zip(muzzle(512, 512, 107, size=1.6), (TONES, AQUA, VIOLET)):
+        render(s, f, tones=tones, glow=GLOW)
+    return s
+
+
+STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash, make_projectile, make_charge_orb, make_halo, make_burst, make_flash, make_muzzle]
