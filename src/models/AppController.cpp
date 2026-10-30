@@ -9066,7 +9066,8 @@ void AppController::moveClipToTrack(int trackIndex, int clipIndex, int newTrackI
 
 void AppController::moveClipToNewTrack(int trackIndex, int clipIndex, int insertIndex, double newStart)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    // A locked track keeps its clips, as moveClipToTrack already does.
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
     const drift::Clip clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     // Adjustments live in lanes or on their own kinds of rows; they keep their own rules.
@@ -10625,7 +10626,7 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     finishEdit(tr("Subtitles generated"));
     selectClip(trackIndex, newClipIndex);
     setLastMessage(tr("Subtitles generated"), QStringLiteral("success"));
-    emit subtitleGenerationFinished(true, QStringLiteral("Subtitles generated"));
+    emit subtitleGenerationFinished(true, tr("Subtitles generated"));
 }
 
 
@@ -11811,9 +11812,12 @@ void AppController::sequenceSelectedClips(int offsetFrames, int step, bool rever
 {
     // The selection top track first (then by start), each next group of `step` clips starting
     // offsetFrames after the one before — After Effects' Sequence Layers by frames.
+    // Only what draws: a picked video brings its linked audio into the selection, and sequencing
+    // that as a layer of its own put it out of sync (it follows its video below instead).
     QList<QPair<int, int>> picked;
     for (const QPair<int, int> &pair : m_selection) {
-        if (isValidClipIndex(pair.first, pair.second))
+        if (isValidClipIndex(pair.first, pair.second)
+            && drift::appdetail::clipAcceptsPreviewTransform(m_project.tracks().at(pair.first).clips.at(pair.second)))
             picked.append(pair);
     }
     if (picked.size() < 2) {
@@ -11832,17 +11836,21 @@ void AppController::sequenceSelectedClips(int offsetFrames, int step, bool rever
     for (const auto &p : std::as_const(picked))
         ids.append(m_project.tracks().at(p.first).clips.at(p.second).id);
     const drift::TimeUs frame = drift::frameDurationUs(m_project.fps());
-    drift::TimeUs base = 0;
+    // The earliest start (0 counts: treating it as "not set" started the sequence at the next one).
+    drift::TimeUs base = std::numeric_limits<drift::TimeUs>::max();
     for (const auto &p : std::as_const(picked))
-        base = qMin(base == 0 ? m_project.tracks().at(p.first).clips.at(p.second).timelineStart : base,
-                    m_project.tracks().at(p.first).clips.at(p.second).timelineStart);
+        base = qMin(base, m_project.tracks().at(p.first).clips.at(p.second).timelineStart);
     const drift::Project before = m_project;
     const int every = qMax(1, step);
+    const QSet<QString> movedIds(ids.cbegin(), ids.cend());
     for (int i = 0; i < ids.size(); ++i) {
         for (drift::Track &t : m_project.tracks()) {
             for (drift::Clip &c : t.clips) {
-                if (c.id == ids.at(i))
-                    c.timelineStart = base + drift::TimeUs(i / every) * drift::TimeUs(offsetFrames) * frame;
+                if (c.id != ids.at(i))
+                    continue;
+                c.timelineStart = qMax<drift::TimeUs>(
+                    0, base + drift::TimeUs(i / every) * drift::TimeUs(offsetFrames) * frame);
+                syncLinkedPartnersFrom(m_project, c, movedIds);
             }
         }
     }
@@ -15538,7 +15546,7 @@ void AppController::setSubtitleCues(int trackIndex, int clipIndex, const QVarian
 int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QString &find,
                                       const QString &replace, bool remember)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex) || find.trimmed().isEmpty())
+    if (!isValidClipIndex(trackIndex, clipIndex) || find.trimmed().isEmpty() || isTrackLocked(trackIndex))
         return 0;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
     if (clip.type != drift::ClipType::Subtitle)
@@ -15851,7 +15859,7 @@ void AppController::setSubtitleEmojisEnabled(bool enabled)
 
 void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
         return;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
     if (clip.type != drift::ClipType::Subtitle)
