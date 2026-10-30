@@ -12,8 +12,10 @@ archivos ni su aspecto exacto), todo 100 % editable, en **Stock › Kit de YouTu
 - Servidor `flipstudio-api` rama `stock-ytkit` **desplegada**: tipo `ytkit` («Kit de YouTube», 15 idiomas) con las
   secciones como categorías (etiqueta `kit:<sección>`); las piezas son plantillas normales (`flip:template:<id>`),
   fuera de Plantillas salvo en «Mis plantillas». `minAppVersion` 0.26.0 (usan formas propias y recortar trazados).
-- Contenido subido como delta (solo `ytk-*`, el índice raíz y `i18n`): el `publicar` local tiene además ~382
-  animaciones `ex-*` que **no** están en el servidor (las que se bajaron de Stock); no subirlas.
+- Contenido subido como delta (solo `ytk-*`, el índice raíz y `i18n`). El `publicar` local tenía además las 382
+  animaciones «Extremas» (`ex-*`) que se bajaron de Stock el 2026-10-29; se movieron (Jorge, 2026-10-30) a
+  `tiendanimaciones\descartadas-extremas-v1\publicar-sobrantes` y el índice local quedó igual al del servidor
+  (219). `publish_delta.py` da 0 elementos distintos.
 - **Trampa del motor (arreglada en 0.27, `TextAnimator.cpp`):** un texto tenía un solo ángulo de barrido: el de la
   salida pisaba el de la entrada. Las piezas del kit ya usan el mismo ángulo en las dos (o salida con fundido).
 
