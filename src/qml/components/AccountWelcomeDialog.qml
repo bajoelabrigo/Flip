@@ -28,13 +28,13 @@ ThemedDialog {
             width: parent.width
             size: "sm"
             wrapMode: Text.WordWrap
-            text: qsTr("Sign in with your Google account to search free photos and videos from Pexels and Pixabay right inside the editor. Your account will also hold your templates and your store.")
+            text: qsTr("Sign in with your Google account for Stock (templates, music, effects and free photos and videos), exports in 2K, 4K and 8K, and to keep what you download.")
         }
 
         ThemedLabel {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: qsTr("Everything is free. You can continue without an account and edit as usual; exporting and Stock will ask you to sign in.")
+            text: qsTr("Everything is free. Without an account you can edit and export up to 1080p as usual.")
         }
 
         ThemedButton {
