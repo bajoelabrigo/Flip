@@ -423,6 +423,13 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   cuando la carpeta `vfx` tiene contenido), primero después de Inicio; chip **VFX** en Stickers después de
   Tendencias; favoritos y carpeta en `MarketClient`. Ahí irá todo lo de RTFX hecho con el motor nuevo
   (`tools/animations/rtfx_field.py`, `rtfx2_fire.py`; revisión en https://claude.ai/artifact/X4g5xQ3f8KcJrYwXoUryDu).
+- **VFX EN PAUSA (Jorge, 2026-10-30: «no me convencen, ya lo retomamos en otra ocasión»).** Nada subido a Stock;
+  la carpeta `vfx` del VPS sigue vacía y la rama `stock-vfx` del servidor sin desplegar (el chip VFX no sale hasta que
+  haya contenido, así que la 0.26 puede salir sin esto). Hecho hasta ahora: `rtfx2_fire.py` (20), `rtfx2_energy.py`
+  (10), `rtfx2_sparks.py` (4), `rtfx2_electric.py` (4). Lo aprendido para retomarlo: RTFX usa dos colores planos
+  (rojo #fd1000, amarillo #fefe8f; naranja #ff6a04 solo en llamas) y resplandor rojo oscuro; explosiones = unión de
+  bultitos redondos y lo rojo de adentro son los huecos; llamas = un contorno liso dibujado a mano (`outline_field`,
+  `FLAME`), no bocanadas sumadas. Lo que aún no convence: el detalle interior se ve hecho por computadora.
 - **Falta:** build y probar en ventana (cambiar de espacio, distribuir, ocultar/mostrar, pantalla completa, guardar
   y restablecer).
 
