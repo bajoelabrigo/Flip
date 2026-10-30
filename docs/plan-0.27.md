@@ -180,6 +180,18 @@ devuelve. **Arreglado después** (va en el próximo build): elegir 4K y Exportar
 no tiene `Window`: el diálogo recibe `signInRequester` de la cabecera) y el aviso «usa herramientas Pro» salía en
 cualquier clip (`matteMode` "none" es texto).
 
+### Seis ejemplos para usuarios nuevos (Jorge, 2026-10-30)
+- Fila «Aprende con un ejemplo» en el inicio (si hay menos de 3 proyectos; «Ocultar»; vuelve con Ayuda › Ejemplos).
+  La lista la da `ejemplos.json` del servidor (`ProjectFileController::sampleExamples/refreshSampleExamples`), cada
+  ejemplo con su guía de 3 pasos. Cómo se hicieron y cómo cambiarlos: `tools/ejemplos/README.md`.
+- 1 Reel de acción (9:16), 2 Vlog de viaje (16:9, filtro de cine, cámara lenta, tercios inferiores), 3 Voz y
+  subtítulos (9:16, voz Chatterbox + subtítulos karaoke), 4 Fotos con música (9:16, cortes al ritmo, zoom, formas),
+  5 Anuncio de producto (9:16, oferta con círculo, llamado a la acción), 6 Intro para YouTube (16:9, logo, neón,
+  whoosh). Todos en el VPS y comprobados por hash.
+- Al hacer el 3 aparecieron fallos de la voz con IA, arreglados: una frase que el modelo no cierra daba 34 s de
+  silencio y se perdía (corte temprano, recorte del silencio final y un reintento), y los idiomas y el progreso salían
+  en inglés.
+
 ## Decisiones para Jorge (no hechas a propósito)
 - **Modo simple / Pro (J1)**: esconder por defecto lo de After Effects (barra de herramientas sobre la vista
   previa, Motion Tools, Curvas, cronómetros). Lo pediste en la 0.26, así que no lo escondo sin tu OK.
