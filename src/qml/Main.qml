@@ -2070,6 +2070,84 @@ ApplicationWindow {
         }
     }
 
+    // The example's three steps (0.27): shown when "Try an example" opens it, closed with Got it.
+    property bool sampleGuideVisible: false
+    Connections {
+        target: EditorState.projectFile
+        function onSampleOpened() { window.sampleGuideVisible = true }
+    }
+    Rectangle {
+        id: sampleGuide
+        visible: window.sampleGuideVisible && !window.showStartScreen
+        z: 50
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 24
+        width: 320
+        height: guideColumn.implicitHeight + 32
+        radius: Theme.radiusLg
+        color: Theme.panelBackground
+        border.width: 2
+        border.color: Theme.primary
+
+        Column {
+            id: guideColumn
+            x: 16
+            y: 16
+            width: parent.width - 32
+            spacing: 10
+            Text {
+                width: parent.width
+                text: qsTr("Your example is ready. Try this:")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: 15
+                font.weight: Font.DemiBold
+                wrapMode: Text.WordWrap
+            }
+            Repeater {
+                model: [qsTr("Click a clip on the timeline to change it on the right."),
+                        qsTr("Move the playhead and press S to split a clip."),
+                        qsTr("Press Export (top right) to save your video.")]
+                Row {
+                    required property int index
+                    required property string modelData
+                    width: guideColumn.width
+                    spacing: 10
+                    Rectangle {
+                        width: 24
+                        height: 24
+                        radius: 12
+                        color: Theme.primary
+                        Text {
+                            anchors.centerIn: parent
+                            text: index + 1
+                            color: Theme.panelAccentForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: 13
+                            font.weight: Font.Bold
+                        }
+                    }
+                    Text {
+                        width: parent.width - 34
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: modelData
+                        wrapMode: Text.WordWrap
+                        color: Theme.panelForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+                }
+            }
+            ThemedButton {
+                anchors.right: parent.right
+                text: qsTr("Got it")
+                variant: "primary"
+                onClicked: window.sampleGuideVisible = false
+            }
+        }
+    }
+
     // Android's stand-in for MediaPreviewWindow: filling the window, over the editor.
     Item {
         anchors.fill: parent
