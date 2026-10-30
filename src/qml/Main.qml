@@ -697,6 +697,15 @@ ApplicationWindow {
                                               ? EditorState.preferences.workspaceLayoutPreferred
                                               : (EditorState.projectPortrait ? "portrait" : "landscape")
     readonly property bool portraitWorkspace: workspaceLayout === "portrait"
+    // The video turned vertical (a Short) or horizontal (Video › format, a template, another
+    // project): the panels follow it, as Auto does, even when a workspace had been picked by hand
+    // (Jorge, 0.27: picking Short left the landscape panels). Only a real flip changes it.
+    readonly property bool canvasPortrait: EditorState.projectPortrait
+    onCanvasPortraitChanged: {
+        if (EditorState.preferences.workspaceLayoutOverridden
+                && window.workspaceLayout !== (canvasPortrait ? "portrait" : "landscape"))
+            EditorState.preferences.clearWorkspaceLayoutPreference()
+    }
 
     // Set when the project was created with "Automatic" on the home screen: the first clip decides
     // the canvas, so the width/height/fps dialog is not asked as well.
