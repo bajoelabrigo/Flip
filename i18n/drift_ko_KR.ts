@@ -5283,6 +5283,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>볼륨</translation>
     </message>
@@ -5343,8 +5351,18 @@
         <translation>트랙이 삭제됨</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>트랙 삭제</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -6764,6 +6782,10 @@
     <message>
         <source>Help</source>
         <translation>도움말</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -14920,8 +14942,31 @@ NEXT TIME</source>
         <translation>프로젝트와 동일 · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>프로젝트와 동일 (%1fps)</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16801,6 +16846,18 @@ NEXT TIME</source>
         <translation>확장 기능…</translation>
     </message>
     <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>“%1” was added to Media.</source>
         <translation>“%1”을(를) 미디어에 추가했습니다.</translation>
     </message>
@@ -18589,6 +18646,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
@@ -21133,20 +21194,20 @@ If playback stutters, try another.</source>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>이전 세션의 저장되지 않은 작업</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>복원</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>새 세션</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>마지막 세션에 저장되지 않은 변경 사항이 있습니다. 복원하거나 새 빈 세션을 시작할 수 있습니다.</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21576,6 +21637,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>로그인한 다음 스톡 › 템플릿에서 받으세요. 여기에 설치되고 계정에 보관됩니다.</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -28672,6 +28737,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28708,6 +28777,10 @@ If playback stutters, try another.</source>
         <translation>삭제</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>페이드 조정</translation>
     </message>
@@ -28734,10 +28807,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>현재 시점에서 항목 분할</translation>
     </message>
 </context>
 <context>
@@ -28803,12 +28872,12 @@ If playback stutters, try another.</source>
         <translation>타임라인이 비어 있습니다</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>라이브러리에서 미디어를 여기로 드래그하거나 빈 트랙을 추가하여 시작하세요.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>새 트랙</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -28940,6 +29009,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete clip</source>
         <translation>클립 삭제</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>

@@ -5313,6 +5313,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Głośność</translation>
     </message>
@@ -5373,8 +5381,20 @@
         <translation>Usunięto ścieżkę</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>Usuń ścieżki</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -6834,6 +6854,10 @@
     <message>
         <source>Help</source>
         <translation>Pomoc</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -15024,8 +15048,31 @@ ZOBACZENIA</translation>
         <translation>Jak w projekcie · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>Jak w projekcie (%1 kl./s)</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16911,6 +16958,18 @@ ZOBACZENIA</translation>
         <translation>Dodatki…</translation>
     </message>
     <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>“%1” was added to Media.</source>
         <translation>Dodano „%1” do multimediów.</translation>
     </message>
@@ -18727,6 +18786,10 @@ ZOBACZENIA</translation>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
@@ -21286,20 +21349,20 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>Niezapisane prace z ostatniej sesji</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>Przywróć</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>Nowa sesja</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>Twoja ostatnia sesja miała niezapisane zmiany. Możesz je przywrócić lub rozpocząć nową pustą sesję.</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21733,6 +21796,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>Zaloguj się i pobierz je ze Stock › Szablony: instalują się tutaj i zostają na Twoim koncie.</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -28850,6 +28917,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28886,6 +28957,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Usuń</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>Dostosuj zanikanie</translation>
     </message>
@@ -28912,10 +28987,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>Podziel element w bieżącym czasie</translation>
     </message>
 </context>
 <context>
@@ -28981,12 +29052,12 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Twoja oś czasu jest pusta</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>Przeciągnij media tutaj z biblioteki lub dodaj pustą ścieżkę, aby zacząć.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>Nowa ścieżka</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -29118,6 +29189,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Delete clip</source>
         <translation>Usuń klip</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>

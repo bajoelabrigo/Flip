@@ -5291,6 +5291,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Âm lượng</translation>
     </message>
@@ -5351,8 +5359,18 @@
         <translation>Đã xóa track</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>Xóa rãnh</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -6764,6 +6782,10 @@
     <message>
         <source>Help</source>
         <translation>Trợ giúp</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -14920,8 +14942,31 @@ LẦN SAU</translation>
         <translation>Giống dự án · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>Giống dự án (%1 fps)</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -16801,6 +16846,18 @@ LẦN SAU</translation>
         <translation>Bổ trợ…</translation>
     </message>
     <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>“%1” was added to Media.</source>
         <translation>Đã thêm “%1” vào Phương tiện.</translation>
     </message>
@@ -18589,6 +18646,10 @@ LẦN SAU</translation>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
@@ -21134,20 +21195,20 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>Công việc chưa được lưu từ phiên trước</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>Khôi phục</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>Phiên mới</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>Phiên cuối cùng của bạn có những thay đổi chưa được lưu. Bạn có thể khôi phục chúng hoặc bắt đầu một phiên trống mới.</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21577,6 +21638,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>Đăng nhập và lấy chúng từ Stock › Mẫu: chúng được cài ở đây và lưu trong tài khoản của bạn.</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -28674,6 +28739,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28710,6 +28779,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Xóa</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>Điều chỉnh độ mờ</translation>
     </message>
@@ -28736,10 +28809,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>Cắt mục tại thời điểm hiện tại</translation>
     </message>
 </context>
 <context>
@@ -28805,12 +28874,12 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Dòng thời gian của bạn đang trống</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>Kéo phương tiện vào đây từ thư viện hoặc thêm track trống để bắt đầu.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>Track mới</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -28942,6 +29011,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Delete clip</source>
         <translation>Xóa clip</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>

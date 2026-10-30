@@ -5298,6 +5298,14 @@
         <translation>Elige material para hacer una composición (una composición no puede ir dentro de otra)</translation>
     </message>
     <message>
+        <source>Retouch</source>
+        <translation>Retoque</translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
+        <translation>Elige un clip con sonido para mejorar su voz</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volumen</translation>
     </message>
@@ -5358,8 +5366,19 @@
         <translation>Pista eliminada</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation>Las pistas bloqueadas se conservaron</translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation>Eliminar pistas</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation>
+            <numerusform>%n pista eliminada; las bloqueadas se conservaron</numerusform>
+            <numerusform>%n pistas eliminadas; las bloqueadas se conservaron</numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -6799,6 +6818,10 @@
     <message>
         <source>Help</source>
         <translation>Ayuda</translation>
+    </message>
+    <message>
+        <source>User Guide</source>
+        <translation>Guía de uso</translation>
     </message>
     <message>
         <source>What&apos;s New</source>
@@ -14972,8 +14995,31 @@ LA PRÓXIMA</translation>
         <translation>Igual que el proyecto · %1×%2</translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation>23,976 fps (cine NTSC)</translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation>25 fps (PAL)</translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation>29,97 fps (NTSC)</translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation>59,94 fps (NTSC)</translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
         <translation>Igual que el proyecto (%1 fps)</translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
+        <translation>La expresión tarda demasiado (¿se repite sin fin?)</translation>
     </message>
 </context>
 <context>
@@ -16856,6 +16902,18 @@ LA PRÓXIMA</translation>
         <translation>Extras…</translation>
     </message>
     <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation>Tu video toma la forma de este clip: %1×%2</translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation>Cambiar</translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation>Mostrar en la carpeta</translation>
+    </message>
+    <message>
         <source>“%1” was added to Media.</source>
         <translation>«%1» se agregó a Medios.</translation>
     </message>
@@ -18658,6 +18716,10 @@ LA PRÓXIMA</translation>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Motion Tools</source>
+        <translation>Motion Tools</translation>
+    </message>
     <message>
         <source>Tools</source>
         <translation>Herramientas</translation>
@@ -21210,20 +21272,20 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>Trabajo no guardado de la última sesión</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>Restaurar</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>Nueva sesión</translation>
+        <source>You have unsaved work from last time</source>
+        <translation>Tienes trabajo sin guardar de la última vez</translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>Tu última sesión tenía cambios no guardados. Puedes restaurarlos o iniciar una nueva sesión vacía.</translation>
+        <source>Discard it</source>
+        <translation>Descartarlo</translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation>Flip Studio se cerró antes de guardar tus últimos cambios. Recupéralos para seguir trabajando, o descártalos para siempre.</translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21655,6 +21717,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
         <translation>Inicia sesión y consíguelas en Stock › Plantillas: se instalan aquí y quedan en tu cuenta.</translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
+        <translation>Ver plantillas en Stock</translation>
     </message>
     <message>
         <source>No templates match “%1”.</source>
@@ -28719,7 +28785,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation>Cortar</translation>
+        <translation>Cortar (para mover)</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -28762,8 +28828,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ajustes del sólido…</translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation>Avanzado</translation>
+    </message>
+    <message>
         <source>Parent</source>
-        <translation>Primario</translation>
+        <translation>Seguir a (primario)</translation>
     </message>
     <message>
         <source>None</source>
@@ -28798,6 +28868,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Eliminar</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation>Supr</translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>Ajustar fundido</translation>
     </message>
@@ -28824,10 +28898,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation>Arrástralo a otra capa para que sea su primario (el látigo de After Effects)</translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>Dividir elemento en la posición actual</translation>
     </message>
 </context>
 <context>
@@ -28893,12 +28963,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tu línea de tiempo está vacía</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>Arrastra medios aquí desde la biblioteca o añade una pista vacía para empezar.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation>Importa tus videos, fotos y música, y luego arrástralos aquí.</translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>Nueva pista</translation>
+        <source>Import media</source>
+        <translation>Importar medios</translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -29005,7 +29075,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Trim start</source>
-        <translation>Inicio del recorte</translation>
+        <translation>Recortar el inicio</translation>
     </message>
     <message>
         <source>Trim start — click a clip to drop everything left of the cut</source>
@@ -29013,7 +29083,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Trim end</source>
-        <translation>Final del recorte</translation>
+        <translation>Recortar el final</translation>
     </message>
     <message>
         <source>Trim end — click a clip to drop everything right of the cut</source>
@@ -29030,6 +29100,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Delete clip</source>
         <translation>Eliminar clip</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Copy selection</source>
@@ -29161,7 +29235,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Toggle snapping</source>
-        <translation>Alternar ajuste</translation>
+        <translation>Imán</translation>
     </message>
     <message>
         <source>Close gaps when trimming</source>

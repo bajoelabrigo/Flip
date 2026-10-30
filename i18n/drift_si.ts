@@ -5298,6 +5298,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Retouch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a clip with sound to enhance its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation type="unfinished">ශබ්ද මට්ටම</translation>
     </message>
@@ -5358,8 +5366,19 @@
         <translation>ට්‍රැකය මකා දමන ලදී</translation>
     </message>
     <message>
+        <source>Locked tracks were kept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete tracks</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n track(s) deleted; locked tracks were kept</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message numerus="yes">
         <source>%n track(s) deleted</source>
@@ -6798,6 +6817,10 @@
     </message>
     <message>
         <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Guide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14968,7 +14991,30 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>23.976 fps (NTSC film)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>25 fps (PAL)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>29.97 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>59.94 fps (NTSC)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Same as project (%1 fps)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Expressions</name>
+    <message>
+        <source>The expression takes too long (does it loop forever?)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -16852,6 +16898,18 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Your video takes this clip&apos;s shape: %1×%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show in folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>“%1” was added to Media.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18654,6 +18712,10 @@ NEXT TIME</source>
 </context>
 <context>
     <name>MotionToolsPanel</name>
+    <message>
+        <source>Motion Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
@@ -21206,20 +21268,20 @@ If playback stutters, try another.</source>
 <context>
     <name>RecoveryDialog</name>
     <message>
-        <source>Unsaved work from last session</source>
-        <translation>පෙර සැසියේ නොසුරකින ලද කාර්යයන්</translation>
-    </message>
-    <message>
         <source>Restore</source>
         <translation>ප්‍රතිසාධනය කරන්න</translation>
     </message>
     <message>
-        <source>New session</source>
-        <translation>නව සැසිය</translation>
+        <source>You have unsaved work from last time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Your last session had unsaved changes. You can restore them or start a new empty session.</source>
-        <translation>ඔබේ පෙර සැසියේ නොසුරකින ලද වෙනස්කම් තිබිණි. ඔබට ඒවා ප්‍රතිසාධනය කිරීමට හෝ නව හිස් සැසියක් ආරම්භ කිරීමට හැක.</translation>
+        <source>Discard it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio closed before your last changes were saved. Restore them to keep working, or discard them for good.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Untitled project</source>
@@ -21650,6 +21712,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Sign in and get them from Stock › Templates: they install here and stay in your account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See templates in Stock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -28758,6 +28824,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Parent</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28794,6 +28864,10 @@ If playback stutters, try another.</source>
         <translation>මකන්න</translation>
     </message>
     <message>
+        <source>Del</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Adjust fade</source>
         <translation>Fade සකසන්න</translation>
     </message>
@@ -28820,10 +28894,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Drag onto another layer to make it the parent (After Effects&apos; pick whip)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Split item at current time</source>
-        <translation>වත්මන් වේලාවේදී අංගය වෙන් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -28889,12 +28959,12 @@ If playback stutters, try another.</source>
         <translation>ඔබේ කාලරේඛාව හිස්ය</translation>
     </message>
     <message>
-        <source>Drag media here from the library, or add an empty track to start.</source>
-        <translation>ආරම්භ කිරීම සඳහා එකතුවෙන් මාධ්‍ය මෙතැනට අදින්න, නැතහොත් හිස් ට්‍රැකයක් එක් කරන්න.</translation>
+        <source>Import your videos, photos and music, then drag them here.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New track</source>
-        <translation>නව ට්‍රැකය</translation>
+        <source>Import media</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Importing…</source>
@@ -29026,6 +29096,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Delete clip</source>
         <translation>ක්ලිපය මකන්න</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy selection</source>
