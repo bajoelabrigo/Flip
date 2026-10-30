@@ -1330,12 +1330,19 @@ ApplicationWindow {
         })
     }
 
-    function requestOpenSample() {
+    function requestOpenSample(id) {
         if (window.rejectIfProjectOpenPending())
             return
         editorHeader.confirmIfDirty(function () {
-            EditorState.projectFile.openSampleProject()
+            EditorState.projectFile.openSampleProject(id || "")
         })
+    }
+
+    // Help › Examples: back home with the examples showing, also after "Hide" or with many projects.
+    property bool samplesForced: false
+    function showExamples() {
+        window.samplesForced = true
+        window.requestCloseProject()
     }
 
     function requestOpenRecentProject(path) {
@@ -2058,6 +2065,8 @@ ApplicationWindow {
         active: window.showStartScreen
         sourceComponent: Component {
             StartScreen {
+                samplesForced: window.samplesForced
+                onSamplesHidden: window.samplesForced = false
                 // Delegate to the same functions Ctrl+N / Ctrl+O / the header's Projects menu
                 // use, so there is exactly one place that gates on unsaved changes and decides
                 // when the screen is allowed to disappear.
@@ -2065,16 +2074,23 @@ ApplicationWindow {
                 onNewProjectWithSetupRequested: (w, h, tabId) => window.requestNewProjectWithSetup(w, h, tabId)
                 onOpenProjectRequested: window.requestOpenProjectDialog()
                 onOpenRecentRequested: (path) => window.requestOpenRecentProject(path)
-                onSampleRequested: window.requestOpenSample()
+                onSampleRequested: (id) => window.requestOpenSample(id)
             }
         }
     }
 
     // The example's three steps (0.27): shown when "Try an example" opens it, closed with Got it.
     property bool sampleGuideVisible: false
+    property var sampleGuideSteps: []
     Connections {
         target: EditorState.projectFile
-        function onSampleOpened() { window.sampleGuideVisible = true }
+        function onSampleOpened(steps) {
+            window.sampleGuideSteps = steps && steps.length > 0 ? steps
+                : [qsTr("Click a clip on the timeline to change it on the right."),
+                   qsTr("Move the playhead and press S to split a clip."),
+                   qsTr("Press Export (top right) to save your video.")]
+            window.sampleGuideVisible = true
+        }
     }
     Rectangle {
         id: sampleGuide
@@ -2106,9 +2122,7 @@ ApplicationWindow {
                 wrapMode: Text.WordWrap
             }
             Repeater {
-                model: [qsTr("Click a clip on the timeline to change it on the right."),
-                        qsTr("Move the playhead and press S to split a clip."),
-                        qsTr("Press Export (top right) to save your video.")]
+                model: window.sampleGuideSteps
                 Row {
                     required property int index
                     required property string modelData

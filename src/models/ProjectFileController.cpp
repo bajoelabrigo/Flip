@@ -25,6 +25,8 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDir>
+#include <QRegularExpression>
+#include <QLocale>
 #include <QSaveFile>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -1784,10 +1786,12 @@ void ProjectFileController::setCurrentProjectPath(const QString &path)
 
 namespace {
 
-// The example project on the website and its SHA-256 (tools: see docs/plan-0.27.md › Ejemplo).
-// A new example is a new file name, so a copy cached by an older build is never mistaken for it.
-const char kSampleUrl[] = "https://getflipstudio.com/modelos/ejemplo/ejemplo-1.flip";
-const char kSampleSha256[] = "a3d0f4cfa7d6ed90770dc816bc37bf499f5b3fdae2691641ae6817b9710288eb";
+// The examples live on the website: ejemplos.json lists them (file, SHA-256, titles, guide), so
+// one is added or changed without a new build. The first entry doubles as the built-in fallback
+// for a first start offline that has never seen the list.
+const char kSampleBase[] = "https://getflipstudio.com/modelos/ejemplo/";
+const char kFallbackFile[] = "ejemplo-1.flip";
+const char kFallbackSha256[] = "a3d0f4cfa7d6ed90770dc816bc37bf499f5b3fdae2691641ae6817b9710288eb";
 
 QString sampleDir()
 {
@@ -1803,20 +1807,126 @@ bool fileMatchesSha256(const QString &path, const QByteArray &hex)
     return hash.addData(&file) && hash.result().toHex() == hex;
 }
 
+// A {"es": "...", "en": "..."} object in the interface's language, English otherwise.
+QString localized(const QJsonValue &value)
+{
+    if (value.isString())
+        return value.toString();
+    const QJsonObject o = value.toObject();
+    const QString hit = o.value(QLocale().name().left(2)).toString();
+    return hit.isEmpty() ? o.value(QStringLiteral("en")).toString() : hit;
+}
+
+// Only a plain file name: the list comes from the network.
+bool safeSampleFile(const QString &name)
+{
+    static const QRegularExpression ok(QStringLiteral("^[A-Za-z0-9._-]+\\.(flip|jpg|png)$"));
+    return ok.match(name).hasMatch() && !name.contains(QStringLiteral(".."));
+}
+
 } // namespace
 
-void ProjectFileController::openSampleProject()
+void ProjectFileController::loadCachedSampleIndex()
+{
+    if (m_sampleIndexLoaded)
+        return;
+    m_sampleIndexLoaded = true;
+    QFile file(sampleDir() + QStringLiteral("/ejemplos.json"));
+    if (file.open(QIODevice::ReadOnly))
+        m_sampleIndex = QJsonDocument::fromJson(file.readAll()).object().value(QStringLiteral("examples")).toArray();
+    if (m_sampleIndex.isEmpty()) {
+        m_sampleIndex.append(QJsonObject{
+            {QStringLiteral("id"), QStringLiteral("accion")},
+            {QStringLiteral("file"), QString::fromLatin1(kFallbackFile)},
+            {QStringLiteral("sha256"), QString::fromLatin1(kFallbackSha256)},
+            {QStringLiteral("thumb"), QStringLiteral("ejemplo-1.jpg")},
+            {QStringLiteral("format"), QStringLiteral("9:16")},
+        });
+    }
+}
+
+QVariantList ProjectFileController::sampleExamples() const
+{
+    const_cast<ProjectFileController *>(this)->loadCachedSampleIndex();
+    QVariantList out;
+    for (const QJsonValue &v : m_sampleIndex) {
+        const QJsonObject e = v.toObject();
+        const QString thumb = e.value(QStringLiteral("thumb")).toString();
+        out.append(QVariantMap{
+            {QStringLiteral("id"), e.value(QStringLiteral("id")).toString()},
+            {QStringLiteral("title"), localized(e.value(QStringLiteral("title")))},
+            {QStringLiteral("teaches"), localized(e.value(QStringLiteral("teaches")))},
+            {QStringLiteral("format"), e.value(QStringLiteral("format")).toString()},
+            {QStringLiteral("thumb"), safeSampleFile(thumb) ? QString::fromLatin1(kSampleBase) + thumb : QString()},
+        });
+    }
+    return out;
+}
+
+void ProjectFileController::refreshSampleExamples()
+{
+    loadCachedSampleIndex();
+    if (!m_sampleNetwork)
+        m_sampleNetwork = new QNetworkAccessManager(this);
+    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleBase) + QStringLiteral("ejemplos.json"))};
+    request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork);
+    request.setTransferTimeout(15000);
+    QNetworkReply *reply = m_sampleNetwork->get(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        reply->deleteLater();
+        if (reply->error() != QNetworkReply::NoError)
+            return; // keep the cached list
+        const QByteArray data = reply->readAll();
+        const QJsonArray list = QJsonDocument::fromJson(data).object().value(QStringLiteral("examples")).toArray();
+        if (list.isEmpty() || list == m_sampleIndex)
+            return;
+        m_sampleIndex = list;
+        QDir().mkpath(sampleDir());
+        QSaveFile out(sampleDir() + QStringLiteral("/ejemplos.json"));
+        if (out.open(QIODevice::WriteOnly) && out.write(data) == data.size())
+            out.commit();
+        emit sampleExamplesChanged();
+    });
+}
+
+void ProjectFileController::openSampleProject(const QString &id)
 {
     if (m_sampleDownloading)
         return;
+    loadCachedSampleIndex();
+    QJsonObject entry;
+    for (const QJsonValue &v : m_sampleIndex) {
+        if (id.isEmpty() || v.toObject().value(QStringLiteral("id")).toString() == id) {
+            entry = v.toObject();
+            break;
+        }
+    }
+    const QString fileName = entry.value(QStringLiteral("file")).toString();
+    const QByteArray sha = entry.value(QStringLiteral("sha256")).toString().toLatin1();
+    if (!safeSampleFile(fileName) || sha.size() != 64) {
+        m_app->setLastMessage(tr("Couldn’t open the example"), QStringLiteral("error"));
+        return;
+    }
+    // Its own three steps, in the interface's language (English otherwise).
+    QStringList steps;
+    const QJsonObject stepsByLang = entry.value(QStringLiteral("steps")).toObject();
+    QJsonArray stepList = stepsByLang.value(QLocale().name().left(2)).toArray();
+    if (stepList.isEmpty())
+        stepList = stepsByLang.value(QStringLiteral("en")).toArray();
+    for (const QJsonValue &step : stepList)
+        steps.append(step.toString());
+    const QString title = localized(entry.value(QStringLiteral("title")));
+
     const QString dir = sampleDir();
     QDir().mkpath(dir);
-    const QString cached = dir + QStringLiteral("/ejemplo-1.flip");
+    const QString cached = dir + QLatin1Char('/') + fileName;
 
-    const auto openCopy = [this, dir, cached]() {
-        // A fresh copy each time, named for the person: their edits never touch the original,
-        // and "My first video" is what shows in the recent projects.
-        const QString work = dir + QLatin1Char('/') + tr("My first video")
+    const auto openCopy = [this, dir, cached, steps, title]() {
+        // A fresh copy each time, named after the example: edits never touch the original.
+        QString name = title.isEmpty() ? tr("My first video") : title;
+        static const QRegularExpression unsafe(QStringLiteral("[\\\\/:*?\"<>|]"));
+        name.replace(unsafe, QStringLiteral(" "));
+        const QString work = dir + QLatin1Char('/') + name
                              + QDateTime::currentDateTime().toString(QStringLiteral(" yyyy-MM-dd HH.mm.ss"))
                              + QStringLiteral(".flip");
         if (!QFile::copy(cached, work)) {
@@ -1824,24 +1934,24 @@ void ProjectFileController::openSampleProject()
             return;
         }
         loadProject(QUrl::fromLocalFile(work));
-        emit sampleOpened();
+        emit sampleOpened(steps);
     };
 
-    if (fileMatchesSha256(cached, QByteArray(kSampleSha256))) {
+    if (fileMatchesSha256(cached, sha)) {
         openCopy();
         return;
     }
 
     if (!m_sampleNetwork)
         m_sampleNetwork = new QNetworkAccessManager(this);
-    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleUrl))};
+    QNetworkRequest request{QUrl(QString::fromLatin1(kSampleBase) + fileName)};
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
     request.setTransferTimeout(30000);
     m_sampleDownloading = true;
     emit sampleDownloadingChanged();
     m_app->setLastMessage(tr("Downloading the example…"));
     QNetworkReply *reply = m_sampleNetwork->get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, reply, cached, openCopy]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, cached, sha, openCopy]() {
         reply->deleteLater();
         m_sampleDownloading = false;
         emit sampleDownloadingChanged();
@@ -1851,7 +1961,7 @@ void ProjectFileController::openSampleProject()
             return;
         }
         const QByteArray data = reply->readAll();
-        if (QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex() != QByteArray(kSampleSha256)) {
+        if (QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex() != sha) {
             m_app->setLastMessage(tr("The example did not download correctly. Try again."), QStringLiteral("error"));
             return;
         }

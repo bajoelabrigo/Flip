@@ -5,6 +5,7 @@
 #include <QAtomicInt>
 #include <QFuture>
 #include <QHash>
+#include <QJsonArray>
 #include <QList>
 #include <QObject>
 #include <QSet>
@@ -129,9 +130,15 @@ public:
     // The home screen's "Try an example" (0.27): a short project ready to play with. Downloaded
     // once from getflipstudio.com (checked against its hash) and kept; each open loads a fresh
     // copy, so the original is never changed.
-    Q_INVOKABLE void openSampleProject();
+    // `id` from sampleExamples(); empty = the first one.
+    Q_INVOKABLE void openSampleProject(const QString &id = QString());
     Q_PROPERTY(bool sampleDownloading READ sampleDownloading NOTIFY sampleDownloadingChanged)
     bool sampleDownloading() const { return m_sampleDownloading; }
+    // The examples on the home screen, from getflipstudio.com (ejemplos.json; the last copy is kept
+    // for offline starts): id, title, teaches, format, thumb (URL), in the interface's language.
+    Q_PROPERTY(QVariantList sampleExamples READ sampleExamples NOTIFY sampleExamplesChanged)
+    QVariantList sampleExamples() const;
+    Q_INVOKABLE void refreshSampleExamples();
     Q_INVOKABLE void clearRecentProjects();
     // Removes one path from the recents list without deleting the file on disk.
     Q_INVOKABLE void removeRecentProject(const QString &path);
@@ -170,8 +177,9 @@ public:
 
 signals:
     void sampleDownloadingChanged();
-    // The example project opened: the editor shows its three-step guide.
-    void sampleOpened();
+    void sampleExamplesChanged();
+    // The example project opened: the editor shows its three-step guide (`steps`, translated).
+    void sampleOpened(const QStringList &steps);
     void projectNameChanged();
     void projectMetadataChanged();
     void packagingChanged();
@@ -207,6 +215,9 @@ signals:
 
 private:
     bool m_sampleDownloading = false;
+    QJsonArray m_sampleIndex;
+    bool m_sampleIndexLoaded = false;
+    void loadCachedSampleIndex();
     class QNetworkAccessManager *m_sampleNetwork = nullptr;
     // Bracket every loadProject()/loadProjectJson()/restoreAutosave() call, sync or async, success or
     // failure, so projectLoadPending is accurate regardless of what triggered the load.

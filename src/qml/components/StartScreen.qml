@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtCore
 import QtQuick.Window
 import Drift
 
@@ -19,7 +20,17 @@ Rectangle {
     signal openProjectRequested()
     signal openRecentRequested(string path)
     // "Try an example" (0.27): a short ready-made video to play with.
-    signal sampleRequested()
+    signal sampleRequested(string id)
+    // "Learn with an example" (0.27): shown to someone with few projects, or after Help › Examples.
+    property Settings sampleStore: Settings {
+        category: "samples"
+        property bool hidden: false
+    }
+    property bool samplesForced: false
+    signal samplesHidden()
+    readonly property bool showSamples: EditorState.projectFile.sampleExamples.length > 0
+                                        && (root.samplesForced || (!root.sampleStore.hidden && root.items.length < 3))
+    Component.onCompleted: EditorState.projectFile.refreshSampleExamples()
 
     color: Theme.homeBackground
 
@@ -523,59 +534,128 @@ Rectangle {
                 }
             }
 
-            // Try an example (0.27, Jorge): for someone with no projects yet, a short video already
-            // put together (a wave, a motocross jump, a dog, neon and fireworks) to touch and learn.
-            Rectangle {
-                id: sampleCard
-                width: Math.min(parent.width, 560)
-                height: 120
-                visible: root.items.length === 0
-                radius: Theme.radiusLg
-                color: sampleHover.hovered ? Theme.panelAccent : Theme.panelBackground
-                border.width: Theme.borderWidth
-                border.color: sampleHover.hovered ? Theme.primary : Theme.panelBorder
-
-                Image {
-                    id: sampleThumb
-                    x: 10
-                    y: 10
-                    width: 56
-                    height: 100
-                    fillMode: Image.PreserveAspectCrop
-                    source: "https://getflipstudio.com/modelos/ejemplo/ejemplo-1.jpg"
-                    sourceSize: Qt.size(112, 200)
-                    asynchronous: true
-                }
-                Column {
-                    anchors.left: sampleThumb.right
-                    anchors.leftMargin: 16
-                    anchors.right: parent.right
-                    anchors.rightMargin: 16
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: 6
+            // Learn with an example (0.27, Jorge): short videos already put together, each teaching
+            // one kind of edit (a reel, a travel vlog, voice and captions, photos with music, an ad,
+            // a YouTube intro). The list comes from the website, so examples change without a build.
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+                visible: root.showSamples
+                Item {
+                    width: parent.width
+                    height: 28
                     Text {
-                        width: parent.width
-                        text: qsTr("Try an example")
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Learn with an example")
                         color: Theme.foreground
                         font.family: Theme.fontFamily
-                        font.pixelSize: 16
+                        font.pixelSize: 15
                         font.weight: Font.DemiBold
                     }
-                    Text {
-                        width: parent.width
-                        text: EditorState.projectFile.sampleDownloading
-                              ? qsTr("Downloading…")
-                              : qsTr("A 15-second video ready to edit: change it, cut it and export it to learn how it works.")
-                        wrapMode: Text.WordWrap
-                        color: Theme.mutedForeground
-                        font.family: Theme.fontFamily
-                        font.pixelSize: Theme.fontSizeSm
+                    ThemedButton {
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Hide")
+                        variant: "ghost"
+                        tooltip: qsTr("They stay in Help › Examples")
+                        onClicked: {
+                            root.sampleStore.hidden = true
+                            root.samplesHidden()
+                        }
                     }
                 }
-                HoverHandler { id: sampleHover; cursorShape: Qt.PointingHandCursor }
-                TapHandler {
-                    enabled: !EditorState.projectFile.sampleDownloading
-                    onTapped: root.sampleRequested()
+                Flickable {
+                    width: parent.width
+                    height: 220
+                    contentWidth: sampleRow.width
+                    flickableDirection: Flickable.HorizontalFlick
+                    boundsBehavior: Flickable.StopAtBounds
+                    clip: true
+                    Row {
+                        id: sampleRow
+                        spacing: Theme.spacingLg
+                        Repeater {
+                            model: EditorState.projectFile.sampleExamples
+                            Rectangle {
+                                id: sampleCard
+                                required property var modelData
+                                readonly property bool vertical: modelData.format === "9:16"
+                                width: 300
+                                height: 220
+                                radius: Theme.radiusLg
+                                color: sampleHover.hovered ? Theme.panelAccent : Theme.panelBackground
+                                border.width: Theme.borderWidth
+                                border.color: sampleHover.hovered ? Theme.primary : Theme.panelBorder
+                                Rectangle {
+                                    id: thumbBox
+                                    x: 10
+                                    y: 10
+                                    width: parent.width - 20
+                                    height: 118
+                                    radius: Theme.radiusMd
+                                    color: "#ff000000"
+                                    clip: true
+                                    Image {
+                                        anchors.fill: parent
+                                        fillMode: Image.PreserveAspectCrop
+                                        source: sampleCard.modelData.thumb
+                                        sourceSize: Qt.size(560, 236)
+                                        asynchronous: true
+                                    }
+                                    Rectangle {
+                                        anchors.right: parent.right
+                                        anchors.top: parent.top
+                                        anchors.margins: 6
+                                        width: formatText.implicitWidth + 12
+                                        height: 20
+                                        radius: 10
+                                        color: "#b3000000"
+                                        Text {
+                                            id: formatText
+                                            anchors.centerIn: parent
+                                            text: sampleCard.modelData.format
+                                            color: "#ffffffff"
+                                            font.family: Theme.fontFamily
+                                            font.pixelSize: 11
+                                        }
+                                    }
+                                }
+                                Column {
+                                    anchors.top: thumbBox.bottom
+                                    anchors.topMargin: 10
+                                    x: 12
+                                    width: parent.width - 24
+                                    spacing: 4
+                                    Text {
+                                        width: parent.width
+                                        text: sampleCard.modelData.title
+                                        elide: Text.ElideRight
+                                        color: Theme.foreground
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: 14
+                                        font.weight: Font.DemiBold
+                                    }
+                                    Text {
+                                        width: parent.width
+                                        text: EditorState.projectFile.sampleDownloading ? qsTr("Downloading…")
+                                                                                        : sampleCard.modelData.teaches
+                                        wrapMode: Text.WordWrap
+                                        maximumLineCount: 3
+                                        elide: Text.ElideRight
+                                        color: Theme.mutedForeground
+                                        font.family: Theme.fontFamily
+                                        font.pixelSize: Theme.fontSizeSm
+                                    }
+                                }
+                                HoverHandler { id: sampleHover; cursorShape: Qt.PointingHandCursor }
+                                TapHandler {
+                                    enabled: !EditorState.projectFile.sampleDownloading
+                                    onTapped: root.sampleRequested(sampleCard.modelData.id)
+                                }
+                            }
+                        }
+                    }
                 }
             }
 

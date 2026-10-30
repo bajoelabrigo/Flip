@@ -546,6 +546,11 @@ Row {
                 onTriggered: Qt.openUrlExternally("https://getflipstudio.com/guia.html")
             }
             ThemedMenuItem {
+                // The home screen's ready-made videos, also for someone who hid them.
+                text: qsTr("Examples")
+                onTriggered: root.win.showExamples()
+            }
+            ThemedMenuItem {
                 text: qsTr("Keyboard Shortcuts")
                 shortcutText: "F1"
                 onTriggered: root.win.showAssetsTab("shortcuts")
