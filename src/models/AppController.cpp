@@ -11058,14 +11058,22 @@ QVariantMap AppController::addTextAtPoint(double x, double y)
             n += t.clips.size();
         return n;
     }();
+    // Adding and placing are one undo step.
+    const bool ownSession = !m_editSessionOpen;
+    if (ownSession)
+        beginEditSession(tr("Text clip added"));
     addTextClip(tr("Text"), -1.0);
     int total = 0;
     for (const drift::Track &t : m_project.tracks())
         total += t.clips.size();
-    if (total == clipsBefore || !isValidClipIndex(m_selectedTrack, m_selectedClip))
+    if (total == clipsBefore || !isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        if (ownSession)
+            endEditSession(true);
         return {};
-    // Moved onto the click as part of the same edit: the undo step addTextClip pushed is the one
-    // that takes it away again.
+    }
+    // Moved onto the click as a step of its own: changed after addTextClip's snapshot, the move
+    // was not in the undo history and a redo brought the text back centred.
+    const drift::Project beforeMove = m_project;
     drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
     const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
     const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
@@ -11073,7 +11081,10 @@ QVariantMap AppController::addTextAtPoint(double x, double y)
     clip.transformY = {};
     clip.transformX.setKeyframe(0, x - w / 2.0);
     clip.transformY.setKeyframe(0, y - h / 2.0);
+    pushProjectEdit(beforeMove, tr("Text clip added"));
     finishEdit(tr("Text clip added"));
+    if (ownSession)
+        endEditSession(true);
     return {{QStringLiteral("track"), m_selectedTrack}, {QStringLiteral("clip"), m_selectedClip}};
 }
 
