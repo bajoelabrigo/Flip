@@ -1,0 +1,178 @@
+"""Animaciones Extremas · Energía (0.26), on the field engine of rtfx2_fire.py.
+
+Energy is drawn like fire but clean: the same field (a blue rim, a cyan edge, a white heart, the rim
+blurred behind as the glow) with the licking and boiling of the edges turned almost off, so rings,
+stars, beams and blades keep crisp, smooth outlines. Studied against RTFX's energy previews frame by
+frame (see feedback: study before generating).
+"""
+
+from __future__ import annotations
+
+import math
+
+import numpy as np
+
+from rtfx2_fire import Mass, ribbon, traced
+from rtfx_field import render
+from rtfx_engine import new
+
+TONES = [("azul", "#2456ff"), ("cian", "#5cd6ff"), ("blanco", "#f2fbff")]
+CYAN = [("cian", "#00a8ff"), ("celeste", "#66e6ff"), ("blanco", "#f2fbff")]
+GLOW = 30
+
+
+def ring(x, y, r, w, heart=0.95):
+    """A ring of radius r and width w: a puff hollowed from its own centre."""
+    k = max(0.0, (1 - w / max(r, 1e-3)) - 0.3) / 0.9
+    return (x, y, r, 1.0, 1.0, 0.0, heart, k, 0.0, 0.0, True) if k > 0 else (x, y, r, 1.0, 1.0, 0.0, heart)
+
+
+def hit_rings(W, H, seed, size=1.0):
+    """An energy hit of rings (RTFX's «Energy Hit Radial»): a white flash bursts into several rings,
+    a big one and small ones off centre, that widen and thin to blue lines and vanish."""
+    m = Mass(W, H, seed, rough=0.12)
+    rnd = np.random.default_rng(seed)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+    # (dx, dy, final radius, delay)
+    rings = [(0, 0, 52, 0.0), (-6, 6, 36, 0.03), (-36, -34, 13, 0.07), (-10, 40, 10, 0.09), (30, -6, 20, 0.05),
+             (rnd.uniform(-40, 40), rnd.uniform(-40, 40), 6, 0.12)]
+
+    def field(t):
+        lobes = []
+        flash = max(0.0, 1 - t / 0.12)
+        if flash > 0:
+            lobes.append((cx, cy, (10 + 16 * (1 - flash)) * k, 1.0, 1.0, 0.0, 0.9))
+        for dx, dy, R, delay in rings:
+            a = t - delay
+            if a <= 0:
+                continue
+            e = 1 - (1 - min(1.0, a / 0.45)) ** 2.5
+            r = R * k * (0.35 + 0.65 * e) * (1 + 0.15 * max(0.0, a - 0.45))
+            w = (r * (0.5 - 0.44 * min(1.0, a / 0.4)) + 3.0 * k) * max(0.0, 1 - max(0.0, a - 0.45) / 0.3)
+            if w > 0.5:
+                lobes.append(ring(cx + dx * k * e, cy + dy * k * e, r, w, 0.97 - 0.4 * min(1.0, max(0.0, a - 0.3) / 0.4)))
+        return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_hit_rings():
+    s = new("ex-energia-golpe-anillos", "Energía · Golpe de anillos", "Energy · Ring hit", "energia", 16, 7000,
+            ["energía", "energy", "golpe", "hit", "anillos", "rings", "impacto"], size=512, thumb=0.25)
+    s.fps = 24
+    return render(s, hit_rings(512, 512, 3, size=1.4), tones=TONES, glow=GLOW)
+
+
+def star_hit(W, H, seed, size=1.0):
+    """An energy star hit (RTFX's «Hit Star Radial»): a white flash opens into a four-pointed glint
+    with a ring round it; the glint grows and turns while its points thin to blue needles."""
+    m = Mass(W, H, seed, rough=0.08)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2
+
+    def field(t):
+        lobes = []
+        e = 1 - (1 - min(1.0, t / 0.22)) ** 2
+        fade = max(0.0, 1 - max(0.0, t - 0.45) / 0.35)
+        ball = max(0.0, 1 - max(0.0, t - 0.1) / 0.18)
+        if ball > 0:
+            lobes.append((cx, cy, (6 + 14 * min(1.0, t / 0.08)) * k * ball ** 0.5, 1.0, 1.0, 0.0, 0.9))
+        if t > 0.04:
+            turn = 0.35 * min(1.0, t / 0.6) + 0.05
+            L = (14 + 60 * e) * k
+            W0 = (5 + 7 * e) * k * (1 - 0.65 * min(1.0, max(0.0, t - 0.2) / 0.45)) * fade
+            # Four tapering arms: a star with hollow sides, the long pair a little longer.
+            for j in range(4):
+                a = turn + j * math.pi / 2
+                ln = L * (1.0 if j % 2 == 0 else 0.82)
+                lobes += ribbon(lambda sv, a=a, ln=ln: (cx + math.cos(a) * ln * sv, cy + math.sin(a) * ln * sv),
+                                lambda sv: W0 * (1 - sv) ** 1.4 + 0.7 * k * fade, 26, lambda sv: 0.95 * fade)
+            # The ring round it, gone by the time the points are needles.
+            ra = max(0.0, 1 - max(0.0, t - 0.3) / 0.4)
+            if ra > 0:
+                r = (12 + 30 * e) * k
+                lobes.append(ring(cx, cy, r, r * (0.12 + 0.2 * ra) * ra, 0.9))
+        return m.field(lobes, t, "radial", (cx, cy), 60 * k, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_star_hit():
+    s = new("ex-energia-golpe-estrella", "Energía · Golpe de estrella", "Energy · Star hit", "energia", 16, 7001,
+            ["energía", "energy", "golpe", "hit", "estrella", "star", "brillo", "glint"], size=512, thumb=0.3)
+    s.fps = 24
+    return render(s, star_hit(512, 512, 5, size=1.6), tones=TONES, glow=GLOW)
+
+
+def ray_up(W, H, seed, size=1.0):
+    """An energy ray going up (RTFX's «Energy Ray Up»): a thin line shoots up and swells into a beam
+    with a flare licking at its foot, holds, then narrows and breaks into dashes that fade upward."""
+    m = Mass(W, H, seed, rough=0.15)
+    k = size * m.gw / 256
+    cx, base = m.gw / 2, m.gh * 0.9
+    top = m.gh * 0.08
+
+    def field(t):
+        lobes = []
+        grow = min(1.0, t / 0.2)
+        L = (base - top) * (0.35 + 0.65 * grow)
+        w = (2.5 + 8 * min(1.0, max(0.0, t - 0.1) / 0.15)) * (1 - 0.6 * min(1.0, max(0.0, t - 0.6) / 0.2)) * k
+        end = max(0.0, (t - 0.75) / 0.35)
+        if end < 1:
+            # The beam, cut into dashes as it ends: the gaps open from the top down.
+            def width(sv):
+                if end <= 0:
+                    return w
+                seg = (sv * 11) % 1.0
+                gap = min(1.0, end * 2.2 - (1 - sv) * 0.8)
+                return w if seg > gap else 0.0
+            lobes += ribbon(lambda sv: (cx, base - L * sv), width, 70, lambda sv: 0.55)
+        flare = min(1.0, max(0.0, t - 0.08) / 0.12) * max(0.0, 1 - max(0.0, t - 0.55) / 0.2)
+        if flare > 0:
+            for dx, h in ((-7, 16), (0, 24), (7, 14)):
+                lick = math.sin(t * 30 + dx) * 2 * k
+                lobes.append((cx + dx * k * flare + lick, base - h * k * flare * 0.55, (6 + h * 0.4) * k * flare, 0.55, 1.0,
+                              0.0, 0.8))
+        return m.field(lobes, t, "up", (cx, base), base - top, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_ray_up():
+    s = new("ex-energia-rayo-arriba", "Energía · Rayo hacia arriba", "Energy · Ray up", "energia", 30, 7002,
+            ["energía", "energy", "rayo", "ray", "haz", "beam", "láser", "laser"], size=512, thumb=0.45)
+    s.fps = 24
+    return render(s, ray_up(512, 512, 7, size=1.0), tones=CYAN, glow=GLOW)
+
+
+def slash(W, H, seed, size=1.0):
+    """An energy slash (RTFX's «Energy Slash Right»): a crescent blade of light sweeps across in an
+    instant, then crumbles into blue bits from the back while its tip runs on."""
+    m = Mass(W, H, seed, rough=0.25)
+    k = size * m.gw / 256
+    cx, cy = m.gw / 2, m.gh / 2 + 190 * k
+    R = 200 * k
+
+    def arc(u):
+        a = -math.pi / 2 - 0.45 + 0.9 * u
+        return cx + math.cos(a) * R, cy + math.sin(a) * R, a + math.pi / 2
+
+    def field(t):
+        rnd = np.random.default_rng(seed + int(round(t * 24)) // 2)
+        head = 5.0 * t + 0.4
+        lobes = traced(arc, head, t, k, width=8.0, life=2.3, lick=0.0, rnd=rnd, end=1.0, fade=0.9, hot=0.95,
+                       thick=lambda u: 0.25 + 1.0 * math.sin(math.pi * min(1.0, u * 1.1)))
+        return m.field(lobes, t, "radial", (cx, cy), R, 9.0, 1.0, crown=0.0, life=0.0)
+
+    return field
+
+
+def make_slash():
+    s = new("ex-energia-corte-derecha", "Energía · Corte a la derecha", "Energy · Slash right", "energia", 18, 7003,
+            ["energía", "energy", "corte", "slash", "espada", "sword"], size=512, thumb=0.1)
+    s.fps = 24
+    return render(s, slash(512, 512, 9, size=1.2), tones=TONES, glow=GLOW)
+
+
+STICKERS = [make_hit_rings, make_star_hit, make_ray_up, make_slash]

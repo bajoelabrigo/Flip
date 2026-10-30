@@ -20,7 +20,9 @@ G = 256  # grid columns; rows follow the canvas aspect
 
 
 class Mass:
-    def __init__(self, W, H, seed):
+    def __init__(self, W, H, seed, rough=1.0):
+        # rough scales the licking and the boiling of the edges: 1 for fire, low for clean energy.
+        self.rough = rough
         self.gw = G
         self.gh = int(round(G * H / W))
         self.yy, self.xx = np.mgrid[0:self.gh, 0:self.gw].astype(np.float32)
@@ -34,8 +36,8 @@ class Mass:
         char (0..1): the mass burns out from the inside instead, the back first, leaving a glowing
         line along its outer edge and the seams between puffs that thins and breaks up."""
         xx, yy = self.xx, self.yy
-        wx = (self.warp.fbm(xx * 0.022, yy * 0.022 + t * 1.5, 2) - 0.5) * 12
-        wy = (self.warp.fbm(xx * 0.022 + 40, yy * 0.022 + t * 1.5, 2) - 0.5) * 8
+        wx = (self.warp.fbm(xx * 0.022, yy * 0.022 + t * 1.5, 2) - 0.5) * 12 * self.rough
+        wy = (self.warp.fbm(xx * 0.022 + 40, yy * 0.022 + t * 1.5, 2) - 0.5) * 8 * self.rough
         X, Y = xx + wx, yy + wy
         mx = np.zeros_like(xx)
         sm = np.zeros_like(xx)
@@ -107,8 +109,8 @@ class Mass:
         dc = dc - 0.08 * eat
         cauli = self.cell.fbm(xx * 0.07, yy * 0.07 - t * 1.2, 2) - 0.5
         top = np.clip((oy - yy) / reach, 0, 1) if flow == "radial" else 0.0
-        d = d + 0.18 * cauli
-        core = dc + 0.5 * cauli + 0.06 - 0.05 * life - 0.9 * life * far - crown * top * min(1.0, t / 0.4)
+        d = d + 0.18 * self.rough * cauli
+        core = dc + 0.5 * self.rough * cauli + 0.06 - 0.05 * life - 0.9 * life * far - crown * top * min(1.0, t / 0.4)
         if char > 0:
             d, core = self.charred(d, core, far, t, char)
         return d, core
