@@ -30036,8 +30036,10 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
 #endif
                 emit exportProgressChanged();
                 emit exportInProgressChanged();
-                setLastMessage(ok ? tr("Export complete") : error,
-                               ok ? QStringLiteral("success") : QStringLiteral("error"));
+                // Success is announced by the editor's own notice (with "Show in folder"); a status
+                // line here as well made two toasts saying the same thing.
+                if (!ok)
+                    setLastMessage(error, QStringLiteral("error"));
                 emit exportFinished(ok);
             },
             Qt::QueuedConnection);
