@@ -107,7 +107,9 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
 - MCP: `list_shape_items`, `add_shape_item`, `set_shape_item`, `group_shape_items`.
 
 ## Etapas (cada una se prueba en ventana antes de seguir)
-1. [~] Datos + dibujo + compatibilidad (commit «a shape layer can be made of parts», build de CI en curso).
+1. [x] Datos + dibujo + compatibilidad (build 41122983222: tst_skia 135 pasan, 0 fallan; las 3 pruebas nuevas en verde;
+   con la app real sin ventana, un proyecto con rectángulo, elipse y un grupo girado/inclinado al 60 % en Trama se
+   dibuja en el orden y lugar correctos).
    **Decisión de diseño:** cada parte es una **figura completa** (su contorno, sus rellenos y bordes, sus efectos de
    trazado y sus claves: la misma `ShapeStyle` de siempre) con su Transformar de grupo; los grupos contienen partes.
    No hay rellenos o trazos «sueltos» que pinten varias figuras como en AE: eso se hace con una parte de varios
