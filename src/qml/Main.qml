@@ -698,9 +698,25 @@ ApplicationWindow {
                                               : (EditorState.projectPortrait ? "portrait" : "landscape")
     readonly property bool portraitWorkspace: workspaceLayout === "portrait"
 
+    // Set when the project was created with "Automatic" on the home screen: the first clip decides
+    // the canvas, so the width/height/fps dialog is not asked as well.
+    property bool autoSetupFromFirstClip: false
+
     function configureAndAddAsset(assetIndex, runner) {
         if (!EditorState.shouldConfigureProjectForAsset(assetIndex)) {
             runner()
+            return
+        }
+        if (window.autoSetupFromFirstClip) {
+            window.autoSetupFromFirstClip = false
+            const s = EditorState.suggestedProjectSetupForAsset(assetIndex)
+            const w = s.width || 1920
+            const h = s.height || 1080
+            EditorState.projectFile.setProjectSetup(w, h, s.fps || 30)
+            EditorState.markProjectLayoutChosen()
+            runner()
+            Toasts.post("info", qsTr("Your video takes this clip's shape: %1×%2").arg(w).arg(h), 7000,
+                        qsTr("Change"), () => editorHeader.openVideoSize())
             return
         }
         projectSetupDialogLoader.ensure().openForAsset(assetIndex, runner)
@@ -1247,6 +1263,7 @@ ApplicationWindow {
             return
         editorHeader.confirmIfDirty(function () {
             EditorState.projectFile.newProject()
+            window.autoSetupFromFirstClip = false
             window.showStartScreen = false
             window.promptLayoutChooserIfNeeded()
         })
@@ -1259,11 +1276,13 @@ ApplicationWindow {
             return
         editorHeader.confirmIfDirty(function () {
             EditorState.projectFile.newProject()
+            window.autoSetupFromFirstClip = false
             if (width > 0 && height > 0) {
                 EditorState.projectFile.setProjectSetup(width, height, EditorState.projectFile.projectFps())
                 EditorState.markProjectLayoutChosen()
             } else {
                 window.layoutPromptDismissed = true
+                window.autoSetupFromFirstClip = true
             }
             window.showStartScreen = false
             if (tabId && tabId.length > 0)
