@@ -1801,7 +1801,11 @@ QVariantList Exporter::scaleOptions(int projectWidth, int projectHeight)
         int outH = 0;
         scaleSize(projectWidth, projectHeight, preset.targetHeight, outW, outH);
 
-        const QString label = QStringLiteral("%1 · %2×%3").arg(preset.label).arg(outW).arg(outH);
+        // The source preset's name is the only one with words in it: it goes through the catalog
+        // (the 8K/4K/1080p names read the same in every language).
+        const QString label = preset.id == QLatin1String("source")
+            ? QCoreApplication::translate("Exporter", "Same as project · %1×%2").arg(outW).arg(outH)
+            : QStringLiteral("%1 · %2×%3").arg(preset.label).arg(outW).arg(outH);
 
         out.append(QVariantMap{
             {QStringLiteral("id"), preset.id},
