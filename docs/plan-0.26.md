@@ -456,9 +456,9 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
 ## Publicación (2026-10-30, madrugada)
 - PR #45 unida a `main`, tag `v0.26.0`, `release.yml` run 41017667559 y MSIX `msstore.yml` run 41017695226 lanzados
   (corren en GitHub; la máquina se puede apagar).
-- **Falta (siguiente sesión):** comprobar que los dos runs terminaron bien; bajar el MSIX
-  (`gh run download 41017695226 -R bajoelabrigo/Flip` a `tienda\FlipStudio-Store\paquete-0.26.0`); copiar el release a
-  `versiones\FlipStudio-0.26.0` con hashes; desplegar las novedades de la web (`flipstudio-web`, `novedades.html` ya
-  editado sin commitear); poner la 0.26 en el estado de `CLAUDE.md`.
+- **Hecho (2026-10-30):** los dos runs en verde; release con instalador, portable y `SHA256SUMS`, copia en
+  `versiones\FlipStudio-0.26.0` (hashes comprobados); MSIX en
+  `tienda\FlipStudio-Store\paquete-0.26.0\FlipStudio-0.26.0.0-x64.msix`; novedades en la web (`flipstudio-web`
+  «Novedades: Flip Studio 0.26.0», desplegado y comprobado en getflipstudio.com); estado en `CLAUDE.md`.
 - **Jorge:** subir el MSIX a Partner Center con «Notas para la Store (0.26.0)» de `docs/store-listing.md` y después TXT
   `version` = 0.26.0.
