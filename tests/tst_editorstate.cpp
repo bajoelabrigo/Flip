@@ -99,6 +99,7 @@ private slots:
     void importedMediaIsCentredAndResetsToItsFit();
     void transformTogetherWrapsTheSelection();
     void lockedTrackRefusesSelectionSplitAndDrops();
+    void splitCutsOnlyThePickedClips();
     void selectToTheRightAndLeftTakeEveryTrack();
     void videoFitsAGraphicTrack();
     void masksAreEditedInPlaceOnTheClip();
@@ -2471,6 +2472,8 @@ void EditorStateTest::lockedTrackRefusesSelectionSplitAndDrops()
     QVERIFY(!state.trackAcceptsKind(1, QStringLiteral("image")));
     QVERIFY(!state.trackAcceptsDropKind(1, QStringLiteral("effect")));
 
+    // Nothing picked: the split cuts every (unlocked) track.
+    state.clearSelection();
     state.splitAtPlayhead();
     QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
     QCOMPARE(state.project()->tracks().at(1).clips.size(), 1);
@@ -2482,6 +2485,28 @@ void EditorStateTest::lockedTrackRefusesSelectionSplitAndDrops()
     QVERIFY(!state.isTrackLocked(1));
     state.selectClip(1, 0);
     QCOMPARE(state.selectedTrack(), 1);
+}
+
+// As CapCut: with a clip picked under the playhead, Split (S) cuts that clip and leaves the other
+// tracks whole.
+void EditorStateTest::splitCutsOnlyThePickedClips()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    setUpTransformTracks(state);
+
+    state.selectClip(1, 0);
+    state.splitAtPlayhead();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 1);
+    QCOMPARE(state.project()->tracks().at(1).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(2).clips.size(), 1);
+
+    state.undo();
+    state.clearSelection();
+    state.splitAtPlayhead();
+    QCOMPARE(state.project()->tracks().at(0).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(1).clips.size(), 2);
+    QCOMPARE(state.project()->tracks().at(2).clips.size(), 2);
 }
 
 // CapCut's select-right / select-left tools: the clicked clip and everything after (or before)

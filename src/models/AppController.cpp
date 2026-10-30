@@ -8008,6 +8008,18 @@ void AppController::splitAtPlayhead()
     };
     QList<PendingAdjustmentSplit> pendingAdjustmentSplits;
 
+    // As CapCut: with clips picked under the playhead, only those are cut (their linked audio
+    // with them); with none, every track. Cutting the whole stack when one clip was picked made
+    // the guide explain a right-click workaround.
+    QSet<QString> picked;
+    for (const auto &sel : std::as_const(m_selection)) {
+        if (!isValidClipIndex(sel.first, sel.second))
+            continue;
+        const drift::Clip &c = m_project.tracks().at(sel.first).clips.at(sel.second);
+        if (c.containsTime(m_playheadUs) && m_playheadUs != c.timelineStart)
+            picked.insert(c.id);
+    }
+
     const QList<drift::Track> &tracksView = m_project.tracks();
     for (int trackIndex = 0; trackIndex < tracksView.size(); ++trackIndex) {
         if (isTrackLocked(trackIndex))
@@ -8016,6 +8028,8 @@ void AppController::splitAtPlayhead()
         for (int clipIndex = 0; clipIndex < track.clips.size(); ++clipIndex) {
             drift::Clip &clip = track.clips[clipIndex];
             if (!clip.containsTime(m_playheadUs))
+                continue;
+            if (!picked.isEmpty() && !picked.contains(clip.id))
                 continue;
             if (m_playheadUs == clip.timelineStart)
                 continue;
