@@ -1852,14 +1852,14 @@ QVariantList Exporter::frameRateOptions(int projectFps)
     // NTSC rates carry a 1001 denominator; an integer fps could not express them,
     // which is why ExportSettings keeps the rate rational.
     static const FrameRatePreset presets[] = {
-        {"23.976", 24000, 1001, "23.976 fps (NTSC film)"},
+        {"23.976", 24000, 1001, QT_TRANSLATE_NOOP("Exporter", "23.976 fps (NTSC film)")},
         {"24", 24, 1, "24 fps"},
-        {"25", 25, 1, "25 fps (PAL)"},
-        {"29.97", 30000, 1001, "29.97 fps (NTSC)"},
+        {"25", 25, 1, QT_TRANSLATE_NOOP("Exporter", "25 fps (PAL)")},
+        {"29.97", 30000, 1001, QT_TRANSLATE_NOOP("Exporter", "29.97 fps (NTSC)")},
         {"30", 30, 1, "30 fps"},
         {"48", 48, 1, "48 fps"},
         {"50", 50, 1, "50 fps"},
-        {"59.94", 60000, 1001, "59.94 fps (NTSC)"},
+        {"59.94", 60000, 1001, QT_TRANSLATE_NOOP("Exporter", "59.94 fps (NTSC)")},
         {"60", 60, 1, "60 fps"},
         {"120", 120, 1, "120 fps"},
         {"240", 240, 1, "240 fps"},
@@ -1877,7 +1877,7 @@ QVariantList Exporter::frameRateOptions(int projectFps)
     for (const FrameRatePreset &preset : presets) {
         out.append(QVariantMap{
             {QStringLiteral("id"), QString::fromLatin1(preset.id)},
-            {QStringLiteral("label"), QString::fromLatin1(preset.label)},
+            {QStringLiteral("label"), QCoreApplication::translate("Exporter", preset.label)},
             {QStringLiteral("fpsNum"), preset.num},
             {QStringLiteral("fpsDen"), preset.den},
         });
