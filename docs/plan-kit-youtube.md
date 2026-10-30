@@ -5,10 +5,17 @@ en `F:\AFFTER EFECTS\After Effects\youtube kit\`) **adaptado a Flip**: diseños,
 archivos ni su aspecto exacto), todo 100 % editable, en **Stock › Kit de YouTube** con subcategorías.
 
 ## Estado
-- **Prototipos (11, uno por sección)**: `tools/scene_templates/templates_ytkit.py`, ids `ytk-*`, categoría `ytkit`,
-  orden 7000–7099, la sección va en la primera etiqueta (`kit:<sección>`). Renderizados con el portable 0.27 en
-  `tienda\plantillas\prototipos-ytkit` (fuera de `paquetes\`, así no se publican por error).
-- **Falta el OK de Jorge** a los prototipos antes de hacer la tanda grande (~150: ~12–15 por sección, también 9:16).
+- **PUBLICADO (2026-10-30): 158 piezas en Stock › Kit de YouTube** (11 prototipos aprobados por Jorge + 147 de cinco
+  tandas en paralelo, `templates_ytkit_a…e.py`, guía para las tandas en `tools/scene_templates/BRIEF-ytkit.md`).
+  Cada tanda renderizó, revisó en hojas y corrigió; después el coordinador revisó todo (tamaños de los 16:9, que la
+  placa salga con su texto) y se volvió a renderizar. Nombres en 13 idiomas (`tools/stock_i18n`).
+- Servidor `flipstudio-api` rama `stock-ytkit` **desplegada**: tipo `ytkit` («Kit de YouTube», 15 idiomas) con las
+  secciones como categorías (etiqueta `kit:<sección>`); las piezas son plantillas normales (`flip:template:<id>`),
+  fuera de Plantillas salvo en «Mis plantillas». `minAppVersion` 0.26.0 (usan formas propias y recortar trazados).
+- Contenido subido como delta (solo `ytk-*`, el índice raíz y `i18n`): el `publicar` local tiene además ~382
+  animaciones `ex-*` que **no** están en el servidor (las que se bajaron de Stock); no subirlas.
+- **Trampa del motor (arreglada en 0.27, `TextAnimator.cpp`):** un texto tenía un solo ángulo de barrido: el de la
+  salida pisaba el de la entrada. Las piezas del kit ya usan el mismo ángulo en las dos (o salida con fundido).
 
 ## Secciones (subcategorías)
 | Clave | Nombre | Prototipo |
@@ -32,7 +39,7 @@ el rojo de YouTube. El fondo de cada pieza es su propia pista «Fondo»: se borr
 - Un texto que sale de una línea o barra **nace de la línea**, nunca la cruza: revelado `wipe` con `angle=0`
   (de izquierda a derecha; el valor por defecto, −90, revela de abajo arriba), no `slide-right`.
 
-## Para publicar (después del OK)
+## Para publicar más piezas
 1. Tanda grande en `templates_ytkit*.py`; `build.py --only mod:templates_ytkit` (a `paquetes\`).
 2. Subcategorías en Stock: hoy las categorías son planas (`publish.py` `CATEGORY_NAMES`). Hace falta
    `ytkit` en `CATEGORY_NAMES` y que el servidor/app agrupen por la etiqueta `kit:<sección>` (o un campo
