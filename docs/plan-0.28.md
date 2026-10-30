@@ -138,8 +138,15 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    elegida: un aviso que lleva a elegir una parte o a Transformar. En Simple: «Esta forma tiene varias partes · Ver en
    Pro». La sección Trazado (pluma) se esconde en capas de partes hasta la etapa 4. La primera parte añadida convierte
    la forma (lo que dibujaba pasa a «<forma> 1» sin moverse). No se puede borrar la última forma de la capa.
-3. [~] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
-   Hecho (falta probar en ventana): `AppController::shapeContentRows` (solo en Pro y en capas de partes, para el clip
+3. [x] Línea de tiempo: filas en árbol, Añadir ▸, ojos y fusión, cronómetros; selección compartida con la columna.
+   **Probado en ventana (build 41142087360):** Contenido se abre y muestra Rectángulo 1 / Grupo 1 (carpeta, «Trama») /
+   Elipse 1 con ojo y fusión; elegir una parte la resalta y la abre (Trazado, Trazo 1, Relleno 1, Transformar); Relleno
+   con la fila Color (cuadrito) y Opacidad; el ojo oculta la parte en la vista previa y se deshace; el cronómetro de
+   Ancho pone la primera clave; «Añadir ▸» abre su menú. **Trampa de compilación:** MSVC 19.4x se cerraba (0xC0000005,
+   sin mensaje) con la primera versión, una lambda recursiva en `std::function` que llamaba a cinco lambdas locales:
+   ahora es la estructura `ShapeContentRowsBuilder` con métodos normales. Pendiente menor: Opacidad del relleno se ve
+   «1.00» y no «100 %»; la flecha de la pista no se abrió con clics simulados (las filas sí): que Jorge la pruebe.
+   Hecho: `AppController::shapeContentRows` (solo en Pro y en capas de partes, para el clip
    que miran las filas): «Contenido» con «Añadir ▸», cada parte con su ojo, su modo de fusión ▾ y menú de clic derecho;
    dentro, «Trazado: <forma>» (Ancho, Alto, Redondez o Puntas/Radio interior), «Relleno N»/«Trazo N» (con ojo;
    Opacidad, Ancho del trazo) y «Transformar: <parte>» (anclaje, posición, escala, inclinación y su eje, rotación,
@@ -162,3 +169,6 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
 ## Publicación (Jorge, 2026-10-30)
 La 0.27.0 **no se subió** a la Store: no hay 0.27.1. El arreglo del espacio de trabajo «Vertical» (`WorkspaceView.qml`,
 `captured` se borra al cambiar de árbol) va en la 0.28, y las notas de la Store de la 0.28 son **combinadas 0.27 + 0.28**.
+
+**Espacio de trabajo (probado, build 41142087360):** Video › 1080×1920 (9:16) cambia al espacio vertical al momento,
+sin reiniciar.
