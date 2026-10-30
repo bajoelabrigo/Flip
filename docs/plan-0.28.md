@@ -113,5 +113,5 @@ Si otro asistente sigue: `[x]` hecho, `[~]` a medias, `[ ]` falta.
 ## Decisiones (Jorge)
 - [ ] Nombres en la columna derecha: «Borde» y «Posición y giro de la parte» (claros) con el nombre de AE en la ayuda,
       y en la línea de tiempo los de AE («Trazo», «Transformar: …»). ¿O AE en las dos?
-- [ ] Dibujar con una capa de forma elegida: ¿añadir dentro (como AE, con aviso y «Hacer capa nueva») o siempre capa
-      nueva salvo con una tecla?
+- [x] Dibujar con una capa de forma elegida: **se suma a esa capa** (como AE), con el aviso «Añadido a … · Hacer capa
+      nueva» (Jorge, 2026-10-30).
