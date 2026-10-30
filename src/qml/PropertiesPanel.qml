@@ -177,11 +177,18 @@ PanelFrame {
 
     // The motion-graphics tabs, out of sight in Simple mode (0.27). Transform and Blending repeat
     // what Video › Basic already shows; Motion Tools and Curves are After Effects tools.
-    readonly property var proOnlyTabs: ["transform", "blending", "motionTools", "curves"]
+    readonly property var proOnlyTabs: ["motionTools", "curves"]
+    // Transform and Blending only where Video › Basic repeats them: a text, shape or sticker has
+    // no other place to be moved, scaled or given a shadow.
+    readonly property var proOnlyWithVideoTabs: ["transform", "blending"]
     function tabVisible(tabId) {
         const tab = root.tabs[tabIndexOf(tabId)]
-        if (!EditorState.preferences.proMode && root.proOnlyTabs.indexOf(tabId) >= 0)
-            return false
+        if (!EditorState.preferences.proMode) {
+            if (root.proOnlyTabs.indexOf(tabId) >= 0)
+                return false
+            if (root.proOnlyWithVideoTabs.indexOf(tabId) >= 0 && root.caps.indexOf("videoTools") >= 0)
+                return false
+        }
         return !!tab && tab.needs.every(cap => root.caps.indexOf(cap) >= 0)
     }
     Connections {
