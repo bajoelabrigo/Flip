@@ -73,7 +73,7 @@ def _sparks(t, x, y, at, size):
                 kind="ellipse")
 
 
-def _subscribe_button(t, box, t0, click, t1, size, life_in=None, radius=None):
+def _subscribe_button(t, box, t0, click, t1, size, life_in=None, radius=None, done_bg=GREY, done_ink=SOFT):
     """«SUSCRIBIRME» in coral; at the click it squeezes and turns into a grey «SUSCRITO» with a check."""
     r = box.h / 2 if radius is None else radius
     first = life_in or [(0, {"s": 0.0}, "back"), (0.45, {}, "hold")]
@@ -82,9 +82,9 @@ def _subscribe_button(t, box, t0, click, t1, size, life_in=None, radius=None):
     label(t, t.track("text", "Botón"), "SUSCRIBIRME", t0 + 0.15, click + 0.1 - t0 - 0.15, box, "Sora", size, WHITE,
           weight=800, spacing=1.5, anim_in=tanim("fade", duration=0.25), name="Botón")
     rest = t1 - click - 0.1
-    rrect(t, t.track("shape", "Botón"), GREY, click + 0.1, rest, box, radius=r,
+    rrect(t, t.track("shape", "Botón"), done_bg, click + 0.1, rest, box, radius=r,
           motion=[(0, {"s": 0.92}, "back"), (0.3, {}, "hold"), (rest - 0.35, {}, "in"), (rest, {"s": 0.0})])
-    label(t, t.track("text", "Botón"), "SUSCRITO", click + 0.15, rest - 0.25, box, "Sora", size, SOFT, weight=800,
+    label(t, t.track("text", "Botón"), "SUSCRITO", click + 0.15, rest - 0.25, box, "Sora", size, done_ink, weight=800,
           spacing=1.5, anim_in=tanim("fade", duration=0.2), anim_out=OUT(0.2), name="Botón tras el clic")
     _ripple(t, box.x + box.w * 0.6, box.y + box.h * 0.6, click)
 
