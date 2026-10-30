@@ -151,6 +151,27 @@ B4–B7, C4–C10, D5–D10, E4–E9, F2–F4, G2–G5, H4–H6, I2–I5, J2–J
   abrirse sola: el ícono de Extras late.
 - Ayuda › «Guía de uso» abre getflipstudio.com/guia.html.
 
+## Decisiones de Jorge (2026-10-30) — hechas
+- **Modo Simple / Pro (sí):** `PreferencesController::proMode` (`ui/mode`). Instalación nueva → pregunta una vez
+  (`UiModeDialog.qml`, después del idioma); quien ya usaba la app (tenía `ui/languageChosen`) queda en Pro. Simple
+  esconde la barra de herramientas sobre la vista previa, las pestañas Motion Tools y Curvas, y Transformar/Fusión
+  donde la pestaña Video ya las repite; Primario/mates/desenfoque dentro de Fusión. Interruptor «Simple | Pro» en la
+  cabecera y Ver › «Modo Pro». Un clip que usa algo de Pro muestra «Este clip usa herramientas Pro · Ver en Pro».
+- **Exportar sin cuenta hasta 1080p (C):** `ExportDialog.needsAccount()`; 2K/4K/8K dicen «con cuenta» y piden
+  sesión al exportar (`SignInRequiredDialog reason "hd"`, vía `window.requestSignIn`). Bienvenida actualizada.
+  **Falta:** la web (preguntas de la portada, guía, privacidad) todavía dice que exportar pide cuenta: cambiarla al
+  publicar la 0.27.
+- **Proyecto de ejemplo (B):** `ProjectFileController::openSampleProject()` baja
+  `https://getflipstudio.com/modelos/ejemplo/ejemplo-1.flip` (VPS `/var/www/flipstudio-models/modelos/ejemplo/`, fuera
+  del deploy del sitio; SHA-256 en el código) a `AppData/samples` y abre una copia «Mi primer video …». Tarjeta en el
+  inicio (si no hay proyectos) y guía de 3 pasos. Contenido: 5 clips de Pexels (ola, moto, perro, torre de neón sin
+  el letrero del hotel, fuegos) recortados a 1080×1920 + «action-strike» de la música libre; títulos «WOW!» y
+  «FLIP STUDIO». Fuentes y créditos en el scratchpad de la sesión (`ejemplo/CREDITS.json`); para cambiarlo, subir
+  `ejemplo-2.flip` y actualizar nombre y hash en el código.
+- **Diseño móvil fuera del escritorio (Jorge):** quitado de engranaje, Ver, menú y Ajustes; una preferencia «mobile»
+  guardada abre el escritorio (solo `--shell=mobile` lo fuerza).
+- **El espacio de trabajo sigue al video** al pasar a vertical u horizontal, aunque se hubiera elegido uno a mano.
+
 ## Decisiones para Jorge (no hechas a propósito)
 - **Modo simple / Pro (J1)**: esconder por defecto lo de After Effects (barra de herramientas sobre la vista
   previa, Motion Tools, Curvas, cronómetros). Lo pediste en la 0.26, así que no lo escondo sin tu OK.
