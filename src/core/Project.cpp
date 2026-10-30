@@ -1075,7 +1075,7 @@ namespace {
 KeyframeTrack<double> scaledTrack(const KeyframeTrack<double> &source, double sign)
 {
     KeyframeTrack<double> out;
-    out.setEnabled(source.enabled());
+    out.copySettingsFrom(source);
     for (auto it = source.keyframes().constBegin(); it != source.keyframes().constEnd(); ++it) {
         Keyframe<double> key = it.value();
         key.value *= sign;

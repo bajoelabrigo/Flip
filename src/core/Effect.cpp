@@ -267,7 +267,7 @@ void rescaleEffectKeyframes(QList<Effect> &effects, TimeUs fromDurationUs, TimeU
 
             KeyframeTrack<double> out;
             // A track switched off keeps its keys, and must keep being switched off.
-            out.setEnabled(track.enabled());
+            out.copySettingsFrom(track);
             for (auto k = track.keyframes().constBegin(); k != track.keyframes().constEnd(); ++k) {
                 Keyframe<double> key = k.value();
                 // Handles live in curve space: dx is microseconds on the same axis as the key

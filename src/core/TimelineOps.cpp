@@ -1494,7 +1494,7 @@ void shiftTrackValues(KeyframeTrack<double> &track, double delta, double implici
         key.value -= delta;
         shifted.setKeyframe(it.key(), key);
     }
-    shifted.setEnabled(track.enabled());
+    shifted.copySettingsFrom(track);
     track = shifted;
 }
 
@@ -1689,7 +1689,7 @@ void scaleTrackValues(KeyframeTrack<double> &track, double factor)
         key.outDy *= factor;
         scaled.setKeyframe(it.key(), key);
     }
-    scaled.setEnabled(track.enabled());
+    scaled.copySettingsFrom(track);
     track = scaled;
 }
 
@@ -1724,7 +1724,7 @@ void rebaseCanvasBox(Clip &clip, int oldWidth, int oldHeight, int newWidth, int 
     const auto rebase = [&](KeyframeTrack<double> &track, bool isX) {
         const auto pick = [isX](QPointF p) { return isX ? p.x() : p.y(); };
         KeyframeTrack<double> out;
-        out.setEnabled(track.enabled());
+        out.copySettingsFrom(track);
         const QMap<TimeUs, Keyframe<double>> &values = track.keyframes();
         for (auto it = values.constBegin(); it != values.constEnd(); ++it) {
             Keyframe<double> key = it.value();

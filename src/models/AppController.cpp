@@ -3540,7 +3540,7 @@ drift::KeyframeTrack<T> rescaleKeyframeTrackTimes(const drift::KeyframeTrack<T> 
 
     const double scale = static_cast<double>(toDurationUs) / static_cast<double>(fromDurationUs);
     drift::KeyframeTrack<T> out;
-    out.setEnabled(track.enabled());
+    out.copySettingsFrom(track);
     for (auto it = track.keyframes().constBegin(); it != track.keyframes().constEnd(); ++it) {
         drift::Keyframe<T> key = it.value();
         key.inDx *= scale;
@@ -3655,7 +3655,7 @@ void remapKeyframeTrack(drift::KeyframeTrack<T> &dst, const drift::KeyframeTrack
     const drift::TimeUs span = from.srcOut - from.srcIn;
     drift::KeyframeTrack<T> out;
     // A track switched off keeps its keys, and retiming must not switch it back on.
-    out.setEnabled(src.enabled());
+    out.copySettingsFrom(src);
     // Tangents travel inside each key, so remapping the times carries the shape with them.
     for (auto it = src.keyframes().constBegin(); it != src.keyframes().constEnd(); ++it) {
         const drift::TimeUs sourceOffset =

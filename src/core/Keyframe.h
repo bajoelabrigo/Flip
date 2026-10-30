@@ -187,6 +187,15 @@ public:
 
     const TrackBehavior &behavior() const { return m_behavior; }
     void setBehavior(const TrackBehavior &behavior) { m_behavior = behavior; }
+    // Everything but the keys: for a track rebuilt key by key (rescaled, retimed, mapped). Copying
+    // only enabled() dropped the 0.26 behaviours and the stopwatch without a word.
+    template<typename U>
+    void copySettingsFrom(const KeyframeTrack<U> &other)
+    {
+        m_enabled = other.enabled();
+        m_stopwatch = other.stopwatch();
+        m_behavior = other.behavior();
+    }
 
     void setKeyframe(TimeUs time, const T &value)
     {
