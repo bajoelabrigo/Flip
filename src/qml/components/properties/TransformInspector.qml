@@ -158,18 +158,12 @@ Item {
                 }
             }
 
-            Text {
-                width: parent.width
-                wrapMode: Text.WordWrap
-                text: qsTr("Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider or the preview also creates them.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-            }
-
+            // The how-to of keyframes lives in the chip's tooltip: as the first thing on screen
+            // when a clip is picked it read as a lesson before the sliders a beginner came for.
             ThemedChip {
                 text: qsTr("Auto keyframes")
                 selected: EditorState.autoKeyEnabled
+                tooltip: qsTr("Move to a time, set a value, then click the diamond to add a keyframe. With Auto keyframes on, dragging a slider or the preview also creates them.")
                 onClicked: EditorState.autoKeyEnabled = !EditorState.autoKeyEnabled
             }
 
