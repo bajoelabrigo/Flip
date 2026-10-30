@@ -372,6 +372,10 @@ Item {
     onTreeChanged: {
         if (root.built && root.captured.length > 0 && JSON.stringify(root.tree) === root.captured)
             return
+        // Another tree is going on screen: the drag's capture no longer describes it. Kept, it made
+        // a later switch back to that workspace look already built and skipped (0.28: Short and
+        // Settings › Workspace › Vertical stayed on the standard panels).
+        root.captured = ""
         Qt.callLater(root.build)
     }
     onPanelsChanged: Qt.callLater(root.build)
