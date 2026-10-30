@@ -391,6 +391,9 @@ void AddonManager::refresh(bool force)
     request.setRawHeader("X-Drift-Client", kClientToken.toUtf8());
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
                          QNetworkRequest::NoLessSafeRedirectPolicy);
+    // Qt 6 has no default: a stalled socket left "refreshing" set for good, and every install after
+    // it waited for an index that never came.
+    request.setTransferTimeout(15000);
 
     QNetworkReply *reply = m_network->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, reply] {
@@ -513,6 +516,8 @@ void AddonManager::startDownload(const QString &id)
                          QNetworkRequest::NoLessSafeRedirectPolicy);
     if (have > 0)
         request.setRawHeader("Range", QByteArrayLiteral("bytes=") + QByteArray::number(have) + "-");
+    // Idle timeout (no bytes for a minute), not a cap on the whole download.
+    request.setTransferTimeout(60000);
 
     transfer->reply = m_network->get(request);
     m_transfers.insert(id, transfer);
@@ -580,7 +585,11 @@ void AddonManager::finishDownload(const QString &id)
         }
 
         m_transfers.insert(id, transfer);
-        // The .part file is deliberately left in place so the next attempt resumes.
+        // The .part file is deliberately left in place so the next attempt resumes, except when
+        // the server says the range is past the end (416): the file was already whole (the app was
+        // closed before the rename) and resuming would fail the same way forever.
+        if (status == 416)
+            QFile::remove(transfer->packagePath + QStringLiteral(".part"));
         failTransfer(id, reply->errorString());
         return;
     }
