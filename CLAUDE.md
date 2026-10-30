@@ -55,7 +55,15 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-27)
+## Estado (actualizado 2026-10-30)
+
+### 0.26.0 PUBLICADA (2026-10-30) — herramientas de After Effects — **detalle en `docs/plan-0.26.md`**
+- PR #45 (`flip/v0.26.0` → `main`), tag `v0.26.0`, release (run 41017667559); copia en `versiones\FlipStudio-0.26.0`
+  (hashes comprobados); novedades en la web. MSIX: `msstore.yml` run 41017695226 →
+  `tienda\FlipStudio-Store\paquete-0.26.0`. Notas de la Store: «Notas para la Store (0.26.0)» en `docs/store-listing.md`.
+- Emparentar, nulo, desenfoque de movimiento, mates, luces 3D, estilos de capa, pluma en vivo, Curvas, Squash &
+  Stretch, Motion Tools, expresiones, espacios de trabajo, barra de herramientas, Preferencias por páginas, Stock › VFX.
+- **Falta (Jorge):** subir el MSIX con sus notas y TXT `version` = 0.26.0. VFX en pausa hasta que Jorge lo retome.
 
 ### 0.25.0 PUBLICADA (2026-10-27) — fotogramas clave como After Effects, también en el audio — **detalle en `docs/plan-0.25.md`**
 - PR #43 (`flip/v0.24.1` → `main`), tag `v0.25.0`, release (run 40597325078); copia en `versiones\FlipStudio-0.25.0`

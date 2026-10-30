@@ -452,3 +452,13 @@ Orden de trabajo (de más usado a más pesado). Cada punto dice qué versión pr
   comportamientos, reasignación de tiempo y auto-orientar). Las de GPU se saltan en CI: se miran en ventana.
 - Traducciones: catálogos regenerados (119 textos nuevos) y español completo (7135/7135), `lupdate` estable.
 - **Falta:** CI en verde, y **probar todo en ventana** (portable en `pruebas\FlipStudio-0.26-prueba`).
+
+## Publicación (2026-10-30, madrugada)
+- PR #45 unida a `main`, tag `v0.26.0`, `release.yml` run 41017667559 y MSIX `msstore.yml` run 41017695226 lanzados
+  (corren en GitHub; la máquina se puede apagar).
+- **Hecho (2026-10-30):** los dos runs en verde; release con instalador, portable y `SHA256SUMS`, copia en
+  `versiones\FlipStudio-0.26.0` (hashes comprobados); MSIX en
+  `tienda\FlipStudio-Store\paquete-0.26.0\FlipStudio-0.26.0.0-x64.msix`; novedades en la web (`flipstudio-web`
+  «Novedades: Flip Studio 0.26.0», desplegado y comprobado en getflipstudio.com); estado en `CLAUDE.md`.
+- **Jorge:** subir el MSIX a Partner Center con «Notas para la Store (0.26.0)» de `docs/store-listing.md` y después TXT
+  `version` = 0.26.0.
