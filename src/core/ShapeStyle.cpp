@@ -25,6 +25,9 @@
 namespace drift {
 namespace {
 
+// The parts' share of shapeStyleHash (0.28), defined with the parts below.
+quint64 shapePartsHash(const ShapeStyle &style);
+
 struct KindName
 {
     ShapeKind kind;
@@ -463,6 +466,20 @@ QList<TextShadingLayer> defaultShapeLayers(const QColor &fill, const QColor &fil
 
 QColor ShapeStyle::primaryColor() const
 {
+    // A layer of parts: the top shape part's colour.
+    if (hasParts()) {
+        std::vector<const ShapePart *> stack;
+        for (auto it = parts.rbegin(); it != parts.rend(); ++it)
+            stack.push_back(&*it);
+        while (!stack.empty()) {
+            const ShapePart *part = stack.back();
+            stack.pop_back();
+            if (!part->group)
+                return part->shape.primaryColor();
+            for (auto it = part->children.rbegin(); it != part->children.rend(); ++it)
+                stack.push_back(&*it);
+        }
+    }
     if (const TextShadingLayer *fill = firstTextLayerOfKind(layers, TextLayerKind::Fill))
         return fill->paint.kind == TextPaintKind::Gradient && !fill->paint.gradient.stops.isEmpty()
                    ? fill->paint.gradient.stops.first().color
@@ -472,6 +489,20 @@ QColor ShapeStyle::primaryColor() const
 
 void ShapeStyle::setPrimaryColor(const QColor &color)
 {
+    // Simple mode recolours a layer of parts as one shape: every part takes the colour.
+    if (hasParts()) {
+        std::vector<ShapePart *> stack;
+        for (ShapePart &part : parts)
+            stack.push_back(&part);
+        while (!stack.empty()) {
+            ShapePart *part = stack.back();
+            stack.pop_back();
+            if (!part->group)
+                part->shape.setPrimaryColor(color);
+            for (ShapePart &child : part->children)
+                stack.push_back(&child);
+        }
+    }
     if (TextShadingLayer *fill = firstTextLayerOfKind(layers, TextLayerKind::Fill, false)) {
         fill->paint.color = color;
         if (!fill->paint.gradient.stops.isEmpty())
@@ -640,7 +671,7 @@ bool ShapeStyle::isAnimated() const
         if (!it->isEmpty() && it->enabled())
             return true;
     }
-    return false;
+    return std::any_of(parts.begin(), parts.end(), [](const ShapePart &part) { return part.isAnimated(); });
 }
 
 ShapeStyle ShapeStyle::resolvedAt(TimeUs clipTimeUs) const
@@ -654,6 +685,8 @@ ShapeStyle ShapeStyle::resolvedAt(TimeUs clipTimeUs) const
     }
     if (kind == ShapeKind::Custom)
         out.customPath = shapePathAt(*this, clipTimeUs);
+    for (ShapePart &part : out.parts)
+        part = part.resolvedAt(clipTimeUs);
     return out;
 }
 
@@ -731,11 +764,22 @@ quint64 shapeStyleHash(const ShapeStyle &style)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
            ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
                         style.zigzagSmooth, style.twistAngle, style.puckerBloat)
-           ^ qHash(style.pathShapes);
+           ^ qHash(style.pathShapes) ^ shapePartsHash(style);
 }
 
 bool shapeTimeDrivenPaint(const ShapeStyle &style)
 {
+    for (const ShapePart &part : style.parts) {
+        if (part.group) {
+            ShapeStyle holder;
+            holder.layers.clear();
+            holder.parts = part.children;
+            if (shapeTimeDrivenPaint(holder))
+                return true;
+        } else if (shapeTimeDrivenPaint(part.shape)) {
+            return true;
+        }
+    }
     // A wiggle that moves redraws every frame.
     if (style.hasWiggle() && style.wiggleSpeed > 0.0)
         return true;
@@ -796,6 +840,14 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
     }
     if (!keyframesJson.isEmpty())
         o.insert(QStringLiteral("keyframes"), keyframesJson);
+    // Contents (0.28): written only when the layer has parts, so a plain shape saves as before.
+    if (s.hasParts()) {
+        QJsonArray parts;
+        for (const ShapePart &part : s.parts)
+            parts.append(shapePartToJson(part));
+        o.insert(QStringLiteral("parts"), parts);
+        o.insert(QStringLiteral("partsRef"), QJsonArray{s.partsRefWidth, s.partsRefHeight});
+    }
     return o;
 }
 
@@ -879,7 +931,283 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
         if (!canonical.isEmpty())
             s.keyframes.insert(canonical, keyframesFromJson(it.value().toObject()));
     }
+    for (const QJsonValue &v : o.value(QStringLiteral("parts")).toArray())
+        s.parts.push_back(shapePartFromJson(v.toObject()));
+    if (s.hasParts()) {
+        const QJsonArray ref = o.value(QStringLiteral("partsRef")).toArray();
+        s.partsRefWidth = qMax(1.0, ref.at(0).toDouble(100.0));
+        s.partsRefHeight = qMax(1.0, ref.at(1).toDouble(100.0));
+    }
     return s;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Contents: parts (0.28)
+
+namespace {
+
+struct PartField
+{
+    const char *key;
+    double ShapePartTransform::*field;
+    double min;
+    double max;
+};
+
+constexpr PartField kPartFields[] = {
+    {"anchorX", &ShapePartTransform::anchorX, -100000.0, 100000.0},
+    {"anchorY", &ShapePartTransform::anchorY, -100000.0, 100000.0},
+    {"x", &ShapePartTransform::x, -100000.0, 100000.0},
+    {"y", &ShapePartTransform::y, -100000.0, 100000.0},
+    {"scaleX", &ShapePartTransform::scaleX, -10000.0, 10000.0},
+    {"scaleY", &ShapePartTransform::scaleY, -10000.0, 10000.0},
+    {"skew", &ShapePartTransform::skew, -85.0, 85.0},
+    {"skewAxis", &ShapePartTransform::skewAxis, -36000.0, 36000.0},
+    {"rotation", &ShapePartTransform::rotation, -360000.0, 360000.0},
+    {"opacity", &ShapePartTransform::opacity, 0.0, 100.0},
+};
+
+const PartField *partFieldFor(const QString &key)
+{
+    for (const PartField &f : kPartFields) {
+        if (key == QLatin1String(f.key))
+            return &f;
+    }
+    return nullptr;
+}
+
+quint64 shapePartHash(const ShapePart &part)
+{
+    const ShapePartTransform &t = part.transform;
+    quint64 h = qHashMulti(7, part.id, part.visible, static_cast<int>(part.blend), part.group, part.width, part.height)
+                ^ qHashMulti(8, t.anchorX, t.anchorY, t.x, t.y, t.scaleX, t.scaleY, t.skew, t.skewAxis, t.rotation,
+                             t.opacity);
+    if (part.group) {
+        for (const ShapePart &child : part.children)
+            h = h * 31 + shapePartHash(child);
+    } else {
+        h ^= shapeStyleHash(part.shape) * 1099511628211ULL;
+    }
+    return h;
+}
+
+quint64 shapePartsHash(const ShapeStyle &style)
+{
+    if (!style.hasParts())
+        return 0;
+    quint64 h = qHashMulti(9, style.partsRefWidth, style.partsRefHeight);
+    for (const ShapePart &part : style.parts)
+        h = h * 31 + shapePartHash(part);
+    return h;
+}
+
+void collectPartIds(const std::vector<ShapePart> &parts, QSet<QString> &ids)
+{
+    for (const ShapePart &part : parts) {
+        ids.insert(part.id);
+        collectPartIds(part.children, ids);
+    }
+}
+
+QJsonObject partTransformToJson(const ShapePartTransform &t)
+{
+    QJsonObject o;
+    const ShapePartTransform defaults;
+    for (const PartField &f : kPartFields) {
+        if (t.*(f.field) != defaults.*(f.field))
+            o.insert(QLatin1String(f.key), t.*(f.field));
+    }
+    return o;
+}
+
+} // namespace
+
+bool ShapePart::isAnimated() const
+{
+    for (auto it = keyframes.constBegin(); it != keyframes.constEnd(); ++it) {
+        if (!it->isEmpty() && it->enabled())
+            return true;
+    }
+    if (group)
+        return std::any_of(children.begin(), children.end(), [](const ShapePart &c) { return c.isAnimated(); });
+    return shape.isAnimated();
+}
+
+ShapePart ShapePart::resolvedAt(TimeUs clipTimeUs) const
+{
+    ShapePart out = *this;
+    for (auto it = keyframes.constBegin(); it != keyframes.constEnd(); ++it) {
+        if (!it->isEmpty())
+            setShapePartScalar(out, it.key(), it->evaluateAt(clipTimeUs));
+    }
+    out.keyframes.clear();
+    if (group) {
+        for (ShapePart &child : out.children)
+            child = child.resolvedAt(clipTimeUs);
+    } else {
+        out.shape = shape.resolvedAt(clipTimeUs);
+        out.shape.keyframes.clear();
+    }
+    return out;
+}
+
+QStringList shapePartKeyframeFields(const ShapePart &part)
+{
+    QStringList out;
+    for (const PartField &f : kPartFields)
+        out.append(QLatin1String(f.key));
+    if (!part.group)
+        out << QStringLiteral("width") << QStringLiteral("height");
+    return out;
+}
+
+bool shapePartScalar(const ShapePart &part, const QString &field, double *out)
+{
+    if (const PartField *f = partFieldFor(field)) {
+        *out = part.transform.*(f->field);
+        return true;
+    }
+    if (part.group)
+        return false;
+    if (field == QLatin1String("width")) {
+        *out = part.width;
+        return true;
+    }
+    if (field == QLatin1String("height")) {
+        *out = part.height;
+        return true;
+    }
+    return false;
+}
+
+bool setShapePartScalar(ShapePart &part, const QString &field, double value)
+{
+    if (const PartField *f = partFieldFor(field)) {
+        part.transform.*(f->field) = qBound(f->min, value, f->max);
+        return true;
+    }
+    if (part.group)
+        return false;
+    if (field == QLatin1String("width")) {
+        part.width = qBound(0.0, value, 100000.0);
+        return true;
+    }
+    if (field == QLatin1String("height")) {
+        part.height = qBound(0.0, value, 100000.0);
+        return true;
+    }
+    return false;
+}
+
+ShapePart *findShapePart(std::vector<ShapePart> &parts, const QString &id)
+{
+    for (ShapePart &part : parts) {
+        if (part.id == id)
+            return &part;
+        if (ShapePart *inner = findShapePart(part.children, id))
+            return inner;
+    }
+    return nullptr;
+}
+
+const ShapePart *findShapePart(const std::vector<ShapePart> &parts, const QString &id)
+{
+    return findShapePart(const_cast<std::vector<ShapePart> &>(parts), id);
+}
+
+QString mintShapePartId(const ShapeStyle &style)
+{
+    QSet<QString> used;
+    collectPartIds(style.parts, used);
+    for (int n = 1;; ++n) {
+        const QString id = QStringLiteral("p%1").arg(n);
+        if (!used.contains(id))
+            return id;
+    }
+}
+
+ShapeStyle shapeWithParts(const ShapeStyle &style, double boxWidth, double boxHeight, const QString &partName)
+{
+    if (style.hasParts())
+        return style;
+    ShapeStyle out = style;
+    ShapePart part;
+    part.id = QStringLiteral("p1");
+    part.name = partName;
+    part.width = qMax(1.0, boxWidth);
+    part.height = qMax(1.0, boxHeight);
+    part.shape = style; // its keys come along: they animate the part as they animated the layer
+    out.keyframes.clear();
+    out.pathShapes.clear();
+    out.parts.push_back(std::move(part));
+    out.partsRefWidth = qMax(1.0, boxWidth);
+    out.partsRefHeight = qMax(1.0, boxHeight);
+    return out;
+}
+
+QJsonObject shapePartToJson(const ShapePart &part)
+{
+    QJsonObject o{
+        {QStringLiteral("id"), part.id},
+        {QStringLiteral("name"), part.name},
+    };
+    if (!part.visible)
+        o.insert(QStringLiteral("visible"), false);
+    if (part.blend != BlendMode::Normal)
+        o.insert(QStringLiteral("blend"), blendModeToString(part.blend));
+    const QJsonObject transform = partTransformToJson(part.transform);
+    if (!transform.isEmpty())
+        o.insert(QStringLiteral("transform"), transform);
+    if (part.group) {
+        o.insert(QStringLiteral("group"), true);
+        QJsonArray children;
+        for (const ShapePart &child : part.children)
+            children.append(shapePartToJson(child));
+        o.insert(QStringLiteral("children"), children);
+    } else {
+        o.insert(QStringLiteral("width"), part.width);
+        o.insert(QStringLiteral("height"), part.height);
+        o.insert(QStringLiteral("shape"), shapeStyleToJson(part.shape));
+    }
+    QJsonObject keyframesJson;
+    for (auto it = part.keyframes.constBegin(); it != part.keyframes.constEnd(); ++it) {
+        if (!it->isEmpty())
+            keyframesJson.insert(it.key(), keyframesToJson(it.value()));
+    }
+    if (!keyframesJson.isEmpty())
+        o.insert(QStringLiteral("keyframes"), keyframesJson);
+    return o;
+}
+
+ShapePart shapePartFromJson(const QJsonObject &o)
+{
+    ShapePart part;
+    part.id = o.value(QStringLiteral("id")).toString();
+    part.name = o.value(QStringLiteral("name")).toString();
+    part.visible = o.value(QStringLiteral("visible")).toBool(true);
+    part.blend = blendModeFromString(o.value(QStringLiteral("blend")).toString());
+    const QJsonObject transform = o.value(QStringLiteral("transform")).toObject();
+    for (const PartField &f : kPartFields) {
+        if (transform.contains(QLatin1String(f.key)))
+            part.transform.*(f.field) = qBound(f.min, transform.value(QLatin1String(f.key)).toDouble(), f.max);
+    }
+    part.group = o.value(QStringLiteral("group")).toBool(false);
+    if (part.group) {
+        for (const QJsonValue &v : o.value(QStringLiteral("children")).toArray())
+            part.children.push_back(shapePartFromJson(v.toObject()));
+    } else {
+        part.width = qBound(0.0, o.value(QStringLiteral("width")).toDouble(100.0), 100000.0);
+        part.height = qBound(0.0, o.value(QStringLiteral("height")).toDouble(100.0), 100000.0);
+        part.shape = shapeStyleFromJson(o.value(QStringLiteral("shape")).toObject());
+        part.shape.parts.clear(); // a part is one shape; groups hold the nesting
+    }
+    const QJsonObject keyframesJson = o.value(QStringLiteral("keyframes")).toObject();
+    const QStringList fields = shapePartKeyframeFields(part);
+    for (auto it = keyframesJson.constBegin(); it != keyframesJson.constEnd(); ++it) {
+        if (fields.contains(it.key()))
+            part.keyframes.insert(it.key(), keyframesFromJson(it.value().toObject()));
+    }
+    return part;
 }
 
 } // namespace drift

@@ -600,27 +600,179 @@ double shapeBleedFor(const ShapeStyle &style)
     return widest + 2.0;
 }
 
-ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
+namespace {
+
+// The margin a plain shape of w × h canvas px needs around its box for its strokes, shadows and
+// operators.
+double painterBleed(const ShapeStyle &style, int w, int h, double renderScale)
 {
-    ShapePainterResult result;
-    const int w = qMax(1, qRound(request.layoutRect.width()));
-    const int h = qMax(1, qRound(request.layoutRect.height()));
     // A wiggle pushes the outline out by its size; the repeater's copies can land well outside the
     // box, capped so a runaway repeater cannot ask for a texture the GPU will not hold.
-    double operators = (request.style.wiggleSize + qMax(0.0, request.style.offsetPath) + request.style.zigzagSize)
-                           * request.renderScale
-                       + qMin(4096.0, repeaterReach(request.style, w, h, request.renderScale));
+    double operators = (style.wiggleSize + qMax(0.0, style.offsetPath) + style.zigzagSize) * renderScale
+                       + qMin(4096.0, repeaterReach(style, w, h, renderScale));
     // A custom outline edited past its box (a vertex or handle dragged out, a morph between keys)
     // is still drawn whole.
-    if (request.style.kind == ShapeKind::Custom) {
-        const QRectF b = pathContoursBounds(pathContoursFromSvg(request.style.customPath));
+    if (style.kind == ShapeKind::Custom) {
+        const QRectF b = pathContoursBounds(pathContoursFromSvg(style.customPath));
         if (!b.isNull()) {
             const double over = qMax(qMax(-b.left() * w, (b.right() - 100.0) * w),
                                      qMax(-b.top() * h, (b.bottom() - 100.0) * h)) / 100.0;
             operators += qMin(4096.0, qMax(0.0, over));
         }
     }
-    const double bleed = std::ceil(shapeBleedFor(request.style) * request.renderScale + operators);
+    return std::ceil(shapeBleedFor(style) * renderScale + operators);
+}
+
+// After Effects' «Transform: Group» as a matrix, part units in, parent units out: anchor, scale,
+// skew along its axis, rotation, position.
+SkMatrix partMatrix(const ShapePartTransform &t)
+{
+    SkMatrix m = SkMatrix::Translate(float(t.x), float(t.y));
+    m.preRotate(float(t.rotation));
+    if (qAbs(t.skew) > 1e-6) {
+        // Positive skew leans the top to the right, as italic type.
+        m.preRotate(float(t.skewAxis));
+        m.preSkew(float(-std::tan(qDegreesToRadians(t.skew))), 0.0f);
+        m.preRotate(float(-t.skewAxis));
+    }
+    m.preScale(float(t.scaleX / 100.0), float(t.scaleY / 100.0));
+    m.preTranslate(float(-t.anchorX), float(-t.anchorY));
+    return m;
+}
+
+// One part, placed: a shape part's own painter and where its image lands, or a group's children.
+struct PartNode
+{
+    bool group = false;
+    float alpha = 1.0f;
+    SkBlendMode blend = SkBlendMode::kSrcOver;
+    std::shared_ptr<const ShapePainter> painter;
+    SkMatrix toCanvas; // the painter's image px into the layer's canvas px
+    std::vector<PartNode> children; // top first, as the parts
+};
+
+void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent, double timeSec,
+                    std::vector<PartNode> &out, SkRect &bounds)
+{
+    for (const ShapePart &part : parts) {
+        if (!part.visible || part.transform.opacity <= 0.0)
+            continue;
+        PartNode node;
+        node.group = part.group;
+        node.alpha = float(qBound(0.0, part.transform.opacity / 100.0, 1.0));
+        node.blend = toSkBlendMode(part.blend);
+        SkMatrix m = parent;
+        m.preConcat(partMatrix(part.transform));
+        if (part.group) {
+            buildPartNodes(part.children, m, timeSec, node.children, bounds);
+            if (node.children.empty())
+                continue;
+            out.push_back(std::move(node));
+            continue;
+        }
+        if (part.width <= 0.0 || part.height <= 0.0)
+            continue;
+        // Drawn at the scale it lands at, so strokes and edges stay sharp however far it is scaled.
+        const double det = std::abs(double(m.getScaleX()) * m.getScaleY() - double(m.getSkewX()) * m.getSkewY());
+        const double r = qBound(0.01, std::sqrt(det), 64.0);
+        const int pw = qBound(1, qRound(part.width * r), 16384);
+        const int ph = qBound(1, qRound(part.height * r), 16384);
+        ShapeStyle shape = part.shape;
+        shape.parts.clear();
+        const double bleed = painterBleed(shape, pw, ph, r);
+        node.painter = std::make_shared<ShapePainter>(shape, pw, ph, r, timeSec, bleed);
+        node.toCanvas = m;
+        node.toCanvas.preTranslate(float(-part.width / 2.0), float(-part.height / 2.0));
+        node.toCanvas.preScale(float(part.width / pw), float(part.height / ph));
+        node.toCanvas.preTranslate(float(-bleed), float(-bleed));
+        const QSize size = node.painter->size();
+        bounds.join(node.toCanvas.mapRect(SkRect::MakeWH(float(size.width()), float(size.height()))));
+        out.push_back(std::move(node));
+    }
+}
+
+void paintPartNodes(SkCanvas &canvas, const std::vector<PartNode> &nodes)
+{
+    // The bottom part first, so the first one in the list ends on top.
+    for (auto it = nodes.rbegin(); it != nodes.rend(); ++it) {
+        const PartNode &node = *it;
+        const bool layered = node.alpha < 1.0f || node.blend != SkBlendMode::kSrcOver;
+        canvas.save();
+        if (layered) {
+            SkPaint paint;
+            paint.setAlphaf(node.alpha);
+            paint.setBlendMode(node.blend);
+            canvas.saveLayer(nullptr, &paint);
+        }
+        if (node.group) {
+            paintPartNodes(canvas, node.children);
+        } else {
+            canvas.concat(node.toCanvas);
+            node.painter->paint(canvas);
+        }
+        if (layered)
+            canvas.restore();
+        canvas.restore();
+    }
+}
+
+// A layer of parts (0.28): each part drawn by its own ShapePainter, placed by its transform and
+// its groups' within the layer's box.
+class ContentsPainter final : public VectorPainter
+{
+public:
+    ContentsPainter(const ShapeStyle &style, int width, int height, double renderScale, double timeSec)
+    {
+        const double refW = style.partsRefWidth > 0.0 ? style.partsRefWidth : width / qMax(renderScale, 1e-6);
+        const double refH = style.partsRefHeight > 0.0 ? style.partsRefHeight : height / qMax(renderScale, 1e-6);
+        SkMatrix layer = SkMatrix::Translate(float(width / 2.0), float(height / 2.0));
+        layer.preScale(float(width / refW), float(height / refH));
+        SkRect bounds = SkRect::MakeEmpty();
+        buildPartNodes(style.parts, layer, timeSec, m_nodes, bounds);
+        if (bounds.isEmpty())
+            bounds = SkRect::MakeWH(float(width), float(height));
+        // Capped so a part flung far away cannot ask for a texture the GPU will not hold.
+        if (!bounds.intersect(SkRect::MakeLTRB(-8192.0f, -8192.0f, float(width) + 8192.0f, float(height) + 8192.0f)))
+            bounds = SkRect::MakeWH(float(width), float(height));
+        m_origin = QPointF(std::floor(bounds.left()), std::floor(bounds.top()));
+        m_size = QSize(qMax(1, int(std::ceil(bounds.right() - m_origin.x()))),
+                       qMax(1, int(std::ceil(bounds.bottom() - m_origin.y()))));
+        const bool cacheable = !style.isAnimated() && !shapeTimeDrivenPaint(style);
+        m_key = cacheable ? (qHashMulti(shapeStyleHash(style), width, height, qRound(renderScale * 1000.0), 28) | 1) : 0;
+    }
+
+    QSize size() const override { return m_size; }
+    quint64 cacheKey() const override { return m_key; }
+    QPointF origin() const { return m_origin; }
+
+    void paint(SkCanvas &canvas) const override
+    {
+        canvas.translate(float(-m_origin.x()), float(-m_origin.y()));
+        paintPartNodes(canvas, m_nodes);
+    }
+
+private:
+    std::vector<PartNode> m_nodes;
+    QPointF m_origin;
+    QSize m_size;
+    quint64 m_key = 0;
+};
+
+} // namespace
+
+ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
+{
+    ShapePainterResult result;
+    const int w = qMax(1, qRound(request.layoutRect.width()));
+    const int h = qMax(1, qRound(request.layoutRect.height()));
+    if (request.style.hasParts()) {
+        auto painter = std::make_shared<ContentsPainter>(request.style, w, h, request.renderScale, request.timeSec);
+        result.rect = QRectF(request.layoutRect.x() + painter->origin().x(), request.layoutRect.y() + painter->origin().y(),
+                             painter->size().width(), painter->size().height());
+        result.painter = std::move(painter);
+        return result;
+    }
+    const double bleed = painterBleed(request.style, w, h, request.renderScale);
     auto painter = std::make_shared<ShapePainter>(request.style, w, h, request.renderScale, request.timeSec, bleed);
     result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, painter->size().width(),
                          painter->size().height());

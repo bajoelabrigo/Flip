@@ -295,6 +295,10 @@ private slots:
     void shapeShadowOffsetsSilhouette();
     void keyframedShapeStrokeGrowsOverTime();
     void shapeTrimPathsDrawsPartOfTheOutline();
+    void shapeWithOnePartDrawsTheSame_data();
+    void shapeWithOnePartDrawsTheSame();
+    void shapePartsStackMoveAndGroup();
+    void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
     void shapeWigglePathsMovesTheOutline();
     void compositorDrawsShapeThroughSkia();
@@ -625,6 +629,188 @@ void SkiaTest::shapeTrimPathsDrawsPartOfTheOutline()
     QCOMPARE(back.trimOffset, 180.0);
     // A shape without operators saves none of their keys.
     QVERIFY(!shapeStyleToJson(shapeStyleWith(ShapeKind::Rectangle, Qt::red)).contains(QStringLiteral("trimEnd")));
+}
+
+namespace {
+
+// A painter's image put where its rect says, on a transparent canvas offset by (pad, pad).
+QImage placed(const skia::ShapePainterResult &painted, int canvasW, int canvasH, int pad)
+{
+    QImage canvas(canvasW, canvasH, QImage::Format_ARGB32_Premultiplied);
+    canvas.fill(Qt::transparent);
+    QPainter p(&canvas);
+    p.drawImage(QPointF(painted.rect.x() + pad, painted.rect.y() + pad), skia::SkiaRuntime::rasterize(*painted.painter));
+    p.end();
+    return canvas;
+}
+
+int maxChannelDifference(const QImage &a, const QImage &b)
+{
+    int worst = 0;
+    for (int y = 0; y < a.height(); ++y) {
+        const QRgb *ra = reinterpret_cast<const QRgb *>(a.constScanLine(y));
+        const QRgb *rb = reinterpret_cast<const QRgb *>(b.constScanLine(y));
+        for (int x = 0; x < a.width(); ++x) {
+            worst = qMax(worst, qAbs(qRed(ra[x]) - qRed(rb[x])));
+            worst = qMax(worst, qAbs(qGreen(ra[x]) - qGreen(rb[x])));
+            worst = qMax(worst, qAbs(qBlue(ra[x]) - qBlue(rb[x])));
+            worst = qMax(worst, qAbs(qAlpha(ra[x]) - qAlpha(rb[x])));
+        }
+    }
+    return worst;
+}
+
+QColor pixelAt(const QImage &image, int x, int y)
+{
+    return QColor::fromRgba(image.convertToFormat(QImage::Format_ARGB32).pixel(x, y));
+}
+
+// A plain red or blue rectangle part, no stroke, centred at (x, y) in the layer.
+ShapePart rectPart(const QString &id, const QColor &colour, double w, double h, double x = 0.0, double y = 0.0)
+{
+    ShapePart part;
+    part.id = id;
+    part.name = id;
+    part.width = w;
+    part.height = h;
+    part.shape = shapeStyleWith(ShapeKind::Rectangle, colour, 0.0);
+    part.transform.x = x;
+    part.transform.y = y;
+    return part;
+}
+
+} // namespace
+
+// Contents (0.28): a plain shape turned into a layer with one part draws the same pixels, so the
+// templates in Stock and every saved project look exactly as before once a part is added.
+void SkiaTest::shapeWithOnePartDrawsTheSame_data()
+{
+    QTest::addColumn<QString>("variant");
+    for (const char *v : {"rect-stroke", "star-shadow", "ellipse-gradient", "custom-trim", "repeater"})
+        QTest::newRow(v) << QString::fromLatin1(v);
+}
+
+void SkiaTest::shapeWithOnePartDrawsTheSame()
+{
+    QFETCH(QString, variant);
+    ShapeStyle style = shapeStyleWith(ShapeKind::Rectangle, QColor(220, 40, 40), 6.0);
+    if (variant == QLatin1String("star-shadow")) {
+        style.kind = ShapeKind::Star;
+        style.layers.prepend(shadowLayer(Qt::black, 6.0, 6.0, 8.0, 0.8));
+    } else if (variant == QLatin1String("ellipse-gradient")) {
+        style.kind = ShapeKind::Ellipse;
+        style.layers[0].paint.kind = TextPaintKind::Gradient;
+    } else if (variant == QLatin1String("custom-trim")) {
+        style.kind = ShapeKind::Custom;
+        style.customPath = QStringLiteral("M 0 0 L 100 20 L 60 100 Z");
+        style.trimEnd = 70.0;
+    } else if (variant == QLatin1String("repeater")) {
+        style.repeatCopies = 3.0;
+        style.repeatX = 40.0;
+    }
+    const int w = 150;
+    const int h = 110;
+    const double scale = 0.8;
+    const ShapeStyle parts = shapeWithParts(style, w / scale, h / scale, QStringLiteral("Forma 1"));
+    QVERIFY(parts.hasParts());
+    const QImage before = placed(skia::makeShapePainter(style, w, h, scale), 600, 600, 200);
+    const QImage after = placed(skia::makeShapePainter(parts, w, h, scale), 600, 600, 200);
+    QVERIFY(massInside(before, before.rect()) > 100);
+    const int diff = maxChannelDifference(before, after);
+    QVERIFY2(diff <= 3, qPrintable(QStringLiteral("max channel difference %1").arg(diff)));
+}
+
+// Parts stack as After Effects lists them (the first on top), move by their own position, fade
+// by their opacity, and a group turns its parts together.
+void SkiaTest::shapePartsStackMoveAndGroup()
+{
+    ShapeStyle style;
+    style.layers.clear();
+    style.partsRefWidth = 200.0;
+    style.partsRefHeight = 200.0;
+    style.parts.push_back(rectPart(QStringLiteral("p1"), Qt::red, 100.0, 100.0, 20.0, 0.0));  // top
+    style.parts.push_back(rectPart(QStringLiteral("p2"), Qt::blue, 100.0, 100.0, -20.0, 0.0)); // under
+    const skia::ShapePainterResult painted = skia::makeShapePainter(style, 200, 200, 1.0);
+    const QImage image = placed(painted, 400, 400, 100);
+    // Layer centre is (100, 100) + pad; the overlap of the two is around x = 100.
+    QCOMPARE(pixelAt(image, 200, 200).red(), 255);
+    QCOMPARE(pixelAt(image, 200, 200).blue(), 0);
+    QCOMPARE(pixelAt(image, 200 - 60, 200).blue(), 255); // only the blue one reaches there
+    QCOMPARE(pixelAt(image, 200 + 60, 200).red(), 255);
+
+    // Half opacity on the top part lets the blue through where they overlap.
+    style.parts[0].transform.opacity = 50.0;
+    const QImage faded = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    const QColor mix = pixelAt(faded, 200, 200);
+    QVERIFY2(mix.red() > 90 && mix.blue() > 90, qPrintable(mix.name()));
+
+    // A group of one wide part, turned 90°: the ink stands tall.
+    ShapeStyle grouped;
+    grouped.layers.clear();
+    grouped.partsRefWidth = 200.0;
+    grouped.partsRefHeight = 200.0;
+    ShapePart group;
+    group.id = QStringLiteral("g1");
+    group.group = true;
+    group.transform.rotation = 90.0;
+    group.children.push_back(rectPart(QStringLiteral("p3"), Qt::red, 160.0, 40.0));
+    grouped.parts.push_back(group);
+    const QImage tall = placed(skia::makeShapePainter(grouped, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(tall, 200, 200 + 70).red(), 255); // down the middle
+    QCOMPARE(pixelAt(tall, 200 + 70, 200).alpha(), 0);  // not along the old width
+
+    // A hidden part draws nothing.
+    grouped.parts[0].visible = false;
+    const QImage hidden = placed(skia::makeShapePainter(grouped, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(massInside(hidden, hidden.rect()), 0.0);
+}
+
+// Parts and their keys survive a save, their own keys animate them, and the layer counts as
+// animated when only a part is.
+void SkiaTest::shapePartsSaveAndAnimate()
+{
+    ShapeStyle style = shapeWithParts(shapeStyleWith(ShapeKind::Ellipse, Qt::red, 4.0), 300.0, 200.0,
+                                      QStringLiteral("Elipse 1"));
+    QCOMPARE(style.parts.size(), size_t(1));
+    QCOMPARE(style.parts[0].id, QStringLiteral("p1"));
+    QCOMPARE(mintShapePartId(style), QStringLiteral("p2"));
+    ShapePart group;
+    group.id = mintShapePartId(style);
+    group.name = QStringLiteral("Grupo 1");
+    group.group = true;
+    group.blend = BlendMode::Screen;
+    group.transform.skew = 15.0;
+    group.children.push_back(rectPart(QStringLiteral("p3"), Qt::blue, 50.0, 60.0, 10.0, -5.0));
+    style.parts.insert(style.parts.begin(), group);
+    QVERIFY(!style.isAnimated());
+
+    KeyframeTrack<double> x;
+    x.setKeyframe(0, 0.0);
+    x.setKeyframe(1000000, 100.0);
+    findShapePart(style.parts, QStringLiteral("p3"))->keyframes.insert(QStringLiteral("x"), x);
+    QVERIFY(style.isAnimated());
+    const ShapeStyle mid = style.resolvedAt(500000);
+    const ShapePart *moved = findShapePart(mid.parts, QStringLiteral("p3"));
+    QVERIFY(moved);
+    QVERIFY(qAbs(moved->transform.x - 50.0) < 25.0 && moved->transform.x > 1.0);
+
+    const ShapeStyle back = shapeStyleFromJson(shapeStyleToJson(style));
+    QCOMPARE(back.parts.size(), size_t(2));
+    QCOMPARE(back.partsRefWidth, 300.0);
+    QCOMPARE(back.parts[0].name, QStringLiteral("Grupo 1"));
+    QVERIFY(back.parts[0].group);
+    QCOMPARE(back.parts[0].blend, BlendMode::Screen);
+    QCOMPARE(back.parts[0].transform.skew, 15.0);
+    const ShapePart *inner = findShapePart(back.parts, QStringLiteral("p3"));
+    QVERIFY(inner);
+    QCOMPARE(inner->width, 50.0);
+    QCOMPARE(inner->transform.y, -5.0);
+    QVERIFY(inner->keyframes.contains(QStringLiteral("x")));
+    QCOMPARE(back.parts[1].shape.kind, ShapeKind::Ellipse);
+    // Saving again gives the same layer (the parts are all there, in the same order).
+    QCOMPARE(shapeStyleHash(shapeStyleFromJson(shapeStyleToJson(back))), shapeStyleHash(back));
+    // A plain shape still saves without any of it.
+    QVERIFY(!shapeStyleToJson(shapeStyleWith(ShapeKind::Rectangle, Qt::red)).contains(QStringLiteral("parts")));
 }
 
 // The repeater (0.26): three copies 120 px apart widen the painter and triple the ink, and the

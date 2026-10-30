@@ -1,5 +1,6 @@
 #pragma once
 
+#include "BlendMode.h"
 #include "Keyframe.h"
 #include "TextShading.h"
 #include "Time.h"
@@ -10,6 +11,8 @@
 #include <QMap>
 #include <QString>
 #include <QStringList>
+
+#include <vector>
 
 namespace drift {
 
@@ -60,6 +63,8 @@ ShapeKind shapeKindFromString(const QString &kind);
 // of 0 leaves the stroke layer disabled.
 QList<TextShadingLayer> defaultShapeLayers(const QColor &fill, const QColor &fillDeep = QColor(),
                                            const QColor &stroke = Qt::white, double strokeWidth = 4.0);
+
+struct ShapePart;
 
 struct ShapeStyle
 {
@@ -131,6 +136,17 @@ struct ShapeStyle
     // replaces its entry.
     QStringList pathShapes;
 
+    // After Effects' Contents (0.28): the layer is made of parts, each a whole shape of its own
+    // (outline, fills, strokes, operators, keys) placed by its own transform, or a group of parts.
+    // parts[0] is the top one, as AE lists them. Empty = a plain shape, drawn from the fields above
+    // exactly as before. Parts are laid out in project px about the centre of a box
+    // partsRefWidth × partsRefHeight; the layer's box stretches that box, so the clip's Scale and
+    // size still scale the whole layer.
+    std::vector<ShapePart> parts;
+    double partsRefWidth = 0.0;
+    double partsRefHeight = 0.0;
+    bool hasParts() const { return !parts.empty(); }
+
     bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0 || qRound(trimSegments) > 1 || trimReverse > 0.5; }
     bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
     bool hasWiggle() const { return wiggleSize > 0.0; }
@@ -150,6 +166,63 @@ struct ShapeStyle
     void setSolidFill(const QColor &color);
     void setStroke(double width, const QColor &color = Qt::white);
 };
+
+// After Effects' «Transform: Group» of a part (0.28): anchor, position (project px, about the
+// layer's centre or the parent group's origin), scale (percent), skew (degrees, along skewAxis
+// degrees), rotation (degrees) and opacity (percent). Applied as AE does: anchor, scale, skew,
+// rotation, position.
+struct ShapePartTransform
+{
+    double anchorX = 0.0;
+    double anchorY = 0.0;
+    double x = 0.0;
+    double y = 0.0;
+    double scaleX = 100.0;
+    double scaleY = 100.0;
+    double skew = 0.0;
+    double skewAxis = 0.0;
+    double rotation = 0.0;
+    double opacity = 100.0;
+};
+
+struct ShapePart
+{
+    QString id;   // stable, unique in the layer ("p1", "p2"…): keys and the selection use it
+    QString name; // what the person sees («Rectángulo 1»)
+    bool visible = true;
+    BlendMode blend = BlendMode::Normal;
+    bool group = false;
+    // A shape part: its outline fills width × height (project px) centred on its origin, drawn by
+    // `shape` exactly as a plain shape layer of that size would be. A group: `children` instead.
+    double width = 100.0;
+    double height = 100.0;
+    ShapeStyle shape;
+    std::vector<ShapePart> children;
+    ShapePartTransform transform;
+    // The part's own keys: transform and size fields (shapePartKeyframeFields()). The shape's
+    // keys live in shape.keyframes.
+    QMap<QString, KeyframeTrack<double>> keyframes;
+
+    bool isAnimated() const;
+    ShapePart resolvedAt(TimeUs clipTimeUs) const;
+};
+
+// The part keys: anchorX, anchorY, x, y, scaleX, scaleY, skew, skewAxis, rotation, opacity, width,
+// height (the last two on shape parts only).
+QStringList shapePartKeyframeFields(const ShapePart &part);
+bool shapePartScalar(const ShapePart &part, const QString &field, double *out);
+bool setShapePartScalar(ShapePart &part, const QString &field, double value);
+// Depth-first, top part first.
+ShapePart *findShapePart(std::vector<ShapePart> &parts, const QString &id);
+const ShapePart *findShapePart(const std::vector<ShapePart> &parts, const QString &id);
+// A fresh id no part of the layer uses yet.
+QString mintShapePartId(const ShapeStyle &style);
+// A plain shape turned into a layer with one part that draws the same: the part is the old shape
+// (its keys included) at the layer's box size `boxWidth` × `boxHeight` (project px), the
+// reference box is that box. A layer that already has parts comes back unchanged.
+ShapeStyle shapeWithParts(const ShapeStyle &style, double boxWidth, double boxHeight, const QString &partName);
+QJsonObject shapePartToJson(const ShapePart &part);
+ShapePart shapePartFromJson(const QJsonObject &o);
 
 QStringList shapeKeyframeProperties(const ShapeStyle &style);
 // The stored key for a property name, or empty when the style has no such scalar.
