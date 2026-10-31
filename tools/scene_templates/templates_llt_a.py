@@ -328,4 +328,112 @@ def charlotte():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte]
+# Jason Etheridge, measured frame by frame (25 fps, from 26.2 s): the logo's centre (its bounding box) and its tilt
+# (degrees, 0 at rest), the name's shift to its resting place, the underline's left end, and on the way out the
+# edge rising from the underline that cuts the logo and the name from below.
+_JE_LOGO = {4: (1554, 835, 0.55, -10.0), 5: (1550, 790, 0.95, -11.0), 6: (1552, 774, 1, -12.2),
+            7: (1554, 763, 1, -17.5), 8: (1553, 758, 1, -20.2), 9: (1547, 756, 1, -21.4), 10: (1536, 756, 1, -20.8),
+            11: (1520, 757, 1, -19.9), 12: (1499, 760, 1, -19.0), 13: (1471, 763, 1, -17.5), 14: (1437, 767, 1, -15.1),
+            15: (1395, 772, 1, -12.2), 16: (1345, 778, 1, -8.8), 17: (1284, 784, 1, -4.8), 18: (1210, 790, 1, 3.3),
+            19: (1126, 791, 1, 6.0), 20: (1029, 792, 1, 7.5), 21: (920, 794, 1, 8.0), 22: (807, 795, 1, 8.0),
+            23: (717, 795, 1, 7.6), 24: (630, 796, 1, 7.2), 25: (554, 797, 1, 6.9), 26: (494, 798, 1, 6.6),
+            27: (450, 796, 1, 4.6), 28: (418, 795, 1, 3.0), 29: (398, 793, 1, 2.0), 30: (387.5, 793, 1, 1.5),
+            31: (385, 793, 1, 1.2), 32: (386, 792.5, 1, 0.7), 33: (386.3, 792, 1, 0.2), 35: (386.5, 791.5, 1, 0.0)}
+_JE_NAME_DX = {18: -330.0, 20: -262.0, 22: -201.0, 24: -149.0, 26: -109.0, 28: -78.0, 30: -54.0, 32: -35.0, 34: -22.0,
+               36: -12.0, 38: -6.0, 40: -1.0, 42: 0.0}
+_JE_LINE_LEFT = {17: 1455.0, 19: 1356.0, 20: 1234.0, 21: 904.0, 22: 782.0, 23: 708.0, 25: 690.0, 26: 677.0, 27: 622.0,
+                 28: 594.0, 29: 576.0, 30: 560.0, 33: 534.0, 40: 514.0}
+_JE_CUT = {97: 896.0, 98: 876.0, 99: 855.0, 100: 832.0, 101: 803.0, 102: 773.0, 103: 752.0, 104: 737.0, 105: 726.0,
+           106: 717.0, 107: 710.0, 108: 704.0, 109: 699.0, 110: 695.0, 111: 692.0}
+_JE_LINE_Y = {96: 892.0, 97: 889.0, 98: 884.0, 99: 873.0, 100: 852.0, 101: 813.0}
+_JE_RISE = {93: 0.0, 94: -1.4, 95: -3.4, 96: -6.4, 97: -11.0}
+
+
+def _table(points, before, after):
+    """u-frame -> value, linear between the measured frames; `before`/`after` outside them."""
+    fs = sorted(points)
+
+    def f(i):
+        if i < fs[0]:
+            return before
+        if i >= fs[-1]:
+            return points[fs[-1]] if after is None else after
+        for a, b in zip(fs, fs[1:]):
+            if i <= b:
+                va, vb = points[a], points[b]
+                k = (i - a) / (b - a)
+                if isinstance(va, tuple):
+                    return tuple(x + (y - x) * k for x, y in zip(va, vb))
+                return va + (vb - va) * k
+        return points[fs[-1]]
+    return f
+
+
+def jason_e():
+    """The logo pops up at the right and rolls left along an arc, rocking; the name shows from behind its right edge,
+    sliding right into place, and the underline runs left after it. Out, an edge rises from the underline and takes
+    the name and the logo from the bottom up."""
+    fps, first, last = 25.0, 4, 111
+    D = round((last - first + 2) / fps, 2)
+    t = _kit("jason-e", "Tercio con logo: logo que rueda y destapa el nombre", "Logo lower third: rolling logo reveals the name",
+             D, 8534, ["nombre", "subrayado", "logo"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    logo = _table(_JE_LOGO, (1554, 835, 0.0, -10.0), None)
+    rise = _table(_JE_RISE, 0.0, -11.0)
+    cut = _table(_JE_CUT, 2000.0, 692.0)
+    name_dx = _table(_JE_NAME_DX, -400.0, 0.0)
+    line_left = _table(_JE_LINE_LEFT, 1456.0, 514.0)
+    line_y = _table(_JE_LINE_Y, 892.0, 813.0)
+    # The underline (4 px), and its rise on the way out; gone once it has climbed.
+    bar = Box(514, 600, 942, 300)
+    rect_track(t, t.track("shape", "Línea"), bar,
+               lambda u: (line_left(fr(u)), line_y(fr(u)), 1456, line_y(fr(u)) + 4) if 17 <= fr(u) <= 101
+               else (1456, 892, 1456, 892), D, RED, name="Línea")
+    # The name, shifted into place and shown right of the logo's right edge, above the rising edge.
+    name = "JASON ETHERIDGE"
+    nbox, nsize = caps_box(536, 735, 859, name, weight=300)
+    motion = [(u, {"dx": name_dx(fr(u))}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, weight=300, spacing=-3.9, word_spacing=6, motion=motion)
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in us:
+        f = fr(u)
+        left = logo(f)[0] + 79 if f <= 34 else 0.0
+        x0, y0, x1, y1 = left, 600, 1500, min(892.0, cut(f))
+        dx = name_dx(f)
+        mk["x"].append((u, ((x0 + x1) / 2 - nbox.x - dx) / nbox.w, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - nbox.y) / nbox.h, "linear"))
+        mk["w"].append((u, max(0.0, x1 - x0) / nbox.w, "linear"))
+        mk["h"].append((u, max(0.0, y1 - y0) / nbox.h, "linear"))
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    # The logo: its slot sized like the reference's (157 × 175), moved, scaled and turned every frame.
+    side = 180.0
+    lg = centered(386.5, 791.5, side, side)
+    motion, rot = [], []
+    for u in us:
+        cx, cy, s, a = logo(fr(u))
+        motion.append((u, {"s": s, "dx": cx - lg.cx, "dy": cy - lg.cy + rise(fr(u))}, "linear"))
+        rot.append((u, a, "linear"))
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, motion, label="Tu logo", brandRole="logo",
+                   rotation=keys(rot))
+    track = next(tr for tr in t.tracks if mark in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in us:  # the rising edge, in the logo's own box (it only moves up a little by then, and does not turn)
+        f = fr(u)
+        cx, cy, s, a = logo(f)
+        top = cy + rise(f) - side / 2
+        y1 = min(cut(f), top + side + 40)
+        mk["x"].append((u, 0.5, "linear"))
+        mk["y"].append((u, ((top - 40 + y1) / 2 - top) / side, "linear"))
+        mk["w"].append((u, 2.0, "linear"))
+        mk["h"].append((u, max(0.0, y1 - (top - 40)) / side, "linear"))
+    t.mask(track, mark, "rectangle", x=0.5, y=mk["y"][0][1], w=2.0, h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e]
