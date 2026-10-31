@@ -59,8 +59,8 @@ def flame(colour: str, px: int) -> Image.Image:
 
 def mark(i: int) -> Image.Image:
     """The flame as a logo (Jorge, 2026-10-31: «el logo es el del fuego de los usuarios premium»): 9 red, 10 white,
-    11 green, 14 orange, square and tight; 12 white and 13 red with the name beside it."""
-    colour = {9: "#FB3B3A", 10: "#FFFFFF", 11: "#70AC1B", 12: "#FFFFFF", 13: "#FB3B3A", 14: "#F97316"}[i]
+    11 green, 14 orange, 15 black, square and tight; 12 white and 13 red with the name beside it."""
+    colour = {9: "#FB3B3A", 10: "#FFFFFF", 11: "#70AC1B", 12: "#FFFFFF", 13: "#FB3B3A", 14: "#F97316", 15: "#1A1A1A"}[i]
     if i in (12, 13):
         f = flame(colour, 200)
         im = Image.new("RGBA", (1200 * S // 4, 300), (0, 0, 0, 0))
@@ -121,9 +121,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=OUT)
     args = ap.parse_args()
-    for i in range(1, 15):
+    for i in range(1, 16):
         (logo(i) if i <= 8 else mark(i)).save(args.out / f"logo-{i:02d}.png")
-    print("14 logos ->", args.out)
+    print("15 logos ->", args.out)
     return 0
 
 

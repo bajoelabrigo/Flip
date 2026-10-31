@@ -7,6 +7,7 @@ logo»), shown with the app's premium flame as the sample (logo-09…14, Jorge: 
 from __future__ import annotations
 
 import math
+from pathlib import Path
 
 from kit import Box, centered, label, photo_bg, wide
 from llt_motion import RED, WHITE, caps_box, duration, edge, effect_track, mask_track, name_text, rect_track, runs_at
@@ -1355,5 +1356,56 @@ def jason_f():
     return t
 
 
+def _row_runs(path):
+    """lt_ref/<name>_rows.txt: per frame the red and white runs on one row (frame -> (red runs, white runs))."""
+    import ast
+    import re
+    out = {}
+    for line in (Path(__file__).with_name("lt_ref") / path).read_text(encoding="utf-8").splitlines():
+        m = re.match(r"(\d+) red (\[.*?\]) white (\[.*\])", line)
+        if m:
+            out[int(m.group(1))] = (ast.literal_eval(m.group(2)), ast.literal_eval(m.group(3)))
+    return out
+
+
+def lucas():
+    """A red square trailing a white bar slides in from the right; the white shrinks into the square, then a red block
+    runs out to the right with the white opening behind it, uncovering the name. Out, backwards. Every edge is the
+    measured one on row 725 (lt_ref/lucas_rows.txt)."""
+    fps, first, last = 25.0, 2, 145
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("lucas", "Tercio con logo: bloque que corre y abre la barra", "Logo lower third: running block opens the bar",
+             D, 8547, ["nombre", "barra", "blanco", "rojo", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    rows = _row_runs("lucas_rows.txt")
+    fin = lambda u: (lambda i: i if i <= 73 else 146 - i)(first + u * fps)  # noqa: E731
+    sq, w1, r2 = {}, {}, {}
+    for f in range(0, 50):
+        reds, whites = rows.get(f, ([], []))
+        sq[f] = (reds[0][0], reds[0][1] + 1) if reds else (1446.0, 1446.0)
+        w1[f] = (whites[0][0], whites[-1][1] + 1) if whites else (sq[f][1], sq[f][1])
+        r2[f] = (reds[1][0], reds[1][1] + 1) if len(reds) > 1 else (w1[f][1], w1[f][1])
+    pick = lambda table, k: _table({f: v[k] for f, v in table.items()}, table[0][k], table[49][k])  # noqa: E731
+    sq0, sq1, w0, wr, ra, rb = pick(sq, 0), pick(sq, 1), pick(w1, 0), pick(w1, 1), pick(r2, 0), pick(r2, 1)
+    Y0, Y1 = 721.0, 880.0
+    area = Box(301, Y0, 1145, Y1 - Y0)
+    rect_track(t, t.track("shape", "Barra"), area, lambda u: (w0(fin(u)), Y0, wr(fin(u)), Y1), D, WHITE, name="Barra")
+    rect_track(t, t.track("shape", "Bloque"), area, lambda u: (ra(fin(u)), Y0, rb(fin(u)), Y1), D, RED, name="Bloque")
+    rect_track(t, t.track("shape", "Cuadro"), area, lambda u: (sq0(fin(u)), Y0, sq1(fin(u)), Y1), D, RED, name="Cuadro")
+    name = "LUCAS HEMMINGWAY"
+    nbox, nsize = caps_box(484, 749, 854, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="HEMMINGWAY", colour=RED, spacing=-4.0, bold_spacing=1.6,
+                     word_spacing=6)
+    # The name only once the block runs out (the white train before it is blank).
+    mask_track(t, clip, nbox, lambda u: (w0(fin(u)), Y0, wr(fin(u)), Y1) if fin(u) >= 28 else (0, 0, 0, 0), D)
+    # The logo stays put and shows wherever the square passes over it.
+    lg = Box(318, 730, 124, 133)
+    mark = t.photo(t.track("video", "Logo"), "logo-15", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mask_track(t, mark, lg, lambda u: (sq0(fin(u)), Y0, sq1(fin(u)), Y1), D)
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f]
+             lizzie, patricia, jim, jason_f, lucas]
