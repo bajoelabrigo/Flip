@@ -1078,4 +1078,62 @@ def charlie():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie]
+# Lizzie Winson, measured frame by frame (25 fps from 74.6 s; out = in backwards, frame 107 - f): a thin red line,
+# leaning at first, sweeps right; the logo and the name show left of it, the role slides along right of it.
+_LW_LINE = {0: 325.0, 1: 323.5, 2: 325.0, 3: 330.0, 4: 339.0, 5: 354.5, 6: 379.0, 7: 419.0, 8: 485.0, 9: 574.0,
+            10: 647.0, 11: 697.0, 12: 735.0, 13: 763.0, 14: 785.0, 15: 803.0, 16: 819.0, 17: 831.0, 18: 843.0,
+            19: 851.0, 20: 859.0, 21: 866.0, 22: 871.0, 23: 877.0, 24: 879.0, 25: 883.0, 26: 885.0, 27: 887.0,
+            30: 888.0}
+_LW_ROLE_R = {9: 648.0, 10: 834.0, 11: 965.0, 12: 1060.0, 13: 1133.0, 14: 1191.0, 15: 1238.0, 16: 1278.0,
+              17: 1310.0, 18: 1338.0, 19: 1362.0, 20: 1382.0, 21: 1398.0, 22: 1413.0, 23: 1424.0, 24: 1434.0,
+              25: 1442.0, 26: 1447.0, 27: 1452.0, 28: 1455.0, 29: 1457.0, 30: 1458.0}
+_LW_TILT = {0: 3.8, 1: 2.7, 2: 1.5, 3: 1.0, 4: 0.4, 5: 0.0}
+_LW_TOP = {0: 743.0, 1: 739.0, 2: 738.0}
+
+
+def lizzie():
+    """A thin red line, leaning at first, sweeps right: the logo and the name show left of it and the role slides
+    along right of it. Out, the line sweeps back and takes them."""
+    fps, first, last = 25.0, 0, 107
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("lizzie", "Tercio con logo: línea que barre", "Logo lower third: sweeping line", D, 8543,
+             ["nombre", "cargo", "línea", "logo"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i if i <= 53 else 107 - i)(first + u * fps)  # noqa: E731
+    L = _table(_LW_LINE, 325.0, 888.0)
+    R = _table({8: 300.0, **_LW_ROLE_R}, 300.0, 1458.0)
+    tilt = _table(_LW_TILT, 3.8, 0.0)
+    top = _table(_LW_TOP, 743.0, 738.0)
+    lb = Box(886.5, 738, 3, 152)
+    motion = [(u, {"dx": L(fin(u)) - 888, "sy": (890 - top(fin(u))) / 152, "dy": (top(fin(u)) - 738) / 2}, "linear")
+              for u in us]
+    line = t.solid(t.track("shape", "Línea"), RED, 0.0, D, lb, motion,
+                   rotation=keys([(u, tilt(fin(u)), "linear") for u in us]))
+    line["name"] = "Línea"
+    left_of = lambda u: (0, 600, L(fin(u)), 1000)  # noqa: E731
+    lg = Box(350, 772, 73, 92)
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mask_track(t, mark, lg, left_of, D)
+    name = "LIZZIE WINSON"
+    nbox, nsize = caps_box(449, 781, 851, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="WINSON", spacing=-3.2, bold_spacing=4.3, word_spacing=6)
+    mask_track(t, clip, nbox, left_of, D)
+    role = "ENVIRONMENTALIST"
+    rbox, rsize = caps_box(911, 781, 851, role)
+    motion = [(u, {"dx": R(fin(u)) - 1458}, "linear") for u in us]
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-1.8, motion=motion)
+    track = next(tr for tr in t.tracks if rclip in tr.clips)
+    mk = {"x": [], "w": []}
+    for u in us:
+        x0, dx = L(fin(u)) + 2, R(fin(u)) - 1458
+        mk["x"].append((u, ((x0 + 3000) / 2 - rbox.x - dx) / rbox.w, "linear"))
+        mk["w"].append((u, (3000 - x0) / rbox.w, "linear"))
+    t.mask(track, rclip, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
+             lizzie]
