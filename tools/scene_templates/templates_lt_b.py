@@ -38,6 +38,17 @@ def _measured(r, value, hidden, frames=None):
     return off
 
 
+def _bar_box(r, band, y, h, kind="warm"):
+    """mask(u): the measured run of `kind` in `band` at this frame, as a screen Box (empty when nothing shows)."""
+    def mask(u):
+        rs = _runs(r, u, band, kind)
+        if not rs:
+            return Box(960, y, 0, h)
+        lo, hi = min(a for a, b in rs), max(b for a, b in rs) + 1
+        return Box(lo, y, hi - lo, h)
+    return mask
+
+
 def _typing_backward(stagger, grow, delay):
     return typing(stagger=stagger, grow=grow, order="backward", delay=delay)
 
@@ -102,9 +113,14 @@ def andy():
         {"selectors": [{"driver": "stagger", "domain": "chars", "staggerUs": 70000, "durationUs": 180000,
                         "order": "forward", "ease": "easeOut"}], "props": {"position": {"x": 0, "y": 80, "unit": "px"}}}],
         "delayUs": 870000}
-    end = (148 - r.first) / FPS
-    clip = text(t, name, caps_box(box.x, 813.5, size, box.w), size, align="center", dur=end, anim_in=ty,
-                anim_out=out_of(ty), name="Nombre", mask=box)
+    # The name stays whole until the bar closes over it (frame 166): it leaves with the bar's mask, not by itself.
+    end = (166 - r.first) / FPS
+
+    def bar_now(u):
+        rs = _runs(r, u, "bar", "warm")
+        return Box(min(a for a, b in rs), box.y, max(b for a, b in rs) + 1 - min(a for a, b in rs), box.h) if rs else Box(960, box.y, 0, box.h)
+    track_text(t, name, caps_box(box.x, 813.5, size, box.w), size, lambda u: (0.0, 0.0), end, mask=bar_now,
+               align="center", anim_in=ty, name="Nombre")
     role = "MULTIMEDIA ANIMATOR"
     rsize = fit_size(role, 608, 800)
 
@@ -181,7 +197,7 @@ def morgan():
         return 0.0
     from scene import keys
     clip = track_text(t, sur, caps_box(box.x, 884.5, ssize, box.w), ssize, lambda u: (0.0, 0.0), D,
-                      mask=lambda u: box, align="center", name="Apellido")
+                      mask=_bar_box(r, "bar", box.y, box.h), align="center", name="Apellido")
     clip["textStyle"]["keyframes"] = {"letterSpacing": keys([(u, tracking(u), "linear") for u in
                                                               [k / FPS for k in range(int(D * FPS) + 1)]])}
     nsize = fit_size("MORGAN", 580, 800)
@@ -281,11 +297,11 @@ def ronald():
     box = Box(1045, 850, 775, 50)
     measured_bar(t, r, "box", box)
     size = fit_size("RONALD JOYCE", 989, 900)
-    ty = _typing_backward(0.073, 0.15, 0.2)
+    ty = _typing_backward(0.073, 0.15, 0.1)
     text(t, "RONALD JOYCE", caps_box(1820, 799.5, size, 1400, "right"), size, align="right", dur=D, anim_in=ty,
          anim_out=out_of(ty), name="Nombre")
     rsize = fit_size("CLIENT SERVICES MANAGER", 746, 800)
-    ty2 = _typing_backward(0.055, 0.15, 0.3)
+    ty2 = _typing_backward(0.055, 0.15, 0.2)
     text(t, "CLIENT SERVICES MANAGER", caps_box(1804, 875.5, rsize, 1200, "right"), rsize, align="right", weight=800,
          dur=D, anim_in=ty2, anim_out=out_of(ty2), name="Cargo")
     return t
@@ -301,11 +317,11 @@ def victoria():
     photo_bg(t, "h-portrait-06", s1=1.03, label="Tu video")
     measured_bar(t, r, "line", Box(800, 836, 1020, 16))
     size = fit_size("VICTORIA LUISE", 1020, 900)
-    ty = _typing_backward(0.06, 0.15, 0.15)
+    ty = _typing_backward(0.06, 0.15, 0.0)
     text(t, "VICTORIA LUISE", caps_box(1822, 786, size, 1400, "right"), size, align="right", dur=D, anim_in=ty,
          anim_out=out_of(ty), name="Nombre")
     rsize = fit_size("MULTIMEDIA ANIMATOR", 608, 800)
-    ty2 = _typing_backward(0.045, 0.15, 0.45)
+    ty2 = _typing_backward(0.045, 0.15, 0.3)
     text(t, "MULTIMEDIA ANIMATOR", caps_box(1821, 879.5, rsize, 1200, "right"), rsize, align="right", weight=800,
          dur=D, anim_in=ty2, anim_out=out_of(ty2), name="Cargo")
     return t
