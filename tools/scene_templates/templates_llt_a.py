@@ -9,9 +9,9 @@ from __future__ import annotations
 import math
 
 from kit import Box, centered, label, photo_bg, wide
-from llt_motion import RED, WHITE, caps_box, duration, edge, mask_track, name_text, rect_track, runs_at
+from llt_motion import RED, WHITE, caps_box, duration, edge, effect_track, mask_track, name_text, rect_track, runs_at
 from lt_motion import Ref
-from scene import keys
+from scene import effect, keys
 
 
 def _kit(id, es, en, dur, order, tags, **kw):
@@ -279,4 +279,53 @@ def jamie():
     return t
 
 
-TEMPLATES = [francois, roger, jamie]
+def charlotte():
+    """A red line under the name's top grows into a block that slides down into the bar under it; the name is white
+    above the block and cut out of it (the letters show the dark video through the red) while the block passes over
+    it. The wordmark rises into the bar from its bottom edge. The exit is the entrance backwards, as measured."""
+    r = Ref("charlotte")
+    D = duration(r)
+    t = _kit("charlotte", "Tercio con logo: nombre calado en la barra", "Logo lower third: name cut out of the bar", D,
+             8533, ["nombre", "barra", "rojo", "calado", "marca"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    top = edge(r, "bar", "warm", "min", before=589, after=589)
+    bottom = edge(r, "bar", "warm", "max", before=589, after=589)
+    x0, x1 = 308, 1416
+    bar = Box(x0, 560, x1 - x0, 340)
+    rect_track(t, t.track("shape", "Barra"), bar, lambda u: (x0, top(u), x1, bottom(u)), D, RED, name="Barra")
+    # One name over the bar: white above it, and over it in the dark of the video (the letters look cut out of the
+    # red) — a colour overlay scoped to the block by its own mask, so the name stays a single text to edit.
+    name = "CHARLOTTE EVANS"
+    nbox, nsize = caps_box(320, 673, 811, name)
+    clip = name_text(t, name, nbox, nsize, D, spacing=-2.0, word_spacing=9)
+    mask_track(t, clip, nbox, lambda u: (x0, 500, x1, bottom(u)), D)
+    effect_track(t, clip, nbox, lambda u: (x0, top(u), x1, bottom(u)), D,
+                 [effect("layer.color_overlay", color="#262222", opacity=1.0)])
+    fps = r.fps
+
+    def rise(u):
+        rs = runs_at(r, u, "wm", "white")
+        tops = [a for a, b in rs if a > 815]
+        f = r.first + u * fps
+        if tops and (f <= 32 or f >= 100):
+            return tops[0] - 835.0
+        return 0.0 if 32 < f < 100 else 60.0
+    from llt_motion import frames_of
+    wm_box = Box(325, 827, 312, 66)
+    motion = [(u, {"dy": rise(u)}, "linear") for u in frames_of(D)]
+    wm = t.photo(t.track("video", "Marca"), "logo-12", 0.0, D, wm_box, motion, label="Tu logo con nombre",
+                 brandRole="logo")
+    track = next(tr for tr in t.tracks if wm in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in frames_of(D):
+        y0, y1, dy = top(u), bottom(u), rise(u)
+        mk["x"].append((u, ((x0 + x1) / 2 - wm_box.x) / wm_box.w, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - wm_box.y - dy) / wm_box.h, "linear"))
+        mk["w"].append((u, (x1 - x0) / wm_box.w, "linear"))
+        mk["h"].append((u, max(0.0, y1 - y0) / wm_box.h, "linear"))
+    t.mask(track, wm, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte]

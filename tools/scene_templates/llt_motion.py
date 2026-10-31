@@ -150,3 +150,26 @@ def edge(ref: Ref, band: str, kind: str, side: str, before, after=None):
 def runs_at(ref: Ref, u: float, band: str, kind: str):
     f = frame_at(ref, u)
     return f[band][kind] if f else []
+
+
+def effect_track(t, clip, box: Box, rect, dur, effects, name="Calado"):
+    """An adjustment lane linked to `clip` (laid out in `box`, not moving) whose effects land only inside rect(u) =
+    (x0, y0, x1, y1) screen px: the adjustment's own mask scopes them (FrameCompositor laneAdjustmentChain)."""
+    from scene import Track, new_id
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    lane = Track(type="adjustment", name=name)
+    lane.extra.update(adjustmentScope="parentTrack", parentTrackId=track.id)
+    track.lanes.append(lane)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in frames_of(dur):
+        x0, y0, x1, y1 = rect(u)
+        mk["x"].append((u, ((x0 + x1) / 2 - box.x) / box.w, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - box.y) / box.h, "linear"))
+        mk["w"].append((u, max(0.0, x1 - x0) / box.w, "linear"))
+        mk["h"].append((u, max(0.0, y1 - y0) / box.h, "linear"))
+    m = {"shape": "rectangle", "x": mk["x"][0][1], "y": mk["y"][0][1], "w": mk["w"][0][1], "h": mk["h"][0][1],
+         "feather": 0, "enabled": True, "keyframes": {k: keys(v) for k, v in mk.items()}}
+    lane.clips.append({"id": new_id("fx"), "type": "adjustment", "adjustmentKind": "videoEffects",
+                       "linkedClipId": clip["id"], "timelineStartUs": clip["timelineStartUs"],
+                       "timelineDurationUs": clip["timelineDurationUs"], "srcInUs": 0,
+                       "srcOutUs": clip["timelineDurationUs"], "effects": effects, "mask": m, "name": name})
