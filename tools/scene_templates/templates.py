@@ -224,6 +224,8 @@ import templates_ytkit_m  # noqa: E402
 import templates_ytkit_n  # noqa: E402
 import templates_ytkit_o  # noqa: E402
 import templates_ytkit_p  # noqa: E402
+import templates_lt_a  # noqa: E402
+import templates_lt_b  # noqa: E402
 import templates_igkit  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
@@ -240,4 +242,4 @@ TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + temp
              + templates_c1.TEMPLATES + templates_c2.TEMPLATES
              + templates_y2.TEMPLATES + templates_y3.TEMPLATES + templates_y4.TEMPLATES + templates_y5.TEMPLATES + templates_y6.TEMPLATES + templates_y7.TEMPLATES
              + templates_ytkit.TEMPLATES
-             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES + templates_ytkit_i.TEMPLATES + templates_ytkit_j.TEMPLATES + templates_ytkit_k.TEMPLATES + templates_ytkit_l.TEMPLATES + templates_ytkit_m.TEMPLATES + templates_ytkit_n.TEMPLATES + templates_ytkit_o.TEMPLATES + templates_ytkit_p.TEMPLATES + templates_igkit.TEMPLATES)
+             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES + templates_ytkit_i.TEMPLATES + templates_ytkit_j.TEMPLATES + templates_ytkit_k.TEMPLATES + templates_ytkit_l.TEMPLATES + templates_ytkit_m.TEMPLATES + templates_ytkit_n.TEMPLATES + templates_ytkit_o.TEMPLATES + templates_ytkit_p.TEMPLATES + templates_lt_a.TEMPLATES + templates_lt_b.TEMPLATES + templates_igkit.TEMPLATES)

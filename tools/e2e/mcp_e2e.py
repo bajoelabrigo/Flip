@@ -36,6 +36,9 @@ def env_with_models(stage):
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
     env["DRIFT_INTERP_MODEL_DIR"] = os.path.join(stage, "transiciones.ia", "models", "interp", "rife")
     env["DRIFT_TEXTEMBED_MODEL_DIR"] = os.path.join(stage, "texto.ia", "models", "textembed", "minilm")
+    # Fonts staged by flip-addons (a family not yet published shows in renders before it reaches the users).
+    if os.path.isdir(os.path.join(stage, "fonts.extra", "fonts")):
+        env.setdefault("DRIFT_FONTS_DIR", os.path.join(stage, "fonts.extra", "fonts"))
     # Test runs must not count as installs in the statistics of api.getflipstudio.com.
     env.setdefault("FLIP_NO_STATS", "1")
     return env
