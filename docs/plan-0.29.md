@@ -123,3 +123,40 @@ probar lo que falló en ventana, grabándolo.
   hace falta «Ocultar por profundidad» encendido por defecto en capas 3D que se cruzan, o explicarlo en la guía.
 - **Fallo:** al elegir otra composición, los campos de anclaje mostraron un rato los valores de la anterior
   (856/713 en la cara roja antes de escribir). Revisar el enlace de `anchorSection` al cambiar de clip.
+
+### Proyecto 1 — reel vertical 9:16 (video de 120 fps, música, cortes, cámara lenta, texto)
+- OK: el proyecto toma la forma vertical del primer clip y la ventana pasa sola a la disposición vertical; la tecla S
+  divide solo el clip elegido; Velocidad 0,5× ofrece «Cámara lenta suave».
+- **Falta:** al poner 0,5× el clip conserva su duración y solo muestra la mitad del material (6,18→11,35 s); en
+  CapCut el clip se alarga y se ve entero. Hace falta la opción «Alargar el clip» (o que sea lo normal con el rizo).
+- **Fallo menor:** la música soltada al principio de su pista quedó en 0,18 s, no en 0 (el imán no la pegó al inicio).
+- **Falta:** recortar la música al final del video con un clic («Ajustar a la duración del video»).
+- **Causa del texto perdido (arreglada en código):** Esc en el editor de texto de la vista previa **descartaba** lo
+  escrito (`InlineTextEditor` llamaba a `cancel`). Ahora Esc conserva el texto, como AE y CapCut; Ctrl+Z deshace.
+  Era lo que pasaba en Jamie («flipstudio» y el nombre se perdían), no la capa de debajo.
+
+### Proyecto 2 — presentación de 4 fotos
+- **Fallo:** arrastrar 4 fotos elegidas en Medios a la línea de tiempo deja **solo una** (la del cursor).
+- **Fallo:** clic derecho › «Añadir 3 elementos a la línea de tiempo» los pone en una **pista nueva** (llamada
+  «Gráfico 1») desde 0, en vez de a continuación del último clip de la pista de video, como CapCut.
+- **A revisar:** con una foto como primer clip el proyecto toma su forma (867×1300); en una presentación se espera
+  16:9 o preguntar. El aviso «Cambiar» existe; quizá basta con que el primer medio vertical no cambie un 16:9 ya
+  elegido.
+- OK: transición «Fundido cruzado» soltada en el corte; Exportar 720p da un MP4 de 720×1080 y 15 s correcto.
+- **Fallo:** Transiciones › Tendencias muestra las tarjetas sin miniatura (grises); Básico sí las tiene.
+
+### Proyecto 10 — exportar: OK (ver proyecto 2).
+### Proyectos 3, 4, 5 y 8: cubiertos por Jamie (3D desde el anclaje), la verificación de degradados, Invertir y
+el mate de Charlie.
+
+### Proyecto 9 — vlog 16:9 (congelar, filtro)
+- OK: Congelar fotograma (el copo) inserta «Fotograma congelado» y empuja lo demás; un filtro de Filtros se baja y
+  queda como capa de ajuste enlazada al clip.
+- **Fallo:** al aplicar un filtro de Stock se abre sola la ventana «Descargas» encima de todo; basta el aviso de abajo.
+- **Fallo:** varias tarjetas de Filtros (Drama frío, Blanqueado…) salen sin miniatura, igual que Transiciones ›
+  Tendencias.
+- **Problema de uso:** al elegir un clip, los botones de la barra de la línea de tiempo cambian de sitio (aparecen
+  Eliminar y otros) y un clic donde estaba el copo borra el clip. Mantener fijas las posiciones.
+- No está en el menú del clip «Congelar fotograma» (solo el copo de la barra): añadirlo al menú, como CapCut.
+
+### Proyectos 6 y 7 — no probados en esta tanda (zoom con pluma y máscara; quitar fondo con IA).

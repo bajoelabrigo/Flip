@@ -234,7 +234,9 @@ Item {
         const composing = proxy.preeditText !== ""
         switch (event.key) {
         case Qt.Key_Escape:
-            root.cancel()
+            // Esc leaves the text keeping what was typed, as After Effects and CapCut (0.29: it threw
+            // the words away, and a text made with the Text tool came back as «Texto»). Ctrl+Z undoes.
+            root.commit()
             event.accepted = true
             break
         case Qt.Key_Return:
