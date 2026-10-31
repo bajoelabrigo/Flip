@@ -293,3 +293,20 @@ Arreglado en el código (causas halladas con tres búsquedas en paralelo):
 - Filas de Inclinación X/Y siempre visibles en capas 3D; pasar a 9:16 ajusta el video que llenaba el cuadro;
   Video y GIF con su propia velocidad; «Recorte cancelado» ya no es un error fijo; editor web: degradado lineal
   por su centro (rama `web/v0221-texto` `b71fd`, sin desplegar).
+
+## Diez proyectos reales con las herramientas de animación (Jorge, 2026-10-31, noche; grabados)
+«No es probar herramientas, es crear proyectos reales». Portable `pruebas\FlipStudio-0.29-prueba-f` (build bc31c67).
+Grabación: `pruebas\tutorial-llt\raw-p<n>.mkv` + `subs-p<n>.log`, montaje con `montar.py`. Lo que falte o falle se
+anota aquí y se corrige todo al final.
+1. Squash & Stretch «Your First Animation» (tutorial V2): cuadro naranja que cae y salta sobre la línea hasta el logo.
+2. Squash & Stretch «Text Animation Made Easy»: título con las letras que rebotan una a una.
+3. Squash & Stretch «Keep the volume» (demo 0650): dos pelotas que caen; una encoge, la otra conserva el volumen.
+4. Logo que se dibuja: trazo con Recorte (Motion Tools › Recortar) y Curvas para la suavidad.
+5. Morph: tres formas que vuelan y se funden en el logo (Motion Tools › Elementos › Morph).
+6. Título con Estela líquida (Elementos › Estela líquida).
+7. Chorro líquido que corre por un trazado y descubre un texto (Elementos › Línea líquida).
+8. Banda de título que se dobla al entrar (Motion Tools › Doblar).
+9. Tercio inferior hecho a mano: Thomas Clarke (llt3-invitado).
+10. Tercio inferior inclinado hecho a mano: Laureen Marlene (llt3-inclinada).
+
+### Notas durante los proyectos
