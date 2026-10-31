@@ -88,3 +88,6 @@ probar lo que falló en ventana, grabándolo.
 - (nota técnica) El degradado lineal ahora pasa por `center` (antes siempre por el medio de la caja); con el valor de
   siempre (0,5; 0,5) se ve igual. **El editor web** todavía dibuja el lineal por el medio: un degradado movido con los
   tiradores del escritorio se verá corrido en la web hasta que la web lea `center` también en el lineal.
+- (trampa repetida) La primera build con `FillOptionsDialog` no arrancaba: «Cannot override FINAL property» por
+  `property int clip` en un `ThemedDialog` (Popup). Renombrado a `editTrack` / `editClip`. Siempre abrir el portable
+  y mirar `stderr` antes de seguir.

@@ -13,8 +13,8 @@ ThemedDialog {
     property string target: "fill"
     // Editing a clip's layer ("layer") or the tools bar's paint for new shapes ("tool").
     property string mode: "tool"
-    property int track: -1
-    property int clip: -1
+    property int editTrack: -1
+    property int editClip: -1
     property string layerId: ""
     property bool sessionOpen: false
 
@@ -71,8 +71,8 @@ ThemedDialog {
         root.layerId = ""
         if (style && EditorState.selectedClip >= 0) {
             root.mode = "layer"
-            root.track = EditorState.selectedTrack
-            root.clip = EditorState.selectedClip
+            root.editTrack = EditorState.selectedTrack
+            root.editClip = EditorState.selectedClip
             const layer = root.layerOf(style, which)
             if (layer) {
                 root.layerId = layer.id
@@ -130,18 +130,18 @@ ThemedDialog {
     function write() {
         if (root.kind === "none") {
             if (root.layerId.length > 0)
-                EditorState.setStyleLayer(root.track, root.clip, root.layerId, { "enabled": false })
+                EditorState.setStyleLayer(root.editTrack, root.editClip, root.layerId, { "enabled": false })
             return
         }
         if (root.layerId.length === 0) {
-            const id = EditorState.addStyleLayer(root.track, root.clip, root.target)
+            const id = EditorState.addStyleLayer(root.editTrack, root.editClip, root.target)
             if (!id)
                 return
             root.layerId = id
         }
         const p = root.patch()
         p.enabled = true
-        EditorState.setStyleLayer(root.track, root.clip, root.layerId, p)
+        EditorState.setStyleLayer(root.editTrack, root.editClip, root.layerId, p)
     }
 
     function set(field, value) {
