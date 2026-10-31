@@ -602,4 +602,155 @@ def david():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david]
+# Neil Simpson, measured frame by frame (25 fps from 39.9 s). In: a red card opens from a line (its box per frame),
+# the cube turns about Y bringing the white face with the logo round from the right (red left, the edge, white
+# right), then slides left; the name slides right from behind it. Out: the name slides back behind it, the cube
+# tips forward about X (the red top comes to the front) and the red card folds down onto its bottom edge.
+_NS_CARD = {2: (1088, 732, 1093, 880), 3: (1074, 731, 1093, 881), 4: (1040, 727, 1093, 884), 5: (988, 722, 1094, 890),
+            6: (960, 720, 1093, 892), 7: (944, 718, 1093, 894), 8: (932, 716, 1092, 895), 9: (920, 716, 1088, 896),
+            10: (906, 715, 1080, 898)}
+_NS_TURN = {11: (886, 1054, 1108), 12: (871, 997, 1120), 13: (873, 958, 1114), 14: (877, 935, 1105),
+            15: (880, 919, 1095), 16: (880, 906, 1085), 17: (880, 895, 1076), 18: (876, 884, 1066)}
+_NS_LEFT = {19: 874, 20: 862, 21: 850, 22: 837, 23: 822, 24: 804, 25: 783, 26: 756, 27: 722, 28: 677, 29: 614,
+            30: 530, 31: 451, 32: 400, 33: 369, 34: 349, 35: 336, 36: 327, 37: 322, 38: 319, 39: 318}
+_NS_NAME_R = {25: 942.0, 26: 987.0, 27: 1035.0, 28: 1075.0, 29: 1109.0, 30: 1139.0, 31: 1164.0, 32: 1187.0,
+              33: 1207.0, 34: 1226.0, 35: 1243.0, 36: 1257.0, 37: 1271.0, 38: 1283.0, 39: 1295.0, 40: 1305.0,
+              42: 1323.0, 44: 1338.0, 46: 1351.0, 48: 1361.0, 50: 1371.0, 52: 1378.0, 54: 1383.0, 56: 1388.0,
+              58: 1392.0, 60: 1395.0, 63: 1397.0, 98: 1397.0, 99: 1207.0, 100: 1167.0, 101: 1119.0, 102: 1059.0,
+              103: 983.0, 104: 885.0, 105: 748.0, 106: 556.0, 107: 400.0}
+_NS_TIP = {100: 716.0, 101: 720.0, 102: 728.0, 103: 754.0, 104: 810.0, 105: 847.0, 106: 865.0, 107: 877.0,
+           108: 884.0, 109: 890.0}  # the white face's top: the edge the cube tips over
+_NS_FOLD = {113: 715, 114: 721, 115: 734, 116: 768, 117: 820, 118: 848, 119: 864, 120: 876, 121: 883, 122: 888,
+            123: 896}
+
+
+def neil():
+    """A red card opens from a line into a cube that turns, showing its white face with the logo; it slides left
+    and the name slides out from behind it. Out, the name slides back in, the cube tips forward to its red top and
+    the card folds down. Every pose is solved from the measured edges with the eye at 2900 px."""
+    fps, first, last = 25.0, 2, 123
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("neil", "Tercio con logo: cubo que gira", "Logo lower third: turning cube", D, 8537,
+             ["nombre", "3d", "cubo", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    h, AY = 90.5, 805.5
+
+    def px(x, z):
+        return 960 + (x - 960) * _EYE / (_EYE - z)
+
+    def py_(y, z):
+        return 540 + (y - 540) * _EYE / (_EYE - z)
+
+    # Per frame: the cube's centre x and its turn about Y (phi: 0 red front, 90 white front) and about X (theta: 0
+    # white front, 90 red top at the front).
+    poses = {}
+    for f, (L, E, R) in _NS_TURN.items():
+        best = None
+        for k in range(0, 901):
+            phi = k / 10
+            c, s = math.cos(math.radians(phi)), math.sin(math.radians(phi))
+            ez = -h + h * (s + c)
+            kk = _EYE / (_EYE - ez)
+            cx = (E - 960) / kk + 960 - h * (c - s)
+            err = (px(cx + h * (c + s), -h + h * (s - c)) - R) ** 2 + (px(cx - h * (c + s), -h + h * (c - s)) - L) ** 2
+            if best is None or err < best[0]:
+                best = (err, cx, phi)
+        poses[f] = (best[1], best[2], 0.0)
+    for f, left in _NS_LEFT.items():
+        poses[f] = (left + h, 90.0, 0.0)
+    for f in range(40, 100):
+        poses[f] = (318 + h, 90.0, 0.0)
+    for f, top in _NS_TIP.items():
+        def edge_y(th):
+            c, s = math.cos(math.radians(th)), math.sin(math.radians(th))
+            return py_(AY + h * (s - c), -h + h * (s + c))
+        poses[f] = (318 + h, 90.0, _solve(edge_y, top, 0, 90))
+    for f in range(110, 113):
+        poses[f] = (318 + h, 90.0, 90.0)
+    p = lambda u: poses.get(int(round(fr(u))), None)  # noqa: E731
+
+    def place(clip, which):
+        """3D keys for a face ("red" or "white") of the cube, or hidden off its frames."""
+        xs, ys, zs, rx, ry, op = [], [], [], [], [], []
+        w = _height(clip)
+        for u in us:
+            pose = p(u)
+            if pose is None:
+                xs.append(318.0); ys.append(AY - w / 2); zs.append(0.0); rx.append(0.0); ry.append(0.0); op.append(0.0)
+                continue
+            cx, phi, th = pose
+            c, s = math.cos(math.radians(phi)), math.sin(math.radians(phi))
+            ct, st = math.cos(math.radians(th)), math.sin(math.radians(th))
+            if th > 0:  # tipping about X; the red face is now the top one
+                if which == "white":
+                    fx, fy, fz, ax, ay = cx, AY + h * st, -h + h * ct, -th, 0.0
+                else:
+                    fx, fy, fz, ax, ay = cx, AY - h * ct, -h + h * st, 90.0 - th, 0.0
+            else:  # turning about Y; the red face is the left/front one
+                if which == "white":
+                    fx, fy, fz, ax, ay = cx + h * c, AY, -h + h * s, 0.0, 90.0 - phi
+                else:
+                    fx, fy, fz, ax, ay = cx - h * s, AY, -h + h * c, 0.0, -phi
+            edge_on = (which == "red" and th == 0 and phi >= 89.5) or (which != "red" and th == 0 and phi <= 0.5)
+            xs.append(fx - w / 2); ys.append(fy - w / 2); zs.append(fz); rx.append(ax); ry.append(ay)
+            op.append(0.0 if edge_on else 1.0)
+        clip["layer3d"] = True
+        clip["perspective"] = keys([(0, _EYE)])
+        clip["x"] = keys([(u, v, "linear") for u, v in zip(us, xs)])
+        clip["y"] = keys([(u, v, "linear") for u, v in zip(us, ys)])
+        clip["positionZ"] = keys([(u, v, "linear") for u, v in zip(us, zs)])
+        clip["rotationX"] = keys([(u, v, "linear") for u, v in zip(us, rx)])
+        clip["rotationY"] = keys([(u, v, "linear") for u, v in zip(us, ry)])
+        clip["opacity"] = keys([(u, v, "hold") for u, v in zip(us, op)])
+
+    face = Box(318, AY - h, 2 * h, 2 * h)
+    red = t.solid(t.track("shape", "Cara roja"), RED, 0.0, D, face)
+    red["name"] = "Cara roja"
+    place(red, "red")
+    white = t.solid(t.track("shape", "Cara blanca"), WHITE, 0.0, D, face)
+    white["name"] = "Cara blanca"
+    place(white, "white")
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, centered(318 + h, AY, 166, 166), label="Tu logo",
+                   brandRole="logo")
+    mark["width"], mark["height"] = keys([(0, 166.0)]), keys([(0, 166.0)])
+    place(mark, "white")
+    # The flat card before the cube turns, and after it tips: measured boxes.
+    card = _table({f: v for f, v in _NS_CARD.items()}, (1090, 806, 1090, 806), (906, 715, 1080, 898))
+    fold = _table(_NS_FOLD, 715.0, 896.0)
+
+    def card_rect(u):
+        f = fr(u)
+        if f <= 10.5:
+            x0, y0, x1, y1 = card(f)
+            return x0, y0, x1, y1
+        if f >= 112.5:
+            return 318, fold(f), 318 + 2 * h, 896
+        return 0, 0, 0, 0
+    rect_track(t, t.track("shape", "Tarjeta"), Box(300, 600, 1300, 320), card_rect, D, RED, name="Tarjeta")
+    # The name, red, slid right into place from behind the cube's right edge (and back in).
+    name_r = _table(_NS_NAME_R, 900.0, 400.0)
+    name = "NEIL SIMPSON"
+    nbox, nsize = caps_box(554, 719, 867, name, weight=300)
+    motion = [(u, {"dx": name_r(fr(u)) - 1397}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, bold_from="SIMPSON", weight=300, colour=RED, spacing=-4.0,
+                     bold_spacing=3, word_spacing=6, motion=motion)
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"x": [], "w": []}
+    for u in us:
+        f = fr(u)
+        pose = p(u)
+        right = 3000.0 if pose is None else (pose[0] + h if pose[1] >= 89 else 3000.0)
+        if f < 24:
+            right = 3000.0
+        dx = name_r(f) - 1397
+        mk["x"].append((u, ((right + 3200) / 2 - nbox.x - dx) / nbox.w, "linear"))
+        mk["w"].append((u, max(0.0, 3200 - right) / nbox.w, "linear"))
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil]
