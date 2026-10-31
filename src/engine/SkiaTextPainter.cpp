@@ -806,10 +806,20 @@ public:
         drawCaret(canvas);
         drawParticles(canvas, false);
 
-        if (m_frame.block.wipeProgress >= 0.0) {
+        // Fully revealed, nothing to mask. While it runs, the wipe sweeps the background box too (padding,
+        // shift and border), not just the letters: it used to stop at the last letter and leave the box's
+        // right margin hidden for good (Jorge, 2026-10-30: «cuida los márgenes de los textos en una caja»).
+        if (m_frame.block.wipeProgress >= 0.0 && m_frame.block.wipeProgress < 1.0) {
+            QRectF swept = m_set->ink;
+            if (m_style.boxEnabled) {
+                const double padX = m_style.boxPadX() * m_scale + m_style.boxBorderWidth * m_scale;
+                const double padY = m_style.boxPadY() * m_scale + m_style.boxBorderWidth * m_scale;
+                const double sx = qAbs(m_style.boxOffsetX * m_scale), sy = qAbs(m_style.boxOffsetY * m_scale);
+                swept = swept.adjusted(-padX - sx, -padY - sy, padX + sx, padY + sy);
+            }
             SkPaint mask;
             mask.setBlendMode(SkBlendMode::kDstIn);
-            mask.setShader(wipeShader(m_set->ink, m_frame.block.wipeAngle, m_frame.block.wipeProgress,
+            mask.setShader(wipeShader(swept, m_frame.block.wipeAngle, m_frame.block.wipeProgress,
                                       m_frame.block.wipeSoftness));
             canvas.drawPaint(mask);
         }

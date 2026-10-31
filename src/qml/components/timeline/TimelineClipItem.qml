@@ -328,8 +328,13 @@ Item {
             property bool canMergeTrackSubtitles: false
             // Inside a composition: a photo or video can be a template slot, a text an editable text.
             property var placeholder: ({})
+            // A shape layer's own parts (0.28), for «Separate into layers».
+            property int shapeTopParts: 0
             onAboutToShow: {
                 placeholder = EditorState.clipPlaceholderState(clipItem.trackIndex, clipItem.clipIndex)
+                shapeTopParts = clipItem.clipData.kind === "shape"
+                        ? EditorState.shapePartFrames(clipItem.trackIndex, clipItem.clipIndex)
+                                     .filter(f => f.parent === "").length : 0
                 canPasteEffects = EditorState.clipboardHasEffects()
                 canPasteAttributes = EditorState.canPasteAttributes()
                 canMergeTrackSubtitles = clipItem.trackType === "subtitle"
@@ -349,6 +354,22 @@ Item {
                 onTriggered: EditorState.makeCompositeFromSelection()
             }
             ThemedMenuSeparator { visible: EditorState.selection.length > 1 && EditorState.makeCompositeAvailable }
+
+            // After Effects' shape layers (0.28, Pro): several shapes into one layer of parts, and back.
+            ThemedMenuItem {
+                text: qsTr("Combine into one shape layer")
+                icon.name: Theme.icons.layers
+                visible: EditorState.preferences.proMode && EditorState.selection.length > 1
+                         && clipItem.clipData.kind === "shape"
+                onTriggered: EditorState.combineSelectedShapes()
+            }
+            ThemedMenuItem {
+                text: qsTr("Separate into layers")
+                icon.name: Theme.icons.layers
+                visible: EditorState.preferences.proMode && EditorState.selection.length <= 1
+                         && clipContextMenu.shapeTopParts > 1
+                onTriggered: EditorState.separateShapeParts(clipItem.trackIndex, clipItem.clipIndex)
+            }
 
             // AI transition (RIFE): blends this clip's last frame into the next clip's first.
             ThemedMenuItem {

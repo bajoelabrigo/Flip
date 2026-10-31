@@ -400,6 +400,8 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        l.knockout, l.trimStart, l.trimEnd, l.trimSegments, l.trimOffset, l.trimReverse, l.sketchLength,
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
+        h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
+                       l.taperEase, l.waveAmount, l.waveLength, l.wavePhase);
     }
     return h;
 }
@@ -551,6 +553,23 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         if (l.join != StrokeJoin::Round)
             o.insert(QStringLiteral("join"), strokeJoinToString(l.join));
     }
+    if (l.kind == TextLayerKind::Stroke) {
+        // Taper, Wave and the miter limit (0.28), only when set.
+        if (!qFuzzyCompare(l.miterLimit, 4.0))
+            o.insert(QStringLiteral("miterLimit"), l.miterLimit);
+        if (l.taperStartLength > 0.0 || l.taperEndLength > 0.0) {
+            o.insert(QStringLiteral("taperStartLength"), l.taperStartLength);
+            o.insert(QStringLiteral("taperEndLength"), l.taperEndLength);
+            o.insert(QStringLiteral("taperStartWidth"), l.taperStartWidth);
+            o.insert(QStringLiteral("taperEndWidth"), l.taperEndWidth);
+            o.insert(QStringLiteral("taperEase"), l.taperEase);
+        }
+        if (l.waveAmount > 0.0) {
+            o.insert(QStringLiteral("waveAmount"), l.waveAmount);
+            o.insert(QStringLiteral("waveLength"), l.waveLength);
+            o.insert(QStringLiteral("wavePhase"), l.wavePhase);
+        }
+    }
     if (l.sketchLength > 0.0 || l.sketchDeviation > 0.0) {
         o.insert(QStringLiteral("sketchLength"), l.sketchLength);
         o.insert(QStringLiteral("sketchDeviation"), l.sketchDeviation);
@@ -598,6 +617,15 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.dashOffset = o.value(QStringLiteral("dashOffset")).toDouble(0.0);
     l.cap = strokeCapFromString(o.value(QStringLiteral("cap")).toString());
     l.join = strokeJoinFromString(o.value(QStringLiteral("join")).toString());
+    l.miterLimit = qBound(1.0, o.value(QStringLiteral("miterLimit")).toDouble(4.0), 100.0);
+    l.taperStartLength = qBound(0.0, o.value(QStringLiteral("taperStartLength")).toDouble(0.0), 100.0);
+    l.taperEndLength = qBound(0.0, o.value(QStringLiteral("taperEndLength")).toDouble(0.0), 100.0);
+    l.taperStartWidth = qBound(0.0, o.value(QStringLiteral("taperStartWidth")).toDouble(0.0), 100.0);
+    l.taperEndWidth = qBound(0.0, o.value(QStringLiteral("taperEndWidth")).toDouble(0.0), 100.0);
+    l.taperEase = qBound(0.0, o.value(QStringLiteral("taperEase")).toDouble(0.0), 100.0);
+    l.waveAmount = qBound(0.0, o.value(QStringLiteral("waveAmount")).toDouble(0.0), 100.0);
+    l.waveLength = qMax(1.0, o.value(QStringLiteral("waveLength")).toDouble(40.0));
+    l.wavePhase = o.value(QStringLiteral("wavePhase")).toDouble(0.0);
     l.sketchLength = o.value(QStringLiteral("sketchLength")).toDouble(0.0);
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);
@@ -639,7 +667,9 @@ QStringList shadingLayerKeyframeFields(const TextShadingLayer &layer)
         fields.append(QStringLiteral("spread"));
     if (layer.kind == TextLayerKind::Stroke)
         fields << QStringLiteral("trimStart") << QStringLiteral("trimEnd") << QStringLiteral("trimOffset")
-               << QStringLiteral("dashOffset");
+               << QStringLiteral("dashOffset") << QStringLiteral("taperStartLength") << QStringLiteral("taperEndLength")
+               << QStringLiteral("taperStartWidth") << QStringLiteral("taperEndWidth") << QStringLiteral("waveAmount")
+               << QStringLiteral("waveLength") << QStringLiteral("wavePhase");
     if (layer.kind == TextLayerKind::Stroke || layer.kind == TextLayerKind::Fill)
         fields << QStringLiteral("sketchLength") << QStringLiteral("sketchDeviation");
     switch (layer.paint.kind) {
@@ -703,6 +733,24 @@ bool shadingLayerScalar(const TextShadingLayer &l, const QString &field, double 
         *out = l.trimEnd;
     else if (field == QLatin1String("trimOffset"))
         *out = l.trimOffset;
+    else if (field == QLatin1String("miterLimit"))
+        *out = l.miterLimit;
+    else if (field == QLatin1String("taperStartLength"))
+        *out = l.taperStartLength;
+    else if (field == QLatin1String("taperEndLength"))
+        *out = l.taperEndLength;
+    else if (field == QLatin1String("taperStartWidth"))
+        *out = l.taperStartWidth;
+    else if (field == QLatin1String("taperEndWidth"))
+        *out = l.taperEndWidth;
+    else if (field == QLatin1String("taperEase"))
+        *out = l.taperEase;
+    else if (field == QLatin1String("waveAmount"))
+        *out = l.waveAmount;
+    else if (field == QLatin1String("waveLength"))
+        *out = l.waveLength;
+    else if (field == QLatin1String("wavePhase"))
+        *out = l.wavePhase;
     else if (field == QLatin1String("dashOffset"))
         *out = l.dashOffset;
     else if (field == QLatin1String("sketchLength"))
@@ -765,6 +813,24 @@ bool setShadingLayerScalar(TextShadingLayer &l, const QString &field, double val
         l.trimEnd = qBound(0.0, value, 1.0);
     else if (field == QLatin1String("trimOffset"))
         l.trimOffset = value;
+    else if (field == QLatin1String("miterLimit"))
+        l.miterLimit = qBound(1.0, value, 100.0);
+    else if (field == QLatin1String("taperStartLength"))
+        l.taperStartLength = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("taperEndLength"))
+        l.taperEndLength = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("taperStartWidth"))
+        l.taperStartWidth = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("taperEndWidth"))
+        l.taperEndWidth = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("taperEase"))
+        l.taperEase = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("waveAmount"))
+        l.waveAmount = qBound(0.0, value, 100.0);
+    else if (field == QLatin1String("waveLength"))
+        l.waveLength = qMax(1.0, value);
+    else if (field == QLatin1String("wavePhase"))
+        l.wavePhase = value;
     else if (field == QLatin1String("dashOffset"))
         l.dashOffset = value;
     else if (field == QLatin1String("sketchLength"))
@@ -817,6 +883,15 @@ QString shadingLayerFieldLabel(const QString &field)
         {QStringLiteral("trimStart"), QCoreApplication::translate("TextStyle", "Trim start")},
         {QStringLiteral("trimEnd"), QCoreApplication::translate("TextStyle", "Trim end")},
         {QStringLiteral("trimOffset"), QCoreApplication::translate("TextStyle", "Trim offset")},
+        {QStringLiteral("miterLimit"), QCoreApplication::translate("TextStyle", "Miter limit")},
+        {QStringLiteral("taperStartLength"), QCoreApplication::translate("TextStyle", "Taper: start length")},
+        {QStringLiteral("taperEndLength"), QCoreApplication::translate("TextStyle", "Taper: end length")},
+        {QStringLiteral("taperStartWidth"), QCoreApplication::translate("TextStyle", "Taper: start width")},
+        {QStringLiteral("taperEndWidth"), QCoreApplication::translate("TextStyle", "Taper: end width")},
+        {QStringLiteral("taperEase"), QCoreApplication::translate("TextStyle", "Taper: ease")},
+        {QStringLiteral("waveAmount"), QCoreApplication::translate("TextStyle", "Wave: amount")},
+        {QStringLiteral("waveLength"), QCoreApplication::translate("TextStyle", "Wave: wavelength")},
+        {QStringLiteral("wavePhase"), QCoreApplication::translate("TextStyle", "Wave: phase")},
         {QStringLiteral("dashOffset"), QCoreApplication::translate("TextStyle", "Dash offset")},
         {QStringLiteral("sketchLength"), QCoreApplication::translate("TextStyle", "Sketch length")},
         {QStringLiteral("sketchDeviation"), QCoreApplication::translate("TextStyle", "Sketch deviation")},

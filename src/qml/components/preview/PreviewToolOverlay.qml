@@ -45,6 +45,17 @@ Item {
     visible: tool === "shape" || tool === "text" || tool === "roi" || anchorReady || sketchReady || puppetReady
     enabled: visible && !EditorState.playing
 
+    // With the shape tool, a shape drawn while a shape layer is picked goes into that layer (0.28, Pro); Esc
+    // lets go of the layer so the next one gets a layer of its own.
+    Keys.onEscapePressed: event => {
+        if (root.tool === "shape" && EditorState.selectedClip >= 0) {
+            EditorState.clearSelection()
+            event.accepted = true
+        } else {
+            event.accepted = false
+        }
+    }
+
     // Fractions of the box (0..1) ↔ overlay px, through the box's on-screen corners.
     function boxToOverlay(u, v) {
         const a = box.quad[0], b = box.quad[1], d = box.quad[3]
@@ -256,6 +267,7 @@ Item {
                 EditorState.addDrawnShape(EditorState.preview.shapeToolKind, r.x / root.sx, r.y / root.sy,
                                           r.width / root.sx, r.height / root.sy, EditorState.preview.toolFill,
                                           EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth)
+                root.forceActiveFocus()
             } else if (root.tool === "sketch" && sketchTimer.running) {
                 sketchTimer.stop()
                 if (root.sketch.length > 1 && root.sketchTrack >= 0)

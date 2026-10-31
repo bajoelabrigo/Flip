@@ -25535,6 +25535,116 @@
     "palavras"
    ]
   },
+  "template:lt-andy": {
+   "name": "Terço inferior: barra que abre do centro",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "centralizado",
+    "degradê"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "Terço inferior: nome saindo da caixa",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "degradê",
+    "caixa",
+    "faixa"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "Terço inferior: nome em três estilos",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "contorno",
+    "sobrenome"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "Terço inferior: caixa com linhas brancas",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "degradê",
+    "caixa",
+    "linhas"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "Terço inferior à direita: duas caixas",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "direita",
+    "caixas"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "Terço inferior: barra vertical e nome contornado",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "contorno",
+    "barra vertical"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "Terço inferior: faixa com cargo e nome abaixo",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "faixa",
+    "direita"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "Terço inferior: nome sobre barra degradê",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "degradê",
+    "barra"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "Terço inferior: nome dentro da barra",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "degradê",
+    "caixa"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "Terço inferior: sobrenome em caixa, nome acima",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "sobrenome",
+    "centralizado"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "Terço inferior à direita: escrito de trás para frente",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "direita",
+    "escrita"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "Terço inferior à direita: linha degradê",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "direita",
+    "linha"
+   ]
+  },
   "template:me-gradue": {
    "name": "Me formei!",
    "tags": [
@@ -34892,6 +35002,191 @@
     "informação"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "Barra do canal com contador",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "contador",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-barra-oscura": {
+   "name": "Barra escura com inscrever-se",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "barra",
+    "escuro",
+    "sino"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "Canal com botão inscrever-se",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "canal",
+    "foto",
+    "sino"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "Cartão com foto no centro",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "foto",
+    "centro",
+    "sino"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "Ícones grandes: curtir, inscrever-se, sino",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "ícones",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "Mensagens que se escrevem sozinhas",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "mensagens",
+    "máquina de escrever",
+    "sino"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "Pílula curtir e inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "pílula",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "Pílula com sino e inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "sino",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "Pílula que se estica da foto",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "foto",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "Me siga nas redes",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "redes sociais",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "Cartão do canal com inscrever-se",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "cartão",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "Cartão pequeno de inscrição",
+   "tags": [
+    "inscrever-se",
+    "botão",
+    "clique",
+    "minimalista",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "Cartão de vídeo com inscrever-se",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "vídeo",
+    "sino",
+    "claro"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "Cartão de vídeo escuro com curtidas",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "vídeo",
+    "curtir",
+    "escuro"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "Cartão de vídeo estreito",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "vídeo",
+    "estreito",
+    "sino"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "Curtir, inscrever-se e sino",
+   "tags": [
+    "youtube",
+    "botões",
+    "curtir",
+    "inscreva-se",
+    "sino"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "Balão com inscrever-se",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "balão",
+    "logo",
+    "coral"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "Ative o sininho",
+   "tags": [
+    "youtube",
+    "sino",
+    "notificações",
+    "texto",
+    "coral"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "Palavras em barras",
    "tags": [
@@ -35040,6 +35335,66 @@
     "salto",
     "divertido",
     "palavras"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "Citação entre barras",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "barras",
+    "centralizada"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "Citação em caixa branca",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "caixa",
+    "autor"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "Citação em painel coral",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "painel",
+    "coral"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "Citação entre cantos",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "cantos",
+    "linhas"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "Citação sobre o vídeo",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "centralizada",
+    "autor"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "Citação em moldura",
+   "tags": [
+    "youtube",
+    "citação",
+    "frase",
+    "moldura",
+    "contorno"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -35315,6 +35670,146 @@
     "título"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "Fileira de três botões",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "curtir",
+    "sino",
+    "fileira"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "Tela final com círculo",
+   "tags": [
+    "youtube",
+    "tela final",
+    "círculo",
+    "obrigado",
+    "dois vídeos"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "Tela final com cunha branca",
+   "tags": [
+    "youtube",
+    "tela final",
+    "cunha",
+    "obrigado",
+    "dois vídeos"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "Tela final com curva",
+   "tags": [
+    "youtube",
+    "tela final",
+    "curva",
+    "obrigado",
+    "dois vídeos"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "Tela final na diagonal",
+   "tags": [
+    "youtube",
+    "tela final",
+    "diagonal",
+    "obrigado",
+    "inscreva-se"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "Tela final com seta",
+   "tags": [
+    "youtube",
+    "tela final",
+    "seta",
+    "inscreva-se",
+    "vídeo recomendado"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "Tela final: mais vídeos",
+   "tags": [
+    "youtube",
+    "tela final",
+    "obrigado",
+    "mais vídeos",
+    "redes"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "Tela final com painel curvo",
+   "tags": [
+    "youtube",
+    "tela final",
+    "painel",
+    "curva",
+    "obrigado"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "Tela final: cartão vertical",
+   "tags": [
+    "youtube",
+    "tela final",
+    "cartão",
+    "obrigado",
+    "inscreva-se"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "Tela final com triângulo",
+   "tags": [
+    "youtube",
+    "tela final",
+    "triângulo",
+    "obrigado",
+    "próximo vídeo"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "Nome do canal com círculos",
+   "tags": [
+    "youtube",
+    "fundo",
+    "coral",
+    "círculos",
+    "nome"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "Nome do canal com cruzes",
+   "tags": [
+    "youtube",
+    "fundo",
+    "coral",
+    "cruzes",
+    "nome"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "Nome do canal com manchas",
+   "tags": [
+    "youtube",
+    "fundo",
+    "coral",
+    "manchas",
+    "nome"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "Nome do canal com triângulos",
+   "tags": [
+    "youtube",
+    "fundo",
+    "coral",
+    "triângulos",
+    "nome"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "Cartão de citação",
    "tags": [
@@ -35476,6 +35971,217 @@
     "avaliação"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "Obrigado por assistir em destaque",
+   "tags": [
+    "youtube",
+    "obrigado",
+    "final",
+    "grande",
+    "despedida"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "Olá e bem-vindos ao meu canal",
+   "tags": [
+    "youtube",
+    "olá",
+    "boas-vindas",
+    "saudação",
+    "intro",
+    "canal"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "Seu canal do YouTube empilhado",
+   "tags": [
+    "youtube",
+    "intro",
+    "empilhado",
+    "bolhas",
+    "canal"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "Blog de viagem",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "blog",
+    "viagem"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "Logo e nome do canal",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "nome",
+    "canal"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "Grande história",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "canal",
+    "história"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "Nome do canal inclinado",
+   "tags": [
+    "youtube",
+    "intro",
+    "inclinado",
+    "nome",
+    "coral"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "Logo e nome em pílula",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "pílula",
+    "brilhos"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "Seu canal do YouTube",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "canal",
+    "caixa"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "Chamada em caixa coral",
+   "tags": [
+    "youtube",
+    "chamada",
+    "caixa",
+    "coral",
+    "linha"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "Chamada com linha",
+   "tags": [
+    "youtube",
+    "chamada",
+    "linha",
+    "apontar",
+    "ponto"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "Chamada criativa",
+   "tags": [
+    "youtube",
+    "chamada",
+    "criativa",
+    "branco",
+    "coral"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "Descreva seu produto",
+   "tags": [
+    "youtube",
+    "chamada",
+    "produto",
+    "descrição",
+    "moldura"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "Chamada com etiqueta coral",
+   "tags": [
+    "youtube",
+    "chamada",
+    "etiqueta",
+    "coral",
+    "linha"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "Chamada com marca e preço",
+   "tags": [
+    "youtube",
+    "chamada",
+    "preço",
+    "marca",
+    "produto"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "Chamada em caixa preta",
+   "tags": [
+    "youtube",
+    "chamada",
+    "preto",
+    "vertical",
+    "manchete"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "Chamada com parágrafo",
+   "tags": [
+    "youtube",
+    "chamada",
+    "parágrafo",
+    "descrição",
+    "coral"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "Manchete e descrição",
+   "tags": [
+    "youtube",
+    "chamada",
+    "manchete",
+    "preto",
+    "coral"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "Chamada com linha vertical",
+   "tags": [
+    "youtube",
+    "chamada",
+    "vertical",
+    "descrição",
+    "coral"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "Deixe seu like",
+   "tags": [
+    "youtube",
+    "curtir",
+    "like",
+    "polegar",
+    "clique"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "Nome e três botões",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "nome",
+    "botões",
+    "canal"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "Tela final com dois vídeos",
    "tags": [
@@ -35551,6 +36257,17 @@
     "linhas"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "Tela final coral com dois vídeos",
+   "tags": [
+    "youtube",
+    "tela final",
+    "obrigado",
+    "próximo vídeo",
+    "redes",
+    "inscreva-se"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "Tela final solar",
    "tags": [
@@ -35580,6 +36297,36 @@
     "próximo vídeo"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "Perfil do canal em branco",
+   "tags": [
+    "youtube",
+    "perfil",
+    "foto",
+    "branco",
+    "inscritos"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "Botões em coluna",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "curtir",
+    "sino",
+    "coluna"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "Pílula com três ícones",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "curtir",
+    "sino",
+    "pílula"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "Barra de redes",
    "tags": [
@@ -35587,6 +36334,26 @@
     "redes sociais",
     "barra",
     "usuário"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "Redes em círculo e pílula",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "círculo",
+    "pílula",
+    "logos"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "Redes com logo em círculo",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "círculo",
+    "siga-me",
+    "logos"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -35617,6 +36384,16 @@
     "siga-me",
     "cinético",
     "coral"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "Redes entre colchetes",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "cartão",
+    "colchetes",
+    "logos"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -35659,6 +36436,16 @@
     "grande"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "Redes com selo colorido",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "selo",
+    "siga-me",
+    "logos"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "Perfis nas redes",
    "tags": [
@@ -35679,6 +36466,17 @@
     "lista"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "Suas redes com logos",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "usuário"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "Redes em pílulas",
    "tags": [
@@ -35687,6 +36485,26 @@
     "siga-me",
     "usuário",
     "pílulas"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "Redes em pincelada",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "pincel",
+    "pincelada",
+    "logos"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "Redes em cartão branco",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "cartão",
+    "siga-me",
+    "logos"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -35709,6 +36527,75 @@
     "legenda"
    ]
   },
+  "template:ytk-suscribete-ahora": {
+   "name": "Inscreva-se agora no meu canal!",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "frase",
+    "letras"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "Inscreva-se em moldura",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "moldura",
+    "contorno",
+    "logo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "Inscreva-se na página clara",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "Inscreva-se no celular",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "Inscreva-se na página escura",
+   "tags": [
+    "inscreva-se",
+    "gostei",
+    "sino",
+    "cursor",
+    "página do vídeo"
+   ]
+  },
+  "template:ytk-suscribete-texto": {
+   "name": "Inscreva-se com o logo",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "texto",
+    "logo",
+    "clique"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "Cartão com lista",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "lista",
+    "cartão",
+    "curtir"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Terço inferior com avatar",
    "tags": [
@@ -35717,6 +36604,26 @@
     "terço inferior",
     "foto",
     "perfil"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "Nome em caixa branca",
+   "tags": [
+    "youtube",
+    "terço inferior",
+    "nome",
+    "profissão",
+    "caixa"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "Nome em caixa coral",
+   "tags": [
+    "youtube",
+    "terço inferior",
+    "nome",
+    "profissão",
+    "coral"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -35798,6 +36705,16 @@
     "terço inferior",
     "convidado",
     "etiqueta"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "Nome com linha",
+   "tags": [
+    "youtube",
+    "terço inferior",
+    "nome",
+    "profissão",
+    "linha"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -36033,6 +36950,215 @@
     "energia"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "Título em molduras de contorno",
+   "tags": [
+    "youtube",
+    "título",
+    "contorno",
+    "moldura"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "Título em caixas de contorno",
+   "tags": [
+    "youtube",
+    "título",
+    "contorno",
+    "caixas",
+    "branco"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "Título em um quadrado",
+   "tags": [
+    "youtube",
+    "título",
+    "quadrado",
+    "contorno",
+    "minimalista"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "Título sobre quadrado de contorno",
+   "tags": [
+    "youtube",
+    "título",
+    "contorno",
+    "quadrado",
+    "moderno"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "Pergunta em quadrado branco",
+   "tags": [
+    "youtube",
+    "título",
+    "quadrado",
+    "pergunta",
+    "vertical"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "Título em dois pesos",
+   "tags": [
+    "youtube",
+    "título",
+    "tipografia",
+    "centralizado",
+    "simples"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "Obrigado pelo seu apoio!",
+   "tags": [
+    "youtube",
+    "obrigado",
+    "apoio",
+    "caixa"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "Etiqueta inclinada",
+   "tags": [
+    "youtube",
+    "título",
+    "inclinado",
+    "etiqueta",
+    "assinatura"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "Título com linha vertical",
+   "tags": [
+    "youtube",
+    "título",
+    "linha",
+    "vertical",
+    "minimalista"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "Título em caixas dentro de moldura",
+   "tags": [
+    "youtube",
+    "título",
+    "caixas",
+    "moldura",
+    "preto"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "O melhor show do YouTube",
+   "tags": [
+    "youtube",
+    "título",
+    "logo",
+    "show"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "Melhor vídeo do YouTube",
+   "tags": [
+    "youtube",
+    "título",
+    "linha",
+    "caixa",
+    "melhor vídeo"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "Título com pesos misturados",
+   "tags": [
+    "youtube",
+    "título",
+    "tipografia",
+    "mistura",
+    "elegante"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "Não esqueça de se inscrever e curtir",
+   "tags": [
+    "youtube",
+    "título",
+    "caixas",
+    "inscreva-se",
+    "curtir",
+    "centralizado"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "O novo vídeo já saiu",
+   "tags": [
+    "youtube",
+    "título",
+    "barra",
+    "vídeo novo",
+    "estreia"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "Título com número",
+   "tags": [
+    "youtube",
+    "título",
+    "número",
+    "pílula",
+    "lista"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "Título grande em caixa preta",
+   "tags": [
+    "youtube",
+    "título",
+    "caixa",
+    "grande",
+    "promo"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "Inscreva-se agora!",
+   "tags": [
+    "youtube",
+    "título",
+    "inscreva-se",
+    "grande",
+    "centralizado"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "Três linhas em caixas pretas",
+   "tags": [
+    "youtube",
+    "título",
+    "caixas",
+    "preto",
+    "pergunta"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "Assista a seguir",
+   "tags": [
+    "youtube",
+    "título",
+    "próximo vídeo",
+    "caixa",
+    "vídeo"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "Títulos em caixas",
+   "tags": [
+    "youtube",
+    "caixas",
+    "títulos",
+    "máquina de escrever",
+    "cursor",
+    "subtítulo"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "Zoom com anéis",
    "tags": [
@@ -36181,6 +37307,25 @@
     "pontos",
     "círculos",
     "mudança de cena"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "Vídeo em um círculo",
+   "tags": [
+    "youtube",
+    "círculo",
+    "coral",
+    "transição",
+    "vídeo"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "Logo do YouTube e inscrever-se",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "logo",
+    "sino"
    ]
   },
   "template:zoom-3d-parallax": {

@@ -17,7 +17,16 @@ Item {
     readonly property string clipKind: hasSelection ? (clipData.kind || "") : ""
 
     readonly property bool hasShapeStyle: hasSelection && clipKind === "shape" && !!clipData.shapeStyle
-    readonly property var shapeStyle: hasShapeStyle ? clipData.shapeStyle : ({
+    // After Effects' Contents (0.28, Pro): a layer of parts and the part picked in the list. A shape
+    // part is edited here exactly as a plain shape layer is; a group only has its transform.
+    readonly property bool proMode: EditorState.preferences.proMode
+    readonly property bool hasParts: hasSelection && clipData.shapeHasParts === true
+    readonly property var part: hasSelection && clipData.shapePart ? clipData.shapePart : null
+    readonly property bool editingPart: !!part && !part.group
+    readonly property string partPrefix: part ? "part." + part.id + "." : ""
+    readonly property bool showShapeSections: !hasParts || editingPart
+    readonly property var shapeStyle: editingPart && part.shapeStyle ? part.shapeStyle
+                                    : hasShapeStyle ? clipData.shapeStyle : ({
                                                                        "kind": "rectangle",
                                                                        "layers": [],
                                                                        "cornerRadius": 0,
@@ -37,12 +46,17 @@ Item {
     // not always the same word ("circle" is an ellipse), so match on the stored kind.
     readonly property var shapeFamilies: ({
         "star": ["star", "burst"],
+        // After Effects' roundness (0.28): stars and the regular polygons.
+        "round": ["star", "burst", "pentagon", "hexagon", "octagon"],
         "arrow": ["arrow", "double-arrow", "block-arrow", "chevron", "banner"],
         "shaft": ["arrow", "double-arrow", "chevron", "cross", "curved-arrow"],
         "bubble": ["speech-bubble", "speech-bubble-rect", "thought-bubble", "callout"]
     })
+    // Guarded: while the inspector is torn down its style reads undefined (TypeErrors in the log).
     function shapeHas(family) {
-        return root.shapeFamilies[family].indexOf(root.shapeStyle.kind) >= 0
+        const s = root.shapeStyle
+        const fam = root.shapeFamilies
+        return !!s && !!fam && fam[family].indexOf(s.kind) >= 0
     }
 
     function setShapeKey(key, value) {
@@ -51,7 +65,17 @@ Item {
         EditorState.setShapeStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
     }
     function knob(key, label, decimals) {
-        return { "key": "shape." + key, "label": label, "def": Number(root.shapeStyle[key]) || 0, "decimals": decimals }
+        return { "key": "shape." + key, "label": label, "def": Number((root.shapeStyle || {})[key]) || 0, "decimals": decimals }
+    }
+    // A part's own value (0.28): "part.<id>.<field>", keyframable like any clip property.
+    function partKnob(field, label, decimals) {
+        return { "key": root.partPrefix + field, "label": label,
+                 "def": root.part ? Number(root.part[field]) || 0 : 0, "decimals": decimals }
+    }
+    function partKeyframes(field) {
+        const keys = root.part && root.part.keyframes
+        const entry = keys && keys[field]
+        return (entry && entry.points) || []
     }
     function knobKeyframes(key) {
         const keys = root.shapeStyle && root.shapeStyle.keyframes
@@ -106,7 +130,274 @@ Item {
             return out
         }
 
+        // ----- After Effects' Contents (0.28, Pro): the parts of this layer -------------------
+        ShapeContentsList {
+            width: parent.width
+            visible: root.proMode && root.hasShapeStyle
+            clipData: root.clipData
+        }
+
+        // In Simple a layer of parts is one shape: its colour goes to every part.
         Column {
+            width: parent.width
+            visible: !root.proMode && root.hasParts
+            spacing: Theme.spacingSm
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                opacity: 0.8
+                text: qsTr("This shape is made of several parts. To edit each part, switch to Pro.")
+            }
+            ThemedButton {
+                variant: "secondary"
+                text: qsTr("See in Pro")
+                onClicked: EditorState.preferences.setProMode(true)
+            }
+        }
+
+        // The whole layer of parts picked: what to do next.
+        ThemedLabel {
+            width: parent.width
+            visible: root.proMode && root.hasParts && !root.part
+            wrapMode: Text.WordWrap
+            opacity: 0.8
+            text: qsTr("Pick a part in the list to edit its shape, fill and border. To move or scale the whole layer, use the Transform tab.")
+        }
+
+        // ----- The picked part's own transform (After Effects: Transform: <part>) ----------------
+        CollapsibleSection {
+            width: parent.width
+            visible: root.proMode && !!root.part
+            expanded: true
+            title: root.part && root.part.group ? qsTr("Position and turn of the group") : qsTr("Position and turn of the part")
+            tooltip: qsTr("In After Effects: Transform: %1").arg(root.part ? root.part.name : "")
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    visible: root.editingPart
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("width", qsTr("Width"), 0)
+                        keyframeList: root.partKeyframes("width")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 2000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("height", qsTr("Height"), 0)
+                        keyframeList: root.partKeyframes("height")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 2000
+                        unit: "px"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("x", qsTr("Position X"), 0)
+                        keyframeList: root.partKeyframes("x")
+                        useSlider: true
+                        sliderFrom: -2000
+                        sliderTo: 2000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("y", qsTr("Position Y"), 0)
+                        keyframeList: root.partKeyframes("y")
+                        useSlider: true
+                        sliderFrom: -2000
+                        sliderTo: 2000
+                        unit: "px"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("scaleX", qsTr("Scale X"), 0)
+                        keyframeList: root.partKeyframes("scaleX")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 400
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.partKnob("scaleY", qsTr("Scale Y"), 0)
+                        keyframeList: root.partKeyframes("scaleY")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 400
+                        unit: "%"
+                    }
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.partKnob("rotation", qsTr("Rotation"), 1)
+                    keyframeList: root.partKeyframes("rotation")
+                    useSlider: true
+                    sliderFrom: -360
+                    sliderTo: 360
+                    unit: "°"
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.partKnob("opacity", qsTr("Opacity"), 0)
+                    keyframeList: root.partKeyframes("opacity")
+                    useSlider: true
+                    sliderFrom: 0
+                    sliderTo: 100
+                    unit: "%"
+                }
+                ThemedLabel { text: qsTr("Blend mode") }
+                ThemedComboBox {
+                    readonly property var modes: ["normal", "multiply", "screen", "overlay", "add", "darken", "lighten"]
+                    width: parent.width
+                    model: [qsTr("Normal"), qsTr("Multiply"), qsTr("Screen"), qsTr("Overlay"), qsTr("Add"),
+                            qsTr("Darken"), qsTr("Lighten")]
+                    currentIndex: Math.max(0, modes.indexOf(root.part ? root.part.blend : "normal"))
+                    onActivated: index => EditorState.setShapePartBlend(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                       root.part.id, modes[index])
+                }
+                // After Effects' Wiggle Transform (0.28): the part jitters on its own; nothing moves while the
+                // amounts are 0.
+                CollapsibleSection {
+                    width: parent.width
+                    expanded: false
+                    title: qsTr("Wiggle")
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingMd
+                        ThemedLabel {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            text: qsTr("The part jitters on its own, as After Effects' Wiggle Transform. Leave the amounts at 0 to keep it still.")
+                            color: Theme.mutedForeground
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        PropertyKeyframeRow {
+                            width: parent.width
+                            propDef: root.partKnob("wigglePosition", qsTr("Position"), 0)
+                            keyframeList: root.partKeyframes("wigglePosition")
+                            useSlider: true
+                            sliderFrom: 0
+                            sliderTo: 200
+                            unit: "px"
+                        }
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleRotation", qsTr("Rotation"), 0)
+                                keyframeList: root.partKeyframes("wiggleRotation")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 90
+                                unit: "°"
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleScale", qsTr("Scale"), 0)
+                                keyframeList: root.partKeyframes("wiggleScale")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 50
+                                unit: "%"
+                            }
+                        }
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleSpeed", qsTr("Wiggles per second"), 1)
+                                keyframeList: root.partKeyframes("wiggleSpeed")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 10
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleSeed", qsTr("Seed"), 0)
+                                keyframeList: root.partKeyframes("wiggleSeed")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 100
+                            }
+                        }
+                    }
+                }
+                CollapsibleSection {
+                    width: parent.width
+                    expanded: false
+                    title: qsTr("Skew and anchor point")
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingMd
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("skew", qsTr("Skew"), 1)
+                                keyframeList: root.partKeyframes("skew")
+                                useSlider: true
+                                sliderFrom: -85
+                                sliderTo: 85
+                                unit: "°"
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("skewAxis", qsTr("Skew axis"), 1)
+                                keyframeList: root.partKeyframes("skewAxis")
+                                useSlider: true
+                                sliderFrom: -180
+                                sliderTo: 180
+                                unit: "°"
+                            }
+                        }
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("anchorX", qsTr("Anchor X"), 0)
+                                keyframeList: root.partKeyframes("anchorX")
+                                useSlider: true
+                                sliderFrom: -1000
+                                sliderTo: 1000
+                                unit: "px"
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("anchorY", qsTr("Anchor Y"), 0)
+                                keyframeList: root.partKeyframes("anchorY")
+                                useSlider: true
+                                sliderFrom: -1000
+                                sliderTo: 1000
+                                unit: "px"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Column {
+            visible: root.showShapeSections
             width: parent.width
             spacing: Theme.spacingXs
 
@@ -142,6 +433,7 @@ Item {
 
         // ----- Layers -----------------------------------------------------
         Column {
+            visible: root.showShapeSections
             width: parent.width
             spacing: Theme.spacingMd
 
@@ -207,6 +499,7 @@ Item {
 
         // ----- Geometry ---------------------------------------------------
         CollapsibleSection {
+            visible: root.showShapeSections
             width: parent.width
             title: qsTr("Geometry")
 
@@ -246,6 +539,33 @@ Item {
                         sliderFrom: 0.05
                         sliderTo: 0.95
                         percent: true
+                    }
+                }
+
+                // Rounded corners as After Effects' Outer / Inner Roundness: at 100 % a polygon is a circle.
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    visible: root.shapeHas("round")
+
+                    PropertyKeyframeRow {
+                        width: root.shapeHas("star") ? (parent.width - parent.spacing) / 2 : parent.width
+                        propDef: root.knob("outerRoundness", qsTr("Outer roundness"), 0)
+                        keyframeList: root.knobKeyframes("outerRoundness")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        visible: root.shapeHas("star")
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("innerRoundness", qsTr("Inner roundness"), 0)
+                        keyframeList: root.knobKeyframes("innerRoundness")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
                     }
                 }
 
@@ -305,6 +625,7 @@ Item {
 
         // ----- After Effects' Path (0.26): edit and animate a drawn outline -
         CollapsibleSection {
+            visible: root.showShapeSections && !root.hasParts
             width: parent.width
             title: qsTr("Path")
             // Every shape: a rectangle, ellipse or star turns into an editable path on "Edit points"
@@ -418,10 +739,11 @@ Item {
 
         // ----- After Effects' shape operators (0.26) ----------------------
         CollapsibleSection {
+            visible: root.showShapeSections
             width: parent.width
             title: qsTr("Trim paths")
-            expanded: Number(root.shapeStyle.trimStart || 0) > 0 || Number(root.shapeStyle.trimEnd === undefined ? 100 : root.shapeStyle.trimEnd) < 100
-                      || Number(root.shapeStyle.trimOffset || 0) !== 0
+            expanded: Number((root.shapeStyle || {}).trimStart || 0) > 0 || Number((root.shapeStyle || {}).trimEnd === undefined ? 100 : (root.shapeStyle || {}).trimEnd) < 100
+                      || Number((root.shapeStyle || {}).trimOffset || 0) !== 0
 
             Column {
                 width: parent.width
@@ -469,9 +791,10 @@ Item {
         }
 
         CollapsibleSection {
+            visible: root.showShapeSections
             width: parent.width
             title: qsTr("Repeater")
-            expanded: Number(root.shapeStyle.repeatCopies || 1) > 1
+            expanded: Number((root.shapeStyle || {}).repeatCopies || 1) > 1
 
             Column {
                 width: parent.width
@@ -582,9 +905,10 @@ Item {
         }
 
         CollapsibleSection {
+            visible: root.showShapeSections
             width: parent.width
             title: qsTr("Wiggle paths")
-            expanded: Number(root.shapeStyle.wiggleSize || 0) > 0
+            expanded: Number((root.shapeStyle || {}).wiggleSize || 0) > 0
 
             Column {
                 width: parent.width
@@ -645,9 +969,10 @@ Item {
         }
         // ----- Several shapes in one layer, Merge / Offset / Zig zag / Twist (0.26, stage G) --------
         CollapsibleSection {
+            visible: root.showShapeSections && !root.proMode && !root.hasParts
             width: parent.width
             title: qsTr("Shapes in this layer")
-            expanded: Number(root.shapeStyle.mergeMode || 0) > 0
+            expanded: Number((root.shapeStyle || {}).mergeMode || 0) > 0
 
             Column {
                 width: parent.width
@@ -687,9 +1012,10 @@ Item {
         }
 
         CollapsibleSection {
+            visible: root.showShapeSections
             width: parent.width
             title: qsTr("Offset, pucker, zig zag and twist")
-            expanded: Number(root.shapeStyle.offsetPath || 0) !== 0 || Number(root.shapeStyle.zigzagSize || 0) > 0
+            expanded: Number((root.shapeStyle || {}).offsetPath || 0) !== 0 || Number((root.shapeStyle || {}).zigzagSize || 0) > 0
                       || Number(root.shapeStyle.twistAngle || 0) !== 0 || Number(root.shapeStyle.puckerBloat || 0) !== 0
 
             Column {

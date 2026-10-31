@@ -5238,6 +5238,100 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick two or more shapes to combine them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only shapes that do not move, with no masks or effects of their own, can be combined</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another layer is linked to one of these shapes (a mask, an adjustment or a parent): unlink it before combining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n shapes combined into one layer</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This shape has only one part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another layer is linked to this shape (a mask, an adjustment or a parent): unlink it before separating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Separated into %n layers</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A shape layer keeps at least one shape. Delete the layer instead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” duplicated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” shown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” hidden</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Order changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grouped</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the group&apos;s skew to 0 and remove its keyframes before ungrouping.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Text colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5356,6 +5450,66 @@
     <message>
         <source>Mask feather</source>
         <translation>Sfumatura bordo maschera</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Move track</source>
@@ -23104,6 +23258,86 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Ritaglio finale</translation>
     </message>
     <message>
+        <source>Taper and wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper thins the stroke towards its start and end; Wave makes its width rise and fall along the path.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wavelength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line ends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the open ends of the stroke finish (After Effects&apos; Line Cap)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the stroke turns a corner (After Effects&apos; Line Join)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sketchy</source>
         <translation>Schizzo</translation>
     </message>
@@ -23166,6 +23400,89 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Adjust extrude</source>
         <translation>Regola estrusione</translation>
+    </message>
+</context>
+<context>
+    <name>ShapeContentsList</name>
+    <message>
+        <source>Contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer (After Effects: Add)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This layer is one shape. Add another one to build it from parts: each part has its own fill, border and position.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The whole layer. Its position and size are in the Transform tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fold the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -23326,6 +23643,114 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Forma della libreria</translation>
     </message>
     <message>
+        <source>This shape is made of several parts. To edit each part, switch to Pro.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a part in the list to edit its shape, fill and border. To move or scale the whole layer, use the Transform tab.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position and turn of the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position and turn of the part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In After Effects: Transform: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The part jitters on its own, as After Effects&apos; Wiggle Transform. Leave the amounts at 0 to keep it still.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew and anchor point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>Livelli</translation>
     </message>
@@ -23368,6 +23793,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Raggio interno</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Head size</source>
@@ -23599,6 +24032,21 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>ShapePartOverlay</name>
+    <message>
+        <source>Move part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale part</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShapeStyle</name>
     <message>
         <source>Rectangle</source>
@@ -23739,6 +24187,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Raggio interno</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Head size</source>
@@ -28275,6 +28731,42 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Miter limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: start length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: end length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: start width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: end width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: wavelength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: phase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>Offset tratteggio</translation>
     </message>
@@ -28786,6 +29278,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Group</source>
         <translation>Raggruppa</translation>
+    </message>
+    <message>
+        <source>Combine into one shape layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate into layers</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AI transition to the next clip</source>
@@ -29787,6 +30287,86 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Mostra fotogrammi chiave</translation>
     </message>
     <message>
+        <source>Hide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remove keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29808,6 +30388,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Click to pick all its keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

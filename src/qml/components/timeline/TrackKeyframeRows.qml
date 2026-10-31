@@ -183,7 +183,9 @@ Item {
 
             Rectangle {
                 anchors.fill: parent
-                color: Qt.rgba(0, 0, 0, rowItem.index % 2 === 0 ? 0.16 : 0.08)
+                // Contents' headings (0.28) a shade darker: they hold lines, not keys.
+                color: rowItem.modelData.kind === "heading" ? Qt.rgba(0, 0, 0, 0.28)
+                                                            : Qt.rgba(0, 0, 0, rowItem.index % 2 === 0 ? 0.16 : 0.08)
             }
             Rectangle {
                 anchors.left: parent.left

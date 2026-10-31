@@ -25206,6 +25206,118 @@
     "শব্দ"
    ]
   },
+  "template:lt-andy": {
+   "name": "নেমপ্লেট: মাঝখান থেকে খোলা বার",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "মাঝখানে",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "নেমপ্লেট: বাক্স থেকে উঠে আসা নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "গ্রেডিয়েন্ট",
+    "বাক্স",
+    "ফিতা"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "নেমপ্লেট: তিন স্টাইলে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "আউটলাইন",
+    "পদবি"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "নেমপ্লেট: সাদা রেখাসহ বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "গ্রেডিয়েন্ট",
+    "বাক্স",
+    "রেখা"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "ডানে নেমপ্লেট: দুটি বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "ডানে",
+    "বাক্স"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "নেমপ্লেট: খাড়া বার ও আউটলাইন নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "আউটলাইন",
+    "খাড়া বার"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "নেমপ্লেট: পদসহ ফিতা, নিচে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "ফিতা",
+    "পদ",
+    "ডানে"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "নেমপ্লেট: গ্রেডিয়েন্ট বারের ওপর নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "গ্রেডিয়েন্ট",
+    "বার"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "নেমপ্লেট: বারের ভেতরে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "গ্রেডিয়েন্ট",
+    "বাক্স"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "নেমপ্লেট: বাক্সে পদবি, ওপরে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "পদবি",
+    "মাঝখানে"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "ডানে নেমপ্লেট: উল্টো দিকে লেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "ডানে",
+    "টাইপিং"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "ডানে নেমপ্লেট: গ্রেডিয়েন্ট রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "ডানে",
+    "রেখা",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
   "template:me-gradue": {
    "name": "আমি গ্র্যাজুয়েট!",
    "tags": [
@@ -34231,6 +34343,189 @@
     "তথ্য"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "কাউন্টারসহ চ্যানেল বার",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "কাউন্টার",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-barra-oscura": {
+   "name": "সাবস্ক্রাইবসহ গাঢ় বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "বার",
+    "গাঢ়"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "সাবস্ক্রাইব বোতামসহ চ্যানেল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "চ্যানেল",
+    "ছবি",
+    "ঘণ্টা"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "মাঝখানে ছবিসহ কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "কার্ড",
+    "ছবি",
+    "মাঝখান"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "বড় আইকন: লাইক, সাবস্ক্রাইব, ঘণ্টা",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "আইকন",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "নিজে থেকে লেখা হওয়া বার্তা",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বার্তা",
+    "টাইপিং",
+    "লাইক"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "লাইক ও সাবস্ক্রাইব পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "পিল",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "ঘণ্টা ও সাবস্ক্রাইব পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ঘণ্টা",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "ছবি থেকে লম্বা হওয়া পিল",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ছবি",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "আমার সোশ্যালে ফলো করুন",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "সোশ্যাল মিডিয়া",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "সাবস্ক্রাইবসহ চ্যানেল কার্ড",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "কার্ড",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "ছোট সাবস্ক্রাইব কার্ড",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "সাধারণ",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "সাবস্ক্রাইবসহ ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "কার্ড",
+    "ভিডিও",
+    "হালকা"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "লাইকসহ গাঢ় ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "কার্ড",
+    "ভিডিও",
+    "গাঢ়"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "সরু ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "কার্ড",
+    "সরু",
+    "ঘণ্টা"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "লাইক, সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "ঘণ্টা"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "সাবস্ক্রাইবসহ কথার বুদবুদ",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বুদবুদ",
+    "লোগো",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "ঘণ্টাটি চালু করো",
+   "tags": [
+    "youtube",
+    "ঘণ্টা",
+    "নোটিফিকেশন",
+    "লেখা",
+    "প্রবাল"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "বারের ওপর শব্দ",
    "tags": [
@@ -34379,6 +34674,66 @@
     "বাউন্স",
     "মজার",
     "শব্দ"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "দুই বারের মাঝে উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "বার",
+    "মাঝখানে"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "সাদা বাক্সে উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "বাক্স",
+    "লেখক"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "প্রবাল প্যানেলে উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "প্যানেল",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "কোণের মাঝে উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "কোণ",
+    "রেখা"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "ভিডিওর ওপর উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "মাঝখানে",
+    "লেখক"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "ফ্রেমে উক্তি",
+   "tags": [
+    "youtube",
+    "উক্তি",
+    "বাক্য",
+    "ফ্রেম",
+    "আউটলাইন"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34654,6 +35009,146 @@
     "শিরোনাম"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "তিনটি বোতামের সারি",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "ঘণ্টা",
+    "সারি"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "বৃত্তসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "বৃত্ত",
+    "ধন্যবাদ",
+    "দুটি ভিডিও"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "সাদা কীলকসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "কীলক",
+    "ধন্যবাদ",
+    "দুটি ভিডিও"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "বাঁকা রেখাসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "বাঁক",
+    "ধন্যবাদ",
+    "দুটি ভিডিও"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "কোণাকুণি এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "কোণাকুণি",
+    "ধন্যবাদ",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "তীরচিহ্নসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "তীর",
+    "সাবস্ক্রাইব",
+    "প্রস্তাবিত ভিডিও"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "এন্ড স্ক্রিন: আরও ভিডিও",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "ধন্যবাদ",
+    "আরও ভিডিও",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "বাঁকা প্যানেলসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "প্যানেল",
+    "বাঁক",
+    "ধন্যবাদ"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "এন্ড স্ক্রিন: লম্বা কার্ড",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "কার্ড",
+    "ধন্যবাদ",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "ত্রিভুজসহ এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "ত্রিভুজ",
+    "ধন্যবাদ",
+    "পরের ভিডিও"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "বৃত্তসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ব্যাকগ্রাউন্ড",
+    "প্রবাল",
+    "বৃত্ত",
+    "নাম"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "ক্রসসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ব্যাকগ্রাউন্ড",
+    "প্রবাল",
+    "ক্রস",
+    "নাম"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "ছোপসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ব্যাকগ্রাউন্ড",
+    "প্রবাল",
+    "ছোপ",
+    "নাম"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "ত্রিভুজসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ব্যাকগ্রাউন্ড",
+    "প্রবাল",
+    "ত্রিভুজ",
+    "নাম"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "উক্তির কার্ড",
    "tags": [
@@ -34814,6 +35309,217 @@
     "রিভিউ"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "বড় করে দেখার জন্য ধন্যবাদ!",
+   "tags": [
+    "youtube",
+    "ধন্যবাদ",
+    "শেষ",
+    "বড়",
+    "বিদায়"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "হ্যালো! আমার চ্যানেলে স্বাগতম",
+   "tags": [
+    "youtube",
+    "হ্যালো",
+    "স্বাগতম",
+    "শুভেচ্ছা",
+    "ইন্ট্রো",
+    "চ্যানেল"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "স্তরে সাজানো YouTube চ্যানেল",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "স্তর",
+    "বুদবুদ",
+    "চ্যানেল"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "ভ্রমণ ব্লগ",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "ব্লগ",
+    "ভ্রমণ"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "লোগো ও চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "নাম",
+    "চ্যানেল"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "বড় গল্প",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "চ্যানেল",
+    "গল্প"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "হেলানো চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "হেলানো",
+    "নাম",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "পিলে লোগো ও নাম",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "পিল",
+    "ঝিলিক"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "তোমার YouTube চ্যানেল",
+   "tags": [
+    "youtube",
+    "ইন্ট্রো",
+    "লোগো",
+    "চ্যানেল",
+    "বাক্স"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "প্রবাল বাক্সে কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "বাক্স",
+    "প্রবাল",
+    "রেখা"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "রেখাসহ কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "রেখা",
+    "নির্দেশ",
+    "বিন্দু"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "সৃজনশীল কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "সৃজনশীল",
+    "সাদা",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "তোমার পণ্যের বর্ণনা দাও",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "পণ্য",
+    "বিবরণ",
+    "ফ্রেম"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "প্রবাল লেবেলসহ কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লেবেল",
+    "প্রবাল",
+    "রেখা"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "ব্র্যান্ড ও দামসহ কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "দাম",
+    "ব্র্যান্ড",
+    "পণ্য"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "কালো বাক্সে কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "কালো",
+    "খাড়া",
+    "শিরোনাম"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "অনুচ্ছেদসহ কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "অনুচ্ছেদ",
+    "বিবরণ",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "শিরোনাম ও বিবরণ",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "শিরোনাম",
+    "কালো",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "খাড়া রেখাসহ কলআউট",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "খাড়া",
+    "বিবরণ",
+    "প্রবাল"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "ভিডিওতে লাইক দাও",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "পছন্দ",
+    "বুড়ো আঙুল",
+    "ক্লিক"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "নাম ও তিনটি বোতাম",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "নাম",
+    "বোতাম",
+    "চ্যানেল"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "দুই ভিডিওর এন্ড স্ক্রিন",
    "tags": [
@@ -34894,6 +35600,16 @@
     "সমাপ্তি"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "দুটি ভিডিওসহ প্রবাল রঙের এন্ড স্ক্রিন",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "ধন্যবাদ",
+    "পরের ভিডিও",
+    "সাবস্ক্রাইব"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "হলুদ এন্ড স্ক্রিন",
    "tags": [
@@ -34924,6 +35640,36 @@
     "পরের ভিডিও"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "সাদা চ্যানেল প্রোফাইল",
+   "tags": [
+    "youtube",
+    "প্রোফাইল",
+    "ছবি",
+    "সাদা",
+    "সাবস্ক্রাইবার"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "কলামে সাজানো বোতাম",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "ঘণ্টা",
+    "কলাম"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "তিনটি আইকনসহ পিল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "ঘণ্টা",
+    "পিল"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "সোশ্যাল বার",
    "tags": [
@@ -34932,6 +35678,26 @@
     "বার",
     "ইউজারনেম",
     "নামফলক"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "বৃত্ত ও পিলে সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "বৃত্ত",
+    "পিল",
+    "লোগো"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "বৃত্তে লোগোসহ সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "বৃত্ত",
+    "ফলো করো",
+    "লোগো"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34962,6 +35728,16 @@
     "ফলো করো",
     "কাইনেটিক",
     "ইউজারনেম"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "বন্ধনীর মাঝে সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "কার্ড",
+    "বন্ধনী",
+    "লোগো"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -35004,6 +35780,16 @@
     "ইউজারনেম"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "রঙিন ব্যাজসহ সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ব্যাজ",
+    "ফলো করো",
+    "লোগো"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "তোমার সোশ্যাল",
    "tags": [
@@ -35024,6 +35810,16 @@
     "ইউজারনেম"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "লোগোসহ তোমার সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram",
+    "tiktok",
+    "লোগো"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "পিলে সোশ্যাল",
    "tags": [
@@ -35032,6 +35828,26 @@
     "ফলো করো",
     "ইউজারনেম",
     "পিল"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "তুলির টানে সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "তুলি",
+    "টান",
+    "লোগো"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "সাদা কার্ডে সোশ্যাল মিডিয়া",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "কার্ড",
+    "ফলো করো",
+    "লোগো"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -35054,6 +35870,75 @@
     "লোয়ার থার্ড"
    ]
   },
+  "template:ytk-suscribete-ahora": {
+   "name": "এখনই আমার চ্যানেল সাবস্ক্রাইব করো!",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাক্য",
+    "লেখা"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "ফ্রেমে সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "ফ্রেম",
+    "আউটলাইন",
+    "লোগো"
+   ]
+  },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "হালকা পেজে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "ফোনে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "অন্ধকার পেজে সাবস্ক্রাইব",
+   "tags": [
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল",
+    "কার্সর",
+    "ভিডিও পেজ"
+   ]
+  },
+  "template:ytk-suscribete-texto": {
+   "name": "লোগোসহ সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লেখা",
+    "লোগো",
+    "ক্লিক"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "তালিকাসহ কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "তালিকা",
+    "কার্ড",
+    "লাইক"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "ছবিসহ নামফলক",
    "tags": [
@@ -35062,6 +35947,26 @@
     "নামফলক",
     "ছবি",
     "প্রোফাইল"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "সাদা বাক্সে নাম",
+   "tags": [
+    "youtube",
+    "নেমপ্লেট",
+    "নাম",
+    "পেশা",
+    "বাক্স"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "প্রবাল রঙের বাক্সে নাম",
+   "tags": [
+    "youtube",
+    "নেমপ্লেট",
+    "নাম",
+    "পেশা",
+    "প্রবাল"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -35143,6 +36048,16 @@
     "নামফলক",
     "অতিথি",
     "ট্যাগ"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "রেখাসহ নাম",
+   "tags": [
+    "youtube",
+    "নেমপ্লেট",
+    "নাম",
+    "পেশা",
+    "রেখা"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -35376,6 +36291,213 @@
     "এনার্জি"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "আউটলাইন ফ্রেমে শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "আউটলাইন",
+    "ফ্রেম"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "আউটলাইন বাক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "আউটলাইন",
+    "বাক্স",
+    "সাদা"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "বর্গক্ষেত্রে শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বর্গক্ষেত্র",
+    "আউটলাইন",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "আউটলাইন বর্গের ওপর শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "আউটলাইন",
+    "বর্গক্ষেত্র",
+    "আধুনিক"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "সাদা বর্গে প্রশ্ন",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বর্গক্ষেত্র",
+    "প্রশ্ন",
+    "খাড়া"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "দুই পুরুত্বের শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "মাঝখানে",
+    "সরল"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "তোমার সমর্থনের জন্য ধন্যবাদ!",
+   "tags": [
+    "youtube",
+    "ধন্যবাদ",
+    "সমর্থন",
+    "বাক্স"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "হেলানো লেবেল",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "হেলানো",
+    "লেবেল",
+    "স্বাক্ষর"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "খাড়া রেখাসহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "রেখা",
+    "খাড়া",
+    "মিনিমাল"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "ফ্রেমের ভেতরে বাক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বাক্স",
+    "ফ্রেম",
+    "কালো"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "YouTube-এর সেরা শো",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "লোগো",
+    "শো"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "YouTube-এর সেরা ভিডিও",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "রেখা",
+    "বাক্স",
+    "সেরা ভিডিও"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "মিশ্র পুরুত্বের শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "মিশ্রণ",
+    "মার্জিত"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "সাবস্ক্রাইব আর লাইক দিতে ভুলো না",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বাক্স",
+    "সাবস্ক্রাইব",
+    "লাইক"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "নতুন ভিডিও এসে গেছে",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বার",
+    "নতুন ভিডিও",
+    "প্রিমিয়ার"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "সংখ্যাসহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "সংখ্যা",
+    "পিল",
+    "তালিকা"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "কালো বাক্সে বড় শিরোনাম",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বাক্স",
+    "বড়",
+    "প্রোমো"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "এখনই সাবস্ক্রাইব করো!",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "সাবস্ক্রাইব",
+    "বড়",
+    "মাঝখানে"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "কালো বাক্সে তিন লাইন",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "বাক্স",
+    "কালো",
+    "প্রশ্ন"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "এরপর দেখো",
+   "tags": [
+    "youtube",
+    "শিরোনাম",
+    "এরপর দেখো",
+    "বাক্স",
+    "ভিডিও"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "বাক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বাক্স",
+    "শিরোনাম",
+    "টাইপরাইটার",
+    "উপশিরোনাম"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "রিং জুম",
    "tags": [
@@ -35524,6 +36646,25 @@
     "বিন্দু",
     "বৃত্ত",
     "দৃশ্য বদল"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "বৃত্তের ভেতরে ভিডিও",
+   "tags": [
+    "youtube",
+    "বৃত্ত",
+    "প্রবাল",
+    "ট্রানজিশন",
+    "ভিডিও"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "YouTube লোগো ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লোগো",
+    "ঘণ্টা"
    ]
   },
   "template:zoom-3d-parallax": {

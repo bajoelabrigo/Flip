@@ -129,6 +129,49 @@ public:
         }
         return 0.0;
     }
+
+    // After Effects' content("…") (0.28): a part of a shape layer, found by name down the path of groups
+    // (names joined by U+0001), its transform and size at the time.
+    Q_INVOKABLE double partProp(const QString &layerName, const QString &path, const QString &prop, double seconds) const
+    {
+        const Project *project = static_cast<const Project *>(expressionContext().project);
+        if (!project)
+            return 0.0;
+        const QStringList names = path.split(QChar(1));
+        for (const Track &track : project->tracks()) {
+            for (const Clip &clip : track.clips) {
+                if (clip.name != layerName || !clip.shapeStyle.hasParts())
+                    continue;
+                const TimeUs relative = expressionContext().timelineUs >= 0
+                                            ? expressionContext().timelineUs - clip.timelineStart
+                                            : TimeUs(seconds * 1e6);
+                const std::vector<ShapePart> *level = &clip.shapeStyle.parts;
+                const ShapePart *found = nullptr;
+                for (const QString &name : names) {
+                    found = nullptr;
+                    for (const ShapePart &part : *level) {
+                        if (part.name == name) {
+                            found = &part;
+                            break;
+                        }
+                    }
+                    if (!found)
+                        return 0.0;
+                    level = &found->children;
+                }
+                if (!found)
+                    return 0.0;
+                const ShapePart at = found->resolvedAt(relative);
+                double value = 0.0;
+                if (prop == QLatin1String("width"))
+                    return at.width;
+                if (prop == QLatin1String("height"))
+                    return at.height;
+                return shapePartScalar(at, prop, &value) ? value : 0.0;
+            }
+        }
+        return 0.0;
+    }
 };
 
 // The scaffolding every expression runs inside. `__e` is the expression's own text, run by eval so
@@ -152,6 +195,21 @@ const char *const kPrelude = R"JS(
             ["x", "y", "rotation", "opacity", "width", "height"].forEach(function (p) {
                 Object.defineProperty(l, p, { get: function () { return g(p); } });
             });
+            // After Effects' content("Rectangle 1"), and content("Group 1").content("Ellipse 1") inside groups.
+            function __content(path) {
+                function q(p) { return __fx.partProp(name, path.join(""), p, time); }
+                var pt = {};
+                Object.defineProperty(pt, "position", { get: function () { return [q("x"), q("y")]; } });
+                Object.defineProperty(pt, "rotation", { get: function () { return q("rotation"); } });
+                Object.defineProperty(pt, "opacity", { get: function () { return q("opacity"); } });
+                Object.defineProperty(pt, "scale", { get: function () { return [q("scaleX"), q("scaleY")]; } });
+                Object.defineProperty(pt, "anchorPoint", { get: function () { return [q("anchorX"), q("anchorY")]; } });
+                Object.defineProperty(pt, "skew", { get: function () { return q("skew"); } });
+                var c = { transform: pt, content: function (n) { return __content(path.concat([n])); } };
+                Object.defineProperty(c, "size", { get: function () { return [q("width"), q("height")]; } });
+                return c;
+            }
+            l.content = function (n) { return __content([n]); };
             return l;
         }
         var layer = __layer;

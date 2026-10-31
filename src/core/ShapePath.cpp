@@ -38,8 +38,66 @@ QPainterPath polygonPath(const Grid &g, std::initializer_list<QPointF> normalize
     return path;
 }
 
-QPainterPath starPath(const QRectF &bounds, int points, double innerRatio, bool alternateOuter)
+// Vertices round a centre, joined straight or (After Effects' roundness) by curves whose handles run along the
+// ellipse at each vertex: roundness 1 on every vertex of a regular polygon gives a circle.
+QPainterPath radialPath(const QRectF &bounds, const std::vector<std::pair<double, double>> &verts,
+                        const std::vector<double> &roundness)
 {
+    const QPointF c = bounds.center();
+    const double rx = bounds.width() / 2.0;
+    const double ry = bounds.height() / 2.0;
+    const size_t n = verts.size();
+    QPainterPath path;
+    if (n < 3)
+        return path;
+    bool round = false;
+    for (double r : roundness)
+        round = round || r > 1e-6;
+    const auto at = [&](size_t i) {
+        return QPointF(c.x() + rx * verts[i].second * qCos(verts[i].first), c.y() + ry * verts[i].second * qSin(verts[i].first));
+    };
+    if (!round) {
+        path.moveTo(at(0));
+        for (size_t i = 1; i < n; ++i)
+            path.lineTo(at(i));
+        path.closeSubpath();
+        return path;
+    }
+    const double k = 4.0 / 3.0 * std::tan(M_PI / (2.0 * double(n)));
+    const auto handle = [&](size_t i, double sign) {
+        const double a = verts[i].first;
+        const double r = verts[i].second;
+        const double f = roundness[i] * k * r * sign;
+        return QPointF(-rx * qSin(a) * f, ry * qCos(a) * f);
+    };
+    path.moveTo(at(0));
+    for (size_t i = 0; i < n; ++i) {
+        const size_t j = (i + 1) % n;
+        path.cubicTo(at(i) + handle(i, 1.0), at(j) + handle(j, -1.0), at(j));
+    }
+    path.closeSubpath();
+    return path;
+}
+
+QPainterPath starPath(const QRectF &bounds, int points, double innerRatio, bool alternateOuter, double outerRound = 0.0,
+                      double innerRound = 0.0)
+{
+    if (outerRound > 1e-6 || innerRound > 1e-6) {
+        const int spikes = qBound(3, points, 60);
+        const double inner = qBound(0.05, innerRatio, 0.95);
+        std::vector<std::pair<double, double>> verts;
+        std::vector<double> round;
+        for (int i = 0; i < spikes * 2; ++i) {
+            const bool outer = (i % 2) == 0;
+            double radius = outer ? 1.0 : inner;
+            if (outer && alternateOuter && ((i / 2) % 2) == 1)
+                radius = 0.82;
+            verts.emplace_back(-M_PI_2 + i * M_PI / spikes, radius);
+            round.push_back(qBound(0.0, outer ? outerRound : innerRound, 1.0));
+        }
+        return radialPath(bounds, verts, round);
+    }
+
     const int spikes = qBound(3, points, 60);
     const double inner = qBound(0.05, innerRatio, 0.95);
     const QPointF center = bounds.center();
@@ -142,8 +200,15 @@ QPainterPath curvedArrowPath(const QRectF &bounds, const ShapeStyle &style)
 
 } // namespace
 
-QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg)
+QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg, double roundness)
 {
+    if (roundness > 1e-6) {
+        const int count = qMax(3, sides);
+        std::vector<std::pair<double, double>> verts;
+        for (int i = 0; i < count; ++i)
+            verts.emplace_back(qDegreesToRadians(rotationDeg - 90.0) + i * 2.0 * M_PI / count, 1.0);
+        return radialPath(bounds, verts, std::vector<double>(size_t(count), qBound(0.0, roundness, 1.0)));
+    }
     const int n = qMax(3, sides);
     const QPointF center = bounds.center();
     const double rx = bounds.width() / 2.0;
@@ -408,11 +473,11 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
     case ShapeKind::Diamond:
         return polygonPath(g, {{0.5, 0.0}, {1.0, 0.5}, {0.5, 1.0}, {0.0, 0.5}});
     case ShapeKind::Pentagon:
-        return regularPolygonPath(bounds, 5, 0.0);
+        return regularPolygonPath(bounds, 5, 0.0, style.outerRoundness / 100.0);
     case ShapeKind::Hexagon:
-        return regularPolygonPath(bounds, 6, 0.0);
+        return regularPolygonPath(bounds, 6, 0.0, style.outerRoundness / 100.0);
     case ShapeKind::Octagon:
-        return regularPolygonPath(bounds, 8, 22.5);
+        return regularPolygonPath(bounds, 8, 22.5, style.outerRoundness / 100.0);
     case ShapeKind::Parallelogram:
         return polygonPath(g, {{0.22, 0.0}, {1.0, 0.0}, {0.78, 1.0}, {0.0, 1.0}});
     case ShapeKind::Trapezoid:
@@ -456,9 +521,11 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
         return bubblePath(bounds, style, true, false, true);
 
     case ShapeKind::Star:
-        return starPath(bounds, style.points, style.innerRatio, false);
+        return starPath(bounds, style.points, style.innerRatio, false, style.outerRoundness / 100.0,
+                        style.innerRoundness / 100.0);
     case ShapeKind::Burst:
-        return starPath(bounds, style.points, style.innerRatio, true);
+        return starPath(bounds, style.points, style.innerRatio, true, style.outerRoundness / 100.0,
+                        style.innerRoundness / 100.0);
     case ShapeKind::LightningBolt:
         return polygonPath(g, {{0.58, 0.0}, {0.16, 0.56}, {0.44, 0.56}, {0.34, 1.0}, {0.84, 0.40},
                                {0.54, 0.40}, {0.78, 0.0}});

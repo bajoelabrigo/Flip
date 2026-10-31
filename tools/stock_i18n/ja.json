@@ -24968,6 +24968,116 @@
     "文字"
    ]
   },
+  "template:lt-andy": {
+   "name": "テロップ：中央から開くバー",
+   "tags": [
+    "テロップ",
+    "名前",
+    "中央",
+    "グラデーション"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "テロップ：ボックスから現れる名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "グラデーション",
+    "ボックス",
+    "帯"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "テロップ：3つのスタイルの名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "アウトライン",
+    "名字"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "テロップ：白いライン入りボックス",
+   "tags": [
+    "テロップ",
+    "名前",
+    "グラデーション",
+    "ボックス",
+    "ライン"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "右側のテロップ：2つのボックス",
+   "tags": [
+    "テロップ",
+    "名前",
+    "右",
+    "ボックス"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "テロップ：縦バーと袋文字の名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "アウトライン",
+    "縦バー"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "テロップ：肩書きの帯と下の名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "帯",
+    "右"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "テロップ：グラデーションバーと名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "グラデーション",
+    "バー"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "テロップ：バーの中の名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "グラデーション",
+    "ボックス"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "テロップ：ボックスの名字と上の名前",
+   "tags": [
+    "テロップ",
+    "名前",
+    "名字",
+    "中央"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "右側のテロップ：逆向きタイピング",
+   "tags": [
+    "テロップ",
+    "名前",
+    "右",
+    "タイピング"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "右側のテロップ：グラデーションライン",
+   "tags": [
+    "テロップ",
+    "名前",
+    "右",
+    "ライン"
+   ]
+  },
   "template:me-gradue": {
    "name": "卒業しました！",
    "tags": [
@@ -33941,6 +34051,191 @@
     "情報"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "カウンター付きチャンネルバー",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "カウンター",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-barra-oscura": {
+   "name": "ダークな登録バー",
+   "tags": [
+    "youtube",
+    "登録",
+    "ボタン",
+    "バー",
+    "ダーク",
+    "ベル"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "登録ボタン付きチャンネル",
+   "tags": [
+    "youtube",
+    "登録",
+    "チャンネル",
+    "写真",
+    "ベル"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "中央に写真があるカード",
+   "tags": [
+    "youtube",
+    "登録",
+    "カード",
+    "写真",
+    "中央",
+    "ベル"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "大きなアイコン：高評価・登録・ベル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "アイコン",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "自動で打たれるメッセージ",
+   "tags": [
+    "youtube",
+    "登録",
+    "メッセージ",
+    "タイピング",
+    "タイプライター"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "高評価と登録のピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ピル",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "ベルと登録のピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ベル",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "写真から伸びるピル",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "写真",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "SNSでフォローしてね",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "sns",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "登録ボタン付きチャンネルカード",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "カード",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "小さな登録カード",
+   "tags": [
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ミニマル",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "登録ボタン付き動画カード",
+   "tags": [
+    "youtube",
+    "登録",
+    "ボタン",
+    "カード",
+    "動画",
+    "ベル"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "高評価付きダーク動画カード",
+   "tags": [
+    "youtube",
+    "登録",
+    "高評価",
+    "カード",
+    "動画",
+    "ダーク"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "細長い動画カード",
+   "tags": [
+    "youtube",
+    "登録",
+    "ボタン",
+    "カード",
+    "動画",
+    "細長い"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "高評価、登録、ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "高評価",
+    "登録",
+    "ベル"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "登録の吹き出し",
+   "tags": [
+    "youtube",
+    "登録",
+    "吹き出し",
+    "ロゴ",
+    "コーラル"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "ベルをオンにしよう",
+   "tags": [
+    "youtube",
+    "ベル",
+    "通知",
+    "テキスト",
+    "コーラル"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "バー上のワード",
    "tags": [
@@ -34096,6 +34391,66 @@
     "バウンス",
     "楽しい",
     "ワード"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "バーで挟んだ引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "バー",
+    "中央"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "白いボックスの引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "ボックス",
+    "作者"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "コーラルパネルの引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "パネル",
+    "コーラル"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "角で囲んだ引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "角",
+    "ライン"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "動画に重ねる引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "中央",
+    "作者"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "フレームの引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "名言",
+    "フレーム",
+    "アウトライン"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34392,6 +34747,146 @@
     "写真"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "横並びのボタン3つ",
+   "tags": [
+    "youtube",
+    "登録",
+    "高評価",
+    "ベル",
+    "横並び"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "円のある終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "円",
+    "ありがとう",
+    "動画2本"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "白いくさび形の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "くさび",
+    "ありがとう",
+    "動画2本"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "カーブのある終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "カーブ",
+    "ありがとう",
+    "動画2本"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "斜めの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "斜め",
+    "ありがとう",
+    "登録"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "矢印の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "矢印",
+    "登録",
+    "おすすめ動画"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "終了画面：その他の動画",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "ありがとう",
+    "その他の動画",
+    "sns"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "カーブパネルの終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "パネル",
+    "カーブ",
+    "ありがとう"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "終了画面：縦型カード",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "カード",
+    "ありがとう",
+    "登録"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "三角形の終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "三角形",
+    "ありがとう",
+    "次の動画"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "円のチャンネル名",
+   "tags": [
+    "youtube",
+    "背景",
+    "コーラル",
+    "円",
+    "名前"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "十字のチャンネル名",
+   "tags": [
+    "youtube",
+    "背景",
+    "コーラル",
+    "十字",
+    "名前"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "しみ模様のチャンネル名",
+   "tags": [
+    "youtube",
+    "背景",
+    "コーラル",
+    "しみ",
+    "名前"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "三角形のチャンネル名",
+   "tags": [
+    "youtube",
+    "背景",
+    "コーラル",
+    "三角形",
+    "名前"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "引用カード",
    "tags": [
@@ -34561,6 +35056,217 @@
     "レビュー"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "大きな「ご視聴ありがとう！」",
+   "tags": [
+    "youtube",
+    "ありがとう",
+    "エンディング",
+    "大きい",
+    "お別れ"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "こんにちは！チャンネルへようこそ",
+   "tags": [
+    "youtube",
+    "こんにちは",
+    "ようこそ",
+    "あいさつ",
+    "イントロ",
+    "チャンネル"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "積み重ねたYouTubeチャンネル",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "積み重ね",
+    "吹き出し",
+    "チャンネル"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "旅行ブログ",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "ブログ",
+    "旅行"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "ロゴとチャンネル名",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "名前",
+    "チャンネル"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "ビッグストーリー",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "チャンネル",
+    "ストーリー"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "傾いたチャンネル名",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "傾き",
+    "名前",
+    "コーラル"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "ピル型のロゴと名前",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "ピル",
+    "きらめき"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "あなたのYouTubeチャンネル",
+   "tags": [
+    "youtube",
+    "イントロ",
+    "ロゴ",
+    "チャンネル",
+    "ボックス"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "コーラルボックスのコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "ボックス",
+    "コーラル",
+    "ライン"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "ライン付きコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "ライン",
+    "指し示す",
+    "点"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "クリエイティブなコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "クリエイティブ",
+    "白",
+    "コーラル"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "商品を紹介しよう",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "商品",
+    "説明",
+    "フレーム"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "コーラルラベルのコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "ラベル",
+    "コーラル",
+    "ライン"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "ブランドと価格のコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "価格",
+    "ブランド",
+    "商品"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "黒いボックスのコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "黒",
+    "縦",
+    "見出し"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "段落付きコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "段落",
+    "説明",
+    "コーラル"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "見出しと説明",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "見出し",
+    "黒",
+    "コーラル"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "縦線のコールアウト",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "縦",
+    "説明",
+    "コーラル"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "高評価してね",
+   "tags": [
+    "youtube",
+    "高評価",
+    "いいね",
+    "親指",
+    "クリック"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "名前とボタン3つ",
+   "tags": [
+    "youtube",
+    "登録",
+    "名前",
+    "ボタン",
+    "チャンネル"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "2動画の終了画面",
    "tags": [
@@ -34643,6 +35349,16 @@
     "エンディング"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "動画2本のコーラル終了画面",
+   "tags": [
+    "youtube",
+    "終了画面",
+    "ありがとう",
+    "次の動画",
+    "登録"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "イエローの終了画面",
    "tags": [
@@ -34674,6 +35390,36 @@
     "次の動画"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "白いチャンネルプロフィール",
+   "tags": [
+    "youtube",
+    "プロフィール",
+    "写真",
+    "白",
+    "登録者"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "縦に並んだボタン",
+   "tags": [
+    "youtube",
+    "登録",
+    "高評価",
+    "ベル",
+    "縦並び"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "アイコン3つのピル",
+   "tags": [
+    "youtube",
+    "登録",
+    "高評価",
+    "ベル",
+    "ピル"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "SNSバー",
    "tags": [
@@ -34682,6 +35428,26 @@
     "バー",
     "ユーザー名",
     "テロップ"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "円とピルのSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "円",
+    "ピル",
+    "ロゴ"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "円形ロゴ付きSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "円",
+    "フォロー",
+    "ロゴ"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34713,6 +35479,16 @@
     "フォロー",
     "キネティック",
     "ユーザー名"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "カッコで囲んだSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "カード",
+    "カッコ",
+    "ロゴ"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -34756,6 +35532,16 @@
     "大きい"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "カラーバッジ付きSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "バッジ",
+    "フォロー",
+    "ロゴ"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "SNSアカウント",
    "tags": [
@@ -34777,6 +35563,17 @@
     "リスト"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "ロゴ付きSNSアカウント",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "ユーザー名"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "ピル型SNS",
    "tags": [
@@ -34785,6 +35582,26 @@
     "フォロー",
     "ユーザー名",
     "ピル"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "筆跡のSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "筆",
+    "ストローク",
+    "ロゴ"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "白いカードのSNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "カード",
+    "フォロー",
+    "ロゴ"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -34807,6 +35624,75 @@
     "テロップ"
    ]
   },
+  "template:ytk-suscribete-ahora": {
+   "name": "今すぐチャンネル登録！",
+   "tags": [
+    "youtube",
+    "登録",
+    "フレーズ",
+    "文字"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "フレームの登録ボタン",
+   "tags": [
+    "youtube",
+    "登録",
+    "フレーム",
+    "アウトライン",
+    "ロゴ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "ライトページで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "スマホで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "ダークページで登録",
+   "tags": [
+    "チャンネル登録",
+    "高評価",
+    "ベル",
+    "カーソル",
+    "動画ページ"
+   ]
+  },
+  "template:ytk-suscribete-texto": {
+   "name": "ロゴ付きの登録",
+   "tags": [
+    "youtube",
+    "登録",
+    "テキスト",
+    "ロゴ",
+    "クリック"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "リスト付きカード",
+   "tags": [
+    "youtube",
+    "登録",
+    "リスト",
+    "カード",
+    "高評価"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "アバター付きローワーサード",
    "tags": [
@@ -34816,6 +35702,26 @@
     "ローワーサード",
     "写真",
     "プロフィール"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "白いボックスの名前",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "名前",
+    "職業",
+    "ボックス"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "コーラルボックスの名前",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "名前",
+    "職業",
+    "コーラル"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -34901,6 +35807,16 @@
     "ローワーサード",
     "ゲスト",
     "ラベル"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "ライン付きの名前",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "名前",
+    "職業",
+    "ライン"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -35149,6 +36065,213 @@
     "エネルギッシュ"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "アウトライン枠のタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "アウトライン",
+    "フレーム"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "アウトラインボックスのタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "アウトライン",
+    "ボックス",
+    "白"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "四角い枠のタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "四角",
+    "アウトライン",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "アウトライン四角の上のタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "アウトライン",
+    "四角",
+    "モダン"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "白い四角の質問",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "四角",
+    "質問",
+    "縦"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "2つの太さのタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "タイポグラフィ",
+    "中央",
+    "シンプル"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "応援ありがとう！",
+   "tags": [
+    "youtube",
+    "ありがとう",
+    "応援",
+    "ボックス"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "傾いたラベル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "傾き",
+    "ラベル",
+    "署名"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "縦線のあるタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ライン",
+    "縦",
+    "ミニマル"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "フレーム内のボックスタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ボックス",
+    "フレーム",
+    "黒"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "YouTubeで最高の番組",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ロゴ",
+    "番組"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "YouTubeで最高の動画",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ライン",
+    "ボックス",
+    "最高の動画"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "太さを組み合わせたタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "タイポグラフィ",
+    "ミックス",
+    "エレガント"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "チャンネル登録と高評価をお忘れなく",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ボックス",
+    "登録",
+    "高評価"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "新しい動画を公開",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "バー",
+    "新しい動画",
+    "公開"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "番号付きタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "番号",
+    "ピル",
+    "リスト"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "黒いボックスの大きなタイトル",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ボックス",
+    "大きい",
+    "プロモ"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "今すぐ登録！",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "登録",
+    "大きい",
+    "中央"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "黒いボックスの3行",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "ボックス",
+    "黒",
+    "質問"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "次に見る",
+   "tags": [
+    "youtube",
+    "タイトル",
+    "次に見る",
+    "ボックス",
+    "動画"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "ボックスタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイトル",
+    "タイプライター",
+    "カーソル"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "リングズーム",
    "tags": [
@@ -35303,6 +36426,25 @@
     "ドット",
     "円",
     "場面転換"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "円の中の動画",
+   "tags": [
+    "youtube",
+    "円",
+    "コーラル",
+    "トランジション",
+    "動画"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "YouTubeロゴと登録",
+   "tags": [
+    "youtube",
+    "登録",
+    "ロゴ",
+    "ベル"
    ]
   },
   "template:zoom-3d-parallax": {

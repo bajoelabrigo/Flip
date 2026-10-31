@@ -681,6 +681,12 @@ AppController::AppController(AssetLibrary *assetLibrary, QObject *parent)
     };
     applyEditorDefaults();
     connect(m_preferences, &PreferencesController::editorDefaultsChanged, this, applyEditorDefaults);
+    // Contents in the timeline is Pro's (0.28): switching redraws the tracks' lines.
+    connect(m_preferences, &PreferencesController::proModeChanged, this, [this] {
+        m_tracksCacheValid = false;
+        m_tracksCache.clear();
+        emit tracksChanged();
+    });
 
     m_mcpController = new McpController(this, this);
     connect(&m_undoStack, &QUndoStack::indexChanged, this, &AppController::undoStackChanged);
@@ -1187,9 +1193,19 @@ int AppController::clipCount() const
     return total;
 }
 
+namespace {
+// Lets go of the focused part (0.28) unless it belongs to the clip with this id; defined with the
+// focus below.
+void keepShapePartFocusOnlyFor(const QString &clipId);
+} // namespace
+
 void AppController::notifySelectionChanged()
 {
     ++m_selectionRevision;
+    // Another clip picked: its parts are not what the inspector edits any more (AE picks the layer).
+    keepShapePartFocusOnlyFor(isValidClipIndex(m_selectedTrack, m_selectedClip)
+                                  ? m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).id
+                                  : QString());
     emit selectionChanged();
 }
 
@@ -2105,6 +2121,8 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("cornerRadius"), s.cornerRadius},
         {QStringLiteral("points"), s.points},
         {QStringLiteral("innerRatio"), s.innerRatio},
+        {QStringLiteral("outerRoundness"), s.outerRoundness},
+        {QStringLiteral("innerRoundness"), s.innerRoundness},
         {QStringLiteral("headSize"), s.headSize},
         {QStringLiteral("thickness"), s.thickness},
         {QStringLiteral("tailX"), s.tailX},
@@ -2827,13 +2845,107 @@ bool looksLikeTextProp(const QString &prop)
     return !drift::textKeyframeCanonicalKey(suffix, probe).isEmpty();
 }
 
+namespace {
+
+// The ids from the top part down to `id` (the part and every group around it); empty when it is not there.
+bool shapePartPathTo(const std::vector<drift::ShapePart> &parts, const QString &id, QStringList &path)
+{
+    for (const drift::ShapePart &part : parts) {
+        if (part.id == id || shapePartPathTo(part.children, id, path)) {
+            path.prepend(part.id);
+            return true;
+        }
+    }
+    return false;
+}
+
+} // namespace
+
+// After Effects' Contents (0.28): the part of a layer of parts the inspector edits. Set by
+// AppController::selectShapePart; a plain function here so every "shape.<key>" path below sends
+// its edit to the part without taking the controller along.
+struct ShapePartFocus
+{
+    QString clipId;
+    QString partId;
+};
+
+ShapePartFocus &shapePartFocus()
+{
+    static ShapePartFocus focus;
+    return focus;
+}
+
+void keepShapePartFocusOnlyFor(const QString &clipId)
+{
+    ShapePartFocus &focus = shapePartFocus();
+    if (focus.clipId != clipId)
+        focus = {};
+}
+
+// The shape a "shape.<key>" prop, the shading-layer stack and setShapeStyle edit on this clip: the
+// focused part's own shape when the clip is a layer of parts and one of them is focused, else the
+// clip's.
+drift::ShapeStyle &shapeStyleOf(drift::Clip &clip)
+{
+    const ShapePartFocus &focus = shapePartFocus();
+    if (!focus.partId.isEmpty() && focus.clipId == clip.id && clip.shapeStyle.hasParts()) {
+        if (drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, focus.partId))
+            return part->shape;
+    }
+    return clip.shapeStyle;
+}
+
+const drift::ShapeStyle &shapeStyleOf(const drift::Clip &clip)
+{
+    return shapeStyleOf(const_cast<drift::Clip &>(clip));
+}
+
+// A part's own scalar (0.28): "part.<id>.<field>" for its transform and size, or
+// "part.<id>.shape.<key>" for its shape (fills, strokes, operators), whatever part is focused.
+struct PartProp
+{
+    QString partId;
+    QString key;
+    bool shape = false;
+};
+
+bool parsePartProp(const drift::Clip &clip, const QString &prop, PartProp *out)
+{
+    if (clip.type != drift::ClipType::Shape || !prop.startsWith(QLatin1String("part.")))
+        return false;
+    const int dot = prop.indexOf(QLatin1Char('.'), 5);
+    if (dot < 0)
+        return false;
+    PartProp p;
+    p.partId = prop.mid(5, dot - 5);
+    const QString rest = prop.mid(dot + 1);
+    const drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, p.partId);
+    if (!part)
+        return false;
+    if (rest.startsWith(QLatin1String("shape."))) {
+        if (part->group)
+            return false;
+        p.shape = true;
+        p.key = drift::shapeKeyframeCanonicalKey(rest.mid(6), part->shape);
+        if (p.key.isEmpty())
+            return false;
+    } else {
+        if (!drift::shapePartKeyframeFields(*part).contains(rest))
+            return false;
+        p.key = rest;
+    }
+    *out = p;
+    return true;
+}
+
 // A shape style scalar is addressed as "shape.<key>" (cornerRadius, layer.stroke.width, …) and
 // lives on the shape clip itself.
 bool parseShapeProp(const drift::Clip &clip, const QString &prop, QString *key)
 {
     if (clip.type != drift::ClipType::Shape || !prop.startsWith(QLatin1String("shape.")))
         return false;
-    const QString canonical = drift::shapeKeyframeCanonicalKey(prop.mid(6), clip.shapeStyle);
+    const QString canonical = drift::shapeKeyframeCanonicalKey(prop.mid(6), shapeStyleOf(clip));
     if (canonical.isEmpty())
         return false;
     *key = canonical;
@@ -2984,10 +3096,20 @@ drift::KeyframeTrack<double> *keyframeTrackForProp(drift::Clip &clip, const QStr
     }
     QString shapeKey;
     if (parseShapeProp(clip, prop, &shapeKey)) {
+        drift::ShapeStyle &style = shapeStyleOf(clip);
         if (createIfMissing)
-            return &clip.shapeStyle.keyframes[shapeKey];
-        const auto it = clip.shapeStyle.keyframes.find(shapeKey);
-        return it == clip.shapeStyle.keyframes.end() ? nullptr : &it.value();
+            return &style.keyframes[shapeKey];
+        const auto it = style.keyframes.find(shapeKey);
+        return it == style.keyframes.end() ? nullptr : &it.value();
+    }
+    PartProp partProp;
+    if (parsePartProp(clip, prop, &partProp)) {
+        drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, partProp.partId);
+        QMap<QString, drift::KeyframeTrack<double>> &keys = partProp.shape ? part->shape.keyframes : part->keyframes;
+        if (createIfMissing)
+            return &keys[partProp.key];
+        const auto it = keys.find(partProp.key);
+        return it == keys.end() ? nullptr : &it.value();
     }
     QString vectorKey;
     if (parseVectorProp(clip, prop, &vectorKey)) {
@@ -3062,7 +3184,7 @@ bool isKnownKeyframeProp(const QString &prop)
     QString maskKey;
     if (parseMaskProp(prop, &maskKey))
         return true;
-    if (looksLikeTextProp(prop) || looksLikeShapeProp(prop) || looksLikeVectorProp(prop)
+    if (looksLikeTextProp(prop) || looksLikeShapeProp(prop) || prop.startsWith(QLatin1String("part.")) || looksLikeVectorProp(prop)
         || looksLikeModel3dProp(prop) || looksLikePdfProp(prop))
         return true;
     drift::Clip probe;
@@ -3237,13 +3359,32 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
 
     QString shapeKey;
     if (parseShapeProp(clip, prop, &shapeKey)) {
-        const auto existing = clip.shapeStyle.keyframes.constFind(shapeKey);
-        const bool keyed = existing != clip.shapeStyle.keyframes.constEnd() && !existing->isEmpty();
+        drift::ShapeStyle &style = shapeStyleOf(clip);
+        const auto existing = style.keyframes.constFind(shapeKey);
+        const bool keyed = existing != style.keyframes.constEnd() && !existing->isEmpty();
         if (!keyed && !force && !autoKey)
-            return drift::setShapeStyleScalar(clip.shapeStyle, shapeKey, value);
-        if (!writeKeyframeValue(clip.shapeStyle.keyframes[shapeKey], relative, value, autoKey, force))
+            return drift::setShapeStyleScalar(style, shapeKey, value);
+        if (!writeKeyframeValue(style.keyframes[shapeKey], relative, value, autoKey, force))
             return false;
-        drift::setShapeStyleScalar(clip.shapeStyle, shapeKey, value);
+        drift::setShapeStyleScalar(style, shapeKey, value);
+        return true;
+    }
+    // A part's transform, size or shape scalar (0.28): the part's member is the static home.
+    PartProp partProp;
+    if (parsePartProp(clip, prop, &partProp)) {
+        drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, partProp.partId);
+        QMap<QString, drift::KeyframeTrack<double>> &keys = partProp.shape ? part->shape.keyframes : part->keyframes;
+        const auto set = [&](double v) {
+            return partProp.shape ? drift::setShapeStyleScalar(part->shape, partProp.key, v)
+                                  : drift::setShapePartScalar(*part, partProp.key, v);
+        };
+        const auto existing = keys.constFind(partProp.key);
+        const bool keyed = existing != keys.constEnd() && !existing->isEmpty();
+        if (!keyed && !force && !autoKey)
+            return set(value);
+        if (!writeKeyframeValue(keys[partProp.key], relative, value, autoKey, force))
+            return false;
+        set(value);
         return true;
     }
     QString vectorKey;
@@ -5554,6 +5695,37 @@ QVariantMap AppController::selectedClipData() const
             return data;
         const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
         const drift::TimeUs relative = qMax<drift::TimeUs>(0, m_playheadUs - clip.timelineStart);
+        // A layer of parts (0.28): whether it has them and the one the inspector edits.
+        if (clip.type == drift::ClipType::Shape) {
+            data.insert(QStringLiteral("shapeHasParts"), clip.shapeStyle.hasParts());
+            const ShapePartFocus &focus = shapePartFocus();
+            const drift::ShapePart *part = focus.clipId == clip.id && !focus.partId.isEmpty()
+                                               ? drift::findShapePart(clip.shapeStyle.parts, focus.partId)
+                                               : nullptr;
+            if (part) {
+                QVariantMap partMap{
+                    {QStringLiteral("id"), part->id},
+                    {QStringLiteral("name"), part->name},
+                    {QStringLiteral("group"), part->group},
+                    {QStringLiteral("visible"), part->visible},
+                    {QStringLiteral("blend"), drift::blendModeToString(part->blend)},
+                };
+                for (const QString &field : drift::shapePartKeyframeFields(*part)) {
+                    double value = 0.0;
+                    if (drift::shapePartScalar(*part, field, &value))
+                        partMap.insert(field, value);
+                }
+                if (!part->group)
+                    partMap.insert(QStringLiteral("shapeStyle"), shapeStyleToMap(part->shape, clip.timelineStart));
+                QVariantMap partKeys;
+                for (auto it = part->keyframes.constBegin(); it != part->keyframes.constEnd(); ++it) {
+                    if (!it->isEmpty())
+                        partKeys.insert(it.key(), keyframeTrackToMap(it.value(), clip.timelineStart));
+                }
+                partMap.insert(QStringLiteral("keyframes"), partKeys);
+                data.insert(QStringLiteral("shapePart"), partMap);
+            }
+        }
         data.insert(QStringLiteral("rotationAtPlayhead"),
                     clipTransformValue(clip.rotation, relative, 0.0));
         QStringList caps = inspectorCaps(clip, m_project.tracks().at(trackIndex).type);
@@ -11025,6 +11197,15 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
         style.kind = drift::ShapeKind::Hexagon;
     }
     paintDrawnShape(style, fill, stroke, strokeWidth);
+    // In Pro, with a shape layer picked and on screen, the shape goes into that layer (0.28, as After Effects).
+    if (m_preferences && m_preferences->proMode() && isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const drift::Clip &picked = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+        if (picked.type == drift::ClipType::Shape && !picked.isSolid && !picked.layer3d
+            && m_playheadUs >= picked.timelineStart && m_playheadUs < picked.timelineEnd()) {
+            addDrawnShapeToLayer(m_selectedTrack, m_selectedClip, style, kind, x, y, w, h);
+            return;
+        }
+    }
     const drift::Project before = m_project;
     const drift::TimeUs start = m_playheadUs;
     const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
@@ -11155,8 +11336,18 @@ QString AppController::beginPenShape(const QString &clipId)
             convertSelectionToShape();
         }
         m_penShapeId = clipId;
+        m_penTargetLayerId.clear();
         selectClip(t, c);
         return clipId;
+    }
+    // In Pro, a shape layer picked and on screen takes the stroke as a new part when it ends (0.28, as After
+    // Effects); the stroke is drawn on a layer of its own meanwhile, as always.
+    m_penTargetLayerId.clear();
+    if (m_preferences && m_preferences->proMode() && isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+        const drift::Clip &picked = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+        if (picked.type == drift::ClipType::Shape && !picked.isSolid && !picked.layer3d
+            && m_playheadUs >= picked.timelineStart && m_playheadUs < picked.timelineEnd())
+            m_penTargetLayerId = picked.id;
     }
     const drift::Project before = m_project;
     const double W = m_project.width();
@@ -11265,9 +11456,40 @@ void AppController::finishPenShape(bool keep)
     }
     pushProjectEdit(before, tr("Pen"));
     finishEdit(tr("Shape drawn"));
+    const QString layerId = m_penTargetLayerId;
+    m_penTargetLayerId.clear();
+    if (!layerId.isEmpty() && moveShapeClipIntoLayer(id, layerId)) {
+        endEditSession(true);
+        return;
+    }
     endEditSession(true);
     if (findClipById(m_project, id, &t, &c))
         selectClip(t, c);
+}
+
+// The pen's stroke into the shape layer picked when it began (0.28): its own layer goes (and its track, if it is
+// left empty) and its shape becomes a part of that layer where it was drawn. In the pen's undo step.
+bool AppController::moveShapeClipIntoLayer(const QString &clipId, const QString &layerId)
+{
+    int st = -1, sc = -1, lt = -1, lc = -1;
+    if (clipId == layerId || !findClipById(m_project, clipId, &st, &sc) || !findClipById(m_project, layerId, &lt, &lc))
+        return false;
+    const drift::Clip stroke = m_project.tracks().at(st).clips.at(sc);
+    if (stroke.shapeStyle.isAnimated() || stroke.transformX.keyframes().size() > 1
+        || stroke.transformY.keyframes().size() > 1)
+        return false;
+    const QRectF box = drawnBoxAt(stroke);
+    const drift::Project before = m_project;
+    const QString trackId = m_project.tracks().at(st).id;
+    m_project.tracks()[st].clips.removeAt(sc);
+    if (m_project.tracks().at(st).clips.isEmpty() && m_project.tracks().size() > 1)
+        m_project.tracks().removeAt(st);
+    pushProjectEdit(before, tr("Pen"));
+    if (!findClipById(m_project, layerId, &lt, &lc))
+        return false;
+    addDrawnShapeToLayer(lt, lc, stroke.shapeStyle, QString(), box.x(), box.y(), box.width(), box.height());
+    selectClip(lt, lc);
+    return true;
 }
 
 QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
@@ -11276,7 +11498,9 @@ QVariantMap AppController::shapePathState(int trackIndex, int clipIndex) const
     if (!isValidClipIndex(trackIndex, clipIndex))
         return out;
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    if (clip.type != drift::ClipType::Shape || clip.shapeStyle.kind != drift::ShapeKind::Custom)
+    // A layer of parts (0.28) draws its parts, not its own path: the pen adds a part to it instead.
+    if (clip.type != drift::ClipType::Shape || clip.shapeStyle.kind != drift::ShapeKind::Custom
+        || clip.shapeStyle.hasParts())
         return out;
     const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
     QVariantList contours;
@@ -12409,6 +12633,765 @@ void AppController::addShapeToLayer(int trackIndex, int clipIndex, const QString
                           drift::frameDurationUs(m_project.fps()) / 2);
     pushProjectEdit(before, tr("Shape added to the layer"));
     finishEdit(tr("Shape added to the layer"));
+}
+
+// ---------------------------------------------------------------------------------------------
+// After Effects' Contents (0.28, stage 2): the parts of a shape layer, as the right column lists
+// them, and the edits it makes. Each edit is one undo step.
+
+namespace {
+
+// The list holding `id` and its index there, at any depth.
+std::vector<drift::ShapePart> *shapePartSiblings(std::vector<drift::ShapePart> &parts, const QString &id, int *index)
+{
+    for (int i = 0; i < int(parts.size()); ++i) {
+        if (parts[size_t(i)].id == id) {
+            *index = i;
+            return &parts;
+        }
+        if (std::vector<drift::ShapePart> *inner = shapePartSiblings(parts[size_t(i)].children, id, index))
+            return inner;
+    }
+    return nullptr;
+}
+
+int countShapeLeaves(const std::vector<drift::ShapePart> &parts)
+{
+    int n = 0;
+    for (const drift::ShapePart &part : parts)
+        n += part.group ? countShapeLeaves(part.children) : 1;
+    return n;
+}
+
+int countShapePartsNamed(const std::vector<drift::ShapePart> &parts, const QString &prefix)
+{
+    int n = 0;
+    for (const drift::ShapePart &part : parts) {
+        if (part.name.startsWith(prefix))
+            ++n;
+        n += countShapePartsNamed(part.children, prefix);
+    }
+    return n;
+}
+
+// A fresh id for a part and everything inside it (a duplicate). Each id minted stays marked in the layer until
+// the whole copy has its ids, or two children of a group got the same one (each popped before the next).
+void reidShapePartMarked(drift::ShapePart &part, drift::ShapeStyle &layer, int &marked)
+{
+    part.id = drift::mintShapePartId(layer);
+    drift::ShapePart marker;
+    marker.id = part.id;
+    layer.parts.push_back(marker);
+    ++marked;
+    for (drift::ShapePart &child : part.children)
+        reidShapePartMarked(child, layer, marked);
+}
+
+void reidShapePart(drift::ShapePart &part, drift::ShapeStyle &layer)
+{
+    int marked = 0;
+    reidShapePartMarked(part, layer, marked);
+    layer.parts.erase(layer.parts.end() - marked, layer.parts.end());
+}
+
+bool shapePartContains(const drift::ShapePart &part, const QString &id)
+{
+    for (const drift::ShapePart &child : part.children) {
+        if (child.id == id || shapePartContains(child, id))
+            return true;
+    }
+    return false;
+}
+
+QString shapePartKindName(const drift::ShapePart &part)
+{
+    if (part.group)
+        return QStringLiteral("group");
+    return drift::shapeKindToString(part.shape.kind);
+}
+
+void appendShapePartRows(const std::vector<drift::ShapePart> &parts, int depth, const QString &clipId,
+                         const QSet<QString> &collapsed, QVariantList &rows)
+{
+    for (const drift::ShapePart &part : parts) {
+        const bool open = part.group && !collapsed.contains(clipId + QLatin1Char('|') + part.id);
+        rows.append(QVariantMap{
+            {QStringLiteral("id"), part.id},
+            {QStringLiteral("name"), part.name},
+            {QStringLiteral("kind"), shapePartKindName(part)},
+            {QStringLiteral("group"), part.group},
+            {QStringLiteral("depth"), depth},
+            {QStringLiteral("expanded"), open},
+            {QStringLiteral("childCount"), int(part.children.size())},
+            {QStringLiteral("visible"), part.visible},
+            {QStringLiteral("blend"), drift::blendModeToString(part.blend)},
+            {QStringLiteral("color"), part.group ? QString() : part.shape.primaryColor().name(QColor::HexArgb)},
+            {QStringLiteral("animated"), part.isAnimated()},
+        });
+        if (open)
+            appendShapePartRows(part.children, depth + 1, clipId, collapsed, rows);
+    }
+}
+
+} // namespace
+
+QString AppController::selectedShapePart() const
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+    const ShapePartFocus &focus = shapePartFocus();
+    if (focus.clipId != clip.id || !drift::findShapePart(clip.shapeStyle.parts, focus.partId))
+        return {};
+    return focus.partId;
+}
+
+void AppController::selectShapePart(int trackIndex, int clipIndex, const QString &partId)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    ShapePartFocus &focus = shapePartFocus();
+    const QString id = drift::findShapePart(clip.shapeStyle.parts, partId) ? partId : QString();
+    if (focus.clipId == clip.id && focus.partId == id)
+        return;
+    focus.clipId = clip.id;
+    focus.partId = id;
+    if (!id.isEmpty()) {
+        const QString trackKey = m_project.tracks().at(trackIndex).id + QLatin1Char('|');
+        m_keyframeGroupsExpanded.insert(trackKey + QStringLiteral("contents"));
+        // The part and every group around it.
+        QStringList path;
+        shapePartPathTo(clip.shapeStyle.parts, id, path);
+        for (const QString &partId : std::as_const(path))
+            m_keyframeGroupsExpanded.insert(trackKey + QStringLiteral("part:") + partId);
+        m_tracksCacheValid = false;
+        m_tracksCache.clear();
+        emit tracksChanged();
+    }
+    emit selectedShapePartChanged();
+    emit selectedClipDataChanged();
+}
+
+QVariantList AppController::shapePartRows(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Shape)
+        return {};
+    QVariantList rows;
+    appendShapePartRows(clip.shapeStyle.parts, 0, clip.id, m_collapsedShapeGroups, rows);
+    return rows;
+}
+
+void AppController::setShapeGroupExpanded(int trackIndex, int clipIndex, const QString &groupId, bool expanded)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const QString key = m_project.tracks().at(trackIndex).clips.at(clipIndex).id + QLatin1Char('|') + groupId;
+    if (expanded == !m_collapsedShapeGroups.contains(key))
+        return;
+    if (expanded)
+        m_collapsedShapeGroups.remove(key);
+    else
+        m_collapsedShapeGroups.insert(key);
+    emit selectedClipDataChanged();
+}
+
+// Drawing with a shape layer picked (0.28, as After Effects): the drawn shape becomes a new part of that layer
+// where it was drawn, instead of a layer of its own. canvas px in; the layer's rotation is taken back out.
+void AppController::addDrawnShapeToLayer(int trackIndex, int clipIndex, const drift::ShapeStyle &style,
+                                         const QString &kind, double x, double y, double w, double h)
+{
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const QRectF box = drawnBoxAt(clip);
+    const double layerRotation = (clip.rotation.isEmpty() ? 0.0 : clip.rotation.evaluateAt(rel))
+                                 + clip.autoOrientDegrees(rel);
+    drift::ShapeStyle &layer = clip.shapeStyle;
+    if (!layer.hasParts()) {
+        const drift::ShapeCatalogEntry *first = drift::shapeCatalogEntry(drift::shapeKindToString(layer.kind));
+        const QString firstName = (first ? first->label : clip.name) + QStringLiteral(" 1");
+        layer = drift::shapeWithParts(layer, box.width(), box.height(), firstName);
+    }
+    // A still, unturned layer grows its box to take in what was drawn outside it, its parts kept where they are
+    // on screen: the box is what a click picks the layer by, so a part outside it could not be clicked.
+    QRectF box2 = box;
+    const auto single = [](const drift::KeyframeTrack<double> &k) { return k.keyframes().size() <= 1; };
+    if (qAbs(layerRotation) < 1e-6 && single(clip.transformX) && single(clip.transformY) && single(clip.transformW)
+        && single(clip.transformH)) {
+        const QRectF grown = box.united(QRectF(x, y, w, h));
+        if (grown != box) {
+            const double perPxX = qMax(1.0, layer.partsRefWidth) / qMax(1.0, box.width());
+            const double perPxY = qMax(1.0, layer.partsRefHeight) / qMax(1.0, box.height());
+            const QPointF shift = grown.center() - box.center();
+            for (drift::ShapePart &p : layer.parts) {
+                p.transform.x -= shift.x() * perPxX;
+                p.transform.y -= shift.y() * perPxY;
+                for (auto it = p.keyframes.begin(); it != p.keyframes.end(); ++it) {
+                    if (it.key() == QLatin1String("x") || it.key() == QLatin1String("y")) {
+                        const double d = it.key() == QLatin1String("x") ? shift.x() * perPxX : shift.y() * perPxY;
+                        drift::KeyframeTrack<double> moved = it.value();
+                        for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k) {
+                            drift::Keyframe<double> key = k.value();
+                            key.value -= d;
+                            moved.setKeyframe(k.key(), key);
+                        }
+                        it.value() = moved;
+                    }
+                }
+            }
+            layer.partsRefWidth = grown.width() * perPxX;
+            layer.partsRefHeight = grown.height() * perPxY;
+            const QPointF shiftAnchor = clip.anchorShift(rel, grown.width(), grown.height(), 0.0);
+            setClipLayoutPixels(clip, grown.x() - shiftAnchor.x(), grown.y() - shiftAnchor.y(), grown.width(),
+                                grown.height());
+            box2 = grown;
+        }
+    }
+    const double refW = qMax(1.0, layer.partsRefWidth);
+    const double refH = qMax(1.0, layer.partsRefHeight);
+    const double bw = qMax(1.0, box2.width());
+    const double bh = qMax(1.0, box2.height());
+    // The drawn centre in the box's own unturned frame, then in reference units.
+    const QPointF centre = QTransform().rotate(-layerRotation).map(QPointF(x + w / 2.0, y + h / 2.0) - box2.center());
+
+    drift::ShapePart part;
+    part.id = drift::mintShapePartId(layer);
+    part.shape = style;
+    part.width = qMax(1.0, w * refW / bw);
+    part.height = qMax(1.0, h * refH / bh);
+    part.transform.x = centre.x() * refW / bw;
+    part.transform.y = centre.y() * refH / bh;
+    part.transform.rotation = -layerRotation;
+    const drift::ShapeCatalogEntry *entry = kind.isEmpty() ? nullptr : drift::shapeCatalogEntry(kind);
+    const QString label = entry ? entry->label
+                          : style.kind == drift::ShapeKind::Custom ? tr("Path") : drift::shapeKindToString(style.kind);
+    part.name = QStringLiteral("%1 %2").arg(label).arg(countShapePartsNamed(layer.parts, label + QLatin1Char(' ')) + 1);
+    // On top of the layer: drawn last, seen first.
+    layer.parts.insert(layer.parts.begin(), part);
+    shapePartFocus() = {clip.id, part.id};
+    const QString layerName = clip.name.isEmpty() ? tr("Shape layer") : clip.name;
+    pushProjectEdit(before, tr("Shape drawn"));
+    finishEdit(tr("Shape drawn"));
+    emit selectedShapePartChanged();
+    emit selectedClipDataChanged();
+    // Said out loud: a newcomer expects a new layer. Esc (nothing picked) draws a layer of its own.
+    setLastMessage(tr("“%1” added to “%2” · to draw a separate layer, press Esc first").arg(part.name, layerName));
+}
+
+namespace {
+
+// A clip that combines cleanly into a layer of parts: a still box (its layout, angle and opacity not animated,
+// no masks or effects of its own), so one part with a fixed transform draws it the same.
+bool shapeClipCombinable(const drift::Clip &c)
+{
+    const auto still = [](const drift::KeyframeTrack<double> &t) { return t.keyframes().size() <= 1; };
+    return c.type == drift::ClipType::Shape && !c.isSolid && still(c.transformX) && still(c.transformY)
+           && still(c.transformW) && still(c.transformH) && still(c.rotation) && still(c.opacity)
+           && c.effects.isEmpty() && c.mask.shape == drift::MaskShape::None && c.extraMasks.isEmpty()
+           && !c.layer3d && !c.shapeStyle.isAnimated();
+}
+
+// Whether another clip points at one of these (a mask or adjustment lane «applied to» it, or a layer parented to
+// it): combining or separating would delete the id and those links would silently drop.
+bool shapeClipsReferenced(const drift::Project &project, const QSet<QString> &ids)
+{
+    for (const drift::Track &track : project.tracks()) {
+        for (const drift::Clip &c : track.clips) {
+            if (ids.contains(c.id))
+                continue;
+            if ((!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId))
+                || (!c.parentId.isEmpty() && ids.contains(c.parentId)))
+                return true;
+        }
+    }
+    return false;
+}
+
+// A part id used once: a repeat (from a group brought in) gets the next free "p<n>". Plain recursion, no
+// recursive lambda (MSVC 19.4x crashed on one, see shapeContentRows).
+void freshShapePartIds(std::vector<drift::ShapePart> &parts, QSet<QString> &seen)
+{
+    for (drift::ShapePart &part : parts) {
+        if (seen.contains(part.id)) {
+            int n = 1;
+            while (seen.contains(QStringLiteral("p%1").arg(n)))
+                ++n;
+            part.id = QStringLiteral("p%1").arg(n);
+        }
+        seen.insert(part.id);
+        freshShapePartIds(part.children, seen);
+    }
+}
+
+} // namespace
+
+// «Combine into one layer» (0.28): the picked shapes become the parts of one shape layer, each where it was, the
+// top one first. The new layer spans them all; the others leave the timeline (their emptied tracks too).
+bool AppController::combineSelectedShapes()
+{
+    QList<QPair<int, int>> targets = m_selection;
+    if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        targets.append({m_selectedTrack, m_selectedClip});
+    std::sort(targets.begin(), targets.end());
+    targets.erase(std::unique(targets.begin(), targets.end()), targets.end());
+    if (targets.size() < 2) {
+        setLastMessage(tr("Pick two or more shapes to combine them"), QStringLiteral("warning"));
+        return false;
+    }
+    QSet<QString> pieceIds;
+    for (const auto &p : std::as_const(targets)) {
+        if (!isValidClipIndex(p.first, p.second) || isTrackLocked(p.first)
+            || !shapeClipCombinable(m_project.tracks().at(p.first).clips.at(p.second))) {
+            setLastMessage(tr("Only shapes that do not move, with no masks or effects of their own, can be combined"),
+                           QStringLiteral("warning"));
+            return false;
+        }
+        pieceIds.insert(m_project.tracks().at(p.first).clips.at(p.second).id);
+    }
+    if (shapeClipsReferenced(m_project, pieceIds)) {
+        setLastMessage(tr("Another layer is linked to one of these shapes (a mask, an adjustment or a parent): "
+                          "unlink it before combining"),
+                       QStringLiteral("warning"));
+        return false;
+    }
+    const drift::Project before = m_project;
+    // The boxes as drawn at the playhead, and the span of them all.
+    struct Piece { drift::Clip clip; QRectF box; double rotation; };
+    QList<Piece> pieces;
+    QRectF all;
+    drift::TimeUs start = std::numeric_limits<drift::TimeUs>::max();
+    drift::TimeUs end = std::numeric_limits<drift::TimeUs>::min();
+    for (const auto &p : std::as_const(targets)) {
+        const drift::Clip &c = m_project.tracks().at(p.first).clips.at(p.second);
+        const QRectF box = drawnBoxAt(c);
+        const double rotation = c.rotation.isEmpty() ? 0.0 : c.rotation.evaluateAt(0);
+        QTransform turn;
+        turn.translate(box.center().x(), box.center().y());
+        turn.rotate(rotation);
+        turn.translate(-box.center().x(), -box.center().y());
+        all = all.isNull() ? turn.mapRect(box) : all.united(turn.mapRect(box));
+        pieces.append({c, box, rotation});
+        start = qMin(start, c.timelineStart);
+        end = qMax(end, c.timelineEnd());
+    }
+    // The host: the top one (lowest track, earliest clip).
+    const QPair<int, int> host = targets.first();
+    drift::Clip layerClip = pieces.first().clip;
+    drift::ShapeStyle layer;
+    layer.kind = drift::ShapeKind::Rectangle;
+    layer.partsRefWidth = qMax(1.0, all.width());
+    layer.partsRefHeight = qMax(1.0, all.height());
+    for (const Piece &piece : std::as_const(pieces)) {
+        const drift::Clip &c = piece.clip;
+        drift::ShapePart part;
+        part.id = drift::mintShapePartId(layer);
+        part.name = c.name.isEmpty() ? tr("Shape") : c.name;
+        part.blend = c.blendMode;
+        part.transform.x = piece.box.center().x() - all.center().x();
+        part.transform.y = piece.box.center().y() - all.center().y();
+        part.transform.rotation = piece.rotation;
+        part.transform.opacity = (c.opacity.isEmpty() ? 1.0 : c.opacity.evaluateAt(0)) * 100.0;
+        if (c.shapeStyle.hasParts()) {
+            // A layer of parts comes in as a group, its reference box stretched to where it was.
+            part.group = true;
+            part.children = c.shapeStyle.parts;
+            part.transform.scaleX = piece.box.width() / qMax(1.0, c.shapeStyle.partsRefWidth) * 100.0;
+            part.transform.scaleY = piece.box.height() / qMax(1.0, c.shapeStyle.partsRefHeight) * 100.0;
+        } else {
+            part.width = qMax(1.0, piece.box.width());
+            part.height = qMax(1.0, piece.box.height());
+            part.shape = c.shapeStyle;
+        }
+        layer.parts.push_back(std::move(part));
+    }
+    // Ids minted while the list grew can repeat inside the groups brought in: give each part a fresh one.
+    QSet<QString> seen;
+    freshShapePartIds(layer.parts, seen);
+
+    layerClip.shapeStyle = layer;
+    layerClip.name = tr("Shape layer");
+    layerClip.blendMode = drift::BlendMode::Normal;
+    layerClip.opacity = {};
+    layerClip.rotation = {};
+    layerClip.anchorX = {};
+    layerClip.anchorY = {};
+    layerClip.timelineStart = start;
+    layerClip.timelineDuration = end - start;
+    layerClip.srcIn = 0;
+    layerClip.srcOut = layerClip.timelineDuration;
+    setClipLayoutPixels(layerClip, all.x(), all.y(), all.width(), all.height());
+
+    // Out with the pieces (from the back, so the indices hold), their tracks too when left empty.
+    QSet<QString> touched;
+    for (int i = targets.size() - 1; i >= 0; --i) {
+        drift::Track &track = m_project.tracks()[targets.at(i).first];
+        touched.insert(track.id);
+        track.clips.removeAt(targets.at(i).second);
+    }
+    QString hostTrackId = m_project.tracks().at(host.first).id;
+    {
+        // Another clip may sit in the new layer's span on the host track: then on a new track just above.
+        int at = host.first;
+        for (const drift::Clip &other : m_project.tracks().at(host.first).clips) {
+            if (other.timelineStart < layerClip.timelineEnd() && layerClip.timelineStart < other.timelineEnd()) {
+                at = drift::insertTrackAboveForClipType(m_project, host.first, drift::ClipType::Shape);
+                hostTrackId = m_project.tracks().at(at).id;
+                break;
+            }
+        }
+        QList<drift::Clip> &clips = m_project.tracks()[at].clips;
+        int index = 0;
+        while (index < clips.size() && clips.at(index).timelineStart <= layerClip.timelineStart)
+            ++index;
+        clips.insert(index, layerClip);
+    }
+    for (int t = m_project.tracks().size() - 1; t >= 0; --t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (track.id != hostTrackId && touched.contains(track.id) && track.clips.isEmpty() && m_project.tracks().size() > 1)
+            m_project.tracks().removeAt(t);
+    }
+    int hostTrack = 0;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (m_project.tracks().at(t).id == hostTrackId)
+            hostTrack = t;
+    }
+    int hostClip = 0;
+    for (int c = 0; c < m_project.tracks().at(hostTrack).clips.size(); ++c) {
+        if (m_project.tracks().at(hostTrack).clips.at(c).id == layerClip.id)
+            hostClip = c;
+    }
+    const QString message = tr("%n shapes combined into one layer", "", int(pieces.size()));
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    selectClip(hostTrack, hostClip);
+    setLastMessage(message);
+    return true;
+}
+
+namespace {
+void fitShapeLayerBox(drift::Clip &clip, const QRectF &box); // below, by the preview's frames
+} // namespace
+
+// «Separate into layers» (0.28): each part at the top of a layer of parts goes to a layer of its own, on a
+// track just above, looking the same (the same box, only that part in it).
+bool AppController::separateShapeParts(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    if (isTrackLocked(trackIndex))
+        return false;
+    const drift::Clip original = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (original.type != drift::ClipType::Shape || original.shapeStyle.parts.size() < 2) {
+        setLastMessage(tr("This shape has only one part"), QStringLiteral("warning"));
+        return false;
+    }
+    if (shapeClipsReferenced(m_project, {original.id})) {
+        setLastMessage(tr("Another layer is linked to this shape (a mask, an adjustment or a parent): "
+                          "unlink it before separating"),
+                       QStringLiteral("warning"));
+        return false;
+    }
+    const drift::Project before = m_project;
+    const QString originalTrackId = m_project.tracks().at(trackIndex).id;
+    m_project.tracks()[trackIndex].clips.removeAt(clipIndex);
+    // From the bottom part up, each on a new track at the same place: the top part ends on top.
+    const std::vector<drift::ShapePart> &parts = original.shapeStyle.parts;
+    for (auto it = parts.rbegin(); it != parts.rend(); ++it) {
+        drift::Clip piece = original;
+        piece.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        piece.name = it->name;
+        piece.shapeStyle.parts = {*it};
+        fitShapeLayerBox(piece, drawnBoxAt(original));
+        const int at = drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Shape);
+        m_project.tracks()[at].clips.append(piece);
+    }
+    // The original's track, now below them, goes when it is left empty.
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (m_project.tracks().at(t).id == originalTrackId && m_project.tracks().at(t).clips.isEmpty()) {
+            m_project.tracks().removeAt(t);
+            break;
+        }
+    }
+    const QString message = tr("Separated into %n layers", "", int(parts.size()));
+    shapePartFocus() = {};
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    selectClip(trackIndex, m_project.tracks().at(trackIndex).clips.size() - 1);
+    setLastMessage(message);
+    emit selectedShapePartChanged();
+    return true;
+}
+
+QString AppController::addShapePart(int trackIndex, int clipIndex, const QString &kind)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex)
+        || m_project.tracks().at(trackIndex).clips.at(clipIndex).type != drift::ClipType::Shape)
+        return {};
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    drift::ShapeStyle &layer = clip.shapeStyle;
+    // The first part added turns the layer into a layer of parts: what it drew becomes part 1, at
+    // the size the box has now, so nothing on screen moves.
+    if (!layer.hasParts()) {
+        const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+        const drift::KeyframeTrack<double> *w = keyframeTrackForProp(clip, QStringLiteral("width"));
+        const drift::KeyframeTrack<double> *h = keyframeTrackForProp(clip, QStringLiteral("height"));
+        const QRectF drawn = drawnBoxAt(clip);
+        const double boxW = w && !w->isEmpty() ? w->evaluateAt(rel) : drawn.width();
+        const double boxH = h && !h->isEmpty() ? h->evaluateAt(rel) : drawn.height();
+        const drift::ShapeCatalogEntry *first = drift::shapeCatalogEntry(drift::shapeKindToString(layer.kind));
+        const QString firstName = (first ? first->label : clip.name) + QStringLiteral(" 1");
+        layer = drift::shapeWithParts(layer, boxW, boxH, firstName);
+    }
+
+    const bool group = kind == QLatin1String("group");
+    drift::ShapePart part;
+    part.id = drift::mintShapePartId(layer);
+    part.group = group;
+    QString label;
+    if (group) {
+        label = tr("Group");
+    } else {
+        part.shape = shapeStyleForKind(kind);
+        if (kind == QLatin1String("polygon"))
+            part.shape.kind = drift::ShapeKind::Hexagon;
+        const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(kind);
+        label = entry ? entry->label : drift::shapeKindToString(part.shape.kind);
+        const double side = qMax(20.0, qMin(layer.partsRefWidth, layer.partsRefHeight) * 0.4);
+        const double aspect = entry && entry->aspect > 0.0 ? entry->aspect : 1.0;
+        part.width = aspect >= 1.0 ? side * aspect : side;
+        part.height = aspect >= 1.0 ? side : side / aspect;
+    }
+    part.name = QStringLiteral("%1 %2").arg(label).arg(countShapePartsNamed(layer.parts, label + QLatin1Char(' ')) + 1);
+
+    // Into the focused group, or just above the focused part, or at the top.
+    const QString focused = shapePartFocus().clipId == clip.id ? shapePartFocus().partId : QString();
+    drift::ShapePart *target = focused.isEmpty() ? nullptr : drift::findShapePart(layer.parts, focused);
+    if (target && target->group) {
+        target->children.insert(target->children.begin(), part);
+    } else {
+        int index = 0;
+        std::vector<drift::ShapePart> *siblings = target ? shapePartSiblings(layer.parts, focused, &index) : nullptr;
+        if (!siblings) {
+            siblings = &layer.parts;
+            index = 0;
+        }
+        siblings->insert(siblings->begin() + index, part);
+    }
+    const QString message = group ? tr("Group added") : tr("“%1” added").arg(part.name);
+    shapePartFocus() = {clip.id, part.id};
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    emit selectedShapePartChanged();
+    return part.id;
+}
+
+void AppController::removeShapePart(int trackIndex, int clipIndex, const QString &partId)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    int index = 0;
+    std::vector<drift::ShapePart> *siblings = shapePartSiblings(clip.shapeStyle.parts, partId, &index);
+    if (!siblings)
+        return;
+    const drift::ShapePart removed = (*siblings)[size_t(index)];
+    const int leavesLeft = countShapeLeaves(clip.shapeStyle.parts) - (removed.group ? countShapeLeaves(removed.children) : 1);
+    if (leavesLeft <= 0) {
+        setLastMessage(tr("A shape layer keeps at least one shape. Delete the layer instead."), QStringLiteral("info"));
+        return;
+    }
+    siblings->erase(siblings->begin() + index);
+    if (shapePartFocus().clipId == clip.id)
+        shapePartFocus().partId.clear();
+    const QString message = tr("“%1” deleted").arg(removed.name);
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    emit selectedShapePartChanged();
+}
+
+QString AppController::duplicateShapePart(int trackIndex, int clipIndex, const QString &partId)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    int index = 0;
+    std::vector<drift::ShapePart> *siblings = shapePartSiblings(clip.shapeStyle.parts, partId, &index);
+    if (!siblings)
+        return {};
+    drift::ShapePart copy = (*siblings)[size_t(index)];
+    const QString originalName = copy.name;
+    reidShapePart(copy, clip.shapeStyle);
+    copy.name = tr("%1 copy").arg(copy.name);
+    // Shifted a little so the copy shows; AE stacks it on top in the same place, which looks like
+    // nothing happened.
+    copy.transform.x += 20.0;
+    copy.transform.y += 20.0;
+    // shapePartSiblings may point into storage the id minting touched: look it up again.
+    siblings = shapePartSiblings(clip.shapeStyle.parts, partId, &index);
+    siblings->insert(siblings->begin() + index, copy);
+    shapePartFocus() = {clip.id, copy.id};
+    const QString message = tr("“%1” duplicated").arg(originalName);
+    pushProjectEdit(before, message);
+    finishEdit(message);
+    emit selectedShapePartChanged();
+    return copy.id;
+}
+
+void AppController::renameShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &name)
+{
+    const QString trimmed = name.trimmed();
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex) || trimmed.isEmpty())
+        return;
+    const drift::Project before = m_project;
+    drift::ShapePart *part =
+        drift::findShapePart(m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle.parts, partId);
+    if (!part || part->name == trimmed)
+        return;
+    part->name = trimmed;
+    pushProjectEdit(before, tr("Renamed"));
+    finishEdit(tr("Renamed"));
+}
+
+void AppController::setShapePartVisible(int trackIndex, int clipIndex, const QString &partId, bool visible)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::ShapePart *part =
+        drift::findShapePart(m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle.parts, partId);
+    if (!part || part->visible == visible)
+        return;
+    part->visible = visible;
+    const QString message = visible ? tr("“%1” shown").arg(part->name) : tr("“%1” hidden").arg(part->name);
+    pushProjectEdit(before, message);
+    finishEdit(message);
+}
+
+void AppController::setShapePartBlend(int trackIndex, int clipIndex, const QString &partId, const QString &mode)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::ShapePart *part =
+        drift::findShapePart(m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle.parts, partId);
+    const drift::BlendMode blend = drift::blendModeFromString(mode);
+    if (!part || part->blend == blend)
+        return;
+    part->blend = blend;
+    pushProjectEdit(before, tr("Blend mode changed"));
+    finishEdit(tr("Blend mode changed"));
+}
+
+void AppController::moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
+                                  const QString &where)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex) || partId == targetId)
+        return;
+    const drift::Project before = m_project;
+    drift::ShapeStyle &layer = m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle;
+    drift::ShapePart *moving = drift::findShapePart(layer.parts, partId);
+    // A group cannot go inside itself.
+    if (!moving || shapePartContains(*moving, targetId))
+        return;
+    int index = 0;
+    std::vector<drift::ShapePart> *from = shapePartSiblings(layer.parts, partId, &index);
+    drift::ShapePart part = (*from)[size_t(index)];
+    from->erase(from->begin() + index);
+    drift::ShapePart *target = drift::findShapePart(layer.parts, targetId);
+    if (target && target->group && where == QLatin1String("inside")) {
+        target->children.insert(target->children.begin(), part);
+    } else {
+        int at = 0;
+        std::vector<drift::ShapePart> *to = target ? shapePartSiblings(layer.parts, targetId, &at) : nullptr;
+        if (!to) {
+            to = &layer.parts;
+            at = where == QLatin1String("before") ? 0 : int(layer.parts.size());
+        } else if (where == QLatin1String("after")) {
+            ++at;
+        }
+        to->insert(to->begin() + qBound(0, at, int(to->size())), part);
+    }
+    pushProjectEdit(before, tr("Order changed"));
+    finishEdit(tr("Order changed"));
+}
+
+QString AppController::groupShapePart(int trackIndex, int clipIndex, const QString &partId)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    int index = 0;
+    std::vector<drift::ShapePart> *siblings = shapePartSiblings(clip.shapeStyle.parts, partId, &index);
+    if (!siblings)
+        return {};
+    drift::ShapePart group;
+    group.id = drift::mintShapePartId(clip.shapeStyle);
+    group.group = true;
+    group.name = QStringLiteral("%1 %2").arg(tr("Group")).arg(
+        countShapePartsNamed(clip.shapeStyle.parts, tr("Group") + QLatin1Char(' ')) + 1);
+    group.children.push_back((*siblings)[size_t(index)]);
+    (*siblings)[size_t(index)] = group;
+    shapePartFocus() = {clip.id, group.id};
+    pushProjectEdit(before, tr("Grouped"));
+    finishEdit(tr("Grouped"));
+    emit selectedShapePartChanged();
+    return group.id;
+}
+
+void AppController::ungroupShapePart(int trackIndex, int clipIndex, const QString &groupId)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    int index = 0;
+    std::vector<drift::ShapePart> *siblings = shapePartSiblings(clip.shapeStyle.parts, groupId, &index);
+    if (!siblings || !(*siblings)[size_t(index)].group)
+        return;
+    const drift::ShapePart group = (*siblings)[size_t(index)];
+    const drift::ShapePartTransform &g = group.transform;
+    bool childKeyed = false;
+    for (const drift::ShapePart &child : group.children) {
+        for (auto it = child.keyframes.constBegin(); it != child.keyframes.constEnd(); ++it) {
+            if (it.key() != QLatin1String("width") && it.key() != QLatin1String("height") && !it.value().isEmpty())
+                childKeyed = true;
+        }
+    }
+    if (qAbs(g.skew) > 1e-6 || !group.keyframes.isEmpty() || childKeyed) {
+        setLastMessage(tr("Set the group's skew to 0 and remove its keyframes before ungrouping."),
+                       QStringLiteral("info"));
+        return;
+    }
+    // The group's move, turn, scale and opacity go into each part, so nothing moves on screen.
+    std::vector<drift::ShapePart> children = group.children;
+    const double rad = qDegreesToRadians(g.rotation);
+    for (drift::ShapePart &child : children) {
+        drift::ShapePartTransform &t = child.transform;
+        const double px = (t.x - g.anchorX) * g.scaleX / 100.0;
+        const double py = (t.y - g.anchorY) * g.scaleY / 100.0;
+        t.x = g.x + px * std::cos(rad) - py * std::sin(rad);
+        t.y = g.y + px * std::sin(rad) + py * std::cos(rad);
+        t.rotation += g.rotation;
+        t.scaleX = t.scaleX * g.scaleX / 100.0;
+        t.scaleY = t.scaleY * g.scaleY / 100.0;
+        t.opacity = t.opacity * g.opacity / 100.0;
+        if (group.blend != drift::BlendMode::Normal && child.blend == drift::BlendMode::Normal)
+            child.blend = group.blend;
+    }
+    siblings->erase(siblings->begin() + index);
+    siblings->insert(siblings->begin() + index, children.begin(), children.end());
+    shapePartFocus() = {clip.id, QString()};
+    pushProjectEdit(before, tr("Ungrouped"));
+    finishEdit(tr("Ungrouped"));
+    emit selectedShapePartChanged();
 }
 
 namespace {
@@ -19588,6 +20571,10 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
         s.points = qBound(3, m.value(QStringLiteral("points")).toInt(), 60);
     if (m.contains(QStringLiteral("innerRatio")))
         s.innerRatio = qBound(0.05, m.value(QStringLiteral("innerRatio")).toDouble(), 0.95);
+    if (m.contains(QStringLiteral("outerRoundness")))
+        s.outerRoundness = qBound(0.0, m.value(QStringLiteral("outerRoundness")).toDouble(), 100.0);
+    if (m.contains(QStringLiteral("innerRoundness")))
+        s.innerRoundness = qBound(0.0, m.value(QStringLiteral("innerRoundness")).toDouble(), 100.0);
     if (m.contains(QStringLiteral("headSize")))
         s.headSize = qBound(0.05, m.value(QStringLiteral("headSize")).toDouble(), 0.9);
     if (m.contains(QStringLiteral("thickness")))
@@ -19619,13 +20606,16 @@ void AppController::setShapeStyle(int trackIndex, int clipIndex, const QVariantM
     // and the undo step would be a no-op.
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    drift::ShapeStyle &s = clip.shapeStyle;
+    // With a part focused (0.28) the patch goes to that part's shape; the layer keeps its name.
+    drift::ShapeStyle &s = shapeStyleOf(clip);
+    const bool editingPart = &s != &clip.shapeStyle;
     if (m.contains(QStringLiteral("kind"))) {
         // The inspector addresses shapes by catalog id, so "circle" resolves to Ellipse here.
         const QString id = m.value(QStringLiteral("kind")).toString();
         s.kind = drift::shapeKindFromString(id);
         if (const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(id)) {
-            clip.name = entry->label;
+            if (!editingPart)
+                clip.name = entry->label;
             // A library shape carries its outline into the project.
             s.customPath = entry->style.customPath;
             s.customEvenOdd = entry->style.customEvenOdd;
@@ -21212,8 +22202,15 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
             if (parseTextProp(clip.textStyle, prop, &textKey) && drift::textStyleScalar(clip.textStyle, textKey, &scalar))
                 return scalar;
             QString shapeKey;
-            if (parseShapeProp(clip, prop, &shapeKey) && drift::shapeStyleScalar(clip.shapeStyle, shapeKey, &scalar))
+            if (parseShapeProp(clip, prop, &shapeKey) && drift::shapeStyleScalar(shapeStyleOf(clip), shapeKey, &scalar))
                 return scalar;
+            PartProp partProp;
+            if (parsePartProp(clip, prop, &partProp)) {
+                const drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, partProp.partId);
+                if (partProp.shape ? drift::shapeStyleScalar(part->shape, partProp.key, &scalar)
+                                   : drift::shapePartScalar(*part, partProp.key, &scalar))
+                    return scalar;
+            }
             QString vectorKey;
             if (parseVectorProp(clip, prop, &vectorKey) && drift::vectorSlotScalar(clip.vector, vectorKey, &scalar))
                 return scalar;
@@ -21403,10 +22400,29 @@ QStringList AppController::clipAnimatedProperties(int trackIndex, int clipIndex)
             out.append(QStringLiteral("text.%1").arg(key));
     }
     if (clip.type == drift::ClipType::Shape) {
-        for (const QString &key : drift::shapeKeyframeProperties(clip.shapeStyle)) {
-            const auto it = clip.shapeStyle.keyframes.constFind(key);
-            if (it != clip.shapeStyle.keyframes.constEnd() && !it->isEmpty())
+        const drift::ShapeStyle &style = shapeStyleOf(clip);
+        for (const QString &key : drift::shapeKeyframeProperties(style)) {
+            const auto it = style.keyframes.constFind(key);
+            if (it != style.keyframes.constEnd() && !it->isEmpty())
                 out.append(QStringLiteral("shape.%1").arg(key));
+        }
+        // Every part's own keys and its shape's (0.28), by their explicit address.
+        std::vector<const drift::ShapePart *> stack;
+        for (const drift::ShapePart &part : clip.shapeStyle.parts)
+            stack.push_back(&part);
+        while (!stack.empty()) {
+            const drift::ShapePart *part = stack.back();
+            stack.pop_back();
+            for (auto it = part->keyframes.constBegin(); it != part->keyframes.constEnd(); ++it) {
+                if (!it->isEmpty())
+                    out.append(QStringLiteral("part.%1.%2").arg(part->id, it.key()));
+            }
+            for (auto it = part->shape.keyframes.constBegin(); it != part->shape.keyframes.constEnd(); ++it) {
+                if (!it->isEmpty())
+                    out.append(QStringLiteral("part.%1.shape.%2").arg(part->id, it.key()));
+            }
+            for (const drift::ShapePart &child : part->children)
+                stack.push_back(&child);
         }
     }
     if (clip.type == drift::ClipType::Vector) {
@@ -26827,6 +27843,418 @@ int AppController::keyframeTargetClip(int trackIndex) const
     return -1;
 }
 
+namespace {
+
+// Builds Contents' lines for shapeContentRows. Plain member functions, no lambdas: MSVC 19.4x crashed
+// (0xC0000005) compiling the first version, a recursive std::function lambda calling five local lambdas.
+struct ShapeContentRowsBuilder
+{
+    const AppController *app = nullptr;
+    int trackIndex = -1;
+    int clipIndex = -1;
+    const drift::Clip *clip = nullptr;
+    QString trackKey;
+    QStringList animated;
+    QString picked;
+    const QSet<QString> *expandedKeys = nullptr;
+    bool animatedOnly = false;
+
+    QVariantMap heading(const QString &key, const QString &label, int depth, const QVariantMap &extra) const
+    {
+        QVariantMap row{
+            {QStringLiteral("kind"), QStringLiteral("heading")},
+            {QStringLiteral("key"), key},
+            {QStringLiteral("label"), label},
+            {QStringLiteral("depth"), depth},
+            {QStringLiteral("expandable"), true},
+            {QStringLiteral("expanded"), expandedKeys->contains(trackKey + key)},
+            {QStringLiteral("prop"), QString()},
+            {QStringLiteral("clips"), QVariantList()},
+        };
+        for (auto it = extra.constBegin(); it != extra.constEnd(); ++it)
+            row.insert(it.key(), it.value());
+        return row;
+    }
+
+    QVariantMap clipEntry(const QString &prop, const QVariantList &keys) const
+    {
+        return QVariantMap{
+            {QStringLiteral("clip"), clipIndex},
+            {QStringLiteral("prop"), prop},
+            {QStringLiteral("start"), drift::usToSeconds(clip->timelineStart)},
+            {QStringLiteral("duration"), drift::usToSeconds(clip->timelineDuration)},
+            {QStringLiteral("keys"), keys},
+        };
+    }
+
+    // One value line, on this clip only: U shows only the animated ones.
+    void line(const QString &prop, const QString &label, int depth, QVariantList &out) const
+    {
+        const bool isAnimated = animated.contains(prop);
+        if (animatedOnly && !isAnimated)
+            return;
+        QVariantMap row;
+        row.insert(QStringLiteral("label"), label);
+        row.insert(QStringLiteral("prop"), prop);
+        row.insert(QStringLiteral("depth"), depth);
+        row.insert(QStringLiteral("clips"), QVariantList{clipEntry(
+            prop, isAnimated ? app->clipKeyframes(trackIndex, clipIndex, prop) : QVariantList())});
+        out.append(row);
+    }
+
+    // «Color»: the paint's four channels (0..1) as one line, as Position joins X and Y; one diamond per time
+    // carries the channels' own keys (refs) so a drag moves them together.
+    void colorLine(const QString &prefix, int depth, QVariantList &out) const
+    {
+        const QStringList props{prefix + QStringLiteral("color.r"), prefix + QStringLiteral("color.g"),
+                                prefix + QStringLiteral("color.b"), prefix + QStringLiteral("color.a")};
+        QMap<qint64, QVariantMap> merged;
+        for (const QString &prop : props) {
+            if (!animated.contains(prop))
+                continue;
+            const QVariantList propKeys = app->clipKeyframes(trackIndex, clipIndex, prop);
+            for (const QVariant &v : propKeys) {
+                const QVariantMap key = v.toMap();
+                const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                const qint64 ms = qRound64(seconds * 1000.0);
+                QVariantMap at = merged.value(ms, key);
+                QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                QVariantMap ref;
+                ref.insert(QStringLiteral("prop"), prop);
+                ref.insert(QStringLiteral("seconds"), seconds);
+                refs.append(ref);
+                at.insert(QStringLiteral("refs"), refs);
+                merged.insert(ms, at);
+            }
+        }
+        if (animatedOnly && merged.isEmpty())
+            return;
+        QVariantList keys;
+        for (auto it = merged.constBegin(); it != merged.constEnd(); ++it)
+            keys.append(it.value());
+        QVariantMap row;
+        row.insert(QStringLiteral("label"), AppController::tr("Color"));
+        row.insert(QStringLiteral("group"), QStringLiteral("color"));
+        row.insert(QStringLiteral("groupProps"), props);
+        row.insert(QStringLiteral("prop"), props.first());
+        row.insert(QStringLiteral("depth"), depth);
+        row.insert(QStringLiteral("clips"), QVariantList{clipEntry(props.first(), keys)});
+        out.append(row);
+    }
+
+    // A heading with its lines: kept when open (or with U, when something under it is animated).
+    void section(QVariantList &out, const QVariantMap &head, const QVariantList &body) const
+    {
+        if (animatedOnly && body.isEmpty())
+            return;
+        out.append(head);
+        if (head.value(QStringLiteral("expanded")).toBool() || animatedOnly)
+            out.append(body);
+    }
+
+    // A part's path: its size and the knobs its kind has.
+    void pathLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                   QVariantList &body) const
+    {
+        QVariantList path;
+        line(base + QStringLiteral("width"), AppController::tr("Width"), depth + 2, path);
+        line(base + QStringLiteral("height"), AppController::tr("Height"), depth + 2, path);
+        const drift::ShapeKind kind = part.shape.kind;
+        if (kind == drift::ShapeKind::Star || kind == drift::ShapeKind::Burst) {
+            line(base + QStringLiteral("shape.points"), AppController::tr("Points"), depth + 2, path);
+            line(base + QStringLiteral("shape.innerRatio"), AppController::tr("Inner radius"), depth + 2, path);
+            line(base + QStringLiteral("shape.outerRoundness"), AppController::tr("Outer roundness"), depth + 2, path);
+            line(base + QStringLiteral("shape.innerRoundness"), AppController::tr("Inner roundness"), depth + 2, path);
+        } else if (kind != drift::ShapeKind::Ellipse) {
+            line(base + QStringLiteral("shape.cornerRadius"), AppController::tr("Roundness"), depth + 2, path);
+        }
+        const drift::ShapeCatalogEntry *entry = drift::shapeCatalogEntry(drift::shapeKindToString(kind));
+        const QString kindName = entry ? entry->label : drift::shapeKindToString(kind);
+        section(body, heading(pkey + QStringLiteral(":path"), AppController::tr("%1 path").arg(kindName), depth + 1,
+                              QVariantMap()), path);
+    }
+
+    // Its fills and strokes, front first as AE lists them, numbered per kind.
+    void layerLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                    QVariantList &body) const
+    {
+        QHash<int, int> count;
+        for (int i = int(part.shape.layers.size()) - 1; i >= 0; --i) {
+            const drift::TextShadingLayer &layer = part.shape.layers.at(i);
+            const int n = ++count[int(layer.kind)];
+            QVariantList fields;
+            const QString lb = base + QStringLiteral("shape.layer.%1.").arg(layer.id);
+            if (layer.paint.kind != drift::TextPaintKind::Gradient)
+                colorLine(lb, depth + 2, fields);
+            line(lb + QStringLiteral("opacity"), AppController::tr("Opacity"), depth + 2, fields);
+            if (layer.kind == drift::TextLayerKind::Stroke)
+                line(lb + QStringLiteral("width"), AppController::tr("Stroke width"), depth + 2, fields);
+            QVariantMap extra;
+            extra.insert(QStringLiteral("layerEnabled"), layer.enabled);
+            extra.insert(QStringLiteral("layerOf"), part.id);
+            extra.insert(QStringLiteral("layerId"), layer.id);
+            const QString label = QStringLiteral("%1 %2").arg(drift::shadingLayerKindLabel(layer.kind)).arg(n);
+            section(body, heading(pkey + QStringLiteral(":layer:") + layer.id, label, depth + 1, extra), fields);
+        }
+    }
+
+    // «Transform: <name>», as AE's group transform.
+    void transformLines(const drift::ShapePart &part, const QString &base, const QString &pkey, int depth,
+                        QVariantList &body) const
+    {
+        static const char *const fields[] = {"anchorX", "anchorY", "x", "y", "scaleX",
+                                             "scaleY", "skew", "skewAxis", "rotation", "opacity"};
+        const QStringList labels{AppController::tr("Anchor point X"), AppController::tr("Anchor point Y"),
+                                 AppController::tr("Position X"), AppController::tr("Position Y"),
+                                 AppController::tr("Scale X"), AppController::tr("Scale Y"),
+                                 AppController::tr("Skew"), AppController::tr("Skew axis"),
+                                 AppController::tr("Rotation"), AppController::tr("Opacity")};
+        QVariantList tf;
+        for (int f = 0; f < labels.size(); ++f)
+            line(base + QLatin1String(fields[f]), labels.at(f), depth + 2, tf);
+        section(body, heading(pkey + QStringLiteral(":tf"), AppController::tr("Transform: %1").arg(part.name),
+                              depth + 1, QVariantMap()), tf);
+    }
+
+    void addParts(const std::vector<drift::ShapePart> &parts, int depth, QVariantList &out) const
+    {
+        for (const drift::ShapePart &part : parts) {
+            const QString base = QStringLiteral("part.%1.").arg(part.id);
+            const QString pkey = QStringLiteral("part:") + part.id;
+            QVariantList body;
+            if (part.group) {
+                addParts(part.children, depth + 1, body);
+            } else {
+                pathLines(part, base, pkey, depth, body);
+                layerLines(part, base, pkey, depth, body);
+            }
+            transformLines(part, base, pkey, depth, body);
+            QVariantMap extra;
+            extra.insert(QStringLiteral("partId"), part.id);
+            extra.insert(QStringLiteral("isGroup"), part.group);
+            extra.insert(QStringLiteral("partVisible"), part.visible);
+            extra.insert(QStringLiteral("blend"), drift::blendModeToString(part.blend));
+            extra.insert(QStringLiteral("picked"), part.id == picked);
+            section(out, heading(pkey, part.name, depth, extra), body);
+        }
+    }
+};
+
+} // namespace
+
+// After Effects' Contents in the timeline (0.28, stage 3): under a shape layer of parts, in Pro, a
+// «Contents» heading, then each part as AE lists it (its path, fills and strokes, «Transform: …»),
+// groups holding their parts, every animatable value a line with its stopwatch and keys. Headings
+// fold as AE's twirls (keys "contents", "part:<id>", "part:<id>:path", "part:<id>:layer:<id>",
+// "part:<id>:tf" in m_keyframeGroupsExpanded); picking a part opens it.
+QVariantList AppController::shapeContentRows(int trackIndex, int clipIndex) const
+{
+    QVariantList rows;
+    if (!m_preferences || !m_preferences->proMode() || !isValidClipIndex(trackIndex, clipIndex))
+        return rows;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    const drift::Clip &clip = track.clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Shape || !clip.shapeStyle.hasParts())
+        return rows;
+    const ShapePartFocus &focus = shapePartFocus();
+
+    ShapeContentRowsBuilder b;
+    b.app = this;
+    b.trackIndex = trackIndex;
+    b.clipIndex = clipIndex;
+    b.clip = &clip;
+    b.trackKey = track.id + QLatin1Char('|');
+    b.animated = clipAnimatedProperties(trackIndex, clipIndex);
+    b.picked = focus.clipId == clip.id ? focus.partId : QString();
+    b.expandedKeys = &m_keyframeGroupsExpanded;
+    b.animatedOnly = m_keyframeRowsAnimatedOnly;
+
+    QVariantList body;
+    b.addParts(clip.shapeStyle.parts, 1, body);
+    QVariantMap contents;
+    contents.insert(QStringLiteral("contents"), true);
+    b.section(rows, b.heading(QStringLiteral("contents"), tr("Contents"), 0, contents), body);
+    if (!rows.isEmpty()) {
+        QVariantMap transform;
+        transform.insert(QStringLiteral("kind"), QStringLiteral("heading"));
+        transform.insert(QStringLiteral("key"), QStringLiteral("transform"));
+        transform.insert(QStringLiteral("label"), tr("Transform"));
+        transform.insert(QStringLiteral("depth"), 0);
+        transform.insert(QStringLiteral("expandable"), false);
+        transform.insert(QStringLiteral("prop"), QString());
+        transform.insert(QStringLiteral("clips"), QVariantList());
+        rows.append(transform);
+    }
+    return rows;
+}
+
+namespace {
+
+// After Effects' «Transform: Group» as a QTransform, part units in, parent units out (the painter's partMatrix).
+QTransform shapePartQTransform(const drift::ShapePartTransform &t)
+{
+    QTransform m;
+    m.translate(t.x, t.y);
+    m.rotate(t.rotation);
+    if (qAbs(t.skew) > 1e-6) {
+        m.rotate(t.skewAxis);
+        m.shear(-std::tan(qDegreesToRadians(t.skew)), 0.0);
+        m.rotate(-t.skewAxis);
+    }
+    m.scale(t.scaleX / 100.0, t.scaleY / 100.0);
+    m.translate(-t.anchorX, -t.anchorY);
+    return m;
+}
+
+// Where every part of a layer of parts lands, in fractions of the layer's box (0..1 across and down), for the
+// preview: its four corners (a group: the box around its parts), its anchor, and the parent's linear map so a
+// drag can be turned back into the part's own position, scale and angle.
+struct ShapePartFramesBuilder
+{
+    QVariantList out;
+
+    // Returns the part's corners as fractions, for its group's box.
+    QList<QPointF> add(const std::vector<drift::ShapePart> &parts, const QTransform &parent, const QString &parentId,
+                       int depth)
+    {
+        QList<QPointF> all;
+        for (const drift::ShapePart &part : parts) {
+            const QTransform m = shapePartQTransform(part.transform) * parent;
+            QList<QPointF> corners;
+            if (part.group) {
+                const QList<QPointF> inner = add(part.children, m, part.id, depth + 1);
+                if (!inner.isEmpty()) {
+                    QRectF r(inner.first(), QSizeF());
+                    for (const QPointF &p : inner)
+                        r = r.united(QRectF(p, QSizeF(0.0001, 0.0001)));
+                    corners = {r.topLeft(), r.topRight(), r.bottomRight(), r.bottomLeft()};
+                }
+            } else {
+                const double hw = part.width / 2.0;
+                const double hh = part.height / 2.0;
+                corners = {m.map(QPointF(-hw, -hh)), m.map(QPointF(hw, -hh)), m.map(QPointF(hw, hh)),
+                           m.map(QPointF(-hw, hh))};
+            }
+            all += corners;
+            QVariantList pts;
+            for (const QPointF &p : std::as_const(corners))
+                pts << p.x() << p.y();
+            const QPointF anchor = parent.map(QPointF(part.transform.x, part.transform.y));
+            QVariantMap row;
+            row.insert(QStringLiteral("id"), part.id);
+            row.insert(QStringLiteral("name"), part.name);
+            row.insert(QStringLiteral("parent"), parentId);
+            row.insert(QStringLiteral("group"), part.group);
+            row.insert(QStringLiteral("visible"), part.visible);
+            row.insert(QStringLiteral("depth"), depth);
+            row.insert(QStringLiteral("pts"), pts);
+            row.insert(QStringLiteral("anchor"), QVariantList{anchor.x(), anchor.y()});
+            // Parent units -> fractions, linear part only (a drag's offset).
+            row.insert(QStringLiteral("lin"), QVariantList{parent.m11(), parent.m12(), parent.m21(), parent.m22()});
+            row.insert(QStringLiteral("x"), part.transform.x);
+            row.insert(QStringLiteral("y"), part.transform.y);
+            row.insert(QStringLiteral("scaleX"), part.transform.scaleX);
+            row.insert(QStringLiteral("scaleY"), part.transform.scaleY);
+            row.insert(QStringLiteral("rotation"), part.transform.rotation);
+            out.append(row);
+        }
+        return all;
+    }
+};
+
+// A still, unturned layer of parts with its box fitted to its parts (their boxes, in reference units), the parts
+// kept where they are on screen: what «Separate into layers» leaves, so each layer is picked where it shows.
+void fitShapeLayerBox(drift::Clip &clip, const QRectF &box)
+{
+    const auto single = [](const drift::KeyframeTrack<double> &k) { return k.keyframes().size() <= 1; };
+    if (!clip.shapeStyle.hasParts() || !single(clip.transformX) || !single(clip.transformY)
+        || !single(clip.transformW) || !single(clip.transformH) || !single(clip.rotation)
+        || (!clip.rotation.isEmpty() && qAbs(clip.rotation.evaluateAt(0)) > 1e-6))
+        return;
+    for (const drift::ShapePart &p : clip.shapeStyle.parts) {
+        if (p.isAnimated())
+            return;
+    }
+    ShapePartFramesBuilder b;
+    const QList<QPointF> pts = b.add(clip.shapeStyle.parts, QTransform(), QString(), 0);
+    if (pts.isEmpty())
+        return;
+    QRectF r(pts.first(), QSizeF());
+    for (const QPointF &p : pts)
+        r = r.united(QRectF(p, QSizeF(0.0001, 0.0001)));
+    if (r.width() < 1.0 || r.height() < 1.0)
+        return;
+    const double ppx = qMax(1.0, clip.shapeStyle.partsRefWidth) / qMax(1.0, box.width());
+    const double ppy = qMax(1.0, clip.shapeStyle.partsRefHeight) / qMax(1.0, box.height());
+    for (drift::ShapePart &p : clip.shapeStyle.parts) {
+        p.transform.x -= r.center().x();
+        p.transform.y -= r.center().y();
+    }
+    clip.shapeStyle.partsRefWidth = r.width();
+    clip.shapeStyle.partsRefHeight = r.height();
+    const QRectF fitted(box.center().x() + r.left() / ppx, box.center().y() + r.top() / ppy, r.width() / ppx,
+                        r.height() / ppy);
+    clip.transformX = {};
+    clip.transformY = {};
+    clip.transformW = {};
+    clip.transformH = {};
+    clip.transformX.setKeyframe(0, fitted.x());
+    clip.transformY.setKeyframe(0, fitted.y());
+    clip.transformW.setKeyframe(0, fitted.width());
+    clip.transformH.setKeyframe(0, fitted.height());
+}
+
+} // namespace
+
+// The preview's view of a layer of parts at the playhead (0.28 stage 4): one row per part, top first and
+// groups before their parts, with its corners as fractions of the layer's box. Empty for any other clip.
+QVariantList AppController::shapePartFrames(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Shape || !clip.shapeStyle.hasParts())
+        return {};
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    std::vector<drift::ShapePart> parts;
+    parts.reserve(clip.shapeStyle.parts.size());
+    for (const drift::ShapePart &part : clip.shapeStyle.parts)
+        parts.push_back(part.resolvedAt(rel));
+    const double refW = qMax(1.0, clip.shapeStyle.partsRefWidth);
+    const double refH = qMax(1.0, clip.shapeStyle.partsRefHeight);
+    // Reference units (centred on the box) -> fractions of the box.
+    QTransform layer;
+    layer.translate(0.5, 0.5);
+    layer.scale(1.0 / refW, 1.0 / refH);
+    ShapePartFramesBuilder b;
+    b.add(parts, layer, QString(), 0);
+    return b.out;
+}
+
+// «Shape layer 1 › Group 1 › Ellipse 1» over the preview while a part is picked: the layer first (id ""), then
+// every group down to the part.
+QVariantList AppController::shapePartCrumbs() const
+{
+    const ShapePartFocus &focus = shapePartFocus();
+    if (focus.partId.isEmpty() || !isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+    if (clip.id != focus.clipId)
+        return {};
+    QStringList path;
+    if (!shapePartPathTo(clip.shapeStyle.parts, focus.partId, path))
+        return {};
+    QVariantList out;
+    out.append(QVariantMap{{QStringLiteral("id"), QString()},
+                           {QStringLiteral("name"), clip.name.isEmpty() ? tr("Shape layer") : clip.name}});
+    for (const QString &id : std::as_const(path)) {
+        const drift::ShapePart *part = drift::findShapePart(clip.shapeStyle.parts, id);
+        if (part)
+            out.append(QVariantMap{{QStringLiteral("id"), id}, {QStringLiteral("name"), part->name}});
+    }
+    return out;
+}
+
 QVariantList AppController::trackKeyframeRows(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
@@ -26937,7 +28365,7 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
     QHash<QString, QVariantList> clipsByLabel;
     for (int c = 0; c < clipCount; ++c) {
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
-            if (grouped.contains(prop))
+            if (grouped.contains(prop) || prop.startsWith(QLatin1String("part.")))
                 continue;
             const QVariantList keys = clipKeyframes(trackIndex, c, prop);
             if (keys.isEmpty())
@@ -26963,6 +28391,11 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             {QStringLiteral("prop"), clips.first().toMap().value(QStringLiteral("prop"))},
             {QStringLiteral("clips"), clips},
         });
+    }
+    if (track.type == drift::TrackType::Shape && m_keyframeRowsOnlyGroup.isEmpty()) {
+        const QVariantList contents = shapeContentRows(trackIndex, keyframeTargetClip(trackIndex));
+        if (!contents.isEmpty())
+            return contents + rows;
     }
     return rows;
 }
@@ -30377,9 +31810,10 @@ LayerStack layerStackFor(drift::Clip &clip)
 {
     LayerStack stack;
     if (clip.type == drift::ClipType::Shape) {
-        stack.layers = &clip.shapeStyle.layers;
-        stack.keyframes = &clip.shapeStyle.keyframes;
-        stack.primaryColor = clip.shapeStyle.primaryColor();
+        drift::ShapeStyle &style = shapeStyleOf(clip);
+        stack.layers = &style.layers;
+        stack.keyframes = &style.keyframes;
+        stack.primaryColor = style.primaryColor();
     } else {
         stack.layers = &clip.textStyle.layers;
         stack.keyframes = &clip.textStyle.keyframes;
@@ -30604,7 +32038,7 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
         applyTextStylePatch(own, QVariantMap{{QStringLiteral("layer"), layer}});
         writeTextRangeLayers(*clip, rangeStart, rangeEnd, own.layers);
     } else if (clip->type == drift::ClipType::Shape)
-        applyShapeStylePatch(clip->shapeStyle, QVariantMap{{QStringLiteral("layer"), layer}});
+        applyShapeStylePatch(shapeStyleOf(*clip), QVariantMap{{QStringLiteral("layer"), layer}});
     else
         applyTextStylePatch(clip->textStyle, QVariantMap{{QStringLiteral("layer"), layer}});
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("style.%1.*").arg(layerId)});

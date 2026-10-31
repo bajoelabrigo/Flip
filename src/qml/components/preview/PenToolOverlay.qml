@@ -282,7 +282,11 @@ Item {
                 return
             }
             if (k === Qt.Key_Escape) {
-                if (root.penActive)
+                // Pro (0.28): with a shape layer picked, the pen's strokes go into it; the first Esc lets go of
+                // the layer (the next stroke gets one of its own), the next one puts the pen down.
+                if (root.penActive && root.targetIsShape && EditorState.preferences.proMode)
+                    EditorState.clearSelection()
+                else if (root.penActive)
                     EditorState.preview.penMode = false
                 else if (EditorState.preview.pathEditMode)
                     EditorState.preview.pathEditMode = false

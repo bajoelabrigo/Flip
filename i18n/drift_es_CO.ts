@@ -5246,6 +5246,100 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Path</source>
+        <translation>Trazado</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
+        <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes</translation>
+    </message>
+    <message>
+        <source>Pick two or more shapes to combine them</source>
+        <translation>Elige dos o más formas para combinarlas</translation>
+    </message>
+    <message>
+        <source>Only shapes that do not move, with no masks or effects of their own, can be combined</source>
+        <translation>Solo se pueden combinar formas que no se mueven y que no tienen máscaras ni efectos propios</translation>
+    </message>
+    <message>
+        <source>Another layer is linked to one of these shapes (a mask, an adjustment or a parent): unlink it before combining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape</source>
+        <translation>Forma</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n shapes combined into one layer</source>
+        <translation>
+            <numerusform>%n forma combinada en una capa</numerusform>
+            <numerusform>%n formas combinadas en una capa</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>This shape has only one part</source>
+        <translation>Esta forma tiene una sola parte</translation>
+    </message>
+    <message>
+        <source>Another layer is linked to this shape (a mask, an adjustment or a parent): unlink it before separating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Separated into %n layers</source>
+        <translation>
+            <numerusform>Separada en %n capa</numerusform>
+            <numerusform>Separada en %n capas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
+        <source>Group added</source>
+        <translation>Grupo añadido</translation>
+    </message>
+    <message>
+        <source>“%1” added</source>
+        <translation>«%1» añadido</translation>
+    </message>
+    <message>
+        <source>A shape layer keeps at least one shape. Delete the layer instead.</source>
+        <translation>Una capa de forma conserva al menos una forma. Para quitarla, elimina la capa.</translation>
+    </message>
+    <message>
+        <source>“%1” deleted</source>
+        <translation>«%1» eliminado</translation>
+    </message>
+    <message>
+        <source>“%1” duplicated</source>
+        <translation>«%1» duplicado</translation>
+    </message>
+    <message>
+        <source>Renamed</source>
+        <translation>Nombre cambiado</translation>
+    </message>
+    <message>
+        <source>“%1” shown</source>
+        <translation>«%1» visible</translation>
+    </message>
+    <message>
+        <source>“%1” hidden</source>
+        <translation>«%1» oculto</translation>
+    </message>
+    <message>
+        <source>Order changed</source>
+        <translation>Orden cambiado</translation>
+    </message>
+    <message>
+        <source>Grouped</source>
+        <translation>Agrupado</translation>
+    </message>
+    <message>
+        <source>Set the group&apos;s skew to 0 and remove its keyframes before ungrouping.</source>
+        <translation>Para desagrupar, deja la inclinación del grupo en 0 y quítale sus fotogramas clave.</translation>
+    </message>
+    <message>
         <source>Text colour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5364,6 +5458,66 @@
     <message>
         <source>Mask feather</source>
         <translation>Calado de máscara</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Points</source>
+        <translation>Puntas</translation>
+    </message>
+    <message>
+        <source>Inner radius</source>
+        <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
+    </message>
+    <message>
+        <source>Roundness</source>
+        <translation>Redondez</translation>
+    </message>
+    <message>
+        <source>%1 path</source>
+        <translation>Trazado: %1</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Ancho del trazo</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Escala X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Escala Y</translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation>Inclinación</translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation>Eje de inclinación</translation>
+    </message>
+    <message>
+        <source>Transform: %1</source>
+        <translation>Transformar: %1</translation>
+    </message>
+    <message>
+        <source>Contents</source>
+        <translation>Contenido</translation>
+    </message>
+    <message>
+        <source>Transform</source>
+        <translation>Transformar</translation>
     </message>
     <message>
         <source>Move track</source>
@@ -23100,6 +23254,86 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recortar final</translation>
     </message>
     <message>
+        <source>Taper and wave</source>
+        <translation>Afinar y ondular</translation>
+    </message>
+    <message>
+        <source>Taper thins the stroke towards its start and end; Wave makes its width rise and fall along the path.</source>
+        <translation>Afinar adelgaza el borde hacia su inicio y su final (Taper en After Effects); Ondular hace que su ancho suba y baje a lo largo del trazado (Wave).</translation>
+    </message>
+    <message>
+        <source>Taper start</source>
+        <translation>Afinar al inicio</translation>
+    </message>
+    <message>
+        <source>Taper end</source>
+        <translation>Afinar al final</translation>
+    </message>
+    <message>
+        <source>Start width</source>
+        <translation>Ancho al inicio</translation>
+    </message>
+    <message>
+        <source>End width</source>
+        <translation>Ancho al final</translation>
+    </message>
+    <message>
+        <source>Taper ease</source>
+        <translation>Suavidad del afinado</translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation>Ondas</translation>
+    </message>
+    <message>
+        <source>Wavelength</source>
+        <translation>Largo de onda</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Fase</translation>
+    </message>
+    <message>
+        <source>Line ends</source>
+        <translation>Extremos</translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation>Planos</translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation>Redondeados</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrados</translation>
+    </message>
+    <message>
+        <source>How the open ends of the stroke finish (After Effects&apos; Line Cap)</source>
+        <translation>Cómo terminan los extremos abiertos del borde (Extremo de línea en After Effects)</translation>
+    </message>
+    <message>
+        <source>Corners</source>
+        <translation>Esquinas</translation>
+    </message>
+    <message>
+        <source>Sharp</source>
+        <translation>En punta</translation>
+    </message>
+    <message>
+        <source>Bevelled</source>
+        <translation>Biseladas</translation>
+    </message>
+    <message>
+        <source>How the stroke turns a corner (After Effects&apos; Line Join)</source>
+        <translation>Cómo dobla el borde en una esquina (Unión de línea en After Effects)</translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation>Límite de inglete</translation>
+    </message>
+    <message>
         <source>Sketchy</source>
         <translation>Boceto</translation>
     </message>
@@ -23162,6 +23396,89 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Adjust extrude</source>
         <translation>Ajustar extrusión</translation>
+    </message>
+</context>
+<context>
+    <name>ShapeContentsList</name>
+    <message>
+        <source>Contents</source>
+        <translation>Contenido</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Añadir</translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer (After Effects: Add)</source>
+        <translation>Añade una forma o un grupo a esta capa (en After Effects: Añadir)</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Elipse</translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation>Grupo vacío</translation>
+    </message>
+    <message>
+        <source>This layer is one shape. Add another one to build it from parts: each part has its own fill, border and position.</source>
+        <translation>Esta capa es una sola forma. Añade otra para armarla por partes: cada parte tiene su propio relleno, borde y posición.</translation>
+    </message>
+    <message>
+        <source>Shape layer</source>
+        <translation>Capa de forma</translation>
+    </message>
+    <message>
+        <source>The whole layer. Its position and size are in the Transform tab.</source>
+        <translation>La capa entera. Su posición y su tamaño están en la pestaña Transformar.</translation>
+    </message>
+    <message>
+        <source>Fold the group</source>
+        <translation>Plegar el grupo</translation>
+    </message>
+    <message>
+        <source>Open the group</source>
+        <translation>Abrir el grupo</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Mostrar</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation>Cambiar nombre</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicar</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
@@ -23322,6 +23639,114 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This shape is made of several parts. To edit each part, switch to Pro.</source>
+        <translation>Esta forma tiene varias partes. Para editar cada parte, pasa a Pro.</translation>
+    </message>
+    <message>
+        <source>See in Pro</source>
+        <translation>Ver en Pro</translation>
+    </message>
+    <message>
+        <source>Pick a part in the list to edit its shape, fill and border. To move or scale the whole layer, use the Transform tab.</source>
+        <translation>Elige una parte en la lista para editar su forma, su relleno y su borde. Para mover o escalar la capa entera, usa la pestaña Transformar.</translation>
+    </message>
+    <message>
+        <source>Position and turn of the group</source>
+        <translation>Posición y giro del grupo</translation>
+    </message>
+    <message>
+        <source>Position and turn of the part</source>
+        <translation>Posición y giro de la parte</translation>
+    </message>
+    <message>
+        <source>In After Effects: Transform: %1</source>
+        <translation>En After Effects: Transformar: %1</translation>
+    </message>
+    <message>
+        <source>Width</source>
+        <translation>Ancho</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Escala X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Escala Y</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Modo de fusión</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiplicar</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Trama</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Superponer</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Oscurecer</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Wiggle</source>
+        <translation>Transformación ondulada</translation>
+    </message>
+    <message>
+        <source>The part jitters on its own, as After Effects&apos; Wiggle Transform. Leave the amounts at 0 to keep it still.</source>
+        <translation>La parte tiembla sola, como la Transformación ondulada de After Effects. Con las cantidades en 0 se queda quieta.</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
+        <source>Skew and anchor point</source>
+        <translation>Inclinación y punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Skew</source>
+        <translation>Inclinación</translation>
+    </message>
+    <message>
+        <source>Skew axis</source>
+        <translation>Eje de inclinación</translation>
+    </message>
+    <message>
+        <source>Anchor X</source>
+        <translation>Anclaje X</translation>
+    </message>
+    <message>
+        <source>Anchor Y</source>
+        <translation>Anclaje Y</translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>Capas</translation>
     </message>
@@ -23364,6 +23789,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
     </message>
     <message>
         <source>Head size</source>
@@ -23511,7 +23944,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Wiggles per second</source>
-        <translation type="unfinished"></translation>
+        <translation>Temblores por segundo</translation>
     </message>
     <message>
         <source>Random seed</source>
@@ -23592,6 +24025,21 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Twist</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShapePartOverlay</name>
+    <message>
+        <source>Move part</source>
+        <translation>Mover parte</translation>
+    </message>
+    <message>
+        <source>Rotate part</source>
+        <translation>Girar parte</translation>
+    </message>
+    <message>
+        <source>Scale part</source>
+        <translation>Escalar parte</translation>
     </message>
 </context>
 <context>
@@ -23735,6 +24183,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
     </message>
     <message>
         <source>Head size</source>
@@ -28271,6 +28727,42 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Miter limit</source>
+        <translation>Límite de inglete</translation>
+    </message>
+    <message>
+        <source>Taper: start length</source>
+        <translation>Afinar: largo al inicio</translation>
+    </message>
+    <message>
+        <source>Taper: end length</source>
+        <translation>Afinar: largo al final</translation>
+    </message>
+    <message>
+        <source>Taper: start width</source>
+        <translation>Afinar: ancho al inicio</translation>
+    </message>
+    <message>
+        <source>Taper: end width</source>
+        <translation>Afinar: ancho al final</translation>
+    </message>
+    <message>
+        <source>Taper: ease</source>
+        <translation>Afinar: suavidad</translation>
+    </message>
+    <message>
+        <source>Wave: amount</source>
+        <translation>Ondular: cantidad</translation>
+    </message>
+    <message>
+        <source>Wave: wavelength</source>
+        <translation>Ondular: largo de onda</translation>
+    </message>
+    <message>
+        <source>Wave: phase</source>
+        <translation>Ondular: fase</translation>
+    </message>
+    <message>
         <source>Dash offset</source>
         <translation>Desfase de guiones</translation>
     </message>
@@ -28782,6 +29274,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Group</source>
         <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>Combine into one shape layer</source>
+        <translation>Combinar en una capa de forma</translation>
+    </message>
+    <message>
+        <source>Separate into layers</source>
+        <translation>Separar en capas</translation>
     </message>
     <message>
         <source>AI transition to the next clip</source>
@@ -29783,6 +30283,86 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Mostrar fotogramas clave</translation>
     </message>
     <message>
+        <source>Hide</source>
+        <translation>Ocultar</translation>
+    </message>
+    <message>
+        <source>Show</source>
+        <translation>Mostrar</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Añadir</translation>
+    </message>
+    <message>
+        <source>Add a shape or a group to this layer</source>
+        <translation>Añade una forma o un grupo a esta capa</translation>
+    </message>
+    <message>
+        <source>Rectangle</source>
+        <translation>Rectángulo</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation>Elipse</translation>
+    </message>
+    <message>
+        <source>Star</source>
+        <translation>Estrella</translation>
+    </message>
+    <message>
+        <source>Polygon</source>
+        <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Empty group</source>
+        <translation>Grupo vacío</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiplicar</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Trama</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Superponer</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Oscurecer</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Modo de fusión</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicar</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Agrupar</translation>
+    </message>
+    <message>
+        <source>Ungroup</source>
+        <translation>Desagrupar</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
         <source>Remove keyframe</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29805,6 +30385,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Click to pick all its keyframes</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>

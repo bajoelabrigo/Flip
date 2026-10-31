@@ -22,7 +22,8 @@ QString painterPathToSvg(const QPainterPath &path);
 bool parseSvgPathData(const QString &d, QPainterPath *out);
 
 // Regular n-gon inscribed in `bounds`, first vertex at the top. Shared with mask rendering.
-QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg);
+// roundness (0.28): After Effects' Outer Roundness, 0..1; 1 turns the polygon into a circle.
+QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg, double roundness = 0.0);
 
 // Heart filling `bounds`. Shared with mask rendering.
 QPainterPath heartPath(const QRectF &bounds);

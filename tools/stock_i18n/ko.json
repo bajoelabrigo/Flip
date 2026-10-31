@@ -24419,6 +24419,116 @@
     "단어"
    ]
   },
+  "template:lt-andy": {
+   "name": "하단 자막: 가운데서 열리는 바",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "가운데",
+    "그라데이션"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "하단 자막: 박스에서 올라오는 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "그라데이션",
+    "박스",
+    "띠"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "하단 자막: 세 가지 스타일 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "윤곽선",
+    "성"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "하단 자막: 흰 선이 있는 박스",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "그라데이션",
+    "박스",
+    "라인"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "오른쪽 하단 자막: 박스 2개",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "오른쪽",
+    "박스"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "하단 자막: 세로 바와 윤곽선 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "윤곽선",
+    "세로 바"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "하단 자막: 직함 띠와 아래 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "띠",
+    "오른쪽"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "하단 자막: 그라데이션 바와 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "그라데이션",
+    "바"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "하단 자막: 바 안의 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "그라데이션",
+    "박스"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "하단 자막: 박스 속 성과 위의 이름",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "성",
+    "가운데"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "오른쪽 하단 자막: 거꾸로 타이핑",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "오른쪽",
+    "타이핑"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "오른쪽 하단 자막: 그라데이션 라인",
+   "tags": [
+    "하단 자막",
+    "이름",
+    "오른쪽",
+    "라인"
+   ]
+  },
   "template:me-gradue": {
    "name": "나 졸업했어요!",
    "tags": [
@@ -33351,6 +33461,191 @@
     "정보"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "카운터가 있는 채널 바",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "카운터",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-barra-oscura": {
+   "name": "다크 구독 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "다크",
+    "알림"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "구독 버튼이 있는 채널",
+   "tags": [
+    "youtube",
+    "구독",
+    "채널",
+    "사진",
+    "알림"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "가운데 사진이 있는 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "카드",
+    "사진",
+    "가운데",
+    "알림"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "큰 아이콘: 좋아요, 구독, 알림 벨",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "아이콘",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "저절로 입력되는 메시지",
+   "tags": [
+    "youtube",
+    "구독",
+    "메시지",
+    "타이핑",
+    "타자기"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "좋아요와 구독 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "알약",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "알림 벨과 구독 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "알림 벨",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "사진에서 늘어나는 알약",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "사진",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "내 SNS를 팔로우하세요",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "sns",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "구독 버튼이 있는 채널 카드",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "카드",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "작은 구독 카드",
+   "tags": [
+    "구독",
+    "버튼",
+    "클릭",
+    "미니멀",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "구독 버튼 동영상 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "동영상",
+    "알림"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "좋아요가 있는 다크 동영상 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "좋아요",
+    "카드",
+    "동영상",
+    "다크"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "좁은 동영상 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "동영상",
+    "좁은"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "좋아요, 구독, 알림",
+   "tags": [
+    "youtube",
+    "버튼",
+    "좋아요",
+    "구독",
+    "알림"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "구독 말풍선",
+   "tags": [
+    "youtube",
+    "구독",
+    "말풍선",
+    "로고",
+    "코랄"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "알림 설정 켜기",
+   "tags": [
+    "youtube",
+    "알림",
+    "알림 설정",
+    "텍스트",
+    "코랄"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "바 위 단어",
    "tags": [
@@ -33506,6 +33801,66 @@
     "바운스",
     "재미있는",
     "단어"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "막대 사이 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "막대",
+    "가운데"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "흰색 박스 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "박스",
+    "작가"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "코랄 패널 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "패널",
+    "코랄"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "모서리 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "모서리",
+    "라인"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "영상 위 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "가운데",
+    "작가"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "프레임 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "명언",
+    "프레임",
+    "윤곽선"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -33801,6 +34156,146 @@
     "사진"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "버튼 3개 한 줄",
+   "tags": [
+    "youtube",
+    "구독",
+    "좋아요",
+    "알림",
+    "한 줄"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "원형 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "원",
+    "감사",
+    "동영상 2개"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "흰색 쐐기 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "쐐기",
+    "감사",
+    "동영상 2개"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "곡선 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "곡선",
+    "감사",
+    "동영상 2개"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "대각선 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "대각선",
+    "감사",
+    "구독"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "화살표 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "화살표",
+    "구독",
+    "추천 동영상"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "엔드 스크린: 더 많은 동영상",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "감사",
+    "더 많은 동영상",
+    "sns"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "곡선 패널 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "패널",
+    "곡선",
+    "감사"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "엔드 스크린: 세로 카드",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "카드",
+    "감사",
+    "구독"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "삼각형 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "삼각형",
+    "감사",
+    "다음 동영상"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "원형 채널 이름",
+   "tags": [
+    "youtube",
+    "배경",
+    "코랄",
+    "원",
+    "이름"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "십자 무늬 채널 이름",
+   "tags": [
+    "youtube",
+    "배경",
+    "코랄",
+    "십자",
+    "이름"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "얼룩 무늬 채널 이름",
+   "tags": [
+    "youtube",
+    "배경",
+    "코랄",
+    "얼룩",
+    "이름"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "삼각형 채널 이름",
+   "tags": [
+    "youtube",
+    "배경",
+    "코랄",
+    "삼각형",
+    "이름"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "인용구 카드",
    "tags": [
@@ -33970,6 +34465,216 @@
     "리뷰"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "큰 글씨 시청 감사합니다!",
+   "tags": [
+    "youtube",
+    "감사",
+    "엔딩",
+    "큰",
+    "작별"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "안녕하세요! 채널에 오신 걸 환영해요",
+   "tags": [
+    "youtube",
+    "안녕",
+    "환영",
+    "인사",
+    "인트로",
+    "채널"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "쌓아 올린 YouTube 채널",
+   "tags": [
+    "youtube",
+    "인트로",
+    "쌓기",
+    "말풍선",
+    "채널"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "여행 블로그",
+   "tags": [
+    "youtube",
+    "인트로",
+    "로고",
+    "블로그",
+    "여행"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "로고와 채널 이름",
+   "tags": [
+    "youtube",
+    "인트로",
+    "로고",
+    "이름",
+    "채널"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "빅 스토리",
+   "tags": [
+    "youtube",
+    "인트로",
+    "로고",
+    "채널",
+    "스토리"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "기울어진 채널 이름",
+   "tags": [
+    "youtube",
+    "인트로",
+    "기울기",
+    "이름",
+    "코랄"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "알약 속 로고와 이름",
+   "tags": [
+    "youtube",
+    "인트로",
+    "로고",
+    "알약",
+    "반짝임"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "나의 YouTube 채널",
+   "tags": [
+    "youtube",
+    "인트로",
+    "로고",
+    "채널",
+    "박스"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "코랄 박스 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "박스",
+    "코랄",
+    "라인"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "라인 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "라인",
+    "가리키기",
+    "점"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "크리에이티브 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "크리에이티브",
+    "흰색",
+    "코랄"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "제품을 소개하세요",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "제품",
+    "설명",
+    "프레임"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "코랄 라벨 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "라벨",
+    "코랄",
+    "라인"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "브랜드와 가격 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "가격",
+    "브랜드",
+    "상품"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "검은 박스 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "검정",
+    "세로",
+    "헤드라인"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "문단이 있는 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "문단",
+    "설명",
+    "코랄"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "헤드라인과 설명",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "헤드라인",
+    "검정",
+    "코랄"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "세로선 콜아웃",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "세로",
+    "설명",
+    "코랄"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "좋아요 눌러 주세요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "엄지",
+    "클릭"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "이름과 버튼 3개",
+   "tags": [
+    "youtube",
+    "구독",
+    "이름",
+    "버튼",
+    "채널"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "영상 2개 최종 화면",
    "tags": [
@@ -34052,6 +34757,16 @@
     "엔딩"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "동영상 2개가 있는 코랄 엔드 스크린",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "감사",
+    "다음 동영상",
+    "구독"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "노란 최종 화면",
    "tags": [
@@ -34083,6 +34798,36 @@
     "다음 영상"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "흰색 채널 프로필",
+   "tags": [
+    "youtube",
+    "프로필",
+    "사진",
+    "흰색",
+    "구독자"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "세로로 쌓은 버튼",
+   "tags": [
+    "youtube",
+    "구독",
+    "좋아요",
+    "알림",
+    "세로"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "아이콘 3개 알약",
+   "tags": [
+    "youtube",
+    "구독",
+    "좋아요",
+    "알림",
+    "알약"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "SNS 바",
    "tags": [
@@ -34091,6 +34836,26 @@
     "바",
     "아이디",
     "자막"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "원과 알약 모양 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "원",
+    "알약",
+    "로고"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "원형 로고 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "원",
+    "팔로우",
+    "로고"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34122,6 +34887,16 @@
     "팔로우",
     "키네틱",
     "아이디"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "괄호 속 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "카드",
+    "괄호",
+    "로고"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -34165,6 +34940,16 @@
     "크게"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "컬러 배지 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "배지",
+    "팔로우",
+    "로고"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "내 SNS",
    "tags": [
@@ -34186,6 +34971,17 @@
     "리스트"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "로고가 있는 SNS 계정",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "아이디"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "알약형 SNS",
    "tags": [
@@ -34194,6 +34990,26 @@
     "팔로우",
     "아이디",
     "알약"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "붓 터치 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "붓",
+    "브러시",
+    "로고"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "흰색 카드 SNS",
+   "tags": [
+    "youtube",
+    "sns",
+    "카드",
+    "팔로우",
+    "로고"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -34216,6 +35032,75 @@
     "자막"
    ]
   },
+  "template:ytk-suscribete-ahora": {
+   "name": "지금 바로 채널 구독하세요!",
+   "tags": [
+    "youtube",
+    "구독",
+    "문구",
+    "글자"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "프레임 속 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "프레임",
+    "윤곽선",
+    "로고"
+   ]
+  },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "밝은 페이지에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "휴대폰에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "어두운 페이지에서 구독",
+   "tags": [
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서",
+    "동영상 페이지"
+   ]
+  },
+  "template:ytk-suscribete-texto": {
+   "name": "로고와 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "텍스트",
+    "로고",
+    "클릭"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "목록 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "목록",
+    "카드",
+    "좋아요"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "프로필 사진 하단 자막",
    "tags": [
@@ -34225,6 +35110,26 @@
     "하단 자막",
     "사진",
     "프로필"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "흰색 박스 속 이름",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "이름",
+    "직업",
+    "박스"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "코랄 박스 속 이름",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "이름",
+    "직업",
+    "코랄"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -34310,6 +35215,16 @@
     "하단 자막",
     "게스트",
     "라벨"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "라인이 있는 이름",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "이름",
+    "직업",
+    "라인"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -34558,6 +35473,213 @@
     "에너지"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "윤곽선 프레임 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "윤곽선",
+    "프레임"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "윤곽선 박스 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "윤곽선",
+    "박스",
+    "흰색"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "사각형 안의 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "사각형",
+    "윤곽선",
+    "미니멀"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "윤곽선 사각형 위 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "윤곽선",
+    "사각형",
+    "모던"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "흰색 사각형 속 질문",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "사각형",
+    "질문",
+    "세로"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "두 가지 굵기 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "타이포그래피",
+    "가운데",
+    "심플"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "응원해 주셔서 감사해요!",
+   "tags": [
+    "youtube",
+    "감사",
+    "응원",
+    "박스"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "기울어진 라벨",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "기울기",
+    "라벨",
+    "서명"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "세로선 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "라인",
+    "세로",
+    "미니멀"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "프레임 속 박스 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "박스",
+    "프레임",
+    "검정"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "YouTube 최고의 쇼",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "로고",
+    "쇼"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "YouTube 최고의 동영상",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "라인",
+    "박스",
+    "최고의 동영상"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "굵기를 섞은 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "타이포그래피",
+    "믹스",
+    "우아한"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "구독과 좋아요 잊지 마세요",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "박스",
+    "구독",
+    "좋아요"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "새 동영상이 나왔어요",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "바",
+    "새 동영상",
+    "공개"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "번호 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "번호",
+    "알약",
+    "목록"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "검은 박스 속 큰 타이틀",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "박스",
+    "큰",
+    "홍보"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "지금 구독하세요!",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "구독",
+    "큰",
+    "가운데"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "검은 박스 세 줄",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "박스",
+    "검정",
+    "질문"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "다음 영상 보기",
+   "tags": [
+    "youtube",
+    "타이틀",
+    "다음 영상",
+    "박스",
+    "동영상"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "박스 타이틀",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이틀",
+    "타자기",
+    "커서"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "링 줌",
    "tags": [
@@ -34712,6 +35834,25 @@
     "점",
     "원",
     "장면 전환"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "원 안의 동영상",
+   "tags": [
+    "youtube",
+    "원",
+    "코랄",
+    "전환",
+    "동영상"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "YouTube 로고와 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "로고",
+    "알림"
    ]
   },
   "template:zoom-3d-parallax": {

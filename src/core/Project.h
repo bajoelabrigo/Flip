@@ -126,7 +126,8 @@ class Project
 public:
     // 15 (Flip 0.27): parenting, nulls, mattes, lights, time remap, behaviours, path keys and the
     // shape operators of 0.25/0.26, which a build that reads 14 drops silently and could save over.
-    static constexpr int kCurrentVersion = 15;
+    // 16 (Flip 0.28): shape layers made of parts (After Effects' Contents).
+    static constexpr int kCurrentVersion = 16;
 
     Project() { resetToDefaultTimeline(); }
 

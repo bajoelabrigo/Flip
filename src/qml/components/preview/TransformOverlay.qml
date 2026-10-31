@@ -248,6 +248,64 @@ Item {
         }
     }
 
+    // «Shape layer 1 › Group 1 › Ellipse 1» while inside a shape layer's parts (0.28): a click on a step goes back
+    // up to it, the layer's name to the whole layer.
+    Rectangle {
+        id: partCrumbs
+        readonly property var steps: {
+            void EditorState.selectedShapePart
+            void EditorState.tracksRevision
+            void EditorState.selectedTrack
+            void EditorState.selectedClip
+            return EditorState.preferences.proMode && !root.mode3d ? EditorState.shapePartCrumbs() : []
+        }
+        visible: steps.length > 1 && !EditorState.playing
+        x: Theme.spacingSm
+        y: Theme.spacingSm
+        z: 958
+        width: crumbRow.implicitWidth + Theme.spacingLg
+        height: crumbRow.implicitHeight + Theme.spacingSm
+        radius: Theme.radiusSm
+        color: Qt.rgba(0.05, 0.06, 0.08, 0.85)
+        Row {
+            id: crumbRow
+            anchors.centerIn: parent
+            spacing: 4
+            Repeater {
+                model: partCrumbs.steps
+                delegate: Row {
+                    required property var modelData
+                    required property int index
+                    spacing: 4
+                    Text {
+                        visible: index > 0
+                        text: "›"
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                    }
+                    Text {
+                        readonly property bool last: index === partCrumbs.steps.length - 1
+                        text: modelData.name
+                        color: last ? Theme.onMedia : crumbMouse.containsMouse ? Theme.clipTransform : Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        font.weight: last ? Font.DemiBold : Font.Normal
+                        MouseArea {
+                            id: crumbMouse
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            enabled: !parent.last
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: EditorState.selectShapePart(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   modelData.id)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     // The toolbar's anchor, shape and text tools (0.26).
     PreviewToolOverlay {
         anchors.fill: parent
@@ -452,6 +510,19 @@ Item {
             Keys.onPressed: function(event) {
                 if (!handle.selected || root.mode3d)
                     return
+                // Esc goes up a level out of a shape layer's parts (0.28), as After Effects; at the layer, in
+                // Pro, it lets go of the shape, so the next one drawn gets a layer of its own.
+                if (event.key === Qt.Key_Escape) {
+                    if (partOverlay.goUp()) {
+                        event.accepted = true
+                        return
+                    }
+                    if (handle.box.kind === "shape" && EditorState.preferences.proMode) {
+                        EditorState.clearSelection()
+                        event.accepted = true
+                        return
+                    }
+                }
                 const step = (event.modifiers & Qt.ShiftModifier) ? 10 : 1
                 let dx = 0
                 let dy = 0
@@ -494,6 +565,22 @@ Item {
                 id: hover
             }
 
+            // A shape layer's parts (0.28 stage 4): the picked part's outline and grips, in Pro.
+            ShapePartOverlay {
+                id: partOverlay
+                anchors.fill: parent
+                z: 6
+                track: handle.box.track
+                clip: handle.box.clip
+                live: handle.selected && !root.mode3d && !handle.isText && !handle.isTransform
+                      && handle.box.kind === "shape" && EditorState.preferences.proMode
+                // The point of a tap, in fractions of the box.
+                function fracOf(eventPoint) {
+                    const p = handle.mapFromItem(null, eventPoint.scenePosition.x, eventPoint.scenePosition.y)
+                    return Qt.point(p.x / Math.max(1, handle.width), p.y / Math.max(1, handle.height))
+                }
+            }
+
             TapHandler {
                 onTapped: (eventPoint) => {
                     // Tapping inside a selected layer's frame picks the clip under the pointer,
@@ -507,10 +594,20 @@ Item {
                             return
                         }
                     }
+                    const wasSelected = handle.selected
                     EditorState.selectClip(handle.box.track, handle.box.clip)
                     handle.forceActiveFocus()
                     if (tapCount === 2 && handle.isText && !root.mode3d)
                         root.textEditRequested(handle.box.track, handle.box.clip)
+                    // A shape layer's parts: double-click goes in, a click beside the picked part picks
+                    // its neighbour or goes back to the layer.
+                    if (partOverlay.active && wasSelected) {
+                        const f = partOverlay.fracOf(eventPoint)
+                        if (tapCount === 2)
+                            partOverlay.enterAt(f.x, f.y)
+                        else
+                            partOverlay.clickAt(f.x, f.y)
+                    }
                 }
             }
 

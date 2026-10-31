@@ -11961,6 +11961,35 @@ void EngineTest::expressionsRunOnProperties()
     b.expression = QStringLiteral("thisComp.layer(\"Nulo 1\").transform.rotation * 2");
     track.setBehavior(b);
     QCOMPARE(track.evaluateAt(0), 90.0);
+    // After Effects' content(): a part of a shape layer, inside a group, by name (0.28).
+    {
+        drift::Clip layer = solidShape(QStringLiteral("p"), QRectF(0, 0, 100, 100), Qt::red);
+        layer.name = QStringLiteral("Formas");
+        drift::ShapePart ellipse;
+        ellipse.id = QStringLiteral("p2");
+        ellipse.name = QStringLiteral("Elipse 1");
+        ellipse.width = 40.0;
+        ellipse.height = 20.0;
+        ellipse.transform.rotation = 33.0;
+        ellipse.transform.x = 12.0;
+        drift::ShapePart group;
+        group.id = QStringLiteral("p1");
+        group.name = QStringLiteral("Grupo 1");
+        group.group = true;
+        group.children = {ellipse};
+        layer.shapeStyle.parts = {group};
+        layer.shapeStyle.partsRefWidth = 100.0;
+        layer.shapeStyle.partsRefHeight = 100.0;
+        drift::Project shapes = clipsProject({layer});
+        const drift::ExpressionScope partScope(&shapes, 0);
+        b.expression = QStringLiteral("layer(\"Formas\").content(\"Grupo 1\").content(\"Elipse 1\").transform.rotation");
+        track.setBehavior(b);
+        QCOMPARE(track.evaluateAt(0), 33.0);
+        b.expression = QStringLiteral("layer(\"Formas\").content(\"Grupo 1\").content(\"Elipse 1\").transform.position[0] + "
+                                      "layer(\"Formas\").content(\"Grupo 1\").content(\"Elipse 1\").size[0]");
+        track.setBehavior(b);
+        QCOMPARE(track.evaluateAt(0), 52.0);
+    }
     // Broken code keeps the value and says why.
     b.expression = QStringLiteral("this is not js");
     track.setBehavior(b);

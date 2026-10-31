@@ -1125,8 +1125,22 @@ int ensureFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, 
             return i;
     }
 
-    if (firstMatch < 0)
+    if (firstMatch < 0) {
+        // A new project's only track, still empty and unnamed, is the one the user starts on: a first shape
+        // takes it over instead of leaving an empty «Video 1» under its own track (Jorge, 2026-10-30: «se
+        // agrega Video 1 que no creé»).
+        if (tracks.size() == 1 && type == ClipType::Shape) {
+            Track &only = project.tracks()[0];
+            if (only.clips.isEmpty() && only.name.isEmpty() && !only.isAdjustmentLane() && !only.locked
+                && only.type == TrackType::Video) {
+                only.type = trackType;
+                if (only.allowsClipType(type))
+                    return 0;
+                only.type = TrackType::Video;
+            }
+        }
         return ensureTrackForClipType(project, type, insertAtTop);
+    }
     // Every existing lane is busy at this moment, so give the clip one of its own directly above
     // the first, which keeps later graphics drawing over earlier ones.
     return insertTrackAboveForClipType(project, firstMatch, type);
@@ -1633,6 +1647,20 @@ void forEachKeyframeTrack(Clip &clip, Fn &&fn)
     for (Mask &extra : clip.extraMasks)
         visitMap(extra.keyframes);
     visitMap(clip.shapeStyle.keyframes);
+    // A layer of parts (0.28): each part's own keys and its shape's, at every depth (walked with a list, not a
+    // recursive lambda).
+    {
+        QList<std::vector<ShapePart> *> levels{&clip.shapeStyle.parts};
+        while (!levels.isEmpty()) {
+            std::vector<ShapePart> *level = levels.takeLast();
+            for (ShapePart &part : *level) {
+                visitMap(part.keyframes);
+                visitMap(part.shape.keyframes);
+                if (!part.children.empty())
+                    levels.append(&part.children);
+            }
+        }
+    }
     visitMap(clip.textStyle.keyframes);
     visitMap(clip.vector.keyframes);
     visitMap(clip.model3d.keyframes);

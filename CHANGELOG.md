@@ -3,6 +3,20 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.28.0 — Formas como After Effects
+
+- Capas de forma con partes y grupos (`ShapeStyle::parts`, `ShapePart`, `SkiaShapePainter` `ContentsPainter`): lista
+  Contenido en la columna derecha (`ShapeContentsList.qml`), árbol en la línea de tiempo (`TrackHeaderColumn`),
+  partes en la vista previa (`ShapePartOverlay.qml`, migas, Esc sube un nivel), dibujar y la pluma dentro de la capa
+  elegida (`addDrawnShapeToLayer`, `moveShapeClipIntoLayer`), Combinar y Separar (`combineSelectedShapes`,
+  `separateShapeParts`). Solo en modo Pro.
+- Borde con Afinar y Ondular (`profiledStroke`), extremos, esquinas y límite de inglete; redondez en estrellas y
+  polígonos (`radialPath`); Transformación ondulada por parte; expresiones `content("…")`; MCP `list_shape_parts`,
+  `add_shape_part`, `set_shape_part`, `group_shape_part`.
+- Arreglos: formas y fotos sin temblor (caja fraccionaria, fotos en pasos de 256 px), barrido de texto con caja,
+  primera forma sin «Video 1» vacío, espacio de trabajo Vertical. Auditoría antes de publicar: Supr/Esc/Ctrl+D/Ctrl+G
+  sobre la parte elegida, ids únicos al duplicar grupos, claves de las partes al cortar, candado de pistas.
+
 ## 0.27.0 — Más fácil para empezar, y una revisión a fondo
 
 - Ejemplos en el inicio (`ProjectFileController::sampleExamples`, `ejemplos.json` en el VPS, `tools/ejemplos`) con

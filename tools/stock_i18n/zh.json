@@ -25329,6 +25329,116 @@
     "文字"
    ]
   },
+  "template:lt-andy": {
+   "name": "字幕条：从中间展开的横条",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "居中",
+    "渐变"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "字幕条：从框中升起的姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "渐变",
+    "方框",
+    "色带"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "字幕条：三种样式的姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "描边",
+    "姓氏"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "字幕条：白线方框",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "渐变",
+    "方框",
+    "线条"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "右侧字幕条：双方框",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "右侧",
+    "方框"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "字幕条：竖条与描边姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "描边",
+    "竖条"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "字幕条：职位色带与下方姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "色带",
+    "右侧"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "字幕条：渐变条与姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "渐变",
+    "横条"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "字幕条：条内姓名",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "渐变",
+    "方框"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "字幕条：框内姓氏，上方名字",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "姓氏",
+    "居中"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "右侧字幕条：倒序打字",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "右侧",
+    "打字"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "右侧字幕条：渐变线条",
+   "tags": [
+    "字幕条",
+    "姓名",
+    "右侧",
+    "线条"
+   ]
+  },
   "template:me-gradue": {
    "name": "我毕业啦！",
    "tags": [
@@ -34332,6 +34442,191 @@
     "信息"
    ]
   },
+  "template:ytk-boton-barra-canal": {
+   "name": "带计数器的频道栏",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "计数器",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-barra-oscura": {
+   "name": "深色订阅栏",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "横条",
+    "深色",
+    "铃铛"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "带订阅按钮的频道",
+   "tags": [
+    "youtube",
+    "订阅",
+    "频道",
+    "照片",
+    "铃铛"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "照片居中的卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "卡片",
+    "照片",
+    "居中",
+    "铃铛"
+   ]
+  },
+  "template:ytk-boton-iconos-grandes": {
+   "name": "大图标：点赞、订阅、铃铛",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "图标",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "自动打字的消息",
+   "tags": [
+    "youtube",
+    "订阅",
+    "消息",
+    "打字",
+    "打字机"
+   ]
+  },
+  "template:ytk-boton-pildora": {
+   "name": "点赞与订阅胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "胶囊",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-campana": {
+   "name": "铃铛与订阅胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "铃铛",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-pildora-larga": {
+   "name": "从头像伸出的胶囊",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "照片",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-redes": {
+   "name": "关注我的社交账号",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "社交媒体",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-canal": {
+   "name": "带订阅按钮的频道卡片",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "卡片",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-mini": {
+   "name": "小号订阅卡片",
+   "tags": [
+    "订阅",
+    "按钮",
+    "点击",
+    "极简",
+    "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "带订阅按钮的视频卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "卡片",
+    "视频",
+    "铃铛"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "带点赞的深色视频卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "点赞",
+    "卡片",
+    "视频",
+    "深色"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "窄版视频卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "卡片",
+    "视频",
+    "窄版"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "点赞、订阅和铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "点赞",
+    "订阅",
+    "铃铛"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "订阅气泡",
+   "tags": [
+    "youtube",
+    "订阅",
+    "气泡",
+    "标志",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "打开小铃铛",
+   "tags": [
+    "youtube",
+    "铃铛",
+    "通知",
+    "文字",
+    "珊瑚色"
+   ]
+  },
   "template:ytk-cinetico-barras": {
    "name": "横条文字",
    "tags": [
@@ -34487,6 +34782,66 @@
     "弹跳",
     "有趣",
     "词语"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "横条间的引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "横条",
+    "居中"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "白框引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "方框",
+    "作者"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "珊瑚色面板引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "面板",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "角框引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "边角",
+    "线条"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "叠加在视频上的引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "居中",
+    "作者"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "边框引言",
+   "tags": [
+    "youtube",
+    "引言",
+    "名言",
+    "边框",
+    "轮廓"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34783,6 +35138,146 @@
     "照片"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "一排三个按钮",
+   "tags": [
+    "youtube",
+    "订阅",
+    "点赞",
+    "铃铛",
+    "横排"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "圆形片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "圆形",
+    "感谢",
+    "两个视频"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "白色楔形片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "楔形",
+    "感谢",
+    "两个视频"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "曲线片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "曲线",
+    "感谢",
+    "两个视频"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "斜线片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "斜线",
+    "感谢",
+    "订阅"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "箭头片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "箭头",
+    "订阅",
+    "推荐视频"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "片尾：更多视频",
+   "tags": [
+    "youtube",
+    "片尾",
+    "感谢",
+    "更多视频",
+    "社交媒体"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "曲面面板片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "面板",
+    "曲线",
+    "感谢"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "片尾：竖版卡片",
+   "tags": [
+    "youtube",
+    "片尾",
+    "卡片",
+    "感谢",
+    "订阅"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "三角形片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "三角形",
+    "感谢",
+    "下一个视频"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "圆形频道名称",
+   "tags": [
+    "youtube",
+    "背景",
+    "珊瑚色",
+    "圆形",
+    "名称"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "十字频道名称",
+   "tags": [
+    "youtube",
+    "背景",
+    "珊瑚色",
+    "十字",
+    "名称"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "斑点频道名称",
+   "tags": [
+    "youtube",
+    "背景",
+    "珊瑚色",
+    "斑点",
+    "名称"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "三角形频道名称",
+   "tags": [
+    "youtube",
+    "背景",
+    "珊瑚色",
+    "三角形",
+    "名称"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "引言卡片",
    "tags": [
@@ -34951,6 +35446,217 @@
     "点评"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "大字感谢观看！",
+   "tags": [
+    "youtube",
+    "感谢",
+    "结尾",
+    "大字",
+    "告别"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "大家好！欢迎来到我的频道",
+   "tags": [
+    "youtube",
+    "你好",
+    "欢迎",
+    "问候",
+    "片头",
+    "频道"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "堆叠式YouTube频道",
+   "tags": [
+    "youtube",
+    "片头",
+    "堆叠",
+    "气泡",
+    "频道"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "旅行博客",
+   "tags": [
+    "youtube",
+    "片头",
+    "标志",
+    "博客",
+    "旅行"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "标志与频道名称",
+   "tags": [
+    "youtube",
+    "片头",
+    "标志",
+    "名称",
+    "频道"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "宏大故事",
+   "tags": [
+    "youtube",
+    "片头",
+    "标志",
+    "频道",
+    "故事"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "倾斜频道名称",
+   "tags": [
+    "youtube",
+    "片头",
+    "倾斜",
+    "名称",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "胶囊内的标志与名称",
+   "tags": [
+    "youtube",
+    "片头",
+    "标志",
+    "胶囊",
+    "闪光"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "你的YouTube频道",
+   "tags": [
+    "youtube",
+    "片头",
+    "标志",
+    "频道",
+    "方框"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "珊瑚色方框标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "方框",
+    "珊瑚色",
+    "线条"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "带线条的标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "线条",
+    "指示",
+    "圆点"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "创意标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "创意",
+    "白色",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "介绍你的产品",
+   "tags": [
+    "youtube",
+    "标注",
+    "产品",
+    "说明",
+    "边框"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "珊瑚色标签标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "标签",
+    "珊瑚色",
+    "线条"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "品牌与价格标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "价格",
+    "品牌",
+    "产品"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "黑框标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "黑色",
+    "竖版",
+    "标题"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "带段落的标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "段落",
+    "说明",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "标题与说明",
+   "tags": [
+    "youtube",
+    "标注",
+    "标题",
+    "黑色",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "竖线标注",
+   "tags": [
+    "youtube",
+    "标注",
+    "竖线",
+    "说明",
+    "珊瑚色"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "点个赞吧",
+   "tags": [
+    "youtube",
+    "点赞",
+    "喜欢",
+    "大拇指",
+    "点击"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "名称与三个按钮",
+   "tags": [
+    "youtube",
+    "订阅",
+    "名称",
+    "按钮",
+    "频道"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "双视频片尾",
    "tags": [
@@ -35032,6 +35738,16 @@
     "结尾"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "含两个视频的珊瑚色片尾",
+   "tags": [
+    "youtube",
+    "片尾",
+    "感谢",
+    "下一个视频",
+    "订阅"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "阳光黄片尾",
    "tags": [
@@ -35062,6 +35778,36 @@
     "下一个视频"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "白色频道简介",
+   "tags": [
+    "youtube",
+    "简介",
+    "照片",
+    "白色",
+    "订阅者"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "竖排按钮",
+   "tags": [
+    "youtube",
+    "订阅",
+    "点赞",
+    "铃铛",
+    "竖排"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "三个图标的胶囊",
+   "tags": [
+    "youtube",
+    "订阅",
+    "点赞",
+    "铃铛",
+    "胶囊"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "社交栏",
    "tags": [
@@ -35070,6 +35816,26 @@
     "横条",
     "用户名",
     "字幕条"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "圆形与胶囊社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "圆形",
+    "胶囊",
+    "标志"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "圆形标志社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "圆形",
+    "关注",
+    "标志"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -35101,6 +35867,16 @@
     "关注",
     "动态文字",
     "用户名"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "方括号社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "卡片",
+    "方括号",
+    "标志"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -35144,6 +35920,16 @@
     "大号"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "彩色徽章社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "徽章",
+    "关注",
+    "标志"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "社交账号",
    "tags": [
@@ -35165,6 +35951,17 @@
     "列表"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "带标志的社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "用户名"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "社交胶囊标签",
    "tags": [
@@ -35173,6 +35970,26 @@
     "关注",
     "用户名",
     "胶囊"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "笔刷社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "笔刷",
+    "笔触",
+    "标志"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "白色卡片社交账号",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "卡片",
+    "关注",
+    "标志"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -35195,6 +36012,75 @@
     "下三分之一"
    ]
   },
+  "template:ytk-suscribete-ahora": {
+   "name": "立即订阅我的频道！",
+   "tags": [
+    "youtube",
+    "订阅",
+    "短语",
+    "文字"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "边框订阅",
+   "tags": [
+    "youtube",
+    "订阅",
+    "边框",
+    "轮廓",
+    "标志"
+   ]
+  },
+  "template:ytk-suscribete-pagina-clara": {
+   "name": "浅色页面订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
+  "template:ytk-suscribete-pagina-movil": {
+   "name": "手机端订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
+  "template:ytk-suscribete-pagina-oscura": {
+   "name": "深色页面订阅",
+   "tags": [
+    "订阅",
+    "点赞",
+    "铃铛",
+    "光标",
+    "视频页面"
+   ]
+  },
+  "template:ytk-suscribete-texto": {
+   "name": "带标志的订阅",
+   "tags": [
+    "youtube",
+    "订阅",
+    "文字",
+    "标志",
+    "点击"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "带列表的卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "列表",
+    "卡片",
+    "点赞"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "头像字幕条",
    "tags": [
@@ -35203,6 +36089,26 @@
     "字幕条",
     "照片",
     "头像"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "白框中的姓名",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "姓名",
+    "职业",
+    "方框"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "珊瑚色框中的姓名",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "姓名",
+    "职业",
+    "珊瑚色"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -35284,6 +36190,16 @@
     "字幕条",
     "嘉宾",
     "标签"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "带线条的姓名",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "姓名",
+    "职业",
+    "线条"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -35530,6 +36446,213 @@
     "活力"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "轮廓框标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "轮廓",
+    "边框"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "轮廓方框标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "轮廓",
+    "方框",
+    "白色"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "方框内的标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "轮廓",
+    "极简"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "轮廓方框上的标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "轮廓",
+    "方框",
+    "现代"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "白色方框中的问题",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "问题",
+    "竖版"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "双字重标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "字体排版",
+    "居中",
+    "简约"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "感谢你的支持！",
+   "tags": [
+    "youtube",
+    "感谢",
+    "支持",
+    "方框"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "倾斜标签",
+   "tags": [
+    "youtube",
+    "标题",
+    "倾斜",
+    "标签",
+    "署名"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "带竖线的标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "线条",
+    "竖线",
+    "极简"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "边框内的方框标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "边框",
+    "黑色"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "YouTube上最棒的节目",
+   "tags": [
+    "youtube",
+    "标题",
+    "标志",
+    "节目"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "YouTube上最棒的视频",
+   "tags": [
+    "youtube",
+    "标题",
+    "线条",
+    "方框",
+    "最佳视频"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "粗细混搭标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "字体排版",
+    "混搭",
+    "优雅"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "别忘了订阅和点赞",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "订阅",
+    "点赞"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "新视频上线啦",
+   "tags": [
+    "youtube",
+    "标题",
+    "横条",
+    "新视频",
+    "首发"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "带编号的标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "编号",
+    "胶囊",
+    "列表"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "黑框大标题",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "大字",
+    "推广"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "立即订阅！",
+   "tags": [
+    "youtube",
+    "标题",
+    "订阅",
+    "大字",
+    "居中"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "黑框三行文字",
+   "tags": [
+    "youtube",
+    "标题",
+    "方框",
+    "黑色",
+    "问题"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "接下来观看",
+   "tags": [
+    "youtube",
+    "标题",
+    "接下来观看",
+    "方框",
+    "视频"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "方框标题",
+   "tags": [
+    "youtube",
+    "方框",
+    "标题",
+    "打字机",
+    "光标"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "圆环缩放",
    "tags": [
@@ -35684,6 +36807,25 @@
     "圆点",
     "圆形",
     "换场"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "圆形内的视频",
+   "tags": [
+    "youtube",
+    "圆形",
+    "珊瑚色",
+    "转场",
+    "视频"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "YouTube标志与订阅",
+   "tags": [
+    "youtube",
+    "订阅",
+    "标志",
+    "铃铛"
    ]
   },
   "template:zoom-3d-parallax": {
