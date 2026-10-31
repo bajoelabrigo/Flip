@@ -1407,5 +1407,78 @@ def lucas():
     return t
 
 
+def _boxes(path):
+    """lt_ref/<name>.txt from a per-frame scan: frame -> {"logo": (x0, y0, x1, y1) | None, "name": ... | None}."""
+    import re
+    out = {}
+    for line in (Path(__file__).with_name("lt_ref") / path).read_text(encoding="utf-8").splitlines():
+        line = re.sub(r"np\.int64\((\d+)\)", r"\1", line)
+        m = re.match(r"(\d+) logo (None|\(.*?\)) name (None|\(.*?\))", line)
+        if m:
+            out[int(m.group(1))] = {"logo": eval(m.group(2)), "name": eval(m.group(3))}  # noqa: S307 - our own scan
+    return out
+
+
+def brian():
+    """A glitchy entrance: the logo flickers in at three sizes, rising from behind a line, then settles; the name
+    flashes in small and jumps to full size, easing into place. Out, the same backwards. Every box is the measured
+    one (lt_ref/brian.txt, 25 fps from 100.95 s; out = frame 138 - f)."""
+    fps, first, last = 25.0, 1, 129
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("brian", "Tercio con logo: entrada con parpadeo", "Logo lower third: glitch entrance", D, 8548,
+             ["nombre", "logo", "glitch"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    scan = _boxes("brian.txt")
+    fin = lambda u: (lambda i: i if i <= 69 else 138 - i)(int(round(first + u * fps)))  # noqa: E731
+    rest = scan[45]
+    LW, LH = 163.0, 187.0
+    lg = Box(324, 679, LW, LH)
+    lx, ly, lw, lh, lo = [], [], [], [], []
+    for u in us:
+        b = scan.get(fin(u), {}).get("logo")
+        if b is None:
+            b, op = rest["logo"], 0.0
+        else:
+            op = 1.0
+        x0, y0, x1, y1 = b
+        w = x1 - x0 + 1
+        h = w * LH / LW
+        lx.append((u, x0, "hold")); ly.append((u, y0, "hold")); lw.append((u, w, "hold")); lh.append((u, h, "hold"))
+        lo.append((u, op, "hold"))
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mark.update(x=keys(lx), y=keys(ly), width=keys(lw), height=keys(lh), opacity=keys(lo))
+    track = next(tr for tr in t.tracks if mark in tr.clips)
+    t.mask(track, mark, "rectangle", x=0.5, y=0.5, w=1.0, h=1.0,
+           keyframes={"y": keys([(u, ((0 + 874) / 2 - y[1]) / h[1], "hold") for u, y, h in zip(us, ly, lh)]),
+                      "h": keys([(u, 874 / h[1], "hold") for u, y, h in zip(us, ly, lh)]),
+                      "w": keys([(u, 2.0, "hold") for u in us])})
+    name = "BRIAN HANSON"
+    nbox, nsize = caps_box(524, 710, 823, name)
+    rx0, ry0, rx1, ry1 = rest["name"]
+    rw, rh = rx1 - rx0, ry1 - ry0
+    from llt_motion import CAPS_DROP, INSET
+    motion, op, sizes = [], [], []
+    for u in us:
+        b = scan.get(fin(u), {}).get("name")
+        if b is None:
+            b, o = rest["name"], 0.0
+        else:
+            o = 1.0
+        x0, y0, x1, y1 = b
+        size = nsize * (x1 - x0) / rw  # the glyphs scale (a smaller box would only re-wrap the line)
+        dx = (x0 - INSET * size) - (rx0 - INSET * nsize)
+        dy = ((y0 + y1) / 2 - CAPS_DROP * size) - ((ry0 + ry1) / 2 - CAPS_DROP * nsize)
+        motion.append((u, {"dx": dx, "dy": dy}, "hold"))
+        sizes.append((u, size, "hold"))
+        op.append((u, o, "hold"))
+    clip = name_text(t, name, nbox, nsize, D, bold_from="HANSON", spacing=-4.0, bold_spacing=3, word_spacing=6,
+                     motion=motion)
+    clip["opacity"] = keys(op)
+    clip["textStyle"]["keyframes"] = {"pixelSize": keys(sizes)}
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas]
+             lizzie, patricia, jim, jason_f, lucas, brian]
