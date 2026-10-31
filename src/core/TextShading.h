@@ -75,7 +75,7 @@ struct TextGradient
     double offset = 0.0;       // shift along the axis in box widths (keyframable → moving gradient)
     double offsetSpeed = 0.0;  // box widths per second, added from clip time
     double scale = 1.0;        // axis length multiplier
-    QPointF center{0.5, 0.5};  // radial / sweep centre, fraction of the space box
+    QPointF center{0.5, 0.5};  // radial / sweep centre, or the point a linear axis runs through, fraction of the box
     bool repeat = false;       // tile instead of clamp
     bool oklab = false;        // interpolate in OKLab
     TextGradientSpace space = TextGradientSpace::Block;

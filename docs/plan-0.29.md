@@ -85,3 +85,6 @@ lo que hace falta, se deja y se sigue con el siguiente. Al final se arregla todo
 probar lo que falló en ventana, grabándolo.
 
 ### Trabado en… (se llena durante las pruebas)
+- (nota técnica) El degradado lineal ahora pasa por `center` (antes siempre por el medio de la caja); con el valor de
+  siempre (0,5; 0,5) se ve igual. **El editor web** todavía dibuja el lineal por el medio: un degradado movido con los
+  tiradores del escritorio se verá corrido en la web hasta que la web lea `center` también en el lineal.
