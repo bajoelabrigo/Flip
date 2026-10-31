@@ -60,7 +60,11 @@ def main():
             white = (c > 200).all(-1)
             axis = 1 if vertical else 0
             off = y0 if vertical else x0
-            row[key] = {"warm": runs(warm.mean(axis) > 0.5, off), "white": runs(white.mean(axis) > share, off)}
+            # The green-and-charcoal kits (52324162.mp4): a vivid green and the near-black cards.
+            green = (c[..., 1] > 180) & (c[..., 0] < 150) & (c[..., 1] - c[..., 0] > 70)
+            dark = (c < 60).all(-1)
+            row[key] = {"warm": runs(warm.mean(axis) > 0.5, off), "white": runs(white.mean(axis) > share, off),
+                        "green": runs(green.mean(axis) > 0.5, off), "dark": runs(dark.mean(axis) > share, off)}
         frames.append(row)
     out = Path(__file__).with_name("lt_ref") / f"{name}.json"
     out.write_text(json.dumps({"start": start, "fps": fps, "frames": frames}, separators=(",", ":")), encoding="utf-8")
