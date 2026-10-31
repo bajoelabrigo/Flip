@@ -7320,21 +7320,6 @@ void AppController::addClipFromAssetOnNewTrackAt(int assetIndex, int insertIndex
     // lands where the outline showed (0.29: the outline said 0, the clip went to 0.15 s).
     drift::TimeUs wanted = drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs,
                                            extraSnapTargetsCached(), {}, m_snapThresholdUs);
-    // CapCut: an empty main (bottom) video track starts at 0, and a first clip dropped near the start of an empty
-    // track (music, usually) starts there too.
-    if (track.clips.isEmpty()) {
-        int mainTrack = -1;
-        for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
-            const drift::Track &t = m_project.tracks().at(i);
-            if (t.type == drift::TrackType::Video && !t.isAdjustmentLane()) {
-                mainTrack = i;
-                break;
-            }
-        }
-        const bool picture = clipType == drift::ClipType::Video || clipType == drift::ClipType::Image;
-        if ((picture && trackIndex == mainTrack) || wanted < drift::secondsToUs(0.5))
-            wanted = 0;
-    }
     const drift::TimeUs start = landMakingRoom(m_project, trackIndex, wanted, placementDuration);
 
     drift::Clip clip;
@@ -7393,21 +7378,6 @@ void AppController::addClipFromAssetAt(int assetIndex, int trackIndex, double at
     // lands where the outline showed (0.29: the outline said 0, the clip went to 0.15 s).
     drift::TimeUs wanted = drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs,
                                            extraSnapTargetsCached(), {}, m_snapThresholdUs);
-    // CapCut: an empty main (bottom) video track starts at 0, and a first clip dropped near the start of an empty
-    // track (music, usually) starts there too.
-    if (track.clips.isEmpty()) {
-        int mainTrack = -1;
-        for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
-            const drift::Track &t = m_project.tracks().at(i);
-            if (t.type == drift::TrackType::Video && !t.isAdjustmentLane()) {
-                mainTrack = i;
-                break;
-            }
-        }
-        const bool picture = clipType == drift::ClipType::Video || clipType == drift::ClipType::Image;
-        if ((picture && trackIndex == mainTrack) || wanted < drift::secondsToUs(0.5))
-            wanted = 0;
-    }
     const drift::TimeUs start = landMakingRoom(m_project, trackIndex, wanted, placementDuration);
 
     drift::Clip clip;

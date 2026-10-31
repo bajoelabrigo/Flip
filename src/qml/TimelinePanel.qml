@@ -939,6 +939,20 @@ PanelFrame {
     function placeAssetAtTarget(assetIndex, atSeconds, target, onPlaced) {
         if (assetIndex < 0 || !target)
             return
+        // CapCut (0.29), for a drop by hand: an empty main video track starts at 0, and a first clip dropped near the
+        // start of an empty track (music, usually) starts there too, as the landing outline shows. Placing by API
+        // (MCP, scripts) keeps the exact time asked for.
+        const kind = assetKind(assetIndex)
+        const picture = kind === "video" || kind === "image"
+        if (target.newTrack) {
+            if (atSeconds < 0.5)
+                atSeconds = 0
+        } else {
+            const t = tracks[target.track]
+            if (t && t.clips && t.clips.length === 0
+                    && ((picture && mainVideoTrackIndex() === target.track) || atSeconds < 0.5))
+                atSeconds = 0
+        }
 
         function runAdd() {
             if (target.newTrack)
