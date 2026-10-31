@@ -38,6 +38,13 @@ situaciones distintas con la build nueva, arreglar lo que falle y añadir las he
 - La forma dibujada con el rectángulo nace con claves (cronómetro) en X/Y/W/H a 0 s. Con el arreglo del valor
   escrito ya no estorba, pero conviene que nazca sin cronómetro, como en AE.
 - El anclaje solo se puede escribir en la fila de la línea de tiempo; Transformar no tiene campos de anclaje.
+- **Pedido de Jorge (2026-10-31): Relleno y Trazo de la barra de herramientas como After Effects.** Clic en el
+  cuadrito de color abre el color; clic en la palabra «Relleno» / «Trazo» abre «Opciones de relleno / trazo» con los
+  cuatro botones de AE (Ninguno, Sólido, Degradado lineal, Degradado radial), modo de fusión y opacidad, con vista
+  previa y Aceptar/Cancelar. Hoy están en `PreviewToolbar.qml` (líneas ~158 y ~187) y solo eligen color. Los
+  degradados ya existen en el motor (Forma › capa de Relleno/Trazo › Pintura › Degradado: Lineal, Radial y Barrido,
+  con paradas, ángulo y preajustes; `GradientStopEditor.qml`): el diálogo tiene que usar eso y aplicarse a la forma
+  que se va a dibujar y a la elegida.
 
 ## Tutorial (en `Downloads\FlipStudio\pruebas\tutorial-llt`)
 
