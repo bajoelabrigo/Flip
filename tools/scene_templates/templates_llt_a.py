@@ -1547,5 +1547,82 @@ def harry():
     return t
 
 
+def sarah():
+    """A red ring with the logo pops up from below; two red lines run out to the right; the name slides down from
+    behind the top line and the role from behind the bottom one. Out, they slide back, the lines run back in and the
+    ring drops away. Every value is the measured one (lt_ref/sarah.txt, 25 fps from 112.0 s)."""
+    import ast
+    import re
+    fps, first, last = 25.0, 6, 161
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("sarah", "Tercio con logo: anillo y dos líneas", "Logo lower third: ring and two lines", D, 8550,
+             ["nombre", "cargo", "líneas", "anillo", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    ring, top_r, top_l, bot_r, bot_l, name_b, role_b = {}, {}, {}, {}, {}, {}, {}
+    for line in (Path(__file__).with_name("lt_ref") / "sarah.txt").read_text(encoding="utf-8").splitlines():
+        line = re.sub(r"np\.int64\((\d+)\)", r"\1", line)
+        m = re.match(r"(\d+) ring (None|\(.*?\)) lines (\[.*?\]) white (\[.*\])", line)
+        if not m:
+            continue
+        f = int(m.group(1))
+        r = ast.literal_eval(m.group(2))
+        if r:
+            ring[f] = (r[1], r[3])
+        for (y0, y1), x0, x1 in ast.literal_eval(m.group(3)):
+            if y0 < 800:
+                top_l[f], top_r[f] = x0, x1 + 1
+            else:
+                bot_l[f], bot_r[f] = x0, x1 + 1
+        for y0, y1 in ast.literal_eval(m.group(4)):
+            if y1 < 845:
+                name_b[f] = y1
+            else:
+                role_b[f] = y1
+    ring[160], ring[161] = (972, 987), (980, 980)
+    fr = lambda u: first + u * fps  # noqa: E731
+
+    def val(table, f, hidden):
+        f = int(round(f))
+        return table.get(f, hidden)
+    CX, D0 = 403.5, 202.0
+    disc = centered(CX, 786.5, D0, D0)
+    motion = []
+    for u in us:
+        y0, y1 = ring.get(int(round(fr(u))), (999, 999))
+        d = max(0.0, y1 - y0 + 1)
+        motion.append((u, {"s": d / D0, "dy": (y0 + y1 + 1) / 2 - disc.cy}, "linear"))
+    ringc = t.solid(t.track("shape", "Anillo"), RED, 0.0, D, disc, motion, kind="ellipse")
+    ringc["name"] = "Anillo"
+    track = next(tr for tr in t.tracks if ringc in tr.clips)
+    t.mask(track, ringc, "ellipse", x=0.5, y=0.5, w=0.66, h=0.66, invert=True)
+    lg = centered(CX, 786.5, 112, 112)
+    t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, motion, label="Tu logo", brandRole="logo")
+    rect_track(t, t.track("shape", "Línea arriba"), Box(480, 726, 712, 8),
+               lambda u: (val(top_l, fr(u), 480), 726, val(top_r, fr(u), 480), 734), D, RED, name="Línea arriba")
+    rect_track(t, t.track("shape", "Línea abajo"), Box(480, 846, 712, 6),
+               lambda u: (val(bot_l, fr(u), 480), 846, val(bot_r, fr(u), 480), 851), D, RED, name="Línea abajo")
+    name = "SARAH STROEMAN"
+    nbox, nsize = caps_box(531, 746, 830, name)
+    dyn = lambda u: val(name_b, fr(u), 700) - 830  # noqa: E731
+    clip = name_text(t, name, nbox, nsize, D, bold_from="STROEMAN", spacing=-4.0, bold_spacing=4.1, word_spacing=6,
+                     motion=[(u, {"dy": dyn(u)}, "linear") for u in us])
+    role = "NEWS ANCHOR"
+    rbox, rsize = caps_box(856, 859, 911, role)
+    dyr = lambda u: val(role_b, fr(u), 820) - 911  # noqa: E731
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-2.0, word_spacing=6,
+                      motion=[(u, {"dy": dyr(u)}, "linear") for u in us])
+    for c, b, top, dy in ((clip, nbox, 734.0, dyn), (rclip, rbox, 852.0, dyr)):
+        track = next(tr for tr in t.tracks if c in tr.clips)
+        mk = {"y": [], "h": []}
+        for u in us:
+            mk["y"].append((u, ((top + 1080) / 2 - b.y - dy(u)) / b.h, "linear"))
+            mk["h"].append((u, (1080 - top) / b.h, "linear"))
+        t.mask(track, c, "rectangle", x=0.5, y=mk["y"][0][1], w=4.0, h=mk["h"][0][1],
+               keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas, brian, harry]
+             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah]
