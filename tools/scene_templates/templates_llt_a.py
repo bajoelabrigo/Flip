@@ -1135,5 +1135,105 @@ def lizzie():
     return t
 
 
+# Patricia Franklin, measured frame by frame (25 fps from 79.6 s). In: the logo flips down into place (its box per
+# frame), the name slides in from the right edge, the role from behind its left edge, the underline runs left. Out:
+# the whole lower third tips back about the name's baseline (row 804): the angle is solved from the name's top.
+_PF_LOGO = {6: (290, 643, 470, 658), 7: (292, 636, 473, 669), 8: (296, 627, 476, 685), 9: (304, 620, 479, 712),
+            10: (312, 623, 479, 760), 11: (320, 663, 479, 850), 12: (320, 712, 479, 908), 13: (321, 698, 479, 894),
+            14: (321, 689, 479, 884), 15: (321, 685, 479, 879), 16: (321, 684, 479, 878), 17: (321, 685, 479, 879),
+            18: (321, 690, 479, 885), 19: (321, 694, 479, 889)}
+_PF_NAME_L = {5: 1600, 6: 1520, 7: 1463, 8: 1355, 9: 1152, 10: 963, 11: 848, 12: 770, 13: 715, 14: 672, 15: 639,
+              16: 613, 17: 592, 18: 575, 19: 562, 20: 552, 21: 544, 22: 538, 23: 534, 24: 532}
+_PF_ROLE_R = {6: 801, 7: 844, 8: 909, 9: 1030, 10: 1143, 11: 1212, 12: 1258, 13: 1292, 14: 1317, 15: 1337, 16: 1353,
+              17: 1365, 18: 1375, 19: 1383, 20: 1389, 21: 1394, 22: 1398, 23: 1400, 24: 1401, 25: 1402}
+_PF_LINE_L = {8: 1407, 9: 1393, 10: 1362, 11: 480}
+_PF_TOP = {102: 696, 103: 697, 104: 698, 105: 700, 106: 703, 107: 707, 108: 712, 109: 718, 110: 728, 111: 742,
+           112: 765, 113: 803}
+
+
+def patricia():
+    """The logo flips down into place with a bounce, the name slides in from the right and the role from behind its
+    left edge, the underline runs left between them. Out, the whole lower third tips back and is gone."""
+    fps, first, last = 25.0, 5, 115
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("patricia", "Tercio con logo: logo que gira y nombre que entra", "Logo lower third: flipping logo, sliding name",
+             D, 8544, ["nombre", "cargo", "subrayado", "logo", "3d"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    AX = 804.0
+
+    def tip_angle(f):
+        if f < 102:
+            return 0.0
+        if f >= 113:
+            return 89.9
+        top = _table(_PF_TOP, 696.0, 803.0)(f)
+        return _solve(lambda a: _project(AX - 108 * math.cos(math.radians(a)), -108 * math.sin(math.radians(a))),
+                      top, 0, 89.9)
+    ang = {u: tip_angle(fr(u)) for u in us}
+
+    def tip(clip, box, xs=None, ys=None, hs=None):
+        """3D keys: the clip turned with the lower third about row 804 (its own centre y per frame from ys)."""
+        yk, zk, rk = [], [], []
+        for k, u in enumerate(us):
+            cy = ys[k] if ys else box.cy
+            h = hs[k] if hs else box.h
+            a = math.radians(ang[u])
+            d = cy - AX
+            yk.append((u, AX + d * math.cos(a) - h / 2, "linear"))
+            zk.append((u, d * math.sin(a), "linear"))
+            rk.append((u, ang[u], "linear"))
+        clip["layer3d"] = True
+        clip["perspective"] = keys([(0, _EYE)])
+        clip["y"] = keys(yk)
+        clip["positionZ"] = keys(zk)
+        clip["rotationX"] = keys(rk)
+        clip["opacity"] = keys([(u, 0.0 if ang[u] > 89 else 1.0, "hold") for u in us])
+    # Logo: its measured box while it flips in.
+    logo = _table(_PF_LOGO, (380, 650, 380, 650), (321, 694, 479, 889))
+    lg = Box(321, 694, 158, 195)
+    xs, ys, ws, hs = [], [], [], []
+    for u in us:
+        x0, y0, x1, y1 = logo(fr(u))
+        xs.append((x0 + x1) / 2); ys.append((y0 + y1) / 2); ws.append(max(0.0, x1 - x0)); hs.append(max(0.0, y1 - y0))
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mark["x"] = keys([(u, x - w / 2, "linear") for u, x, w in zip(us, xs, ws)])
+    mark["width"] = keys([(u, w, "linear") for u, w in zip(us, ws)])
+    mark["height"] = keys([(u, h, "linear") for u, h in zip(us, hs)])
+    tip(mark, lg, ys=ys, hs=hs)
+    # The underline under the name, running left.
+    line_l = _table(_PF_LINE_L, 1407.0, 480.0)
+    ub = Box(480, 820, 927, 3)
+    rx0 = [line_l(fr(u)) for u in us]
+    ul = t.solid(t.track("shape", "Línea"), RED, 0.0, D, ub)
+    ul["name"] = "Línea"
+    ul["x"] = keys([(u, x, "linear") for u, x in zip(us, rx0)])
+    ul["width"] = keys([(u, 1407 - x, "linear") for u, x in zip(us, rx0)])
+    tip(ul, ub)
+    name = "PATRICIA FRANKLIN"
+    nbox, nsize = caps_box(532, 696, 804, name)
+    nl = _table(_PF_NAME_L, 1600.0, 532.0)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="FRANKLIN", spacing=-3.2, bold_spacing=5.0, word_spacing=6,
+                     motion=[(u, {"dx": nl(fr(u)) - 532}, "linear") for u in us])
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    t.mask(track, clip, "rectangle", x=0.5, y=0.5, w=1.0, h=2.0,
+           keyframes={"x": keys([(u, ((-1000 + 1560) / 2 - nbox.x - (nl(fr(u)) - 532)) / nbox.w, "linear") for u in us]),
+                      "w": keys([(u, 2560 / nbox.w, "linear") for u in us])})
+    tip(clip, nbox)
+    role = "SECURITY ADVISOR"
+    rbox, rsize = caps_box(952, 834, 892, role)
+    rr = _table(_PF_ROLE_R, 801.0, 1402.0)
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-2.1, word_spacing=6,
+                      motion=[(u, {"dx": rr(fr(u)) - 1402}, "linear") for u in us])
+    track = next(tr for tr in t.tracks if rclip in tr.clips)
+    t.mask(track, rclip, "rectangle", x=0.5, y=0.5, w=1.0, h=2.0,
+           keyframes={"x": keys([(u, ((801 + 3000) / 2 - rbox.x - (rr(fr(u)) - 1402)) / rbox.w, "linear") for u in us]),
+                      "w": keys([(u, 2199 / rbox.w, "linear") for u in us])})
+    tip(rclip, rbox)
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie]
+             lizzie, patricia]
