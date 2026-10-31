@@ -6709,6 +6709,19 @@ void McpTest::shapePartsThroughMcp()
     QVERIFY(seen);
     r = dispatcher.applyOne(QStringLiteral("set_shape_part"), {{QStringLiteral("clip"), id}, {QStringLiteral("part"), QStringLiteral("nope")}});
     QCOMPARE(r.value(QStringLiteral("error")).toString(), QStringLiteral("not_found"));
+
+    // The 0.28 stroke and geometry fields go through set_shape_style (the validator used to drop them).
+    const QJsonObject star = dispatcher.applyOne(QStringLiteral("add_shape"), {{QStringLiteral("shape"), QStringLiteral("star")}, {QStringLiteral("at"), 0.0}});
+    const QString starId = star.value(QStringLiteral("id")).toString();
+    r = dispatcher.applyOne(QStringLiteral("set_shape_style"),
+                            {{QStringLiteral("clip"), starId},
+                             {QStringLiteral("style"), QJsonObject{{QStringLiteral("outerRoundness"), 50.0},
+                                                                   {QStringLiteral("layer"), QJsonObject{{QStringLiteral("id"), QStringLiteral("stroke")},
+                                                                                                         {QStringLiteral("join"), QStringLiteral("bevel")},
+                                                                                                         {QStringLiteral("taperStartLength"), 30.0},
+                                                                                                         {QStringLiteral("waveAmount"), 20.0}}}}}});
+    QVERIFY2(r.value(QStringLiteral("ok")).toBool(), qPrintable(QJsonDocument(r).toJson(QJsonDocument::Compact)));
+    QVERIFY2(!r.contains(QStringLiteral("ignored")), qPrintable(QJsonDocument(r).toJson(QJsonDocument::Compact)));
 }
 
 QTEST_MAIN(McpTest)

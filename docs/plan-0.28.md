@@ -179,9 +179,16 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    como siempre y al terminarlo pasa a esa capa como «Trazado N» donde se dibujó (`m_penTargetLayerId`,
    `moveShapeClipIntoLayer`, en el mismo paso de deshacer); el primer Esc con la pluma suelta la capa, el segundo deja
    la pluma. Una capa de partes ya no se trata como trazado libre (`shapePathState`).
-5. [~] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
+5. [x] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
-   Hecho (falta compilar y probar en ventana): **Afinar y ondular** en el borde de las formas (`TextShadingLayer`:
+   **Probado en ventana (build 41156250654):** Redondez exterior al 100 % redondea las puntas de la estrella; Afinar
+   adelgaza el borde hacia sus extremos; Ondas lo ondula; Transformación ondulada mueve y gira una parte sola (la
+   estrella quieta); arrastrar una parte elegida (clic + doble clic) la mueve sin mover la capa. Arreglado después:
+   la fila Ondas/Largo de onda/Fase se encimaba (tres columnas no cabían: ahora dos y Fase debajo), y
+   `set_shape_style` por MCP ignoraba cap, join, miterLimit, taper*, wave* y la redondez (faltaban en el esquema;
+   prueba en `shapePartsThroughMcp`). Los desplegables Extremos/Esquinas no se abren con clics simulados con la
+   ventana de fondo (limitación de la prueba).
+   Hecho: **Afinar y ondular** en el borde de las formas (`TextShadingLayer`:
    taperStart/EndLength, taperStart/EndWidth, taperEase, waveAmount/Length/Phase, todos animables; se dibuja como
    contorno de ancho variable, `profiledStroke` en `SkiaShapePainter`), **límite de inglete**, y en el inspector
    (`ShadingLayerRow`, solo formas) «Afinar y ondular» con **Extremos** (planos/redondeados/cuadrados) y **Esquinas** (en

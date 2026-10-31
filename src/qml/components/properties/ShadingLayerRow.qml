@@ -404,8 +404,9 @@ Column {
                 Row {
                     width: parent.width
                     spacing: 8
+                    // Two to a row like the rest: three did not fit and their labels overlapped.
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing * 2) / 3
+                        width: (parent.width - parent.spacing) / 2
                         propDef: row.propWithDefault("waveAmount", qsTr("Wave"), 0, 0)
                         keyframeList: row.keyframes("waveAmount")
                         useSlider: true
@@ -414,7 +415,7 @@ Column {
                         unit: "%"
                     }
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing * 2) / 3
+                        width: (parent.width - parent.spacing) / 2
                         propDef: row.propWithDefault("waveLength", qsTr("Wavelength"), 0, 40)
                         keyframeList: row.keyframes("waveLength")
                         useSlider: true
@@ -422,15 +423,15 @@ Column {
                         sliderTo: 400
                         unit: "px"
                     }
-                    PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing * 2) / 3
-                        propDef: row.propWithDefault("wavePhase", qsTr("Phase"), 0, 0)
-                        keyframeList: row.keyframes("wavePhase")
-                        useSlider: true
-                        sliderFrom: 0
-                        sliderTo: 360
-                        unit: "°"
-                    }
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: row.propWithDefault("wavePhase", qsTr("Phase"), 0, 0)
+                    keyframeList: row.keyframes("wavePhase")
+                    useSlider: true
+                    sliderFrom: 0
+                    sliderTo: 360
+                    unit: "°"
                 }
                 // After Effects' Line Cap and Line Join.
                 Row {
