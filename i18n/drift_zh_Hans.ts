@@ -29422,6 +29422,10 @@ If playback stutters, try another.</source>
         <translation>裁剪…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>在当前时间定格画面</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>视频增强…</translation>
     </message>

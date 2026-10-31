@@ -1078,20 +1078,8 @@ ApplicationWindow {
         }
     }
 
-    // Shows the downloads window the first time a download starts, then stays out of the way:
-    // reopening on every later job would yank focus mid-edit for something the header
-    // badge already reports.
-    property bool downloadsWindowShownOnce: false
-
-    Connections {
-        target: Market
-        function onDownloadStarted(itemId) {
-            if (window.downloadsWindowShownOnce)
-                return
-            window.downloadsWindowShownOnce = true
-            downloadsWindowLoader.ensure().show()
-        }
-    }
+    // A download no longer opens the downloads window (0.29, as CapCut): a filter of a few KB put a window
+    // over the editor; the header badge and the notice report it, and the badge opens the window.
 
     LazyLoader {
         id: denoiseWindowLoader
@@ -1821,6 +1809,22 @@ ApplicationWindow {
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
     function dispatchAction(id) {
+        // While a text field has the keyboard, the editing keys are its own (0.29: Ctrl+A in a colour's hex
+        // field picked every clip on the timeline, and the typed colour was thrown away).
+        const typing = window.activeFocusItem
+        if (typing && typing.cursorPosition !== undefined && typing.selectAll !== undefined && !typing.readOnly) {
+            if (id === "selectAll") { typing.selectAll(); return }
+            if (id === "copy" && typing.copy) { typing.copy(); return }
+            if (id === "cut" && typing.cut) { typing.cut(); return }
+            if (id === "paste" && typing.paste) { typing.paste(); return }
+            if (id === "delete" && typing.remove) {
+                if (typing.selectedText && typing.selectedText.length > 0)
+                    typing.remove(typing.selectionStart, typing.selectionEnd)
+                else if (typing.cursorPosition < typing.length)
+                    typing.remove(typing.cursorPosition, typing.cursorPosition + 1)
+                return
+            }
+        }
         // A shape layer's parts (0.28), as After Effects. These shortcuts are application-wide and reach
         // here before any Keys handler in the preview or the Contents list, so they are decided here:
         // Esc with the shape tool lets go of the layer (the next shape gets a layer of its own), Esc with a

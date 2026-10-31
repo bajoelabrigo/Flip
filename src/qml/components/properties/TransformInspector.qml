@@ -372,7 +372,13 @@ Item {
                         from: -100000
                         to: 100000
                         unit: "px"
-                        value: Math.round(anchorSection.fx * anchorSection.boxW)
+                        id: anchorXField
+                        // A Binding, not a plain value: typing into the field breaks a plain binding, and the
+                        // field then kept showing the last clip's anchor when another was picked (0.29).
+                        Binding on value {
+                            when: !anchorXField.activeFocus
+                            value: Math.round(anchorSection.fx * anchorSection.boxW)
+                        }
                         onEdited: v => anchorSection.setPx(v, anchorSection.fy * anchorSection.boxH)
                     }
                     ThemedNumberField {
@@ -380,7 +386,13 @@ Item {
                         from: -100000
                         to: 100000
                         unit: "px"
-                        value: Math.round(anchorSection.fy * anchorSection.boxH)
+                        id: anchorYField
+                        // A Binding, not a plain value: typing into the field breaks a plain binding, and the
+                        // field then kept showing the last clip's anchor when another was picked (0.29).
+                        Binding on value {
+                            when: !anchorYField.activeFocus
+                            value: Math.round(anchorSection.fy * anchorSection.boxH)
+                        }
                         onEdited: v => anchorSection.setPx(anchorSection.fx * anchorSection.boxW, v)
                     }
                     IconButton {

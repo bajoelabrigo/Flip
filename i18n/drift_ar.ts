@@ -29878,6 +29878,10 @@ If playback stutters, try another.</source>
         <translation>قص…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>تجميد الإطار عند الوقت الحالي</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>تحسين الفيديو…</translation>
     </message>

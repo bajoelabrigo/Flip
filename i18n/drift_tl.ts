@@ -29502,6 +29502,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>I-freeze ang frame sa kasalukuyang oras</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>

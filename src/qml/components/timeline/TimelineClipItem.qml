@@ -546,6 +546,16 @@ Item {
                          && typeof clipItem.Window.window.openCrop === "function"
                 onTriggered: clipItem.Window.window.openCrop(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // Also in the clip's menu (0.29, as CapCut), not only as the snowflake on the toolbar.
+            ThemedMenuItem {
+                text: qsTr("Freeze frame at current time")
+                icon.name: Theme.icons.snowflake
+                visible: clipItem.clipData.kind === "video"
+                onTriggered: {
+                    EditorState.selectClip(clipItem.trackIndex, clipItem.clipIndex)
+                    EditorState.freezeFrameAtPlayhead()
+                }
+            }
             ThemedMenuItem {
                 text: qsTr("Enhance video…")
                 icon.name: Theme.icons.sparkles

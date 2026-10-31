@@ -29423,6 +29423,10 @@ If playback stutters, try another.</source>
         <translation>切り抜き…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>現在の時間でフリーズフレーム</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>ビデオを強化…</translation>
     </message>

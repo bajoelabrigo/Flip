@@ -215,6 +215,8 @@ private slots:
     void removeAssetsAndClipsRemovesReferencesAndUndoesAtomically();
     void moveAssetsToFolderIsOneUndoStep();
     void addClipsFromAssetsPlacesThemSequentially();
+    void addClipsFromAssetsPutsPhotosOnTheVideoTrack();
+    void slowingAClipKeepsItsMaterial();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4398,6 +4400,78 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     state.undo();
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), QString());
     QCOMPARE(library.assetAt(1).value(QStringLiteral("folderId")).toString(), QString());
+}
+
+void EditorStateTest::slowingAClipKeepsItsMaterial()
+{
+    // 0.29, as CapCut: 0.5× keeps the clip's material and plays it twice as long, pushing the next
+    // clip along; it used to keep the length and drop the second half of the material.
+    AssetLibrary library;
+    AppController state(&library);
+    state.setPlayheadSeconds(0.0);
+    QStringList ids;
+    for (int i = 0; i < 2; ++i) {
+        drift::MediaAsset video;
+        video.id = QStringLiteral("video-%1").arg(i);
+        video.name = QStringLiteral("video-%1.mp4").arg(i);
+        video.path = QStringLiteral("/tmp/video-%1.mp4").arg(i);
+        video.kind = drift::MediaKind::Video;
+        video.durationUs = drift::secondsToUs(4.0);
+        state.project()->assets().insert(video.id, video);
+        state.project()->assetOrder().append(video.id);
+        ids << video.id;
+    }
+    library.syncToProject();
+    state.addClipsFromAssets(ids);
+    int t = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 2)
+            t = i;
+    }
+    QVERIFY(t >= 0);
+    const drift::TimeUs srcIn = state.project()->tracks().at(t).clips.at(0).srcIn;
+    const drift::TimeUs srcOut = state.project()->tracks().at(t).clips.at(0).srcOut;
+    QVERIFY(state.setClipSpeed(t, 0, 0.5));
+    const drift::Track &track = state.project()->tracks().at(t);
+    QCOMPARE(track.clips.at(0).srcIn, srcIn);
+    QCOMPARE(track.clips.at(0).srcOut, srcOut);
+    QCOMPARE(track.clips.at(0).timelineDuration, drift::secondsToUs(8.0));
+    QVERIFY(track.clips.at(1).timelineStart >= track.clips.at(0).timelineEnd());
+}
+
+void EditorStateTest::addClipsFromAssetsPutsPhotosOnTheVideoTrack()
+{
+    // 0.29: «Add 3 items to the timeline» with photos made a new graphics track from 0; they go on the
+    // video track after what is there, as dragging one does.
+    AssetLibrary library;
+    AppController state(&library);
+    state.setPlayheadSeconds(0.0);
+    QStringList ids;
+    for (int i = 0; i < 3; ++i) {
+        drift::MediaAsset photo;
+        photo.id = QStringLiteral("photo-%1").arg(i);
+        photo.name = QStringLiteral("photo-%1.jpg").arg(i);
+        photo.path = QStringLiteral("/tmp/photo-%1.jpg").arg(i);
+        photo.kind = drift::MediaKind::Image;
+        state.project()->assets().insert(photo.id, photo);
+        state.project()->assetOrder().append(photo.id);
+        ids << photo.id;
+    }
+    library.syncToProject();
+    state.addClipsFromAssets({ids.first()});
+    const int tracksBefore = state.project()->tracks().size();
+    state.addClipsFromAssets({ids.at(1), ids.at(2)});
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    int photoTrack = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 3)
+            photoTrack = i;
+    }
+    QVERIFY(photoTrack >= 0);
+    const drift::Track &track = state.project()->tracks().at(photoTrack);
+    QCOMPARE(track.type, drift::TrackType::Video);
+    QCOMPARE(track.clips[1].timelineStart, track.clips[0].timelineEnd());
+    QCOMPARE(track.clips[2].timelineStart, track.clips[1].timelineEnd());
 }
 
 void EditorStateTest::addClipsFromAssetsPlacesThemSequentially()

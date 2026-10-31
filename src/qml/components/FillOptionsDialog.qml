@@ -38,6 +38,9 @@ ThemedDialog {
     title: target === "fill" ? qsTr("Fill Options") : qsTr("Stroke Options")
     preferredWidth: Theme.dialogWidthMd
     movable: true
+    // Enter confirms the colour or number being typed, not the window (0.29: Enter accepted before
+    // the hex field had written its colour, and the shape came out in the old one).
+    acceptOnReturn: false
 
     function layerOf(style, kindName) {
         const layers = (style && style.layers) || []
@@ -277,9 +280,13 @@ ThemedDialog {
             keyPrefix: "shape"
             gradient: Object.assign({}, root.gradient, { "kind": root.kind })
             onEdited: p => {
-                const g = Object.assign({}, root.gradient, p)
-                if (p.kind && p.kind !== root.kind)
+                // A preset carries its own kind: the row of kinds above decides (0.29: picking a preset
+                // with Radial chosen turned it Linear). Only the Type box changes the kind.
+                const typeOnly = p.kind !== undefined && Object.keys(p).length === 1
+                if (typeOnly)
                     root.kind = p.kind
+                const g = Object.assign({}, root.gradient, p)
+                g.kind = root.kind
                 root.set("gradient", g)
             }
         }

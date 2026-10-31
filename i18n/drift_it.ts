@@ -29514,6 +29514,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Ritaglia…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Blocca fotogramma alla posizione corrente</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Migliora video…</translation>
     </message>

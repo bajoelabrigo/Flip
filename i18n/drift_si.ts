@@ -29510,6 +29510,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>වත්මන් වේලාවේ නිශ්චල රාමුවක් සකසන්න</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>

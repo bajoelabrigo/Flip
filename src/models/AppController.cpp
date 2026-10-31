@@ -7149,7 +7149,7 @@ void AppController::addClipFromAsset(int assetIndex)
     selectClip(trackIndex, newClipIndex);
 }
 
-void AppController::addClipsFromAssets(const QStringList &assetIds)
+void AppController::addClipsFromAssets(const QStringList &assetIds, int fixedTrack, double atSeconds)
 {
     if (!m_assetLibrary || assetIds.isEmpty())
         return;
@@ -7159,7 +7159,7 @@ void AppController::addClipsFromAssets(const QStringList &assetIds)
     // rather than every clip landing at the playhead on top of each other. Shared across
     // tracks: two clips of the same kind stay back to back; a kind change (video, then audio)
     // still keeps its place in the sequence rather than resetting to the playhead.
-    drift::TimeUs cursor = m_playheadUs;
+    drift::TimeUs cursor = atSeconds >= 0.0 ? drift::secondsToUs(atSeconds) : m_playheadUs;
     int lastTrackIndex = -1;
     int lastClipIndex = -1;
 
@@ -7173,7 +7173,24 @@ void AppController::addClipsFromAssets(const QStringList &assetIds)
             continue;
 
         const drift::ClipType clipType = drift::clipTypeFromString(asset.value(QStringLiteral("kind")).toString());
-        int trackIndex = drift::defaultTrackForClipType(m_project, clipType);
+        // Pictures and videos go on the main video track, one after another, as dragging one does and as
+        // CapCut adds a selection (0.29: photos went onto a new «Gráfico» track from 0).
+        int trackIndex = fixedTrack >= 0 && fixedTrack < m_project.tracks().size()
+                                 && m_project.tracks().at(fixedTrack).allowsClipType(clipType)
+                             ? fixedTrack : -1;
+        if (trackIndex < 0 && (clipType == drift::ClipType::Video || clipType == drift::ClipType::Image)) {
+            const QList<drift::Track> &tracks = m_project.tracks();
+            for (int i = tracks.size() - 1; i >= 0; --i) {
+                const drift::Track &t = tracks.at(i);
+                if (t.type == drift::TrackType::Video && !t.isAdjustmentLane() && !t.locked
+                    && t.allowsClipType(clipType)) {
+                    trackIndex = i;
+                    break;
+                }
+            }
+        }
+        if (trackIndex < 0)
+            trackIndex = drift::defaultTrackForClipType(m_project, clipType);
         if (trackIndex < 0)
             trackIndex = drift::ensureTrackForClipType(m_project, clipType, false);
         if (trackIndex < 0)
@@ -16095,9 +16112,7 @@ void AppController::previewSetClipSpeed(int trackIndex, int clipIndex, double sp
     if (!m_previewDragActive)
         beginPreviewDrag(tr("Speed changed"));
 
-    clip.speed = qBound(0.25, speed, 4.0);
-    clip.syncSrcOutFromSpeed(sourceDurationForClip(clip));
-    syncLinkedPartnersFrom(m_project, clip);
+    retimeKeepingSource(m_project, trackIndex, clipIndex, speed);
     emitPreviewFrame();
 }
 
@@ -18202,6 +18217,48 @@ void AppController::setClipBlendMode(int trackIndex, int clipIndex, const QStrin
     finishEdit(tr("Blend mode updated"));
 }
 
+namespace {
+
+// A new speed keeps the clip's material and changes how long it plays (0.29, as CapCut): slowing down
+// used to keep the length and drop the end of the material. When the clip grows over the next clips
+// on its track, they move along by the same amount (their linked audio with them).
+void retimeKeepingSource(drift::Project &project, int trackIndex, int clipIndex, double speed)
+{
+    drift::Track &track = project.tracks()[trackIndex];
+    drift::Clip &clip = track.clips[clipIndex];
+    const drift::TimeUs oldEnd = clip.timelineEnd();
+    const drift::TimeUs span = qMax<drift::TimeUs>(1, clip.srcOut - clip.srcIn);
+    clip.speed = qBound(0.25, speed, 4.0);
+    clip.timelineDuration = qMax<drift::TimeUs>(1, llround(double(span) / clip.effectiveSpeed()));
+    const drift::TimeUs delta = clip.timelineEnd() - oldEnd;
+    const QString movedId = clip.id;
+    syncLinkedPartnersFrom(project, clip);
+    if (delta <= 0)
+        return;
+    bool overlaps = false;
+    for (int i = 0; i < track.clips.size(); ++i) {
+        if (i != clipIndex && track.clips.at(i).timelineStart >= oldEnd
+            && track.clips.at(i).timelineStart < oldEnd + delta)
+            overlaps = true;
+    }
+    if (!overlaps)
+        return;
+    QSet<QString> moved{movedId};
+    for (int i = 0; i < track.clips.size(); ++i) {
+        if (i != clipIndex && track.clips.at(i).timelineStart >= oldEnd)
+            moved.insert(track.clips.at(i).id);
+    }
+    for (int i = 0; i < track.clips.size(); ++i) {
+        drift::Clip &next = track.clips[i];
+        if (i == clipIndex || next.timelineStart < oldEnd)
+            continue;
+        next.timelineStart += delta;
+        syncLinkedPartnersFrom(project, next, moved);
+    }
+}
+
+} // namespace
+
 bool AppController::setClipSpeed(int trackIndex, int clipIndex, double speed)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -18217,9 +18274,7 @@ bool AppController::setClipSpeed(int trackIndex, int clipIndex, double speed)
         return false;
 
     const drift::Project before = m_project;
-    clip.speed = qBound(0.25, speed, 4.0);
-    clip.syncSrcOutFromSpeed(sourceDurationForClip(clip));
-    syncLinkedPartnersFrom(m_project, clip);
+    retimeKeepingSource(m_project, trackIndex, clipIndex, speed);
     pushProjectEdit(before, tr("Speed changed"));
     finishEdit(tr("Clip speed updated"));
     return true;

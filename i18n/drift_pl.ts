@@ -29605,6 +29605,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Kadruj…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Zatrzymaj klatkę w bieżącym czasie</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Ulepsz wideo…</translation>
     </message>

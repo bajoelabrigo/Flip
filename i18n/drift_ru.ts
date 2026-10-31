@@ -29605,6 +29605,10 @@ If playback stutters, try another.</source>
         <translation>Кадрировать…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Создать стоп-кадр в текущей точке</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Улучшить видео…</translation>
     </message>

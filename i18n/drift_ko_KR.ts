@@ -29421,6 +29421,10 @@ If playback stutters, try another.</source>
         <translation>자르기…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>현재 시점에서 정지 화면 만들기</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>비디오 향상…</translation>
     </message>

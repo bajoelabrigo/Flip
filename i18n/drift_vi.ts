@@ -29423,6 +29423,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Cắt khung…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Đóng băng khung hình ở điểm hiện tại</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Nâng cấp video…</translation>
     </message>

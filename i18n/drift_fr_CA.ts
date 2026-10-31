@@ -29518,6 +29518,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Recadrer…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Geler l&apos;image à l&apos;instant actuel</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Améliorer la vidéo…</translation>
     </message>

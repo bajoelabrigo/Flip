@@ -29514,6 +29514,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Recortar…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Congelar quadro no tempo atual</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Melhorar vídeo…</translation>
     </message>

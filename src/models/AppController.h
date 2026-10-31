@@ -570,7 +570,9 @@ public:
     // track (creating one if needed, exactly like addClipFromAsset), placed back to back in
     // the given order starting at the playhead — not all stacked on top of each other at the
     // same start time. One undo step for the whole batch.
-    Q_INVOKABLE void addClipsFromAssets(const QStringList &assetIds);
+    // `trackIndex` / `atSeconds` (0.29, several media dragged at once): every clip on that track from that
+    // time, one after another; left out, each kind's own track from the playhead.
+    Q_INVOKABLE void addClipsFromAssets(const QStringList &assetIds, int trackIndex = -1, double atSeconds = -1.0);
     Q_INVOKABLE void addClipFromAssetAt(int assetIndex, int trackIndex, double atSeconds);
     Q_INVOKABLE void addClipFromAssetOnNewTrack(int assetIndex, double atSeconds);
     // Same, but the new track goes at insertIndex rather than always on top, so

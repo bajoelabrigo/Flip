@@ -928,11 +928,24 @@ PanelFrame {
             runAdd()
     }
 
-    function performAssetDrop(assetIndex, dropX, dropY) {
+    function performAssetDrop(assetIndex, dropX, dropY, drop) {
         if (assetIndex < 0)
             return
         placeAssetAtTarget(assetIndex, Math.max(0, dropX / pxPerSecond),
                            resolveDropTarget(assetKind(assetIndex), dropY))
+        // Several media dragged at once (0.29): the rest follow the first, on its track, in the order
+        // they were picked — only the one under the pointer used to land.
+        const extra = drop ? drop.getDataAsString("application/x-drift-assets") : ""
+        if (!extra)
+            return
+        let ids = []
+        try { ids = JSON.parse(extra) } catch (e) { return }
+        const firstId = AssetLibrary.assetIdAt(assetIndex)
+        ids = ids.filter(id => id !== firstId)
+        const placed = EditorState.selectedClipData
+        if (ids.length === 0 || !placed || EditorState.selectedTrack < 0)
+            return
+        EditorState.addClipsFromAssets(ids, EditorState.selectedTrack, Number(placed.start) + Number(placed.duration))
     }
 
     // File-manager drops ---------------------------------------------------------------------
@@ -2274,7 +2287,7 @@ PanelFrame {
                                         // resolves the same target this row saw.
                                         const dropY = root.trackOffsetY(trackRow.trackIndex)
                                                     + drop.y
-                                        root.performAssetDrop(assetIndex, drop.x, dropY)
+                                        root.performAssetDrop(assetIndex, drop.x, dropY, drop)
                                     }
                                 }
 
@@ -2786,7 +2799,7 @@ PanelFrame {
                             }
                             const assetIndex = assetIndexFromDrop(drop)
                             root.clearLandingPreview()
-                            root.performAssetDrop(assetIndex, drop.x, drop.y)
+                            root.performAssetDrop(assetIndex, drop.x, drop.y, drop)
                         }
                     }
 

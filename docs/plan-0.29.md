@@ -155,8 +155,23 @@ el mate de Charlie.
 - **Fallo:** al aplicar un filtro de Stock se abre sola la ventana «Descargas» encima de todo; basta el aviso de abajo.
 - **Fallo:** varias tarjetas de Filtros (Drama frío, Blanqueado…) salen sin miniatura, igual que Transiciones ›
   Tendencias.
-- **Problema de uso:** al elegir un clip, los botones de la barra de la línea de tiempo cambian de sitio (aparecen
-  Eliminar y otros) y un clic donde estaba el copo borra el clip. Mantener fijas las posiciones.
+- (descartado) La barra de la línea de tiempo cambia sus botones según lo elegido, igual que CapCut; el clip borrado
+  fue un error de puntería al calcular la posición, no de la app.
 - No está en el menú del clip «Congelar fotograma» (solo el copo de la barra): añadirlo al menú, como CapCut.
 
 ### Proyectos 6 y 7 — no probados en esta tanda (zoom con pluma y máscara; quitar fondo con IA).
+
+## Tanda de arreglos tras los proyectos (para la build siguiente)
+- Esc en el editor de texto de la vista previa conserva lo escrito (era la causa del texto perdido en Jamie).
+- Opciones de relleno: un preajuste ya no cambia el tipo de degradado; Enter no acepta la ventana (confirma el campo).
+- Ctrl+A / Ctrl+C / Ctrl+X / Ctrl+V / Supr van al campo de texto que tiene el teclado, no a la línea de tiempo
+  (`Main.qml` `dispatchAction`): el hex del selector de color no se podía cambiar.
+- Campos de anclaje con `Binding` (no se quedan con los valores del clip anterior).
+- «Añadir N elementos a la línea de tiempo» pone fotos y videos en la pista principal de video, uno detrás de otro.
+- Arrastrar varios medios elegidos: el primero cae donde se suelta y los demás lo siguen en su pista
+  (`application/x-drift-assets`, `addClipsFromAssets(ids, track, seconds)`).
+- Descargas ya no se abre sola al bajar algo de Stock.
+- «Congelar fotograma en la posición actual» también en el menú del clip.
+- Velocidad: se conserva siempre el material; a 0,5× el clip dura el doble y los clips de detrás se corren
+  (`retimeKeepingSource`). Pruebas `slowingAClipKeepsItsMaterial` y `addClipsFromAssetsPutsPhotosOnTheVideoTrack`.
+- Contorno de selección 3D girando en el anclaje (`clipPoseMatrix`).

@@ -29514,6 +29514,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recortar…</translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>Congelar fotograma en la posición actual</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Mejorar video…</translation>
     </message>

@@ -29510,6 +29510,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Freeze frame at current time</source>
+        <translation>বর্তমান সময়ের ফ্রেম স্থির করুন</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished">ভিডিও উন্নত করুন…</translation>
     </message>
