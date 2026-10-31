@@ -1624,5 +1624,58 @@ def sarah():
     return t
 
 
+# Gabriel Ballentine, measured frame by frame (25 fps from 118.4 s): the red bar's top and right end (it grows from a
+# thin line on the bottom row), then the edge between white (left) and red (right) running right; out, the edge
+# runs back left and the red's right end follows it in.
+_GB_TOP = {9: 852, 10: 838, 11: 812, 12: 784, 13: 764, 14: 751, 15: 742, 16: 735, 17: 729, 18: 724, 19: 720, 20: 717,
+           21: 715, 22: 713, 23: 711, 24: 710, 25: 709, 26: 708}
+_GB_RIGHT = {9: 394, 10: 420, 11: 456, 12: 512, 13: 594, 14: 719, 15: 872, 16: 1005, 17: 1103, 18: 1178, 19: 1236,
+             20: 1284, 21: 1324, 22: 1357, 23: 1386, 24: 1410, 25: 1432, 26: 1450, 27: 1466, 28: 1480, 29: 1493,
+             30: 1504, 31: 1513, 32: 1522, 33: 1528, 34: 1534, 35: 1539, 36: 1542, 37: 1546, 38: 1548, 39: 1550,
+             40: 1551, 43: 1552, 110: 1552, 114: 1551, 115: 1549, 116: 1544, 117: 1534, 118: 1520, 119: 1496,
+             120: 1460, 121: 1408, 122: 1328, 123: 1199, 124: 1026, 125: 874, 126: 763, 127: 681, 128: 616, 129: 566,
+             130: 523, 131: 488, 132: 458, 133: 432, 134: 410, 135: 391, 136: 374, 137: 360, 138: 348, 139: 338,
+             140: 330, 141: 322, 142: 316, 143: 312, 144: 308, 145: 302}
+_GB_EDGE = {30: 302, 31: 311, 32: 327, 33: 354, 34: 401, 35: 482, 36: 628, 37: 822, 38: 966, 39: 1062, 40: 1132,
+            41: 1184, 42: 1226, 43: 1259, 44: 1286, 45: 1308, 46: 1326, 47: 1342, 48: 1354, 49: 1364, 50: 1372,
+            51: 1378, 52: 1382, 53: 1386, 54: 1388, 110: 1388, 111: 1308, 112: 1274, 113: 1228, 114: 1164,
+            115: 1072, 116: 959, 117: 850, 118: 763, 119: 696, 120: 640, 121: 596, 122: 558, 123: 526, 124: 498,
+            125: 474, 126: 452, 127: 434, 128: 416, 129: 402, 130: 388, 131: 376, 132: 366, 133: 356, 134: 348,
+            135: 340, 136: 333, 137: 328, 138: 322, 139: 318, 140: 314, 141: 310, 142: 308, 143: 306, 144: 304,
+            145: 302}
+
+
+def gabriel():
+    """A thin red line on the bottom row grows up and out to the right into a bar; then white sweeps in from the left
+    under the red name, the red pushed to a block at the right end. Out, the red sweeps back over the name and the
+    bar runs back into its left end."""
+    fps, first, last = 25.0, 9, 145
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("gabriel", "Tercio con logo: barra roja que se vuelve blanca", "Logo lower third: red bar turning white", D, 8551,
+             ["nombre", "barra", "rojo", "blanco", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    fr = lambda u: first + u * fps  # noqa: E731
+    top = _table(_GB_TOP, 852.0, 708.0)
+    right = _table(_GB_RIGHT, 394.0, 302.0)
+    edge_ = _table(_GB_EDGE, 302.0, 302.0)
+    X0, Y1 = 302.0, 858.0
+    area = Box(X0, 700, 1252, 160)
+    rect_track(t, t.track("shape", "Barra blanca"), area, lambda u: (X0, 708, edge_(fr(u)), Y1), D, WHITE,
+               name="Barra blanca")
+    name = "GABRIEL BALLENTINE"
+    nbox, nsize = caps_box(326, 718, 836, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from=name, colour=RED, bold_spacing=3.4, word_spacing=6)
+    mask_track(t, clip, nbox, lambda u: (X0, 708, edge_(fr(u)), Y1), D)
+    rect_track(t, t.track("shape", "Barra roja"), area,
+               lambda u: (edge_(fr(u)), top(fr(u)), right(fr(u)), Y1 + (1 if fr(u) < 26 else 0)), D, RED,
+               name="Barra roja")
+    # The white logo sits at the bar's right end and shows only where the red is.
+    lg = Box(1412, 716, 116, 133)
+    mark = t.photo(t.track("video", "Logo"), "logo-10", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mask_track(t, mark, lg, lambda u: (edge_(fr(u)), top(fr(u)), right(fr(u)), Y1), D)
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah]
+             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah, gabriel]

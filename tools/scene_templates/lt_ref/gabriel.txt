@@ -1,0 +1,148 @@
+0 rows (np.int64(951), np.int64(970)) all (np.int64(390), np.int64(415)) red (np.int64(390), np.int64(415)) whitecols None
+1 -
+2 -
+3 -
+4 -
+5 -
+6 -
+7 -
+8 -
+9 rows (np.int64(852), np.int64(859)) all (np.int64(302), np.int64(393)) red (np.int64(304), np.int64(391)) whitecols None
+10 rows (np.int64(838), np.int64(859)) all (np.int64(302), np.int64(419)) red (np.int64(302), np.int64(418)) whitecols None
+11 rows (np.int64(812), np.int64(859)) all (np.int64(302), np.int64(455)) red (np.int64(302), np.int64(455)) whitecols None
+12 rows (np.int64(784), np.int64(859)) all (np.int64(302), np.int64(511)) red (np.int64(302), np.int64(510)) whitecols None
+13 rows (np.int64(764), np.int64(859)) all (np.int64(302), np.int64(593)) red (np.int64(302), np.int64(593)) whitecols None
+14 rows (np.int64(751), np.int64(859)) all (np.int64(302), np.int64(718)) red (np.int64(302), np.int64(718)) whitecols None
+15 rows (np.int64(742), np.int64(859)) all (np.int64(302), np.int64(871)) red (np.int64(302), np.int64(871)) whitecols None
+16 rows (np.int64(735), np.int64(859)) all (np.int64(302), np.int64(1004)) red (np.int64(302), np.int64(1003)) whitecols None
+17 rows (np.int64(729), np.int64(859)) all (np.int64(302), np.int64(1102)) red (np.int64(302), np.int64(1101)) whitecols None
+18 rows (np.int64(724), np.int64(859)) all (np.int64(302), np.int64(1177)) red (np.int64(302), np.int64(1176)) whitecols None
+19 rows (np.int64(720), np.int64(859)) all (np.int64(302), np.int64(1235)) red (np.int64(302), np.int64(1235)) whitecols None
+20 rows (np.int64(717), np.int64(859)) all (np.int64(302), np.int64(1283)) red (np.int64(302), np.int64(1283)) whitecols None
+21 rows (np.int64(715), np.int64(859)) all (np.int64(302), np.int64(1323)) red (np.int64(302), np.int64(1323)) whitecols None
+22 rows (np.int64(713), np.int64(859)) all (np.int64(302), np.int64(1356)) red (np.int64(302), np.int64(1355)) whitecols None
+23 rows (np.int64(711), np.int64(859)) all (np.int64(302), np.int64(1385)) red (np.int64(302), np.int64(1385)) whitecols None
+24 rows (np.int64(710), np.int64(859)) all (np.int64(302), np.int64(1409)) red (np.int64(302), np.int64(1409)) whitecols None
+25 rows (np.int64(709), np.int64(859)) all (np.int64(302), np.int64(1431)) red (np.int64(302), np.int64(1411)) whitecols None
+26 rows (np.int64(708), np.int64(858)) all (np.int64(302), np.int64(1450)) red (np.int64(302), np.int64(1439)) whitecols None
+27 rows (np.int64(708), np.int64(858)) all (np.int64(302), np.int64(1466)) red (np.int64(302), np.int64(1439)) whitecols (np.int64(1451), np.int64(1465))
+28 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1479)) red (np.int64(302), np.int64(1439)) whitecols (np.int64(1451), np.int64(1479))
+29 rows (np.int64(708), np.int64(857)) all (np.int64(301), np.int64(1493)) red (np.int64(301), np.int64(1439)) whitecols (np.int64(1451), np.int64(1492))
+30 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1503)) red (np.int64(304), np.int64(1439)) whitecols (np.int64(1451), np.int64(1502))
+31 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1513)) red (np.int64(312), np.int64(1439)) whitecols (np.int64(302), np.int64(1512))
+32 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1521)) red (np.int64(325), np.int64(1439)) whitecols (np.int64(302), np.int64(1519))
+33 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1527)) red (np.int64(325), np.int64(1439)) whitecols (np.int64(302), np.int64(1519))
+34 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1533)) red (np.int64(325), np.int64(1533)) whitecols (np.int64(302), np.int64(1519))
+35 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1539)) red (np.int64(325), np.int64(1537)) whitecols (np.int64(302), np.int64(1519))
+36 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1542)) red (np.int64(325), np.int64(1541)) whitecols (np.int64(302), np.int64(1519))
+37 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1545)) red (np.int64(325), np.int64(1545)) whitecols (np.int64(302), np.int64(1519))
+38 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1547)) red (np.int64(325), np.int64(1547)) whitecols (np.int64(302), np.int64(1519))
+39 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1549)) red (np.int64(325), np.int64(1549)) whitecols (np.int64(302), np.int64(1519))
+40 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1549)) whitecols (np.int64(302), np.int64(1519))
+41 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+42 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+43 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+44 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+45 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+46 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+47 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+48 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+49 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+50 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+51 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+52 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+53 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+54 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+55 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+56 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+57 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+58 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+59 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+60 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+61 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+62 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+63 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+64 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+65 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+66 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+67 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+68 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+69 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+70 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+71 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+72 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+73 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+74 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+75 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+76 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+77 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+78 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+79 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+80 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+81 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+82 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+83 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+84 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+85 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+86 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+87 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+88 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+89 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+90 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+91 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+92 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+93 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+94 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+95 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+96 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+97 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+98 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+99 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+100 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+101 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+102 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+103 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1551)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+104 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+105 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+106 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+107 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+108 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+109 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+110 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+111 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+112 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+113 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+114 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1550)) red (np.int64(325), np.int64(1550)) whitecols (np.int64(302), np.int64(1519))
+115 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1549)) red (np.int64(325), np.int64(1548)) whitecols (np.int64(302), np.int64(1519))
+116 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1543)) red (np.int64(325), np.int64(1543)) whitecols (np.int64(302), np.int64(1519))
+117 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1534)) red (np.int64(325), np.int64(1533)) whitecols (np.int64(302), np.int64(1519))
+118 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1519)) red (np.int64(325), np.int64(1439)) whitecols (np.int64(302), np.int64(1517))
+119 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1495)) red (np.int64(325), np.int64(1439)) whitecols (np.int64(302), np.int64(1494))
+120 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1460)) red (np.int64(325), np.int64(1439)) whitecols (np.int64(302), np.int64(1459))
+121 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1407)) red (np.int64(325), np.int64(1407)) whitecols (np.int64(302), np.int64(591))
+122 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1327)) red (np.int64(325), np.int64(1327)) whitecols (np.int64(302), np.int64(557))
+123 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1198)) red (np.int64(325), np.int64(1197)) whitecols (np.int64(302), np.int64(524))
+124 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(1026)) red (np.int64(325), np.int64(1025)) whitecols (np.int64(302), np.int64(488))
+125 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(874)) red (np.int64(325), np.int64(873)) whitecols (np.int64(302), np.int64(457))
+126 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(763)) red (np.int64(325), np.int64(762)) whitecols (np.int64(302), np.int64(451))
+127 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(680)) red (np.int64(325), np.int64(679)) whitecols (np.int64(302), np.int64(419))
+128 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(616)) red (np.int64(325), np.int64(616)) whitecols (np.int64(302), np.int64(394))
+129 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(565)) red (np.int64(325), np.int64(564)) whitecols (np.int64(302), np.int64(394))
+130 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(523)) red (np.int64(325), np.int64(522)) whitecols (np.int64(302), np.int64(387))
+131 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(487)) red (np.int64(325), np.int64(487)) whitecols (np.int64(302), np.int64(355))
+132 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(457)) red (np.int64(325), np.int64(457)) whitecols (np.int64(302), np.int64(355))
+133 rows (np.int64(708), np.int64(857)) all (np.int64(302), np.int64(431)) red (np.int64(325), np.int64(431)) whitecols (np.int64(302), np.int64(354))
+134 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(409)) red (np.int64(325), np.int64(409)) whitecols (np.int64(302), np.int64(347))
+135 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(391)) red (np.int64(325), np.int64(391)) whitecols (np.int64(302), np.int64(324))
+136 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(374)) red (np.int64(325), np.int64(374)) whitecols (np.int64(302), np.int64(324))
+137 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(359)) red (np.int64(325), np.int64(359)) whitecols (np.int64(302), np.int64(324))
+138 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(348)) red (np.int64(322), np.int64(347)) whitecols (np.int64(302), np.int64(321))
+139 rows (np.int64(708), np.int64(856)) all (np.int64(302), np.int64(337)) red (np.int64(318), np.int64(337)) whitecols (np.int64(302), np.int64(317))
+140 rows (np.int64(709), np.int64(855)) all (np.int64(302), np.int64(329)) red (np.int64(314), np.int64(329)) whitecols (np.int64(302), np.int64(313))
+141 rows (np.int64(709), np.int64(855)) all (np.int64(302), np.int64(321)) red (np.int64(311), np.int64(321)) whitecols (np.int64(302), np.int64(309))
+142 -
+143 -
+144 -
+145 -
+146 -
+147 -
