@@ -23380,6 +23380,38 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Scostamento tratteggio</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Freccia all&apos;inizio</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Freccia alla fine</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nessuna</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Triangolo</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Aperta</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Punto</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Una punta su questa estremità di un tracciato aperto, come una linea disegnata con la penna</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Dimensione freccia</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Ritaglio iniziale</translation>
     </message>

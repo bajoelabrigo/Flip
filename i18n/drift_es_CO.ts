@@ -23376,6 +23376,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplazamiento del trazo discontinuo</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Recortar inicio</translation>
     </message>

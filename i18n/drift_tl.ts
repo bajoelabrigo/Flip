@@ -2440,7 +2440,7 @@
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas</translation>
     </message>
     <message>
         <source>Open a project from this device</source>
@@ -18200,7 +18200,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -23369,6 +23369,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Arrow sa simula</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Arrow sa dulo</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Tatsulok</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Bukas</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Tuldok</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Isang ulo sa dulong ito ng bukas na path, gaya ng linyang iginuhit gamit ang pen</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Laki ng arrow</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>I-trim ang simula</translation>
     </message>
@@ -24189,7 +24221,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Triangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Tatsulok</translation>
     </message>
     <message>
         <source>Right triangle</source>

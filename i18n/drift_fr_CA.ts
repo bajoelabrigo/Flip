@@ -23382,6 +23382,38 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Décalage des tirets</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Flèche au début</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Flèche à la fin</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucune</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Triangle</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Ouverte</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Point</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Une pointe à cette extrémité d&apos;un tracé ouvert, comme une ligne tracée à la plume</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Taille de la flèche</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Rogner le début</translation>
     </message>

@@ -23294,6 +23294,38 @@ If playback stutters, try another.</source>
         <translation>대시 오프셋</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>시작 화살표</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>끝 화살표</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>삼각형</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>열린 모양</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>점</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>펜으로 그린 선처럼 열린 패스의 이 끝에 붙는 화살촉</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>화살표 크기</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>시작 부분 자르기</translation>
     </message>

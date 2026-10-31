@@ -23380,6 +23380,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplazamiento del guion</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Flecha al inicio</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Flecha al final</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Triángulo</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Abierta</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Punto</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Una punta en este extremo de un trazado abierto, como una línea hecha con la pluma</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Tamaño de la flecha</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Inicio del recorte</translation>
     </message>

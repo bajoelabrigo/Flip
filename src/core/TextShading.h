@@ -151,6 +151,11 @@ struct TextShadingLayer
     int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches
     double trimOffset = 0.0;   // degrees (360 = once round), as a shape's Trim Paths offset (0.26)
     bool trimReverse = false;  // Reverse Path Direction (0.26): the trim runs the other way round
+    // Arrowheads (0.29, as Illustrator and CapCut): on the ends of an open path, following the trim. 0 none,
+    // 1 a filled triangle, 2 an open chevron, 3 a round dot; the size is the head's length in stroke widths.
+    int arrowStart = 0;
+    int arrowEnd = 0;
+    double arrowSize = 3.0;
     double sketchLength = 0.0;    // SkDiscretePathEffect segment length, px; 0 = off
     double sketchDeviation = 0.0; // px
     int sketchSeed = 0;

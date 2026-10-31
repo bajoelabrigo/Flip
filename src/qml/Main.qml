@@ -1119,8 +1119,8 @@ ApplicationWindow {
     }
 
     // Opened from the clip inspector; a window rather than a dialog so the timeline stays visible.
-    function openSegmentation(track, clip, startSeconds, durationSeconds) {
-        segmentationWindowLoader.ensure().openFor(track, clip, startSeconds, durationSeconds)
+    function openSegmentation(track, clip, startSeconds, durationSeconds, backend) {
+        segmentationWindowLoader.ensure().openFor(track, clip, startSeconds, durationSeconds, false, backend || "")
     }
 
     // Jumps the assets panel to a tab ("subtitles", "effects", ...): toolbar shortcuts into it.

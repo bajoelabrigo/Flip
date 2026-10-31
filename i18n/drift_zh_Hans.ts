@@ -23295,6 +23295,38 @@ If playback stutters, try another.</source>
         <translation>虚线偏移</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>起点箭头</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>终点箭头</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>三角形</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>开放</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>圆点</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>在开放路径（如用钢笔画的线）的这一端加上箭头</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>箭头大小</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>修剪起点</translation>
     </message>

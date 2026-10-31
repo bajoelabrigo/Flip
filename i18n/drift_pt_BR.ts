@@ -23380,6 +23380,38 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Deslocamento do tracejado</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Seta no início</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Seta no final</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nenhuma</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Triângulo</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Aberta</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Ponto</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Uma ponta nesta extremidade de um traçado aberto, como uma linha feita com a caneta</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Tamanho da seta</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Início do aparo</translation>
     </message>

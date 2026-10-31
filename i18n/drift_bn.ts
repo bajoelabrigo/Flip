@@ -23376,6 +23376,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ড্যাশ অফসেট</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>শুরুতে তীর</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>শেষে তীর</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কোনোটি নয়</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>ত্রিভুজ</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>খোলা</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>বিন্দু</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>খোলা পথের এই প্রান্তে একটি তীরের মাথা, যেমন কলম দিয়ে আঁকা রেখা</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>তীরের আকার</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>শুরুর অংশ ছাঁটুন</translation>
     </message>

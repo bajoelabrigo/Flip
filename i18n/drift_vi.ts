@@ -23295,6 +23295,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Độ lệch nét đứt</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Mũi tên ở đầu</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Mũi tên ở cuối</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Tam giác</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Hở</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Chấm</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Đầu mũi tên ở đầu này của một đường mở, như đường vẽ bằng bút</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Kích thước mũi tên</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Cắt ngắn phần đầu</translation>
     </message>

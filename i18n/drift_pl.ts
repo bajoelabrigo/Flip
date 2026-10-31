@@ -23465,6 +23465,38 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przesunięcie kreski</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Strzałka na początku</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Strzałka na końcu</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Brak</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Trójkąt</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Otwarta</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Kropka</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Grot na tym końcu otwartej ścieżki, np. linii narysowanej piórem</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Rozmiar strzałki</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Przytnij początek</translation>
     </message>

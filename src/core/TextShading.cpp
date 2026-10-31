@@ -451,7 +451,7 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
-                       l.taperEase, l.waveAmount, l.waveLength, l.wavePhase);
+                       l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
     }
     return h;
 }
@@ -619,6 +619,12 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
             o.insert(QStringLiteral("waveLength"), l.waveLength);
             o.insert(QStringLiteral("wavePhase"), l.wavePhase);
         }
+        // Arrowheads (0.29), only when set.
+        if (l.arrowStart != 0 || l.arrowEnd != 0) {
+            o.insert(QStringLiteral("arrowStart"), l.arrowStart);
+            o.insert(QStringLiteral("arrowEnd"), l.arrowEnd);
+            o.insert(QStringLiteral("arrowSize"), l.arrowSize);
+        }
     }
     if (l.sketchLength > 0.0 || l.sketchDeviation > 0.0) {
         o.insert(QStringLiteral("sketchLength"), l.sketchLength);
@@ -676,6 +682,9 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.waveAmount = qBound(0.0, o.value(QStringLiteral("waveAmount")).toDouble(0.0), 100.0);
     l.waveLength = qMax(1.0, o.value(QStringLiteral("waveLength")).toDouble(40.0));
     l.wavePhase = o.value(QStringLiteral("wavePhase")).toDouble(0.0);
+    l.arrowStart = qBound(0, o.value(QStringLiteral("arrowStart")).toInt(0), 3);
+    l.arrowEnd = qBound(0, o.value(QStringLiteral("arrowEnd")).toInt(0), 3);
+    l.arrowSize = qBound(1.0, o.value(QStringLiteral("arrowSize")).toDouble(3.0), 20.0);
     l.sketchLength = o.value(QStringLiteral("sketchLength")).toDouble(0.0);
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);

@@ -199,3 +199,18 @@ Fallos nuevos, ya corregidos en el código (para la próxima build):
   (`when: !pressed`). `restoreMode: Binding.RestoreNone` en los 38 casos (19 archivos).
   **Trampa:** todo `Binding` con `when` sobre un campo o deslizador lleva `restoreMode: Binding.RestoreNone`.
 - Menor, sin arreglar: el triple clic no selecciona el número en un campo numérico (clic + Ctrl+A sí).
+
+## Proyectos 6 y 7 en ventana (2026-10-31, grabados: `pruebas\tutorial-llt\proyectos-6-7.mp4`)
+- **6 — zoom, flecha y resaltado:** Escala 100 % → 141 % en 4 s ✓; línea con la pluma sin relleno y trazo blanco ✓;
+  capa de ajuste «Aplicar a» solo el video (queda como carril, la flecha no se oscurece) + Exposición abajo + máscara
+  círculo invertida con desvanecimiento ✓, y la máscara crece con el zoom ✓.
+  **Faltaba: puntas de flecha.** Hecho: capa Trazo › «Flecha al inicio / al final» (Ninguna, Triángulo, Abierta,
+  Punto) y «Tamaño de la flecha» (en anchos de trazo), solo en trazados abiertos y siguiendo Recortar final
+  (`TextShadingLayer::arrowStart/arrowEnd/arrowSize`, `drawArrowHeads` en `SkiaShapePainter.cpp`, margen en
+  `shapeBleedFor`, MCP, prueba `strokeArrowheadsRoundTrip`). **Probar en ventana** con la build siguiente.
+- **7 — quitar el fondo con IA:** con «Personas (automático)» tarda ~1 min (695 fotogramas) y el recorte queda limpio ✓.
+  **Fallo:** «Recortar personas…» abría la ventana en «Cualquier elemento» (SAM, ~40 min). Arreglado: cada botón abre
+  su modo (`openSegmentation(..., "rvm" | "sam2")`, `SegmentationWindow.openFor(..., backend)`). **Probar.**
+- Visto de paso: soltar un medio debajo de las pistas crea la pista **debajo** de todo (detrás del video principal);
+  arrastrar la cabecera para subirla funciona. Al borrar clips de la pista principal queda el hueco (en CapCut se
+  cierra solo): anotado, sin tocar.

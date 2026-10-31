@@ -54,6 +54,7 @@ class CoreTest : public QObject
 
 private slots:
     void gradientHandlesRoundTrip();
+    void strokeArrowheadsRoundTrip();
     void timeConversion();
     void counterTextCountsInTheTextsFormat();
     void sceneTemplateSuggestionsScoreCountAndShape();
@@ -238,6 +239,27 @@ private slots:
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
+void CoreTest::strokeArrowheadsRoundTrip()
+{
+    // 0.29: a pen line can end in an arrowhead; it is saved only when set and read back bounded.
+    drift::TextShadingLayer layer = drift::strokeLayer(8.0, Qt::white);
+    QVERIFY(!drift::textShadingLayerToJson(layer).contains(QStringLiteral("arrowEnd")));
+    layer.arrowEnd = 1;
+    layer.arrowStart = 3;
+    layer.arrowSize = 4.5;
+    const drift::TextShadingLayer back = drift::textShadingLayerFromJson(drift::textShadingLayerToJson(layer));
+    QCOMPARE(back.arrowEnd, 1);
+    QCOMPARE(back.arrowStart, 3);
+    QCOMPARE(back.arrowSize, 4.5);
+    QJsonObject wild = drift::textShadingLayerToJson(layer);
+    wild.insert(QStringLiteral("arrowEnd"), 9);
+    wild.insert(QStringLiteral("arrowSize"), 0.0);
+    const drift::TextShadingLayer bounded = drift::textShadingLayerFromJson(wild);
+    QCOMPARE(bounded.arrowEnd, 3);
+    QCOMPARE(bounded.arrowSize, 1.0);
+    QVERIFY(drift::textLayersHash({layer}) != drift::textLayersHash({drift::strokeLayer(8.0, Qt::white)}));
+}
+
 void CoreTest::gradientHandlesRoundTrip()
 {
     using namespace drift;

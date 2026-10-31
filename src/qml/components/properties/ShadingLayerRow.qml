@@ -280,6 +280,60 @@ Column {
             }
         }
 
+        // Arrowheads (0.29, as Illustrator and CapCut): on the ends of an open path (a pen line), riding the trim.
+        Row {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            spacing: 8
+            visible: row.kind === "stroke" && row.isShapeStroke
+
+            Repeater {
+                model: [{ "field": "arrowStart", "label": qsTr("Arrow at start") },
+                        { "field": "arrowEnd", "label": qsTr("Arrow at end") }]
+                delegate: Column {
+                    required property var modelData
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 4
+                    Text {
+                        text: modelData.label
+                        color: Theme.mutedForeground
+                        font.pixelSize: Theme.fontSizeXs
+                        font.family: Theme.fontFamily
+                    }
+                    ThemedComboBox {
+                        width: parent.width
+                        model: [qsTr("None"), qsTr("Triangle"), qsTr("Open"), qsTr("Dot")]
+                        tooltip: qsTr("A head on this end of an open path, such as a line drawn with the pen")
+                        currentIndex: Math.max(0, Math.min(3, Number(row.layerData[modelData.field]) || 0))
+                        onActivated: {
+                            const patch = {}
+                            patch[modelData.field] = currentIndex
+                            row.setLayer(patch)
+                        }
+                    }
+                }
+            }
+            Column {
+                width: (parent.width - 2 * parent.spacing) / 3
+                spacing: 4
+                enabled: (Number(row.layerData.arrowStart) || 0) > 0 || (Number(row.layerData.arrowEnd) || 0) > 0
+                opacity: enabled ? 1 : 0.5
+                Text {
+                    text: qsTr("Arrow size")
+                    color: Theme.mutedForeground
+                    font.pixelSize: Theme.fontSizeXs
+                    font.family: Theme.fontFamily
+                }
+                ThemedNumberField {
+                    width: parent.width
+                    from: 1
+                    to: 20
+                    decimals: 1
+                    value: row.layerData.arrowSize !== undefined ? Number(row.layerData.arrowSize) : 3
+                    onEdited: v => row.setLayer({ "arrowSize": v })
+                }
+            }
+        }
+
         Row {
             width: parent.width - parent.leftPadding - parent.rightPadding
             spacing: 8

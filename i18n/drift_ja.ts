@@ -23295,6 +23295,38 @@ If playback stutters, try another.</source>
         <translation>破線オフセット</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>始点の矢印</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>終点の矢印</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>なし</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>三角形</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>開いた形</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>点</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>開いたパスのこの端に付ける矢じり（ペンで描いた線など）</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>矢印のサイズ</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>トリム開始</translation>
     </message>

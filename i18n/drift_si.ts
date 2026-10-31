@@ -23376,6 +23376,38 @@ If playback stutters, try another.</source>
         <translation>Dash විස්ථාපනය</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>ආරම්භයේ ඊතලය</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>අවසානයේ ඊතලය</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>ත්‍රිකෝණය</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>විවෘත</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>තිත</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>පෑනෙන් ඇඳි රේඛාවක් වැනි විවෘත මාර්ගයක මෙම කෙළවරේ ඊතල හිසක්</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>ඊතලයේ ප්‍රමාණය</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>ආරම්භය කප්පාදු කරන්න</translation>
     </message>

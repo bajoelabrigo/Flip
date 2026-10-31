@@ -23465,6 +23465,38 @@ If playback stutters, try another.</source>
         <translation>Смещение штриха</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Стрелка в начале</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Стрелка в конце</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Треугольник</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Открытая</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Точка</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Наконечник на этом конце открытого контура, например линии, нарисованной пером</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Размер стрелки</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Обрезать начало</translation>
     </message>
