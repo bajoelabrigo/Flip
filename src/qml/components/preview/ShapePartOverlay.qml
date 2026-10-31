@@ -229,6 +229,9 @@ Item {
         width: span.width
         height: span.height
         enabled: parts.focusFrame !== null
+        // The layer's own drag (a DragHandler on the box) would take the gesture over once it moves and drag
+        // the whole layer: the part keeps it.
+        preventStealing: true
         cursorShape: containsPress ? Qt.SizeAllCursor : Qt.ArrowCursor
         property var start: null
         onPressed: mouse => {
@@ -314,6 +317,7 @@ Item {
                 id: gripArea
                 anchors.fill: parent
                 anchors.margins: -6
+                preventStealing: true
                 cursorShape: grip.turn ? Qt.CrossCursor : Qt.SizeFDiagCursor
                 property var start: null
                 function offset(mouse) {

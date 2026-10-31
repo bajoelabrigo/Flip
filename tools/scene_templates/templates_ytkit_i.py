@@ -83,16 +83,17 @@ def _text_width(text, size):
 def _box_line(t, text, x, y, size, colour, box_colour, at, until, cursor=CORAL, name="Línea", align="left"):
     """One line in its own box, opened left to right as the pack does; then a coral block cursor blinks just after
     the last letter (never over them). It closes the same way."""
-    box = Box(x, y, 1500, size * 1.45)
+    box = Box(x, y, 1500, size * 1.6)
     reveal = min(0.8, 0.035 * len(text) + 0.2)
-    pad_x = size * 0.22
+    # Room round the type (Jorge: «cuida los márgenes de los textos cuando van en una caja»).
+    pad_x = size * 0.34
     c = label(t, t.track("text", "Títulos"), text, at, until - at, box, FONT, size, colour, weight=800, align=align,
               anim_in=tanim("wipe", duration=reveal, angle=0, softness=0.0),
               anim_out=tanim("wipe", duration=0.35, angle=180, softness=0.0),
               box_bg=(box_colour, 1.0), box_pad=pad_x, name=name)
     c["textStyle"]["boxStyle"] = "line"
     c["textStyle"]["boxPaddingX"] = pad_x
-    c["textStyle"]["boxPaddingY"] = size * 0.06
+    c["textStyle"]["boxPaddingY"] = size * 0.16
     # The cursor: just past the box's right edge, blinking twice once the line is open.
     end_x = x + _text_width(text, size) + pad_x + size * 0.12
     dur = 1.0
@@ -110,11 +111,11 @@ def titulos_cajas():
     x = 150
     lines = [("TÍTULOS EN CAJAS", 74, "Línea 1"), ("PARA TU VIDEO", 74, "Línea 2")]
     for i, (text, size, name) in enumerate(lines):
-        _box_line(t, text, x, 640 + i * 108, size, INK, WHITE, 0.3 + i * 0.35, 3.3 - (1 - i) * 0.1, name=name)
+        _box_line(t, text, x, 620 + i * 118, size, INK, WHITE, 0.3 + i * 0.35, 3.3 - (1 - i) * 0.1, name=name)
     second = [("ESCRIBE TU TEXTO", 64, "Línea 3"), ("FUNCIONA CON CUALQUIER FUENTE", 44, "Línea 4")]
     for i, (text, size, name) in enumerate(second):
         # Up in the bright sky: black boxes need a light picture behind them, as the pack places them.
-        _box_line(t, text, x, 120 + i * 96, size, WHITE, INK, 3.6 + i * 0.35, D - 0.4 - (1 - i) * 0.1, cursor=CORAL,
+        _box_line(t, text, x, 120 + i * 104, size, WHITE, INK, 3.6 + i * 0.35, D - 0.4 - (1 - i) * 0.1, cursor=CORAL,
                   name=name)
     return t
 

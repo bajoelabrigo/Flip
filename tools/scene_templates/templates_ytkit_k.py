@@ -28,7 +28,7 @@ def _line_text(t, content, box, size, t0, dur, colour=WHITE, weight=800, align="
     if box_bg:
         c["textStyle"]["boxStyle"] = "line"
         c["textStyle"]["boxPaddingX"] = pad
-        c["textStyle"]["boxPaddingY"] = size * 0.06
+        c["textStyle"]["boxPaddingY"] = size * 0.16
     return c
 
 
@@ -52,10 +52,10 @@ def mejor_video():
             [(0, {"sx": 0.0}, "out"), (0.5, {}, "hold"), (0.9, {"sx": 0.0})])
     _line_text(t, "MEJOR VIDEO", Box(460, 430, 1000, 90), 76, 0.6, end - 0.6, align="center", anim="rise", ad=0.45,
                name="Línea 1")
-    w = _text_width("EN YOUTUBE", 76) + 40
-    t.solid(t.track("shape", "Caja"), CORAL, 1.0, end - 1.0, centered(960, 568, w, 96),
+    w = _text_width("EN YOUTUBE", 76) + 76 * 0.7
+    t.solid(t.track("shape", "Caja"), CORAL, 1.0, end - 1.0, centered(960, 572, w, 104),
             [(0, {"sx": 0.0}, "out"), (0.35, {}, "hold"), (end - 1.3, {}, "in"), (end - 1.0, {"sx": 0.0})])
-    _line_text(t, "EN YOUTUBE", centered(960, 568, 1000, 96), 76, 1.15, end - 1.2, align="center", anim="fade", ad=0.3,
+    _line_text(t, "EN YOUTUBE", centered(960, 572, 1000, 104), 76, 1.15, end - 1.2, align="center", anim="fade", ad=0.3,
                name="Línea 2", shadowed=False)
     return t
 
@@ -130,8 +130,8 @@ def promo_grande():
              ["título", "caja", "grande", "promo"], thumb_at=2.4)
     photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
     end = D - 0.3
-    w = _text_width("TU PROMO", 130) + 90
-    t.solid(t.track("shape", "Caja"), INK, 0.3, end - 0.3, centered(960, 490, w, 160),
+    w = _text_width("TU PROMO", 130) + 130 * 0.8
+    t.solid(t.track("shape", "Caja"), INK, 0.3, end - 0.3, centered(960, 490, w, 176),
             [(0, {"sx": 0.0}, "out"), (0.45, {}, "hold"), (end - 0.65, {}, "in"), (end - 0.3, {"sx": 0.0})])
     _line_text(t, "TU PROMO", centered(960, 490, 1600, 160), 130, 0.55, end - 0.6, align="center", anim="fade", ad=0.3,
                name="Título", shadowed=False)
@@ -148,7 +148,7 @@ def tres_cajas_negras():
     photo_bg(t, "h-cooking-02", s1=1.04, label="Tu video")
     lines = ["HEMOS CREADO", "UNA GRAN SOLUCIÓN PARA TI", "¿QUIERES PROBARLA?"]
     for i, text in enumerate(lines):
-        _box_line(t, text, 160, 300 + i * 80, 54, WHITE, INK, 0.3 + i * 0.4, D - 0.4 - (2 - i) * 0.1, name=f"Línea {i + 1}")
+        _box_line(t, text, 160, 290 + i * 92, 54, WHITE, INK, 0.3 + i * 0.4, D - 0.4 - (2 - i) * 0.1, name=f"Línea {i + 1}")
     return t
 
 
@@ -159,8 +159,8 @@ def etiqueta_inclinada():
              ["título", "inclinado", "etiqueta", "firma"], thumb_at=2.4)
     photo_bg(t, "h-sport-02", s1=1.04, label="Tu video")
     end = D - 0.3
-    w = _text_width("Motion design", 84) + 60
-    box = centered(960, 500, w, 116)
+    w = _text_width("Motion design", 84) + 84 * 0.8
+    box = centered(960, 500, w, 124)
     rot = keys([(0, -6.0)])
     t.solid(t.track("shape", "Etiqueta"), WHITE, 0.3, end - 0.3, box,
             [(0, {"sx": 0.0}, "back"), (0.45, {}, "hold"), (end - 0.65, {}, "in"), (end - 0.3, {"sx": 0.0})], rotation=rot,
@@ -182,7 +182,7 @@ def centrado_cajas():
     end = D - 0.3
     for i, text in enumerate(["NO OLVIDES", "SUSCRIBIRTE", "Y DAR LIKE"]):
         a = 0.3 + i * 0.3
-        _line_text(t, text, centered(960, 430 + i * 82, 1400, 80), 64, a, end - a - (2 - i) * 0.08, colour=INK,
+        _line_text(t, text, centered(960, 420 + i * 96, 1400, 90), 64, a, end - a - (2 - i) * 0.08, colour=INK,
                    align="center", anim="pop", ad=0.35, name=f"Línea {i + 1}", box_bg=(WHITE, 1.0), pad=18)
     return t
 
@@ -196,8 +196,8 @@ def contorno_doble():
     end = D - 0.3
     for i, (text, size) in enumerate([("DISFRUTA", 54), ("Y USA ESTE PACK", 54)]):
         a = 0.3 + i * 0.3
-        w = _text_width(text, size) + 40
-        box = centered(960, 470 + i * 84, w, 74)
+        w = _text_width(text, size) + size * 0.9
+        box = centered(960, 460 + i * 98, w, 88)
         outline(t, t.track("shape", "Marcos"), WHITE, 4, a, end - a, box, _life(end - a, s0=0.85))
         _line_text(t, text, box, size, a + 0.15, end - a - 0.2, align="center", anim="fade", ad=0.3, name=f"Línea {i + 1}")
     return t
@@ -222,21 +222,21 @@ def gracias_apoyo():
 def _tercio(t, style, end):
     x, y = 150, 830
     if style == "blanca":
-        w = _text_width("NOMBRE APELLIDO", 46) + 40
-        _wipe_box(t, x, y, w, 64, WHITE, 0.3, end - 0.3)
-        _line_text(t, "NOMBRE APELLIDO", Box(x, y, w, 64), 46, 0.55, end - 0.65, colour=INK, align="center", anim="fade",
+        w = _text_width("NOMBRE APELLIDO", 46) + 46 * 0.8
+        _wipe_box(t, x, y, w, 72, WHITE, 0.3, end - 0.3)
+        _line_text(t, "NOMBRE APELLIDO", Box(x, y, w, 72), 46, 0.55, end - 0.65, colour=INK, align="center", anim="fade",
                    ad=0.3, name="Nombre", shadowed=False)
     elif style == "coral":
-        w = _text_width("NOMBRE APELLIDO", 46) + 40
-        _wipe_box(t, x, y, w, 64, CORAL, 0.3, end - 0.3)
-        _line_text(t, "NOMBRE APELLIDO", Box(x, y, w, 64), 46, 0.55, end - 0.65, align="center", anim="fade", ad=0.3,
+        w = _text_width("NOMBRE APELLIDO", 46) + 46 * 0.8
+        _wipe_box(t, x, y, w, 72, CORAL, 0.3, end - 0.3)
+        _line_text(t, "NOMBRE APELLIDO", Box(x, y, w, 72), 46, 0.55, end - 0.65, align="center", anim="fade", ad=0.3,
                    name="Nombre", shadowed=False)
     else:
         t.solid(t.track("shape", "Línea"), WHITE, 0.3, end - 0.3, Box(x, y - 4, 6, 120),
                 [(0, {"sy": 0.0}, "out"), (0.35, {}, "hold"), (end - 0.6, {}, "in"), (end - 0.3, {"sy": 0.0})])
         _line_text(t, "NOMBRE APELLIDO", Box(x + 26, y, 900, 64), 46, 0.5, end - 0.6, anim="slide-right", ad=0.4,
                    name="Nombre")
-    _line_text(t, "TU PROFESIÓN", Box(x + (26 if style == "linea" else 20), y + 70, 700, 40), 26, 0.8, end - 0.9,
+    _line_text(t, "TU PROFESIÓN", Box(x + (26 if style == "linea" else 20), y + 80, 700, 40), 26, 0.8, end - 0.9,
                anim="fade", ad=0.35, name="Profesión", spacing=2)
 
 

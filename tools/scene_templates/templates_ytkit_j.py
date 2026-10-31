@@ -167,11 +167,13 @@ def _name_card(t, D, name, subs, dark_boxes=True, icon_y=420, name_y=520):
     end = D - 0.3
     yt_icon(t, 960, icon_y, 120, 0.5, end - 0.5, colour=WHITE, play=CORAL)
     if dark_boxes:
-        b = centered(960, name_y, 640, 78)
+        # Boxes sized to the type with room round it (Jorge: margins in boxes).
+        from templates_ytkit_i import _text_width
+        b = centered(960, name_y, _text_width(name, 50) + 50 * 1.2 + len(name) * 1.0, 86)
         t.solid(t.track("shape", "Cajas"), INK, 0.8, end - 0.8, b,
                 [(0, {"sx": 0.0}, "out"), (0.35, {}, "hold"), (end - 1.15, {}, "in"), (end - 0.8, {"sx": 0.0})])
         txt(t, name, b, 50, 0.95, end - 1.0, weight=900, spacing=1, name="Nombre del canal")
-        s = centered(960, name_y + 66, 380, 44)
+        s = centered(960, name_y + 76, _text_width(subs, 24) + 24 * 1.2 + len(subs) * 2.0, 48)
         t.solid(t.track("shape", "Cajas"), INK, 1.1, end - 1.1, s,
                 [(0, {"sx": 0.0}, "out"), (0.3, {}, "hold"), (end - 1.4, {}, "in"), (end - 1.1, {"sx": 0.0})])
         txt(t, subs, s, 24, 1.25, end - 1.3, weight=800, spacing=2, name="Suscriptores")
@@ -266,7 +268,7 @@ def fondo_cruces():
     end = D - 0.3
     yt_icon(t, 960, 430, 120, 0.4, end - 0.4, colour=WHITE, play=CORAL)
     txt(t, "TuCanal", Box(460, 470, 1000, 130), 104, 0.8, end - 0.8, weight=800, anim="pop", ad=0.4, name="Nombre del canal")
-    p = centered(960, 625, 300, 44)
+    p = centered(960, 630, 340, 52)
     pill(t, t.track("shape", "Píldora"), INK, 1.2, end - 1.2, p, _life(end - 1.2, fin=0.3))
     txt(t, "500 mil suscriptores", p, 22, 1.3, end - 1.3, weight=700, name="Suscriptores")
     return t
